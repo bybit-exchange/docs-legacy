@@ -22,6 +22,11 @@ under the License.
     end
   end
 %>
+<%
+  t_reg = /t\(([^\)]+)\)/
+  current_page.data.title = current_page.data.title.gsub(t_reg){|t| eval(t)}
+  page_content = page_content.gsub(t_reg){|t| eval(t)}
+%>
 
 <!doctype html>
 <html>
@@ -88,7 +93,7 @@ under the License.
       <% if current_page.data.toc_footers %>
         <ul class="toc-footer">
           <% current_page.data.toc_footers.each do |footer| %>
-            <li><%= footer %></li>
+            <li><%= footer.gsub(t_reg){|t| eval(t)} %></li>
           <% end %>
         </ul>
       <% end %>
