@@ -137,3 +137,15 @@ To filter by multiple statuses, separate with a comma like so: `Filled,New`
 * `CancelByAdmin`
 * `CancelByTpSlTsClear` - This is a cancelled TP/SL/TS order
 * `CancelByPzSideCh` - This order is cancelled after TP/SL/TS
+
+## Create type (`create_type`)
+* `CreateByUser`
+* `CreateByClosing`
+* `CreateByAdminClosing`
+* `CreateByStopOrder`
+* `CreateByTakeProfit`
+* `CreateByStopLoss`
+* `CreateByTrailingStop`
+* `CreateByLiq` - Created by partial liquidation
+* `CreateByAdl_PassThrough` - Created by ADL
+* `CreateByTakeOver_PassThrough` - Created by liquidation takeover
