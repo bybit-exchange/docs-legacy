@@ -89,6 +89,7 @@ One API key can establish 20 concurrent connections. Any additional connection a
 
 
 ## How to Subscribe to Topics
+### Understanding Websocket Filters
 > How to subscribe with a filter
 
 ```javascript
@@ -124,6 +125,9 @@ To subscribe to more than one topic, simply list multiple topics out, like so:
 It is possible to use multiple filters for the same topic by splitting them with a pipe (`|`) - of course, these filters must all be applicable to the selected `topic`.
 
 Finally, to subscribe to the topic without filters please use the `*` wildcard.
+
+### Intervals
+Some topics are pushed at intervals. If the `args` contain a millisecond param, such as `100ms`, this topic is pushed at intervals. Otherwise, it is pushed constantly.
 
 
 ## Understanding the Subscription Response
