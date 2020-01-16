@@ -1,0 +1,337 @@
+# Wallet Data Endpoints
+The following wallet data endpoints require authentication.
+
+### Wallet Fund Records
+> Response Example
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "ok",
+    "ext_code": "",
+    "result": {
+        "data": [
+            {
+                "id": 235853,
+                "user_id": 1,
+                "coin": "BTC",
+                "wallet_id": 27913,
+                "type": "Realized P&L",
+                "amount": "0.00000023",
+                "tx_id": "",
+                "address": "BTCUSD",
+                "wallet_balance": "0.03000353",
+                "exec_time": "2019-12-10T00:00:29.000Z",
+                "cross_seq": 0
+            },
+            {
+                "id": 234467,
+                "user_id": 1,
+                "coin": "BTC",
+                "wallet_id": 27913,
+                "type": "Realized P&L",
+                "amount": "-0.00000006",
+                "tx_id": "",
+                "address": "BTCUSD",
+                "wallet_balance": "0.03000330",
+                "exec_time": "2019-12-09T00:00:25.000Z",
+                "cross_seq": 0
+            }
+        ]
+    },
+    "ext_info": null,
+    "time_now": "1577481867.115552",
+    "rate_limit_status": 119,
+    "rate_limit_reset_ms": 1577481867122,
+    "rate_limit": 120
+}
+```
+
+Get wallet fund records.
+
+##### HTTP Request
+GET
+<code><span id=oawfRecords>/open-api/wallet/fund/records</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawfRecords"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
+
+##### Request Parameters
+|parameter|required|type|comments|
+|:----- |:-------|:-----|----- |
+|start_date |false |string |Start point for result  |
+|end_date |false |string |End point for result  |
+|<a href="#enums-definitions-currency-currency-coin">currency</a> |false |string |Currency type |
+|<a href="#enums-definitions-currency-currency-coin">coin</a> |false |string |`currency` alias |
+|<a href="#enums-definitions-wallet-fund-type-wallet_fund_type">wallet_fund_type</a> |false |string |Wallet fund type |
+|page |false |integer |Page. Default getting first page data |
+|limit |false |integer |Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page |
+
+
+### Withdraw Records
+> Response Example
+
+```javascript
+{
+  "ret_code": 0,
+  "ret_msg": "ok",
+  "ext_code": "",
+  "result": {
+      "data": [{
+          "id": 137,                                        //id
+          "user_id": 1,                                     //user id
+          "coin": "XRP",                                    //coin type
+          "status": "Pending",                              //status
+          "amount": "20.00000000",                          //amount
+          "fee": "0.25000000",
+          "address": "rH7H595XYEVTEHU2FySYsWnmfACBnZS9zM",
+          "tx_id": "",
+          "submited_at": "2019-06-11T02:20:24.000Z",
+          "updated_at": "2019-06-11T02:20:24.000Z"
+      }]
+      "current_page": 1,
+      "last_page": 1
+  },
+  "ext_info": null,
+  "time_now": "1577482295.125488",
+  "rate_limit_status": 119,
+  "rate_limit_reset_ms": 1577482295132,
+  "rate_limit": 120
+}
+```
+
+Get withdrawal records.
+
+##### HTTP Request
+GET
+<code><span id=oawwList>/open-api/wallet/withdraw/list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawwList"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
+
+##### Request Parameters
+|parameter|required|type|comments|
+|:----- |:-------|:-----|----- |
+|start_date |false |string |Start point for result |
+|end_date |false |string |End point for result |
+|<a href="#enums-definitions-currency-currency-coin">coin</a> |false |string |Currency |
+|<a href="#enums-definitions-withdraw-status-status">status</a> |false |string |Withdraw status |
+|page |false |integer |Page. Default getting first page data |
+|limit |false |integer |Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page |
+
+
+### User Trade Records
+> Response Example
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "ext_info": "",
+    "result": {
+        "order_id": "",
+        "trade_list": [
+            {
+                "closed_size": 0,
+                "cross_seq": 277136382,
+                "exec_fee": "0.0000001",
+                "exec_id": "256e5ef8-abfe-5772-971b-f944e15e0d68",
+                "exec_price": "8178.5",
+                "exec_qty": 1,
+                "exec_time": "1571676941.70682",
+                "exec_type": "Trade",
+                "exec_value": "0.00012227",
+                "fee_rate": "0.00075",
+                "last_liquidity_ind": "RemovedLiquidity",
+                "leaves_qty": 0,
+                "nth_fill": 2,
+                "order_id": "7ad50cb1-9ad0-4f74-804b-d82a516e1029",
+                "order_link_id": "",
+                "order_price": "8178",
+                "order_qty": 1,
+                "order_type": "Market",
+                "side": "Buy",
+                "symbol": "BTCUSD",
+                "user_id": 1
+            }
+        ]
+    },
+    "time_now": "1577483699.281488",
+    "rate_limit_status": 118,
+    "rate_limit_reset_ms": 1577483699244737,
+    "rate_limit": 120
+}
+```
+
+Get user's trading records. The last item is the oldest.
+
+<aside class="notice">
+This endpoint will provide multiple trades if <code>order_id</code> is not provided.
+</aside>
+
+##### HTTP Request
+GET
+<code><span id=vpeList>/v2/private/execution/list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpeList"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
+
+##### Request Parameters
+|parameter|required|type|comments|
+|:----- |:-------|:-----|----- |
+|order_id |false |string |OrderID. If not provided, will return user's trading records |
+|<a href="#enums-definitions-symbol-symbol">symbol</a> |false |string |Contract type. If 'order_id' not provided, 'symbol' is required |
+|start_time |false |int |Start timestamp point for result |
+|page |false |integer |Page. Default: first page |
+|limit |false |integer |Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page |
+
+
+## Get Risk Limit
+> Response Example
+
+```javascript
+{
+  "ret_code": 0,
+  "ret_msg": "ok",
+  "ext_code": "",
+  "result": [
+    {
+      "id": 1,
+      "coin": "BTC",
+      "limit": 150,
+      "maintain_margin": "0.50",
+      "starting_margin": "1.00",
+      "section": [
+        "1",
+        "2",
+        "3",
+        "5",
+        "10",
+        "25",
+        "50",
+        "100"
+      ],
+      "is_lowest_risk": 1,
+      "created_at": "2018-11-09T13:53:04.000Z",
+      "updated_at": "2018-11-09T13:53:04.000Z"
+    },
+    {
+      "id": 11,
+      "coin": "ETH",
+      "limit": 3000,
+      "maintain_margin": "1.00",
+      "starting_margin": "2.00",
+      "section": [
+        "1",
+        "2",
+        "3",
+        "5",
+        "15",
+        "30",
+        "40",
+        "50"
+      ],
+      "is_lowest_risk": 1,
+      "created_at": "2019-01-25T08:31:54.000Z",
+      "updated_at": "2019-01-25T08:31:54.000Z"
+    }
+  ],
+  "ext_info": null,
+  "time_now": "1577587907.157396",
+  "rate_limit_status": 599,
+  "rate_limit_reset_ms": 1577587907162,
+  "rate_limit": 600
+}
+```
+
+Get risk limit.
+
+<aside class="notice">
+Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles/360007107454-Risk-Limit-Overview">here</a>.
+</aside>
+
+##### HTTP Request
+GET
+<code><span id=oawrlList>/open-api/wallet/risk-limit/list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawrlList"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
+
+##### Request Parameters
+|parameter|required|type|comments|
+|:----- |:-------|:-----|----- |
+
+
+## Set Risk Limit
+> Response Example
+
+```javascript
+{
+  "ret_code": 0,
+  "ret_msg": "ok",
+  "ext_code": "",
+  "result": {
+    "position": {
+      "id": 1,
+      "user_id": 1,
+      "symbol": "BTCUSD",
+      "side": "None",
+      "size": 0,
+      "position_value": 0,
+      "entry_price": 0,
+      "risk_id": 2,
+      "auto_add_margin": 0,
+      "leverage": 1,
+      "position_margin": 0,
+      "liq_price": 0,
+      "bust_price": 0,
+      "occ_closing_fee": 0,
+      "occ_funding_fee": 0,
+      "take_profit": 0,
+      "stop_loss": 0,
+      "trailing_stop": 0,
+      "position_status": "Normal",
+      "deleverage_indicator": 0,
+      "oc_calc_data": "{\"blq\":1,\"blv\":\"0.000125\",\"slq\":0,\"bmp\":8000,\"smp\":0,\"fc\":-0.00012529,\"bv2c\":1.00225,\"sv2c\":1.0007575}",
+      "order_margin": 0.00012529,
+      "wallet_balance": 1000,
+      "realised_pnl": 0,
+      "cum_realised_pnl": 0,
+      "cum_commission": 0,
+      "cross_seq": 4376,
+      "position_seq": 13689,
+      "created_at": "2019-08-13T06:51:29.000Z",
+      "updated_at": "2019-12-29T03:11:08.000Z",
+      "ext_fields": {
+        "v": 4
+      }
+    },
+    "risk": {
+      "id": 2,
+      "coin": "BTC",
+      "limit": 300,
+      "maintain_margin": "1.00",
+      "starting_margin": "1.50",
+      "section": "[\"1\",\"2\",\"3\",\"5\",\"10\",\"25\",\"50\",\"66\"]",
+      "is_lowest_risk": 0,
+      "created_at": "2019-06-26T05:46:45.000Z",
+      "updated_at": "2019-06-26T05:46:55.000Z"
+    }
+  },
+  "ext_info": null,
+  "time_now": "1577589068.435439",
+  "rate_limit_status": 71,
+  "rate_limit_reset_ms": 1577589068546,
+  "rate_limit": "75"
+}
+```
+
+Set risk limit.
+
+<aside class="notice">
+Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles/360007107454-Risk-Limit-Overview">here</a>.
+</aside>
+
+##### HTTP Request
+GET
+<code><span id=oawRiskLimit>/open-api/wallet/risk-limit</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawRiskLimit"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
+
+##### Request Parameters
+|parameter|required|type|comments|
+|:----- |:-------|:-----|----- |
+|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |Symbol |
+|risk_id |true |integer |risk ID. Can be found with the <a href="#get-risk-limit">Get Risk Limit</a> endpoint  |

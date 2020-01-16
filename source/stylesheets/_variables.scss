@@ -23,16 +23,16 @@ under the License.
 
 // BACKGROUND COLORS
 ////////////////////
-$nav-bg: #2E3336 !default;
-$examples-bg: #2E3336 !default;
-$code-bg: #1E2224 !default;
+$nav-bg: #04061b !default;  // left panel: contents
+$examples-bg: #04061b !default;  // right panel: code
+$code-bg: #131617 !default;  // individual code box backgrounds, exc. annotation
 $code-annotation-bg: #191D1F !default;
-$nav-subitem-bg: #1E2224 !default;
-$nav-active-bg: #0F75D4 !default;
-$nav-active-parent-bg: #1E2224 !default; // parent links of the current section
+$nav-subitem-bg: #1d1e31 !default;  // subitems
+$nav-active-bg: #ffb11a !default;
+$nav-active-parent-bg: #1d1e31 !default; // parent links of the current section
 $lang-select-border: #000 !default;
 $lang-select-bg: #1E2224 !default;
-$lang-select-active-bg: $examples-bg !default; // feel free to change this to blue or something
+$lang-select-active-bg: #ffb11a !default; // feel free to change this to blue or something
 $lang-select-pressed-bg: #111 !default; // color of language tab bg when mouse is pressed
 $main-bg: #F3F7F9 !default;
 $aside-notice-bg: #8fbcd4 !default;
@@ -43,26 +43,30 @@ $search-notice-bg: #c97a7e !default;
 
 // TEXT COLORS
 ////////////////////
-$main-text: #333 !default; // main content text color
+$main-text: #222 !default; // main content text color
 $nav-text: #fff !default;
-$nav-active-text: #fff !default;
+$nav-active-text: #000 !default;
 $nav-active-parent-text: #fff !default; // parent links of the current section
 $lang-select-text: #fff !default; // color of unselected language tab text
-$lang-select-active-text: #fff !default; // color of selected language tab text
+$lang-select-active-text: #000 !default; // color of selected language tab text
 $lang-select-pressed-text: #fff !default; // color of language tab text when mouse is pressed
 
 
 // SIZES
 ////////////////////
-$nav-width: 230px !default; // width of the navbar
+$nav-width: 280px !default; // width of the navbar
 $examples-width: 50% !default; // portion of the screen taken up by code examples
 $logo-margin: 0px !default; // margin below logo
-$main-padding: 28px !default; // padding to left and right of content & examples
+$main-padding: 24px !default; // padding to left and right of content & examples
 $nav-padding: 15px !default; // padding to left and right of navbar
 $nav-v-padding: 10px !default; // padding used vertically around search boxes and results
-$nav-indent: 10px !default; // extra padding for ToC subitems
-$code-annotation-padding: 13px !default; // padding inside code annotations
+$nav-indent: 18px !default; // extra padding for ToC subitems
+$nav-h2-line-height: 30px !default;
+$nav-h3-line-height: 24px !default;
+$nav-h4-line-height: 22px !default;
+$code-annotation-padding: 8px !default; // padding inside code annotations
 $h1-margin-bottom: 21px !default; // padding under the largest header tags
+$h2-margin-bottom: 0.1em !default; // padding under the second largest header tags
 $tablet-width: 930px !default; // min width before reverting to tablet size
 $phone-width: $tablet-width - $nav-width !default; // min width before reverting to mobile size
 
@@ -81,8 +85,8 @@ $phone-width: $tablet-width - $nav-width !default; // min width before reverting
 
 %code-font {
   font-family: Consolas, Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace, serif;
-  font-size: 12px;
-  line-height: 1.5;
+  font-size: 91.5%;
+  line-height: 1.4;
 }
 
 
