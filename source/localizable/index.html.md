@@ -49,6 +49,8 @@ clipboard.on('error', function(e) {
 
 # Introduction
 
+t(:paragraph)
+
 Welcome to the official documentation for the [Bybit](https://www.bybit.com/) APIs and Websocket! Here you can find details on how to access all of our endpoints, their respective expected outputs, and possible errors you may encounter.
 
 If you encounter an issue you need help with, have a suggestions for us, or just want to have a chat with fellow developers then please head on over to our [API Telegram chat](https://t.me/Bybitapi)!
