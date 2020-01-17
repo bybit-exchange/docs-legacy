@@ -1,39 +1,20 @@
-# Authentication
+# t(:auth_heading)
 <aside class="notice">
-To generate an API key please go <a href="https://testnet.bybit.com/app/user/api-management">here for the <b>testnet</b></a> or <a href="https://www.bybit.com/app/user/api-management">here for the <b>mainnet</b></a>.
+t(:auth_aside_key)
 </aside>
 
-Domains:
-<ul>
-  <li>
-    <span id=testnet><a href="https://api-testnet.bybit.com">https://api-testnet.bybit.com</a></span>
-    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
-  </li>
-  <li>
-    <span id=mainnet><a href="https://api.bybit.com">https://api.bybit.com</a></span>
-    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
-  </li>
-</ul>
+t(:auth_para_privatepublic)
 
-
-All requests made to **private** endpoints must be authenticated. Requests made to **public** endpoints do not require the additional parameters needed for authentication.
-
-## Parameters for Authenticated Endpoints
-The following parameters must be used for authentication:
-<ul>
-  <li>`api_key`</li>
-  <li>`timestamp` - UTC timestamp in **milliseconds**</li>
-  <li>`sign` - a signature derived from the request's parameters</li>
-</ul>
+## t(:auth_heading_params)
 
 <aside class="warning">
-Make sure to conform to the timestamp rule of verification or your request will be rejected! Timestamp rule of verification: timestamp < server_time + 1000
+t(:auth_aside_timestamp)
 </aside>
 
-Additionally, we offer the `recv_window`, which indicates for how long an HTTP request is valid. This should be sent in milliseconds. Default value: 5000. This is used to prevent replay attacks.
+t(:auth_para_recv)
 
-## Constructing the Request
-> An example for adjusting leverage
+## t(:auth_heading_construct)
+> t(:auth_codequote_construct1a)
 
 ```python
 param_str = "api_key=B2Rou0PLPpGqcU0Vu2&leverage=100&symbol=BTCUSD&timestamp=1542434791747"
@@ -44,14 +25,13 @@ param_str = "api_key=B2Rou0PLPpGqcU0Vu2&leverage=100&symbol=BTCUSD&timestamp=154
 # timestamp=1542434791747
 ```
 
-> Note how the parameters are ordered in <b>ascending</b> order, with api_key first followed by leverage, then symbol, then timestamp.
+> t(:auth_codequote_construct1b)
 
-<p>1. Concatenate all the public parameters in the <a href="https://en.wikipedia.org/wiki/Query_string">query string</a> format. The parameters must be ordered in <b>ascending</b> order. This will be used to generate the <code>sign</code>.</p>
+t(:auth_para_construct1)
 <div></div>
 
-<p>2. Sign the parameters string.</p>
-> Different requests need different message formats.
-> Possible message formats for **GET** requests:
+t(:auth_para_construct2)
+> t(:auth_codequote_construct2)
 
 ```http
 GET /user/leverage?api_key=B2Rou0PLPpGqcU0Vu2&timestamp=1542434791000&sign=670e3e4aa32b243f2dedf1dafcec2fd17a440e71b05681550416507de591d908 HTTP/1.1
@@ -70,7 +50,7 @@ Content-Type: application/json
 }
 ```
 
-> Message format for **POST** requests:
+> t(:auth_codequote_construct3)
 
 ```http
 POST /user/leverage/save HTTP/1.1
@@ -86,10 +66,10 @@ Content-Type: application/json
 }
 ```
 
-<p>3. Append the signature at the end of the parameters string, and send the HTTP request. Please note that the format for messages is different depending on whether you are sending a GET or POST request.</p>
+t(:auth_para_construct3)
 
 <aside class="notice">
-Example signature algorithms can be found <a href="https://github.com/bybit-exchange/bybit-official-api-docs/tree/master/en/example">here</a>.
+t(:auth_aside_signature)
 </aside>
 
 <!--

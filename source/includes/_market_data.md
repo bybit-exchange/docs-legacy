@@ -1,8 +1,8 @@
-# Market Data Endpoints
-The following market data endpoints do not require authentication.
+# t(:market_heading)
+t(:market_para_auth)
 
-### Server Time
-> Response Example
+### t(:market_heading_time)
+> t(:codequote_responseExample)
 
 ```javascript
 {
@@ -17,18 +17,18 @@ The following market data endpoints do not require authentication.
 
 Get Bybit server time.
 
-##### HTTP Request
+##### t(:heading_http_request)
 GET
 <code><span id=vpTime>/v2/public/time</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpTime"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
 
-##### Request Parameters
-|parameter|required|type|comments|
+##### t(:heading_request_parameters)
+|parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 
 
-### Orderbook
-> Response Example
+### t(:market_heading_orderbook)
+> t(:codequote_responseExample)
 
 ```javascript
 {
@@ -54,25 +54,25 @@ GET
 }
 ```
 
-Get the orderbook.
+t(:market_para_orderbook)
 
 <aside class="notice">
-The response is in the snapshot format.
+t(:market_aside_orderbook)
 </aside>
 
-##### HTTP Request
+##### t(:heading_http_request)
 GET
 <code><span id=vpoL2>/v2/public/orderBook/L2</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoL2"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
 
-##### Request Parameters
-|parameters|required|type|comments|
+##### t(:heading_request_parameters)
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |Contract type |
+|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 
 
 ### Latest Information for Symbol
-> Response Example
+> t(:codequote_responseExample)
 
 ```javascript
 {
@@ -113,19 +113,19 @@ GET
 
 Get the latest information for symbol.
 
-##### HTTP Request
+##### t(:heading_http_request)
 GET
 <code><span id=vpTickers>/v2/public/tickers</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpTickers"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
 
-##### Request Parameters
-|parameters|required|type|comments|
+##### t(:heading_request_parameters)
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |false |string |Contract type |
+|<a href="#enums-definitions-symbol-symbol">symbol</a> |false |string |t(:row_comment_symbol) |
 
 
-### Public Trading Records
-> Response Example
+### t(:market_heading_records)
+> t(:codequote_responseExample)
 
 ```javascript
 {
@@ -147,23 +147,23 @@ GET
 }
 ```
 
-Get recent trades.
+t(:market_para_records)
 
-##### HTTP Request
+##### t(:heading_http_request)
 GET
 <code><span id=vpTradingRecords>/v2/public/trading-records</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpTradingRecords"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
 
-##### Request Parameters
-|parameters|required|type|comments|
+##### t(:heading_request_parameters)
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |Contract type |
-|from |false |int |From ID. Default: return latest data|
+|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|from |false |int |t(:row_comment_from)|
 |limit |false |int |Number of results. Default 500; max 1000|
 
 
-### Get the Last Funding Rate
-> Response Example
+### t(:market_heading_fundingRate)
+> t(:codequote_responseExample)
 
 ```javascript
 {
@@ -183,21 +183,21 @@ GET
 }
 ```
 
-The funding rate is generated every 8 hours at 00:00 UTC, 08:00 UTC and 16:00 UTC. For example, if a request is sent at 12:00 UTC, the funding rate generated earlier that day at 08:00 UTC will be sent.
+t(:market_para_fundingRate)
 
-##### HTTP Request
+##### t(:heading_http_request)
 GET
 <code><span id=oafPrevFundingRate>/open-api/funding/prev-funding-rate</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oafPrevFundingRate"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
 
-##### Request Parameters
-|parameter|required|type|comments|
+##### t(:heading_request_parameters)
+|parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |Contract type    |
+|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
 
 
-### Query Symbol
-> Response Example
+### t(:market_heading_querySymbol)
+> t(:codequote_responseExample)
 
 ```javascript
 {
@@ -210,13 +210,13 @@ GET
 }
 ```
 
-Get symbol info.
+t(:market_para_querySymbol)
 
-##### HTTP Request
+##### t(:heading_http_request)
 GET
 <code><span id=vpSymbols>/v2/public/symbols</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpSymbols"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
 
-##### Request Parameters
-|parameter|required|type|comments|
+##### t(:heading_request_parameters)
+|parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |

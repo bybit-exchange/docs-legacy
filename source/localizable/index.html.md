@@ -47,19 +47,9 @@ clipboard.on('error', function(e) {
 
 
 
-# Introduction
-
-t(:paragraph)
-
-Welcome to the official documentation for the [Bybit](https://www.bybit.com/) APIs and Websocket! Here you can find details on how to access all of our endpoints, their respective expected outputs, and possible errors you may encounter.
-
-If you encounter an issue you need help with, have a suggestions for us, or just want to have a chat with fellow developers then please head on over to our [API Telegram chat](https://t.me/Bybitapi)!
+# t(:intro_heading)
+t(:intro_para)
 
 
-### Bybit API Resources
-<ul>
-  <li><a href="https://github.com/bybit-exchange/bybit-official-api-docs">bybit-official-api-docs <img src="images/github_logo_icon.png" height="14", width="14"></a> - report issues here!
-  <li><a href="https://github.com/bybit-exchange/api-connectors/">Bybit's api-connectors <img src="images/github_logo_icon.png" height="14", width="14"></a> - find a repo of prebuilt libraries here!
-  <li><a href="https://t.me/Bybitapi">API Discussion Group <img src="images/telegram_logo_icon.png" height="14", width="14"></a> - get help here!
-  <li><a href="https://t.me/Bybit_API_Announcements">API Announcements Channel <img src="images/telegram_logo_icon.png" height="14", width="14"></a> - subscribe for changes to the API!
-</ul>
+### t(:intro_heading_resources)
+t(:intro_para_resources)

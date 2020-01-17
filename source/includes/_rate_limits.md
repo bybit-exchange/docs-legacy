@@ -1,6 +1,6 @@
-# API Rate Limits
-### Understanding Your Request Rate Limit
-Every request to the API returns the fields shown in the code panel:
+# t(:rate_heading)
+### t(:rate_heading_understandin)
+t(:rate_para_understanding)
 
 ```
 "rate_limit_status": 119,
@@ -8,12 +8,12 @@ Every request to the API returns the fields shown in the code panel:
 "rate_limit": 120
 ```
 
-* `rate_limit_status` - your remaining requests
-* `rate_limit` - your current limit
-* `rate_limit_reset_ms` - the timestamp indicating when your request limit resets if you have exceeded your rate_limit. Otherwise, this is just the current timestamp.
+* `rate_limit_status` - t(:rate_text_limitStatus_understanding)
+* `rate_limit` - t(:rate_text_limit_understanding)
+* `rate_limit_reset_ms` - t(:rate_text_limitReset)
 
 
-### Rate Limits For All Endpoints
+### t(:rate_heading_allEndpoints)
 <table class="custom_table">
   <tr>
     <th>limit</th>
@@ -70,122 +70,84 @@ Every request to the API returns the fields shown in the code panel:
   </tr>
 </table>
 
-### Order Limits
-The number of orders per instrument that can be held entirely simultaneously:
+### t(:rate_heading_limits)
+t(:rate_para_limits)
 
-* Active orders: 500
-* Conditional orders: 10
+### t(:rate_heading_raise)
+t(:rate_para_raise)
 
-### How to Raise Your API Limit
-* Please read <a href="#understanding-bybit-39-s-liquidity-system">Understanding Bybit's Liquidity System</a> to understand how our system automatically allocates rate limits for users placing over 2000 orders per day.
-* Please send your application email to <a href="mailto:api@bybit.com">api@bybit.com</a>. We will reply in 1-4 working days.
+### t(:rate_heading_liquidity)
+t(:rate_para_liquidity)
 
+#### t(:rate_heading_threshold)
+t(:rate_para_threshold)
 
-### Understanding Bybit's Liquidity System
-Bybit uses an `Order Fill Ratio (OFR)` and `Liquidity Contribution Points (LCP)` to measure customers' contribution to our executable liquidity.
+##### t(:rate_heading_ratio)
+t(:rate_para_ratio)
 
-The `LCP` and `OFR` of different symbols are calculated separately.
+##### t(:rate_heading_ratioExample)
 
-#### Order Fill Ratio (OFR) Threshold
-If you place more than `2000` orders per day on Bybit, please maintain your 7-day OFR above a `Minimum OFR threshold`, or Bybit may reduce your API request frequency limit.
-
-##### Order Fill Ratio (OFR)
-* `Order Fill Ratio (OFR)`: `Orders Filled` to `Orders Submitted to Bybit` to Bybit.
-* `Orders Submitted to Bybit`: any order sent to Bybit.
-* `Orders Filled`: any order that has been filled for any amount.
-* `OFR = (number of orders filled / number of orders submitted to Bybit)`
-
-##### Order Fill Ratio Example
-User A submitted a limit order request which contains 4 bids and 4 asks, and these orders are placed in the orderbook at different price levels. Then, User A cancelled 2 bids and submits a new limit order request which contains 2 new bids.
-
-At this time, User B submits a market order request, and matches with 2 of A's bids.
-
-The OFR of this period is calculated as follows:
 
 <pre class="center-column-nonindent">
-User A:
-Orders Filled = 2
-Orders Submitted to Bybit = 8
-QFR = 2/8 = 25%
+t(:rate_pre_ratioExampleA)
 </pre>
 
 <pre class="center-column-nonindent">
-User B:
-Orders Filled = 1
-Orders Submitted to Bybit = 1
-QFR = 1/1 = 100%
+t(:rate_pre_ratioExampleB)
 </pre>
 
 
-##### Minimum OFR Threshold
-7-day OFR must be kept above 0.1%.
+##### t(:rate_heading_minimum)
+t(:rate_para_minimum)
 
 
-#### API Request Frequency Limits
-
-Your API request frequency limit is based on your min `Liquidity Contribution Points (LCP)` of `7` days.
-
+#### t(:rate_heading_frequency)
+t(:rate_para_frequency)
 
 `LCP` and API request frequency threshold:
 
-|  LCP     | Frequency Limit |
+| t(:column_LCP) | t(:column_frequencyLimit) |
 |  ----    | ----  |
-| 20-100  | 800 times per minute |
-| 10-20   | 600 times per minute |
-| 5-10    | 400 times per minute |
-| 2-5     | 200 times per minute |
-| <2      | 100 times per minute |
+| 20-100  | t(:row_frequencyLimit_800) |
+| 10-20   | t(:row_frequencyLimit_600) |
+| 5-10    | t(:row_frequencyLimit_400) |
+| 2-5     | t(:row_frequencyLimit_200) |
+| <2      | t(:row_frequencyLimit_100) |
 
-##### Liquidity Contribution Points (LCP)
+##### t(:rate_heading_liquidityPoints)
+t(:rate_para_liquidityPoints)
 
-* `Liquidity Contribution Points (LCP) = POU * POA * 100`
+##### t(:rate_heading_explanation)
+###### t(:rate_heading_priceRange)
+t(:rate_para_priceRange)
 
-##### Explanation
-###### Effective Price Range
-
-* `effective price range`: 6 tick sizes range around middle of best bid price and best ask price.
-
-* Min `effective price`:  (best bid price + best ask price) / 2 - (3 * tick_size)
-
-* Max `effective price`:  (best bid price + best ask price) / 2 + (3 * tick_size)
-
-###### Effective Price Range example
+###### t(:rate_heading_priceRangeExample)
 <pre class="center-column-nonindent">
-BTC best bid = 10000
-BTC best ask = 10001
-Effective Price Range: [(10000 + 10001) / 2 - 3* 0.5, (10000 + 10001) / 2 + 3* 0.5] = [9999,10002]
+t(:rate_pre_priceRangeExample)
 </pre>
 
 
-###### POU
-* `POU`: the proportion of your orders within `effective price range` to all your orders in orderbook
+###### t(:rate_heading_POUExample)
+t(:rate_para_POUExample)
 
-Bybit calculates your amount of orders within `effective price range` / amount of all your orders in orderbook, and then performs a 1-Day Time-Weighted-Average over the series of seconds rates.
-
-###### POU example
-User C bids 2000 contracts for $9995 and bids 8000 contracts for $9999, while effective price range is [9999,10002]
+###### t(:rate_heading_POUExample)
+t(:rate_para_POUExample)
 
 <pre class="center-column-nonindent">
-amount of User C's orders within effective price range = 8000
-amount of all User C's orders = 2000 + 8000 = 10000
-POU = 8000 / 10000 = 0.8
+t(:rate_pre_POUExample)
 </pre>
 
 
-###### POA
-* `POA`: the proportion of your orders within `effective price range` to all orders within `effective price range` in orderbook.
+###### t(:rate_heading_POA)
+t(:rate_para_POA)
 
-Bybit calculates your amount of orders within `effective price range` / amount of all orders within `effective price range` in orderbook, and then performs a 1-Day Time-Weighted-Average over the series of seconds rates.
-
-###### POA example
-User C only has 8000 contracts within effective price range, while Bybit have 200000 contracts within effective price range in orderbook.
+###### t(:rate_heading_POAExample)
+t(:rate_para_POAExample)
 
 <pre class="center-column-nonindent">
-amount of User C's orders within effective price range = 8000
-amount of all orders within effective price range = 200000
-POA = 8000 / 200000 = 0.04
+t(:rate_pre_POAExample)
 </pre>
 
 <aside class="notice">
-Prior notice will be given via the website if we update this mechanism.
+t(:rate_aside_POAExample)
 </aside>

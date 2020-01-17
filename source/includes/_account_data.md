@@ -1,9 +1,9 @@
-# Account Data Endpoints
+# t(:account_heading)
 The following account data endpoints require authentication.
 
 ## Active Orders
-### Place Active Order V2
-> Response Example
+### t(:account_heading_placeActive)
+> t(:codequote_responseExample)
 
 ```javascript
 {
@@ -39,40 +39,32 @@ The following account data endpoints require authentication.
 }
 ```
 
-Market price active order: A traditional market price order, will be filled at the best available price. `price` is not required for this type of order.
+t(:account_para_placeActive)
 
-Limit price active order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.
-
-Take profit/Stop loss: You may only set a take-profit/stop-loss conditional order upon opening the position. Once you hold a position, any new active order requests which contain TP/SL/TS data will be accepted but TP/SL/TS data will be ignored.
-
-Custom order ID: You may customise order IDs for active orders. We will link it to the system order ID, and return the unique system order ID to you after the active order is created successfully. You may use this order ID or your custom order ID to cancel your active order. The customised order ID should be unique, with a maximum length of 36 characters.
-
-Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSD instrument and 280 active orders on the ETHBTC instrument.
-
-##### HTTP Request
+##### t(:heading_http_request)
 POST
 <code><span id=vpoCreate>/v2/private/order/create</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
 
-##### Request Parameters
-|parameter|required|type|comments|
+##### t(:heading_request_parameters)
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#enums-definitions-side-side">side</a> |true |string |Side    |
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |Contract type.    |
+|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol).    |
 |<a href="#enums-definitions-order-type-order_type">order_type</a> |true |string |Active order type   |
-|<a href="#enums-definitions-quantity-qty">qty</a> |true |integer |Order quantity in USD |
-|<a href="#enums-definitions-price-price">price</a> |false |number |Order price. **Required** if you make limit order. Must be an increment of 0.5 |
-|<a href="#enums-definitions-time-in-force-time_in_force">time_in_force</a> |true |string |Time in force |
-|take_profit |false |number |take profit price|
-|stop_loss |false |number |stop loss price|
-|trailing_stop|false |number |trailing stop |
-|reduce_only |false |bool |reduce only
-|close_on_trigger |false |bool |close on trigger. When creating a closing order, we highly recommend `close_on_trigger` is set as `True` to avoid failing by insufficient available margin
-|order_link_id |false |string |Customized order ID, maximum length at 36 characters, and order ID under the same agency has to be unique.|
+|<a href="#enums-definitions-quantity-qty">qty</a> |true |integer |t(:row_comment_qty) |
+|<a href="#enums-definitions-price-price">price</a> |false |number |t(:row_comment_price) |
+|<a href="#enums-definitions-time-in-force-time_in_force">time_in_force</a> |true |string |t(:row_comment_timeInForce) |
+|take_profit |false |number |t(:row_comment_takeProfit) |
+|stop_loss |false |number |t(:row_comment_stopLoss) |
+|trailing_stop|false |number |t(:row_comment_trailingStop) |
+|reduce_only |false |bool |t(:row_comment_reduceOnly) |
+|close_on_trigger |false |bool |t(:row_comment_closeOnTrigger)
+|order_link_id |false |string |t(:row_comment_orderLinkId) |
 
 
-### Get Active Order
-> Response Example
+### t(:account_heading_getActive)
+> t(:codequote_responseExample)
 
 ```javascript
 {
@@ -151,30 +143,27 @@ POST
 }
 ```
 
-Get my active order list.
+t(:account_para_getActive)
 
-Order creation/cancellation is asynchronous. If you want real-time information about an order, you can call the <a href="#query-active-order-real-time">Query Active Order (real-time)</a>.
-
-
-##### HTTP Request
+##### t(:heading_http_request)
 GET
 <code><span id=oaoList>/open-api/order/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oaoList"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
 
-##### Request Parameters
-|parameters|required|type|comments|
+##### t(:heading_request_parameters)
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|order_id |false |string |Order ID |
-|order_link_id |false |string |Customized order ID |
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |false |string |Contract type. Default `BTCUSD`    |
-|order |false |string |Sort orders by creation date   |
-|page |false |integer |Page. Default getting first page data |
-|limit |false |integer |Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page |
-|<a href="#enums-definitions-order-status-order_status-creation>order_status</a> |false |string | Query your orders for all statuses if 'order_status' is empty. If you want to query orders with specific statuses, you can pass the order_status split by ','.  
+|order_id |false |string |t(:account_row_comment_orderId) |
+|order_link_id |false |string |t(:row_comment_orderLinkId) |
+|<a href="#enums-definitions-symbol-symbol">symbol</a> |false |string |t(:row_comment_symbol). t(:default) `BTCUSD` |
+|t(:row_comment_order) |false |string |Sort orders by creation date   |
+|page |false |integer |t(:row_comment_page) |
+|limit |false |integer |t(:row_comment_limit) |
+|<a href="#enums-definitions-order-status-order_status-creation">order_status</a> |false |string |t(:account_row_comment_orderStatus) |
 
 
-### Cancel Active Order V2
-> Response Example
+### t(:account_heading_cancelActive)
+> t(:codequote_responseExample)
 
 ```javascript
 {
@@ -210,26 +199,24 @@ GET
 }
 ```
 
-Either `order_id` or `order_link_id` are required for cancelling active orders. `order_id` - this unique 36 characters order ID was returned to you when the active order was created successfully.
+t(:account_para_cancelActive)
 
-You may cancel active orders that are unfilled or partially filled. Fully filled orders cannot be cancelled.
-
-##### HTTP Request
+##### t(:heading_http_request)
 POST
 <code><span id=vpoCancel>/v2/private/order/cancel</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancel"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
 
-##### Request Parameters
+##### t(:heading_request_parameters)
 
-|parameters|required|type|comments|
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string | Contract type |
-|order_id |false |string |Order ID. **Required** if not passing order_link_id|
-|order_link_id |false |string |Order link ID. **Required** if not passing order_id|
+|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|order_id |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
+|order_link_id |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
 
 
-### Cancel All Active Orders
-> Response Example
+### t(:account_heading_cancelAllActive)
+> t(:codequote_responseExample)
 
 ```javascript
 {
@@ -265,21 +252,21 @@ POST
 }
 ```
 
-Cancel all active orders that are unfilled or partially filled. Fully filled orders cannot be cancelled.
+t(:account_para_cancelAllActive)
 
-##### HTTP Request
+##### t(:heading_http_request)
 POST
 <code><span id=vpoCancelAll>/v2/private/order/cancelAll</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancelAll"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
 
-##### Request Parameters
-|parameter|required|type|comments|
+##### t(:heading_request_parameters)
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string | Contract type |
+|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string | t(:row_comment_symbol) |
 
 
-### Replace Active Order
-> Response Example
+### t(:account_heading_replaceActive)
+> t(:codequote_responseExample)
 
 ```javascript
 {
@@ -292,32 +279,28 @@ POST
 }
 ```
 
-Replace order can modify/amend your active orders.
-
-`order_id` and `symbol` are required for identifying an active order. `p_r_qty` and `p_r_price` are the modified price and quantity. If these two fields are not provided, nothing will be modified.
-
-It is possible to modify only the qty or price of an order.
+t(:account_para_replaceActive)
 
 <aside class="notice">
-Please note that only orders that are unfilled or partially filled can be modified by the replace-order API.
+t(:account_aside_replaceActive)
 </aside>
 
-##### HTTP Request
+##### t(:heading_http_request)
 POST
 <code><span id=oaoReplace>/open-api/order/replace</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oaoReplace"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
 
-##### Request Parameters
-|parameters|required|type|comments|
+##### t(:heading_request_parameters)
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|order_id |true |string |Your active order ID. The unique order ID returned to you when the corresponding active order was created |
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |Contract type. |
-|p_r_qty |false |int |New order quantity. Do not pass this field if you don't want modify it. |
-|p_r_price |false |number |New order price. Do not pass this field if you don't want modify it. |
+|order_id |true |string |t(:row_comment_orderId) |
+|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol). |
+|p_r_qty |false |int |t(:row_comment_pRQty) |
+|p_r_price |false |number |t(:row_comment_pRPrice) |
 
 
-### Query Active Order (real-time)
-> Response Example
+### t(:account_heading_queryActive)
+> t(:codequote_responseExample)
 
 ```javascript
 {
@@ -352,24 +335,24 @@ POST
 }
 ```
 
-Query real-time active order information.
+t(:account_para_queryActive)
 
-##### HTTP Request
+##### t(:heading_http_request)
 GET
 <code><span id=vpOrder>/v2/private/order</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
 
-##### Request Parameters
-|parameter|required|type|comments|
+##### t(:heading_request_parameters)
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|order_id |false |string | Your active order ID. The unique order ID returned to you when the corresponding active order was created. **Required** if not pass order_link_id. |
-|order_link_id |false |string | Agency customized order ID. **Required** if not pass order_id.|
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |Contract type |
+|order_id |false |string | t(:row_comment_orderId). **Required** if not pass order_link_id. |
+|order_link_id |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
+|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 
 
 ## Conditional Orders
 ### Place Conditional Order
-> Response Example
+> t(:codequote_responseExample)
 
 ```javascript
 {
@@ -428,29 +411,29 @@ Note: Take profit/Stop loss is not supported when placing conditional orders. On
 Each account can hold up to 10 conditional orders yet to be filled entirely simultaneously.
 
 
-##### HTTP Request
+##### t(:heading_http_request)
 POST
 <code><span id=oasoCreate>/open-api/stop-order/create</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oasoCreate"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
 
-##### Request Parameters
-|parameter|required|type|comments|
+##### t(:heading_request_parameters)
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#enums-definitions-side-side">side</a> |true |string |Side    |
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |Contract type    |
+|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
 |<a href="#enums-definitions-order-type-order_type">order_type</a> |true |string |Conditional order type |
-|<a href="#enums-definitions-quantity-qty">qty</a> |true |integer |Order quantity in USD |
-|<a href="#enums-definitions-price-price">price</a> |false | number | Execution price for conditional order. **Required** if you make limit order. Must be an increment of 0.5 |
+|<a href="#enums-definitions-quantity-qty">qty</a> |true |integer |t(:row_comment_qty) |
+|<a href="#enums-definitions-price-price">price</a> |false | number |t(:row_comment_price) |
 |base_price |true |number | It will be used to compare with the value of 'stop_px', to decide whether your conditional order will be triggered by crossing trigger price from upper side or lower side. Mainly used to identify the expected direction of the current conditional order. |
 |stop_px | true | number | Trigger price |
-|<a href="#enums-definitions-time-in-force-time_in_force">time_in_force</a> |true |string |Time in force |
+|<a href="#enums-definitions-time-in-force-time_in_force">time_in_force</a> |true |string |t(:row_comment_timeInForce) |
 |<a href="#enums-definitions-trigger-price-type-trigger_by">trigger_by</a> | false | string | Trigger price type. Default `LastPrice` |
-|close_on_trigger |false |bool |close on trigger. When creating a closing order, we highly recommend `close_on_trigger` is set as `True` to avoid failing by insufficient available margin
-|order_link_id |false |string |Customized order ID, maximum length at 36 characters, and order ID under the same agency has to be unique.|
+|close_on_trigger |false |bool |t(:row_comment_closeOnTrigger)
+|order_link_id |false |string |t(:row_comment_orderLinkId) |
 
 
 ### Get Conditional Order
-> Response Example
+> t(:codequote_responseExample)
 
 ```javascript
 {
@@ -509,25 +492,25 @@ POST
 
 Get my conditional order list.
 
-##### HTTP Request
+##### t(:heading_http_request)
 GET
 <code><span id=oasoList>/open-api/stop-order/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oasoList"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
 
-##### Request Parameters
-|parameter|required|type|comments|
+##### t(:heading_request_parameters)
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|stop_order_id |false |string |Order ID of conditional order|
+|stop_order_id |false |string |t(:row_comment_stopOrderId) |
 |order_link_id |false |string |Agency customized order ID|
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |false |string |Contract type. Default `BTCUSD`    |
+|<a href="#enums-definitions-symbol-symbol">symbol</a> |false |string |t(:row_comment_symbol). Default `BTCUSD`    |
 |<a href="#enums-definitions-cancel-type-cancel_type">stop_order_status</a> |false |string |stop order status   |
-|order |false |string |Sort orders by creation date   |
-|page |false |integer |Page. Default getting first page data |
-|limit |false |integer |Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page |
+|t(:row_comment_order) |false |string |Sort orders by creation date   |
+|page |false |integer |t(:row_comment_page) |
+|limit |false |integer |t(:row_comment_limit) |
 
 
 ### Cancel Conditional Order
-> Response Example
+> t(:codequote_responseExample)
 
 ```javascript
 {
@@ -564,21 +547,21 @@ GET
 
 You may cancel all untriggered conditional orders. Essentially, after a conditional order is triggered, it will become an active order. So, when a conditional order is triggered, cancellation has to be done through the active order endpoint for any unfilled or partially filled active order. As always, orders that have been fully filled cannot be cancelled.
 
-##### HTTP Request
+##### t(:heading_http_request)
 POST
 <code><span id=oasoCancel>/open-api/stop-order/cancel</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oasoCancel"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
 
-##### Request Parameters
-|parameter|required|type | comments|
+##### t(:heading_request_parameters)
+|t(:column_parameter)|required|type | comments|
 |:----- |:-------|:-----|----- |
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |Contract type|
-|stop_order_id |false |string | Order ID. The unique order ID returned to you when the corresponding order was created. **Required** if not pass order_link_id|
+|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)|
+|stop_order_id |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
 |order_link_id |false |string | Agency customized order ID. **Required** if not pass stop_order_id|
 
 
 ### Cancel All Conditional Orders
-> Response Example
+> t(:codequote_responseExample)
 
 ```javascript
 {
@@ -643,19 +626,19 @@ POST
 
 Cancel all untriggered conditional orders.
 
-##### HTTP Request
+##### t(:heading_http_request)
 POST
 <code><span id=vpsoCancelAll>/v2/private/stop-order/cancelAll</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpsoCancelAll"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
 
-##### Request Parameters
-|parameter|required|type | comments|
+##### t(:heading_request_parameters)
+|t(:column_parameter)|required|type | comments|
 |:----- |:-------|:-----|----- |
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |Contract type|
+|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)|
 
 
 ### Replace Conditional Order
-> Response Example
+> t(:codequote_responseExample)
 
 ```javascript
 {
@@ -683,23 +666,23 @@ It is possible to modify only one of these at a time.
 Please note that you can only modify untriggered conditional orders.
 </aside>
 
-##### HTTP Request
+##### t(:heading_http_request)
 POST
 <code><span id=oasoReplace>/open-api/stop-order/replace</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oasoReplace"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
 
-##### Request Parameters
-|parameters|required|type|comments|
+##### t(:heading_request_parameters)
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|order_id |true |string |Your active order ID. The unique order ID returned to you when the corresponding active order was created |
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |Contract type. |
-|p_r_qty |false |int |New conditional order's quantity |
-|p_r_price |false |number |New conditional order's price |
-|p_r_trigger_price |false |number |New conditional order's trigger price, also known as stop_px |
+|order_id |true |string |t(:row_comment_orderId) |
+|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol). |
+|p_r_qty |false |int |t(:row_comment_pRQty) |
+|p_r_price |false |number |t(:row_comment_pRPrice) |
+|p_r_trigger_price |false |number |t(:row_comemnt_pRTriggerPrice) |
 
 
-### Query Conditional Order (real-time)
-> Response Example
+### t(:account_heading_queryConditional)
+> t(:codequote_responseExample)
 
 ```javascript
 {
@@ -735,24 +718,24 @@ POST
 }
 ```
 
-Query real-time stop order information.
+t(:account_para_queryConditional)
 
-##### HTTP Request
+##### t(:heading_http_request)
 GET
 <code><span id=vpStopOrder>/v2/private/stop-order</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpStopOrder"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
 
-##### Request Parameters
-|parameter|required|type|comments|
+##### t(:heading_request_parameters)
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |Contract type |
-|stop_order_id |false |string | Your stop order ID. The unique order ID returned to you when the corresponding active order was created. **Required** if not passing order_link_id. |
-|order_link_id |false |string | Agency customized order ID. **Required** if not passing order_id.|
+|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|stop_order_id |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
+|order_link_id |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
 
 
-## Leverage
-### User Leverage
-> Response Example
+## t(:account_heading_leverage)
+### t(:account_heading_userLeverage)
+> t(:codequote_responseExample)
 
 ```javascript
 {
@@ -781,18 +764,20 @@ GET
 }
 ```
 
-##### HTTP Request
+t(:account_para_userLeverage)
+
+##### t(:heading_http_request)
 GET
 <code><span id=uLeverage>/user/leverage</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uLeverage"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
 
-##### Request Parameters
-|parameter|required|type|comments|
+##### t(:heading_request_parameters)
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 
 
-### Change User Leverage
-> Response Example
+### t(:account_heading_changeLeverage)
+> t(:codequote_responseExample)
 
 ```javascript
 {
@@ -808,26 +793,23 @@ GET
 }
 ```
 
-Change user leverage.
+t(:account_para_changeLeverage)
 
-Set `leverage` to `0` if you want to trade in <a href="https://help.bybit.com/hc/en-us/articles/360037683633-What-is-Cross-Margin">Cross Margin mode</a>. Note that your position mode will be changed to Isolated Margin mode if you change your leverage from 0 to any other value.
-
-
-##### HTTP Request
+##### t(:heading_http_request)
 POST
 <code><span id=ulSave>/user/leverage/save</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ulSave"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
 
-##### Request Parameters
-|parameter|required|type|comments|
+##### t(:heading_request_parameters)
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |Contract type    |
-|leverage |true |string |Leverage. `0` means Cross Margin mode - any other value means Isolated Margin mode |
+|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
+|leverage |true |string |t(:row_comment_leverage) |
 
 
-## Position
-### My Position V2 (real-time)
-> Response Example (other symbols omitted)
+## t(:account_heading_position)
+### t(:account_heading_myPosition)
+> t(:codequote_responseExample)
 
 ```javascript
 {
@@ -874,21 +856,21 @@ POST
 }
 ```
 
-Get my position list.
+t(:account_para_myPosition)
 
-##### HTTP Request
+##### t(:heading_http_request)
 GET
 <code><span id=pList>/position/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pList"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
 
-##### Request Parameters
-|parameter|required|type|comments|
+##### t(:heading_request_parameters)
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |Contract type    |
+|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
 
 
-### Change Margin
-> Response Example
+### t(:account_heading_changeMargin)
+> t(:codequote_responseExample)
 
 ```javascript
 {
@@ -904,26 +886,26 @@ GET
 }
 ```
 
-Update margin.
+t(:account_para_changeMargin)
 
 <aside class="notice">
-You cannot change margin when your position is in Cross Margin mode. See the <a href="#change-user-leverage">Change User Leverage</a> endpoint for more.
+t(:account_aside_changeMargin)
 </aside>
 
-##### HTTP Request
+##### t(:heading_http_request)
 POST
 <code><span id=pChangePositionMargin>/position/change-position-margin</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pChangePositionMargin"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
 
-##### Request Parameters
-|parameter|required|type|comments|
+##### t(:heading_request_parameters)
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |Contract type    |
+|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
 |margin |true |string |margin  |
 
 
-### Set Trading-Stop
-> Response Example
+### t(:account_heading_tradingStop)
+> t(:codequote_responseExample)
 
 ```javascript
 {
@@ -975,29 +957,29 @@ POST
 }
 ```
 
-Set take profit, stop loss, and trailing stop for your open position.
+t(:account_para_tradingStop)
 
 <aside class="notice">
-Passing these parameters will create conditional orders controlled by the system. The system will cancel these orders if the position is closed, and adjust the qty according to the size of the open position.
+t(:account_aside_tradingStop)
 </aside>
 
-##### HTTP Request
+##### t(:heading_http_request)
 POST
 <code><span id=oapTradingStop>/open-api/position/trading-stop</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oapTradingStop"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
 
-##### Request Parameters
-|parameter|required|type|comments|
+##### t(:heading_request_parameters)
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |Contract type |
-|take_profit |false |string |Cannot be less than 0, 0 means cancel TP |
-|stop_loss |false |string |Cannot be less than 0, 0 means cancel SL |
-|trailing_stop |false |string |Cannot be less than 0, 0 means cancel TS |
+|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|take_profit |false |string |t(:account_row_comment_takeProfit) |
+|stop_loss |false |string |t(:account_row_comment_stopLoss) |
+|trailing_stop |false |string |t(:account_row_comment_trailingStop) |
 
 
-## Funding
-### My Last Funding Fee
-> Response Example
+## t(:account_heading_funding)
+### t(:account_heading_myLastFunding)
+> t(:codequote_responseExample)
 
 ```javascript
 {
@@ -1020,20 +1002,20 @@ POST
 }
 ```
 
-Funding settlement occurs every 8 hours at 00:00 UTC, 08:00 UTC and 16:00 UTC. The current interval's fund fee settlement is based on the previous interval's fund rate. For example, at 16:00, the settlement is based on the fund rate generated at 8:00. The fund rate generated at 16:00 will be used at 0:00 the next day.
+t(:account_para_myLastFunding)
 
-##### HTTP Request
+##### t(:heading_http_request)
 GET
 <code><span id=oafPrevFunding>/open-api/funding/prev-funding</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oafPrevFunding"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
 
-##### Request Parameters
-|parameter|required|type|comments|
+##### t(:heading_request_parameters)
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 
 
-### Predicted Funding Rate and My Funding Fee
-> Response Example
+### t(:account_heading_predictedFunding)
+> t(:codequote_responseExample)
 
 ```javascript
 {
@@ -1052,21 +1034,21 @@ GET
 }
 ```
 
-Get predicted funding rate and my funding fee.
+t:(account_para_predictedFunding)
 
-##### HTTP Request
+##### t(:heading_http_request)
 GET
 <code><span id=oafPredictedFunding>/open-api/funding/predicted-funding</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oafPredictedFunding"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
 
-##### Request Parameters
-|parameter|required|type|comments|
+##### t(:heading_request_parameters)
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |Contract type    |
+|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
 
 
-## API Key Info
-> Response Example
+## t(:account_heading_key)
+> t(:codequote_responseExample)
 
 ```javascript
 {
@@ -1099,13 +1081,13 @@ GET
 }
 ```
 
-Get user's API key info.
+t(:account_para_key)
 
-##### HTTP Request
+##### t(:heading_http_request)
 GET
 <code><span id=oaApiKey>/open-api/api-key</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oaApiKey"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
 
-##### Request Parameters
-|parameter|required|type|comments|
+##### t(:heading_request_parameters)
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |

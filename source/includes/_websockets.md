@@ -1,8 +1,8 @@
-# WebSocket Data
-## Authentication
-> Authentication methods:
+# t(:websocket_heading)
+## t(:websocket_heading_authentication)
+> t(:websocket_codequote_auth)
 
-> First method: Apply for authentication when establishing a connection.
+> t(:websocket_codequote_auth1)
 
 ```javascript
 var api_key = "";
@@ -21,7 +21,7 @@ var param = "api_key={api_key}&expires={expires}&signature={signature}";
 var ws = new WebSocket("wsurl?param");
 ```
 
-> Second method: Apply for authentication after establishing a connection through auth request.
+> t(:websocket_codequote_auth2)
 
 ```javascript
 var ws = new WebSocket("wsurl")
@@ -30,42 +30,28 @@ ws.send('{"op":"auth","args":["{api_key}","{expires}","{signature}"]}');
 ```
 
 
-Base endpoints:
-<ul>
-<p>
-  <li>Testnet:
-    <span id="testnet_address">wss://stream-testnet.bybit.com/realtime</span>
-    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
-  </li>
-</p>
-<p>
-  <li>Mainnet:
-    <span id="mainnet_address">wss://stream.bybit.com/realtime</span>
-    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
-  </li>
-</p>
-</ul>
+t(:websocket_para_endpoint)
 
 <aside class="notice">
-<b>Public</b> topics do not require authentication. The following section applies to <b>private</b> topics only.
+t(:websocket_aside_auth)
 </aside>
 
 
-There are two methods of authentication, as shown in the code panel to the right.
+t(:websocket_para_methods)
 
 <aside class="notice">
-Example signature algorithms can be found <a href="https://github.com/bybit-exchange/bybit-official-api-docs/tree/master/en/example">here</a>.
+websocket_aside_signature
 </aside>
 
 
-## How to Send the Heartbeat Packet
-> How to Send
+## t(:websocket_heading_hearbeat)
+> t(:websocket_codequote_heartbeart)
 
 ```javascript
 ws.send('{"op":"ping"}');
 ```
 
-> Example Response
+> t(:codequote_responseExample)
 
 ```javascript
 {
@@ -80,24 +66,24 @@ ws.send('{"op":"ping"}');
 
 
 <aside class="warning">
-Due to unstable networks or program errors, we strongly advise you to send the <code>ping</code> heartbeat packet to maintain websocket connections. We recommend every 30 seconds to 1 minute.
+t(:websocket_aside_heartbeat)
 </aside>
 
 
-## Rate Limits
-One API key can establish 20 concurrent connections. Any additional connection after 20 connections will be rejected.
+## t(:websocket_heading_limit)
+t(:websocket_para_limit)
 
 
-## How to Subscribe to Topics
-### Understanding Websocket Filters
-> How to subscribe with a filter
+## t(:websocket_heading_subscribe)
+### t(:websocket_heading_filters)
+> t(:websocket_codequote_filters1)
 
 ```javascript
 // Subscribing to the trade data for ETHBTC
 ws.send('{"op":"subscribe","args":["trade.ETHBTC"]}')
 ```
 
-> How to subscribe with multiple filters
+> t(:websocket_codequote_filters2)
 
 ```javascript
 // Example: Subscribing to the trade data for BTCUSD and XRPUSD
@@ -105,33 +91,28 @@ ws.send('{"op":"subscribe","args":["trade.BTCUSD|XRPUSD"]}')
 ```
 
 
-> How to subscribe without filters
+> t(:websocket_codequote_filters3)
 
 ```javascript
 // Example: Subscribing to the trade data for all symbols
 ws.send('{"op": "subscribe", "args": ["trade.*"]}')
 ```
 
-After establishing the connection, one can subscribe to a new topic by sending a JSON request. The specific formats are as follows:
+t(:websocket_para_filters)
 
 `ws.send('{"op": "subscribe", "args": ["topic.filter"]}');`
 
-The `topic` indicates the data you would like to receive whilst the `filter` parses for the specific data you desire - for example, the symbol. The `topic` is mandatory but the `filter` is optional.
-
-To subscribe to more than one topic, simply list multiple topics out, like so:
+t(:websocket_para_filters1)
 
 `ws.send('{"op": "subscribe", "args": ["topic.filter", "topic.filter"]}');`
 
-It is possible to use multiple filters for the same topic by splitting them with a pipe (`|`) - of course, these filters must all be applicable to the selected `topic`.
+t(:websocket_para_filters2)
 
-Finally, to subscribe to the topic without filters please use the `*` wildcard.
+### t(:websocket_heading_intervals)
+t(:websocket_para_intervals)
 
-### Intervals
-Some topics are pushed at intervals. If the `args` contain a millisecond param, such as `100ms`, this topic is pushed at intervals. Otherwise, it is pushed constantly.
-
-
-## Understanding the Subscription Response
-> Subscription Response
+## t(:websocket_heading_response)
+> t(:websocket_codequote_response)
 
 ```javascript
 {
@@ -146,17 +127,17 @@ Some topics are pushed at intervals. If the `args` contain a millisecond param, 
 }
 ```
 
-Every subscription will have a response.
+t(:websocket_para_response)
 
-## Public Topics
-### orderBookL2_25
-> How to Subscribe
+## t(:websocket_heading_public)
+### t(:websocket_heading_orderbook25)
+> t(:codequote_subscribe)
 
 ```javascript
 ws.send('{"op": "subscribe", "args": ["orderBookL2_25.BTCUSD"]}');
 ```
 
-> Snapshot Response Example - format of the first response
+> t(:codequote_snapshot)
 
 ```javascript
 {
@@ -183,7 +164,7 @@ ws.send('{"op": "subscribe", "args": ["orderBookL2_25.BTCUSD"]}');
 }
 ```
 
-> Delta Response Example - format of the responses following the snapshot response
+> t(:codequote_delta)
 
 ```javascript
 {
@@ -223,26 +204,24 @@ ws.send('{"op": "subscribe", "args": ["orderBookL2_25.BTCUSD"]}');
 }
 ```
 
-Fetches the orderbook with a depth of 25 orders per side.
+t(:websocket_para_orderbook251)
 
 <aside class="notice">
 Want a greater depth? Take a look at the <a href="#orderbookl2_200">orderBookL2_200</a> endpoint.
 </aside>
 
-After the subscription response, the first response will be the snapshot response. This shows the entire orderbook. The data is ordered by price, starting with the lowest buys and ending with the highest sells.
-
-Following this, all responses are in the delta format, which represents updates to the orderbook relative to the last response.
+t(:websocket_para_orderbook252)
 
 
-### orderBookL2_200
+### t(:websocket_heading_orderbook200)
 
-> How to Subscribe
+> t(:codequote_subscribe)
 
 ```javascript
 ws.send('{"op": "subscribe", "args": ["orderBook_200.100ms.BTCUSD"]}');
 ```
 
-> Snapshot Response Example - format of the first response
+> t(:codequote_snapshot)
 
 ```javascript
 {
@@ -269,7 +248,7 @@ ws.send('{"op": "subscribe", "args": ["orderBook_200.100ms.BTCUSD"]}');
 }
 ```
 
-> Delta Response Example - format of the responses following the snapshot response
+> t(:codequote_delta)
 
 ```javascript
 {
@@ -309,21 +288,17 @@ ws.send('{"op": "subscribe", "args": ["orderBook_200.100ms.BTCUSD"]}');
 }
 ```
 
-Fetches the orderbook with a depth of 200 orders per side.
-
-After the subscription response, the first response will be the snapshot response. This shows the entire orderbook. The data is ordered by price, starting with the lowest buys and ending with the highest sells.
-
-Following this, all responses are in the delta format, which represents updates to the orderbook relative to the last response.
+t(:websocket_para_orderbook200)
 
 
-### trade
-> How to Subscribe
+### t(:websocket_heading_trade)
+> t(:codequote_subscribe)
 
 ```javascript
 ws.send('{"op": "subscribe", "args": ["trade"]}')
 ```
 
-> Response Example - format of all responses
+> t(:codequote_responseExampleFormatAll)
 
 ```javascript
 {
@@ -343,17 +318,17 @@ ws.send('{"op": "subscribe", "args": ["trade"]}')
 }
 ```
 
-Get real-time trading information.
+t(:websocket_para_trade)
 
 
-### insurance
-> How to Subscribe
+### t(:websocket_heading_insurance)
+> t(:codequote_subscribe)
 
 ```javascript
 ws.send('{"op": "subscribe", "args": ["insurance"]}')
 ```
 
-> Response Example - format of all responses
+> t(:codequote_responseExampleFormatAll)
 
 ```javascript
 {
@@ -368,20 +343,20 @@ ws.send('{"op": "subscribe", "args": ["insurance"]}')
 }
 ```
 
-Get the daily insurance fund update.
+t(:websocket_para_insurance)
 
 <aside class="notice">
-The <code>wallet_balance</code> is in Satoshis, with one Satoshi being 100 millionth (<code>100000000</code>) of one Bitcoin.
+t(:websocket_aside_insurance)
 </aside>
 
-### instrument_info
-> How to Subscribe
+### t(:websocket_heading_instrumentInfo)
+> t(:codequote_subscribe)
 
 ```javascript
 ws.send('{"op": "subscribe", "args": ["instrument_info.100ms.BTCUSD"]}')
 ```
 
-> Snapshot Response Example - format of the first response
+> t(:codequote_snapshot)
 
 ```javascript
 {
@@ -420,7 +395,7 @@ ws.send('{"op": "subscribe", "args": ["instrument_info.100ms.BTCUSD"]}')
 }
 ```
 
-> Delta Response Example - format of the responses following the snapshot response
+> t(:codequote_delta)
 
 ```javascript
 {
@@ -450,25 +425,25 @@ ws.send('{"op": "subscribe", "args": ["instrument_info.100ms.BTCUSD"]}')
 }
 ```
 
-Get latest information for symbol.
+t(:websocket_para_instrumentInfo)
 
 <aside class="warning">
-This topic only utilises the <code>update</code> field. Both the <code>delete</code> and <code>insert</code> fields are null. If a key is not found in the <code>update</code> field, its value has not changed.
+t(:websocket_aside_instrumentInfo1)
 </aside>
 
 <aside class="notice">
-Some values use scientific notation. This is indicated by that value's key, which will be appended with, for example, <code>e6</code>. If the key is <code>last_price_e4</code> and the value is <code>81585000</code>, then to find the true value we can do <code>81585000 * 10^4</code>, which equals <code>8158.5</code>.
+t(:websocket_aside_instrumentInfo2)
 </aside>
 
 
-### klineV2
-> How to Subscribe
+### t(:websocket_heading_klineV2)
+> t(:codequote_subscribe)
 
 ```javascript
 ws.send('{"op":"subscribe","args":["klineV2.1.BTCUSD"]}')
 ```
 
-> Response Example - format of all responses
+> t(:codequote_responseExampleFormatAll)
 
 ```javascript
 {
@@ -490,30 +465,23 @@ ws.send('{"op":"subscribe","args":["klineV2.1.BTCUSD"]}')
 }
 ```
 
-Currently supported intervals:
-
-* 1 3 5 15 30
-* 60 120 240 360 720
-* D
-* W
-* M
-* Y
+t(:websocket_para_klineV2)
 
 <aside class="notice">
-If <code>confirm</code> is <code>True</code>, the data is the final tick for the interval. Otherwise, it is a snapshot.
+t(:websocket_aside_klineV2)
 </aside>
 
 
 
-## Private Topics
-### position
-> How to Subscribe
+## t(:websocket_heading_private)
+### t(:websocket_heading_position)
+> t(:codequote_subscribe)
 
 ```javascript
 ws.send('{"op": "subscribe", "args": ["position"]}')
 ```
 
-> Response Example - format of all responses
+> t(:codequote_responseExampleFormatAll)
 
 ```javascript
 {
@@ -554,14 +522,14 @@ ws.send('{"op": "subscribe", "args": ["position"]}')
 ```
 
 
-### execution
-> How to Subscribe
+### t(:websocket_heading_execution)
+> t(:codequote_subscribe)
 
 ```javascript
 ws.send('{"op": "subscribe", "args": ["execution"]}')
 ```
 
-> Response Example - format of all responses
+> t(:codequote_responseExampleFormatAll)
 
 ```javascript
 {
@@ -587,14 +555,14 @@ ws.send('{"op": "subscribe", "args": ["execution"]}')
 ```
 
 
-### order
-> How to Subscribe
+### t(:websocket_heading_order)
+> t(:codequote_subscribe)
 
 ```javascript
 ws.send('{"op": "subscribe", "args": ["order"]}')
 ```
 
-> Response Example - format of all responses
+> t(:codequote_responseExampleFormatAll)
 
 ```javascript
 {
@@ -627,14 +595,14 @@ ws.send('{"op": "subscribe", "args": ["order"]}')
 ```
 
 
-### stop_order
-> How to Subscribe
+### t(:websocket_heading_stopOrder)
+> t(:codequote_subscribe)
 
 ```javascript
 ws.send('{"op": "subscribe", "args": ["stop_order"]}')
 ```
 
-> Response Example - format of all responses
+> t(:codequote_responseExampleFormatAll)
 
 ```javascript
 {

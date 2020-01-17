@@ -1,8 +1,8 @@
-# API Data Endpoints
-The following API data endpoint does not require authentication.
+# t(:api_heading)
+t(:api_para)
 
-### Announcement
-> Response Example
+### t(:api_heading_announcment)
+> t(:codequote_responseExample)
 
 ```javascript
 {
@@ -23,13 +23,13 @@ The following API data endpoint does not require authentication.
 }
 ```
 
-Get Bybit OpenAPI announcements in the last 30 days.
+t(:api_para_announcement)
 
-##### HTTP Request
+##### t(:heading_http_request)
 GET
 <code><span id=vpAnnouncement>/v2/public/announcement</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpAnnouncement"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
 
-##### Request Parameters
-|parameter|required|type|comments|
+##### t(:heading_request_parameters)
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |

@@ -1,8 +1,8 @@
-# Wallet Data Endpoints
-The following wallet data endpoints require authentication.
+# t(:wallet_heading)
+t(:wallet_para)
 
-### Wallet Fund Records
-> Response Example
+### t(:wallet_heading_walletRecords)
+> t(:codequote_responseExample)
 
 ```javascript
 {
@@ -47,27 +47,27 @@ The following wallet data endpoints require authentication.
 }
 ```
 
-Get wallet fund records.
+t(:wallet_para_walletRecords)
 
-##### HTTP Request
+##### t(:heading_http_request)
 GET
 <code><span id=oawfRecords>/open-api/wallet/fund/records</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawfRecords"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
 
-##### Request Parameters
-|parameter|required|type|comments|
+##### t(:heading_request_parameters)
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|start_date |false |string |Start point for result  |
-|end_date |false |string |End point for result  |
-|<a href="#enums-definitions-currency-currency-coin">currency</a> |false |string |Currency type |
-|<a href="#enums-definitions-currency-currency-coin">coin</a> |false |string |`currency` alias |
-|<a href="#enums-definitions-wallet-fund-type-wallet_fund_type">wallet_fund_type</a> |false |string |Wallet fund type |
-|page |false |integer |Page. Default getting first page data |
-|limit |false |integer |Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page |
+|start_date |false |string |t(:row_comment_startDate) |
+|end_date |false |string |t(:row_comment_endDate) |
+|<a href="#enums-definitions-currency-currency-coin">currency</a> |false |string |t(:row_comment_currency) |
+|<a href="#enums-definitions-currency-currency-coin">coin</a> |false |string |t(:row_comment_coin) |
+|<a href="#enums-definitions-wallet-fund-type-wallet_fund_type">wallet_fund_type</a> |false |string |t(:row_comment_walletFundType) |
+|page |false |integer |t(:row_comment_page) |
+|limit |false |integer |t(:row_comment_limit) |
 
 
-### Withdraw Records
-> Response Example
+### t(:wallet_heading_withdrawRecords)
+> t(:codequote_responseExample)
 
 ```javascript
 {
@@ -98,26 +98,26 @@ GET
 }
 ```
 
-Get withdrawal records.
+t(:wallet_para_withdrawRecords)
 
-##### HTTP Request
+##### t(:heading_http_request)
 GET
 <code><span id=oawwList>/open-api/wallet/withdraw/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawwList"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
 
-##### Request Parameters
-|parameter|required|type|comments|
+##### t(:heading_request_parameters)
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|start_date |false |string |Start point for result |
-|end_date |false |string |End point for result |
-|<a href="#enums-definitions-currency-currency-coin">coin</a> |false |string |Currency |
-|<a href="#enums-definitions-withdraw-status-status">status</a> |false |string |Withdraw status |
-|page |false |integer |Page. Default getting first page data |
-|limit |false |integer |Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page |
+|start_date |false |string |t(:row_comment_startDate) |
+|end_date |false |string |t(:row_comment_endDate) |
+|<a href="#enums-definitions-currency-currency-coin">coin</a> |false |string |t(:row_comment_currency) |
+|<a href="#enums-definitions-withdraw-status-status">status</a> |false |string |t(:row_comment_withdrawStatus) |
+|page |false |integer |t(:row_comment_page) |
+|limit |false |integer |t(:row_comment_limit) |
 
 
-### User Trade Records
-> Response Example
+### t(:wallet_heading_tradeRecords)
+> t(:codequote_responseExample)
 
 ```javascript
 {
@@ -160,29 +160,29 @@ GET
 }
 ```
 
-Get user's trading records. The last item is the oldest.
+t(:wallet_para_tradeRecords)
 
 <aside class="notice">
-This endpoint will provide multiple trades if <code>order_id</code> is not provided.
+t(:wallet_aside_tradeRecords)
 </aside>
 
-##### HTTP Request
+##### t(:heading_http_request)
 GET
 <code><span id=vpeList>/v2/private/execution/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpeList"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
 
-##### Request Parameters
-|parameter|required|type|comments|
+##### t(:heading_request_parameters)
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|order_id |false |string |OrderID. If not provided, will return user's trading records |
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |false |string |Contract type. If 'order_id' not provided, 'symbol' is required |
-|start_time |false |int |Start timestamp point for result |
-|page |false |integer |Page. Default: first page |
-|limit |false |integer |Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page |
+|order_id |false |string |t(:wallet_row_comment_orderId) |
+|<a href="#enums-definitions-symbol-symbol">symbol</a> |false |string |t(:misc_row_comment_symbolNotOrderId) |
+|start_time |false |int |t(:row_comment_startTime) |
+|page |false |integer |t(:row_comment_page) |
+|limit |false |integer |t(:row_comment_limit) |
 
 
-## Get Risk Limit
-> Response Example
+## t(:wallet_heading_getRisk)
+> t(:codequote_responseExample)
 
 ```javascript
 {
@@ -239,24 +239,24 @@ GET
 }
 ```
 
-Get risk limit.
+t(:wallet_para_getRisk)
 
 <aside class="notice">
-Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles/360007107454-Risk-Limit-Overview">here</a>.
+t(:wallet_aside_getRisk)
 </aside>
 
-##### HTTP Request
+##### t(:heading_http_request)
 GET
 <code><span id=oawrlList>/open-api/wallet/risk-limit/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawrlList"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
 
-##### Request Parameters
-|parameter|required|type|comments|
+##### t(:heading_request_parameters)
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 
 
-## Set Risk Limit
-> Response Example
+## t(:wallet_heading_setRisk)
+> t(:codequote_responseExample)
 
 ```javascript
 {
@@ -319,19 +319,19 @@ GET
 }
 ```
 
-Set risk limit.
+t(:wallet_para_setRisk)
 
 <aside class="notice">
-Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles/360007107454-Risk-Limit-Overview">here</a>.
+t(:wallet_aside_getRisk)
 </aside>
 
-##### HTTP Request
+##### t(:heading_http_request)
 GET
 <code><span id=oawRiskLimit>/open-api/wallet/risk-limit</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawRiskLimit"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
 
-##### Request Parameters
-|parameter|required|type|comments|
+##### t(:heading_request_parameters)
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |Symbol |
-|risk_id |true |integer |risk ID. Can be found with the <a href="#get-risk-limit">Get Risk Limit</a> endpoint  |
+|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|risk_id |true |integer |t(:row_comment_riskId) |
