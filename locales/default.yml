@@ -1,9 +1,5 @@
 ---
-zh-cn:
-  international: English
-  inverse_future: 反向合约
-  linear_future: 正向合约
-  search: 搜索
+default:
   # universal/global
   heading_http_request: HTTP Request
   heading_request_parameters: Request Parameters
@@ -48,13 +44,17 @@ zh-cn:
   row_comment_riskId: Risk ID. Can be found with the <a href="#get-risk-limit">Get Risk Limit</a> endpoint
 
 
+  default: Default
+
+
+
   # introduction in index.html.md
-  intro_heading: 介绍
+  intro_heading: Introduction
   intro_para:
-    <p>欢迎使用 <a href="https://www.bybit.com/">Bybit</a> APIs 和 Websocket官方文档! Here you can find details on how to access all of our endpoints, their respective expected outputs, and possible errors you may encounter.</p>
+    <p>Welcome to the official documentation for the <a href="https://www.bybit.com/">Bybit</a> APIs and Websocket! Here you can find details on how to access all of our endpoints, their respective expected outputs, and possible errors you may encounter.</p>
     <p>If you encounter an issue you need help with, have a suggestions for us, or just want to have a chat with fellow developers then please head on over to our <a href="https://t.me/Bybitapi">API Telegram chat</a>!</p>
 
-  intro_heading_resources: 参考资料
+  intro_heading_resources: Bybit API Resources
   intro_para_resources:
     <ul>
       <li><a href="https://github.com/bybit-exchange/bybit-official-api-docs">bybit-official-api-docs <img src="/images/github_logo_icon.png" height="14", width="14"></a> - report issues here!
@@ -64,7 +64,7 @@ zh-cn:
     </ul>
 
   # api_auth
-  auth_heading: 鉴权/认证
+  auth_heading: Authentication
   auth_aside_key: To generate an API key please go <a href="https://testnet.bybit.com/app/user/api-management">here for the <b>testnet</b></a> or <a href="https://www.bybit.com/app/user/api-management">here for the <b>mainnet</b></a>.
   auth_para_domains: |
     Domains:
@@ -81,7 +81,7 @@ zh-cn:
   auth_para_privatepublic:
     <p>All requests made to <b>private</b> endpoints must be authenticated. Requests made to <b>public</b> endpoints do not require the additional parameters needed for authentication.</p>
 
-  auth_heading_params: 公共参数
+  auth_heading_params: Parameters for Authenticated Endpoints
   auth_para_params: |
     The following parameters must be used for authentication:
     <ul>
@@ -93,7 +93,7 @@ zh-cn:
     Make sure to conform to the timestamp rule of verification or your request will be rejected! Timestamp rule of verification: timestamp < server_time + 1000
   auth_para_recv : |
     Additionally, we offer the <code>recv_window</code>, which indicates for how long an HTTP request is valid. This should be sent in milliseconds. Default value: 5000. This is used to prevent replay attacks.
-  auth_heading_construct: 构建请求
+  auth_heading_construct: Constructing the Request
   auth_codequote_construct1a:
     An example for adjusting leverage
   auth_codequote_construct1b:
@@ -112,7 +112,7 @@ zh-cn:
     Example signature algorithms can be found <a href="https://github.com/bybit-exchange/bybit-official-api-docs/tree/master/en/example">here</a>.
 
   # Market Data Endpoints
-  market_heading: 行情接口
+  market_heading: Market Data Endpoints
   market_para_auth: The following market data endpoints do not require authentication.
   ### server time
   market_heading_time: Server Time
@@ -135,7 +135,7 @@ zh-cn:
   market_para_querySymbol: Get symbol info.
 
   # Account Data Endpoints
-  account_heading: 账户接口
+  account_heading: Account Data Endpoints
   account_para: The following account data endpoints require authentication.
   ## Active Orders
   account_heading_active: Active Orders
@@ -218,7 +218,7 @@ zh-cn:
   account_para_key: Get user's API key info.
 
   # Wallet Data Endpoints
-  wallet_heading: 钱包接口
+  wallet_heading: Wallet Data Endpoints
   wallet_para: The following wallet data endpoints require authentication.
   ### Wallet Fund Records
   wallet_heading_walletRecords: Wallet Fund Records
@@ -240,14 +240,14 @@ zh-cn:
   wallet_para_setRisk: Set risk limit.
 
   # API Data Endpoints
-  api_heading: API Key接口
+  api_heading: API Data Endpoints
   api_para: The following API data endpoint does not require authentication.
   ### Announcement
   api_heading_announcment: Announcement
   api_para_announcement: Get Bybit OpenAPI announcements in the last 30 days.
 
   # API Rate Limits
-  rate_heading: 频率限制
+  rate_heading: API Rate Limits
   ### Understanding Your Request Rate Limit
   rate_heading_understandin: Understanding Your Request Rate Limit
   rate_para_understanding: |
@@ -377,7 +377,7 @@ zh-cn:
   rate_aside_POAExample: Prior notice will be given via the website if we update this mechanism.
 
   # WebSocket Data
-  websocket_heading: WebSocket接口
+  websocket_heading: WebSocket Data
   ## Authentication
   websocket_heading_authentication: Authentication
   websocket_codequote_auth: |
@@ -489,11 +489,8 @@ zh-cn:
   ### stop_order
   websocket_heading_stopOrder: stop_order
 
-  # Error Definitions
-  Error_heading: 错误码
-  
   # ENUMs Definitions
-  ENUMs_header: 枚举定义
+  ENUMs_header: ENUMs Definitions
   ENUMs_para: This is a list of valid options (and rules) for the different parameters when sending a request to the API.
   ## Wallet fund type (`wallet_fund_type`)
   deposit:      ""

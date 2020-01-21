@@ -59,3 +59,5 @@ helpers do
 end
 
 activate :i18n
+
+activate :directory_indexes

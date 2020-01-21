@@ -20,7 +20,7 @@ Get Bybit server time.
 ##### t(:heading_http_request)
 GET
 <code><span id=vpTime>/v2/public/time</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpTime"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpTime"><img src="/images/copy_to_clipboard.png" height=15 width=15></a></button>
 
 ##### t(:heading_request_parameters)
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -63,7 +63,7 @@ t(:market_aside_orderbook)
 ##### t(:heading_http_request)
 GET
 <code><span id=vpoL2>/v2/public/orderBook/L2</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoL2"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoL2"><img src="/images/copy_to_clipboard.png" height=15 width=15></a></button>
 
 ##### t(:heading_request_parameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -116,7 +116,7 @@ Get the latest information for symbol.
 ##### t(:heading_http_request)
 GET
 <code><span id=vpTickers>/v2/public/tickers</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpTickers"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpTickers"><img src="/images/copy_to_clipboard.png" height=15 width=15></a></button>
 
 ##### t(:heading_request_parameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -152,7 +152,7 @@ t(:market_para_records)
 ##### t(:heading_http_request)
 GET
 <code><span id=vpTradingRecords>/v2/public/trading-records</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpTradingRecords"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpTradingRecords"><img src="/images/copy_to_clipboard.png" height=15 width=15></a></button>
 
 ##### t(:heading_request_parameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -188,7 +188,7 @@ t(:market_para_fundingRate)
 ##### t(:heading_http_request)
 GET
 <code><span id=oafPrevFundingRate>/open-api/funding/prev-funding-rate</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oafPrevFundingRate"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oafPrevFundingRate"><img src="/images/copy_to_clipboard.png" height=15 width=15></a></button>
 
 ##### t(:heading_request_parameters)
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -215,7 +215,7 @@ t(:market_para_querySymbol)
 ##### t(:heading_http_request)
 GET
 <code><span id=vpSymbols>/v2/public/symbols</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpSymbols"><img src="images/copy_to_clipboard.png" height=15 width=15></a></button>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpSymbols"><img src="/images/copy_to_clipboard.png" height=15 width=15></a></button>
 
 ##### t(:heading_request_parameters)
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
