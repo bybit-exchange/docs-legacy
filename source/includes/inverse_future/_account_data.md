@@ -350,8 +350,8 @@ GET
 |<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 
 
-## Conditional Orders
-### Place Conditional Order
+## t(:account_heading_cond)
+### t(:account_heading_placeCond)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -398,18 +398,7 @@ GET
 }
 ```
 
-Market price conditional order: A traditional market price order, will be filled at the best available price. `price` is not required for this type of order.
-
-Limit price conditional order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.
-
-Custom order ID: You may customise order IDs for conditional orders. We will link it to the system order ID, and return the unique system order ID to you after the conditional order is created successfully. You may use this order ID to cancel your conditional order. The customised order ID should be unique, with a maximum length of 36 characters.
-
-Conditional order trigger price: You may set a trigger price for your conditional order. Conditional orders will not enter the orderbook until the last price hits the trigger price. When the last price hits the trigger price, your order will either: 1) your limit conditional order will enter the orderbook, and wait to be executed; 2) your market conditional order will be executed immediately at the best available market price.
-
-Note: Take profit/Stop loss is not supported when placing conditional orders. One can only use these 2 functions when placing active orders.
-
-Each account can hold up to 10 conditional orders yet to be filled entirely simultaneously.
-
+t(:account_para_placeCond)
 
 ##### t(:heading_http_request)
 POST
@@ -432,7 +421,7 @@ POST
 |order_link_id |false |string |t(:row_comment_orderLinkId) |
 
 
-### Get Conditional Order
+### t(:account_heading_getCond)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -490,7 +479,7 @@ POST
 }
 ```
 
-Get my conditional order list.
+t(:account_para_getCond)
 
 ##### t(:heading_http_request)
 GET
@@ -509,7 +498,7 @@ GET
 |limit |false |integer |t(:row_comment_limit) |
 
 
-### Cancel Conditional Order
+### t(:account_heading_cancelCond)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -543,9 +532,7 @@ GET
 }
 ```
 
-`stop_order_id` is required for cancelling conditional order. The unique 36 characters order ID was returned to you when the conditional order was created successfully.
-
-You may cancel all untriggered conditional orders. Essentially, after a conditional order is triggered, it will become an active order. So, when a conditional order is triggered, cancellation has to be done through the active order endpoint for any unfilled or partially filled active order. As always, orders that have been fully filled cannot be cancelled.
+t(:account_para_cancelCond)
 
 ##### t(:heading_http_request)
 POST
@@ -560,7 +547,7 @@ POST
 |order_link_id |false |string | Agency customized order ID. **Required** if not pass stop_order_id|
 
 
-### Cancel All Conditional Orders
+### t(:account_heading_cancelAllCond)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -624,7 +611,7 @@ POST
 }
 ```
 
-Cancel all untriggered conditional orders.
+t(:account_para_cancelAllCond)
 
 ##### t(:heading_http_request)
 POST
@@ -637,7 +624,7 @@ POST
 |<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)|
 
 
-### Replace Conditional Order
+### t(:account_heading_replaceCond)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -654,16 +641,9 @@ POST
 }
 ```
 
-Replace conditional order can modify/amend your conditional orders.
-
-`order_id` and `symbol` are required for identifying a conditional order.
-
-`p_r_qty`, `p_r_price` and `p_r_trigger_price` can be set for your conditional order. If these fields are not provided, nothing will be modified.
-
-It is possible to modify only one of these at a time.
 
 <aside class="notice">
-Please note that you can only modify untriggered conditional orders.
+t(:account_aside_replaceCond)
 </aside>
 
 ##### t(:heading_http_request)

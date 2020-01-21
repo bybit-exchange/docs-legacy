@@ -178,9 +178,42 @@ en:
   ### Query Active Order (real-time)
   account_heading_queryActive: Query Active Order (real-time)
   account_para_queryActive: Query real-time active order information.
+
+  ## Conditional Orders
+  ### Place Conditional Order
+  account_heading_cond: Conditional Orders
+  account_heading_placeCond: Place Conditional Order
+  account_para_placeCond: |
+    <p>Market price conditional order: A traditional market price order, will be filled at the best available price. <code>price</code> is not required for this type of order.</p>
+    <p>Limit price conditional order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
+    <p>Custom order ID: You may customise order IDs for conditional orders. We will link it to the system order ID, and return the unique system order ID to you after the conditional order is created successfully. You may use this order ID to cancel your conditional order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
+    <p>Conditional order trigger price: You may set a trigger price for your conditional order. Conditional orders will not enter the orderbook until the last price hits the trigger price. When the last price hits the trigger price, your order will either: 1) your limit conditional order will enter the orderbook, and wait to be executed; 2) your market conditional order will be executed immediately at the best available market price.</p>
+    <p>Note: Take profit/Stop loss is not supported when placing conditional orders. One can only use these 2 functions when placing active orders.</p>
+    <p>Each account can hold up to 10 conditional orders yet to be filled entirely simultaneously.</p>
+  ### Get Conditional Order
+  account_heading_getCond: Get Conditional Order
+  account_para_getCond: Get my conditional order list.
+  ### Cancel Conditional Order
+  account_heading_cancelCond: Cancel Conditional Order
+  account_para_cancelCond: |
+    <p><code>stop_order_id</code> is required for cancelling conditional order. The unique 36 characters order ID was returned to you when the conditional order was created successfully.</p>
+    <p>You may cancel all untriggered conditional orders. Essentially, after a conditional order is triggered, it will become an active order. So, when a conditional order is triggered, cancellation has to be done through the active order endpoint for any unfilled or partially filled active order. As always, orders that have been fully filled cannot be cancelled.</p>
+  ### Cancel All Conditional Orders
+  account_heading_cancelAllCond: Cancel All Conditional Orders
+  account_para_cancelAllCond: Cancel all untriggered conditional orders.
+  ### Replace Conditional Order
+  account_heading_replaceCond: Replace Conditional Order
+  account_para_replaceCond:
+    <p>Replace conditional order can modify/amend your conditional orders.</p>
+    <p><code>order_id</code> and <code>symbol</code> are required for identifying a conditional order.</p>
+    <p><code>p_r_qty</code>, <code>p_r_price</code> and <code>p_r_trigger_price</code> can be set for your conditional order. If these fields are not provided, nothing will be modified.</p>
+    <p>It is possible to modify only one of these at a time.</p>
+  account_aside_replaceCond: |
+    Please note that you can only modify untriggered conditional orders.
   ### Query Conditional Order (real-time)
   account_heading_queryConditional: Query Conditional Order (real-time)
   account_para_queryConditional: Query real-time stop order information.
+
 
   ## Leverage
   account_heading_leverage: Leverage
