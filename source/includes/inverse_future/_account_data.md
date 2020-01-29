@@ -49,12 +49,12 @@ POST
 ##### t(:heading_request_parameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#enums-definitions-side-side">side</a> |true |string |Side    |
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol).    |
-|<a href="#enums-definitions-order-type-order_type">order_type</a> |true |string |Active order type   |
-|<a href="#enums-definitions-quantity-qty">qty</a> |true |integer |t(:row_comment_qty) |
-|<a href="#enums-definitions-price-price">price</a> |false |number |t(:row_comment_price) |
-|<a href="#enums-definitions-time-in-force-time_in_force">time_in_force</a> |true |string |t(:row_comment_timeInForce) |
+|<a href="#t-enums_header-side-side">side</a> |true |string |Side    |
+|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol).    |
+|<a href="#t-enums_header-order-type-order_type">order_type</a> |true |string |Active order type   |
+|<a href="#t-enums_header-quantity-qty">qty</a> |true |integer |t(:row_comment_qty) |
+|<a href="#t-enums_header-price-price">price</a> |false |number |t(:row_comment_price) |
+|<a href="#t-enums_header-time-in-force-time_in_force">time_in_force</a> |true |string |t(:row_comment_timeInForce) |
 |take_profit |false |number |t(:row_comment_takeProfit) |
 |stop_loss |false |number |t(:row_comment_stopLoss) |
 |trailing_stop|false |number |t(:row_comment_trailingStop) |
@@ -155,11 +155,11 @@ GET
 |:----- |:-------|:-----|----- |
 |order_id |false |string |t(:account_row_comment_orderId) |
 |order_link_id |false |string |t(:row_comment_orderLinkId) |
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |false |string |t(:row_comment_symbol). t(:default) `BTCUSD` |
-|t(:row_comment_order) |false |string |Sort orders by creation date   |
+|<a href="#t-enums_header-symbol-symbol">symbol</a> |false |string |t(:row_comment_symbol). t(:default) `BTCUSD` |
+|order |false |string |t(:row_comment_order)  |
 |page |false |integer |t(:row_comment_page) |
 |limit |false |integer |t(:row_comment_limit) |
-|<a href="#enums-definitions-order-status-order_status-creation">order_status</a> |false |string |t(:account_row_comment_orderStatus) |
+|<a href="#t-enums_header-order-status-order_status-get">order_status</a> |false |string |t(:account_row_comment_orderStatus) |
 
 
 ### t(:account_heading_cancelActive)
@@ -210,7 +210,7 @@ POST
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 |order_id |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
 |order_link_id |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
 
@@ -262,7 +262,7 @@ POST
 ##### t(:heading_request_parameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string | t(:row_comment_symbol) |
+|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string | t(:row_comment_symbol) |
 
 
 ### t(:account_heading_replaceActive)
@@ -294,7 +294,7 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |order_id |true |string |t(:row_comment_orderId) |
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol). |
+|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol). |
 |p_r_qty |false |int |t(:row_comment_pRQty) |
 |p_r_price |false |number |t(:row_comment_pRPrice) |
 
@@ -347,7 +347,7 @@ GET
 |:----- |:-------|:-----|----- |
 |order_id |false |string | t(:row_comment_orderId). **Required** if not pass order_link_id. |
 |order_link_id |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 
 
 ## t(:account_heading_cond)
@@ -408,15 +408,15 @@ POST
 ##### t(:heading_request_parameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#enums-definitions-side-side">side</a> |true |string |Side    |
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
-|<a href="#enums-definitions-order-type-order_type">order_type</a> |true |string |Conditional order type |
-|<a href="#enums-definitions-quantity-qty">qty</a> |true |integer |t(:row_comment_qty) |
-|<a href="#enums-definitions-price-price">price</a> |false | number |t(:row_comment_price) |
+|<a href="#t-enums_header-side-side">side</a> |true |string |Side    |
+|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
+|<a href="#t-enums_header-order-type-order_type">order_type</a> |true |string |Conditional order type |
+|<a href="#t-enums_header-quantity-qty">qty</a> |true |integer |t(:row_comment_qty) |
+|<a href="#t-enums_header-price-price">price</a> |false | number |t(:row_comment_price) |
 |base_price |true |number | It will be used to compare with the value of 'stop_px', to decide whether your conditional order will be triggered by crossing trigger price from upper side or lower side. Mainly used to identify the expected direction of the current conditional order. |
 |stop_px | true | number | Trigger price |
-|<a href="#enums-definitions-time-in-force-time_in_force">time_in_force</a> |true |string |t(:row_comment_timeInForce) |
-|<a href="#enums-definitions-trigger-price-type-trigger_by">trigger_by</a> | false | string | Trigger price type. Default `LastPrice` |
+|<a href="#t-enums_header-time-in-force-time_in_force">time_in_force</a> |true |string |t(:row_comment_timeInForce) |
+|<a href="#t-enums_header-trigger-price-type-trigger_by">trigger_by</a> | false | string | Trigger price type. Default `LastPrice` |
 |close_on_trigger |false |bool |t(:row_comment_closeOnTrigger)
 |order_link_id |false |string |t(:row_comment_orderLinkId) |
 
@@ -491,9 +491,9 @@ GET
 |:----- |:-------|:-----|----- |
 |stop_order_id |false |string |t(:row_comment_stopOrderId) |
 |order_link_id |false |string |Agency customized order ID|
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |false |string |t(:row_comment_symbol). Default `BTCUSD`    |
-|<a href="#enums-definitions-cancel-type-cancel_type">stop_order_status</a> |false |string |stop order status   |
-|t(:row_comment_order) |false |string |Sort orders by creation date   |
+|<a href="#t-enums_header-symbol-symbol">symbol</a> |false |string |t(:row_comment_symbol). Default `BTCUSD`    |
+|<a href="#t-enums_header-stop-order-status-stop_order_status">stop_order_status</a> |false |string |stop order status   |
+|order |false |string |t(:row_comment_order) |
 |page |false |integer |t(:row_comment_page) |
 |limit |false |integer |t(:row_comment_limit) |
 
@@ -542,7 +542,7 @@ POST
 ##### t(:heading_request_parameters)
 |t(:column_parameter)|required|type | comments|
 |:----- |:-------|:-----|----- |
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)|
+|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)|
 |stop_order_id |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
 |order_link_id |false |string | Agency customized order ID. **Required** if not pass stop_order_id|
 
@@ -621,7 +621,7 @@ POST
 ##### t(:heading_request_parameters)
 |t(:column_parameter)|required|type | comments|
 |:----- |:-------|:-----|----- |
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)|
+|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)|
 
 
 ### t(:account_heading_replaceCond)
@@ -655,7 +655,7 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |order_id |true |string |t(:row_comment_orderId) |
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol). |
+|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol). |
 |p_r_qty |false |int |t(:row_comment_pRQty) |
 |p_r_price |false |number |t(:row_comment_pRPrice) |
 |p_r_trigger_price |false |number |t(:row_comemnt_pRTriggerPrice) |
@@ -708,7 +708,7 @@ GET
 ##### t(:heading_request_parameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 |stop_order_id |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
 |order_link_id |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
 
@@ -783,7 +783,7 @@ POST
 ##### t(:heading_request_parameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
+|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
 |leverage |true |string |t(:row_comment_leverage) |
 
 
@@ -846,7 +846,7 @@ GET
 ##### t(:heading_request_parameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
+|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
 
 
 ### t(:account_heading_changeMargin)
@@ -880,7 +880,7 @@ POST
 ##### t(:heading_request_parameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
+|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
 |margin |true |string |margin  |
 
 
@@ -951,7 +951,7 @@ POST
 ##### t(:heading_request_parameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 |take_profit |false |string |t(:account_row_comment_takeProfit) |
 |stop_loss |false |string |t(:account_row_comment_stopLoss) |
 |trailing_stop |false |string |t(:account_row_comment_trailingStop) |
@@ -1024,7 +1024,7 @@ GET
 ##### t(:heading_request_parameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
+|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
 
 
 ## t(:account_heading_key)

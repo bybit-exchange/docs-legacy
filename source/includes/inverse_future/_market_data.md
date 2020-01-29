@@ -68,7 +68,7 @@ GET
 ##### t(:heading_request_parameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 
 
 ### Latest Information for Symbol
@@ -121,7 +121,7 @@ GET
 ##### t(:heading_request_parameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |false |string |t(:row_comment_symbol) |
+|<a href="#t-enums_header-symbol-symbol">symbol</a> |false |string |t(:row_comment_symbol) |
 
 
 ### t(:market_heading_records)
@@ -157,7 +157,7 @@ GET
 ##### t(:heading_request_parameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 |from |false |int |t(:row_comment_from)|
 |limit |false |int |Number of results. Default 500; max 1000|
 
@@ -193,7 +193,7 @@ GET
 ##### t(:heading_request_parameters)
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
+|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
 
 
 ### t(:market_heading_querySymbol)

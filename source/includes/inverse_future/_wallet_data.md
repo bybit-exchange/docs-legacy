@@ -59,9 +59,9 @@ GET
 |:----- |:-------|:-----|----- |
 |start_date |false |string |t(:row_comment_startDate) |
 |end_date |false |string |t(:row_comment_endDate) |
-|<a href="#enums-definitions-currency-currency-coin">currency</a> |false |string |t(:row_comment_currency) |
-|<a href="#enums-definitions-currency-currency-coin">coin</a> |false |string |t(:row_comment_coin) |
-|<a href="#enums-definitions-wallet-fund-type-wallet_fund_type">wallet_fund_type</a> |false |string |t(:row_comment_walletFundType) |
+|<a href="#t-enums_header-currency-currency-coin">currency</a> |false |string |t(:row_comment_currency) |
+|<a href="#t-enums_header-currency-currency-coin">coin</a> |false |string |t(:row_comment_coin) |
+|<a href="#t-enums_header-wallet-fund-type-wallet_fund_type">wallet_fund_type</a> |false |string |t(:row_comment_walletFundType) |
 |page |false |integer |t(:row_comment_page) |
 |limit |false |integer |t(:row_comment_limit) |
 
@@ -110,8 +110,8 @@ GET
 |:----- |:-------|:-----|----- |
 |start_date |false |string |t(:row_comment_startDate) |
 |end_date |false |string |t(:row_comment_endDate) |
-|<a href="#enums-definitions-currency-currency-coin">coin</a> |false |string |t(:row_comment_currency) |
-|<a href="#enums-definitions-withdraw-status-status">status</a> |false |string |t(:row_comment_withdrawStatus) |
+|<a href="#t-enums_header-currency-currency-coin">coin</a> |false |string |t(:row_comment_currency) |
+|<a href="#t-enums_header-withdraw-status-status">status</a> |false |string |t(:row_comment_withdrawStatus) |
 |page |false |integer |t(:row_comment_page) |
 |limit |false |integer |t(:row_comment_limit) |
 
@@ -175,7 +175,7 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |order_id |false |string |t(:wallet_row_comment_orderId) |
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |false |string |t(:misc_row_comment_symbolNotOrderId) |
+|<a href="#t-enums_header-symbol-symbol">symbol</a> |false |string |t(:misc_row_comment_symbolNotOrderId) |
 |start_time |false |int |t(:row_comment_startTime) |
 |page |false |integer |t(:row_comment_page) |
 |limit |false |integer |t(:row_comment_limit) |
@@ -333,5 +333,5 @@ GET
 ##### t(:heading_request_parameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#enums-definitions-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 |risk_id |true |integer |t(:row_comment_riskId) |

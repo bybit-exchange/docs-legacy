@@ -5,24 +5,24 @@ zh-cn:
   linear_future: 正向合约
   search: 搜索
   # universal/global
-  heading_http_request: HTTP Request
-  heading_request_parameters: Request Parameters
-  codequote_responseExample: Response Example
-  codequote_responseExampleFormatAll: Response Example - format of all responses
-  codequote_subscribe: How to Subscribe
-  codequote_snapshot: Snapshot Response Example - format of the first response
-  codequote_delta: Delta Response Example - format of the responses following the snapshot response
-  column_parameter: parameter
-  column_required: required
-  column_type: type
-  column_comments: comments
-  row_comment_symbol: Contract type
+  heading_http_request: HTTP 请求
+  heading_request_parameters: 请求参数
+  codequote_responseExample: 响应示例
+  codequote_responseExampleFormatAll: 响应示例
+  codequote_subscribe: 请求订阅
+  codequote_snapshot: 快照推送示例 - 链接建立成功后首次推送
+  codequote_delta: 增量推送示例 - 快照数据推送后，推送的增量数据
+  column_parameter: 参数
+  column_required: 是否必须
+  column_type: 类型
+  column_comments: 说明
+  row_comment_symbol: 合约类型
   row_comment_from: |
-    From ID. Default: return latest data
-  row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page
-  row_comment_orderType: Active order type
-  row_comment_qty: Order quantity in USD
-  row_comment_price: Execution price. <b>Required</b> if you make limit order. Must be an increment of 0.5
+    起始ID. 默认: 返回最新数据
+  row_comment_limit: 每页数量, 最大50. 默认每页20条
+  row_comment_orderType: 订单类型
+  row_comment_qty: 委托数量(1个委托1美元)
+  row_comment_price: 委托价格. 如果是下<b>条件单</b>，该参数为<b>必填</b>. 在没有仓位时，做多的委托价格需高于市价的10%、低于1百万。如有仓位时则需优于强平价。价格增减最小单位请参考<a href="#t-market_heading-t-auth_heading_construct-t-market_heading_querysymbol">交易对接口</a>响应中的<b>price_filter</b>字段；
   row_comment_timeInForce: Time in force
   row_comment_takeProfit: Take profit price
   row_comment_stopLoss: Stop loss price
@@ -62,6 +62,36 @@ zh-cn:
       <li><a href="https://t.me/Bybitapi">API Discussion Group <img src="/images/telegram_logo_icon.png" height="14", width="14"></a> - get help here!
       <li><a href="https://t.me/Bybit_API_Announcements">API Announcements Channel <img src="/images/telegram_logo_icon.png" height="14", width="14"></a> - subscribe for changes to the API!
     </ul>
+
+
+# Changelog
+  # if some missing values - they already have values elsewhere
+  changelog_heading: 更新日志
+  changelog_new: 新增
+  changelog_update: 更新
+  ## 2019-12-27 20191227
+  ## 2019-12-18 20191218
+  ## 2019-12-13 20191213
+  ## 2019-12-02 20191202
+  ## 2019-11-19 20191119
+  ## 2019-11-07 20191107
+  my_20191107: My position
+  ## 2019-11-04 20191104
+  cancelOrder_20191104: Cancel order
+  cancelOrder__20191104: Support cancel order by <code>order_link_id</code>
+  cancelCond__20191104: Support cancel conditional order by <code>order_link_id</code>
+  get__20191104: Add extra info
+  get___20191104: Update <code>ips</code> field to return content
+  update_20191104: Update REST API rate limit
+  update__20191104: The rate limit is accurate to milliseconds
+  update___20191104: Refine the rate limit of the endpoints
+  update____20191104: |
+    Add new response fields: <code>rate_limit_reset_ms</code>, <code>rate_limit</code>
+  ## 2019-10-22 20191022
+  position__20191022: Add extra info, eg. wallet_balance
+  trade__20191022: Fix issue of sometimes push same trade multi times
+  trade___20191022: Support pushing multi trades in single message
+
 
   # api_auth
   auth_heading: 鉴权/认证
@@ -134,8 +164,9 @@ zh-cn:
   market_heading_querySymbol: Query Symbol
   market_para_querySymbol: Get symbol info.
 
+
   # Account Data Endpoints
-  account_heading: 账户接口
+  account_heading: 账户/交易接口
   account_para: The following account data endpoints require authentication.
   ## Active Orders
   account_heading_active: Active Orders
@@ -173,6 +204,38 @@ zh-cn:
   ### Query Active Order (real-time)
   account_heading_queryActive: Query Active Order (real-time)
   account_para_queryActive: Query real-time active order information.
+
+  ## Conditional Orders
+  ### Place Conditional Order
+  account_heading_cond: Conditional Orders
+  account_heading_placeCond: Place Conditional Order
+  account_para_placeCond: |
+    <p>Market price conditional order: A traditional market price order, will be filled at the best available price. <code>price</code> is not required for this type of order.</p>
+    <p>Limit price conditional order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
+    <p>Custom order ID: You may customise order IDs for conditional orders. We will link it to the system order ID, and return the unique system order ID to you after the conditional order is created successfully. You may use this order ID to cancel your conditional order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
+    <p>Conditional order trigger price: You may set a trigger price for your conditional order. Conditional orders will not enter the orderbook until the last price hits the trigger price. When the last price hits the trigger price, your order will either: 1) your limit conditional order will enter the orderbook, and wait to be executed; 2) your market conditional order will be executed immediately at the best available market price.</p>
+    <p>Note: Take profit/Stop loss is not supported when placing conditional orders. One can only use these 2 functions when placing active orders.</p>
+    <p>Each account can hold up to 10 conditional orders yet to be filled entirely simultaneously.</p>
+  ### Get Conditional Order
+  account_heading_getCond: Get Conditional Order
+  account_para_getCond: Get my conditional order list.
+  ### Cancel Conditional Order
+  account_heading_cancelCond: Cancel Conditional Order
+  account_para_cancelCond: |
+    <p><code>stop_order_id</code> is required for cancelling conditional order. The unique 36 characters order ID was returned to you when the conditional order was created successfully.</p>
+    <p>You may cancel all untriggered conditional orders. Essentially, after a conditional order is triggered, it will become an active order. So, when a conditional order is triggered, cancellation has to be done through the active order endpoint for any unfilled or partially filled active order. As always, orders that have been fully filled cannot be cancelled.</p>
+  ### Cancel All Conditional Orders
+  account_heading_cancelAllCond: Cancel All Conditional Orders
+  account_para_cancelAllCond: Cancel all untriggered conditional orders.
+  ### Replace Conditional Order
+  account_heading_replaceCond: Replace Conditional Order
+  account_para_replaceCond:
+    <p>Replace conditional order can modify/amend your conditional orders.</p>
+    <p><code>order_id</code> and <code>symbol</code> are required for identifying a conditional order.</p>
+    <p><code>p_r_qty</code>, <code>p_r_price</code> and <code>p_r_trigger_price</code> can be set for your conditional order. If these fields are not provided, nothing will be modified.</p>
+    <p>It is possible to modify only one of these at a time.</p>
+  account_aside_replaceCond: |
+    Please note that you can only modify untriggered conditional orders.
   ### Query Conditional Order (real-time)
   account_heading_queryConditional: Query Conditional Order (real-time)
   account_para_queryConditional: Query real-time stop order information.
@@ -573,7 +636,7 @@ zh-cn:
   markPrice:  ""
 ## Order status (`order_status`) (creation)
   aside_orderStatusCreation: |
-    These are the possible values for <code>order_status</code> as included in the response of an <b>Order Creation</b> request. To see the options for <code>order_status</code> in the response for a Get Active/Conditional request, see <a href="#enums-definitions-order-status-order_status-get">here</a>.
+    These are the possible values for <code>order_status</code> as included in the response of an <b>Order Creation</b> request. To see the options for <code>order_status</code> in the response for a Get Active/Conditional request, see <a href="#t-enums_header-order-status-order_status-get">here</a>.
   created:          ""
   new:              ""
   partiallyFilled:  ""
@@ -586,7 +649,7 @@ zh-cn:
   asc:  ""
 ## Order status (`order_status`) (get)
   aside_orderStatusGet: |
-    These are the possible values for <code>order_status</code> as included in the response of a <b>Get Order</b> request. To see the options for <code>order_status</code> in the response for a Create Active/Conditional request, see <a href="#enums-definitions-order-status-order_status-creation">here</a>.
+    These are the possible values for <code>order_status</code> as included in the response of a <b>Get Order</b> request. To see the options for <code>order_status</code> in the response for a Create Active/Conditional request, see <a href="#t-enums_header-order-status-order_status-creation">here</a>.
   para_orderStatusGet: |
     Filter fetched orders by their order statuses. To filter by multiple statuses, separate with a comma like so: <code>Filled,New</code>
   created1:         ""
