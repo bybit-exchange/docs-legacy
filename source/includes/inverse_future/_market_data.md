@@ -2,6 +2,12 @@
 t(:market_para_auth)
 
 ### t(:market_heading_time)
+> t(:codequote_curlExample)
+
+```console
+curl https://api-testnet.bybit.com/v2/public/tickers
+```
+
 > t(:codequote_responseExample)
 
 ```javascript
@@ -14,7 +20,6 @@ t(:market_para_auth)
     "time_now": "1577444332.192859"
 }
 ```
-
 Get Bybit server time.
 
 ##### t(:heading_http_request)
@@ -28,6 +33,12 @@ GET
 
 
 ### t(:market_heading_orderbook)
+> t(:codequote_curlExample)
+
+```console
+curl https://api-testnet.bybit.com/v2/public/orderBook/L2?symbol=BTCUSD
+```
+
 > t(:codequote_responseExample)
 
 ```javascript
@@ -72,6 +83,12 @@ GET
 
 
 ### t(:market_heading_symbol)
+> t(:codequote_curlExample)
+
+```console
+curl https://api-testnet.bybit.com/v2/public/tickers
+```
+
 > t(:codequote_responseExample)
 
 ```javascript
@@ -125,6 +142,12 @@ GET
 
 
 ### t(:market_heading_records)
+> t(:codequote_curlExample)
+
+```console
+curl https://api-testnet.bybit.com/v2/public/trading-records?symbol=BTCUSD
+```
+
 > t(:codequote_responseExample)
 
 ```javascript
@@ -162,7 +185,11 @@ GET
 |limit |false |int |Number of results. Default 500; max 1000|
 
 
+### t(:market_heading_querySymbol)
+> t(:codequote_curlExample)
 
+```console
+curl https://api-testnet.bybit.com/v2/public/symbols
 ```
 
 > t(:codequote_responseExample)
