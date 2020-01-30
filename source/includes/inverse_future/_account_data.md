@@ -1,7 +1,7 @@
 # t(:account_heading)
 The following account data endpoints require authentication.
 
-## Active Orders
+## t(:account_heading_active)
 ### t(:account_heading_placeActive)
 > t(:codequote_responseExample)
 

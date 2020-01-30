@@ -71,7 +71,7 @@ GET
 |<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 
 
-### Latest Information for Symbol
+### t(:market_heading_symbol)
 > t(:codequote_responseExample)
 
 ```javascript
