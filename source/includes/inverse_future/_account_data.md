@@ -958,6 +958,39 @@ POST
 
 
 ## t(:account_heading_funding)
+### t(:market_heading_fundingRate)
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "ok",
+    "ext_code": "",
+    "result": {
+        "symbol": "BTCUSD",
+        "funding_rate": "0.00010000",
+        "funding_rate_timestamp": 1577433600
+    },
+    "ext_info": null,
+    "time_now": "1577445586.446797",
+    "rate_limit_status": 119,
+    "rate_limit_reset_ms": 1577445586454,
+    "rate_limit": 120
+}
+```
+
+t(:market_para_fundingRate)
+
+##### t(:heading_http_request)
+GET
+<code><span id=oafPrevFundingRate>/open-api/funding/prev-funding-rate</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oafPrevFundingRate"><img src="/images/copy_to_clipboard.png" height=15 width=15></a></button>
+
+##### t(:heading_request_parameters)
+|parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
+
 ### t(:account_heading_myLastFunding)
 > t(:codequote_responseExample)
 
@@ -1013,8 +1046,7 @@ GET
     "rate_limit": 120
 }
 ```
-
-t:(account_para_predictedFunding)
+t(:account_para_predictedFunding)
 
 ##### t(:heading_http_request)
 GET
