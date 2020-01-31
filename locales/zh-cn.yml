@@ -51,16 +51,16 @@ zh-cn:
   # introduction in index.html.md
   intro_heading: 介绍
   intro_para:
-    <p>欢迎使用 <a href="https://www.bybit.com/">Bybit</a> APIs 和 Websocket官方文档! Here you can find details on how to access all of our endpoints, their respective expected outputs, and possible errors you may encounter.</p>
-    <p>If you encounter an issue you need help with, have a suggestions for us, or just want to have a chat with fellow developers then please head on over to our <a href="https://t.me/Bybitapi">API Telegram chat</a>!</p>
+    <p>欢迎使用 <a href="https://www.bybit.com/">Bybit</a> APIs 和 Websocket官方文档！</p>
+    <p>如果您在使用API的过程中遇到问题需要帮助，请加入我们的 <a href="https://t.me/Bybitapi">官方Telegram API讨论群</a>！</p>
 
   intro_heading_resources: 参考资料
   intro_para_resources:
     <ul>
-      <li><a href="https://github.com/bybit-exchange/bybit-official-api-docs">bybit-official-api-docs <img src="/images/github_logo_icon.png" height="14", width="14"></a> - report issues here!
-      <li><a href="https://github.com/bybit-exchange/api-connectors/">Bybit's api-connectors <img src="/images/github_logo_icon.png" height="14", width="14"></a> - find a repo of prebuilt libraries here!
-      <li><a href="https://t.me/Bybitapi">API Discussion Group <img src="/images/telegram_logo_icon.png" height="14", width="14"></a> - get help here!
-      <li><a href="https://t.me/Bybit_API_Announcements">API Announcements Channel <img src="/images/telegram_logo_icon.png" height="14", width="14"></a> - subscribe for changes to the API!
+      <li><a href="https://github.com/bybit-exchange/bybit-official-api-docs">bybit-official-api-docs <img src="/images/github_logo_icon.png" height="14", width="14"></a> - 在这里提bug
+      <li><a href="https://github.com/bybit-exchange/api-connectors/">Bybit's api-connectors <img src="/images/github_logo_icon.png" height="14", width="14"></a> - 官方API SDK
+      <li><a href="https://t.me/Bybitapi">API Discussion Group <img src="/images/telegram_logo_icon.png" height="14", width="14"></a> - API讨论群
+      <li><a href="https://t.me/Bybit_API_Announcements">API Announcements Channel <img src="/images/telegram_logo_icon.png" height="14", width="14"></a> - API公告群
     </ul>
 
 
@@ -95,7 +95,7 @@ zh-cn:
 
   # api_auth
   auth_heading: 鉴权/认证
-  auth_aside_key: To generate an API key please go <a href="https://testnet.bybit.com/app/user/api-management">here for the <b>testnet</b></a> or <a href="https://www.bybit.com/app/user/api-management">here for the <b>mainnet</b></a>.
+  auth_aside_key: 请先生成<a href="https://testnet.bybit.com/app/user/api-management"><b>测试网</b></a> 或 <a href="https://www.bybit.com/app/user/api-management"<b>主网</b></a>API KEY。
   auth_para_domains: |
     Domains:
     <ul>
@@ -109,37 +109,37 @@ zh-cn:
       </li>
     </ul>
   auth_para_privatepublic:
-    <p>All requests made to <b>private</b> endpoints must be authenticated. Requests made to <b>public</b> endpoints do not require the additional parameters needed for authentication.</p>
+    <p>所有<b>private</b>接口都需要认证，<b>public</b> 接口不需要认证。</p>
 
   auth_heading_params: 公共参数
   auth_para_params: |
-    The following parameters must be used for authentication:
+    需要签名的接口必须包含以下参数:
     <ul>
-      <li>`api_key`</li>
-      <li>`timestamp` - UTC timestamp in **milliseconds**</li>
-      <li>`sign` - a signature derived from the request's parameters</li>
+      <li><b>api_key</b></li>
+      <li><b>timestamp</b> - UTC<b>毫秒</b>时间戳</li>
+      <li><b>sign</b> - 请求参数签名</li>
     </ul>
-  auth_aside_timestamp: |
-    Make sure to conform to the timestamp rule of verification or your request will be rejected! Timestamp rule of verification: timestamp < server_time + 1000
   auth_para_recv : |
-    Additionally, we offer the <code>recv_window</code>, which indicates for how long an HTTP request is valid. This should be sent in milliseconds. Default value: 5000. This is used to prevent replay attacks.
+    另外我们提供可选的<code>recv_window</code>参数（单位是毫秒，默认值为<code>5000</code>），来指定请求在多长时间内有效，同时用来防止重放攻击。
+  auth_aside_timestamp: |
+    注意，timestamp参数必须符合如下规则: <b>server_time - recv_window <= timestamp < server_time + 1000</b>，其中server_time是Bybit服务器时间，您可以通过<a href="#t-market_heading-t-auth_heading_construct-t-market_heading_time">服务器时间接口</a>获取。
   auth_heading_construct: 构建请求
   auth_codequote_construct1a:
-    An example for adjusting leverage
+    拼接参数示例（以修改杠杆接口为例）：
   auth_codequote_construct1b:
-    Note how the parameters are ordered in <b>ascending</b> order, with api_key first followed by leverage, then symbol, then timestamp.
+    参数按照 <b>字母顺序</b> 排列，然后计算<code>sign</code>。
   auth_codequote_construct2: |
-    Different requests need different message formats. Possible message formats for <b>GET</b> requests:
+    <b>GET</b>请求格式（查询杠杆）:
   auth_codequote_construct3: |
-    Message format for <b>POST</b> requests:
+    <b>POST</b>请求格式（修改杠杆）:
   auth_para_construct1:
-    <p>1. Concatenate all the public parameters in the <a href="https://en.wikipedia.org/wiki/Query_string">query string</a> format. The parameters must be ordered in <b>ascending</b> order. This will be used to generate the <code>sign</code>.</p>
+    <p>1. 所有参数按照字母顺序排序，然后按照<a href="https://en.wikipedia.org/wiki/Query_string">query string</a>格式拼接。</p>
   auth_para_construct2:
-    <p>2. Sign the parameters string.</p>
+    <p>2. 使用<code>HMAC_SHA256</code>算法对第1步中拼接的query string签名，并转换为16进制字符串，得出<code>sign</code>参数。</p>
   auth_para_construct3:
-    <p>3. Append the signature at the end of the parameters string, and send the HTTP request. Please note that the format for messages is different depending on whether you are sending a GET or POST request.</p>
+    <p>3. 将<code>sign</code>参数加到请求参数中即可；注意<code>GET</code>和<code>POST</code>请求参数格式不同，详见右边示例。</p>
   auth_aside_signature:
-    Example signature algorithms can be found <a href="https://github.com/bybit-exchange/bybit-official-api-docs/tree/master/en/example">here</a>.
+    <a href="https://github.com/bybit-exchange/bybit-official-api-docs/tree/master/en/example">签名计算示例</a>.
 
   # Market Data Endpoints
   market_heading: 行情接口

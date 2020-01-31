@@ -7,11 +7,13 @@ t(:auth_para_privatepublic)
 
 ## t(:auth_heading_params)
 
+t(:auth_para_params)
+
+t(:auth_para_recv)
+
 <aside class="warning">
 t(:auth_aside_timestamp)
 </aside>
-
-t(:auth_para_recv)
 
 ## t(:auth_heading_construct)
 > t(:auth_codequote_construct1a)
@@ -36,18 +38,6 @@ t(:auth_para_construct2)
 ```http
 GET /user/leverage?api_key=B2Rou0PLPpGqcU0Vu2&timestamp=1542434791000&sign=670e3e4aa32b243f2dedf1dafcec2fd17a440e71b05681550416507de591d908 HTTP/1.1
 Host: api-testnet.bybit.com
-```
-
-```http
-GET /user/leverage HTTP/1.1
-Host: api-testnet.bybit.com
-Content-Type: application/json
-
-{
-    "api_key": "B2Rou0PLPpGqcU0Vu2",
-    "timestamp": 1542434791000,
-    "sign": "670e3e4aa32b243f2dedf1dafcec2fd17a440e71b05681550416507de591d908"
-}
 ```
 
 > t(:auth_codequote_construct3)
