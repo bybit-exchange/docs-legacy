@@ -119,25 +119,25 @@ en:
   auth_para_params: |
     The following parameters must be used for authentication:
     <ul>
-      <li>`api_key`</li>
-      <li>`timestamp` - UTC timestamp in **milliseconds**</li>
-      <li>`sign` - a signature derived from the request's parameters</li>
+      <li><b>api_key</b></li>
+      <li><b>timestamp</b> - UTC timestamp in <b>milliseconds</b></li>
+      <li><b>sign</b> - a signature derived from the request's parameters</li>
     </ul>
   auth_aside_timestamp: |
-    Make sure to conform to the timestamp rule of verification or your request will be rejected! Timestamp rule of verification: timestamp < server_time + 1000
+    Make sure to conform to the timestamp rule of verification or your request will be rejected! Timestamp rule of verification: <b>server_time - recv_window <= timestamp < server_time + 1000</b>; <b>server_time</b> stands for Bybit server time, you can get it from <a href="#t-market_heading-t-auth_heading_construct-t-market_heading_time">Server Time</a> endpoint.
   auth_para_recv : |
     Additionally, we offer the <code>recv_window</code>, which indicates for how long an HTTP request is valid. This should be sent in milliseconds. Default value: 5000. This is used to prevent replay attacks.
   auth_heading_construct: Constructing the Request
   auth_codequote_construct1a:
     An example for adjusting leverage
   auth_codequote_construct1b:
-    Note how the parameters are ordered in <b>ascending</b> order, with api_key first followed by leverage, then symbol, then timestamp.
+    Note how the parameters are ordered in <b>alphabetical</b> order, with api_key first followed by leverage, then symbol, then timestamp.
   auth_codequote_construct2: |
     Different requests need different message formats. Possible message formats for <b>GET</b> requests:
   auth_codequote_construct3: |
     Message format for <b>POST</b> requests:
   auth_para_construct1:
-    <p>1. Concatenate all the public parameters in the <a href="https://en.wikipedia.org/wiki/Query_string">query string</a> format. The parameters must be ordered in <b>ascending</b> order. This will be used to generate the <code>sign</code>.</p>
+    <p>1. Concatenate all the public parameters in the <a href="https://en.wikipedia.org/wiki/Query_string">query string</a> format. The parameters must be ordered in <b>alphabetical</b> order. This will be used to generate the <code>sign</code>.</p>
   auth_para_construct2:
     <p>2. Sign the parameters string.</p>
   auth_para_construct3:
