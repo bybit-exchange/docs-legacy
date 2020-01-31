@@ -2,6 +2,12 @@
 t(:market_para_auth)
 
 ### t(:market_heading_time)
+> t(:codequote_curlExample)
+
+```console
+curl https://api-testnet.bybit.com/v2/public/tickers
+```
+
 > t(:codequote_responseExample)
 
 ```javascript
@@ -14,7 +20,6 @@ t(:market_para_auth)
     "time_now": "1577444332.192859"
 }
 ```
-
 Get Bybit server time.
 
 ##### t(:heading_http_request)
@@ -28,6 +33,12 @@ GET
 
 
 ### t(:market_heading_orderbook)
+> t(:codequote_curlExample)
+
+```console
+curl https://api-testnet.bybit.com/v2/public/orderBook/L2?symbol=BTCUSD
+```
+
 > t(:codequote_responseExample)
 
 ```javascript
@@ -71,7 +82,13 @@ GET
 |<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 
 
-### Latest Information for Symbol
+### t(:market_heading_symbol)
+> t(:codequote_curlExample)
+
+```console
+curl https://api-testnet.bybit.com/v2/public/tickers
+```
+
 > t(:codequote_responseExample)
 
 ```javascript
@@ -125,6 +142,12 @@ GET
 
 
 ### t(:market_heading_records)
+> t(:codequote_curlExample)
+
+```console
+curl https://api-testnet.bybit.com/v2/public/trading-records?symbol=BTCUSD
+```
+
 > t(:codequote_responseExample)
 
 ```javascript
@@ -162,41 +185,13 @@ GET
 |limit |false |int |Number of results. Default 500; max 1000|
 
 
-### t(:market_heading_fundingRate)
-> t(:codequote_responseExample)
+### t(:market_heading_querySymbol)
+> t(:codequote_curlExample)
 
-```javascript
-{
-    "ret_code": 0,
-    "ret_msg": "ok",
-    "ext_code": "",
-    "result": {
-        "symbol": "BTCUSD",
-        "funding_rate": "0.00010000",
-        "funding_rate_timestamp": 1577433600
-    },
-    "ext_info": null,
-    "time_now": "1577445586.446797",
-    "rate_limit_status": 119,
-    "rate_limit_reset_ms": 1577445586454,
-    "rate_limit": 120
-}
+```console
+curl https://api-testnet.bybit.com/v2/public/symbols
 ```
 
-t(:market_para_fundingRate)
-
-##### t(:heading_http_request)
-GET
-<code><span id=oafPrevFundingRate>/open-api/funding/prev-funding-rate</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oafPrevFundingRate"><img src="/images/copy_to_clipboard.png" height=15 width=15></a></button>
-
-##### t(:heading_request_parameters)
-|parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
-
-
-### t(:market_heading_querySymbol)
 > t(:codequote_responseExample)
 
 ```javascript
