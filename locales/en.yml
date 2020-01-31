@@ -1,15 +1,10 @@
 ---
 en:
+  # universal/global
   international: 简体中文
   inverse_future: Inverse Futures
   linear_future: Linear Futures
   search: Search
-  introduction: Introduction
-  bybit_api_resources: Bybit Api Resources
-  authentication: Authentication
-  param_for_auth: 鉴权公共参数
-  construct_req: 创建请求
-  # universal/global
   heading_http_request: HTTP Request
   heading_request_parameters: Request Parameters
   codequote_responseExample: Response Example
@@ -52,6 +47,9 @@ en:
   row_comment_withdrawStatus: Withdraw status
   row_comment_startTime: Start timestamp point for result
   row_comment_riskId: Risk ID. Can be found with the <a href="#get-risk-limit">Get Risk Limit</a> endpoint
+  row_comment_limit: limit
+  row_comment_path: path
+  row_comment_consume: consume
 
 
   # introduction in index.html.md
@@ -316,12 +314,32 @@ en:
 
   # API Rate Limits
   rate_heading: API Rate Limits
-  ### Understanding Your Request Rate Limit
+  ### IP Rate Limit
+  ip_rate_heading_understandin: IP Rate Limit
+  ip_rate_para_understanding: |
+    <p> Bybit has different IP frequency limits for <code>GET</code> and <code>POST</code> method：</p>
+    <ul>
+    <li>
+      <code>GET</code>method: 
+      <ul>
+        <li>35 requests per second</li>
+        <li>25 requests per second continuously for 2 minutes</li>
+      </ul>
+    </li>
+    <li>
+      <code>POST</code>method: 
+      <ul>
+        <li>25 requests per second</li>
+        <li>10 requests per second continuously for 2 minutes</li>
+      </ul>
+    </li>
+    </ul>
+  ### Account rate limit
   rate_heading_understandin: Understanding Your Request Rate Limit
   rate_para_understanding: |
-    Every request to the API returns the fields shown in the code panel:
-  rate_text_limitStatus_understanding: your remaining requests
-  rate_text_limit_understanding: your current limit
+    Bybit makes frequency limits based on <b> the sliding time window per minute and uid</b>. Every request to the API returns the fields shown in the code panel:
+  rate_text_limitStatus_understanding: your remaining requests for current endpoint
+  rate_text_limit_understanding: your current limit for current endpoint
   rate_text_limitReset: the timestamp indicating when your request limit resets if you have exceeded your rate_limit. Otherwise, this is just the current timestamp.
   ### Rate Limits For All Endpoints
   rate_heading_allEndpoints: Rate Limits For All Endpoints
@@ -414,12 +432,12 @@ en:
     BTC best ask = 10001
     Effective Price Range: [(10000 + 10001) / 2 - 3* 0.5, (10000 + 10001) / 2 + 3* 0.5] = [9999,10002]
   ###### POU
-  rate_heading_POUExample: POU
-  rate_para_POUExample: |
+  rate_heading_POU: POU
+  rate_para_POU: |
     <ul>
-    <li><code>POA</code>: the proportion of your orders within <code>effective price range</code> to all orders within <code>effective price range</code> in orderbook.</li>
+    <li><code>POU</code>: the proportion of your orders within <code>effective price range</code> to all your orders in orderbook.</li>
     </ul>
-    <p>Bybit calculates your amount of orders within <code>effective price range</code> / amount of all orders within <code>effective price range</code> in orderbook, and then performs a 1-Day Time-Weighted-Average over the series of seconds rates.</p>
+    <p>Bybit calculates your amount of orders within <code>effective price range</code> / amount of all your orders in orderbook, and then performs a 1-Day Time-Weighted-Average over the series of seconds rates.</p>
   ###### POU example
   rate_heading_POUExample: POU Example
   rate_para_POUExample: User C bids 2000 contracts for $9995 and bids 8000 contracts for $9999, while effective price range is [9999,10002]

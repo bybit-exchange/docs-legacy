@@ -1,10 +1,13 @@
 # t(:rate_heading)
+### t(:ip_rate_heading_understandin)
+t(:ip_rate_para_understanding)
+
 ### t(:rate_heading_understandin)
 t(:rate_para_understanding)
 
 ```
 "rate_limit_status": 119,
-"rate_limit_reset_ms": 1572114055663815,
+"rate_limit_reset_ms": 1572114055663,
 "rate_limit": 120
 ```
 
@@ -16,57 +19,66 @@ t(:rate_para_understanding)
 ### t(:rate_heading_allEndpoints)
 <table class="custom_table">
   <tr>
-    <th>limit</th>
-    <th>path</th>
+    <th>t(:row_comment_limit)</th>
+    <th>t(:row_comment_path)</th>
+    <th>t(:row_comment_consume)</th>
   </tr>
   <tr>
     <td rowspan="10">100/min</td>
     <td>open-api/order/create </td>
+    <td>1 / request</td>
   </tr>
-  <tr><td>open-api/order/cancel       </td></tr>
-  <tr><td>open-api/stop-order/create  </td></tr>
-  <tr><td>open-api/stop-order/cancel  </td></tr>
-  <tr><td>open-api/order/replace      </td></tr>
-  <tr><td>open-api/stop-order/replace </td></tr>
-  <tr><td>v2/private/order/create     </td></tr>
-  <tr><td>v2/private/order/cancel     </td></tr>
-  <tr><td>v2/private/order/cancelAll  </td></tr>
-  <tr><td>v2/private/stop-order/cancelAll </td></tr>
+  <tr><td>open-api/order/cancel       </td><td>1 / request</td></tr>
+  <tr><td>open-api/stop-order/create  </td><td>1 / request</td></tr>
+  <tr><td>open-api/stop-order/cancel  </td><td>1 / request</td></tr>
+  <tr><td>open-api/order/replace      </td><td>1 / request</td></tr>
+  <tr><td>open-api/stop-order/replace </td><td>1 / request</td></tr>
+  <tr><td>v2/private/order/create     </td><td>1 / request</td></tr>
+  <tr><td>v2/private/order/cancel     </td><td>1 / request</td></tr>
+  <tr><td>v2/private/order/cancelAll  </td><td>10 / request</td></tr>
+  <tr><td>v2/private/stop-order/cancelAll </td><td>10 / request</td></tr>
   <tr>
     <td rowspan="3">600/min</td>
     <td>open-api/order/list </td>
+    <td>1 / request</td>
   </tr>
-  <tr><td>open-api/stop-order/list </td></tr>
-  <tr><td>v2/private/order </td></tr>
+  <tr><td>open-api/stop-order/list </td><td>1 / request</td></tr>
+  <tr><td>v2/private/order </td><td>1 / request</td></tr>
   <tr>
     <td>120/min</td>
     <td>v2/private/execution/list</td>
+    <td>1 / request</td>
   </tr>
   <tr>
     <td rowspan="3">75/min</td>
     <td>user/leverage/save  </td>
+    <td>1 / request</td>
   </tr>
-  <tr><td>position/change-position-margin </td></tr>
-  <tr><td>position/trading-stop           </td></tr>
+  <tr><td>position/change-position-margin </td><td>1 / request</td></tr>
+  <tr><td>position/trading-stop           </td><td>1 / request</td></tr>
   <tr>
     <td rowspan="2">120/min</td>
     <td>position/list  </td>
+    <td>1 / request</td>
   </tr>
-  <tr><td>user/leverage</td></tr>
+  <tr><td>user/leverage</td><td>1 / request</td></tr>
   <tr>
     <td rowspan="3">120/min</td>
     <td>open-api/funding/prev-funding-rate  </td>
+    <td>1 / request</td>
   </tr>
-  <tr><td>open-api/funding/prev-funding      </td></tr>
-  <tr><td>open-api/funding/predicted-funding </td></tr>
+  <tr><td>open-api/funding/prev-funding      </td><td>1 / request</td></tr>
+  <tr><td>open-api/funding/predicted-funding </td><td>1 / request</td></tr>
   <tr>
     <td rowspan="2">120/min</td>
     <td>open-api/wallet/fund/records  </td>
+    <td>1 / request</td>
   </tr>
-<tr><td>open-api/wallet/withdraw/list </td></tr>
+<tr><td>open-api/wallet/withdraw/list </td><td>1 / request</td></tr>
 <tr>
     <td rowspan="1">600/min</td>
     <td>open-api/api-key  </td>
+    <td>1 / request</td>
   </tr>
 </table>
 
@@ -104,7 +116,6 @@ t(:rate_para_minimum)
 #### t(:rate_heading_frequency)
 t(:rate_para_frequency)
 
-`LCP` and API request frequency threshold:
 
 | t(:column_LCP) | t(:column_frequencyLimit) |
 |  ----    | ----  |
@@ -127,11 +138,8 @@ t(:rate_pre_priceRangeExample)
 </pre>
 
 
-###### t(:rate_heading_POUExample)
-t(:rate_para_POUExample)
-
-###### t(:rate_heading_POUExample)
-t(:rate_para_POUExample)
+###### t(:rate_heading_POU)
+t(:rate_para_POU)
 
 <pre class="center-column-nonindent">
 t(:rate_pre_POUExample)
