@@ -9,6 +9,7 @@ zh-cn:
   heading_request_parameters: 请求参数
   codequote_responseExample: 响应示例
   codequote_responseExampleFormatAll: 响应示例
+  codequote_curlExample: Curl 请求示例
   codequote_subscribe: 请求订阅
   codequote_snapshot: 快照推送示例 - 链接建立成功后首次推送
   codequote_delta: 增量推送示例 - 快照数据推送后，推送的增量数据
@@ -125,7 +126,7 @@ zh-cn:
   auth_para_recv : |
     另外我们提供可选的<code>recv_window</code>参数（单位是毫秒，默认值为<code>5000</code>），来指定请求在多长时间内有效，同时用来防止重放攻击。
   auth_aside_timestamp: |
-    注意，timestamp参数必须符合如下规则: <b>server_time - recv_window <= timestamp < server_time + 1000</b>，其中server_time是Bybit服务器时间，您可以通过<a href="#t-market_heading-t-auth_heading_construct-t-market_heading_time">服务器时间接口</a>获取。
+    注意，timestamp参数必须符合如下规则: <b>server_time - recv_window <= timestamp < server_time + 1000</b>，其中server_time是Bybit服务器时间，您可以通过<a href="#t-api_heading-t-wallet_heading_setrisk-t-api_heading_server_time">服务器时间接口</a>获取。
   auth_heading_construct: 构建请求
   auth_codequote_construct1a:
     拼接参数示例（以修改杠杆接口为例）：
@@ -148,7 +149,7 @@ zh-cn:
   market_heading: 行情接口
   market_para_auth: The following market data endpoints do not require authentication.
   ### server time
-  market_heading_time: Server Time
+  api_heading_server_time: Server Time
   market_para_time: Get Bybit server time.
   ### Orderbook
   market_heading_orderbook: Orderbook
@@ -306,11 +307,14 @@ zh-cn:
   wallet_para_setRisk: Set risk limit.
 
   # API Data Endpoints
-  api_heading: API Key接口
-  api_para: The following API data endpoint does not require authentication.
+  api_heading: 通用数据接口
+  api_para: 通用数据接口不需要鉴权。
+  ### Server time
+  api_heading_server_time: 服务器时间
+  api_para_time: 获取Bybit服务器时间
   ### Announcement
-  api_heading_announcment: Announcement
-  api_para_announcement: Get Bybit OpenAPI announcements in the last 30 days.
+  api_heading_announcment: 公告
+  api_para_announcement: 获取Bybit最近30天OpenAPI公告（时间倒叙排列）
 
   # API Rate Limits
   rate_heading: 频率限制

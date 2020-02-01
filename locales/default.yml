@@ -1,10 +1,15 @@
 ---
-default:
+en:
   # universal/global
+  international: 简体中文
+  inverse_future: Inverse Futures
+  linear_future: Linear Futures
+  search: Search
   heading_http_request: HTTP Request
   heading_request_parameters: Request Parameters
   codequote_responseExample: Response Example
   codequote_responseExampleFormatAll: Response Example - format of all responses
+  codequote_curlExample: Curl Example
   codequote_subscribe: How to Subscribe
   codequote_snapshot: Snapshot Response Example - format of the first response
   codequote_delta: Delta Response Example - format of the responses following the snapshot response
@@ -42,10 +47,9 @@ default:
   row_comment_withdrawStatus: Withdraw status
   row_comment_startTime: Start timestamp point for result
   row_comment_riskId: Risk ID. Can be found with the <a href="#get-risk-limit">Get Risk Limit</a> endpoint
-
-
-  default: Default
-
+  row_comment_limit: limit
+  row_comment_path: path
+  row_comment_consume: consume
 
 
   # introduction in index.html.md
@@ -62,6 +66,35 @@ default:
       <li><a href="https://t.me/Bybitapi">API Discussion Group <img src="/images/telegram_logo_icon.png" height="14", width="14"></a> - get help here!
       <li><a href="https://t.me/Bybit_API_Announcements">API Announcements Channel <img src="/images/telegram_logo_icon.png" height="14", width="14"></a> - subscribe for changes to the API!
     </ul>
+
+  # Changelog
+  # if some missing values - they already have values elsewhere
+  changelog_heading: Changelog
+  changelog_new: new
+  changelog_update: update
+  ## 2019-12-27 20191227
+  ## 2019-12-18 20191218
+  ## 2019-12-13 20191213
+  ## 2019-12-02 20191202
+  ## 2019-11-19 20191119
+  ## 2019-11-07 20191107
+  my_20191107: My position
+  ## 2019-11-04 20191104
+  cancelOrder_20191104: Cancel order
+  cancelOrder__20191104: Support cancel order by <code>order_link_id</code>
+  cancelCond__20191104: Support cancel conditional order by <code>order_link_id</code>
+  get__20191104: Add extra info
+  get___20191104: Update <code>ips</code> field to return content
+  update_20191104: Update REST API rate limit
+  update__20191104: The rate limit is accurate to milliseconds
+  update___20191104: Refine the rate limit of the endpoints
+  update____20191104: |
+    Add new response fields: <code>rate_limit_reset_ms</code>, <code>rate_limit</code>
+  ## 2019-10-22 20191022
+  position__20191022: Add extra info, eg. wallet_balance
+  trade__20191022: Fix issue of sometimes push same trade multi times
+  trade___20191022: Support pushing multi trades in single message
+
 
   # api_auth
   auth_heading: Authentication
@@ -85,25 +118,25 @@ default:
   auth_para_params: |
     The following parameters must be used for authentication:
     <ul>
-      <li>`api_key`</li>
-      <li>`timestamp` - UTC timestamp in **milliseconds**</li>
-      <li>`sign` - a signature derived from the request's parameters</li>
+      <li><b>api_key</b></li>
+      <li><b>timestamp</b> - UTC timestamp in <b>milliseconds</b></li>
+      <li><b>sign</b> - a signature derived from the request's parameters</li>
     </ul>
   auth_aside_timestamp: |
-    Make sure to conform to the timestamp rule of verification or your request will be rejected! Timestamp rule of verification: timestamp < server_time + 1000
+    Make sure to conform to the timestamp rule of verification or your request will be rejected! Timestamp rule of verification: <b>server_time - recv_window <= timestamp < server_time + 1000</b>; <b>server_time</b> stands for Bybit server time, you can get it from <a href="#t-api_heading-t-wallet_heading_setrisk-t-api_heading_server_time">Server Time</a> endpoint.
   auth_para_recv : |
     Additionally, we offer the <code>recv_window</code>, which indicates for how long an HTTP request is valid. This should be sent in milliseconds. Default value: 5000. This is used to prevent replay attacks.
   auth_heading_construct: Constructing the Request
   auth_codequote_construct1a:
     An example for adjusting leverage
   auth_codequote_construct1b:
-    Note how the parameters are ordered in <b>ascending</b> order, with api_key first followed by leverage, then symbol, then timestamp.
+    Note how the parameters are ordered in <b>alphabetical</b> order, with api_key first followed by leverage, then symbol, then timestamp.
   auth_codequote_construct2: |
     Different requests need different message formats. Possible message formats for <b>GET</b> requests:
   auth_codequote_construct3: |
     Message format for <b>POST</b> requests:
   auth_para_construct1:
-    <p>1. Concatenate all the public parameters in the <a href="https://en.wikipedia.org/wiki/Query_string">query string</a> format. The parameters must be ordered in <b>ascending</b> order. This will be used to generate the <code>sign</code>.</p>
+    <p>1. Concatenate all the public parameters in the <a href="https://en.wikipedia.org/wiki/Query_string">query string</a> format. The parameters must be ordered in <b>alphabetical</b> order. This will be used to generate the <code>sign</code>.</p>
   auth_para_construct2:
     <p>2. Sign the parameters string.</p>
   auth_para_construct3:
@@ -114,9 +147,6 @@ default:
   # Market Data Endpoints
   market_heading: Market Data Endpoints
   market_para_auth: The following market data endpoints do not require authentication.
-  ### server time
-  market_heading_time: Server Time
-  market_para_time: Get Bybit server time.
   ### Orderbook
   market_heading_orderbook: Orderbook
   market_para_orderbook: Get the orderbook.
@@ -173,9 +203,42 @@ default:
   ### Query Active Order (real-time)
   account_heading_queryActive: Query Active Order (real-time)
   account_para_queryActive: Query real-time active order information.
+
+  ## Conditional Orders
+  ### Place Conditional Order
+  account_heading_cond: Conditional Orders
+  account_heading_placeCond: Place Conditional Order
+  account_para_placeCond: |
+    <p>Market price conditional order: A traditional market price order, will be filled at the best available price. <code>price</code> is not required for this type of order.</p>
+    <p>Limit price conditional order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
+    <p>Custom order ID: You may customise order IDs for conditional orders. We will link it to the system order ID, and return the unique system order ID to you after the conditional order is created successfully. You may use this order ID to cancel your conditional order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
+    <p>Conditional order trigger price: You may set a trigger price for your conditional order. Conditional orders will not enter the orderbook until the last price hits the trigger price. When the last price hits the trigger price, your order will either: 1) your limit conditional order will enter the orderbook, and wait to be executed; 2) your market conditional order will be executed immediately at the best available market price.</p>
+    <p>Note: Take profit/Stop loss is not supported when placing conditional orders. One can only use these 2 functions when placing active orders.</p>
+    <p>Each account can hold up to 10 conditional orders yet to be filled entirely simultaneously.</p>
+  ### Get Conditional Order
+  account_heading_getCond: Get Conditional Order
+  account_para_getCond: Get my conditional order list.
+  ### Cancel Conditional Order
+  account_heading_cancelCond: Cancel Conditional Order
+  account_para_cancelCond: |
+    <p><code>stop_order_id</code> is required for cancelling conditional order. The unique 36 characters order ID was returned to you when the conditional order was created successfully.</p>
+    <p>You may cancel all untriggered conditional orders. Essentially, after a conditional order is triggered, it will become an active order. So, when a conditional order is triggered, cancellation has to be done through the active order endpoint for any unfilled or partially filled active order. As always, orders that have been fully filled cannot be cancelled.</p>
+  ### Cancel All Conditional Orders
+  account_heading_cancelAllCond: Cancel All Conditional Orders
+  account_para_cancelAllCond: Cancel all untriggered conditional orders.
+  ### Replace Conditional Order
+  account_heading_replaceCond: Replace Conditional Order
+  account_para_replaceCond:
+    <p>Replace conditional order can modify/amend your conditional orders.</p>
+    <p><code>order_id</code> and <code>symbol</code> are required for identifying a conditional order.</p>
+    <p><code>p_r_qty</code>, <code>p_r_price</code> and <code>p_r_trigger_price</code> can be set for your conditional order. If these fields are not provided, nothing will be modified.</p>
+    <p>It is possible to modify only one of these at a time.</p>
+  account_aside_replaceCond: |
+    Please note that you can only modify untriggered conditional orders.
   ### Query Conditional Order (real-time)
   account_heading_queryConditional: Query Conditional Order (real-time)
   account_para_queryConditional: Query real-time stop order information.
+
 
   ## Leverage
   account_heading_leverage: Leverage
@@ -242,18 +305,41 @@ default:
   # API Data Endpoints
   api_heading: API Data Endpoints
   api_para: The following API data endpoint does not require authentication.
+  ### Server time
+  api_heading_server_time: Server Time
+  api_para_time: Get Bybit server time.
   ### Announcement
   api_heading_announcment: Announcement
-  api_para_announcement: Get Bybit OpenAPI announcements in the last 30 days.
+  api_para_announcement: Get Bybit OpenAPI announcements in the last 30 days by reverse order.
 
   # API Rate Limits
   rate_heading: API Rate Limits
-  ### Understanding Your Request Rate Limit
+  ### IP Rate Limit
+  ip_rate_heading_understandin: IP Rate Limit
+  ip_rate_para_understanding: |
+    <p> Bybit has different IP frequency limits for <code>GET</code> and <code>POST</code> method：</p>
+    <ul>
+    <li>
+      <code>GET</code>method: 
+      <ul>
+        <li>35 requests per second</li>
+        <li>25 requests per second continuously for 2 minutes</li>
+      </ul>
+    </li>
+    <li>
+      <code>POST</code>method: 
+      <ul>
+        <li>25 requests per second</li>
+        <li>10 requests per second continuously for 2 minutes</li>
+      </ul>
+    </li>
+    </ul>
+  ### Account rate limit
   rate_heading_understandin: Understanding Your Request Rate Limit
   rate_para_understanding: |
-    Every request to the API returns the fields shown in the code panel:
-  rate_text_limitStatus_understanding: your remaining requests
-  rate_text_limit_understanding: your current limit
+    Bybit makes frequency limits based on <b> the sliding time window per minute and uid</b>. Every request to the API returns the fields shown in the code panel:
+  rate_text_limitStatus_understanding: your remaining requests for current endpoint
+  rate_text_limit_understanding: your current limit for current endpoint
   rate_text_limitReset: the timestamp indicating when your request limit resets if you have exceeded your rate_limit. Otherwise, this is just the current timestamp.
   ### Rate Limits For All Endpoints
   rate_heading_allEndpoints: Rate Limits For All Endpoints
@@ -346,12 +432,12 @@ default:
     BTC best ask = 10001
     Effective Price Range: [(10000 + 10001) / 2 - 3* 0.5, (10000 + 10001) / 2 + 3* 0.5] = [9999,10002]
   ###### POU
-  rate_heading_POUExample: POU
-  rate_para_POUExample: |
+  rate_heading_POU: POU
+  rate_para_POU: |
     <ul>
-    <li><code>POA</code>: the proportion of your orders within <code>effective price range</code> to all orders within <code>effective price range</code> in orderbook.</li>
+    <li><code>POU</code>: the proportion of your orders within <code>effective price range</code> to all your orders in orderbook.</li>
     </ul>
-    <p>Bybit calculates your amount of orders within <code>effective price range</code> / amount of all orders within <code>effective price range</code> in orderbook, and then performs a 1-Day Time-Weighted-Average over the series of seconds rates.</p>
+    <p>Bybit calculates your amount of orders within <code>effective price range</code> / amount of all your orders in orderbook, and then performs a 1-Day Time-Weighted-Average over the series of seconds rates.</p>
   ###### POU example
   rate_heading_POUExample: POU Example
   rate_para_POUExample: User C bids 2000 contracts for $9995 and bids 8000 contracts for $9999, while effective price range is [9999,10002]
@@ -488,6 +574,9 @@ default:
   websocket_heading_order: order
   ### stop_order
   websocket_heading_stopOrder: stop_order
+
+  # Error Definitions
+  Error_heading: Errors
 
   # ENUMs Definitions
   ENUMs_header: ENUMs Definitions
