@@ -1,37 +1,6 @@
 # t(:market_heading)
 t(:market_para_auth)
 
-### t(:market_heading_time)
-> t(:codequote_curlExample)
-
-```console
-curl https://api-testnet.bybit.com/v2/public/tickers
-```
-
-> t(:codequote_responseExample)
-
-```javascript
-{
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
-    "ext_info": "",
-    "result": {},
-    "time_now": "1577444332.192859"
-}
-```
-Get Bybit server time.
-
-##### t(:heading_http_request)
-GET
-<code><span id=vpTime>/v2/public/time</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpTime"><img src="/images/copy_to_clipboard.png" height=15 width=15></a></button>
-
-##### t(:heading_request_parameters)
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-
-
 ### t(:market_heading_orderbook)
 > t(:codequote_curlExample)
 

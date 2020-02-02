@@ -1,15 +1,10 @@
 ---
 en:
+  # universal/global
   international: 简体中文
   inverse_future: Inverse Futures
   linear_future: Linear Futures
   search: Search
-  introduction: Introduction
-  bybit_api_resources: Bybit Api Resources
-  authentication: Authentication
-  param_for_auth: 鉴权公共参数
-  construct_req: 创建请求
-  # universal/global
   heading_http_request: HTTP Request
   heading_request_parameters: Request Parameters
   codequote_responseExample: Response Example
@@ -52,6 +47,9 @@ en:
   row_comment_withdrawStatus: Withdraw status
   row_comment_startTime: Start timestamp point for result
   row_comment_riskId: Risk ID. Can be found with the <a href="#get-risk-limit">Get Risk Limit</a> endpoint
+  row_comment_limit: limit
+  row_comment_path: path
+  row_comment_consume: consume
 
 
   # introduction in index.html.md
@@ -125,7 +123,7 @@ en:
       <li><b>sign</b> - a signature derived from the request's parameters</li>
     </ul>
   auth_aside_timestamp: |
-    Make sure to conform to the timestamp rule of verification or your request will be rejected! Timestamp rule of verification: <b>server_time - recv_window <= timestamp < server_time + 1000</b>; <b>server_time</b> stands for Bybit server time, you can get it from <a href="#t-market_heading-t-auth_heading_construct-t-market_heading_time">Server Time</a> endpoint.
+    Make sure to conform to the timestamp rule of verification or your request will be rejected! Timestamp rule of verification: <b>server_time - recv_window <= timestamp < server_time + 1000</b>; <b>server_time</b> stands for Bybit server time, you can get it from <a href="#t-api_heading-t-wallet_heading_setrisk-t-api_heading_server_time">Server Time</a> endpoint.
   auth_para_recv : |
     Additionally, we offer the <code>recv_window</code>, which indicates for how long an HTTP request is valid. This should be sent in milliseconds. Default value: 5000. This is used to prevent replay attacks.
   auth_heading_construct: Constructing the Request
@@ -149,9 +147,6 @@ en:
   # Market Data Endpoints
   market_heading: Market Data Endpoints
   market_para_auth: The following market data endpoints do not require authentication.
-  ### server time
-  market_heading_time: Server Time
-  market_para_time: Get Bybit server time.
   ### Orderbook
   market_heading_orderbook: Orderbook
   market_para_orderbook: Get the orderbook.
@@ -309,19 +304,42 @@ en:
 
   # API Data Endpoints
   api_heading: API Data Endpoints
-  api_para: The following API data endpoint does not require authentication.
+  api_para: The following API data endpoints do not require authentication.
+  ### Server time
+  api_heading_server_time: Server Time
+  api_para_time: Get Bybit server time.
   ### Announcement
   api_heading_announcment: Announcement
-  api_para_announcement: Get Bybit OpenAPI announcements in the last 30 days.
+  api_para_announcement: Get Bybit OpenAPI announcements in the last 30 days by reverse order.
 
   # API Rate Limits
   rate_heading: API Rate Limits
-  ### Understanding Your Request Rate Limit
+  ### IP Rate Limit
+  ip_rate_heading_understandin: IP Rate Limit
+  ip_rate_para_understanding: |
+    <p> Bybit has different IP frequency limits for <code>GET</code> and <code>POST</code> method：</p>
+    <ul>
+    <li>
+      <code>GET</code>method: 
+      <ul>
+        <li>35 requests per second</li>
+        <li>25 requests per second continuously for 2 minutes</li>
+      </ul>
+    </li>
+    <li>
+      <code>POST</code>method: 
+      <ul>
+        <li>25 requests per second</li>
+        <li>10 requests per second continuously for 2 minutes</li>
+      </ul>
+    </li>
+    </ul>
+  ### Account rate limit
   rate_heading_understandin: Understanding Your Request Rate Limit
   rate_para_understanding: |
-    Every request to the API returns the fields shown in the code panel:
-  rate_text_limitStatus_understanding: your remaining requests
-  rate_text_limit_understanding: your current limit
+    Bybit makes frequency limits based on <b> the sliding time window per minute and uid</b>. Every request to the API returns the fields shown in the code panel:
+  rate_text_limitStatus_understanding: your remaining requests for current endpoint
+  rate_text_limit_understanding: your current limit for current endpoint
   rate_text_limitReset: the timestamp indicating when your request limit resets if you have exceeded your rate_limit. Otherwise, this is just the current timestamp.
   ### Rate Limits For All Endpoints
   rate_heading_allEndpoints: Rate Limits For All Endpoints
@@ -382,7 +400,7 @@ en:
   rate_para_frequency:
     Your API request frequency limit is based on your min <code>Liquidity Contribution Points (LCP)</code> of <code>7</code> days.
   column_LCP: LCP
-  column_frequencyLimit: Frequency Limit
+  column_frequencyLimit: Order Frequency Limit
   row_frequencyLimit_800: 800 times per minute
   row_frequencyLimit_600: 600 times per minute
   row_frequencyLimit_400: 400 times per minute
@@ -414,12 +432,12 @@ en:
     BTC best ask = 10001
     Effective Price Range: [(10000 + 10001) / 2 - 3* 0.5, (10000 + 10001) / 2 + 3* 0.5] = [9999,10002]
   ###### POU
-  rate_heading_POUExample: POU
-  rate_para_POUExample: |
+  rate_heading_POU: POU
+  rate_para_POU: |
     <ul>
-    <li><code>POA</code>: the proportion of your orders within <code>effective price range</code> to all orders within <code>effective price range</code> in orderbook.</li>
+    <li><code>POU</code>: the proportion of your orders within <code>effective price range</code> to all your orders in orderbook.</li>
     </ul>
-    <p>Bybit calculates your amount of orders within <code>effective price range</code> / amount of all orders within <code>effective price range</code> in orderbook, and then performs a 1-Day Time-Weighted-Average over the series of seconds rates.</p>
+    <p>Bybit calculates your amount of orders within <code>effective price range</code> / amount of all your orders in orderbook, and then performs a 1-Day Time-Weighted-Average over the series of seconds rates.</p>
   ###### POU example
   rate_heading_POUExample: POU Example
   rate_para_POUExample: User C bids 2000 contracts for $9995 and bids 8000 contracts for $9999, while effective price range is [9999,10002]
