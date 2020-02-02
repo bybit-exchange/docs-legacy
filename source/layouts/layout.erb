@@ -236,7 +236,16 @@ under the License.
       if ($this.text() == 'English') {
         window.location=currentUrl.replace(/zh-cn/,"en");
       } else {
-        window.location=currentUrl.replace(/en/,"zh-cn");
+        if (currentUrl.indexOf("zh-cn")==-1 && currentUrl.indexOf("en")==-1) {
+          if (currentUrl.indexOf("inverse")) {
+            window.location=currentUrl.replace(/\/inverse/,"/zh-cn/inverse");
+          } else {
+            window.location=currentUrl.replace(/\/linear/,"/zh-cn/linear");
+          }
+          
+        } else {
+          window.location=currentUrl.replace(/en/,"zh-cn");
+        }
       }
     });
 </script>
