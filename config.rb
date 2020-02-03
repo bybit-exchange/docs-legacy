@@ -58,6 +58,6 @@ helpers do
   require './lib/toc_data.rb'
 end
 
-activate :i18n
+activate :i18n, :mount_at_root => :en
 
 activate :directory_indexes
