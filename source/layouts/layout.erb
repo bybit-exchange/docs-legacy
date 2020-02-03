@@ -234,17 +234,12 @@ under the License.
       $this = $(this);
       var currentUrl = window.location.href;
       if ($this.text() == 'English') {
-        window.location=currentUrl.replace(/zh-cn/,"en");
+        window.location=currentUrl.replace(/\/zh-cn/,"");
       } else {
-        if (currentUrl.indexOf("zh-cn")==-1 && currentUrl.indexOf("en")==-1) {
-          if (currentUrl.indexOf("inverse")) {
-            window.location=currentUrl.replace(/\/inverse/,"/zh-cn/inverse");
-          } else {
-            window.location=currentUrl.replace(/\/linear/,"/zh-cn/linear");
-          }
-          
+        if (currentUrl.indexOf("inverse")) {
+          window.location=currentUrl.replace(/\/inverse/,"/zh-cn/inverse");
         } else {
-          window.location=currentUrl.replace(/en/,"zh-cn");
+          window.location=currentUrl.replace(/\/linear/,"/zh-cn/linear");
         }
       }
     });
