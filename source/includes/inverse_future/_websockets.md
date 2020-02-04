@@ -40,7 +40,7 @@ t(:websocket_aside_auth)
 t(:websocket_para_methods)
 
 <aside class="notice">
-websocket_aside_signature
+t(:websocket_aside_signature)
 </aside>
 
 
