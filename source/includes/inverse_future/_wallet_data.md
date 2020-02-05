@@ -49,6 +49,10 @@ t(:wallet_para)
 
 t(:wallet_para_walletRecords)
 
+<aside class="notice">
+t(:wallet_aside_walletRecords)
+</aside>
+
 ##### t(:heading_http_request)
 GET
 <code><span id=oawfRecords>/open-api/wallet/fund/records</span></code>
@@ -100,6 +104,10 @@ GET
 
 t(:wallet_para_withdrawRecords)
 
+<aside class="notice">
+t(:wallet_aside_withdrawRecords)
+</aside>
+
 ##### t(:heading_http_request)
 GET
 <code><span id=oawwList>/open-api/wallet/withdraw/list</span></code>
@@ -126,7 +134,7 @@ GET
     "ext_code": "",
     "ext_info": "",
     "result": {
-        "order_id": "",
+        "order_id": "t(:comment_abandoned)", // t(:comment_abandoned)
         "trade_list": [
             {
                 "closed_size": 0,

@@ -19,7 +19,7 @@ t(:rate_para_understanding)
 ### t(:rate_heading_allEndpoints)
 <table class="custom_table">
   <tr>
-    <th>t(:row_comment_limit)</th>
+    <th>t(:row_comment_rate_limit)</th>
     <th>t(:row_comment_path)</th>
     <th>t(:row_comment_consume)</th>
   </tr>
