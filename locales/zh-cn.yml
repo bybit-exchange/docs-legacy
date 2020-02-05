@@ -17,20 +17,22 @@ zh-cn:
   column_required: 是否必须
   column_type: 类型
   column_comments: 说明
+  row_comment_side: 方向, 有效选项:Buy, Sell (Buy Sell )
   row_comment_symbol: 合约类型
+  row_comment_activeOrderType: 委托单价格类型, 有效选项:Limit, Market (Limit Market )
   row_comment_from: |
     起始ID. 默认: 返回最新数据
   row_comment_limit: 每页数量, 最大50. 默认每页20条
   row_comment_orderType: 订单类型
   row_comment_qty: 委托数量(1个委托1美元)
   row_comment_price: 委托价格. 如果是下<b>条件单</b>，该参数为<b>必填</b>. 在没有仓位时，做多的委托价格需高于市价的10%、低于1百万。如有仓位时则需优于强平价。价格增减最小单位请参考<a href="#t-market_heading-t-auth_heading_construct-t-market_heading_querysymbol">交易对接口</a>响应中的<b>price_filter</b>字段；
-  row_comment_timeInForce: Time in force
-  row_comment_takeProfit: Take profit price
-  row_comment_stopLoss: Stop loss price
+  row_comment_timeInForce: 执行策略, 有效选项:GoodTillCancel, ImmediateOrCancel, FillOrKill,PostOnly
+  row_comment_takeProfit: 止盈价格
+  row_comment_stopLoss: 止损价格
   row_comment_trailingStop: Trailing stop
-  row_comment_reduceOnly: Reduce only
-  row_comment_closeOnTrigger: Close on trigger. When creating a closing order, we highly recommend <code>close_on_trigger</code> is set as <code>True</code> to avoid failing by insufficient available margin
-  row_comment_orderLinkId: Customised order ID, maximum length at 36 characters, and order ID under the same agency has to be unique.
+  row_comment_reduceOnly: 只减仓
+  row_comment_closeOnTrigger: 触发后平仓. 如果下平仓单，请设置为<code>true</code>，避免因为保证金不足而导致下单失败
+  row_comment_orderLinkId: 机构自定义订单ID, 最大长度36位，且同一机构下自定义ID不可重复
   row_comment_page: Page. Default getting first page data
   row_comment_order: Sort orders by creation date
   row_comment_orderId: Your active order ID. The unique order ID returned to you when the corresponding active order was created
@@ -177,10 +179,12 @@ zh-cn:
   ### Place Active Order V2
   account_heading_placeActive: Place Active Order V2
   account_para_placeActive: |
-    <p>Market price active order: A traditional market price order, will be filled at the best available price. <code>price</code> is not required for this type of order.</p>
-    <p>Limit price active order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
-    <p>Take profit/Stop loss: You may only set a take-profit/stop-loss conditional order upon opening the position. Once you hold a position, any new active order requests which contain TP/SL/TS data will be accepted but TP/SL/TS data will be ignored.</p>
-    <p>Custom order ID: You may customise order IDs for active orders. We will link it to the system order ID, and return the unique system order ID to you after the active order is created successfully. You may use this order ID or your custom order ID to cancel your active order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
+    <p>所有活动委托都必须填写 'side', 'symbol', 'order_type', 'qty', 'price', 'time_in_force'参数，其它参数除非有特殊说明，否则都是可选的。 市价活动委托: 一个传统的市场价格订单,会以当前的最优价格为您成交订单。当且仅当选择市价单时，<code>price</code>可为空！</p>
+    <p>限价活动委托: 您可以为您的订单设置一个执行价格，当市场价格达到您的设置价格时，系统会为您成交订单。</p>
+    <p>止盈止损: 您仅能在开仓时设置止盈止损条件单，一旦持有仓位后提交活动委托时关联的止盈止损则不再有效。</p>
+    <p>委托数量: 表示您要购买/卖出的永续合约数，对于委托数量目前Bybit只允许提交正整数。</p>
+    <p>委托价格: 表示您期望购买/卖出永续合约的价格，对于委托价格目前Bybit只允许提交以0.5为增幅的正数。</p>
+    <p>自定义条件单ID: 您可以自定义活动委托订单ID，我们会为您关联到系统的订单ID，并把系统的唯一订单ID在活动委托创建成功后一并返回给您，您可以使用该订单ID去取消活动委托，同时要求您传递的自定义订单ID<code>最大长度不超过36个字段且唯一</code>。</p>
     <p>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSD instrument and 280 active orders on the ETHBTC instrument.</p>
   ### Get Active Order
   account_heading_getActive: Get Active Order
@@ -324,14 +328,14 @@ zh-cn:
     <p> Bybit会基于请求IP做频率限制，针对不同的请求方法有以下规则：</p>
     <ul>
     <li>
-      <code>GET</code>方法: 
+      <code>GET</code>方法:
       <ul>
         <li>每秒不超过35个请求</li>
         <li>连续2分钟内每秒不超过25个请求</li>
       </ul>
     </li>
     <li>
-      <code>POST</code>方法: 
+      <code>POST</code>方法:
       <ul>
         <li>每秒不超过25个请求</li>
         <li>连续2分钟内每秒不超过10个请求</li>
@@ -436,7 +440,7 @@ zh-cn:
 
     举例：
      BTC最佳竞买价 = 10000
-     BTC最佳竞卖价 = 10001 
+     BTC最佳竞卖价 = 10001
      “有效价格”范围：
      [(10000 + 10001) / 2 - 3* 0.5, (10000 + 10001) / 2 + 3* 0.5] = [9999,10002]
   ###### POU
@@ -590,7 +594,7 @@ zh-cn:
 
   # Error Definitions
   Error_heading: 错误码
-  
+
   # ENUMs Definitions
   ENUMs_header: 枚举定义
   ENUMs_para: This is a list of valid options (and rules) for the different parameters when sending a request to the API.

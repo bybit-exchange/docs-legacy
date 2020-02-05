@@ -49,15 +49,14 @@ POST
 ##### t(:heading_request_parameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#t-enums_header-side-side">side</a> |true |string |Side    |
-|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol).    |
-|<a href="#t-enums_header-order-type-order_type">order_type</a> |true |string |Active order type   |
+|<a href="#t-enums_header-side-side">side</a> |true |string |t(:row_comment_side)    |
+|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)   |
+|<a href="#t-enums_header-order-type-order_type">order_type</a> |true |string |t(:row_comment_activeOrderType)   |
 |<a href="#t-enums_header-quantity-qty">qty</a> |true |integer |t(:row_comment_qty) |
 |<a href="#t-enums_header-price-price">price</a> |false |number |t(:row_comment_price) |
 |<a href="#t-enums_header-time-in-force-time_in_force">time_in_force</a> |true |string |t(:row_comment_timeInForce) |
 |take_profit |false |number |t(:row_comment_takeProfit) |
 |stop_loss |false |number |t(:row_comment_stopLoss) |
-|trailing_stop|false |number |t(:row_comment_trailingStop) |
 |reduce_only |false |bool |t(:row_comment_reduceOnly) |
 |close_on_trigger |false |bool |t(:row_comment_closeOnTrigger)
 |order_link_id |false |string |t(:row_comment_orderLinkId) |
