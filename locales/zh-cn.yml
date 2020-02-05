@@ -51,6 +51,13 @@ zh-cn:
   row_comment_rate_limit: 频率限制
   row_comment_path: 请求路径
   row_comment_consume: 消耗
+  enum_withdraw_status: <a href="#t-enums_header-withdraw-status-status">提币状态枚举</a>
+  enum_coin: <a href="#t-enums_header-currency-currency-coin">币种枚举</a>
+  enum_side: <a href="#t-enums_header-side-side">方向枚举</a>
+  enum_symbol: <a href="#t-enums_header-symbol-symbol">交易对枚举</a>
+  enum_order_type: <a href="#t-enums_header-order-type-order_type">订单类型枚举</a>
+  enum_exec_type: <a href="#t-enums_header-exec-type-exec_type">交易类型枚举</a>
+  enum_Liquidity_type: <a href="#t-enums_header-liquidity-type-last_liquidity_ind">流动性类型枚举</a>
 
 
   # introduction in index.html.md
@@ -300,7 +307,7 @@ zh-cn:
     <p>在<code>资金记录</code>接口中，一旦用户申请提币，就会产生一条<code>Withdraw</code>类型的数据，并且当提币申请取消、过期、或审核拒绝的时候，资金记录中会再新增一条<code>Refund</code>类型的数据。</p>
   ### User Trade Records
   wallet_heading_tradeRecords: 用户成交记录
-  wallet_para_tradeRecords: 获取用户成交记录，按时间倒叙排列。
+  wallet_para_tradeRecords: 获取用户成交记录，按时间倒序排列。
   wallet_aside_tradeRecords: 一个订单可能有多笔成交记录。
   wallet_row_comment_orderId: OrderID. If not provided, will return user's trading records
   ## Get Risk Limit
@@ -726,7 +733,11 @@ zh-cn:
   createByLiq:                  "- Created by partial liquidation"
   createByAdl_PassThrough:      "- Created by ADL"
   createByTakeOver_PassThrough: "- Created by liquidation takeover"
-
+  ## Exec type (`exec_type`)
+  trade: "普通交易"
+  adlTrade: "资金费率" 
+  funding: "自动减仓"
+  bustTrade: "强制平仓"
 
   # Misc.
   misc_row_comment_orderLinkIdNotOrderId: Order link ID. <b>Required</b> if not passing order_id
