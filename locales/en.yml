@@ -69,7 +69,7 @@ en:
   intro_heading_resources: Bybit API Resources
   intro_para_resources:
     <ul>
-      <li><a href="https://help.bybit.com/hc/en-us">help center<img src="/images/bybit_favicon.png" height="14", width="14"></a> - Learn future here!
+      <li><a href="https://help.bybit.com/hc/en-us">Help Center<img src="/images/bybit_favicon.png" height="14", width="14"></a> - learn about exchange mechanisms here!
       <li><a href="https://github.com/bybit-exchange/bybit-official-api-docs">bybit-official-api-docs <img src="/images/github_logo_icon.png" height="14", width="14"></a> - report issues here!
       <li><a href="https://github.com/bybit-exchange/api-connectors/">Bybit's api-connectors <img src="/images/github_logo_icon.png" height="14", width="14"></a> - find a repo of prebuilt libraries here!
       <li><a href="https://t.me/Bybitapi">API Discussion Group <img src="/images/telegram_logo_icon.png" height="14", width="14"></a> - get help here!
@@ -295,17 +295,19 @@ en:
   ### Wallet Fund Records
   wallet_heading_walletRecords: Wallet Fund Records
   wallet_para_walletRecords: Get wallet fund records.
-  wallet_aside_walletRecords: You can find more detail of type <code>Withdraw</code> and <code>Refund</code> in <a href="#t-wallet_heading-t-account_heading_key-t-wallet_heading_withdrawrecords">Withdraw Records</a> endpoint.
+  wallet_aside_walletRecords: |
+    Find more detail for types <code>Withdraw</code> and <code>Refund</code> in the <a href="#t-wallet_heading-t-account_heading_key-t-wallet_heading_withdrawrecords">Withdraw Records</a> endpoint.
   ### Withdraw Records
   wallet_heading_withdrawRecords: Withdraw Records
   wallet_para_withdrawRecords: Get withdrawal records.
-  wallet_aside_withdrawRecords: The difference between data in current endpoint and data of type <code>Withdraw</code> in <code>Wallet Fund Records</code> endpoint<span>:</span>
-    <p>For current endpoint, one withdrawal operation one record, and you can check current withdrawal state by field <code>status</code>.</p>
-    <p>For <code>Wallet Fund Records</code> endpoint，once user submited the withdrawal application, there will be a record whith type <code>Withdraw</code>, and if the application is <code>CancelByUser</code>, <code>Reject</code> or <code>Expire</code>, there will be another record with type <code>Refund</code>.</p>
+  wallet_aside_withdrawRecords: |
+    The difference between data returned by this endpoint and data of type <code>Withdraw</code> in the <a href="#t-wallet_heading-t-account_heading_key-t-wallet_heading_walletrecords">Wallet Fund Records</a> endpoint:<p></p>
+    <p>This endpoint provides one withdrawal operation per record, and you can check the current withdrawal state with the <code>status</code> field.</p>
+    <p>Once you have submitted a withdrawal application, there will be a record with type <code>Withdraw</code>, and if the application is <code>CancelByUser</code>, <code>Reject</code> or <code>Expire</code> in the <a href="#t-wallet_heading-t-account_heading_key-t-wallet_heading_walletrecords">Wallet Fund Records</a> endpoint, with a corresponding record with type <code>Refund</code>.</p>
   ### User Trade Records
   wallet_heading_tradeRecords: User Trade Records
   wallet_para_tradeRecords: Get user's trading records. The last item is the oldest.
-  wallet_aside_tradeRecords: One order may has multiple trade records.
+  wallet_aside_tradeRecords: One order may have multiple trade records.
   wallet_row_comment_orderId: OrderID. If not provided, will return user's trading records
   ## Get Risk Limit
   wallet_heading_getRisk: Get Risk Limit
@@ -729,7 +731,7 @@ en:
   createByTakeOver_PassThrough: "- Created by liquidation takeover"
   ## Exec type (`exec_type`)
   trade: ""
-  funding: "" 
+  funding: ""
   adlTrade: ""
   bustTrade: ""
 
