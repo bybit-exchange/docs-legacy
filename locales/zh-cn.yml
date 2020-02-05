@@ -33,7 +33,7 @@ zh-cn:
   row_comment_reduceOnly: 只减仓
   row_comment_closeOnTrigger: 触发后平仓. 如果下平仓单，请设置为<code>true</code>，避免因为保证金不足而导致下单失败
   row_comment_orderLinkId: 机构自定义订单ID, 最大长度36位，且同一机构下自定义ID不可重复
-  row_comment_page: Page. Default getting first page data
+  row_comment_page: 页码.默认取第一页
   row_comment_order: Sort orders by creation date
   row_comment_orderId: Your active order ID. The unique order ID returned to you when the corresponding active order was created
   row_comment_stopOrderId: Your conditoinal order ID. The unique order ID returned to you when the corresponding active order was created
@@ -52,7 +52,8 @@ zh-cn:
   row_comment_limit: 频率限制
   row_comment_path: 请求路径
   row_comment_consume: 消耗
-
+  row_comment_order: 按创建时间排序
+  default: 默认
 
   # introduction in index.html.md
   intro_heading: 介绍
@@ -191,8 +192,8 @@ zh-cn:
   account_para_getActive: |
     <p>Get my active order list.</p>
     <p>Order creation/cancellation is asynchronous. If you want real-time information about an order, you can call the <a href="#query-active-order-real-time">Query Active Order (real-time)</a>.</p>
-  account_row_comment_orderId: Order ID
-  account_row_comment_orderStatus: Query your orders for all statuses if 'order_status' is empty. If you want to query orders with specific statuses, you can pass the order_status split by ','.
+  account_row_comment_orderId: 订单ID
+  account_row_comment_orderStatus: 指定订单状态查询订单列表。不传该参数则默认查询所有状态订单。该参数支持多状态查询，状态之间用英文逗号分割。状态参数：Created,New,PartiallyFilled,Filled,Cancelled,Rejected
   ### Cancel Active Order V2
   account_heading_cancelActive: Cancel Active Order V2
   account_para_cancelActive: |
