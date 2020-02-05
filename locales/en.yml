@@ -287,9 +287,13 @@ en:
   ### Wallet Fund Records
   wallet_heading_walletRecords: Wallet Fund Records
   wallet_para_walletRecords: Get wallet fund records.
+  wallet_aside_walletRecords: You can find more detail of type <code>Withdraw</code> and <code>Refund</code> in <a href="#t-wallet_heading-t-account_heading_key-t-wallet_heading_withdrawrecords">Withdraw Records</a> endpoint.
   ### Withdraw Records
   wallet_heading_withdrawRecords: Withdraw Records
   wallet_para_withdrawRecords: Get withdrawal records.
+  wallet_aside_withdrawRecords: The difference between data in current endpoint and data of type <code>Withdraw</code> in <code>Wallet Fund Records</code> endpoint<span>:</span>
+    <p>For current endpoint, one withdrawal operation one record, and you can check current withdrawal state by field <code>status</code>.</p>
+    <p>For <code>Wallet Fund Records</code> endpoint，once user submited the withdrawal application, there will be a record whith type <code>Withdraw</code>, and if the application is <code>CancelByUser</code>, <code>Reject</code> or <code>Expire</code>, there will be another record with type <code>Refund</code>.</p>
   ### User Trade Records
   wallet_heading_tradeRecords: User Trade Records
   wallet_para_tradeRecords: Get user's trading records. The last item is the oldest.
