@@ -34,7 +34,7 @@ The following account data endpoints require authentication.
     },
     "time_now": "1575111823.458705",
     "rate_limit_status": 99,
-    "rate_limit_reset_ms": 1575111823448987,
+    "rate_limit_reset_ms": 1580885703683,
     "rate_limit": 100
 }
 ```
@@ -138,7 +138,7 @@ POST
     "ext_info": null,
     "time_now": "1577448922.437871",
     "rate_limit_status": 599,
-    "rate_limit_reset_ms": 1577448922444,
+    "rate_limit_reset_ms": 1580885703683,
     "rate_limit": 600
 }
 ```
@@ -194,7 +194,7 @@ GET
     },
     "time_now": "1575112681.814760",
     "rate_limit_status": 99,
-    "rate_limit_reset_ms": 1575112681807671,
+    "rate_limit_reset_ms": 1580885703683,
     "rate_limit": 100
 }
 ```
@@ -247,7 +247,7 @@ POST
     ],
     "time_now": "1575110339.105675",
     "rate_limit_status": 98,
-    "rate_limit_reset_ms": 1575110339100545,
+    "rate_limit_reset_ms": 1580885703683,
     "rate_limit": 100
 }
 ```
@@ -606,7 +606,7 @@ POST
     ],
     "time_now": "1577454993.799912",
     "rate_limit_status": 90,
-    "rate_limit_reset_ms": 1577454993789325,
+    "rate_limit_reset_ms": 1580885703683,
     "rate_limit": 100
 }
 ```
@@ -693,7 +693,7 @@ POST
     },
     "time_now": "1577476584.386958",
     "rate_limit_status": 599,
-    "rate_limit_reset_ms": 1577476584383388,
+    "rate_limit_reset_ms": 1580885703683,
     "rate_limit": 600
 }
 ```
@@ -831,7 +831,7 @@ POST
     },
     "time_now": "1577480599.097287",
     "rate_limit_status": 119,
-    "rate_limit_reset_ms": 1577480599093605,
+    "rate_limit_reset_ms": 1580885703683,
     "rate_limit": 120
 }
 ```
