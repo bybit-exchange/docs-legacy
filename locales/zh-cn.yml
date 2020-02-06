@@ -245,8 +245,10 @@ zh-cn:
     <p>所有撤销条件委托都必须填写<code>stop_order_id</code>，在您创建条件委托成功时会为您返回36位唯一的订单ID。</p>
     <p>您可以撤销所有未被激活的条件委托。本质上所有条件委托在被激活后都是属于活动委托，所以条件委托一旦被激活，您需要通过调用取消活动委托接口来取消所有未成交、部分成交的活动委托单。同样全部成交的活动委托不可取消。</p>
   ### Cancel All Conditional Orders
-  account_heading_cancelAllCond: Cancel All Conditional Orders
-  account_para_cancelAllCond: Cancel all untriggered conditional orders.
+  account_heading_cancelAllCond: 撤消全部条件委托单
+  account_para_cancelAllCond: 撤销所有未被激活的条件委托。本质上所有条件委托在被激活后都是属于活动委托，所以条件委托一旦被激活，您需要通过调用取消活动委托接口来取消所有未成交、部分成交的活动委托单。同样全部成交的活动委托不可取消。
+  account_aside_cancelAllCond:
+    注意，此api每调用一次会导致rate_limit扣减10
   ### Replace Conditional Order
   account_heading_replaceCond: Replace Conditional Order
   account_para_replaceCond:
