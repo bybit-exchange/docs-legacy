@@ -240,10 +240,10 @@ zh-cn:
   account_heading_getCond: 查询条件委托
   account_para_getCond: 获取我的条件委托单列表。
   ### Cancel Conditional Order
-  account_heading_cancelCond: Cancel Conditional Order
+  account_heading_cancelCond: 撤消条件委托单
   account_para_cancelCond: |
-    <p><code>stop_order_id</code> is required for cancelling conditional order. The unique 36 characters order ID was returned to you when the conditional order was created successfully.</p>
-    <p>You may cancel all untriggered conditional orders. Essentially, after a conditional order is triggered, it will become an active order. So, when a conditional order is triggered, cancellation has to be done through the active order endpoint for any unfilled or partially filled active order. As always, orders that have been fully filled cannot be cancelled.</p>
+    <p>所有撤销条件委托都必须填写<code>stop_order_id</code>，在您创建条件委托成功时会为您返回36位唯一的订单ID。</p>
+    <p>您可以撤销所有未被激活的条件委托。本质上所有条件委托在被激活后都是属于活动委托，所以条件委托一旦被激活，您需要通过调用取消活动委托接口来取消所有未成交、部分成交的活动委托单。同样全部成交的活动委托不可取消。</p>
   ### Cancel All Conditional Orders
   account_heading_cancelAllCond: Cancel All Conditional Orders
   account_para_cancelAllCond: Cancel all untriggered conditional orders.
@@ -741,5 +741,6 @@ zh-cn:
 
   # Misc.
   misc_row_comment_orderLinkIdNotOrderId: 机构ID。如果未填order_id则为<b>必填</b>字段。
+  misc_row_comment_orderLinkIdNotStopOrderId: 机构ID。如果未填stop_order_id则为<b>必填</b>字段。
   misc_row_comment_orderIdNotOrderLinkId: 订单ID。如果未填order_link_id则为<b>必填</b>字段。
   misc_row_comment_symbolNotOrderId: Contract type. <b>Required</b> if not passing order_id
