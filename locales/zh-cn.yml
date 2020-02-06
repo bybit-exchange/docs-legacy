@@ -180,9 +180,9 @@ zh-cn:
   account_heading: 账户/交易接口
   account_para: The following account data endpoints require authentication.
   ## Active Orders
-  account_heading_active: Active Orders
+  account_heading_active: 活动单
   ### Place Active Order V2
-  account_heading_placeActive: Place Active Order V2
+  account_heading_placeActive: 创建活动委托单
   account_para_placeActive: |
     <p>所有活动委托都必须填写 'side', 'symbol', 'order_type', 'qty', 'price', 'time_in_force'参数，其它参数除非有特殊说明，否则都是可选的。 市价活动委托: 一个传统的市场价格订单,会以当前的最优价格为您成交订单。当且仅当选择市价单时，<code>price</code>可为空！</p>
     <p>限价活动委托: 您可以为您的订单设置一个执行价格，当市场价格达到您的设置价格时，系统会为您成交订单。</p>
@@ -192,25 +192,25 @@ zh-cn:
     <p>自定义条件单ID: 您可以自定义活动委托订单ID，我们会为您关联到系统的订单ID，并把系统的唯一订单ID在活动委托创建成功后一并返回给您，您可以使用该订单ID去取消活动委托，同时要求您传递的自定义订单ID<code>最大长度不超过36个字段且唯一</code>。</p>
     <p>每个账户最多可同时持有500个活动订单。这是针对合约的，因此可以允许出现例如：账户同时持有300个BTCUSD的活动单、280个ETHBTC合约的活动单。</p>
   ### Get Active Order
-  account_heading_getActive: Get Active Order
+  account_heading_getActive: 查询活动委托
   account_para_getActive: |
     <p>获取我的活动委托单列表。</p>
     <p>创建/取消订单是异步。如果要获取订单的实时信息，可以调用接口<a href="#query-active-order-real-time">实时查询活动单信息</a>.</p>
   account_row_comment_orderId: 订单ID
   account_row_comment_orderStatus: 指定订单状态查询订单列表。不传该参数则默认查询所有状态订单。该参数支持多状态查询，状态之间用英文逗号分割。状态参数：Created,New,PartiallyFilled,Filled,Cancelled,Rejected
   ### Cancel Active Order V2
-  account_heading_cancelActive: Cancel Active Order V2
+  account_heading_cancelActive: 撤销活动委托单
   account_para_cancelActive: |
     <p>所有撤销活动委托都必须填写<code>order_id</code>或<code>order_link_id</code>。 <code>order_id</code> - 当您成功创建了活动委托时会为您返回36位唯一的订单ID。</p>
     <p>您可以撤销未成交、部分成交的活动委托单。但全部成交的活动委托不可取消。</p>
   ### Cancel All Active Orders
-  account_heading_cancelAllActive: Cancel All Active Orders
+  account_heading_cancelAllActive: 撤销所有活动委托单
   account_para_cancelAllActive: |
     <p>撤销所有未成交、部分成交的活动委托单。但全部成交的活动委托不可取消。</p>
   account_aside_cancelAllActive:
     注意，此api每调用一次会导致<code>rate_limit</code>扣减10
   ### Replace Active Order
-  account_heading_replaceActive: Replace Active Order
+  account_heading_replaceActive: 修改活动单信息
   account_para_replaceActive: |
     <p>本接口可以修改您的活动单信息.</p>
     <p><code>order_id</code>和<code>symbol</code>是必传字段。<code>p_r_qty</code> 和 <code>p_r_price</code>分别是你想修改的订单的新的量价信息. 如果这两个字段没填，那么默认不修改。</p>
@@ -218,7 +218,7 @@ zh-cn:
   account_aside_replaceActive:
     请注意，只有未成交或未完全成交的订单才可以被修改。
   ### Query Active Order (real-time)
-  account_heading_queryActive: Query Active Order (real-time)
+  account_heading_queryActive: 实时查询活动委托
   account_para_queryActive: 实时查询活动委托
 
   ## Conditional Orders
@@ -262,7 +262,7 @@ zh-cn:
   account_para_queryConditional: 实时查询活动委托。
 
   ## Leverage
-  account_heading_leverage: Leverage
+  account_heading_leverage: 用户杠杆
   ### User Leverage
   account_heading_userLeverage: 用户杠杆
   account_para_userLeverage: 获取用户杠杆。
