@@ -21,6 +21,7 @@ zh-cn:
   row_comment_symbol: 合约类型
   row_comment_activeOrderType: 委托单价格类型, 有效选项:Limit, Market (Limit Market )
   row_comment_stopOrderType: 委托单价格类型, 有效选项:Limit, Market (Limit Market )
+  row_comment_stopOrderStatus: 条件单状态
   row_comment_from: |
     起始ID. 默认: 返回最新数据
   row_comment_limit: 每页数量, 最大50. 默认每页20条
@@ -38,9 +39,8 @@ zh-cn:
   row_comment_closeOnTrigger: 触发后平仓. 如果下平仓单，请设置为<code>true</code>，避免因为保证金不足而导致下单失败
   row_comment_orderLinkId: 机构自定义订单ID, 最大长度36位，且同一机构下自定义ID不可重复
   row_comment_page: 页码.默认取第一页
-  row_comment_order: Sort orders by creation date
   row_comment_orderId: 活动订单号ID。当成功创建了活动订单后返回的唯一的订单号ID。
-  row_comment_stopOrderId: Your conditoinal order ID. The unique order ID returned to you when the corresponding active order was created
+  row_comment_stopOrderId: 条件委托订单ID。
   row_comment_pRQty: 修改后的订单数量。如果不修改这个字段，请不要传这个参数。
   row_comment_pRPrice: 修改后的订单价格。如果不修改这个字段，请不要传这个参数。
   row_comemnt_pRTriggerPrice: New conditional order's trigger price, also known as stop_px
@@ -237,8 +237,8 @@ zh-cn:
   account_aside_placeCond:
     请注意:只允许最多创建10个条件委托单
   ### Get Conditional Order
-  account_heading_getCond: Get Conditional Order
-  account_para_getCond: Get my conditional order list.
+  account_heading_getCond: 查询条件委托
+  account_para_getCond: 获取我的条件委托单列表。
   ### Cancel Conditional Order
   account_heading_cancelCond: Cancel Conditional Order
   account_para_cancelCond: |

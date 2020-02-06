@@ -497,9 +497,9 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |stop_order_id |false |string |t(:row_comment_stopOrderId) |
-|order_link_id |false |string |Agency customized order ID|
+|order_link_id |false |string |t(:row_comment_orderLinkId)|
 |<a href="#t-enums_header-symbol-symbol">symbol</a> |false |string |t(:row_comment_symbol). Default `BTCUSD`    |
-|<a href="#t-enums_header-stop-order-status-stop_order_status">stop_order_status</a> |false |string |stop order status   |
+|<a href="#t-enums_header-stop-order-status-stop_order_status">stop_order_status</a> |false |string |t(:row_comment_stopOrderStatus)|
 |order |false |string |t(:row_comment_order) |
 |page |false |integer |t(:row_comment_page) |
 |limit |false |integer |t(:row_comment_limit) |
