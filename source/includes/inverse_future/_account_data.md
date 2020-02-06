@@ -253,6 +253,10 @@ POST
 
 t(:account_para_cancelAllActive)
 
+<aside class="notice">
+t(:account_aside_cancelAllActive)
+</aside>
+
 ##### t(:heading_http_request)
 POST
 <code><span id=vpoCancelAll>/v2/private/order/cancelAll</span></code>

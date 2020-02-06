@@ -35,10 +35,10 @@ zh-cn:
   row_comment_orderLinkId: 机构自定义订单ID, 最大长度36位，且同一机构下自定义ID不可重复
   row_comment_page: 页码.默认取第一页
   row_comment_order: Sort orders by creation date
-  row_comment_orderId: Your active order ID. The unique order ID returned to you when the corresponding active order was created
+  row_comment_orderId: 活动订单号ID。当成功创建了活动订单后返回的唯一的订单号ID。
   row_comment_stopOrderId: Your conditoinal order ID. The unique order ID returned to you when the corresponding active order was created
-  row_comment_pRQty: New order quantity. Do not pass this field if you don't want modify it
-  row_comment_pRPrice: New order price. Do not pass this field if you don't want modify it
+  row_comment_pRQty: 修改后的订单数量。如果不修改这个字段，请不要传这个参数。
+  row_comment_pRPrice: 修改后的订单价格。如果不修改这个字段，请不要传这个参数。
   row_comemnt_pRTriggerPrice: New conditional order's trigger price, also known as stop_px
   row_comment_leverage: Leverage. <code>0</code> means Cross Margin mode - any other value means Isolated Margin mode
   row_comment_startDate: Start point for result
@@ -203,15 +203,16 @@ zh-cn:
   account_heading_cancelAllActive: Cancel All Active Orders
   account_para_cancelAllActive: |
     <p>撤销所有未成交、部分成交的活动委托单。但全部成交的活动委托不可取消。</p>
-    <p>注意，此api每调用一次会导致<code>rate_limit</code>扣减10</p>
+  account_aside_cancelAllActive:
+    注意，此api每调用一次会导致<code>rate_limit</code>扣减10
   ### Replace Active Order
   account_heading_replaceActive: Replace Active Order
   account_para_replaceActive: |
-    <p>Replace order can modify/amend your active orders.</p>
-    <p><code>order_id</code> and <code>symbol</code> are required for identifying an active order. <code>p_r_qty</code> and <code>p_r_price</code> are the modified price and quantity. If these two fields are not provided, nothing will be modified.</p>
-    <p>It is possible to modify only the qty or price of an order.</p>
+    <p>本接口可以修改您的活动单信息.</p>
+    <p><code>order_id</code>和<code>symbol</code>是必传字段。<code>p_r_qty</code> 和 <code>p_r_price</code>分别是你想修改的订单的新的量价信息. 如果这两个字段没填，那么默认不修改。</p>
+    <p>您也可以仅修改订单的数量或价格。</p>
   account_aside_replaceActive:
-    Please note that only orders that are unfilled or partially filled can be modified by the replace-order API.
+    请注意，只有未成交或未完全成交的订单才可以被修改。
   ### Query Active Order (real-time)
   account_heading_queryActive: Query Active Order (real-time)
   account_para_queryActive: Query real-time active order information.
