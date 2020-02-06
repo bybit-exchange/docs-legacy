@@ -840,7 +840,7 @@ t(:account_para_myPosition)
 
 ##### t(:heading_http_request)
 GET
-<code><span id=pList>/position/list</span></code>
+<code><span id=pList>/v2/private/position/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pList"><img src="/images/copy_to_clipboard.png" height=15 width=15></a></button>
 
 ##### t(:heading_request_parameters)

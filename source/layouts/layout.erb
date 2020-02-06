@@ -121,15 +121,15 @@ under the License.
 <% end %>
   <ul class="con">
   <% if page_classes.end_with?("inverse_index") %>
-    <li><a href="/<%= I18n.locale %>/inverse" class="selected"><%=t(:inverse_future)%></a></li>
+    <li><a href="<%= (I18n.locale.to_s == 'en') ? "" : "/"+I18n.locale.to_s%>/inverse" class="selected"><%=t(:inverse_future)%></a></li>
   <% else %>
-    <li><a href="/<%= I18n.locale %>/inverse"><%=t(:inverse_future)%></a></li>
+    <li><a href="<%= (I18n.locale.to_s == 'en') ? "" : "/"+I18n.locale.to_s%>/inverse"><%=t(:inverse_future)%></a></li>
   <% end %>
   <% if false %>
   <% if page_classes.end_with?("linear_index") %>
-    <li><a href="/<%= I18n.locale %>/linear" class="selected"><%=t(:linear_future)%></a></li>
+    <li><a href="/<%= (I18n.locale.to_s == 'en') ? "" : "/"+I18n.locale.to_s %>/linear" class="selected"><%=t(:linear_future)%></a></li>
   <% else %>
-    <li><a href="/<%= I18n.locale %>/linear"><%=t(:linear_future)%></a></li>
+    <li><a href="/<%= (I18n.locale.to_s == 'en') ? "" : "/"+I18n.locale.to_s %>/linear"><%=t(:linear_future)%></a></li>
   <% end %>
   <% end %>
   </ul>

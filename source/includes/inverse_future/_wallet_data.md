@@ -49,6 +49,10 @@ t(:wallet_para)
 
 t(:wallet_para_walletRecords)
 
+<aside class="notice">
+t(:wallet_aside_walletRecords)
+</aside>
+
 ##### t(:heading_http_request)
 GET
 <code><span id=oawfRecords>/open-api/wallet/fund/records</span></code>
@@ -76,11 +80,11 @@ GET
   "ext_code": "",
   "result": {
       "data": [{
-          "id": 137,                                        //id
-          "user_id": 1,                                     //user id
-          "coin": "XRP",                                    //coin type
-          "status": "Pending",                              //status
-          "amount": "20.00000000",                          //amount
+          "id": 137,                                        
+          "user_id": 1,                                     
+          "coin": "XRP",  //t(:enum_coin)                                    
+          "status": "Pending" //t(:enum_withdraw_status)
+          "amount": "20.00000000", 
           "fee": "0.25000000",
           "address": "rH7H595XYEVTEHU2FySYsWnmfACBnZS9zM",
           "tx_id": "",
@@ -99,6 +103,10 @@ GET
 ```
 
 t(:wallet_para_withdrawRecords)
+
+<aside class="notice">
+t(:wallet_aside_withdrawRecords)
+</aside>
 
 ##### t(:heading_http_request)
 GET
@@ -126,7 +134,7 @@ GET
     "ext_code": "",
     "ext_info": "",
     "result": {
-        "order_id": "",
+        "order_id": "t(:comment_abandoned)", // t(:comment_abandoned)
         "trade_list": [
             {
                 "closed_size": 0,
@@ -136,19 +144,19 @@ GET
                 "exec_price": "8178.5",
                 "exec_qty": 1,
                 "exec_time": "1571676941.70682",
-                "exec_type": "Trade",
+                "exec_type": "Trade", //t(:enum_exec_type)
                 "exec_value": "0.00012227",
                 "fee_rate": "0.00075",
-                "last_liquidity_ind": "RemovedLiquidity",
+                "last_liquidity_ind": "RemovedLiquidity", //t(:enum_Liquidity_type)
                 "leaves_qty": 0,
                 "nth_fill": 2,
                 "order_id": "7ad50cb1-9ad0-4f74-804b-d82a516e1029",
                 "order_link_id": "",
                 "order_price": "8178",
                 "order_qty": 1,
-                "order_type": "Market",
-                "side": "Buy",
-                "symbol": "BTCUSD",
+                "order_type": "Market", //t(:enum_order_type)
+                "side": "Buy", //t(:enum_side)
+                "symbol": "BTCUSD", //t(:enum_symbol)
                 "user_id": 1
             }
         ]
