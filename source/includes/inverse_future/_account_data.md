@@ -348,7 +348,7 @@ GET
 ##### t(:heading_request_parameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|order_id |false |string | t(:row_comment_orderId). **Required** if not pass order_link_id. |
+|order_id |false |string | t(:misc_row_comment_orderIdNotOrderLinkId)|
 |order_link_id |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
 |<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 
