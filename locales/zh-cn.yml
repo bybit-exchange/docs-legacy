@@ -43,7 +43,7 @@ zh-cn:
   row_comment_stopOrderId: 条件委托订单ID。
   row_comment_pRQty: 修改后的订单数量。如果不修改这个字段，请不要传这个参数。
   row_comment_pRPrice: 修改后的订单价格。如果不修改这个字段，请不要传这个参数。
-  row_comemnt_pRTriggerPrice: New conditional order's trigger price, also known as stop_px
+  row_comemnt_pRTriggerPrice: 修改后的条件单的触发价格
   row_comment_leverage: Leverage. <code>0</code> means Cross Margin mode - any other value means Isolated Margin mode
   row_comment_startDate: Start point for result
   row_comment_endDate: End point for result
@@ -250,14 +250,13 @@ zh-cn:
   account_aside_cancelAllCond:
     注意，此api每调用一次会导致rate_limit扣减10
   ### Replace Conditional Order
-  account_heading_replaceCond: Replace Conditional Order
+  account_heading_replaceCond: 修改条件委托单
   account_para_replaceCond:
-    <p>Replace conditional order can modify/amend your conditional orders.</p>
+    <p>修改活跃的条件单。</p>
     <p><code>order_id</code> and <code>symbol</code> are required for identifying a conditional order.</p>
-    <p><code>p_r_qty</code>, <code>p_r_price</code> and <code>p_r_trigger_price</code> can be set for your conditional order. If these fields are not provided, nothing will be modified.</p>
-    <p>It is possible to modify only one of these at a time.</p>
+    <p><code>order_id</code>和<code>symbol</code>两个字段必输。<code>p_r_qty</code>, <code>p_r_price</code>和<code>p_r_trigger_price</code>这三个字段为修改后的条件单量价信息,以及触发价格. 如果不填则默认不会修改。</p>
   account_aside_replaceCond: |
-    Please note that you can only modify untriggered conditional orders.
+    请注意，只有未触发的条件单才能被修改。
   ### Query Conditional Order (real-time)
   account_heading_queryConditional: Query Conditional Order (real-time)
   account_para_queryConditional: Query real-time stop order information.

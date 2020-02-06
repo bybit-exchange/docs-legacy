@@ -634,8 +634,6 @@ POST
 |:----- |:-------|:-----|----- |
 |<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)|
 
-
-### t(:account_heading_replaceCond)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -652,6 +650,9 @@ POST
 }
 ```
 
+
+### t(:account_heading_replaceCond)
+t(:account_para_replaceCond)
 
 <aside class="notice">
 t(:account_aside_replaceCond)
