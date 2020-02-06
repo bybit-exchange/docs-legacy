@@ -20,13 +20,17 @@ zh-cn:
   row_comment_side: 方向, 有效选项:Buy, Sell (Buy Sell )
   row_comment_symbol: 合约类型
   row_comment_activeOrderType: 委托单价格类型, 有效选项:Limit, Market (Limit Market )
+  row_comment_stopOrderType: 委托单价格类型, 有效选项:Limit, Market (Limit Market )
   row_comment_from: |
     起始ID. 默认: 返回最新数据
   row_comment_limit: 每页数量, 最大50. 默认每页20条
   row_comment_orderType: 订单类型
   row_comment_qty: 委托数量(1个委托1美元)
-  row_comment_price: 委托价格. 如果是下<b>条件单</b>，该参数为<b>必填</b>. 在没有仓位时，做多的委托价格需高于市价的10%、低于1百万。如有仓位时则需优于强平价。价格增减最小单位请参考<a href="#t-market_heading-t-auth_heading_construct-t-market_heading_querysymbol">交易对接口</a>响应中的<b>price_filter</b>字段；
-  row_comment_timeInForce: 执行策略, 有效选项:GoodTillCancel, ImmediateOrCancel, FillOrKill,PostOnly
+  row_comment_price: 委托价格. 如果是下<b>条件单</b>，该参数为<b>必填</b>. 在没有仓位时，做多的委托价格需高于市价的10%、低于1百万。如有仓位时则需优于强平价。价格增减最小单位请参考<a href="#t-market_heading-t-auth_heading_construct-t-market_heading_querysymbol">交易对接口</a>响应中的<b>price_filter</b>字段
+  row_comment_basePrice: 当前市价。用于和stop_px值进行比较，确定当前条件委托是看空到<code>stop_px</code>时触发还是看多到stop_px触发。主要是用来标识当前条件单预期的方向
+  row_comment_stopPx: 条件委托下单时市价
+  row_comment_timeInForce: 执行策略
+  row_comment_triggerBy: 触发价格类型. 默认为上一笔成交价格
   row_comment_takeProfit: 止盈价格
   row_comment_stopLoss: 止损价格
   row_comment_trailingStop: Trailing stop
@@ -219,15 +223,19 @@ zh-cn:
 
   ## Conditional Orders
   ### Place Conditional Order
-  account_heading_cond: Conditional Orders
-  account_heading_placeCond: Place Conditional Order
+  account_heading_cond: 条件单
+  account_heading_placeCond: 创建条件委托单
   account_para_placeCond: |
-    <p>Market price conditional order: A traditional market price order, will be filled at the best available price. <code>price</code> is not required for this type of order.</p>
-    <p>Limit price conditional order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
-    <p>Custom order ID: You may customise order IDs for conditional orders. We will link it to the system order ID, and return the unique system order ID to you after the conditional order is created successfully. You may use this order ID to cancel your conditional order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
-    <p>Conditional order trigger price: You may set a trigger price for your conditional order. Conditional orders will not enter the orderbook until the last price hits the trigger price. When the last price hits the trigger price, your order will either: 1) your limit conditional order will enter the orderbook, and wait to be executed; 2) your market conditional order will be executed immediately at the best available market price.</p>
-    <p>Note: Take profit/Stop loss is not supported when placing conditional orders. One can only use these 2 functions when placing active orders.</p>
-    <p>Each account can hold up to 10 conditional orders yet to be filled entirely simultaneously.</p>
+    <p>所有条件委托都必须填写 'side', 'symbol', 'order_type', 'qty', 'price', 'base_price', 'stop_px', 'time_in_force'参数，其它参数除非有特殊说明，否则都是可选的。</p>
+    <p>市价条件委托: 一个传统的市场价格订单,会以当前的最优价格为您成交订单。当且仅当选择市价单时，'price', '可为空！</p>
+    <p>限价条件委托: 您可以为您的订单设置一个执行价格，当市场价格达到您的设置价格时，系统会为您成交订单。</p>
+    <p>止盈止损: 您仅能在开仓时设置止盈止损条件单，一旦持有仓位后提交活动委托时关联的止盈止损则不再有效。一旦持仓后，当创建订单后发送的止盈止损信息将不再有效。</p>
+    <p>委托数量: 表示您要购买/卖出的永续合约数，对于委托数量目前Bybit只允许提交正整数。</p>
+    <p>委托价格: 表示您期望购买/卖出永续合约的价格，对于委托价格目前Bybit只允许提交以0.5为增幅的正数。</p>
+    <p>条件委托触发价格: 您可以为您的条件委托单设置一个触发价格，条件委托单不进入委托表（Order Book)，只有触发条件成立如市场价格到达触发价格时，条件委托单才会进入交易系统。当市场价格到达触发价格：1）您的限价条件委托单进入Order Book，等待被执行；2）您的市价条件委托单将按照市场最优价格立即被执行。</p>
+    <p>自定义条件单ID: 您可以自定义活动委托订单ID，我们会为您关联到系统的订单ID，并把系统的唯一订单ID在活动委托创建成功后一并返回给您，您可以使用该订单ID去取消活动委托，同时要求您传递的自定义订单ID最大长度不超过36个字段且唯一。</p>
+  account_aside_placeCond:
+    请注意:只允许最多创建10个条件委托单
   ### Get Conditional Order
   account_heading_getCond: Get Conditional Order
   account_para_getCond: Get my conditional order list.

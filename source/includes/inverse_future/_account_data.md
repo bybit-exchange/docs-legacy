@@ -403,6 +403,10 @@ GET
 
 t(:account_para_placeCond)
 
+<aside class="notice">
+t(:account_aside_placeCond)
+</aside>
+
 ##### t(:heading_http_request)
 POST
 <code><span id=oasoCreate>/open-api/stop-order/create</span></code>
@@ -411,15 +415,15 @@ POST
 ##### t(:heading_request_parameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#t-enums_header-side-side">side</a> |true |string |Side    |
+|<a href="#t-enums_header-side-side">side</a> |true |string |t(:row_comment_side)    |
 |<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
-|<a href="#t-enums_header-order-type-order_type">order_type</a> |true |string |Conditional order type |
+|<a href="#t-enums_header-order-type-order_type">order_type</a> |true |string |t(:row_comment_stopOrderType) |
 |<a href="#t-enums_header-quantity-qty">qty</a> |true |integer |t(:row_comment_qty) |
 |<a href="#t-enums_header-price-price">price</a> |false | number |t(:row_comment_price) |
-|base_price |true |number | It will be used to compare with the value of 'stop_px', to decide whether your conditional order will be triggered by crossing trigger price from upper side or lower side. Mainly used to identify the expected direction of the current conditional order. |
-|stop_px | true | number | Trigger price |
+|base_price |true |number | t(:row_comment_basePrice) |
+|stop_px | true | number | t(:row_comment_stopPx) |
 |<a href="#t-enums_header-time-in-force-time_in_force">time_in_force</a> |true |string |t(:row_comment_timeInForce) |
-|<a href="#t-enums_header-trigger-price-type-trigger_by">trigger_by</a> | false | string | Trigger price type. Default `LastPrice` |
+|<a href="#t-enums_header-trigger-price-type-trigger_by">trigger_by</a> | false | string | t(:row_comment_triggerBy)|
 |close_on_trigger |false |bool |t(:row_comment_closeOnTrigger)
 |order_link_id |false |string |t(:row_comment_orderLinkId) |
 
