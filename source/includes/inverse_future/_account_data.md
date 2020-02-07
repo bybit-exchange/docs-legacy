@@ -419,7 +419,7 @@ POST
 |<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
 |<a href="#t-enums_header-order-type-order_type">order_type</a> |true |string |t(:row_comment_stopOrderType) |
 |<a href="#t-enums_header-quantity-qty">qty</a> |true |integer |t(:row_comment_qty) |
-|<a href="#t-enums_header-price-price">price</a> |false | number |t(:row_comment_price) |
+|<a href="#t-enums_header-price-price">price</a> |false | number |t(:row_comment_stopOrderPrice) |
 |base_price |true |number | t(:row_comment_basePrice) |
 |stop_px | true | number | t(:row_comment_stopPx) |
 |<a href="#t-enums_header-time-in-force-time_in_force">time_in_force</a> |true |string |t(:row_comment_timeInForce) |
