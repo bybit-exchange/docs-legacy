@@ -121,3 +121,13 @@ t(:para_orderStatusGet)
 * `CreateByLiq` - Created by partial liquidation
 * `CreateByAdl_PassThrough` - Created by ADL
 * `CreateByTakeOver_PassThrough` - Created by liquidation takeover
+
+## Exec type (`exec_type`)
+* `Trade` t(:trade)
+* `AdlTrade` t(:adlTrade)
+* `Funding` t(:funding)
+* `BustTrade` t(:bustTrade)
+
+## Liquidity type (`last_liquidity_ind`)
+* `AddedLiquidity`
+* `RemovedLiquidity`
