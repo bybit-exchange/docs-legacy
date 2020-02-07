@@ -12,7 +12,7 @@ zh-cn:
   codequote_responseExampleFormatAll: 响应示例
   codequote_curlExample: Curl 请求示例
   codequote_subscribe: 请求订阅
-  codequote_snapshot: 快照推送示例 - 链接建立成功后首次推送
+  codequote_snapshot: 快照推送示例 - 连接建立成功后首次推送
   codequote_delta: 增量推送示例 - 快照数据推送后，推送的增量数据
   column_parameter: 参数
   column_required: 是否必须
@@ -180,7 +180,7 @@ zh-cn:
 
   # Account Data Endpoints
   account_heading: 账户/交易接口
-  account_para: The following account data endpoints require authentication.
+  account_para: 以下数据接口都需要鉴权.
   ## Active Orders
   account_heading_active: Active Orders
   ### Place Active Order V2
@@ -535,21 +535,22 @@ zh-cn:
     <p>您可以使用管道符号(<code>|</code>)来分割多个参数，前提是这些参数都是合法的.</p>
     <p>您还可以使用匹配符号(<code>*</code>)来匹配多个topic，具体用法见右侧代码栏</p>
   ### Intervals
-  websocket_heading_intervals: 时间间隔
-  websocket_para_intervals: 如果topic名中包含一个<code>时间间隔</code>，如`100ms`, 那么表明这个topic是每隔`100ms`推送一次.否则, 这个topic`只要有消息就会推送`.
+  websocket_heading_intervals: 推送周期
+  websocket_para_intervals: 如果topic名中包含一个<code>推送周期</code>，如<code>100ms</code>, 那么表明这个topic是每隔<code>100ms</code>推送一次.否则, 这个topic<code>只要有消息就会推送</code>.
 
   ## Understanding the Subscription Response
   websocket_heading_response: 消息推送
   websocket_codequote_response: 订阅推送
-  websocket_para_response: 每个topic都会有一消息推送.
+  websocket_para_response: 每个topic都会有消息推送.
   ## Public Topics
   websocket_heading_public: 公共 Topics
   ### orderBookL2_25
   websocket_heading_orderbook25: orderBookL2_25
   websocket_para_orderbook251: 获取25档orderbook数据.
+  orderbookL2_200_link: 想要更多深度？请使用<a href="#t-websocket_heading-t-websocket_heading_public-t-websocket_heading_orderbook200">orderBookL2_200</a>topic
   websocket_para_orderbook252: |
-    <p>订阅成功后, 会立即得到一个当前快照包的推送信息. orderbook数据按订单价格升序排序, 从最低价格的买单到最高价格的卖单.</p>
-    <p>快照包之后，每当orderbook发生变化，websocket将会继续推送这些增量数据.</p>
+    <p>订阅成功后, 会立即得到一个当前快照包的推送信息. orderbook数据按订单价格升序排列, 从最低价格的买单到最高价格的卖单.</p>
+    <p>快照包之后，每当orderbook发生变化，websocket都会推送这些变化的增量数据.</p>
   ### orderBookL2_200
   websocket_heading_orderbook200: orderBookL2_200
   websocket_para_orderbook200: |
