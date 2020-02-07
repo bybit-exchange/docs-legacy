@@ -156,26 +156,26 @@ zh-cn:
 
   # Market Data Endpoints
   market_heading: 行情接口
-  market_para_auth: The following market data endpoints do not require authentication.
+  market_para_auth: 以下市场行情数据接口不需要验权.
   ### server time
   api_heading_server_time: Server Time
-  market_para_time: Get Bybit server time.
+  market_para_time: 获取Bybit服务器时间.
   ### Orderbook
   market_heading_orderbook: Orderbook
-  market_para_orderbook: Get the orderbook.
-  market_aside_orderbook: The response is in the snapshot format.
+  market_para_orderbook: 获取Bybit当前Orderbook信息.
+  market_aside_orderbook: 响应数据是当前时间的切片数据.
   ### Latest Information for Symbol
-  market_heading_symbol: Latest Information for Symbol
-  market_para_symbol: Get the latest information for symbol.
+  market_heading_symbol: 合约最新信息
+  market_para_symbol: 获取Bybit的最新合约信息.
   ### Public Trading Records
-  market_heading_records: Public Trading Records
-  market_para_records: Get recent trades.
+  market_heading_records: 平台交易历史数据
+  market_para_records: 获取Bybit的最近成交数据.
   ### Get the Last Funding Rate
-  market_heading_fundingRate: Get the Last Funding Rate
-  market_para_fundingRate: The funding rate is generated every 8 hours at 00:00 UTC, 08:00 UTC and 16:00 UTC. For example, if a request is sent at 12:00 UTC, the funding rate generated earlier that day at 08:00 UTC will be sent.
+  market_heading_fundingRate: 获取上一笔资金费用
+  market_para_fundingRate: 资金费用在UTC时间的00:00、08:00、16:00分别结算一次.比如，如果请求时间是UTC的12:00，那么你将得到上一次结算即UTC08:00时刻的资金费用信息.
   ### Query Symbol
-  market_heading_querySymbol: Query Symbol
-  market_para_querySymbol: Get symbol info.
+  market_heading_querySymbol: 查询合约信息
+  market_para_querySymbol: 获取合约信息.
 
 
   # Account Data Endpoints
@@ -486,94 +486,94 @@ zh-cn:
   # WebSocket Data
   websocket_heading: WebSocket接口
   ## Authentication
-  websocket_heading_authentication: Authentication
+  websocket_heading_authentication: 鉴权/认证
   websocket_codequote_auth: |
-    Authentication methods:
+    认证方式:
   websocket_codequote_auth1: |
-    First method: Apply for authentication when establishing a connection.
+    方法1: 建立连接时附带验证信息.
   websocket_codequote_auth2: |
-    Second method: Apply for authentication after establishing a connection through auth request.
+    方法2: 建立连接后发送auth请求验证.
   websocket_para_endpoint: |
-    Base endpoints:
+    Websocket服务器地址:
     <ul>
     <p>
-      <li>Testnet:
+      <li>测试网:
         <span id="testnet_address">wss://stream-testnet.bybit.com/realtime</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></a></button>
       </li>
     </p>
     <p>
-      <li>Mainnet:
+      <li>主网:
         <span id="mainnet_address">wss://stream.bybit.com/realtime</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></a></button>
       </li>
     </p>
     </ul>
-  websocket_aside_auth: <b>Public</b> topics do not require authentication. The following section applies to <b>private</b> topics only.
-  websocket_para_methods: There are two methods of authentication, as shown in the code panel to the right.
-  websocket_aside_signature: Example signature algorithms can be found <a href="https://github.com/bybit-exchange/bybit-official-api-docs/tree/master/en/example">here</a>.
+  websocket_aside_auth: <b>公共类</b>topics不需要进行验证. 以下部分只适用于 <b>私有</b> 类接口.
+  websocket_para_methods: 如右侧代码区所示，一共有两种验证方法.
+  websocket_aside_signature: 点击查看 <a href="https://github.com/bybit-exchange/bybit-official-api-docs/tree/master/en/example">示例加密算法</a>.
   ## How to Send the Heartbeat Packet
-  websocket_heading_hearbeat: How to Send the Heartbeat Packet
-  websocket_codequote_heartbeat: How to Send
-  websocket_aside_heartbeat: Due to unstable networks or program errors, we strongly advise you to send the <code>ping</code> heartbeat packet to maintain websocket connections. We recommend every 30 seconds to 1 minute.
+  websocket_heading_hearbeat: 心跳包/Ping
+  websocket_codequote_heartbeart: 发送心跳包
+  websocket_codequote_heartbeat: 如何发送心跳包
+  websocket_aside_heartbeat: 由于网络或者程序不稳定,我们强烈建议您使用 <code>ping</code> 心跳包来维持连接. 心跳包建议每30秒发送一次.
   ## Rate Limits
-  websocket_heading_limit: Rate Limits
-  websocket_para_limit: One API key can establish 20 concurrent connections. Any additional connection after 20 connections will be rejected.
+  websocket_heading_limit: 频率限制
+  websocket_para_limit: 注意，每个api_key最多可以保持20个Websocket连接.超过20个连接后的新连接会被服务器拒绝.
   ## How to Subscribe to Topics
-  websocket_heading_subscribe: How to Subscribe to Topics
+  websocket_heading_subscribe: 订阅方式
   ### Understanding Websocket Filters
-  websocket_heading_filters: Understanding Websocket Filters
-  websocket_codequote_filters1: How to subscribe with a filter
-  websocket_codequote_filters2: How to subscribe with multiple filters
-  websocket_codequote_filters3: How to subscribe without filters
+  websocket_heading_filters: Websocket订阅方式
+  websocket_codequote_filters1: 直接订阅
+  websocket_codequote_filters2: 通过分隔符来订阅多个topic
+  websocket_codequote_filters3: 通过匹配符来订阅多个topic
   websocket_para_filters: |
-   After establishing the connection, one can subscribe to a new topic by sending a JSON request. The specific formats are as follows:
+   建立连接后, 可以通过发送JSON请求来订阅topic. 请求格式如下:
   websocket_para_filters1: |
-    <p>The <code>topic</code> indicates the data you would like to receive whilst the <code>filter</code> parses for the specific data you desire - for example, the symbol. The <code>topic</code> is mandatory but the <code>filter</code> is optional.</p>
-    <p>To subscribe to more than one topic, simply list multiple topics out, like so:</p>
+    <p>您也可以同时订阅多个感兴趣的topic，订阅方式如下</p>
   websocket_para_filters2: |
-    <p>It is possible to use multiple filters for the same topic by splitting them with a pipe (<code>|</code>) - of course, these filters must all be applicable to the selected <code>topic</code>.</p>
-    <p>Finally, to subscribe to the topic without filters please use the <code>*</code> wildcard.</p>
+    <p>您可以使用管道符号(<code>|</code>)来分割多个参数，前提是这些参数都是合法的.</p>
+    <p>您还可以使用匹配符号(<code>*</code>)来匹配多个topic，具体用法见右侧代码栏</p>
   ### Intervals
-  websocket_heading_intervals: Intervals
-  websocket_para_intervals: Some topics are pushed at intervals. If the `args` contain a millisecond param, such as `100ms`, this topic is pushed at intervals. Otherwise, it is pushed constantly.
+  websocket_heading_intervals: 时间间隔
+  websocket_para_intervals: 如果topic名中包含一个<code>时间间隔</code>，如`100ms`, 那么表明这个topic是每隔`100ms`推送一次.否则, 这个topic`只要有消息就会推送`.
 
   ## Understanding the Subscription Response
-  websocket_heading_response: Understanding the Subscription Response
-  websocket_codequote_response: Subscription Response
-  websocket_para_response: Every subscription will have a response.
+  websocket_heading_response: 消息推送
+  websocket_codequote_response: 订阅推送
+  websocket_para_response: 每个topic都会有一消息推送.
   ## Public Topics
-  websocket_heading_public: Public Topics
+  websocket_heading_public: 公共 Topics
   ### orderBookL2_25
   websocket_heading_orderbook25: orderBookL2_25
-  websocket_para_orderbook251: Fetches the orderbook with a depth of 25 orders per side.
+  websocket_para_orderbook251: 获取25档orderbook数据.
   websocket_para_orderbook252: |
-    <p>After the subscription response, the first response will be the snapshot response. This shows the entire orderbook. The data is ordered by price, starting with the lowest buys and ending with the highest sells.</p>
-    <p>Following this, all responses are in the delta format, which represents updates to the orderbook relative to the last response.</p>
+    <p>订阅成功后, 会立即得到一个当前快照包的推送信息. orderbook数据按订单价格升序排序, 从最低价格的买单到最高价格的卖单.</p>
+    <p>快照包之后，每当orderbook发生变化，websocket将会继续推送这些增量数据.</p>
   ### orderBookL2_200
   websocket_heading_orderbook200: orderBookL2_200
   websocket_para_orderbook200: |
-    <p>Fetches the orderbook with a depth of 200 orders per side.</p>
-    <p>After the subscription response, the first response will be the snapshot response. This shows the entire orderbook. The data is ordered by price, starting with the lowest buys and ending with the highest sells.</p>
-    <p>Following this, all responses are in the delta format, which represents updates to the orderbook relative to the last response.</p>
+    <p>获取200档orderbook数据.</p>
+    <p>订阅成功后, 会立即得到一个当前快照包的推送信息. orderbook数据按订单价格升序排序, 从最低价格的买单到最高价格的卖单.</p>
+    <p>快照包之后，每当orderbook发生变化，websocket将会继续推送这些增量数据.</p>
   ### trade
   websocket_heading_trade: trade
-  websocket_para_trade: Get real-time trading information.
+  websocket_para_trade: 获取Bybit平台最近成交数据.
   ### insurance
   websocket_heading_insurance: insurance
-  websocket_para_insurance: Get the daily insurance fund update.
-  websocket_aside_insurance: The <code>wallet_balance</code> is in Satoshis, with one Satoshi being 100 millionth (<code>100000000</code>) of one Bitcoin.
+  websocket_para_insurance: 获取保险基金数据.
+  websocket_aside_insurance: 注意<code>钱包余额</code>钱包余额的单位为<code>聪</code>, 1聪等于一百万分之一个比特币.
   ### instrument_info
   websocket_heading_instrumentInfo: instrument_info
-  websocket_para_instrumentInfo: Get latest information for symbol.
+  websocket_para_instrumentInfo: 获取合约的最新数据.
   websocket_aside_instrumentInfo1: |
-    This topic only utilises the <code>update</code> field. Both the <code>delete</code> and <code>insert</code> fields are null. If a key is not found in the <code>update</code> field, its value has not changed.
+    注意，该topic只会推送<code>update</code>数据. <code>delete</code>和<code>insert</code>数据都为空. 如果<code>update</code>数据也为空,则表明信息没有发生变化.
   websocket_aside_instrumentInfo2: |
-    Some values use scientific notation. This is indicated by that value's key, which will be appended with, for example, <code>e6</code>. If the key is <code>last_price_e4</code> and the value is <code>81585000</code>, then to find the true value we can do <code>81585000 * 10^4</code>, which equals <code>8158.5</code>.
+    一些值以以科学计数法的形式被返回. 根据这个值的key的后缀, 如<code>total_turnover_e8</code>,则表明这个数字需要除以10^8. 若<code>last_price_e4</code>的值为<code>81585000</code>, 那么<code>81585000 / 10^4</code>,等于<code>8158.5</code>才是这个字段的真实值.
   ### klineV2
   websocket_heading_klineV2: klineV2
   websocket_para_klineV2: |
-    <p>Currently supported intervals:</p>
+    <p>目前所支持的周期:</p>
     <ul>
     <li>1 3 5 15 30</li>
     <li>60 120 240 360 720</li>
@@ -583,10 +583,10 @@ zh-cn:
     <li>Y</li>
     </ul>
   websocket_aside_klineV2: |
-    If <code>confirm</code> is <code>True</code>, the data is the final tick for the interval. Otherwise, it is a snapshot.
+    注意如果字段<code>confirm</code>为<code>True</code>, 则表明这根K线为这个周期的最终K线.否则,它只是一个快照数据.
 
   ## Private Topics
-  websocket_heading_private: Private Topics
+  websocket_heading_private: 私有 Topics
   ### position
   websocket_heading_position: position
   ### execution
