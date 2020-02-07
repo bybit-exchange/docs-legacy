@@ -179,8 +179,8 @@ zh-cn:
   market_heading_records: Public Trading Records
   market_para_records: Get recent trades.
   ### Get the Last Funding Rate
-  market_heading_fundingRate: Get the Last Funding Rate
-  market_para_fundingRate: The funding rate is generated every 8 hours at 00:00 UTC, 08:00 UTC and 16:00 UTC. For example, if a request is sent at 12:00 UTC, the funding rate generated earlier that day at 08:00 UTC will be sent.
+  market_heading_fundingRate: 查询上个周期的资金费率
+  market_para_fundingRate: UTC时间每天0点、8点、16点产生一个资金费率。 假设当前时间是12点，则返回的是8点产生的资金费率。
   ### Query Symbol
   market_heading_querySymbol: Query Symbol
   market_para_querySymbol: Get symbol info.
@@ -300,10 +300,13 @@ zh-cn:
   account_row_comment_trailingStop: 不小于0,如果等于0则是取消追踪止损(TS)
 
   ## Funding
-  account_heading_funding: Funding
+  account_heading_funding: 资金
   ### My Last Funding Fee
-  account_heading_myLastFunding: My Last Funding Fee
-  account_para_myLastFunding: Funding settlement occurs every 8 hours at 00:00 UTC, 08:00 UTC and 16:00 UTC. The current interval's fund fee settlement is based on the previous interval's fund rate. For example, at 16:00, the settlement is based on the fund rate generated at 8:00. The fund rate generated at 16:00 will be used at 0:00 the next day.
+  account_heading_myLastFunding: 查询上个周期资金费用结算信息
+  account_para_myLastFunding: |
+    <p>UTC时间每天0点、8点、16点进行资金费用结算</p>
+    <p>当前周期的资金费用结算是根据上个周期的资金费率来进行结算</p>
+    <p>比如16点结算时是按照8点产生的资金费率来进行结算，而16点产生的资金费率则会在第二天0点结算时使用</p>
   ### Predicted Funding Rate and My Funding Fee
   account_heading_predictedFunding: Predicted Funding Rate and My Funding Fee
   account_para_predictedFunding: Get predicted funding rate and my funding fee.
