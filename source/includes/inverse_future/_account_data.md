@@ -255,7 +255,7 @@ t(:account_para_cancelAllActive)
 
 <aside class="notice">
 t(:account_aside_cancelAllActive)
-</aside>
+</aside>/position/list
 
 ##### t(:heading_http_request)
 POST
