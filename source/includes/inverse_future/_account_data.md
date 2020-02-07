@@ -893,7 +893,7 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
-|margin |true |string |margin  |
+|margin |true |string |t(:row_comment_margin)  |
 
 
 ### t(:account_heading_tradingStop)
