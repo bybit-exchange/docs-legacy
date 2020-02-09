@@ -18,28 +18,36 @@ zh-cn:
   column_required: 是否必须
   column_type: 类型
   column_comments: 说明
+  row_comment_side: 方向
   row_comment_symbol: 合约类型
+  row_comment_margin: 保证金
+  row_comment_activeOrderType: 委托单价格类型
+  row_comment_stopOrderType: 委托单价格类型
+  row_comment_stopOrderStatus: 条件单状态
   row_comment_from: |
     起始ID. 默认: 返回最新数据
   row_comment_limit: 每页数量, 最大50. 默认每页20条
   row_comment_orderType: 订单类型
   row_comment_qty: 委托数量(1个委托1美元)
-  row_comment_price: 委托价格. 如果是下<b>条件单</b>，该参数为<b>必填</b>. 在没有仓位时，做多的委托价格需高于市价的10%、低于1百万。如有仓位时则需优于强平价。价格增减最小单位请参考<a href="#t-market_heading-t-auth_heading_construct-t-market_heading_querysymbol">交易对接口</a>响应中的<b>price_filter</b>字段；
-  row_comment_timeInForce: Time in force
-  row_comment_takeProfit: Take profit price
-  row_comment_stopLoss: Stop loss price
+  row_comment_price: 委托价格。如果是下<b>条件单</b>，该参数为<b>必填</b>. 在没有仓位时，做多的委托价格需高于市价的10%、低于1百万。如有仓位时则需优于强平价。价格增减最小单位请参考<a href="#t-market_heading-t-auth_heading_construct-t-market_heading_querysymbol">交易对接口</a>响应中的<b>price_filter</b>字段
+  row_comment_stopOrderPrice: 条件委托执行价格。如果条件委托是限价单，则price为必传字段
+  row_comment_basePrice: 当前市价。用于和stop_px值进行比较，确定当前条件委托是看空到<code>stop_px</code>时触发还是看多到stop_px触发。主要是用来标识当前条件单预期的方向
+  row_comment_stopPx: 条件委托下单时市价
+  row_comment_timeInForce: 执行策略
+  row_comment_triggerBy: 触发价格类型. 默认为上一笔成交价格
+  row_comment_takeProfit: 止盈价格
+  row_comment_stopLoss: 止损价格
   row_comment_trailingStop: Trailing stop
-  row_comment_reduceOnly: Reduce only
-  row_comment_closeOnTrigger: Close on trigger. When creating a closing order, we highly recommend <code>close_on_trigger</code> is set as <code>True</code> to avoid failing by insufficient available margin
-  row_comment_orderLinkId: Customised order ID, maximum length at 36 characters, and order ID under the same agency has to be unique.
-  row_comment_page: Page. Default getting first page data
-  row_comment_order: Sort orders by creation date
-  row_comment_orderId: Your active order ID. The unique order ID returned to you when the corresponding active order was created
-  row_comment_stopOrderId: Your conditoinal order ID. The unique order ID returned to you when the corresponding active order was created
-  row_comment_pRQty: New order quantity. Do not pass this field if you don't want modify it
-  row_comment_pRPrice: New order price. Do not pass this field if you don't want modify it
-  row_comemnt_pRTriggerPrice: New conditional order's trigger price, also known as stop_px
-  row_comment_leverage: Leverage. <code>0</code> means Cross Margin mode - any other value means Isolated Margin mode
+  row_comment_reduceOnly: 只减仓
+  row_comment_closeOnTrigger: 触发后平仓. 如果下平仓单，请设置为<code>true</code>，避免因为保证金不足而导致下单失败
+  row_comment_orderLinkId: 机构自定义订单ID, 最大长度36位，且同一机构下自定义ID不可重复
+  row_comment_page: 页码.默认取第一页
+  row_comment_orderId: 活动订单号ID。当成功创建了活动订单后返回的唯一的订单号ID。
+  row_comment_stopOrderId: 条件委托订单ID。
+  row_comment_pRQty: 修改后的订单数量。如果不修改这个字段，请不要传这个参数。
+  row_comment_pRPrice: 修改后的订单价格。如果不修改这个字段，请不要传这个参数。
+  row_comemnt_pRTriggerPrice: 修改后的条件单的触发价格
+  row_comment_leverage: 杠杆。<code>杠杆为0</code>意味着全仓模式.全场模式下修改杠杆会变成逐仓模式
   row_comment_startDate: Start point for result
   row_comment_endDate: End point for result
   row_comment_currency: Currency type
@@ -51,6 +59,8 @@ zh-cn:
   row_comment_rate_limit: 频率限制
   row_comment_path: 请求路径
   row_comment_consume: 消耗
+  row_comment_order: 按创建时间排序
+  default: 默认
   enum_withdraw_status: <a href="#t-enums_header-withdraw-status-status">提币状态枚举</a>
   enum_coin: <a href="#t-enums_header-currency-currency-coin">币种枚举</a>
   enum_side: <a href="#t-enums_header-side-side">方向枚举</a>
@@ -58,7 +68,6 @@ zh-cn:
   enum_order_type: <a href="#t-enums_header-order-type-order_type">订单类型枚举</a>
   enum_exec_type: <a href="#t-enums_header-exec-type-exec_type">交易类型枚举</a>
   enum_Liquidity_type: <a href="#t-enums_header-liquidity-type-last_liquidity_ind">流动性类型枚举</a>
-
 
   # introduction in index.html.md
   intro_heading: 介绍
@@ -171,8 +180,8 @@ zh-cn:
   market_heading_records: Public Trading Records
   market_para_records: Get recent trades.
   ### Get the Last Funding Rate
-  market_heading_fundingRate: Get the Last Funding Rate
-  market_para_fundingRate: The funding rate is generated every 8 hours at 00:00 UTC, 08:00 UTC and 16:00 UTC. For example, if a request is sent at 12:00 UTC, the funding rate generated earlier that day at 08:00 UTC will be sent.
+  market_heading_fundingRate: 查询上个周期的资金费率
+  market_para_fundingRate: UTC时间每天0点、8点、16点产生一个资金费率。 假设当前时间是12点，则返回的是8点产生的资金费率。
   ### Query Symbol
   market_heading_querySymbol: Query Symbol
   market_para_querySymbol: Get symbol info.
@@ -182,116 +191,129 @@ zh-cn:
   account_heading: 账户/交易接口
   account_para: The following account data endpoints require authentication.
   ## Active Orders
-  account_heading_active: Active Orders
+  account_heading_active: 活动单
   ### Place Active Order V2
-  account_heading_placeActive: Place Active Order V2
+  account_heading_placeActive: 创建活动委托单
   account_para_placeActive: |
-    <p>Market price active order: A traditional market price order, will be filled at the best available price. <code>price</code> is not required for this type of order.</p>
-    <p>Limit price active order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
-    <p>Take profit/Stop loss: You may only set a take-profit/stop-loss conditional order upon opening the position. Once you hold a position, any new active order requests which contain TP/SL/TS data will be accepted but TP/SL/TS data will be ignored.</p>
-    <p>Custom order ID: You may customise order IDs for active orders. We will link it to the system order ID, and return the unique system order ID to you after the active order is created successfully. You may use this order ID or your custom order ID to cancel your active order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
-    <p>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSD instrument and 280 active orders on the ETHBTC instrument.</p>
+    <p>所有活动委托都必须填写 'side', 'symbol', 'order_type', 'qty', 'price', 'time_in_force'参数，其它参数除非有特殊说明，否则都是可选的。 市价活动委托: 一个传统的市场价格订单,会以当前的最优价格为您成交订单。当且仅当选择市价单时，<code>price</code>可为空！</p>
+    <p>限价活动委托: 您可以为您的订单设置一个执行价格，当市场价格达到您的设置价格时，系统会为您成交订单。</p>
+    <p>止盈止损: 您仅能在开仓时设置止盈止损条件单，一旦持有仓位后提交活动委托时关联的止盈止损则不再有效。</p>
+    <p>委托数量: 表示您要购买/卖出的永续合约数，对于委托数量目前Bybit只允许提交正整数。</p>
+    <p>委托价格: 如果是下<b>条件单</b>，该参数为<b>必填</b>. 在没有仓位时，做多的委托价格需高于市价的10%、低于1百万。如有仓位时则需优于强平价。价格增减最小单位请参考<a href="#t-market_heading-t-auth_heading_construct-t-market_heading_querysymbol">交易对接口</a>响应中的<b>price_filter</b>字段。</p>
+    <p>自定义条件单ID: 您可以自定义活动委托订单ID，我们会为您关联到系统的订单ID，并把系统的唯一订单ID在活动委托创建成功后一并返回给您，您可以使用该订单ID去取消活动委托，同时要求您传递的自定义订单ID<code>最大长度不超过36个字段且唯一</code>。</p>
+    <p>每个账户最多可同时持有500个活动订单。这是针对合约的，因此可以允许出现例如：账户同时持有300个BTCUSD的活动单、280个ETHBTC合约的活动单。</p>
   ### Get Active Order
-  account_heading_getActive: Get Active Order
+  account_heading_getActive: 查询活动委托
   account_para_getActive: |
-    <p>Get my active order list.</p>
-    <p>Order creation/cancellation is asynchronous. If you want real-time information about an order, you can call the <a href="#query-active-order-real-time">Query Active Order (real-time)</a>.</p>
-  account_row_comment_orderId: Order ID
-  account_row_comment_orderStatus: Query your orders for all statuses if 'order_status' is empty. If you want to query orders with specific statuses, you can pass the order_status split by ','.
+    <p>获取我的活动委托单列表。</p>
+    <p>创建/取消订单是异步。如果要获取订单的实时信息，可以调用接口<a href="#query-active-order-real-time">实时查询活动单信息</a>.</p>
+  account_row_comment_orderId: 订单ID
+  account_row_comment_orderStatus: 指定订单状态查询订单列表。不传该参数则默认查询所有状态订单。该参数支持多状态查询，状态之间用英文逗号分割。
   ### Cancel Active Order V2
-  account_heading_cancelActive: Cancel Active Order V2
+  account_heading_cancelActive: 撤销活动委托单
   account_para_cancelActive: |
-    <p>Either <code>order_id</code> or <code>order_link_id</code> are required for cancelling active orders. <code>order_id</code> - this unique 36 characters order ID was returned to you when the active order was created successfully.</p>
-    <p>You may cancel active orders that are unfilled or partially filled. Fully filled orders cannot be cancelled.</p>
+    <p>所有撤销活动委托都必须填写<code>order_id</code>或<code>order_link_id</code>。 <code>order_id</code> - 当您成功创建了活动委托时会为您返回36位唯一的订单ID。</p>
+    <p>您可以撤销未成交、部分成交的活动委托单。但全部成交的活动委托不可取消。</p>
   ### Cancel All Active Orders
-  account_heading_cancelAllActive: Cancel All Active Orders
-  account_para_cancelAllActive: Cancel all active orders that are unfilled or partially filled. Fully filled orders cannot be cancelled.
+  account_heading_cancelAllActive: 撤销所有活动委托单
+  account_para_cancelAllActive: |
+    <p>撤销所有未成交、部分成交的活动委托单。但全部成交的活动委托不可取消。</p>
+  account_aside_cancelAllActive:
+    注意，此api每调用一次会导致<code>rate_limit</code>扣减10
   ### Replace Active Order
-  account_heading_replaceActive: Replace Active Order
+  account_heading_replaceActive: 修改活动单信息
   account_para_replaceActive: |
-    <p>Replace order can modify/amend your active orders.</p>
-    <p><code>order_id</code> and <code>symbol</code> are required for identifying an active order. <code>p_r_qty</code> and <code>p_r_price</code> are the modified price and quantity. If these two fields are not provided, nothing will be modified.</p>
-    <p>It is possible to modify only the qty or price of an order.</p>
+    <p>本接口可以修改您的活动单信息.</p>
+    <p><code>order_id</code>和<code>symbol</code>是必传字段。<code>p_r_qty</code> 和 <code>p_r_price</code>分别是你想修改的订单的新的量价信息. 如果这两个字段没填，那么默认不修改。</p>
+    <p>您也可以仅修改订单的数量或价格。</p>
   account_aside_replaceActive:
-    Please note that only orders that are unfilled or partially filled can be modified by the replace-order API.
+    请注意，只有未成交或未完全成交的订单才可以被修改。
   ### Query Active Order (real-time)
-  account_heading_queryActive: Query Active Order (real-time)
-  account_para_queryActive: Query real-time active order information.
+  account_heading_queryActive: 实时查询活动委托
+  account_para_queryActive: 实时查询活动委托
 
   ## Conditional Orders
   ### Place Conditional Order
-  account_heading_cond: Conditional Orders
-  account_heading_placeCond: Place Conditional Order
+  account_heading_cond: 条件单
+  account_heading_placeCond: 创建条件委托单
   account_para_placeCond: |
-    <p>Market price conditional order: A traditional market price order, will be filled at the best available price. <code>price</code> is not required for this type of order.</p>
-    <p>Limit price conditional order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
-    <p>Custom order ID: You may customise order IDs for conditional orders. We will link it to the system order ID, and return the unique system order ID to you after the conditional order is created successfully. You may use this order ID to cancel your conditional order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
-    <p>Conditional order trigger price: You may set a trigger price for your conditional order. Conditional orders will not enter the orderbook until the last price hits the trigger price. When the last price hits the trigger price, your order will either: 1) your limit conditional order will enter the orderbook, and wait to be executed; 2) your market conditional order will be executed immediately at the best available market price.</p>
-    <p>Note: Take profit/Stop loss is not supported when placing conditional orders. One can only use these 2 functions when placing active orders.</p>
-    <p>Each account can hold up to 10 conditional orders yet to be filled entirely simultaneously.</p>
+    <p>所有条件委托都必须填写 'side', 'symbol', 'order_type', 'qty', 'price', 'base_price', 'stop_px', 'time_in_force'参数，其它参数除非有特殊说明，否则都是可选的。</p>
+    <p>市价条件委托: 一个传统的市场价格订单,会以当前的最优价格为您成交订单。当且仅当选择市价单时，'price', '可为空！</p>
+    <p>限价条件委托: 您可以为您的订单设置一个执行价格，当市场价格达到您的设置价格时，系统会为您成交订单。</p>
+    <p>止盈止损: 您仅能在开仓时设置止盈止损条件单，一旦持有仓位后提交活动委托时关联的止盈止损则不再有效。一旦持仓后，当创建订单后发送的止盈止损信息将不再有效。</p>
+    <p>委托数量: 表示您要购买/卖出的永续合约数，对于委托数量目前Bybit只允许提交正整数。</p>
+    <p>委托价格: 表示您期望购买/卖出永续合约的价格，可以根据<a href="#t-market_heading-t-auth_heading_construct-t-market_heading_querysymbol">交易对接口</a>查询不同symbol价格阶梯。</p>
+    <p>条件委托触发价格: 您可以为您的条件委托单设置一个触发价格，条件委托单不进入委托表（Order Book)，只有触发条件成立如市场价格到达触发价格时，条件委托单才会进入交易系统。当市场价格到达触发价格：1）您的限价条件委托单进入Order Book，等待被执行；2）您的市价条件委托单将按照市场最优价格立即被执行。</p>
+    <p>自定义条件单ID: 您可以自定义活动委托订单ID，我们会为您关联到系统的订单ID，并把系统的唯一订单ID在活动委托创建成功后一并返回给您，您可以使用该订单ID去取消活动委托，同时要求您传递的自定义订单ID最大长度不超过36个字段且唯一。</p>
+  account_aside_placeCond:
+    请注意:只允许最多创建10个条件委托单
   ### Get Conditional Order
-  account_heading_getCond: Get Conditional Order
-  account_para_getCond: Get my conditional order list.
+  account_heading_getCond: 查询条件委托
+  account_para_getCond: 获取我的条件委托单列表。
   ### Cancel Conditional Order
-  account_heading_cancelCond: Cancel Conditional Order
+  account_heading_cancelCond: 撤消条件委托单
   account_para_cancelCond: |
-    <p><code>stop_order_id</code> is required for cancelling conditional order. The unique 36 characters order ID was returned to you when the conditional order was created successfully.</p>
-    <p>You may cancel all untriggered conditional orders. Essentially, after a conditional order is triggered, it will become an active order. So, when a conditional order is triggered, cancellation has to be done through the active order endpoint for any unfilled or partially filled active order. As always, orders that have been fully filled cannot be cancelled.</p>
+    <p>所有撤销条件委托都必须填写<code>stop_order_id</code>，在您创建条件委托成功时会为您返回36位唯一的订单ID。</p>
+    <p>您可以撤销所有未被激活的条件委托。本质上所有条件委托在被激活后都是属于活动委托，所以条件委托一旦被激活，您需要通过调用取消活动委托接口来取消所有未成交、部分成交的活动委托单。同样全部成交的活动委托不可取消。</p>
   ### Cancel All Conditional Orders
-  account_heading_cancelAllCond: Cancel All Conditional Orders
-  account_para_cancelAllCond: Cancel all untriggered conditional orders.
+  account_heading_cancelAllCond: 撤消全部条件委托单
+  account_para_cancelAllCond: 撤销所有未被激活的条件委托。本质上所有条件委托在被激活后都是属于活动委托，所以条件委托一旦被激活，您需要通过调用取消活动委托接口来取消所有未成交、部分成交的活动委托单。同样全部成交的活动委托不可取消。
+  account_aside_cancelAllCond:
+    注意，此api每调用一次会导致rate_limit扣减10
   ### Replace Conditional Order
-  account_heading_replaceCond: Replace Conditional Order
+  account_heading_replaceCond: 修改条件委托单
   account_para_replaceCond:
-    <p>Replace conditional order can modify/amend your conditional orders.</p>
+    <p>修改活跃的条件单。</p>
     <p><code>order_id</code> and <code>symbol</code> are required for identifying a conditional order.</p>
-    <p><code>p_r_qty</code>, <code>p_r_price</code> and <code>p_r_trigger_price</code> can be set for your conditional order. If these fields are not provided, nothing will be modified.</p>
-    <p>It is possible to modify only one of these at a time.</p>
+    <p><code>order_id</code>和<code>symbol</code>两个字段必输。<code>p_r_qty</code>, <code>p_r_price</code>和<code>p_r_trigger_price</code>这三个字段为修改后的条件单量价信息,以及触发价格. 如果不填则默认不会修改。</p>
   account_aside_replaceCond: |
-    Please note that you can only modify untriggered conditional orders.
+    请注意，只有未触发的条件单才能被修改。
   ### Query Conditional Order (real-time)
-  account_heading_queryConditional: Query Conditional Order (real-time)
-  account_para_queryConditional: Query real-time stop order information.
+  account_heading_queryConditional: 实时查询活动委托
+  account_para_queryConditional: 实时查询活动委托。
 
   ## Leverage
-  account_heading_leverage: Leverage
+  account_heading_leverage: 用户杠杆
   ### User Leverage
-  account_heading_userLeverage: User Leverage
-  account_para_userLeverage: Get user leverage.
+  account_heading_userLeverage: 用户杠杆
+  account_para_userLeverage: 获取用户杠杆。
   ### Change User Leverage
-  account_heading_changeLeverage: Change User Leverage
+  account_heading_changeLeverage: 修改用户杠杆
   account_para_changeLeverage: |
-    <p>Change user leverage.</p>
-    <p>Set <code>leverage</code> to <code>0</code> if you want to trade in <a href="https://help.bybit.com/hc/en-us/articles/360037683633-What-is-Cross-Margin">Cross Margin mode</a>. Note that your position mode will be changed to Isolated Margin mode if you change your leverage from 0 to any other value.</p>
+    <p>改变杠杆。</p>
+    <p>如果您想使用<a href="https://help.bybit.com/hc/en-us/articles/360037683633-What-is-Cross-Margin">全仓模式</a>请将<code>杠杆</code>设置为0。请注意，一旦您将杠杆由0改为其他任何值，仓位模式将自动切换到逐仓模式。</p>
 
   ## Position
-  account_heading_position: Position
+  account_heading_position: 仓位
   ### My Position V2 (real-time)
-  account_heading_myPosition: My Position V2 (real-time)
-  account_para_myPosition: Get my position list.
+  account_heading_myPosition: 获取仓位（实时）
+  account_para_myPosition: 获取我的仓位列表。通过该接口可以获取当前用户的持仓信息，如持仓数量、账户余额等信息
   ### Change Margin
-  account_heading_changeMargin: Change Margin
-  account_para_changeMargin: Update margin.
-  account_aside_changeMargin: You cannot change margin when your position is in Cross Margin mode. See the <a href="#change-user-leverage">Change User Leverage</a> endpoint for more.
+  account_heading_changeMargin: 更新保证金
+  account_para_changeMargin: 更新保证金。
+  account_aside_changeMargin: 如果当前为全仓模式则不能调整保证金。请查看<a href="#change-user-leverage">修改杠杆</a>了解更多信息。
   ### Set Trading-Stop
-  account_heading_tradingStop: Set Trading-Stop
-  account_para_tradingStop: Set take profit, stop loss, and trailing stop for your open position.
-  account_aside_tradingStop: Passing these parameters will create conditional orders controlled by the system. The system will cancel these orders if the position is closed, and adjust the qty according to the size of the open position.
-  account_row_comment_takeProfit: Cannot be less than 0, 0 means cancel TP
-  account_row_comment_stopLoss: Cannot be less than 0, 0 means cancel SL
-  account_row_comment_trailingStop: Cannot be less than 0, 0 means cancel TS
+  account_heading_tradingStop: 设置止盈止损
+  account_para_tradingStop: 设置止盈止损。
+  account_aside_tradingStop: 传递以下参数后将会由系统创建条件单。如果仓位关闭，系统将会取消这些订单，同时调整开仓的仓位数量。
+  account_row_comment_takeProfit: 不小于0,如果等于0则是取消止盈(TP)
+  account_row_comment_stopLoss: 不小于0,如果等于0则是取消止损(SL)
+  account_row_comment_trailingStop: 不小于0,如果等于0则是取消追踪止损(TS)
 
   ## Funding
-  account_heading_funding: Funding
+  account_heading_funding: 资金
   ### My Last Funding Fee
-  account_heading_myLastFunding: My Last Funding Fee
-  account_para_myLastFunding: Funding settlement occurs every 8 hours at 00:00 UTC, 08:00 UTC and 16:00 UTC. The current interval's fund fee settlement is based on the previous interval's fund rate. For example, at 16:00, the settlement is based on the fund rate generated at 8:00. The fund rate generated at 16:00 will be used at 0:00 the next day.
+  account_heading_myLastFunding: 查询上个周期资金费用结算信息
+  account_para_myLastFunding: |
+    <p>UTC时间每天0点、8点、16点进行资金费用结算</p>
+    <p>当前周期的资金费用结算是根据上个周期的资金费率来进行结算</p>
+    <p>比如16点结算时是按照8点产生的资金费率来进行结算，而16点产生的资金费率则会在第二天0点结算时使用</p>
   ### Predicted Funding Rate and My Funding Fee
-  account_heading_predictedFunding: Predicted Funding Rate and My Funding Fee
-  account_para_predictedFunding: Get predicted funding rate and my funding fee.
+  account_heading_predictedFunding: 查询预测资金费率和资金费用
+  account_para_predictedFunding: 查询预测资金费率和资金费用。
   ## API Key Info
-  account_heading_key: API Key Info
-  account_para_key: Get user's API key info.
+  account_heading_key: 密钥信息
+  account_para_key: 获取账户API密钥信息。
 
   # Wallet Data Endpoints
   wallet_heading: 钱包接口
@@ -337,14 +359,14 @@ zh-cn:
     <p> Bybit会基于请求IP做频率限制，针对不同的请求方法有以下规则：</p>
     <ul>
     <li>
-      <code>GET</code>方法: 
+      <code>GET</code>方法:
       <ul>
         <li>每秒不超过35个请求</li>
         <li>连续2分钟内每秒不超过25个请求</li>
       </ul>
     </li>
     <li>
-      <code>POST</code>方法: 
+      <code>POST</code>方法:
       <ul>
         <li>每秒不超过25个请求</li>
         <li>连续2分钟内每秒不超过10个请求</li>
@@ -449,7 +471,7 @@ zh-cn:
 
     举例：
      BTC最佳竞买价 = 10000
-     BTC最佳竞卖价 = 10001 
+     BTC最佳竞卖价 = 10001
      “有效价格”范围：
      [(10000 + 10001) / 2 - 3* 0.5, (10000 + 10001) / 2 + 3* 0.5] = [9999,10002]
   ###### POU
@@ -603,7 +625,7 @@ zh-cn:
 
   # Error Definitions
   Error_heading: 错误码
-  
+
   # ENUMs Definitions
   ENUMs_header: 枚举定义
   ENUMs_para: This is a list of valid options (and rules) for the different parameters when sending a request to the API.
@@ -736,11 +758,12 @@ zh-cn:
   createByTakeOver_PassThrough: "- Created by liquidation takeover"
   ## Exec type (`exec_type`)
   trade: "普通交易"
-  adlTrade: "资金费率" 
+  adlTrade: "资金费率"
   funding: "自动减仓"
   bustTrade: "强制平仓"
 
   # Misc.
-  misc_row_comment_orderLinkIdNotOrderId: Order link ID. <b>Required</b> if not passing order_id
-  misc_row_comment_orderIdNotOrderLinkId: Order ID. <b>Required</b> if not passing order_link_id
+  misc_row_comment_orderLinkIdNotOrderId: 机构ID。如果未填order_id则为<b>必填</b>字段。
+  misc_row_comment_orderLinkIdNotStopOrderId: 机构ID。如果未填stop_order_id则为<b>必填</b>字段。
+  misc_row_comment_orderIdNotOrderLinkId: 订单ID。如果未填order_link_id则为<b>必填</b>字段。
   misc_row_comment_symbolNotOrderId: Contract type. <b>Required</b> if not passing order_id

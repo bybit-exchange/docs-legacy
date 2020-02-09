@@ -34,7 +34,7 @@ The following account data endpoints require authentication.
     },
     "time_now": "1575111823.458705",
     "rate_limit_status": 99,
-    "rate_limit_reset_ms": 1575111823448987,
+    "rate_limit_reset_ms": 1580885703683,
     "rate_limit": 100
 }
 ```
@@ -49,15 +49,14 @@ POST
 ##### t(:heading_request_parameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#t-enums_header-side-side">side</a> |true |string |Side    |
-|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol).    |
-|<a href="#t-enums_header-order-type-order_type">order_type</a> |true |string |Active order type   |
+|<a href="#t-enums_header-side-side">side</a> |true |string |t(:row_comment_side)    |
+|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)   |
+|<a href="#t-enums_header-order-type-order_type">order_type</a> |true |string |t(:row_comment_activeOrderType)   |
 |<a href="#t-enums_header-quantity-qty">qty</a> |true |integer |t(:row_comment_qty) |
 |<a href="#t-enums_header-price-price">price</a> |false |number |t(:row_comment_price) |
 |<a href="#t-enums_header-time-in-force-time_in_force">time_in_force</a> |true |string |t(:row_comment_timeInForce) |
 |take_profit |false |number |t(:row_comment_takeProfit) |
 |stop_loss |false |number |t(:row_comment_stopLoss) |
-|trailing_stop|false |number |t(:row_comment_trailingStop) |
 |reduce_only |false |bool |t(:row_comment_reduceOnly) |
 |close_on_trigger |false |bool |t(:row_comment_closeOnTrigger)
 |order_link_id |false |string |t(:row_comment_orderLinkId) |
@@ -138,7 +137,7 @@ POST
     "ext_info": null,
     "time_now": "1577448922.437871",
     "rate_limit_status": 599,
-    "rate_limit_reset_ms": 1577448922444,
+    "rate_limit_reset_ms": 1580885703683,
     "rate_limit": 600
 }
 ```
@@ -194,7 +193,7 @@ GET
     },
     "time_now": "1575112681.814760",
     "rate_limit_status": 99,
-    "rate_limit_reset_ms": 1575112681807671,
+    "rate_limit_reset_ms": 1580885703683,
     "rate_limit": 100
 }
 ```
@@ -247,12 +246,16 @@ POST
     ],
     "time_now": "1575110339.105675",
     "rate_limit_status": 98,
-    "rate_limit_reset_ms": 1575110339100545,
+    "rate_limit_reset_ms": 1580885703683,
     "rate_limit": 100
 }
 ```
 
 t(:account_para_cancelAllActive)
+
+<aside class="notice">
+t(:account_aside_cancelAllActive)
+</aside>/position/list
 
 ##### t(:heading_http_request)
 POST
@@ -345,7 +348,7 @@ GET
 ##### t(:heading_request_parameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|order_id |false |string | t(:row_comment_orderId). **Required** if not pass order_link_id. |
+|order_id |false |string | t(:misc_row_comment_orderIdNotOrderLinkId)|
 |order_link_id |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
 |<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 
@@ -400,6 +403,10 @@ GET
 
 t(:account_para_placeCond)
 
+<aside class="notice">
+t(:account_aside_placeCond)
+</aside>
+
 ##### t(:heading_http_request)
 POST
 <code><span id=oasoCreate>/open-api/stop-order/create</span></code>
@@ -408,15 +415,15 @@ POST
 ##### t(:heading_request_parameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#t-enums_header-side-side">side</a> |true |string |Side    |
+|<a href="#t-enums_header-side-side">side</a> |true |string |t(:row_comment_side)    |
 |<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
-|<a href="#t-enums_header-order-type-order_type">order_type</a> |true |string |Conditional order type |
+|<a href="#t-enums_header-order-type-order_type">order_type</a> |true |string |t(:row_comment_stopOrderType) |
 |<a href="#t-enums_header-quantity-qty">qty</a> |true |integer |t(:row_comment_qty) |
-|<a href="#t-enums_header-price-price">price</a> |false | number |t(:row_comment_price) |
-|base_price |true |number | It will be used to compare with the value of 'stop_px', to decide whether your conditional order will be triggered by crossing trigger price from upper side or lower side. Mainly used to identify the expected direction of the current conditional order. |
-|stop_px | true | number | Trigger price |
+|<a href="#t-enums_header-price-price">price</a> |false | number |t(:row_comment_stopOrderPrice) |
+|base_price |true |number | t(:row_comment_basePrice) |
+|stop_px | true | number | t(:row_comment_stopPx) |
 |<a href="#t-enums_header-time-in-force-time_in_force">time_in_force</a> |true |string |t(:row_comment_timeInForce) |
-|<a href="#t-enums_header-trigger-price-type-trigger_by">trigger_by</a> | false | string | Trigger price type. Default `LastPrice` |
+|<a href="#t-enums_header-trigger-price-type-trigger_by">trigger_by</a> | false | string | t(:row_comment_triggerBy)|
 |close_on_trigger |false |bool |t(:row_comment_closeOnTrigger)
 |order_link_id |false |string |t(:row_comment_orderLinkId) |
 
@@ -490,9 +497,9 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |stop_order_id |false |string |t(:row_comment_stopOrderId) |
-|order_link_id |false |string |Agency customized order ID|
+|order_link_id |false |string |t(:row_comment_orderLinkId)|
 |<a href="#t-enums_header-symbol-symbol">symbol</a> |false |string |t(:row_comment_symbol). Default `BTCUSD`    |
-|<a href="#t-enums_header-stop-order-status-stop_order_status">stop_order_status</a> |false |string |stop order status   |
+|<a href="#t-enums_header-stop-order-status-stop_order_status">stop_order_status</a> |false |string |t(:row_comment_stopOrderStatus)|
 |order |false |string |t(:row_comment_order) |
 |page |false |integer |t(:row_comment_page) |
 |limit |false |integer |t(:row_comment_limit) |
@@ -544,7 +551,7 @@ POST
 |:----- |:-------|:-----|----- |
 |<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)|
 |stop_order_id |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
-|order_link_id |false |string | Agency customized order ID. **Required** if not pass stop_order_id|
+|order_link_id |false |string | t(:misc_row_comment_orderLinkIdNotStopOrderId)|
 
 
 ### t(:account_heading_cancelAllCond)
@@ -606,12 +613,16 @@ POST
     ],
     "time_now": "1577454993.799912",
     "rate_limit_status": 90,
-    "rate_limit_reset_ms": 1577454993789325,
+    "rate_limit_reset_ms": 1580885703683,
     "rate_limit": 100
 }
 ```
 
 t(:account_para_cancelAllCond)
+
+<aside class="notice">
+t(:account_aside_cancelAllCond)
+</aside>
 
 ##### t(:heading_http_request)
 POST
@@ -623,8 +634,6 @@ POST
 |:----- |:-------|:-----|----- |
 |<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)|
 
-
-### t(:account_heading_replaceCond)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -641,6 +650,9 @@ POST
 }
 ```
 
+
+### t(:account_heading_replaceCond)
+t(:account_para_replaceCond)
 
 <aside class="notice">
 t(:account_aside_replaceCond)
@@ -693,7 +705,7 @@ POST
     },
     "time_now": "1577476584.386958",
     "rate_limit_status": 599,
-    "rate_limit_reset_ms": 1577476584383388,
+    "rate_limit_reset_ms": 1580885703683,
     "rate_limit": 600
 }
 ```
@@ -831,7 +843,7 @@ POST
     },
     "time_now": "1577480599.097287",
     "rate_limit_status": 119,
-    "rate_limit_reset_ms": 1577480599093605,
+    "rate_limit_reset_ms": 1580885703683,
     "rate_limit": 120
 }
 ```
@@ -881,7 +893,7 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
-|margin |true |string |margin  |
+|margin |true |string |t(:row_comment_margin)  |
 
 
 ### t(:account_heading_tradingStop)
@@ -1025,6 +1037,8 @@ GET
 ##### t(:heading_request_parameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
+|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
+
 
 
 ### t(:account_heading_predictedFunding)
