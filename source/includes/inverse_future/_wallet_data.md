@@ -56,7 +56,7 @@ t(:wallet_aside_walletRecords)
 ##### t(:heading_http_request)
 GET
 <code><span id=oawfRecords>/open-api/wallet/fund/records</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawfRecords"><img src="/images/copy_to_clipboard.png" height=15 width=15></a></button>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawfRecords"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 ##### t(:heading_request_parameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -111,7 +111,7 @@ t(:wallet_aside_withdrawRecords)
 ##### t(:heading_http_request)
 GET
 <code><span id=oawwList>/open-api/wallet/withdraw/list</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawwList"><img src="/images/copy_to_clipboard.png" height=15 width=15></a></button>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawwList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 ##### t(:heading_request_parameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -177,7 +177,7 @@ t(:wallet_aside_tradeRecords)
 ##### t(:heading_http_request)
 GET
 <code><span id=vpeList>/v2/private/execution/list</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpeList"><img src="/images/copy_to_clipboard.png" height=15 width=15></a></button>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpeList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 ##### t(:heading_request_parameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -256,7 +256,7 @@ t(:wallet_aside_getRisk)
 ##### t(:heading_http_request)
 GET
 <code><span id=oawrlList>/open-api/wallet/risk-limit/list</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawrlList"><img src="/images/copy_to_clipboard.png" height=15 width=15></a></button>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawrlList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 ##### t(:heading_request_parameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -336,7 +336,7 @@ t(:wallet_aside_getRisk)
 ##### t(:heading_http_request)
 GET
 <code><span id=oawRiskLimit>/open-api/wallet/risk-limit</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawRiskLimit"><img src="/images/copy_to_clipboard.png" height=15 width=15></a></button>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawRiskLimit"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 ##### t(:heading_request_parameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|

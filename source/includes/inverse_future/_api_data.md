@@ -25,7 +25,7 @@ t(:api_para_time)
 ##### t(:heading_http_request)
 GET
 <code><span id=vpTime>/v2/public/time</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpTime"><img src="/images/copy_to_clipboard.png" height=15 width=15></a></button>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpTime"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 ##### t(:heading_request_parameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -58,7 +58,7 @@ t(:api_para_announcement)
 ##### t(:heading_http_request)
 GET
 <code><span id=vpAnnouncement>/v2/public/announcement</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpAnnouncement"><img src="/images/copy_to_clipboard.png" height=15 width=15></a></button>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpAnnouncement"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 ##### t(:heading_request_parameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
