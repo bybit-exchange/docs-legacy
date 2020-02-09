@@ -28,15 +28,15 @@ zh-cn:
     起始ID. 默认: 返回最新数据
   row_comment_limit: 每页数量, 最大50. 默认每页20条
   row_comment_orderType: 订单类型
-  row_comment_qty: 委托数量(1个委托1美元)
-  row_comment_price: 委托价格。如果是下<b>条件单</b>，该参数为<b>必填</b>. 在没有仓位时，做多的委托价格需高于市价的10%、低于1百万。如有仓位时则需优于强平价。价格增减最小单位请参考<a href="#t-market_heading-t-auth_heading_construct-t-market_heading_querysymbol">交易对接口</a>响应中的<b>price_filter</b>字段
+  row_comment_qty: 委托数量(1个委托1美元)，只能为正整数 
+  row_comment_price: 委托价格。如果是下<b>限价单</b>，该参数为<b>必填</b>. 在没有仓位时，做多的委托价格需高于市价的10%、低于1百万。如有仓位时则需优于强平价。价格增减最小单位请参考<a href="#t-market_heading-t-auth_heading_construct-t-market_heading_querysymbol">交易对接口</a>响应中的<b>price_filter</b>字段
   row_comment_stopOrderPrice: 条件委托执行价格。如果条件委托是限价单，则price为必传字段
   row_comment_basePrice: 当前市价。用于和stop_px值进行比较，确定当前条件委托是看空到<code>stop_px</code>时触发还是看多到stop_px触发。主要是用来标识当前条件单预期的方向
   row_comment_stopPx: 条件委托下单时市价
   row_comment_timeInForce: 执行策略
   row_comment_triggerBy: 触发价格类型. 默认为上一笔成交价格
-  row_comment_takeProfit: 止盈价格
-  row_comment_stopLoss: 止损价格
+  row_comment_takeProfit: 止盈价格，仅开仓时生效
+  row_comment_stopLoss: 止损价格，仅开仓时生效
   row_comment_trailingStop: Trailing stop
   row_comment_reduceOnly: 只减仓
   row_comment_closeOnTrigger: 触发后平仓. 如果下平仓单，请设置为<code>true</code>，避免因为保证金不足而导致下单失败
@@ -44,9 +44,9 @@ zh-cn:
   row_comment_page: 页码.默认取第一页
   row_comment_orderId: 活动订单号ID。当成功创建了活动订单后返回的唯一的订单号ID。
   row_comment_stopOrderId: 条件委托订单ID。
-  row_comment_pRQty: 修改后的订单数量。如果不修改这个字段，请不要传这个参数。
+  row_comment_pRQty: 修改后的订单数量。如果是未完全成交订单，则表示修改剩余未成交的部分。如果不修改这个字段，请不要传这个参数。
   row_comment_pRPrice: 修改后的订单价格。如果不修改这个字段，请不要传这个参数。
-  row_comemnt_pRTriggerPrice: 修改后的条件单的触发价格
+  row_comemnt_pRTriggerPrice: 修改后的条件单的触发价格。如果不修改这个字段，请不要传这个参数。
   row_comment_leverage: 杠杆。<code>杠杆为0</code>意味着全仓模式.全场模式下修改杠杆会变成逐仓模式
   row_comment_startDate: Start point for result
   row_comment_endDate: End point for result
@@ -123,11 +123,11 @@ zh-cn:
     <ul>
       <li>
         <span id=testnet><a href="https://api-testnet.bybit.com">https://api-testnet.bybit.com</a></span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet"><img src="/images/copy_to_clipboard.png" height=15 width=15></a></button>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
       </li>
       <li>
         <span id=mainnet><a href="https://api.bybit.com">https://api.bybit.com</a></span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet"><img src="/images/copy_to_clipboard.png" height=15 width=15></a></button>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
       </li>
     </ul>
   auth_para_privatepublic:
@@ -195,18 +195,19 @@ zh-cn:
   ### Place Active Order V2
   account_heading_placeActive: 创建活动委托单
   account_para_placeActive: |
-    <p>所有活动委托都必须填写 'side', 'symbol', 'order_type', 'qty', 'price', 'time_in_force'参数，其它参数除非有特殊说明，否则都是可选的。 市价活动委托: 一个传统的市场价格订单,会以当前的最优价格为您成交订单。当且仅当选择市价单时，<code>price</code>可为空！</p>
+    <p>市价活动委托: 一个传统的市场价格订单,会以当前的最优价格为您成交订单。当且仅当选择市价单时，<code>price</code>可为空！</p>
     <p>限价活动委托: 您可以为您的订单设置一个执行价格，当市场价格达到您的设置价格时，系统会为您成交订单。</p>
-    <p>止盈止损: 您仅能在开仓时设置止盈止损条件单，一旦持有仓位后提交活动委托时关联的止盈止损则不再有效。</p>
+    <p><b>止盈止损: 您仅能在开仓时设置止盈止损条件单，一旦持有仓位后提交活动委托时关联的止盈止损则不会生效。</b></p>
     <p>委托数量: 表示您要购买/卖出的永续合约数，对于委托数量目前Bybit只允许提交正整数。</p>
-    <p>委托价格: 如果是下<b>条件单</b>，该参数为<b>必填</b>. 在没有仓位时，做多的委托价格需高于市价的10%、低于1百万。如有仓位时则需优于强平价。价格增减最小单位请参考<a href="#t-market_heading-t-auth_heading_construct-t-market_heading_querysymbol">交易对接口</a>响应中的<b>price_filter</b>字段。</p>
+    <p>委托价格: 如果是下<b>限价单</b>，该参数为<b>必填</b>. 在没有仓位时，做多的委托价格需高于市价的10%、低于1百万。如有仓位时则需优于强平价。价格增减最小单位请参考<a href="#t-market_heading-t-auth_heading_construct-t-market_heading_querysymbol">交易对接口</a>响应中的<b>price_filter</b>字段。</p>
     <p>自定义条件单ID: 您可以自定义活动委托订单ID，我们会为您关联到系统的订单ID，并把系统的唯一订单ID在活动委托创建成功后一并返回给您，您可以使用该订单ID去取消活动委托，同时要求您传递的自定义订单ID<code>最大长度不超过36个字段且唯一</code>。</p>
-    <p>每个账户最多可同时持有500个活动订单。这是针对合约的，因此可以允许出现例如：账户同时持有300个BTCUSD的活动单、280个ETHBTC合约的活动单。</p>
+    <p><b>每个账户最多可同时持有500个活动订单。这是针对合约的，因此可以允许出现例如：账户同时持有300个BTCUSD的活动单、280个ETHUSD合约的活动单。</b></p>
+    <p><b>当您达到订单上限的时候的时候，仍然可以下单设置了参数<code>reduce_only</code> 或 <code>closeOnTrigger</code>的订单。</b></p>
   ### Get Active Order
   account_heading_getActive: 查询活动委托
   account_para_getActive: |
     <p>获取我的活动委托单列表。</p>
-    <p>创建/取消订单是异步。如果要获取订单的实时信息，可以调用接口<a href="#query-active-order-real-time">实时查询活动单信息</a>.</p>
+    <p>创建/取消订单是异步的，因此<b>该接口可能返回的数据可能会有延迟</b>。如果要获取订单的实时信息，可以调用接口<a href="#t-account_heading-t-account_heading_active-t-account_heading_queryactive">实时查询活动单信息</a>.</p>
   account_row_comment_orderId: 订单ID
   account_row_comment_orderStatus: 指定订单状态查询订单列表。不传该参数则默认查询所有状态订单。该参数支持多状态查询，状态之间用英文逗号分割。
   ### Cancel Active Order V2
@@ -224,8 +225,7 @@ zh-cn:
   account_heading_replaceActive: 修改活动单信息
   account_para_replaceActive: |
     <p>本接口可以修改您的活动单信息.</p>
-    <p><code>order_id</code>和<code>symbol</code>是必传字段。<code>p_r_qty</code> 和 <code>p_r_price</code>分别是你想修改的订单的新的量价信息. 如果这两个字段没填，那么默认不修改。</p>
-    <p>您也可以仅修改订单的数量或价格。</p>
+    <p>您可以只修改<code>p_r_qty</code> 或 <code>p_r_price</code></p>
   account_aside_replaceActive:
     请注意，只有未成交或未完全成交的订单才可以被修改。
   ### Query Active Order (real-time)
@@ -249,11 +249,12 @@ zh-cn:
     请注意:只允许最多创建10个条件委托单
   ### Get Conditional Order
   account_heading_getCond: 查询条件委托
-  account_para_getCond: 获取我的条件委托单列表。
+  account_para_getCond: 
+    <p>获取我的条件委托单列表。</p>
+    <p>创建/取消订单是异步的，因此<b>该接口可能返回的数据可能会有延迟</b>。如果要获取订单的实时信息，可以调用接口<a href="#t-account_heading-t-account_heading_cond-t-account_heading_queryconditional">实时查询条件单信息</a>。</p>
   ### Cancel Conditional Order
   account_heading_cancelCond: 撤消条件委托单
   account_para_cancelCond: |
-    <p>所有撤销条件委托都必须填写<code>stop_order_id</code>，在您创建条件委托成功时会为您返回36位唯一的订单ID。</p>
     <p>您可以撤销所有未被激活的条件委托。本质上所有条件委托在被激活后都是属于活动委托，所以条件委托一旦被激活，您需要通过调用取消活动委托接口来取消所有未成交、部分成交的活动委托单。同样全部成交的活动委托不可取消。</p>
   ### Cancel All Conditional Orders
   account_heading_cancelAllCond: 撤消全部条件委托单
@@ -263,14 +264,12 @@ zh-cn:
   ### Replace Conditional Order
   account_heading_replaceCond: 修改条件委托单
   account_para_replaceCond:
-    <p>修改活跃的条件单。</p>
-    <p><code>order_id</code> and <code>symbol</code> are required for identifying a conditional order.</p>
-    <p><code>order_id</code>和<code>symbol</code>两个字段必输。<code>p_r_qty</code>, <code>p_r_price</code>和<code>p_r_trigger_price</code>这三个字段为修改后的条件单量价信息,以及触发价格. 如果不填则默认不会修改。</p>
+    <p>修改未触发的条件单。</p>
   account_aside_replaceCond: |
     请注意，只有未触发的条件单才能被修改。
   ### Query Conditional Order (real-time)
-  account_heading_queryConditional: 实时查询活动委托
-  account_para_queryConditional: 实时查询活动委托。
+  account_heading_queryConditional: 实时查询条件委托
+  account_para_queryConditional: 实时查询条件委托。
 
   ## Leverage
   account_heading_leverage: 用户杠杆
@@ -278,20 +277,19 @@ zh-cn:
   account_heading_userLeverage: 用户杠杆
   account_para_userLeverage: 获取用户杠杆。
   ### Change User Leverage
-  account_heading_changeLeverage: 修改用户杠杆
+  account_heading_changeLeverage: 修改杠杆
   account_para_changeLeverage: |
-    <p>改变杠杆。</p>
-    <p>如果您想使用<a href="https://help.bybit.com/hc/en-us/articles/360037683633-What-is-Cross-Margin">全仓模式</a>请将<code>杠杆</code>设置为0。请注意，一旦您将杠杆由0改为其他任何值，仓位模式将自动切换到逐仓模式。</p>
-
+    <p>修改杠杆。</p>
+  account_aside_changeLeverage: 如果您想使用<a href="https://help.bybit.com/hc/en-us/articles/360037683633-What-is-Cross-Margin">全仓模式</a>请将<code>杠杆</code>设置为0。请注意，一旦您将杠杆由0改为其他任何值，仓位模式将自动切换到逐仓模式。
   ## Position
-  account_heading_position: 仓位
+  account_heading_position: 持仓
   ### My Position V2 (real-time)
-  account_heading_myPosition: 获取仓位（实时）
+  account_heading_myPosition: 获取持仓（实时）
   account_para_myPosition: 获取我的仓位列表。通过该接口可以获取当前用户的持仓信息，如持仓数量、账户余额等信息
   ### Change Margin
   account_heading_changeMargin: 更新保证金
   account_para_changeMargin: 更新保证金。
-  account_aside_changeMargin: 如果当前为全仓模式则不能调整保证金。请查看<a href="#change-user-leverage">修改杠杆</a>了解更多信息。
+  account_aside_changeMargin: 如果当前为全仓模式则不能调整保证金。请查看<a href="#t-account_heading-t-account_heading_leverage-t-account_heading_changeleverage">修改杠杆</a>了解更多信息。
   ### Set Trading-Stop
   account_heading_tradingStop: 设置止盈止损
   account_para_tradingStop: 设置止盈止损。
@@ -301,7 +299,7 @@ zh-cn:
   account_row_comment_trailingStop: 不小于0,如果等于0则是取消追踪止损(TS)
 
   ## Funding
-  account_heading_funding: 资金
+  account_heading_funding: 资金费率
   ### My Last Funding Fee
   account_heading_myLastFunding: 查询上个周期资金费用结算信息
   account_para_myLastFunding: |
@@ -312,7 +310,7 @@ zh-cn:
   account_heading_predictedFunding: 查询预测资金费率和资金费用
   account_para_predictedFunding: 查询预测资金费率和资金费用。
   ## API Key Info
-  account_heading_key: 密钥信息
+  account_heading_key: APIKey信息
   account_para_key: 获取账户API密钥信息。
 
   # Wallet Data Endpoints
@@ -521,13 +519,13 @@ zh-cn:
     <p>
       <li>Testnet:
         <span id="testnet_address">wss://stream-testnet.bybit.com/realtime</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></a></button>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
       </li>
     </p>
     <p>
       <li>Mainnet:
         <span id="mainnet_address">wss://stream.bybit.com/realtime</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></a></button>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
       </li>
     </p>
     </ul>
