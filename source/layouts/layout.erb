@@ -54,9 +54,13 @@ under the License.
         display:flex;
         flex: 1;
       }
+      a.logo-link{
+        line-height: 50px;
+      }
       img.logo {
         width: 161px;
-        height: 55px;
+        height: 50px;
+        vertical-align: middle;
       }
       .con {
           display: flex;
@@ -113,11 +117,11 @@ under the License.
   <header class="top-nav">
   <div class="top-menu">
   <% if current_page.data.logo.present? %>
-  <a href="<%= current_page.data.logo.link %>" target="<%= current_page.data.logo.target %>">
-    <%= image_tag "logo.png", class: 'logo' %>
+  <a href="<%= current_page.data.logo.link %>" class="logo-link" target="<%= current_page.data.logo.target %>">
+    <%= image_tag "logo.svg", class: 'logo' %>
   </a>
 <% else %>
-  <%= image_tag "logo.png", class: 'logo' %>
+  <%= image_tag "logo.svg", class: 'logo' %>
 <% end %>
   <ul class="con">
   <% if page_classes.end_with?("inverse_index") %>

@@ -18,16 +18,25 @@ en:
   column_required: required
   column_type: type
   column_comments: comments
+  row_comment_side: Side
   row_comment_symbol: Contract type
+  row_comment_margin: margin
+  row_comment_activeOrderType: Active order type
+  row_comment_stopOrderType: Condition order type
+  row_comment_stopOrderStatus: stop order status
   row_comment_from: |
     From ID. Default: return latest data
   row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page
   row_comment_orderType: Active order type
-  row_comment_qty: Order quantity in USD
-  row_comment_price: Execution price. <b>Required</b> if you make limit order. Must be an increment of 0.5
+  row_comment_qty: Order quantity in USD. Integer only
+  row_comment_price: Order price. <b>Required</b> if you make limit price order
+  row_comment_stopOrderPrice: Execution price for conditional order. Required if you make limit price order
+  row_comment_basePrice: It will be used to compare with the value of <code>stop_px</code>, to decide whether your conditional order will be triggered by crossing trigger price from upper side or lower side. Mainly used to identify the expected direction of the current conditional order.
+  row_comment_stopPx: Trigger price
   row_comment_timeInForce: Time in force
-  row_comment_takeProfit: Take profit price
-  row_comment_stopLoss: Stop loss price
+  row_comment_triggerBy: Trigger price type. Default <code>LastPrice</code>
+  row_comment_takeProfit: Take profit price, only take effect upon opening the position
+  row_comment_stopLoss: Stop loss price, only take effect upon opening the position
   row_comment_trailingStop: Trailing stop
   row_comment_reduceOnly: Reduce only
   row_comment_closeOnTrigger: Close on trigger. When creating a closing order, we highly recommend <code>close_on_trigger</code> is set as <code>True</code> to avoid failing by insufficient available margin
@@ -38,7 +47,7 @@ en:
   row_comment_stopOrderId: Your conditoinal order ID. The unique order ID returned to you when the corresponding active order was created
   row_comment_pRQty: New order quantity. Do not pass this field if you don't want modify it
   row_comment_pRPrice: New order price. Do not pass this field if you don't want modify it
-  row_comemnt_pRTriggerPrice: New conditional order's trigger price, also known as stop_px
+  row_comemnt_pRTriggerPrice: New conditional order's trigger price, also known as stop_px. Do not pass this field if you don't want modify it
   row_comment_leverage: Leverage. <code>0</code> means Cross Margin mode - any other value means Isolated Margin mode
   row_comment_startDate: Start point for result
   row_comment_endDate: End point for result
@@ -113,11 +122,11 @@ en:
     <ul>
       <li>
         <span id=testnet><a href="https://api-testnet.bybit.com">https://api-testnet.bybit.com</a></span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet"><img src="/images/copy_to_clipboard.png" height=15 width=15></a></button>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
       </li>
       <li>
         <span id=mainnet><a href="https://api.bybit.com">https://api.bybit.com</a></span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet"><img src="/images/copy_to_clipboard.png" height=15 width=15></a></button>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
       </li>
     </ul>
   auth_para_privatepublic:
@@ -183,14 +192,16 @@ en:
   account_para_placeActive: |
     <p>Market price active order: A traditional market price order, will be filled at the best available price. <code>price</code> is not required for this type of order.</p>
     <p>Limit price active order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
-    <p>Take profit/Stop loss: You may only set a take-profit/stop-loss conditional order upon opening the position. Once you hold a position, any new active order requests which contain TP/SL/TS data will be accepted but TP/SL/TS data will be ignored.</p>
+    <p><b>Take profit/Stop loss: You may only set a take-profit/stop-loss conditional order upon opening the position. Once you hold a position, any new active order requests which contain TP/SL/TS data will be accepted but TP/SL/TS data will be ignored.</b></p>
+    <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell, currently Bybit only support order quantity in an integer.</p>
+    <p>Order price: If it is a condition order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the price_filter field in the <a href="#t-market_heading-t-auth_heading_construct-t-market_heading_querysymbol">transaction</a> response to the interface.</p>
     <p>Custom order ID: You may customise order IDs for active orders. We will link it to the system order ID, and return the unique system order ID to you after the active order is created successfully. You may use this order ID or your custom order ID to cancel your active order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
-    <p>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSD instrument and 280 active orders on the ETHBTC instrument.</p>
+    <p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSD instrument and 280 active orders on the ETHUSD instrument. And order with parameter <code>reduce_only</code> or <code>closeOnTrigger</code> is unlimited.</b></p>
   ### Get Active Order
   account_heading_getActive: Get Active Order
   account_para_getActive: |
     <p>Get my active order list.</p>
-    <p>Order creation/cancellation is asynchronous. If you want real-time information about an order, you can call the <a href="#query-active-order-real-time">Query Active Order (real-time)</a>.</p>
+    <p>Cause order creation/cancellation is asynchronous, sometimes there is a data dalay in this endpoint. You can get real-time order info in <a href="#t-account_heading-t-account_heading_active-t-account_heading_queryactive">Query Active Order (real-time)</a> endpoint.</p>
   account_row_comment_orderId: Order ID
   account_row_comment_orderStatus: Query your orders for all statuses if 'order_status' is empty. If you want to query orders with specific statuses, you can pass the order_status split by ','.
   ### Cancel Active Order V2
@@ -200,12 +211,15 @@ en:
     <p>You may cancel active orders that are unfilled or partially filled. Fully filled orders cannot be cancelled.</p>
   ### Cancel All Active Orders
   account_heading_cancelAllActive: Cancel All Active Orders
-  account_para_cancelAllActive: Cancel all active orders that are unfilled or partially filled. Fully filled orders cannot be cancelled.
+  account_para_cancelAllActive: |
+    <p>Cancel all active orders that are unfilled or partially filled. Fully filled orders cannot be cancelled.</p>
+  account_aside_cancelAllActive:
+    This endpoint's <code>rate_limit</code> will decrease by 10 per request
   ### Replace Active Order
   account_heading_replaceActive: Replace Active Order
   account_para_replaceActive: |
     <p>Replace order can modify/amend your active orders.</p>
-    <p><code>order_id</code> and <code>symbol</code> are required for identifying an active order. <code>p_r_qty</code> and <code>p_r_price</code> are the modified price and quantity. If these two fields are not provided, nothing will be modified.</p>
+    <p><code>p_r_qty</code> and <code>p_r_price</code> are the modified price and quantity. If these two fields are not provided, nothing will be modified.</p>
     <p>It is possible to modify only the qty or price of an order.</p>
   account_aside_replaceActive:
     Please note that only orders that are unfilled or partially filled can be modified by the replace-order API.
@@ -218,30 +232,38 @@ en:
   account_heading_cond: Conditional Orders
   account_heading_placeCond: Place Conditional Order
   account_para_placeCond: |
-    <p>Market price conditional order: A traditional market price order, will be filled at the best available price. <code>price</code> is not required for this type of order.</p>
-    <p>Limit price conditional order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
-    <p>Custom order ID: You may customise order IDs for conditional orders. We will link it to the system order ID, and return the unique system order ID to you after the conditional order is created successfully. You may use this order ID to cancel your conditional order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
-    <p>Conditional order trigger price: You may set a trigger price for your conditional order. Conditional orders will not enter the orderbook until the last price hits the trigger price. When the last price hits the trigger price, your order will either: 1) your limit conditional order will enter the orderbook, and wait to be executed; 2) your market conditional order will be executed immediately at the best available market price.</p>
-    <p>Note: Take profit/Stop loss is not supported when placing conditional orders. One can only use these 2 functions when placing active orders.</p>
-    <p>Each account can hold up to 10 conditional orders yet to be filled entirely simultaneously.</p>
+    <p>Parameters of 'side', 'symbol', 'order_type', 'qty', 'price', 'base_price', 'stop_px', 'time_in_force' are required for all active orders. Other parameters are optional unless specified.</p>
+    <p>Market price conditional order: A traditional market price order, will be filled at the best available price. 'price' can set to be "" if and only if you are placing market price order.</p>
+    <p>Limit price conditional order: You can set an execution price for your order. Only when last traded price reaches the order price, the system will fill your order.</p>
+    <p>Take profit/Stop loss: You may only set a take-profit/stop-loss conditional order upon opening the position. Once you hold a position, the take profit and stop loss information u sent when placing an order will no longer be valid.</p>
+    <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell, currently Bybit only support order quantity in an integer.</p>
+    <p>Order price: If it is a condition order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the price_filter field in the <a href="#t-market_heading-t-auth_heading_construct-t-market_heading_querysymbol">transaction</a> response to the interface.</p>
+    <p>Conditional order trigger price: You may set a trigger price for your conditional order. conditional order will not enter the order book until the last price hits the trigger price. When last price hits trigger price: 1) your limit conditional order will enter order book, and wait to be executed; 2) your market conditional order will be executed immediately at the best available market price.</p>
+    <p>Customize conditional order ID: You may customize order IDs for active orders. We will link it to the system order ID , and return the unique system order ID to you after the active order is created successfully. You may use this order ID to cancel your active order. The customized order ID is asked to be unique, with a maximum length of 36 characters.</p>
+
+  account_aside_placeCond:
+    Take profit/Stop loss is not supported in placing conditional orders. One can only use these 2 functions when placing active orders. Moreover, each account can hold up to 10 conditional orders yet to be filled entirely simultaneously.
+
   ### Get Conditional Order
   account_heading_getCond: Get Conditional Order
-  account_para_getCond: Get my conditional order list.
+  account_para_getCond: 
+    <p>Get my conditional order list.</p>
+    <p>Cause order creation/cancellation is asynchronous, sometimes there is a data dalay in this endpoint. You can get real-time order info in <a href="#t-account_heading-t-account_heading_cond-t-account_heading_queryconditional">Query Conditional Order (real-time)</a> endpoint.</p>
   ### Cancel Conditional Order
   account_heading_cancelCond: Cancel Conditional Order
   account_para_cancelCond: |
-    <p><code>stop_order_id</code> is required for cancelling conditional order. The unique 36 characters order ID was returned to you when the conditional order was created successfully.</p>
     <p>You may cancel all untriggered conditional orders. Essentially, after a conditional order is triggered, it will become an active order. So, when a conditional order is triggered, cancellation has to be done through the active order endpoint for any unfilled or partially filled active order. As always, orders that have been fully filled cannot be cancelled.</p>
   ### Cancel All Conditional Orders
   account_heading_cancelAllCond: Cancel All Conditional Orders
   account_para_cancelAllCond: Cancel all untriggered conditional orders.
+  account_aside_cancelAllCond:
+    This endpoint's <code>rate_limit</code> will decrease by 10 per request
   ### Replace Conditional Order
   account_heading_replaceCond: Replace Conditional Order
   account_para_replaceCond:
     <p>Replace conditional order can modify/amend your conditional orders.</p>
     <p><code>order_id</code> and <code>symbol</code> are required for identifying a conditional order.</p>
     <p><code>p_r_qty</code>, <code>p_r_price</code> and <code>p_r_trigger_price</code> can be set for your conditional order. If these fields are not provided, nothing will be modified.</p>
-    <p>It is possible to modify only one of these at a time.</p>
   account_aside_replaceCond: |
     Please note that you can only modify untriggered conditional orders.
   ### Query Conditional Order (real-time)
@@ -258,7 +280,7 @@ en:
   account_heading_changeLeverage: Change User Leverage
   account_para_changeLeverage: |
     <p>Change user leverage.</p>
-    <p>Set <code>leverage</code> to <code>0</code> if you want to trade in <a href="https://help.bybit.com/hc/en-us/articles/360037683633-What-is-Cross-Margin">Cross Margin mode</a>. Note that your position mode will be changed to Isolated Margin mode if you change your leverage from 0 to any other value.</p>
+  account_aside_changeLeverage: Set <code>leverage</code> to <code>0</code> if you want to trade in <a href="https://help.bybit.com/hc/en-us/articles/360037683633-What-is-Cross-Margin">Cross Margin mode</a>. Note that your position mode will be changed to Isolated Margin mode if you change your leverage from 0 to any other value.
 
   ## Position
   account_heading_position: Position
@@ -493,13 +515,13 @@ en:
     <p>
       <li>Testnet:
         <span id="testnet_address">wss://stream-testnet.bybit.com/realtime</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></a></button>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
       </li>
     </p>
     <p>
       <li>Mainnet:
         <span id="mainnet_address">wss://stream.bybit.com/realtime</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></a></button>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
       </li>
     </p>
     </ul>
@@ -738,6 +760,7 @@ en:
 
 
   # Misc.
-  misc_row_comment_orderLinkIdNotOrderId: Order link ID. <b>Required</b> if not passing order_id
+  misc_row_comment_orderLinkIdNotOrderId: Agency customized order ID. <b>Required</b> if not passing order_id
+  misc_row_comment_orderLinkIdNotStopOrderId: Agency customized order ID. <b>Required</b> if not passing stop_order_id
   misc_row_comment_orderIdNotOrderLinkId: Order ID. <b>Required</b> if not passing order_link_id
   misc_row_comment_symbolNotOrderId: Contract type. <b>Required</b> if not passing order_id
