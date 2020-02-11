@@ -97,7 +97,7 @@ curl https://api-testnet.bybit.com/v2/public/tickers
 }
 ```
 
-Get the latest information for symbol.
+t(:market_para_symbol)
 
 ##### t(:heading_http_request)
 GET

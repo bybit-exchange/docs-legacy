@@ -207,7 +207,7 @@ ws.send('{"op": "subscribe", "args": ["orderBookL2_25.BTCUSD"]}');
 t(:websocket_para_orderbook251)
 
 <aside class="notice">
-Want a greater depth? Take a look at the <a href="#orderbookl2_200">orderBookL2_200</a> endpoint.
+t(:orderbookL2_200_link)
 </aside>
 
 t(:websocket_para_orderbook252)
