@@ -983,7 +983,7 @@ POST
 |trailing_stop |false |string |t(:account_row_comment_trailingStop) |
 
 
-## t(:accountdata_funding)
+## t(:funding)
 ### t(:market_heading_fundingRate)
 > t(:codequote_responseExample)
 
@@ -1017,7 +1017,7 @@ GET
 |:----- |:-------|:-----|----- |
 |<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
 
-### t(:accountdata_myLastFunding)
+### t(:mylastfundingfee)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -1055,7 +1055,7 @@ GET
 
 
 
-### t(:accountdata_predictedFunding)
+### t(:predictedfunding)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -1087,7 +1087,7 @@ GET
 |<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
 
 
-## t(:accountdata_key)
+## t(:key)
 > t(:codequote_responseExample)
 
 ```javascript

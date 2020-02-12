@@ -3,7 +3,7 @@
 ## 2020-02-10
 
 ### REST API
-- [t(:wallet_heading_walletBalance)](#t-wallet_heading-t-accountdata_key-t-wallet_heading_walletbalance) [t(:changelog_new)]
+- [t(:wallet_heading_walletBalance)](#t-wallet_heading-t-key-t-wallet_heading_walletbalance) [t(:changelog_new)]
 - [t(:replaceactive)](#t-accountdata-t-activeorders-t-replaceactive) [t(:changelog_update)]
     - t(:replaceActive1_20200210)
 - [t(:replacecond)](#t-accountdata-t-conditionalorders-t-replacecond) [t(:changelog_update)]
@@ -65,7 +65,7 @@
     - t(:cancelOrder__20191104)
 - [t(:cancelcond)](#t-accountdata-t-conditionalorders-t-cancelcond) [t(:changelog_update)]
     - t(:cancelCond__20191104)
-- [t(:accountdata_key)](#t-accountdata-t-accountdata_key) [t(:changelog_update)]
+- [t(:key)](#t-accountdata-t-key) [t(:changelog_update)]
     - t(:get__20191104)
     - t(:get___20191104)
 - [t(:update_20191104)](#t-rate_heading) [t(:changelog_update)]
