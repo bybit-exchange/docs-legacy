@@ -234,9 +234,9 @@ en:
   account_para_queryActive: Query real-time active order information.
 
   ## Conditional Orders
+  conditionalorders: Conditional Orders
   ### Place Conditional Order
-  accountdata_cond: Conditional Orders
-  accountdata_placeCond: Place Conditional Order
+  placecond: Place Conditional Order
   account_para_placeCond: |
     <p>Parameters of 'side', 'symbol', 'order_type', 'qty', 'price', 'base_price', 'stop_px', 'time_in_force' are required for all active orders. Other parameters are optional unless specified.</p>
     <p>Market price conditional order: A traditional market price order, will be filled at the best available price. 'price' can set to be "" if and only if you are placing market price order.</p>
@@ -251,21 +251,21 @@ en:
     Take profit/Stop loss is not supported in placing conditional orders. One can only use these 2 functions when placing active orders. Moreover, each account can hold up to 10 conditional orders yet to be filled entirely simultaneously.
 
   ### Get Conditional Order
-  accountdata_getCond: Get Conditional Order
+  getcond: Get Conditional Order
   account_para_getCond:
     <p>Get my conditional order list.</p>
-    <p>Cause order creation/cancellation is asynchronous, sometimes there is a data dalay in this endpoint. You can get real-time order info in <a href="#t-accountdata-t-accountdata_cond-t-accountdata_queryconditional">Query Conditional Order (real-time)</a> endpoint.</p>
+    <p>Cause order creation/cancellation is asynchronous, sometimes there is a data dalay in this endpoint. You can get real-time order info in <a href="#t-accountdata-t-conditionalorders-t-querycond">Query Conditional Order (real-time)</a> endpoint.</p>
   ### Cancel Conditional Order
-  accountdata_cancelCond: Cancel Conditional Order
+  cancelcond: Cancel Conditional Order
   account_para_cancelCond: |
     <p>You may cancel all untriggered conditional orders. Essentially, after a conditional order is triggered, it will become an active order. So, when a conditional order is triggered, cancellation has to be done through the active order endpoint for any unfilled or partially filled active order. As always, orders that have been fully filled cannot be cancelled.</p>
   ### Cancel All Conditional Orders
-  accountdata_cancelAllCond: Cancel All Conditional Orders
+  cancelallcond: Cancel All Conditional Orders
   account_para_cancelAllCond: Cancel all untriggered conditional orders.
   account_aside_cancelAllCond:
     This endpoint's <code>rate_limit</code> will decrease by 10 per request
   ### Replace Conditional Order
-  accountdata_replaceCond: Replace Conditional Order
+  replacecond: Replace Conditional Order
   account_para_replaceCond:
     <p>Replace conditional order can modify/amend your conditional orders.</p>
     <p><code>order_id</code> and <code>symbol</code> are required for identifying a conditional order.</p>
@@ -273,7 +273,7 @@ en:
   account_aside_replaceCond: |
     Please note that you can only modify untriggered conditional orders.
   ### Query Conditional Order (real-time)
-  accountdata_queryConditional: Query Conditional Order (real-time)
+  querycond: Query Conditional Order (real-time)
   account_para_queryConditional: Query real-time stop order information.
 
 

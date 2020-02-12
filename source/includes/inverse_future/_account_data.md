@@ -360,8 +360,8 @@ GET
 |<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 
 
-## t(:accountdata_cond)
-### t(:accountdata_placeCond)
+## t(:conditionalorders)
+### t(:placecond)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -435,7 +435,7 @@ POST
 |order_link_id |false |string |t(:row_comment_orderLinkId) |
 
 
-### t(:accountdata_getCond)
+### t(:getcond)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -512,7 +512,7 @@ GET
 |limit |false |integer |t(:row_comment_limit) |
 
 
-### t(:accountdata_cancelCond)
+### t(:cancelcond)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -561,7 +561,7 @@ POST
 |order_link_id |false |string | t(:misc_row_comment_orderLinkIdNotStopOrderId)|
 
 
-### t(:accountdata_cancelAllCond)
+### t(:cancelallcond)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -641,7 +641,7 @@ POST
 |:----- |:-------|:-----|----- |
 |<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)|
 
-### t(:accountdata_replaceCond)
+### t(:replacecond)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -683,7 +683,7 @@ POST
 |p_r_trigger_price |false |number |t(:row_comemnt_pRTriggerPrice) |
 
 
-### t(:accountdata_queryConditional)
+### t(:querycond)
 > t(:codequote_responseExample)
 
 ```javascript

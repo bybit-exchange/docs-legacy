@@ -241,8 +241,8 @@ zh-cn:
 
   ## Conditional Orders
   ### Place Conditional Order
-  accountdata_cond: 条件单
-  accountdata_placeCond: 创建条件委托单
+  conditionalorders: 条件单
+  placecond: 创建条件委托单
   account_para_placeCond: |
     <p>所有条件委托都必须填写 'side', 'symbol', 'order_type', 'qty', 'price', 'base_price', 'stop_px', 'time_in_force'参数，其它参数除非有特殊说明，否则都是可选的。</p>
     <p>市价条件委托: 一个传统的市场价格订单,会以当前的最优价格为您成交订单。当且仅当选择市价单时，'price', '可为空！</p>
@@ -255,27 +255,27 @@ zh-cn:
   account_aside_placeCond:
     请注意:只允许最多创建10个条件委托单
   ### Get Conditional Order
-  accountdata_getCond: 查询条件委托
+  getcond: 查询条件委托
   account_para_getCond: 
     <p>获取我的条件委托单列表。</p>
-    <p>创建/取消订单是异步的，因此<b>该接口可能返回的数据可能会有延迟</b>。如果要获取订单的实时信息，可以调用接口<a href="#t-accountdata-t-accountdata_cond-t-accountdata_queryconditional">实时查询条件单信息</a>。</p>
+    <p>创建/取消订单是异步的，因此<b>该接口可能返回的数据可能会有延迟</b>。如果要获取订单的实时信息，可以调用接口<a href="#t-accountdata-t-conditionalorders-t-querycond">实时查询条件单信息</a>。</p>
   ### Cancel Conditional Order
-  accountdata_cancelCond: 撤消条件委托单
+  cancelcond: 撤消条件委托单
   account_para_cancelCond: |
     <p>您可以撤销所有未被激活的条件委托。本质上所有条件委托在被激活后都是属于活动委托，所以条件委托一旦被激活，您需要通过调用取消活动委托接口来取消所有未成交、部分成交的活动委托单。同样全部成交的活动委托不可取消。</p>
   ### Cancel All Conditional Orders
-  accountdata_cancelAllCond: 撤消全部条件委托单
+  cancelallcond: 撤消全部条件委托单
   account_para_cancelAllCond: 撤销所有未被激活的条件委托。本质上所有条件委托在被激活后都是属于活动委托，所以条件委托一旦被激活，您需要通过调用取消活动委托接口来取消所有未成交、部分成交的活动委托单。同样全部成交的活动委托不可取消。
   account_aside_cancelAllCond:
     注意，此api每调用一次会导致rate_limit扣减10
   ### Replace Conditional Order
-  accountdata_replaceCond: 修改条件委托单
+  replacecond: 修改条件委托单
   account_para_replaceCond:
     <p>修改未触发的条件单。</p>
   account_aside_replaceCond: |
     请注意，只有未触发的条件单才能被修改。
   ### Query Conditional Order (real-time)
-  accountdata_queryConditional: 实时查询条件委托
+  querycond: 实时查询条件委托
   account_para_queryConditional: 实时查询条件委托。
 
   ## Leverage
