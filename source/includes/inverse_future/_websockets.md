@@ -49,7 +49,7 @@ t(:websocket_best_practices)
 
 
 ## t(:heartbeat)
-> t(:websocket_codequote_heartbeart)
+> t(:websocket_codequote_heartbeat)
 
 ```javascript
 ws.send('{"op":"ping"}');

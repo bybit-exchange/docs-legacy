@@ -36,7 +36,7 @@
 ## 2019-12-02
 
 ### REST API
-- [t(:placeactive)](#t-accountdata-t-activeorders-t-placeactive) [t(:changelog_new)]
+- [t(:placev2active)](#t-accountdata-t-activeorders-t-placeactive) [t(:changelog_new)]
 - [t(:cancelv2active)](#t-accountdata-t-activeorders-t-cancelv2active) [t(:changelog_new)]
 - [t(:cancelallactive)](#t-accountdata-t-activeorders-t-cancelallactive) [t(:changelog_new)]
 - [t(:cancelallcond)](#t-accountdata-t-conditionalorders-t-cancelallcond) [t(:changelog_new)]

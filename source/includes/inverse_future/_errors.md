@@ -1,16 +1,12 @@
 # t(:errors)
 
-<aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
-</aside>
-
 The Bybit API uses the following HTTP Codes and Error Codes:
 
 
-Http Code | t(:errorcode_meaning)
+HTTP Code | t(:errorcode_meaning)
 ---------- | -------
 200 | Request valid -- Your request is valid.
-403 | Forbidden -- You request too many times 
+403 | Forbidden -- You request too many times
 404 | Request path not found
 
 Error Code | t(:errorcode_meaning)
