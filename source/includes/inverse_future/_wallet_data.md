@@ -1,6 +1,65 @@
 # t(:wallet_heading)
 t(:wallet_para)
 
+
+### t(:wallet_heading_walletBalance)
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "ext_info": "",
+    "result": {
+        "BTC": {
+            "equity": 1002,                         //equity = wallet_balance + unrealised_pnl
+            "available_balance": 999.99987471,      //available_balance
+            //In Isolated Margin Mode:
+            // available_balance = wallet_balance - (position_margin + occ_closing_fee + occ_funding_fee + order_margin)
+            //In Cross Margin Mode:
+              //if unrealised_pnl > 0:
+              //available_balance = wallet_balance - (position_margin + occ_closing_fee + occ_funding_fee + order_margin)；
+              //if unrealised_pnl < 0:
+              //available_balance = wallet_balance - (position_margin + occ_closing_fee + occ_funding_fee + order_margin) + unrealised_pnl 
+            "used_margin": 0.00012529,              //used_margin = wallet_balance - available_balance
+            "order_margin": 0.00012529,             //Used margin by order
+            "position_margin": 0,                   //position margin
+            "occ_closing_fee": 0,                   //position closing fee
+            "occ_funding_fee": 0,                   //funding fee
+            "wallet_balance": 1000,                 //wallet balance. When in Cross Margin mod, the number minus your unclosed loss is your real wallet balance.
+            "realised_pnl": 0,                      //daily realized profit and loss
+            "unrealised_pnl": 2,                    //unrealised profit and loss
+                //when side is sell:
+                // unrealised_pnl = size * (1.0 / mark_price -  1.0 / entry_price）
+                //when side is buy:
+                // unrealised_pnl = size * (1.0 / entry_price -  1.0 / mark_price）
+            "cum_realised_pnl": 0,                  //total relised profit and loss
+            "given_cash": 0,                        //given_cash
+            "service_cash": 0                       //service_cash
+        }
+    },
+    "time_now": "1578284274.816029"
+}
+```
+
+t(:wallet_para_walletBalance)
+
+<aside class="notice">
+t(:wallet_aside_walletBalance)
+</aside>
+
+##### t(:heading_http_request)
+GET
+<code><span id=oawfRecords>/v2/private/wallet/balance</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawfRecords"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+##### t(:heading_request_parameters)
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|<a href="#t-enums_header-currency-currency-coin">coin</a> |true |string |t(:row_comment_coin) |
+
+
 ### t(:wallet_heading_walletRecords)
 > t(:codequote_responseExample)
 

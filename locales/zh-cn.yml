@@ -92,28 +92,34 @@ zh-cn:
   changelog_heading: 更新日志
   changelog_new: 新增
   changelog_update: 更新
+  changelog_bugfix: bugfix
+  ## 2020-02-10
+  replaceActive1_20200210: 返回结果中增加<code>order_id</code>
+  replaceCond1_20200210: 返回结果中增加 <code>stop_order_id</code>
+  replaceCond2_20200210: 为了和其他接口保持统一，新增请求参数<code>stop_order_id</code>，替换调原来的参数 <code>order_id</code>
+  bugfix1_20200210: 修复V2私有接口返回值中<code>rate_limit_reset_ms</code>单位问题，将原来的微妙改为毫秒，和V1接口保持一致
   ## 2019-12-27 20191227
   ## 2019-12-18 20191218
   ## 2019-12-13 20191213
   ## 2019-12-02 20191202
   ## 2019-11-19 20191119
   ## 2019-11-07 20191107
-  my_20191107: My position
+  my_20191107: 我的持仓
   ## 2019-11-04 20191104
-  cancelOrder_20191104: Cancel order
-  cancelOrder__20191104: Support cancel order by <code>order_link_id</code>
-  cancelCond__20191104: Support cancel conditional order by <code>order_link_id</code>
-  get__20191104: Add extra info
-  get___20191104: Update <code>ips</code> field to return content
-  update_20191104: Update REST API rate limit
-  update__20191104: The rate limit is accurate to milliseconds
-  update___20191104: Refine the rate limit of the endpoints
+  cancelOrder_20191104: 撤销活动单
+  cancelOrder__20191104: 支持根据<code>order_link_id</code>撤销活动单
+  cancelCond__20191104: 支持根据<code>order_link_id</code>撤销条件单
+  get__20191104: 添加额外字段
+  get___20191104: 更新 <code>ips</code> 字段返回内容
+  update_20191104: 更新REST API频率限制
+  update__20191104: 频率限制精确到毫秒
+  update___20191104: 细化接口的频率限制
   update____20191104: |
-    Add new response fields: <code>rate_limit_reset_ms</code>, <code>rate_limit</code>
+    返回值中新增字段: <code>rate_limit_reset_ms</code>, <code>rate_limit</code>
   ## 2019-10-22 20191022
-  position__20191022: Add extra info, eg. wallet_balance
-  trade__20191022: Fix issue of sometimes push same trade multi times
-  trade___20191022: Support pushing multi trades in single message
+  position__20191022: 添加了额外字段，如<code>wallet_balance</code>
+  trade__20191022: 修复重复推送交易数据的问题
+  trade___20191022: 现在支持在一个消息中推送多条交易
 
 
   # api_auth
@@ -317,6 +323,12 @@ zh-cn:
   # Wallet Data Endpoints
   wallet_heading: 钱包接口
   wallet_para: 钱包相关接口需要认证。
+  ### 钱包余额
+  wallet_heading_walletBalance: 获取钱包余额
+  wallet_para_walletBalance: 获取钱包余额
+  wallet_aside_walletBalance: |
+   接口返回值中的<code>position_margin</code> 不同于 <a href="https://www.bybit.com/app/wallet/money">网站上的仓位保证金</a>
+   <p>网站仓位保证金计算公式: <code>position_margin</code> + <code>occ_funding_fee</code> + loss(当你的可用余额不足时)</p>
   ### 资金记录
   wallet_heading_walletRecords: 资金记录
   wallet_para_walletRecords: 查询资金记录。
