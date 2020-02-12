@@ -363,9 +363,9 @@ zh-cn:
   api_para_announcement: 获取Bybit最近30天OpenAPI公告（时间倒叙排列）
 
   # API Rate Limits
-  rate_heading: 频率限制
+  ratelimits: 频率限制
   ### IP Rate Limit
-  ip_rate_heading_understandin: IP频率限制
+  ipratelimits: IP频率限制
   ip_rate_para_understanding: |
     <p> Bybit会基于请求IP做频率限制，针对不同的请求方法有以下规则：</p>
     <ul>
@@ -385,16 +385,16 @@ zh-cn:
     </li>
     </ul>
   ### Account rate limit
-  rate_heading_understandin: 账户频率限制
+  understandingratelimits: 账户频率限制
   rate_para_understanding: |
     Bybit基于<b>每分钟</b>的滑动时间窗口来做频率限制，并且是按<b>账户</b>（uid）来做划分限制，每次请求API响应中都会包含如下字段：
   rate_text_limitStatus_understanding: 该接口当前时间窗口剩余可用请求数
   rate_text_limit_understanding: 该接口当前频率限制上限
   rate_text_limitReset: 如果您已超过该接口当前窗口频率限制，该字段表示下个可用时间窗口的时间戳（毫秒），即什么时候可以恢复访问；如果您未超过该接口当前窗口频率限制，该字段表示返回的是当前服务器时间（毫秒).
   ### Rate Limits For All Endpoints
-  rate_heading_allEndpoints: 接口频率限制表
+  perendpoint: 接口频率限制表
   ### Order Limits
-  rate_heading_limits: 下单限制
+  orderlimits: 下单限制
   rate_para_limits: |
     <p>每种合约可以持有的订单数量上限：</p>
     <ul>
@@ -402,23 +402,23 @@ zh-cn:
     <li>条件单: 10</li>
     </ul>
   ### How to Raise Your API Limit
-  rate_heading_raise: 如何提高频率限制
+  raisemylimit: 如何提高频率限制
   rate_para_raise: |
     <ul>
     <li>请先阅读<a href="#understanding-bybit-39-s-liquidity-system">如何满足提高频率限制条件</a></li>
     <li>请发送邮件到 <a href="mailto:api@bybit.com">api@bybit.com</a>. 我们会在 1-4 个工作日内答复.</li>
     </ul>
   ### Understanding Bybit's Liquidity System
-  rate_heading_liquidity: Bybit流动性贡献系统
+  liquidity: Bybit流动性贡献系统
   rate_para_liquidity: |
     <p>Bybit 使用<code>报单成交率</code> 和 <code>流动性贡献打分</code>来评价用户对改善bybit可执行流动性作出的贡献。</p>
     <p>不同symbol的<code>贡献分</code>和<code>报单成交率</code>是独立计算的。</p>
   #### Order Fill Ratio (OFR) Threshold
-  rate_heading_threshold: 报单成交率
+  ofrthreshold: 报单成交率
   rate_para_threshold: |
     平台上每天提交超过<code>2000</code>个报单的账户，需要保持<code>7天</code>的报单成交率高于<code>最小报单成交率门槛值</code>，违反此规则将会被降低频率或禁用 API。
   ##### Order Fill Ratio (OFR)
-  rate_heading_ratio: 报单成交率
+  ofrratio: 报单成交率
   rate_para_ratio: |
     <ul>
     <li><code>报单成交率</code>: 定义为 一段时间段内，用户已成交报单数量占该用户已提交报单数量的比例</li>
@@ -427,7 +427,7 @@ zh-cn:
     <li><code>报单成交率 = ( 一段时间内用户的已成交报单数量 / 一段时间内已提交报单数量)</code></li>
     </ul>
   ##### Order Fill Ratio Example
-  rate_heading_ratioExample: 报单成交率举例
+  ofrratioExample: 报单成交率举例
   rate_para_ratioExample: |
     <p>A用户成功提交一份限价委托请求，其中包含 4 个不同价格的竞买和 2 个不同价格的竞卖，并被放入交易委托账本中。然后，该用户提交撤单请求，撤了取消了其中的2个竞买请求，并重新提交了一份竞买报单请求，其中包括两个新的竞买报单。</p>
     <p>此时，B用户提交了一份市价卖单，该指令与A用户在委托队列中的 2 个竞买发生了成交。</p>
@@ -443,10 +443,10 @@ zh-cn:
     已提交报单数量 =1
     报单成交率 = 1 / 1 = 100％
   ##### Minimum OFR Threshold
-  rate_heading_minimum: API 交易用户最小报单成交率门槛
+  ofrminimum: API 交易用户最小报单成交率门槛
   rate_para_minimum: <code>7</code>日内API 交易用户最小报单成交率门槛 0.1%
   #### API Request Frequency Limits
-  rate_heading_frequency: API 交易用户提高频率的条件
+  frequencylimit: API 交易用户提高频率的条件
   rate_para_frequency:
     平台会根据API用户近<code>7</code>日挂单对<code>平台流动性贡献分</code>的最低值，对满足条件的用户进行提高频率上限的奖励
   column_LCP: 流动性贡献分
@@ -457,15 +457,15 @@ zh-cn:
   row_frequencyLimit_200: 200次 / 每分钟
   row_frequencyLimit_100: 100次 / 每分钟
   ##### Liquidity Contribution Points (LCP)
-  rate_heading_liquidityPoints: 流动性贡献打分
+  liquidityPoints: 流动性贡献打分
   rate_para_liquidityPoints: |
     <ul>
     <li><code>流动性贡献打分 = 有效价格挂单自占比 * 有效价格挂单量平台占比 * 100</code></li>
     </ul>
   ##### Explanation
-  rate_heading_explanation: 名词解释
+  ratelimitsexplanation: 名词解释
   ###### Effective Price Range
-  rate_heading_priceRange: 有效价格挂单
+  pricerange: 有效价格挂单
   rate_para_priceRange: |
     <ul>
     <li><p><code>有效价格挂单</code>: 定义为在距离盘口中间价较近的规定范围内的挂单被定义为有效价格挂单.</p>
@@ -476,7 +476,7 @@ zh-cn:
     </li>
     </ul>
   ###### Effective Price Range example
-  rate_heading_priceRangeExample: 有效价格范围
+  pricerangeExample: 有效价格范围
   rate_pre_priceRangeExample: |
     [最佳竞价中间价 - 3 * 价格最小变动单位, 最佳竞价中间价 + 3 * 价格最小变动单位]
 
@@ -486,14 +486,14 @@ zh-cn:
      “有效价格”范围：
      [(10000 + 10001) / 2 - 3* 0.5, (10000 + 10001) / 2 + 3* 0.5] = [9999,10002]
   ###### POU
-  rate_heading_POU: 有效价格挂单自占比
+  pou: 有效价格挂单自占比
   rate_para_POU: |
     <ul>
     <li><code>有效价格挂单自占比</code>: 定义为该用户在 <code>有效价格 </code> 范围内的挂单数量占该用户在当前时间提交的挂单总数量的比例。</li>
     </ul>
     <p>每秒计算 该用户在<code>有效价格</code>范围内的报挂单数量 /该用户提交的挂单总数量，然后每日计算用户当日占比的平均值。</p>
   ###### POU example
-  rate_heading_POUExample: 有效价格挂单自占比举例：
+  pouExample: 有效价格挂单自占比举例：
   rate_para_POUExample: 某用户在交易委托账本中共有 10000张竞价买单，其中 2000 张报价为9995，8000 张报价为9999 当时“有效价格”范围：[9999, 10002]
   rate_pre_POUExample: |
     该用户在<code>有效价格</code>范围内的挂单数量 = 8000
@@ -501,14 +501,14 @@ zh-cn:
     有效价格挂单自占比 = 8000 / 10000 = 0.8
 
   ###### POA
-  rate_heading_POA: 有效价格挂单平台占比
+  poa: 有效价格挂单平台占比
   rate_para_POA: |
     <ul>
     <li><code>有效价格挂单平台占比</code>: 定义为该用户在有效价格范围内的挂单数量占平台所有用户在<code>有效价格</code>范围内的挂单总数量的比例.</li>
     </ul>
     <p>每秒计算 该用户在<code>有效价格</code>范围内的挂单数量 / 平台所有用户在<code>有效价格</code>范围内的挂单总数量，然后每日计算用户当日占比的平均值。</p>
   ###### POA example
-  rate_heading_POAExample: 有效价格挂单平台占比举例：
+  poaExample: 有效价格挂单平台占比举例：
   rate_para_POAExample: 某一秒，用户在“有效价格”范围：[9999, 10002] 内的挂单有8000张，全平台的交易委托账本在 [9999, 10002] 内的挂单总量为200000。
   rate_pre_POAExample: |
     该用户在<code>有效价格</code>范围内的挂单数量 = 8000

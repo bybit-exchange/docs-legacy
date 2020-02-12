@@ -68,7 +68,7 @@
 - [t(:key)](#t-accountdata-t-key) [t(:changelog_update)]
     - t(:get__20191104)
     - t(:get___20191104)
-- [t(:update_20191104)](#t-rate_heading) [t(:changelog_update)]
+- [t(:update_20191104)](#t-ratelimits) [t(:changelog_update)]
 	- t(:update__20191104)
 	- t(:update___20191104)
 	- t(:update____20191104)
