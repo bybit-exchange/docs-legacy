@@ -33,7 +33,7 @@ t(:account_para)
         "updated_at": "2019-11-30T11:03:43.455Z"
     },
     "time_now": "1575111823.458705",
-    "rate_limit_status": 99,
+    "rate_limit_status": 98,
     "rate_limit_reset_ms": 1580885703683,
     "rate_limit": 100
 }
@@ -136,9 +136,9 @@ POST
     },
     "ext_info": null,
     "time_now": "1577448922.437871",
-    "rate_limit_status": 599,
+    "rate_limit_status": 98,
     "rate_limit_reset_ms": 1580885703683,
-    "rate_limit": 600
+    "rate_limit": 100
 }
 ```
 
@@ -192,7 +192,7 @@ GET
         "updated_at": "2019-11-30T11:18:01.811Z"
     },
     "time_now": "1575112681.814760",
-    "rate_limit_status": 99,
+    "rate_limit_status": 98,
     "rate_limit_reset_ms": 1580885703683,
     "rate_limit": 100
 }
@@ -280,7 +280,9 @@ POST
         "order_id": "efa44157-c355-4a98-b6d6-1d846a936b93"
     },
     "time_now": "1539778407.210858",    // UTC timestamp
-    "rate_limit_status": 0,             // The remaining number of accesses in one minute
+    "rate_limit_status": 99, // The remaining number of accesses in one minute
+    "rate_limit_reset_ms": 1580885703683,
+    "rate_limit": 100             
 }
 ```
 
@@ -309,34 +311,37 @@ POST
 
 ```javascript
 {
-  "ret_code": 0,
-  "ret_msg": "OK",
-  "ext_code": "",
-  "ext_info": "",
-  "result": {
-    "user_id": 1,
-    "symbol": "BTCUSD",
-    "side": "Sell",
-    "order_type": "Limit",
-    "price": "8083",
-    "qty": 10,
-    "time_in_force": "GoodTillCancel",
-    "order_status": "New",
-    "ext_fields": {
-      "o_req_num": -308787,
-      "xreq_type": "x_create",
-      "xreq_offset": 4154640
-    },
-    "leaves_qty": 10,
-    "leaves_value": "0.00123716",
-    "cum_exec_qty": 0,
-    "reject_reason": "",
-    "order_link_id": "",
-    "created_at": "2019-10-21T07:28:19.396246Z",
-    "updated_at": "2019-10-21T07:28:19.396246Z",
-    "order_id": "efa44157-c355-4a98-b6d6-1d846a936b93"
-  },
-  "time_now": "1571651135.291930"
+	"ret_code": 0,
+	"ret_msg": "OK",
+	"ext_code": "",
+	"ext_info": "",
+	"result": {
+		"user_id": 1,
+		"symbol": "BTCUSD",
+		"side": "Sell",
+		"order_type": "Limit",
+		"price": "8083",
+		"qty": 10,
+		"time_in_force": "GoodTillCancel",
+		"order_status": "New",
+		"ext_fields": {
+			"o_req_num": -308787,
+			"xreq_type": "x_create",
+			"xreq_offset": 4154640
+		},
+		"leaves_qty": 10,
+		"leaves_value": "0.00123716",
+		"cum_exec_qty": 0,
+		"reject_reason": "",
+		"order_link_id": "",
+		"created_at": "2019-10-21T07:28:19.396246Z",
+		"updated_at": "2019-10-21T07:28:19.396246Z",
+		"order_id": "efa44157-c355-4a98-b6d6-1d846a936b93"
+	},
+	"time_now": "1571651135.291930",
+	"rate_limit_status": 99, // The remaining number of accesses in one minute
+	"rate_limit_reset_ms": 1580885703683,
+	"rate_limit": 100
 }
 ```
 
@@ -709,9 +714,9 @@ POST
         "order_id": "378a1bbc-a93a-4e75-87f4-502ea754ba36"
     },
     "time_now": "1577476584.386958",
-    "rate_limit_status": 599,
+    "rate_limit_status": 99,
     "rate_limit_reset_ms": 1580885703683,
-    "rate_limit": 600
+    "rate_limit": 100
 }
 ```
 
@@ -786,7 +791,7 @@ GET
     "time_now": "1577477968.175013",
     "rate_limit_status": 74,
     "rate_limit_reset_ms": 1577477968183,
-    "rate_limit": "75"
+    "rate_limit": 75
 }
 ```
 
@@ -883,7 +888,7 @@ GET
     "time_now": "1577480720.003444",
     "rate_limit_status": 74,
     "rate_limit_reset_ms": 1577480720011,
-    "rate_limit": "75"
+    "rate_limit": 75
 }
 ```
 
@@ -954,7 +959,7 @@ POST
     "time_now": "1577481447.436689",
     "rate_limit_status": 73,
     "rate_limit_reset_ms": 1577481447443,
-    "rate_limit": "75"
+    "rate_limit": 75
 }
 ```
 
@@ -1110,9 +1115,9 @@ GET
     ],
     "ext_info": null,
     "time_now": "1577445138.790150",
-    "rate_limit_status": 599,
+    "rate_limit_status": 99,
     "rate_limit_reset_ms": 1577445138812,
-    "rate_limit": 600
+    "rate_limit": 100
 }
 ```
 

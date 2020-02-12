@@ -39,7 +39,10 @@ t(:wallet_para)
             "service_cash": 0                       //service_cash
         }
     },
-    "time_now": "1578284274.816029"
+    "time_now": "1578284274.816029",
+    "rate_limit_status": 98,
+    "rate_limit_reset_ms": 1580885703683,
+    "rate_limit": 100
 }
 ```
 
@@ -300,9 +303,9 @@ GET
   ],
   "ext_info": null,
   "time_now": "1577587907.157396",
-  "rate_limit_status": 599,
+  "rate_limit_status": 99,
   "rate_limit_reset_ms": 1577587907162,
-  "rate_limit": 600
+  "rate_limit": 100
 }
 ```
 
@@ -382,7 +385,7 @@ GET
   "time_now": "1577589068.435439",
   "rate_limit_status": 71,
   "rate_limit_reset_ms": 1577589068546,
-  "rate_limit": "75"
+  "rate_limit": 75
 }
 ```
 
