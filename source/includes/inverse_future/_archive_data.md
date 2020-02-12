@@ -1,7 +1,7 @@
-# t(:archive_data_heading)
+# t(:archivedata)
 
 
-### t(:archive_data_market)
+### t(:historicalmarketdata)
 t(:archive_data_intro)
 
 
