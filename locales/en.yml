@@ -512,9 +512,9 @@ en:
   rate_aside_POAExample: Prior notice will be given via the website if we update this mechanism.
 
   # WebSocket Data
-  websocket_heading: WebSocket Data
+  websocket: WebSocket Data
   ## Authentication
-  websocket_heading_authentication: Authentication
+  websocketauthentication: Authentication
   websocket_codequote_auth: |
     Authentication methods:
   websocket_codequote_auth1: |
@@ -541,19 +541,19 @@ en:
   websocket_para_methods: There are two methods of authentication, as shown in the code panel to the right.
   websocket_aside_signature: Example signature algorithms can be found <a href="https://github.com/bybit-exchange/bybit-official-api-docs/tree/master/en/example">here</a>.
   websocket_best_practices: Due to the complexity of the network, program may loss the connection at any time. In order to ensure that you receive messages on time, you should do as the following<span>:</span>
-    <p>1. Keep connection alive by <a href="#t-websocket_heading-t-websocket_heading_hearbeat">sending heartbeat packet</a></p>
+    <p>1. Keep connection alive by <a href="#t-websocket-t-heartbeat">sending heartbeat packet</a></p>
     <p>2. Reconnect as soon as the connection is broken</p>
   ## How to Send the Heartbeat Packet
-  websocket_heading_hearbeat: How to Send the Heartbeat Packet
+  heartbeat: How to Send the Heartbeat Packet
   websocket_codequote_heartbeat: How to Send
   websocket_aside_heartbeat: Due to unstable networks or program errors, we strongly advise you to send the <code>ping</code> heartbeat packet to maintain websocket connections. We recommend every 30 seconds to 1 minute.
   ## Rate Limits
-  websocket_heading_limit: Rate Limits
+  websocketlimit: Rate Limits
   websocket_para_limit: ""
   ## How to Subscribe to Topics
-  websocket_heading_subscribe: How to Subscribe to Topics
+  subscribe: How to Subscribe to Topics
   ### Understanding Websocket Filters
-  websocket_heading_filters: Understanding Websocket Filters
+  websocket_filters: Understanding Websocket Filters
   websocket_codequote_filters1: How to subscribe with a filter
   websocket_codequote_filters2: How to subscribe with multiple filters
   websocket_codequote_filters3: How to subscribe without filters
@@ -566,44 +566,44 @@ en:
     <p>It is possible to use multiple filters for the same topic by splitting them with a pipe (<code>|</code>) - of course, these filters must all be applicable to the selected <code>topic</code>.</p>
     <p>Finally, to subscribe to the topic without filters please use the <code>*</code> wildcard.</p>
   ### Intervals
-  websocket_heading_intervals: Intervals
+  intervals: Intervals
   websocket_para_intervals: Some topics are pushed at intervals. If the `args` contain a millisecond param, such as `100ms`, this topic is pushed at intervals. Otherwise, it is pushed constantly.
 
   ## Understanding the Subscription Response
-  websocket_heading_response: Understanding the Subscription Response
+  websocketresponse: Understanding the Subscription Response
   websocket_codequote_response: Subscription Response
   websocket_para_response: Every subscription will have a response.
   ## Public Topics
-  websocket_heading_public: Public Topics
+  publictopics: Public Topics
   ### orderBookL2_25
-  websocket_heading_orderbook25: orderBookL2_25
+  orderbook25: orderBookL2_25
   websocket_para_orderbook251: Fetches the orderbook with a depth of 25 orders per side.
-  orderbookL2_200_link: Want a greater depth? Take a look at the <a href="#t-websocket_heading-t-websocket_heading_public-t-websocket_heading_orderbook200">orderBookL2_200</a> endpoint.
+  orderbookL2_200_link: Want a greater depth? Take a look at the <a href="#t-websocket-t-publictopics-t-orderbook200">orderBookL2_200</a> endpoint.
   websocket_para_orderbook252: |
     <p>After the subscription response, the first response will be the snapshot response. This shows the entire orderbook. The data is ordered by price, starting with the lowest buys and ending with the highest sells.</p>
     <p>Following this, all responses are in the delta format, which represents updates to the orderbook relative to the last response.</p>
   ### orderBookL2_200
-  websocket_heading_orderbook200: orderBookL2_200
+  orderbook200: orderBookL2_200
   websocket_para_orderbook200: |
     <p>Fetches the orderbook with a depth of 200 orders per side.</p>
     <p>After the subscription response, the first response will be the snapshot response. This shows the entire orderbook. The data is ordered by price, starting with the lowest buys and ending with the highest sells.</p>
     <p>Following this, all responses are in the delta format, which represents updates to the orderbook relative to the last response.</p>
   ### trade
-  websocket_heading_trade: trade
+  trade: trade
   websocket_para_trade: Get real-time trading information.
   ### insurance
-  websocket_heading_insurance: insurance
+  insurance: insurance
   websocket_para_insurance: Get the daily insurance fund update.
   websocket_aside_insurance: The <code>wallet_balance</code> is in Satoshis, with one Satoshi being 100 millionth (<code>100000000</code>) of one Bitcoin.
   ### instrument_info
-  websocket_heading_instrumentInfo: instrument_info
+  instrumentInfo: instrument_info
   websocket_para_instrumentInfo: Get latest information for symbol.
   websocket_aside_instrumentInfo1: |
     This topic only utilises the <code>update</code> field. Both the <code>delete</code> and <code>insert</code> fields are null. If a key is not found in the <code>update</code> field, its value has not changed.
   websocket_aside_instrumentInfo2: |
     Some values use scientific notation. This is indicated by that value's key, which will be appended with, for example, <code>e6</code>. If the key is <code>last_price_e4</code> and the value is <code>81585000</code>, then to find the true value we can do <code>81585000 * 10^4</code>, which equals <code>8158.5</code>.
   ### klineV2
-  websocket_heading_klineV2: klineV2
+  klineV2: klineV2
   websocket_para_klineV2: |
     <p>Currently supported intervals:</p>
     <ul>
@@ -618,15 +618,15 @@ en:
     If <code>confirm</code> is <code>True</code>, the data is the final tick for the interval. Otherwise, it is a snapshot.
 
   ## Private Topics
-  websocket_heading_private: Private Topics
+  privatetopics: Private Topics
   ### position
-  websocket_heading_position: position
+  websocketposition: position
   ### execution
-  websocket_heading_execution: execution
+  execution: execution
   ### order
-  websocket_heading_order: order
+  order: order
   ### stop_order
-  websocket_heading_stopOrder: stop_order
+  stoporder: stop_order
 
   # Archive Data
   archive_data_heading: Archive Data

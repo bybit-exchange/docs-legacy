@@ -517,9 +517,9 @@ zh-cn:
   rate_aside_POAExample: 如果机制有更新，我们会提前通过官网提前通知。
 
   # WebSocket Data
-  websocket_heading: WebSocket接口
+  websocket: WebSocket接口
   ## Authentication
-  websocket_heading_authentication: 鉴权/认证
+  websocketauthentication: 鉴权/认证
   websocket_codequote_auth: |
     认证方式:
   websocket_codequote_auth1: |
@@ -546,20 +546,20 @@ zh-cn:
   websocket_para_methods: 如右侧代码区所示，一共有两种验证方法.
   websocket_aside_signature: 点击查看 <a href="https://github.com/bybit-exchange/bybit-official-api-docs/tree/master/en/example">示例加密算法</a>.
   websocket_best_practices: 由于网络的复杂性，您和Bybit的websocket链接随时可能会断开，为了保证您能及时收到websocket推送消息，强烈建议您按照以下建议处理网络异常：
-    <p>1. 通过<a href="#t-websocket_heading-t-websocket_heading_hearbeat">发送心跳包</a>保持连接</p>
+    <p>1. 通过<a href="#t-websocket-t-heartbeat">发送心跳包</a>保持连接</p>
     <p>2. 一旦发现连接断开，应该立刻重新建立连接。</p>
   ## How to Send the Heartbeat Packet
-  websocket_heading_hearbeat: 心跳包/Ping
+  heartbeat: 心跳包/Ping
   websocket_codequote_heartbeart: 发送心跳包
   websocket_codequote_heartbeat: 如何发送心跳包
   websocket_aside_heartbeat: 由于网络或者程序不稳定,我们强烈建议您使用 <code>ping</code> 心跳包来维持连接. 心跳包建议每30秒发送一次.
   ## Rate Limits
-  websocket_heading_limit: 频率限制
+  websocketlimit: 频率限制
   websocket_para_limit: 注意，每个api_key最多可以保持20个Websocket连接.超过20个连接后的新连接会被服务器拒绝.
   ## How to Subscribe to Topics
-  websocket_heading_subscribe: 订阅方式
+  subscribe: 订阅方式
   ### Understanding Websocket Filters
-  websocket_heading_filters: Websocket订阅方式
+  websocket_filters: Websocket订阅方式
   websocket_codequote_filters1: 直接订阅
   websocket_codequote_filters2: 通过分隔符来订阅多个topic
   websocket_codequote_filters3: 通过匹配符来订阅多个topic
@@ -571,37 +571,37 @@ zh-cn:
     <p>您可以使用管道符号(<code>|</code>)来分割多个参数，前提是这些参数都是合法的.</p>
     <p>您还可以使用匹配符号(<code>*</code>)来匹配多个topic，具体用法见右侧代码栏</p>
   ### Intervals
-  websocket_heading_intervals: 推送周期
+  intervals: 推送周期
   websocket_para_intervals: 如果topic名中包含一个<code>推送周期</code>，如<code>100ms</code>, 那么表明这个topic是每隔<code>100ms</code>推送一次.否则, 这个topic<code>只要有消息就会推送</code>.
 
   ## Understanding the Subscription Response
-  websocket_heading_response: 订阅结果
+  websocketresponse: 订阅结果
   websocket_codequote_response: 订阅推送
   websocket_para_response: 每个topic订阅请求都会有对应的响应，您可以根据返回结果判断是否订阅成功。
   ## Public Topics
-  websocket_heading_public: 公共 Topics
+  publictopics: 公共 Topics
   ### orderBookL2_25
-  websocket_heading_orderbook25: orderBookL2_25
+  orderbook25: orderBookL2_25
   websocket_para_orderbook251: 获取25档orderbook数据.
-  orderbookL2_200_link: 想要更多深度？请使用<a href="#t-websocket_heading-t-websocket_heading_public-t-websocket_heading_orderbook200">orderBookL2_200</a> topic
+  orderbookL2_200_link: 想要更多深度？请使用<a href="#t-websocket-t-publictopics-t-orderbook200">orderBookL2_200</a> topic
   websocket_para_orderbook252: |
     <p>订阅成功后, 会立即得到一个当前快照包的推送信息. orderbook数据按订单价格升序排列, 从最低价格的买单到最高价格的卖单.</p>
     <p>快照包之后，每当orderbook发生变化，websocket都会推送这些变化的增量数据.</p>
   ### orderBookL2_200
-  websocket_heading_orderbook200: orderBookL2_200
+  orderbook200: orderBookL2_200
   websocket_para_orderbook200: |
     <p>获取200档orderbook数据.</p>
     <p>订阅成功后, 会立即得到一个当前快照包的推送信息. orderbook数据按订单价格升序排序, 从最低价格的买单到最高价格的卖单.</p>
     <p>快照包之后，每当orderbook发生变化，websocket将会继续推送这些增量数据.</p>
   ### trade
-  websocket_heading_trade: trade
+  trade: trade
   websocket_para_trade: 获取Bybit平台最近成交数据.
   ### insurance
-  websocket_heading_insurance: insurance
+  insurance: insurance
   websocket_para_insurance: 获取保险基金数据.
   websocket_aside_insurance: 注意<code>wallet_balance</code>的单位为<code>聪</code>, 1聪等于一百万分之一个比特币.
   ### instrument_info
-  websocket_heading_instrumentInfo: instrument_info
+  instrumentInfo: instrument_info
   websocket_para_instrumentInfo: 获取合约的最新数据.
   websocket_aside_instrumentInfo1: |
     注意，该topic只会推送<code>update</code>数据. <code>delete</code>和<code>insert</code>数据都为空. 如果<code>update</code>数据也为空,则表明信息没有发生变化.
@@ -609,7 +609,7 @@ zh-cn:
     一些值以以科学计数法的形式被返回. 根据这个值的key的后缀, 如<code>total_turnover_e8</code>,则表明这个数字需要除以10^8. <br/>
     例如<code>last_price_e4</code>的值为<code>81585000</code>, 那么<code>81585000 / 10^4</code>,等于<code>8158.5</code>才是这个字段的真实值.
   ### klineV2
-  websocket_heading_klineV2: klineV2
+  klineV2: klineV2
   websocket_para_klineV2: |
     <p>目前所支持的周期:</p>
     <ul>
@@ -624,15 +624,15 @@ zh-cn:
     注意如果字段<code>confirm</code>为<code>True</code>, 则表明这是这根K线的最后一个tick；否则，这只是一个快照数据，即中间价格
 
   ## Private Topics
-  websocket_heading_private: 私有 Topics
+  privatetopics: 私有 Topics
   ### position
-  websocket_heading_position: position
+  websocketposition: position
   ### execution
-  websocket_heading_execution: execution
+  execution: execution
   ### order
-  websocket_heading_order: order
+  order: order
   ### stop_order
-  websocket_heading_stopOrder: stop_order
+  stoporder: stop_order
 
   # Archive Data
   archive_data_heading: 归档数据

@@ -1,5 +1,5 @@
-# t(:websocket_heading)
-## t(:websocket_heading_authentication)
+# t(:websocket)
+## t(:websocketauthentication)
 > t(:websocket_codequote_auth)
 
 > t(:websocket_codequote_auth1)
@@ -48,7 +48,7 @@ t(:websocket_best_practices)
 </aside>
 
 
-## t(:websocket_heading_hearbeat)
+## t(:heartbeat)
 > t(:websocket_codequote_heartbeart)
 
 ```javascript
@@ -75,13 +75,13 @@ t(:websocket_aside_heartbeat)
 </aside>
 
 <!-- 连接数限制
-## t(:websocket_heading_limit)
+## t(:websocketlimit)
 t(:websocket_para_limit)
 -->
 
 
-## t(:websocket_heading_subscribe)
-### t(:websocket_heading_filters)
+## t(:subscribe)
+### t(:websocket_filters)
 > t(:websocket_codequote_filters1)
 
 ```javascript
@@ -114,10 +114,10 @@ t(:websocket_para_filters1)
 
 t(:websocket_para_filters2)
 
-### t(:websocket_heading_intervals)
+### t(:intervals)
 t(:websocket_para_intervals)
 
-## t(:websocket_heading_response)
+## t(:websocketresponse)
 > t(:websocket_codequote_response)
 
 ```javascript
@@ -136,8 +136,8 @@ t(:websocket_para_intervals)
 
 t(:websocket_para_response)
 
-## t(:websocket_heading_public)
-### t(:websocket_heading_orderbook25)
+## t(:publictopics)
+### t(:orderbook25)
 > t(:codequote_subscribe)
 
 ```javascript
@@ -220,7 +220,7 @@ t(:orderbookL2_200_link)
 t(:websocket_para_orderbook252)
 
 
-### t(:websocket_heading_orderbook200)
+### t(:orderbook200)
 
 > t(:codequote_subscribe)
 
@@ -298,7 +298,7 @@ ws.send('{"op": "subscribe", "args": ["orderBook_200.100ms.BTCUSD"]}');
 t(:websocket_para_orderbook200)
 
 
-### t(:websocket_heading_trade)
+### t(:trade)
 > t(:codequote_subscribe)
 
 ```javascript
@@ -328,7 +328,7 @@ ws.send('{"op": "subscribe", "args": ["trade"]}')
 t(:websocket_para_trade)
 
 
-### t(:websocket_heading_insurance)
+### t(:insurance)
 > t(:codequote_subscribe)
 
 ```javascript
@@ -356,7 +356,7 @@ t(:websocket_para_insurance)
 t(:websocket_aside_insurance)
 </aside>
 
-### t(:websocket_heading_instrumentInfo)
+### t(:instrumentInfo)
 > t(:codequote_subscribe)
 
 ```javascript
@@ -443,7 +443,7 @@ t(:websocket_aside_instrumentInfo2)
 </aside>
 
 
-### t(:websocket_heading_klineV2)
+### t(:klineV2)
 > t(:codequote_subscribe)
 
 ```javascript
@@ -480,8 +480,8 @@ t(:websocket_aside_klineV2)
 
 
 
-## t(:websocket_heading_private)
-### t(:websocket_heading_position)
+## t(:privatetopics)
+### t(:websocketposition)
 > t(:codequote_subscribe)
 
 ```javascript
@@ -529,7 +529,7 @@ ws.send('{"op": "subscribe", "args": ["position"]}')
 ```
 
 
-### t(:websocket_heading_execution)
+### t(:execution)
 > t(:codequote_subscribe)
 
 ```javascript
@@ -562,7 +562,7 @@ ws.send('{"op": "subscribe", "args": ["execution"]}')
 ```
 
 
-### t(:websocket_heading_order)
+### t(:order)
 > t(:codequote_subscribe)
 
 ```javascript
@@ -602,7 +602,7 @@ ws.send('{"op": "subscribe", "args": ["order"]}')
 ```
 
 
-### t(:websocket_heading_stopOrder)
+### t(:stoporder)
 > t(:codequote_subscribe)
 
 ```javascript

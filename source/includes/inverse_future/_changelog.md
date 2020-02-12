@@ -24,7 +24,7 @@
 - [t(:mypositionv2)](#t-accountdata-t-position-t-mypositionv2) [t(:changelog_new)]
 
 ### Websocket API
-- [t(:websocket_heading_orderbook200)](#t-websocket_heading-t-websocket_heading_public-t-websocket_heading_orderbook200) [t(:changelog_new)]
+- [t(:orderbook200)](#t-websocket-t-publictopics-t-orderbook200) [t(:changelog_new)]
 
 
 ## 2019-12-13
@@ -74,8 +74,8 @@
 	- t(:update____20191104)
 
 ### Websocket API
-- [t(:websocket_heading_klineV2)](#t-websocket_heading-t-websocket_heading_public-t-websocket_heading_klinev2) [t(:changelog_new)]
-- [t(:websocket_heading_stopOrder)](#t-websocket_heading-t-websocket_heading_private-t-websocket_heading_stoporder) [t(:changelog_new)]
+- [t(:klineV2)](#t-websocket-t-publictopics-t-websocket_klinev2) [t(:changelog_new)]
+- [t(:stoporder)](#t-websocket-t-privatetopics-t-websocket_stoporder) [t(:changelog_new)]
 
 
 ## 2019-10-22
@@ -84,8 +84,8 @@
 - [t(:queryactive)](#t-accountdata-t-activeorders-t-query active) [t(:changelog_new)]
 
 ### Websocket API
-- [t(:websocket_heading_position)](#t-websocket_heading-t-websocket_heading_private-t-websocket_heading_position) [t(:changelog_update)]
+- [t(:websocketposition)](#t-websocket-t-privatetopics-t-websocketposition) [t(:changelog_update)]
     - t(:position__20191022)
-- [t(:websocket_heading_trade)](#t-websocket_heading-t-websocket_heading_public-t-websocket_heading_trade) [t(:changelog_update)]
+- [t(:trade)](#t-websocket-t-publictopics-t-trade) [t(:changelog_update)]
     - t(:trade__20191022)
     - t(:trade___20191022)
