@@ -45,7 +45,7 @@
 ## 2019-11-19
 
 ### REST API
-- [t(:market_heading_records)](#t-market_heading-t-constructingtherequest-t-market_heading_records) [t(:changelog_new)]
+- [t(:publictradingrecords)](#t-marketdata-t-constructingtherequest-t-publictradingrecords) [t(:changelog_new)]
 
 
 ## 2019-11-07

@@ -172,23 +172,23 @@ en:
     Example signature algorithms can be found <a href="https://github.com/bybit-exchange/bybit-official-api-docs/tree/master/en/example">here</a>.
 
   # Market Data Endpoints
-  market_heading: Market Data Endpoints
+  marketdata: Market Data Endpoints
   market_para_auth: The following market data endpoints do not require authentication.
   ### Orderbook
-  market_heading_orderbook: Orderbook
+  orderbook: Orderbook
   market_para_orderbook: Get the orderbook.
   market_aside_orderbook: The response is in the snapshot format.
   ### Latest Information for Symbol
-  market_heading_symbol: Latest Information for Symbol
+  latestsymbolinfo: Latest Information for Symbol
   market_para_symbol: Get the latest information for symbol.
   ### Public Trading Records
-  market_heading_records: Public Trading Records
+  publictradingrecords: Public Trading Records
   market_para_records: Get recent trades.
   ### Get the Last Funding Rate
-  market_heading_fundingRate: Get the Last Funding Rate
+  fundingRate: Get the Last Funding Rate
   market_para_fundingRate: The funding rate is generated every 8 hours at 00:00 UTC, 08:00 UTC and 16:00 UTC. For example, if a request is sent at 12:00 UTC, the funding rate generated earlier that day at 08:00 UTC will be sent.
   ### Query Symbol
-  market_heading_querySymbol: Query Symbol
+  querysymbol: Query Symbol
   market_para_querySymbol: Get symbol info.
 
   # Account Data Endpoints
@@ -203,7 +203,7 @@ en:
     <p>Limit price active order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
     <p><b>Take profit/Stop loss: You may only set a take-profit/stop-loss conditional order upon opening the position. Once you hold a position, any new active order requests which contain TP/SL/TS data will be accepted but TP/SL/TS data will be ignored.</b></p>
     <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell, currently Bybit only support order quantity in an integer.</p>
-    <p>Order price: If it is a condition order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the price_filter field in the <a href="#t-market_heading-t-constructingtherequest-t-market_heading_querysymbol">transaction</a> response to the interface.</p>
+    <p>Order price: If it is a condition order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the price_filter field in the <a href="#t-marketdata-t-constructingtherequest-t-querysymbol">transaction</a> response to the interface.</p>
     <p>Custom order ID: You may customise order IDs for active orders. We will link it to the system order ID, and return the unique system order ID to you after the active order is created successfully. You may use this order ID or your custom order ID to cancel your active order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
     <p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSD instrument and 280 active orders on the ETHUSD instrument. And order with parameter <code>reduce_only</code> or <code>closeOnTrigger</code> is unlimited.</b></p>
   ### Get Active Order
@@ -246,7 +246,7 @@ en:
     <p>Limit price conditional order: You can set an execution price for your order. Only when last traded price reaches the order price, the system will fill your order.</p>
     <p>Take profit/Stop loss: You may only set a take-profit/stop-loss conditional order upon opening the position. Once you hold a position, the take profit and stop loss information u sent when placing an order will no longer be valid.</p>
     <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell, currently Bybit only support order quantity in an integer.</p>
-    <p>Order price: If it is a condition order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the price_filter field in the <a href="#t-market_heading-t-constructingtherequest-t-market_heading_querysymbol">transaction</a> response to the interface.</p>
+    <p>Order price: If it is a condition order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the price_filter field in the <a href="#t-marketdata-t-constructingtherequest-t-querysymbol">transaction</a> response to the interface.</p>
     <p>Conditional order trigger price: You may set a trigger price for your conditional order. conditional order will not enter the order book until the last price hits the trigger price. When last price hits trigger price: 1) your limit conditional order will enter order book, and wait to be executed; 2) your market conditional order will be executed immediately at the best available market price.</p>
     <p>Customize conditional order ID: You may customize order IDs for active orders. We will link it to the system order ID , and return the unique system order ID to you after the active order is created successfully. You may use this order ID to cancel your active order. The customized order ID is asked to be unique, with a maximum length of 36 characters.</p>
 

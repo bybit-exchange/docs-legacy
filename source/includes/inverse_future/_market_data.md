@@ -1,7 +1,7 @@
-# t(:market_heading)
+# t(:marketdata)
 t(:market_para_auth)
 
-### t(:market_heading_orderbook)
+### t(:orderbook)
 > t(:codequote_curlExample)
 
 ```console
@@ -51,7 +51,7 @@ GET
 |<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 
 
-### t(:market_heading_symbol)
+### t(:latestsymbolinfo)
 > t(:codequote_curlExample)
 
 ```console
@@ -110,7 +110,7 @@ GET
 |<a href="#t-enums_header-symbol-symbol">symbol</a> |false |string |t(:row_comment_symbol) |
 
 
-### t(:market_heading_records)
+### t(:publictradingrecords)
 > t(:codequote_curlExample)
 
 ```console
@@ -154,7 +154,7 @@ GET
 |limit |false |int |Number of results. Default 500; max 1000|
 
 
-### t(:market_heading_querySymbol)
+### t(:querysymbol)
 > t(:codequote_curlExample)
 
 ```console

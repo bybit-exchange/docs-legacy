@@ -984,7 +984,7 @@ POST
 
 
 ## t(:funding)
-### t(:market_heading_fundingRate)
+### t(:fundingRate)
 > t(:codequote_responseExample)
 
 ```javascript
