@@ -813,8 +813,8 @@ POST
 |leverage |true |string |t(:row_comment_leverage) |
 
 
-## t(:accountdata_position)
-### t(:accountdata_myPosition)
+## t(:position)
+### t(:mypositionv2)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -875,7 +875,7 @@ GET
 |<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
 
 
-### t(:accountdata_changeMargin)
+### t(:changemargin)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -910,7 +910,7 @@ POST
 |margin |true |string |t(:row_comment_margin)  |
 
 
-### t(:accountdata_tradingStop)
+### t(:tradingstop)
 > t(:codequote_responseExample)
 
 ```javascript

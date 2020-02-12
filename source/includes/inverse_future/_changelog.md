@@ -21,7 +21,7 @@
 ## 2019-12-18
 
 ### REST API
-- [t(:accountdata_myPosition)](#t-accountdata-t-accountdata_position-t-accountdata_myposition) [t(:changelog_new)]
+- [t(:mypositionv2)](#t-accountdata-t-position-t-mypositionv2) [t(:changelog_new)]
 
 ### Websocket API
 - [t(:websocket_heading_orderbook200)](#t-websocket_heading-t-websocket_heading_public-t-websocket_heading_orderbook200) [t(:changelog_new)]
@@ -53,8 +53,8 @@
 ### REST API
 - [t(:changeleverage)](#t-accountdata-t-leverage-t-changeleverage) [t(:changelog_update)]
 - [t(:my_20191107)] [t(:changelog_update)]
-- [t(:accountdata_changeMargin)](#t-accountdata-t-accountdata_position-t-accountdata_changemargin) [t(:changelog_update)]
-- [t(:accountdata_tradingStop)](#t-accountdata-t-accountdata_position-t-accountdata_tradingstop) [t(:changelog_update)]
+- [t(:changemargin)](#t-accountdata-t-position-t-changemargin) [t(:changelog_update)]
+- [t(:tradingstop)](#t-accountdata-t-position-t-tradingstop) [t(:changelog_update)]
 
 
 ## 2019-11-04
