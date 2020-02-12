@@ -3,7 +3,7 @@
 ## 2020-02-10
 
 ### REST API
-- [t(:wallet_heading_walletBalance)](#t-wallet_heading-t-key-t-wallet_heading_walletbalance) [t(:changelog_new)]
+- [t(:balance)](#t-wallet-t-key-t-balance) [t(:changelog_new)]
 - [t(:replaceactive)](#t-accountdata-t-activeorders-t-replaceactive) [t(:changelog_update)]
     - t(:replaceActive1_20200210)
 - [t(:replacecond)](#t-accountdata-t-conditionalorders-t-replacecond) [t(:changelog_update)]
@@ -14,8 +14,8 @@
 ## 2019-12-27
 
 ### REST API
-- [t(:wallet_heading_setRisk)](#t-wallet_heading-t-wallet_heading_getrisk) [t(:changelog_new)]
-- [t(:wallet_heading_getRisk)](#t-wallet_heading-t-wallet_heading_setrisk) [t(:changelog_new)]
+- [t(:setrisklimit)](#t-wallet-t-getrisklimit) [t(:changelog_new)]
+- [t(:getrisklimit)](#t-wallet-t-wallet_setrisk) [t(:changelog_new)]
 
 
 ## 2019-12-18
@@ -60,7 +60,7 @@
 ## 2019-11-04
 
 ### REST API
-- [t(:api_heading_announcment)](#t-api_heading-t-wallet_heading_setrisk-t-api_heading_announcment) [t(:changelog_new)]
+- [t(:api_heading_announcment)](#t-api_heading-t-wallet_setrisk-t-api_heading_announcment) [t(:changelog_new)]
 - [t(:cancelOrder_20191104)](#t-accountdata-t-activeorders-t-cancelv2active) [t(:changelog_update)]
     - t(:cancelOrder__20191104)
 - [t(:cancelcond)](#t-accountdata-t-conditionalorders-t-cancelcond) [t(:changelog_update)]

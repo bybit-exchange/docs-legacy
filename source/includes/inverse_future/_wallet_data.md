@@ -1,8 +1,8 @@
-# t(:wallet_heading)
+# t(:wallet)
 t(:wallet_para)
 
 
-### t(:wallet_heading_walletBalance)
+### t(:balance)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -21,7 +21,7 @@ t(:wallet_para)
               //if unrealised_pnl > 0:
               //available_balance = wallet_balance - (position_margin + occ_closing_fee + occ_funding_fee + order_margin)；
               //if unrealised_pnl < 0:
-              //available_balance = wallet_balance - (position_margin + occ_closing_fee + occ_funding_fee + order_margin) + unrealised_pnl 
+              //available_balance = wallet_balance - (position_margin + occ_closing_fee + occ_funding_fee + order_margin) + unrealised_pnl
             "used_margin": 0.00012529,              //used_margin = wallet_balance - available_balance
             "order_margin": 0.00012529,             //Used margin by order
             "position_margin": 0,                   //position margin
@@ -63,7 +63,7 @@ GET
 |<a href="#t-enums_header-currency-currency-coin">coin</a> |true |string |t(:row_comment_coin) |
 
 
-### t(:wallet_heading_walletRecords)
+### t(:walletrecords)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -132,7 +132,7 @@ GET
 |limit |false |integer |t(:row_comment_limit) |
 
 
-### t(:wallet_heading_withdrawRecords)
+### t(:withdrawrecords)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -146,7 +146,7 @@ GET
           "user_id": 1,                                     
           "coin": "XRP",  //t(:enum_coin)                                    
           "status": "Pending" //t(:enum_withdraw_status)
-          "amount": "20.00000000", 
+          "amount": "20.00000000",
           "fee": "0.25000000",
           "address": "rH7H595XYEVTEHU2FySYsWnmfACBnZS9zM",
           "tx_id": "",
@@ -186,7 +186,7 @@ GET
 |limit |false |integer |t(:row_comment_limit) |
 
 
-### t(:wallet_heading_tradeRecords)
+### t(:usertraderecords)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -251,7 +251,7 @@ GET
 |limit |false |integer |t(:row_comment_limit) |
 
 
-## t(:wallet_heading_getRisk)
+## t(:getrisklimit)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -325,7 +325,7 @@ GET
 |:----- |:-------|:-----|----- |
 
 
-## t(:wallet_heading_setRisk)
+## t(:setrisklimit)
 > t(:codequote_responseExample)
 
 ```javascript

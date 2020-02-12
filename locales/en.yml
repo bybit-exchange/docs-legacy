@@ -147,7 +147,7 @@ en:
       <li><b>sign</b> - a signature derived from the request's parameters</li>
     </ul>
   auth_aside_timestamp: |
-    Make sure to conform to the timestamp rule of verification or your request will be rejected! Timestamp rule of verification: <b>server_time - recv_window <= timestamp < server_time + 1000</b>; <b>server_time</b> stands for Bybit server time, you can get it from <a href="#t-api_heading-t-wallet_heading_setrisk-t-api_heading_server_time">Server Time</a> endpoint.
+    Make sure to conform to the timestamp rule of verification or your request will be rejected! Timestamp rule of verification: <b>server_time - recv_window <= timestamp < server_time + 1000</b>; <b>server_time</b> stands for Bybit server time, you can get it from <a href="#t-api_heading-t-wallet_setrisk-t-api_heading_server_time">Server Time</a> endpoint.
   auth_para_recv : |
     Additionally, we offer the <code>recv_window</code>, which indicates for how long an HTTP request is valid. This should be sent in milliseconds. Default value: 5000. This is used to prevent replay attacks.
   auth_heading_construct: Constructing the Request
@@ -318,37 +318,37 @@ en:
   account_para_key: Get user's API key info.
 
   # Wallet Data Endpoints
-  wallet_heading: Wallet Data Endpoints
+  wallet: Wallet Data Endpoints
   wallet_para: The following wallet data endpoints require authentication.
     ### Wallet Balance
-  wallet_heading_walletBalance: Get Wallet Balance
+  balance: Get Wallet Balance
   wallet_para_walletBalance: Get wallet balance info
   wallet_aside_walletBalance: |
    <code>position_margin</code> in this endpoint is not same as <a href="https://www.bybit.com/app/wallet/money">position margin on website page</a>
    <p>The formula of position margin on website: <code>position_margin</code> + <code>occ_funding_fee</code> + loss(when your <code>available_balance</code> is insufficient)</p>
   ### Wallet Fund Records
-  wallet_heading_walletRecords: Wallet Fund Records
+  walletrecords: Wallet Fund Records
   wallet_para_walletRecords: Get wallet fund records.
   wallet_aside_walletRecords: |
-    Find more detail for types <code>Withdraw</code> and <code>Refund</code> in the <a href="#t-wallet_heading-t-key-t-wallet_heading_withdrawrecords">Withdraw Records</a> endpoint.
+    Find more detail for types <code>Withdraw</code> and <code>Refund</code> in the <a href="#t-wallet-t-key-t-withdrawrecords">Withdraw Records</a> endpoint.
   ### Withdraw Records
-  wallet_heading_withdrawRecords: Withdraw Records
+  withdrawrecords: Withdraw Records
   wallet_para_withdrawRecords: Get withdrawal records.
   wallet_aside_withdrawRecords: |
-    The difference between data returned by this endpoint and data of type <code>Withdraw</code> in the <a href="#t-wallet_heading-t-key-t-wallet_heading_walletrecords">Wallet Fund Records</a> endpoint:<p></p>
+    The difference between data returned by this endpoint and data of type <code>Withdraw</code> in the <a href="#t-wallet-t-key-t-walletrecords">Wallet Fund Records</a> endpoint:<p></p>
     <p>This endpoint provides one withdrawal operation per record, and you can check the current withdrawal state with the <code>status</code> field.</p>
-    <p>Once you have submitted a withdrawal application, there will be a record with type <code>Withdraw</code>, and if the application is <code>CancelByUser</code>, <code>Reject</code> or <code>Expire</code> in the <a href="#t-wallet_heading-t-key-t-wallet_heading_walletrecords">Wallet Fund Records</a> endpoint, with a corresponding record with type <code>Refund</code>.</p>
+    <p>Once you have submitted a withdrawal application, there will be a record with type <code>Withdraw</code>, and if the application is <code>CancelByUser</code>, <code>Reject</code> or <code>Expire</code> in the <a href="#t-wallet-t-key-t-walletrecords">Wallet Fund Records</a> endpoint, with a corresponding record with type <code>Refund</code>.</p>
   ### User Trade Records
-  wallet_heading_tradeRecords: User Trade Records
+  usertraderecords: User Trade Records
   wallet_para_tradeRecords: Get user's trading records. The last item is the oldest.
   wallet_aside_tradeRecords: One order may have multiple trade records.
   wallet_row_comment_orderId: OrderID. If not provided, will return user's trading records
   ## Get Risk Limit
-  wallet_heading_getRisk: Get Risk Limit
+  getrisklimit: Get Risk Limit
   wallet_para_getRisk: Get risk limit.
   wallet_aside_getRisk: Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles/360007107454-Risk-Limit-Overview">here</a>.
   ## Set Risk Limit
-  wallet_heading_setRisk: Set Risk Limit
+  setrisklimit: Set Risk Limit
   wallet_para_setRisk: Set risk limit.
 
   # API Data Endpoints
