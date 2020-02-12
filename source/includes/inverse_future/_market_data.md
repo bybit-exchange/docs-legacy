@@ -165,12 +165,105 @@ curl https://api-testnet.bybit.com/v2/public/symbols
 
 ```javascript
 {
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
-    "ext_info": "",
-    "result": {},
-    "time_now": "1577444332.192859"
+  "ret_code": 0,
+  "ret_msg": "OK",
+  "ext_code": "",
+  "ext_info": "",
+  "result": [
+    {
+      "name": "BTCUSD",
+      "base_currency": "BTC",
+      "quote_currency": "USD",
+      "price_scale": 2,
+      "taker_fee": "0.00075",
+      "maker_fee": "-0.00025",
+      "leverage_filter": {
+        "min_leverage": 1,
+        "max_leverage": 100,
+        "leverage_step": "0.01"
+      },
+      "price_filter": {
+        "min_price": "0.5",
+        "max_price": "999999.5",
+        "tick_size": "0.5"
+      },
+      "lot_size_filter": {
+        "max_trading_qty": 1000000,
+        "min_trading_qty": 1,
+        "qty_step": 1
+      }
+    },
+    {
+      "name": "ETHUSD",
+      "base_currency": "ETH",
+      "quote_currency": "USD",
+      "price_scale": 2,
+      "taker_fee": "0.00075",
+      "maker_fee": "-0.00025",
+      "leverage_filter": {
+        "min_leverage": 1,
+        "max_leverage": 50,
+        "leverage_step": "0.01"
+      },
+      "price_filter": {
+        "min_price": "0.05",
+        "max_price": "99999.95",
+        "tick_size": "0.05"
+      },
+      "lot_size_filter": {
+        "max_trading_qty": 1000000,
+        "min_trading_qty": 1,
+        "qty_step": 1
+      }
+    },
+    {
+      "name": "EOSUSD",
+      "base_currency": "EOS",
+      "quote_currency": "USD",
+      "price_scale": 3,
+      "taker_fee": "0.00075",
+      "maker_fee": "-0.00025",
+      "leverage_filter": {
+        "min_leverage": 1,
+        "max_leverage": 50,
+        "leverage_step": "0.01"
+      },
+      "price_filter": {
+        "min_price": "0.001",
+        "max_price": "1999.999",
+        "tick_size": "0.001"
+      },
+      "lot_size_filter": {
+        "max_trading_qty": 1000000,
+        "min_trading_qty": 1,
+        "qty_step": 1
+      }
+    },
+    {
+      "name": "XRPUSD",
+      "base_currency": "XRP",
+      "quote_currency": "USD",
+      "price_scale": 4,
+      "taker_fee": "0.00075",
+      "maker_fee": "-0.00025",
+      "leverage_filter": {
+        "min_leverage": 1,
+        "max_leverage": 50,
+        "leverage_step": "0.01"
+      },
+      "price_filter": {
+        "min_price": "0.0001",
+        "max_price": "199.9999",
+        "tick_size": "0.0001"
+      },
+      "lot_size_filter": {
+        "max_trading_qty": 1000000,
+        "min_trading_qty": 1,
+        "qty_step": 1
+      }
+    }
+  ],
+  "time_now": "1581411225.414179"
 }
 ```
 

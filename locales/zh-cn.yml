@@ -5,7 +5,7 @@ zh-cn:
   inverse_future: 反向合约
   linear_future: 正向合约
   search: 搜索
-  comment_abandoned: 已废弃!!
+  comment_abandoned: <b>已废弃!!</b>
   heading_http_request: HTTP 请求
   heading_request_parameters: 请求参数
   codequote_responseExample: 响应示例
@@ -68,6 +68,7 @@ zh-cn:
   enum_order_type: <a href="#t-enums_header-order-type-order_type">订单类型枚举</a>
   enum_exec_type: <a href="#t-enums_header-exec-type-exec_type">交易类型枚举</a>
   enum_Liquidity_type: <a href="#t-enums_header-liquidity-type-last_liquidity_ind">流动性类型枚举</a>
+  errorcode_meaning: 含义
 
   # introduction in index.html.md
   intro_heading: 介绍
@@ -189,7 +190,7 @@ zh-cn:
 
   # Account Data Endpoints
   account_heading: 账户/交易接口
-  account_para: 以下数据接口都需要鉴权.
+  account_para: 以下账户/交易接口都需要鉴权.
   ## Active Orders
   account_heading_active: 活动单
   ### Place Active Order V2
@@ -532,6 +533,9 @@ zh-cn:
   websocket_aside_auth: <b>公共类</b>topics不需要进行验证. 以下部分只适用于 <b>私有</b> 类接口.
   websocket_para_methods: 如右侧代码区所示，一共有两种验证方法.
   websocket_aside_signature: 点击查看 <a href="https://github.com/bybit-exchange/bybit-official-api-docs/tree/master/en/example">示例加密算法</a>.
+  websocket_best_practices: 由于网络的复杂性，您和Bybit的websocket链接随时可能会断开，为了保证您能及时收到websocket推送消息，强烈建议您按照以下建议处理网络异常：
+    <p>1. 通过<a href="#t-websocket_heading-t-websocket_heading_hearbeat">发送心跳包</a>保持连接</p>
+    <p>2. 一旦发现连接断开，应该立刻重新建立连接。</p>
   ## How to Send the Heartbeat Packet
   websocket_heading_hearbeat: 心跳包/Ping
   websocket_codequote_heartbeart: 发送心跳包
@@ -559,15 +563,15 @@ zh-cn:
   websocket_para_intervals: 如果topic名中包含一个<code>推送周期</code>，如<code>100ms</code>, 那么表明这个topic是每隔<code>100ms</code>推送一次.否则, 这个topic<code>只要有消息就会推送</code>.
 
   ## Understanding the Subscription Response
-  websocket_heading_response: 消息推送
+  websocket_heading_response: 订阅结果
   websocket_codequote_response: 订阅推送
-  websocket_para_response: 每个topic都会有消息推送.
+  websocket_para_response: 每个topic订阅请求都会有对应的响应，您可以根据返回结果判断是否订阅成功。
   ## Public Topics
   websocket_heading_public: 公共 Topics
   ### orderBookL2_25
   websocket_heading_orderbook25: orderBookL2_25
   websocket_para_orderbook251: 获取25档orderbook数据.
-  orderbookL2_200_link: 想要更多深度？请使用<a href="#t-websocket_heading-t-websocket_heading_public-t-websocket_heading_orderbook200">orderBookL2_200</a>topic
+  orderbookL2_200_link: 想要更多深度？请使用<a href="#t-websocket_heading-t-websocket_heading_public-t-websocket_heading_orderbook200">orderBookL2_200</a> topic
   websocket_para_orderbook252: |
     <p>订阅成功后, 会立即得到一个当前快照包的推送信息. orderbook数据按订单价格升序排列, 从最低价格的买单到最高价格的卖单.</p>
     <p>快照包之后，每当orderbook发生变化，websocket都会推送这些变化的增量数据.</p>
@@ -583,14 +587,15 @@ zh-cn:
   ### insurance
   websocket_heading_insurance: insurance
   websocket_para_insurance: 获取保险基金数据.
-  websocket_aside_insurance: 注意<code>钱包余额</code>钱包余额的单位为<code>聪</code>, 1聪等于一百万分之一个比特币.
+  websocket_aside_insurance: 注意<code>wallet_balance</code>的单位为<code>聪</code>, 1聪等于一百万分之一个比特币.
   ### instrument_info
   websocket_heading_instrumentInfo: instrument_info
   websocket_para_instrumentInfo: 获取合约的最新数据.
   websocket_aside_instrumentInfo1: |
     注意，该topic只会推送<code>update</code>数据. <code>delete</code>和<code>insert</code>数据都为空. 如果<code>update</code>数据也为空,则表明信息没有发生变化.
   websocket_aside_instrumentInfo2: |
-    一些值以以科学计数法的形式被返回. 根据这个值的key的后缀, 如<code>total_turnover_e8</code>,则表明这个数字需要除以10^8. 若<code>last_price_e4</code>的值为<code>81585000</code>, 那么<code>81585000 / 10^4</code>,等于<code>8158.5</code>才是这个字段的真实值.
+    一些值以以科学计数法的形式被返回. 根据这个值的key的后缀, 如<code>total_turnover_e8</code>,则表明这个数字需要除以10^8. <br/>
+    例如<code>last_price_e4</code>的值为<code>81585000</code>, 那么<code>81585000 / 10^4</code>,等于<code>8158.5</code>才是这个字段的真实值.
   ### klineV2
   websocket_heading_klineV2: klineV2
   websocket_para_klineV2: |
@@ -604,7 +609,7 @@ zh-cn:
     <li>Y</li>
     </ul>
   websocket_aside_klineV2: |
-    注意如果字段<code>confirm</code>为<code>True</code>, 则表明这根K线为这个周期的最终K线.否则,它只是一个快照数据.
+    注意如果字段<code>confirm</code>为<code>True</code>, 则表明这是这根K线的最后一个tick；否则，这只是一个快照数据，即中间价格
 
   ## Private Topics
   websocket_heading_private: 私有 Topics
@@ -627,7 +632,7 @@ zh-cn:
 
   # ENUMs Definitions
   ENUMs_header: 枚举定义
-  ENUMs_para: This is a list of valid options (and rules) for the different parameters when sending a request to the API.
+  ENUMs_para: 以下是各个接口请求参数或返回结果中定义的枚举。
   ## Wallet fund type (`wallet_fund_type`)
   deposit:      ""
   withdraw:     ""
@@ -760,6 +765,92 @@ zh-cn:
   adlTrade: "资金费率"
   funding: "自动减仓"
   bustTrade: "强制平仓"
+  # Error Code
+  err_10001: 参数错误
+  err_10002: 请求过期，请检查 <code>timestamp</code> 和 <code>recv_window</code>
+  err_10003: 无效的apikey
+  err_10004: 签名错误
+  err_10005: apikey权限不足
+  err_10006: 请求次数超限
+  err_10007: 您的请求中没有<code>api_key</code>
+  err_10010: 请求ip不匹配
+  err_10017: 请求路径不存在或请求方法错误
+  err_20001: 订单不存在
+  err_20003: 缺少参数<code>side</code>
+  err_20004: <code>side</code>不合法
+  err_20005: 缺少参数<code>symbol</code>
+  err_20006: <code>symbol</code>不合法
+  err_20007: 缺少参数<code>order_type</code>
+  err_20008: <code>order_type</code>不合法
+  err_20009: 缺少参数<code>qty</code>
+  err_20010: <code>qty</code> 必须大于0
+  err_20011: <code>qty</code> 必须为整数
+  err_20012: <code>qty</code> 必须大于0并小于1百万
+  err_20013: 缺少参数<code>price</code>
+  err_20014: <code>price</code>必须大于0
+  err_20015: 缺少参数<code>time_in_force</code>
+  err_20016: <code>time_in_force</code>不合法
+  err_20017: 缺少参数<code>order_id</code>
+  err_20018: 日期格式不对
+  err_20019: 缺少参数<code>stop_px</code>
+  err_20020: 缺少参数<code>base_price</code>
+  err_20021: 缺少参数<code>stop_order_id</code>
+  err_20022: 缺少参数<code>leverage</code>
+  err_20023: <code>leverage</code>必须是数字
+  err_20031: <code>leverage</code>必须大于0
+  err_20070: 缺少参数<code>margin</code>
+  err_20071: <code>margin</code>必须大于0
+  err_20084: <code>order_id</code>和<code>order_link_id</code>必须二选一
+  err_30001: <code>order_link_id</code>重复
+  err_30003: <code>qty</code>太小
+  err_30004: <code>qty</code>太大
+  err_30005: <code>price</code>太大
+  err_30007: <code>price</code>太小
+  err_30008: <code>order_type</code>非法
+  err_30009: 持仓不存在
+  err_30010: 钱包余额不足
+  err_30011: 由于仓位清算，不允许操作
+  err_30012: 由于ADL，不允许操作
+  err_30013: 持仓处于强平、ADL或其他非可操作状态
+  err_30014: 平仓数量不能大于持仓数量
+  err_30015: 平仓订单不合法，应和持仓方向相反
+  err_30016: 平仓前请先取消止盈止损单
+  err_30017: 不能低于买方向强平价格
+  err_30018: 不能高于卖方向强平价格
+  err_30019: 非开仓单不能使用TP/SL参数
+  err_30020: 持仓已有TP/SL设置
+  err_30021: 预估保证金不足
+  err_30022: 预估买方向强平价格不能高于标记价格
+  err_30023: 预估卖方向强平价不能低于标记价格
+  err_30024: 空仓无法设置TP/SL/TS
+  err_30025: 触发价格必须高于市价10%
+  err_30026: 价格过高
+  err_30027: 止盈价应高于上笔成交价
+  err_30028: 止损价应在强平价和上笔成交价之间
+  err_30029: 止损价格应在上笔成交价和清算价格之间
+  err_30030: 设定的止盈价格应低于上笔成交价
+  err_30031: 可用余额不足以支付订单费用
+  err_30032: 订单已成交或已取消
+  err_30033: 条件单的数量超限
+  err_30034: 订单不存在
+  err_30035: 取消订单过快
+  err_30036: 订单执行后的预期仓位值超过当前风险限额
+  err_30037: 订单已取消
+  err_30041: 持仓不存在
+  err_30042: 钱包余额不足
+  err_30043: 由于仓位清算，不允许操作
+  err_30044: 由于ADL，不允许操作
+  err_30045: 持仓处于其他不可操作状态
+  err_30049: 可用余额不足
+  err_30050: 任何调整都将立即引发清算
+  err_30051: 杠杆设置非法，因为它将超出您的风险限额
+  err_30052: 杠杆设置非法，不能小于1
+  err_30054: 保证金设置不合法
+  err_30057: 请求的合约数量超过风险限额
+  err_30063: 不满足只减仓的条件
+  err_30067: 可用余额不足
+  err_30068: 退出价值必须大于0
+  err_34026: 风险限额没有变化
 
   # Misc.
   misc_row_comment_orderLinkIdNotOrderId: 机构ID。如果未填order_id则为<b>必填</b>字段。

@@ -43,6 +43,10 @@ t(:websocket_para_methods)
 t(:websocket_aside_signature)
 </aside>
 
+<aside class="warning">
+t(:websocket_best_practices)
+</aside>
+
 
 ## t(:websocket_heading_hearbeat)
 > t(:websocket_codequote_heartbeart)
@@ -55,8 +59,9 @@ ws.send('{"op":"ping"}');
 
 ```javascript
 {
-    "success": true,
+    "success": true, // Whether ping is successful
     "ret_msg": "pong",
+    "conn_id": "036e5d21-804c-4447-a92d-b65a44d00700",// current connection id
     "request": {
         "op": "ping",
         "args": null
@@ -69,9 +74,10 @@ ws.send('{"op":"ping"}');
 t(:websocket_aside_heartbeat)
 </aside>
 
-
+<!-- 连接数限制
 ## t(:websocket_heading_limit)
 t(:websocket_para_limit)
+-->
 
 
 ## t(:websocket_heading_subscribe)
@@ -118,6 +124,7 @@ t(:websocket_para_intervals)
 {
    "success": true, // Whether subscription is successful
    "ret_msg": "",   // Successful subscription: "", otherwise it shows error message
+   "conn_id":"e0e10eee-4eff-4d21-881e-a0c55c25e2da",// current connection id
    "request": {     // Request to your subscription
        "op": "subscribe",
        "args": [

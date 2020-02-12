@@ -1,5 +1,5 @@
 # t(:account_heading)
-The following account data endpoints require authentication.
+t(:account_para)
 
 ## t(:account_heading_active)
 ### t(:account_heading_placeActive)
@@ -276,7 +276,9 @@ POST
     "ret_code": 0,    //Error code,
     "ret_msg": "ok",  //Error message,
     "ext_code": "",
-    "result": "ok",
+    "result": {
+        "order_id": "efa44157-c355-4a98-b6d6-1d846a936b93"
+    },
     "time_now": "1539778407.210858",    // UTC timestamp
     "rate_limit_status": 0,             // The remaining number of accesses in one minute
 }
@@ -634,6 +636,7 @@ POST
 |:----- |:-------|:-----|----- |
 |<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)|
 
+### t(:account_heading_replaceCond)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -641,7 +644,9 @@ POST
     "ret_code": 0,
     "ret_msg": "ok",
     "ext_code": "",
-    "result": [],
+    "result": {
+        "stop_order_id": "378a1bbc-a93a-4e75-87f4-502ea754ba36"
+    },
     "ext_info": null,
     "time_now": "1577475760.604942",
     "rate_limit_status": 96,
@@ -651,7 +656,6 @@ POST
 ```
 
 
-### t(:account_heading_replaceCond)
 t(:account_para_replaceCond)
 
 <aside class="notice">
@@ -666,7 +670,8 @@ POST
 ##### t(:heading_request_parameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|order_id |true |string |t(:row_comment_orderId) |
+|stop_order_id |true |string |t(:row_comment_stopOrderId) |
+|order_id |true |string |t(:comment_abandoned) t(:row_comment_stopOrderId) |
 |<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol). |
 |p_r_qty |false |int |t(:row_comment_pRQty) |
 |p_r_price |false |number |t(:row_comment_pRPrice) |

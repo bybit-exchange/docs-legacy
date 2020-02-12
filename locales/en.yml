@@ -5,7 +5,7 @@ en:
   inverse_future: Inverse Futures
   linear_future: Linear Futures
   search: Search
-  comment_abandoned: Abandoned!!
+  comment_abandoned: <b>Abandoned!!</b>
   heading_http_request: HTTP Request
   heading_request_parameters: Request Parameters
   codequote_responseExample: Response Example
@@ -67,7 +67,7 @@ en:
   enum_order_type: <a href="#t-enums_header-order-type-order_type">Order Type Enum</a>
   enum_exec_type: <a href="#t-enums_header-exec-type-exec_type">Exec Type Enum</a>
   enum_Liquidity_type: <a href="#t-enums_header-liquidity-type-last_liquidity_ind">Liquidity Enum</a>
-
+  errorcode_meaning: Meaning
 
   # introduction in index.html.md
   intro_heading: Introduction
@@ -528,13 +528,16 @@ en:
   websocket_aside_auth: <b>Public</b> topics do not require authentication. The following section applies to <b>private</b> topics only.
   websocket_para_methods: There are two methods of authentication, as shown in the code panel to the right.
   websocket_aside_signature: Example signature algorithms can be found <a href="https://github.com/bybit-exchange/bybit-official-api-docs/tree/master/en/example">here</a>.
+  websocket_best_practices: Due to the complexity of the network, program may loss the connection at any time. In order to ensure that you receive messages on time, you should do as the following<span>:</span>
+    <p>1. Keep connection alive by <a href="#t-websocket_heading-t-websocket_heading_hearbeat">sending heartbeat packet</a></p>
+    <p>2. Reconnect as soon as the connection is broken</p>
   ## How to Send the Heartbeat Packet
   websocket_heading_hearbeat: How to Send the Heartbeat Packet
   websocket_codequote_heartbeat: How to Send
   websocket_aside_heartbeat: Due to unstable networks or program errors, we strongly advise you to send the <code>ping</code> heartbeat packet to maintain websocket connections. We recommend every 30 seconds to 1 minute.
   ## Rate Limits
   websocket_heading_limit: Rate Limits
-  websocket_para_limit: One API key can establish 20 concurrent connections. Any additional connection after 20 connections will be rejected.
+  websocket_para_limit: ""
   ## How to Subscribe to Topics
   websocket_heading_subscribe: How to Subscribe to Topics
   ### Understanding Websocket Filters
@@ -758,6 +761,95 @@ en:
   adlTrade: ""
   bustTrade: ""
 
+  # Error Code
+  err_10001: parameter error
+  err_10002: request expired, check your <code>timestamp</code> and <code>recv_window</code>
+  err_10003: Invalid apikey
+  err_10004: invalid sign
+  err_10005: permission denied for current apikey
+  err_10006: too many requests
+  err_10007: api_key not found in your request parameters
+  err_10010: request ip mismatch
+  err_10017: request path not found or request method is invalid
+  err_20001: Order not exists
+  err_20003: missing parameter <code>side</code>
+  err_20004: invalid parameter <code>side</code>
+  err_20005: missing parameter <code>symbol</code>
+  err_20006: invalid parameter <code>symbol</code>
+  err_20007: missing parameter <code>order_type</code>
+  err_20008: invalid parameter <code>order_type</code>
+  err_20009: missing parameter <code>qty</code>
+  err_20010: qty must be greater than 0
+  err_20011: qty must be an integer
+  err_20012: qty must be greater than zero and less than 1 million
+  err_20013: missing parameter <code>price</code>
+  err_20014: price must be greater than 0
+  err_20015: missing parameter <code>time_in_force</code>
+  err_20016: invalid value for parameter <code>time_in_force</code>
+  err_20017: missing parameter <code>order_id</code>
+  err_20018: invalid date format
+  err_20019: missing parameter <code>stop_px</code>
+  err_20020: missing parameter <code>base_price</code>
+  err_20021: missing parameter <code>stop_order_id</code>
+  err_20022: missing parameter <code>leverage</code>
+  err_20023: leverage must be a number
+  err_20031: leverage must be greater than zero
+  err_20070: missing parameter <code>margin</code>
+  err_20071: margin must be greater than zero
+  err_20084: order_id or order_link_id is required
+  err_30001: order_link_id is repeated
+  err_30003: qty must be more than the minimum allowed
+  err_30004: qty must be less than the maximum allowed
+  err_30005: price exceeds maximum allowed
+  err_30007: price exceeds minimum allowed
+  err_30008: invalid order_type
+  err_30009: no position found
+  err_30010: insufficient wallet balance
+  err_30011: operation not allowed as position is undergoing liquidation
+  err_30012: operation not allowed as position is undergoing ADL
+  err_30013: position is in liq or adl status
+  err_30014: invalid closing order, qty shoud not greater than size
+  err_30015: invalid closing order, side should be opposite
+  err_30016: TS and SL must be cancelled first while closing position
+  err_30017: estimated fill price cannot be lower than current Buy liq_price
+  err_30018: estimated fill price cannot be higher than current Sell liq_price
+  err_30019: cannot attach TP/SL params for non-zero position when placing non-opening position order
+  err_30020: position already has TP/SL params
+  err_30021: cannot afford estimated position_margin
+  err_30022: estimated buy liq_price cannot be higher than current mark_price
+  err_30023: estimated sell liq_price cannot be lower than current mark_price
+  err_30024: cannot set TP/SL/TS for zero-position
+  err_30025: trigger price should bigger than 10% of last price
+  err_30026: price too high
+  err_30027: price set for Take profit should be higher than Last Traded Price
+  err_30028: price set for Stop loss should be between Liquidation price and Last Traded Price
+  err_30029: price set for Stop loss should be between Last Traded Price and Liquidation price
+  err_30030: price set for Take profit should be lower than Last Traded Price
+  err_30031: insufficient available balance for order cost
+  err_30032: order has been filled or canceled
+  err_30033: The number of stop orders exceeds maximum limit allowed
+  err_30034: no order found
+  err_30035: too fast to cancel
+  err_30036: the expected position value after order execution exceeds the current risk limit
+  err_30037: order already cancelled
+  err_30041: no position found
+  err_30042: insufficient wallet balance
+  err_30043: operation not allowed as position is undergoing liquidation
+  err_30044: operation not allowed as position is undergoing AD
+  err_30045: operation not allowed as position is not normal status
+  err_30049: insufficient available balance
+  err_30050: any adjustments made will trigger immediate liquidation
+  err_30051: due to risk limit, cannot adjust leverage 
+  err_30052: leverage can not less than 1
+  err_30054: position margin is invalid
+  err_30057: requested quantity of contracts exceeds risk limit
+  err_30063: reduce-only rule not satisfied
+  err_30067: insufficient available balance
+  err_30068: exit value must be positive
+  err_34026: the limit is no change
+
+
+    
 
   # Misc.
   misc_row_comment_orderLinkIdNotOrderId: Agency customized order ID. <b>Required</b> if not passing order_id
