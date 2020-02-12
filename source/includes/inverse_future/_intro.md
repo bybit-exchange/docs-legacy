@@ -1,6 +1,6 @@
-# t(:intro_heading)
+# t(:introduction)
 t(:intro_para)
 
 
-### t(:intro_heading_resources)
+### t(:resources)
 t(:intro_para_resources)

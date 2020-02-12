@@ -29,7 +29,7 @@ zh-cn:
   row_comment_limit: 每页数量, 最大50. 默认每页20条
   row_comment_orderType: 订单类型
   row_comment_qty: 委托数量(1个委托1美元)，只能为正整数 
-  row_comment_price: 委托价格。如果是下<b>限价单</b>，该参数为<b>必填</b>. 在没有仓位时，做多的委托价格需高于市价的10%、低于1百万。如有仓位时则需优于强平价。价格增减最小单位请参考<a href="#t-market_heading-t-auth_heading_construct-t-market_heading_querysymbol">交易对接口</a>响应中的<b>price_filter</b>字段
+  row_comment_price: 委托价格。如果是下<b>限价单</b>，该参数为<b>必填</b>. 在没有仓位时，做多的委托价格需高于市价的10%、低于1百万。如有仓位时则需优于强平价。价格增减最小单位请参考<a href="#t-market_heading-t-constructingtherequest-t-market_heading_querysymbol">交易对接口</a>响应中的<b>price_filter</b>字段
   row_comment_stopOrderPrice: 条件委托执行价格。如果条件委托是限价单，则price为必传字段
   row_comment_basePrice: 当前市价。用于和stop_px值进行比较，确定当前条件委托是看空到<code>stop_px</code>时触发还是看多到stop_px触发。主要是用来标识当前条件单预期的方向
   row_comment_stopPx: 条件委托下单时市价
@@ -71,12 +71,12 @@ zh-cn:
   errorcode_meaning: 含义
 
   # introduction in index.html.md
-  intro_heading: 介绍
+  introduction: 介绍
   intro_para:
     <p>欢迎使用 <a href="https://www.bybit.com/">Bybit</a> APIs 和 Websocket官方文档！</p>
     <p>如果您在使用API的过程中遇到问题需要帮助，请加入我们的 <a href="https://t.me/Bybitapi">官方Telegram API讨论群</a>！</p>
 
-  intro_heading_resources: 参考资料
+  resources: 参考资料
   intro_para_resources:
     <ul>
       <li><a href="https://help.bybit.com/hc/zh-cn">帮助中心<img src="/images/bybit_favicon.png" height="14", width="14"></a> - 在这里了解合约交易
@@ -89,7 +89,7 @@ zh-cn:
 
 # Changelog
   # if some missing values - they already have values elsewhere
-  changelog_heading: 更新日志
+  changelog: 更新日志
   changelog_new: 新增
   changelog_update: 更新
   changelog_bugfix: bugfix
@@ -123,7 +123,7 @@ zh-cn:
 
 
   # api_auth
-  auth_heading: 鉴权/认证
+  authentication: 鉴权/认证
   auth_aside_key: 请先生成<a href="https://testnet.bybit.com/app/user/api-management"><b>测试网</b></a> 或 <a href="https://www.bybit.com/app/user/api-management"<b>主网</b></a>API KEY。
   auth_para_domains: |
     Domains:
@@ -140,7 +140,7 @@ zh-cn:
   auth_para_privatepublic:
     <p>所有<b>private</b>接口都需要认证，<b>public</b> 接口不需要认证。</p>
 
-  auth_heading_params: 公共参数
+  authenticationparameters: 公共参数
   auth_para_params: |
     需要签名的接口必须包含以下参数:
     <ul>
@@ -152,7 +152,7 @@ zh-cn:
     另外我们提供可选的<code>recv_window</code>参数（单位是毫秒，默认值为<code>5000</code>），来指定请求在多长时间内有效，同时用来防止重放攻击。
   auth_aside_timestamp: |
     注意，timestamp参数必须符合如下规则: <b>server_time - recv_window <= timestamp < server_time + 1000</b>，其中server_time是Bybit服务器时间，您可以通过<a href="#t-api-t-wallet_setrisk-t-servertime">服务器时间接口</a>获取。
-  auth_heading_construct: 构建请求
+  constructingtherequest: 构建请求
   auth_codequote_construct1a:
     拼接参数示例（以修改杠杆接口为例）：
   auth_codequote_construct1b:
@@ -206,7 +206,7 @@ zh-cn:
     <p>限价活动委托: 您可以为您的订单设置一个执行价格，当市场价格达到您的设置价格时，系统会为您成交订单。</p>
     <p><b>止盈止损: 您仅能在开仓时设置止盈止损条件单，一旦持有仓位后提交活动委托时关联的止盈止损则不会生效。</b></p>
     <p>委托数量: 表示您要购买/卖出的永续合约数，对于委托数量目前Bybit只允许提交正整数。</p>
-    <p>委托价格: 如果是下<b>限价单</b>，该参数为<b>必填</b>. 在没有仓位时，做多的委托价格需高于市价的10%、低于1百万。如有仓位时则需优于强平价。价格增减最小单位请参考<a href="#t-market_heading-t-auth_heading_construct-t-market_heading_querysymbol">交易对接口</a>响应中的<b>price_filter</b>字段。</p>
+    <p>委托价格: 如果是下<b>限价单</b>，该参数为<b>必填</b>. 在没有仓位时，做多的委托价格需高于市价的10%、低于1百万。如有仓位时则需优于强平价。价格增减最小单位请参考<a href="#t-market_heading-t-constructingtherequest-t-market_heading_querysymbol">交易对接口</a>响应中的<b>price_filter</b>字段。</p>
     <p>自定义条件单ID: 您可以自定义活动委托订单ID，我们会为您关联到系统的订单ID，并把系统的唯一订单ID在活动委托创建成功后一并返回给您，您可以使用该订单ID去取消活动委托，同时要求您传递的自定义订单ID<code>最大长度不超过36个字段且唯一</code>。</p>
     <p><b>每个账户最多可同时持有500个活动订单。这是针对合约的，因此可以允许出现例如：账户同时持有300个BTCUSD的活动单、280个ETHUSD合约的活动单。</b></p>
     <p><b>当您达到订单上限的时候的时候，仍然可以下单设置了参数<code>reduce_only</code> 或 <code>closeOnTrigger</code>的订单。</b></p>
@@ -249,7 +249,7 @@ zh-cn:
     <p>限价条件委托: 您可以为您的订单设置一个执行价格，当市场价格达到您的设置价格时，系统会为您成交订单。</p>
     <p>止盈止损: 您仅能在开仓时设置止盈止损条件单，一旦持有仓位后提交活动委托时关联的止盈止损则不再有效。一旦持仓后，当创建订单后发送的止盈止损信息将不再有效。</p>
     <p>委托数量: 表示您要购买/卖出的永续合约数，对于委托数量目前Bybit只允许提交正整数。</p>
-    <p>委托价格: 表示您期望购买/卖出永续合约的价格，可以根据<a href="#t-market_heading-t-auth_heading_construct-t-market_heading_querysymbol">交易对接口</a>查询不同symbol价格阶梯。</p>
+    <p>委托价格: 表示您期望购买/卖出永续合约的价格，可以根据<a href="#t-market_heading-t-constructingtherequest-t-market_heading_querysymbol">交易对接口</a>查询不同symbol价格阶梯。</p>
     <p>条件委托触发价格: 您可以为您的条件委托单设置一个触发价格，条件委托单不进入委托表（Order Book)，只有触发条件成立如市场价格到达触发价格时，条件委托单才会进入交易系统。当市场价格到达触发价格：1）您的限价条件委托单进入Order Book，等待被执行；2）您的市价条件委托单将按照市场最优价格立即被执行。</p>
     <p>自定义条件单ID: 您可以自定义活动委托订单ID，我们会为您关联到系统的订单ID，并把系统的唯一订单ID在活动委托创建成功后一并返回给您，您可以使用该订单ID去取消活动委托，同时要求您传递的自定义订单ID最大长度不超过36个字段且唯一。</p>
   account_aside_placeCond:

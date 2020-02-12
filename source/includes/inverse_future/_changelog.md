@@ -1,4 +1,4 @@
-# t(:changelog_heading)
+# t(:changelog)
 
 ## 2020-02-10
 
@@ -45,7 +45,7 @@
 ## 2019-11-19
 
 ### REST API
-- [t(:market_heading_records)](#t-market_heading-t-auth_heading_construct-t-market_heading_records) [t(:changelog_new)]
+- [t(:market_heading_records)](#t-market_heading-t-constructingtherequest-t-market_heading_records) [t(:changelog_new)]
 
 
 ## 2019-11-07

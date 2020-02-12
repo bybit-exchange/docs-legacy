@@ -70,12 +70,12 @@ en:
   errorcode_meaning: Meaning
 
   # introduction in index.html.md
-  intro_heading: Introduction
+  introduction: Introduction
   intro_para:
     <p>Welcome to the official documentation for the <a href="https://www.bybit.com/">Bybit</a> APIs and Websocket! Here you can find details on how to access all of our endpoints, their respective expected outputs, and possible errors you may encounter.</p>
     <p>If you encounter an issue you need help with, have a suggestions for us, or just want to have a chat with fellow developers then please head on over to our <a href="https://t.me/Bybitapi">API Telegram chat</a>!</p>
 
-  intro_heading_resources: Bybit API Resources
+  resources: Bybit API Resources
   intro_para_resources:
     <ul>
       <li><a href="https://help.bybit.com/hc/en-us">Help Center<img src="/images/bybit_favicon.png" height="14", width="14"></a> - learn about exchange mechanisms here!
@@ -87,7 +87,7 @@ en:
 
   # Changelog
   # if some missing values - they already have values elsewhere
-  changelog_heading: Changelog
+  changelog: Changelog
   changelog_new: new
   changelog_update: update
   changelog_bugfix: bugfix
@@ -121,7 +121,8 @@ en:
 
 
   # api_auth
-  auth_heading: Authentication
+  # t(:authentication)
+  authentication: Authentication
   auth_aside_key: To generate an API key please go <a href="https://testnet.bybit.com/app/user/api-management">here for the <b>testnet</b></a> or <a href="https://www.bybit.com/app/user/api-management">here for the <b>mainnet</b></a>.
   auth_para_domains: |
     Domains:
@@ -138,7 +139,8 @@ en:
   auth_para_privatepublic:
     <p>All requests made to <b>private</b> endpoints must be authenticated. Requests made to <b>public</b> endpoints do not require the additional parameters needed for authentication.</p>
 
-  auth_heading_params: Parameters for Authenticated Endpoints
+  ## Parameters for Authenticated Endpoints
+  authenticationparameters: Parameters for Authenticated Endpoints
   auth_para_params: |
     The following parameters must be used for authentication:
     <ul>
@@ -150,7 +152,8 @@ en:
     Make sure to conform to the timestamp rule of verification or your request will be rejected! Timestamp rule of verification: <b>server_time - recv_window <= timestamp < server_time + 1000</b>; <b>server_time</b> stands for Bybit server time, you can get it from <a href="#t-api-t-wallet_setrisk-t-servertime">Server Time</a> endpoint.
   auth_para_recv : |
     Additionally, we offer the <code>recv_window</code>, which indicates for how long an HTTP request is valid. This should be sent in milliseconds. Default value: 5000. This is used to prevent replay attacks.
-  auth_heading_construct: Constructing the Request
+  ## Constructing the Request
+  constructingtherequest: Constructing the Request
   auth_codequote_construct1a:
     An example for adjusting leverage
   auth_codequote_construct1b:
@@ -200,7 +203,7 @@ en:
     <p>Limit price active order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
     <p><b>Take profit/Stop loss: You may only set a take-profit/stop-loss conditional order upon opening the position. Once you hold a position, any new active order requests which contain TP/SL/TS data will be accepted but TP/SL/TS data will be ignored.</b></p>
     <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell, currently Bybit only support order quantity in an integer.</p>
-    <p>Order price: If it is a condition order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the price_filter field in the <a href="#t-market_heading-t-auth_heading_construct-t-market_heading_querysymbol">transaction</a> response to the interface.</p>
+    <p>Order price: If it is a condition order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the price_filter field in the <a href="#t-market_heading-t-constructingtherequest-t-market_heading_querysymbol">transaction</a> response to the interface.</p>
     <p>Custom order ID: You may customise order IDs for active orders. We will link it to the system order ID, and return the unique system order ID to you after the active order is created successfully. You may use this order ID or your custom order ID to cancel your active order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
     <p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSD instrument and 280 active orders on the ETHUSD instrument. And order with parameter <code>reduce_only</code> or <code>closeOnTrigger</code> is unlimited.</b></p>
   ### Get Active Order
@@ -243,7 +246,7 @@ en:
     <p>Limit price conditional order: You can set an execution price for your order. Only when last traded price reaches the order price, the system will fill your order.</p>
     <p>Take profit/Stop loss: You may only set a take-profit/stop-loss conditional order upon opening the position. Once you hold a position, the take profit and stop loss information u sent when placing an order will no longer be valid.</p>
     <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell, currently Bybit only support order quantity in an integer.</p>
-    <p>Order price: If it is a condition order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the price_filter field in the <a href="#t-market_heading-t-auth_heading_construct-t-market_heading_querysymbol">transaction</a> response to the interface.</p>
+    <p>Order price: If it is a condition order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the price_filter field in the <a href="#t-market_heading-t-constructingtherequest-t-market_heading_querysymbol">transaction</a> response to the interface.</p>
     <p>Conditional order trigger price: You may set a trigger price for your conditional order. conditional order will not enter the order book until the last price hits the trigger price. When last price hits trigger price: 1) your limit conditional order will enter order book, and wait to be executed; 2) your market conditional order will be executed immediately at the best available market price.</p>
     <p>Customize conditional order ID: You may customize order IDs for active orders. We will link it to the system order ID , and return the unique system order ID to you after the active order is created successfully. You may use this order ID to cancel your active order. The customized order ID is asked to be unique, with a maximum length of 36 characters.</p>
 
