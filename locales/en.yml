@@ -189,12 +189,12 @@ en:
   market_para_querySymbol: Get symbol info.
 
   # Account Data Endpoints
-  account_heading: Account Data Endpoints
+  accountdata: Account Data Endpoints
   account_para: The following account data endpoints require authentication.
   ## Active Orders
-  account_heading_active: Active Orders
+  activeorders: Active Orders
   ### Place Active Order V2
-  account_heading_placeActive: Place Active Order V2
+  placeactive: Place Active Order V2
   account_para_placeActive: |
     <p>Market price active order: A traditional market price order, will be filled at the best available price. <code>price</code> is not required for this type of order.</p>
     <p>Limit price active order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
@@ -204,25 +204,25 @@ en:
     <p>Custom order ID: You may customise order IDs for active orders. We will link it to the system order ID, and return the unique system order ID to you after the active order is created successfully. You may use this order ID or your custom order ID to cancel your active order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
     <p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSD instrument and 280 active orders on the ETHUSD instrument. And order with parameter <code>reduce_only</code> or <code>closeOnTrigger</code> is unlimited.</b></p>
   ### Get Active Order
-  account_heading_getActive: Get Active Order
+  getactive: Get Active Order
   account_para_getActive: |
     <p>Get my active order list.</p>
-    <p>Cause order creation/cancellation is asynchronous, sometimes there is a data dalay in this endpoint. You can get real-time order info in <a href="#t-account_heading-t-account_heading_active-t-account_heading_queryactive">Query Active Order (real-time)</a> endpoint.</p>
+    <p>Cause order creation/cancellation is asynchronous, sometimes there is a data dalay in this endpoint. You can get real-time order info in <a href="#t-accountdata-t-activeorders-t-query active">Query Active Order (real-time)</a> endpoint.</p>
   account_row_comment_orderId: Order ID
   account_row_comment_orderStatus: Query your orders for all statuses if 'order_status' is empty. If you want to query orders with specific statuses, you can pass the order_status split by ','.
   ### Cancel Active Order V2
-  account_heading_cancelActive: Cancel Active Order V2
+  cancelv2active: Cancel Active Order V2
   account_para_cancelActive: |
     <p>Either <code>order_id</code> or <code>order_link_id</code> are required for cancelling active orders. <code>order_id</code> - this unique 36 characters order ID was returned to you when the active order was created successfully.</p>
     <p>You may cancel active orders that are unfilled or partially filled. Fully filled orders cannot be cancelled.</p>
   ### Cancel All Active Orders
-  account_heading_cancelAllActive: Cancel All Active Orders
+  cancelallactive: Cancel All Active Orders
   account_para_cancelAllActive: |
     <p>Cancel all active orders that are unfilled or partially filled. Fully filled orders cannot be cancelled.</p>
   account_aside_cancelAllActive:
     This endpoint's <code>rate_limit</code> will decrease by 10 per request
   ### Replace Active Order
-  account_heading_replaceActive: Replace Active Order
+  replaceactive: Replace Active Order
   account_para_replaceActive: |
     <p>Replace order can modify/amend your active orders.</p>
     <p><code>p_r_qty</code> and <code>p_r_price</code> are the modified price and quantity. If these two fields are not provided, nothing will be modified.</p>
@@ -230,13 +230,13 @@ en:
   account_aside_replaceActive:
     Please note that only orders that are unfilled or partially filled can be modified by the replace-order API.
   ### Query Active Order (real-time)
-  account_heading_queryActive: Query Active Order (real-time)
+  queryactive: Query Active Order (real-time)
   account_para_queryActive: Query real-time active order information.
 
   ## Conditional Orders
   ### Place Conditional Order
-  account_heading_cond: Conditional Orders
-  account_heading_placeCond: Place Conditional Order
+  accountdata_cond: Conditional Orders
+  accountdata_placeCond: Place Conditional Order
   account_para_placeCond: |
     <p>Parameters of 'side', 'symbol', 'order_type', 'qty', 'price', 'base_price', 'stop_px', 'time_in_force' are required for all active orders. Other parameters are optional unless specified.</p>
     <p>Market price conditional order: A traditional market price order, will be filled at the best available price. 'price' can set to be "" if and only if you are placing market price order.</p>
@@ -251,21 +251,21 @@ en:
     Take profit/Stop loss is not supported in placing conditional orders. One can only use these 2 functions when placing active orders. Moreover, each account can hold up to 10 conditional orders yet to be filled entirely simultaneously.
 
   ### Get Conditional Order
-  account_heading_getCond: Get Conditional Order
-  account_para_getCond: 
+  accountdata_getCond: Get Conditional Order
+  account_para_getCond:
     <p>Get my conditional order list.</p>
-    <p>Cause order creation/cancellation is asynchronous, sometimes there is a data dalay in this endpoint. You can get real-time order info in <a href="#t-account_heading-t-account_heading_cond-t-account_heading_queryconditional">Query Conditional Order (real-time)</a> endpoint.</p>
+    <p>Cause order creation/cancellation is asynchronous, sometimes there is a data dalay in this endpoint. You can get real-time order info in <a href="#t-accountdata-t-accountdata_cond-t-accountdata_queryconditional">Query Conditional Order (real-time)</a> endpoint.</p>
   ### Cancel Conditional Order
-  account_heading_cancelCond: Cancel Conditional Order
+  accountdata_cancelCond: Cancel Conditional Order
   account_para_cancelCond: |
     <p>You may cancel all untriggered conditional orders. Essentially, after a conditional order is triggered, it will become an active order. So, when a conditional order is triggered, cancellation has to be done through the active order endpoint for any unfilled or partially filled active order. As always, orders that have been fully filled cannot be cancelled.</p>
   ### Cancel All Conditional Orders
-  account_heading_cancelAllCond: Cancel All Conditional Orders
+  accountdata_cancelAllCond: Cancel All Conditional Orders
   account_para_cancelAllCond: Cancel all untriggered conditional orders.
   account_aside_cancelAllCond:
     This endpoint's <code>rate_limit</code> will decrease by 10 per request
   ### Replace Conditional Order
-  account_heading_replaceCond: Replace Conditional Order
+  accountdata_replaceCond: Replace Conditional Order
   account_para_replaceCond:
     <p>Replace conditional order can modify/amend your conditional orders.</p>
     <p><code>order_id</code> and <code>symbol</code> are required for identifying a conditional order.</p>
@@ -273,32 +273,32 @@ en:
   account_aside_replaceCond: |
     Please note that you can only modify untriggered conditional orders.
   ### Query Conditional Order (real-time)
-  account_heading_queryConditional: Query Conditional Order (real-time)
+  accountdata_queryConditional: Query Conditional Order (real-time)
   account_para_queryConditional: Query real-time stop order information.
 
 
   ## Leverage
-  account_heading_leverage: Leverage
+  accountdata_leverage: Leverage
   ### User Leverage
-  account_heading_userLeverage: User Leverage
+  accountdata_userLeverage: User Leverage
   account_para_userLeverage: Get user leverage.
   ### Change User Leverage
-  account_heading_changeLeverage: Change User Leverage
+  accountdata_changeLeverage: Change User Leverage
   account_para_changeLeverage: |
     <p>Change user leverage.</p>
   account_aside_changeLeverage: Set <code>leverage</code> to <code>0</code> if you want to trade in <a href="https://help.bybit.com/hc/en-us/articles/360037683633-What-is-Cross-Margin">Cross Margin mode</a>. Note that your position mode will be changed to Isolated Margin mode if you change your leverage from 0 to any other value.
 
   ## Position
-  account_heading_position: Position
+  accountdata_position: Position
   ### My Position V2 (real-time)
-  account_heading_myPosition: My Position V2 (real-time)
+  accountdata_myPosition: My Position V2 (real-time)
   account_para_myPosition: Get my position list.
   ### Change Margin
-  account_heading_changeMargin: Change Margin
+  accountdata_changeMargin: Change Margin
   account_para_changeMargin: Update margin.
   account_aside_changeMargin: You cannot change margin when your position is in Cross Margin mode. See the <a href="#change-user-leverage">Change User Leverage</a> endpoint for more.
   ### Set Trading-Stop
-  account_heading_tradingStop: Set Trading-Stop
+  accountdata_tradingStop: Set Trading-Stop
   account_para_tradingStop: Set take profit, stop loss, and trailing stop for your open position.
   account_aside_tradingStop: Passing these parameters will create conditional orders controlled by the system. The system will cancel these orders if the position is closed, and adjust the qty according to the size of the open position.
   account_row_comment_takeProfit: Cannot be less than 0, 0 means cancel TP
@@ -306,15 +306,15 @@ en:
   account_row_comment_trailingStop: Cannot be less than 0, 0 means cancel TS
 
   ## Funding
-  account_heading_funding: Funding
+  accountdata_funding: Funding
   ### My Last Funding Fee
-  account_heading_myLastFunding: My Last Funding Fee
+  accountdata_myLastFunding: My Last Funding Fee
   account_para_myLastFunding: Funding settlement occurs every 8 hours at 00:00 UTC, 08:00 UTC and 16:00 UTC. The current interval's fund fee settlement is based on the previous interval's fund rate. For example, at 16:00, the settlement is based on the fund rate generated at 8:00. The fund rate generated at 16:00 will be used at 0:00 the next day.
   ### Predicted Funding Rate and My Funding Fee
-  account_heading_predictedFunding: Predicted Funding Rate and My Funding Fee
+  accountdata_predictedFunding: Predicted Funding Rate and My Funding Fee
   account_para_predictedFunding: Get predicted funding rate and my funding fee.
   ## API Key Info
-  account_heading_key: API Key Info
+  accountdata_key: API Key Info
   account_para_key: Get user's API key info.
 
   # Wallet Data Endpoints
@@ -323,21 +323,21 @@ en:
     ### Wallet Balance
   wallet_heading_walletBalance: Get Wallet Balance
   wallet_para_walletBalance: Get wallet balance info
-  wallet_aside_walletBalance: | 
+  wallet_aside_walletBalance: |
    <code>position_margin</code> in this endpoint is not same as <a href="https://www.bybit.com/app/wallet/money">position margin on website page</a>
    <p>The formula of position margin on website: <code>position_margin</code> + <code>occ_funding_fee</code> + loss(when your <code>available_balance</code> is insufficient)</p>
   ### Wallet Fund Records
   wallet_heading_walletRecords: Wallet Fund Records
   wallet_para_walletRecords: Get wallet fund records.
   wallet_aside_walletRecords: |
-    Find more detail for types <code>Withdraw</code> and <code>Refund</code> in the <a href="#t-wallet_heading-t-account_heading_key-t-wallet_heading_withdrawrecords">Withdraw Records</a> endpoint.
+    Find more detail for types <code>Withdraw</code> and <code>Refund</code> in the <a href="#t-wallet_heading-t-accountdata_key-t-wallet_heading_withdrawrecords">Withdraw Records</a> endpoint.
   ### Withdraw Records
   wallet_heading_withdrawRecords: Withdraw Records
   wallet_para_withdrawRecords: Get withdrawal records.
   wallet_aside_withdrawRecords: |
-    The difference between data returned by this endpoint and data of type <code>Withdraw</code> in the <a href="#t-wallet_heading-t-account_heading_key-t-wallet_heading_walletrecords">Wallet Fund Records</a> endpoint:<p></p>
+    The difference between data returned by this endpoint and data of type <code>Withdraw</code> in the <a href="#t-wallet_heading-t-accountdata_key-t-wallet_heading_walletrecords">Wallet Fund Records</a> endpoint:<p></p>
     <p>This endpoint provides one withdrawal operation per record, and you can check the current withdrawal state with the <code>status</code> field.</p>
-    <p>Once you have submitted a withdrawal application, there will be a record with type <code>Withdraw</code>, and if the application is <code>CancelByUser</code>, <code>Reject</code> or <code>Expire</code> in the <a href="#t-wallet_heading-t-account_heading_key-t-wallet_heading_walletrecords">Wallet Fund Records</a> endpoint, with a corresponding record with type <code>Refund</code>.</p>
+    <p>Once you have submitted a withdrawal application, there will be a record with type <code>Withdraw</code>, and if the application is <code>CancelByUser</code>, <code>Reject</code> or <code>Expire</code> in the <a href="#t-wallet_heading-t-accountdata_key-t-wallet_heading_walletrecords">Wallet Fund Records</a> endpoint, with a corresponding record with type <code>Refund</code>.</p>
   ### User Trade Records
   wallet_heading_tradeRecords: User Trade Records
   wallet_para_tradeRecords: Get user's trading records. The last item is the oldest.
@@ -851,7 +851,7 @@ en:
   err_30045: operation not allowed as position is not normal status
   err_30049: insufficient available balance
   err_30050: any adjustments made will trigger immediate liquidation
-  err_30051: due to risk limit, cannot adjust leverage 
+  err_30051: due to risk limit, cannot adjust leverage
   err_30052: leverage can not less than 1
   err_30054: position margin is invalid
   err_30057: requested quantity of contracts exceeds risk limit
@@ -861,7 +861,7 @@ en:
   err_34026: the limit is no change
 
 
-    
+
 
   # Misc.
   misc_row_comment_orderLinkIdNotOrderId: Agency customized order ID. <b>Required</b> if not passing order_id

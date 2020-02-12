@@ -3,10 +3,10 @@
 ## 2020-02-10
 
 ### REST API
-- [t(:wallet_heading_walletBalance)](#t-wallet_heading-t-account_heading_key-t-wallet_heading_walletbalance) [t(:changelog_new)]
-- [t(:account_heading_replaceActive)](#t-account_heading-t-account_heading_active-t-account_heading_replaceactive) [t(:changelog_update)]
+- [t(:wallet_heading_walletBalance)](#t-wallet_heading-t-accountdata_key-t-wallet_heading_walletbalance) [t(:changelog_new)]
+- [t(:replaceactive)](#t-accountdata-t-activeorders-t-replaceactive) [t(:changelog_update)]
     - t(:replaceActive1_20200210)
-- [t(:account_heading_replaceCond)](#t-account_heading-t-account_heading_cond-t-account_heading_replacecond) [t(:changelog_update)]
+- [t(:accountdata_replaceCond)](#t-accountdata-t-accountdata_cond-t-accountdata_replacecond) [t(:changelog_update)]
     - t(:replaceCond1_20200210)
     - t(:replaceCond2_20200210)
 - t(:bugfix1_20200210) [t(:changelog_bugfix)]
@@ -21,7 +21,7 @@
 ## 2019-12-18
 
 ### REST API
-- [t(:account_heading_myPosition)](#t-account_heading-t-account_heading_position-t-account_heading_myposition) [t(:changelog_new)]
+- [t(:accountdata_myPosition)](#t-accountdata-t-accountdata_position-t-accountdata_myposition) [t(:changelog_new)]
 
 ### Websocket API
 - [t(:websocket_heading_orderbook200)](#t-websocket_heading-t-websocket_heading_public-t-websocket_heading_orderbook200) [t(:changelog_new)]
@@ -30,16 +30,16 @@
 ## 2019-12-13
 
 ### REST API
-- [t(:account_heading_queryConditional)](#t-account_heading-t-account_heading_cond-t-account_heading_queryconditional) [t(:changelog_new)]
+- [t(:accountdata_queryConditional)](#t-accountdata-t-accountdata_cond-t-accountdata_queryconditional) [t(:changelog_new)]
 
 
 ## 2019-12-02
 
 ### REST API
-- [t(:account_heading_placeActive)](#t-account_heading-t-account_heading_active-t-account_heading_placeactive) [t(:changelog_new)]
-- [t(:account_heading_cancelActive)](#t-account_heading-t-account_heading_active-t-account_heading_cancelactive) [t(:changelog_new)]
-- [t(:account_heading_cancelAllActive)](#t-account_heading-t-account_heading_active-t-account_heading_cancelallactive) [t(:changelog_new)]
-- [t(:account_heading_cancelAllCond)](#t-account_heading-t-account_heading_cond-t-account_heading_cancelallcond) [t(:changelog_new)]
+- [t(:placeactive)](#t-accountdata-t-activeorders-t-placeactive) [t(:changelog_new)]
+- [t(:cancelv2active)](#t-accountdata-t-activeorders-t-cancelv2active) [t(:changelog_new)]
+- [t(:cancelallactive)](#t-accountdata-t-activeorders-t-cancelallactive) [t(:changelog_new)]
+- [t(:accountdata_cancelAllCond)](#t-accountdata-t-accountdata_cond-t-accountdata_cancelallcond) [t(:changelog_new)]
 
 
 ## 2019-11-19
@@ -51,21 +51,21 @@
 ## 2019-11-07
 
 ### REST API
-- [t(:account_heading_changeLeverage)](#t-account_heading-t-account_heading_leverage-t-account_heading_changeleverage) [t(:changelog_update)]
+- [t(:accountdata_changeLeverage)](#t-accountdata-t-accountdata_leverage-t-accountdata_changeleverage) [t(:changelog_update)]
 - [t(:my_20191107)] [t(:changelog_update)]
-- [t(:account_heading_changeMargin)](#t-account_heading-t-account_heading_position-t-account_heading_changemargin) [t(:changelog_update)]
-- [t(:account_heading_tradingStop)](#t-account_heading-t-account_heading_position-t-account_heading_tradingstop) [t(:changelog_update)]
+- [t(:accountdata_changeMargin)](#t-accountdata-t-accountdata_position-t-accountdata_changemargin) [t(:changelog_update)]
+- [t(:accountdata_tradingStop)](#t-accountdata-t-accountdata_position-t-accountdata_tradingstop) [t(:changelog_update)]
 
 
 ## 2019-11-04
 
 ### REST API
 - [t(:api_heading_announcment)](#t-api_heading-t-wallet_heading_setrisk-t-api_heading_announcment) [t(:changelog_new)]
-- [t(:cancelOrder_20191104)](#t-account_heading-t-account_heading_active-t-account_heading_cancelactive) [t(:changelog_update)]
+- [t(:cancelOrder_20191104)](#t-accountdata-t-activeorders-t-cancelv2active) [t(:changelog_update)]
     - t(:cancelOrder__20191104)
-- [t(:account_heading_cancelCond)](#t-account_heading-t-account_heading_cond-t-account_heading_cancelcond) [t(:changelog_update)]
+- [t(:accountdata_cancelCond)](#t-accountdata-t-accountdata_cond-t-accountdata_cancelcond) [t(:changelog_update)]
     - t(:cancelCond__20191104)
-- [t(:account_heading_key)](#t-account_heading-t-account_heading_key) [t(:changelog_update)]
+- [t(:accountdata_key)](#t-accountdata-t-accountdata_key) [t(:changelog_update)]
     - t(:get__20191104)
     - t(:get___20191104)
 - [t(:update_20191104)](#t-rate_heading) [t(:changelog_update)]
@@ -81,7 +81,7 @@
 ## 2019-10-22
 
 ### REST API
-- [t(:account_heading_queryActive)](#t-account_heading-t-account_heading_active-t-account_heading_queryactive) [t(:changelog_new)]
+- [t(:query active)](#t-accountdata-t-activeorders-t-query active) [t(:changelog_new)]
 
 ### Websocket API
 - [t(:websocket_heading_position)](#t-websocket_heading-t-websocket_heading_private-t-websocket_heading_position) [t(:changelog_update)]

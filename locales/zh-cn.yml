@@ -195,12 +195,12 @@ zh-cn:
 
 
   # Account Data Endpoints
-  account_heading: 账户/交易接口
+  accountdata: 账户/交易接口
   account_para: 以下账户/交易接口都需要鉴权.
   ## Active Orders
-  account_heading_active: 活动单
+  activeorders: 活动单
   ### Place Active Order V2
-  account_heading_placeActive: 创建活动委托单
+  placeactive: 创建活动委托单
   account_para_placeActive: |
     <p>市价活动委托: 一个传统的市场价格订单,会以当前的最优价格为您成交订单。当且仅当选择市价单时，<code>price</code>可为空！</p>
     <p>限价活动委托: 您可以为您的订单设置一个执行价格，当市场价格达到您的设置价格时，系统会为您成交订单。</p>
@@ -211,38 +211,38 @@ zh-cn:
     <p><b>每个账户最多可同时持有500个活动订单。这是针对合约的，因此可以允许出现例如：账户同时持有300个BTCUSD的活动单、280个ETHUSD合约的活动单。</b></p>
     <p><b>当您达到订单上限的时候的时候，仍然可以下单设置了参数<code>reduce_only</code> 或 <code>closeOnTrigger</code>的订单。</b></p>
   ### Get Active Order
-  account_heading_getActive: 查询活动委托
+  getactive: 查询活动委托
   account_para_getActive: |
     <p>获取我的活动委托单列表。</p>
-    <p>创建/取消订单是异步的，因此<b>该接口可能返回的数据可能会有延迟</b>。如果要获取订单的实时信息，可以调用接口<a href="#t-account_heading-t-account_heading_active-t-account_heading_queryactive">实时查询活动单信息</a>.</p>
+    <p>创建/取消订单是异步的，因此<b>该接口可能返回的数据可能会有延迟</b>。如果要获取订单的实时信息，可以调用接口<a href="#t-accountdata-t-activeorders-t-query active">实时查询活动单信息</a>.</p>
   account_row_comment_orderId: 订单ID
   account_row_comment_orderStatus: 指定订单状态查询订单列表。不传该参数则默认查询所有状态订单。该参数支持多状态查询，状态之间用英文逗号分割。
   ### Cancel Active Order V2
-  account_heading_cancelActive: 撤销活动委托单
+  cancelv2active: 撤销活动委托单
   account_para_cancelActive: |
     <p>所有撤销活动委托都必须填写<code>order_id</code>或<code>order_link_id</code>。 <code>order_id</code> - 当您成功创建了活动委托时会为您返回36位唯一的订单ID。</p>
     <p>您可以撤销未成交、部分成交的活动委托单。但全部成交的活动委托不可取消。</p>
   ### Cancel All Active Orders
-  account_heading_cancelAllActive: 撤销所有活动委托单
+  cancelallactive: 撤销所有活动委托单
   account_para_cancelAllActive: |
     <p>撤销所有未成交、部分成交的活动委托单。但全部成交的活动委托不可取消。</p>
   account_aside_cancelAllActive:
     注意，此api每调用一次会导致<code>rate_limit</code>扣减10
   ### Replace Active Order
-  account_heading_replaceActive: 修改活动单信息
+  replaceactive: 修改活动单信息
   account_para_replaceActive: |
     <p>本接口可以修改您的活动单信息.</p>
     <p>您可以只修改<code>p_r_qty</code> 或 <code>p_r_price</code></p>
   account_aside_replaceActive:
     请注意，只有未成交或未完全成交的订单才可以被修改。
   ### Query Active Order (real-time)
-  account_heading_queryActive: 实时查询活动委托
+  query active: 实时查询活动委托
   account_para_queryActive: 实时查询活动委托
 
   ## Conditional Orders
   ### Place Conditional Order
-  account_heading_cond: 条件单
-  account_heading_placeCond: 创建条件委托单
+  accountdata_cond: 条件单
+  accountdata_placeCond: 创建条件委托单
   account_para_placeCond: |
     <p>所有条件委托都必须填写 'side', 'symbol', 'order_type', 'qty', 'price', 'base_price', 'stop_px', 'time_in_force'参数，其它参数除非有特殊说明，否则都是可选的。</p>
     <p>市价条件委托: 一个传统的市场价格订单,会以当前的最优价格为您成交订单。当且仅当选择市价单时，'price', '可为空！</p>
@@ -255,50 +255,50 @@ zh-cn:
   account_aside_placeCond:
     请注意:只允许最多创建10个条件委托单
   ### Get Conditional Order
-  account_heading_getCond: 查询条件委托
+  accountdata_getCond: 查询条件委托
   account_para_getCond: 
     <p>获取我的条件委托单列表。</p>
-    <p>创建/取消订单是异步的，因此<b>该接口可能返回的数据可能会有延迟</b>。如果要获取订单的实时信息，可以调用接口<a href="#t-account_heading-t-account_heading_cond-t-account_heading_queryconditional">实时查询条件单信息</a>。</p>
+    <p>创建/取消订单是异步的，因此<b>该接口可能返回的数据可能会有延迟</b>。如果要获取订单的实时信息，可以调用接口<a href="#t-accountdata-t-accountdata_cond-t-accountdata_queryconditional">实时查询条件单信息</a>。</p>
   ### Cancel Conditional Order
-  account_heading_cancelCond: 撤消条件委托单
+  accountdata_cancelCond: 撤消条件委托单
   account_para_cancelCond: |
     <p>您可以撤销所有未被激活的条件委托。本质上所有条件委托在被激活后都是属于活动委托，所以条件委托一旦被激活，您需要通过调用取消活动委托接口来取消所有未成交、部分成交的活动委托单。同样全部成交的活动委托不可取消。</p>
   ### Cancel All Conditional Orders
-  account_heading_cancelAllCond: 撤消全部条件委托单
+  accountdata_cancelAllCond: 撤消全部条件委托单
   account_para_cancelAllCond: 撤销所有未被激活的条件委托。本质上所有条件委托在被激活后都是属于活动委托，所以条件委托一旦被激活，您需要通过调用取消活动委托接口来取消所有未成交、部分成交的活动委托单。同样全部成交的活动委托不可取消。
   account_aside_cancelAllCond:
     注意，此api每调用一次会导致rate_limit扣减10
   ### Replace Conditional Order
-  account_heading_replaceCond: 修改条件委托单
+  accountdata_replaceCond: 修改条件委托单
   account_para_replaceCond:
     <p>修改未触发的条件单。</p>
   account_aside_replaceCond: |
     请注意，只有未触发的条件单才能被修改。
   ### Query Conditional Order (real-time)
-  account_heading_queryConditional: 实时查询条件委托
+  accountdata_queryConditional: 实时查询条件委托
   account_para_queryConditional: 实时查询条件委托。
 
   ## Leverage
-  account_heading_leverage: 用户杠杆
+  accountdata_leverage: 用户杠杆
   ### User Leverage
-  account_heading_userLeverage: 用户杠杆
+  accountdata_userLeverage: 用户杠杆
   account_para_userLeverage: 获取用户杠杆。
   ### Change User Leverage
-  account_heading_changeLeverage: 修改杠杆
+  accountdata_changeLeverage: 修改杠杆
   account_para_changeLeverage: |
     <p>修改杠杆。</p>
   account_aside_changeLeverage: 如果您想使用<a href="https://help.bybit.com/hc/en-us/articles/360037683633-What-is-Cross-Margin">全仓模式</a>请将<code>杠杆</code>设置为0。请注意，一旦您将杠杆由0改为其他任何值，仓位模式将自动切换到逐仓模式。
   ## Position
-  account_heading_position: 持仓
+  accountdata_position: 持仓
   ### My Position V2 (real-time)
-  account_heading_myPosition: 获取持仓（实时）
+  accountdata_myPosition: 获取持仓（实时）
   account_para_myPosition: 获取我的仓位列表。通过该接口可以获取当前用户的持仓信息，如持仓数量、账户余额等信息
   ### Change Margin
-  account_heading_changeMargin: 更新保证金
+  accountdata_changeMargin: 更新保证金
   account_para_changeMargin: 更新保证金。
-  account_aside_changeMargin: 如果当前为全仓模式则不能调整保证金。请查看<a href="#t-account_heading-t-account_heading_leverage-t-account_heading_changeleverage">修改杠杆</a>了解更多信息。
+  account_aside_changeMargin: 如果当前为全仓模式则不能调整保证金。请查看<a href="#t-accountdata-t-accountdata_leverage-t-accountdata_changeleverage">修改杠杆</a>了解更多信息。
   ### Set Trading-Stop
-  account_heading_tradingStop: 设置止盈止损
+  accountdata_tradingStop: 设置止盈止损
   account_para_tradingStop: 设置止盈止损。
   account_aside_tradingStop: 传递以下参数后将会由系统创建条件单。如果仓位关闭，系统将会取消这些订单，同时调整开仓的仓位数量。
   account_row_comment_takeProfit: 不小于0,如果等于0则是取消止盈(TP)
@@ -306,18 +306,18 @@ zh-cn:
   account_row_comment_trailingStop: 不小于0,如果等于0则是取消追踪止损(TS)
 
   ## Funding
-  account_heading_funding: 资金费率
+  accountdata_funding: 资金费率
   ### My Last Funding Fee
-  account_heading_myLastFunding: 查询上个周期资金费用结算信息
+  accountdata_myLastFunding: 查询上个周期资金费用结算信息
   account_para_myLastFunding: |
     <p>UTC时间每天0点、8点、16点进行资金费用结算</p>
     <p>当前周期的资金费用结算是根据上个周期的资金费率来进行结算</p>
     <p>比如16点结算时是按照8点产生的资金费率来进行结算，而16点产生的资金费率则会在第二天0点结算时使用</p>
   ### Predicted Funding Rate and My Funding Fee
-  account_heading_predictedFunding: 查询预测资金费率和资金费用
+  accountdata_predictedFunding: 查询预测资金费率和资金费用
   account_para_predictedFunding: 查询预测资金费率和资金费用。
   ## API Key Info
-  account_heading_key: APIKey信息
+  accountdata_key: APIKey信息
   account_para_key: 获取账户API密钥信息。
 
   # Wallet Data Endpoints
@@ -332,7 +332,7 @@ zh-cn:
   ### 资金记录
   wallet_heading_walletRecords: 资金记录
   wallet_para_walletRecords: 查询资金记录。
-  wallet_aside_walletRecords: 关于<code>Withdraw</code>和<code>Refund</code>类型数据的说明，请参考<a href="#t-wallet_heading-t-account_heading_key-t-wallet_heading_withdrawrecords">提币记录</a>接口
+  wallet_aside_walletRecords: 关于<code>Withdraw</code>和<code>Refund</code>类型数据的说明，请参考<a href="#t-wallet_heading-t-accountdata_key-t-wallet_heading_withdrawrecords">提币记录</a>接口
   ### Withdraw Records
   wallet_heading_withdrawRecords: 提币记录
   wallet_para_withdrawRecords: 查询提币记录。

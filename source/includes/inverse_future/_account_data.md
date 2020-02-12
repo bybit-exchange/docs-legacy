@@ -1,8 +1,8 @@
-# t(:account_heading)
+# t(:accountdata)
 t(:account_para)
 
-## t(:account_heading_active)
-### t(:account_heading_placeActive)
+## t(:activeorders)
+### t(:placeactive)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -62,7 +62,7 @@ POST
 |order_link_id |false |string |t(:row_comment_orderLinkId) |
 
 
-### t(:account_heading_getActive)
+### t(:getactive)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -161,7 +161,7 @@ GET
 |<a href="#t-enums_header-order-status-order_status-get">order_status</a> |false |string |t(:account_row_comment_orderStatus) |
 
 
-### t(:account_heading_cancelActive)
+### t(:cancelv2active)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -214,7 +214,7 @@ POST
 |order_link_id |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
 
 
-### t(:account_heading_cancelAllActive)
+### t(:cancelallactive)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -268,7 +268,7 @@ POST
 |<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string | t(:row_comment_symbol) |
 
 
-### t(:account_heading_replaceActive)
+### t(:replaceactive)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -306,7 +306,7 @@ POST
 |p_r_price |false |number |t(:row_comment_pRPrice) |
 
 
-### t(:account_heading_queryActive)
+### t(:queryactive)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -360,8 +360,8 @@ GET
 |<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 
 
-## t(:account_heading_cond)
-### t(:account_heading_placeCond)
+## t(:accountdata_cond)
+### t(:accountdata_placeCond)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -435,7 +435,7 @@ POST
 |order_link_id |false |string |t(:row_comment_orderLinkId) |
 
 
-### t(:account_heading_getCond)
+### t(:accountdata_getCond)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -512,7 +512,7 @@ GET
 |limit |false |integer |t(:row_comment_limit) |
 
 
-### t(:account_heading_cancelCond)
+### t(:accountdata_cancelCond)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -561,7 +561,7 @@ POST
 |order_link_id |false |string | t(:misc_row_comment_orderLinkIdNotStopOrderId)|
 
 
-### t(:account_heading_cancelAllCond)
+### t(:accountdata_cancelAllCond)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -641,7 +641,7 @@ POST
 |:----- |:-------|:-----|----- |
 |<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)|
 
-### t(:account_heading_replaceCond)
+### t(:accountdata_replaceCond)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -683,7 +683,7 @@ POST
 |p_r_trigger_price |false |number |t(:row_comemnt_pRTriggerPrice) |
 
 
-### t(:account_heading_queryConditional)
+### t(:accountdata_queryConditional)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -735,8 +735,8 @@ GET
 |order_link_id |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
 
 
-## t(:account_heading_leverage)
-### t(:account_heading_userLeverage)
+## t(:accountdata_leverage)
+### t(:accountdata_userLeverage)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -778,7 +778,7 @@ GET
 |:----- |:-------|:-----|----- |
 
 
-### t(:account_heading_changeLeverage)
+### t(:accountdata_changeLeverage)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -813,8 +813,8 @@ POST
 |leverage |true |string |t(:row_comment_leverage) |
 
 
-## t(:account_heading_position)
-### t(:account_heading_myPosition)
+## t(:accountdata_position)
+### t(:accountdata_myPosition)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -875,7 +875,7 @@ GET
 |<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
 
 
-### t(:account_heading_changeMargin)
+### t(:accountdata_changeMargin)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -910,7 +910,7 @@ POST
 |margin |true |string |t(:row_comment_margin)  |
 
 
-### t(:account_heading_tradingStop)
+### t(:accountdata_tradingStop)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -983,7 +983,7 @@ POST
 |trailing_stop |false |string |t(:account_row_comment_trailingStop) |
 
 
-## t(:account_heading_funding)
+## t(:accountdata_funding)
 ### t(:market_heading_fundingRate)
 > t(:codequote_responseExample)
 
@@ -1017,7 +1017,7 @@ GET
 |:----- |:-------|:-----|----- |
 |<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
 
-### t(:account_heading_myLastFunding)
+### t(:accountdata_myLastFunding)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -1055,7 +1055,7 @@ GET
 
 
 
-### t(:account_heading_predictedFunding)
+### t(:accountdata_predictedFunding)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -1087,7 +1087,7 @@ GET
 |<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
 
 
-## t(:account_heading_key)
+## t(:accountdata_key)
 > t(:codequote_responseExample)
 
 ```javascript
