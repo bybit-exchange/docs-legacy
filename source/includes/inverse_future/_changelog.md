@@ -51,7 +51,7 @@
 ## 2019-11-07
 
 ### REST API
-- [t(:accountdata_changeLeverage)](#t-accountdata-t-accountdata_leverage-t-accountdata_changeleverage) [t(:changelog_update)]
+- [t(:changeleverage)](#t-accountdata-t-leverage-t-changeleverage) [t(:changelog_update)]
 - [t(:my_20191107)] [t(:changelog_update)]
 - [t(:accountdata_changeMargin)](#t-accountdata-t-accountdata_position-t-accountdata_changemargin) [t(:changelog_update)]
 - [t(:accountdata_tradingStop)](#t-accountdata-t-accountdata_position-t-accountdata_tradingstop) [t(:changelog_update)]

@@ -735,8 +735,8 @@ GET
 |order_link_id |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
 
 
-## t(:accountdata_leverage)
-### t(:accountdata_userLeverage)
+## t(:leverage)
+### t(:getleverage)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -778,7 +778,7 @@ GET
 |:----- |:-------|:-----|----- |
 
 
-### t(:accountdata_changeLeverage)
+### t(:changeleverage)
 > t(:codequote_responseExample)
 
 ```javascript
