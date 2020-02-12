@@ -28,7 +28,7 @@ zh-cn:
     起始ID. 默认: 返回最新数据
   row_comment_limit: 每页数量, 最大50. 默认每页20条
   row_comment_orderType: 订单类型
-  row_comment_qty: 委托数量(1个委托1美元)，只能为正整数 
+  row_comment_qty: 委托数量(1个委托1美元)，只能为正整数
   row_comment_price: 委托价格。如果是下<b>限价单</b>，该参数为<b>必填</b>. 在没有仓位时，做多的委托价格需高于市价的10%、低于1百万。如有仓位时则需优于强平价。价格增减最小单位请参考<a href="#t-marketdata-t-constructingtherequest-t-querysymbol">交易对接口</a>响应中的<b>price_filter</b>字段
   row_comment_stopOrderPrice: 条件委托执行价格。如果条件委托是限价单，则price为必传字段
   row_comment_basePrice: 当前市价。用于和stop_px值进行比较，确定当前条件委托是看空到<code>stop_px</code>时触发还是看多到stop_px触发。主要是用来标识当前条件单预期的方向
@@ -256,7 +256,7 @@ zh-cn:
     请注意:只允许最多创建10个条件委托单
   ### Get Conditional Order
   getcond: 查询条件委托
-  account_para_getCond: 
+  account_para_getCond:
     <p>获取我的条件委托单列表。</p>
     <p>创建/取消订单是异步的，因此<b>该接口可能返回的数据可能会有延迟</b>。如果要获取订单的实时信息，可以调用接口<a href="#t-accountdata-t-conditionalorders-t-querycond">实时查询条件单信息</a>。</p>
   ### Cancel Conditional Order
@@ -869,3 +869,8 @@ zh-cn:
   misc_row_comment_orderLinkIdNotStopOrderId: 机构ID。如果未填stop_order_id则为<b>必填</b>字段。
   misc_row_comment_orderIdNotOrderLinkId: 订单ID。如果未填order_link_id则为<b>必填</b>字段。
   misc_row_comment_symbolNotOrderId: Contract type. <b>Required</b> if not passing order_id
+  # fix problem of nested common subheadings
+  httprequest1: HTTP 请求
+  requestparameters1: 请求参数
+  httprequest2: HTTP 请求
+  requestparameters2: 请求参数
