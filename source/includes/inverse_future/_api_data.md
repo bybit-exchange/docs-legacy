@@ -22,12 +22,12 @@ curl https://api-testnet.bybit.com/v2/public/time
 ```
 t(:api_para_time)
 
-#### t(:httprequest)
+#### t(:httprequest2)
 GET
 <code><span id=vpTime>/v2/public/time</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpTime"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-#### t(:requestparameters)
+#### t(:requestparameters2)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 
@@ -55,11 +55,11 @@ GET
 
 t(:api_para_announcement)
 
-#### t(:httprequest)
+#### t(:httprequest2)
 GET
 <code><span id=vpAnnouncement>/v2/public/announcement</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpAnnouncement"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-#### t(:requestparameters)
+#### t(:requestparameters2)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
