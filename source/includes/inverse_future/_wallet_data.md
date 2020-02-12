@@ -52,12 +52,12 @@ t(:wallet_para_walletBalance)
 t(:wallet_aside_walletBalance)
 </aside>
 
-##### t(:heading_http_request)
+##### t(:httprequest)
 GET
 <code><span id=oawfRecords>/v2/private/wallet/balance</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawfRecords"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-##### t(:heading_request_parameters)
+##### t(:requestparameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#t-enums_header-currency-currency-coin">coin</a> |true |string |t(:row_comment_coin) |
@@ -115,12 +115,12 @@ t(:wallet_para_walletRecords)
 t(:wallet_aside_walletRecords)
 </aside>
 
-##### t(:heading_http_request)
+##### t(:httprequest)
 GET
 <code><span id=oawfRecords>/open-api/wallet/fund/records</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawfRecords"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-##### t(:heading_request_parameters)
+##### t(:requestparameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |start_date |false |string |t(:row_comment_startDate) |
@@ -170,12 +170,12 @@ t(:wallet_para_withdrawRecords)
 t(:wallet_aside_withdrawRecords)
 </aside>
 
-##### t(:heading_http_request)
+##### t(:httprequest)
 GET
 <code><span id=oawwList>/open-api/wallet/withdraw/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawwList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-##### t(:heading_request_parameters)
+##### t(:requestparameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |start_date |false |string |t(:row_comment_startDate) |
@@ -236,12 +236,12 @@ t(:wallet_para_tradeRecords)
 t(:wallet_aside_tradeRecords)
 </aside>
 
-##### t(:heading_http_request)
+##### t(:httprequest)
 GET
 <code><span id=vpeList>/v2/private/execution/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpeList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-##### t(:heading_request_parameters)
+##### t(:requestparameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |order_id |false |string |t(:wallet_row_comment_orderId) |
@@ -315,12 +315,12 @@ t(:wallet_para_getRisk)
 t(:wallet_aside_getRisk)
 </aside>
 
-##### t(:heading_http_request)
+##### t(:httprequest)
 GET
 <code><span id=oawrlList>/open-api/wallet/risk-limit/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawrlList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-##### t(:heading_request_parameters)
+##### t(:requestparameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 
@@ -395,12 +395,12 @@ t(:wallet_para_setRisk)
 t(:wallet_aside_getRisk)
 </aside>
 
-##### t(:heading_http_request)
+##### t(:httprequest)
 GET
 <code><span id=oawRiskLimit>/open-api/wallet/risk-limit</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawRiskLimit"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-##### t(:heading_request_parameters)
+##### t(:requestparameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
