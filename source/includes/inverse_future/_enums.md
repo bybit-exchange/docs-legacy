@@ -1,4 +1,4 @@
-# t(:ENUMs_header)
+# t(:enums)
 t(:ENUMs_para)
 
 ## Side (`side`)
