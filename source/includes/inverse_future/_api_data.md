@@ -1,7 +1,7 @@
-# t(:api_heading)
+# t(:api)
 t(:api_para)
 
-### t(:api_heading_server_time)
+### t(:servertime)
 > t(:codequote_curlExample)
 
 ```console
@@ -31,7 +31,7 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 
-### t(:api_heading_announcment)
+### t(:announcement)
 > t(:codequote_responseExample)
 
 ```javascript

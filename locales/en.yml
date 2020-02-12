@@ -147,7 +147,7 @@ en:
       <li><b>sign</b> - a signature derived from the request's parameters</li>
     </ul>
   auth_aside_timestamp: |
-    Make sure to conform to the timestamp rule of verification or your request will be rejected! Timestamp rule of verification: <b>server_time - recv_window <= timestamp < server_time + 1000</b>; <b>server_time</b> stands for Bybit server time, you can get it from <a href="#t-api_heading-t-wallet_setrisk-t-api_heading_server_time">Server Time</a> endpoint.
+    Make sure to conform to the timestamp rule of verification or your request will be rejected! Timestamp rule of verification: <b>server_time - recv_window <= timestamp < server_time + 1000</b>; <b>server_time</b> stands for Bybit server time, you can get it from <a href="#t-api-t-wallet_setrisk-t-servertime">Server Time</a> endpoint.
   auth_para_recv : |
     Additionally, we offer the <code>recv_window</code>, which indicates for how long an HTTP request is valid. This should be sent in milliseconds. Default value: 5000. This is used to prevent replay attacks.
   auth_heading_construct: Constructing the Request
@@ -352,13 +352,13 @@ en:
   wallet_para_setRisk: Set risk limit.
 
   # API Data Endpoints
-  api_heading: API Data Endpoints
+  api: API Data Endpoints
   api_para: The following API data endpoints do not require authentication.
   ### Server time
-  api_heading_server_time: Server Time
+  servertime: Server Time
   api_para_time: Get Bybit server time.
   ### Announcement
-  api_heading_announcment: Announcement
+  announcement: Announcement
   api_para_announcement: Get Bybit OpenAPI announcements in the last 30 days by reverse order.
 
   # API Rate Limits

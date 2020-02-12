@@ -60,7 +60,7 @@
 ## 2019-11-04
 
 ### REST API
-- [t(:api_heading_announcment)](#t-api_heading-t-wallet_setrisk-t-api_heading_announcment) [t(:changelog_new)]
+- [t(:announcement)](#t-api-t-wallet_setrisk-t-announcement) [t(:changelog_new)]
 - [t(:cancelOrder_20191104)](#t-accountdata-t-activeorders-t-cancelv2active) [t(:changelog_update)]
     - t(:cancelOrder__20191104)
 - [t(:cancelcond)](#t-accountdata-t-conditionalorders-t-cancelcond) [t(:changelog_update)]

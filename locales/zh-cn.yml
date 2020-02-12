@@ -151,7 +151,7 @@ zh-cn:
   auth_para_recv : |
     另外我们提供可选的<code>recv_window</code>参数（单位是毫秒，默认值为<code>5000</code>），来指定请求在多长时间内有效，同时用来防止重放攻击。
   auth_aside_timestamp: |
-    注意，timestamp参数必须符合如下规则: <b>server_time - recv_window <= timestamp < server_time + 1000</b>，其中server_time是Bybit服务器时间，您可以通过<a href="#t-api_heading-t-wallet_setrisk-t-api_heading_server_time">服务器时间接口</a>获取。
+    注意，timestamp参数必须符合如下规则: <b>server_time - recv_window <= timestamp < server_time + 1000</b>，其中server_time是Bybit服务器时间，您可以通过<a href="#t-api-t-wallet_setrisk-t-servertime">服务器时间接口</a>获取。
   auth_heading_construct: 构建请求
   auth_codequote_construct1a:
     拼接参数示例（以修改杠杆接口为例）：
@@ -174,7 +174,7 @@ zh-cn:
   market_heading: 行情接口
   market_para_auth: 以下市场行情数据接口不需要验权.
   ### server time
-  api_heading_server_time: Server Time
+  servertime: Server Time
   market_para_time: 获取Bybit服务器时间.
   ### Orderbook
   market_heading_orderbook: Orderbook
@@ -353,13 +353,13 @@ zh-cn:
   wallet_para_setRisk: 设置风险限额。
 
   # API Data Endpoints
-  api_heading: 通用数据接口
+  api: 通用数据接口
   api_para: 通用数据接口不需要鉴权。
   ### Server time
-  api_heading_server_time: 服务器时间
+  servertime: 服务器时间
   api_para_time: 获取Bybit服务器时间
   ### Announcement
-  api_heading_announcment: 公告
+  announcement: 公告
   api_para_announcement: 获取Bybit最近30天OpenAPI公告（时间倒叙排列）
 
   # API Rate Limits
