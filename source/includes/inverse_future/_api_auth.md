@@ -1,11 +1,11 @@
-# t(:auth_heading)
+# t(:authentication)
 <aside class="notice">
 t(:auth_aside_key)
 </aside>
 
 t(:auth_para_privatepublic)
 
-## t(:auth_heading_params)
+## t(:authenticationparameters)
 
 t(:auth_para_params)
 
@@ -15,7 +15,7 @@ t(:auth_para_recv)
 t(:auth_aside_timestamp)
 </aside>
 
-## t(:auth_heading_construct)
+## t(:constructingtherequest)
 > t(:auth_codequote_construct1a)
 
 ```python

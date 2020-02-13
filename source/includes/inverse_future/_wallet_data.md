@@ -1,8 +1,8 @@
-# t(:wallet_heading)
+# t(:wallet)
 t(:wallet_para)
 
 
-### t(:wallet_heading_walletBalance)
+### t(:balance)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -21,7 +21,7 @@ t(:wallet_para)
               //if unrealised_pnl > 0:
               //available_balance = wallet_balance - (position_margin + occ_closing_fee + occ_funding_fee + order_margin)；
               //if unrealised_pnl < 0:
-              //available_balance = wallet_balance - (position_margin + occ_closing_fee + occ_funding_fee + order_margin) + unrealised_pnl 
+              //available_balance = wallet_balance - (position_margin + occ_closing_fee + occ_funding_fee + order_margin) + unrealised_pnl
             "used_margin": 0.00012529,              //used_margin = wallet_balance - available_balance
             "order_margin": 0.00012529,             //Used margin by order
             "position_margin": 0,                   //position margin
@@ -52,18 +52,18 @@ t(:wallet_para_walletBalance)
 t(:wallet_aside_walletBalance)
 </aside>
 
-##### t(:heading_http_request)
+#### t(:httprequest1)
 GET
 <code><span id=oawfRecords>/v2/private/wallet/balance</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawfRecords"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-##### t(:heading_request_parameters)
+#### t(:requestparameters1)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#t-enums_header-currency-currency-coin">coin</a> |true |string |t(:row_comment_coin) |
 
 
-### t(:wallet_heading_walletRecords)
+### t(:walletrecords)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -115,12 +115,12 @@ t(:wallet_para_walletRecords)
 t(:wallet_aside_walletRecords)
 </aside>
 
-##### t(:heading_http_request)
+#### t(:httprequest1)
 GET
 <code><span id=oawfRecords>/open-api/wallet/fund/records</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawfRecords"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-##### t(:heading_request_parameters)
+#### t(:requestparameters1)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |start_date |false |string |t(:row_comment_startDate) |
@@ -132,7 +132,7 @@ GET
 |limit |false |integer |t(:row_comment_limit) |
 
 
-### t(:wallet_heading_withdrawRecords)
+### t(:withdrawrecords)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -146,7 +146,7 @@ GET
           "user_id": 1,                                     
           "coin": "XRP",  //t(:enum_coin)                                    
           "status": "Pending" //t(:enum_withdraw_status)
-          "amount": "20.00000000", 
+          "amount": "20.00000000",
           "fee": "0.25000000",
           "address": "rH7H595XYEVTEHU2FySYsWnmfACBnZS9zM",
           "tx_id": "",
@@ -170,12 +170,12 @@ t(:wallet_para_withdrawRecords)
 t(:wallet_aside_withdrawRecords)
 </aside>
 
-##### t(:heading_http_request)
+#### t(:httprequest1)
 GET
 <code><span id=oawwList>/open-api/wallet/withdraw/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawwList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-##### t(:heading_request_parameters)
+#### t(:requestparameters1)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |start_date |false |string |t(:row_comment_startDate) |
@@ -186,7 +186,7 @@ GET
 |limit |false |integer |t(:row_comment_limit) |
 
 
-### t(:wallet_heading_tradeRecords)
+### t(:usertraderecords)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -236,12 +236,12 @@ t(:wallet_para_tradeRecords)
 t(:wallet_aside_tradeRecords)
 </aside>
 
-##### t(:heading_http_request)
+#### t(:httprequest1)
 GET
 <code><span id=vpeList>/v2/private/execution/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpeList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-##### t(:heading_request_parameters)
+#### t(:requestparameters1)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |order_id |false |string |t(:wallet_row_comment_orderId) |
@@ -251,7 +251,7 @@ GET
 |limit |false |integer |t(:row_comment_limit) |
 
 
-## t(:wallet_heading_getRisk)
+## t(:getrisklimit)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -315,17 +315,17 @@ t(:wallet_para_getRisk)
 t(:wallet_aside_getRisk)
 </aside>
 
-##### t(:heading_http_request)
+#### t(:httprequest1)
 GET
 <code><span id=oawrlList>/open-api/wallet/risk-limit/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawrlList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-##### t(:heading_request_parameters)
+#### t(:requestparameters1)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 
 
-## t(:wallet_heading_setRisk)
+## t(:setrisklimit)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -395,12 +395,12 @@ t(:wallet_para_setRisk)
 t(:wallet_aside_getRisk)
 </aside>
 
-##### t(:heading_http_request)
+#### t(:httprequest1)
 GET
 <code><span id=oawRiskLimit>/open-api/wallet/risk-limit</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawRiskLimit"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-##### t(:heading_request_parameters)
+#### t(:requestparameters1)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |

@@ -1,8 +1,8 @@
-# t(:rate_heading)
-### t(:ip_rate_heading_understandin)
+# t(:ratelimits)
+### t(:ipratelimits)
 t(:ip_rate_para_understanding)
 
-### t(:rate_heading_understandin)
+### t(:understandingratelimits)
 t(:rate_para_understanding)
 
 ```
@@ -16,7 +16,7 @@ t(:rate_para_understanding)
 * `rate_limit_reset_ms` - t(:rate_text_limitReset)
 
 
-### t(:rate_heading_allEndpoints)
+### t(:perendpoint)
 <table class="custom_table">
   <tr>
     <th>t(:row_comment_rate_limit)</th>
@@ -82,22 +82,22 @@ t(:rate_para_understanding)
   </tr>
 </table>
 
-### t(:rate_heading_limits)
+### t(:orderlimits)
 t(:rate_para_limits)
 
-### t(:rate_heading_raise)
+### t(:raisemylimit)
 t(:rate_para_raise)
 
-### t(:rate_heading_liquidity)
+### t(:liquidity)
 t(:rate_para_liquidity)
 
-#### t(:rate_heading_threshold)
+#### t(:ofrthreshold)
 t(:rate_para_threshold)
 
-##### t(:rate_heading_ratio)
+##### t(:ofrratio)
 t(:rate_para_ratio)
 
-##### t(:rate_heading_ratioExample)
+##### t(:ofrratioExample)
 
 
 <pre class="center-column-nonindent">
@@ -109,11 +109,11 @@ t(:rate_pre_ratioExampleB)
 </pre>
 
 
-##### t(:rate_heading_minimum)
+##### t(:ofrminimum)
 t(:rate_para_minimum)
 
 
-#### t(:rate_heading_frequency)
+#### t(:frequencylimit)
 t(:rate_para_frequency)
 
 
@@ -125,20 +125,20 @@ t(:rate_para_frequency)
 | 2-5     | t(:row_frequencyLimit_200) |
 | <2      | t(:row_frequencyLimit_100) |
 
-##### t(:rate_heading_liquidityPoints)
+##### t(:liquidityPoints)
 t(:rate_para_liquidityPoints)
 
-##### t(:rate_heading_explanation)
-###### t(:rate_heading_priceRange)
+##### t(:ratelimitsexplanation)
+###### t(:pricerange)
 t(:rate_para_priceRange)
 
-###### t(:rate_heading_priceRangeExample)
+###### t(:pricerangeExample)
 <pre class="center-column-nonindent">
 t(:rate_pre_priceRangeExample)
 </pre>
 
 
-###### t(:rate_heading_POU)
+###### t(:pou)
 t(:rate_para_POU)
 
 <pre class="center-column-nonindent">
@@ -146,10 +146,10 @@ t(:rate_pre_POUExample)
 </pre>
 
 
-###### t(:rate_heading_POA)
+###### t(:poa)
 t(:rate_para_POA)
 
-###### t(:rate_heading_POAExample)
+###### t(:poaExample)
 t(:rate_para_POAExample)
 
 <pre class="center-column-nonindent">

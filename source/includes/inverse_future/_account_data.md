@@ -1,8 +1,8 @@
-# t(:account_heading)
+# t(:accountdata)
 t(:account_para)
 
-## t(:account_heading_active)
-### t(:account_heading_placeActive)
+## t(:activeorders)
+### t(:placev2active)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -41,12 +41,12 @@ t(:account_para)
 
 t(:account_para_placeActive)
 
-##### t(:heading_http_request)
+#### t(:httprequest)
 POST
 <code><span id=vpoCreate>/v2/private/order/create</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
-##### t(:heading_request_parameters)
+#### t(:requestparameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#t-enums_header-side-side">side</a> |true |string |t(:row_comment_side)    |
@@ -62,7 +62,7 @@ POST
 |order_link_id |false |string |t(:row_comment_orderLinkId) |
 
 
-### t(:account_heading_getActive)
+### t(:getactive)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -144,12 +144,12 @@ POST
 
 t(:account_para_getActive)
 
-##### t(:heading_http_request)
+#### t(:httprequest)
 GET
 <code><span id=oaoList>/open-api/order/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oaoList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-##### t(:heading_request_parameters)
+#### t(:requestparameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |order_id |false |string |t(:account_row_comment_orderId) |
@@ -161,7 +161,7 @@ GET
 |<a href="#t-enums_header-order-status-order_status-get">order_status</a> |false |string |t(:account_row_comment_orderStatus) |
 
 
-### t(:account_heading_cancelActive)
+### t(:cancelv2active)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -200,12 +200,12 @@ GET
 
 t(:account_para_cancelActive)
 
-##### t(:heading_http_request)
+#### t(:httprequest)
 POST
 <code><span id=vpoCancel>/v2/private/order/cancel</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancel"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-##### t(:heading_request_parameters)
+#### t(:requestparameters)
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
@@ -214,7 +214,7 @@ POST
 |order_link_id |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
 
 
-### t(:account_heading_cancelAllActive)
+### t(:cancelallactive)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -257,18 +257,18 @@ t(:account_para_cancelAllActive)
 t(:account_aside_cancelAllActive)
 </aside>
 
-##### t(:heading_http_request)
+#### t(:httprequest)
 POST
 <code><span id=vpoCancelAll>/v2/private/order/cancelAll</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancelAll"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-##### t(:heading_request_parameters)
+#### t(:requestparameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string | t(:row_comment_symbol) |
 
 
-### t(:account_heading_replaceActive)
+### t(:replaceactive)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -292,12 +292,12 @@ t(:account_para_replaceActive)
 t(:account_aside_replaceActive)
 </aside>
 
-##### t(:heading_http_request)
+#### t(:httprequest)
 POST
 <code><span id=oaoReplace>/open-api/order/replace</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oaoReplace"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-##### t(:heading_request_parameters)
+#### t(:requestparameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |order_id |true |string |t(:row_comment_orderId) |
@@ -306,7 +306,7 @@ POST
 |p_r_price |false |number |t(:row_comment_pRPrice) |
 
 
-### t(:account_heading_queryActive)
+### t(:queryactive)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -347,12 +347,12 @@ POST
 
 t(:account_para_queryActive)
 
-##### t(:heading_http_request)
+#### t(:httprequest)
 GET
 <code><span id=vpOrder>/v2/private/order</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-##### t(:heading_request_parameters)
+#### t(:requestparameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |order_id |false |string | t(:misc_row_comment_orderIdNotOrderLinkId)|
@@ -360,8 +360,8 @@ GET
 |<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 
 
-## t(:account_heading_cond)
-### t(:account_heading_placeCond)
+## t(:conditionalorders)
+### t(:placecond)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -414,12 +414,12 @@ t(:account_para_placeCond)
 t(:account_aside_placeCond)
 </aside>
 
-##### t(:heading_http_request)
+#### t(:httprequest)
 POST
 <code><span id=oasoCreate>/open-api/stop-order/create</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oasoCreate"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-##### t(:heading_request_parameters)
+#### t(:requestparameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#t-enums_header-side-side">side</a> |true |string |t(:row_comment_side)    |
@@ -435,7 +435,7 @@ POST
 |order_link_id |false |string |t(:row_comment_orderLinkId) |
 
 
-### t(:account_heading_getCond)
+### t(:getcond)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -495,12 +495,12 @@ POST
 
 t(:account_para_getCond)
 
-##### t(:heading_http_request)
+#### t(:httprequest)
 GET
 <code><span id=oasoList>/open-api/stop-order/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oasoList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-##### t(:heading_request_parameters)
+#### t(:requestparameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |stop_order_id |false |string |t(:row_comment_stopOrderId) |
@@ -512,7 +512,7 @@ GET
 |limit |false |integer |t(:row_comment_limit) |
 
 
-### t(:account_heading_cancelCond)
+### t(:cancelcond)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -548,12 +548,12 @@ GET
 
 t(:account_para_cancelCond)
 
-##### t(:heading_http_request)
+#### t(:httprequest)
 POST
 <code><span id=oasoCancel>/open-api/stop-order/cancel</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oasoCancel"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-##### t(:heading_request_parameters)
+#### t(:requestparameters)
 |t(:column_parameter)|required|type | comments|
 |:----- |:-------|:-----|----- |
 |<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)|
@@ -561,7 +561,7 @@ POST
 |order_link_id |false |string | t(:misc_row_comment_orderLinkIdNotStopOrderId)|
 
 
-### t(:account_heading_cancelAllCond)
+### t(:cancelallcond)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -631,17 +631,17 @@ t(:account_para_cancelAllCond)
 t(:account_aside_cancelAllCond)
 </aside>
 
-##### t(:heading_http_request)
+#### t(:httprequest)
 POST
 <code><span id=vpsoCancelAll>/v2/private/stop-order/cancelAll</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpsoCancelAll"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-##### t(:heading_request_parameters)
+#### t(:requestparameters)
 |t(:column_parameter)|required|type | comments|
 |:----- |:-------|:-----|----- |
 |<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)|
 
-### t(:account_heading_replaceCond)
+### t(:replacecond)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -667,12 +667,12 @@ t(:account_para_replaceCond)
 t(:account_aside_replaceCond)
 </aside>
 
-##### t(:heading_http_request)
+#### t(:httprequest)
 POST
 <code><span id=oasoReplace>/open-api/stop-order/replace</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oasoReplace"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-##### t(:heading_request_parameters)
+#### t(:requestparameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |stop_order_id |true |string |t(:row_comment_stopOrderId) |
@@ -683,7 +683,7 @@ POST
 |p_r_trigger_price |false |number |t(:row_comemnt_pRTriggerPrice) |
 
 
-### t(:account_heading_queryConditional)
+### t(:querycond)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -722,12 +722,12 @@ POST
 
 t(:account_para_queryConditional)
 
-##### t(:heading_http_request)
+#### t(:httprequest)
 GET
 <code><span id=vpStopOrder>/v2/private/stop-order</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpStopOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-##### t(:heading_request_parameters)
+#### t(:requestparameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
@@ -735,8 +735,8 @@ GET
 |order_link_id |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
 
 
-## t(:account_heading_leverage)
-### t(:account_heading_userLeverage)
+## t(:leverage)
+### t(:getleverage)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -768,17 +768,17 @@ GET
 
 t(:account_para_userLeverage)
 
-##### t(:heading_http_request)
+#### t(:httprequest)
 GET
 <code><span id=uLeverage>/user/leverage</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uLeverage"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-##### t(:heading_request_parameters)
+#### t(:requestparameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 
 
-### t(:account_heading_changeLeverage)
+### t(:changeleverage)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -801,20 +801,20 @@ t(:account_para_changeLeverage)
 t(:account_aside_changeLeverage)
 </aside>
 
-##### t(:heading_http_request)
+#### t(:httprequest)
 POST
 <code><span id=ulSave>/user/leverage/save</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ulSave"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-##### t(:heading_request_parameters)
+#### t(:requestparameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
 |leverage |true |string |t(:row_comment_leverage) |
 
 
-## t(:account_heading_position)
-### t(:account_heading_myPosition)
+## t(:position)
+### t(:mypositionv2)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -864,18 +864,18 @@ POST
 
 t(:account_para_myPosition)
 
-##### t(:heading_http_request)
+#### t(:httprequest)
 GET
 <code><span id=pList>/v2/private/position/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-##### t(:heading_request_parameters)
+#### t(:requestparameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
 
 
-### t(:account_heading_changeMargin)
+### t(:changemargin)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -898,19 +898,19 @@ t(:account_para_changeMargin)
 t(:account_aside_changeMargin)
 </aside>
 
-##### t(:heading_http_request)
+#### t(:httprequest)
 POST
 <code><span id=pChangePositionMargin>/position/change-position-margin</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pChangePositionMargin"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-##### t(:heading_request_parameters)
+#### t(:requestparameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
 |margin |true |string |t(:row_comment_margin)  |
 
 
-### t(:account_heading_tradingStop)
+### t(:tradingstop)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -969,12 +969,12 @@ t(:account_para_tradingStop)
 t(:account_aside_tradingStop)
 </aside>
 
-##### t(:heading_http_request)
+#### t(:httprequest)
 POST
 <code><span id=oapTradingStop>/open-api/position/trading-stop</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oapTradingStop"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-##### t(:heading_request_parameters)
+#### t(:requestparameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
@@ -983,8 +983,8 @@ POST
 |trailing_stop |false |string |t(:account_row_comment_trailingStop) |
 
 
-## t(:account_heading_funding)
-### t(:market_heading_fundingRate)
+## t(:funding)
+### t(:fundingRate)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -1007,17 +1007,17 @@ POST
 
 t(:market_para_fundingRate)
 
-##### t(:heading_http_request)
+#### t(:httprequest)
 GET
 <code><span id=oafPrevFundingRate>/open-api/funding/prev-funding-rate</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oafPrevFundingRate"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-##### t(:heading_request_parameters)
+#### t(:requestparameters)
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
 
-### t(:account_heading_myLastFunding)
+### t(:mylastfundingfee)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -1043,19 +1043,19 @@ GET
 
 t(:account_para_myLastFunding)
 
-##### t(:heading_http_request)
+#### t(:httprequest)
 GET
 <code><span id=oafPrevFunding>/open-api/funding/prev-funding</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oafPrevFunding"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-##### t(:heading_request_parameters)
+#### t(:requestparameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
 
 
 
-### t(:account_heading_predictedFunding)
+### t(:predictedfunding)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -1076,18 +1076,18 @@ GET
 ```
 t(:account_para_predictedFunding)
 
-##### t(:heading_http_request)
+#### t(:httprequest)
 GET
 <code><span id=oafPredictedFunding>/open-api/funding/predicted-funding</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oafPredictedFunding"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-##### t(:heading_request_parameters)
+#### t(:requestparameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
 
 
-## t(:account_heading_key)
+## t(:key)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -1123,11 +1123,11 @@ GET
 
 t(:account_para_key)
 
-##### t(:heading_http_request)
+#### t(:httprequest)
 GET
 <code><span id=oaApiKey>/open-api/api-key</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oaApiKey"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-##### t(:heading_request_parameters)
+#### t(:requestparameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |

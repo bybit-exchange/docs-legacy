@@ -6,8 +6,8 @@ en:
   linear_future: Linear Futures
   search: Search
   comment_abandoned: <b>Abandoned!!</b>
-  heading_http_request: HTTP Request
-  heading_request_parameters: Request Parameters
+  httprequest: HTTP Request
+  requestparameters: Request Parameters
   codequote_responseExample: Response Example
   codequote_responseExampleFormatAll: Response Example - format of all responses
   codequote_curlExample: Curl Example
@@ -22,7 +22,7 @@ en:
   row_comment_symbol: Contract type
   row_comment_margin: margin
   row_comment_activeOrderType: Active order type
-  row_comment_stopOrderType: Condition order type
+  row_comment_stopOrderType: Conditional order type
   row_comment_stopOrderStatus: stop order status
   row_comment_from: |
     From ID. Default: return latest data
@@ -70,12 +70,12 @@ en:
   errorcode_meaning: Meaning
 
   # introduction in index.html.md
-  intro_heading: Introduction
+  introduction: Introduction
   intro_para:
     <p>Welcome to the official documentation for the <a href="https://www.bybit.com/">Bybit</a> APIs and Websocket! Here you can find details on how to access all of our endpoints, their respective expected outputs, and possible errors you may encounter.</p>
     <p>If you encounter an issue you need help with, have a suggestions for us, or just want to have a chat with fellow developers then please head on over to our <a href="https://t.me/Bybitapi">API Telegram chat</a>!</p>
 
-  intro_heading_resources: Bybit API Resources
+  resources: Bybit API Resources
   intro_para_resources:
     <ul>
       <li><a href="https://help.bybit.com/hc/en-us">Help Center<img src="/images/bybit_favicon.png" height="14", width="14"></a> - learn about exchange mechanisms here!
@@ -87,7 +87,7 @@ en:
 
   # Changelog
   # if some missing values - they already have values elsewhere
-  changelog_heading: Changelog
+  changelog: Changelog
   changelog_new: new
   changelog_update: update
   changelog_bugfix: bugfix
@@ -121,7 +121,8 @@ en:
 
 
   # api_auth
-  auth_heading: Authentication
+  # t(:authentication)
+  authentication: Authentication
   auth_aside_key: To generate an API key please go <a href="https://testnet.bybit.com/app/user/api-management">here for the <b>testnet</b></a> or <a href="https://www.bybit.com/app/user/api-management">here for the <b>mainnet</b></a>.
   auth_para_domains: |
     Domains:
@@ -138,7 +139,8 @@ en:
   auth_para_privatepublic:
     <p>All requests made to <b>private</b> endpoints must be authenticated. Requests made to <b>public</b> endpoints do not require the additional parameters needed for authentication.</p>
 
-  auth_heading_params: Parameters for Authenticated Endpoints
+  ## Parameters for Authenticated Endpoints
+  authenticationparameters: Parameters for Authenticated Endpoints
   auth_para_params: |
     The following parameters must be used for authentication:
     <ul>
@@ -147,10 +149,11 @@ en:
       <li><b>sign</b> - a signature derived from the request's parameters</li>
     </ul>
   auth_aside_timestamp: |
-    Make sure to conform to the timestamp rule of verification or your request will be rejected! Timestamp rule of verification: <b>server_time - recv_window <= timestamp < server_time + 1000</b>; <b>server_time</b> stands for Bybit server time, you can get it from <a href="#t-api_heading-t-wallet_heading_setrisk-t-api_heading_server_time">Server Time</a> endpoint.
+    Make sure to conform to the timestamp rule of verification or your request will be rejected! Timestamp rule of verification: <b>server_time - recv_window <= timestamp < server_time + 1000</b>; <b>server_time</b> stands for Bybit server time, you can get it from <a href="#t-api-t-wallet_setrisk-t-servertime">Server Time</a> endpoint.
   auth_para_recv : |
     Additionally, we offer the <code>recv_window</code>, which indicates for how long an HTTP request is valid. This should be sent in milliseconds. Default value: 5000. This is used to prevent replay attacks.
-  auth_heading_construct: Constructing the Request
+  ## Constructing the Request
+  constructingtherequest: Constructing the Request
   auth_codequote_construct1a:
     An example for adjusting leverage
   auth_codequote_construct1b:
@@ -169,60 +172,60 @@ en:
     Example signature algorithms can be found <a href="https://github.com/bybit-exchange/bybit-official-api-docs/tree/master/en/example">here</a>.
 
   # Market Data Endpoints
-  market_heading: Market Data Endpoints
+  marketdata: Market Data Endpoints
   market_para_auth: The following market data endpoints do not require authentication.
   ### Orderbook
-  market_heading_orderbook: Orderbook
+  orderbook: Orderbook
   market_para_orderbook: Get the orderbook.
   market_aside_orderbook: The response is in the snapshot format.
   ### Latest Information for Symbol
-  market_heading_symbol: Latest Information for Symbol
+  latestsymbolinfo: Latest Information for Symbol
   market_para_symbol: Get the latest information for symbol.
   ### Public Trading Records
-  market_heading_records: Public Trading Records
+  publictradingrecords: Public Trading Records
   market_para_records: Get recent trades.
   ### Get the Last Funding Rate
-  market_heading_fundingRate: Get the Last Funding Rate
+  fundingRate: Get the Last Funding Rate
   market_para_fundingRate: The funding rate is generated every 8 hours at 00:00 UTC, 08:00 UTC and 16:00 UTC. For example, if a request is sent at 12:00 UTC, the funding rate generated earlier that day at 08:00 UTC will be sent.
   ### Query Symbol
-  market_heading_querySymbol: Query Symbol
+  querysymbol: Query Symbol
   market_para_querySymbol: Get symbol info.
 
   # Account Data Endpoints
-  account_heading: Account Data Endpoints
+  accountdata: Account Data Endpoints
   account_para: The following account data endpoints require authentication.
   ## Active Orders
-  account_heading_active: Active Orders
+  activeorders: Active Orders
   ### Place Active Order V2
-  account_heading_placeActive: Place Active Order V2
+  placev2active: Place Active Order V2
   account_para_placeActive: |
     <p>Market price active order: A traditional market price order, will be filled at the best available price. <code>price</code> is not required for this type of order.</p>
     <p>Limit price active order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
     <p><b>Take profit/Stop loss: You may only set a take-profit/stop-loss conditional order upon opening the position. Once you hold a position, any new active order requests which contain TP/SL/TS data will be accepted but TP/SL/TS data will be ignored.</b></p>
     <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell, currently Bybit only support order quantity in an integer.</p>
-    <p>Order price: If it is a condition order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the price_filter field in the <a href="#t-market_heading-t-auth_heading_construct-t-market_heading_querysymbol">transaction</a> response to the interface.</p>
+    <p>Order price: If it is a condition order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the price_filter field in the <a href="#t-marketdata-t-constructingtherequest-t-querysymbol">transaction</a> response to the interface.</p>
     <p>Custom order ID: You may customise order IDs for active orders. We will link it to the system order ID, and return the unique system order ID to you after the active order is created successfully. You may use this order ID or your custom order ID to cancel your active order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
     <p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSD instrument and 280 active orders on the ETHUSD instrument. And order with parameter <code>reduce_only</code> or <code>closeOnTrigger</code> is unlimited.</b></p>
   ### Get Active Order
-  account_heading_getActive: Get Active Order
+  getactive: Get Active Order
   account_para_getActive: |
     <p>Get my active order list.</p>
-    <p>Cause order creation/cancellation is asynchronous, sometimes there is a data dalay in this endpoint. You can get real-time order info in <a href="#t-account_heading-t-account_heading_active-t-account_heading_queryactive">Query Active Order (real-time)</a> endpoint.</p>
+    <p>Cause order creation/cancellation is asynchronous, sometimes there is a data dalay in this endpoint. You can get real-time order info in <a href="#t-accountdata-t-activeorders-t-query active">Query Active Order (real-time)</a> endpoint.</p>
   account_row_comment_orderId: Order ID
   account_row_comment_orderStatus: Query your orders for all statuses if 'order_status' is empty. If you want to query orders with specific statuses, you can pass the order_status split by ','.
   ### Cancel Active Order V2
-  account_heading_cancelActive: Cancel Active Order V2
+  cancelv2active: Cancel Active Order V2
   account_para_cancelActive: |
     <p>Either <code>order_id</code> or <code>order_link_id</code> are required for cancelling active orders. <code>order_id</code> - this unique 36 characters order ID was returned to you when the active order was created successfully.</p>
     <p>You may cancel active orders that are unfilled or partially filled. Fully filled orders cannot be cancelled.</p>
   ### Cancel All Active Orders
-  account_heading_cancelAllActive: Cancel All Active Orders
+  cancelallactive: Cancel All Active Orders
   account_para_cancelAllActive: |
     <p>Cancel all active orders that are unfilled or partially filled. Fully filled orders cannot be cancelled.</p>
   account_aside_cancelAllActive:
     This endpoint's <code>rate_limit</code> will decrease by 10 per request
   ### Replace Active Order
-  account_heading_replaceActive: Replace Active Order
+  replaceactive: Replace Active Order
   account_para_replaceActive: |
     <p>Replace order can modify/amend your active orders.</p>
     <p><code>p_r_qty</code> and <code>p_r_price</code> are the modified price and quantity. If these two fields are not provided, nothing will be modified.</p>
@@ -230,20 +233,20 @@ en:
   account_aside_replaceActive:
     Please note that only orders that are unfilled or partially filled can be modified by the replace-order API.
   ### Query Active Order (real-time)
-  account_heading_queryActive: Query Active Order (real-time)
+  queryactive: Query Active Order (real-time)
   account_para_queryActive: Query real-time active order information.
 
   ## Conditional Orders
+  conditionalorders: Conditional Orders
   ### Place Conditional Order
-  account_heading_cond: Conditional Orders
-  account_heading_placeCond: Place Conditional Order
+  placecond: Place Conditional Order
   account_para_placeCond: |
     <p>Parameters of 'side', 'symbol', 'order_type', 'qty', 'price', 'base_price', 'stop_px', 'time_in_force' are required for all active orders. Other parameters are optional unless specified.</p>
     <p>Market price conditional order: A traditional market price order, will be filled at the best available price. 'price' can set to be "" if and only if you are placing market price order.</p>
     <p>Limit price conditional order: You can set an execution price for your order. Only when last traded price reaches the order price, the system will fill your order.</p>
     <p>Take profit/Stop loss: You may only set a take-profit/stop-loss conditional order upon opening the position. Once you hold a position, the take profit and stop loss information u sent when placing an order will no longer be valid.</p>
     <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell, currently Bybit only support order quantity in an integer.</p>
-    <p>Order price: If it is a condition order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the price_filter field in the <a href="#t-market_heading-t-auth_heading_construct-t-market_heading_querysymbol">transaction</a> response to the interface.</p>
+    <p>Order price: If it is a condition order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the price_filter field in the <a href="#t-marketdata-t-constructingtherequest-t-querysymbol">transaction</a> response to the interface.</p>
     <p>Conditional order trigger price: You may set a trigger price for your conditional order. conditional order will not enter the order book until the last price hits the trigger price. When last price hits trigger price: 1) your limit conditional order will enter order book, and wait to be executed; 2) your market conditional order will be executed immediately at the best available market price.</p>
     <p>Customize conditional order ID: You may customize order IDs for active orders. We will link it to the system order ID , and return the unique system order ID to you after the active order is created successfully. You may use this order ID to cancel your active order. The customized order ID is asked to be unique, with a maximum length of 36 characters.</p>
 
@@ -251,21 +254,21 @@ en:
     Take profit/Stop loss is not supported in placing conditional orders. One can only use these 2 functions when placing active orders. Moreover, each account can hold up to 10 conditional orders yet to be filled entirely simultaneously.
 
   ### Get Conditional Order
-  account_heading_getCond: Get Conditional Order
-  account_para_getCond: 
+  getcond: Get Conditional Order
+  account_para_getCond:
     <p>Get my conditional order list.</p>
-    <p>Cause order creation/cancellation is asynchronous, sometimes there is a data dalay in this endpoint. You can get real-time order info in <a href="#t-account_heading-t-account_heading_cond-t-account_heading_queryconditional">Query Conditional Order (real-time)</a> endpoint.</p>
+    <p>Cause order creation/cancellation is asynchronous, sometimes there is a data dalay in this endpoint. You can get real-time order info in <a href="#t-accountdata-t-conditionalorders-t-querycond">Query Conditional Order (real-time)</a> endpoint.</p>
   ### Cancel Conditional Order
-  account_heading_cancelCond: Cancel Conditional Order
+  cancelcond: Cancel Conditional Order
   account_para_cancelCond: |
     <p>You may cancel all untriggered conditional orders. Essentially, after a conditional order is triggered, it will become an active order. So, when a conditional order is triggered, cancellation has to be done through the active order endpoint for any unfilled or partially filled active order. As always, orders that have been fully filled cannot be cancelled.</p>
   ### Cancel All Conditional Orders
-  account_heading_cancelAllCond: Cancel All Conditional Orders
+  cancelallcond: Cancel All Conditional Orders
   account_para_cancelAllCond: Cancel all untriggered conditional orders.
   account_aside_cancelAllCond:
     This endpoint's <code>rate_limit</code> will decrease by 10 per request
   ### Replace Conditional Order
-  account_heading_replaceCond: Replace Conditional Order
+  replacecond: Replace Conditional Order
   account_para_replaceCond:
     <p>Replace conditional order can modify/amend your conditional orders.</p>
     <p><code>order_id</code> and <code>symbol</code> are required for identifying a conditional order.</p>
@@ -273,32 +276,32 @@ en:
   account_aside_replaceCond: |
     Please note that you can only modify untriggered conditional orders.
   ### Query Conditional Order (real-time)
-  account_heading_queryConditional: Query Conditional Order (real-time)
+  querycond: Query Conditional Order (real-time)
   account_para_queryConditional: Query real-time stop order information.
 
 
   ## Leverage
-  account_heading_leverage: Leverage
+  leverage: Leverage
   ### User Leverage
-  account_heading_userLeverage: User Leverage
+  getleverage: User Leverage
   account_para_userLeverage: Get user leverage.
   ### Change User Leverage
-  account_heading_changeLeverage: Change User Leverage
+  changeleverage: Change User Leverage
   account_para_changeLeverage: |
     <p>Change user leverage.</p>
   account_aside_changeLeverage: Set <code>leverage</code> to <code>0</code> if you want to trade in <a href="https://help.bybit.com/hc/en-us/articles/360037683633-What-is-Cross-Margin">Cross Margin mode</a>. Note that your position mode will be changed to Isolated Margin mode if you change your leverage from 0 to any other value.
 
   ## Position
-  account_heading_position: Position
+  position: Position
   ### My Position V2 (real-time)
-  account_heading_myPosition: My Position V2 (real-time)
+  mypositionv2: My Position V2 (real-time)
   account_para_myPosition: Get my position list.
   ### Change Margin
-  account_heading_changeMargin: Change Margin
+  changemargin: Change Margin
   account_para_changeMargin: Update margin.
   account_aside_changeMargin: You cannot change margin when your position is in Cross Margin mode. See the <a href="#change-user-leverage">Change User Leverage</a> endpoint for more.
   ### Set Trading-Stop
-  account_heading_tradingStop: Set Trading-Stop
+  tradingstop: Set Trading-Stop
   account_para_tradingStop: Set take profit, stop loss, and trailing stop for your open position.
   account_aside_tradingStop: Passing these parameters will create conditional orders controlled by the system. The system will cancel these orders if the position is closed, and adjust the qty according to the size of the open position.
   account_row_comment_takeProfit: Cannot be less than 0, 0 means cancel TP
@@ -306,65 +309,65 @@ en:
   account_row_comment_trailingStop: Cannot be less than 0, 0 means cancel TS
 
   ## Funding
-  account_heading_funding: Funding
+  funding: Funding
   ### My Last Funding Fee
-  account_heading_myLastFunding: My Last Funding Fee
+  mylastfundingfee: My Last Funding Fee
   account_para_myLastFunding: Funding settlement occurs every 8 hours at 00:00 UTC, 08:00 UTC and 16:00 UTC. The current interval's fund fee settlement is based on the previous interval's fund rate. For example, at 16:00, the settlement is based on the fund rate generated at 8:00. The fund rate generated at 16:00 will be used at 0:00 the next day.
   ### Predicted Funding Rate and My Funding Fee
-  account_heading_predictedFunding: Predicted Funding Rate and My Funding Fee
+  predictedfunding: Predicted Funding Rate and My Funding Fee
   account_para_predictedFunding: Get predicted funding rate and my funding fee.
   ## API Key Info
-  account_heading_key: API Key Info
+  key: API Key Info
   account_para_key: Get user's API key info.
 
   # Wallet Data Endpoints
-  wallet_heading: Wallet Data Endpoints
+  wallet: Wallet Data Endpoints
   wallet_para: The following wallet data endpoints require authentication.
     ### Wallet Balance
-  wallet_heading_walletBalance: Get Wallet Balance
+  balance: Get Wallet Balance
   wallet_para_walletBalance: Get wallet balance info
-  wallet_aside_walletBalance: | 
-   <code>position_margin</code> in this endpoint is not same as <a href="https://www.bybit.com/app/wallet/money">position margin on website page</a>
+  wallet_aside_walletBalance: |
+   <code>position_margin</code> in this endpoint is not same as <a href="https://www.bybit.com/app/wallet/money">position margin on website</a>
    <p>The formula of position margin on website: <code>position_margin</code> + <code>occ_funding_fee</code> + loss(when your <code>available_balance</code> is insufficient)</p>
   ### Wallet Fund Records
-  wallet_heading_walletRecords: Wallet Fund Records
+  walletrecords: Wallet Fund Records
   wallet_para_walletRecords: Get wallet fund records.
   wallet_aside_walletRecords: |
-    Find more detail for types <code>Withdraw</code> and <code>Refund</code> in the <a href="#t-wallet_heading-t-account_heading_key-t-wallet_heading_withdrawrecords">Withdraw Records</a> endpoint.
+    Find more detail for types <code>Withdraw</code> and <code>Refund</code> in the <a href="#t-wallet-t-key-t-withdrawrecords">Withdraw Records</a> endpoint.
   ### Withdraw Records
-  wallet_heading_withdrawRecords: Withdraw Records
+  withdrawrecords: Withdraw Records
   wallet_para_withdrawRecords: Get withdrawal records.
   wallet_aside_withdrawRecords: |
-    The difference between data returned by this endpoint and data of type <code>Withdraw</code> in the <a href="#t-wallet_heading-t-account_heading_key-t-wallet_heading_walletrecords">Wallet Fund Records</a> endpoint:<p></p>
+    The difference between data returned by this endpoint and data of type <code>Withdraw</code> in the <a href="#t-wallet-t-key-t-walletrecords">Wallet Fund Records</a> endpoint:<p></p>
     <p>This endpoint provides one withdrawal operation per record, and you can check the current withdrawal state with the <code>status</code> field.</p>
-    <p>Once you have submitted a withdrawal application, there will be a record with type <code>Withdraw</code>, and if the application is <code>CancelByUser</code>, <code>Reject</code> or <code>Expire</code> in the <a href="#t-wallet_heading-t-account_heading_key-t-wallet_heading_walletrecords">Wallet Fund Records</a> endpoint, with a corresponding record with type <code>Refund</code>.</p>
+    <p>Once you have submitted a withdrawal application, there will be a record with type <code>Withdraw</code>, and if the application is <code>CancelByUser</code>, <code>Reject</code> or <code>Expire</code> in the <a href="#t-wallet-t-key-t-walletrecords">Wallet Fund Records</a> endpoint, with a corresponding record with type <code>Refund</code>.</p>
   ### User Trade Records
-  wallet_heading_tradeRecords: User Trade Records
+  usertraderecords: User Trade Records
   wallet_para_tradeRecords: Get user's trading records. The last item is the oldest.
   wallet_aside_tradeRecords: One order may have multiple trade records.
   wallet_row_comment_orderId: OrderID. If not provided, will return user's trading records
   ## Get Risk Limit
-  wallet_heading_getRisk: Get Risk Limit
+  getrisklimit: Get Risk Limit
   wallet_para_getRisk: Get risk limit.
   wallet_aside_getRisk: Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles/360007107454-Risk-Limit-Overview">here</a>.
   ## Set Risk Limit
-  wallet_heading_setRisk: Set Risk Limit
+  setrisklimit: Set Risk Limit
   wallet_para_setRisk: Set risk limit.
 
   # API Data Endpoints
-  api_heading: API Data Endpoints
+  api: API Data Endpoints
   api_para: The following API data endpoints do not require authentication.
   ### Server time
-  api_heading_server_time: Server Time
+  servertime: Server Time
   api_para_time: Get Bybit server time.
   ### Announcement
-  api_heading_announcment: Announcement
+  announcement: Announcement
   api_para_announcement: Get Bybit OpenAPI announcements in the last 30 days by reverse order.
 
   # API Rate Limits
-  rate_heading: API Rate Limits
+  ratelimits: API Rate Limits
   ### IP Rate Limit
-  ip_rate_heading_understandin: IP Rate Limit
+  ipratelimits: IP Rate Limit
   ip_rate_para_understanding: |
     <p> Bybit has different IP frequency limits for <code>GET</code> and <code>POST</code> method：</p>
     <ul>
@@ -384,16 +387,16 @@ en:
     </li>
     </ul>
   ### Account rate limit
-  rate_heading_understandin: Understanding Your Request Rate Limit
+  understandingratelimits: Understanding Your Request Rate Limit
   rate_para_understanding: |
     Bybit makes frequency limits based on <b> the sliding time window per minute and uid</b>. Every request to the API returns the fields shown in the code panel:
   rate_text_limitStatus_understanding: your remaining requests for current endpoint
   rate_text_limit_understanding: your current limit for current endpoint
   rate_text_limitReset: the timestamp indicating when your request limit resets if you have exceeded your rate_limit. Otherwise, this is just the current timestamp.
   ### Rate Limits For All Endpoints
-  rate_heading_allEndpoints: Rate Limits For All Endpoints
+  perendpoint: Rate Limits For All Endpoints
   ### Order Limits
-  rate_heading_limits: Order Limits
+  orderlimits: Order Limits
   rate_para_limits: |
     <p>The number of orders per instrument that can be held entirely simultaneously:</p>
     <ul>
@@ -401,23 +404,23 @@ en:
     <li>Conditional orders: 10</li>
     </ul>
   ### How to Raise Your API Limit
-  rate_heading_raise: How to Raise Your API Limit
+  raisemylimit: How to Raise Your API Limit
   rate_para_raise: |
     <ul>
     <li>Please read <a href="#understanding-bybit-39-s-liquidity-system">Understanding Bybit&#39;s Liquidity System</a> to understand how our system automatically allocates rate limits for users placing over 2000 orders per day.</li>
     <li>Please send your application email to <a href="mailto:api@bybit.com">api@bybit.com</a>. We will reply in 1-4 working days.</li>
     </ul>
   ### Understanding Bybit's Liquidity System
-  rate_heading_liquidity: Understanding Bybit's Liquidity System
+  liquidity: Understanding Bybit's Liquidity System
   rate_para_liquidity: |
     <p>Bybit uses an <code>Order Fill Ratio (OFR)</code> and <code>Liquidity Contribution Points (LCP)</code> to measure customers&#39; contribution to our executable liquidity.</p>
     <p>The <code>LCP</code> and <code>OFR</code> of different symbols are calculated separately.</p>
   #### Order Fill Ratio (OFR) Threshold
-  rate_heading_threshold: Order Fill Ratio (OFR) Threshold
+  ofrthreshold: Order Fill Ratio (OFR) Threshold
   rate_para_threshold: |
     If you place more than <code>2000</code> orders per day on Bybit, please maintain your 7-day OFR above a <code>Minimum OFR threshold</code>, or Bybit may reduce your API request frequency limit.
   ##### Order Fill Ratio (OFR)
-  rate_heading_ratio: Order Fill Ratio (OFR)
+  ofrratio: Order Fill Ratio (OFR)
   rate_para_ratio: |
     <ul>
     <li><code>Order Fill Ratio (OFR)</code>: <code>Orders Filled</code> to <code>Orders Submitted to Bybit</code> to Bybit.</li>
@@ -426,7 +429,7 @@ en:
     <li><code>OFR = (number of orders filled / number of orders submitted to Bybit)</code></li>
     </ul>
   ##### Order Fill Ratio Example
-  rate_heading_ratioExample: Order Fill Ratio Example
+  ofrratioExample: Order Fill Ratio Example
   rate_para_ratioExample: |
     <p>User A submitted a limit order request which contains 4 bids and 4 asks, and these orders are placed in the orderbook at different price levels. Then, User A cancelled 2 bids and submits a new limit order request which contains 2 new bids.</p>
     <p>At this time, User B submits a market order request, and matches with 2 of A&#39;s bids.</p>
@@ -442,10 +445,10 @@ en:
     Orders Submitted to Bybit = 1
     QFR = 1/1 = 100%
   ##### Minimum OFR Threshold
-  rate_heading_minimum: Minimum OFR Threshold
+  ofrminimum: Minimum OFR Threshold
   rate_para_minimum: 7-day OFR must be kept above 0.1%.
   #### API Request Frequency Limits
-  rate_heading_frequency: API Request Frequency Limits
+  frequencylimit: API Request Frequency Limits
   rate_para_frequency:
     Your API request frequency limit is based on your min <code>Liquidity Contribution Points (LCP)</code> of <code>7</code> days.
   column_LCP: LCP
@@ -456,15 +459,15 @@ en:
   row_frequencyLimit_200: 200 times per minute
   row_frequencyLimit_100: 100 times per minute
   ##### Liquidity Contribution Points (LCP)
-  rate_heading_liquidityPoints: Liquidity Contribution Points (LCP)
+  liquidityPoints: Liquidity Contribution Points (LCP)
   rate_para_liquidityPoints: |
     <ul>
     <li><code>Liquidity Contribution Points (LCP) = POU * POA * 100</code></li>
     </ul>
   ##### Explanation
-  rate_heading_explanation: Explanation
+  ratelimitsexplanation: Explanation
   ###### Effective Price Range
-  rate_heading_priceRange: Effective Price Range
+  pricerange: Effective Price Range
   rate_para_priceRange: |
     <ul>
     <li><p><code>effective price range</code>: 6 tick sizes range around middle of best bid price and best ask price.</p>
@@ -475,20 +478,20 @@ en:
     </li>
     </ul>
   ###### Effective Price Range example
-  rate_heading_priceRangeExample: Effective Price Range Example
+  pricerangeExample: Effective Price Range Example
   rate_pre_priceRangeExample: |
     BTC best bid = 10000
     BTC best ask = 10001
     Effective Price Range: [(10000 + 10001) / 2 - 3* 0.5, (10000 + 10001) / 2 + 3* 0.5] = [9999,10002]
   ###### POU
-  rate_heading_POU: POU
+  pou: POU
   rate_para_POU: |
     <ul>
     <li><code>POU</code>: the proportion of your orders within <code>effective price range</code> to all your orders in orderbook.</li>
     </ul>
     <p>Bybit calculates your amount of orders within <code>effective price range</code> / amount of all your orders in orderbook, and then performs a 1-Day Time-Weighted-Average over the series of seconds rates.</p>
   ###### POU example
-  rate_heading_POUExample: POU Example
+  pouExample: POU Example
   rate_para_POUExample: User C bids 2000 contracts for $9995 and bids 8000 contracts for $9999, while effective price range is [9999,10002]
   rate_pre_POUExample: |
     amount of User C's orders within effective price range = 8000
@@ -496,14 +499,14 @@ en:
     POU = 8000 / 10000 = 0.8
 
   ###### POA
-  rate_heading_POA: POA
+  poa: POA
   rate_para_POA: |
     <ul>
     <li><code>POA</code>: the proportion of your orders within <code>effective price range</code> to all orders within <code>effective price range</code> in orderbook.</li>
     </ul>
     <p>Bybit calculates your amount of orders within <code>effective price range</code> / amount of all orders within <code>effective price range</code> in orderbook, and then performs a 1-Day Time-Weighted-Average over the series of seconds rates.</p>
   ###### POA example
-  rate_heading_POAExample: POA example
+  poaExample: POA example
   rate_para_POAExample: User C only has 8000 contracts within effective price range, while Bybit have 200000 contracts within effective price range in orderbook.
   rate_pre_POAExample: |
     amount of User C's orders within effective price range = 8000
@@ -512,9 +515,9 @@ en:
   rate_aside_POAExample: Prior notice will be given via the website if we update this mechanism.
 
   # WebSocket Data
-  websocket_heading: WebSocket Data
+  websocket: WebSocket Data
   ## Authentication
-  websocket_heading_authentication: Authentication
+  websocketauthentication: Authentication
   websocket_codequote_auth: |
     Authentication methods:
   websocket_codequote_auth1: |
@@ -541,19 +544,19 @@ en:
   websocket_para_methods: There are two methods of authentication, as shown in the code panel to the right.
   websocket_aside_signature: Example signature algorithms can be found <a href="https://github.com/bybit-exchange/bybit-official-api-docs/tree/master/en/example">here</a>.
   websocket_best_practices: Due to the complexity of the network, program may loss the connection at any time. In order to ensure that you receive messages on time, you should do as the following<span>:</span>
-    <p>1. Keep connection alive by <a href="#t-websocket_heading-t-websocket_heading_hearbeat">sending heartbeat packet</a></p>
+    <p>1. Keep connection alive by <a href="#t-websocket-t-heartbeat">sending heartbeat packet</a></p>
     <p>2. Reconnect as soon as the connection is broken</p>
   ## How to Send the Heartbeat Packet
-  websocket_heading_hearbeat: How to Send the Heartbeat Packet
+  heartbeat: How to Send the Heartbeat Packet
   websocket_codequote_heartbeat: How to Send
   websocket_aside_heartbeat: Due to unstable networks or program errors, we strongly advise you to send the <code>ping</code> heartbeat packet to maintain websocket connections. We recommend every 30 seconds to 1 minute.
   ## Rate Limits
-  websocket_heading_limit: Rate Limits
+  websocketlimit: Rate Limits
   websocket_para_limit: ""
   ## How to Subscribe to Topics
-  websocket_heading_subscribe: How to Subscribe to Topics
+  subscribe: How to Subscribe to Topics
   ### Understanding Websocket Filters
-  websocket_heading_filters: Understanding Websocket Filters
+  websocket_filters: Understanding Websocket Filters
   websocket_codequote_filters1: How to subscribe with a filter
   websocket_codequote_filters2: How to subscribe with multiple filters
   websocket_codequote_filters3: How to subscribe without filters
@@ -566,44 +569,44 @@ en:
     <p>It is possible to use multiple filters for the same topic by splitting them with a pipe (<code>|</code>) - of course, these filters must all be applicable to the selected <code>topic</code>.</p>
     <p>Finally, to subscribe to the topic without filters please use the <code>*</code> wildcard.</p>
   ### Intervals
-  websocket_heading_intervals: Intervals
+  intervals: Intervals
   websocket_para_intervals: Some topics are pushed at intervals. If the `args` contain a millisecond param, such as `100ms`, this topic is pushed at intervals. Otherwise, it is pushed constantly.
 
   ## Understanding the Subscription Response
-  websocket_heading_response: Understanding the Subscription Response
+  websocketresponse: Understanding the Subscription Response
   websocket_codequote_response: Subscription Response
   websocket_para_response: Every subscription will have a response.
   ## Public Topics
-  websocket_heading_public: Public Topics
+  publictopics: Public Topics
   ### orderBookL2_25
-  websocket_heading_orderbook25: orderBookL2_25
+  orderbook25: orderBookL2_25
   websocket_para_orderbook251: Fetches the orderbook with a depth of 25 orders per side.
-  orderbookL2_200_link: Want a greater depth? Take a look at the <a href="#t-websocket_heading-t-websocket_heading_public-t-websocket_heading_orderbook200">orderBookL2_200</a> endpoint.
+  orderbookL2_200_link: Want a greater depth? Take a look at the <a href="#t-websocket-t-publictopics-t-orderbook200">orderBookL2_200</a> endpoint.
   websocket_para_orderbook252: |
     <p>After the subscription response, the first response will be the snapshot response. This shows the entire orderbook. The data is ordered by price, starting with the lowest buys and ending with the highest sells.</p>
     <p>Following this, all responses are in the delta format, which represents updates to the orderbook relative to the last response.</p>
   ### orderBookL2_200
-  websocket_heading_orderbook200: orderBookL2_200
+  orderbook200: orderBookL2_200
   websocket_para_orderbook200: |
     <p>Fetches the orderbook with a depth of 200 orders per side.</p>
     <p>After the subscription response, the first response will be the snapshot response. This shows the entire orderbook. The data is ordered by price, starting with the lowest buys and ending with the highest sells.</p>
     <p>Following this, all responses are in the delta format, which represents updates to the orderbook relative to the last response.</p>
   ### trade
-  websocket_heading_trade: trade
+  trade: trade
   websocket_para_trade: Get real-time trading information.
   ### insurance
-  websocket_heading_insurance: insurance
+  insurance: insurance
   websocket_para_insurance: Get the daily insurance fund update.
   websocket_aside_insurance: The <code>wallet_balance</code> is in Satoshis, with one Satoshi being 100 millionth (<code>100000000</code>) of one Bitcoin.
   ### instrument_info
-  websocket_heading_instrumentInfo: instrument_info
+  instrumentInfo: instrument_info
   websocket_para_instrumentInfo: Get latest information for symbol.
   websocket_aside_instrumentInfo1: |
     This topic only utilises the <code>update</code> field. Both the <code>delete</code> and <code>insert</code> fields are null. If a key is not found in the <code>update</code> field, its value has not changed.
   websocket_aside_instrumentInfo2: |
     Some values use scientific notation. This is indicated by that value's key, which will be appended with, for example, <code>e6</code>. If the key is <code>last_price_e4</code> and the value is <code>81585000</code>, then to find the true value we can do <code>81585000 * 10^4</code>, which equals <code>8158.5</code>.
   ### klineV2
-  websocket_heading_klineV2: klineV2
+  klineV2: klineV2
   websocket_para_klineV2: |
     <p>Currently supported intervals:</p>
     <ul>
@@ -618,27 +621,27 @@ en:
     If <code>confirm</code> is <code>True</code>, the data is the final tick for the interval. Otherwise, it is a snapshot.
 
   ## Private Topics
-  websocket_heading_private: Private Topics
+  privatetopics: Private Topics
   ### position
-  websocket_heading_position: position
+  websocketposition: position
   ### execution
-  websocket_heading_execution: execution
+  execution: execution
   ### order
-  websocket_heading_order: order
+  order: order
   ### stop_order
-  websocket_heading_stopOrder: stop_order
+  stoporder: stop_order
 
   # Archive Data
-  archive_data_heading: Archive Data
-  archive_data_market: History market Data
+  archivedata: Archive Data
+  historicalmarketdata: Historical Market Data
   archive_data_intro: You can get Bybit's <a href="https://public.bybit.com">historical market data here</a>.
 
 
   # Error Definitions
-  Error_heading: Errors
+  errors: Errors
 
   # ENUMs Definitions
-  ENUMs_header: ENUMs Definitions
+  enums: ENUMs Definitions
   ENUMs_para: This is a list of valid options (and rules) for the different parameters when sending a request to the API.
   ## Wallet fund type (`wallet_fund_type`)
   deposit:      ""
@@ -851,7 +854,7 @@ en:
   err_30045: operation not allowed as position is not normal status
   err_30049: insufficient available balance
   err_30050: any adjustments made will trigger immediate liquidation
-  err_30051: due to risk limit, cannot adjust leverage 
+  err_30051: due to risk limit, cannot adjust leverage
   err_30052: leverage can not less than 1
   err_30054: position margin is invalid
   err_30057: requested quantity of contracts exceeds risk limit
@@ -861,10 +864,16 @@ en:
   err_34026: the limit is no change
 
 
-    
+
 
   # Misc.
   misc_row_comment_orderLinkIdNotOrderId: Agency customized order ID. <b>Required</b> if not passing order_id
   misc_row_comment_orderLinkIdNotStopOrderId: Agency customized order ID. <b>Required</b> if not passing stop_order_id
   misc_row_comment_orderIdNotOrderLinkId: Order ID. <b>Required</b> if not passing order_link_id
   misc_row_comment_symbolNotOrderId: Contract type. <b>Required</b> if not passing order_id
+  default: Default
+  # fix problem of nested common subheadings
+  httprequest1: HTTP Request
+  requestparameters1: Request Parameters
+  httprequest2: HTTP Request
+  requestparameters2: Request Parameters
