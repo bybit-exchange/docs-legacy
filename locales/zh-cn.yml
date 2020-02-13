@@ -29,7 +29,7 @@ zh-cn:
   row_comment_limit: 每页数量, 最大50. 默认每页20条
   row_comment_orderType: 订单类型
   row_comment_qty: 委托数量(1个委托1美元)，只能为正整数
-  row_comment_price: 委托价格。如果是下<b>限价单</b>，该参数为<b>必填</b>. 在没有仓位时，做多的委托价格需高于市价的10%、低于1百万。如有仓位时则需优于强平价。价格增减最小单位请参考<a href="#t-marketdata-t-constructingtherequest-t-querysymbol">交易对接口</a>响应中的<b>price_filter</b>字段
+  row_comment_price: 委托价格。如果是下<b>限价单</b>，该参数为<b>必填</b>. 在没有仓位时，做多的委托价格需高于市价的10%、低于1百万。如有仓位时则需优于强平价。价格增减最小单位请参考<a href="#t-querysymbol">交易对接口</a>响应中的<b>price_filter</b>字段
   row_comment_stopOrderPrice: 条件委托执行价格。如果条件委托是限价单，则price为必传字段
   row_comment_basePrice: 当前市价。用于和stop_px值进行比较，确定当前条件委托是看空到<code>stop_px</code>时触发还是看多到stop_px触发。主要是用来标识当前条件单预期的方向
   row_comment_stopPx: 条件委托下单时市价
@@ -61,13 +61,13 @@ zh-cn:
   row_comment_consume: 消耗
   row_comment_order: 按创建时间排序
   default: 默认
-  enum_withdraw_status: <a href="#t-enums_header-withdraw-status-status">提币状态枚举</a>
-  enum_coin: <a href="#t-enums_header-currency-currency-coin">币种枚举</a>
-  enum_side: <a href="#t-enums_header-side-side">方向枚举</a>
-  enum_symbol: <a href="#t-enums_header-symbol-symbol">交易对枚举</a>
-  enum_order_type: <a href="#t-enums_header-order-type-order_type">订单类型枚举</a>
-  enum_exec_type: <a href="#t-enums_header-exec-type-exec_type">交易类型枚举</a>
-  enum_Liquidity_type: <a href="#t-enums_header-liquidity-type-last_liquidity_ind">流动性类型枚举</a>
+  enum_withdraw_status: <a href="#withdraw-status-status">提币状态枚举</a>
+  enum_coin: <a href="#currency-currency-coin">币种枚举</a>
+  enum_side: <a href="#side-side">方向枚举</a>
+  enum_symbol: <a href="#symbol-symbol">交易对枚举</a>
+  enum_order_type: <a href="#order-type-order_type">订单类型枚举</a>
+  enum_exec_type: <a href="#exec-type-exec_type">交易类型枚举</a>
+  enum_Liquidity_type: <a href="#liquidity-type-last_liquidity_ind">流动性类型枚举</a>
   errorcode_meaning: 含义
 
   # introduction in index.html.md
@@ -151,7 +151,7 @@ zh-cn:
   auth_para_recv : |
     另外我们提供可选的<code>recv_window</code>参数（单位是毫秒，默认值为<code>5000</code>），来指定请求在多长时间内有效，同时用来防止重放攻击。
   auth_aside_timestamp: |
-    注意，timestamp参数必须符合如下规则: <b>server_time - recv_window <= timestamp < server_time + 1000</b>，其中server_time是Bybit服务器时间，您可以通过<a href="#t-api-t-wallet_setrisk-t-servertime">服务器时间接口</a>获取。
+    注意，timestamp参数必须符合如下规则: <b>server_time - recv_window <= timestamp < server_time + 1000</b>，其中server_time是Bybit服务器时间，您可以通过<a href="#t-servertime">服务器时间接口</a>获取。
   constructingtherequest: 构建请求
   auth_codequote_construct1a:
     拼接参数示例（以修改杠杆接口为例）：
@@ -200,13 +200,13 @@ zh-cn:
   ## Active Orders
   activeorders: 活动单
   ### Place Active Order V2
-  placeactive: 创建活动委托单
+  placev2active: 创建活动委托单
   account_para_placeActive: |
     <p>市价活动委托: 一个传统的市场价格订单,会以当前的最优价格为您成交订单。当且仅当选择市价单时，<code>price</code>可为空！</p>
     <p>限价活动委托: 您可以为您的订单设置一个执行价格，当市场价格达到您的设置价格时，系统会为您成交订单。</p>
     <p><b>止盈止损: 您仅能在开仓时设置止盈止损条件单，一旦持有仓位后提交活动委托时关联的止盈止损则不会生效。</b></p>
     <p>委托数量: 表示您要购买/卖出的永续合约数，对于委托数量目前Bybit只允许提交正整数。</p>
-    <p>委托价格: 如果是下<b>限价单</b>，该参数为<b>必填</b>. 在没有仓位时，做多的委托价格需高于市价的10%、低于1百万。如有仓位时则需优于强平价。价格增减最小单位请参考<a href="#t-marketdata-t-constructingtherequest-t-querysymbol">交易对接口</a>响应中的<b>price_filter</b>字段。</p>
+    <p>委托价格: 如果是下<b>限价单</b>，该参数为<b>必填</b>. 在没有仓位时，做多的委托价格需高于市价的10%、低于1百万。如有仓位时则需优于强平价。价格增减最小单位请参考<a href="#t-querysymbol">交易对接口</a>响应中的<b>price_filter</b>字段。</p>
     <p>自定义条件单ID: 您可以自定义活动委托订单ID，我们会为您关联到系统的订单ID，并把系统的唯一订单ID在活动委托创建成功后一并返回给您，您可以使用该订单ID去取消活动委托，同时要求您传递的自定义订单ID<code>最大长度不超过36个字段且唯一</code>。</p>
     <p><b>每个账户最多可同时持有500个活动订单。这是针对合约的，因此可以允许出现例如：账户同时持有300个BTCUSD的活动单、280个ETHUSD合约的活动单。</b></p>
     <p><b>当您达到订单上限的时候的时候，仍然可以下单设置了参数<code>reduce_only</code> 或 <code>closeOnTrigger</code>的订单。</b></p>
@@ -214,7 +214,7 @@ zh-cn:
   getactive: 查询活动委托
   account_para_getActive: |
     <p>获取我的活动委托单列表。</p>
-    <p>创建/取消订单是异步的，因此<b>该接口可能返回的数据可能会有延迟</b>。如果要获取订单的实时信息，可以调用接口<a href="#t-accountdata-t-activeorders-t-query active">实时查询活动单信息</a>.</p>
+    <p>创建/取消订单是异步的，因此<b>该接口可能返回的数据可能会有延迟</b>。如果要获取订单的实时信息，可以调用接口<a href="#t-queryactive">实时查询活动单信息</a>.</p>
   account_row_comment_orderId: 订单ID
   account_row_comment_orderStatus: 指定订单状态查询订单列表。不传该参数则默认查询所有状态订单。该参数支持多状态查询，状态之间用英文逗号分割。
   ### Cancel Active Order V2
@@ -236,7 +236,7 @@ zh-cn:
   account_aside_replaceActive:
     请注意，只有未成交或未完全成交的订单才可以被修改。
   ### Query Active Order (real-time)
-  query active: 实时查询活动委托
+  queryactive: 实时查询活动委托
   account_para_queryActive: 实时查询活动委托
 
   ## Conditional Orders
@@ -249,7 +249,7 @@ zh-cn:
     <p>限价条件委托: 您可以为您的订单设置一个执行价格，当市场价格达到您的设置价格时，系统会为您成交订单。</p>
     <p>止盈止损: 您仅能在开仓时设置止盈止损条件单，一旦持有仓位后提交活动委托时关联的止盈止损则不再有效。一旦持仓后，当创建订单后发送的止盈止损信息将不再有效。</p>
     <p>委托数量: 表示您要购买/卖出的永续合约数，对于委托数量目前Bybit只允许提交正整数。</p>
-    <p>委托价格: 表示您期望购买/卖出永续合约的价格，可以根据<a href="#t-marketdata-t-constructingtherequest-t-querysymbol">交易对接口</a>查询不同symbol价格阶梯。</p>
+    <p>委托价格: 表示您期望购买/卖出永续合约的价格，可以根据<a href="#t-querysymbol">交易对接口</a>查询不同symbol价格阶梯。</p>
     <p>条件委托触发价格: 您可以为您的条件委托单设置一个触发价格，条件委托单不进入委托表（Order Book)，只有触发条件成立如市场价格到达触发价格时，条件委托单才会进入交易系统。当市场价格到达触发价格：1）您的限价条件委托单进入Order Book，等待被执行；2）您的市价条件委托单将按照市场最优价格立即被执行。</p>
     <p>自定义条件单ID: 您可以自定义活动委托订单ID，我们会为您关联到系统的订单ID，并把系统的唯一订单ID在活动委托创建成功后一并返回给您，您可以使用该订单ID去取消活动委托，同时要求您传递的自定义订单ID最大长度不超过36个字段且唯一。</p>
   account_aside_placeCond:
@@ -258,7 +258,7 @@ zh-cn:
   getcond: 查询条件委托
   account_para_getCond:
     <p>获取我的条件委托单列表。</p>
-    <p>创建/取消订单是异步的，因此<b>该接口可能返回的数据可能会有延迟</b>。如果要获取订单的实时信息，可以调用接口<a href="#t-accountdata-t-conditionalorders-t-querycond">实时查询条件单信息</a>。</p>
+    <p>创建/取消订单是异步的，因此<b>该接口可能返回的数据可能会有延迟</b>。如果要获取订单的实时信息，可以调用接口<a href="#t-querycond">实时查询条件单信息</a>。</p>
   ### Cancel Conditional Order
   cancelcond: 撤消条件委托单
   account_para_cancelCond: |
@@ -296,7 +296,7 @@ zh-cn:
   ### Change Margin
   changemargin: 更新保证金
   account_para_changeMargin: 更新保证金。
-  account_aside_changeMargin: 如果当前为全仓模式则不能调整保证金。请查看<a href="#t-accountdata-t-leverage-t-changeleverage">修改杠杆</a>了解更多信息。
+  account_aside_changeMargin: 如果当前为全仓模式则不能调整保证金。请查看<a href="#t-changeleverage">修改杠杆</a>了解更多信息。
   ### Set Trading-Stop
   tradingstop: 设置止盈止损
   account_para_tradingStop: 设置止盈止损。
@@ -304,6 +304,9 @@ zh-cn:
   account_row_comment_takeProfit: 不小于0,如果等于0则是取消止盈(TP)
   account_row_comment_stopLoss: 不小于0,如果等于0则是取消止损(SL)
   account_row_comment_trailingStop: 不小于0,如果等于0则是取消追踪止损(TS)
+
+  ## Risklimit
+  risklimit: 风险限额
 
   ## Funding
   funding: 资金费率
@@ -332,7 +335,7 @@ zh-cn:
   ### 资金记录
   walletrecords: 资金记录
   wallet_para_walletRecords: 查询资金记录。
-  wallet_aside_walletRecords: 关于<code>Withdraw</code>和<code>Refund</code>类型数据的说明，请参考<a href="#t-wallet-t-key-t-withdrawrecords">提币记录</a>接口
+  wallet_aside_walletRecords: 关于<code>Withdraw</code>和<code>Refund</code>类型数据的说明，请参考<a href="#t-withdrawrecords">提币记录</a>接口
   ### Withdraw Records
   withdrawrecords: 提币记录
   wallet_para_withdrawRecords: 查询提币记录。
@@ -405,7 +408,7 @@ zh-cn:
   raisemylimit: 如何提高频率限制
   rate_para_raise: |
     <ul>
-    <li>请先阅读<a href="#understanding-bybit-39-s-liquidity-system">如何满足提高频率限制条件</a></li>
+    <li>请先阅读<a href="#t-raisemylimit">如何满足提高频率限制条件</a></li>
     <li>请发送邮件到 <a href="mailto:api@bybit.com">api@bybit.com</a>. 我们会在 1-4 个工作日内答复.</li>
     </ul>
   ### Understanding Bybit's Liquidity System
@@ -546,7 +549,7 @@ zh-cn:
   websocket_para_methods: 如右侧代码区所示，一共有两种验证方法.
   websocket_aside_signature: 点击查看 <a href="https://github.com/bybit-exchange/bybit-official-api-docs/tree/master/en/example">示例加密算法</a>.
   websocket_best_practices: 由于网络的复杂性，您和Bybit的websocket链接随时可能会断开，为了保证您能及时收到websocket推送消息，强烈建议您按照以下建议处理网络异常：
-    <p>1. 通过<a href="#t-websocket-t-heartbeat">发送心跳包</a>保持连接</p>
+    <p>1. 通过<a href="#t-heartbeat">发送心跳包</a>保持连接</p>
     <p>2. 一旦发现连接断开，应该立刻重新建立连接。</p>
   ## How to Send the Heartbeat Packet
   heartbeat: 心跳包/Ping
@@ -581,27 +584,27 @@ zh-cn:
   ## Public Topics
   publictopics: 公共 Topics
   ### orderBookL2_25
-  orderbook25: orderBookL2_25
+  websocketorderbook25: orderBook25档
   websocket_para_orderbook251: 获取25档orderbook数据.
-  orderbookL2_200_link: 想要更多深度？请使用<a href="#t-websocket-t-publictopics-t-orderbook200">orderBookL2_200</a> topic
+  orderbookL2_200_link: 想要更多深度？请使用<a href="#t-websocketorderbook200">orderBookL2_200</a> topic
   websocket_para_orderbook252: |
     <p>订阅成功后, 会立即得到一个当前快照包的推送信息. orderbook数据按订单价格升序排列, 从最低价格的买单到最高价格的卖单.</p>
     <p>快照包之后，每当orderbook发生变化，websocket都会推送这些变化的增量数据.</p>
   ### orderBookL2_200
-  orderbook200: orderBookL2_200
+  websocketorderbook200: orderBook200档
   websocket_para_orderbook200: |
     <p>获取200档orderbook数据.</p>
     <p>订阅成功后, 会立即得到一个当前快照包的推送信息. orderbook数据按订单价格升序排序, 从最低价格的买单到最高价格的卖单.</p>
     <p>快照包之后，每当orderbook发生变化，websocket将会继续推送这些增量数据.</p>
   ### trade
-  trade: trade
+  websockettrade: 平台成交
   websocket_para_trade: 获取Bybit平台最近成交数据.
   ### insurance
-  insurance: insurance
+  websocketinsurance: 保险基金
   websocket_para_insurance: 获取保险基金数据.
   websocket_aside_insurance: 注意<code>wallet_balance</code>的单位为<code>聪</code>, 1聪等于一百万分之一个比特币.
   ### instrument_info
-  instrumentInfo: instrument_info
+  websocketinstrumentInfo: 行情
   websocket_para_instrumentInfo: 获取合约的最新数据.
   websocket_aside_instrumentInfo1: |
     注意，该topic只会推送<code>update</code>数据. <code>delete</code>和<code>insert</code>数据都为空. 如果<code>update</code>数据也为空,则表明信息没有发生变化.
@@ -609,7 +612,7 @@ zh-cn:
     一些值以以科学计数法的形式被返回. 根据这个值的key的后缀, 如<code>total_turnover_e8</code>,则表明这个数字需要除以10^8. <br/>
     例如<code>last_price_e4</code>的值为<code>81585000</code>, 那么<code>81585000 / 10^4</code>,等于<code>8158.5</code>才是这个字段的真实值.
   ### klineV2
-  klineV2: klineV2
+  websocketklineV2: K线
   websocket_para_klineV2: |
     <p>目前所支持的周期:</p>
     <ul>
@@ -626,13 +629,13 @@ zh-cn:
   ## Private Topics
   privatetopics: 私有 Topics
   ### position
-  websocketposition: position
+  websocketposition: 持仓
   ### execution
-  execution: execution
+  websocketexecution: 个人成交
   ### order
-  order: order
+  websocketorder: 活动单
   ### stop_order
-  stoporder: stop_order
+  websocketstoporder: 条件单
 
   # Archive Data
   archivedata: 归档数据
@@ -723,7 +726,7 @@ zh-cn:
   markPrice:  ""
 ## Order status (`order_status`) (creation)
   aside_orderStatusCreation: |
-    These are the possible values for <code>order_status</code> as included in the response of an <b>Order Creation</b> request. To see the options for <code>order_status</code> in the response for a Get Active/Conditional request, see <a href="#t-enums_header-order-status-order_status-get">here</a>.
+    These are the possible values for <code>order_status</code> as included in the response of an <b>Order Creation</b> request. To see the options for <code>order_status</code> in the response for a Get Active/Conditional request, see <a href="#order-status-order_status-get">here</a>.
   created:          ""
   new:              ""
   partiallyFilled:  ""
@@ -736,7 +739,7 @@ zh-cn:
   asc:  ""
 ## Order status (`order_status`) (get)
   aside_orderStatusGet: |
-    These are the possible values for <code>order_status</code> as included in the response of a <b>Get Order</b> request. To see the options for <code>order_status</code> in the response for a Create Active/Conditional request, see <a href="#t-enums_header-order-status-order_status-creation">here</a>.
+    These are the possible values for <code>order_status</code> as included in the response of a <b>Get Order</b> request. To see the options for <code>order_status</code> in the response for a Create Active/Conditional request, see <a href="#order-status-order_status-creation">here</a>.
   para_orderStatusGet: |
     Filter fetched orders by their order statuses. To filter by multiple statuses, separate with a comma like so: <code>Filled,New</code>
   created1:         ""
@@ -774,8 +777,8 @@ zh-cn:
   createByTakeOver_PassThrough: "- Created by liquidation takeover"
   ## Exec type (`exec_type`)
   trade: "普通交易"
-  adlTrade: "资金费率"
-  funding: "自动减仓"
+  adlTrade: "自动减仓"
+  funding: "资金费率"
   bustTrade: "强制平仓"
   # Error Code
   err_10001: 参数错误

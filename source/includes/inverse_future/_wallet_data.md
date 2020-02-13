@@ -60,7 +60,7 @@ GET
 #### t(:requestparameters1)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#t-enums_header-currency-currency-coin">coin</a> |true |string |t(:row_comment_coin) |
+|<a href="#currency-currency-coin">coin</a> |true |string |t(:row_comment_coin) |
 
 
 ### t(:walletrecords)
@@ -125,9 +125,9 @@ GET
 |:----- |:-------|:-----|----- |
 |start_date |false |string |t(:row_comment_startDate) |
 |end_date |false |string |t(:row_comment_endDate) |
-|<a href="#t-enums_header-currency-currency-coin">currency</a> |false |string |t(:row_comment_currency) |
-|<a href="#t-enums_header-currency-currency-coin">coin</a> |false |string |t(:row_comment_coin) |
-|<a href="#t-enums_header-wallet-fund-type-wallet_fund_type">wallet_fund_type</a> |false |string |t(:row_comment_walletFundType) |
+|<a href="#currency-currency-coin">currency</a> |false |string |t(:row_comment_currency) |
+|<a href="#currency-currency-coin">coin</a> |false |string |t(:row_comment_coin) |
+|<a href="#wallet-fund-type-wallet_fund_type">wallet_fund_type</a> |false |string |t(:row_comment_walletFundType) |
 |page |false |integer |t(:row_comment_page) |
 |limit |false |integer |t(:row_comment_limit) |
 
@@ -180,8 +180,8 @@ GET
 |:----- |:-------|:-----|----- |
 |start_date |false |string |t(:row_comment_startDate) |
 |end_date |false |string |t(:row_comment_endDate) |
-|<a href="#t-enums_header-currency-currency-coin">coin</a> |false |string |t(:row_comment_currency) |
-|<a href="#t-enums_header-withdraw-status-status">status</a> |false |string |t(:row_comment_withdrawStatus) |
+|<a href="#currency-currency-coin">coin</a> |false |string |t(:row_comment_currency) |
+|<a href="#withdraw-status-status">status</a> |false |string |t(:row_comment_withdrawStatus) |
 |page |false |integer |t(:row_comment_page) |
 |limit |false |integer |t(:row_comment_limit) |
 
@@ -245,163 +245,7 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |order_id |false |string |t(:wallet_row_comment_orderId) |
-|<a href="#t-enums_header-symbol-symbol">symbol</a> |false |string |t(:misc_row_comment_symbolNotOrderId) |
+|<a href="#symbol-symbol">symbol</a> |false |string |t(:misc_row_comment_symbolNotOrderId) |
 |start_time |false |int |t(:row_comment_startTime) |
 |page |false |integer |t(:row_comment_page) |
 |limit |false |integer |t(:row_comment_limit) |
-
-
-## t(:getrisklimit)
-> t(:codequote_responseExample)
-
-```javascript
-{
-  "ret_code": 0,
-  "ret_msg": "ok",
-  "ext_code": "",
-  "result": [
-    {
-      "id": 1,
-      "coin": "BTC",
-      "limit": 150,
-      "maintain_margin": "0.50",
-      "starting_margin": "1.00",
-      "section": [
-        "1",
-        "2",
-        "3",
-        "5",
-        "10",
-        "25",
-        "50",
-        "100"
-      ],
-      "is_lowest_risk": 1,
-      "created_at": "2018-11-09T13:53:04.000Z",
-      "updated_at": "2018-11-09T13:53:04.000Z"
-    },
-    {
-      "id": 11,
-      "coin": "ETH",
-      "limit": 3000,
-      "maintain_margin": "1.00",
-      "starting_margin": "2.00",
-      "section": [
-        "1",
-        "2",
-        "3",
-        "5",
-        "15",
-        "30",
-        "40",
-        "50"
-      ],
-      "is_lowest_risk": 1,
-      "created_at": "2019-01-25T08:31:54.000Z",
-      "updated_at": "2019-01-25T08:31:54.000Z"
-    }
-  ],
-  "ext_info": null,
-  "time_now": "1577587907.157396",
-  "rate_limit_status": 99,
-  "rate_limit_reset_ms": 1577587907162,
-  "rate_limit": 100
-}
-```
-
-t(:wallet_para_getRisk)
-
-<aside class="notice">
-t(:wallet_aside_getRisk)
-</aside>
-
-#### t(:httprequest1)
-GET
-<code><span id=oawrlList>/open-api/wallet/risk-limit/list</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawrlList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-#### t(:requestparameters1)
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-
-
-## t(:setrisklimit)
-> t(:codequote_responseExample)
-
-```javascript
-{
-  "ret_code": 0,
-  "ret_msg": "ok",
-  "ext_code": "",
-  "result": {
-    "position": {
-      "id": 1,
-      "user_id": 1,
-      "symbol": "BTCUSD",
-      "side": "None",
-      "size": 0,
-      "position_value": 0,
-      "entry_price": 0,
-      "risk_id": 2,
-      "auto_add_margin": 0,
-      "leverage": 1,
-      "position_margin": 0,
-      "liq_price": 0,
-      "bust_price": 0,
-      "occ_closing_fee": 0,
-      "occ_funding_fee": 0,
-      "take_profit": 0,
-      "stop_loss": 0,
-      "trailing_stop": 0,
-      "position_status": "Normal",
-      "deleverage_indicator": 0,
-      "oc_calc_data": "{\"blq\":1,\"blv\":\"0.000125\",\"slq\":0,\"bmp\":8000,\"smp\":0,\"fc\":-0.00012529,\"bv2c\":1.00225,\"sv2c\":1.0007575}",
-      "order_margin": 0.00012529,
-      "wallet_balance": 1000,
-      "realised_pnl": 0,
-      "cum_realised_pnl": 0,
-      "cum_commission": 0,
-      "cross_seq": 4376,
-      "position_seq": 13689,
-      "created_at": "2019-08-13T06:51:29.000Z",
-      "updated_at": "2019-12-29T03:11:08.000Z",
-      "ext_fields": {
-        "v": 4
-      }
-    },
-    "risk": {
-      "id": 2,
-      "coin": "BTC",
-      "limit": 300,
-      "maintain_margin": "1.00",
-      "starting_margin": "1.50",
-      "section": "[\"1\",\"2\",\"3\",\"5\",\"10\",\"25\",\"50\",\"66\"]",
-      "is_lowest_risk": 0,
-      "created_at": "2019-06-26T05:46:45.000Z",
-      "updated_at": "2019-06-26T05:46:55.000Z"
-    }
-  },
-  "ext_info": null,
-  "time_now": "1577589068.435439",
-  "rate_limit_status": 71,
-  "rate_limit_reset_ms": 1577589068546,
-  "rate_limit": 75
-}
-```
-
-t(:wallet_para_setRisk)
-
-<aside class="notice">
-t(:wallet_aside_getRisk)
-</aside>
-
-#### t(:httprequest1)
-GET
-<code><span id=oawRiskLimit>/open-api/wallet/risk-limit</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawRiskLimit"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-#### t(:requestparameters1)
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
-|risk_id |true |integer |t(:row_comment_riskId) |

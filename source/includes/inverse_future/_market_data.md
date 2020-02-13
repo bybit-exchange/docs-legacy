@@ -48,7 +48,7 @@ GET
 #### t(:requestparameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 
 
 ### t(:latestsymbolinfo)
@@ -107,7 +107,7 @@ GET
 #### t(:requestparameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#t-enums_header-symbol-symbol">symbol</a> |false |string |t(:row_comment_symbol) |
+|<a href="#symbol-symbol">symbol</a> |false |string |t(:row_comment_symbol) |
 
 
 ### t(:publictradingrecords)
@@ -149,7 +149,7 @@ GET
 #### t(:requestparameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 |from |false |int |t(:row_comment_from)|
 |limit |false |int |Number of results. Default 500; max 1000|
 

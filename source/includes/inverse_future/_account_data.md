@@ -49,12 +49,12 @@ POST
 #### t(:requestparameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#t-enums_header-side-side">side</a> |true |string |t(:row_comment_side)    |
-|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)   |
-|<a href="#t-enums_header-order-type-order_type">order_type</a> |true |string |t(:row_comment_activeOrderType)   |
-|<a href="#t-enums_header-quantity-qty">qty</a> |true |integer |t(:row_comment_qty) |
-|<a href="#t-enums_header-price-price">price</a> |false |number |t(:row_comment_price) |
-|<a href="#t-enums_header-time-in-force-time_in_force">time_in_force</a> |true |string |t(:row_comment_timeInForce) |
+|<a href="#side-side">side</a> |true |string |t(:row_comment_side)    |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)   |
+|<a href="#order-type-order_type">order_type</a> |true |string |t(:row_comment_activeOrderType)   |
+|<a href="#quantity-qty">qty</a> |true |integer |t(:row_comment_qty) |
+|<a href="#price-price">price</a> |false |number |t(:row_comment_price) |
+|<a href="#time-in-force-time_in_force">time_in_force</a> |true |string |t(:row_comment_timeInForce) |
 |take_profit |false |number |t(:row_comment_takeProfit) |
 |stop_loss |false |number |t(:row_comment_stopLoss) |
 |reduce_only |false |bool |t(:row_comment_reduceOnly) |
@@ -154,11 +154,11 @@ GET
 |:----- |:-------|:-----|----- |
 |order_id |false |string |t(:account_row_comment_orderId) |
 |order_link_id |false |string |t(:row_comment_orderLinkId) |
-|<a href="#t-enums_header-symbol-symbol">symbol</a> |false |string |t(:row_comment_symbol). t(:default) `BTCUSD` |
+|<a href="#symbol-symbol">symbol</a> |false |string |t(:row_comment_symbol). t(:default) `BTCUSD` |
 |order |false |string |t(:row_comment_order)  |
 |page |false |integer |t(:row_comment_page) |
 |limit |false |integer |t(:row_comment_limit) |
-|<a href="#t-enums_header-order-status-order_status-get">order_status</a> |false |string |t(:account_row_comment_orderStatus) |
+|<a href="#order-status-order_status-get">order_status</a> |false |string |t(:account_row_comment_orderStatus) |
 
 
 ### t(:cancelv2active)
@@ -209,7 +209,7 @@ POST
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 |order_id |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
 |order_link_id |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
 
@@ -265,7 +265,7 @@ POST
 #### t(:requestparameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string | t(:row_comment_symbol) |
+|<a href="#symbol-symbol">symbol</a> |true |string | t(:row_comment_symbol) |
 
 
 ### t(:replaceactive)
@@ -301,7 +301,7 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |order_id |true |string |t(:row_comment_orderId) |
-|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol). |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol). |
 |p_r_qty |false |int |t(:row_comment_pRQty) |
 |p_r_price |false |number |t(:row_comment_pRPrice) |
 
@@ -357,7 +357,7 @@ GET
 |:----- |:-------|:-----|----- |
 |order_id |false |string | t(:misc_row_comment_orderIdNotOrderLinkId)|
 |order_link_id |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
-|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 
 
 ## t(:conditionalorders)
@@ -422,15 +422,15 @@ POST
 #### t(:requestparameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#t-enums_header-side-side">side</a> |true |string |t(:row_comment_side)    |
-|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
-|<a href="#t-enums_header-order-type-order_type">order_type</a> |true |string |t(:row_comment_stopOrderType) |
-|<a href="#t-enums_header-quantity-qty">qty</a> |true |integer |t(:row_comment_qty) |
-|<a href="#t-enums_header-price-price">price</a> |false | number |t(:row_comment_stopOrderPrice) |
+|<a href="#side-side">side</a> |true |string |t(:row_comment_side)    |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
+|<a href="#order-type-order_type">order_type</a> |true |string |t(:row_comment_stopOrderType) |
+|<a href="#quantity-qty">qty</a> |true |integer |t(:row_comment_qty) |
+|<a href="#price-price">price</a> |false | number |t(:row_comment_stopOrderPrice) |
 |base_price |true |number | t(:row_comment_basePrice) |
 |stop_px | true | number | t(:row_comment_stopPx) |
-|<a href="#t-enums_header-time-in-force-time_in_force">time_in_force</a> |true |string |t(:row_comment_timeInForce) |
-|<a href="#t-enums_header-trigger-price-type-trigger_by">trigger_by</a> | false | string | t(:row_comment_triggerBy)|
+|<a href="#time-in-force-time_in_force">time_in_force</a> |true |string |t(:row_comment_timeInForce) |
+|<a href="#trigger-price-type-trigger_by">trigger_by</a> | false | string | t(:row_comment_triggerBy)|
 |close_on_trigger |false |bool |t(:row_comment_closeOnTrigger)
 |order_link_id |false |string |t(:row_comment_orderLinkId) |
 
@@ -505,8 +505,8 @@ GET
 |:----- |:-------|:-----|----- |
 |stop_order_id |false |string |t(:row_comment_stopOrderId) |
 |order_link_id |false |string |t(:row_comment_orderLinkId)|
-|<a href="#t-enums_header-symbol-symbol">symbol</a> |false |string |t(:row_comment_symbol). Default `BTCUSD`    |
-|<a href="#t-enums_header-stop-order-status-stop_order_status">stop_order_status</a> |false |string |t(:row_comment_stopOrderStatus)|
+|<a href="#symbol-symbol">symbol</a> |false |string |t(:row_comment_symbol). Default `BTCUSD`    |
+|<a href="#stop-order-status-stop_order_status">stop_order_status</a> |false |string |t(:row_comment_stopOrderStatus)|
 |order |false |string |t(:row_comment_order) |
 |page |false |integer |t(:row_comment_page) |
 |limit |false |integer |t(:row_comment_limit) |
@@ -556,7 +556,7 @@ POST
 #### t(:requestparameters)
 |t(:column_parameter)|required|type | comments|
 |:----- |:-------|:-----|----- |
-|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)|
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)|
 |stop_order_id |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
 |order_link_id |false |string | t(:misc_row_comment_orderLinkIdNotStopOrderId)|
 
@@ -639,7 +639,7 @@ POST
 #### t(:requestparameters)
 |t(:column_parameter)|required|type | comments|
 |:----- |:-------|:-----|----- |
-|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)|
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)|
 
 ### t(:replacecond)
 > t(:codequote_responseExample)
@@ -677,7 +677,7 @@ POST
 |:----- |:-------|:-----|----- |
 |stop_order_id |true |string |t(:row_comment_stopOrderId) |
 |order_id |true |string |t(:comment_abandoned) t(:row_comment_stopOrderId) |
-|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol). |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol). |
 |p_r_qty |false |int |t(:row_comment_pRQty) |
 |p_r_price |false |number |t(:row_comment_pRPrice) |
 |p_r_trigger_price |false |number |t(:row_comemnt_pRTriggerPrice) |
@@ -730,7 +730,7 @@ GET
 #### t(:requestparameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 |stop_order_id |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
 |order_link_id |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
 
@@ -809,7 +809,7 @@ POST
 #### t(:requestparameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
 |leverage |true |string |t(:row_comment_leverage) |
 
 
@@ -872,7 +872,7 @@ GET
 #### t(:requestparameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
 
 
 ### t(:changemargin)
@@ -906,7 +906,7 @@ POST
 #### t(:requestparameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
 |margin |true |string |t(:row_comment_margin)  |
 
 
@@ -977,11 +977,167 @@ POST
 #### t(:requestparameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 |take_profit |false |string |t(:account_row_comment_takeProfit) |
 |stop_loss |false |string |t(:account_row_comment_stopLoss) |
 |trailing_stop |false |string |t(:account_row_comment_trailingStop) |
 
+## t(:risklimit)
+
+### t(:getrisklimit)
+> t(:codequote_responseExample)
+
+```javascript
+{
+  "ret_code": 0,
+  "ret_msg": "ok",
+  "ext_code": "",
+  "result": [
+    {
+      "id": 1,
+      "coin": "BTC",
+      "limit": 150,
+      "maintain_margin": "0.50",
+      "starting_margin": "1.00",
+      "section": [
+        "1",
+        "2",
+        "3",
+        "5",
+        "10",
+        "25",
+        "50",
+        "100"
+      ],
+      "is_lowest_risk": 1,
+      "created_at": "2018-11-09T13:53:04.000Z",
+      "updated_at": "2018-11-09T13:53:04.000Z"
+    },
+    {
+      "id": 11,
+      "coin": "ETH",
+      "limit": 3000,
+      "maintain_margin": "1.00",
+      "starting_margin": "2.00",
+      "section": [
+        "1",
+        "2",
+        "3",
+        "5",
+        "15",
+        "30",
+        "40",
+        "50"
+      ],
+      "is_lowest_risk": 1,
+      "created_at": "2019-01-25T08:31:54.000Z",
+      "updated_at": "2019-01-25T08:31:54.000Z"
+    }
+  ],
+  "ext_info": null,
+  "time_now": "1577587907.157396",
+  "rate_limit_status": 99,
+  "rate_limit_reset_ms": 1577587907162,
+  "rate_limit": 100
+}
+```
+
+t(:wallet_para_getRisk)
+
+<aside class="notice">
+t(:wallet_aside_getRisk)
+</aside>
+
+#### t(:httprequest1)
+GET
+<code><span id=oawrlList>/open-api/wallet/risk-limit/list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawrlList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+#### t(:requestparameters1)
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+
+
+### t(:setrisklimit)
+> t(:codequote_responseExample)
+
+```javascript
+{
+  "ret_code": 0,
+  "ret_msg": "ok",
+  "ext_code": "",
+  "result": {
+    "position": {
+      "id": 1,
+      "user_id": 1,
+      "symbol": "BTCUSD",
+      "side": "None",
+      "size": 0,
+      "position_value": 0,
+      "entry_price": 0,
+      "risk_id": 2,
+      "auto_add_margin": 0,
+      "leverage": 1,
+      "position_margin": 0,
+      "liq_price": 0,
+      "bust_price": 0,
+      "occ_closing_fee": 0,
+      "occ_funding_fee": 0,
+      "take_profit": 0,
+      "stop_loss": 0,
+      "trailing_stop": 0,
+      "position_status": "Normal",
+      "deleverage_indicator": 0,
+      "oc_calc_data": "{\"blq\":1,\"blv\":\"0.000125\",\"slq\":0,\"bmp\":8000,\"smp\":0,\"fc\":-0.00012529,\"bv2c\":1.00225,\"sv2c\":1.0007575}",
+      "order_margin": 0.00012529,
+      "wallet_balance": 1000,
+      "realised_pnl": 0,
+      "cum_realised_pnl": 0,
+      "cum_commission": 0,
+      "cross_seq": 4376,
+      "position_seq": 13689,
+      "created_at": "2019-08-13T06:51:29.000Z",
+      "updated_at": "2019-12-29T03:11:08.000Z",
+      "ext_fields": {
+        "v": 4
+      }
+    },
+    "risk": {
+      "id": 2,
+      "coin": "BTC",
+      "limit": 300,
+      "maintain_margin": "1.00",
+      "starting_margin": "1.50",
+      "section": "[\"1\",\"2\",\"3\",\"5\",\"10\",\"25\",\"50\",\"66\"]",
+      "is_lowest_risk": 0,
+      "created_at": "2019-06-26T05:46:45.000Z",
+      "updated_at": "2019-06-26T05:46:55.000Z"
+    }
+  },
+  "ext_info": null,
+  "time_now": "1577589068.435439",
+  "rate_limit_status": 71,
+  "rate_limit_reset_ms": 1577589068546,
+  "rate_limit": 75
+}
+```
+
+t(:wallet_para_setRisk)
+
+<aside class="notice">
+t(:wallet_aside_getRisk)
+</aside>
+
+#### t(:httprequest1)
+GET
+<code><span id=oawRiskLimit>/open-api/wallet/risk-limit</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawRiskLimit"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+#### t(:requestparameters1)
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|risk_id |true |integer |t(:row_comment_riskId) |
 
 ## t(:funding)
 ### t(:fundingRate)
@@ -1015,7 +1171,7 @@ GET
 #### t(:requestparameters)
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
 
 ### t(:mylastfundingfee)
 > t(:codequote_responseExample)
@@ -1051,7 +1207,7 @@ GET
 #### t(:requestparameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
 
 
 
@@ -1084,7 +1240,7 @@ GET
 #### t(:requestparameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#t-enums_header-symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
 
 
 ## t(:key)

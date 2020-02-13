@@ -60,13 +60,13 @@ en:
   row_comment_rate_limit: limit
   row_comment_path: path
   row_comment_consume: consume
-  enum_withdraw_status: <a href="#t-enums_header-withdraw-status-status">Withdraw Status Enum</a>
-  enum_coin: <a href="#t-enums_header-currency-currency-coin">Coin Enum</a>
-  enum_side: <a href="#t-enums_header-side-side">Side Enum</a>
-  enum_symbol: <a href="#t-enums_header-symbol-symbol">Symbol Enum</a>
-  enum_order_type: <a href="#t-enums_header-order-type-order_type">Order Type Enum</a>
-  enum_exec_type: <a href="#t-enums_header-exec-type-exec_type">Exec Type Enum</a>
-  enum_Liquidity_type: <a href="#t-enums_header-liquidity-type-last_liquidity_ind">Liquidity Enum</a>
+  enum_withdraw_status: <a href="#withdraw-status-status">Withdraw Status Enum</a>
+  enum_coin: <a href="#currency-currency-coin">Coin Enum</a>
+  enum_side: <a href="#side-side">Side Enum</a>
+  enum_symbol: <a href="#symbol-symbol">Symbol Enum</a>
+  enum_order_type: <a href="#order-type-order_type">Order Type Enum</a>
+  enum_exec_type: <a href="#exec-type-exec_type">Exec Type Enum</a>
+  enum_Liquidity_type: <a href="#liquidity-type-last_liquidity_ind">Liquidity Enum</a>
   errorcode_meaning: Meaning
 
   # introduction in index.html.md
@@ -149,7 +149,7 @@ en:
       <li><b>sign</b> - a signature derived from the request's parameters</li>
     </ul>
   auth_aside_timestamp: |
-    Make sure to conform to the timestamp rule of verification or your request will be rejected! Timestamp rule of verification: <b>server_time - recv_window <= timestamp < server_time + 1000</b>; <b>server_time</b> stands for Bybit server time, you can get it from <a href="#t-api-t-wallet_setrisk-t-servertime">Server Time</a> endpoint.
+    Make sure to conform to the timestamp rule of verification or your request will be rejected! Timestamp rule of verification: <b>server_time - recv_window <= timestamp < server_time + 1000</b>; <b>server_time</b> stands for Bybit server time, you can get it from <a href="#t-servertime">Server Time</a> endpoint.
   auth_para_recv : |
     Additionally, we offer the <code>recv_window</code>, which indicates for how long an HTTP request is valid. This should be sent in milliseconds. Default value: 5000. This is used to prevent replay attacks.
   ## Constructing the Request
@@ -203,14 +203,14 @@ en:
     <p>Limit price active order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
     <p><b>Take profit/Stop loss: You may only set a take-profit/stop-loss conditional order upon opening the position. Once you hold a position, any new active order requests which contain TP/SL/TS data will be accepted but TP/SL/TS data will be ignored.</b></p>
     <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell, currently Bybit only support order quantity in an integer.</p>
-    <p>Order price: If it is a condition order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the price_filter field in the <a href="#t-marketdata-t-constructingtherequest-t-querysymbol">transaction</a> response to the interface.</p>
+    <p>Order price: If it is a condition order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the price_filter field in the <a href="#t-querysymbol">transaction</a> response to the interface.</p>
     <p>Custom order ID: You may customise order IDs for active orders. We will link it to the system order ID, and return the unique system order ID to you after the active order is created successfully. You may use this order ID or your custom order ID to cancel your active order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
     <p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSD instrument and 280 active orders on the ETHUSD instrument. And order with parameter <code>reduce_only</code> or <code>closeOnTrigger</code> is unlimited.</b></p>
   ### Get Active Order
   getactive: Get Active Order
   account_para_getActive: |
     <p>Get my active order list.</p>
-    <p>Cause order creation/cancellation is asynchronous, sometimes there is a data dalay in this endpoint. You can get real-time order info in <a href="#t-accountdata-t-activeorders-t-query active">Query Active Order (real-time)</a> endpoint.</p>
+    <p>Cause order creation/cancellation is asynchronous, sometimes there is a data dalay in this endpoint. You can get real-time order info in <a href="#t-queryactive">Query Active Order (real-time)</a> endpoint.</p>
   account_row_comment_orderId: Order ID
   account_row_comment_orderStatus: Query your orders for all statuses if 'order_status' is empty. If you want to query orders with specific statuses, you can pass the order_status split by ','.
   ### Cancel Active Order V2
@@ -246,7 +246,7 @@ en:
     <p>Limit price conditional order: You can set an execution price for your order. Only when last traded price reaches the order price, the system will fill your order.</p>
     <p>Take profit/Stop loss: You may only set a take-profit/stop-loss conditional order upon opening the position. Once you hold a position, the take profit and stop loss information u sent when placing an order will no longer be valid.</p>
     <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell, currently Bybit only support order quantity in an integer.</p>
-    <p>Order price: If it is a condition order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the price_filter field in the <a href="#t-marketdata-t-constructingtherequest-t-querysymbol">transaction</a> response to the interface.</p>
+    <p>Order price: If it is a condition order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the price_filter field in the <a href="#t-querysymbol">transaction</a> response to the interface.</p>
     <p>Conditional order trigger price: You may set a trigger price for your conditional order. conditional order will not enter the order book until the last price hits the trigger price. When last price hits trigger price: 1) your limit conditional order will enter order book, and wait to be executed; 2) your market conditional order will be executed immediately at the best available market price.</p>
     <p>Customize conditional order ID: You may customize order IDs for active orders. We will link it to the system order ID , and return the unique system order ID to you after the active order is created successfully. You may use this order ID to cancel your active order. The customized order ID is asked to be unique, with a maximum length of 36 characters.</p>
 
@@ -257,7 +257,7 @@ en:
   getcond: Get Conditional Order
   account_para_getCond:
     <p>Get my conditional order list.</p>
-    <p>Cause order creation/cancellation is asynchronous, sometimes there is a data dalay in this endpoint. You can get real-time order info in <a href="#t-accountdata-t-conditionalorders-t-querycond">Query Conditional Order (real-time)</a> endpoint.</p>
+    <p>Cause order creation/cancellation is asynchronous, sometimes there is a data dalay in this endpoint. You can get real-time order info in <a href="#t-querycond">Query Conditional Order (real-time)</a> endpoint.</p>
   ### Cancel Conditional Order
   cancelcond: Cancel Conditional Order
   account_para_cancelCond: |
@@ -299,7 +299,7 @@ en:
   ### Change Margin
   changemargin: Change Margin
   account_para_changeMargin: Update margin.
-  account_aside_changeMargin: You cannot change margin when your position is in Cross Margin mode. See the <a href="#change-user-leverage">Change User Leverage</a> endpoint for more.
+  account_aside_changeMargin: You cannot change margin when your position is in Cross Margin mode. See the <a href="#t-changeleverage">Change User Leverage</a> endpoint for more.
   ### Set Trading-Stop
   tradingstop: Set Trading-Stop
   account_para_tradingStop: Set take profit, stop loss, and trailing stop for your open position.
@@ -307,6 +307,9 @@ en:
   account_row_comment_takeProfit: Cannot be less than 0, 0 means cancel TP
   account_row_comment_stopLoss: Cannot be less than 0, 0 means cancel SL
   account_row_comment_trailingStop: Cannot be less than 0, 0 means cancel TS
+
+  ## Risklimit
+  risklimit: Risk Limit
 
   ## Funding
   funding: Funding
@@ -333,7 +336,7 @@ en:
   walletrecords: Wallet Fund Records
   wallet_para_walletRecords: Get wallet fund records.
   wallet_aside_walletRecords: |
-    Find more detail for types <code>Withdraw</code> and <code>Refund</code> in the <a href="#t-wallet-t-key-t-withdrawrecords">Withdraw Records</a> endpoint.
+    Find more detail for types <code>Withdraw</code> and <code>Refund</code> in the <a href="#t-withdrawrecords">Withdraw Records</a> endpoint.
   ### Withdraw Records
   withdrawrecords: Withdraw Records
   wallet_para_withdrawRecords: Get withdrawal records.
@@ -407,7 +410,7 @@ en:
   raisemylimit: How to Raise Your API Limit
   rate_para_raise: |
     <ul>
-    <li>Please read <a href="#understanding-bybit-39-s-liquidity-system">Understanding Bybit&#39;s Liquidity System</a> to understand how our system automatically allocates rate limits for users placing over 2000 orders per day.</li>
+    <li>Please read <a href="#t-raisemylimit">Understanding Bybit&#39;s Liquidity System</a> to understand how our system automatically allocates rate limits for users placing over 2000 orders per day.</li>
     <li>Please send your application email to <a href="mailto:api@bybit.com">api@bybit.com</a>. We will reply in 1-4 working days.</li>
     </ul>
   ### Understanding Bybit's Liquidity System
@@ -544,7 +547,7 @@ en:
   websocket_para_methods: There are two methods of authentication, as shown in the code panel to the right.
   websocket_aside_signature: Example signature algorithms can be found <a href="https://github.com/bybit-exchange/bybit-official-api-docs/tree/master/en/example">here</a>.
   websocket_best_practices: Due to the complexity of the network, program may loss the connection at any time. In order to ensure that you receive messages on time, you should do as the following<span>:</span>
-    <p>1. Keep connection alive by <a href="#t-websocket-t-heartbeat">sending heartbeat packet</a></p>
+    <p>1. Keep connection alive by <a href="#t-heartbeat">sending heartbeat packet</a></p>
     <p>2. Reconnect as soon as the connection is broken</p>
   ## How to Send the Heartbeat Packet
   heartbeat: How to Send the Heartbeat Packet
@@ -579,34 +582,34 @@ en:
   ## Public Topics
   publictopics: Public Topics
   ### orderBookL2_25
-  orderbook25: orderBookL2_25
+  websocketorderbook25: orderBookL2_25
   websocket_para_orderbook251: Fetches the orderbook with a depth of 25 orders per side.
-  orderbookL2_200_link: Want a greater depth? Take a look at the <a href="#t-websocket-t-publictopics-t-orderbook200">orderBookL2_200</a> endpoint.
+  orderbookL2_200_link: Want a greater depth? Take a look at the <a href="#t-websocketorderbook200">orderBookL2_200</a> endpoint.
   websocket_para_orderbook252: |
     <p>After the subscription response, the first response will be the snapshot response. This shows the entire orderbook. The data is ordered by price, starting with the lowest buys and ending with the highest sells.</p>
     <p>Following this, all responses are in the delta format, which represents updates to the orderbook relative to the last response.</p>
   ### orderBookL2_200
-  orderbook200: orderBookL2_200
+  websocketorderbook200: orderBookL2_200
   websocket_para_orderbook200: |
     <p>Fetches the orderbook with a depth of 200 orders per side.</p>
     <p>After the subscription response, the first response will be the snapshot response. This shows the entire orderbook. The data is ordered by price, starting with the lowest buys and ending with the highest sells.</p>
     <p>Following this, all responses are in the delta format, which represents updates to the orderbook relative to the last response.</p>
   ### trade
-  trade: trade
+  websockettrade: trade
   websocket_para_trade: Get real-time trading information.
   ### insurance
-  insurance: insurance
+  websocketinsurance: insurance
   websocket_para_insurance: Get the daily insurance fund update.
   websocket_aside_insurance: The <code>wallet_balance</code> is in Satoshis, with one Satoshi being 100 millionth (<code>100000000</code>) of one Bitcoin.
   ### instrument_info
-  instrumentInfo: instrument_info
+  websocketinstrumentInfo: instrument_info
   websocket_para_instrumentInfo: Get latest information for symbol.
   websocket_aside_instrumentInfo1: |
     This topic only utilises the <code>update</code> field. Both the <code>delete</code> and <code>insert</code> fields are null. If a key is not found in the <code>update</code> field, its value has not changed.
   websocket_aside_instrumentInfo2: |
     Some values use scientific notation. This is indicated by that value's key, which will be appended with, for example, <code>e6</code>. If the key is <code>last_price_e4</code> and the value is <code>81585000</code>, then to find the true value we can do <code>81585000 * 10^4</code>, which equals <code>8158.5</code>.
   ### klineV2
-  klineV2: klineV2
+  websocketklineV2: klineV2
   websocket_para_klineV2: |
     <p>Currently supported intervals:</p>
     <ul>
@@ -625,11 +628,11 @@ en:
   ### position
   websocketposition: position
   ### execution
-  execution: execution
+  websocketexecution: execution
   ### order
-  order: order
+  websocketorder: order
   ### stop_order
-  stoporder: stop_order
+  websocketstoporder: stop_order
 
   # Archive Data
   archivedata: Archive Data
@@ -721,7 +724,7 @@ en:
   markPrice:  ""
 ## Order status (`order_status`) (creation)
   aside_orderStatusCreation: |
-    These are the possible values for <code>order_status</code> as included in the response of an <b>Order Creation</b> request. To see the options for <code>order_status</code> in the response for a Get Active/Conditional request, see <a href="#t-enums_header-order-status-order_status-get">here</a>.
+    These are the possible values for <code>order_status</code> as included in the response of an <b>Order Creation</b> request. To see the options for <code>order_status</code> in the response for a Get Active/Conditional request, see <a href="#order-status-order_status-get">here</a>.
   created:          ""
   new:              ""
   partiallyFilled:  ""
@@ -734,7 +737,7 @@ en:
   asc:  ""
 ## Order status (`order_status`) (get)
   aside_orderStatusGet: |
-    These are the possible values for <code>order_status</code> as included in the response of a <b>Get Order</b> request. To see the options for <code>order_status</code> in the response for a Create Active/Conditional request, see <a href="#t-enums_header-order-status-order_status-creation">here</a>.
+    These are the possible values for <code>order_status</code> as included in the response of a <b>Get Order</b> request. To see the options for <code>order_status</code> in the response for a Create Active/Conditional request, see <a href="#order-status-order_status-creation">here</a>.
   para_orderStatusGet: |
     Filter fetched orders by their order statuses. To filter by multiple statuses, separate with a comma like so: <code>Filled,New</code>
   created1:         ""

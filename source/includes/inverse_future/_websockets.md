@@ -137,7 +137,7 @@ t(:websocket_para_intervals)
 t(:websocket_para_response)
 
 ## t(:publictopics)
-### t(:orderbook25)
+### t(:websocketorderbook25)
 > t(:codequote_subscribe)
 
 ```javascript
@@ -220,7 +220,7 @@ t(:orderbookL2_200_link)
 t(:websocket_para_orderbook252)
 
 
-### t(:orderbook200)
+### t(:websocketorderbook200)
 
 > t(:codequote_subscribe)
 
@@ -298,7 +298,7 @@ ws.send('{"op": "subscribe", "args": ["orderBook_200.100ms.BTCUSD"]}');
 t(:websocket_para_orderbook200)
 
 
-### t(:trade)
+### t(:websockettrade)
 > t(:codequote_subscribe)
 
 ```javascript
@@ -328,7 +328,7 @@ ws.send('{"op": "subscribe", "args": ["trade"]}')
 t(:websocket_para_trade)
 
 
-### t(:insurance)
+### t(:websocketinsurance)
 > t(:codequote_subscribe)
 
 ```javascript
@@ -356,7 +356,7 @@ t(:websocket_para_insurance)
 t(:websocket_aside_insurance)
 </aside>
 
-### t(:instrumentInfo)
+### t(:websocketinstrumentInfo)
 > t(:codequote_subscribe)
 
 ```javascript
@@ -443,7 +443,7 @@ t(:websocket_aside_instrumentInfo2)
 </aside>
 
 
-### t(:klineV2)
+### t(:websocketklineV2)
 > t(:codequote_subscribe)
 
 ```javascript
@@ -529,7 +529,7 @@ ws.send('{"op": "subscribe", "args": ["position"]}')
 ```
 
 
-### t(:execution)
+### t(:websocketexecution)
 > t(:codequote_subscribe)
 
 ```javascript
@@ -562,7 +562,7 @@ ws.send('{"op": "subscribe", "args": ["execution"]}')
 ```
 
 
-### t(:order)
+### t(:websocketorder)
 > t(:codequote_subscribe)
 
 ```javascript
@@ -602,7 +602,7 @@ ws.send('{"op": "subscribe", "args": ["order"]}')
 ```
 
 
-### t(:stoporder)
+### t(:websocketstoporder)
 > t(:codequote_subscribe)
 
 ```javascript
