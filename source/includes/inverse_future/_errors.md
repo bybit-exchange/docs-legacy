@@ -1,13 +1,13 @@
 # t(:errors)
 
-The Bybit API uses the following HTTP Codes and Error Codes:
+t(:errors_intro)
 
 
 HTTP Code | t(:errorcode_meaning)
 ---------- | -------
-200 | Request valid -- Your request is valid.
-403 | Forbidden -- You request too many times
-404 | Request path not found
+200 | t(:http_200)
+403 | t(:http_403)
+404 | t(:http_404)
 
 Error Code | t(:errorcode_meaning)
 ---------- | -------
