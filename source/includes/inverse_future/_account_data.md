@@ -98,7 +98,7 @@ POST
                 "leaves_value": 0,
                 "cum_exec_qty": 2,
                 "cum_exec_value": 0.00028283,
-                "cum_exec_fee": 2.2e-07,
+                "cum_exec_fee": 0.00002,
                 "reject_reason": "NoError",
                 "order_link_id": "",
                 "created_at": "2019-12-27T12:08:01.000Z",
@@ -125,7 +125,7 @@ POST
                 "leaves_value": 0,
                 "cum_exec_qty": 1,
                 "cum_exec_value": 0.00014125,
-                "cum_exec_fee": 1.1e-07,
+                "cum_exec_fee": 0.00011,
                 "reject_reason": "NoError",
                 "order_link_id": "",
                 "created_at": "2019-12-27T12:06:55.000Z",
@@ -1186,7 +1186,7 @@ GET
         "side": "Buy",  // Your position side at the time of settlement
         "size": 1,      // Your position size at the time of settlement
         "funding_rate": 0.0001,  // Funding rate for settlement. When the funding rate is positive, longs pay shorts. When it is negative, shorts pay longs.
-        "exec_fee": 2e-08,  // Funding fee.
+        "exec_fee": 0.00000002,  // Funding fee.
         "exec_timestamp": 1575907200  // The time of funding settlement occurred, UTC timestamp
     },
     "ext_info": null,
