@@ -16,6 +16,7 @@ t(:ENUMs_para)
 * `ETH`
 * `EOS`
 * `XRP`
+* `USDT`
 
 
 ## Wallet fund type (`wallet_fund_type`)

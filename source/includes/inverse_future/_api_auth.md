@@ -3,6 +3,10 @@
 t(:auth_aside_key)
 </aside>
 
+<aside class="notice">
+t(:auth_aside_env)
+</aside>
+
 t(:auth_para_privatepublic)
 
 ## t(:authenticationparameters)
