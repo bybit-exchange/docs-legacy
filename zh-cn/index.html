@@ -993,13 +993,10 @@
                     <a href="#trigger-price-type-trigger_by" class="toc-h2 toc-link" data-title="Trigger price type (trigger_by)">Trigger price type (<code>trigger_by</code>)</a>
                   </li>
                   <li>
-                    <a href="#order-status-order_status-creation" class="toc-h2 toc-link" data-title="Order status (order_status) (creation)">Order status (<code>order_status</code>) (creation)</a>
-                  </li>
-                  <li>
                     <a href="#order-order" class="toc-h2 toc-link" data-title="Order (order)">Order (<code>order</code>)</a>
                   </li>
                   <li>
-                    <a href="#order-status-order_status-get" class="toc-h2 toc-link" data-title="Order status (order_status) (get)">Order status (<code>order_status</code>) (get)</a>
+                    <a href="#order-status-order_status" class="toc-h2 toc-link" data-title="Order status (order_status)">Order status (<code>order_status</code>)</a>
                   </li>
                   <li>
                     <a href="#stop-order-status-stop_order_status" class="toc-h2 toc-link" data-title="Stop order status (stop_order_status)">Stop order status (<code>stop_order_status</code>)</a>
@@ -1488,7 +1485,7 @@ function copyStringToClipboard (endpoint) {
     <span class="s2">"time_now"</span><span class="p">:</span> <span class="s2">"1567109419.049271"</span>
 <span class="p">}</span>
 </code></pre>
-<p>获取Bybit的最近成交数据.</p>
+<p>获取Bybit的最近成交数据。如果您想获取历史所有的成交记录，请通过<a href="https://public.bybit.com">这里</a>下载历史行情。</p>
 <h4 id='t-httprequest-4'>HTTP 请求</h4>
 <p>GET
 <code><span id=vpTradingRecords>/v2/public/trading-records</span></code>
@@ -4698,9 +4695,9 @@ B用户：
 <li><code>Market</code> </li>
 </ul>
 <h2 id='quantity-qty'>Quantity (<code>qty</code>)</h2>
-<p><ul> <li>Maximum quantity of 1 million (<code>1000000</code>)</li> <li>Must be an integer - no decimals, only a whole number of USD contracts <ul> <li><code>40</code> - allowed</li> <li><code>30.5</code> - illegal</li> </ul> </li> </ul></p>
+<p><ul> <li>最大值1百万 (<code>1000000</code>)</li> <li>必须是正整数： <ul> <li><code>40</code> - 合法</li> <li><code>30.5</code> - 非法</li> </ul> </li> </ul></p>
 <h2 id='price-price'>Price (<code>price</code>)</h2>
-<p><ul> <li>Active order<ul> <li>Must be an increment of that market&#39;s <code>tick_size</code><ul> <li>Current symbol information (like tick sizes) can be found with the <a href="#">Query Symbol endpoint</a>.</li> <li>Use modulo (<code>%</code>) to calculate whether or not a price will be accepted, like so:<pre class="center-column"> IF price % tick_size = 0 // send request ELSE // do not send request as the price will not be accepted by the system </pre></li> </ul> </li> <li>Must be less than 1 million (<code>1000000</code>)</li> <li>If the user has no open position then the price must be greater than 10% of the market price<ul> <li>For example, if the current market price (last price) is <code>10314</code>, then the absolute minimum the price may be is <code>1031.5</code>. It may not be <code>1031</code> or below.</li> <li>In pseudocode (assuming the price is an increment of 0.5):<pre class="center-column"> IF price > (last_price * 0.1) // send request ELSE // do not send request as the price will not be accepted by the system </pre></li> </ul> </li> <li>If the user holds a position, the order price must be better than the liquidation price.<ul> <li>For example, if the liquidation price of an open long position is <code>5176.5</code> then the price may be a minimum of <code>5177</code>. In the case of a short position the price must be less than the liquidation price.</li> </ul> </li> </ul> </li> <li>Conditional order<ul> <li>Must be equal to order greater than <code>1</code></li> </ul> </li> </ul></p>
+<p><ul> <li>活动单<ul> <li>必须是<code>tick_size</code>的整数倍<ul> <li>当前symbol信息(如<code>tick_size</code>)，可以通过<a href="#t-querysymbol">交易对接口</a>接口获得。</li> </ul> </li> <li>必须小于一百万 (<code>1000000</code>)</li> <li>如果用户没有未平仓，则价格必须大于市场价格的10%<ul> <li>如, 若当前市场价(last price) 为 10314, 那么下单价格的最小值为 1031.5。</li> <li>伪代码(假设价格是0.5的增量):<pre class="center-column"> IF price > (last_price * 0.1) // 发送订单 ELSE //  不会发送订单，因为价格将不被系统接受 </pre></li> </ul> </li> <li>如果已持有仓位，那么价格必须高于强平价格<ul> <li>如, 若多仓的强平价格为 5176.5 那么价格最小为 5177. 在做空的情况下，价格必须低于强平价格。</li> </ul> </li> </ul> </li> <li>条件单<ul> <li>必须大于等于 <code>1</code></li> </ul> </li> </ul></p>
 <h2 id='time-in-force-time_in_force'>Time in force (<code>time_in_force</code>)</h2>
 <ul>
 <li><code>GoodTillCancel</code> </li>
@@ -4714,63 +4711,44 @@ B用户：
 <li><code>IndexPrice</code> </li>
 <li><code>MarkPrice</code> </li>
 </ul>
-<h2 id='order-status-order_status-creation'>Order status (<code>order_status</code>) (creation)</h2>
-<aside class="notice">
-These are the possible values for <code>order_status</code> as included in the response of an <b>Order Creation</b> request. To see the options for <code>order_status</code> in the response for a Get Active/Conditional request, see <a href="#order-status-order_status-get">here</a>.
-
-</aside>
-
-<ul>
-<li><code>Created</code> </li>
-<li><code>New</code> </li>
-<li><code>PartiallyFilled</code> </li>
-<li><code>Filled</code> </li>
-<li><code>Cancelled</code> - order is cancelled</li>
-<li><code>Rejected</code> - order is triggered but fail to be placed</li>
-</ul>
 <h2 id='order-order'>Order (<code>order</code>)</h2>
-<p>This is for sorting the orders by creation date.</p>
+<p>排序方向</p>
 
 <ul>
 <li><code>desc</code> (default)</li>
 <li><code>asc</code> </li>
 </ul>
-<h2 id='order-status-order_status-get'>Order status (<code>order_status</code>) (get)</h2>
-<aside class="notice">
-These are the possible values for <code>order_status</code> as included in the response of a <b>Get Order</b> request. To see the options for <code>order_status</code> in the response for a Create Active/Conditional request, see <a href="#order-status-order_status-creation">here</a>.
-
-</aside>
-
-<p>Filter fetched orders by their order statuses. To filter by multiple statuses, separate with a comma like so: <code>Filled,New</code>
+<h2 id='order-status-order_status'>Order status (<code>order_status</code>)</h2>
+<p>在查询接口中，您可以通过逗号分割来指定查询多种状态，如: <code>Filled,New</code>
 </p>
 
 <ul>
 <li><code>Created</code> </li>
-<li><code>Rejected</code> - order is triggered but fail to be placed</li>
+<li><code>Rejected</code> - 条件触发成功但下单失败</li>
 <li><code>New</code> </li>
 <li><code>PartiallyFilled</code> </li>
 <li><code>Filled</code> </li>
 <li><code>Cancelled</code> </li>
-<li><code>PendingCancel</code> - The matching engine has received the cancellation but there is no guarantee that it will be successful</li>
-<li><code>Deactivated</code> - The conditional order was cancelled before triggering</li>
+<li><code>PendingCancel</code> - 撮合引擎收到取消指令但不一定会被成功取消</li>
+<li><code>Deactivated</code> - 条件单触发前被取消</li>
 </ul>
 <h2 id='stop-order-status-stop_order_status'>Stop order status (<code>stop_order_status</code>)</h2>
 <ul>
-<li><code>Active</code> - order is triggered and placed successfully</li>
-<li><code>Untriggered</code> - order waits to be triggered</li>
-<li><code>Triggered</code> - order is triggered</li>
-<li><code>Cancelled</code> - order is cancelled</li>
-<li><code>Rejected</code> - order is triggered but fail to be placed</li>
+<li><code>Active</code> - 条件单触发成功且下单成功</li>
+<li><code>Untriggered</code> - 等待市价触发条件单</li>
+<li><code>Triggered</code> - 市价已触发条件单</li>
+<li><code>Cancelled</code> - 取消</li>
+<li><code>Rejected</code> - 条件触发成功但下单失败</li>
 </ul>
 <h2 id='cancel-type-cancel_type'>Cancel type (<code>cancel_type</code>)</h2>
 <ul>
 <li><code>CancelByUser</code> </li>
 <li><code>CancelByReduceOnly</code> </li>
-<li><code>CancelByPrepareLiq</code>,<code>CancelAllBeforeLiq</code> - Cancelled by force liquidation</li>
-<li><code>CancelByPrepareAdl</code>,<code>CancelAllBeforeAdl</code> - Cancelled by ADL</li>
+<li><code>CancelByPrepareLiq</code>,<code>CancelAllBeforeLiq</code> - 仓位进入强平导致取消订单</li>
+<li><code>CancelByPrepareAdl</code>,<code>CancelAllBeforeAdl</code> - 自动减仓导致取消订单</li>
 <li><code>CancelByAdmin</code> </li>
-<li><code>CancelByTpSlTsClear</code> - This is a cancelled TP/SL/TS order</li>
-<li><code>CancelByPzSideCh</code> - This order is cancelled after TP/SL/TS</li>
+<li><code>CancelByTpSlTsClear</code> - 止盈止损单被取消</li>
+<li><code>CancelByPzSideCh</code> - 该订单在触发止盈止损后被取消</li>
 </ul>
 <h2 id='create-type-create_type'>Create type (<code>create_type</code>)</h2>
 <ul>

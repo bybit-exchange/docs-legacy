@@ -894,13 +894,10 @@
                     <a href="#trigger-price-type-trigger_by" class="toc-h2 toc-link" data-title="Trigger price type (trigger_by)">Trigger price type (<code>trigger_by</code>)</a>
                   </li>
                   <li>
-                    <a href="#order-status-order_status-creation" class="toc-h2 toc-link" data-title="Order status (order_status) (creation)">Order status (<code>order_status</code>) (creation)</a>
-                  </li>
-                  <li>
                     <a href="#order-order" class="toc-h2 toc-link" data-title="Order (order)">Order (<code>order</code>)</a>
                   </li>
                   <li>
-                    <a href="#order-status-order_status-get" class="toc-h2 toc-link" data-title="Order status (order_status) (get)">Order status (<code>order_status</code>) (get)</a>
+                    <a href="#order-status-order_status" class="toc-h2 toc-link" data-title="Order status (order_status)">Order status (<code>order_status</code>)</a>
                   </li>
                   <li>
                     <a href="#stop-order-status-stop_order_status" class="toc-h2 toc-link" data-title="Stop order status (stop_order_status)">Stop order status (<code>stop_order_status</code>)</a>
@@ -1289,7 +1286,7 @@ The response is in the snapshot format.
     <span class="s2">"time_now"</span><span class="p">:</span> <span class="s2">"1567109419.049271"</span>
 <span class="p">}</span>
 </code></pre>
-<p>Get recent trades.</p>
+<p>Get recent trades. If you want to get the whole historical data, please download <a href="https://public.bybit.com">here</a>.</p>
 <h4 id='t-httprequest-4'>HTTP Request</h4>
 <p>GET
 <code><span id=vpTradingRecords>/v2/public/trading-records</span></code>
@@ -4874,7 +4871,7 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 <h2 id='quantity-qty'>Quantity (<code>qty</code>)</h2>
 <p><ul> <li>Maximum quantity of 1 million (<code>1000000</code>)</li> <li>Must be an integer - no decimals, only a whole number of USD contracts <ul> <li><code>40</code> - allowed</li> <li><code>30.5</code> - illegal</li> </ul> </li> </ul></p>
 <h2 id='price-price'>Price (<code>price</code>)</h2>
-<p><ul> <li>Active order<ul> <li>Must be an increment of that market&#39;s <code>tick_size</code><ul> <li>Current symbol information (like tick sizes) can be found with the <a href="#">Query Symbol endpoint</a>.</li> <li>Use modulo (<code>%</code>) to calculate whether or not a price will be accepted, like so:<pre class="center-column"> IF price % tick_size = 0 // send request ELSE // do not send request as the price will not be accepted by the system </pre></li> </ul> </li> <li>Must be less than 1 million (<code>1000000</code>)</li> <li>If the user has no open position then the price must be greater than 10% of the market price<ul> <li>For example, if the current market price (last price) is <code>10314</code>, then the absolute minimum the price may be is <code>1031.5</code>. It may not be <code>1031</code> or below.</li> <li>In pseudocode (assuming the price is an increment of 0.5):<pre class="center-column"> IF price > (last_price * 0.1) // send request ELSE // do not send request as the price will not be accepted by the system </pre></li> </ul> </li> <li>If the user holds a position, the order price must be better than the liquidation price.<ul> <li>For example, if the liquidation price of an open long position is <code>5176.5</code> then the price may be a minimum of <code>5177</code>. In the case of a short position the price must be less than the liquidation price.</li> </ul> </li> </ul> </li> <li>Conditional order<ul> <li>Must be equal to order greater than <code>1</code></li> </ul> </li> </ul></p>
+<p><ul> <li>Active order<ul> <li>Must be an increment of that market&#39;s <code>tick_size</code><ul> <li>Current symbol information (like tick sizes) can be found with the <a href="#t-querysymbol">Query Symbol endpoint</a>.</li> <li>Use modulo (<code>%</code>) to calculate whether or not a price will be accepted, like so:<pre class="center-column"> IF price % tick_size = 0 // send request ELSE // do not send request as the price will not be accepted by the system </pre></li> </ul> </li> <li>Must be less than 1 million (<code>1000000</code>)</li> <li>If the user has no open position then the price must be greater than 10% of the market price<ul> <li>For example, if the current market price (last price) is <code>10314</code>, then the absolute minimum the price may be is <code>1031.5</code>. It may not be <code>1031</code> or below.</li> <li>In pseudocode (assuming the price is an increment of 0.5):<pre class="center-column"> IF price > (last_price * 0.1) // send request ELSE // do not send request as the price will not be accepted by the system </pre></li> </ul> </li> <li>If the user holds a position, the order price must be better than the liquidation price.<ul> <li>For example, if the liquidation price of an open long position is <code>5176.5</code> then the price may be a minimum of <code>5177</code>. In the case of a short position the price must be less than the liquidation price.</li> </ul> </li> </ul> </li> <li>Conditional order<ul> <li>Must be equal to order greater than <code>1</code></li> </ul> </li> </ul></p>
 <h2 id='time-in-force-time_in_force'>Time in force (<code>time_in_force</code>)</h2>
 <ul>
 <li><code>GoodTillCancel</code> </li>
@@ -4888,33 +4885,14 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 <li><code>IndexPrice</code> </li>
 <li><code>MarkPrice</code> </li>
 </ul>
-<h2 id='order-status-order_status-creation'>Order status (<code>order_status</code>) (creation)</h2>
-<aside class="notice">
-These are the possible values for <code>order_status</code> as included in the response of an <b>Order Creation</b> request. To see the options for <code>order_status</code> in the response for a Get Active/Conditional request, see <a href="#order-status-order_status-get">here</a>.
-
-</aside>
-
-<ul>
-<li><code>Created</code> </li>
-<li><code>New</code> </li>
-<li><code>PartiallyFilled</code> </li>
-<li><code>Filled</code> </li>
-<li><code>Cancelled</code> - order is cancelled</li>
-<li><code>Rejected</code> - order is triggered but fail to be placed</li>
-</ul>
 <h2 id='order-order'>Order (<code>order</code>)</h2>
-<p>This is for sorting the orders by creation date.</p>
+<p>This is for sorting the orders by special direction.</p>
 
 <ul>
 <li><code>desc</code> (default)</li>
 <li><code>asc</code> </li>
 </ul>
-<h2 id='order-status-order_status-get'>Order status (<code>order_status</code>) (get)</h2>
-<aside class="notice">
-These are the possible values for <code>order_status</code> as included in the response of a <b>Get Order</b> request. To see the options for <code>order_status</code> in the response for a Create Active/Conditional request, see <a href="#order-status-order_status-creation">here</a>.
-
-</aside>
-
+<h2 id='order-status-order_status'>Order status (<code>order_status</code>)</h2>
 <p>Filter fetched orders by their order statuses. To filter by multiple statuses, separate with a comma like so: <code>Filled,New</code>
 </p>
 
