@@ -193,7 +193,7 @@ en:
   market_para_symbol: Get the latest information for symbol.
   ### Public Trading Records
   publictradingrecords: Public Trading Records
-  market_para_records: Get recent trades.
+  market_para_records: Get recent trades. If you want to get the whole historical data, please download <a href="https://public.bybit.com">here</a>.
   ### Get the Last Funding Rate
   fundingRate: Get the Last Funding Rate
   market_para_fundingRate: The funding rate is generated every 8 hours at 00:00 UTC, 08:00 UTC and 16:00 UTC. For example, if a request is sent at 12:00 UTC, the funding rate generated earlier that day at 08:00 UTC will be sent.
@@ -691,7 +691,7 @@ en:
     <ul>
     <li>Active order<ul>
     <li>Must be an increment of that market&#39;s <code>tick_size</code><ul>
-    <li>Current symbol information (like tick sizes) can be found with the <a href="#">Query Symbol endpoint</a>.</li>
+    <li>Current symbol information (like tick sizes) can be found with the <a href="#t-querysymbol">Query Symbol endpoint</a>.</li>
     <li>Use modulo (<code>%</code>) to calculate whether or not a price will be accepted, like so:<pre class="center-column">
     IF price % tick_size = 0
         // send request
@@ -731,20 +731,11 @@ en:
   lastPrice:  ""
   indexPrice: ""
   markPrice:  ""
-## Order status (`order_status`) (creation)
-  aside_orderStatusCreation: |
-    These are the possible values for <code>order_status</code> as included in the response of an <b>Order Creation</b> request. To see the options for <code>order_status</code> in the response for a Get Active/Conditional request, see <a href="#order-status-order_status-get">here</a>.
-  created:          ""
-  new:              ""
-  partiallyFilled:  ""
-  filled:           ""
-  cancelled:        ""
-  rejected:         "- order rejected by the system."
 ## Order (`order`)
-  para_order: This is for sorting the orders by creation date.
+  para_order: This is for sorting the orders by special direction.
   desc: "(default)"
   asc:  ""
-## Order status (`order_status`) (get)
+## Order status (`order_status`)
   aside_orderStatusGet: |
     These are the possible values for <code>order_status</code> as included in the response of a <b>Get Order</b> request. To see the options for <code>order_status</code> in the response for a Create Active/Conditional request, see <a href="#order-status-order_status-creation">here</a>.
   para_orderStatusGet: |

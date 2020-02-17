@@ -60,29 +60,13 @@ t(:price)
 * `IndexPrice` t(:indexPrice)
 * `MarkPrice` t(:markPrice)
 
-## Order status (`order_status`) (creation)
-<aside class="notice">
-t(:aside_orderStatusCreation)
-</aside>
-
-* `Created` t(:created)
-* `New` t(:new)
-* `PartiallyFilled` t(:partiallyFilled)
-* `Filled` t(:filled)
-* `Cancelled` t(:cancelled)
-* `Rejected` t(:rejected)
-
 ## Order (`order`)
 t(:para_order)
 
 * `desc` t(:desc)
 * `asc` t(:asc)
 
-## Order status (`order_status`) (get)
-<aside class="notice">
-t(:aside_orderStatusGet)
-</aside>
-
+## Order status (`order_status`)
 t(:para_orderStatusGet)
 
 * `Created` t(:created1)
