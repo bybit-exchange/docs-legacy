@@ -60,6 +60,9 @@ en:
   row_comment_rate_limit: limit
   row_comment_path: path
   row_comment_consume: consume
+  row_comment_interval: Data refresh interval. Enum <span>:<span> 1 3 5 15 30 60 120 240 360 720 "D" "M" "W" "Y"
+  row_comment_from_timestamp: From timestamp in `second`
+  row_comment_limit_200: Limit for data size per page, max size is 200. Default as showing 200 pieces of data per page
   enum_withdraw_status: <a href="#withdraw-status-status">Withdraw Status Enum</a>
   enum_coin: <a href="#currency-currency-coin">Coin Enum</a>
   enum_side: <a href="#side-side">Side Enum</a>
@@ -182,6 +185,9 @@ en:
   orderbook: Orderbook
   market_para_orderbook: Get the orderbook.
   market_aside_orderbook: The response is in the snapshot format.
+  ### Query Klne
+  querykline: Query Kline
+  market_para_querykline: Get kline.
   ### Latest Information for Symbol
   latestsymbolinfo: Latest Information for Symbol
   market_para_symbol: Get the latest information for symbol.
@@ -777,10 +783,10 @@ en:
   createByAdl_PassThrough:      "- Created by ADL"
   createByTakeOver_PassThrough: "- Created by liquidation takeover"
   ## Exec type (`exec_type`)
-  trade: ""
-  funding: ""
-  adlTrade: ""
-  bustTrade: ""
+  exec_trade: ""
+  exec_funding: ""
+  exec_adlTrade: ""
+  exec_bustTrade: ""
 
   # Error Code
   errors_intro: The Bybit API uses the following HTTP Codes and Error Codes<span>:</span>
