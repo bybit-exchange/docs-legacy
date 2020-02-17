@@ -427,7 +427,7 @@
                       </ul>
                   </li>
                   <li>
-                    <a href="#t-latestsymbolinfo" class="toc-h2 toc-link" data-title="Latest Information for Symbol">Latest Information for Symbol</a>
+                    <a href="#t-querykline" class="toc-h2 toc-link" data-title="Query Kline">Query Kline</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#t-httprequest-2" class="toc-h3 toc-link" data-title="HTTP Request">HTTP Request</a>
@@ -438,7 +438,7 @@
                       </ul>
                   </li>
                   <li>
-                    <a href="#t-publictradingrecords" class="toc-h2 toc-link" data-title="Public Trading Records">Public Trading Records</a>
+                    <a href="#t-latestsymbolinfo" class="toc-h2 toc-link" data-title="Latest Information for Symbol">Latest Information for Symbol</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#t-httprequest-3" class="toc-h3 toc-link" data-title="HTTP Request">HTTP Request</a>
@@ -449,13 +449,24 @@
                       </ul>
                   </li>
                   <li>
-                    <a href="#t-querysymbol" class="toc-h2 toc-link" data-title="Query Symbol">Query Symbol</a>
+                    <a href="#t-publictradingrecords" class="toc-h2 toc-link" data-title="Public Trading Records">Public Trading Records</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#t-httprequest-4" class="toc-h3 toc-link" data-title="HTTP Request">HTTP Request</a>
                           </li>
                           <li>
                             <a href="#t-requestparameters-4" class="toc-h3 toc-link" data-title="Request Parameters">Request Parameters</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#t-querysymbol" class="toc-h2 toc-link" data-title="Query Symbol">Query Symbol</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#t-httprequest-5" class="toc-h3 toc-link" data-title="HTTP Request">HTTP Request</a>
+                          </li>
+                          <li>
+                            <a href="#t-requestparameters-5" class="toc-h3 toc-link" data-title="Request Parameters">Request Parameters</a>
                           </li>
                       </ul>
                   </li>
@@ -699,7 +710,7 @@
                       </ul>
                   </li>
                   <li>
-                    <a href="#t-funding" class="toc-h2 toc-link" data-title=""></a>
+                    <a href="#t-funding" class="toc-h2 toc-link" data-title="Funding">Funding</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#t-fundingrate" class="toc-h3 toc-link" data-title="Get the Last Funding Rate">Get the Last Funding Rate</a>
@@ -1308,6 +1319,83 @@ The response is in the snapshot format.
 <td>Contract type</td>
 </tr>
 </tbody></table>
+<h3 id='t-querykline'>Query Kline</h3>
+<blockquote>
+<p>Curl Example</p>
+</blockquote>
+<pre class="highlight shell_session"><code>curl https://api.bybit.com/v2/public/kline/list?symbol=BTCUSD&amp;interval=1&amp;limit=2&amp;from=1581231260
+</code></pre>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="s2">"ret_code"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"ret_msg"</span><span class="p">:</span> <span class="s2">"OK"</span><span class="p">,</span>
+    <span class="s2">"ext_code"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"ext_info"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"result"</span><span class="p">:</span> <span class="p">[{</span>
+        <span class="s2">"symbol"</span><span class="p">:</span> <span class="s2">"BTCUSD"</span><span class="p">,</span>
+        <span class="s2">"interval"</span><span class="p">:</span> <span class="s2">"1"</span><span class="p">,</span>
+        <span class="s2">"open_time"</span><span class="p">:</span> <span class="mi">1581231300</span><span class="p">,</span>
+        <span class="s2">"open"</span><span class="p">:</span> <span class="s2">"10112.5"</span><span class="p">,</span>
+        <span class="s2">"high"</span><span class="p">:</span> <span class="s2">"10112.5"</span><span class="p">,</span>
+        <span class="s2">"low"</span><span class="p">:</span> <span class="s2">"10112"</span><span class="p">,</span>
+        <span class="s2">"close"</span><span class="p">:</span> <span class="s2">"10112"</span><span class="p">,</span>
+        <span class="s2">"volume"</span><span class="p">:</span> <span class="s2">"75981"</span><span class="p">,</span>
+        <span class="s2">"turnover"</span><span class="p">:</span> <span class="s2">"7.51394369"</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="s2">"symbol"</span><span class="p">:</span> <span class="s2">"BTCUSD"</span><span class="p">,</span>
+        <span class="s2">"interval"</span><span class="p">:</span> <span class="s2">"1"</span><span class="p">,</span>
+        <span class="s2">"open_time"</span><span class="p">:</span> <span class="mi">1581231360</span><span class="p">,</span>
+        <span class="s2">"open"</span><span class="p">:</span> <span class="s2">"10112"</span><span class="p">,</span>
+        <span class="s2">"high"</span><span class="p">:</span> <span class="s2">"10112.5"</span><span class="p">,</span>
+        <span class="s2">"low"</span><span class="p">:</span> <span class="s2">"10112"</span><span class="p">,</span>
+        <span class="s2">"close"</span><span class="p">:</span> <span class="s2">"10112"</span><span class="p">,</span>
+        <span class="s2">"volume"</span><span class="p">:</span> <span class="s2">"24616"</span><span class="p">,</span>
+        <span class="s2">"turnover"</span><span class="p">:</span> <span class="s2">"2.4343353100000003"</span>
+    <span class="p">}],</span>
+    <span class="s2">"time_now"</span><span class="p">:</span> <span class="s2">"1581928016.558522"</span>
+<span class="p">}</span>
+</code></pre>
+<p>Get kline.</p>
+<h4 id='t-httprequest-2'>HTTP Request</h4>
+<p>GET
+<code><span id=vpSymbols>/v2/public/kline/list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpSymbols"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<h4 id='t-requestparameters-2'>Request Parameters</h4>
+<table><thead>
+<tr>
+<th style="text-align: left">parameter</th>
+<th style="text-align: left">required</th>
+<th style="text-align: left">type</th>
+<th>comments</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>Contract type</td>
+</tr>
+<tr>
+<td style="text-align: left">interval</td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>Data refresh interval. Enum <span>:<span> 1 3 5 15 30 60 120 240 360 720 "D" "M" "W" "Y"</td>
+</tr>
+<tr>
+<td style="text-align: left">from</td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">integer</td>
+<td>From timestamp in `second`</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>Limit for data size per page, max size is 200. Default as showing 200 pieces of data per page</td>
+</tr>
+</tbody></table>
 <h3 id='t-latestsymbolinfo'>Latest Information for Symbol</h3>
 <blockquote>
 <p>Curl Example</p>
@@ -1353,11 +1441,11 @@ The response is in the snapshot format.
 <span class="p">}</span>
 </code></pre>
 <p>Get the latest information for symbol.</p>
-<h4 id='t-httprequest-2'>HTTP Request</h4>
+<h4 id='t-httprequest-3'>HTTP Request</h4>
 <p>GET
 <code><span id=vpTickers>/v2/public/tickers</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpTickers"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
-<h4 id='t-requestparameters-2'>Request Parameters</h4>
+<h4 id='t-requestparameters-3'>Request Parameters</h4>
 <table><thead>
 <tr>
 <th style="text-align: left">parameter</th>
@@ -1401,11 +1489,11 @@ The response is in the snapshot format.
 <span class="p">}</span>
 </code></pre>
 <p>Get recent trades.</p>
-<h4 id='t-httprequest-3'>HTTP Request</h4>
+<h4 id='t-httprequest-4'>HTTP Request</h4>
 <p>GET
 <code><span id=vpTradingRecords>/v2/public/trading-records</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpTradingRecords"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
-<h4 id='t-requestparameters-3'>Request Parameters</h4>
+<h4 id='t-requestparameters-4'>Request Parameters</h4>
 <table><thead>
 <tr>
 <th style="text-align: left">parameter</th>
@@ -1546,11 +1634,11 @@ The response is in the snapshot format.
 <span class="p">}</span>
 </code></pre>
 <p>Get symbol info.</p>
-<h4 id='t-httprequest-4'>HTTP Request</h4>
+<h4 id='t-httprequest-5'>HTTP Request</h4>
 <p>GET
 <code><span id=vpSymbols>/v2/public/symbols</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpSymbols"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
-<h4 id='t-requestparameters-4'>Request Parameters</h4>
+<h4 id='t-requestparameters-5'>Request Parameters</h4>
 <table><thead>
 <tr>
 <th style="text-align: left">parameter</th>
@@ -3114,7 +3202,7 @@ Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles
 <td>Risk ID. Can be found with the <a href="#get-risk-limit">Get Risk Limit</a> endpoint</td>
 </tr>
 </tbody></table>
-<h2 id='t-funding'></h2><h3 id='t-fundingrate'>Get the Last Funding Rate</h3>
+<h2 id='t-funding'>Funding</h2><h3 id='t-fundingrate'>Get the Last Funding Rate</h3>
 <blockquote>
 <p>Response Example</p>
 </blockquote>
