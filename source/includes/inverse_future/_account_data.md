@@ -104,33 +104,6 @@ POST
                 "created_at": "2019-12-27T12:08:01.000Z",
                 "updated_at": "2019-12-27T12:08:01.000Z",
                 "order_id": "f185806b-b801-40ff-adec-52289370ed62"
-            },
-            {
-                "user_id": 1,
-                "symbol": "BTCUSD",
-                "side": "Buy",
-                "order_type": "Market",
-                "price": 7079.5,
-                "qty": 1,
-                "time_in_force": "ImmediateOrCancel",
-                "order_status": "Filled",
-                "ext_fields": {
-                    "op_from": "api",
-                    "o_req_num": -34795932763,
-                    "xreq_type": "x_create"
-                },
-                "last_exec_time": "1577448415.236019",
-                "last_exec_price": 7079.5,
-                "leaves_qty": 0,
-                "leaves_value": 0,
-                "cum_exec_qty": 1,
-                "cum_exec_value": 0.00014125,
-                "cum_exec_fee": 0.00011,
-                "reject_reason": "NoError",
-                "order_link_id": "",
-                "created_at": "2019-12-27T12:06:55.000Z",
-                "updated_at": "2019-12-27T12:06:55.000Z",
-                "order_id": "3057c483-c688-4af8-a0eb-639e3ab7a753"
             }
         ]
     },
