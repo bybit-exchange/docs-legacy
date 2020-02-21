@@ -144,8 +144,8 @@ GET
       "data": [{
           "id": 137,                                        
           "user_id": 1,                                     
-          "coin": "XRP",  //t(:enum_coin)                                    
-          "status": "Pending" //t(:enum_withdraw_status)
+          "coin": "XRP",  //t(:enum_coin_link)                                    
+          "status": "Pending" //t(:enum_withdraw_status_link)
           "amount": "20.00000000",
           "fee": "0.25000000",
           "address": "rH7H595XYEVTEHU2FySYsWnmfACBnZS9zM",
@@ -206,19 +206,19 @@ GET
                 "exec_price": "8178.5",
                 "exec_qty": 1,
                 "exec_time": "1571676941.70682",
-                "exec_type": "Trade", //t(:enum_exec_type)
+                "exec_type": "Trade", //t(:enum_exec_type_link)
                 "exec_value": "0.00012227",
                 "fee_rate": "0.00075",
-                "last_liquidity_ind": "RemovedLiquidity", //t(:enum_Liquidity_type)
+                "last_liquidity_ind": "RemovedLiquidity", //t(:enum_Liquidity_type_link)
                 "leaves_qty": 0,
                 "nth_fill": 2,
                 "order_id": "7ad50cb1-9ad0-4f74-804b-d82a516e1029",
                 "order_link_id": "",
                 "order_price": "8178",
                 "order_qty": 1,
-                "order_type": "Market", //t(:enum_order_type)
-                "side": "Buy", //t(:enum_side)
-                "symbol": "BTCUSD", //t(:enum_symbol)
+                "order_type": "Market", //t(:enum_order_type_link)
+                "side": "Buy", //t(:enum_side_link)
+                "symbol": "BTCUSD", //t(:enum_symbol_link)
                 "user_id": 1
             }
         ]
