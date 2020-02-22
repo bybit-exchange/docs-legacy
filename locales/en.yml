@@ -159,7 +159,9 @@ en:
   auth_aside_timestamp: |
     Make sure to conform to the timestamp rule of verification or your request will be rejected! Timestamp rule of verification: <b>server_time - recv_window <= timestamp < server_time + 1000</b>; <b>server_time</b> stands for Bybit server time, you can get it from <a href="#t-servertime">Server Time</a> endpoint.
   auth_para_recv : |
-    Additionally, we offer the <code>recv_window</code>, which indicates for how long an HTTP request is valid. This should be sent in milliseconds. Default value: 5000. This is used to prevent replay attacks.
+    <p>Additionally, we offer the <code>recv_window</code>, which indicates for how long an HTTP request is valid. This should be sent in milliseconds. Default value: 5000. It used to prevent replay attacks.</p>
+    <p>A smaller <code>recv_window</code> is more secure, but your request may fail if the transmission time is greater than your <code>recv_window</code>.</p>
+    <p>Please ensure that your <code>timestamp</code> is synced with our server time. You can use the <a href=#t-servertime>Server Time</a> endpoint.</p>
   ## Constructing the Request
   constructingtherequest: Constructing the Request
   auth_codequote_construct1a:
