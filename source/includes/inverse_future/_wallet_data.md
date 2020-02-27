@@ -54,8 +54,8 @@ t(:wallet_aside_walletBalance)
 
 #### t(:httprequest1)
 GET
-<code><span id=oawfRecords>/v2/private/wallet/balance</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawfRecords"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=vpwBalance>/v2/private/wallet/balance</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpwBalance"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 #### t(:requestparameters1)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|

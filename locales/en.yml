@@ -44,7 +44,7 @@ en:
   row_comment_page: Page. Default getting first page data
   row_comment_order: Sort orders by creation date
   row_comment_orderId: Your active order ID. The unique order ID returned to you when the corresponding active order was created
-  row_comment_stopOrderId: Your conditoinal order ID. The unique order ID returned to you when the corresponding active order was created
+  row_comment_stopOrderId: Your conditional order ID. The unique order ID returned to you when the corresponding active order was created
   row_comment_pRQty: New order quantity. Do not pass this field if you don't want modify it
   row_comment_pRPrice: New order price. Do not pass this field if you don't want modify it
   row_comemnt_pRTriggerPrice: New conditional order's trigger price, also known as stop_px. Do not pass this field if you don't want modify it
@@ -61,7 +61,7 @@ en:
   row_comment_path: path
   row_comment_consume: consume
   row_comment_interval: Data refresh interval. Enum <span>:<span> 1 3 5 15 30 60 120 240 360 720 "D" "M" "W" "Y"
-  row_comment_from_timestamp: From timestamp in `second`
+  row_comment_from_timestamp: From timestamp in seconds
   row_comment_limit_200: Limit for data size per page, max size is 200. Default as showing 200 pieces of data per page
   enum_withdraw_status_link: <a href="#withdraw-status-status">Withdraw Status Enum</a>
   enum_coin_link: <a href="#currency-currency-coin">Coin Enum</a>
@@ -130,8 +130,8 @@ en:
   auth_aside_key: To generate an API key please go <a href="https://testnet.bybit.com/app/user/api-management">here for the <b>testnet</b></a> or <a href="https://www.bybit.com/app/user/api-management">here for the <b>mainnet</b></a>.
   auth_aside_env: |
     REST Base Endpoint:
-    <p><b>Testnet</b><span>:<span> https://api-testnet.bybit.com</p>
-    <p><b>Mainnet</b><span>:<span> https://api.bybit.com</p>
+    <p><b>Testnet</b>: <span id=testnet>https://api-testnet.bybit.com</span> <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button></p>
+    <p><b>Mainnet</b>: <span id=mainnet>https://api.bybit.com</span> <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button></p>
   auth_para_domains: |
     Domains:
     <ul>
@@ -159,7 +159,9 @@ en:
   auth_aside_timestamp: |
     Make sure to conform to the timestamp rule of verification or your request will be rejected! Timestamp rule of verification: <b>server_time - recv_window <= timestamp < server_time + 1000</b>; <b>server_time</b> stands for Bybit server time, you can get it from <a href="#t-servertime">Server Time</a> endpoint.
   auth_para_recv : |
-    Additionally, we offer the <code>recv_window</code>, which indicates for how long an HTTP request is valid. This should be sent in milliseconds. Default value: 5000. This is used to prevent replay attacks.
+    <p>Additionally, we offer the <code>recv_window</code>, which indicates for how long an HTTP request is valid. This should be sent in milliseconds. Default value: 5000. It used to prevent replay attacks.</p>
+    <p>A smaller <code>recv_window</code> is more secure, but your request may fail if the transmission time is greater than your <code>recv_window</code>.</p>
+    <p>Please ensure that your <code>timestamp</code> is synced with our server time. You can use the <a href=#t-servertime>Server Time</a> endpoint.</p>
   ## Constructing the Request
   constructingtherequest: Constructing the Request
   auth_codequote_construct1a:
@@ -194,7 +196,7 @@ en:
   market_para_symbol: Get the latest information for symbol.
   ### Public Trading Records
   publictradingrecords: Public Trading Records
-  market_para_records: Get recent trades. If you want to get the whole historical data, please download <a href="https://public.bybit.com">here</a>.
+  market_para_records: Get recent trades. You can find a complete history of trades on Bybit <a href="https://public.bybit.com">here</a>.
   ### Get the Last Funding Rate
   fundingRate: Get the Last Funding Rate
   market_para_fundingRate: The funding rate is generated every 8 hours at 00:00 UTC, 08:00 UTC and 16:00 UTC. For example, if a request is sent at 12:00 UTC, the funding rate generated earlier that day at 08:00 UTC will be sent.
@@ -221,7 +223,7 @@ en:
   getactive: Get Active Order
   account_para_getActive: |
     <p>Get my active order list.</p>
-    <p>Cause order creation/cancellation is asynchronous, sometimes there is a data dalay in this endpoint. You can get real-time order info in <a href="#t-queryactive">Query Active Order (real-time)</a> endpoint.</p>
+    <p>Cause order creation/cancellation is asynchronous, sometimes there is a data delay in this endpoint. You can get real-time order info in <a href="#t-queryactive">Query Active Order (real-time)</a> endpoint.</p>
   account_row_comment_orderId: Order ID
   account_row_comment_orderStatus: Query your orders for all statuses if 'order_status' is empty. If you want to query orders with specific statuses, you can pass the order_status split by ','.
   ### Cancel Active Order V2
@@ -268,7 +270,7 @@ en:
   getcond: Get Conditional Order
   account_para_getCond:
     <p>Get my conditional order list.</p>
-    <p>Cause order creation/cancellation is asynchronous, sometimes there is a data dalay in this endpoint. You can get real-time order info in <a href="#t-querycond">Query Conditional Order (real-time)</a> endpoint.</p>
+    <p>Cause order creation/cancellation is asynchronous, sometimes there is a data delay in this endpoint. You can get real-time order info in <a href="#t-querycond">Query Conditional Order (real-time)</a> endpoint.</p>
   ### Cancel Conditional Order
   cancelcond: Cancel Conditional Order
   account_para_cancelCond: |
@@ -557,7 +559,7 @@ en:
   websocket_aside_auth: <b>Public</b> topics do not require authentication. The following section applies to <b>private</b> topics only.
   websocket_para_methods: There are two methods of authentication, as shown in the code panel to the right.
   websocket_aside_signature: Example signature algorithms can be found <a href="https://github.com/bybit-exchange/api-connectors/tree/master/encryption_example">here</a>.
-  websocket_best_practices: Due to the complexity of the network, program may loss the connection at any time. In order to ensure that you receive messages on time, you should do as the following<span>:</span>
+  websocket_best_practices: Due to the complexity of the network, your program may lose connection at any time. In order to ensure that you receive messages on time, you should do the following<span>:</span>
     <p>1. Keep connection alive by <a href="#t-heartbeat">sending heartbeat packet</a></p>
     <p>2. Reconnect as soon as the connection is broken</p>
   ## How to Send the Heartbeat Packet
@@ -584,7 +586,7 @@ en:
     <p>Finally, to subscribe to the topic without filters please use the <code>*</code> wildcard.</p>
   ### Intervals
   intervals: Intervals
-  websocket_para_intervals: Some topics are pushed at intervals. If the `args` contain a millisecond param, such as `100ms`, this topic is pushed at intervals. Otherwise, it is pushed constantly.
+  websocket_para_intervals: Some topics are pushed at intervals. If the <code>args</code> contain a millisecond param, such as <code>100ms</code>, this topic is pushed at intervals. Otherwise, it is pushed constantly.
 
   ## Understanding the Subscription Response
   websocketresponse: Understanding the Subscription Response
@@ -786,7 +788,7 @@ en:
   http_200: Request valid -- Your request is valid
   http_403: Forbidden -- You request too many times
   http_404: Request path not found
-  
+
   err_10001: parameter error
   err_10002: request expired, check your <code>timestamp</code> and <code>recv_window</code>
   err_10003: Invalid apikey
@@ -833,7 +835,7 @@ en:
   err_30011: operation not allowed as position is undergoing liquidation
   err_30012: operation not allowed as position is undergoing ADL
   err_30013: position is in liq or adl status
-  err_30014: invalid closing order, qty shoud not greater than size
+  err_30014: invalid closing order, qty should not greater than size
   err_30015: invalid closing order, side should be opposite
   err_30016: TS and SL must be cancelled first while closing position
   err_30017: estimated fill price cannot be lower than current Buy liq_price
@@ -851,7 +853,7 @@ en:
   err_30029: price set for Stop loss should be between Last Traded Price and Liquidation price
   err_30030: price set for Take profit should be lower than Last Traded Price
   err_30031: insufficient available balance for order cost
-  err_30032: order has been filled or canceled
+  err_30032: order has been filled or cancelled
   err_30033: The number of stop orders exceeds maximum limit allowed
   err_30034: no order found
   err_30035: too fast to cancel
