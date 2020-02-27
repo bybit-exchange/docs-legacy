@@ -1,5 +1,10 @@
 # t(:changelog)
 
+## 2020-02-26
+### REST API
+- [t(:placev2active)](#t-placev2active) 
+    - t(:update_20200226)
+
 ## 2020-02-10
 
 ### REST API
@@ -10,6 +15,7 @@
     - t(:replaceCond1_20200210)
     - t(:replaceCond2_20200210)
 - t(:bugfix1_20200210) [t(:changelog_bugfix)]
+
 
 ## 2019-12-27
 
