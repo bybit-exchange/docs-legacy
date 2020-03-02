@@ -1229,6 +1229,7 @@ GET
             "api_key": "7GkMBBLTbGRfa0Nuh1",
             "type": "personal",
             "user_id": 1,
+            "inviter_id": 3,
             "ips": [
                 "*"
             ],
