@@ -1,5 +1,11 @@
 # t(:changelog)
 
+## 2020-03-02
+
+### Websocket API
+- [t(:websockettrade)](#t-websockettrade) [t(:changelog_update)]
+    - t(:trade___20200302)
+
 ## 2020-02-26
 ### REST API
 - [t(:placev2active)](#t-placev2active) 

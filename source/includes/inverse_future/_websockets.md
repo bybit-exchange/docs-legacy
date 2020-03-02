@@ -313,6 +313,7 @@ ws.send('{"op": "subscribe", "args": ["trade"]}')
     "data": [
         {
             "timestamp": "2020-01-12T16:59:59.000Z",
+            "trade_time_ms": 1582793344685, // trade time in millisecond
             "symbol": "BTCUSD",
             "side": "Sell",
             "size": 328,
@@ -555,7 +556,7 @@ ws.send('{"op": "subscribe", "args": ["execution"]}')
             "exec_fee": "0.00000009",
             "leaves_qty": 0,
             "is_maker": false,
-            "trade_time": "2020-01-14T14:07:23.629Z"
+            "trade_time": "2020-01-14T14:07:23.629Z" // trade time
         }
     ]
 }
