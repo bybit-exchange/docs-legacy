@@ -319,6 +319,14 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#2020-03-02" class="toc-h2 toc-link" data-title="2020-03-02">2020-03-02</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#websocket-api" class="toc-h3 toc-link" data-title="Websocket API">Websocket API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
                     <a href="#2020-02-26" class="toc-h2 toc-link" data-title="2020-02-26">2020-02-26</a>
                       <ul class="toc-list-h3">
                           <li>
@@ -349,7 +357,7 @@
                             <a href="#rest-api-4" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                           <li>
-                            <a href="#websocket-api" class="toc-h3 toc-link" data-title="Websocket API">Websocket API</a>
+                            <a href="#websocket-api-2" class="toc-h3 toc-link" data-title="Websocket API">Websocket API</a>
                           </li>
                       </ul>
                   </li>
@@ -392,7 +400,7 @@
                             <a href="#rest-api-9" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                           <li>
-                            <a href="#websocket-api-2" class="toc-h3 toc-link" data-title="Websocket API">Websocket API</a>
+                            <a href="#websocket-api-3" class="toc-h3 toc-link" data-title="Websocket API">Websocket API</a>
                           </li>
                       </ul>
                   </li>
@@ -403,7 +411,7 @@
                             <a href="#rest-api-10" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                           <li>
-                            <a href="#websocket-api-3" class="toc-h3 toc-link" data-title="Websocket API">Websocket API</a>
+                            <a href="#websocket-api-4" class="toc-h3 toc-link" data-title="Websocket API">Websocket API</a>
                           </li>
                       </ul>
                   </li>
@@ -1055,7 +1063,15 @@ clipboard.on('error', function(e) {
 <p><p>Welcome to the official documentation for the <a href="https://www.bybit.com/">Bybit</a> APIs and Websocket! Here you can find details on how to access all of our endpoints, their respective expected outputs, and possible errors you may encounter.</p> <p>If you encounter an issue you need help with, have a suggestions for us, or just want to have a chat with fellow developers then please head on over to our <a href="https://t.me/Bybitapi">API Telegram chat</a>!</p></p>
 <h3 id='t-resources'>Bybit API Resources</h3>
 <p><ul> <li><a href="https://help.bybit.com/hc/en-us">Help Center<img src="../images/bybit_favicon-066372d5.png" height="14", width="14"></a> - learn about exchange mechanisms here! <li><a href="https://github.com/bybit-exchange/docs/issues">Bybit API docs<img src="../images/github_logo_icon-768757c0.png" height="14", width="14"></a> - report issues here! <li><a href="https://github.com/bybit-exchange/api-connectors/">Bybit's api-connectors <img src="../images/github_logo_icon-768757c0.png" height="14", width="14"></a> - find a repo of prebuilt libraries here! <li><a href="https://t.me/Bybitapi">API Discussion Group <img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> - get help here! <li><a href="https://t.me/Bybit_API_Announcements">API Announcements Channel <img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> - subscribe for changes to the API! </ul></p>
-<h1 id='t-changelog'>Changelog</h1><h2 id='2020-02-26'>2020-02-26</h2><h3 id='rest-api'>REST API</h3>
+<h1 id='t-changelog'>Changelog</h1><h2 id='2020-03-02'>2020-03-02</h2><h3 id='websocket-api'>Websocket API</h3>
+<ul>
+<li><a href="#t-websockettrade">trade</a> [update]
+
+<ul>
+<li>Add new field <code>trade_time_ms</code></li>
+</ul></li>
+</ul>
+<h2 id='2020-02-26'>2020-02-26</h2><h3 id='rest-api'>REST API</h3>
 <ul>
 <li><a href="#t-placev2active">Place Active Order V2</a> 
 
@@ -1088,7 +1104,7 @@ clipboard.on('error', function(e) {
 <ul>
 <li><a href="#t-mypositionv2">My Position V2 (real-time)</a> [new]</li>
 </ul>
-<h3 id='websocket-api'>Websocket API</h3>
+<h3 id='websocket-api-2'>Websocket API</h3>
 <ul>
 <li><a href="#t-websocketorderbook200">orderBookL2_200</a> [new]</li>
 </ul>
@@ -1142,7 +1158,7 @@ clipboard.on('error', function(e) {
 </li>
 </ul></li>
 </ul>
-<h3 id='websocket-api-2'>Websocket API</h3>
+<h3 id='websocket-api-3'>Websocket API</h3>
 <ul>
 <li><a href="#t-websocketklinev2">klineV2</a> [new]</li>
 <li><a href="#t-websocketstoporder">stop_order</a> [new]</li>
@@ -1151,7 +1167,7 @@ clipboard.on('error', function(e) {
 <ul>
 <li><a href="#t-queryactive">Query Active Order (real-time)</a> [new]</li>
 </ul>
-<h3 id='websocket-api-3'>Websocket API</h3>
+<h3 id='websocket-api-4'>Websocket API</h3>
 <ul>
 <li><a href="#t-websocketposition">position</a> [update]
 
@@ -4329,6 +4345,7 @@ Want a greater depth? Take a look at the <a href="#t-websocketorderbook200">orde
     <span class="s2">"data"</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="s2">"timestamp"</span><span class="p">:</span> <span class="s2">"2020-01-12T16:59:59.000Z"</span><span class="p">,</span>
+            <span class="s2">"trade_time_ms"</span><span class="p">:</span> <span class="mi">1582793344685</span><span class="p">,</span> <span class="c1">// trade time in millisecond</span>
             <span class="s2">"symbol"</span><span class="p">:</span> <span class="s2">"BTCUSD"</span><span class="p">,</span>
             <span class="s2">"side"</span><span class="p">:</span> <span class="s2">"Sell"</span><span class="p">,</span>
             <span class="s2">"size"</span><span class="p">:</span> <span class="mi">328</span><span class="p">,</span>
@@ -4560,7 +4577,7 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
             <span class="s2">"exec_fee"</span><span class="p">:</span> <span class="s2">"0.00000009"</span><span class="p">,</span>
             <span class="s2">"leaves_qty"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
             <span class="s2">"is_maker"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-            <span class="s2">"trade_time"</span><span class="p">:</span> <span class="s2">"2020-01-14T14:07:23.629Z"</span>
+            <span class="s2">"trade_time"</span><span class="p">:</span> <span class="s2">"2020-01-14T14:07:23.629Z"</span> <span class="c1">// trade time</span>
         <span class="p">}</span>
     <span class="p">]</span>
 <span class="p">}</span>
