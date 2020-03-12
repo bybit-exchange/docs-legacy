@@ -73,6 +73,10 @@ en:
   enum_Liquidity_type_link: <a href="#liquidity-type-last_liquidity_ind">Liquidity Enum</a>
   enum_stop_order_status_link: <a href="#stop-order-status-stop_order_status">Stop Order Status</a>
   errorcode_meaning: Meaning
+  resp_field_leverage: In Isolated Margin mode, the value is set by user. In Cross Margin mode, the value is the max leverage at current risk level
+  resp_field_effective_leverage: Effective Leverage.
+    In Isolated Margin mode, its value equals `leverage`;
+    In Cross Margin mode, The formula to calculate<span>:</span> <code>position size / markprice / (wallet_balance+unrealised_pnl)</code>
 
   # introduction in index.html.md
   introduction: Introduction
@@ -86,8 +90,9 @@ en:
       <li><a href="https://help.bybit.com/hc/en-us">Help Center<img src="/images/bybit_favicon.png" height="14", width="14"></a> - learn about exchange mechanisms here!
       <li><a href="https://github.com/bybit-exchange/docs/issues">Bybit API docs<img src="/images/github_logo_icon.png" height="14", width="14"></a> - report issues here!
       <li><a href="https://github.com/bybit-exchange/api-connectors/">Bybit's api-connectors <img src="/images/github_logo_icon.png" height="14", width="14"></a> - find a repo of prebuilt libraries here!
-      <li><a href="https://t.me/Bybitapi">API Discussion Group <img src="/images/telegram_logo_icon.png" height="14", width="14"></a> - get help here!
+      <li><a href="https://t.me/Bybitapi">API Discussion Group <img src="/images/telegram_logo_icon.png" height="14", width="14"></a> - get English help here!
       <li><a href="https://t.me/Bybit_API_Announcements">API Announcements Channel <img src="/images/telegram_logo_icon.png" height="14", width="14"></a> - subscribe for changes to the API!
+     <li>添加小助手微信号：BybitAPI，加入Bybit API中文交流群</li>
     </ul>
 
   # Changelog
@@ -103,6 +108,9 @@ en:
   replaceCond1_20200210: Add <code>stop_order_id</code> in response
   replaceCond2_20200210: Add a new request parameter <code>stop_order_id</code> to replace <code>order_id</code> for consistency
   bugfix1_20200210: Fix value of <code>rate_limit_reset_ms</code> in V2 private endpoints' response from <code>microseconds</code> to <code>millisecond</code>, be consistent with V1 endpoint
+  ## 2020-03-16
+  position_20200316: Add field <code>effective_leverage</code> in response
+  bugfix1_20200316: Fix value of field <code>equity</code> of <code>USDT</code>
   ## 2019-12-27 20191227
   ## 2019-12-18 20191218
   ## 2019-12-13 20191213

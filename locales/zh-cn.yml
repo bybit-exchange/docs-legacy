@@ -47,7 +47,7 @@ zh-cn:
   row_comment_pRQty: 修改后的订单数量。如果是未完全成交订单，则表示修改剩余未成交的部分。如果不修改这个字段，请不要传这个参数。
   row_comment_pRPrice: 修改后的订单价格。如果不修改这个字段，请不要传这个参数。
   row_comemnt_pRTriggerPrice: 修改后的条件单的触发价格。如果不修改这个字段，请不要传这个参数。
-  row_comment_leverage: 杠杆。<code>杠杆为0</code>意味着全仓模式.全场模式下修改杠杆会变成逐仓模式
+  row_comment_leverage: 杠杆。<code>杠杆为0</code>意味着全仓模式.全场模式下修改杠杆会变成逐仓模式;
   row_comment_startDate: Start point for result
   row_comment_endDate: End point for result
   row_comment_currency: Currency type
@@ -74,6 +74,8 @@ zh-cn:
   enum_Liquidity_type_link: <a href="#liquidity-type-last_liquidity_ind">流动性类型枚举</a>
   enum_stop_order_status_link: <a href="#stop-order-status-stop_order_status">条件单状态stop_order_status枚举</a>
   errorcode_meaning: 含义
+  resp_field_leverage:  逐仓模式下, 值为用户设置的杠杆；全仓模式下，值为当前风险限额下最大杠杆
+  resp_field_effective_leverage: 有效杠杆. 逐仓模式下, 等于`leverage`; 全仓模式下, 计算公式为： <code>position size / markprice / (wallet_balance+unrealised_pnl)</code>
 
   # introduction in index.html.md
   introduction: 介绍
@@ -89,6 +91,7 @@ zh-cn:
       <li><a href="https://github.com/bybit-exchange/api-connectors/">Bybit's api-connectors <img src="/images/github_logo_icon.png" height="14", width="14"></a> - 官方API SDK
       <li><a href="https://t.me/Bybitapi">API Discussion Group <img src="/images/telegram_logo_icon.png" height="14", width="14"></a> - API讨论群
       <li><a href="https://t.me/Bybit_API_Announcements">API Announcements Channel <img src="/images/telegram_logo_icon.png" height="14", width="14"></a> - API公告群
+      <li>添加小助手微信号：BybitAPI，加入Bybit API中文交流群</li>
     </ul>
 
 
@@ -105,6 +108,9 @@ zh-cn:
   replaceCond1_20200210: 返回结果中增加 <code>stop_order_id</code>
   replaceCond2_20200210: 为了和其他接口保持统一，新增请求参数<code>stop_order_id</code>，替换调原来的参数 <code>order_id</code>
   bugfix1_20200210: 修复V2私有接口返回值中<code>rate_limit_reset_ms</code>单位问题，将原来的微妙改为毫秒，和V1接口保持一致
+  ## 202020316
+  position_20200316: 返回新增字段<code>effective_leverage</code>
+  bugfix1_20200316: 修复<code>USDT</code>资产字段<code>equity</code>值总是为0的bug
   ## 2019-12-27 20191227
   ## 2019-12-18 20191218
   ## 2019-12-13 20191213
