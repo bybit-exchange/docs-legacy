@@ -911,3 +911,136 @@ en:
   requestparameters_api_data: Request Parameters
   httprequest_wallet: HTTP Request
   requestparameters_wallet: Request Parameters
+
+
+
+
+  ## LinearQuantity (`qty`)
+  linear_quantity:
+    <ul>
+    <li>Maximum quantity of 1000</li>
+    <ul>
+    </ul>
+    </li>
+    </ul>
+  ## LinearPrice (`price`)
+  linear_price:
+    <ul>
+    <li>Active order<ul>
+    <li>Must be an increment of that market&#39;s <code>tick_size</code><ul>
+    <li>Current symbol information (like tick sizes) can be found with the <a href="#t-querysymbol">Query Symbol endpoint</a>.</li>
+    <li>Use modulo (<code>%</code>) to calculate whether or not a price will be accepted, like so:<pre class="center-column">
+    IF price % tick_size = 0
+    // send request
+    ELSE
+    // do not send request as the price will not be accepted by the system
+    </pre></li>
+    </ul>
+    </li>
+    <li>Must be less than 1 million (<code>1000000</code>)</li>
+    <li>If the user has no open position then the price must be greater than 10% of the market price<ul>
+    <li>For example, if the current market price (last price) is <code>10314</code>, then the absolute minimum the price may be is <code>1031.5</code>. It may not be <code>1031</code> or below.</li>
+    <li>In pseudocode (assuming the price is an increment of 0.5):<pre class="center-column">
+    IF price > (last_price * 0.1)
+    // send request
+    ELSE
+    // do not send request as the price will not be accepted by the system
+    </pre></li>
+    </ul>
+    </li>
+    <li>If the user holds a position, the order price must be better than the liquidation price.<ul>
+    <li>For example, if the liquidation price of an open long position is <code>5176.5</code> then the price may be a minimum of <code>5177</code>. In the case of a short position the price must be less than the liquidation price.</li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    </ul>
+
+
+  err_130001: Not get position
+  err_130002: wallet is nil
+  err_130003: the pz status is not normal
+  err_130004: Order number is out of permissible range
+  err_130005: Order price is out of permissible range
+  err_130006: order qty is out of permissible range
+  err_130007: Order price is out of permissible range
+  err_130008: order_type invalid
+  err_130009: The number of contracts below min limit allowed
+  err_130010: order not exists or Too late to operate
+  err_130011: Operation not allowed as position is undergoing liquidation
+  err_130012: Operation not allowed as position is undergoing ADL
+  err_130013: stop_order trail value invalid
+  err_130014: stop_order trigger price invalid
+  err_130015: stop_order expected_direction or base_price invalid
+  err_130016: invalid stop_order_type, cannot replace price
+  err_130017: invalid stop_order_type, cannot replace qty
+  err_130018: invalid trail_value
+  err_130019: invalid stop_order_type, cannot replace trigger_price
+  err_130020: invalid stop_order_type, cannot replace trail_value
+  err_130021: order cost not available
+  err_130024: cannot set tp_sl_ts for zero position
+  err_130025: below < 10% of base price
+  err_130026: the price is too high
+  err_130027: the price set for Buy position should be higher than base_price
+  err_130028: the price set for Sell position should be between base_price and liq_price
+  err_130029: the price set for Buy position should be between liq_price and base_price
+  err_130030: the price set for Sell position should be lower than base_price
+  err_130032: invalid order_status, cannot cancel or execute trigger
+  err_130033: number of condition order >= 10
+  err_130034: stop_order cannot replace
+  err_130035: Too freq to cancel, Try it later
+  err_130037: Order already cancelled
+  err_130040: position will be liq
+  err_130041: AvailableBalanceE8 less than 0
+  err_130049: available balance not enough
+  err_130050: Any adjustments made will trigger liq
+  err_130051: cannot set leverage ,due to risk limit,
+  err_130052: cannot set leverage , below the lower limit
+  err_130056: the position is in cross_margin
+  err_130057: the position size is 0
+  err_130058: can not set margin less than minPositionCost
+  err_130059: can not set pz open limit more than symbol limit
+  err_130060: autoAddMargin not changed
+  err_130061: not change fee，invalid req
+  err_130062: can not set pz open limit less than current buy pz value
+  err_130063: can not set pz open limit less than current sell pz value
+  err_130064: just support usdt
+  err_130074: expect Rising, trigger_price <= current
+  err_130075: expect Falling, trigger_price>= current
+  err_130076: replace params invalid
+  err_130077: the deposit req has handled
+  err_130078: the withdraw req has handled
+  err_130079: the rotate req has handled
+  err_130101: unknown request for create order
+  err_130102: unknown request for cancel order
+  err_130103: unknown request for cancelAll
+  err_130104: unknown request for LiqExecuteReq ,req param not match liqExecuteReq
+  err_130105: unknown request for pre create order
+  err_130106: unknown req for query order
+  err_130107: unmatch request for triggeredToActiveImpl
+  err_130108: unknown request for addMargin
+  err_130109: unknown request for calculatePositionPnl
+  err_130110: unknown request for qryAssetImpl
+  err_130111: unknown request for query_position_list
+  err_130112: unknown request for setAutoAddMargin
+  err_130113: unknown request for setFeeRate
+  err_130114: unknown request for setLeverage
+  err_130115: unknown request for setMargin
+  err_130116: unknown request for setOpenLimit
+  err_130117: unknown request for setTpSlTs
+  err_130118: unknown request for settleFundingFeeReq
+  err_130119: unknown request for setPositionMode
+  err_130120: unknown request for walletDeposit
+  err_130121: unknown request for walletWithDraw
+  err_130122: unknown request for rotateRealisedPnl
+  err_130123: unknown request for AdlExecute
+  err_130124: unknown request for AdlCleanReq
+  err_130125: No change made for TP/SL price
+  err_130126: No orders
+  err_130023: Will be triggered Liq after order is completed
+  err_130127: Take Profit, Stop Loss and Trailing Stop Loss are not modified
+
+  ### LinearPosition
+  linear_position: My Position

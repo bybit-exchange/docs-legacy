@@ -6,16 +6,9 @@ t(:ENUMs_para)
 * `Sell`
 
 ## Symbol (`symbol`)
-* `BTCUSD`
-* `ETHUSD`
-* `EOSUSD`
-* `XRPUSD`
+* `BTCUSDT`
 
 ## Currency (`currency`/`coin`)
-* `BTC`
-* `ETH`
-* `EOS`
-* `XRP`
 * `USDT`
 
 
@@ -77,6 +70,7 @@ t(:para_orderStatusGet)
 * `Cancelled` t(:cancelled1)
 * `PendingCancel` t(:pendingCancel1)
 
+<!--
 ## Stop order status (`stop_order_status`)
 * `Active` t(:active)
 * `Untriggered` t(:untriggered)
@@ -84,7 +78,7 @@ t(:para_orderStatusGet)
 * `Cancelled` t(:cancelled)
 * `Rejected` t(:rejected)
 * `Deactivated` t(:deactivated1)
-
+-->
 
 ## Cancel type (`cancel_type`)
 * `CancelByUser` t(:cancelByUser)

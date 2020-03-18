@@ -24,51 +24,17 @@ t(:rate_para_understanding)
     <th>t(:row_comment_consume)</th>
   </tr>
   <tr>
-    <td rowspan="10">100/min</td>
-    <td>open-api/order/create </td>
+    <td rowspan="2">100/min</td>
+    <td>/private/linear/order/create </td>
     <td>1 / request</td>
   </tr>
-  <tr><td>open-api/order/cancel       </td><td>1 / request</td></tr>
-  <tr><td>open-api/stop-order/create  </td><td>1 / request</td></tr>
-  <tr><td>open-api/stop-order/cancel  </td><td>1 / request</td></tr>
-  <tr><td>open-api/order/replace      </td><td>1 / request</td></tr>
-  <tr><td>open-api/stop-order/replace </td><td>1 / request</td></tr>
-  <tr><td>v2/private/order/create     </td><td>1 / request</td></tr>
-  <tr><td>v2/private/order/cancel     </td><td>1 / request</td></tr>
-  <tr><td>v2/private/order/cancelAll  </td><td>10 / request</td></tr>
-  <tr><td>v2/private/stop-order/cancelAll </td><td>10 / request</td></tr>
+  <tr><td>/private/linear/order/cancel </td><td>1 / request</td></tr>
   <tr>
-    <td rowspan="3">600/min</td>
-    <td>open-api/order/list </td>
+    <td rowspan="2">600/min</td>
+    <td>/private/linear/order/list </td>
     <td>1 / request</td>
   </tr>
-  <tr><td>open-api/stop-order/list </td><td>1 / request</td></tr>
-  <tr><td>v2/private/order </td><td>1 / request</td></tr>
-  <tr>
-    <td>120/min</td>
-    <td>v2/private/execution/list</td>
-    <td>1 / request</td>
-  </tr>
-  <tr>
-    <td rowspan="3">75/min</td>
-    <td>user/leverage/save  </td>
-    <td>1 / request</td>
-  </tr>
-  <tr><td>position/change-position-margin </td><td>1 / request</td></tr>
-  <tr><td>position/trading-stop           </td><td>1 / request</td></tr>
-  <tr>
-    <td rowspan="2">120/min</td>
-    <td>position/list  </td>
-    <td>1 / request</td>
-  </tr>
-  <tr><td>user/leverage</td><td>1 / request</td></tr>
-  <tr>
-    <td rowspan="3">120/min</td>
-    <td>open-api/funding/prev-funding-rate  </td>
-    <td>1 / request</td>
-  </tr>
-  <tr><td>open-api/funding/prev-funding      </td><td>1 / request</td></tr>
-  <tr><td>open-api/funding/predicted-funding </td><td>1 / request</td></tr>
+  <tr><td>/private/linear/order/search </td><td>1 / request</td></tr>
   <tr>
     <td rowspan="2">120/min</td>
     <td>open-api/wallet/fund/records  </td>
@@ -87,75 +53,3 @@ t(:rate_para_limits)
 
 ### t(:raisemylimit)
 t(:rate_para_raise)
-
-### t(:liquidity)
-t(:rate_para_liquidity)
-
-#### t(:ofrthreshold)
-t(:rate_para_threshold)
-
-##### t(:ofrratio)
-t(:rate_para_ratio)
-
-##### t(:ofrratioExample)
-
-
-<pre class="center-column-nonindent">
-t(:rate_pre_ratioExampleA)
-</pre>
-
-<pre class="center-column-nonindent">
-t(:rate_pre_ratioExampleB)
-</pre>
-
-
-##### t(:ofrminimum)
-t(:rate_para_minimum)
-
-
-#### t(:frequencylimit)
-t(:rate_para_frequency)
-
-
-| t(:column_LCP) | t(:column_frequencyLimit) |
-|  ----    | ----  |
-| 20-100  | t(:row_frequencyLimit_800) |
-| 10-20   | t(:row_frequencyLimit_600) |
-| 5-10    | t(:row_frequencyLimit_400) |
-| 2-5     | t(:row_frequencyLimit_200) |
-| <2      | t(:row_frequencyLimit_100) |
-
-##### t(:liquidityPoints)
-t(:rate_para_liquidityPoints)
-
-##### t(:ratelimitsexplanation)
-###### t(:pricerange)
-t(:rate_para_priceRange)
-
-###### t(:pricerangeExample)
-<pre class="center-column-nonindent">
-t(:rate_pre_priceRangeExample)
-</pre>
-
-
-###### t(:pou)
-t(:rate_para_POU)
-
-<pre class="center-column-nonindent">
-t(:rate_pre_POUExample)
-</pre>
-
-
-###### t(:poa)
-t(:rate_para_POA)
-
-###### t(:poaExample)
-t(:rate_para_POAExample)
-
-<pre class="center-column-nonindent">
-t(:rate_pre_POAExample)
-</pre>
-
-<aside class="notice">
-t(:rate_aside_POAExample)
-</aside>
