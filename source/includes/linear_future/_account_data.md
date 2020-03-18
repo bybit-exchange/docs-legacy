@@ -2,7 +2,7 @@
 t(:account_para)
 
 ## t(:activeorders)
-### t(:placev2active)
+### t(:linear_place_active)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -12,25 +12,24 @@ t(:account_para)
     "ext_code": "",
     "ext_info": "",
     "result": {
+        "order_id":"bd1844f-f3c0-4e10-8c25-10fea03763f6",
         "user_id": 1,
-        "order_id": "335fd977-e5a5-4781-b6d0-c772d5bfb95b",
         "symbol": "BTCUSD",
-        "side": "Buy",
+        "side": "Sell",
         "order_type": "Limit",
-        "price": 8800,
-        "qty": 1,
+        "price": "8083",
+        "qty": 10,
         "time_in_force": "GoodTillCancel",
-        "order_status": "Created",
-        "last_exec_time": 0,
-        "last_exec_price": 0,
-        "leaves_qty": 1,
+        "order_status": "New",
+        "last_exec_time": "2019-10-21T07:28:19.396246Z",
+        "last_exec_price": "8083",
+        "leaves_qty": 10,
         "cum_exec_qty": 0,
         "cum_exec_value": 0,
         "cum_exec_fee": 0,
         "reject_reason": "",
         "order_link_id": "",
-        "created_at": "2019-11-30T11:03:43.452Z",
-        "updated_at": "2019-11-30T11:03:43.455Z"
+        "created_at": "2019-10-21T07:28:19.396246Z",
     },
     "time_now": "1575111823.458705",
     "rate_limit_status": 98,
@@ -43,7 +42,7 @@ t(:account_para_placeActive)
 
 #### t(:httprequest)
 POST
-<code><span id=vpoCreate>/v2/private/order/create</span></code>
+<code><span id=vpoCreate>/private/linear/order/create</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 #### t(:requestparameters)
@@ -57,8 +56,8 @@ POST
 |<a href="#time-in-force-time_in_force">time_in_force</a> |true |string |t(:row_comment_timeInForce) |
 |take_profit |false |number |t(:row_comment_takeProfit) |
 |stop_loss |false |number |t(:row_comment_stopLoss) |
-|reduce_only |false |bool |t(:row_comment_reduceOnly) |
-|close_on_trigger |false |bool |t(:row_comment_closeOnTrigger)
+|reduce_only |false |bool |t(:linear_row_comment_reduceOnly) |
+|close_on_trigger |false |bool |t(:linear_row_comment_closeOnTrigger)
 |order_link_id |false |string |t(:row_comment_orderLinkId) |
 
 
@@ -75,35 +74,24 @@ POST
         "last_page": 6,
         "data": [
             {
-                "user_id": 1,
-                "symbol": "BTCUSD",
-                "side": "Sell",
-                "order_type": "Market",
-                "price": 7074,
-                "qty": 2,
-                "time_in_force": "ImmediateOrCancel",
-                "order_status": "Filled",
-                "ext_fields": {
-                    "close_on_trigger": true,
-                    "orig_order_type": "BLimit",
-                    "prior_x_req_price": 5898.5,
-                    "op_from": "pc",
-                    "remark": "127.0.0.1",
-                    "o_req_num": -34799032763,
-                    "xreq_type": "x_create"
-                },
-                "last_exec_time": "1577448481.696421",
-                "last_exec_price": 7070.5,
-                "leaves_qty": 0,
-                "leaves_value": 0,
-                "cum_exec_qty": 2,
-                "cum_exec_value": 0.00028283,
-                "cum_exec_fee": 0.00002,
-                "reject_reason": "NoError",
-                "order_link_id": "",
-                "created_at": "2019-12-27T12:08:01.000Z",
-                "updated_at": "2019-12-27T12:08:01.000Z",
-                "order_id": "f185806b-b801-40ff-adec-52289370ed62"
+               "order_id":"bd1844f-f3c0-4e10-8c25-10fea03763f6",
+               "user_id": 1,
+               "symbol": "BTCUSD",
+               "side": "Sell",
+               "order_type": "Limit",
+               "price": "8083",
+               "qty": 10,
+               "time_in_force": "GoodTillCancel",
+               "order_status": "New",
+               "last_exec_time": "2019-10-21T07:28:19.396246Z",
+               "last_exec_price": "8083",
+               "leaves_qty": 10,
+               "cum_exec_qty": 0,
+               "cum_exec_value": 0,
+               "cum_exec_fee": 0,
+               "reject_reason": "",
+               "order_link_id": "",
+               "created_at": "2019-10-21T07:28:19.396246Z",
             }
         ]
     },
@@ -119,7 +107,7 @@ t(:account_para_getActive)
 
 #### t(:httprequest)
 GET
-<code><span id=oaoList>/open-api/order/list</span></code>
+<code><span id=oaoList>/private/linear/order/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oaoList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 #### t(:requestparameters)
@@ -134,7 +122,7 @@ GET
 |<a href="#order-status-order_status-get">order_status</a> |false |string |t(:account_row_comment_orderStatus) |
 
 
-### t(:cancelv2active)
+### t(:linear_cancel_active)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -144,25 +132,24 @@ GET
     "ext_code": "",
     "ext_info": "",
     "result": {
+        "order_id":"bd1844f-f3c0-4e10-8c25-10fea03763f6",
         "user_id": 1,
-        "order_id": "3bd1844f-f3c0-4e10-8c25-10fea03763f6",
         "symbol": "BTCUSD",
-        "side": "Buy",
+        "side": "Sell",
         "order_type": "Limit",
-        "price": 8800,
-        "qty": 1,
+        "price": "8083",
+        "qty": 10,
         "time_in_force": "GoodTillCancel",
         "order_status": "New",
-        "last_exec_time": 0,
-        "last_exec_price": 0,
-        "leaves_qty": 1,
+        "last_exec_time": "2019-10-21T07:28:19.396246Z",
+        "last_exec_price": "8083"
+        "leaves_qty": 10,
         "cum_exec_qty": 0,
         "cum_exec_value": 0,
         "cum_exec_fee": 0,
         "reject_reason": "",
         "order_link_id": "",
-        "created_at": "2019-11-30T11:17:18.396Z",
-        "updated_at": "2019-11-30T11:18:01.811Z"
+        "created_at": "2019-10-21T07:28:19.396246Z",
     },
     "time_now": "1575112681.814760",
     "rate_limit_status": 98,
@@ -175,7 +162,7 @@ t(:account_para_cancelActive)
 
 #### t(:httprequest)
 POST
-<code><span id=vpoCancel>/v2/private/order/cancel</span></code>
+<code><span id=vpoCancel>/private/linear/order/cancel</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancel"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 #### t(:requestparameters)
@@ -198,6 +185,7 @@ POST
 	"ext_code": "",
 	"ext_info": "",
 	"result": {
+	    "order_id":"bd1844f-f3c0-4e10-8c25-10fea03763f6",
 		"user_id": 1,
 		"symbol": "BTCUSD",
 		"side": "Sell",
@@ -206,19 +194,15 @@ POST
 		"qty": 10,
 		"time_in_force": "GoodTillCancel",
 		"order_status": "New",
-		"ext_fields": {
-			"o_req_num": -308787,
-			"xreq_type": "x_create",
-			"xreq_offset": 4154640
-		},
+		"last_exec_time": "2019-10-21T07:28:19.396246Z",
+		"last_exec_price": "8083"
 		"leaves_qty": 10,
-		"leaves_value": "0.00123716",
 		"cum_exec_qty": 0,
+		"cum_exec_value": 0,
+		"cum_exec_fee": 0,
 		"reject_reason": "",
 		"order_link_id": "",
 		"created_at": "2019-10-21T07:28:19.396246Z",
-		"updated_at": "2019-10-21T07:28:19.396246Z",
-		"order_id": "efa44157-c355-4a98-b6d6-1d846a936b93"
 	},
 	"time_now": "1571651135.291930",
 	"rate_limit_status": 99, // The remaining number of accesses in one minute
@@ -231,7 +215,7 @@ t(:account_para_queryActive)
 
 #### t(:httprequest)
 GET
-<code><span id=vpOrder>/v2/private/order</span></code>
+<code><span id=vpOrder>/private/linear/order/search</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 #### t(:requestparameters)
@@ -253,38 +237,88 @@ GET
     "ret_msg": "OK",
     "ext_code": "",
     "ext_info": "",
-    "result": {
-        "id": 27913,
-        "user_id": 1,
-        "risk_id": 1,
-        "symbol": "BTCUSD",
-        "side": "Buy",
-        "size": 5,
-        "position_value": "0.0006947",
-        "entry_price": "7197.35137469",
-        "auto_add_margin": 0,
-        "leverage": "1",
-        "position_margin": "0.0006947",
-        "liq_price": "3608",
-        "bust_price": "3599",
-        "occ_closing_fee": "0.00000105",
-        "occ_funding_fee": "0",
-        "take_profit": "0",
-        "stop_loss": "0",
-        "trailing_stop": "0",
-        "position_status": "Normal",
-        "deleverage_indicator": 4,
-        "oc_calc_data": "{\"blq\":2,\"blv\":\"0.0002941\",\"slq\":0,\"bmp\":6800.408,\"smp\":0,\"fq\":-5,\"fc\":-0.00029477,\"bv2c\":1.00225,\"sv2c\":1.0007575}",
-        "order_margin": "0.00029477",
-        "wallet_balance": "0.03000227",
-        "realised_pnl": "-0.00000126",
-        "unrealised_pnl": 0,
-        "cum_realised_pnl": "-0.00001306",
-        "cross_seq": 444081383,
-        "position_seq": 287141589,
-        "created_at": "2019-10-19T17:04:55Z",
-        "updated_at": "2019-12-27T20:25:45.158767Z"
-    },
+    "result": [
+       {
+                   "userId":100004,
+                   "symbol":"BTCUSDT",
+                   "side":"Buy",
+                   "size":0,
+                   "positionValue":0,
+                   "entryPrice":0,
+                   "riskId":1,
+                   "leverage":100,
+                   "positionMargin":0,
+                   "liqPrice":0,
+                   "bustPrice":0,
+                   "occClosingFee":0,
+                   "takeProfit":0,
+                   "tpTriggerBy":"LastPriceOld",
+                   "slTriggerBy":"LastPriceOld",
+                   "stopLoss":0,
+                   "trailingStop":0,
+                   "positionStatus":"Normal",
+                   "deleverageIndicator":0,
+                   "todayRealisedPnl":0,
+                   "cumRealisedPnl":0,
+                   "isAutoAddMargin":false,
+                   "freeQty":0,
+                   "adlRankIndicator":0,
+                   "unRealisedPnlByMp":0,
+                   "unRealisedPnlByLp":0,
+                   "unRealisedPnl":0,
+                   "isIsolated":false,
+                   "openValueLimit":1000000,
+                   "extraAddedMargin":0,
+                   "availableBalance":999884.925,
+                   "walletBalance":1000000,
+                   "buyValueToCost":0.0114925,
+                   "sellValueToCost":0,
+                   "minPositionCost":0,
+                   "positionBalance":0,
+                   "createdAt":"2020-03-18T07:06:31.704Z",
+                   "updatedAt":"2020-03-18T07:45:52.798Z"
+               },
+               {
+                   "userId":100004,
+                   "symbol":"BTCUSDT",
+                   "side":"Sell",
+                   "size":0,
+                   "positionValue":0,
+                   "entryPrice":0,
+                   "riskId":1,
+                   "leverage":100,
+                   "positionMargin":0,
+                   "liqPrice":0,
+                   "bustPrice":0,
+                   "occClosingFee":0,
+                   "takeProfit":0,
+                   "tpTriggerBy":"LastPriceOld",
+                   "slTriggerBy":"LastPriceOld",
+                   "stopLoss":0,
+                   "trailingStop":0,
+                   "positionStatus":"Normal",
+                   "deleverageIndicator":0,
+                   "todayRealisedPnl":0,
+                   "cumRealisedPnl":0,
+                   "isAutoAddMargin":false,
+                   "freeQty":0,
+                   "adlRankIndicator":0,
+                   "unRealisedPnlByMp":0,
+                   "unRealisedPnlByLp":0,
+                   "unRealisedPnl":0,
+                   "isIsolated":false,
+                   "openValueLimit":1000000,
+                   "extraAddedMargin":0,
+                   "availableBalance":999884.925,
+                   "walletBalance":1000000,
+                   "buyValueToCost":0,
+                   "sellValueToCost":0.0115075,
+                   "minPositionCost":0,
+                   "positionBalance":0,
+                   "createdAt":"2020-03-18T07:06:31.705Z",
+                   "updatedAt":"2020-03-18T07:45:52.799Z"
+               }
+    ],
     "time_now": "1577480599.097287",
     "rate_limit_status": 119,
     "rate_limit_reset_ms": 1580885703683,
@@ -296,7 +330,7 @@ t(:account_para_myPosition)
 
 #### t(:httprequest)
 GET
-<code><span id=pList>/v2/private/position/list</span></code>
+<code><span id=pList>/private/linear/position/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 #### t(:requestparameters)
