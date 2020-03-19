@@ -949,7 +949,7 @@ clipboard.on('error', function(e) {
 
 
 ### Bybit API Resources
-<ul> <li><a href="https://help.bybit.com/hc/en-us">Help Center<img src="../images/bybit_favicon-066372d5.png" height="14", width="14"></a> - learn about exchange mechanisms here! <li><a href="https://github.com/bybit-exchange/docs/issues">Bybit API docs<img src="../images/github_logo_icon-768757c0.png" height="14", width="14"></a> - report issues here! <li><a href="https://github.com/bybit-exchange/api-connectors/">Bybit's api-connectors <img src="../images/github_logo_icon-768757c0.png" height="14", width="14"></a> - find a repo of prebuilt libraries here! <li><a href="https://t.me/Bybitapi">API Discussion Group <img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> - get help here! <li><a href="https://t.me/Bybit_API_Announcements">API Announcements Channel <img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> - subscribe for changes to the API! </ul>
+<ul> <li><a href="https://help.bybit.com/hc/en-us">Help Center <img src="../images/bybit_favicon-066372d5.png" height="14", width="14"></a> - learn about exchange mechanisms here! <li><a href="https://github.com/bybit-exchange/docs/issues">Bybit API docs <img src="../images/github_logo_icon-768757c0.png" height="14", width="14"></a> - report issues here! <li><a href="https://github.com/bybit-exchange/api-connectors/">Bybit's api-connectors <img src="../images/github_logo_icon-768757c0.png" height="14", width="14"></a> - find a repo of prebuilt libraries here! <li><a href="https://t.me/Bybitapi">API Discussion Group <img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> - get English help here! <li><a href="https://t.me/Bybit_API_Announcements">API Announcements Channel <img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> - subscribe for changes to the API! <li>添加小助手微信号：BybitAPI，加入Bybit API中文交流群</li> </ul>
 <h1 id='t-authentication'>Authentication</h1>
 <aside class="notice">
 To generate an API key please go <a href="https://testnet.bybit.com/app/user/api-management">here for the <b>testnet</b></a> or <a href="https://www.bybit.com/app/user/api-management">here for the <b>mainnet</b></a>.
@@ -2614,7 +2614,9 @@ Set <code>leverage</code> to <code>0</code> if you want to trade in <a href="htt
         <span class="s2">"position_value"</span><span class="p">:</span> <span class="s2">"0.0006947"</span><span class="p">,</span>
         <span class="s2">"entry_price"</span><span class="p">:</span> <span class="s2">"7197.35137469"</span><span class="p">,</span>
         <span class="s2">"auto_add_margin"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">"leverage"</span><span class="p">:</span> <span class="s2">"1"</span><span class="p">,</span>
+        <span class="s2">"leverage"</span><span class="p">:</span> <span class="s2">"1"</span><span class="p">,</span>  <span class="c1">//In Isolated Margin mode, the value is set by user. In Cross Margin mode, the value is the max leverage at current risk level</span>
+        <span class="s2">"effective_leverage"</span><span class="p">:</span> <span class="s2">"1"</span><span class="p">,</span> <span class="c1">// Effective Leverage. In Isolated Margin mode, its value equals `leverage`; In Cross Margin mode, The formula to calculate<span>:</span>
+<code>effective_leverage = position size / mark_price / (wallet_balance + unrealised_pnl)</code></span>
         <span class="s2">"position_margin"</span><span class="p">:</span> <span class="s2">"0.0006947"</span><span class="p">,</span>
         <span class="s2">"liq_price"</span><span class="p">:</span> <span class="s2">"3608"</span><span class="p">,</span>
         <span class="s2">"bust_price"</span><span class="p">:</span> <span class="s2">"3599"</span><span class="p">,</span>

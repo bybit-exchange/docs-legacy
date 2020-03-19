@@ -949,7 +949,7 @@ clipboard.on('error', function(e) {
 
 
 ### 参考资料
-<ul> <li><a href="https://help.bybit.com/hc/zh-cn">帮助中心<img src="../../images/bybit_favicon-066372d5.png" height="14", width="14"></a> - 在这里了解合约交易 <li><a href="https://github.com/bybit-exchange/docs/issues">Bybit API docs<img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"></a> - 在这里提bug <li><a href="https://github.com/bybit-exchange/api-connectors/">Bybit's api-connectors <img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"></a> - 官方API SDK <li><a href="https://t.me/Bybitapi">API Discussion Group <img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> - API讨论群 <li><a href="https://t.me/Bybit_API_Announcements">API Announcements Channel <img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> - API公告群 </ul>
+<ul> <li><a href="https://help.bybit.com/hc/zh-cn">帮助中心<img src="../../images/bybit_favicon-066372d5.png" height="14", width="14"></a> - 在这里了解合约交易 <li><a href="https://github.com/bybit-exchange/docs/issues">Bybit API docs<img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"></a> - 在这里提bug <li><a href="https://github.com/bybit-exchange/api-connectors/">Bybit's api-connectors <img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"></a> - 官方API SDK <li><a href="https://t.me/Bybitapi">API Discussion Group <img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> - API讨论群 <li><a href="https://t.me/Bybit_API_Announcements">API Announcements Channel <img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> - API公告群 <li>添加小助手微信号：BybitAPI，加入Bybit API中文交流群</li> </ul>
 <h1 id='t-authentication'>鉴权/认证</h1>
 <aside class="notice">
 请先生成<a href="https://testnet.bybit.com/app/user/api-management"><b>测试网</b></a> 或 <a href="https://www.bybit.com/app/user/api-management"<b>主网</b></a>API KEY。
@@ -2612,7 +2612,8 @@ function copyStringToClipboard (endpoint) {
         <span class="s2">"position_value"</span><span class="p">:</span> <span class="s2">"0.0006947"</span><span class="p">,</span>
         <span class="s2">"entry_price"</span><span class="p">:</span> <span class="s2">"7197.35137469"</span><span class="p">,</span>
         <span class="s2">"auto_add_margin"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">"leverage"</span><span class="p">:</span> <span class="s2">"1"</span><span class="p">,</span>
+        <span class="s2">"leverage"</span><span class="p">:</span> <span class="s2">"1"</span><span class="p">,</span>  <span class="c1">//逐仓模式下, 值为用户设置的杠杆；全仓模式下，值为当前风险限额下最大杠杆</span>
+        <span class="s2">"effective_leverage"</span><span class="p">:</span> <span class="s2">"1"</span><span class="p">,</span> <span class="c1">// 有效杠杆. 逐仓模式下, 等于`leverage`; 全仓模式下, 计算公式为： <code>position size / markprice / (wallet_balance+unrealised_pnl)</code></span>
         <span class="s2">"position_margin"</span><span class="p">:</span> <span class="s2">"0.0006947"</span><span class="p">,</span>
         <span class="s2">"liq_price"</span><span class="p">:</span> <span class="s2">"3608"</span><span class="p">,</span>
         <span class="s2">"bust_price"</span><span class="p">:</span> <span class="s2">"3599"</span><span class="p">,</span>
