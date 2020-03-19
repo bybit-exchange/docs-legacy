@@ -285,6 +285,8 @@ GET
 
 
 
+
+
 ## t(:conditionalorders)
 ### t(:placecond)
 > t(:codequote_responseExample)
@@ -584,6 +586,12 @@ GET
 
 
 
+
+
+
+
+
+
 ## t(:position)
 ### t(:linear_position)
 > t(:codequote_responseExample)
@@ -596,85 +604,85 @@ GET
     "ext_info": "",
     "result": [
        {
-                   "userId":100004,
-                   "symbol":"BTCUSDT",
-                   "side":"Buy",
-                   "size":0,
-                   "positionValue":0,
-                   "entryPrice":0,
-                   "riskId":1,
-                   "leverage":100,
-                   "positionMargin":0,
-                   "liqPrice":0,
-                   "bustPrice":0,
-                   "occClosingFee":0,
-                   "takeProfit":0,
-                   "tpTriggerBy":"LastPriceOld",
-                   "slTriggerBy":"LastPriceOld",
-                   "stopLoss":0,
-                   "trailingStop":0,
-                   "positionStatus":"Normal",
-                   "deleverageIndicator":0,
-                   "todayRealisedPnl":0,
-                   "cumRealisedPnl":0,
-                   "isAutoAddMargin":false,
-                   "freeQty":0,
-                   "adlRankIndicator":0,
-                   "unRealisedPnlByMp":0,
-                   "unRealisedPnlByLp":0,
-                   "unRealisedPnl":0,
-                   "isIsolated":false,
-                   "openValueLimit":1000000,
-                   "extraAddedMargin":0,
-                   "availableBalance":999884.925,
-                   "walletBalance":1000000,
-                   "buyValueToCost":0.0114925,
-                   "sellValueToCost":0,
-                   "minPositionCost":0,
-                   "positionBalance":0,
-                   "createdAt":"2020-03-18T07:06:31.704Z",
-                   "updatedAt":"2020-03-18T07:45:52.798Z"
-               },
-               {
-                   "userId":100004,
-                   "symbol":"BTCUSDT",
-                   "side":"Sell",
-                   "size":0,
-                   "positionValue":0,
-                   "entryPrice":0,
-                   "riskId":1,
-                   "leverage":100,
-                   "positionMargin":0,
-                   "liqPrice":0,
-                   "bustPrice":0,
-                   "occClosingFee":0,
-                   "takeProfit":0,
-                   "tpTriggerBy":"LastPriceOld",
-                   "slTriggerBy":"LastPriceOld",
-                   "stopLoss":0,
-                   "trailingStop":0,
-                   "positionStatus":"Normal",
-                   "deleverageIndicator":0,
-                   "todayRealisedPnl":0,
-                   "cumRealisedPnl":0,
-                   "isAutoAddMargin":false,
-                   "freeQty":0,
-                   "adlRankIndicator":0,
-                   "unRealisedPnlByMp":0,
-                   "unRealisedPnlByLp":0,
-                   "unRealisedPnl":0,
-                   "isIsolated":false,
-                   "openValueLimit":1000000,
-                   "extraAddedMargin":0,
-                   "availableBalance":999884.925,
-                   "walletBalance":1000000,
-                   "buyValueToCost":0,
-                   "sellValueToCost":0.0115075,
-                   "minPositionCost":0,
-                   "positionBalance":0,
-                   "createdAt":"2020-03-18T07:06:31.705Z",
-                   "updatedAt":"2020-03-18T07:45:52.799Z"
-               }
+               "userId":100004,
+               "symbol":"BTCUSDT",
+               "side":"Buy",
+               "size":0,
+               "positionValue":0,
+               "entryPrice":0,
+               "riskId":1,
+               "leverage":100,
+               "positionMargin":0,
+               "liqPrice":0,
+               "bustPrice":0,
+               "occClosingFee":0,
+               "takeProfit":0,
+               "tpTriggerBy":"LastPriceOld",
+               "slTriggerBy":"LastPriceOld",
+               "stopLoss":0,
+               "trailingStop":0,
+               "positionStatus":"Normal",
+               "deleverageIndicator":0,
+               "todayRealisedPnl":0,
+               "cumRealisedPnl":0,
+               "isAutoAddMargin":false,
+               "freeQty":0,
+               "adlRankIndicator":0,
+               "unRealisedPnlByMp":0,
+               "unRealisedPnlByLp":0,
+               "unRealisedPnl":0,
+               "isIsolated":false,
+               "openValueLimit":1000000,
+               "extraAddedMargin":0,
+               "availableBalance":999884.925,
+               "walletBalance":1000000,
+               "buyValueToCost":0.0114925,
+               "sellValueToCost":0,
+               "minPositionCost":0,
+               "positionBalance":0,
+               "createdAt":"2020-03-18T07:06:31.704Z",
+               "updatedAt":"2020-03-18T07:45:52.798Z"
+           },
+           {
+               "userId":100004,
+               "symbol":"BTCUSDT",
+               "side":"Sell",
+               "size":0,
+               "positionValue":0,
+               "entryPrice":0,
+               "riskId":1,
+               "leverage":100,
+               "positionMargin":0,
+               "liqPrice":0,
+               "bustPrice":0,
+               "occClosingFee":0,
+               "takeProfit":0,
+               "tpTriggerBy":"LastPriceOld",
+               "slTriggerBy":"LastPriceOld",
+               "stopLoss":0,
+               "trailingStop":0,
+               "positionStatus":"Normal",
+               "deleverageIndicator":0,
+               "todayRealisedPnl":0,
+               "cumRealisedPnl":0,
+               "isAutoAddMargin":false,
+               "freeQty":0,
+               "adlRankIndicator":0,
+               "unRealisedPnlByMp":0,
+               "unRealisedPnlByLp":0,
+               "unRealisedPnl":0,
+               "isIsolated":false,
+               "openValueLimit":1000000,
+               "extraAddedMargin":0,
+               "availableBalance":999884.925,
+               "walletBalance":1000000,
+               "buyValueToCost":0,
+               "sellValueToCost":0.0115075,
+               "minPositionCost":0,
+               "positionBalance":0,
+               "createdAt":"2020-03-18T07:06:31.705Z",
+               "updatedAt":"2020-03-18T07:45:52.799Z"
+           }
     ],
     "time_now": "1577480599.097287",
     "rate_limit_status": 119,
@@ -694,6 +702,217 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
+
+
+
+
+### t(:linear_set_auto_add_margin)
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code":0,
+    "ret_msg":"OK",
+    "ext_code":"",
+    "ext_info":"",
+    "result":"",
+    "time_now":"1584598087.951359",
+    "token":null
+}
+```
+
+t(:linear_account_para_setAutoAddMargin)
+
+#### t(:httprequest)
+POST
+<code><span id=pSetAutoAddMargin>/private/linear/position/set-auto-add-margin</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pSetAutoAddMargin"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+#### t(:requestparameters)
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
+|<a href="#side-side">side</a> |true |string |t(:row_comment_side)    |
+|auto_add_margin |bool |string |t(:linear_row_comment_set_auto_margin)  |
+
+
+
+### t(:linear_set_leverage)
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code":0,
+    "ret_msg":"OK",
+    "ext_code":"",
+    "ext_info":"",
+    "result":"",
+    "time_now":"1584598087.951359",
+    "token":null
+}
+```
+
+t(:linear_account_para_setLeverage)
+
+#### t(:httprequest)
+POST
+<code><span id=pSetLeverage>/private/linear/position/set-leverage</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pSetLeverage"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+#### t(:requestparameters)
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
+|buy_leverage |true |number |t(:linear_row_comment_leverage)  |
+|sell_leverage |true |number |t(:linear_row_comment_leverage)  |
+
+
+
+
+### t(:linear_switch_isolated)
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code":0,
+    "ret_msg":"OK",
+    "ext_code":"",
+    "ext_info":"",
+    "result":"",
+    "time_now":"1584598087.951359",
+    "token":null
+}
+```
+
+t(:linear_account_para_switchIsolated)
+
+#### t(:httprequest)
+POST
+<code><span id=pSwitchIsolated>/private/linear/position/switch-isolated</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pSwitchIsolated"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+#### t(:requestparameters)
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
+|is_isolated |true |bool |t(:linear_row_comment_switch_isolated)  |
+|buy_leverage |true |number |t(:linear_row_comment_leverage)  |
+|sell_leverage |true |number |t(:linear_row_comment_leverage)  |
+
+
+
+### t(:tradingstop)
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code":0,
+    "ret_msg":"OK",
+    "ext_code":"",
+    "ext_info":"",
+    "result":"",
+    "time_now":"1584598087.951359",
+    "token":null
+}
+```
+
+t(:account_para_tradingStop)
+
+<aside class="notice">
+t(:account_aside_tradingStop)
+</aside>
+
+#### t(:httprequest)
+POST
+<code><span id=pSetTpSlTs>/private/linear/position/set-tp-sl-ts</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pSetTpSlTs"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+#### t(:requestparameters)
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|<a href="#side-side">side</a> |true |string |t(:row_comment_side)    |
+|take_profit |false |string |t(:account_row_comment_takeProfit) |
+|stop_loss |false |string |t(:account_row_comment_stopLoss) |
+|trailing_stop |false |string |t(:account_row_comment_trailingStop) |
+|tp_trigger_by |false |string |t(:row_comment_triggerBy) |
+|sl_trigger_by |false |string |t(:row_comment_triggerBy) |
+
+
+
+### t(:linearAddMargin)
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code":0,
+    "ret_msg":"OK",
+    "ext_code":"",
+    "ext_info":"",
+    "result":{
+         "userId":100004,
+         "symbol":"BTCUSDT",
+         "side":"Sell",
+         "size":0,
+         "positionValue":0,
+         "entryPrice":0,
+         "riskId":1,
+         "leverage":100,
+         "positionMargin":0,
+         "liqPrice":0,
+         "bustPrice":0,
+         "occClosingFee":0,
+         "takeProfit":0,
+         "tpTriggerBy":"LastPriceOld",
+         "slTriggerBy":"LastPriceOld",
+         "stopLoss":0,
+         "trailingStop":0,
+         "positionStatus":"Normal",
+         "deleverageIndicator":0,
+         "todayRealisedPnl":0,
+         "cumRealisedPnl":0,
+         "isAutoAddMargin":false,
+         "freeQty":0,
+         "adlRankIndicator":0,
+         "unRealisedPnlByMp":0,
+         "unRealisedPnlByLp":0,
+         "unRealisedPnl":0,
+         "isIsolated":false,
+         "openValueLimit":1000000,
+         "extraAddedMargin":0,
+         "availableBalance":999884.925,
+         "walletBalance":1000000,
+         "buyValueToCost":0,
+         "sellValueToCost":0.0115075,
+         "minPositionCost":0,
+         "positionBalance":0,
+         "createdAt":"2020-03-18T07:06:31.705Z",
+         "updatedAt":"2020-03-18T07:45:52.799Z",
+         "wallet_balance":"",
+         "available_balance":"",
+    },
+    "time_now":"1584598087.951359",
+    "token":null
+}
+```
+
+t(:linear_account_para_addMargin)
+
+
+#### t(:httprequest)
+POST
+<code><span id=pAddMargin>/private/linear/position/add-margin</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pAddMargin"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+#### t(:requestparameters)
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|<a href="#side-side">side</a> |true |string |t(:row_comment_side)    |
+|margin |true |number |t(:linear_account_row_comment_margin) |
+
+
+
 
 
 
