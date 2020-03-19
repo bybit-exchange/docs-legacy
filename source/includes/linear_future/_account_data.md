@@ -38,7 +38,7 @@ t(:account_para)
 }
 ```
 
-t(:account_para_placeActive)
+t(:linear_account_para_placeActive)
 
 #### t(:httprequest)
 POST
@@ -56,6 +56,8 @@ POST
 |<a href="#time-in-force-time_in_force">time_in_force</a> |true |string |t(:row_comment_timeInForce) |
 |take_profit |false |number |t(:row_comment_takeProfit) |
 |stop_loss |false |number |t(:row_comment_stopLoss) |
+|tp_trigger_by |false |string |t(:row_comment_triggerBy) |
+|sl_trigger_by |false |string |t(:row_comment_triggerBy) |
 |reduce_only |false |bool |t(:linear_row_comment_reduceOnly) |
 |close_on_trigger |false |bool |t(:linear_row_comment_closeOnTrigger)
 |order_link_id |false |string |t(:row_comment_orderLinkId) |
@@ -175,6 +177,45 @@ POST
 
 
 
+### t(:cancelallactive)
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,      
+    "ret_msg": "OK",    
+    "ext_code": "",     
+    "ext_info": "",
+    "result": [
+        "89a38056-80f1-45b2-89d3-4d8e3a203a79",  
+        "89a38056-80f1-45b2-89d3-4d8e3a203a79",  
+    ],
+    "time_now": "1575110339.105675",
+    "rate_limit_status": 98,
+    "rate_limit_reset_ms": 1580885703683,
+    "rate_limit": 100
+}
+```
+
+t(:account_para_cancelAllActive)
+
+<aside class="notice">
+t(:account_aside_cancelAllActive)
+</aside>
+
+#### t(:httprequest)
+POST
+<code><span id=vpoCancelAll>private/linear/order/cancel-all</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancelAll"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+#### t(:requestparameters)
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|<a href="#symbol-symbol">symbol</a> |true |string | t(:row_comment_symbol) |
+
+
+
+
 ### t(:queryactive)
 > t(:codequote_responseExample)
 
@@ -210,6 +251,7 @@ POST
 	"rate_limit": 100
 }
 ```
+
 
 t(:account_para_queryActive)
 
