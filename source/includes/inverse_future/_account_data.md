@@ -806,7 +806,8 @@ POST
         "position_value": "0.0006947",
         "entry_price": "7197.35137469",
         "auto_add_margin": 0,
-        "leverage": "1",
+        "leverage": "1",  //t(:resp_field_leverage)
+        "effective_leverage": "1", // t(:resp_field_effective_leverage)
         "position_margin": "0.0006947",
         "liq_price": "3608",
         "bust_price": "3599",
