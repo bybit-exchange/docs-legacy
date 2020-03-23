@@ -631,9 +631,9 @@ ws.send('{"op": "subscribe", "args": ["stop_order"]}')
             "create_type": "CreateByStopOrder",
             "cancel_type": "",
             "order_status": "Untriggered", //t(:enum_stop_order_status_link)
-            "stop_order_type": "Stop",
+            "stop_order_type": "Stop", 
             "trigger_by": "LastPrice",
-            "trigger_price": "8584.5",
+            "trigger_price": "8584.5", //t(:stop_order_trigger_price)
             "timestamp": "2020-01-14T14:11:22.062Z"
         }
     ]
