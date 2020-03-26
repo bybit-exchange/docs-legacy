@@ -515,6 +515,7 @@ ws.send('{"op": "subscribe", "args": ["position"]}')
            "sl_trigger_by":  "",                     // stop loss trigger price, eg: LastPrice, IndexPrice. Conditional order only
            "realised_pnl":  "0.10",               // realised PNL
            "trailing_stop": "0",                  // trailing stop points
+           "trailing_active": "0",                // trailing stop trigger price
            "wallet_balance":  "4.12",             // wallet balance
            "risk_id":  1,                       
            "occ_closing_fee":  "0.1",             // position closing
@@ -596,6 +597,7 @@ ws.send('{"op": "subscribe", "args": ["order"]}')
             "take_profit": "0",
             "stop_loss": "0",
             "trailing_stop": "0",
+            "trailing_active": "0",
             "last_exec_price": "8300"
         }
     ]
@@ -629,9 +631,9 @@ ws.send('{"op": "subscribe", "args": ["stop_order"]}')
             "create_type": "CreateByStopOrder",
             "cancel_type": "",
             "order_status": "Untriggered", //t(:enum_stop_order_status_link)
-            "stop_order_type": "Stop",
+            "stop_order_type": "Stop", 
             "trigger_by": "LastPrice",
-            "trigger_price": "8584.5",
+            "trigger_price": "8584.5", //t(:stop_order_trigger_price)
             "timestamp": "2020-01-14T14:11:22.062Z"
         }
     ]

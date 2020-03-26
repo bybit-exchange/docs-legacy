@@ -783,7 +783,7 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
-|leverage |true |string |t(:row_comment_leverage) |
+|leverage |true |number |t(:row_comment_leverage) |
 
 
 ## t(:position)
@@ -924,6 +924,7 @@ POST
         "created_at": "2019-10-19T17:04:55.000Z",
         "updated_at": "2019-12-27T21:17:27.000Z",
         "ext_fields": {
+            "trailing_active":"9000",
             "sl_trigger_by": "LastPrice",
             "v": 221,
             "mm": 0
@@ -952,9 +953,10 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
-|take_profit |false |string |t(:account_row_comment_takeProfit) |
-|stop_loss |false |string |t(:account_row_comment_stopLoss) |
-|trailing_stop |false |string |t(:account_row_comment_trailingStop) |
+|take_profit |false |number |t(:account_row_comment_takeProfit) |
+|stop_loss |false |number |t(:account_row_comment_stopLoss) |
+|trailing_stop |false |number |t(:account_row_comment_trailingStop) |
+|new_trailing_active |false |number |t(:account_row_comment_trailingStop_active) |
 
 ## t(:risklimit)
 
@@ -1073,6 +1075,7 @@ GET
       "created_at": "2019-08-13T06:51:29.000Z",
       "updated_at": "2019-12-29T03:11:08.000Z",
       "ext_fields": {
+        "trailing_active": "9000",
         "v": 4
       }
     },

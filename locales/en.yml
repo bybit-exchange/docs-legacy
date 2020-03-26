@@ -72,6 +72,7 @@ en:
   enum_exec_type_link: <a href="#exec-type-exec_type">Exec Type Enum</a>
   enum_Liquidity_type_link: <a href="#liquidity-type-last_liquidity_ind">Liquidity Enum</a>
   enum_stop_order_status_link: <a href="#stop-order-status-stop_order_status">Stop Order Status</a>
+  stop_order_trigger_price: If `stop_order_type` is `TrailingProfit`, this field means trailing stop active price.
   errorcode_meaning: Meaning
   resp_field_leverage: In Isolated Margin mode, the value is set by user. In Cross Margin mode, the value is the max leverage at current risk level
   resp_field_effective_leverage: Effective Leverage.
@@ -103,6 +104,8 @@ en:
   changelog_new: new
   changelog_update: update
   changelog_bugfix: bugfix
+  ## 2020-03-26
+  trailing_stop_20200326: Add trigger price <code>new_trailing_active</code> for trailing stop order.
   ## 2020-03-16
   position_20200316: Add field <code>effective_leverage</code> in response
   bugfix1_20200316: Fix value of field <code>equity</code> of <code>USDT</code>
@@ -336,6 +339,7 @@ en:
   account_row_comment_takeProfit: Cannot be less than 0, 0 means cancel TP
   account_row_comment_stopLoss: Cannot be less than 0, 0 means cancel SL
   account_row_comment_trailingStop: Cannot be less than 0, 0 means cancel TS
+  account_row_comment_trailingStop_active: Trailing stop trigger price. Trailing stops are triggered only when the price reaches the specified price. Trailing stops are triggered immediately by default.
 
   ## Risklimit
   risklimit: Risk Limit

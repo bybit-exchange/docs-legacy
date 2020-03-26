@@ -1,5 +1,10 @@
 # t(:changelog)
 
+## 2020-03-26
+### REST API
+- [t(:tradingstop)](#t-tradingstop) [t(:changelog_update)]
+    - t(:trailing_stop_20200326)
+
 ## 2020-03-16
 ### REST API
 - [t(:position)](#t-position) [t(:changelog_update)]
