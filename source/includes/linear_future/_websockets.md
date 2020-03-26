@@ -141,26 +141,26 @@ t(:websocket_para_response)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op": "subscribe", "args": ["orderBookL2_25.BTCUSD"]}');
+ws.send('{"op": "subscribe", "args": ["orderBookL2_25.BTCUSDT"]}');
 ```
 
 > t(:codequote_snapshot)
 
 ```javascript
 {
-     "topic": "orderBookL2_25.BTCUSD",
+     "topic": "orderBookL2_25.BTCUSDT",
      "type": "snapshot",
      "data": [
         {
             "price": "2999.00",
-            "symbol": "BTCUSD",
+            "symbol": "BTCUSDT",
             "id": 29990000,
             "side": "Buy",
             "size": 9
         },
         {
             "price": "3001.00",
-            "symbol": "BTCUSD",
+            "symbol": "BTCUSDT",
             "id": 30010000,
             "side": "Sell",
             "size": 10
@@ -175,13 +175,13 @@ ws.send('{"op": "subscribe", "args": ["orderBookL2_25.BTCUSD"]}');
 
 ```javascript
 {
-     "topic": "orderBookL2_25.BTCUSD",
+     "topic": "orderBookL2_25.BTCUSDT",
      "type": "delta",
      "data": {
           "delete": [
              {
                    "price": "3001.00",
-                   "symbol": "BTCUSD",
+                   "symbol": "BTCUSDT",
                    "id": 30010000,
                    "side": "Sell"
              }
@@ -189,7 +189,7 @@ ws.send('{"op": "subscribe", "args": ["orderBookL2_25.BTCUSD"]}');
           "update": [
              {
                    "price": "2999.00",
-                   "symbol": "BTCUSD",
+                   "symbol": "BTCUSDT",
                    "id": 29990000,
                    "side": "Buy",
                    "size": 8
@@ -198,7 +198,7 @@ ws.send('{"op": "subscribe", "args": ["orderBookL2_25.BTCUSD"]}');
           "insert": [
              {
                    "price": "2998.00",
-                   "symbol": "BTCUSD",
+                   "symbol": "BTCUSDT",
                    "id": 29980000,
                    "side": "Buy",
                    "size": 8
@@ -225,26 +225,26 @@ t(:websocket_para_orderbook252)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op": "subscribe", "args": ["orderBook_200.100ms.BTCUSD"]}');
+ws.send('{"op": "subscribe", "args": ["orderBook_200.100ms.BTCUSDT"]}');
 ```
 
 > t(:codequote_snapshot)
 
 ```javascript
 {
-     "topic": "orderBook_200.100ms.BTCUSD",
+     "topic": "orderBook_200.100ms.BTCUSDT",
      "type": "snapshot",
      "data": [
         {
             "price": "2999.00",
-            "symbol": "BTCUSD",
+            "symbol": "BTCUSDT",
             "id": 29990000,
             "side": "Buy",
             "size": 9
         },
         {
             "price": "3001.00",
-            "symbol": "BTCUSD",
+            "symbol": "BTCUSDT",
             "id": 30010000,
             "side": "Sell",
             "size": 10
@@ -259,13 +259,13 @@ ws.send('{"op": "subscribe", "args": ["orderBook_200.100ms.BTCUSD"]}');
 
 ```javascript
 {
-     "topic": "orderBook_200.100ms.BTCUSD",
+     "topic": "orderBook_200.100ms.BTCUSDT",
      "type": "delta",
      "data": {
           "delete": [
              {
                    "price": "3001.00",
-                   "symbol": "BTCUSD",
+                   "symbol": "BTCUSDT",
                    "id": 30010000,
                    "side": "Sell"
              }
@@ -273,7 +273,7 @@ ws.send('{"op": "subscribe", "args": ["orderBook_200.100ms.BTCUSD"]}');
           "update": [
              {
                    "price": "2999.00",
-                   "symbol": "BTCUSD",
+                   "symbol": "BTCUSDT",
                    "id": 29990000,
                    "side": "Buy",
                    "size": 8
@@ -282,7 +282,7 @@ ws.send('{"op": "subscribe", "args": ["orderBook_200.100ms.BTCUSD"]}');
           "insert": [
              {
                    "price": "2998.00",
-                   "symbol": "BTCUSD",
+                   "symbol": "BTCUSDT",
                    "id": 29980000,
                    "side": "Buy",
                    "size": 8
@@ -298,81 +298,22 @@ ws.send('{"op": "subscribe", "args": ["orderBook_200.100ms.BTCUSD"]}');
 t(:websocket_para_orderbook200)
 
 
-### t(:websockettrade)
-> t(:codequote_subscribe)
-
-```javascript
-ws.send('{"op": "subscribe", "args": ["trade"]}')
-```
-
-> t(:codequote_responseExampleFormatAll)
-
-```javascript
-{
-    "topic": "trade.BTCUSD",
-    "data": [
-        {
-            "timestamp": "2020-01-12T16:59:59.000Z",
-            "trade_time_ms": 1582793344685, // trade time in millisecond
-            "symbol": "BTCUSD",
-            "side": "Sell",
-            "size": 328,
-            "price": 8098,
-            "tick_direction": "MinusTick",
-            "trade_id": "00c706e1-ba52-5bb0-98d0-bf694bdc69f7",
-            "cross_seq": 1052816407
-        }
-    ]
-}
-```
-
-t(:websocket_para_trade)
-
-
-### t(:websocketinsurance)
-> t(:codequote_subscribe)
-
-```javascript
-ws.send('{"op": "subscribe", "args": ["insurance"]}')
-```
-
-> t(:codequote_responseExampleFormatAll)
-
-```javascript
-{
-    "topic": "insurance.BTC",
-    "data": [
-        {
-            "currency": "BTC",
-            "timestamp": "2020-01-11T20:00:00Z",
-            "wallet_balance": 98786916569
-        }
-    ]
-}
-```
-
-t(:websocket_para_insurance)
-
-<aside class="notice">
-t(:websocket_aside_insurance)
-</aside>
-
 ### t(:websocketinstrumentInfo)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op": "subscribe", "args": ["instrument_info.100ms.BTCUSD"]}')
+ws.send('{"op": "subscribe", "args": ["instrument_info.100ms.BTCUSDT"]}')
 ```
 
 > t(:codequote_snapshot)
 
 ```javascript
 {
-    "topic": "instrument_info.100ms.BTCUSD",
+    "topic": "instrument_info.100ms.BTCUSDT",
     "type": "snapshot",
     "data": {
         "id": 1,
-        "symbol": "BTCUSD",                           //instrument name
+        "symbol": "BTCUSDT",                           //instrument name
         "last_price_e4": 81165000,                    //the latest price
         "last_tick_direction": "ZeroPlusTick",        //the direction of last tick:PlusTick,ZeroPlusTick,MinusTick,ZeroMinusTick
         "prev_price_24h_e4": 81585000,                //the price of prev 24h
@@ -407,14 +348,14 @@ ws.send('{"op": "subscribe", "args": ["instrument_info.100ms.BTCUSD"]}')
 
 ```javascript
 {
-    "topic": "instrument_info.100ms.BTCUSD",
+    "topic": "instrument_info.100ms.BTCUSDT",
     "type": "delta",
     "data": {
         "delete": [],
         "update": [
             {
                 "id": 1,
-                "symbol": "BTCUSD",
+                "symbol": "BTCUSDT",
                 "prev_price_24h_e4": 81565000,
                 "price_24h_pcnt_e6": -4904,
                 "open_value_e8": 2000479681106,
@@ -444,40 +385,6 @@ t(:websocket_aside_instrumentInfo2)
 </aside>
 
 
-### t(:websocketklineV2)
-> t(:codequote_subscribe)
-
-```javascript
-ws.send('{"op":"subscribe","args":["klineV2.1.BTCUSD"]}')
-```
-
-> t(:codequote_responseExampleFormatAll)
-
-```javascript
-{
-    "topic": "klineV2.1.BTCUSD",                //topic name
-    "data": [{
-        "start": 1572425640,                    //start time of the candle
-        "end": 1572425700,                      //end time of the candle
-        "open": 9200,                           //open price
-        "close": 9202.5,                        //close price
-        "high": 9202.5,                         //max price
-        "low": 9196,                            //min price
-        "volume": 81790,                        //volume
-        "turnover": 8.889247899999999,          //turnover
-        "confirm": False,                       //snapshot flag
-        "cross_seq": 297503466,                 
-        "timestamp": 1572425676958323           //cross time
-    }],
-    "timestamp_e6": 1572425677047994            //server time
-}
-```
-
-t(:websocket_para_klineV2)
-
-<aside class="notice">
-t(:websocket_aside_klineV2)
-</aside>
 
 
 
