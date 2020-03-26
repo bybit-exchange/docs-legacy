@@ -2589,7 +2589,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">leverage</td>
 <td style="text-align: left">true</td>
-<td style="text-align: left">string</td>
+<td style="text-align: left">number</td>
 <td>杠杆。<code>杠杆为0</code>意味着全仓模式.全场模式下修改杠杆会变成逐仓模式</td>
 </tr>
 </tbody></table>
@@ -2749,6 +2749,7 @@ function copyStringToClipboard (endpoint) {
         <span class="s2">"created_at"</span><span class="p">:</span> <span class="s2">"2019-10-19T17:04:55.000Z"</span><span class="p">,</span>
         <span class="s2">"updated_at"</span><span class="p">:</span> <span class="s2">"2019-12-27T21:17:27.000Z"</span><span class="p">,</span>
         <span class="s2">"ext_fields"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"trailing_active"</span><span class="p">:</span><span class="s2">"9000"</span><span class="p">,</span>
             <span class="s2">"sl_trigger_by"</span><span class="p">:</span> <span class="s2">"LastPrice"</span><span class="p">,</span>
             <span class="s2">"v"</span><span class="p">:</span> <span class="mi">221</span><span class="p">,</span>
             <span class="s2">"mm"</span><span class="p">:</span> <span class="mi">0</span>
@@ -2788,20 +2789,26 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">take_profit</td>
 <td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
+<td style="text-align: left">number</td>
 <td>不小于0,如果等于0则是取消止盈(TP)</td>
 </tr>
 <tr>
 <td style="text-align: left">stop_loss</td>
 <td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
+<td style="text-align: left">number</td>
 <td>不小于0,如果等于0则是取消止损(SL)</td>
 </tr>
 <tr>
 <td style="text-align: left">trailing_stop</td>
 <td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
+<td style="text-align: left">number</td>
 <td>不小于0,如果等于0则是取消追踪止损(TS)</td>
+</tr>
+<tr>
+<td style="text-align: left">new_trailing_active</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">number</td>
+<td>追踪止损触发价格。追踪止损会在到达该价格后才会触发（追踪止损默认立即触发）。</td>
 </tr>
 </tbody></table>
 <h2 id='t-risklimit'>风险限额</h2><h3 id='t-getrisklimit'>查询风险限额表</h3>
@@ -2921,6 +2928,7 @@ function copyStringToClipboard (endpoint) {
       <span class="s2">"created_at"</span><span class="p">:</span> <span class="s2">"2019-08-13T06:51:29.000Z"</span><span class="p">,</span>
       <span class="s2">"updated_at"</span><span class="p">:</span> <span class="s2">"2019-12-29T03:11:08.000Z"</span><span class="p">,</span>
       <span class="s2">"ext_fields"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"trailing_active"</span><span class="p">:</span> <span class="s2">"9000"</span><span class="p">,</span>
         <span class="s2">"v"</span><span class="p">:</span> <span class="mi">4</span>
       <span class="p">}</span>
     <span class="p">},</span>
@@ -4312,6 +4320,7 @@ B用户：
            <span class="s2">"sl_trigger_by"</span><span class="p">:</span>  <span class="s2">""</span><span class="p">,</span>                     <span class="c1">// stop loss trigger price, eg: LastPrice, IndexPrice. Conditional order only</span>
            <span class="s2">"realised_pnl"</span><span class="p">:</span>  <span class="s2">"0.10"</span><span class="p">,</span>               <span class="c1">// realised PNL</span>
            <span class="s2">"trailing_stop"</span><span class="p">:</span> <span class="s2">"0"</span><span class="p">,</span>                  <span class="c1">// trailing stop points</span>
+           <span class="s2">"trailing_active"</span><span class="p">:</span> <span class="s2">"0"</span><span class="p">,</span>                <span class="c1">// trailing stop trigger price</span>
            <span class="s2">"wallet_balance"</span><span class="p">:</span>  <span class="s2">"4.12"</span><span class="p">,</span>             <span class="c1">// wallet balance</span>
            <span class="s2">"risk_id"</span><span class="p">:</span>  <span class="mi">1</span><span class="p">,</span>                       
            <span class="s2">"occ_closing_fee"</span><span class="p">:</span>  <span class="s2">"0.1"</span><span class="p">,</span>             <span class="c1">// position closing</span>
@@ -4385,6 +4394,7 @@ B用户：
             <span class="s2">"take_profit"</span><span class="p">:</span> <span class="s2">"0"</span><span class="p">,</span>
             <span class="s2">"stop_loss"</span><span class="p">:</span> <span class="s2">"0"</span><span class="p">,</span>
             <span class="s2">"trailing_stop"</span><span class="p">:</span> <span class="s2">"0"</span><span class="p">,</span>
+            <span class="s2">"trailing_active"</span><span class="p">:</span> <span class="s2">"0"</span><span class="p">,</span>
             <span class="s2">"last_exec_price"</span><span class="p">:</span> <span class="s2">"8300"</span>
         <span class="p">}</span>
     <span class="p">]</span>
@@ -4414,9 +4424,9 @@ B用户：
             <span class="s2">"create_type"</span><span class="p">:</span> <span class="s2">"CreateByStopOrder"</span><span class="p">,</span>
             <span class="s2">"cancel_type"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
             <span class="s2">"order_status"</span><span class="p">:</span> <span class="s2">"Untriggered"</span><span class="p">,</span> <span class="c1">//<a href="#stop-order-status-stop_order_status">条件单状态stop_order_status枚举</a></span>
-            <span class="s2">"stop_order_type"</span><span class="p">:</span> <span class="s2">"Stop"</span><span class="p">,</span>
+            <span class="s2">"stop_order_type"</span><span class="p">:</span> <span class="s2">"Stop"</span><span class="p">,</span> 
             <span class="s2">"trigger_by"</span><span class="p">:</span> <span class="s2">"LastPrice"</span><span class="p">,</span>
-            <span class="s2">"trigger_price"</span><span class="p">:</span> <span class="s2">"8584.5"</span><span class="p">,</span>
+            <span class="s2">"trigger_price"</span><span class="p">:</span> <span class="s2">"8584.5"</span><span class="p">,</span> <span class="c1">//如果stop_order_type为`TrailingProfit`时，为激活价格，否则为触发价格。</span>
             <span class="s2">"timestamp"</span><span class="p">:</span> <span class="s2">"2020-01-14T14:11:22.062Z"</span>
         <span class="p">}</span>
     <span class="p">]</span>
