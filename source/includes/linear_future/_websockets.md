@@ -497,33 +497,25 @@ ws.send('{"op": "subscribe", "args": ["position"]}')
    "action": "update",
    "data": [
        {
-           "user_id":  1,                            // user ID
-           "symbol": "BTCUSD",                       // the contract for this position
-           "size": 11,                               // the current position amount
-           "side": "Sell",                           // side
-           "position_value": "0.00159252",           // positional value
-           "entry_price": "6907.291588174717",       // entry price
-           "liq_price": "7100.234",                  // liquidation price
-           "bust_price": "7088.1234",                // bankruptcy price
-           "leverage": "1",                           // leverage
-           "order_margin":  "1",                      // order margin
-           "position_margin":  "1",                   // position margin
-           "available_balance":  "2",                 // available balance
-           "take_profit": "0",                        // take profit price           
-           "tp_trigger_by":  "LastPrice",             // take profit trigger price, eg: LastPrice, IndexPrice. Conditional order only
-           "stop_loss": "0",                          // stop loss price
-           "sl_trigger_by":  "",                     // stop loss trigger price, eg: LastPrice, IndexPrice. Conditional order only
-           "realised_pnl":  "0.10",               // realised PNL
-           "trailing_stop": "0",                  // trailing stop points
-           "wallet_balance":  "4.12",             // wallet balance
-           "risk_id":  1,                       
-           "occ_closing_fee":  "0.1",             // position closing
-           "occ_funding_fee":  "0.1",             // funding fee
-           "auto_add_margin": 0,                  // auto margin replenishment switch
-           "cum_realised_pnl":  "0.12",           // Total realized profit and loss
-           "position_status": "Normal",           // status of position (Normal: normal Liq: in the process of liquidation Adl: in the process of Auto-Deleveraging)
-                        // Auto margin replenishment enabled (0: no 1: yes)
-           "position_seq": 14                     // position version number
+           "user_id":  1,
+           "symbol": "BTCUSD",
+           "size": 11, 
+           "side": "Sell",
+           "position_value": "0.00159252",
+           "entry_price": "6907.291588174717",
+           "liq_price": "7100.234",
+           "bust_price": "7088.1234",
+           "leverage": "1",
+           "order_margin":  "1",
+           "position_margin":  "1", 
+           "occ_closing_fee":  "0.1", 
+           "take_profit":  "0.1",
+           "tp_trigger_by": 0,
+           "stop_loss":  "0.12",
+           "sl_trigger_by": "Normal", 
+           "realised_pnl": "Normal", 
+           "cum_realised_pnl": "Normal",
+           "position_seq": 14
        }
    ]
 }
@@ -554,8 +546,6 @@ ws.send('{"op": "subscribe", "args": ["execution"]}')
             "exec_type": "Trade",
             "exec_qty": 1,
             "exec_fee": "0.00000009",
-            "leaves_qty": 0,
-            "is_maker": false,
             "trade_time": "2020-01-14T14:07:23.629Z" // trade time
         }
     ]
@@ -585,18 +575,13 @@ ws.send('{"op": "subscribe", "args": ["order"]}')
             "price": "8579.5",
             "qty": 1,
             "time_in_force": "ImmediateOrCancel",
-            "create_type": "CreateByClosing",
-            "cancel_type": "",
             "order_status": "Filled",
-            "leaves_qty": 0,
+            "last_exec_price": 0,
             "cum_exec_qty": 1,
             "cum_exec_value": "0.00011655",
             "cum_exec_fee": "0.00000009",
-            "timestamp": "2020-01-14T14:09:31.778Z",
-            "take_profit": "0",
-            "stop_loss": "0",
-            "trailing_stop": "0",
-            "last_exec_price": "8300"
+            "create_time": "2020-01-14T14:09:31.778Z",
+            "update_time": "2020-01-14T14:09:31.778Z"
         }
     ]
 }
@@ -617,7 +602,7 @@ ws.send('{"op": "subscribe", "args": ["stop_order"]}')
     "topic": "stop_order",
     "data": [
         {
-            "order_id": "xxxxxxxx-xxxx-xxxx-98fb-335aaa6c613b",
+            "stop_order_id": "xxxxxxxx-xxxx-xxxx-98fb-335aaa6c613b",
             "order_link_id": "",
             "user_id": 1,
             "symbol": "BTCUSD",
@@ -626,13 +611,12 @@ ws.send('{"op": "subscribe", "args": ["stop_order"]}')
             "price": "8584.5",
             "qty": 1,
             "time_in_force": "ImmediateOrCancel",
-            "create_type": "CreateByStopOrder",
-            "cancel_type": "",
             "order_status": "Untriggered", //t(:enum_stop_order_status_link)
             "stop_order_type": "Stop",
             "trigger_by": "LastPrice",
             "trigger_price": "8584.5",
-            "timestamp": "2020-01-14T14:11:22.062Z"
+            "create_time": "2020-01-14T14:11:22.062Z",
+            "update_time": "2020-01-14T14:11:22.062Z"
         }
     ]
 }
