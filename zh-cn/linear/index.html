@@ -803,8 +803,8 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left"><a href="#quantity-qty">qty</a></td>
 <td style="text-align: left">true</td>
-<td style="text-align: left">integer</td>
-<td>委托数量(1个委托1美元)，只能为正整数</td>
+<td style="text-align: left">number</td>
+<td>委托数量</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#price-price">price</a></td>
@@ -844,13 +844,13 @@ function copyStringToClipboard (endpoint) {
 </tr>
 <tr>
 <td style="text-align: left">reduce_only</td>
-<td style="text-align: left">false</td>
+<td style="text-align: left">true</td>
 <td style="text-align: left">bool</td>
 <td>是否平仓单,true-平仓 false-开仓</td>
 </tr>
 <tr>
 <td style="text-align: left">close_on_trigger</td>
-<td style="text-align: left">false</td>
+<td style="text-align: left">true</td>
 <td style="text-align: left">bool</td>
 <td>平仓委托,只会减少您的仓位而不会增加您的仓位。如果当平仓委托被触发时，账户上的余额不足，那么该合约的其他委托将被取消或者降低委托数量。使用此选项可以确保您的止损单被用于减仓而非加仓。</td>
 </tr>

@@ -804,8 +804,8 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left"><a href="#quantity-qty">qty</a></td>
 <td style="text-align: left">true</td>
-<td style="text-align: left">integer</td>
-<td>Order quantity in USD. Integer only</td>
+<td style="text-align: left">number</td>
+<td>Order quantity in USD.</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#price-price">price</a></td>
@@ -845,13 +845,13 @@ function copyStringToClipboard (endpoint) {
 </tr>
 <tr>
 <td style="text-align: left">reduce_only</td>
-<td style="text-align: left">false</td>
+<td style="text-align: left">true</td>
 <td style="text-align: left">bool</td>
 <td><a href="https://help.bybit.com/hc/en-us/articles/360039260574-What-is-a-reduce-only-order-"> What is a reduce-only order?</a> True means your position can only reduce in size if this order is triggered</td>
 </tr>
 <tr>
 <td style="text-align: left">close_on_trigger</td>
-<td style="text-align: left">false</td>
+<td style="text-align: left">true</td>
 <td style="text-align: left">bool</td>
 <td><a href="https://help.bybit.com/hc/en-us/articles/360039260534-What-is-a-close-on-trigger-Order-">  What is a close on trigger order?</a> For a closing order. It can only reduce your position, not increase it. If the account has insufficient available balance when the closing order is triggered, then other active orders of similar contracts will be cancelled or reduced. It can be used to ensure your stop loss reduces your position regardless of current available margin.</td>
 </tr>
