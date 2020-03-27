@@ -49,15 +49,15 @@ POST
 |<a href="#side-side">side</a> |true |string |t(:row_comment_side)    |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)   |
 |<a href="#order-type-order_type">order_type</a> |true |string |t(:row_comment_activeOrderType)   |
-|<a href="#quantity-qty">qty</a> |true |integer |t(:row_comment_qty) |
+|<a href="#quantity-qty">qty</a> |true |number |t(:linear_row_comment_qty) |
 |<a href="#price-price">price</a> |false |number |t(:row_comment_price) |
 |<a href="#time-in-force-time_in_force">time_in_force</a> |true |string |t(:row_comment_timeInForce) |
 |take_profit |false |number |t(:row_comment_takeProfit) |
 |stop_loss |false |number |t(:row_comment_stopLoss) |
 |tp_trigger_by |false |string |t(:row_comment_triggerBy) |
 |sl_trigger_by |false |string |t(:row_comment_triggerBy) |
-|reduce_only |false |bool |t(:linear_row_comment_reduceOnly) |
-|close_on_trigger |false |bool |t(:linear_row_comment_closeOnTrigger)
+|reduce_only |true |bool |t(:linear_row_comment_reduceOnly) |
+|close_on_trigger |true |bool |t(:linear_row_comment_closeOnTrigger)
 |order_link_id |false |string |t(:row_comment_orderLinkId) |
 
 
