@@ -96,7 +96,7 @@ zh-cn:
     </ul>
 
 
-# Changelog
+  # Changelog
   # if some missing values - they already have values elsewhere
   changelog: 更新日志
   changelog_new: 新增
@@ -354,8 +354,8 @@ zh-cn:
   balance: 获取钱包余额
   wallet_para_walletBalance: 获取钱包余额
   wallet_aside_walletBalance: |
-   接口返回值中的<code>position_margin</code> 不同于 <a href="https://www.bybit.com/app/wallet/money">网站上的仓位保证金</a>
-   <p>网站仓位保证金计算公式: <code>position_margin</code> + <code>occ_funding_fee</code> + loss(当你的可用余额不足时)</p>
+    接口返回值中的<code>position_margin</code> 不同于 <a href="https://www.bybit.com/app/wallet/money">网站上的仓位保证金</a>
+    <p>网站仓位保证金计算公式: <code>position_margin</code> + <code>occ_funding_fee</code> + loss(当你的可用余额不足时)</p>
   ### 资金记录
   walletrecords: 资金记录
   wallet_para_walletRecords: 查询资金记录。
@@ -591,7 +591,7 @@ zh-cn:
   websocket_codequote_filters2: 通过分隔符来订阅多个topic
   websocket_codequote_filters3: 通过匹配符来订阅多个topic
   websocket_para_filters: |
-   建立连接后, 可以通过发送JSON请求来订阅topic. 请求格式如下:
+    建立连接后, 可以通过发送JSON请求来订阅topic. 请求格式如下:
   websocket_para_filters1: |
     <p>您也可以同时订阅多个感兴趣的topic，订阅方式如下</p>
   websocket_para_filters2: |
@@ -694,13 +694,13 @@ zh-cn:
   ## Quantity (`qty`)
   quantity:
     <ul>
-      <li>最大值1百万 (<code>1000000</code>)</li>
-      <li>必须是正整数：
-        <ul>
-          <li><code>40</code> - 合法</li>
-          <li><code>30.5</code> - 非法</li>
-        </ul>
-      </li>
+    <li>最大值1百万 (<code>1000000</code>)</li>
+    <li>必须是正整数：
+    <ul>
+    <li><code>40</code> - 合法</li>
+    <li><code>30.5</code> - 非法</li>
+    </ul>
+    </li>
     </ul>
   ## Price (`price`)
   price:
@@ -715,9 +715,9 @@ zh-cn:
     <li>如, 若当前市场价(last price) 为 10314, 那么下单价格的最小值为 1031.5。</li>
     <li>伪代码(假设价格是0.5的增量):<pre class="center-column">
     IF price > (last_price * 0.1)
-        // 发送订单
+    // 发送订单
     ELSE
-        //  不会发送订单，因为价格将不被系统接受
+    //  不会发送订单，因为价格将不被系统接受
     </pre></li>
     </ul>
     </li>
@@ -732,20 +732,20 @@ zh-cn:
     </ul>
     </li>
     </ul>
-## Time in force (`time_in_force`)
+  ## Time in force (`time_in_force`)
   goodTillCancel:     ""
   immediateOrCancel:  ""
   fillOrKill:         ""
   postOnly:           ""
-## Trigger price type (`trigger_by`)
+  ## Trigger price type (`trigger_by`)
   lastPrice:  ""
   indexPrice: ""
   markPrice:  ""
-## Order (`order`)
+  ## Order (`order`)
   para_order: 排序方向
   desc: "(default)"
   asc:  ""
-## Order status (`order_status`)
+  ## Order status (`order_status`)
   para_orderStatusGet: |
     在查询接口中，您可以通过逗号分割来指定查询多种状态，如: <code>Filled,New</code>
   created1:         ""
@@ -883,7 +883,7 @@ zh-cn:
   misc_row_comment_orderLinkIdNotOrderId: 机构ID。如果未填order_id则为<b>必填</b>字段。
   misc_row_comment_orderLinkIdNotStopOrderId: 机构ID。如果未填stop_order_id则为<b>必填</b>字段。
   misc_row_comment_orderIdNotOrderLinkId: 订单ID。如果未填order_link_id则为<b>必填</b>字段。
-  misc_row_comment_symbolNotOrderId: 交易对 <b>必填</b> 
+  misc_row_comment_symbolNotOrderId: 交易对 <b>必填</b>
   # fix problem of nested common subheadings
   httprequest1: HTTP 请求
   requestparameters1: 请求参数
@@ -891,3 +891,192 @@ zh-cn:
   requestparameters_api_data: 请求参数
   httprequest_wallet: HTTP 请求
   requestparameters_wallet: 请求参数
+
+
+
+
+  ## LinearQuantity (`qty`)
+  linear_quantity:
+    <ul>
+    <li>最大值1000</li>
+    <ul>
+    </ul>
+    </li>
+    </ul>
+
+  ## LinearPrice (`price`)
+  linear_price:
+    <ul>
+    <li>活动单<ul>
+    <li>必须是<code>tick_size</code>的整数倍<ul>
+    <li>当前symbol信息(如<code>tick_size</code>)，可以通过<a href="#t-querysymbol">交易对接口</a>接口获得。</li>
+    </ul>
+    </li>
+    <li>必须小于一百万 (<code>1000000</code>)</li>
+    <li>如果用户没有未平仓，则价格必须大于市场价格的10%<ul>
+    <li>如, 若当前市场价(last price) 为 10314, 那么下单价格的最小值为 1031.5。</li>
+    <li>伪代码(假设价格是0.5的增量):<pre class="center-column">
+    IF price > (last_price * 0.1)
+    // 发送订单
+    ELSE
+    //  不会发送订单，因为价格将不被系统接受
+    </pre></li>
+    </ul>
+    </li>
+    <li>如果已持有仓位，那么价格必须高于强平价格<ul>
+    <li>如, 若多仓的强平价格为 5176.5 那么价格最小为 5177. 在做空的情况下，价格必须低于强平价格。</li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    </ul>
+
+
+  err_130001: 没有获取仓位
+  err_130002: 钱包数据为空
+  err_130003: 仓位状态不正常
+  err_130004: 活动单数量超过上限
+  err_130005: 委托单价格超过允许范围
+  err_130006: 委托单的数量超过允许范围
+  err_130007: 委托单价格超过允许范围
+  err_130008: 委托单类型无效
+  err_130009: 合约数量低于最低限制
+  err_130010: 委托单不存在或超时而无法操作
+  err_130011: 仓位在强平过程中而无法操作
+  err_130012: 仓位在减仓过程中而无法操作
+  err_130013: 追踪单的追踪值无效
+  err_130014: 条件单的触发价格无效
+  err_130015: 条件单的预期方向和基础价格无效
+  err_130016: 无效的条件单类型，不能更改价格
+  err_130017: 无效的条件单类型，不能更改数量
+  err_130018: 无效的追踪值
+  err_130019: 无效的条件单类型，无法更改触发价格
+  err_130020: 无效的条件单类型，无法更改追踪值
+  err_130021: 下单成本不足
+  err_130024: 不能给无仓位设置止盈止损
+  err_130025: 低于10%基准价格
+  err_130026: 价格太高
+  err_130027: 给买方向的仓位设置的价格应该高于基准价格
+  err_130028: 给卖方向的仓位设置的价格应该在基准价格和强平价之间
+  err_130029: 给买方向的仓位设置的价格应该在基准价格和强平价之间
+  err_130030: 给卖方向的仓位设置的价格应该低于基准价格
+  err_130032: 无效的订单状态，不能取消或执行触发
+  err_130033: 条件单数量大于限制10
+  err_130034: 无法更改止盈/止损单
+  err_130035: 太频繁取消单子，请稍后重试
+  err_130037: 订单已经被取消了
+  err_130040: 仓位将被强平
+  err_130041: 可用余额小于0
+  err_130049: 可用余额不足
+  err_130050: 相应的调整将会触发强平
+  err_130051: 由于风险限额，无法设置杠杆
+  err_130052: 低于最低限制，无法设置杠杆
+  err_130056: 仓位处于全仓中
+  err_130057: 仓位size为0
+  err_130058: 不能设置保证金低于最低仓位成本
+  err_130059: 不能设置仓位开仓限额大于品种的限额
+  err_130060: 自动追加保证金未更改
+  err_130061: 没有改变费用，无效的请求
+  err_130062: 不能设置开仓限额低于当前买仓位价值
+  err_130063: 不能设置开仓限额低于当前卖仓位价值
+  err_130064: 仅支持USDT
+  err_130074: 需要价格上升，但触发价低于当前价
+  err_130075: 需要价格下降，但触发价高于当前价
+  err_130076: 参数无效
+  err_130077: 入金请求已处理过
+  err_130078: 出金请求已处理过
+  err_130079: 结算当日盈亏请求已处理过
+  err_130101: 无法解析的创建委托单请求
+  err_130102: 无法解析的取消委托单请求
+  err_130103: 无法解析的取消所有委托单请求
+  err_130104: 无法解析的强平请求
+  err_130105: 无法解析的预下单请求
+  err_130106: 无法解析的查询委托单请求
+  err_130107: 无法解析的触发激活请求
+  err_130108: 无法解析的追加保证金请求
+  err_130109: 无法解析的计算仓位盈亏请求
+  err_130110: 无法解析的查询资产请求
+  err_130111: 无法解析的查询仓位列表请求
+  err_130112: 无法解析的设置自动追加保证金请求
+  err_130113: 无法解析的设置费用请求
+  err_130114: 无法解析的调杠杆请求
+  err_130115: 无法解析的设置保证金请求
+  err_130116: 无法解析的设置开仓限额请求
+  err_130117: 无法解析的设置止盈止损请求
+  err_130118: 无法解析的结算资金费用请求
+  err_130119: 无法解析的设置仓位模式请求
+  err_130120: 无法解析的入金请求
+  err_130121: 无法解析的出金请求
+  err_130122: 无法解析的结算当日盈亏请求
+  err_130123: 无法解析的AdlExecute请求
+  err_130124: 无法解析的adl clean请求
+  err_130125: 平仓数量大于持仓数量
+  err_130126: 盘口没有挂单
+  err_130023: 本订单成交后会触发强平
+  err_130127: 止盈止损及追踪止损没有修改
+
+  ### LinearPosition
+  linear_position: My Position
+
+  ### Linear Cancel Active Order
+  linear_cancel_active: 取消活动委托订单
+
+  linear_row_comment_reduceOnly: 是否平仓单,true-平仓 false-开仓
+  linear_row_comment_closeOnTrigger: 平仓委托,只会减少您的仓位而不会增加您的仓位。如果当平仓委托被触发时，账户上的余额不足，那么该合约的其他委托将被取消或者降低委托数量。使用此选项可以确保您的止损单被用于减仓而非加仓。
+  linear_place_active: 创建活动委托单
+  linear_account_para_placeActive: |
+    <p>市价活动委托: 一个传统的市场价格订单,会以当前的最优价格为您成交订单。当且仅当选择市价单时，<code>price</code>可为空！</p>
+    <p>限价活动委托: 您可以为您的订单设置一个执行价格，当市场价格达到您的设置价格时，系统会为您成交订单。</p>
+    <p><b>止盈止损: 您仅能在开仓时设置止盈止损条件单，一旦持有仓位后提交活动委托时关联的止盈止损则不会生效。如果不设置止盈止损触发条件<code>triggerBy</code>则默认使用LastPrice</b></p>
+    <p>委托数量: 表示您要购买/卖出的永续合约数，对于委托数量目前Bybit只允许提交正整数。</p>
+    <p>委托价格: 如果是下<b>限价单</b>，该参数为<b>必填</b>. 在没有仓位时，做多的委托价格需高于市价的10%、低于1百万。如有仓位时则需优于强平价。价格增减最小单位请参考<a href="#t-querysymbol">交易对接口</a>响应中的<b>price_filter</b>字段。</p>
+    <p>自定义条件单ID: 您可以自定义活动委托订单ID，我们会为您关联到系统的订单ID，并把系统的唯一订单ID在活动委托创建成功后一并返回给您，您可以使用该订单ID去取消活动委托，同时要求您传递的自定义订单ID<code>最大长度不超过36个字段且唯一</code>。</p>
+    <p><b>每个账户最多可同时持有500个活动订单。这是针对合约的，因此可以允许出现例如：账户同时持有300个BTCUSDT的活动单、280个ETHUSDT合约的活动单。</b></p>
+    <p><b>当您达到订单上限的时候的时候，仍然可以下单设置了参数<code>reduce_only</code> 或 <code>closeOnTrigger</code>的订单。</b></p>
+
+  linear_row_comment_basePrice: 当前市价。用于和stop_px值进行比较，确定当前条件委托是看空到<code>stop_px</code>时触发还是看多到stop_px触发。主要是用来标识当前条件单预期的方向
+  linear_row_comment_stopPx: 条件委托下单时市价
+
+  linear_set_auto_add_margin: 自动追加保证金
+  linear_account_para_setAutoAddMargin: 设置自动追加保证金。
+  linear_row_comment_set_auto_margin: 追加保证金开关
+
+  linear_set_leverage: 设置杠杆
+  linear_account_para_setLeverage: 设置杠杆
+  linear_row_comment_leverage: <code>杠杆大于0，小于100</code>
+
+  linear_switch_isolated: 全仓/逐仓切换
+  linear_account_para_switchIsolated: 全仓/逐仓切换，从全仓切换至逐仓时需要传杠杆
+  linear_row_comment_switch_isolated: 全仓/逐仓, true是逐仓，false是全仓
+
+  linearAddMargin: 追加保证金
+  linear_account_para_addMargin: 追加保证金
+  linear_account_row_comment_margin: 增加/减少多少保证金,增加10，减少-10
+
+  ### 正向websocket
+  linear_websocket_para_endpoint: |
+    Websocket服务器地址:
+    <ul>
+    <p>
+      <li>测试网公共topic地址:
+        <span id="testnet_address">wss://stream-testnet.bybit.com/realtime_public</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+      </li>
+      <li>测试网私有topic地址:
+        <span id="testnet_address">wss://stream-testnet.bybit.com/realtime_private</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+      </li>
+    </p>
+    <p>
+      <li>主网公共topic地址:
+        <span id="mainnet_address">wss://stream.bybit.com/realtime_public</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+      </li>
+      <li>主网私有topic地址:
+        <span id="mainnet_address">wss://stream.bybit.com/realtime_private</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+      </li>
+    </p>
+    </ul>
