@@ -38,8 +38,8 @@ en:
   row_comment_takeProfit: Take profit price, only take effect upon opening the position
   row_comment_stopLoss: Stop loss price, only take effect upon opening the position
   row_comment_trailingStop: Trailing stop
-  row_comment_reduceOnly: Reduce only
-  row_comment_closeOnTrigger: Close on trigger. When creating a closing order, we highly recommend <code>close_on_trigger</code> is set as <code>True</code> to avoid failing by insufficient available margin
+  row_comment_reduceOnly: <a href="https://help.bybit.com/hc/en-us/articles/360039260574-What-is-a-reduce-only-order-"> What is a reduce-only order?</a> True means your position can only reduce in size if this order is triggered
+  row_comment_closeOnTrigger: <a href="https://help.bybit.com/hc/en-us/articles/360039260534-What-is-a-close-on-trigger-Order-">  What is a close on trigger order?</a> For a closing order. It can only reduce your position, not increase it. If the account has insufficient available balance when the closing order is triggered, then other active orders of similar contracts will be cancelled or reduced. It can be used to ensure your stop loss reduces your position regardless of current available margin.
   row_comment_orderLinkId: Customised order ID, maximum length at 36 characters, and order ID under the same agency has to be unique.
   row_comment_page: Page. Default getting first page data
   row_comment_order: Sort orders by creation date
@@ -1048,8 +1048,8 @@ en:
   ### Linear Cancel Active Order
   linear_cancel_active: Cancel Active Order
 
-  linear_row_comment_reduceOnly: Open or close position active order,true means close position active order, false means open position active order
-  linear_row_comment_closeOnTrigger: closing order.It can only reduce your position, but not increase it. If the account has insufficient available balance when the closing order is triggered, then other active orders of similar contracts will be cancelled or reduced. It can be used to ensure your stop loss reduces your position regardless of other open orders.
+  linear_row_comment_reduceOnly: <a href="https://help.bybit.com/hc/en-us/articles/360039260574-What-is-a-reduce-only-order-"> What is a reduce-only order?</a> True means your position can only reduce in size if this order is triggered
+  linear_row_comment_closeOnTrigger: <a href="https://help.bybit.com/hc/en-us/articles/360039260534-What-is-a-close-on-trigger-Order-">  What is a close on trigger order?</a> For a closing order. It can only reduce your position, not increase it. If the account has insufficient available balance when the closing order is triggered, then other active orders of similar contracts will be cancelled or reduced. It can be used to ensure your stop loss reduces your position regardless of current available margin.
   linear_place_active: Place Active Order
   linear_account_para_placeActive: |
     <p>Market price active order: A traditional market price order, will be filled at the best available price. <code>price</code> is not required for this type of order.</p>
@@ -1058,7 +1058,7 @@ en:
     <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell, currently Bybit only support order quantity in an integer.</p>
     <p>Order price: If it is a condition order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the price_filter field in the <a href="#t-querysymbol">Query Symbols</a> endpoint.</p>
     <p>Custom order ID: You may customise order IDs for active orders. We will link it to the system order ID, and return the unique system order ID to you after the active order is created successfully. You may use this order ID or your custom order ID to cancel your active order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
-    <p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSD instrument and 280 active orders on the ETHUSD instrument. And order with parameter <code>reduce_only</code> or <code>closeOnTrigger</code> is unlimited.</b></p>
+    <p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSDT instrument and 280 active orders on the ETHUSDT instrument. And order with parameter <code>reduce_only</code> or <code>closeOnTrigger</code> is unlimited.</b></p>
   linear_row_comment_basePrice: It will be used to compare with the value of <code>stop_px</code>, to decide whether your conditional order will be triggered by crossing trigger price from upper side or lower side. Mainly used to identify the expected direction of the current conditional order.
   linear_row_comment_StopPx: Trigger price
 
@@ -1068,12 +1068,12 @@ en:
 
   linear_set_leverage: Set Leverage
   linear_account_para_setLeverage: Set Leverage
-  linear_row_comment_leverage: <code>leverage bigger than 0, less than 100</code>
+  linear_row_comment_leverage: Must be greater than 0 but less than 100
 
-  linear_switch_isolated: Cross/Isolated switch
-  linear_account_para_switchIsolated: Switch Cross/Isolated，It is must be leverage value when swtich Cross to Isolated
-  linear_row_comment_switch_isolated: Cross/Isolated true is Isolated, false is Cross
+  linear_switch_isolated: Cross/Isolated margin switch
+  linear_account_para_switchIsolated: Switch Cross/Isolated, it must be leverage value when switch Cross to Isolated
+  linear_row_comment_switch_isolated: Cross/Isolated: true is Isolated; false is Cross
 
   linearAddMargin: Add Margin
   linear_account_para_addMargin: Add Margin
-  linear_account_row_comment_margin: Add/Remove how many margin，Increase 10, decrease -10
+  linear_account_row_comment_margin: Add/Remove how much margin: Increase 10; decrease -10
