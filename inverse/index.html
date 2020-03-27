@@ -286,6 +286,7 @@
   </a>
   <ul class="con">
     <li><a href="/docs/inverse" class="selected">Inverse Futures</a></li>
+    <li><a href="/docs/linear">Linear Futures</a></li>
   </ul>
   </div>
   <a class="international" id="international" href="javascript:void(0);">简体中文</a>
@@ -1848,13 +1849,13 @@ The response is in the snapshot format.
 <td style="text-align: left">reduce_only</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">bool</td>
-<td>Reduce only</td>
+<td><a href="https://help.bybit.com/hc/en-us/articles/360039260574-What-is-a-reduce-only-order-"> What is a reduce-only order?</a> True means your position can only reduce in size if this order is triggered</td>
 </tr>
 <tr>
 <td style="text-align: left">close_on_trigger</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">bool</td>
-<td>Close on trigger. When creating a closing order, we highly recommend <code>close_on_trigger</code> is set as <code>True</code> to avoid failing by insufficient available margin</td>
+<td><a href="https://help.bybit.com/hc/en-us/articles/360039260534-What-is-a-close-on-trigger-Order-">  What is a close on trigger order?</a> For a closing order. It can only reduce your position, not increase it. If the account has insufficient available balance when the closing order is triggered, then other active orders of similar contracts will be cancelled or reduced. It can be used to ensure your stop loss reduces your position regardless of current available margin.</td>
 </tr>
 <tr>
 <td style="text-align: left">order_link_id</td>
@@ -2371,7 +2372,7 @@ Take profit/Stop loss is not supported in placing conditional orders. One can on
 <td style="text-align: left">close_on_trigger</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">bool</td>
-<td>Close on trigger. When creating a closing order, we highly recommend <code>close_on_trigger</code> is set as <code>True</code> to avoid failing by insufficient available margin</td>
+<td><a href="https://help.bybit.com/hc/en-us/articles/360039260534-What-is-a-close-on-trigger-Order-">  What is a close on trigger order?</a> For a closing order. It can only reduce your position, not increase it. If the account has insufficient available balance when the closing order is triggered, then other active orders of similar contracts will be cancelled or reduced. It can be used to ensure your stop loss reduces your position regardless of current available margin.</td>
 </tr>
 <tr>
 <td style="text-align: left">order_link_id</td>
@@ -3759,7 +3760,7 @@ The difference between data returned by this endpoint and data of type <code>Wit
     <span class="s2">"rate_limit"</span><span class="p">:</span> <span class="mi">120</span>
 <span class="p">}</span>
 </code></pre>
-<p>Get user's trading records. The last item is the oldest.</p>
+<p>Get user's trading records. The results are ordered in ascending order (the first item is the oldest).</p>
 
 <aside class="notice">
 One order may have multiple trade records.
@@ -5250,11 +5251,12 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
       if ($this.text() == 'English') {
         window.location=currentUrl.replace(/\/zh-cn/,"");
       } else {
-        if (currentUrl.indexOf("inverse")) {
+        if (currentUrl.indexOf("inverse") > -1) {
           window.location=currentUrl.replace(/\/inverse/,"/zh-cn/inverse");
         } else {
           window.location=currentUrl.replace(/\/linear/,"/zh-cn/linear");
         }
+
       }
     });
 </script>

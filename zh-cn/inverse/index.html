@@ -286,6 +286,7 @@
   </a>
   <ul class="con">
     <li><a href="/docs/zh-cn/inverse" class="selected">反向合约</a></li>
+    <li><a href="/docs/zh-cn/linear">正向合约</a></li>
   </ul>
   </div>
   <a class="international" id="international" href="javascript:void(0);">English</a>
@@ -5250,11 +5251,12 @@ B用户：
       if ($this.text() == 'English') {
         window.location=currentUrl.replace(/\/zh-cn/,"");
       } else {
-        if (currentUrl.indexOf("inverse")) {
+        if (currentUrl.indexOf("inverse") > -1) {
           window.location=currentUrl.replace(/\/inverse/,"/zh-cn/inverse");
         } else {
           window.location=currentUrl.replace(/\/linear/,"/zh-cn/linear");
         }
+
       }
     });
 </script>
