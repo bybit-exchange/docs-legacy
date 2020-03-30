@@ -13,3 +13,12 @@
 - [t(:websocketexecution)](#t-websocketexecution) [t(:changelog_new)]
 - [t(:websocketorder)](#t-websocketorder) [t(:changelog_new)]
 - [t(:websocketstoporder)](#t-websocketstoporder) [t(:changelog_new)]
+
+
+## 2020-03-30
+### REST API
+- [t(:querycond)](#t-querycond) [t(:changelog_new)]
+
+### Websocket API
+- [t(:websocketwallet)](#t-websocketwallet) [t(:changelog_new)]
+- [t(:websockettrade)](#t-websockettrade) [t(:changelog_new)]
