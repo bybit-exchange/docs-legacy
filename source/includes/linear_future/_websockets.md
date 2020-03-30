@@ -573,3 +573,25 @@ ws.send('{"op": "subscribe", "args": ["stop_order"]}')
     ]
 }
 ```
+
+
+### t(:websocketwallet)
+> t(:codequote_subscribe)
+
+```javascript
+ws.send('{"op": "subscribe", "args": ["wallet"]}')
+```
+
+> t(:codequote_responseExampleFormatAll)
+
+```javascript
+{
+    "topic": "wallet",
+    "data": [
+        {
+            "wallet_balance":429.80713,
+            "available_balance":429.67322
+        }
+    ]
+}
+```
