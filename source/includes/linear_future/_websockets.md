@@ -388,6 +388,51 @@ t(:websocket_aside_instrumentInfo2)
 
 
 
+### t(:websockettrade)
+> t(:codequote_subscribe)
+
+```javascript
+ws.send('{"op": "subscribe", "args": ["trade"]}')
+```
+
+> t(:codequote_responseExampleFormatAll)
+
+```javascript
+{
+    "topic": "trade.BTCUSDT",
+    "data": [
+        {
+            "symbol": "BTCUSDT",
+            "tick_direction": "PlusTick",
+            "price": 8098,
+            "size": 328,
+            "timestamp":"2020-03-30T02:21:06.000Z",
+            "trade_time_ms":"1585534866418",
+            "side":"Sell",
+            "trade_id":"01e79e28-d1f4-59ac-b079-ca909606d91a"
+        }
+    ]
+}
+```
+
+t(:websocket_para_trade)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## t(:privatetopics)
 ### t(:websocketposition)
 > t(:codequote_subscribe)
