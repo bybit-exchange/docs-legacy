@@ -194,7 +194,6 @@ POST
 
 
 
-<!-- 
 ### t(:queryactive)
 > t(:codequote_responseExample)
 
@@ -245,7 +244,7 @@ GET
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 
 
- -->
+
 
 
 
@@ -463,7 +462,7 @@ POST
 |t(:column_parameter)|required|type | comments|
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)|
- -->
+
 
 
 ### t(:querycond)
@@ -510,7 +509,7 @@ GET
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 |stop_order_id |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
 |order_link_id |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
-
+ -->
 
 
 
