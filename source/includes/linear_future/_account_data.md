@@ -117,7 +117,7 @@ GET
 |order |false |string |t(:row_comment_order)  |
 |page |false |integer |t(:row_comment_page) |
 |limit |false |integer |t(:row_comment_limit) |
-|<a href="#order-status-order_status-get">order_status</a> |false |string |t(:account_row_comment_orderStatus) |
+|<a href="#order-status-order_status-get">order_status</a> |false |string |t(:linear_account_row_comment_orderStatus) |
 
 
 ### t(:linear_cancel_active)
@@ -194,7 +194,6 @@ POST
 
 
 
-<!-- 
 ### t(:queryactive)
 > t(:codequote_responseExample)
 
@@ -245,7 +244,7 @@ GET
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 
 
- -->
+
 
 
 
