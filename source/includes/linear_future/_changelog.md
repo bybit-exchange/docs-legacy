@@ -24,3 +24,6 @@
 ### Websocket API
 - [t(:websocketwallet)](#t-websocketwallet) [t(:changelog_new)]
 - [t(:websockettrade)](#t-websockettrade) [t(:changelog_new)]
+- [t(:websocketorderbook25)](#t-websocketorderbook25)  [t(:changelog_update)]
+- [t(:websocketorderbook200)](#t-websocketorderbook200)  [t(:changelog_update)]
+    - t(:linear_update_20200330_ws_ob)
