@@ -18,6 +18,8 @@
 ## 2020-03-30
 ### REST API
 - [t(:querycond)](#t-querycond) [t(:changelog_new)]
+- [t(:getactive)](#t-getactive) 
+    - t(:linear_update_20200330)
 
 ### Websocket API
 - [t(:websocketwallet)](#t-websocketwallet) [t(:changelog_new)]
