@@ -1106,7 +1106,7 @@ t(:wallet_aside_getRisk)
 </aside>
 
 #### t(:httprequest1)
-GET
+POST
 <code><span id=oawRiskLimit>/open-api/wallet/risk-limit</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawRiskLimit"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 

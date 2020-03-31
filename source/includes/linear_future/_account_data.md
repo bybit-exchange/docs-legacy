@@ -542,7 +542,7 @@ GET
     "ext_info": "",
     "result": [
        {
-               "userId":100004,
+               "user_id":100004,
                "symbol":"BTCUSDT",
                "side":"Buy",
                "size":0,
@@ -557,7 +557,7 @@ GET
                "cum_realised_pnl":0,
            },
            {
-               "userId":100004,
+               "user_id":100004,
                "symbol":"BTCUSDT",
                "side":"Buy",
                "size":0,
@@ -738,7 +738,7 @@ POST
     "ext_code":"",
     "ext_info":"",
     "result":{
-         "userId":100004,
+         "user_id":100004,
          "symbol":"BTCUSDT",
          "side":"Buy",
          "size":0,
