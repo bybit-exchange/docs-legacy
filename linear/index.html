@@ -320,13 +320,24 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#2020-03-27" class="toc-h2 toc-link" data-title="2020-03-27">2020-03-27</a>
+                    <a href="#2020-03-31" class="toc-h2 toc-link" data-title="2020-03-31">2020-03-31</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#rest-api" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                           <li>
                             <a href="#websocket-api" class="toc-h3 toc-link" data-title="Websocket API">Websocket API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2020-03-27" class="toc-h2 toc-link" data-title="2020-03-27">2020-03-27</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-2" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                          <li>
+                            <a href="#websocket-api-2" class="toc-h3 toc-link" data-title="Websocket API">Websocket API</a>
                           </li>
                       </ul>
                   </li>
@@ -393,6 +404,17 @@
                                   </li>
                               </ul>
                           </li>
+                          <li>
+                            <a href="#t-queryactive" class="toc-h3 toc-link" data-title="Query Active Order (real-time)">Query Active Order (real-time)</a>
+                              <ul class="toc-list-h4">
+                                  <li>
+                                    <a href="#t-httprequest-5" class="toc-h4 toc-link" data-title="HTTP Request">HTTP Request</a>
+                                  </li>
+                                  <li>
+                                    <a href="#t-requestparameters-5" class="toc-h4 toc-link" data-title="Request Parameters">Request Parameters</a>
+                                  </li>
+                              </ul>
+                          </li>
                       </ul>
                   </li>
                   <li>
@@ -402,10 +424,10 @@
                             <a href="#t-linear_position" class="toc-h3 toc-link" data-title="My Position">My Position</a>
                               <ul class="toc-list-h4">
                                   <li>
-                                    <a href="#t-httprequest-5" class="toc-h4 toc-link" data-title="HTTP Request">HTTP Request</a>
+                                    <a href="#t-httprequest-6" class="toc-h4 toc-link" data-title="HTTP Request">HTTP Request</a>
                                   </li>
                                   <li>
-                                    <a href="#t-requestparameters-5" class="toc-h4 toc-link" data-title="Request Parameters">Request Parameters</a>
+                                    <a href="#t-requestparameters-6" class="toc-h4 toc-link" data-title="Request Parameters">Request Parameters</a>
                                   </li>
                               </ul>
                           </li>
@@ -495,6 +517,9 @@
                           <li>
                             <a href="#t-websocketinstrumentinfo" class="toc-h3 toc-link" data-title="instrument_info">instrument_info</a>
                           </li>
+                          <li>
+                            <a href="#t-websockettrade" class="toc-h3 toc-link" data-title="trade">trade</a>
+                          </li>
                       </ul>
                   </li>
                   <li>
@@ -511,6 +536,9 @@
                           </li>
                           <li>
                             <a href="#t-websocketstoporder" class="toc-h3 toc-link" data-title="stop_order">stop_order</a>
+                          </li>
+                          <li>
+                            <a href="#t-websocketwallet" class="toc-h3 toc-link" data-title="wallet">wallet</a>
                           </li>
                       </ul>
                   </li>
@@ -601,12 +629,32 @@ clipboard.on('error', function(e) {
 <p><p>Welcome to the official documentation for the <a href="https://www.bybit.com/">Bybit</a> APIs and Websocket! Here you can find details on how to access all of our endpoints, their respective expected outputs, and possible errors you may encounter.</p> <p>If you encounter an issue you need help with, have a suggestions for us, or just want to have a chat with fellow developers then please head on over to our <a href="https://t.me/Bybitapi">API Telegram chat</a>!</p></p>
 <h3 id='t-resources'>Bybit API Resources</h3>
 <p><ul> <li><a href="https://help.bybit.com/hc/en-us">Help Center <img src="../images/bybit_favicon-066372d5.png" height="14", width="14"></a> - learn about exchange mechanisms here! <li><a href="https://github.com/bybit-exchange/docs/issues">Bybit API docs <img src="../images/github_logo_icon-768757c0.png" height="14", width="14"></a> - report issues here! <li><a href="https://github.com/bybit-exchange/api-connectors/">Bybit's api-connectors <img src="../images/github_logo_icon-768757c0.png" height="14", width="14"></a> - find a repo of prebuilt libraries here! <li><a href="https://t.me/Bybitapi">API Discussion Group <img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> - get English help here! <li><a href="https://t.me/Bybit_API_Announcements">API Announcements Channel <img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> - subscribe for changes to the API! <li>添加小助手微信号：BybitAPI，加入Bybit API中文交流群</li> </ul></p>
-<h1 id='t-changelog'>Changelog</h1><h2 id='2020-03-27'>2020-03-27</h2><h3 id='rest-api'>REST API</h3>
+<h1 id='t-changelog'>Changelog</h1><h2 id='2020-03-31'>2020-03-31</h2><h3 id='rest-api'>REST API</h3>
+<ul>
+<li><a href="#t-queryactive">Query Active Order (real-time)</a> [new]</li>
+<li><a href="#t-getactive">Get Active Order</a> 
+
+<ul>
+<li><code>order_status</code> field not support query orders with specific statuses</li>
+</ul></li>
+</ul>
+<h3 id='websocket-api'>Websocket API</h3>
+<ul>
+<li><a href="#t-websocketwallet">wallet</a> [new]</li>
+<li><a href="#t-websockettrade">trade</a> [new]</li>
+<li><a href="#t-websocketorderbook25">orderBookL2_25</a>  [update]</li>
+<li><a href="#t-websocketorderbook200">orderBookL2_200</a>  [update]
+
+<ul>
+<li>fix response data bug</li>
+</ul></li>
+</ul>
+<h2 id='2020-03-27'>2020-03-27</h2><h3 id='rest-api-2'>REST API</h3>
 <ul>
 <li><a href="#t-activeorders">Place Active Order</a> [new]</li>
 <li><a href="#t-position">My Position</a> [new]</li>
 </ul>
-<h3 id='websocket-api'>Websocket API</h3>
+<h3 id='websocket-api-2'>Websocket API</h3>
 <ul>
 <li><a href="#t-websocketorderbook25">orderBookL2_25</a> [new]</li>
 <li><a href="#t-websocketorderbook200">orderBookL2_200</a> [new]</li>
@@ -957,7 +1005,7 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left"><a href="#order-status-order_status-get">order_status</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Query your orders for all statuses if 'order_status' is empty. If you want to query orders with specific statuses, you can pass the order_status split by ','.</td>
+<td>Query your orders for all statuses if 'order_status' is empty.</td>
 </tr>
 </tbody></table>
 <h3 id='t-linear_cancel_active'>Cancel Active Order</h3>
@@ -1058,59 +1106,72 @@ This endpoint's <code>rate_limit</code> will decrease by 10 per request
 <td>Contract type</td>
 </tr>
 </tbody></table>
-
-<!-- 
-### Query Active Order (real-time)
-> Response Example
-
-```javascript
-{
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
-    "ext_info": "",
-    "result": {
-        "order_id":"bd1844f-f3c0-4e10-8c25-10fea03763f6",
-        "user_id": 1,
-        "symbol": "BTCUSDT",
-        "side": "Sell",
-        "order_type": "Limit",
-        "price": 8083,
-        "qty": 10,
-        "time_in_force": "GoodTillCancel",
-        "order_status": "New",
-        "last_exec_price": 8083,
-        "cum_exec_qty": 0,
-        "cum_exec_value": 0,
-        "cum_exec_fee": 0,
-        "order_link_id": "",
-        "created_time": "2019-10-21T07:28:19.396246Z",
-        "updated_time": "2019-10-21T07:28:19.396246Z",
-    },
-    "time_now": "1571651135.291930",
-    "rate_limit_status": 99, // The remaining number of accesses in one minute
-    "rate_limit_reset_ms": 1580885703683,
-    "rate_limit": 100
-}
-```
-
-
-Query real-time active order information.
-
-#### HTTP Request
-GET
+<h3 id='t-queryactive'>Query Active Order (real-time)</h3>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="s2">"ret_code"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"ret_msg"</span><span class="p">:</span> <span class="s2">"OK"</span><span class="p">,</span>
+    <span class="s2">"ext_code"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"ext_info"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"result"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"order_id"</span><span class="p">:</span><span class="s2">"bd1844f-f3c0-4e10-8c25-10fea03763f6"</span><span class="p">,</span>
+        <span class="s2">"user_id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">"symbol"</span><span class="p">:</span> <span class="s2">"BTCUSDT"</span><span class="p">,</span>
+        <span class="s2">"side"</span><span class="p">:</span> <span class="s2">"Sell"</span><span class="p">,</span>
+        <span class="s2">"order_type"</span><span class="p">:</span> <span class="s2">"Limit"</span><span class="p">,</span>
+        <span class="s2">"price"</span><span class="p">:</span> <span class="mi">8083</span><span class="p">,</span>
+        <span class="s2">"qty"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="s2">"time_in_force"</span><span class="p">:</span> <span class="s2">"GoodTillCancel"</span><span class="p">,</span>
+        <span class="s2">"order_status"</span><span class="p">:</span> <span class="s2">"New"</span><span class="p">,</span>
+        <span class="s2">"last_exec_price"</span><span class="p">:</span> <span class="mi">8083</span><span class="p">,</span>
+        <span class="s2">"cum_exec_qty"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">"cum_exec_value"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">"cum_exec_fee"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">"order_link_id"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+        <span class="s2">"created_time"</span><span class="p">:</span> <span class="s2">"2019-10-21T07:28:19.396246Z"</span><span class="p">,</span>
+        <span class="s2">"updated_time"</span><span class="p">:</span> <span class="s2">"2019-10-21T07:28:19.396246Z"</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">"time_now"</span><span class="p">:</span> <span class="s2">"1571651135.291930"</span><span class="p">,</span>
+    <span class="s2">"rate_limit_status"</span><span class="p">:</span> <span class="mi">99</span><span class="p">,</span> <span class="c1">// The remaining number of accesses in one minute</span>
+    <span class="s2">"rate_limit_reset_ms"</span><span class="p">:</span> <span class="mi">1580885703683</span><span class="p">,</span>
+    <span class="s2">"rate_limit"</span><span class="p">:</span> <span class="mi">100</span>
+<span class="p">}</span>
+</code></pre>
+<p>Query real-time active order information.</p>
+<h4 id='t-httprequest-5'>HTTP Request</h4>
+<p>GET
 <code><span id=vpOrder>/private/linear/order/search</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
-
-#### Request Parameters
-|parameter|required|type|comments|
-|:----- |:-------|:-----|----- |
-|order_id |false |string | Order ID. <b>Required</b> if not passing order_link_id|
-|order_link_id |false |string |Agency customized order ID. <b>Required</b> if not passing order_id |
-|<a href="#symbol-symbol">symbol</a> |true |string |Contract type |
-
-
- -->
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<h4 id='t-requestparameters-5'>Request Parameters</h4>
+<table><thead>
+<tr>
+<th style="text-align: left">parameter</th>
+<th style="text-align: left">required</th>
+<th style="text-align: left">type</th>
+<th>comments</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">order_id</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Order ID. <b>Required</b> if not passing order_link_id</td>
+</tr>
+<tr>
+<td style="text-align: left">order_link_id</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Agency customized order ID. <b>Required</b> if not passing order_id</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>Contract type</td>
+</tr>
+</tbody></table>
 
 <!-- 
 ## Conditional Orders
@@ -1419,11 +1480,11 @@ GET
 <span class="p">}</span>
 </code></pre>
 <p>Get my position list.</p>
-<h4 id='t-httprequest-5'>HTTP Request</h4>
+<h4 id='t-httprequest-6'>HTTP Request</h4>
 <p>GET
 <code><span id=pList>/private/linear/position/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pList"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
-<h4 id='t-requestparameters-5'>Request Parameters</h4>
+<h4 id='t-requestparameters-6'>Request Parameters</h4>
 <table><thead>
 <tr>
 <th style="text-align: left">parameter</th>
@@ -2205,6 +2266,32 @@ This topic only utilises the <code>update</code> field. Both the <code>delete</c
 Some values use scientific notation. This is indicated by that value's key, which will be appended with, for example, <code>e6</code>. If the key is <code>last_price_e4</code> and the value is <code>81585000</code>, then to find the true value we can do <code>81585000 * 10^4</code>, which equals <code>8158.5</code>.
 
 </aside>
+<h3 id='t-websockettrade'>trade</h3>
+<blockquote>
+<p>How to Subscribe</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">'{"op": "subscribe", "args": ["trade"]}'</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>Response Example - format of all responses</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="s2">"topic"</span><span class="p">:</span> <span class="s2">"trade.BTCUSDT"</span><span class="p">,</span>
+    <span class="s2">"data"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">"symbol"</span><span class="p">:</span> <span class="s2">"BTCUSDT"</span><span class="p">,</span>
+            <span class="s2">"tick_direction"</span><span class="p">:</span> <span class="s2">"PlusTick"</span><span class="p">,</span>
+            <span class="s2">"price"</span><span class="p">:</span> <span class="mi">8098</span><span class="p">,</span>
+            <span class="s2">"size"</span><span class="p">:</span> <span class="mi">328</span><span class="p">,</span>
+            <span class="s2">"timestamp"</span><span class="p">:</span><span class="s2">"2020-03-30T02:21:06.000Z"</span><span class="p">,</span>
+            <span class="s2">"trade_time_ms"</span><span class="p">:</span><span class="s2">"1585534866418"</span><span class="p">,</span>
+            <span class="s2">"side"</span><span class="p">:</span><span class="s2">"Sell"</span><span class="p">,</span>
+            <span class="s2">"trade_id"</span><span class="p">:</span><span class="s2">"01e79e28-d1f4-59ac-b079-ca909606d91a"</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre>
+<p>Get real-time trading information.</p>
 <h2 id='t-privatetopics'>Private Topics</h2><h3 id='t-websocketposition'>position</h3>
 <blockquote>
 <p>How to Subscribe</p>
@@ -2327,6 +2414,24 @@ Some values use scientific notation. This is indicated by that value's key, whic
             <span class="s2">"trigger_price"</span><span class="p">:</span> <span class="s2">"8584.5"</span><span class="p">,</span>
             <span class="s2">"create_time"</span><span class="p">:</span> <span class="s2">"2020-01-14T14:11:22.062Z"</span><span class="p">,</span>
             <span class="s2">"update_time"</span><span class="p">:</span> <span class="s2">"2020-01-14T14:11:22.062Z"</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre><h3 id='t-websocketwallet'>wallet</h3>
+<blockquote>
+<p>How to Subscribe</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">'{"op": "subscribe", "args": ["wallet"]}'</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>Response Example - format of all responses</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="s2">"topic"</span><span class="p">:</span> <span class="s2">"wallet"</span><span class="p">,</span>
+    <span class="s2">"data"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">"wallet_balance"</span><span class="p">:</span><span class="mf">429.80713</span><span class="p">,</span>
+            <span class="s2">"available_balance"</span><span class="p">:</span><span class="mf">429.67322</span>
         <span class="p">}</span>
     <span class="p">]</span>
 <span class="p">}</span>
