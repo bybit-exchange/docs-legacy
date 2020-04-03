@@ -622,7 +622,7 @@ POST
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
 |<a href="#side-side">side</a> |true |string |t(:row_comment_side)    |
 |auto_add_margin |bool |string |t(:linear_row_comment_set_auto_margin)  |
-
+-->
 
 
 ### t(:linear_set_leverage)
@@ -630,13 +630,15 @@ POST
 
 ```javascript
 {
-    "ret_code":0,
-    "ret_msg":"OK",
-    "ext_code":"",
-    "ext_info":"",
-    "result":"",
-    "time_now":"1584598087.951359",
-    "token":null
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "ext_info": "",
+    "result": null,
+    "time_now": "1585881527.650138",
+    "rate_limit_status": 74,
+    "rate_limit_reset_ms": 1585881527648,
+    "rate_limit": 75
 }
 ```
 
@@ -662,13 +664,15 @@ POST
 
 ```javascript
 {
-    "ret_code":0,
-    "ret_msg":"OK",
-    "ext_code":"",
-    "ext_info":"",
-    "result":"",
-    "time_now":"1584598087.951359",
-    "token":null
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "ext_info": "",
+    "result": null,
+    "time_now": "1585881597.006026",
+    "rate_limit_status": 74,
+    "rate_limit_reset_ms": 1585881597004,
+    "rate_limit": 75
 }
 ```
 
@@ -688,7 +692,7 @@ POST
 |sell_leverage |true |number |t(:linear_row_comment_leverage)  |
 
 
-
+<!--
 ### t(:tradingstop)
 > t(:codequote_responseExample)
 

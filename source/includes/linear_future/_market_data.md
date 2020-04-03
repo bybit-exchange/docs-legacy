@@ -1,6 +1,182 @@
 # t(:marketdata)
 t(:market_para_auth)
 
+
+### t(:querykline)
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/public/linear/kline?symbol=BTCUSDT&interval=1&limit=2&from=1581231260
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+	"ret_code": 0,
+	"ret_msg": "OK",
+	"ext_code": "",
+	"ext_info": "",
+	"result": [{
+	    "id": 3866948,
+        "symbol": "BTCUSDT",
+        "period": "Y",
+        "start_at": 1577836800,
+        "volume": 1451.59,
+        "open": 7700,
+        "high": 999999,
+        "low": 0.5,
+        "close": 6000
+	}, 
+	{
+	    "id": 3866948,
+        "symbol": "BTCUSDT",
+        "period": "Y",
+        "start_at": 1577836800,
+        "volume": 1451.59,
+        "open": 7700,
+        "high": 999999,
+        "low": 0.5,
+        "close": 6000
+	}],
+	"time_now": "1581928016.558522"
+}
+```
+
+t(:market_para_querykline)
+
+#### t(:httprequest)
+GET
+<code><span id=vpSymbols>/public/linear/kline</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpSymbols"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+#### t(:requestparameters)
+|parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|interval |true |string |t(:row_comment_interval) |
+|from |true |integer |t(:row_comment_from_timestamp) |
+|limit |false |integer |t(:row_comment_limit_200) |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### t(:linear_recent_trading_records)
+> t(:codequote_curlExample)
+
+```console
+curl https://api-testnet.bybit.com/public/linear/trading-records?symbol=BTCUSDT&limit=500
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,                                   // error code 0 means success
+    "ret_msg": "OK",                                 // error message
+    "ext_code": "",
+    "ext_info": "",
+    "result": [
+        {
+            "id": 7724919,                                   // ID
+            "symbol": "BTCUSDT",                             // contract type
+            "price": 9499.5,                                // execution price
+            "qty": 9500,                                    // execution quantity
+            "side": "Buy",                                  // side
+            "time": "2019-11-19T08:03:04.077Z"              // UTC time
+        }
+    ],
+    "time_now": "1567109419.049271"
+}
+```
+
+t(:market_para_records)
+
+#### t(:httprequest)
+GET
+<code><span id=vpTradingRecords>/public/linear/trading-records</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpTradingRecords"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+#### t(:requestparameters)
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|limit |false |int |Number of results. Default 500; max 1000|
+
+
+
+
+
+
+
+### t(:linear_prev_funding_rate)
+> t(:codequote_curlExample)
+
+```console
+curl https://api-testnet.bybit.com/public/linear/prev-funding-rate?symbol=BTCUSDT
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,                                   // error code 0 means success
+    "ret_msg": "OK",                                 // error message
+    "ext_code": "",
+    "ext_info": "",
+    "result": [
+        {
+          "symbol": "BTCUSDT",
+          "funding_rate": -0.00325,
+          "funding_rate_timestamp": "2020-04-03T00:00:00.000Z"
+        }
+    ],
+    "time_now": "1567109419.049271"
+}
+```
+
+t(:market_para_records)
+
+#### t(:httprequest)
+GET
+<code><span id=vpTradingRecords>/public/linear/prev-funding-rate</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpTradingRecords"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+#### t(:requestparameters)
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
 ### t(:orderbook)
 > t(:codequote_curlExample)
 
@@ -50,60 +226,31 @@ GET
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 
-### t(:querykline)
-> t(:codequote_curlExample)
 
-```console
-curl https://api.bybit.com/v2/public/kline/list?symbol=BTCUSD&interval=1&limit=2&from=1581231260
-```
 
-> t(:codequote_responseExample)
 
-```javascript
-{
-	"ret_code": 0,
-	"ret_msg": "OK",
-	"ext_code": "",
-	"ext_info": "",
-	"result": [{
-		"symbol": "BTCUSD",
-		"interval": "1",
-		"open_time": 1581231300,
-		"open": "10112.5",
-		"high": "10112.5",
-		"low": "10112",
-		"close": "10112",
-		"volume": "75981",
-		"turnover": "7.51394369"
-	}, {
-		"symbol": "BTCUSD",
-		"interval": "1",
-		"open_time": 1581231360,
-		"open": "10112",
-		"high": "10112.5",
-		"low": "10112",
-		"close": "10112",
-		"volume": "24616",
-		"turnover": "2.4343353100000003"
-	}],
-	"time_now": "1581928016.558522"
-}
-```
 
-t(:market_para_querykline)
 
-#### t(:httprequest)
-GET
-<code><span id=vpSymbols>/v2/public/kline/list</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpSymbols"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-#### t(:requestparameters)
-|parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
-|interval |true |string |t(:row_comment_interval) |
-|from |true |integer |t(:row_comment_from_timestamp) |
-|limit |false |integer |t(:row_comment_limit_200) |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### t(:latestsymbolinfo)
 > t(:codequote_curlExample)
@@ -164,48 +311,15 @@ GET
 |<a href="#symbol-symbol">symbol</a> |false |string |t(:row_comment_symbol) |
 
 
-### t(:publictradingrecords)
-> t(:codequote_curlExample)
 
-```console
-curl https://api-testnet.bybit.com/v2/public/trading-records?symbol=BTCUSD
-```
 
-> t(:codequote_responseExample)
 
-```javascript
-{
-    "ret_code": 0,                                   // error code 0 means success
-    "ret_msg": "OK",                                 // error message
-    "ext_code": "",
-    "ext_info": "",
-    "result": [
-        {
-            "id": 7724919,                                   // ID
-            "symbol": "BTCUSD",                             // contract type
-            "price": 9499.5,                                // execution price
-            "qty": 9500,                                    // execution quantity
-            "side": "Buy",                                  // side
-            "time": "2019-11-19T08:03:04.077Z"              // UTC time
-        }
-    ],
-    "time_now": "1567109419.049271"
-}
-```
 
-t(:market_para_records)
 
-#### t(:httprequest)
-GET
-<code><span id=vpTradingRecords>/v2/public/trading-records</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpTradingRecords"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-#### t(:requestparameters)
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
-|from |false |int |t(:row_comment_from)|
-|limit |false |int |Number of results. Default 500; max 1000|
+
+
+
 
 
 ### t(:querysymbol)
@@ -331,3 +445,4 @@ GET
 #### t(:requestparameters)
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
+-->

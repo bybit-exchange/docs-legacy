@@ -1,5 +1,13 @@
 # t(:changelog)
 
+## 2020-04-03
+### REST API
+- [t(:linear_set_leverage)](#t-linear_set_leverage) [t(:changelog_new)]
+- [t(:linear_switch_isolated)](#t-linear_switch_isolated) [t(:changelog_new)]
+- [t(:querykline)](#t-querykline) [t(:changelog_new)]
+- [t(:linear_recent_trading_records)](#t-linear_recent_trading_records) [t(:changelog_new)]
+- [t(:linear_prev_funding_rate)](#t-linear_prev_funding_rate) [t(:changelog_new)]
+
 ## 2020-03-31
 ### REST API
 - [t(:queryactive)](#t-queryactive) [t(:changelog_new)]
