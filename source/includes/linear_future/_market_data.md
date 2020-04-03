@@ -20,7 +20,7 @@ curl https://api.bybit.com/public/linear/kline?symbol=BTCUSDT&interval=1&limit=2
 	"result": [{
 	    "id": 3866948,
         "symbol": "BTCUSDT",
-        "period": "Y",
+        "period": "1",
         "start_at": 1577836800,
         "volume": 1451.59,
         "open": 7700,
@@ -31,7 +31,7 @@ curl https://api.bybit.com/public/linear/kline?symbol=BTCUSDT&interval=1&limit=2
 	{
 	    "id": 3866948,
         "symbol": "BTCUSDT",
-        "period": "Y",
+        "period": "1",
         "start_at": 1577836800,
         "volume": 1451.59,
         "open": 7700,
@@ -56,7 +56,7 @@ GET
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 |interval |true |string |t(:row_comment_interval) |
 |from |true |integer |t(:row_comment_from_timestamp) |
-|limit |false |integer |t(:row_comment_limit_200) |
+|limit |false |integer |t(:linear_kline_row_comment_limit_200) |
 
 
 
@@ -75,7 +75,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/public/linear/trading-records?symbol=BTCUSDT&limit=500
+curl https://api-testnet.bybit.com/public/linear/recent-trading-records?symbol=BTCUSDT&limit=500
 ```
 
 > t(:codequote_responseExample)
@@ -104,7 +104,7 @@ t(:market_para_records)
 
 #### t(:httprequest)
 GET
-<code><span id=vpTradingRecords>/public/linear/trading-records</span></code>
+<code><span id=vpTradingRecords>/public/linear/recent-trading-records</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpTradingRecords"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 #### t(:requestparameters)
