@@ -7,6 +7,12 @@
 - [t(:querykline)](#t-querykline) [t(:changelog_new)]
 - [t(:linear_recent_trading_records)](#t-linear_recent_trading_records) [t(:changelog_new)]
 - [t(:linear_prev_funding_rate)](#t-linear_prev_funding_rate) [t(:changelog_new)]
+- [t(:linear_place_active)](#t-linear_place_active) [t(:changelog_update)]
+- [t(:getactive)](#t-getactive) [t(:changelog_update)]
+- [t(:queryactive)](#t-queryactive) [t(:changelog_update)]
+    - t(:linear_order___20200403)
+- [t(:linear_position)](#t-position) [t(:changelog_update)]
+    - t(:linear_poistion___20200403)
 
 ## 2020-03-31
 ### REST API
