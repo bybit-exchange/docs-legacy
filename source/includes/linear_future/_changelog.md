@@ -11,6 +11,7 @@
 - [t(:getactive)](#t-getactive) [t(:changelog_update)]
 - [t(:queryactive)](#t-queryactive) [t(:changelog_update)]
     - t(:linear_order___20200403)
+    - t(:linear_order_fix_order_type___20200403)
 - [t(:linear_position)](#t-position) [t(:changelog_update)]
     - t(:linear_poistion___20200403)
 
