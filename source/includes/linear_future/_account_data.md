@@ -25,6 +25,7 @@ t(:account_para)
         "cum_exec_qty": 0,
         "cum_exec_value": 0,
         "cum_exec_fee": 0,
+        "reduce_only": false,
         "order_link_id": "",
         "created_time": "2019-10-21T07:28:19.396246Z",
         "updated_time": "2019-10-21T07:28:19.396246Z",
@@ -88,6 +89,7 @@ POST
                 "cum_exec_value": 0,
                 "cum_exec_fee": 0,
                 "order_link_id": "",
+                "reduce_only": false,
                 "created_time": "2019-10-21T07:28:19.396246Z",
                 "updated_time": "2019-10-21T07:28:19.396246Z",
             }
@@ -217,6 +219,7 @@ POST
         "cum_exec_qty": 0,
         "cum_exec_value": 0,
         "cum_exec_fee": 0,
+        "reduce_only": false,
         "order_link_id": "",
         "created_time": "2019-10-21T07:28:19.396246Z",
         "updated_time": "2019-10-21T07:28:19.396246Z",
@@ -555,6 +558,7 @@ GET
                "occ_closing_fee":0,
                "realised_pnl":0,
                "cum_realised_pnl":0,
+               "free_qty": 30,
            },
            {
                "user_id":100004,
@@ -570,6 +574,7 @@ GET
                "occ_closing_fee":0,
                "realised_pnl":0,
                "cum_realised_pnl":0,
+               "free_qty": 30,
            }
     ],
     "time_now": "1577480599.097287",
