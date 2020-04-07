@@ -88,7 +88,7 @@ curl https://api-testnet.bybit.com/public/linear/recent-trading-records?symbol=B
     "ext_info": "",
     "result": [
         {
-            "id": 7724919,                                   // ID
+            "id": "18368131384",                              // ID, string type, all ids are in descending order globally
             "symbol": "BTCUSDT",                             // contract type
             "price": 9499.5,                                // execution price
             "qty": 9500,                                    // execution quantity
@@ -104,8 +104,8 @@ t(:market_para_records)
 
 #### t(:httprequest)
 GET
-<code><span id=vpTradingRecords>/public/linear/recent-trading-records</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpTradingRecords"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=vpRecentTradingRecords>/public/linear/recent-trading-records</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpRecentTradingRecords"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 #### t(:requestparameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -130,18 +130,16 @@ curl https://api-testnet.bybit.com/public/linear/funding/prev-funding-rate?symbo
 
 ```javascript
 {
-    "ret_code": 0,                                   // error code 0 means success
-    "ret_msg": "OK",                                 // error message
-    "ext_code": "",
-    "ext_info": "",
-    "result": [
-        {
-          "symbol": "BTCUSDT",
-          "funding_rate": -0.00325,
-          "funding_rate_timestamp": "2020-04-03T00:00:00.000Z"
-        }
-    ],
-    "time_now": "1567109419.049271"
+    "ret_code":0,
+    "ret_msg":"OK",
+    "ext_code":"",
+    "ext_info":"",
+    "result":{
+        "symbol":"BTCUSDT",
+        "funding_rate":-0.00005965,
+        "funding_rate_timestamp":"2020-04-07T08:00:00.000Z"
+    },
+    "time_now":"1586251109.454281"
 }
 ```
 
@@ -149,8 +147,8 @@ t(:market_para_records)
 
 #### t(:httprequest)
 GET
-<code><span id=vpTradingRecords>/public/linear/funding/prev-funding-rate</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpTradingRecords"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=vpPreFundingRate>/public/linear/funding/prev-funding-rate</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpPreFundingRate"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 #### t(:requestparameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
