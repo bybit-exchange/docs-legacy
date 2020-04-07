@@ -123,7 +123,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/public/linear/prev-funding-rate?symbol=BTCUSDT
+curl https://api-testnet.bybit.com/public/linear/funding/prev-funding-rate?symbol=BTCUSDT
 ```
 
 > t(:codequote_responseExample)
@@ -149,7 +149,7 @@ t(:market_para_records)
 
 #### t(:httprequest)
 GET
-<code><span id=vpTradingRecords>/public/linear/prev-funding-rate</span></code>
+<code><span id=vpTradingRecords>/public/linear/funding/prev-funding-rate</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpTradingRecords"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 #### t(:requestparameters)
