@@ -6,8 +6,10 @@
 - [t(:latestsymbolinfo)](#t-latestsymbolinfo) [t(:changelog_update)]
 - [t(:publictradingrecords)](#t-publictradingrecords) [t(:changelog_update)]
 - [t(:querysymbol)](#t-querysymbol) [t(:changelog_update)]
-    - t(:bugfix1_20200331)
-
+    - t(:bugfix_20200410)
+- [t(:usertraderecords)](#t-usertraderecords) [t(:changelog_update)]
+    - t(:bugfix1_20200410)
+    
 ## 2020-03-31
 ### REST API
 - [t(:balance)](#t-balance) [t(:changelog_update)]
