@@ -2,11 +2,6 @@
 
 ## 2020-04-10
 ### REST API
-- [t(:orderbook)](#t-orderbook) [t(:changelog_update)]
-- [t(:latestsymbolinfo)](#t-latestsymbolinfo) [t(:changelog_update)]
-- [t(:publictradingrecords)](#t-publictradingrecords) [t(:changelog_update)]
-- [t(:querysymbol)](#t-querysymbol) [t(:changelog_update)]
-    - t(:bugfix_20200410)
 - [t(:usertraderecords)](#t-usertraderecords) [t(:changelog_update)]
     - t(:bugfix1_20200410)
     
