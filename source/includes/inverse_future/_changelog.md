@@ -1,5 +1,13 @@
 # t(:changelog)
 
+## 2020-04-10
+### REST API
+- [t(:orderbook)](#t-orderbook) [t(:changelog_update)]
+- [t(:latestsymbolinfo)](#t-latestsymbolinfo) [t(:changelog_update)]
+- [t(:publictradingrecords)](#t-publictradingrecords) [t(:changelog_update)]
+- [t(:querysymbol)](#t-querysymbol) [t(:changelog_update)]
+    - t(:bugfix1_20200331)
+
 ## 2020-03-31
 ### REST API
 - [t(:balance)](#t-balance) [t(:changelog_update)]
