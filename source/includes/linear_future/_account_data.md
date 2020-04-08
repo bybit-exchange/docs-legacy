@@ -263,7 +263,6 @@ GET
 
 
 
-<!-- 
 ## t(:conditionalorders)
 ### t(:placecond)
 > t(:codequote_responseExample)
@@ -512,7 +511,6 @@ GET
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 |stop_order_id |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
 |order_link_id |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
- -->
 
 
 
