@@ -321,6 +321,7 @@ POST
 |<a href="#trigger-price-type-trigger_by">trigger_by</a> | false | string | t(:row_comment_triggerBy)|
 |close_on_trigger |false |bool |t(:row_comment_closeOnTrigger)
 |order_link_id |false |string |t(:row_comment_orderLinkId) |
+|reduce_only |true |bool |t(:linear_row_comment_reduceOnly) |
 
 
 ### t(:getcond)
