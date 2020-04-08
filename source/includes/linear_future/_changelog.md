@@ -1,6 +1,6 @@
 # t(:changelog)
 
-## 2020-04-10
+## 2020-04-09
 ### REST API
 - [t(:conditionalorders)](#t-conditionalorders) [t(:changelog_new)]
 
