@@ -24,28 +24,36 @@ t(:rate_para_understanding)
     <th>t(:row_comment_consume)</th>
   </tr>
   <tr>
-    <td rowspan="2">100/min</td>
+    <td rowspan="6">100/min</td>
     <td>/private/linear/order/create </td>
     <td>1 / request</td>
   </tr>
   <tr><td>/private/linear/order/cancel </td><td>1 / request</td></tr>
+  <tr><td>/private/linear/order/cancel-all </td><td>10 / request</td></tr>
+  <tr><td>/private/linear/stop-order/create </td><td>1 / request</td></tr>
+  <tr><td>/private/linear/stop-order/cancel </td><td>1 / request</td></tr>
+  <tr><td>/private/linear/stop-order/cancel-all </td><td>10 / request</td></tr>
   <tr>
-    <td rowspan="2">600/min</td>
+    <td rowspan="2">75/min</td>
+    <td>/private/linear/position/set-leverage   </td>
+    <td>1 / request</td>
+  </tr>
+  <tr><td>/private/linear/position/switch-isolated </td><td>1 / request</td></tr>
+    
+  <tr>
+    <td rowspan="1">120/min</td>
+    <td>/private/linear/position/list  </td>
+    <td>1 / request</td>
+  </tr>
+    
+  <tr>
+    <td rowspan="4">600/min</td>
     <td>/private/linear/order/list </td>
     <td>1 / request</td>
   </tr>
   <tr><td>/private/linear/order/search </td><td>1 / request</td></tr>
-  <tr>
-    <td rowspan="2">120/min</td>
-    <td>open-api/wallet/fund/records  </td>
-    <td>1 / request</td>
-  </tr>
-<tr><td>open-api/wallet/withdraw/list </td><td>1 / request</td></tr>
-<tr>
-    <td rowspan="1">600/min</td>
-    <td>open-api/api-key  </td>
-    <td>1 / request</td>
-  </tr>
+  <tr><td>/private/linear/stop-order/list </td><td>1 / request</td></tr>
+  <tr><td>/private/linear/stop-order/search </td><td>1 / request</td></tr>
 </table>
 
 ### t(:orderlimits)
