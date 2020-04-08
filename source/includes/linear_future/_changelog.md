@@ -1,5 +1,9 @@
 # t(:changelog)
 
+## 2020-04-10
+### REST API
+- [t(:conditionalorders)](#t-conditionalorders) [t(:changelog_new)]
+
 ## 2020-04-07
 ### REST API
 - [t(:linear_set_leverage)](#t-linear_set_leverage) [t(:changelog_new)]
