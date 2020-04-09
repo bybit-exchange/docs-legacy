@@ -320,7 +320,7 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#2020-04-07" class="toc-h2 toc-link" data-title="2020-04-07">2020-04-07</a>
+                    <a href="#2020-04-09" class="toc-h2 toc-link" data-title="2020-04-09">2020-04-09</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#rest-api" class="toc-h3 toc-link" data-title="REST API">REST API</a>
@@ -328,10 +328,18 @@
                       </ul>
                   </li>
                   <li>
-                    <a href="#2020-03-31" class="toc-h2 toc-link" data-title="2020-03-31">2020-03-31</a>
+                    <a href="#2020-04-07" class="toc-h2 toc-link" data-title="2020-04-07">2020-04-07</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#rest-api-2" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2020-03-31" class="toc-h2 toc-link" data-title="2020-03-31">2020-03-31</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-3" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                           <li>
                             <a href="#websocket-api" class="toc-h3 toc-link" data-title="Websocket API">Websocket API</a>
@@ -342,7 +350,7 @@
                     <a href="#2020-03-27" class="toc-h2 toc-link" data-title="2020-03-27">2020-03-27</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#rest-api-3" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                            <a href="#rest-api-4" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                           <li>
                             <a href="#websocket-api-2" class="toc-h3 toc-link" data-title="Websocket API">Websocket API</a>
@@ -464,10 +472,10 @@
                       </ul>
                   </li>
                   <li>
-                    <a href="#t-position" class="toc-h2 toc-link" data-title="Position">Position</a>
+                    <a href="#t-conditionalorders" class="toc-h2 toc-link" data-title="Conditional Orders">Conditional Orders</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#t-linear_position" class="toc-h3 toc-link" data-title="My Position">My Position</a>
+                            <a href="#t-placecond" class="toc-h3 toc-link" data-title="Place Conditional Order">Place Conditional Order</a>
                               <ul class="toc-list-h4">
                                   <li>
                                     <a href="#t-httprequest-6" class="toc-h4 toc-link" data-title="HTTP Request">HTTP Request</a>
@@ -478,7 +486,7 @@
                               </ul>
                           </li>
                           <li>
-                            <a href="#t-linear_set_leverage" class="toc-h3 toc-link" data-title="Set Leverage">Set Leverage</a>
+                            <a href="#t-getcond" class="toc-h3 toc-link" data-title="Get Conditional Order">Get Conditional Order</a>
                               <ul class="toc-list-h4">
                                   <li>
                                     <a href="#t-httprequest-7" class="toc-h4 toc-link" data-title="HTTP Request">HTTP Request</a>
@@ -489,13 +497,73 @@
                               </ul>
                           </li>
                           <li>
-                            <a href="#t-linear_switch_isolated" class="toc-h3 toc-link" data-title="Cross/Isolated margin switch">Cross/Isolated margin switch</a>
+                            <a href="#t-cancelcond" class="toc-h3 toc-link" data-title="Cancel Conditional Order">Cancel Conditional Order</a>
                               <ul class="toc-list-h4">
                                   <li>
                                     <a href="#t-httprequest-8" class="toc-h4 toc-link" data-title="HTTP Request">HTTP Request</a>
                                   </li>
                                   <li>
                                     <a href="#t-requestparameters-8" class="toc-h4 toc-link" data-title="Request Parameters">Request Parameters</a>
+                                  </li>
+                              </ul>
+                          </li>
+                          <li>
+                            <a href="#t-cancelallcond" class="toc-h3 toc-link" data-title="Cancel All Conditional Orders">Cancel All Conditional Orders</a>
+                              <ul class="toc-list-h4">
+                                  <li>
+                                    <a href="#t-httprequest-9" class="toc-h4 toc-link" data-title="HTTP Request">HTTP Request</a>
+                                  </li>
+                                  <li>
+                                    <a href="#t-requestparameters-9" class="toc-h4 toc-link" data-title="Request Parameters">Request Parameters</a>
+                                  </li>
+                              </ul>
+                          </li>
+                          <li>
+                            <a href="#t-querycond" class="toc-h3 toc-link" data-title="Query Conditional Order (real-time)">Query Conditional Order (real-time)</a>
+                              <ul class="toc-list-h4">
+                                  <li>
+                                    <a href="#t-httprequest-10" class="toc-h4 toc-link" data-title="HTTP Request">HTTP Request</a>
+                                  </li>
+                                  <li>
+                                    <a href="#t-requestparameters-10" class="toc-h4 toc-link" data-title="Request Parameters">Request Parameters</a>
+                                  </li>
+                              </ul>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#t-position" class="toc-h2 toc-link" data-title="Position">Position</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#t-linear_position" class="toc-h3 toc-link" data-title="My Position">My Position</a>
+                              <ul class="toc-list-h4">
+                                  <li>
+                                    <a href="#t-httprequest-11" class="toc-h4 toc-link" data-title="HTTP Request">HTTP Request</a>
+                                  </li>
+                                  <li>
+                                    <a href="#t-requestparameters-11" class="toc-h4 toc-link" data-title="Request Parameters">Request Parameters</a>
+                                  </li>
+                              </ul>
+                          </li>
+                          <li>
+                            <a href="#t-linear_set_leverage" class="toc-h3 toc-link" data-title="Set Leverage">Set Leverage</a>
+                              <ul class="toc-list-h4">
+                                  <li>
+                                    <a href="#t-httprequest-12" class="toc-h4 toc-link" data-title="HTTP Request">HTTP Request</a>
+                                  </li>
+                                  <li>
+                                    <a href="#t-requestparameters-12" class="toc-h4 toc-link" data-title="Request Parameters">Request Parameters</a>
+                                  </li>
+                              </ul>
+                          </li>
+                          <li>
+                            <a href="#t-linear_switch_isolated" class="toc-h3 toc-link" data-title="Cross/Isolated margin switch">Cross/Isolated margin switch</a>
+                              <ul class="toc-list-h4">
+                                  <li>
+                                    <a href="#t-httprequest-13" class="toc-h4 toc-link" data-title="HTTP Request">HTTP Request</a>
+                                  </li>
+                                  <li>
+                                    <a href="#t-requestparameters-13" class="toc-h4 toc-link" data-title="Request Parameters">Request Parameters</a>
                                   </li>
                               </ul>
                           </li>
@@ -697,7 +765,11 @@ clipboard.on('error', function(e) {
 <p><p>Welcome to the official documentation for the <a href="https://www.bybit.com/">Bybit</a> APIs and Websocket! Here you can find details on how to access all of our endpoints, their respective expected outputs, and possible errors you may encounter.</p> <p>If you encounter an issue you need help with, have a suggestions for us, or just want to have a chat with fellow developers then please head on over to our <a href="https://t.me/Bybitapi">API Telegram chat</a>!</p></p>
 <h3 id='t-resources'>Bybit API Resources</h3>
 <p><ul> <li><a href="https://help.bybit.com/hc/en-us">Help Center <img src="../images/bybit_favicon-066372d5.png" height="14", width="14"></a> - learn about exchange mechanisms here! <li><a href="https://github.com/bybit-exchange/docs/issues">Bybit API docs <img src="../images/github_logo_icon-768757c0.png" height="14", width="14"></a> - report issues here! <li><a href="https://github.com/bybit-exchange/api-connectors/">Bybit's api-connectors <img src="../images/github_logo_icon-768757c0.png" height="14", width="14"></a> - find a repo of prebuilt libraries here! <li><a href="https://t.me/Bybitapi">API Discussion Group <img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> - get English help here! <li><a href="https://t.me/Bybit_API_Announcements">API Announcements Channel <img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> - subscribe for changes to the API! <li>添加小助手微信号：BybitAPI，加入Bybit API中文交流群</li> </ul></p>
-<h1 id='t-changelog'>Changelog</h1><h2 id='2020-04-07'>2020-04-07</h2><h3 id='rest-api'>REST API</h3>
+<h1 id='t-changelog'>Changelog</h1><h2 id='2020-04-09'>2020-04-09</h2><h3 id='rest-api'>REST API</h3>
+<ul>
+<li><a href="#t-conditionalorders">Conditional Orders</a> [new]</li>
+</ul>
+<h2 id='2020-04-07'>2020-04-07</h2><h3 id='rest-api-2'>REST API</h3>
 <ul>
 <li><a href="#t-linear_set_leverage">Set Leverage</a> [new]</li>
 <li><a href="#t-linear_switch_isolated">Cross/Isolated margin switch</a> [new]</li>
@@ -731,7 +803,7 @@ clipboard.on('error', function(e) {
 <li>Add field <code>free_qty</code> in response</li>
 </ul></li>
 </ul>
-<h2 id='2020-03-31'>2020-03-31</h2><h3 id='rest-api-2'>REST API</h3>
+<h2 id='2020-03-31'>2020-03-31</h2><h3 id='rest-api-3'>REST API</h3>
 <ul>
 <li><a href="#t-queryactive">Query Active Order (real-time)</a> [new]</li>
 <li><a href="#t-getactive">Get Active Order</a> 
@@ -751,7 +823,7 @@ clipboard.on('error', function(e) {
 <li>fix response data bug</li>
 </ul></li>
 </ul>
-<h2 id='2020-03-27'>2020-03-27</h2><h3 id='rest-api-3'>REST API</h3>
+<h2 id='2020-03-27'>2020-03-27</h2><h3 id='rest-api-4'>REST API</h3>
 <ul>
 <li><a href="#t-activeorders">Place Active Order</a> [new]</li>
 <li><a href="#t-position">My Position</a> [new]</li>
@@ -961,7 +1033,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>Curl Example</p>
 </blockquote>
-<pre class="highlight shell_session"><code>curl https://api-testnet.bybit.com/public/linear/recent-trading-records?symbol=BTCUSDT&amp;limit=500
+<pre class="highlight shell_session"><code>curl https://api.bybit.com/public/linear/recent-trading-records?symbol=BTCUSDT&amp;limit=500
 </code></pre>
 <blockquote>
 <p>Response Example</p>
@@ -1015,7 +1087,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>Curl Example</p>
 </blockquote>
-<pre class="highlight shell_session"><code>curl https://api-testnet.bybit.com/public/linear/funding/prev-funding-rate?symbol=BTCUSDT
+<pre class="highlight shell_session"><code>curl https://api.bybit.com/public/linear/funding/prev-funding-rate?symbol=BTCUSDT
 </code></pre>
 <blockquote>
 <p>Response Example</p>
@@ -1725,266 +1797,407 @@ This endpoint's <code>rate_limit</code> will decrease by 10 per request
 <td>Contract type</td>
 </tr>
 </tbody></table>
-
-<!-- 
-## Conditional Orders
-### Place Conditional Order
-> Response Example
-
-```javascript
-{
-    "ret_code": 0,
-    "ret_msg": "ok",
-    "ext_code": "",
-    "result": {
-       "stop_order_id":"bd1844f-f3c0-4e10-8c25-10fea03763f6",
-       "user_id": 1,
-       "symbol": "BTCUSDT",
-       "side": "Sell",
-       "order_type": "Limit",
-       "price": 8083,
-       "qty": 10,
-       "time_in_force": "GoodTillCancel",
-       "order_status": "New",
-       "trigger_price": 8003,
-       "order_link_id": "",
-       "created_at": "2019-10-21T07:28:19.396246Z",
-       "updated_at": "2019-10-21T07:28:19.396246Z",
-    },
-    "ext_info": null,
-    "time_now": "1577450904.327654",
-    "rate_limit_status": 99,
-    "rate_limit_reset_ms": 1577450904335,
-    "rate_limit": "100"
-}
-```
-
-
-<p>Parameters of 'side', 'symbol', 'order_type', 'qty', 'price', 'base_price', 'stop_px', 'time_in_force' are required for all active orders. Other parameters are optional unless specified.</p>
-<p>Market price conditional order: A traditional market price order, will be filled at the best available price. 'price' can set to be "" if and only if you are placing market price order.</p>
+<h2 id='t-conditionalorders'>Conditional Orders</h2><h3 id='t-placecond'>Place Conditional Order</h3>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="s2">"ret_code"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"ret_msg"</span><span class="p">:</span> <span class="s2">"ok"</span><span class="p">,</span>
+    <span class="s2">"ext_code"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"result"</span><span class="p">:</span> <span class="p">{</span>
+       <span class="s2">"stop_order_id"</span><span class="p">:</span><span class="s2">"bd1844f-f3c0-4e10-8c25-10fea03763f6"</span><span class="p">,</span>
+       <span class="s2">"user_id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+       <span class="s2">"symbol"</span><span class="p">:</span> <span class="s2">"BTCUSDT"</span><span class="p">,</span>
+       <span class="s2">"side"</span><span class="p">:</span> <span class="s2">"Sell"</span><span class="p">,</span>
+       <span class="s2">"order_type"</span><span class="p">:</span> <span class="s2">"Limit"</span><span class="p">,</span>
+       <span class="s2">"price"</span><span class="p">:</span> <span class="mi">8083</span><span class="p">,</span>
+       <span class="s2">"qty"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+       <span class="s2">"time_in_force"</span><span class="p">:</span> <span class="s2">"GoodTillCancel"</span><span class="p">,</span>
+       <span class="s2">"order_status"</span><span class="p">:</span> <span class="s2">"New"</span><span class="p">,</span>
+       <span class="s2">"trigger_price"</span><span class="p">:</span> <span class="mi">8003</span><span class="p">,</span>
+       <span class="s2">"order_link_id"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+       <span class="s2">"created_at"</span><span class="p">:</span> <span class="s2">"2019-10-21T07:28:19.396246Z"</span><span class="p">,</span>
+       <span class="s2">"updated_at"</span><span class="p">:</span> <span class="s2">"2019-10-21T07:28:19.396246Z"</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">"ext_info"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"time_now"</span><span class="p">:</span> <span class="s2">"1577450904.327654"</span><span class="p">,</span>
+    <span class="s2">"rate_limit_status"</span><span class="p">:</span> <span class="mi">99</span><span class="p">,</span>
+    <span class="s2">"rate_limit_reset_ms"</span><span class="p">:</span> <span class="mi">1577450904335</span><span class="p">,</span>
+    <span class="s2">"rate_limit"</span><span class="p">:</span> <span class="s2">"100"</span>
+<span class="p">}</span>
+</code></pre>
+<p><p>Market price conditional order: A traditional market price order, will be filled at the best available price. 'price' can set to be "" if and only if you are placing market price order.</p>
 <p>Limit price conditional order: You can set an execution price for your order. Only when last traded price reaches the order price, the system will fill your order.</p>
 <p>Take profit/Stop loss: You may only set a take-profit/stop-loss conditional order upon opening the position. Once you hold a position, the take profit and stop loss information u sent when placing an order will no longer be valid.</p>
 <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell, currently Bybit only support order quantity in an integer.</p>
 <p>Order price: If it is a condition order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the price_filter field in the <a href="#t-querysymbol">Query Symbols</a> endpoint.</p>
 <p>Conditional order trigger price: You may set a trigger price for your conditional order. conditional order will not enter the order book until the last price hits the trigger price. When last price hits trigger price: 1) your limit conditional order will enter order book, and wait to be executed; 2) your market conditional order will be executed immediately at the best available market price.</p>
 <p>Customize conditional order ID: You may customize order IDs for active orders. We will link it to the system order ID , and return the unique system order ID to you after the active order is created successfully. You may use this order ID to cancel your active order. The customized order ID is asked to be unique, with a maximum length of 36 characters.</p>
-
+</p>
 
 <aside class="notice">
 Take profit/Stop loss is not supported in placing conditional orders. One can only use these 2 functions when placing active orders. Moreover, each account can hold up to 10 conditional orders yet to be filled entirely simultaneously.
 </aside>
-
-#### HTTP Request
-POST
+<h4 id='t-httprequest-6'>HTTP Request</h4>
+<p>POST
 <code><span id=oasoCreate>/private/linear/stop-order/create</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oasoCreate"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
-
-#### Request Parameters
-|parameter|required|type|comments|
-|:----- |:-------|:-----|----- |
-|<a href="#side-side">side</a> |true |string |Side    |
-|<a href="#symbol-symbol">symbol</a> |true |string |Contract type    |
-|<a href="#order-type-order_type">order_type</a> |true |string |Conditional order type |
-|<a href="#quantity-qty">qty</a> |true |integer |Order quantity in USD. Integer only |
-|<a href="#price-price">price</a> |false | number |Execution price for conditional order. Required if you make limit price order |
-|base_price |true |number | It will be used to compare with the value of <code>stop_px</code>, to decide whether your conditional order will be triggered by crossing trigger price from upper side or lower side. Mainly used to identify the expected direction of the current conditional order. |
-|stop_px | true | number | translation missing: en.linear_row_comment_stopPx |
-|<a href="#time-in-force-time_in_force">time_in_force</a> |true |string |Time in force |
-|<a href="#trigger-price-type-trigger_by">trigger_by</a> | false | string | Trigger price type. Default <code>LastPrice</code>|
-|close_on_trigger |false |bool |<a href="https://help.bybit.com/hc/en-us/articles/360039260534-What-is-a-close-on-trigger-Order-">  What is a close on trigger order?</a> For a closing order. It can only reduce your position, not increase it. If the account has insufficient available balance when the closing order is triggered, then other active orders of similar contracts will be cancelled or reduced. It can be used to ensure your stop loss reduces your position regardless of current available margin.
-|order_link_id |false |string |Customised order ID, maximum length at 36 characters, and order ID under the same agency has to be unique. |
-
-
-### Get Conditional Order
-> Response Example
-
-```javascript
-{
-    "ret_code": 0,
-    "ret_msg": "ok",
-    "ext_code": "",
-    "result": {
-        "current_page": 1,
-        "last_page": 1,
-        "data": [
-            {
-                 "stop_order_id":"bd1844f-f3c0-4e10-8c25-10fea03763f6",
-                 "user_id": 1,
-                 "symbol": "BTCUSDT",
-                 "side": "Sell",
-                 "order_type": "Limit",
-                 "price": 8083,
-                 "qty": 10,
-                 "time_in_force": "GoodTillCancel",
-                 "order_status": "New",
-                 "trigger_price": 8003,
-                 "order_link_id": "",
-                 "created_at": "2019-10-21T07:28:19.396246Z",
-                 "updated_at": "2019-10-21T07:28:19.396246Z",
-            },
-            {
-                 "stop_order_id":"bd1844f-f3c0-4e10-8c25-10fea03763f6",
-                 "user_id": 1,
-                 "symbol": "BTCUSDT",
-                 "side": "Sell",
-                 "order_type": "Limit",
-                 "price": 8083,
-                 "qty": 10,
-                 "time_in_force": "GoodTillCancel",
-                 "order_status": "New",
-                 "trigger_price": 8003,
-                 "order_link_id": "",
-                 "created_at": "2019-10-21T07:28:19.396246Z",
-                 "updated_at": "2019-10-21T07:28:19.396246Z",
-            }
-        ]
-    },
-    "ext_info": null,
-    "time_now": "1577451658.755468",
-    "rate_limit_status": 599,
-    "rate_limit_reset_ms": 1577451658762,
-    "rate_limit": 600
-}
-```
-
-<p>Get my conditional order list.</p> <p>Cause order creation/cancellation is asynchronous, sometimes there is a data delay in this endpoint. You can get real-time order info in <a href="#t-querycond">Query Conditional Order (real-time)</a> endpoint.</p>
-
-#### HTTP Request
-GET
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oasoCreate"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<h4 id='t-requestparameters-6'>Request Parameters</h4>
+<table><thead>
+<tr>
+<th style="text-align: left">parameter</th>
+<th style="text-align: left">required</th>
+<th style="text-align: left">type</th>
+<th>comments</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#side-side">side</a></td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>Side</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>Contract type</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#order-type-order_type">order_type</a></td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>Conditional order type</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#quantity-qty">qty</a></td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">integer</td>
+<td>Order quantity in USD. Integer only</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#price-price">price</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">number</td>
+<td>Execution price for conditional order. Required if you make limit price order</td>
+</tr>
+<tr>
+<td style="text-align: left">base_price</td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">number</td>
+<td>It will be used to compare with the value of <code>stop_px</code>, to decide whether your conditional order will be triggered by crossing trigger price from upper side or lower side. Mainly used to identify the expected direction of the current conditional order.</td>
+</tr>
+<tr>
+<td style="text-align: left">stop_px</td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">number</td>
+<td>translation missing: en.linear_row_comment_stopPx</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#time-in-force-time_in_force">time_in_force</a></td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>Time in force</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">trigger_by</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Trigger price type. Default <code>LastPrice</code></td>
+</tr>
+<tr>
+<td style="text-align: left">close_on_trigger</td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">bool</td>
+<td><a href="https://help.bybit.com/hc/en-us/articles/360039260534-What-is-a-close-on-trigger-Order-">  What is a close on trigger order?</a> For a closing order. It can only reduce your position, not increase it. If the account has insufficient available balance when the closing order is triggered, then other active orders of similar contracts will be cancelled or reduced. It can be used to ensure your stop loss reduces your position regardless of current available margin.</td>
+</tr>
+<tr>
+<td style="text-align: left">order_link_id</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Customised order ID, maximum length at 36 characters, and order ID under the same agency has to be unique.</td>
+</tr>
+<tr>
+<td style="text-align: left">reduce_only</td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">bool</td>
+<td><a href="https://help.bybit.com/hc/en-us/articles/360039260574-What-is-a-reduce-only-order-"> What is a reduce-only order?</a> True means your position can only reduce in size if this order is triggered</td>
+</tr>
+</tbody></table>
+<h3 id='t-getcond'>Get Conditional Order</h3>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="s2">"ret_code"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"ret_msg"</span><span class="p">:</span> <span class="s2">"ok"</span><span class="p">,</span>
+    <span class="s2">"ext_code"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"result"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"current_page"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">"last_page"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">"data"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                 <span class="s2">"stop_order_id"</span><span class="p">:</span><span class="s2">"bd1844f-f3c0-4e10-8c25-10fea03763f6"</span><span class="p">,</span>
+                 <span class="s2">"user_id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                 <span class="s2">"symbol"</span><span class="p">:</span> <span class="s2">"BTCUSDT"</span><span class="p">,</span>
+                 <span class="s2">"side"</span><span class="p">:</span> <span class="s2">"Sell"</span><span class="p">,</span>
+                 <span class="s2">"order_type"</span><span class="p">:</span> <span class="s2">"Limit"</span><span class="p">,</span>
+                 <span class="s2">"price"</span><span class="p">:</span> <span class="mi">8083</span><span class="p">,</span>
+                 <span class="s2">"qty"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+                 <span class="s2">"time_in_force"</span><span class="p">:</span> <span class="s2">"GoodTillCancel"</span><span class="p">,</span>
+                 <span class="s2">"order_status"</span><span class="p">:</span> <span class="s2">"New"</span><span class="p">,</span>
+                 <span class="s2">"trigger_price"</span><span class="p">:</span> <span class="mi">8003</span><span class="p">,</span>
+                 <span class="s2">"order_link_id"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+                 <span class="s2">"created_at"</span><span class="p">:</span> <span class="s2">"2019-10-21T07:28:19.396246Z"</span><span class="p">,</span>
+                 <span class="s2">"updated_at"</span><span class="p">:</span> <span class="s2">"2019-10-21T07:28:19.396246Z"</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                 <span class="s2">"stop_order_id"</span><span class="p">:</span><span class="s2">"bd1844f-f3c0-4e10-8c25-10fea03763f6"</span><span class="p">,</span>
+                 <span class="s2">"user_id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                 <span class="s2">"symbol"</span><span class="p">:</span> <span class="s2">"BTCUSDT"</span><span class="p">,</span>
+                 <span class="s2">"side"</span><span class="p">:</span> <span class="s2">"Sell"</span><span class="p">,</span>
+                 <span class="s2">"order_type"</span><span class="p">:</span> <span class="s2">"Limit"</span><span class="p">,</span>
+                 <span class="s2">"price"</span><span class="p">:</span> <span class="mi">8083</span><span class="p">,</span>
+                 <span class="s2">"qty"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+                 <span class="s2">"time_in_force"</span><span class="p">:</span> <span class="s2">"GoodTillCancel"</span><span class="p">,</span>
+                 <span class="s2">"order_status"</span><span class="p">:</span> <span class="s2">"New"</span><span class="p">,</span>
+                 <span class="s2">"trigger_price"</span><span class="p">:</span> <span class="mi">8003</span><span class="p">,</span>
+                 <span class="s2">"order_link_id"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+                 <span class="s2">"created_at"</span><span class="p">:</span> <span class="s2">"2019-10-21T07:28:19.396246Z"</span><span class="p">,</span>
+                 <span class="s2">"updated_at"</span><span class="p">:</span> <span class="s2">"2019-10-21T07:28:19.396246Z"</span><span class="p">,</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="s2">"ext_info"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"time_now"</span><span class="p">:</span> <span class="s2">"1577451658.755468"</span><span class="p">,</span>
+    <span class="s2">"rate_limit_status"</span><span class="p">:</span> <span class="mi">599</span><span class="p">,</span>
+    <span class="s2">"rate_limit_reset_ms"</span><span class="p">:</span> <span class="mi">1577451658762</span><span class="p">,</span>
+    <span class="s2">"rate_limit"</span><span class="p">:</span> <span class="mi">600</span>
+<span class="p">}</span>
+</code></pre>
+<p><p>Get my conditional order list.</p> <p>Cause order creation/cancellation is asynchronous, sometimes there is a data delay in this endpoint. You can get real-time order info in <a href="#t-querycond">Query Conditional Order (real-time)</a> endpoint.</p></p>
+<h4 id='t-httprequest-7'>HTTP Request</h4>
+<p>GET
 <code><span id=oasoList>/private/linear/stop-order/list</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oasoList"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
-
-#### Request Parameters
-|parameter|required|type|comments|
-|:----- |:-------|:-----|----- |
-|stop_order_id |false |string |Your conditional order ID. The unique order ID returned to you when the corresponding active order was created |
-|order_link_id |false |string |Customised order ID, maximum length at 36 characters, and order ID under the same agency has to be unique.|
-|<a href="#symbol-symbol">symbol</a> |false |string |Contract type. Default `BTCUSDT`    |
-|<a href="#stop-order-status-stop_order_status">stop_order_status</a> |false |string |stop order status|
-|order |false |string |Sort orders by creation date |
-|page |false |integer |Page. Default getting first page data |
-|limit |false |integer |Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page |
-
-
-### Cancel Conditional Order
-> Response Example
-
-```javascript
-{
-    "ret_code": 0,
-    "ret_msg": "ok",
-    "ext_code": "",
-    "result": {
-         "stop_order_id":"bd1844f-f3c0-4e10-8c25-10fea03763f6",
-    },
-    "ext_info": null,
-    "time_now": "1577452218.567120",
-    "rate_limit_status": 97,
-    "rate_limit_reset_ms": 1577452218573,
-    "rate_limit": "100"
-}
-```
-
-<p>You may cancel all untriggered conditional orders. Essentially, after a conditional order is triggered, it will become an active order. So, when a conditional order is triggered, cancellation has to be done through the active order endpoint for any unfilled or partially filled active order. As always, orders that have been fully filled cannot be cancelled.</p>
-
-
-#### HTTP Request
-POST
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oasoList"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<h4 id='t-requestparameters-7'>Request Parameters</h4>
+<table><thead>
+<tr>
+<th style="text-align: left">parameter</th>
+<th style="text-align: left">required</th>
+<th style="text-align: left">type</th>
+<th>comments</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">stop_order_id</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Your conditional order ID. The unique order ID returned to you when the corresponding active order was created</td>
+</tr>
+<tr>
+<td style="text-align: left">order_link_id</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Customised order ID, maximum length at 36 characters, and order ID under the same agency has to be unique.</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Contract type. Default <code>BTCUSDT</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#stop-order-status-stop_order_status">stop_order_status</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>stop order status</td>
+</tr>
+<tr>
+<td style="text-align: left">order</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Sort orders by creation date</td>
+</tr>
+<tr>
+<td style="text-align: left">page</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>Page. Default getting first page data</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page</td>
+</tr>
+</tbody></table>
+<h3 id='t-cancelcond'>Cancel Conditional Order</h3>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="s2">"ret_code"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"ret_msg"</span><span class="p">:</span> <span class="s2">"ok"</span><span class="p">,</span>
+    <span class="s2">"ext_code"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"result"</span><span class="p">:</span> <span class="p">{</span>
+         <span class="s2">"stop_order_id"</span><span class="p">:</span><span class="s2">"bd1844f-f3c0-4e10-8c25-10fea03763f6"</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">"ext_info"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"time_now"</span><span class="p">:</span> <span class="s2">"1577452218.567120"</span><span class="p">,</span>
+    <span class="s2">"rate_limit_status"</span><span class="p">:</span> <span class="mi">97</span><span class="p">,</span>
+    <span class="s2">"rate_limit_reset_ms"</span><span class="p">:</span> <span class="mi">1577452218573</span><span class="p">,</span>
+    <span class="s2">"rate_limit"</span><span class="p">:</span> <span class="s2">"100"</span>
+<span class="p">}</span>
+</code></pre>
+<p><p>You may cancel all untriggered conditional orders. Essentially, after a conditional order is triggered, it will become an active order. So, when a conditional order is triggered, cancellation has to be done through the active order endpoint for any unfilled or partially filled active order. As always, orders that have been fully filled cannot be cancelled.</p>
+</p>
+<h4 id='t-httprequest-8'>HTTP Request</h4>
+<p>POST
 <code><span id=oasoCancel>/private/linear/stop-order/cancel</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oasoCancel"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
-
-#### Request Parameters
-|parameter|required|type | comments|
-|:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |Contract type|
-|stop_order_id |false |string |Order ID. <b>Required</b> if not passing order_link_id |
-|order_link_id |false |string | Agency customized order ID. <b>Required</b> if not passing stop_order_id|
-|<a href="#symbol-symbol">symbol</a> |false |string |Contract type. Default `BTCUSDT`    |
-
-
-### Cancel All Conditional Orders
-> Response Example
-
-```javascript
-{
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
-    "ext_info": "",
-    "result": [
-        "89a38056-80f1-45b2-89d3-4d8e3a203a79",  
-        "89a38056-80f1-45b2-89d3-4d8e3a203a79", 
-    ],
-    "time_now": "1577454993.799912",
-    "rate_limit_status": 90,
-    "rate_limit_reset_ms": 1580885703683,
-    "rate_limit": 100
-}
-```
-
-Cancel all untriggered conditional orders.
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oasoCancel"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<h4 id='t-requestparameters-8'>Request Parameters</h4>
+<table><thead>
+<tr>
+<th style="text-align: left">parameter</th>
+<th style="text-align: left">required</th>
+<th style="text-align: left">type</th>
+<th>comments</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>Contract type</td>
+</tr>
+<tr>
+<td style="text-align: left">stop_order_id</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Order ID. <b>Required</b> if not passing order_link_id</td>
+</tr>
+<tr>
+<td style="text-align: left">order_link_id</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Agency customized order ID. <b>Required</b> if not passing stop_order_id</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Contract type. Default <code>BTCUSDT</code></td>
+</tr>
+</tbody></table>
+<h3 id='t-cancelallcond'>Cancel All Conditional Orders</h3>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="s2">"ret_code"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"ret_msg"</span><span class="p">:</span> <span class="s2">"OK"</span><span class="p">,</span>
+    <span class="s2">"ext_code"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"ext_info"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"result"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">"89a38056-80f1-45b2-89d3-4d8e3a203a79"</span><span class="p">,</span>  
+        <span class="s2">"89a38056-80f1-45b2-89d3-4d8e3a203a79"</span><span class="p">,</span> 
+    <span class="p">],</span>
+    <span class="s2">"time_now"</span><span class="p">:</span> <span class="s2">"1577454993.799912"</span><span class="p">,</span>
+    <span class="s2">"rate_limit_status"</span><span class="p">:</span> <span class="mi">90</span><span class="p">,</span>
+    <span class="s2">"rate_limit_reset_ms"</span><span class="p">:</span> <span class="mi">1580885703683</span><span class="p">,</span>
+    <span class="s2">"rate_limit"</span><span class="p">:</span> <span class="mi">100</span>
+<span class="p">}</span>
+</code></pre>
+<p>Cancel all untriggered conditional orders.</p>
 
 <aside class="notice">
 This endpoint's <code>rate_limit</code> will decrease by 10 per request
 </aside>
-
-#### HTTP Request
-POST
+<h4 id='t-httprequest-9'>HTTP Request</h4>
+<p>POST
 <code><span id=vpsoCancelAll>/private/linear/stop-order/cancel-all</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpsoCancelAll"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
-
-#### Request Parameters
-|parameter|required|type | comments|
-|:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |Contract type|
-
-
-
-### Query Conditional Order (real-time)
-> Response Example
-
-```javascript
-{
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
-    "ext_info": "",
-    "result": {
-        "stop_order_id":"bd1844f-f3c0-4e10-8c25-10fea03763f6",
-        "user_id": 1,
-        "symbol": "BTCUSDT",
-        "side": "Sell",
-        "order_type": "Limit",
-        "price": 8083,
-        "qty": 10,
-        "time_in_force": "GoodTillCancel",
-        "order_status": "New",
-        "trigger_price": 8003,
-        "order_link_id": "",
-        "created_at": "2019-10-21T07:28:19.396246Z",
-        "updated_at": "2019-10-21T07:28:19.396246Z",
-    },
-    "time_now": "1577476584.386958",
-    "rate_limit_status": 99,
-    "rate_limit_reset_ms": 1580885703683,
-    "rate_limit": 100
-}
-```
-
-Query real-time stop order information.
-
-#### HTTP Request
-GET
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpsoCancelAll"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<h4 id='t-requestparameters-9'>Request Parameters</h4>
+<table><thead>
+<tr>
+<th style="text-align: left">parameter</th>
+<th style="text-align: left">required</th>
+<th style="text-align: left">type</th>
+<th>comments</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>Contract type</td>
+</tr>
+</tbody></table>
+<h3 id='t-querycond'>Query Conditional Order (real-time)</h3>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="s2">"ret_code"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"ret_msg"</span><span class="p">:</span> <span class="s2">"OK"</span><span class="p">,</span>
+    <span class="s2">"ext_code"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"ext_info"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"result"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"stop_order_id"</span><span class="p">:</span><span class="s2">"bd1844f-f3c0-4e10-8c25-10fea03763f6"</span><span class="p">,</span>
+        <span class="s2">"user_id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">"symbol"</span><span class="p">:</span> <span class="s2">"BTCUSDT"</span><span class="p">,</span>
+        <span class="s2">"side"</span><span class="p">:</span> <span class="s2">"Sell"</span><span class="p">,</span>
+        <span class="s2">"order_type"</span><span class="p">:</span> <span class="s2">"Limit"</span><span class="p">,</span>
+        <span class="s2">"price"</span><span class="p">:</span> <span class="mi">8083</span><span class="p">,</span>
+        <span class="s2">"qty"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="s2">"time_in_force"</span><span class="p">:</span> <span class="s2">"GoodTillCancel"</span><span class="p">,</span>
+        <span class="s2">"order_status"</span><span class="p">:</span> <span class="s2">"New"</span><span class="p">,</span>
+        <span class="s2">"trigger_price"</span><span class="p">:</span> <span class="mi">8003</span><span class="p">,</span>
+        <span class="s2">"order_link_id"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+        <span class="s2">"created_at"</span><span class="p">:</span> <span class="s2">"2019-10-21T07:28:19.396246Z"</span><span class="p">,</span>
+        <span class="s2">"updated_at"</span><span class="p">:</span> <span class="s2">"2019-10-21T07:28:19.396246Z"</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">"time_now"</span><span class="p">:</span> <span class="s2">"1577476584.386958"</span><span class="p">,</span>
+    <span class="s2">"rate_limit_status"</span><span class="p">:</span> <span class="mi">99</span><span class="p">,</span>
+    <span class="s2">"rate_limit_reset_ms"</span><span class="p">:</span> <span class="mi">1580885703683</span><span class="p">,</span>
+    <span class="s2">"rate_limit"</span><span class="p">:</span> <span class="mi">100</span>
+<span class="p">}</span>
+</code></pre>
+<p>Query real-time stop order information.</p>
+<h4 id='t-httprequest-10'>HTTP Request</h4>
+<p>GET
 <code><span id=vpStopOrder>/private/linear/stop-order/search</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpStopOrder"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
-
-#### Request Parameters
-|parameter|required|type|comments|
-|:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |Contract type |
-|stop_order_id |false |string |Order ID. <b>Required</b> if not passing order_link_id |
-|order_link_id |false |string |Agency customized order ID. <b>Required</b> if not passing order_id |
- -->
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpStopOrder"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<h4 id='t-requestparameters-10'>Request Parameters</h4>
+<table><thead>
+<tr>
+<th style="text-align: left">parameter</th>
+<th style="text-align: left">required</th>
+<th style="text-align: left">type</th>
+<th>comments</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>Contract type</td>
+</tr>
+<tr>
+<td style="text-align: left">stop_order_id</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Order ID. <b>Required</b> if not passing order_link_id</td>
+</tr>
+<tr>
+<td style="text-align: left">order_link_id</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Agency customized order ID. <b>Required</b> if not passing order_id</td>
+</tr>
+</tbody></table>
 <h2 id='t-position'>Position</h2><h3 id='t-linear_position'>My Position</h3>
 <blockquote>
 <p>Response Example</p>
@@ -2035,11 +2248,11 @@ GET
 <span class="p">}</span>
 </code></pre>
 <p>Get my position list.</p>
-<h4 id='t-httprequest-6'>HTTP Request</h4>
+<h4 id='t-httprequest-11'>HTTP Request</h4>
 <p>GET
 <code><span id=pList>/private/linear/position/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pList"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
-<h4 id='t-requestparameters-6'>Request Parameters</h4>
+<h4 id='t-requestparameters-11'>Request Parameters</h4>
 <table><thead>
 <tr>
 <th style="text-align: left">parameter</th>
@@ -2103,11 +2316,11 @@ POST
 <span class="p">}</span>
 </code></pre>
 <p>Set Leverage</p>
-<h4 id='t-httprequest-7'>HTTP Request</h4>
+<h4 id='t-httprequest-12'>HTTP Request</h4>
 <p>POST
 <code><span id=pSetLeverage>/private/linear/position/set-leverage</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pSetLeverage"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
-<h4 id='t-requestparameters-7'>Request Parameters</h4>
+<h4 id='t-requestparameters-12'>Request Parameters</h4>
 <table><thead>
 <tr>
 <th style="text-align: left">parameter</th>
@@ -2152,11 +2365,11 @@ POST
 <span class="p">}</span>
 </code></pre>
 <p>Switch Cross/Isolated, it must be leverage value when switch Cross to Isolated</p>
-<h4 id='t-httprequest-8'>HTTP Request</h4>
+<h4 id='t-httprequest-13'>HTTP Request</h4>
 <p>POST
 <code><span id=pSwitchIsolated>/private/linear/position/switch-isolated</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pSwitchIsolated"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
-<h4 id='t-requestparameters-8'>Request Parameters</h4>
+<h4 id='t-requestparameters-13'>Request Parameters</h4>
 <table><thead>
 <tr>
 <th style="text-align: left">parameter</th>
@@ -2438,28 +2651,36 @@ GET
     <th>consume</th>
   </tr>
   <tr>
-    <td rowspan="2">100/min</td>
+    <td rowspan="6">100/min</td>
     <td>/private/linear/order/create </td>
     <td>1 / request</td>
   </tr>
   <tr><td>/private/linear/order/cancel </td><td>1 / request</td></tr>
+  <tr><td>/private/linear/order/cancel-all </td><td>10 / request</td></tr>
+  <tr><td>/private/linear/stop-order/create </td><td>1 / request</td></tr>
+  <tr><td>/private/linear/stop-order/cancel </td><td>1 / request</td></tr>
+  <tr><td>/private/linear/stop-order/cancel-all </td><td>10 / request</td></tr>
   <tr>
-    <td rowspan="2">600/min</td>
+    <td rowspan="2">75/min</td>
+    <td>/private/linear/position/set-leverage   </td>
+    <td>1 / request</td>
+  </tr>
+  <tr><td>/private/linear/position/switch-isolated </td><td>1 / request</td></tr>
+    
+  <tr>
+    <td rowspan="1">120/min</td>
+    <td>/private/linear/position/list  </td>
+    <td>1 / request</td>
+  </tr>
+    
+  <tr>
+    <td rowspan="4">600/min</td>
     <td>/private/linear/order/list </td>
     <td>1 / request</td>
   </tr>
   <tr><td>/private/linear/order/search </td><td>1 / request</td></tr>
-  <tr>
-    <td rowspan="2">120/min</td>
-    <td>open-api/wallet/fund/records  </td>
-    <td>1 / request</td>
-  </tr>
-<tr><td>open-api/wallet/withdraw/list </td><td>1 / request</td></tr>
-<tr>
-    <td rowspan="1">600/min</td>
-    <td>open-api/api-key  </td>
-    <td>1 / request</td>
-  </tr>
+  <tr><td>/private/linear/stop-order/list </td><td>1 / request</td></tr>
+  <tr><td>/private/linear/stop-order/search </td><td>1 / request</td></tr>
 </table>
 <h3 id='t-orderlimits'>Order Limits</h3>
 <p><p>The number of orders per instrument that can be held entirely simultaneously:</p>

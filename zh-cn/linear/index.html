@@ -320,7 +320,7 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="更新日志">更新日志</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#2020-04-07" class="toc-h2 toc-link" data-title="2020-04-07">2020-04-07</a>
+                    <a href="#2020-04-09" class="toc-h2 toc-link" data-title="2020-04-09">2020-04-09</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#rest-api" class="toc-h3 toc-link" data-title="REST API">REST API</a>
@@ -328,10 +328,18 @@
                       </ul>
                   </li>
                   <li>
-                    <a href="#2020-03-31" class="toc-h2 toc-link" data-title="2020-03-31">2020-03-31</a>
+                    <a href="#2020-04-07" class="toc-h2 toc-link" data-title="2020-04-07">2020-04-07</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#rest-api-2" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2020-03-31" class="toc-h2 toc-link" data-title="2020-03-31">2020-03-31</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-3" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                           <li>
                             <a href="#websocket-api" class="toc-h3 toc-link" data-title="Websocket API">Websocket API</a>
@@ -342,7 +350,7 @@
                     <a href="#2020-03-27" class="toc-h2 toc-link" data-title="2020-03-27">2020-03-27</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#rest-api-3" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                            <a href="#rest-api-4" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                           <li>
                             <a href="#websocket-api-2" class="toc-h3 toc-link" data-title="Websocket API">Websocket API</a>
@@ -464,10 +472,10 @@
                       </ul>
                   </li>
                   <li>
-                    <a href="#t-position" class="toc-h2 toc-link" data-title="持仓">持仓</a>
+                    <a href="#t-conditionalorders" class="toc-h2 toc-link" data-title="条件单">条件单</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#t-linear_position" class="toc-h3 toc-link" data-title="获取持仓（实时）">获取持仓（实时）</a>
+                            <a href="#t-placecond" class="toc-h3 toc-link" data-title="创建条件委托单">创建条件委托单</a>
                               <ul class="toc-list-h4">
                                   <li>
                                     <a href="#t-httprequest-6" class="toc-h4 toc-link" data-title="HTTP 请求">HTTP 请求</a>
@@ -478,7 +486,7 @@
                               </ul>
                           </li>
                           <li>
-                            <a href="#t-linear_set_leverage" class="toc-h3 toc-link" data-title="设置杠杆">设置杠杆</a>
+                            <a href="#t-getcond" class="toc-h3 toc-link" data-title="查询条件委托">查询条件委托</a>
                               <ul class="toc-list-h4">
                                   <li>
                                     <a href="#t-httprequest-7" class="toc-h4 toc-link" data-title="HTTP 请求">HTTP 请求</a>
@@ -489,13 +497,73 @@
                               </ul>
                           </li>
                           <li>
-                            <a href="#t-linear_switch_isolated" class="toc-h3 toc-link" data-title="全仓/逐仓切换">全仓/逐仓切换</a>
+                            <a href="#t-cancelcond" class="toc-h3 toc-link" data-title="撤消条件委托单">撤消条件委托单</a>
                               <ul class="toc-list-h4">
                                   <li>
                                     <a href="#t-httprequest-8" class="toc-h4 toc-link" data-title="HTTP 请求">HTTP 请求</a>
                                   </li>
                                   <li>
                                     <a href="#t-requestparameters-8" class="toc-h4 toc-link" data-title="请求参数">请求参数</a>
+                                  </li>
+                              </ul>
+                          </li>
+                          <li>
+                            <a href="#t-cancelallcond" class="toc-h3 toc-link" data-title="撤消全部条件委托单">撤消全部条件委托单</a>
+                              <ul class="toc-list-h4">
+                                  <li>
+                                    <a href="#t-httprequest-9" class="toc-h4 toc-link" data-title="HTTP 请求">HTTP 请求</a>
+                                  </li>
+                                  <li>
+                                    <a href="#t-requestparameters-9" class="toc-h4 toc-link" data-title="请求参数">请求参数</a>
+                                  </li>
+                              </ul>
+                          </li>
+                          <li>
+                            <a href="#t-querycond" class="toc-h3 toc-link" data-title="实时查询条件委托">实时查询条件委托</a>
+                              <ul class="toc-list-h4">
+                                  <li>
+                                    <a href="#t-httprequest-10" class="toc-h4 toc-link" data-title="HTTP 请求">HTTP 请求</a>
+                                  </li>
+                                  <li>
+                                    <a href="#t-requestparameters-10" class="toc-h4 toc-link" data-title="请求参数">请求参数</a>
+                                  </li>
+                              </ul>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#t-position" class="toc-h2 toc-link" data-title="持仓">持仓</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#t-linear_position" class="toc-h3 toc-link" data-title="获取持仓（实时）">获取持仓（实时）</a>
+                              <ul class="toc-list-h4">
+                                  <li>
+                                    <a href="#t-httprequest-11" class="toc-h4 toc-link" data-title="HTTP 请求">HTTP 请求</a>
+                                  </li>
+                                  <li>
+                                    <a href="#t-requestparameters-11" class="toc-h4 toc-link" data-title="请求参数">请求参数</a>
+                                  </li>
+                              </ul>
+                          </li>
+                          <li>
+                            <a href="#t-linear_set_leverage" class="toc-h3 toc-link" data-title="设置杠杆">设置杠杆</a>
+                              <ul class="toc-list-h4">
+                                  <li>
+                                    <a href="#t-httprequest-12" class="toc-h4 toc-link" data-title="HTTP 请求">HTTP 请求</a>
+                                  </li>
+                                  <li>
+                                    <a href="#t-requestparameters-12" class="toc-h4 toc-link" data-title="请求参数">请求参数</a>
+                                  </li>
+                              </ul>
+                          </li>
+                          <li>
+                            <a href="#t-linear_switch_isolated" class="toc-h3 toc-link" data-title="全仓/逐仓切换">全仓/逐仓切换</a>
+                              <ul class="toc-list-h4">
+                                  <li>
+                                    <a href="#t-httprequest-13" class="toc-h4 toc-link" data-title="HTTP 请求">HTTP 请求</a>
+                                  </li>
+                                  <li>
+                                    <a href="#t-requestparameters-13" class="toc-h4 toc-link" data-title="请求参数">请求参数</a>
                                   </li>
                               </ul>
                           </li>
@@ -697,7 +765,11 @@ clipboard.on('error', function(e) {
 <p><p>欢迎使用 <a href="https://www.bybit.com/">Bybit</a> APIs 和 Websocket官方文档！</p> <p>如果您在使用API的过程中遇到问题需要帮助，请加入我们的 <a href="https://t.me/Bybitapi">官方Telegram API讨论群</a>！</p></p>
 <h3 id='t-resources'>参考资料</h3>
 <p><ul> <li><a href="https://help.bybit.com/hc/zh-cn">帮助中心<img src="../../images/bybit_favicon-066372d5.png" height="14", width="14"></a> - 在这里了解合约交易 <li><a href="https://github.com/bybit-exchange/docs/issues">Bybit API docs<img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"></a> - 在这里提bug <li><a href="https://github.com/bybit-exchange/api-connectors/">Bybit's api-connectors <img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"></a> - 官方API SDK <li><a href="https://t.me/Bybitapi">API Discussion Group <img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> - API讨论群 <li><a href="https://t.me/Bybit_API_Announcements">API Announcements Channel <img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> - API公告群 <li>添加小助手微信号：BybitAPI，加入Bybit API中文交流群</li> </ul></p>
-<h1 id='t-changelog'>更新日志</h1><h2 id='2020-04-07'>2020-04-07</h2><h3 id='rest-api'>REST API</h3>
+<h1 id='t-changelog'>更新日志</h1><h2 id='2020-04-09'>2020-04-09</h2><h3 id='rest-api'>REST API</h3>
+<ul>
+<li><a href="#t-conditionalorders">条件单</a> [新增]</li>
+</ul>
+<h2 id='2020-04-07'>2020-04-07</h2><h3 id='rest-api-2'>REST API</h3>
 <ul>
 <li><a href="#t-linear_set_leverage">设置杠杆</a> [新增]</li>
 <li><a href="#t-linear_switch_isolated">全仓/逐仓切换</a> [新增]</li>
@@ -731,7 +803,7 @@ clipboard.on('error', function(e) {
 <li>增加可平量参数<code>free_qty</code></li>
 </ul></li>
 </ul>
-<h2 id='2020-03-31'>2020-03-31</h2><h3 id='rest-api-2'>REST API</h3>
+<h2 id='2020-03-31'>2020-03-31</h2><h3 id='rest-api-3'>REST API</h3>
 <ul>
 <li><a href="#t-queryactive">实时查询活动委托</a> [新增]</li>
 <li><a href="#t-getactive">查询活动委托</a> 
@@ -751,7 +823,7 @@ clipboard.on('error', function(e) {
 <li>修复orderBook更新包数据错乱的问题</li>
 </ul></li>
 </ul>
-<h2 id='2020-03-27'>2020-03-27</h2><h3 id='rest-api-3'>REST API</h3>
+<h2 id='2020-03-27'>2020-03-27</h2><h3 id='rest-api-4'>REST API</h3>
 <ul>
 <li><a href="#t-activeorders">创建活动委托单</a> [新增]</li>
 <li><a href="#t-position">获取持仓（实时）</a> [新增]</li>
@@ -959,7 +1031,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>Curl 请求示例</p>
 </blockquote>
-<pre class="highlight shell_session"><code>curl https://api-testnet.bybit.com/public/linear/recent-trading-records?symbol=BTCUSDT&amp;limit=500
+<pre class="highlight shell_session"><code>curl https://api.bybit.com/public/linear/recent-trading-records?symbol=BTCUSDT&amp;limit=500
 </code></pre>
 <blockquote>
 <p>响应示例</p>
@@ -1013,7 +1085,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>Curl 请求示例</p>
 </blockquote>
-<pre class="highlight shell_session"><code>curl https://api-testnet.bybit.com/public/linear/funding/prev-funding-rate?symbol=BTCUSDT
+<pre class="highlight shell_session"><code>curl https://api.bybit.com/public/linear/funding/prev-funding-rate?symbol=BTCUSDT
 </code></pre>
 <blockquote>
 <p>响应示例</p>
@@ -1724,266 +1796,407 @@ GET
 <td>合约类型</td>
 </tr>
 </tbody></table>
-
-<!-- 
-## 条件单
-### 创建条件委托单
-> 响应示例
-
-```javascript
-{
-    "ret_code": 0,
-    "ret_msg": "ok",
-    "ext_code": "",
-    "result": {
-       "stop_order_id":"bd1844f-f3c0-4e10-8c25-10fea03763f6",
-       "user_id": 1,
-       "symbol": "BTCUSDT",
-       "side": "Sell",
-       "order_type": "Limit",
-       "price": 8083,
-       "qty": 10,
-       "time_in_force": "GoodTillCancel",
-       "order_status": "New",
-       "trigger_price": 8003,
-       "order_link_id": "",
-       "created_at": "2019-10-21T07:28:19.396246Z",
-       "updated_at": "2019-10-21T07:28:19.396246Z",
-    },
-    "ext_info": null,
-    "time_now": "1577450904.327654",
-    "rate_limit_status": 99,
-    "rate_limit_reset_ms": 1577450904335,
-    "rate_limit": "100"
-}
-```
-
-
-<p>所有条件委托都必须填写 'side', 'symbol', 'order_type', 'qty', 'price', 'base_price', 'stop_px', 'time_in_force'参数，其它参数除非有特殊说明，否则都是可选的。</p>
-<p>市价条件委托: 一个传统的市场价格订单,会以当前的最优价格为您成交订单。当且仅当选择市价单时，'price', '可为空！</p>
+<h2 id='t-conditionalorders'>条件单</h2><h3 id='t-placecond'>创建条件委托单</h3>
+<blockquote>
+<p>响应示例</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="s2">"ret_code"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"ret_msg"</span><span class="p">:</span> <span class="s2">"ok"</span><span class="p">,</span>
+    <span class="s2">"ext_code"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"result"</span><span class="p">:</span> <span class="p">{</span>
+       <span class="s2">"stop_order_id"</span><span class="p">:</span><span class="s2">"bd1844f-f3c0-4e10-8c25-10fea03763f6"</span><span class="p">,</span>
+       <span class="s2">"user_id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+       <span class="s2">"symbol"</span><span class="p">:</span> <span class="s2">"BTCUSDT"</span><span class="p">,</span>
+       <span class="s2">"side"</span><span class="p">:</span> <span class="s2">"Sell"</span><span class="p">,</span>
+       <span class="s2">"order_type"</span><span class="p">:</span> <span class="s2">"Limit"</span><span class="p">,</span>
+       <span class="s2">"price"</span><span class="p">:</span> <span class="mi">8083</span><span class="p">,</span>
+       <span class="s2">"qty"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+       <span class="s2">"time_in_force"</span><span class="p">:</span> <span class="s2">"GoodTillCancel"</span><span class="p">,</span>
+       <span class="s2">"order_status"</span><span class="p">:</span> <span class="s2">"New"</span><span class="p">,</span>
+       <span class="s2">"trigger_price"</span><span class="p">:</span> <span class="mi">8003</span><span class="p">,</span>
+       <span class="s2">"order_link_id"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+       <span class="s2">"created_at"</span><span class="p">:</span> <span class="s2">"2019-10-21T07:28:19.396246Z"</span><span class="p">,</span>
+       <span class="s2">"updated_at"</span><span class="p">:</span> <span class="s2">"2019-10-21T07:28:19.396246Z"</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">"ext_info"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"time_now"</span><span class="p">:</span> <span class="s2">"1577450904.327654"</span><span class="p">,</span>
+    <span class="s2">"rate_limit_status"</span><span class="p">:</span> <span class="mi">99</span><span class="p">,</span>
+    <span class="s2">"rate_limit_reset_ms"</span><span class="p">:</span> <span class="mi">1577450904335</span><span class="p">,</span>
+    <span class="s2">"rate_limit"</span><span class="p">:</span> <span class="s2">"100"</span>
+<span class="p">}</span>
+</code></pre>
+<p><p>市价条件委托: 一个传统的市场价格订单,会以当前的最优价格为您成交订单。当且仅当选择市价单时，'price', '可为空！</p>
 <p>限价条件委托: 您可以为您的订单设置一个执行价格，当市场价格达到您的设置价格时，系统会为您成交订单。</p>
 <p>止盈止损: 您仅能在开仓时设置止盈止损条件单，一旦持有仓位后提交活动委托时关联的止盈止损则不再有效。一旦持仓后，当创建订单后发送的止盈止损信息将不再有效。</p>
 <p>委托数量: 表示您要购买/卖出的永续合约数，对于委托数量目前Bybit只允许提交正整数。</p>
 <p>委托价格: 表示您期望购买/卖出永续合约的价格，可以根据<a href="#t-querysymbol">交易对接口</a>查询不同symbol价格阶梯。</p>
 <p>条件委托触发价格: 您可以为您的条件委托单设置一个触发价格，条件委托单不进入委托表（Order Book)，只有触发条件成立如市场价格到达触发价格时，条件委托单才会进入交易系统。当市场价格到达触发价格：1）您的限价条件委托单进入Order Book，等待被执行；2）您的市价条件委托单将按照市场最优价格立即被执行。</p>
 <p>自定义条件单ID: 您可以自定义活动委托订单ID，我们会为您关联到系统的订单ID，并把系统的唯一订单ID在活动委托创建成功后一并返回给您，您可以使用该订单ID去取消活动委托，同时要求您传递的自定义订单ID最大长度不超过36个字段且唯一。</p>
-
+</p>
 
 <aside class="notice">
 请注意:只允许最多创建10个条件委托单
 </aside>
-
-#### HTTP 请求
-POST
+<h4 id='t-httprequest-6'>HTTP 请求</h4>
+<p>POST
 <code><span id=oasoCreate>/private/linear/stop-order/create</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oasoCreate"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
-
-#### 请求参数
-|参数|是否必须|类型|说明|
-|:----- |:-------|:-----|----- |
-|<a href="#side-side">side</a> |true |string |方向    |
-|<a href="#symbol-symbol">symbol</a> |true |string |合约类型    |
-|<a href="#order-type-order_type">order_type</a> |true |string |委托单价格类型 |
-|<a href="#quantity-qty">qty</a> |true |integer |委托数量(1个委托1美元)，只能为正整数 |
-|<a href="#price-price">price</a> |false | number |条件委托执行价格。如果条件委托是限价单，则price为必传字段 |
-|base_price |true |number | 当前市价。用于和stop_px值进行比较，确定当前条件委托是看空到<code>stop_px</code>时触发还是看多到stop_px触发。主要是用来标识当前条件单预期的方向 |
-|stop_px | true | number | 条件委托下单时市价 |
-|<a href="#time-in-force-time_in_force">time_in_force</a> |true |string |执行策略 |
-|<a href="#trigger-price-type-trigger_by">trigger_by</a> | false | string | 触发价格类型. 默认为上一笔成交价格|
-|close_on_trigger |false |bool |触发后平仓. 如果下平仓单，请设置为<code>true</code>，避免因为保证金不足而导致下单失败
-|order_link_id |false |string |机构自定义订单ID, 最大长度36位，且同一机构下自定义ID不可重复 |
-
-
-### 查询条件委托
-> 响应示例
-
-```javascript
-{
-    "ret_code": 0,
-    "ret_msg": "ok",
-    "ext_code": "",
-    "result": {
-        "current_page": 1,
-        "last_page": 1,
-        "data": [
-            {
-                 "stop_order_id":"bd1844f-f3c0-4e10-8c25-10fea03763f6",
-                 "user_id": 1,
-                 "symbol": "BTCUSDT",
-                 "side": "Sell",
-                 "order_type": "Limit",
-                 "price": 8083,
-                 "qty": 10,
-                 "time_in_force": "GoodTillCancel",
-                 "order_status": "New",
-                 "trigger_price": 8003,
-                 "order_link_id": "",
-                 "created_at": "2019-10-21T07:28:19.396246Z",
-                 "updated_at": "2019-10-21T07:28:19.396246Z",
-            },
-            {
-                 "stop_order_id":"bd1844f-f3c0-4e10-8c25-10fea03763f6",
-                 "user_id": 1,
-                 "symbol": "BTCUSDT",
-                 "side": "Sell",
-                 "order_type": "Limit",
-                 "price": 8083,
-                 "qty": 10,
-                 "time_in_force": "GoodTillCancel",
-                 "order_status": "New",
-                 "trigger_price": 8003,
-                 "order_link_id": "",
-                 "created_at": "2019-10-21T07:28:19.396246Z",
-                 "updated_at": "2019-10-21T07:28:19.396246Z",
-            }
-        ]
-    },
-    "ext_info": null,
-    "time_now": "1577451658.755468",
-    "rate_limit_status": 599,
-    "rate_limit_reset_ms": 1577451658762,
-    "rate_limit": 600
-}
-```
-
-<p>获取我的条件委托单列表。</p> <p>创建/取消订单是异步的，因此<b>该接口可能返回的数据可能会有延迟</b>。如果要获取订单的实时信息，可以调用接口<a href="#t-querycond">实时查询条件单信息</a>。</p>
-
-#### HTTP 请求
-GET
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oasoCreate"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<h4 id='t-requestparameters-6'>请求参数</h4>
+<table><thead>
+<tr>
+<th style="text-align: left">参数</th>
+<th style="text-align: left">是否必须</th>
+<th style="text-align: left">类型</th>
+<th>说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#side-side">side</a></td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>方向</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>合约类型</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#order-type-order_type">order_type</a></td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>委托单价格类型</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#quantity-qty">qty</a></td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">integer</td>
+<td>委托数量(1个委托1美元)，只能为正整数</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#price-price">price</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">number</td>
+<td>条件委托执行价格。如果条件委托是限价单，则price为必传字段</td>
+</tr>
+<tr>
+<td style="text-align: left">base_price</td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">number</td>
+<td>当前市价。用于和stop_px值进行比较，确定当前条件委托是看空到<code>stop_px</code>时触发还是看多到stop_px触发。主要是用来标识当前条件单预期的方向</td>
+</tr>
+<tr>
+<td style="text-align: left">stop_px</td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">number</td>
+<td>条件委托下单时市价</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#time-in-force-time_in_force">time_in_force</a></td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>执行策略</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">trigger_by</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>触发价格类型. 默认为上一笔成交价格</td>
+</tr>
+<tr>
+<td style="text-align: left">close_on_trigger</td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">bool</td>
+<td>触发后平仓. 如果下平仓单，请设置为<code>true</code>，避免因为保证金不足而导致下单失败</td>
+</tr>
+<tr>
+<td style="text-align: left">order_link_id</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>机构自定义订单ID, 最大长度36位，且同一机构下自定义ID不可重复</td>
+</tr>
+<tr>
+<td style="text-align: left">reduce_only</td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">bool</td>
+<td>是否平仓单,true-平仓 false-开仓</td>
+</tr>
+</tbody></table>
+<h3 id='t-getcond'>查询条件委托</h3>
+<blockquote>
+<p>响应示例</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="s2">"ret_code"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"ret_msg"</span><span class="p">:</span> <span class="s2">"ok"</span><span class="p">,</span>
+    <span class="s2">"ext_code"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"result"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"current_page"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">"last_page"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">"data"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                 <span class="s2">"stop_order_id"</span><span class="p">:</span><span class="s2">"bd1844f-f3c0-4e10-8c25-10fea03763f6"</span><span class="p">,</span>
+                 <span class="s2">"user_id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                 <span class="s2">"symbol"</span><span class="p">:</span> <span class="s2">"BTCUSDT"</span><span class="p">,</span>
+                 <span class="s2">"side"</span><span class="p">:</span> <span class="s2">"Sell"</span><span class="p">,</span>
+                 <span class="s2">"order_type"</span><span class="p">:</span> <span class="s2">"Limit"</span><span class="p">,</span>
+                 <span class="s2">"price"</span><span class="p">:</span> <span class="mi">8083</span><span class="p">,</span>
+                 <span class="s2">"qty"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+                 <span class="s2">"time_in_force"</span><span class="p">:</span> <span class="s2">"GoodTillCancel"</span><span class="p">,</span>
+                 <span class="s2">"order_status"</span><span class="p">:</span> <span class="s2">"New"</span><span class="p">,</span>
+                 <span class="s2">"trigger_price"</span><span class="p">:</span> <span class="mi">8003</span><span class="p">,</span>
+                 <span class="s2">"order_link_id"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+                 <span class="s2">"created_at"</span><span class="p">:</span> <span class="s2">"2019-10-21T07:28:19.396246Z"</span><span class="p">,</span>
+                 <span class="s2">"updated_at"</span><span class="p">:</span> <span class="s2">"2019-10-21T07:28:19.396246Z"</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                 <span class="s2">"stop_order_id"</span><span class="p">:</span><span class="s2">"bd1844f-f3c0-4e10-8c25-10fea03763f6"</span><span class="p">,</span>
+                 <span class="s2">"user_id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                 <span class="s2">"symbol"</span><span class="p">:</span> <span class="s2">"BTCUSDT"</span><span class="p">,</span>
+                 <span class="s2">"side"</span><span class="p">:</span> <span class="s2">"Sell"</span><span class="p">,</span>
+                 <span class="s2">"order_type"</span><span class="p">:</span> <span class="s2">"Limit"</span><span class="p">,</span>
+                 <span class="s2">"price"</span><span class="p">:</span> <span class="mi">8083</span><span class="p">,</span>
+                 <span class="s2">"qty"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+                 <span class="s2">"time_in_force"</span><span class="p">:</span> <span class="s2">"GoodTillCancel"</span><span class="p">,</span>
+                 <span class="s2">"order_status"</span><span class="p">:</span> <span class="s2">"New"</span><span class="p">,</span>
+                 <span class="s2">"trigger_price"</span><span class="p">:</span> <span class="mi">8003</span><span class="p">,</span>
+                 <span class="s2">"order_link_id"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+                 <span class="s2">"created_at"</span><span class="p">:</span> <span class="s2">"2019-10-21T07:28:19.396246Z"</span><span class="p">,</span>
+                 <span class="s2">"updated_at"</span><span class="p">:</span> <span class="s2">"2019-10-21T07:28:19.396246Z"</span><span class="p">,</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="s2">"ext_info"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"time_now"</span><span class="p">:</span> <span class="s2">"1577451658.755468"</span><span class="p">,</span>
+    <span class="s2">"rate_limit_status"</span><span class="p">:</span> <span class="mi">599</span><span class="p">,</span>
+    <span class="s2">"rate_limit_reset_ms"</span><span class="p">:</span> <span class="mi">1577451658762</span><span class="p">,</span>
+    <span class="s2">"rate_limit"</span><span class="p">:</span> <span class="mi">600</span>
+<span class="p">}</span>
+</code></pre>
+<p><p>获取我的条件委托单列表。</p> <p>创建/取消订单是异步的，因此<b>该接口可能返回的数据可能会有延迟</b>。如果要获取订单的实时信息，可以调用接口<a href="#t-querycond">实时查询条件单信息</a>。</p></p>
+<h4 id='t-httprequest-7'>HTTP 请求</h4>
+<p>GET
 <code><span id=oasoList>/private/linear/stop-order/list</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oasoList"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
-
-#### 请求参数
-|参数|是否必须|类型|说明|
-|:----- |:-------|:-----|----- |
-|stop_order_id |false |string |条件委托订单ID。 |
-|order_link_id |false |string |机构自定义订单ID, 最大长度36位，且同一机构下自定义ID不可重复|
-|<a href="#symbol-symbol">symbol</a> |false |string |合约类型. Default `BTCUSDT`    |
-|<a href="#stop-order-status-stop_order_status">stop_order_status</a> |false |string |条件单状态|
-|order |false |string |按创建时间排序 |
-|page |false |integer |页码.默认取第一页 |
-|limit |false |integer |每页数量, 最大50. 默认每页20条 |
-
-
-### 撤消条件委托单
-> 响应示例
-
-```javascript
-{
-    "ret_code": 0,
-    "ret_msg": "ok",
-    "ext_code": "",
-    "result": {
-         "stop_order_id":"bd1844f-f3c0-4e10-8c25-10fea03763f6",
-    },
-    "ext_info": null,
-    "time_now": "1577452218.567120",
-    "rate_limit_status": 97,
-    "rate_limit_reset_ms": 1577452218573,
-    "rate_limit": "100"
-}
-```
-
-<p>您可以撤销所有未被激活的条件委托。本质上所有条件委托在被激活后都是属于活动委托，所以条件委托一旦被激活，您需要通过调用取消活动委托接口来取消所有未成交、部分成交的活动委托单。同样全部成交的活动委托不可取消。</p>
-
-
-#### HTTP 请求
-POST
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oasoList"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<h4 id='t-requestparameters-7'>请求参数</h4>
+<table><thead>
+<tr>
+<th style="text-align: left">参数</th>
+<th style="text-align: left">是否必须</th>
+<th style="text-align: left">类型</th>
+<th>说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">stop_order_id</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>条件委托订单ID。</td>
+</tr>
+<tr>
+<td style="text-align: left">order_link_id</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>机构自定义订单ID, 最大长度36位，且同一机构下自定义ID不可重复</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>合约类型. Default <code>BTCUSDT</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#stop-order-status-stop_order_status">stop_order_status</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>条件单状态</td>
+</tr>
+<tr>
+<td style="text-align: left">order</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>按创建时间排序</td>
+</tr>
+<tr>
+<td style="text-align: left">page</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>页码.默认取第一页</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>每页数量, 最大50. 默认每页20条</td>
+</tr>
+</tbody></table>
+<h3 id='t-cancelcond'>撤消条件委托单</h3>
+<blockquote>
+<p>响应示例</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="s2">"ret_code"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"ret_msg"</span><span class="p">:</span> <span class="s2">"ok"</span><span class="p">,</span>
+    <span class="s2">"ext_code"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"result"</span><span class="p">:</span> <span class="p">{</span>
+         <span class="s2">"stop_order_id"</span><span class="p">:</span><span class="s2">"bd1844f-f3c0-4e10-8c25-10fea03763f6"</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">"ext_info"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"time_now"</span><span class="p">:</span> <span class="s2">"1577452218.567120"</span><span class="p">,</span>
+    <span class="s2">"rate_limit_status"</span><span class="p">:</span> <span class="mi">97</span><span class="p">,</span>
+    <span class="s2">"rate_limit_reset_ms"</span><span class="p">:</span> <span class="mi">1577452218573</span><span class="p">,</span>
+    <span class="s2">"rate_limit"</span><span class="p">:</span> <span class="s2">"100"</span>
+<span class="p">}</span>
+</code></pre>
+<p><p>您可以撤销所有未被激活的条件委托。本质上所有条件委托在被激活后都是属于活动委托，所以条件委托一旦被激活，您需要通过调用取消活动委托接口来取消所有未成交、部分成交的活动委托单。同样全部成交的活动委托不可取消。</p>
+</p>
+<h4 id='t-httprequest-8'>HTTP 请求</h4>
+<p>POST
 <code><span id=oasoCancel>/private/linear/stop-order/cancel</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oasoCancel"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
-
-#### 请求参数
-|参数|required|type | comments|
-|:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |合约类型|
-|stop_order_id |false |string |订单ID。如果未填order_link_id则为<b>必填</b>字段。 |
-|order_link_id |false |string | 机构ID。如果未填stop_order_id则为<b>必填</b>字段。|
-|<a href="#symbol-symbol">symbol</a> |false |string |合约类型. Default `BTCUSDT`    |
-
-
-### 撤消全部条件委托单
-> 响应示例
-
-```javascript
-{
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
-    "ext_info": "",
-    "result": [
-        "89a38056-80f1-45b2-89d3-4d8e3a203a79",  
-        "89a38056-80f1-45b2-89d3-4d8e3a203a79", 
-    ],
-    "time_now": "1577454993.799912",
-    "rate_limit_status": 90,
-    "rate_limit_reset_ms": 1580885703683,
-    "rate_limit": 100
-}
-```
-
-撤销所有未被激活的条件委托。本质上所有条件委托在被激活后都是属于活动委托，所以条件委托一旦被激活，您需要通过调用取消活动委托接口来取消所有未成交、部分成交的活动委托单。同样全部成交的活动委托不可取消。
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oasoCancel"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<h4 id='t-requestparameters-8'>请求参数</h4>
+<table><thead>
+<tr>
+<th style="text-align: left">参数</th>
+<th style="text-align: left">required</th>
+<th style="text-align: left">type</th>
+<th>comments</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>合约类型</td>
+</tr>
+<tr>
+<td style="text-align: left">stop_order_id</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>订单ID。如果未填order_link_id则为<b>必填</b>字段。</td>
+</tr>
+<tr>
+<td style="text-align: left">order_link_id</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>机构ID。如果未填stop_order_id则为<b>必填</b>字段。</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>合约类型. Default <code>BTCUSDT</code></td>
+</tr>
+</tbody></table>
+<h3 id='t-cancelallcond'>撤消全部条件委托单</h3>
+<blockquote>
+<p>响应示例</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="s2">"ret_code"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"ret_msg"</span><span class="p">:</span> <span class="s2">"OK"</span><span class="p">,</span>
+    <span class="s2">"ext_code"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"ext_info"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"result"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">"89a38056-80f1-45b2-89d3-4d8e3a203a79"</span><span class="p">,</span>  
+        <span class="s2">"89a38056-80f1-45b2-89d3-4d8e3a203a79"</span><span class="p">,</span> 
+    <span class="p">],</span>
+    <span class="s2">"time_now"</span><span class="p">:</span> <span class="s2">"1577454993.799912"</span><span class="p">,</span>
+    <span class="s2">"rate_limit_status"</span><span class="p">:</span> <span class="mi">90</span><span class="p">,</span>
+    <span class="s2">"rate_limit_reset_ms"</span><span class="p">:</span> <span class="mi">1580885703683</span><span class="p">,</span>
+    <span class="s2">"rate_limit"</span><span class="p">:</span> <span class="mi">100</span>
+<span class="p">}</span>
+</code></pre>
+<p>撤销所有未被激活的条件委托。本质上所有条件委托在被激活后都是属于活动委托，所以条件委托一旦被激活，您需要通过调用取消活动委托接口来取消所有未成交、部分成交的活动委托单。同样全部成交的活动委托不可取消。</p>
 
 <aside class="notice">
 注意，此api每调用一次会导致rate_limit扣减10
 </aside>
-
-#### HTTP 请求
-POST
+<h4 id='t-httprequest-9'>HTTP 请求</h4>
+<p>POST
 <code><span id=vpsoCancelAll>/private/linear/stop-order/cancel-all</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpsoCancelAll"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
-
-#### 请求参数
-|参数|required|type | comments|
-|:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |合约类型|
-
-
-
-### 实时查询条件委托
-> 响应示例
-
-```javascript
-{
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
-    "ext_info": "",
-    "result": {
-        "stop_order_id":"bd1844f-f3c0-4e10-8c25-10fea03763f6",
-        "user_id": 1,
-        "symbol": "BTCUSDT",
-        "side": "Sell",
-        "order_type": "Limit",
-        "price": 8083,
-        "qty": 10,
-        "time_in_force": "GoodTillCancel",
-        "order_status": "New",
-        "trigger_price": 8003,
-        "order_link_id": "",
-        "created_at": "2019-10-21T07:28:19.396246Z",
-        "updated_at": "2019-10-21T07:28:19.396246Z",
-    },
-    "time_now": "1577476584.386958",
-    "rate_limit_status": 99,
-    "rate_limit_reset_ms": 1580885703683,
-    "rate_limit": 100
-}
-```
-
-实时查询条件委托。
-
-#### HTTP 请求
-GET
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpsoCancelAll"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<h4 id='t-requestparameters-9'>请求参数</h4>
+<table><thead>
+<tr>
+<th style="text-align: left">参数</th>
+<th style="text-align: left">required</th>
+<th style="text-align: left">type</th>
+<th>comments</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>合约类型</td>
+</tr>
+</tbody></table>
+<h3 id='t-querycond'>实时查询条件委托</h3>
+<blockquote>
+<p>响应示例</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="s2">"ret_code"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"ret_msg"</span><span class="p">:</span> <span class="s2">"OK"</span><span class="p">,</span>
+    <span class="s2">"ext_code"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"ext_info"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"result"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"stop_order_id"</span><span class="p">:</span><span class="s2">"bd1844f-f3c0-4e10-8c25-10fea03763f6"</span><span class="p">,</span>
+        <span class="s2">"user_id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">"symbol"</span><span class="p">:</span> <span class="s2">"BTCUSDT"</span><span class="p">,</span>
+        <span class="s2">"side"</span><span class="p">:</span> <span class="s2">"Sell"</span><span class="p">,</span>
+        <span class="s2">"order_type"</span><span class="p">:</span> <span class="s2">"Limit"</span><span class="p">,</span>
+        <span class="s2">"price"</span><span class="p">:</span> <span class="mi">8083</span><span class="p">,</span>
+        <span class="s2">"qty"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="s2">"time_in_force"</span><span class="p">:</span> <span class="s2">"GoodTillCancel"</span><span class="p">,</span>
+        <span class="s2">"order_status"</span><span class="p">:</span> <span class="s2">"New"</span><span class="p">,</span>
+        <span class="s2">"trigger_price"</span><span class="p">:</span> <span class="mi">8003</span><span class="p">,</span>
+        <span class="s2">"order_link_id"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+        <span class="s2">"created_at"</span><span class="p">:</span> <span class="s2">"2019-10-21T07:28:19.396246Z"</span><span class="p">,</span>
+        <span class="s2">"updated_at"</span><span class="p">:</span> <span class="s2">"2019-10-21T07:28:19.396246Z"</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">"time_now"</span><span class="p">:</span> <span class="s2">"1577476584.386958"</span><span class="p">,</span>
+    <span class="s2">"rate_limit_status"</span><span class="p">:</span> <span class="mi">99</span><span class="p">,</span>
+    <span class="s2">"rate_limit_reset_ms"</span><span class="p">:</span> <span class="mi">1580885703683</span><span class="p">,</span>
+    <span class="s2">"rate_limit"</span><span class="p">:</span> <span class="mi">100</span>
+<span class="p">}</span>
+</code></pre>
+<p>实时查询条件委托。</p>
+<h4 id='t-httprequest-10'>HTTP 请求</h4>
+<p>GET
 <code><span id=vpStopOrder>/private/linear/stop-order/search</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpStopOrder"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
-
-#### 请求参数
-|参数|是否必须|类型|说明|
-|:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |合约类型 |
-|stop_order_id |false |string |订单ID。如果未填order_link_id则为<b>必填</b>字段。 |
-|order_link_id |false |string |机构ID。如果未填order_id则为<b>必填</b>字段。 |
- -->
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpStopOrder"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<h4 id='t-requestparameters-10'>请求参数</h4>
+<table><thead>
+<tr>
+<th style="text-align: left">参数</th>
+<th style="text-align: left">是否必须</th>
+<th style="text-align: left">类型</th>
+<th>说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>合约类型</td>
+</tr>
+<tr>
+<td style="text-align: left">stop_order_id</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>订单ID。如果未填order_link_id则为<b>必填</b>字段。</td>
+</tr>
+<tr>
+<td style="text-align: left">order_link_id</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>机构ID。如果未填order_id则为<b>必填</b>字段。</td>
+</tr>
+</tbody></table>
 <h2 id='t-position'>持仓</h2><h3 id='t-linear_position'>获取持仓（实时）</h3>
 <blockquote>
 <p>响应示例</p>
@@ -2034,11 +2247,11 @@ GET
 <span class="p">}</span>
 </code></pre>
 <p>获取我的仓位列表。通过该接口可以获取当前用户的持仓信息，如持仓数量、账户余额等信息</p>
-<h4 id='t-httprequest-6'>HTTP 请求</h4>
+<h4 id='t-httprequest-11'>HTTP 请求</h4>
 <p>GET
 <code><span id=pList>/private/linear/position/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pList"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
-<h4 id='t-requestparameters-6'>请求参数</h4>
+<h4 id='t-requestparameters-11'>请求参数</h4>
 <table><thead>
 <tr>
 <th style="text-align: left">参数</th>
@@ -2102,11 +2315,11 @@ POST
 <span class="p">}</span>
 </code></pre>
 <p>设置杠杆</p>
-<h4 id='t-httprequest-7'>HTTP 请求</h4>
+<h4 id='t-httprequest-12'>HTTP 请求</h4>
 <p>POST
 <code><span id=pSetLeverage>/private/linear/position/set-leverage</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pSetLeverage"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
-<h4 id='t-requestparameters-7'>请求参数</h4>
+<h4 id='t-requestparameters-12'>请求参数</h4>
 <table><thead>
 <tr>
 <th style="text-align: left">参数</th>
@@ -2151,11 +2364,11 @@ POST
 <span class="p">}</span>
 </code></pre>
 <p>全仓/逐仓切换，从全仓切换至逐仓时需要传杠杆</p>
-<h4 id='t-httprequest-8'>HTTP 请求</h4>
+<h4 id='t-httprequest-13'>HTTP 请求</h4>
 <p>POST
 <code><span id=pSwitchIsolated>/private/linear/position/switch-isolated</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pSwitchIsolated"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
-<h4 id='t-requestparameters-8'>请求参数</h4>
+<h4 id='t-requestparameters-13'>请求参数</h4>
 <table><thead>
 <tr>
 <th style="text-align: left">参数</th>
@@ -2437,28 +2650,36 @@ GET
     <th>消耗</th>
   </tr>
   <tr>
-    <td rowspan="2">100/min</td>
+    <td rowspan="6">100/min</td>
     <td>/private/linear/order/create </td>
     <td>1 / request</td>
   </tr>
   <tr><td>/private/linear/order/cancel </td><td>1 / request</td></tr>
+  <tr><td>/private/linear/order/cancel-all </td><td>10 / request</td></tr>
+  <tr><td>/private/linear/stop-order/create </td><td>1 / request</td></tr>
+  <tr><td>/private/linear/stop-order/cancel </td><td>1 / request</td></tr>
+  <tr><td>/private/linear/stop-order/cancel-all </td><td>10 / request</td></tr>
   <tr>
-    <td rowspan="2">600/min</td>
+    <td rowspan="2">75/min</td>
+    <td>/private/linear/position/set-leverage   </td>
+    <td>1 / request</td>
+  </tr>
+  <tr><td>/private/linear/position/switch-isolated </td><td>1 / request</td></tr>
+    
+  <tr>
+    <td rowspan="1">120/min</td>
+    <td>/private/linear/position/list  </td>
+    <td>1 / request</td>
+  </tr>
+    
+  <tr>
+    <td rowspan="4">600/min</td>
     <td>/private/linear/order/list </td>
     <td>1 / request</td>
   </tr>
   <tr><td>/private/linear/order/search </td><td>1 / request</td></tr>
-  <tr>
-    <td rowspan="2">120/min</td>
-    <td>open-api/wallet/fund/records  </td>
-    <td>1 / request</td>
-  </tr>
-<tr><td>open-api/wallet/withdraw/list </td><td>1 / request</td></tr>
-<tr>
-    <td rowspan="1">600/min</td>
-    <td>open-api/api-key  </td>
-    <td>1 / request</td>
-  </tr>
+  <tr><td>/private/linear/stop-order/list </td><td>1 / request</td></tr>
+  <tr><td>/private/linear/stop-order/search </td><td>1 / request</td></tr>
 </table>
 <h3 id='t-orderlimits'>下单限制</h3>
 <p><p>每种合约可以持有的订单数量上限：</p>

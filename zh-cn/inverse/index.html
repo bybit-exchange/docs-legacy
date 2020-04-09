@@ -1371,7 +1371,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>Curl 请求示例</p>
 </blockquote>
-<pre class="highlight shell_session"><code>curl https://api-testnet.bybit.com/v2/public/orderBook/L2?symbol=BTCUSD
+<pre class="highlight shell_session"><code>curl https://api.bybit.com/v2/public/orderBook/L2?symbol=BTCUSD
 </code></pre>
 <blockquote>
 <p>响应示例</p>
@@ -1504,7 +1504,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>Curl 请求示例</p>
 </blockquote>
-<pre class="highlight shell_session"><code>curl https://api-testnet.bybit.com/v2/public/tickers
+<pre class="highlight shell_session"><code>curl https://api.bybit.com/v2/public/tickers
 </code></pre>
 <blockquote>
 <p>响应示例</p>
@@ -1569,7 +1569,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>Curl 请求示例</p>
 </blockquote>
-<pre class="highlight shell_session"><code>curl https://api-testnet.bybit.com/v2/public/trading-records?symbol=BTCUSD
+<pre class="highlight shell_session"><code>curl https://api.bybit.com/v2/public/trading-records?symbol=BTCUSD
 </code></pre>
 <blockquote>
 <p>响应示例</p>
@@ -1630,7 +1630,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>Curl 请求示例</p>
 </blockquote>
-<pre class="highlight shell_session"><code>curl https://api-testnet.bybit.com/v2/public/symbols
+<pre class="highlight shell_session"><code>curl https://api.bybit.com/v2/public/symbols
 </code></pre>
 <blockquote>
 <p>响应示例</p>
@@ -2302,8 +2302,7 @@ function copyStringToClipboard (endpoint) {
     <span class="s2">"rate_limit"</span><span class="p">:</span> <span class="s2">"100"</span>
 <span class="p">}</span>
 </code></pre>
-<p><p>所有条件委托都必须填写 'side', 'symbol', 'order_type', 'qty', 'price', 'base_price', 'stop_px', 'time_in_force'参数，其它参数除非有特殊说明，否则都是可选的。</p>
-<p>市价条件委托: 一个传统的市场价格订单,会以当前的最优价格为您成交订单。当且仅当选择市价单时，'price', '可为空！</p>
+<p><p>市价条件委托: 一个传统的市场价格订单,会以当前的最优价格为您成交订单。当且仅当选择市价单时，'price', '可为空！</p>
 <p>限价条件委托: 您可以为您的订单设置一个执行价格，当市场价格达到您的设置价格时，系统会为您成交订单。</p>
 <p>止盈止损: 您仅能在开仓时设置止盈止损条件单，一旦持有仓位后提交活动委托时关联的止盈止损则不再有效。一旦持仓后，当创建订单后发送的止盈止损信息将不再有效。</p>
 <p>委托数量: 表示您要购买/卖出的永续合约数，对于委托数量目前Bybit只允许提交正整数。</p>
@@ -3772,7 +3771,7 @@ function copyStringToClipboard (endpoint) {
     <span class="s2">"rate_limit"</span><span class="p">:</span> <span class="mi">120</span>
 <span class="p">}</span>
 </code></pre>
-<p>获取用户成交记录，按时间倒序排列。</p>
+<p>获取用户成交记录，按时间升序排列。</p>
 
 <aside class="notice">
 一个订单可能有多笔成交记录。

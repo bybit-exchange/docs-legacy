@@ -1373,7 +1373,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>Curl Example</p>
 </blockquote>
-<pre class="highlight shell_session"><code>curl https://api-testnet.bybit.com/v2/public/orderBook/L2?symbol=BTCUSD
+<pre class="highlight shell_session"><code>curl https://api.bybit.com/v2/public/orderBook/L2?symbol=BTCUSD
 </code></pre>
 <blockquote>
 <p>Response Example</p>
@@ -1506,7 +1506,7 @@ The response is in the snapshot format.
 <blockquote>
 <p>Curl Example</p>
 </blockquote>
-<pre class="highlight shell_session"><code>curl https://api-testnet.bybit.com/v2/public/tickers
+<pre class="highlight shell_session"><code>curl https://api.bybit.com/v2/public/tickers
 </code></pre>
 <blockquote>
 <p>Response Example</p>
@@ -1571,7 +1571,7 @@ The response is in the snapshot format.
 <blockquote>
 <p>Curl Example</p>
 </blockquote>
-<pre class="highlight shell_session"><code>curl https://api-testnet.bybit.com/v2/public/trading-records?symbol=BTCUSD
+<pre class="highlight shell_session"><code>curl https://api.bybit.com/v2/public/trading-records?symbol=BTCUSD
 </code></pre>
 <blockquote>
 <p>Response Example</p>
@@ -1632,7 +1632,7 @@ The response is in the snapshot format.
 <blockquote>
 <p>Curl Example</p>
 </blockquote>
-<pre class="highlight shell_session"><code>curl https://api-testnet.bybit.com/v2/public/symbols
+<pre class="highlight shell_session"><code>curl https://api.bybit.com/v2/public/symbols
 </code></pre>
 <blockquote>
 <p>Response Example</p>
@@ -2304,8 +2304,7 @@ Please note that only orders that are unfilled or partially filled can be modifi
     <span class="s2">"rate_limit"</span><span class="p">:</span> <span class="s2">"100"</span>
 <span class="p">}</span>
 </code></pre>
-<p><p>Parameters of 'side', 'symbol', 'order_type', 'qty', 'price', 'base_price', 'stop_px', 'time_in_force' are required for all active orders. Other parameters are optional unless specified.</p>
-<p>Market price conditional order: A traditional market price order, will be filled at the best available price. 'price' can set to be "" if and only if you are placing market price order.</p>
+<p><p>Market price conditional order: A traditional market price order, will be filled at the best available price. 'price' can set to be "" if and only if you are placing market price order.</p>
 <p>Limit price conditional order: You can set an execution price for your order. Only when last traded price reaches the order price, the system will fill your order.</p>
 <p>Take profit/Stop loss: You may only set a take-profit/stop-loss conditional order upon opening the position. Once you hold a position, the take profit and stop loss information u sent when placing an order will no longer be valid.</p>
 <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell, currently Bybit only support order quantity in an integer.</p>
