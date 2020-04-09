@@ -5,7 +5,7 @@ t(:market_para_auth)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/v2/public/orderBook/L2?symbol=BTCUSD
+curl https://api-testnet.bybit.com/v2/public/orderBook/L2?symbol=BTCUSD
 ```
 
 > t(:codequote_responseExample)
@@ -109,7 +109,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/v2/public/tickers
+curl https://api-testnet.bybit.com/v2/public/tickers
 ```
 
 > t(:codequote_responseExample)
@@ -168,7 +168,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/v2/public/trading-records?symbol=BTCUSD
+curl https://api-testnet.bybit.com/v2/public/trading-records?symbol=BTCUSD
 ```
 
 > t(:codequote_responseExample)
@@ -212,7 +212,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/v2/public/symbols
+curl https://api-testnet.bybit.com/v2/public/symbols
 ```
 
 > t(:codequote_responseExample)

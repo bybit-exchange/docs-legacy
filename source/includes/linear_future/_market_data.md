@@ -75,7 +75,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/public/linear/recent-trading-records?symbol=BTCUSDT&limit=500
+curl https://api-testnet.bybit.com/public/linear/recent-trading-records?symbol=BTCUSDT&limit=500
 ```
 
 > t(:codequote_responseExample)
@@ -123,7 +123,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/public/linear/funding/prev-funding-rate?symbol=BTCUSDT
+curl https://api-testnet.bybit.com/public/linear/funding/prev-funding-rate?symbol=BTCUSDT
 ```
 
 > t(:codequote_responseExample)

@@ -1,5 +1,5 @@
 # t(:changelog)
-    
+
 ## 2020-03-31
 ### REST API
 - [t(:balance)](#t-balance) [t(:changelog_update)]
