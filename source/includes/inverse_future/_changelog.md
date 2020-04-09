@@ -1,9 +1,4 @@
 # t(:changelog)
-
-## 2020-04-09
-### REST API
-- [t(:usertraderecords)](#t-usertraderecords) [t(:changelog_update)]
-    - t(:bugfix1_20200409)
     
 ## 2020-03-31
 ### REST API
