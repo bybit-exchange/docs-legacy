@@ -616,6 +616,36 @@
                   <li>
                     <a href="#t-raisemylimit" class="toc-h2 toc-link" data-title="How to Raise Your API Limit">How to Raise Your API Limit</a>
                   </li>
+                  <li>
+                    <a href="#t-liquidity" class="toc-h2 toc-link" data-title="Understanding Bybit's Liquidity System">Understanding Bybit's Liquidity System</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#t-ofrthreshold" class="toc-h3 toc-link" data-title="Order Fill Ratio (OFR) Threshold">Order Fill Ratio (OFR) Threshold</a>
+                              <ul class="toc-list-h4">
+                                  <li>
+                                    <a href="#t-ofrratio" class="toc-h4 toc-link" data-title="Order Fill Ratio (OFR)">Order Fill Ratio (OFR)</a>
+                                  </li>
+                                  <li>
+                                    <a href="#t-ofrratioexample" class="toc-h4 toc-link" data-title="Order Fill Ratio Example">Order Fill Ratio Example</a>
+                                  </li>
+                                  <li>
+                                    <a href="#t-ofrminimum" class="toc-h4 toc-link" data-title="Minimum OFR Threshold">Minimum OFR Threshold</a>
+                                  </li>
+                              </ul>
+                          </li>
+                          <li>
+                            <a href="#t-frequencylimit" class="toc-h3 toc-link" data-title="API Request Frequency Limits">API Request Frequency Limits</a>
+                              <ul class="toc-list-h4">
+                                  <li>
+                                    <a href="#t-liquiditypoints" class="toc-h4 toc-link" data-title="Liquidity Contribution Points (LCP)">Liquidity Contribution Points (LCP)</a>
+                                  </li>
+                                  <li>
+                                    <a href="#t-ratelimitsexplanation" class="toc-h4 toc-link" data-title="Explanation">Explanation</a>
+                                  </li>
+                              </ul>
+                          </li>
+                      </ul>
+                  </li>
               </ul>
           </li>
           <li>
@@ -2692,9 +2722,133 @@ GET
 <h3 id='t-raisemylimit'>How to Raise Your API Limit</h3>
 <p><ul>
 <li>Please read <a href="#t-raisemylimit">Understanding Bybit&#39;s Liquidity System</a> to understand how our system automatically allocates rate limits for users placing over 2000 orders per day.</li>
-<li>Please send your application email to <a href="mailto:api@bybit.com">api@bybit.com</a>. We will reply in 1-4 working days.</li>
+<li>Please send your application email to <a href="mailto:api@bybit.com">api@bybit.com</a>. We will reply in 1-4 working days. And the email must include below information:</li>
+  <ol>
+    <li>Your name and your company details</li>
+    <li>Your Bybit UIDs or registered Emails, and the symbol which you are trading</li>
+    <li>General description of your trading strategy and why requires higher rate limit</li>
+    <li>Screenshot of previous monthly trading volume (maker/taker) with other platforms</li>
+    <li>Optional: your order history in CVS files</li>
+  </ol>
 </ul>
 </p>
+<h3 id='t-liquidity'>Understanding Bybit's Liquidity System</h3>
+<p><p>Bybit uses an <code>Order Fill Ratio (OFR)</code> and <code>Liquidity Contribution Points (LCP)</code> to measure customers&#39; contribution to our executable liquidity.</p>
+<p>The <code>LCP</code> and <code>OFR</code> of different symbols are calculated separately.</p>
+</p>
+<h4 id='t-ofrthreshold'>Order Fill Ratio (OFR) Threshold</h4>
+<p>If you place more than <code>2000</code> orders per day on Bybit, please maintain your 7-day OFR above a <code>Minimum OFR threshold</code>, or Bybit may reduce your API request frequency limit.
+</p>
+<h5 id='t-ofrratio'>Order Fill Ratio (OFR)</h5>
+<p><ul>
+<li><code>Order Fill Ratio (OFR)</code>: <code>Orders Filled</code> to <code>Orders Submitted to Bybit</code> to Bybit.</li>
+<li><code>Orders Submitted to Bybit</code>: any order sent to Bybit.</li>
+<li><code>Orders Filled</code>: any order that has been filled for any amount.</li>
+<li><code>OFR = (number of orders filled / number of orders submitted to Bybit)</code></li>
+</ul>
+</p>
+<h5 id='t-ofrratioexample'>Order Fill Ratio Example</h5>
+<pre class="center-column-nonindent">
+User A:
+Orders Filled = 2
+Orders Submitted to Bybit = 8
+QFR = 2/8 = 25%
+
+</pre>
+
+<pre class="center-column-nonindent">
+User B:
+Orders Filled = 1
+Orders Submitted to Bybit = 1
+QFR = 1/1 = 100%
+
+</pre>
+<h5 id='t-ofrminimum'>Minimum OFR Threshold</h5>
+<p>7-day OFR must be kept above 0.1%.</p>
+<h4 id='t-frequencylimit'>API Request Frequency Limits</h4>
+<p>Your API request frequency limit is based on your min <code>Liquidity Contribution Points (LCP)</code> of <code>7</code> days.</p>
+
+<table><thead>
+<tr>
+<th>LCP</th>
+<th>Order Frequency Limit</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>20-100</td>
+<td>800 times per minute</td>
+</tr>
+<tr>
+<td>10-20</td>
+<td>600 times per minute</td>
+</tr>
+<tr>
+<td>5-10</td>
+<td>400 times per minute</td>
+</tr>
+<tr>
+<td>2-5</td>
+<td>200 times per minute</td>
+</tr>
+<tr>
+<td>&lt;2</td>
+<td>100 times per minute</td>
+</tr>
+</tbody></table>
+<h5 id='t-liquiditypoints'>Liquidity Contribution Points (LCP)</h5>
+<p><ul>
+<li><code>Liquidity Contribution Points (LCP) = POU * POA * 100</code></li>
+</ul>
+</p>
+<h5 id='t-ratelimitsexplanation'>Explanation</h5><h6 id='t-pricerange'>Effective Price Range</h6>
+<p><ul>
+<li><p><code>effective price range</code>: 6 tick sizes range around middle of best bid price and best ask price.</p>
+</li>
+<li><p>Min <code>effective price</code>:  (best bid price + best ask price) / 2 - (3 * tick_size)</p>
+</li>
+<li><p>Max <code>effective price</code>:  (best bid price + best ask price) / 2 + (3 * tick_size)</p>
+</li>
+</ul>
+</p>
+<h6 id='t-pricerangeexample'>Effective Price Range Example</h6>
+<pre class="center-column-nonindent">
+BTC best bid = 10000
+BTC best ask = 10001
+Effective Price Range: [(10000 + 10001) / 2 - 3* 0.5, (10000 + 10001) / 2 + 3* 0.5] = [9999,10002]
+
+</pre>
+<h6 id='t-pou'>POU</h6>
+<p><ul>
+<li><code>POU</code>: the proportion of your orders within <code>effective price range</code> to all your orders in orderbook.</li>
+</ul>
+<p>Bybit calculates your amount of orders within <code>effective price range</code> / amount of all your orders in orderbook, and then performs a 1-Day Time-Weighted-Average over the series of seconds rates.</p>
+</p>
+
+<pre class="center-column-nonindent">
+amount of User C's orders within effective price range = 8000
+amount of all User C's orders = 2000 + 8000 = 10000
+POU = 8000 / 10000 = 0.8
+
+</pre>
+<h6 id='t-poa'>POA</h6>
+<p><ul>
+<li><code>POA</code>: the proportion of your orders within <code>effective price range</code> to all orders within <code>effective price range</code> in orderbook.</li>
+</ul>
+<p>Bybit calculates your amount of orders within <code>effective price range</code> / amount of all orders within <code>effective price range</code> in orderbook, and then performs a 1-Day Time-Weighted-Average over the series of seconds rates.</p>
+</p>
+<h6 id='t-poaexample'>POA example</h6>
+<p>User C only has 8000 contracts within effective price range, while Bybit have 200000 contracts within effective price range in orderbook.</p>
+
+<pre class="center-column-nonindent">
+amount of User C's orders within effective price range = 8000
+amount of all orders within effective price range = 200000
+POA = 8000 / 200000 = 0.04
+
+</pre>
+
+<aside class="notice">
+Prior notice will be given via the website if we update this mechanism.
+</aside>
 <h1 id='t-websocket'>WebSocket Data</h1><h2 id='t-websocketauthentication'>Authentication</h2>
 <blockquote>
 <p>Authentication methods:

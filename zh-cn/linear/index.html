@@ -616,6 +616,36 @@
                   <li>
                     <a href="#t-raisemylimit" class="toc-h2 toc-link" data-title="如何提高频率限制">如何提高频率限制</a>
                   </li>
+                  <li>
+                    <a href="#t-liquidity" class="toc-h2 toc-link" data-title="Bybit流动性贡献系统">Bybit流动性贡献系统</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#t-ofrthreshold" class="toc-h3 toc-link" data-title="报单成交率">报单成交率</a>
+                              <ul class="toc-list-h4">
+                                  <li>
+                                    <a href="#t-ofrratio" class="toc-h4 toc-link" data-title="报单成交率">报单成交率</a>
+                                  </li>
+                                  <li>
+                                    <a href="#t-ofrratioexample" class="toc-h4 toc-link" data-title="报单成交率举例">报单成交率举例</a>
+                                  </li>
+                                  <li>
+                                    <a href="#t-ofrminimum" class="toc-h4 toc-link" data-title="API 交易用户最小报单成交率门槛">API 交易用户最小报单成交率门槛</a>
+                                  </li>
+                              </ul>
+                          </li>
+                          <li>
+                            <a href="#t-frequencylimit" class="toc-h3 toc-link" data-title="API 交易用户提高频率的条件">API 交易用户提高频率的条件</a>
+                              <ul class="toc-list-h4">
+                                  <li>
+                                    <a href="#t-liquiditypoints" class="toc-h4 toc-link" data-title="流动性贡献打分">流动性贡献打分</a>
+                                  </li>
+                                  <li>
+                                    <a href="#t-ratelimitsexplanation" class="toc-h4 toc-link" data-title="名词解释">名词解释</a>
+                                  </li>
+                              </ul>
+                          </li>
+                      </ul>
+                  </li>
               </ul>
           </li>
           <li>
@@ -2691,9 +2721,137 @@ GET
 <h3 id='t-raisemylimit'>如何提高频率限制</h3>
 <p><ul>
 <li>请先阅读<a href="#t-raisemylimit">如何满足提高频率限制条件</a></li>
-<li>请发送邮件到 <a href="mailto:api@bybit.com">api@bybit.com</a>. 我们会在 1-4 个工作日内答复.</li>
+<li>请发送邮件到 <a href="mailto:api@bybit.com">api@bybit.com</a>，我们会在 1-4 个工作日内答复。邮件内容必须包含以下内容：</li>
+<ol>
+  <li>您的姓名和公司名称和简介</li>
+  <li>您的bybit 账号uid或注册邮箱手机号,以及您要申请提频的交易对</li>
+  <li>您上个月的交易量（吃单/挂单）并提供截图</li>
+  <li>简单介绍您的交易策略和为什么需要更高限频</li>
+  <li>如果可以，请提供您的成交记录csv文档</li>
+</ol>
 </ul>
 </p>
+<h3 id='t-liquidity'>Bybit流动性贡献系统</h3>
+<p><p>Bybit 使用<code>报单成交率</code> 和 <code>流动性贡献打分</code>来评价用户对改善bybit可执行流动性作出的贡献。</p>
+<p>不同symbol的<code>贡献分</code>和<code>报单成交率</code>是独立计算的。</p>
+</p>
+<h4 id='t-ofrthreshold'>报单成交率</h4>
+<p>平台上每天提交超过<code>2000</code>个报单的账户，需要保持<code>7天</code>的报单成交率高于<code>最小报单成交率门槛值</code>，违反此规则将会被降低频率或禁用 API。
+</p>
+<h5 id='t-ofrratio'>报单成交率</h5>
+<p><ul>
+<li><code>报单成交率</code>: 定义为 一段时间段内，用户已成交报单数量占该用户已提交报单数量的比例</li>
+<li><code>已提交报单</code>: 是任何已成功发送到平台的委托</li>
+<li><code>已成交报单</code>: 是成交了任何数量的委托</li>
+<li><code>报单成交率 = ( 一段时间内用户的已成交报单数量 / 一段时间内已提交报单数量)</code></li>
+</ul>
+</p>
+<h5 id='t-ofrratioexample'>报单成交率举例</h5>
+<pre class="center-column-nonindent">
+A用户：
+已成交报单数量 = 2
+已提交报单数量 =8
+报单成交率 = 2 / 8 = 25％
+
+</pre>
+
+<pre class="center-column-nonindent">
+B用户：
+已成交报单数量 = 1
+已提交报单数量 =1
+报单成交率 = 1 / 1 = 100％
+
+</pre>
+<h5 id='t-ofrminimum'>API 交易用户最小报单成交率门槛</h5>
+<p><code>7</code>日内API 交易用户最小报单成交率门槛 0.1%</p>
+<h4 id='t-frequencylimit'>API 交易用户提高频率的条件</h4>
+<p>平台会根据API用户近<code>7</code>日挂单对<code>平台流动性贡献分</code>的最低值，对满足条件的用户进行提高频率上限的奖励</p>
+
+<table><thead>
+<tr>
+<th>流动性贡献分</th>
+<th>Order频率限制</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>20-100</td>
+<td>800次 / 每分钟</td>
+</tr>
+<tr>
+<td>10-20</td>
+<td>600次 / 每分钟</td>
+</tr>
+<tr>
+<td>5-10</td>
+<td>400次 / 每分钟</td>
+</tr>
+<tr>
+<td>2-5</td>
+<td>200次 / 每分钟</td>
+</tr>
+<tr>
+<td>&lt;2</td>
+<td>100次 / 每分钟</td>
+</tr>
+</tbody></table>
+<h5 id='t-liquiditypoints'>流动性贡献打分</h5>
+<p><ul>
+<li><code>流动性贡献打分 = 有效价格挂单自占比 * 有效价格挂单量平台占比 * 100</code></li>
+</ul>
+</p>
+<h5 id='t-ratelimitsexplanation'>名词解释</h5><h6 id='t-pricerange'>有效价格挂单</h6>
+<p><ul>
+<li><p><code>有效价格挂单</code>: 定义为在距离盘口中间价较近的规定范围内的挂单被定义为有效价格挂单.</p>
+</li>
+<li><p><code>最佳竞价中间价</code>:  (最佳竞买价 + 最佳竞卖价) 的均值</p>
+</li>
+<li><p><code>最佳竞价中间价 = 1/2*（最佳竞买价 + 最佳竞卖价）</code></p>
+</li>
+</ul>
+</p>
+<h6 id='t-pricerangeexample'>有效价格范围</h6>
+<pre class="center-column-nonindent">
+[最佳竞价中间价 - 3 * 价格最小变动单位, 最佳竞价中间价 + 3 * 价格最小变动单位]
+
+举例：
+ BTC最佳竞买价 = 10000
+ BTC最佳竞卖价 = 10001
+ “有效价格”范围：
+ [(10000 + 10001) / 2 - 3* 0.5, (10000 + 10001) / 2 + 3* 0.5] = [9999,10002]
+
+</pre>
+<h6 id='t-pou'>有效价格挂单自占比</h6>
+<p><ul>
+<li><code>有效价格挂单自占比</code>: 定义为该用户在 <code>有效价格 </code> 范围内的挂单数量占该用户在当前时间提交的挂单总数量的比例。</li>
+</ul>
+<p>每秒计算 该用户在<code>有效价格</code>范围内的报挂单数量 /该用户提交的挂单总数量，然后每日计算用户当日占比的平均值。</p>
+</p>
+
+<pre class="center-column-nonindent">
+该用户在<code>有效价格</code>范围内的挂单数量 = 8000
+该用户提交的挂单总数量 = 10000
+有效价格挂单自占比 = 8000 / 10000 = 0.8
+
+</pre>
+<h6 id='t-poa'>有效价格挂单平台占比</h6>
+<p><ul>
+<li><code>有效价格挂单平台占比</code>: 定义为该用户在有效价格范围内的挂单数量占平台所有用户在<code>有效价格</code>范围内的挂单总数量的比例.</li>
+</ul>
+<p>每秒计算 该用户在<code>有效价格</code>范围内的挂单数量 / 平台所有用户在<code>有效价格</code>范围内的挂单总数量，然后每日计算用户当日占比的平均值。</p>
+</p>
+<h6 id='t-poaexample'>有效价格挂单平台占比举例：</h6>
+<p>某一秒，用户在“有效价格”范围：[9999, 10002] 内的挂单有8000张，全平台的交易委托账本在 [9999, 10002] 内的挂单总量为200000。</p>
+
+<pre class="center-column-nonindent">
+该用户在<code>有效价格</code>范围内的挂单数量 = 8000
+平台所有用户在<code>有效价格</code>范围内的挂单总数量 = 200000
+有效价格挂单量平台占比 = 8000 / 200000 = 0.04
+
+</pre>
+
+<aside class="notice">
+如果机制有更新，我们会提前通过官网提前通知。
+</aside>
 <h1 id='t-websocket'>WebSocket接口</h1><h2 id='t-websocketauthentication'>鉴权/认证</h2>
 <blockquote>
 <p>认证方式:
