@@ -37,7 +37,7 @@
 
 ## 2020-02-26
 ### REST API
-- [t(:placev2active)](#t-placev2active) 
+- [t(:placev2active)](#t-placev2active)
     - t(:update_20200226)
 
 ## 2020-02-10

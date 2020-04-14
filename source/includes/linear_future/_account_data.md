@@ -868,12 +868,12 @@ t(:linear_private_trade_records)
 t(:wallet_aside_tradeRecords)
 </aside>
 
-#### t(:httprequest_wallet)
+#### t(:httprequest)
 GET
 <code><span id=vpeList>/private/linear/trade/execution/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpeList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-#### t(:requestparameters_wallet)
+#### t(:requestparameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:misc_row_comment_symbolNotOrderId) |
@@ -952,8 +952,8 @@ t(:wallet_aside_tradeRecords)
 
 #### t(:httprequest_wallet)
 GET
-<code><span id=vpeList>/private/linear/trade/closed-pnl/list</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpeList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=pltcList>/private/linear/trade/closed-pnl/list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pltcList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 #### t(:requestparameters_wallet)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
