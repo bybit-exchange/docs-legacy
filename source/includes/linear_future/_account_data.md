@@ -186,7 +186,7 @@ t(:account_aside_cancelAllActive)
 
 #### t(:httprequest)
 POST
-<code><span id=vpoCancelAll>private/linear/order/cancel-all</span></code>
+<code><span id=vpoCancelAll>/private/linear/order/cancel-all</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancelAll"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 #### t(:requestparameters)
@@ -441,7 +441,7 @@ POST
     "ext_info": "",
     "result": [
         "89a38056-80f1-45b2-89d3-4d8e3a203a79",  
-        "89a38056-80f1-45b2-89d3-4d8e3a203a79", 
+        "89a38056-80f1-45b2-89d3-4d8e3a203a79",
     ],
     "time_now": "1577454993.799912",
     "rate_limit_status": 90,
