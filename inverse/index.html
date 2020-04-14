@@ -895,7 +895,7 @@
                     <a href="#t-understandingratelimits" class="toc-h2 toc-link" data-title="Understanding Your Request Rate Limit">Understanding Your Request Rate Limit</a>
                   </li>
                   <li>
-                    <a href="#t-perendpoint" class="toc-h2 toc-link" data-title="Rate Limits For All Endpoints">Rate Limits For All Endpoints</a>
+                    <a href="#t-perendpoint" class="toc-h2 toc-link" data-title="Rate Limits For All Private Endpoints">Rate Limits For All Private Endpoints</a>
                   </li>
                   <li>
                     <a href="#t-orderlimits" class="toc-h2 toc-link" data-title="Order Limits">Order Limits</a>
@@ -1792,10 +1792,10 @@ The response is in the snapshot format.
     <span class="s2">"rate_limit"</span><span class="p">:</span> <span class="mi">100</span>
 <span class="p">}</span>
 </code></pre>
-<p><p>Market price active order: A traditional market price order, will be filled at the best available price. <code>price</code> is not required for this type of order.</p>
+<p><p>Market price active order: A traditional market price order which will be filled at the best available price. <code>price</code> is not required for this type of order.</p>
 <p>Limit price active order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
-<p><b>Take profit/Stop loss: You may only set a take-profit/stop-loss conditional order upon opening the position. Once you hold a position, any new active order requests which contain TP/SL/TS data will be accepted but TP/SL/TS data will be ignored.</b></p>
-<p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell, currently Bybit only support order quantity in an integer.</p>
+<p><b>Take profit/Stop loss: You may only set a TP/SL conditional order upon opening the position. Once you hold a position, any new active order requests which contain TP/SL data will be accepted but the TP/SL data will be ignored. <code>tp_trigger_by</code>/<code>sl_trigger_by</code> default to LastPrice. Passing values to the <code>take_profit</code> or <code>stop_loss</code> parameters in this endpoint will create conditional orders managed by the system, which will be be automatically cancelled if the position is closed.</b></p>
+<p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell. This must modulo by 0.5 (20 and 21.5 are accepted, but 16.1 or 16.15 are not).</p>
 <p>Order price: If it is a condition order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the price_filter field in the <a href="#t-querysymbol">Query Symbols</a> endpoint.</p>
 <p>Custom order ID: You may customise order IDs for active orders. We will link it to the system order ID, and return the unique system order ID to you after the active order is created successfully. You may use this order ID or your custom order ID to cancel your active order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
 <p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSD instrument and 280 active orders on the ETHUSD instrument. And order with parameter <code>reduce_only</code> or <code>closeOnTrigger</code> is unlimited.</b></p>
@@ -1835,7 +1835,7 @@ The response is in the snapshot format.
 <td style="text-align: left"><a href="#quantity-qty">qty</a></td>
 <td style="text-align: left">true</td>
 <td style="text-align: left">integer</td>
-<td>Order quantity in USD. Integer only</td>
+<td>Order quantity in USD</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#price-price">price</a></td>
@@ -2304,9 +2304,9 @@ Please note that only orders that are unfilled or partially filled can be modifi
     <span class="s2">"rate_limit"</span><span class="p">:</span> <span class="s2">"100"</span>
 <span class="p">}</span>
 </code></pre>
-<p><p>Market price conditional order: A traditional market price order, will be filled at the best available price. 'price' can set to be "" if and only if you are placing market price order.</p>
-<p>Limit price conditional order: You can set an execution price for your order. Only when last traded price reaches the order price, the system will fill your order.</p>
-<p>Take profit/Stop loss: You may only set a take-profit/stop-loss conditional order upon opening the position. Once you hold a position, the take profit and stop loss information u sent when placing an order will no longer be valid.</p>
+<p><p>Market price conditional order: A traditional market price order, will be filled at the best available price. <code>price</code> is not required for this type of order.</p>
+<p>Limit price conditional order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
+<p>Take profit/Stop loss: You may only set a take-profit/stop-loss conditional order upon opening the position. Once you hold a position, the take profit and stop loss information you sent when placing an order will no longer be valid.</p>
 <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell, currently Bybit only support order quantity in an integer.</p>
 <p>Order price: If it is a condition order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the price_filter field in the <a href="#t-querysymbol">Query Symbols</a> endpoint.</p>
 <p>Conditional order trigger price: You may set a trigger price for your conditional order. conditional order will not enter the order book until the last price hits the trigger price. When last price hits trigger price: 1) your limit conditional order will enter order book, and wait to be executed; 2) your market conditional order will be executed immediately at the best available market price.</p>
@@ -2351,7 +2351,7 @@ Take profit/Stop loss is not supported in placing conditional orders. One can on
 <td style="text-align: left"><a href="#quantity-qty">qty</a></td>
 <td style="text-align: left">true</td>
 <td style="text-align: left">integer</td>
-<td>Order quantity in USD. Integer only</td>
+<td>Order quantity in USD</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#price-price">price</a></td>
@@ -3581,7 +3581,7 @@ Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles
     <span class="s2">"rate_limit"</span><span class="p">:</span> <span class="mi">120</span>
 <span class="p">}</span>
 </code></pre>
-<p>Get wallet fund records.</p>
+<p>Get wallet fund records. This endpoint also shows exchanges from the <a href="https://testnet.bybit.com/app/assets/assets-exchange">Asset Exchange</a>, where the <code>type</code>s for the exchange are <code>ExchangeOrderWithdraw</code> and <code>ExchangeOrderDeposit</code>.</p>
 
 <aside class="notice">
 Find more detail for types <code>Withdraw</code> and <code>Refund</code> in the <a href="#t-withdrawrecords">Withdraw Records</a> endpoint.
@@ -3677,9 +3677,9 @@ Find more detail for types <code>Withdraw</code> and <code>Refund</code> in the 
 <p>Get withdrawal records.</p>
 
 <aside class="notice">
-The difference between data returned by this endpoint and data of type <code>Withdraw</code> in the <a href="#t-wallet-t-key-t-walletrecords">Wallet Fund Records</a> endpoint:<p></p>
+The difference between data returned by this endpoint and data of type <code>Withdraw</code> in the <a href="#t-walletrecords">Wallet Fund Records</a> endpoint:<p></p>
 <p>This endpoint provides one withdrawal operation per record, and you can check the current withdrawal state with the <code>status</code> field.</p>
-<p>Once you have submitted a withdrawal application, there will be a record with type <code>Withdraw</code>, and if the application is <code>CancelByUser</code>, <code>Reject</code> or <code>Expire</code> in the <a href="#t-wallet-t-key-t-walletrecords">Wallet Fund Records</a> endpoint, with a corresponding record with type <code>Refund</code>.</p>
+<p>Once you have submitted a withdrawal application, there will be a record with type <code>Withdraw</code>, and if the application is <code>CancelByUser</code>, <code>Reject</code> or <code>Expire</code> in the <a href="#t-walletrecords">Wallet Fund Records</a> endpoint, with a corresponding record with type <code>Refund</code>.</p>
 
 </aside>
 <h4 id='t-httprequest_wallet-3'>HTTP Request</h4>
@@ -3915,7 +3915,7 @@ One order may have multiple trade records.
 </ul>
 </p>
 <h3 id='t-understandingratelimits'>Understanding Your Request Rate Limit</h3>
-<p>Bybit makes frequency limits based on <b> the tumbling time window per minute and uid</b>. Every request to the API returns the fields shown in the code panel:
+<p>Bybit makes frequency limits based on <b>the rolling time window per minute and UID</b>. Every request to the API returns the fields shown in the code panel:
 </p>
 <pre class="highlight plaintext"><code>"rate_limit_status": 119,
 "rate_limit_reset_ms": 1572114055663,
@@ -3926,7 +3926,7 @@ One order may have multiple trade records.
 <li><code>rate_limit</code> - your current limit for current endpoint</li>
 <li><code>rate_limit_reset_ms</code> - the timestamp indicating when your request limit resets if you have exceeded your rate_limit. Otherwise, this is just the current timestamp.</li>
 </ul>
-<h3 id='t-perendpoint'>Rate Limits For All Endpoints</h3>
+<h3 id='t-perendpoint'>Rate Limits For All Private Endpoints</h3>
 <table class="custom_table">
   <tr>
     <th>limit</th>
@@ -3967,11 +3967,13 @@ One order may have multiple trade records.
   <tr><td>position/change-position-margin </td><td>1 / request</td></tr>
   <tr><td>position/trading-stop           </td><td>1 / request</td></tr>
   <tr>
-    <td rowspan="2">120/min</td>
+    <td rowspan="4">120/min</td>
     <td>position/list  </td>
     <td>1 / request</td>
   </tr>
   <tr><td>user/leverage</td><td>1 / request</td></tr>
+  <tr><td>v2/private/position/list</td><td>1 / request</td></tr>
+    <tr><td>v2/private/wallet/balance</td><td>1 / request</td></tr>
   <tr>
     <td rowspan="3">120/min</td>
     <td>open-api/funding/prev-funding-rate  </td>
