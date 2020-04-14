@@ -28,7 +28,7 @@ en:
     From ID. Default: return latest data
   row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page
   row_comment_orderType: Active order type
-  row_comment_qty: Order quantity in USD. Integer only
+  row_comment_qty: Order quantity in USD
   row_comment_price: Order price. <b>Required</b> if you make limit price order
   row_comment_stopOrderPrice: Execution price for conditional order. Required if you make limit price order
   row_comment_basePrice: It will be used to compare with the value of <code>stop_px</code>, to decide whether your conditional order will be triggered by crossing trigger price from upper side or lower side. Mainly used to identify the expected direction of the current conditional order.
@@ -237,10 +237,10 @@ en:
   ### Place Active Order V2
   placev2active: Place Active Order V2
   account_para_placeActive: |
-    <p>Market price active order: A traditional market price order, will be filled at the best available price. <code>price</code> is not required for this type of order.</p>
+    <p>Market price active order: A traditional market price order which will be filled at the best available price. <code>price</code> is not required for this type of order.</p>
     <p>Limit price active order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
-    <p><b>Take profit/Stop loss: You may only set a take-profit/stop-loss conditional order upon opening the position. Once you hold a position, any new active order requests which contain TP/SL/TS data will be accepted but TP/SL/TS data will be ignored.</b></p>
-    <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell, currently Bybit only support order quantity in an integer.</p>
+    <p><b>Take profit/Stop loss: You may only set a TP/SL conditional order upon opening the position. Once you hold a position, any new active order requests which contain TP/SL data will be accepted but the TP/SL data will be ignored. <code>tp_trigger_by</code>/<code>sl_trigger_by</code> default to LastPrice. Passing values to the <code>take_profit</code> or <code>stop_loss</code> parameters in this endpoint will create conditional orders managed by the system, which will be be automatically cancelled if the position is closed.</b></p>
+    <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell. This must modulo by 0.5 (20 and 21.5 are accepted, but 16.1 or 16.15 are not).</p>
     <p>Order price: If it is a condition order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the price_filter field in the <a href="#t-querysymbol">Query Symbols</a> endpoint.</p>
     <p>Custom order ID: You may customise order IDs for active orders. We will link it to the system order ID, and return the unique system order ID to you after the active order is created successfully. You may use this order ID or your custom order ID to cancel your active order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
     <p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSD instrument and 280 active orders on the ETHUSD instrument. And order with parameter <code>reduce_only</code> or <code>closeOnTrigger</code> is unlimited.</b></p>
@@ -279,9 +279,9 @@ en:
   ### Place Conditional Order
   placecond: Place Conditional Order
   account_para_placeCond: |
-    <p>Market price conditional order: A traditional market price order, will be filled at the best available price. 'price' can set to be "" if and only if you are placing market price order.</p>
-    <p>Limit price conditional order: You can set an execution price for your order. Only when last traded price reaches the order price, the system will fill your order.</p>
-    <p>Take profit/Stop loss: You may only set a take-profit/stop-loss conditional order upon opening the position. Once you hold a position, the take profit and stop loss information u sent when placing an order will no longer be valid.</p>
+    <p>Market price conditional order: A traditional market price order, will be filled at the best available price. <code>price</code> is not required for this type of order.</p>
+    <p>Limit price conditional order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
+    <p>Take profit/Stop loss: You may only set a take-profit/stop-loss conditional order upon opening the position. Once you hold a position, the take profit and stop loss information you sent when placing an order will no longer be valid.</p>
     <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell, currently Bybit only support order quantity in an integer.</p>
     <p>Order price: If it is a condition order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the price_filter field in the <a href="#t-querysymbol">Query Symbols</a> endpoint.</p>
     <p>Conditional order trigger price: You may set a trigger price for your conditional order. conditional order will not enter the order book until the last price hits the trigger price. When last price hits trigger price: 1) your limit conditional order will enter order book, and wait to be executed; 2) your market conditional order will be executed immediately at the best available market price.</p>
@@ -372,16 +372,16 @@ en:
    <p>The formula of position margin on website: <code>position_margin</code> + <code>occ_funding_fee</code> + loss(when your <code>available_balance</code> is insufficient)</p>
   ### Wallet Fund Records
   walletrecords: Wallet Fund Records
-  wallet_para_walletRecords: Get wallet fund records.
+  wallet_para_walletRecords: Get wallet fund records. This endpoint also shows exchanges from the <a href="https://testnet.bybit.com/app/assets/assets-exchange">Asset Exchange</a>, where the <code>type</code>s for the exchange are <code>ExchangeOrderWithdraw</code> and <code>ExchangeOrderDeposit</code>.
   wallet_aside_walletRecords: |
     Find more detail for types <code>Withdraw</code> and <code>Refund</code> in the <a href="#t-withdrawrecords">Withdraw Records</a> endpoint.
   ### Withdraw Records
   withdrawrecords: Withdraw Records
   wallet_para_withdrawRecords: Get withdrawal records.
   wallet_aside_withdrawRecords: |
-    The difference between data returned by this endpoint and data of type <code>Withdraw</code> in the <a href="#t-wallet-t-key-t-walletrecords">Wallet Fund Records</a> endpoint:<p></p>
+    The difference between data returned by this endpoint and data of type <code>Withdraw</code> in the <a href="#t-walletrecords">Wallet Fund Records</a> endpoint:<p></p>
     <p>This endpoint provides one withdrawal operation per record, and you can check the current withdrawal state with the <code>status</code> field.</p>
-    <p>Once you have submitted a withdrawal application, there will be a record with type <code>Withdraw</code>, and if the application is <code>CancelByUser</code>, <code>Reject</code> or <code>Expire</code> in the <a href="#t-wallet-t-key-t-walletrecords">Wallet Fund Records</a> endpoint, with a corresponding record with type <code>Refund</code>.</p>
+    <p>Once you have submitted a withdrawal application, there will be a record with type <code>Withdraw</code>, and if the application is <code>CancelByUser</code>, <code>Reject</code> or <code>Expire</code> in the <a href="#t-walletrecords">Wallet Fund Records</a> endpoint, with a corresponding record with type <code>Refund</code>.</p>
   ### User Trade Records
   usertraderecords: User Trade Records
   wallet_para_tradeRecords: Get user's trading records. The results are ordered in ascending order (the first item is the oldest).
@@ -430,12 +430,12 @@ en:
   ### Account rate limit
   understandingratelimits: Understanding Your Request Rate Limit
   rate_para_understanding: |
-    Bybit makes frequency limits based on <b> the tumbling time window per minute and uid</b>. Every request to the API returns the fields shown in the code panel:
+    Bybit makes frequency limits based on <b>the rolling time window per minute and UID</b>. Every request to the API returns the fields shown in the code panel:
   rate_text_limitStatus_understanding: your remaining requests for current endpoint
   rate_text_limit_understanding: your current limit for current endpoint
   rate_text_limitReset: the timestamp indicating when your request limit resets if you have exceeded your rate_limit. Otherwise, this is just the current timestamp.
   ### Rate Limits For All Endpoints
-  perendpoint: Rate Limits For All Endpoints
+  perendpoint: Rate Limits For All Private Endpoints
   ### Order Limits
   orderlimits: Order Limits
   rate_para_limits: |
@@ -1019,7 +1019,7 @@ en:
   err_130063: can not set pz open limit less than current sell pz value
   err_130064: just support usdt
   err_130074: expect Rising, trigger_price <= current
-  err_130075: expect Falling, trigger_price>= current
+  err_130075: expect Falling, trigger_price >= current
   err_130076: replace params invalid
   err_130077: the deposit req has handled
   err_130078: the withdraw req has handled
@@ -1027,7 +1027,7 @@ en:
   err_130101: unknown request for create order
   err_130102: unknown request for cancel order
   err_130103: unknown request for cancelAll
-  err_130104: unknown request for LiqExecuteReq ,req param not match liqExecuteReq
+  err_130104: unknown request for LiqExecuteReq, req param not match liqExecuteReq
   err_130105: unknown request for pre create order
   err_130106: unknown req for query order
   err_130107: unmatch request for triggeredToActiveImpl
@@ -1063,26 +1063,26 @@ en:
   linear_row_comment_closeOnTrigger: <a href="https://help.bybit.com/hc/en-us/articles/360039260534-What-is-a-close-on-trigger-Order-">  What is a close on trigger order?</a> For a closing order. It can only reduce your position, not increase it. If the account has insufficient available balance when the closing order is triggered, then other active orders of similar contracts will be cancelled or reduced. It can be used to ensure your stop loss reduces your position regardless of current available margin.
   linear_place_active: Place Active Order
   linear_account_para_placeActive: |
-    <p>Market price active order: A traditional market price order, will be filled at the best available price. <code>price</code> is not required for this type of order.</p>
+    <p>Market price active order: A traditional market price order which will be filled at the best available price. <code>price</code> is not required for this type of order.</p>
     <p>Limit price active order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
-    <p><b>Take profit/Stop loss: You may only set a take-profit/stop-loss conditional order upon opening the position. Once you hold a position, any new active order requests which contain TP/SL/TS data will be accepted but TP/SL/TS data will be ignored. If not set tp_trigger_by/sl_trigger_by when you set TP/SL/TS, It will use LastPrice as default value</b></p>
-    <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell, currently Bybit only support order quantity in an integer.</p>
+    <p><b>Take profit/Stop loss: You may only set a TP/SL conditional order upon opening the position. Once you hold a position, any new active order requests which contain TP/SL data will be accepted but TP/SL data will be ignored. <code>tp_trigger_by</code>/<code>sl_trigger_by</code> default to LastPrice. Passing values to the <code>take_profit</code> or <code>stop_loss</code> parameters in this endpoint will create conditional orders managed by the system, which will be be automatically cancelled if the position is closed.</b></p>
+    <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell. This must modulo by 0.5 (20 and 21.5 are accepted, but 16.1 or 16.15 are not).</p>
     <p>Order price: If it is a condition order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the price_filter field in the <a href="#t-querysymbol">Query Symbols</a> endpoint.</p>
     <p>Custom order ID: You may customise order IDs for active orders. We will link it to the system order ID, and return the unique system order ID to you after the active order is created successfully. You may use this order ID or your custom order ID to cancel your active order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
     <p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSDT instrument and 280 active orders on the ETHUSDT instrument. And order with parameter <code>reduce_only</code> or <code>closeOnTrigger</code> is unlimited.</b></p>
   linear_row_comment_basePrice: It will be used to compare with the value of <code>stop_px</code>, to decide whether your conditional order will be triggered by crossing trigger price from upper side or lower side. Mainly used to identify the expected direction of the current conditional order.
-  linear_row_comment_StopPx: Trigger price
+  linear_row_comment_stopPx: Trigger price
 
   linear_set_auto_add_margin: Set auto add margin
-  linear_account_para_setAutoAddMargin: Set Auto add margin.
+  linear_account_para_setAutoAddMargin: Set auto add margin
   linear_row_comment_set_auto_margin: Auto add margin button
 
   linear_set_leverage: Set Leverage
   linear_account_para_setLeverage: Set Leverage
-  linear_row_comment_leverage: Must be greater than 0 and less than the risk limit leverage
+  linear_row_comment_leverage: Must be greater than 0 and less than the <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>.
 
   linear_switch_isolated: Cross/Isolated margin switch
-  linear_account_para_switchIsolated: Switch Cross/Isolated, it must be leverage value when switch Cross to Isolated
+  linear_account_para_switchIsolated: Switch Cross/Isolated; must be leverage value when switching from Cross to Isolated
   linear_row_comment_switch_isolated: Cross/Isolated<span>:</span> true is Isolated; false is Cross
 
   linearAddMargin: Add Margin
