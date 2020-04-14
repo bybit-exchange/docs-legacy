@@ -1,5 +1,16 @@
 # t(:changelog)
 
+## 2020-04-14
+### REST API
+- [t(:linear_prve_funding)](#t-linear_prve_funding) [t(:changelog_new)]
+- [t(:linear_set_auto_add_margin)](#t-linear_set_auto_add_margin) [t(:changelog_new)]
+- [t(:tradingstop)](#t-tradingstop) [t(:changelog_new)]
+- [t(:linear_add_margin)](#t-linear_add_margin) [t(:changelog_new)]
+- [t(:usertraderecords)](#t-usertraderecords) [t(:changelog_new)]
+- [t(:linear_closed_pnl)](#t-linear_closed_pnl) [t(:changelog_new)]
+- [t(:getrisklimit)](#t-getrisklimit) [t(:changelog_new)]
+
+
 ## 2020-04-09
 ### REST API
 - [t(:conditionalorders)](#t-conditionalorders) [t(:changelog_new)]
