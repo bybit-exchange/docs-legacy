@@ -7,7 +7,7 @@
 - [t(:tradingstop)](#t-tradingstop) [t(:changelog_new)]
 - [t(:linear_add_margin)](#t-linear_add_margin) [t(:changelog_new)]
 - [t(:usertraderecords)](#t-usertraderecords) [t(:changelog_new)]
-- [t(:linear_closed_pnl)](#t-linear_closed_pnl) [t(:changelog_new)]
+- [t(:closedprofitandloss)](#t-closedprofitandloss) [t(:changelog_new)]
 - [t(:getrisklimit)](#t-getrisklimit) [t(:changelog_new)]
 
 

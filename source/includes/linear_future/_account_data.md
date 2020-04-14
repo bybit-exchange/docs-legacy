@@ -902,7 +902,7 @@ GET
 
 
 
-### t(:linear_closed_pnl)
+### t(:closedprofitandloss)
 > t(:codequote_responseExample)
 
 ```javascript
