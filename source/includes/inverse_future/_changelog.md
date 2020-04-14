@@ -1,5 +1,10 @@
 # t(:changelog)
-    
+
+## 2020-04-14
+### REST API
+- [t(:querysymbol)](#t-querysymbol) [t(:changelog_update)]
+   - t(:restapi_update_20200414)
+        
 ## 2020-03-31
 ### REST API
 - [t(:balance)](#t-balance) [t(:changelog_update)]
@@ -32,7 +37,7 @@
 
 ## 2020-02-26
 ### REST API
-- [t(:placev2active)](#t-placev2active) 
+- [t(:placev2active)](#t-placev2active)
     - t(:update_20200226)
 
 ## 2020-02-10

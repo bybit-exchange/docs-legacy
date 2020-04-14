@@ -186,7 +186,7 @@ t(:account_aside_cancelAllActive)
 
 #### t(:httprequest)
 POST
-<code><span id=vpoCancelAll>private/linear/order/cancel-all</span></code>
+<code><span id=vpoCancelAll>/private/linear/order/cancel-all</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancelAll"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 #### t(:requestparameters)
@@ -441,7 +441,7 @@ POST
     "ext_info": "",
     "result": [
         "89a38056-80f1-45b2-89d3-4d8e3a203a79",  
-        "89a38056-80f1-45b2-89d3-4d8e3a203a79", 
+        "89a38056-80f1-45b2-89d3-4d8e3a203a79",
     ],
     "time_now": "1577454993.799912",
     "rate_limit_status": 90,
@@ -597,19 +597,20 @@ GET
 
 
 
-<!-- 
 ### t(:linear_set_auto_add_margin)
 > t(:codequote_responseExample)
 
 ```javascript
 {
-    "ret_code":0,
-    "ret_msg":"OK",
-    "ext_code":"",
-    "ext_info":"",
-    "result":"",
-    "time_now":"1584598087.951359",
-    "token":null
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "ext_info": "",
+    "result": null,
+    "time_now": "1586780385.549188",
+    "rate_limit_status": 74,
+    "rate_limit_reset_ms": 1586780385547,
+    "rate_limit": 75
 }
 ```
 
@@ -625,8 +626,7 @@ POST
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
 |<a href="#side-side">side</a> |true |string |t(:row_comment_side)    |
-|auto_add_margin |bool |string |t(:linear_row_comment_set_auto_margin)  |
--->
+|auto_add_margin |true |bool |t(:linear_row_comment_set_auto_margin)  |
 
 
 ### t(:linear_set_leverage)
@@ -682,6 +682,18 @@ POST
 
 t(:linear_account_para_switchIsolated)
 
+
+
+
+
+
+
+
+
+
+
+
+
 #### t(:httprequest)
 POST
 <code><span id=pSwitchIsolated>/private/linear/position/switch-isolated</span></code>
@@ -696,19 +708,20 @@ POST
 |sell_leverage |true |number |t(:linear_row_comment_leverage)  |
 
 
-<!--
 ### t(:tradingstop)
 > t(:codequote_responseExample)
 
 ```javascript
 {
-    "ret_code":0,
-    "ret_msg":"OK",
-    "ext_code":"",
-    "ext_info":"",
-    "result":"",
-    "time_now":"1584598087.951359",
-    "token":null
+  "ret_code": 0,
+  "ret_msg": "OK",
+  "ext_code": "",
+  "ext_info": "",
+  "result": null,
+  "time_now": "1586780408.193508",
+  "rate_limit_status": 73,
+  "rate_limit_reset_ms": 1586780408191,
+  "rate_limit": 75
 }
 ```
 
@@ -720,7 +733,7 @@ t(:account_aside_tradingStop)
 
 #### t(:httprequest)
 POST
-<code><span id=pSetTpSlTs>/private/linear/position/set-tp-sl-ts</span></code>
+<code><span id=pSetTpSlTs>/private/linear/position/trading-stop</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pSetTpSlTs"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 #### t(:requestparameters)
@@ -736,34 +749,53 @@ POST
 
 
 
-### t(:linearAddMargin)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### t(:linear_add_margin)
 > t(:codequote_responseExample)
 
 ```javascript
 {
-    "ret_code":0,
-    "ret_msg":"OK",
-    "ext_code":"",
-    "ext_info":"",
-    "result":{
-         "user_id":100004,
-         "symbol":"BTCUSDT",
-         "side":"Buy",
-         "size":0,
-         "position_value":0,
-         "entry_price":0,
-         "liq_price":1,
-         "bust_price":100,
-         "leverage":0,
-         "position_margin":0,
-         "occ_closing_fee":0,
-         "realised_pnl":0,
-         "cum_realised_pnl":0,
-         "wallet_balance":"",
-         "available_balance":"",
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "ext_info": "",
+    "result": {
+        "PositionListResult": {
+            "user_id": 160815,
+            "symbol": "BTCUSDT",
+            "side": "Buy",
+            "size": 3.14,
+            "position_value": 18843.14,
+            "entry_price": 6001,
+            "liq_price": 5428,
+            "bust_price": 5398,
+            "leverage": 10,
+            "position_margin": 1907.0331195,
+            "occ_closing_fee": 12.71229,
+            "realised_pnl": 3052.20905294,
+            "cum_realised_pnl": 75628.40815795,
+            "free_qty": 0
+        },
+        "wallet_balance": 68738.01696765,
+        "available_balance": 66830.98384815
     },
-    "time_now":"1584598087.951359",
-    "token":null
+     "time_now": "1577480599.097287",
+     "rate_limit_status": 119,
+     "rate_limit_reset_ms": 1580885703683,
+     "rate_limit": 120
 }
 ```
 
@@ -781,6 +813,483 @@ POST
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 |<a href="#side-side">side</a> |true |string |t(:row_comment_side)    |
 |margin |true |number |t(:linear_account_row_comment_margin) |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### t(:usertraderecords)
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+        "ret_msg": "OK",
+        "ext_code": "",
+        "ext_info": "",
+        "result": {
+            "current_page": 1,
+            "data": [
+                {
+                    "order_id": "5195243c-e613-4974-a97e-e1d1eaf51b4c",
+                    "side": "Buy",
+                    "symbol": "BTCUSDT",
+                    "exec_id": "2bc03d9e-bc46-54bf-a319-fe6931c84bc2",
+                    "price": 6100,
+                    "order_qty": 0.01,
+                    "exec_type": "Trade",
+                    "exec_qty": 0.01,
+                    "exec_fee": 0.0450075,
+                    "trade_time": 1577480599
+                }
+            ]
+        },
+        "time_now": "1577480599.097287",
+        "rate_limit_status": 119,
+        "rate_limit_reset_ms": 1580885703683,
+        "rate_limit": 120
+    }
+
+}
+```
+
+t(:linear_private_trade_records)
+
+<aside class="notice">
+t(:wallet_aside_tradeRecords)
+</aside>
+
+#### t(:httprequest)
+GET
+<code><span id=vpeList>/private/linear/trade/execution/list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpeList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+#### t(:requestparameters)
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:misc_row_comment_symbolNotOrderId) |
+|start_time |false |int |t(:row_comment_startTime) |
+|end_time |false |int |t(:row_comment_endTime) |
+|<a href="#exec-type-exec_type">exec_type</a> |false |string |t(:linear_exec_type) |
+|page |false |integer |t(:row_comment_page) |
+|limit |false |integer |t(:linear_row_comment_limit) |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### t(:closedprofitandloss)
+> t(:codequote_responseExample)
+
+```javascript
+{
+     "ret_code": 0,
+     "ret_msg": "OK",
+     "ext_code": "",
+     "ext_info": "",
+     "result": {
+         "current_page": 1,
+         "data": [
+             {
+                 "id": 1710,
+                 "user_id": 160815,
+                 "symbol": "BTCUSDT",
+                 "order_id": "e6a11e08-6dd0-404e-bea7-dc22b7ab0228",
+                 "side": "Buy",
+                 "qty": 0.5,
+                 "order_price": 999999,
+                 "order_type": "Market",
+                 "exec_type": "Trade",
+                 "closed_size": 0.5,
+                 "cum_entry_value": 3000,
+                 "avg_entry_price": 6000,
+                 "cum_exit_value": 3000.5,
+                 "avg_exit_price": 6001,
+                 "closed_pnl": -5.000375,
+                 "fill_count": 1,
+                 "leverage": 100,
+                 "created_at": 1577480599
+             }
+         ]
+     },
+     "time_now": "1577480599.097287",
+     "rate_limit_status": 119,
+     "rate_limit_reset_ms": 1580885703683,
+     "rate_limit": 120
+
+}
+```
+
+t(:linear_private_closed_pnl_records)
+
+<aside class="notice">
+t(:wallet_aside_tradeRecords)
+</aside>
+
+#### t(:httprequest_wallet)
+GET
+<code><span id=pltcList>/private/linear/trade/closed-pnl/list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pltcList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+#### t(:requestparameters_wallet)
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:misc_row_comment_symbolNotOrderId) |
+|start_time |false |int |t(:row_comment_startTime) |
+|end_time |false |int |t(:row_comment_endTime) |
+|<a href="#exec-type-exec_type">exec_type</a> |false |string |t(:linear_exec_type) |
+|page |false |integer |t(:row_comment_page) |
+|limit |false |integer |t(:linear_row_comment_limit) |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## t(:risklimit)
+
+### t(:getrisklimit)
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "ext_info": "",
+    "result": [
+        {
+            "id": 1,
+            "symbol": "BTCUSDT",
+            "limit": 1000000,
+            "maintain_margin": 0.005,
+            "starting_margin": 0.01,
+            "section": [
+                "1",
+                "2",
+                "3",
+                "5",
+                "10",
+                "25",
+                "50",
+                "100"
+            ],
+            "is_lowest_risk": 1,
+            "created_at": "2020-01-06T09:45:28.000Z",
+            "updated_at": "2020-01-06T09:45:28.000Z"
+        },
+        {
+            "id": 2,
+            "symbol": "BTCUSDT",
+            "limit": 1500000,
+            "maintain_margin": 0.01,
+            "starting_margin": 0.015,
+            "section": [
+                "1",
+                "2",
+                "3",
+                "5",
+                "10",
+                "25",
+                "50",
+                "66"
+            ],
+            "is_lowest_risk": 0,
+            "created_at": "2020-01-06T09:45:28.000Z",
+            "updated_at": "2020-01-06T09:45:28.000Z"
+        },
+        {
+            "id": 3,
+            "symbol": "BTCUSDT",
+            "limit": 2000000,
+            "maintain_margin": 0.015,
+            "starting_margin": 0.02,
+            "section": [
+                "1",
+                "2",
+                "3",
+                "5",
+                "10",
+                "25",
+                "33",
+                "50"
+            ],
+            "is_lowest_risk": 0,
+            "created_at": "2020-01-06T09:45:28.000Z",
+            "updated_at": "2020-01-06T09:45:28.000Z"
+        },
+        {
+            "id": 4,
+            "symbol": "BTCUSDT",
+            "limit": 2500000,
+            "maintain_margin": 0.02,
+            "starting_margin": 0.025,
+            "section": [
+                "1",
+                "2",
+                "3",
+                "5",
+                "10",
+                "25",
+                "33",
+                "40"
+            ],
+            "is_lowest_risk": 0,
+            "created_at": "2020-01-06T09:45:28.000Z",
+            "updated_at": "2020-01-06T09:45:28.000Z"
+        },
+        {
+            "id": 5,
+            "symbol": "BTCUSDT",
+            "limit": 3000000,
+            "maintain_margin": 0.025,
+            "starting_margin": 0.03,
+            "section": [
+                "1",
+                "2",
+                "3",
+                "5",
+                "10",
+                "15",
+                "25",
+                "33"
+            ],
+            "is_lowest_risk": 0,
+            "created_at": "2020-01-06T09:45:28.000Z",
+            "updated_at": "2020-01-06T09:45:28.000Z"
+        },
+        {
+            "id": 6,
+            "symbol": "BTCUSDT",
+            "limit": 3500000,
+            "maintain_margin": 0.03,
+            "starting_margin": 0.035,
+            "section": [
+                "1",
+                "2",
+                "3",
+                "5",
+                "10",
+                "15",
+                "20",
+                "28"
+            ],
+            "is_lowest_risk": 0,
+            "created_at": "2020-01-06T09:45:28.000Z",
+            "updated_at": "2020-01-06T09:45:28.000Z"
+        },
+        {
+            "id": 7,
+            "symbol": "BTCUSDT",
+            "limit": 4000000,
+            "maintain_margin": 0.035,
+            "starting_margin": 0.04,
+            "section": [
+                "1",
+                "2",
+                "3",
+                "5",
+                "10",
+                "15",
+                "20",
+                "25"
+            ],
+            "is_lowest_risk": 0,
+            "created_at": "2020-01-06T09:45:28.000Z",
+            "updated_at": "2020-01-06T09:45:28.000Z"
+        },
+        {
+            "id": 8,
+            "symbol": "BTCUSDT",
+            "limit": 4500000,
+            "maintain_margin": 0.04,
+            "starting_margin": 0.045,
+            "section": [
+                "1",
+                "2",
+                "3",
+                "5",
+                "10",
+                "15",
+                "20",
+                "22"
+            ],
+            "is_lowest_risk": 0,
+            "created_at": "2020-01-06T09:45:28.000Z",
+            "updated_at": "2020-01-06T09:45:28.000Z"
+        },
+        {
+            "id": 9,
+            "symbol": "BTCUSDT",
+            "limit": 5000000,
+            "maintain_margin": 0.045,
+            "starting_margin": 0.05,
+            "section": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "10",
+                "15",
+                "20"
+            ],
+            "is_lowest_risk": 0,
+            "created_at": "2020-01-06T09:45:28.000Z",
+            "updated_at": "2020-01-06T09:45:28.000Z"
+        },
+        {
+            "id": 10,
+            "symbol": "BTCUSDT",
+            "limit": 5500000,
+            "maintain_margin": 0.05,
+            "starting_margin": 0.055,
+            "section": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "10",
+                "15",
+                "18"
+            ],
+            "is_lowest_risk": 0,
+            "created_at": "2020-01-06T09:45:29.000Z",
+            "updated_at": "2020-01-06T09:45:29.000Z"
+        }
+    ],
+    "time_now": "1586780586.850288"
+}
+```
+
+t(:wallet_para_getRisk)
+
+<aside class="notice">
+t(:wallet_aside_getRisk)
+</aside>
+
+#### t(:httprequest1)
+GET
+<code><span id=oawrlList>/public/linear/risk-limit</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawrlList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+#### t(:requestparameters1)
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## t(:funding)
+### t(:linear_prve_funding)
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/private/linear/funding/prev-funding?symbol=BTCUSDT
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "ext_info": "",
+    "result": {
+        "symbol": "BTCUSDT",
+        "side": "Buy",
+        "size": 3.13,
+        "funding_rate": 0.0001,
+        "exec_fee": 1.868923,
+        "exec_time": "2020-04-13T08:00:00.000Z"
+    },
+    "time_now": "1586780352.867171",
+    "rate_limit_status": 119,
+    "rate_limit_reset_ms": 1586780352864,
+    "rate_limit": 120
+}
+```
+
+t(:market_para_records)
+
+#### t(:httprequest)
+GET
+<code><span id=vpPreFunding>/private/linear/funding/prev-funding</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpPreFunding"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+#### t(:requestparameters)
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -832,4 +1341,3 @@ GET
 #### t(:requestparameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
- -->
