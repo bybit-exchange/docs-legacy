@@ -849,7 +849,7 @@ POST
                     "exec_type": "Trade",
                     "exec_qty": 0.01,
                     "exec_fee": 0.0450075,
-                    "trade_time": "2020-04-13T08:01:34Z"
+                    "trade_time": 1577480599
                 }
             ]
         },
@@ -932,7 +932,7 @@ GET
                  "closed_pnl": -5.000375,
                  "fill_count": 1,
                  "leverage": 100,
-                 "created_at": "2020-04-10T04:10:04Z"
+                 "created_at": 1577480599
              }
          ]
      },
