@@ -392,7 +392,7 @@ t(:websocket_aside_instrumentInfo2)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op": "subscribe", "args": ["trade"]}')
+ws.send('{"op": "subscribe", "args": ["trade.BTCUSDT"]}')
 ```
 
 > t(:codequote_responseExampleFormatAll)
