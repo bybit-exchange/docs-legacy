@@ -21,7 +21,7 @@
 - [t(:linear_switch_isolated)](#t-linear_switch_isolated) [t(:changelog_new)]
 - [t(:querykline)](#t-querykline) [t(:changelog_new)]
 - [t(:publictradingrecords)](#t-publictradingrecords) [t(:changelog_new)]
-- [t(:linear_prev_funding_rate)](#t-linear_prev_funding_rate) [t(:changelog_new)]
+- [t(:fundingrate)](#t-fundingrate) [t(:changelog_new)]
 - [t(:linear_place_active)](#t-linear_place_active) [t(:changelog_update)]
     - t(:linear_order___20200403)
     - t(:linear_order_fix_order_type___20200403)

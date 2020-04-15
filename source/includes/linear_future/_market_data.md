@@ -119,7 +119,7 @@ GET
 
 
 
-### t(:linear_prev_funding_rate)
+### t(:fundingrate)
 > t(:codequote_curlExample)
 
 ```console
