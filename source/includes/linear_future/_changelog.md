@@ -22,7 +22,7 @@
 - [t(:querykline)](#t-querykline) [t(:changelog_new)]
 - [t(:publictradingrecords)](#t-publictradingrecords) [t(:changelog_new)]
 - [t(:fundingrate)](#t-fundingrate) [t(:changelog_new)]
-- [t(:placev2active)](#t-placev2active) [t(:changelog_update)]
+- [t(:placeactive)](#t-placeactive) [t(:changelog_update)]
     - t(:linear_order___20200403)
     - t(:linear_order_fix_order_type___20200403)
 - [t(:getactive)](#t-getactive) [t(:changelog_update)]
@@ -31,7 +31,7 @@
 - [t(:queryactive)](#t-queryactive) [t(:changelog_update)]
     - t(:linear_order___20200403)
     - t(:linear_order_fix_order_type___20200403)
-- [t(:mypositionv2)](#t-position) [t(:changelog_update)]
+- [t(:myposition)](#t-position) [t(:changelog_update)]
     - t(:linear_poistion___20200403)
 
 ## 2020-03-31
@@ -49,8 +49,8 @@
 
 ## 2020-03-27
 ### REST API
-- [t(:placev2active)](#t-activeorders) [t(:changelog_new)]
-- [t(:mypositionv2)](#t-position) [t(:changelog_new)]
+- [t(:placeactive)](#t-activeorders) [t(:changelog_new)]
+- [t(:myposition)](#t-position) [t(:changelog_new)]
 
 ### Websocket API
 - [t(:websocketorderbook25)](#t-websocketorderbook25) [t(:changelog_new)]

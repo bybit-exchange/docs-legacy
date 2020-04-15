@@ -37,7 +37,7 @@
 
 ## 2020-02-26
 ### REST API
-- [t(:placev2active)](#t-placev2active)
+- [t(:placeactive)](#t-placeactive)
     - t(:update_20200226)
 
 ## 2020-02-10
@@ -62,7 +62,7 @@
 ## 2019-12-18
 
 ### REST API
-- [t(:mypositionv2)](#t-mypositionv2) [t(:changelog_new)]
+- [t(:myposition)](#t-myposition) [t(:changelog_new)]
 
 ### Websocket API
 - [t(:websocketorderbook200)](#t-websocketorderbook200) [t(:changelog_new)]
@@ -77,8 +77,8 @@
 ## 2019-12-02
 
 ### REST API
-- [t(:placev2active)](#t-placev2active) [t(:changelog_new)]
-- [t(:cancelv2active)](#t-cancelv2active) [t(:changelog_new)]
+- [t(:placeactive)](#t-placeactive) [t(:changelog_new)]
+- [t(:cancelactive)](#t-cancelactive) [t(:changelog_new)]
 - [t(:cancelallactive)](#t-cancelallactive) [t(:changelog_new)]
 - [t(:cancelallcond)](#t-cancelallcond) [t(:changelog_new)]
 
@@ -102,7 +102,7 @@
 
 ### REST API
 - [t(:announcement)](#t-announcement) [t(:changelog_new)]
-- [t(:cancelOrder_20191104)](#t-cancelv2active) [t(:changelog_update)]
+- [t(:cancelOrder_20191104)](#t-cancelactive) [t(:changelog_update)]
     - t(:cancelOrder__20191104)
 - [t(:cancelcond)](#t-cancelcond) [t(:changelog_update)]
     - t(:cancelCond__20191104)

@@ -2,7 +2,7 @@
 t(:account_para)
 
 ## t(:activeorders)
-### t(:placev2active)
+### t(:placeactive)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -122,7 +122,7 @@ GET
 |<a href="#order-status-order_status-get">order_status</a> |false |string |t(:linear_account_row_comment_orderStatus) |
 
 
-### t(:cancelv2active)
+### t(:cancelactive)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -533,7 +533,7 @@ GET
 
 
 ## t(:position)
-### t(:mypositionv2)
+### t(:myposition)
 > t(:codequote_responseExample)
 
 ```javascript
