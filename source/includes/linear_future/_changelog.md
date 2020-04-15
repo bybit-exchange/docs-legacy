@@ -22,7 +22,7 @@
 - [t(:querykline)](#t-querykline) [t(:changelog_new)]
 - [t(:publictradingrecords)](#t-publictradingrecords) [t(:changelog_new)]
 - [t(:fundingrate)](#t-fundingrate) [t(:changelog_new)]
-- [t(:linear_place_active)](#t-linear_place_active) [t(:changelog_update)]
+- [t(:placev2active)](#t-placev2active) [t(:changelog_update)]
     - t(:linear_order___20200403)
     - t(:linear_order_fix_order_type___20200403)
 - [t(:getactive)](#t-getactive) [t(:changelog_update)]
@@ -49,7 +49,7 @@
 
 ## 2020-03-27
 ### REST API
-- [t(:linear_place_active)](#t-activeorders) [t(:changelog_new)]
+- [t(:placev2active)](#t-activeorders) [t(:changelog_new)]
 - [t(:linear_position)](#t-position) [t(:changelog_new)]
 
 ### Websocket API
