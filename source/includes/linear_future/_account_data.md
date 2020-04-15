@@ -629,7 +629,7 @@ POST
 |auto_add_margin |true |bool |t(:linear_row_comment_set_auto_margin)  |
 
 
-### t(:linear_set_leverage)
+### t(:setleverage)
 > t(:codequote_responseExample)
 
 ```javascript

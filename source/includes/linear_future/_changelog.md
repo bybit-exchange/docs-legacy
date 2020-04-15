@@ -17,7 +17,7 @@
 
 ## 2020-04-07
 ### REST API
-- [t(:linear_set_leverage)](#t-linear_set_leverage) [t(:changelog_new)]
+- [t(:setleverage)](#t-setleverage) [t(:changelog_new)]
 - [t(:linear_switch_isolated)](#t-linear_switch_isolated) [t(:changelog_new)]
 - [t(:querykline)](#t-querykline) [t(:changelog_new)]
 - [t(:publictradingrecords)](#t-publictradingrecords) [t(:changelog_new)]
