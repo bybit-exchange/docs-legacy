@@ -20,7 +20,7 @@
 - [t(:linear_set_leverage)](#t-linear_set_leverage) [t(:changelog_new)]
 - [t(:linear_switch_isolated)](#t-linear_switch_isolated) [t(:changelog_new)]
 - [t(:querykline)](#t-querykline) [t(:changelog_new)]
-- [t(:linear_recent_trading_records)](#t-linear_recent_trading_records) [t(:changelog_new)]
+- [t(:publictradingrecords)](#t-publictradingrecords) [t(:changelog_new)]
 - [t(:linear_prev_funding_rate)](#t-linear_prev_funding_rate) [t(:changelog_new)]
 - [t(:linear_place_active)](#t-linear_place_active) [t(:changelog_update)]
     - t(:linear_order___20200403)

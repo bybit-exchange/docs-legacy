@@ -71,7 +71,7 @@ GET
 
 
 
-### t(:linear_recent_trading_records)
+### t(:publictradingrecords)
 > t(:codequote_curlExample)
 
 ```console
