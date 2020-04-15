@@ -1239,7 +1239,7 @@ GET
 
 
 ## t(:funding)
-### t(:linear_prve_funding)
+### t(:mylastfundingfee)
 > t(:codequote_curlExample)
 
 ```console

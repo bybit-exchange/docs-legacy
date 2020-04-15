@@ -2,7 +2,7 @@
 
 ## 2020-04-14
 ### REST API
-- [t(:linear_prve_funding)](#t-linear_prve_funding) [t(:changelog_new)]
+- [t(:mylastfundingfee)](#t-mylastfundingfee) [t(:changelog_new)]
 - [t(:setautoaddmargin)](#t-setautoaddmargin) [t(:changelog_new)]
 - [t(:tradingstop)](#t-tradingstop) [t(:changelog_new)]
 - [t(:addmargin)](#t-addmargin) [t(:changelog_new)]
