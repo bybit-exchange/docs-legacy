@@ -5,7 +5,7 @@
 - [t(:linear_prve_funding)](#t-linear_prve_funding) [t(:changelog_new)]
 - [t(:setautoaddmargin)](#t-setautoaddmargin) [t(:changelog_new)]
 - [t(:tradingstop)](#t-tradingstop) [t(:changelog_new)]
-- [t(:linear_add_margin)](#t-linear_add_margin) [t(:changelog_new)]
+- [t(:addmargin)](#t-addmargin) [t(:changelog_new)]
 - [t(:usertraderecords)](#t-usertraderecords) [t(:changelog_new)]
 - [t(:closedprofitandloss)](#t-closedprofitandloss) [t(:changelog_new)]
 - [t(:getrisklimit)](#t-getrisklimit) [t(:changelog_new)]

@@ -763,7 +763,7 @@ POST
 
 
 
-### t(:linear_add_margin)
+### t(:addmargin)
 > t(:codequote_responseExample)
 
 ```javascript
