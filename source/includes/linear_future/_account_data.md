@@ -122,7 +122,7 @@ GET
 |<a href="#order-status-order_status-get">order_status</a> |false |string |t(:linear_account_row_comment_orderStatus) |
 
 
-### t(:linear_cancel_active)
+### t(:cancelv2active)
 > t(:codequote_responseExample)
 
 ```javascript
