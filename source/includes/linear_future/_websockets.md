@@ -81,7 +81,7 @@ t(:websocket_para_limit)
 
 
 ## t(:subscribe)
-### t(:websocket_filters)
+### t(:websocketfilters)
 > t(:websocket_codequote_filters1)
 
 ```javascript
