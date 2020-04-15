@@ -597,7 +597,7 @@ GET
 
 
 
-### t(:linear_set_auto_add_margin)
+### t(:setautoaddmargin)
 > t(:codequote_responseExample)
 
 ```javascript
