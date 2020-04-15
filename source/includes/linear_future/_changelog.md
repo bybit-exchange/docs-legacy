@@ -31,7 +31,7 @@
 - [t(:queryactive)](#t-queryactive) [t(:changelog_update)]
     - t(:linear_order___20200403)
     - t(:linear_order_fix_order_type___20200403)
-- [t(:linear_position)](#t-position) [t(:changelog_update)]
+- [t(:mypositionv2)](#t-position) [t(:changelog_update)]
     - t(:linear_poistion___20200403)
 
 ## 2020-03-31
@@ -50,7 +50,7 @@
 ## 2020-03-27
 ### REST API
 - [t(:placev2active)](#t-activeorders) [t(:changelog_new)]
-- [t(:linear_position)](#t-position) [t(:changelog_new)]
+- [t(:mypositionv2)](#t-position) [t(:changelog_new)]
 
 ### Websocket API
 - [t(:websocketorderbook25)](#t-websocketorderbook25) [t(:changelog_new)]

@@ -533,7 +533,7 @@ GET
 
 
 ## t(:position)
-### t(:linear_position)
+### t(:mypositionv2)
 > t(:codequote_responseExample)
 
 ```javascript
