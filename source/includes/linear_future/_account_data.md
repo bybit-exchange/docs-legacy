@@ -663,7 +663,7 @@ POST
 
 
 
-### t(:linear_switch_isolated)
+### t(:marginswitch)
 > t(:codequote_responseExample)
 
 ```javascript
