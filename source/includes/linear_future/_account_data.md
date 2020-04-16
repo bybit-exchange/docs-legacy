@@ -1290,7 +1290,7 @@ GET
 
 
 
-### t(:linear_predicted_funding)
+### t(:predictedfunding)
 > t(:codequote_curlExample)
 
 ```console
@@ -1316,7 +1316,7 @@ curl https://api.bybit.com/private/linear/funding/predicted-funding?symbol=BTCUS
 }
 ```
 
-t(:market_para_records)
+t(:account_para_predictedFunding)
 
 #### t(:httprequest)
 GET
