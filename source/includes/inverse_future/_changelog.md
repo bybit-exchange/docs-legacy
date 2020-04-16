@@ -6,6 +6,7 @@
    - t(:restapi_update_20200417_2)
    - t(:restapi_update_20200417_3)
    - t(:restapi_update_20200417_4)
+   - t(:restapi_update_20200417_5)
 
 ## 2020-04-14
 ### REST API
