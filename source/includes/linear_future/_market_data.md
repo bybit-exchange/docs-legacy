@@ -27,7 +27,7 @@ curl https://api.bybit.com/public/linear/kline?symbol=BTCUSDT&interval=1&limit=2
         "high": 999999,
         "low": 0.5,
         "close": 6000
-	}, 
+	},
 	{
 	    "id": 3866948,
         "symbol": "BTCUSDT",
@@ -167,7 +167,7 @@ GET
 
 
 
-### t(:linear_mark_price_kline)
+### t(:markpricekline)
 > t(:codequote_curlExample)
 
 ```console
@@ -192,7 +192,7 @@ curl https://api.bybit.com/public/linear/mark-price-kline?symbol=BTCUSDT&interva
         "high": 999999,
         "low": 0.5,
         "close": 6000
-	}, 
+	},
 	{
 	    "id": 3866948,
         "symbol": "BTCUSDT",
@@ -212,8 +212,8 @@ t(:linear_query_mark_price_kline)
 
 #### t(:httprequest)
 GET
-<code><span id=vpSymbols>/public/linear/mark-price-kline</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpSymbols"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=plmpk>/public/linear/mark-price-kline</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#plmpk"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 #### t(:requestparameters)
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
