@@ -1289,6 +1289,52 @@ GET
 
 
 
+### t(:linear_predicted_funding)
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/private/linear/funding/predicted-funding?symbol=BTCUSDT
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "ext_info": "",
+    "result": {
+        "predicted_funding_rate": -0.00375,
+        "predicted_funding_fee": 0.13081256
+    },
+    "time_now": "1587035697.424492",
+    "rate_limit_status": 119,
+    "rate_limit_reset_ms": 1587035697422,
+    "rate_limit": 120
+}
+```
+
+t(:market_para_records)
+
+#### t(:httprequest)
+GET
+<code><span id=vpPreFunding>/private/linear/funding/predicted-funding</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpPreFunding"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+#### t(:requestparameters)
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+
+
+
+
+
+
+
+
+
 
 
 
