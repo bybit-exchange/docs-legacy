@@ -205,7 +205,7 @@ GET
                 "exec_id": "256e5ef8-abfe-5772-971b-f944e15e0d68",
                 "exec_price": "8178.5",
                 "exec_qty": 1,
-                "exec_time": "1571676941.70682",
+                "exec_time": "1571676941.70682",    //t(:comment_abandoned)
                 "exec_type": "Trade", //t(:enum_exec_type_link)
                 "exec_value": "0.00012227",
                 "fee_rate": "0.00075",
@@ -219,7 +219,8 @@ GET
                 "order_type": "Market", //t(:enum_order_type_link)
                 "side": "Buy", //t(:enum_side_link)
                 "symbol": "BTCUSD", //t(:enum_symbol_link)
-                "user_id": 1
+                "user_id": 1,
+                 "trade_time_ms": 1577480599000
             }
         ]
     },
