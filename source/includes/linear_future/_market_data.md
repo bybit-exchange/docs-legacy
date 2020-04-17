@@ -111,7 +111,7 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
-|limit |false |int |Number of results. Default 500; max 1000|
+|limit |false |int |t(:linear_row_comment_recent_trading_records_limit)|
 
 
 

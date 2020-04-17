@@ -115,7 +115,7 @@ GET
 |:----- |:-------|:-----|----- |
 |order_id |false |string |t(:account_row_comment_orderId) |
 |order_link_id |false |string |t(:row_comment_orderLinkId) |
-|<a href="#symbol-symbol">symbol</a> |false |string |t(:row_comment_symbol). t(:default) `BTCUSDT` |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 |order |false |string |t(:row_comment_order)  |
 |page |false |integer |t(:row_comment_page) |
 |limit |false |integer |t(:row_comment_limit) |
@@ -313,7 +313,7 @@ POST
 |<a href="#side-side">side</a> |true |string |t(:row_comment_side)    |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
 |<a href="#order-type-order_type">order_type</a> |true |string |t(:row_comment_stopOrderType) |
-|<a href="#quantity-qty">qty</a> |true |integer |t(:row_comment_qty) |
+|<a href="#quantity-qty">qty</a> |true |number |t(:linear_row_comment_qty) |
 |<a href="#price-price">price</a> |false | number |t(:row_comment_stopOrderPrice) |
 |base_price |true |number | t(:linear_row_comment_basePrice) |
 |stop_px | true | number | t(:linear_row_comment_stopPx) |
@@ -388,7 +388,7 @@ GET
 |:----- |:-------|:-----|----- |
 |stop_order_id |false |string |t(:row_comment_stopOrderId) |
 |order_link_id |false |string |t(:row_comment_orderLinkId)|
-|<a href="#symbol-symbol">symbol</a> |false |string |t(:row_comment_symbol). Default `BTCUSDT`    |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
 |<a href="#stop-order-status-stop_order_status">stop_order_status</a> |false |string |t(:row_comment_stopOrderStatus)|
 |order |false |string |t(:row_comment_order) |
 |page |false |integer |t(:row_comment_page) |
@@ -427,7 +427,6 @@ POST
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)|
 |stop_order_id |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
 |order_link_id |false |string | t(:misc_row_comment_orderLinkIdNotStopOrderId)|
-|<a href="#symbol-symbol">symbol</a> |false |string |t(:row_comment_symbol). Default `BTCUSDT`    |
 
 
 ### t(:cancelallcond)
@@ -877,7 +876,7 @@ GET
 #### t(:requestparameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |t(:misc_row_comment_symbolNotOrderId) |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 |start_time |false |int |t(:row_comment_startTime) |
 |end_time |false |int |t(:row_comment_endTime) |
 |<a href="#exec-type-exec_type">exec_type</a> |false |string |t(:linear_exec_type) |
@@ -959,7 +958,7 @@ GET
 #### t(:requestparameters_wallet)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |t(:misc_row_comment_symbolNotOrderId) |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 |start_time |false |int |t(:row_comment_startTime) |
 |end_time |false |int |t(:row_comment_endTime) |
 |<a href="#exec-type-exec_type">exec_type</a> |false |string |t(:linear_exec_type) |
