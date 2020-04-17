@@ -839,17 +839,26 @@ POST
             "current_page": 1,
             "data": [
                 {
-                    "order_id": "5195243c-e613-4974-a97e-e1d1eaf51b4c",
+                    "order_id": "7369b2f4-52f1-4698-abf7-368e4ba9aefa",
+                    "order_link_id": "",
                     "side": "Buy",
                     "symbol": "BTCUSDT",
-                    "exec_id": "2bc03d9e-bc46-54bf-a319-fe6931c84bc2",
-                    "price": 6100,
-                    "order_qty": 0.01,
+                    "exec_id": "9b8216fa-98d7-55c0-b5fa-279db5727996",
+                    "price": 5894,//t(:comment_abandoned)
+                    "order_price": 5894,
+                    "order_qty": 0.001,
+                    "order_type": "Limit",
+                    "fee_rate": 0.00075,
+                    "exec_price": 5894,
                     "exec_type": "Trade",
-                    "exec_qty": 0.01,
-                    "exec_fee": 0.0450075,
-                    "trade_time": 1577480599,           //t(:comment_abandoned)
-                    "trade_time_ms": 1577480599000
+                    "exec_qty": 0.001,
+                    "exec_fee": 0.0044205,
+                    "exec_value": 5.894,
+                    "leaves_qty": 0,
+                    "closed_size": 0,
+                    "last_liquidity_ind": "RemovedLiquidity",
+                    "trade_time": 1585547384,//t(:comment_abandoned)
+                    "trade_time_ms": 1585547384847
                 }
             ]
         },
