@@ -247,6 +247,6 @@ GET
 |:----- |:-------|:-----|----- |
 |order_id |false |string |t(:wallet_row_comment_orderId) |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:misc_row_comment_symbolNotOrderId) |
-|start_time |false |int |t(:row_comment_startTime) |
+|start_time |false |int |t(:row_comment_startTime_ms) |
 |page |false |integer |t(:row_comment_page) |
 |limit |false |integer |t(:row_comment_limit) |

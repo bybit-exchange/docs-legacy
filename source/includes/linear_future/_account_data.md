@@ -877,8 +877,8 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
-|start_time |false |int |t(:row_comment_startTime) |
-|end_time |false |int |t(:row_comment_endTime) |
+|start_time |false |int |t(:row_comment_startTime_ms) |
+|end_time |false |int |t(:row_comment_endTime_ms) |
 |<a href="#exec-type-exec_type">exec_type</a> |false |string |t(:linear_exec_type) |
 |page |false |integer |t(:row_comment_page) |
 |limit |false |integer |t(:linear_row_comment_limit) |
