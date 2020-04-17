@@ -43,7 +43,7 @@ curl https://api.bybit.com/public/linear/kline?symbol=BTCUSDT&interval=1&limit=2
 }
 ```
 
-t(:market_para_querykline)
+t(:linear_market_para_querykline)
 
 #### t(:httprequest)
 GET
