@@ -228,7 +228,7 @@ zh-cn:
   ## Active Orders
   activeorders: 活动单
   ### Place Active Order V2
-  placev2active: 创建活动委托单
+  placeactive: 创建活动委托单
   account_para_placeActive: |
     <p>市价活动委托: 一个传统的市场价格订单,会以当前的最优价格为您成交订单。当且仅当选择市价单时，<code>price</code>可为空！</p>
     <p>限价活动委托: 您可以为您的订单设置一个执行价格，当市场价格达到您的设置价格时，系统会为您成交订单。</p>
@@ -246,7 +246,7 @@ zh-cn:
   account_row_comment_orderId: 订单ID
   account_row_comment_orderStatus: 指定订单状态查询订单列表。不传该参数则默认查询所有状态订单。该参数支持多状态查询，状态之间用英文逗号分割。
   ### Cancel Active Order V2
-  cancelv2active: 撤销活动委托单
+  cancelactive: 撤销活动委托单
   account_para_cancelActive: |
     <p>所有撤销活动委托都必须填写<code>order_id</code>或<code>order_link_id</code>。 <code>order_id</code> - 当您成功创建了活动委托时会为您返回36位唯一的订单ID。</p>
     <p>您可以撤销未成交、部分成交的活动委托单。但全部成交的活动委托不可取消。</p>
@@ -318,7 +318,7 @@ zh-cn:
   ## Position
   position: 持仓
   ### My Position V2 (real-time)
-  mypositionv2: 获取持仓（实时）
+  myposition: 获取持仓（实时）
   account_para_myPosition: 获取我的仓位列表。通过该接口可以获取当前用户的持仓信息，如持仓数量、账户余额等信息
   ### Change Margin
   changemargin: 更新保证金
@@ -597,7 +597,7 @@ zh-cn:
   ## How to Subscribe to Topics
   subscribe: 订阅方式
   ### Understanding Websocket Filters
-  websocket_filters: Websocket订阅方式
+  websocketfilters: Websocket订阅方式
   websocket_codequote_filters1: 直接订阅
   websocket_codequote_filters2: 通过分隔符来订阅多个topic
   websocket_codequote_filters3: 通过匹配符来订阅多个topic
@@ -1029,15 +1029,15 @@ zh-cn:
   err_130127: 止盈止损及追踪止损没有修改
 
   ### LinearPosition
-  linear_position: 获取持仓（实时）
+  myposition: 获取持仓（实时）
 
   ### Linear Cancel Active Order
-  linear_cancel_active: 取消活动委托订单
+  cancelactive: 取消活动委托订单
 
   linear_row_comment_qty: 委托数量(BTC)
   linear_row_comment_reduceOnly: 是否平仓单,true-平仓 false-开仓
   linear_row_comment_closeOnTrigger: 平仓委托,只会减少您的仓位而不会增加您的仓位。如果当平仓委托被触发时，账户上的余额不足，那么该合约的其他委托将被取消或者降低委托数量。使用此选项可以确保您的止损单被用于减仓而非加仓。
-  linear_place_active: 创建活动委托单
+  placeactive: 创建活动委托单
   linear_account_para_placeActive: |
     <p>市价活动委托: 一个传统的市场价格订单,会以当前的最优价格为您成交订单。当且仅当选择市价单时，<code>price</code>可为空！</p>
     <p>限价活动委托: 您可以为您的订单设置一个执行价格，当市场价格达到您的设置价格时，系统会为您成交订单。</p>
@@ -1051,15 +1051,15 @@ zh-cn:
   linear_row_comment_basePrice: 当前市价。用于和stop_px值进行比较，确定当前条件委托是看空到<code>stop_px</code>时触发还是看多到stop_px触发。主要是用来标识当前条件单预期的方向
   linear_row_comment_stopPx: 条件委托下单时市价
 
-  linear_set_auto_add_margin: 自动追加保证金
+  setautoaddmargin: 自动追加保证金
   linear_account_para_setAutoAddMargin: 设置自动追加保证金。
   linear_row_comment_set_auto_margin: 追加保证金开关
 
-  linear_set_leverage: 设置杠杆
+  setleverage: 设置杠杆
   linear_account_para_setLeverage: 设置杠杆
   linear_row_comment_leverage: <code>杠杆大于0，小于风险限额对应的杠杆</code>
 
-  linear_switch_isolated: 全仓/逐仓切换
+  marginswitch: 全仓/逐仓切换
   linear_account_para_switchIsolated: 全仓/逐仓切换，从全仓切换至逐仓时需要传杠杆
   linear_row_comment_switch_isolated: 全仓/逐仓, true是逐仓，false是全仓
 
@@ -1102,16 +1102,16 @@ zh-cn:
   ## change-log
   linear_update_20200331: <code>order_status</code> 参数不再支持多条件查询。
   linear_update_20200331_ws_ob: 修复orderBook更新包数据错乱的问题
-  linear_recent_trading_records: 平台最近交易历史数据
-  linear_prev_funding_rate: 查询上个周期的资金费率
+  publictradingrecords: 平台最近交易历史数据
+  fundingrate: 查询上个周期的资金费率
   linear_kline_row_comment_limit_200: 最大200. 默认每页200条
   linear_order___20200403: 返回值中增加参数 <code>reduce_only</code>
   linear_poistion___20200403: 增加可平量参数<code>free_qty</code>
   linear_order_fix_order_type___20200403: 修复市价单order_type显示值
-  linear_prve_funding: 查询上个周期资金费用结算信息
+  mylastfundingfee: 查询上个周期资金费用结算信息
   linear_exec_type: 交易类型
   closedprofitandloss: 平仓盈亏
-  linear_add_margin: 增加/减少保证金
+  addmargin: 增加/减少保证金
   restapi_update_20200414: 更新 <code>BTCUSDT</code> 合约信息
   linear_private_trade_records: 获取用户成交记录，按时间降序排列。
   linear_private_closed_pnl_records: 获取用户平仓记录，按时间降序排列。

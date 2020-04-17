@@ -71,7 +71,7 @@ GET
 
 
 
-### t(:linear_recent_trading_records)
+### t(:publictradingrecords)
 > t(:codequote_curlExample)
 
 ```console
@@ -119,7 +119,7 @@ GET
 
 
 
-### t(:linear_prev_funding_rate)
+### t(:fundingrate)
 > t(:codequote_curlExample)
 
 ```console

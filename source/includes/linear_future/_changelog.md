@@ -2,10 +2,10 @@
 
 ## 2020-04-14
 ### REST API
-- [t(:linear_prve_funding)](#t-linear_prve_funding) [t(:changelog_new)]
-- [t(:linear_set_auto_add_margin)](#t-linear_set_auto_add_margin) [t(:changelog_new)]
+- [t(:mylastfundingfee)](#t-mylastfundingfee) [t(:changelog_new)]
+- [t(:setautoaddmargin)](#t-setautoaddmargin) [t(:changelog_new)]
 - [t(:tradingstop)](#t-tradingstop) [t(:changelog_new)]
-- [t(:linear_add_margin)](#t-linear_add_margin) [t(:changelog_new)]
+- [t(:addmargin)](#t-addmargin) [t(:changelog_new)]
 - [t(:usertraderecords)](#t-usertraderecords) [t(:changelog_new)]
 - [t(:closedprofitandloss)](#t-closedprofitandloss) [t(:changelog_new)]
 - [t(:getrisklimit)](#t-getrisklimit) [t(:changelog_new)]
@@ -17,12 +17,12 @@
 
 ## 2020-04-07
 ### REST API
-- [t(:linear_set_leverage)](#t-linear_set_leverage) [t(:changelog_new)]
-- [t(:linear_switch_isolated)](#t-linear_switch_isolated) [t(:changelog_new)]
+- [t(:setleverage)](#t-setleverage) [t(:changelog_new)]
+- [t(:marginswitch)](#t-marginswitch) [t(:changelog_new)]
 - [t(:querykline)](#t-querykline) [t(:changelog_new)]
-- [t(:linear_recent_trading_records)](#t-linear_recent_trading_records) [t(:changelog_new)]
-- [t(:linear_prev_funding_rate)](#t-linear_prev_funding_rate) [t(:changelog_new)]
-- [t(:linear_place_active)](#t-linear_place_active) [t(:changelog_update)]
+- [t(:publictradingrecords)](#t-publictradingrecords) [t(:changelog_new)]
+- [t(:fundingrate)](#t-fundingrate) [t(:changelog_new)]
+- [t(:placeactive)](#t-placeactive) [t(:changelog_update)]
     - t(:linear_order___20200403)
     - t(:linear_order_fix_order_type___20200403)
 - [t(:getactive)](#t-getactive) [t(:changelog_update)]
@@ -31,7 +31,7 @@
 - [t(:queryactive)](#t-queryactive) [t(:changelog_update)]
     - t(:linear_order___20200403)
     - t(:linear_order_fix_order_type___20200403)
-- [t(:linear_position)](#t-position) [t(:changelog_update)]
+- [t(:myposition)](#t-position) [t(:changelog_update)]
     - t(:linear_poistion___20200403)
 
 ## 2020-03-31
@@ -49,8 +49,8 @@
 
 ## 2020-03-27
 ### REST API
-- [t(:linear_place_active)](#t-activeorders) [t(:changelog_new)]
-- [t(:linear_position)](#t-position) [t(:changelog_new)]
+- [t(:placeactive)](#t-activeorders) [t(:changelog_new)]
+- [t(:myposition)](#t-position) [t(:changelog_new)]
 
 ### Websocket API
 - [t(:websocketorderbook25)](#t-websocketorderbook25) [t(:changelog_new)]

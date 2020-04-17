@@ -235,7 +235,7 @@ en:
   ## Active Orders
   activeorders: Active Orders
   ### Place Active Order V2
-  placev2active: Place Active Order V2
+  placeactive: Place Active Order V2
   account_para_placeActive: |
     <p>Market price active order: A traditional market price order which will be filled at the best available price. <code>price</code> is not required for this type of order.</p>
     <p>Limit price active order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
@@ -252,7 +252,7 @@ en:
   account_row_comment_orderId: Order ID
   account_row_comment_orderStatus: Query your orders for all statuses if 'order_status' is empty. If you want to query orders with specific statuses, you can pass the order_status split by ','.
   ### Cancel Active Order V2
-  cancelv2active: Cancel Active Order V2
+  cancelactive: Cancel Active Order V2
   account_para_cancelActive: |
     <p>Either <code>order_id</code> or <code>order_link_id</code> are required for cancelling active orders. <code>order_id</code> - this unique 36 characters order ID was returned to you when the active order was created successfully.</p>
     <p>You may cancel active orders that are unfilled or partially filled. Fully filled orders cannot be cancelled.</p>
@@ -331,7 +331,7 @@ en:
   ## Position
   position: Position
   ### My Position V2 (real-time)
-  mypositionv2: My Position V2 (real-time)
+  myposition: My Position V2 (real-time)
   account_para_myPosition: Get my position list.
   ### Change Margin
   changemargin: Change Margin
@@ -604,7 +604,7 @@ en:
   ## How to Subscribe to Topics
   subscribe: How to Subscribe to Topics
   ### Understanding Websocket Filters
-  websocket_filters: Understanding Websocket Filters
+  websocketfilters: Understanding Websocket Filters
   websocket_codequote_filters1: How to subscribe with a filter
   websocket_codequote_filters2: How to subscribe with multiple filters
   websocket_codequote_filters3: How to subscribe without filters
@@ -1054,14 +1054,14 @@ en:
   err_130127: Take Profit, Stop Loss and Trailing Stop Loss are not modified
 
   ### LinearPosition
-  linear_position: My Position
+  myposition: My Position
 
   ### Linear Cancel Active Order
-  linear_cancel_active: Cancel Active Order
+  cancelactive: Cancel Active Order
   linear_row_comment_qty: Order quantity in BTC.
   linear_row_comment_reduceOnly: <a href="https://help.bybit.com/hc/en-us/articles/360039260574-What-is-a-reduce-only-order-"> What is a reduce-only order?</a> True means your position can only reduce in size if this order is triggered
   linear_row_comment_closeOnTrigger: <a href="https://help.bybit.com/hc/en-us/articles/360039260534-What-is-a-close-on-trigger-Order-">  What is a close on trigger order?</a> For a closing order. It can only reduce your position, not increase it. If the account has insufficient available balance when the closing order is triggered, then other active orders of similar contracts will be cancelled or reduced. It can be used to ensure your stop loss reduces your position regardless of current available margin.
-  linear_place_active: Place Active Order
+  placeactive: Place Active Order
   linear_account_para_placeActive: |
     <p>Market price active order: A traditional market price order which will be filled at the best available price. <code>price</code> is not required for this type of order.</p>
     <p>Limit price active order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
@@ -1073,15 +1073,15 @@ en:
   linear_row_comment_basePrice: It will be used to compare with the value of <code>stop_px</code>, to decide whether your conditional order will be triggered by crossing trigger price from upper side or lower side. Mainly used to identify the expected direction of the current conditional order.
   linear_row_comment_stopPx: Trigger price
 
-  linear_set_auto_add_margin: Set Auto Add Margin
+  setautoaddmargin: Set Auto Add Margin
   linear_account_para_setAutoAddMargin: Set auto add margin, or <a href="https://help.bybit.com/hc/en-us/articles/900000394403-Introduction-to-Auto-Margin-Replenishment-USDT-Contract-">Auto-Margin Replenishment</a>.
   linear_row_comment_set_auto_margin: Auto add margin button
 
-  linear_set_leverage: Set Leverage
+  setleverage: Set Leverage
   linear_account_para_setLeverage: Set Leverage
   linear_row_comment_leverage: Must be greater than 0 and less than the <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>.
 
-  linear_switch_isolated: Cross/Isolated margin switch
+  marginswitch: Cross/Isolated Margin Switch
   linear_account_para_switchIsolated: Switch Cross/Isolated; must be leverage value when switching from Cross to Isolated
   linear_row_comment_switch_isolated: Cross/Isolated<span>:</span> true is Isolated; false is Cross
 
@@ -1123,16 +1123,16 @@ en:
   ## change-log
   linear_update_20200331: <code>order_status</code> field not support query orders with specific statuses
   linear_update_20200331_ws_ob: fix response data bug
-  linear_recent_trading_records: Public Trading Records
-  linear_prev_funding_rate: Get the Last Funding Rate
+  publictradingrecords: Public Trading Records
+  fundingrate: Get the Last Funding Rate
   linear_kline_row_comment_limit_200: Limit for data size, max size is 200. Default as showing 200 pieces of data
   linear_order___20200403: Add field <code>reduce_only</code> in response
   linear_poistion___20200403: Add field <code>free_qty</code> in response
   linear_order_fix_order_type___20200403: Fix value of <code>order_type</code> in response
-  linear_prve_funding: My Last Funding Fee
+  mylastfundingfee: My Last Funding Fee
   linear_exec_type: Execution type
   closedprofitandloss: Closed Profit and Loss
-  linear_add_margin: Add/Reduce Margin
+  addmargin: Add/Reduce Margin
   restapi_update_20200414: Updated <code>BTCUSDT</code> contract information
   linear_private_trade_records: Get user's trading records. The results are ordered in descending order (the first item is the latest).
   linear_private_closed_pnl_records: Get user's closed profit and loss records. The results are ordered in descending order (the first item is the latest).

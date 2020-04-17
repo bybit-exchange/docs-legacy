@@ -2,7 +2,7 @@
 t(:account_para)
 
 ## t(:activeorders)
-### t(:linear_place_active)
+### t(:placeactive)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -122,7 +122,7 @@ GET
 |<a href="#order-status-order_status-get">order_status</a> |false |string |t(:linear_account_row_comment_orderStatus) |
 
 
-### t(:linear_cancel_active)
+### t(:cancelactive)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -533,7 +533,7 @@ GET
 
 
 ## t(:position)
-### t(:linear_position)
+### t(:myposition)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -597,7 +597,7 @@ GET
 
 
 
-### t(:linear_set_auto_add_margin)
+### t(:setautoaddmargin)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -629,7 +629,7 @@ POST
 |auto_add_margin |true |bool |t(:linear_row_comment_set_auto_margin)  |
 
 
-### t(:linear_set_leverage)
+### t(:setleverage)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -663,7 +663,7 @@ POST
 
 
 
-### t(:linear_switch_isolated)
+### t(:marginswitch)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -763,7 +763,7 @@ POST
 
 
 
-### t(:linear_add_margin)
+### t(:addmargin)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -1239,7 +1239,7 @@ GET
 
 
 ## t(:funding)
-### t(:linear_prve_funding)
+### t(:mylastfundingfee)
 > t(:codequote_curlExample)
 
 ```console
