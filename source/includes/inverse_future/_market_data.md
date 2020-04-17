@@ -94,8 +94,8 @@ t(:market_para_querykline)
 
 #### t(:httprequest)
 GET
-<code><span id=vpSymbols>/v2/public/kline/list</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpSymbols"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=vpkList>/v2/public/kline/list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpkList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 #### t(:requestparameters)
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
