@@ -65,6 +65,7 @@ t(:rate_para_understanding)
     <td>/private/linear/funding/prev-funding  </td>
     <td>1 / request</td>
   </tr>
+  <tr><td>/private/linear/funding/predicted-funding </td><td>1 / request</td></tr>
 </table>
 
 ### t(:orderlimits)

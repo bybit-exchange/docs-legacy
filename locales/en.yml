@@ -55,8 +55,10 @@ en:
   row_comment_coin: <code>currency</code> alias
   row_comment_walletFundType: Wallet fund type
   row_comment_withdrawStatus: Withdraw status
-  row_comment_startTime: Start timestamp point for result
-  row_comment_endTime: End timestamp point for result
+  row_comment_startTime: Start timestamp point for result, in second
+  row_comment_endTime: End timestamp point for result, in second
+  row_comment_startTime_ms: Start timestamp point for result, in millisecond
+  row_comment_endTime_ms: End timestamp point for result, in millisecond
   row_comment_riskId: Risk ID. Can be found with the <a href="#get-risk-limit">Get Risk Limit</a> endpoint
   row_comment_rate_limit: limit
   row_comment_path: path
@@ -215,7 +217,9 @@ en:
   market_aside_orderbook: The response is in the snapshot format.
   ### Query Klne
   querykline: Query Kline
-  market_para_querykline: Get kline.
+  market_para_querykline: |
+    <p>Get kline.</p>
+    <p>For mark price klines, see the <a href="#t-markpricekline">Mark Price Kline</a> endpoint.</p>
   ### Latest Information for Symbol
   latestsymbolinfo: Latest Information for Symbol
   market_para_symbol: Get the latest information for symbol.
@@ -1137,3 +1141,34 @@ en:
   linear_private_trade_records: Get user's trading records. The results are ordered in descending order (the first item is the latest).
   linear_private_closed_pnl_records: Get user's closed profit and loss records. The results are ordered in descending order (the first item is the latest).
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
+  restapi_update_20200417_1: Add new symbol <code>BTCUSDT</code>
+  restapi_update_20200417_2: Add new symbol <code>BTCUSDT</code>
+  restapi_update_20200417_3: Add new response param <code>trade_time_ms</code>
+  restapi_update_20200417_4: Update support millisecond <code>start_time</code>
+  restapi_update_20200417_5: Abandon response field <code>trade_time</code>
+  markpricekline: Mark Price Kline
+  linear_query_mark_price_kline: Query mark price kline (like <a href="#t-querykline">Query Kline</a> but for <a href="https://help.bybit.com/hc/en-us/articles/360039261074-What-is-Dual-Price-mechanism-">mark price</a>).
+  predictedfunding: Predicted Funding Rate and My Funding Fee
+
+  linear_resp_field_last_exec_price: Last execution price
+  linear_resp_field_cum_exec_qty: Cumulative qty of trading
+  linear_resp_field_cum_exec_value: Cumulative value of trading
+  linear_resp_field_cum_exec_fee: Cumulative trading fees
+  linear_resp_field_reduce_only: true means close order, false means open close
+  linear_resp_field_position_value: Current position value
+  linear_resp_field_entry_price: Average opening price
+  linear_resp_field_liq_price: Liquidation price
+  linear_resp_field_bust_price: Bust price
+  linear_resp_field_position_margin: Position margin
+  linear_resp_field_occ_closing_fee: Pre-occupancy closing fee
+  linear_resp_field_realised_pnl: Today's realised Profit and Loss
+  linear_resp_field_cum_realised_pnl: Cumulative realised Profit and Loss
+  linear_resp_field_free_qty: Can be to closing Qty
+  linear_resp_field_closed_size: Closing size
+  linear_resp_field_cum_entry_value: Closing position value
+  linear_resp_field_avg_entry_price: Average entry price
+  linear_resp_field_cum_exit_value: Cumulative trading value of closing orders
+  linear_resp_field_avg_exit_price: Average exit price
+  linear_resp_field_closed_pnl: Closed Profit and Loss
+  linear_resp_field_fill_count: Number of transactions
+  linear_row_comment_recent_trading_records_limit: Number of results. Default 500; max 1000

@@ -1,5 +1,13 @@
 # t(:changelog)
-
+## 2020-04-17
+### REST API
+- [t(:usertraderecords)](#t-usertraderecords) [t(:changelog_update)]
+   - t(:restapi_update_20200417_3)
+   - t(:restapi_update_20200417_4)
+   - t(:restapi_update_20200417_5)
+- [t(:markpricekline)](#t-markpricekline) [t(:changelog_new)]
+- [t(:predictedfunding)](#t-predictedfunding) [t(:changelog_new)]
+   
 ## 2020-04-14
 ### REST API
 - [t(:mylastfundingfee)](#t-mylastfundingfee) [t(:changelog_new)]

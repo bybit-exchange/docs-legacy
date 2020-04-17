@@ -21,11 +21,11 @@ t(:account_para)
         "qty": 10,
         "time_in_force": "GoodTillCancel",
         "order_status": "New",
-        "last_exec_price": 8083,
-        "cum_exec_qty": 0,
-        "cum_exec_value": 0,
-        "cum_exec_fee": 0,
-        "reduce_only": false,
+        "last_exec_price": 8083,    //t(:linear_resp_field_last_exec_price)
+        "cum_exec_qty": 0,          //t(:linear_resp_field_cum_exec_qty)
+        "cum_exec_value": 0,        //t(:linear_resp_field_cum_exec_value)
+        "cum_exec_fee": 0,          //t(:linear_resp_field_cum_exec_fee)
+        "reduce_only": false,       //t(:linear_resp_field_reduce_only)
         "order_link_id": "",
         "created_time": "2019-10-21T07:28:19.396246Z",
         "updated_time": "2019-10-21T07:28:19.396246Z",
@@ -115,7 +115,7 @@ GET
 |:----- |:-------|:-----|----- |
 |order_id |false |string |t(:account_row_comment_orderId) |
 |order_link_id |false |string |t(:row_comment_orderLinkId) |
-|<a href="#symbol-symbol">symbol</a> |false |string |t(:row_comment_symbol). t(:default) `BTCUSDT` |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 |order |false |string |t(:row_comment_order)  |
 |page |false |integer |t(:row_comment_page) |
 |limit |false |integer |t(:row_comment_limit) |
@@ -313,7 +313,7 @@ POST
 |<a href="#side-side">side</a> |true |string |t(:row_comment_side)    |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
 |<a href="#order-type-order_type">order_type</a> |true |string |t(:row_comment_stopOrderType) |
-|<a href="#quantity-qty">qty</a> |true |integer |t(:row_comment_qty) |
+|<a href="#quantity-qty">qty</a> |true |number |t(:linear_row_comment_qty) |
 |<a href="#price-price">price</a> |false | number |t(:row_comment_stopOrderPrice) |
 |base_price |true |number | t(:linear_row_comment_basePrice) |
 |stop_px | true | number | t(:linear_row_comment_stopPx) |
@@ -388,7 +388,7 @@ GET
 |:----- |:-------|:-----|----- |
 |stop_order_id |false |string |t(:row_comment_stopOrderId) |
 |order_link_id |false |string |t(:row_comment_orderLinkId)|
-|<a href="#symbol-symbol">symbol</a> |false |string |t(:row_comment_symbol). Default `BTCUSDT`    |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
 |<a href="#stop-order-status-stop_order_status">stop_order_status</a> |false |string |t(:row_comment_stopOrderStatus)|
 |order |false |string |t(:row_comment_order) |
 |page |false |integer |t(:row_comment_page) |
@@ -427,7 +427,6 @@ POST
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)|
 |stop_order_id |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
 |order_link_id |false |string | t(:misc_row_comment_orderLinkIdNotStopOrderId)|
-|<a href="#symbol-symbol">symbol</a> |false |string |t(:row_comment_symbol). Default `BTCUSDT`    |
 
 
 ### t(:cancelallcond)
@@ -548,16 +547,16 @@ GET
                "symbol":"BTCUSDT",
                "side":"Buy",
                "size":0,
-               "position_value":0,
-               "entry_price":0,
-               "liq_price":1,
-               "bust_price":100,
+               "position_value":0,      //t(:linear_resp_field_position_value)
+               "entry_price":0,         //t(:linear_resp_field_entry_price)
+               "liq_price":1,           //t(:linear_resp_field_liq_price)
+               "bust_price":100,        //t(:linear_resp_field_bust_price)
                "leverage":0,
-               "position_margin":0,
-               "occ_closing_fee":0,
-               "realised_pnl":0,
-               "cum_realised_pnl":0,
-               "free_qty": 30,
+               "position_margin":0,     //t(:linear_resp_field_position_margin)
+               "occ_closing_fee":0,     //t(:linear_resp_field_occ_closing_fee)
+               "realised_pnl":0,        //t(:linear_resp_field_realised_pnl)
+               "cum_realised_pnl":0,    //t(:linear_resp_field_cum_realised_pnl)
+               "free_qty": 30,          //t(:linear_resp_field_free_qty)
            },
            {
                "user_id":100004,
@@ -849,7 +848,8 @@ POST
                     "exec_type": "Trade",
                     "exec_qty": 0.01,
                     "exec_fee": 0.0450075,
-                    "trade_time": 1577480599
+                    "trade_time": 1577480599,           //t(:comment_abandoned)
+                    "trade_time_ms": 1577480599000
                 }
             ]
         },
@@ -876,9 +876,9 @@ GET
 #### t(:requestparameters)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |t(:misc_row_comment_symbolNotOrderId) |
-|start_time |false |int |t(:row_comment_startTime) |
-|end_time |false |int |t(:row_comment_endTime) |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|start_time |false |int |t(:row_comment_startTime_ms) |
+|end_time |false |int |t(:row_comment_endTime_ms) |
 |<a href="#exec-type-exec_type">exec_type</a> |false |string |t(:linear_exec_type) |
 |page |false |integer |t(:row_comment_page) |
 |limit |false |integer |t(:linear_row_comment_limit) |
@@ -924,13 +924,13 @@ GET
                  "order_price": 999999,
                  "order_type": "Market",
                  "exec_type": "Trade",
-                 "closed_size": 0.5,
-                 "cum_entry_value": 3000,
-                 "avg_entry_price": 6000,
-                 "cum_exit_value": 3000.5,
-                 "avg_exit_price": 6001,
-                 "closed_pnl": -5.000375,
-                 "fill_count": 1,
+                 "closed_size": 0.5,        //t(:linear_resp_field_closed_size)
+                 "cum_entry_value": 3000,   //t(:linear_resp_field_cum_entry_value)
+                 "avg_entry_price": 6000,   //t(:linear_resp_field_avg_entry_price)
+                 "cum_exit_value": 3000.5,  //t(:linear_resp_field_cum_exit_value)
+                 "avg_exit_price": 6001,    //t(:linear_resp_field_avg_exit_price)
+                 "closed_pnl": -5.000375,   //t(:linear_resp_field_closed_pnl)
+                 "fill_count": 1,           //t(:linear_resp_field_fill_count)
                  "leverage": 100,
                  "created_at": 1577480599
              }
@@ -958,7 +958,7 @@ GET
 #### t(:requestparameters_wallet)
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |t(:misc_row_comment_symbolNotOrderId) |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 |start_time |false |int |t(:row_comment_startTime) |
 |end_time |false |int |t(:row_comment_endTime) |
 |<a href="#exec-type-exec_type">exec_type</a> |false |string |t(:linear_exec_type) |
@@ -1274,6 +1274,52 @@ t(:market_para_records)
 #### t(:httprequest)
 GET
 <code><span id=vpPreFunding>/private/linear/funding/prev-funding</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpPreFunding"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+#### t(:requestparameters)
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+
+
+
+
+
+
+
+
+
+### t(:predictedfunding)
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/private/linear/funding/predicted-funding?symbol=BTCUSDT
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "ext_info": "",
+    "result": {
+        "predicted_funding_rate": -0.00375,
+        "predicted_funding_fee": 0.13081256
+    },
+    "time_now": "1587035697.424492",
+    "rate_limit_status": 119,
+    "rate_limit_reset_ms": 1587035697422,
+    "rate_limit": 120
+}
+```
+
+t(:account_para_predictedFunding)
+
+#### t(:httprequest)
+GET
+<code><span id=vpPreFunding>/private/linear/funding/predicted-funding</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpPreFunding"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 #### t(:requestparameters)

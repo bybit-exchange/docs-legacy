@@ -27,7 +27,7 @@ curl https://api.bybit.com/public/linear/kline?symbol=BTCUSDT&interval=1&limit=2
         "high": 999999,
         "low": 0.5,
         "close": 6000
-	}, 
+	},
 	{
 	    "id": 3866948,
         "symbol": "BTCUSDT",
@@ -111,7 +111,7 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
-|limit |false |int |Number of results. Default 500; max 1000|
+|limit |false |int |t(:linear_row_comment_recent_trading_records_limit)|
 
 
 
@@ -158,6 +158,70 @@ GET
 
 
 
+
+
+
+
+
+
+
+
+
+### t(:markpricekline)
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/public/linear/mark-price-kline?symbol=BTCUSDT&interval=1&limit=2&from=1581231260
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+	"ret_code": 0,
+	"ret_msg": "OK",
+	"ext_code": "",
+	"ext_info": "",
+	"result": [{
+	    "id": 3866948,
+        "symbol": "BTCUSDT",
+        "period": "1",
+        "start_at": 1577836800,
+        "volume": 1451.59,
+        "open": 7700,
+        "high": 999999,
+        "low": 0.5,
+        "close": 6000
+	},
+	{
+	    "id": 3866948,
+        "symbol": "BTCUSDT",
+        "period": "1",
+        "start_at": 1577836800,
+        "volume": 1451.59,
+        "open": 7700,
+        "high": 999999,
+        "low": 0.5,
+        "close": 6000
+	}],
+	"time_now": "1581928016.558522"
+}
+```
+
+t(:linear_query_mark_price_kline)
+
+#### t(:httprequest)
+GET
+<code><span id=plmpk>/public/linear/mark-price-kline</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#plmpk"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+#### t(:requestparameters)
+|parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|interval |true |string |t(:row_comment_interval) |
+|from |true |integer |t(:row_comment_from_timestamp) |
+|limit |false |integer |t(:linear_kline_row_comment_limit_200) |
 
 
 
