@@ -708,84 +708,6 @@ GET
 |order_link_id |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
 
 
-## t(:leverage)
-### t(:getleverage)
-> t(:codequote_responseExample)
-
-```javascript
-{
-    "ret_code": 0,
-    "ret_msg": "ok",
-    "ext_code": "",
-    "result": {
-        "BTCUSD": {
-            "leverage": 5
-        },
-        "EOSUSD": {
-            "leverage": 1
-        },
-        "ETHUSD": {
-            "leverage": 1
-        },
-        "XRPUSD": {
-            "leverage": 10
-        }
-    },
-    "ext_info": null,
-    "time_now": "1577477752.346548",
-    "rate_limit_status": 119,
-    "rate_limit_reset_ms": 1577477752355,
-    "rate_limit": 120
-}
-```
-
-t(:account_para_userLeverage)
-
-<p class="fake_header">t(:httprequest)</p>
-GET
-<code><span id=uLeverage>/user/leverage</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uLeverage"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-
-
-### t(:changeleverage)
-> t(:codequote_responseExample)
-
-```javascript
-{
-    "ret_code": 0,
-    "ret_msg": "ok",
-    "ext_code": "",
-    "result": 2,
-    "ext_info": null,
-    "time_now": "1577477968.175013",
-    "rate_limit_status": 74,
-    "rate_limit_reset_ms": 1577477968183,
-    "rate_limit": 75
-}
-```
-
-t(:account_para_changeLeverage)
-
-<aside class="notice">
-t(:account_aside_changeLeverage)
-</aside>
-
-<p class="fake_header">t(:httprequest)</p>
-POST
-<code><span id=ulSave>/user/leverage/save</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ulSave"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
-|leverage |true |number |t(:row_comment_leverage) |
-
-
 ## t(:position)
 ### t(:myposition)
 > t(:codequote_responseExample)
@@ -957,6 +879,150 @@ POST
 |stop_loss |false |number |t(:account_row_comment_stopLoss) |
 |trailing_stop |false |number |t(:account_row_comment_trailingStop) |
 |new_trailing_active |false |number |t(:account_row_comment_trailingStop_active) |
+
+
+### t(:getleverage)
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "ok",
+    "ext_code": "",
+    "result": {
+        "BTCUSD": {
+            "leverage": 5
+        },
+        "EOSUSD": {
+            "leverage": 1
+        },
+        "ETHUSD": {
+            "leverage": 1
+        },
+        "XRPUSD": {
+            "leverage": 10
+        }
+    },
+    "ext_info": null,
+    "time_now": "1577477752.346548",
+    "rate_limit_status": 119,
+    "rate_limit_reset_ms": 1577477752355,
+    "rate_limit": 120
+}
+```
+
+t(:account_para_userLeverage)
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=uLeverage>/user/leverage</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uLeverage"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+
+
+### t(:changeleverage)
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "ok",
+    "ext_code": "",
+    "result": 2,
+    "ext_info": null,
+    "time_now": "1577477968.175013",
+    "rate_limit_status": 74,
+    "rate_limit_reset_ms": 1577477968183,
+    "rate_limit": 75
+}
+```
+
+t(:account_para_changeLeverage)
+
+<aside class="notice">
+t(:account_aside_changeLeverage)
+</aside>
+
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=ulSave>/user/leverage/save</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ulSave"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
+|leverage |true |number |t(:row_comment_leverage) |
+
+
+
+### t(:usertraderecords)
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "ext_info": "",
+    "result": {
+        "order_id": "t(:comment_abandoned)", // t(:comment_abandoned)
+        "trade_list": [
+            {
+                "closed_size": 0, // t(:row_comment_closed_size)
+                "cross_seq": 277136382,
+                "exec_fee": "0.0000001",
+                "exec_id": "256e5ef8-abfe-5772-971b-f944e15e0d68",
+                "exec_price": "8178.5",
+                "exec_qty": 1,
+                "exec_time": "1571676941.70682",    //t(:comment_abandoned)
+                "exec_type": "Trade", //t(:enum_exec_type_link)
+                "exec_value": "0.00012227",
+                "fee_rate": "0.00075",
+                "last_liquidity_ind": "RemovedLiquidity", //t(:enum_Liquidity_type_link)
+                "leaves_qty": 0,
+                "nth_fill": 2,
+                "order_id": "7ad50cb1-9ad0-4f74-804b-d82a516e1029",
+                "order_link_id": "",
+                "order_price": "8178",
+                "order_qty": 1,
+                "order_type": "Market", //t(:enum_order_type_link)
+                "side": "Buy", //t(:enum_side_link)
+                "symbol": "BTCUSD", //t(:enum_symbol_link)
+                "user_id": 1,
+                 "trade_time_ms": 1577480599000
+            }
+        ]
+    },
+    "time_now": "1577483699.281488",
+    "rate_limit_status": 118,
+    "rate_limit_reset_ms": 1577483699244737,
+    "rate_limit": 120
+}
+```
+
+t(:wallet_para_tradeRecords)
+
+<aside class="notice">
+t(:wallet_aside_tradeRecords)
+</aside>
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=vpeList>/v2/private/execution/list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpeList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|order_id |false |string |t(:wallet_row_comment_orderId) |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:misc_row_comment_symbolNotOrderId) |
+|start_time |false |int |t(:row_comment_startTime_ms) |
+|page |false |integer |t(:row_comment_page) |
+|limit |false |integer |t(:row_comment_limit) |
 
 ## t(:risklimit)
 

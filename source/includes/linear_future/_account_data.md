@@ -841,22 +841,22 @@ POST
                 {
                     "order_id": "7369b2f4-52f1-4698-abf7-368e4ba9aefa",
                     "order_link_id": "",
-                    "side": "Buy",
-                    "symbol": "BTCUSDT",
+                    "side": "Buy",  //t(:enum_side_link)
+                    "symbol": "BTCUSDT", //t(:enum_symbol_link)
                     "exec_id": "9b8216fa-98d7-55c0-b5fa-279db5727996",
                     "price": 5894,//t(:comment_abandoned)
                     "order_price": 5894,
                     "order_qty": 0.001,
-                    "order_type": "Limit",
+                    "order_type": "Limit", //t(:enum_order_type_link)
                     "fee_rate": 0.00075,
                     "exec_price": 5894,
-                    "exec_type": "Trade",
+                    "exec_type": "Trade", //t(:enum_exec_type_link)
                     "exec_qty": 0.001,
                     "exec_fee": 0.0044205,
                     "exec_value": 5.894,
                     "leaves_qty": 0,
-                    "closed_size": 0,
-                    "last_liquidity_ind": "RemovedLiquidity",
+                    "closed_size": 0, // t(:row_comment_closed_size)
+                    "last_liquidity_ind": "RemovedLiquidity",  //t(:enum_Liquidity_type_link)
                     "trade_time": 1585547384,//t(:comment_abandoned)
                     "trade_time_ms": 1585547384847
                 }
@@ -1328,8 +1328,8 @@ t(:account_para_predictedFunding)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpPreFunding>/private/linear/funding/predicted-funding</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpPreFunding"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=vpPredictedFunding>/private/linear/funding/predicted-funding</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpPredictedFunding"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
