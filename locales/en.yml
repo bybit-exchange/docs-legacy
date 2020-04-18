@@ -60,6 +60,7 @@ en:
   row_comment_startTime_ms: Start timestamp point for result, in millisecond
   row_comment_endTime_ms: End timestamp point for result, in millisecond
   row_comment_riskId: Risk ID. Can be found with the <a href="#get-risk-limit">Get Risk Limit</a> endpoint
+  row_comment_closed_size: The corresponding closing size of the closing order
   row_comment_rate_limit: limit
   row_comment_path: path
   row_comment_consume: consume
@@ -239,8 +240,6 @@ en:
   account_para: The following account data endpoints require authentication.
   ## Active Orders
   activeorders: Active Orders
-  ### Place Active Order V2
-  placeactive: Place Active Order V2
   account_para_placeActive: |
     <p>Market price active order: A traditional market price order which will be filled at the best available price. <code>price</code> is not required for this type of order.</p>
     <p>Limit price active order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
@@ -257,7 +256,7 @@ en:
   account_row_comment_orderId: Order ID
   account_row_comment_orderStatus: Query your orders for all statuses if 'order_status' is empty. If you want to query orders with specific statuses, you can pass the order_status split by ','.
   ### Cancel Active Order V2
-  cancelactive: Cancel Active Order V2
+  cancelactive: Cancel Active Order
   account_para_cancelActive: |
     <p>Either <code>order_id</code> or <code>order_link_id</code> are required for cancelling active orders. <code>order_id</code> - this unique 36 characters order ID was returned to you when the active order was created successfully.</p>
     <p>You may cancel active orders that are unfilled or partially filled. Fully filled orders cannot be cancelled.</p>
@@ -336,7 +335,7 @@ en:
   ## Position
   position: Position
   ### My Position V2 (real-time)
-  myposition: My Position V2 (real-time)
+  myposition: My Position
   account_para_myPosition: Get my position list.
   ### Change Margin
   changemargin: Change Margin
@@ -1058,11 +1057,7 @@ en:
   err_130023: Will be triggered Liq after order is completed
   err_130127: Take Profit, Stop Loss and Trailing Stop Loss are not modified
 
-  ### LinearPosition
-  myposition: My Position
-
   ### Linear Cancel Active Order
-  cancelactive: Cancel Active Order
   linear_row_comment_qty: Order quantity in BTC.
   linear_row_comment_reduceOnly: <a href="https://help.bybit.com/hc/en-us/articles/360039260574-What-is-a-reduce-only-order-"> What is a reduce-only order?</a> True means your position can only reduce in size if this order is triggered
   linear_row_comment_closeOnTrigger: <a href="https://help.bybit.com/hc/en-us/articles/360039260534-What-is-a-close-on-trigger-Order-">  What is a close on trigger order?</a> For a closing order. It can only reduce your position, not increase it. If the account has insufficient available balance when the closing order is triggered, then other active orders of similar contracts will be cancelled or reduced. It can be used to ensure your stop loss reduces your position regardless of current available margin.
@@ -1128,13 +1123,11 @@ en:
   ## change-log
   linear_update_20200331: <code>order_status</code> field not support query orders with specific statuses
   linear_update_20200331_ws_ob: fix response data bug
-  publictradingrecords: Public Trading Records
   fundingrate: Get the Last Funding Rate
   linear_kline_row_comment_limit_200: Limit for data size, max size is 200. Default as showing 200 pieces of data
   linear_order___20200403: Add field <code>reduce_only</code> in response
   linear_poistion___20200403: Add field <code>free_qty</code> in response
   linear_order_fix_order_type___20200403: Fix value of <code>order_type</code> in response
-  mylastfundingfee: My Last Funding Fee
   linear_exec_type: Execution type
   closedprofitandloss: Closed Profit and Loss
   addmargin: Add/Reduce Margin
@@ -1147,9 +1140,10 @@ en:
   restapi_update_20200417_3: Add new response param <code>trade_time_ms</code>
   restapi_update_20200417_4: Update support millisecond <code>start_time</code>
   restapi_update_20200417_5: Abandon response field <code>trade_time</code>
+  restapi_update_20200418_1: Fix permission denied issue of below endpoints under <code>readonly</code> model<span>:</span>
+  restapi_update_20200418_2: Add new fields in reponse, like <code>exec_price</code>,<code>exec_value</code>
   markpricekline: Mark Price Kline
   linear_query_mark_price_kline: Query mark price kline (like <a href="#t-querykline">Query Kline</a> but for <a href="https://help.bybit.com/hc/en-us/articles/360039261074-What-is-Dual-Price-mechanism-">mark price</a>).
-  predictedfunding: Predicted Funding Rate and My Funding Fee
 
   linear_resp_field_last_exec_price: Last execution price
   linear_resp_field_cum_exec_qty: Cumulative qty of trading
