@@ -955,10 +955,6 @@ GET
 
 t(:linear_private_closed_pnl_records)
 
-<aside class="notice">
-t(:wallet_aside_tradeRecords)
-</aside>
-
 <p class="fake_header">t(:httprequest)</p>
 GET
 <code><span id=pltcList>/private/linear/trade/closed-pnl/list</span></code>
