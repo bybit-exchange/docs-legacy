@@ -39,12 +39,12 @@ t(:account_para)
 
 t(:linear_account_para_placeActive)
 
-#### t(:httprequest)
+<p class="fake_header">t(:httprequest)</p>
 POST
 <code><span id=vpoCreate>/private/linear/order/create</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
-#### t(:requestparameters)
+<p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#side-side">side</a> |true |string |t(:row_comment_side)    |
@@ -105,12 +105,12 @@ POST
 
 t(:account_para_getActive)
 
-#### t(:httprequest)
+<p class="fake_header">t(:httprequest)</p>
 GET
 <code><span id=oaoList>/private/linear/order/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oaoList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-#### t(:requestparameters)
+<p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |order_id |false |string |t(:account_row_comment_orderId) |
@@ -143,12 +143,12 @@ GET
 
 t(:account_para_cancelActive)
 
-#### t(:httprequest)
+<p class="fake_header">t(:httprequest)</p>
 POST
 <code><span id=vpoCancel>/private/linear/order/cancel</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancel"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-#### t(:requestparameters)
+<p class="fake_header">t(:requestparameters)</p>
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
@@ -184,12 +184,12 @@ t(:account_para_cancelAllActive)
 t(:account_aside_cancelAllActive)
 </aside>
 
-#### t(:httprequest)
+<p class="fake_header">t(:httprequest)</p>
 POST
 <code><span id=vpoCancelAll>/private/linear/order/cancel-all</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancelAll"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-#### t(:requestparameters)
+<p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string | t(:row_comment_symbol) |
@@ -234,12 +234,12 @@ POST
 
 t(:account_para_queryActive)
 
-#### t(:httprequest)
+<p class="fake_header">t(:httprequest)</p>
 GET
 <code><span id=vpOrder>/private/linear/order/search</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-#### t(:requestparameters)
+<p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |order_id |false |string | t(:misc_row_comment_orderIdNotOrderLinkId)|
@@ -302,12 +302,12 @@ t(:account_para_placeCond)
 t(:account_aside_placeCond)
 </aside>
 
-#### t(:httprequest)
+<p class="fake_header">t(:httprequest)</p>
 POST
 <code><span id=oasoCreate>/private/linear/stop-order/create</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oasoCreate"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-#### t(:requestparameters)
+<p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#side-side">side</a> |true |string |t(:row_comment_side)    |
@@ -378,12 +378,12 @@ POST
 
 t(:account_para_getCond)
 
-#### t(:httprequest)
+<p class="fake_header">t(:httprequest)</p>
 GET
 <code><span id=oasoList>/private/linear/stop-order/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oasoList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-#### t(:requestparameters)
+<p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |stop_order_id |false |string |t(:row_comment_stopOrderId) |
@@ -416,12 +416,12 @@ GET
 
 t(:account_para_cancelCond)
 
-#### t(:httprequest)
+<p class="fake_header">t(:httprequest)</p>
 POST
 <code><span id=oasoCancel>/private/linear/stop-order/cancel</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oasoCancel"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-#### t(:requestparameters)
+<p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|required|type | comments|
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)|
@@ -455,12 +455,12 @@ t(:account_para_cancelAllCond)
 t(:account_aside_cancelAllCond)
 </aside>
 
-#### t(:httprequest)
+<p class="fake_header">t(:httprequest)</p>
 POST
 <code><span id=vpsoCancelAll>/private/linear/stop-order/cancel-all</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpsoCancelAll"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-#### t(:requestparameters)
+<p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|required|type | comments|
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)|
@@ -500,12 +500,12 @@ POST
 
 t(:account_para_queryConditional)
 
-#### t(:httprequest)
+<p class="fake_header">t(:httprequest)</p>
 GET
 <code><span id=vpStopOrder>/private/linear/stop-order/search</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpStopOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-#### t(:requestparameters)
+<p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
@@ -584,12 +584,12 @@ GET
 
 t(:account_para_myPosition)
 
-#### t(:httprequest)
+<p class="fake_header">t(:httprequest)</p>
 GET
 <code><span id=pList>/private/linear/position/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-#### t(:requestparameters)
+<p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
@@ -615,12 +615,12 @@ GET
 
 t(:linear_account_para_setAutoAddMargin)
 
-#### t(:httprequest)
+<p class="fake_header">t(:httprequest)</p>
 POST
 <code><span id=pSetAutoAddMargin>/private/linear/position/set-auto-add-margin</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pSetAutoAddMargin"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-#### t(:requestparameters)
+<p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
@@ -647,12 +647,12 @@ POST
 
 t(:linear_account_para_setLeverage)
 
-#### t(:httprequest)
+<p class="fake_header">t(:httprequest)</p>
 POST
 <code><span id=pSetLeverage>/private/linear/position/set-leverage</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pSetLeverage"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-#### t(:requestparameters)
+<p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
@@ -693,12 +693,12 @@ t(:linear_account_para_switchIsolated)
 
 
 
-#### t(:httprequest)
+<p class="fake_header">t(:httprequest)</p>
 POST
 <code><span id=pSwitchIsolated>/private/linear/position/switch-isolated</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pSwitchIsolated"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-#### t(:requestparameters)
+<p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
@@ -730,12 +730,12 @@ t(:account_para_tradingStop)
 t(:account_aside_tradingStop)
 </aside>
 
-#### t(:httprequest)
+<p class="fake_header">t(:httprequest)</p>
 POST
 <code><span id=pSetTpSlTs>/private/linear/position/trading-stop</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pSetTpSlTs"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-#### t(:requestparameters)
+<p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
@@ -801,12 +801,12 @@ POST
 t(:linear_account_para_addMargin)
 
 
-#### t(:httprequest)
+<p class="fake_header">t(:httprequest)</p>
 POST
 <code><span id=pAddMargin>/private/linear/position/add-margin</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pAddMargin"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-#### t(:requestparameters)
+<p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
@@ -868,12 +868,12 @@ t(:linear_private_trade_records)
 t(:wallet_aside_tradeRecords)
 </aside>
 
-#### t(:httprequest)
+<p class="fake_header">t(:httprequest)</p>
 GET
 <code><span id=vpeList>/private/linear/trade/execution/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpeList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-#### t(:requestparameters)
+<p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
@@ -950,12 +950,12 @@ t(:linear_private_closed_pnl_records)
 t(:wallet_aside_tradeRecords)
 </aside>
 
-#### t(:httprequest_wallet)
+<p class="fake_header">t(:httprequest)</p>
 GET
 <code><span id=pltcList>/private/linear/trade/closed-pnl/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pltcList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-#### t(:requestparameters_wallet)
+<p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
@@ -1204,12 +1204,12 @@ t(:wallet_para_getRisk)
 t(:wallet_aside_getRisk)
 </aside>
 
-#### t(:httprequest1)
+<p class="fake_header">t(:httprequest)</p>
 GET
 <code><span id=oawrlList>/public/linear/risk-limit</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawrlList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-#### t(:requestparameters1)
+<p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 
@@ -1271,12 +1271,12 @@ curl https://api.bybit.com/private/linear/funding/prev-funding?symbol=BTCUSDT
 
 t(:market_para_records)
 
-#### t(:httprequest)
+<p class="fake_header">t(:httprequest)</p>
 GET
 <code><span id=vpPreFunding>/private/linear/funding/prev-funding</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpPreFunding"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-#### t(:requestparameters)
+<p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
@@ -1317,12 +1317,12 @@ curl https://api.bybit.com/private/linear/funding/predicted-funding?symbol=BTCUS
 
 t(:account_para_predictedFunding)
 
-#### t(:httprequest)
+<p class="fake_header">t(:httprequest)</p>
 GET
 <code><span id=vpPreFunding>/private/linear/funding/predicted-funding</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpPreFunding"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-#### t(:requestparameters)
+<p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
@@ -1379,11 +1379,11 @@ GET
 
 t(:account_para_key)
 
-#### t(:httprequest)
+<p class="fake_header">t(:httprequest)</p>
 GET
 <code><span id=oaApiKey>/open-api/api-key</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oaApiKey"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-#### t(:requestparameters)
+<p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |

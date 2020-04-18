@@ -43,14 +43,14 @@ curl https://api.bybit.com/public/linear/kline?symbol=BTCUSDT&interval=1&limit=2
 }
 ```
 
-t(:market_para_querykline)
+t(:linear_market_para_querykline)
 
-#### t(:httprequest)
+<p class="fake_header">t(:httprequest)</p>
 GET
 <code><span id=vpSymbols>/public/linear/kline</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpSymbols"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-#### t(:requestparameters)
+<p class="fake_header">t(:requestparameters)</p>
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
@@ -102,12 +102,12 @@ curl https://api.bybit.com/public/linear/recent-trading-records?symbol=BTCUSDT&l
 
 t(:market_para_records)
 
-#### t(:httprequest)
+<p class="fake_header">t(:httprequest)</p>
 GET
 <code><span id=vpRecentTradingRecords>/public/linear/recent-trading-records</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpRecentTradingRecords"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-#### t(:requestparameters)
+<p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
@@ -145,12 +145,12 @@ curl https://api.bybit.com/public/linear/funding/prev-funding-rate?symbol=BTCUSD
 
 t(:market_para_records)
 
-#### t(:httprequest)
+<p class="fake_header">t(:httprequest)</p>
 GET
 <code><span id=vpPreFundingRate>/public/linear/funding/prev-funding-rate</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpPreFundingRate"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-#### t(:requestparameters)
+<p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
@@ -210,12 +210,12 @@ curl https://api.bybit.com/public/linear/mark-price-kline?symbol=BTCUSDT&interva
 
 t(:linear_query_mark_price_kline)
 
-#### t(:httprequest)
+<p class="fake_header">t(:httprequest)</p>
 GET
 <code><span id=plmpk>/public/linear/mark-price-kline</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#plmpk"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-#### t(:requestparameters)
+<p class="fake_header">t(:requestparameters)</p>
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
@@ -278,12 +278,12 @@ t(:market_para_orderbook)
 t(:market_aside_orderbook)
 </aside>
 
-#### t(:httprequest)
+<p class="fake_header">t(:httprequest)</p>
 GET
 <code><span id=vpoL2>/v2/public/orderBook/L2</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoL2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-#### t(:requestparameters)
+<p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
@@ -362,12 +362,12 @@ curl https://api-testnet.bybit.com/v2/public/tickers
 
 t(:market_para_symbol)
 
-#### t(:httprequest)
+<p class="fake_header">t(:httprequest)</p>
 GET
 <code><span id=vpTickers>/v2/public/tickers</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpTickers"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-#### t(:requestparameters)
+<p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |false |string |t(:row_comment_symbol) |
@@ -430,12 +430,12 @@ curl https://api.bybit.com/public/linear/symbols
 
 t(:market_para_querySymbol)
 
-#### t(:httprequest)
+<p class="fake_header">t(:httprequest)</p>
 GET
 <code><span id=vpSymbols>/public/linear/symbols</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpSymbols"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-#### t(:requestparameters)
+<p class="fake_header">t(:requestparameters)</p>
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 -->
