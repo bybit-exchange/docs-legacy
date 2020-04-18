@@ -490,7 +490,7 @@
                     <a href="#t-latestsymbolinfo" class="toc-h2 toc-link" data-title="合约最新信息">合约最新信息</a>
                   </li>
                   <li>
-                    <a href="#t-publictradingrecords" class="toc-h2 toc-link" data-title="平台最近交易历史数据">平台最近交易历史数据</a>
+                    <a href="#t-publictradingrecords" class="toc-h2 toc-link" data-title="平台交易历史数据">平台交易历史数据</a>
                   </li>
                   <li>
                     <a href="#t-querysymbol" class="toc-h2 toc-link" data-title="查询合约信息">查询合约信息</a>
@@ -510,7 +510,7 @@
                             <a href="#t-getactive" class="toc-h3 toc-link" data-title="查询活动委托">查询活动委托</a>
                           </li>
                           <li>
-                            <a href="#t-cancelactive" class="toc-h3 toc-link" data-title="取消活动委托订单">取消活动委托订单</a>
+                            <a href="#t-cancelactive" class="toc-h3 toc-link" data-title="撤销活动委托单">撤销活动委托单</a>
                           </li>
                           <li>
                             <a href="#t-cancelallactive" class="toc-h3 toc-link" data-title="撤销所有活动委托单">撤销所有活动委托单</a>
@@ -547,17 +547,6 @@
                       </ul>
                   </li>
                   <li>
-                    <a href="#t-leverage" class="toc-h2 toc-link" data-title="用户杠杆">用户杠杆</a>
-                      <ul class="toc-list-h3">
-                          <li>
-                            <a href="#t-getleverage" class="toc-h3 toc-link" data-title="用户杠杆">用户杠杆</a>
-                          </li>
-                          <li>
-                            <a href="#t-changeleverage" class="toc-h3 toc-link" data-title="修改杠杆">修改杠杆</a>
-                          </li>
-                      </ul>
-                  </li>
-                  <li>
                     <a href="#t-position" class="toc-h2 toc-link" data-title="持仓">持仓</a>
                       <ul class="toc-list-h3">
                           <li>
@@ -568,6 +557,15 @@
                           </li>
                           <li>
                             <a href="#t-tradingstop" class="toc-h3 toc-link" data-title="设置止盈止损">设置止盈止损</a>
+                          </li>
+                          <li>
+                            <a href="#t-getleverage" class="toc-h3 toc-link" data-title="用户杠杆">用户杠杆</a>
+                          </li>
+                          <li>
+                            <a href="#t-changeleverage" class="toc-h3 toc-link" data-title="修改杠杆">修改杠杆</a>
+                          </li>
+                          <li>
+                            <a href="#t-usertraderecords" class="toc-h3 toc-link" data-title="用户成交记录">用户成交记录</a>
                           </li>
                       </ul>
                   </li>
@@ -592,7 +590,7 @@
                             <a href="#t-mylastfundingfee" class="toc-h3 toc-link" data-title="查询上个周期资金费用结算信息">查询上个周期资金费用结算信息</a>
                           </li>
                           <li>
-                            <a href="#t-predictedfunding" class="toc-h3 toc-link" data-title="预测资金费用">预测资金费用</a>
+                            <a href="#t-predictedfunding" class="toc-h3 toc-link" data-title="查询预测资金费率和资金费用">查询预测资金费率和资金费用</a>
                           </li>
                       </ul>
                   </li>
@@ -612,9 +610,6 @@
                   </li>
                   <li>
                     <a href="#t-withdrawrecords" class="toc-h2 toc-link" data-title="提币记录">提币记录</a>
-                  </li>
-                  <li>
-                    <a href="#t-usertraderecords" class="toc-h2 toc-link" data-title="用户成交记录">用户成交记录</a>
                   </li>
               </ul>
           </li>
@@ -962,13 +957,13 @@ clipboard.on('error', function(e) {
 <h2 id='2019-12-02'>2019-12-02</h2><h3 id='rest-api-12'>REST API</h3>
 <ul>
 <li><a href="#t-placeactive">创建活动委托单</a> [新增]</li>
-<li><a href="#t-cancelactive">取消活动委托订单</a> [新增]</li>
+<li><a href="#t-cancelactive">撤销活动委托单</a> [新增]</li>
 <li><a href="#t-cancelallactive">撤销所有活动委托单</a> [新增]</li>
 <li><a href="#t-cancelallcond">撤消全部条件委托单</a> [新增]</li>
 </ul>
 <h2 id='2019-11-19'>2019-11-19</h2><h3 id='rest-api-13'>REST API</h3>
 <ul>
-<li><a href="#t-publictradingrecords">平台最近交易历史数据</a> [新增]</li>
+<li><a href="#t-publictradingrecords">平台交易历史数据</a> [新增]</li>
 </ul>
 <h2 id='2019-11-07'>2019-11-07</h2><h3 id='rest-api-14'>REST API</h3>
 <ul>
@@ -1349,7 +1344,7 @@ function copyStringToClipboard (endpoint) {
 <td>合约类型</td>
 </tr>
 </tbody></table>
-<h3 id='t-publictradingrecords'>平台最近交易历史数据</h3>
+<h3 id='t-publictradingrecords'>平台交易历史数据</h3>
 <blockquote>
 <p>Curl 请求示例</p>
 </blockquote>
@@ -1790,7 +1785,7 @@ function copyStringToClipboard (endpoint) {
 <td>指定订单状态查询订单列表。不传该参数则默认查询所有状态订单。该参数支持多状态查询，状态之间用英文逗号分割。</td>
 </tr>
 </tbody></table>
-<h3 id='t-cancelactive'>取消活动委托订单</h3>
+<h3 id='t-cancelactive'>撤销活动委托单</h3>
 <blockquote>
 <p>响应示例</p>
 </blockquote>
@@ -2646,106 +2641,6 @@ function copyStringToClipboard (endpoint) {
 <td>机构ID。如果未填order_id则为<b>必填</b>字段。</td>
 </tr>
 </tbody></table>
-<h2 id='t-leverage'>用户杠杆</h2><h3 id='t-getleverage'>用户杠杆</h3>
-<blockquote>
-<p>响应示例</p>
-</blockquote>
-<pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-    <span class="s2">"ret_code"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="s2">"ret_msg"</span><span class="p">:</span> <span class="s2">"ok"</span><span class="p">,</span>
-    <span class="s2">"ext_code"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
-    <span class="s2">"result"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">"BTCUSD"</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">"leverage"</span><span class="p">:</span> <span class="mi">5</span>
-        <span class="p">},</span>
-        <span class="s2">"EOSUSD"</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">"leverage"</span><span class="p">:</span> <span class="mi">1</span>
-        <span class="p">},</span>
-        <span class="s2">"ETHUSD"</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">"leverage"</span><span class="p">:</span> <span class="mi">1</span>
-        <span class="p">},</span>
-        <span class="s2">"XRPUSD"</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">"leverage"</span><span class="p">:</span> <span class="mi">10</span>
-        <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="s2">"ext_info"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"time_now"</span><span class="p">:</span> <span class="s2">"1577477752.346548"</span><span class="p">,</span>
-    <span class="s2">"rate_limit_status"</span><span class="p">:</span> <span class="mi">119</span><span class="p">,</span>
-    <span class="s2">"rate_limit_reset_ms"</span><span class="p">:</span> <span class="mi">1577477752355</span><span class="p">,</span>
-    <span class="s2">"rate_limit"</span><span class="p">:</span> <span class="mi">120</span>
-<span class="p">}</span>
-</code></pre>
-<p>获取用户杠杆。</p>
-
-<p class="fake_header">HTTP 请求</p>
-
-<p>GET
-<code><span id=uLeverage>/user/leverage</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uLeverage"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
-
-<p class="fake_header">请求参数</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">参数</th>
-<th style="text-align: left">是否必须</th>
-<th style="text-align: left">类型</th>
-<th>说明</th>
-</tr>
-</thead><tbody>
-</tbody></table>
-<h3 id='t-changeleverage'>修改杠杆</h3>
-<blockquote>
-<p>响应示例</p>
-</blockquote>
-<pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-    <span class="s2">"ret_code"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="s2">"ret_msg"</span><span class="p">:</span> <span class="s2">"ok"</span><span class="p">,</span>
-    <span class="s2">"ext_code"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
-    <span class="s2">"result"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="s2">"ext_info"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"time_now"</span><span class="p">:</span> <span class="s2">"1577477968.175013"</span><span class="p">,</span>
-    <span class="s2">"rate_limit_status"</span><span class="p">:</span> <span class="mi">74</span><span class="p">,</span>
-    <span class="s2">"rate_limit_reset_ms"</span><span class="p">:</span> <span class="mi">1577477968183</span><span class="p">,</span>
-    <span class="s2">"rate_limit"</span><span class="p">:</span> <span class="mi">75</span>
-<span class="p">}</span>
-</code></pre>
-<p><p>修改杠杆。</p>
-</p>
-
-<aside class="notice">
-如果您想使用<a href="https://help.bybit.com/hc/en-us/articles/360037683633-What-is-Cross-Margin">全仓模式</a>请将<code>杠杆</code>设置为0。请注意，一旦您将杠杆由0改为其他任何值，仓位模式将自动切换到逐仓模式。
-</aside>
-
-<p class="fake_header">HTTP 请求</p>
-
-<p>POST
-<code><span id=ulSave>/user/leverage/save</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ulSave"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
-
-<p class="fake_header">请求参数</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">参数</th>
-<th style="text-align: left">是否必须</th>
-<th style="text-align: left">类型</th>
-<th>说明</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left">true</td>
-<td style="text-align: left">string</td>
-<td>合约类型</td>
-</tr>
-<tr>
-<td style="text-align: left">leverage</td>
-<td style="text-align: left">true</td>
-<td style="text-align: left">number</td>
-<td>杠杆。<code>杠杆为0</code>意味着全仓模式.全场模式下修改杠杆会变成逐仓模式</td>
-</tr>
-</tbody></table>
 <h2 id='t-position'>持仓</h2><h3 id='t-myposition'>获取持仓（实时）</h3>
 <blockquote>
 <p>响应示例</p>
@@ -2974,6 +2869,203 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">false</td>
 <td style="text-align: left">number</td>
 <td>追踪止损触发价格。追踪止损会在到达该价格后才会触发（追踪止损默认立即触发）。</td>
+</tr>
+</tbody></table>
+<h3 id='t-getleverage'>用户杠杆</h3>
+<blockquote>
+<p>响应示例</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="s2">"ret_code"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"ret_msg"</span><span class="p">:</span> <span class="s2">"ok"</span><span class="p">,</span>
+    <span class="s2">"ext_code"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"result"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"BTCUSD"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"leverage"</span><span class="p">:</span> <span class="mi">5</span>
+        <span class="p">},</span>
+        <span class="s2">"EOSUSD"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"leverage"</span><span class="p">:</span> <span class="mi">1</span>
+        <span class="p">},</span>
+        <span class="s2">"ETHUSD"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"leverage"</span><span class="p">:</span> <span class="mi">1</span>
+        <span class="p">},</span>
+        <span class="s2">"XRPUSD"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"leverage"</span><span class="p">:</span> <span class="mi">10</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s2">"ext_info"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"time_now"</span><span class="p">:</span> <span class="s2">"1577477752.346548"</span><span class="p">,</span>
+    <span class="s2">"rate_limit_status"</span><span class="p">:</span> <span class="mi">119</span><span class="p">,</span>
+    <span class="s2">"rate_limit_reset_ms"</span><span class="p">:</span> <span class="mi">1577477752355</span><span class="p">,</span>
+    <span class="s2">"rate_limit"</span><span class="p">:</span> <span class="mi">120</span>
+<span class="p">}</span>
+</code></pre>
+<p>获取用户杠杆。</p>
+
+<p class="fake_header">HTTP 请求</p>
+
+<p>GET
+<code><span id=uLeverage>/user/leverage</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uLeverage"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">请求参数</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">参数</th>
+<th style="text-align: left">是否必须</th>
+<th style="text-align: left">类型</th>
+<th>说明</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+<h3 id='t-changeleverage'>修改杠杆</h3>
+<blockquote>
+<p>响应示例</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="s2">"ret_code"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"ret_msg"</span><span class="p">:</span> <span class="s2">"ok"</span><span class="p">,</span>
+    <span class="s2">"ext_code"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"result"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"ext_info"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"time_now"</span><span class="p">:</span> <span class="s2">"1577477968.175013"</span><span class="p">,</span>
+    <span class="s2">"rate_limit_status"</span><span class="p">:</span> <span class="mi">74</span><span class="p">,</span>
+    <span class="s2">"rate_limit_reset_ms"</span><span class="p">:</span> <span class="mi">1577477968183</span><span class="p">,</span>
+    <span class="s2">"rate_limit"</span><span class="p">:</span> <span class="mi">75</span>
+<span class="p">}</span>
+</code></pre>
+<p><p>修改杠杆。</p>
+</p>
+
+<aside class="notice">
+如果您想使用<a href="https://help.bybit.com/hc/en-us/articles/360037683633-What-is-Cross-Margin">全仓模式</a>请将<code>杠杆</code>设置为0。请注意，一旦您将杠杆由0改为其他任何值，仓位模式将自动切换到逐仓模式。
+</aside>
+
+<p class="fake_header">HTTP 请求</p>
+
+<p>POST
+<code><span id=ulSave>/user/leverage/save</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ulSave"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">请求参数</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">参数</th>
+<th style="text-align: left">是否必须</th>
+<th style="text-align: left">类型</th>
+<th>说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>合约类型</td>
+</tr>
+<tr>
+<td style="text-align: left">leverage</td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">number</td>
+<td>杠杆。<code>杠杆为0</code>意味着全仓模式.全场模式下修改杠杆会变成逐仓模式</td>
+</tr>
+</tbody></table>
+<h3 id='t-usertraderecords'>用户成交记录</h3>
+<blockquote>
+<p>响应示例</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="s2">"ret_code"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"ret_msg"</span><span class="p">:</span> <span class="s2">"OK"</span><span class="p">,</span>
+    <span class="s2">"ext_code"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"ext_info"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"result"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"order_id"</span><span class="p">:</span> <span class="s2">"<b>已废弃!!</b>"</span><span class="p">,</span> <span class="c1">// <b>已废弃!!</b></span>
+        <span class="s2">"trade_list"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">"closed_size"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="c1">// 平仓委托对应的平仓size</span>
+                <span class="s2">"cross_seq"</span><span class="p">:</span> <span class="mi">277136382</span><span class="p">,</span>
+                <span class="s2">"exec_fee"</span><span class="p">:</span> <span class="s2">"0.0000001"</span><span class="p">,</span>
+                <span class="s2">"exec_id"</span><span class="p">:</span> <span class="s2">"256e5ef8-abfe-5772-971b-f944e15e0d68"</span><span class="p">,</span>
+                <span class="s2">"exec_price"</span><span class="p">:</span> <span class="s2">"8178.5"</span><span class="p">,</span>
+                <span class="s2">"exec_qty"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s2">"exec_time"</span><span class="p">:</span> <span class="s2">"1571676941.70682"</span><span class="p">,</span>    <span class="c1">//<b>已废弃!!</b></span>
+                <span class="s2">"exec_type"</span><span class="p">:</span> <span class="s2">"Trade"</span><span class="p">,</span> <span class="c1">//<a href="#exec-type-exec_type">交易类型枚举</a></span>
+                <span class="s2">"exec_value"</span><span class="p">:</span> <span class="s2">"0.00012227"</span><span class="p">,</span>
+                <span class="s2">"fee_rate"</span><span class="p">:</span> <span class="s2">"0.00075"</span><span class="p">,</span>
+                <span class="s2">"last_liquidity_ind"</span><span class="p">:</span> <span class="s2">"RemovedLiquidity"</span><span class="p">,</span> <span class="c1">//<a href="#liquidity-type-last_liquidity_ind">流动性类型枚举</a></span>
+                <span class="s2">"leaves_qty"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="s2">"nth_fill"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="s2">"order_id"</span><span class="p">:</span> <span class="s2">"7ad50cb1-9ad0-4f74-804b-d82a516e1029"</span><span class="p">,</span>
+                <span class="s2">"order_link_id"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+                <span class="s2">"order_price"</span><span class="p">:</span> <span class="s2">"8178"</span><span class="p">,</span>
+                <span class="s2">"order_qty"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s2">"order_type"</span><span class="p">:</span> <span class="s2">"Market"</span><span class="p">,</span> <span class="c1">//<a href="#order-type-order_type">订单类型枚举</a></span>
+                <span class="s2">"side"</span><span class="p">:</span> <span class="s2">"Buy"</span><span class="p">,</span> <span class="c1">//<a href="#side-side">方向枚举</a></span>
+                <span class="s2">"symbol"</span><span class="p">:</span> <span class="s2">"BTCUSD"</span><span class="p">,</span> <span class="c1">//<a href="#symbol-symbol">交易对枚举</a></span>
+                <span class="s2">"user_id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                 <span class="s2">"trade_time_ms"</span><span class="p">:</span> <span class="mi">1577480599000</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="s2">"time_now"</span><span class="p">:</span> <span class="s2">"1577483699.281488"</span><span class="p">,</span>
+    <span class="s2">"rate_limit_status"</span><span class="p">:</span> <span class="mi">118</span><span class="p">,</span>
+    <span class="s2">"rate_limit_reset_ms"</span><span class="p">:</span> <span class="mi">1577483699244737</span><span class="p">,</span>
+    <span class="s2">"rate_limit"</span><span class="p">:</span> <span class="mi">120</span>
+<span class="p">}</span>
+</code></pre>
+<p>获取用户成交记录，按时间升序排列。</p>
+
+<aside class="notice">
+一个订单可能有多笔成交记录。
+</aside>
+
+<p class="fake_header">HTTP 请求</p>
+
+<p>GET
+<code><span id=vpeList>/v2/private/execution/list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpeList"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">请求参数</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">参数</th>
+<th style="text-align: left">是否必须</th>
+<th style="text-align: left">类型</th>
+<th>说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">order_id</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>OrderID. If not provided, will return user's trading records</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>交易对 <b>必填</b></td>
+</tr>
+<tr>
+<td style="text-align: left">start_time</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">int</td>
+<td>开始时间戳（毫秒）</td>
+</tr>
+<tr>
+<td style="text-align: left">page</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>页码.默认取第一页</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>每页数量, 最大50. 默认每页20条</td>
 </tr>
 </tbody></table>
 <h2 id='t-risklimit'>风险限额</h2><h3 id='t-getrisklimit'>查询风险限额表</h3>
@@ -3251,7 +3343,7 @@ function copyStringToClipboard (endpoint) {
 <td>合约类型</td>
 </tr>
 </tbody></table>
-<h3 id='t-predictedfunding'>预测资金费用</h3>
+<h3 id='t-predictedfunding'>查询预测资金费率和资金费用</h3>
 <blockquote>
 <p>响应示例</p>
 </blockquote>
@@ -3610,103 +3702,6 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>Withdraw status</td>
-</tr>
-<tr>
-<td style="text-align: left">page</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">integer</td>
-<td>页码.默认取第一页</td>
-</tr>
-<tr>
-<td style="text-align: left">limit</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">integer</td>
-<td>每页数量, 最大50. 默认每页20条</td>
-</tr>
-</tbody></table>
-<h3 id='t-usertraderecords'>用户成交记录</h3>
-<blockquote>
-<p>响应示例</p>
-</blockquote>
-<pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-    <span class="s2">"ret_code"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="s2">"ret_msg"</span><span class="p">:</span> <span class="s2">"OK"</span><span class="p">,</span>
-    <span class="s2">"ext_code"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
-    <span class="s2">"ext_info"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
-    <span class="s2">"result"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">"order_id"</span><span class="p">:</span> <span class="s2">"<b>已废弃!!</b>"</span><span class="p">,</span> <span class="c1">// <b>已废弃!!</b></span>
-        <span class="s2">"trade_list"</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">{</span>
-                <span class="s2">"closed_size"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-                <span class="s2">"cross_seq"</span><span class="p">:</span> <span class="mi">277136382</span><span class="p">,</span>
-                <span class="s2">"exec_fee"</span><span class="p">:</span> <span class="s2">"0.0000001"</span><span class="p">,</span>
-                <span class="s2">"exec_id"</span><span class="p">:</span> <span class="s2">"256e5ef8-abfe-5772-971b-f944e15e0d68"</span><span class="p">,</span>
-                <span class="s2">"exec_price"</span><span class="p">:</span> <span class="s2">"8178.5"</span><span class="p">,</span>
-                <span class="s2">"exec_qty"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-                <span class="s2">"exec_time"</span><span class="p">:</span> <span class="s2">"1571676941.70682"</span><span class="p">,</span>    <span class="c1">//<b>已废弃!!</b></span>
-                <span class="s2">"exec_type"</span><span class="p">:</span> <span class="s2">"Trade"</span><span class="p">,</span> <span class="c1">//<a href="#exec-type-exec_type">交易类型枚举</a></span>
-                <span class="s2">"exec_value"</span><span class="p">:</span> <span class="s2">"0.00012227"</span><span class="p">,</span>
-                <span class="s2">"fee_rate"</span><span class="p">:</span> <span class="s2">"0.00075"</span><span class="p">,</span>
-                <span class="s2">"last_liquidity_ind"</span><span class="p">:</span> <span class="s2">"RemovedLiquidity"</span><span class="p">,</span> <span class="c1">//<a href="#liquidity-type-last_liquidity_ind">流动性类型枚举</a></span>
-                <span class="s2">"leaves_qty"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-                <span class="s2">"nth_fill"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-                <span class="s2">"order_id"</span><span class="p">:</span> <span class="s2">"7ad50cb1-9ad0-4f74-804b-d82a516e1029"</span><span class="p">,</span>
-                <span class="s2">"order_link_id"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
-                <span class="s2">"order_price"</span><span class="p">:</span> <span class="s2">"8178"</span><span class="p">,</span>
-                <span class="s2">"order_qty"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-                <span class="s2">"order_type"</span><span class="p">:</span> <span class="s2">"Market"</span><span class="p">,</span> <span class="c1">//<a href="#order-type-order_type">订单类型枚举</a></span>
-                <span class="s2">"side"</span><span class="p">:</span> <span class="s2">"Buy"</span><span class="p">,</span> <span class="c1">//<a href="#side-side">方向枚举</a></span>
-                <span class="s2">"symbol"</span><span class="p">:</span> <span class="s2">"BTCUSD"</span><span class="p">,</span> <span class="c1">//<a href="#symbol-symbol">交易对枚举</a></span>
-                <span class="s2">"user_id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-                 <span class="s2">"trade_time_ms"</span><span class="p">:</span> <span class="mi">1577480599000</span>
-            <span class="p">}</span>
-        <span class="p">]</span>
-    <span class="p">},</span>
-    <span class="s2">"time_now"</span><span class="p">:</span> <span class="s2">"1577483699.281488"</span><span class="p">,</span>
-    <span class="s2">"rate_limit_status"</span><span class="p">:</span> <span class="mi">118</span><span class="p">,</span>
-    <span class="s2">"rate_limit_reset_ms"</span><span class="p">:</span> <span class="mi">1577483699244737</span><span class="p">,</span>
-    <span class="s2">"rate_limit"</span><span class="p">:</span> <span class="mi">120</span>
-<span class="p">}</span>
-</code></pre>
-<p>获取用户成交记录，按时间升序排列。</p>
-
-<aside class="notice">
-一个订单可能有多笔成交记录。
-</aside>
-
-<p class="fake_header">HTTP 请求</p>
-
-<p>GET
-<code><span id=vpeList>/v2/private/execution/list</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpeList"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
-
-<p class="fake_header">请求参数</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">参数</th>
-<th style="text-align: left">是否必须</th>
-<th style="text-align: left">类型</th>
-<th>说明</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">order_id</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>OrderID. If not provided, will return user's trading records</td>
-</tr>
-<tr>
-<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left">true</td>
-<td style="text-align: left">string</td>
-<td>交易对 <b>必填</b></td>
-</tr>
-<tr>
-<td style="text-align: left">start_time</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">int</td>
-<td>开始时间戳（毫秒）</td>
 </tr>
 <tr>
 <td style="text-align: left">page</td>
