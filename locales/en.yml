@@ -419,22 +419,22 @@ en:
     <li>
       <code>GET</code>method:
       <ul>
-        <li>35 requests per second</li>
-        <li>25 requests per second continuously for 2 minutes</li>
+        <li>70 requests per second</li>
+        <li>50 requests per second continuously for 2 minutes</li>
       </ul>
     </li>
     <li>
       <code>POST</code>method:
       <ul>
-        <li>25 requests per second</li>
-        <li>10 requests per second continuously for 2 minutes</li>
+        <li>50 requests per second</li>
+        <li>20 requests per second continuously for 2 minutes</li>
       </ul>
     </li>
     </ul>
   ### Account rate limit
   understandingratelimits: Understanding Your Request Rate Limit
   rate_para_understanding: |
-    Bybit makes frequency limits based on <b>the rolling time window per minute and UID</b>. Every request to the API returns the fields shown in the code panel:
+    Bybit makes frequency limits based on <b>the rolling time window per minute and UID, and each symbol is independent</b>. Every request to the API returns the fields shown in the code panel:
   rate_text_limitStatus_understanding: your remaining requests for current endpoint
   rate_text_limit_understanding: your current limit for current endpoint
   rate_text_limitReset: the timestamp indicating when your request limit resets if you have exceeded your rate_limit. Otherwise, this is just the current timestamp.
@@ -816,6 +816,9 @@ en:
   exec_funding: ""
   exec_adlTrade: ""
   exec_bustTrade: ""
+  ## Liquidity type (`last_liquidity_ind`)
+  addedLiquidity: "maker liquidity"
+  removedLiquidity: "taker liquidity"
 
   # Error Code
   errors_intro: The Bybit API uses the following HTTP Codes and Error Codes<span>:</span>
