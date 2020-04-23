@@ -3316,7 +3316,7 @@ GET
 </ul>
 </p>
 <h3 id='t-understandingratelimits'>账户频率限制</h3>
-<p>Bybit基于<b>每分钟</b>的滚动时间窗口来做频率限制，并且是按<b>账户</b>（uid）来做划分限制，每次请求API响应中都会包含如下字段：
+<p>Bybit基于<b>每分钟</b>的滚动时间窗口来做频率限制，并且是按<b>账户</b>（uid）和交易对（symbol）来做划分限制，每次请求API响应中都会包含如下字段：
 </p>
 <pre class="highlight plaintext"><code>"rate_limit_status": 119,
 "rate_limit_reset_ms": 1572114055663,
@@ -4494,29 +4494,29 @@ B用户：
 </ul>
 <h2 id='wallet-fund-type-wallet_fund_type'>Wallet fund type (<code>wallet_fund_type</code>)</h2>
 <ul>
-<li><code>Deposit</code> </li>
-<li><code>Withdraw</code> </li>
-<li><code>RealisedPNL</code> </li>
-<li><code>Commission</code> </li>
-<li><code>Refund</code> </li>
-<li><code>Prize</code> </li>
-<li><code>ExchangeOrderWithdraw</code> </li>
-<li><code>ExchangeOrderDeposit</code> </li>
+<li><code>Deposit</code> 入金</li>
+<li><code>Withdraw</code> 提币</li>
+<li><code>RealisedPNL</code> 已结盈亏</li>
+<li><code>Commission</code> 佣金</li>
+<li><code>Refund</code> 系统返还（如提币审核拒绝返还、用户提币取消返还）</li>
+<li><code>Prize</code> 增进</li>
+<li><code>ExchangeOrderWithdraw</code> 兑出</li>
+<li><code>ExchangeOrderDeposit</code> 兑入</li>
 </ul>
 <h2 id='withdraw-status-status'>Withdraw status (<code>status</code>)</h2>
 <ul>
-<li><code>ToBeConfirmed</code> </li>
-<li><code>UnderReview</code> </li>
-<li><code>Pending</code> - Pending transfer</li>
-<li><code>Success</code> </li>
-<li><code>CancelByUser</code> </li>
-<li><code>Reject</code> </li>
-<li><code>Expire</code> </li>
+<li><code>ToBeConfirmed</code> 待（用户邮件）确认</li>
+<li><code>UnderReview</code> 审核中</li>
+<li><code>Pending</code> 待打款</li>
+<li><code>Success</code> 打款成功</li>
+<li><code>CancelByUser</code> 用户取消</li>
+<li><code>Reject</code> 审核拒绝</li>
+<li><code>Expire</code> 提币请求过期</li>
 </ul>
 <h2 id='order-type-order_type'>Order type (<code>order_type</code>)</h2>
 <ul>
-<li><code>Limit</code> </li>
-<li><code>Market</code> </li>
+<li><code>Limit</code> 限价单</li>
+<li><code>Market</code> 市价单</li>
 </ul>
 <h2 id='quantity-qty'>Quantity (<code>qty</code>)</h2>
 <p><ul> <li>最大值1百万 (<code>1000000</code>)</li> <li>必须是正整数： <ul> <li><code>40</code> - 合法</li> <li><code>30.5</code> - 非法</li> </ul> </li> </ul></p>
@@ -4524,16 +4524,16 @@ B用户：
 <p><ul> <li>活动单<ul> <li>必须是<code>tick_size</code>的整数倍<ul> <li>当前symbol信息(如<code>tick_size</code>)，可以通过<a href="#t-querysymbol">交易对接口</a>接口获得。</li> </ul> </li> <li>必须小于一百万 (<code>1000000</code>)</li> <li>如果用户没有未平仓，则价格必须大于市场价格的10%<ul> <li>如, 若当前市场价(last price) 为 10314, 那么下单价格的最小值为 1031.5。</li> <li>伪代码(假设价格是0.5的增量):<pre class="center-column"> IF price > (last_price * 0.1) // 发送订单 ELSE //  不会发送订单，因为价格将不被系统接受 </pre></li> </ul> </li> <li>如果已持有仓位，那么价格必须高于强平价格<ul> <li>如, 若多仓的强平价格为 5176.5 那么价格最小为 5177. 在做空的情况下，价格必须低于强平价格。</li> </ul> </li> </ul> </li> <li>条件单<ul> <li>必须大于等于 <code>1</code></li> </ul> </li> </ul></p>
 <h2 id='time-in-force-time_in_force'>Time in force (<code>time_in_force</code>)</h2>
 <ul>
-<li><code>GoodTillCancel</code> </li>
-<li><code>ImmediateOrCancel</code> </li>
-<li><code>FillOrKill</code> </li>
-<li><code>PostOnly</code> </li>
+<li><code>GoodTillCancel</code> 一直有效至取消</li>
+<li><code>ImmediateOrCancel</code> 立即成交或取消</li>
+<li><code>FillOrKill</code> 完全成交或取消</li>
+<li><code>PostOnly</code> 被动委托</li>
 </ul>
 <h2 id='trigger-price-type-trigger_by'>Trigger price type (<code>trigger_by</code>)</h2>
 <ul>
-<li><code>LastPrice</code> </li>
-<li><code>IndexPrice</code> </li>
-<li><code>MarkPrice</code> </li>
+<li><code>LastPrice</code> 最新市价</li>
+<li><code>IndexPrice</code> 指数价格</li>
+<li><code>MarkPrice</code> 标记价格</li>
 </ul>
 <h2 id='order-order'>Order (<code>order</code>)</h2>
 <p>排序方向</p>
@@ -4567,7 +4567,7 @@ B用户：
 -->
 <h2 id='cancel-type-cancel_type'>Cancel type (<code>cancel_type</code>)</h2>
 <ul>
-<li><code>CancelByUser</code> </li>
+<li><code>CancelByUser</code> 用户取消</li>
 <li><code>CancelByReduceOnly</code> </li>
 <li><code>CancelByPrepareLiq</code>,<code>CancelAllBeforeLiq</code> - 仓位进入强平导致取消订单</li>
 <li><code>CancelByPrepareAdl</code>,<code>CancelAllBeforeAdl</code> - 自动减仓导致取消订单</li>
@@ -4597,8 +4597,8 @@ B用户：
 </ul>
 <h2 id='liquidity-type-last_liquidity_ind'>Liquidity type (<code>last_liquidity_ind</code>)</h2>
 <ul>
-<li><code>AddedLiquidity</code></li>
-<li><code>RemovedLiquidity</code></li>
+<li><code>AddedLiquidity</code> maker成交</li>
+<li><code>RemovedLiquidity</code> taker成交</li>
 </ul>
 
       </div>

@@ -3805,21 +3805,21 @@ The difference between data returned by this endpoint and data of type <code>Wit
 <li>
   <code>GET</code>method:
   <ul>
-    <li>35 requests per second</li>
-    <li>25 requests per second continuously for 2 minutes</li>
+    <li>70 requests per second</li>
+    <li>50 requests per second continuously for 2 minutes</li>
   </ul>
 </li>
 <li>
   <code>POST</code>method:
   <ul>
-    <li>25 requests per second</li>
-    <li>10 requests per second continuously for 2 minutes</li>
+    <li>50 requests per second</li>
+    <li>20 requests per second continuously for 2 minutes</li>
   </ul>
 </li>
 </ul>
 </p>
 <h3 id='t-understandingratelimits'>Understanding Your Request Rate Limit</h3>
-<p>Bybit makes frequency limits based on <b>the rolling time window per minute and UID</b>. Every request to the API returns the fields shown in the code panel:
+<p>Bybit makes frequency limits based on <b>the rolling time window per minute and UID, and each symbol is independent</b>. Every request to the API returns the fields shown in the code panel:
 </p>
 <pre class="highlight plaintext"><code>"rate_limit_status": 119,
 "rate_limit_reset_ms": 1572114055663,
@@ -4777,8 +4777,8 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 </ul>
 <h2 id='liquidity-type-last_liquidity_ind'>Liquidity type (<code>last_liquidity_ind</code>)</h2>
 <ul>
-<li><code>AddedLiquidity</code></li>
-<li><code>RemovedLiquidity</code></li>
+<li><code>AddedLiquidity</code> maker liquidity</li>
+<li><code>RemovedLiquidity</code> taker liquidity</li>
 </ul>
 <h1 id='t-errors'>Errors</h1>
 <p>The Bybit API uses the following HTTP Codes and Error Codes<span>:</span></p>
