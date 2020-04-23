@@ -108,5 +108,5 @@ t(:para_orderStatusGet)
 * `BustTrade` t(:exec_bustTrade)
 
 ## Liquidity type (`last_liquidity_ind`)
-* `AddedLiquidity`
-* `RemovedLiquidity`
+* `AddedLiquidity` t(:addedLiquidity)
+* `RemovedLiquidity` t(:removedLiquidity)

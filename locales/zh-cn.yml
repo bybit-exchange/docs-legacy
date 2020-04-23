@@ -421,7 +421,7 @@ zh-cn:
   ### Account rate limit
   understandingratelimits: 账户频率限制
   rate_para_understanding: |
-    Bybit基于<b>每分钟</b>的滚动时间窗口来做频率限制，并且是按<b>账户</b>（uid）来做划分限制，每次请求API响应中都会包含如下字段：
+    Bybit基于<b>每分钟</b>的滚动时间窗口来做频率限制，并且是按<b>账户</b>（uid）和交易对（symbol）来做划分限制，每次请求API响应中都会包含如下字段：
   rate_text_limitStatus_understanding: 该接口当前时间窗口剩余可用请求数
   rate_text_limit_understanding: 该接口当前频率限制上限
   rate_text_limitReset: 如果您已超过该接口当前窗口频率限制，该字段表示下个可用时间窗口的时间戳（毫秒），即什么时候可以恢复访问；如果您未超过该接口当前窗口频率限制，该字段表示返回的是当前服务器时间（毫秒).
@@ -686,25 +686,25 @@ zh-cn:
   enums: 枚举定义
   ENUMs_para: 以下是各个接口请求参数或返回结果中定义的枚举。
   ## Wallet fund type (`wallet_fund_type`)
-  deposit:      ""
-  withdraw:     ""
-  realisedpnl:  ""
-  commission:   ""
-  refund:       ""
-  prize:        ""
-  exchangeOrderWithdraw: ""
-  exchangeOrderDeposit:  ""
+  deposit:      "入金"
+  withdraw:     "提币"
+  realisedpnl:  "已结盈亏"
+  commission:   "佣金"
+  refund:       "系统返还（如提币审核拒绝返还、用户提币取消返还）"
+  prize:        "增进"
+  exchangeOrderWithdraw: "兑出"
+  exchangeOrderDeposit:  "兑入"
   ## Withdraw status (`status`)
-  toBeConfirmed:  ""
-  underReview:    ""
-  pending:        "- Pending transfer"
-  success:        ""
-  cancelByUser:   ""
-  reject:         ""
-  expire:         ""
+  toBeConfirmed:  "待（用户邮件）确认"
+  underReview:    "审核中"
+  pending:        "待打款"
+  success:        "打款成功"
+  cancelByUser:   "用户取消"
+  reject:         "审核拒绝"
+  expire:         "提币请求过期"
   ## Order type (`order_type`)
-  limit:  ""
-  market: ""
+  limit:  "限价单"
+  market: "市价单"
   ## Quantity (`qty`)
   quantity:
     <ul>
@@ -747,14 +747,14 @@ zh-cn:
     </li>
     </ul>
   ## Time in force (`time_in_force`)
-  goodTillCancel:     ""
-  immediateOrCancel:  ""
-  fillOrKill:         ""
-  postOnly:           ""
+  goodTillCancel:     "一直有效至取消"
+  immediateOrCancel:  "立即成交或取消"
+  fillOrKill:         "完全成交或取消"
+  postOnly:           "被动委托"
   ## Trigger price type (`trigger_by`)
-  lastPrice:  ""
-  indexPrice: ""
-  markPrice:  ""
+  lastPrice:  "最新市价"
+  indexPrice: "指数价格"
+  markPrice:  "标记价格"
   ## Order (`order`)
   para_order: 排序方向
   desc: "(default)"
@@ -799,6 +799,10 @@ zh-cn:
   exec_adlTrade: "自动减仓"
   exec_funding: "资金费率"
   exec_bustTrade: "强制平仓"
+  ## Liquidity type (`last_liquidity_ind`)
+  addedLiquidity: "maker成交"
+  removedLiquidity: "taker成交"
+
   # Error Code
   errors_intro: Bybit使用以下HTTP Code和错误码：
 
