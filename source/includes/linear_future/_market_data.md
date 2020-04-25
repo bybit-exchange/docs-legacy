@@ -1,6 +1,8 @@
 # t(:marketdata)
 t(:market_para_auth)
 
+### t(:orderbook)
+<a href="/inverse#t-orderbook">t(:shared_endpoint_desc)</a>
 
 ### t(:querykline)
 > t(:codequote_curlExample)
@@ -63,8 +65,8 @@ GET
 
 
 
-
-
+### t(:latestsymbolinfo)
+<a href="/inverse#t-latestsymbolinfo">t(:shared_endpoint_desc)</a>
 
 
 
@@ -117,7 +119,8 @@ GET
 
 
 
-
+### t(:querysymbol)
+<a href="/inverse#t-querysymbol">t(:shared_endpoint_desc)</a>
 
 
 ### t(:fundingrate)
