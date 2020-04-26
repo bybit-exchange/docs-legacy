@@ -398,10 +398,19 @@
             <a href="#t-marketdata" class="toc-h1 toc-link" data-title="行情接口">行情接口</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#t-orderbook" class="toc-h2 toc-link" data-title="Orderbook">Orderbook</a>
+                  </li>
+                  <li>
                     <a href="#t-querykline" class="toc-h2 toc-link" data-title="查询K线数据">查询K线数据</a>
                   </li>
                   <li>
+                    <a href="#t-latestsymbolinfo" class="toc-h2 toc-link" data-title="合约最新信息">合约最新信息</a>
+                  </li>
+                  <li>
                     <a href="#t-publictradingrecords" class="toc-h2 toc-link" data-title="平台交易历史数据">平台交易历史数据</a>
+                  </li>
+                  <li>
+                    <a href="#t-querysymbol" class="toc-h2 toc-link" data-title="查询合约信息">查询合约信息</a>
                   </li>
                   <li>
                     <a href="#t-fundingrate" class="toc-h2 toc-link" data-title="查询上个周期的资金费率">查询上个周期的资金费率</a>
@@ -504,6 +513,20 @@
                   </li>
                   <li>
                     <a href="#t-key" class="toc-h2 toc-link" data-title="APIKey信息">APIKey信息</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#t-wallet" class="toc-h1 toc-link" data-title="钱包接口">钱包接口</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-balance" class="toc-h2 toc-link" data-title="获取钱包余额">获取钱包余额</a>
+                  </li>
+                  <li>
+                    <a href="#t-walletrecords" class="toc-h2 toc-link" data-title="资金记录">资金记录</a>
+                  </li>
+                  <li>
+                    <a href="#t-withdrawrecords" class="toc-h2 toc-link" data-title="提币记录">提币记录</a>
                   </li>
               </ul>
           </li>
@@ -731,12 +754,29 @@ clipboard.on('error', function(e) {
 </ul>
 <h2 id='2020-04-17'>2020-04-17</h2><h3 id='rest-api-2'>REST API</h3>
 <ul>
+<li><a href="#t-orderbook">Orderbook</a> [更新]
+
+<ul>
+<li>新增 <code>BTCUSDT</code> 至orderbook</li>
+</ul></li>
+<li><a href="#t-latestsymbolinfo">合约最新信息</a> [更新]
+
+<ul>
+<li>新增 <code>BTCUSDT</code> 至合约最新信息</li>
+</ul></li>
 <li><a href="#t-usertraderecords">用户成交记录</a> [更新]
 
 <ul>
-<li>新增用户最新成交 <code>trade_time_ms</code> 字段</li>
-<li>更新用户最新成交请求参数 <code>start_time</code> 支持毫秒</li>
-<li>废弃用户最新成交返回参数 <code>trade_time</code></li>
+<li>新增 <code>trade_time_ms</code> 字段</li>
+<li>更新请求参数 <code>start_time</code> 支持毫秒</li>
+<li>废弃返回参数 <code>trade_time</code></li>
+</ul></li>
+<li><a href="#t-publictradingrecords">平台交易历史数据</a> [更新]
+
+<ul>
+<li>新增 <code>trade_time_ms</code> 字段</li>
+<li>更新请求参数 <code>start_time</code> 支持毫秒</li>
+<li>废弃返回参数 <code>trade_time</code></li>
 </ul></li>
 <li><a href="#t-markpricekline">标记价格K线</a> [新增]</li>
 <li><a href="#t-predictedfunding">查询预测资金费率和资金费用</a> [新增]</li>
@@ -935,6 +975,8 @@ function copyStringToClipboard (endpoint) {
 </script>
 <h1 id='t-marketdata'>行情接口</h1>
 <p>以下市场行情数据接口不需要验权.</p>
+<h3 id='t-orderbook'>Orderbook</h3>
+<p><a href="/inverse#t-orderbook">请点击查看接口描述。</a></p>
 <h3 id='t-querykline'>查询K线数据</h3>
 <blockquote>
 <p>Curl 请求示例</p>
@@ -1019,6 +1061,8 @@ function copyStringToClipboard (endpoint) {
 <td>最大200. 默认每页200条</td>
 </tr>
 </tbody></table>
+<h3 id='t-latestsymbolinfo'>合约最新信息</h3>
+<p><a href="/inverse#t-latestsymbolinfo">请点击查看接口描述。</a></p>
 <h3 id='t-publictradingrecords'>平台交易历史数据</h3>
 <blockquote>
 <p>Curl 请求示例</p>
@@ -1035,12 +1079,13 @@ function copyStringToClipboard (endpoint) {
     <span class="s2">"ext_info"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
     <span class="s2">"result"</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
-            <span class="s2">"id"</span><span class="p">:</span> <span class="s2">"18368131384"</span><span class="p">,</span>                              <span class="c1">// ID, string type, all ids are in descending order globally</span>
-            <span class="s2">"symbol"</span><span class="p">:</span> <span class="s2">"BTCUSDT"</span><span class="p">,</span>                             <span class="c1">// contract type</span>
+            <span class="s2">"id"</span><span class="p">:</span> <span class="s2">"18368131384"</span><span class="p">,</span>                            <span class="c1">// ID, string type, all ids are in descending order globally</span>
+            <span class="s2">"symbol"</span><span class="p">:</span> <span class="s2">"BTCUSDT"</span><span class="p">,</span>                            <span class="c1">// contract type</span>
             <span class="s2">"price"</span><span class="p">:</span> <span class="mf">9499.5</span><span class="p">,</span>                                <span class="c1">// execution price</span>
             <span class="s2">"qty"</span><span class="p">:</span> <span class="mi">9500</span><span class="p">,</span>                                    <span class="c1">// execution quantity</span>
             <span class="s2">"side"</span><span class="p">:</span> <span class="s2">"Buy"</span><span class="p">,</span>                                  <span class="c1">// side</span>
-            <span class="s2">"time"</span><span class="p">:</span> <span class="s2">"2019-11-19T08:03:04.077Z"</span>              <span class="c1">// UTC time</span>
+            <span class="s2">"time"</span><span class="p">:</span> <span class="s2">"2019-11-19T08:03:04.077Z"</span><span class="p">,</span>             <span class="c1">// <b>已废弃!!</b></span>
+            <span class="s2">"trade_time_ms"</span><span class="p">:</span><span class="mi">1587638305175</span>
         <span class="p">}</span>
     <span class="p">],</span>
     <span class="s2">"time_now"</span><span class="p">:</span> <span class="s2">"1567109419.049271"</span>
@@ -1077,6 +1122,8 @@ function copyStringToClipboard (endpoint) {
 <td>返回条数，最大1000，默认500</td>
 </tr>
 </tbody></table>
+<h3 id='t-querysymbol'>查询合约信息</h3>
+<p><a href="/inverse#t-querysymbol">请点击查看接口描述。</a></p>
 <h3 id='t-fundingrate'>查询上个周期的资金费率</h3>
 <blockquote>
 <p>Curl 请求示例</p>
@@ -3217,6 +3264,14 @@ GET
 </tr>
 </thead><tbody>
 </tbody></table>
+<h1 id='t-wallet'>钱包接口</h1>
+<p>钱包相关接口需要认证。</p>
+<h3 id='t-balance'>获取钱包余额</h3>
+<p><a href="/inverse#t-balance">请点击查看接口描述。</a></p>
+<h3 id='t-walletrecords'>资金记录</h3>
+<p><a href="/inverse#t-walletrecords">请点击查看接口描述。</a></p>
+<h3 id='t-withdrawrecords'>提币记录</h3>
+<p><a href="/inverse#t-withdrawrecords">请点击查看接口描述。</a></p>
 <h1 id='t-api'>通用数据接口</h1>
 <p>通用数据接口不需要鉴权。</p>
 <h3 id='t-servertime'>服务器时间</h3>

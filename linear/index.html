@@ -398,10 +398,19 @@
             <a href="#t-marketdata" class="toc-h1 toc-link" data-title="Market Data Endpoints">Market Data Endpoints</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#t-orderbook" class="toc-h2 toc-link" data-title="Orderbook">Orderbook</a>
+                  </li>
+                  <li>
                     <a href="#t-querykline" class="toc-h2 toc-link" data-title="Query Kline">Query Kline</a>
                   </li>
                   <li>
+                    <a href="#t-latestsymbolinfo" class="toc-h2 toc-link" data-title="Latest Information for Symbol">Latest Information for Symbol</a>
+                  </li>
+                  <li>
                     <a href="#t-publictradingrecords" class="toc-h2 toc-link" data-title="Public Trading Records">Public Trading Records</a>
+                  </li>
+                  <li>
+                    <a href="#t-querysymbol" class="toc-h2 toc-link" data-title="Query Symbol">Query Symbol</a>
                   </li>
                   <li>
                     <a href="#t-fundingrate" class="toc-h2 toc-link" data-title="Get the Last Funding Rate">Get the Last Funding Rate</a>
@@ -504,6 +513,20 @@
                   </li>
                   <li>
                     <a href="#t-key" class="toc-h2 toc-link" data-title="API Key Info">API Key Info</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#t-wallet" class="toc-h1 toc-link" data-title="Wallet Data Endpoints">Wallet Data Endpoints</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-balance" class="toc-h2 toc-link" data-title="Get Wallet Balance">Get Wallet Balance</a>
+                  </li>
+                  <li>
+                    <a href="#t-walletrecords" class="toc-h2 toc-link" data-title="Wallet Fund Records">Wallet Fund Records</a>
+                  </li>
+                  <li>
+                    <a href="#t-withdrawrecords" class="toc-h2 toc-link" data-title="Withdraw Records">Withdraw Records</a>
                   </li>
               </ul>
           </li>
@@ -731,7 +754,24 @@ clipboard.on('error', function(e) {
 </ul>
 <h2 id='2020-04-17'>2020-04-17</h2><h3 id='rest-api-2'>REST API</h3>
 <ul>
+<li><a href="#t-orderbook">Orderbook</a> [update]
+
+<ul>
+<li>Add new symbol <code>BTCUSDT</code></li>
+</ul></li>
+<li><a href="#t-latestsymbolinfo">Latest Information for Symbol</a> [update]
+
+<ul>
+<li>Add new symbol <code>BTCUSDT</code></li>
+</ul></li>
 <li><a href="#t-usertraderecords">User Trade Records</a> [update]
+
+<ul>
+<li>Add new response param <code>trade_time_ms</code></li>
+<li>Update support millisecond <code>start_time</code></li>
+<li>Abandon response field <code>trade_time</code></li>
+</ul></li>
+<li><a href="#t-publictradingrecords">Public Trading Records</a> [update]
 
 <ul>
 <li>Add new response param <code>trade_time_ms</code></li>
@@ -937,6 +977,8 @@ function copyStringToClipboard (endpoint) {
 </script>
 <h1 id='t-marketdata'>Market Data Endpoints</h1>
 <p>The following market data endpoints do not require authentication.</p>
+<h3 id='t-orderbook'>Orderbook</h3>
+<p><a href="/inverse#t-orderbook">Please see the shared endpoint.</a></p>
 <h3 id='t-querykline'>Query Kline</h3>
 <blockquote>
 <p>Curl Example</p>
@@ -1021,6 +1063,8 @@ function copyStringToClipboard (endpoint) {
 <td>Limit for data size, max size is 200. Default as showing 200 pieces of data</td>
 </tr>
 </tbody></table>
+<h3 id='t-latestsymbolinfo'>Latest Information for Symbol</h3>
+<p><a href="/inverse#t-latestsymbolinfo">Please see the shared endpoint.</a></p>
 <h3 id='t-publictradingrecords'>Public Trading Records</h3>
 <blockquote>
 <p>Curl Example</p>
@@ -1037,12 +1081,13 @@ function copyStringToClipboard (endpoint) {
     <span class="s2">"ext_info"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
     <span class="s2">"result"</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
-            <span class="s2">"id"</span><span class="p">:</span> <span class="s2">"18368131384"</span><span class="p">,</span>                              <span class="c1">// ID, string type, all ids are in descending order globally</span>
-            <span class="s2">"symbol"</span><span class="p">:</span> <span class="s2">"BTCUSDT"</span><span class="p">,</span>                             <span class="c1">// contract type</span>
+            <span class="s2">"id"</span><span class="p">:</span> <span class="s2">"18368131384"</span><span class="p">,</span>                            <span class="c1">// ID, string type, all ids are in descending order globally</span>
+            <span class="s2">"symbol"</span><span class="p">:</span> <span class="s2">"BTCUSDT"</span><span class="p">,</span>                            <span class="c1">// contract type</span>
             <span class="s2">"price"</span><span class="p">:</span> <span class="mf">9499.5</span><span class="p">,</span>                                <span class="c1">// execution price</span>
             <span class="s2">"qty"</span><span class="p">:</span> <span class="mi">9500</span><span class="p">,</span>                                    <span class="c1">// execution quantity</span>
             <span class="s2">"side"</span><span class="p">:</span> <span class="s2">"Buy"</span><span class="p">,</span>                                  <span class="c1">// side</span>
-            <span class="s2">"time"</span><span class="p">:</span> <span class="s2">"2019-11-19T08:03:04.077Z"</span>              <span class="c1">// UTC time</span>
+            <span class="s2">"time"</span><span class="p">:</span> <span class="s2">"2019-11-19T08:03:04.077Z"</span><span class="p">,</span>             <span class="c1">// <b>Abandoned!!</b></span>
+            <span class="s2">"trade_time_ms"</span><span class="p">:</span><span class="mi">1587638305175</span>
         <span class="p">}</span>
     <span class="p">],</span>
     <span class="s2">"time_now"</span><span class="p">:</span> <span class="s2">"1567109419.049271"</span>
@@ -1079,6 +1124,8 @@ function copyStringToClipboard (endpoint) {
 <td>Number of results. Default 500; max 1000</td>
 </tr>
 </tbody></table>
+<h3 id='t-querysymbol'>Query Symbol</h3>
+<p><a href="/inverse#t-querysymbol">Please see the shared endpoint.</a></p>
 <h3 id='t-fundingrate'>Get the Last Funding Rate</h3>
 <blockquote>
 <p>Curl Example</p>
@@ -3218,6 +3265,14 @@ Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles
 </tr>
 </thead><tbody>
 </tbody></table>
+<h1 id='t-wallet'>Wallet Data Endpoints</h1>
+<p>The following wallet data endpoints require authentication.</p>
+<h3 id='t-balance'>Get Wallet Balance</h3>
+<p><a href="/inverse#t-balance">Please see the shared endpoint.</a></p>
+<h3 id='t-walletrecords'>Wallet Fund Records</h3>
+<p><a href="/inverse#t-walletrecords">Please see the shared endpoint.</a></p>
+<h3 id='t-withdrawrecords'>Withdraw Records</h3>
+<p><a href="/inverse#t-withdrawrecords">Please see the shared endpoint.</a></p>
 <h1 id='t-api'>API Data Endpoints</h1>
 <p>The following API data endpoints do not require authentication.</p>
 <h3 id='t-servertime'>Server Time</h3>
