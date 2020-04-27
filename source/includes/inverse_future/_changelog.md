@@ -1,4 +1,11 @@
 # t(:changelog)
+
+## 2020-04-27
+### REST API
+- [t(:lcp)](#t-lcp) [t(:changelog_new)]
+- [t(:latestsymbolinfo)](#t-latestsymbolinfo) [t(:changelog_update)]
+   - t(:restapi_update_20200427_1)
+   
 ## 2020-04-17
 ### REST API
 - [t(:orderbook)](#t-orderbook) [t(:changelog_update)]

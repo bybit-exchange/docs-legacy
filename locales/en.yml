@@ -365,6 +365,11 @@ en:
   ## API Key Info
   key: API Key Info
   account_para_key: Get user's API key info.
+  ## LCP Points
+  lcp: LCP Info
+  account_para_lcp: |
+    <p>Get user's LCP (data refreshes once an hour). Only supports inverse perpetual at present.</p>
+    <p>See <a href="#t-liquidity">Understanding Bybit's Liquidity System</a> to learn more.
 
   # Wallet Data Endpoints
   wallet: Wallet Data Endpoints
@@ -1146,9 +1151,11 @@ en:
   restapi_update_20200417_5: Abandon response field <code>trade_time</code>
   restapi_update_20200418_1: Fix permission denied issue of below endpoints under <code>readonly</code> model<span>:</span>
   restapi_update_20200418_2: Add new fields in reponse, like <code>exec_price</code>,<code>exec_value</code>
+  restapi_update_20200427_1: Return symbol <code>BTCUSDT</code> by default
+
+
   markpricekline: Mark Price Kline
   linear_query_mark_price_kline: Query mark price kline (like <a href="#t-querykline">Query Kline</a> but for <a href="https://help.bybit.com/hc/en-us/articles/360039261074-What-is-Dual-Price-mechanism-">mark price</a>).
-
   linear_resp_field_last_exec_price: Last execution price
   linear_resp_field_cum_exec_qty: Cumulative qty of trading
   linear_resp_field_cum_exec_value: Cumulative value of trading

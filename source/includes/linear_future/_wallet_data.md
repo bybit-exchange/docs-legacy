@@ -3,10 +3,10 @@ t(:wallet_para)
 
 
 ### t(:balance)
-<a href="/inverse#t-balance">t(:shared_endpoint_desc)</a>
+<a href="/docs/inverse#t-balance">t(:shared_endpoint_desc)</a>
 
 ### t(:walletrecords)
-<a href="/inverse#t-walletrecords">t(:shared_endpoint_desc)</a>
+<a href="/docs/inverse#t-walletrecords">t(:shared_endpoint_desc)</a>
 
 ### t(:withdrawrecords)
-<a href="/inverse#t-withdrawrecords">t(:shared_endpoint_desc)</a>
+<a href="/docs/inverse#t-withdrawrecords">t(:shared_endpoint_desc)</a>
