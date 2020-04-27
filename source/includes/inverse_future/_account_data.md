@@ -1331,3 +1331,46 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
+
+
+## t(:lcp)
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "ok",
+    "ext_code": "",
+    "result": [
+        {
+            "date": "2020-04-27",
+            "self_ratio": 1.1251,
+            "platform_ratio": 0.001254,
+            "score": 0.1459
+        },
+        {
+            "date": "2020-04-26",
+            "self_ratio": 1.1251,
+            "platform_ratio": 0.001254,
+            "score": 0.1459
+        }
+    ],
+    "ext_info": null,
+    "time_now": "1577445138.790150",
+    "rate_limit_status": 99,
+    "rate_limit_reset_ms": 1577445138812,
+    "rate_limit": 100
+}
+```
+
+t(:account_para_lcp)
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=oaApiLcp>/account/lcp</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oaApiLcp"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
