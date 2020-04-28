@@ -1367,7 +1367,7 @@ t(:account_para_lcp)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=oaApiLcp>/account/lcp</span></code>
+<code><span id=oaApiLcp>/v2/private/account/lcp</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oaApiLcp"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
