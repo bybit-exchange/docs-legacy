@@ -390,7 +390,7 @@ GET
 |order_link_id |false |string |t(:row_comment_orderLinkId)|
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
 |<a href="#stop-order-status-stop_order_status">stop_order_status</a> |false |string |t(:row_comment_stopOrderStatus)|
-|order |false |string |t(:row_comment_order) |
+|<a href="#order-order">order</a> |false |string |t(:row_comment_order) |
 |page |false |integer |t(:row_comment_page) |
 |limit |false |integer |t(:row_comment_limit) |
 
