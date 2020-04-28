@@ -1,5 +1,10 @@
 # t(:changelog)
 
+## 2020-04-28
+### Websocket API
+- [t(:websocketkline)](#t-websocketkline) [t(:changelog_new)]
+
+
 ## 2020-04-27
 ### REST API
 - [t(:latestsymbolinfo)](#t-latestsymbolinfo) [t(:changelog_update)]

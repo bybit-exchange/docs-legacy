@@ -993,7 +993,7 @@ POST
                 "side": "Buy", //t(:enum_side_link)
                 "symbol": "BTCUSD", //t(:enum_symbol_link)
                 "user_id": 1,
-                 "trade_time_ms": 1577480599000
+                "trade_time_ms": 1577480599000
             }
         ]
     },
@@ -1023,6 +1023,7 @@ GET
 |start_time |false |int |t(:row_comment_startTime_ms) |
 |page |false |integer |t(:row_comment_page) |
 |limit |false |integer |t(:row_comment_limit) |
+|order |false |string |t(:row_comment_order) |
 
 ## t(:risklimit)
 
