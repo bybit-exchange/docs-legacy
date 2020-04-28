@@ -1348,47 +1348,4 @@ GET
 
 
 ## t(:key)
-> t(:codequote_responseExample)
-
-```javascript
-{
-    "ret_code": 0,
-    "ret_msg": "ok",
-    "ext_code": "",
-    "result": [
-        {
-            "api_key": "7GkMBBLTbGRfa0Nuh1",
-            "type": "personal",
-            "user_id": 1,
-            "inviter_id": 3,
-            "ips": [
-                "*"
-            ],
-            "note": "scalping_bot",
-            "permissions": [
-                "Order",
-                "Position"
-            ],
-            "created_at": "2019-10-28T13:22:39.000Z",
-            "expired_at": "2020-01-28T13:22:39.000Z",
-            "read_only": false
-        }
-    ],
-    "ext_info": null,
-    "time_now": "1577445138.790150",
-    "rate_limit_status": 99,
-    "rate_limit_reset_ms": 1577445138812,
-    "rate_limit": 100
-}
-```
-
-t(:account_para_key)
-
-<p class="fake_header">t(:httprequest)</p>
-GET
-<code><span id=oaApiKey>/open-api/api-key</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oaApiKey"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
+<a href="/docs/inverse#t-latestsymbolinfo">t(:shared_endpoint_desc)</a>
