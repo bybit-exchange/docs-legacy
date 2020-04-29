@@ -418,7 +418,42 @@ ws.send('{"op": "subscribe", "args": ["trade.BTCUSDT"]}')
 t(:websocket_para_trade)
 
 
+### t(:websocketkline)
+> t(:codequote_subscribe)
 
+```javascript
+ws.send('{"op":"subscribe","args":["candle.1.BTCUSDT"]}')
+```
+
+> t(:codequote_responseExampleFormatAll)
+
+```javascript
+{
+    "topic":"candle.1.BTCUSDT",
+    "data":[
+        {
+            "start":1588071660,
+            "end":1588071720,
+            "open":7744.5,
+            "close":7745,
+            "high":7745,
+            "low":7744,
+            "volume":"33.051",
+            "turnover":"255979.995",
+            "confirm":true,
+            "cross_seq":71947372,
+            "timestamp":1588071717325846
+        }
+    ],
+    "timestamp_e6":1588071721163975
+}
+```
+
+t(:websocket_para_klineV2)
+
+<aside class="notice">
+t(:websocket_aside_klineV2)
+</aside>
 
 
 
