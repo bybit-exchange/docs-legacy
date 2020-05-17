@@ -786,20 +786,20 @@ en:
     These are the possible values for <code>order_status</code> as included in the response of a <b>Get Order</b> request. To see the options for <code>order_status</code> in the response for a Create Active/Conditional request, see <a href="#order-status-order_status-creation">here</a>.
   para_orderStatusGet: |
     Filter fetched orders by their order statuses. To filter by multiple statuses, separate with a comma like so: <code>Filled,New</code>
-  created1:         ""
+  created1:         "- order accepted by the system but not yet put through matching engine"
   rejected1:        ""
-  new1:             ""
+  new1:             "- order has placed successfully"
   partiallyFilled1: ""
   filled1:          ""
   cancelled1:       ""
-  pendingCancel1:   "- The matching engine has received the cancellation but there is no guarantee that it will be successful"
+  pendingCancel1:   "- the matching engine has received the cancellation but there is no guarantee that it will be successful"
   ## Stop order status (`stop_order_status`)
   active      : "- order is triggered and placed successfully"
   untriggered : "- order waits to be triggered"
   triggered   : "- order is triggered"
   cancelled   : "- order is cancelled"
-  rejected    : "- order is triggered but fail to be placed (for example, due to insufficient margin)"
-  deactivated1:     "- The conditional order was cancelled by user before triggering"
+  rejected    : "- order is triggered but failed to be placed (for example, due to insufficient margin)"
+  deactivated1: "- order was cancelled by user before triggering"
   ## Cancel type (`cancel_type`)
   cancelByReduceOnly:   ""
   cancelByPrepareLiq:   "- Cancelled by force liquidation"

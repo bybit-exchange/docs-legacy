@@ -70,7 +70,7 @@ t(:para_order)
 t(:para_orderStatusGet)
 
 * `Created` t(:created1)
-* `Rejected` t(:rejected)
+* `Rejected` t(:rejected1)
 * `New` t(:new1)
 * `PartiallyFilled` t(:partiallyFilled1)
 * `Filled` t(:filled1)
