@@ -34,12 +34,15 @@ curl https://api.bybit.com/public/linear/kline?symbol=BTCUSDT&interval=1&limit=2
 	    "id": 3866948,
         "symbol": "BTCUSDT",
         "period": "1",
-        "start_at": 1577836800,
+        "start_at": 1577836800, // t(:comment_abandoned)
         "volume": 1451.59,
-        "open": 7700,
+        "open": 7700,           // t(:comment_abandoned)
         "high": 999999,
         "low": 0.5,
-        "close": 6000
+        "close": 6000,
+        "interval": 1,
+        "open_time": 1577836800,
+        "turnover": 2.4343353100000003,
 	}],
 	"time_now": "1581928016.558522"
 }
