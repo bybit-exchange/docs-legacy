@@ -1116,7 +1116,7 @@ Make sure to conform to the timestamp rule of verification or your request will 
 <p><p>2. Sign the parameters string.</p></p>
 
 <blockquote>
-<p>Different requests need different message formats. Possible message formats for <b>GET</b> requests:
+<p>Different requests need different message formats. Message format for <b>GET</b> requests:
 </p>
 </blockquote>
 <pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/user/leverage?api_key=B2Rou0PLPpGqcU0Vu2&amp;timestamp=1542434791000&amp;sign=670e3e4aa32b243f2dedf1dafcec2fd17a440e71b05681550416507de591d908</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -1234,7 +1234,7 @@ The response is in the snapshot format.
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
 <td style="text-align: left">true</td>
 <td style="text-align: left">string</td>
-<td>Contract type</td>
+<td></td>
 </tr>
 </tbody></table>
 <h3 id='t-querykline'>Query Kline</h3>
@@ -1297,7 +1297,7 @@ The response is in the snapshot format.
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
 <td style="text-align: left">true</td>
 <td style="text-align: left">string</td>
-<td>Contract type</td>
+<td></td>
 </tr>
 <tr>
 <td style="text-align: left">interval</td>
@@ -1384,7 +1384,7 @@ The response is in the snapshot format.
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Contract type</td>
+<td></td>
 </tr>
 </tbody></table>
 <h3 id='t-publictradingrecords'>Public Trading Records</h3>
@@ -1436,7 +1436,7 @@ The response is in the snapshot format.
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
 <td style="text-align: left">true</td>
 <td style="text-align: left">string</td>
-<td>Contract type</td>
+<td></td>
 </tr>
 <tr>
 <td style="text-align: left">from</td>
@@ -1623,8 +1623,8 @@ The response is in the snapshot format.
 <p><p>Market price active order: A traditional market price order which will be filled at the best available price. <code>price</code> is not required for this type of order.</p>
 <p>Limit price active order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
 <p><b>Take profit/Stop loss: You may only set a TP/SL conditional order upon opening the position. Once you hold a position, any new active order requests which contain TP/SL data will be accepted but the TP/SL data will be ignored. <code>tp_trigger_by</code>/<code>sl_trigger_by</code> default to LastPrice. Passing values to the <code>take_profit</code> or <code>stop_loss</code> parameters in this endpoint will create conditional orders managed by the system, which will be be automatically cancelled if the position is closed.</b></p>
-<p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell. This must modulo by 0.5 (20 and 21.5 are accepted, but 16.1 or 16.15 are not).</p>
-<p>Order price: If it is a condition order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the price_filter field in the <a href="#t-querysymbol">Query Symbols</a> endpoint.</p>
+<p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell. All USD markets have a contract size of 1 USD. See more</p>
+<p>Order price: If it is a conditional order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the price_filter field in the <a href="#t-querysymbol">Query Symbols</a> endpoint. This must modulo by 0.5 (20 and 21.5 are accepted, but 16.1 or 16.15 are not).</p>
 <p>Custom order ID: You may customise order IDs for active orders. We will link it to the system order ID, and return the unique system order ID to you after the active order is created successfully. You may use this order ID or your custom order ID to cancel your active order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
 <p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSD instrument and 280 active orders on the ETHUSD instrument. And order with parameter <code>reduce_only</code> or <code>closeOnTrigger</code> is unlimited.</b></p>
 </p>
@@ -1655,7 +1655,7 @@ The response is in the snapshot format.
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
 <td style="text-align: left">true</td>
 <td style="text-align: left">string</td>
-<td>Contract type</td>
+<td></td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#order-type-order_type">order_type</a></td>
@@ -1800,7 +1800,7 @@ The response is in the snapshot format.
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Contract type. Default <code>BTCUSD</code></td>
+<td>. Default <code>BTCUSD</code></td>
 </tr>
 <tr>
 <td style="text-align: left">order</td>
@@ -1821,7 +1821,7 @@ The response is in the snapshot format.
 <td>Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page</td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="#order-status-order_status-get">order_status</a></td>
+<td style="text-align: left"><a href="#order-status-order_status">order_status</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>Query your orders for all statuses if 'order_status' is empty. If you want to query orders with specific statuses, you can pass the order_status split by ','.</td>
@@ -1887,7 +1887,7 @@ The response is in the snapshot format.
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
 <td style="text-align: left">true</td>
 <td style="text-align: left">string</td>
-<td>Contract type</td>
+<td></td>
 </tr>
 <tr>
 <td style="text-align: left">order_id</td>
@@ -1965,7 +1965,7 @@ This endpoint's <code>rate_limit</code> will decrease by 10 per request
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
 <td style="text-align: left">true</td>
 <td style="text-align: left">string</td>
-<td>Contract type</td>
+<td></td>
 </tr>
 </tbody></table>
 <h3 id='t-replaceactive'>Replace Active Order</h3>
@@ -2020,7 +2020,7 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
 <td style="text-align: left">true</td>
 <td style="text-align: left">string</td>
-<td>Contract type.</td>
+<td>.</td>
 </tr>
 <tr>
 <td style="text-align: left">p_r_qty</td>
@@ -2107,7 +2107,7 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
 <td style="text-align: left">true</td>
 <td style="text-align: left">string</td>
-<td>Contract type</td>
+<td></td>
 </tr>
 </tbody></table>
 <h2 id='t-conditionalorders'>Conditional Orders</h2><h3 id='t-placecond'>Place Conditional Order</h3>
@@ -2195,7 +2195,7 @@ Take profit/Stop loss is not supported in placing conditional orders. One can on
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
 <td style="text-align: left">true</td>
 <td style="text-align: left">string</td>
-<td>Contract type</td>
+<td></td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#order-type-order_type">order_type</a></td>
@@ -2343,7 +2343,7 @@ Take profit/Stop loss is not supported in placing conditional orders. One can on
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Contract type. Default <code>BTCUSD</code></td>
+<td>. Default <code>BTCUSD</code></td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#stop-order-status-stop_order_status">stop_order_status</a></td>
@@ -2426,7 +2426,7 @@ Take profit/Stop loss is not supported in placing conditional orders. One can on
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
 <td style="text-align: left">true</td>
 <td style="text-align: left">string</td>
-<td>Contract type</td>
+<td></td>
 </tr>
 <tr>
 <td style="text-align: left">stop_order_id</td>
@@ -2530,7 +2530,7 @@ This endpoint's <code>rate_limit</code> will decrease by 10 per request
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
 <td style="text-align: left">true</td>
 <td style="text-align: left">string</td>
-<td>Contract type</td>
+<td></td>
 </tr>
 </tbody></table>
 <h3 id='t-replacecond'>Replace Conditional Order</h3>
@@ -2590,7 +2590,7 @@ Please note that you can only modify untriggered conditional orders.
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
 <td style="text-align: left">true</td>
 <td style="text-align: left">string</td>
-<td>Contract type.</td>
+<td>.</td>
 </tr>
 <tr>
 <td style="text-align: left">p_r_qty</td>
@@ -2669,7 +2669,7 @@ Please note that you can only modify untriggered conditional orders.
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
 <td style="text-align: left">true</td>
 <td style="text-align: left">string</td>
-<td>Contract type</td>
+<td></td>
 </tr>
 <tr>
 <td style="text-align: left">stop_order_id</td>
@@ -2755,7 +2755,7 @@ Please note that you can only modify untriggered conditional orders.
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
 <td style="text-align: left">true</td>
 <td style="text-align: left">string</td>
-<td>Contract type</td>
+<td></td>
 </tr>
 </tbody></table>
 <h3 id='t-changemargin'>Change Margin</h3>
@@ -2800,7 +2800,7 @@ You cannot change margin when your position is in Cross Margin mode. See the <a 
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
 <td style="text-align: left">true</td>
 <td style="text-align: left">string</td>
-<td>Contract type</td>
+<td></td>
 </tr>
 <tr>
 <td style="text-align: left">margin</td>
@@ -2888,7 +2888,7 @@ Passing these parameters will create conditional orders controlled by the system
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
 <td style="text-align: left">true</td>
 <td style="text-align: left">string</td>
-<td>Contract type</td>
+<td></td>
 </tr>
 <tr>
 <td style="text-align: left">take_profit</td>
@@ -3006,7 +3006,7 @@ Set <code>leverage</code> to <code>0</code> if you want to trade in <a href="htt
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
 <td style="text-align: left">true</td>
 <td style="text-align: left">string</td>
-<td>Contract type</td>
+<td></td>
 </tr>
 <tr>
 <td style="text-align: left">leverage</td>
@@ -3288,7 +3288,7 @@ Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
 <td style="text-align: left">true</td>
 <td style="text-align: left">string</td>
-<td>Contract type</td>
+<td></td>
 </tr>
 <tr>
 <td style="text-align: left">risk_id</td>
@@ -3339,7 +3339,7 @@ Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
 <td style="text-align: left">true</td>
 <td style="text-align: left">string</td>
-<td>Contract type</td>
+<td></td>
 </tr>
 </tbody></table>
 <h3 id='t-mylastfundingfee'>My Last Funding Fee</h3>
@@ -3387,7 +3387,7 @@ Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
 <td style="text-align: left">true</td>
 <td style="text-align: left">string</td>
-<td>Contract type</td>
+<td></td>
 </tr>
 </tbody></table>
 <h3 id='t-predictedfunding'>Predicted Funding Rate and My Funding Fee</h3>
@@ -3431,7 +3431,7 @@ Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
 <td style="text-align: left">true</td>
 <td style="text-align: left">string</td>
-<td>Contract type</td>
+<td></td>
 </tr>
 </tbody></table>
 <h2 id='t-key'>API Key Info</h2>
@@ -3540,7 +3540,7 @@ Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
 <td style="text-align: left">true</td>
 <td style="text-align: left">string</td>
-<td>Contract type</td>
+<td></td>
 </tr>
 </tbody></table>
 <h1 id='t-wallet'>Wallet Data Endpoints</h1>
@@ -4823,7 +4823,7 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 <p>This is for sorting orders/trades in a specified direction.</p>
 
 <ul>
-<li><code>desc</code> (default)</li>
+<li><code>desc</code> </li>
 <li><code>asc</code> </li>
 </ul>
 <h2 id='order-status-order_status'>Order status (<code>order_status</code>)</h2>
@@ -4831,13 +4831,13 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 </p>
 
 <ul>
-<li><code>Created</code> </li>
-<li><code>Rejected</code> - order is triggered but fail to be placed</li>
-<li><code>New</code> </li>
+<li><code>Created</code> - order accepted by the system but not yet put through matching engine</li>
+<li><code>Rejected</code> </li>
+<li><code>New</code> - order has placed successfully</li>
 <li><code>PartiallyFilled</code> </li>
 <li><code>Filled</code> </li>
 <li><code>Cancelled</code> </li>
-<li><code>PendingCancel</code> - The matching engine has received the cancellation but there is no guarantee that it will be successful</li>
+<li><code>PendingCancel</code> - the matching engine has received the cancellation but there is no guarantee that it will be successful</li>
 </ul>
 <h2 id='stop-order-status-stop_order_status'>Stop order status (<code>stop_order_status</code>)</h2>
 <ul>
@@ -4845,8 +4845,8 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 <li><code>Untriggered</code> - order waits to be triggered</li>
 <li><code>Triggered</code> - order is triggered</li>
 <li><code>Cancelled</code> - order is cancelled</li>
-<li><code>Rejected</code> - order is triggered but fail to be placed</li>
-<li><code>Deactivated</code> - The conditional order was cancelled before triggering</li>
+<li><code>Rejected</code> - order is triggered but failed to be placed (for example, due to insufficient margin)</li>
+<li><code>Deactivated</code> - order was cancelled by user before triggering</li>
 </ul>
 <h2 id='cancel-type-cancel_type'>Cancel type (<code>cancel_type</code>)</h2>
 <ul>
@@ -5255,6 +5255,10 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 <tr>
 <td>30068</td>
 <td>exit value must be positive</td>
+</tr>
+<tr>
+<td>33004</td>
+<td>apikey already expired</td>
 </tr>
 <tr>
 <td>34026</td>
