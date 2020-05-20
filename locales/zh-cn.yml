@@ -1102,7 +1102,7 @@ zh-cn:
   websocketwallet: 钱包
 
   ## order-list 查询不支持多状态查询
-  linear_account_row_comment_orderStatus: 指定订单状态查询订单列表。不传该参数则默认查询所有状态订单。
+  linear_account_row_comment_orderStatus: 指定订单状态查询订单列表。不传该参数则默认查询所有状态订单。该参数支持多状态查询，状态之间用英文逗号分割。
 
   ## change-log
   linear_update_20200331: <code>order_status</code> 参数不再支持多条件查询。
@@ -1129,6 +1129,10 @@ zh-cn:
   restapi_update_20200427_1: 默认返回值中增加<code>BTCUSDT</code>
   restapi_update_20200429_1: 新增请求参数<code>order</code>
   restapi_update_20200429_2: 修复某些情况下<code>inviter_id</code>总是为0的bug
+  restapi_update_20200518_1: <code>order_status</code> 支持多状态查询，状态之间用英文逗号分割。
+  restapi_update_20200518_2: 新增返回字段 <code>interval</code>, <code>open_time</code>, <code>turnover</code> 字段
+  restapi_update_20200518_3: 废弃返回参数 <code>period</code>, <code>start_at</code>
+
 
   markpricekline: 标记价格K线
   linear_query_mark_price_kline: 查询标记价格K线
