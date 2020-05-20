@@ -150,7 +150,7 @@ curl https://api.bybit.com/public/linear/funding/prev-funding-rate?symbol=BTCUSD
 }
 ```
 
-t(:market_para_records)
+t(:market_para_fundingRate)
 
 <p class="fake_header">t(:httprequest)</p>
 GET

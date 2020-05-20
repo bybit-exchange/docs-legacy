@@ -740,9 +740,9 @@ POST
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 |<a href="#side-side">side</a> |true |string |t(:row_comment_side)    |
-|take_profit |false |string |t(:account_row_comment_takeProfit) |
-|stop_loss |false |string |t(:account_row_comment_stopLoss) |
-|trailing_stop |false |string |t(:account_row_comment_trailingStop) |
+|take_profit |false |number |t(:account_row_comment_takeProfit) |
+|stop_loss |false |number |t(:account_row_comment_stopLoss) |
+|trailing_stop |false |number |t(:account_row_comment_trailingStop) |
 |tp_trigger_by |false |string |t(:row_comment_triggerBy) |
 |sl_trigger_by |false |string |t(:row_comment_triggerBy) |
 
