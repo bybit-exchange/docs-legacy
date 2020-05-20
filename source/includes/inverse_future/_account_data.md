@@ -131,7 +131,7 @@ GET
 |order |false |string |t(:row_comment_order)  |
 |page |false |integer |t(:row_comment_page) |
 |limit |false |integer |t(:row_comment_limit) |
-|<a href="#order-status-order_status-get">order_status</a> |false |string |t(:account_row_comment_orderStatus) |
+|<a href="#order-status-order_status">order_status</a> |false |string |t(:account_row_comment_orderStatus) |
 
 
 ### t(:cancelactive)
