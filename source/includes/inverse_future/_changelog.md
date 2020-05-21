@@ -1,5 +1,9 @@
 # t(:changelog)
 
+## 2020-05-21
+### REST API
+- [t(:query_liqrecords)](#t-query_liqrecords) [t(:changelog_new)]
+    
 ## 2020-04-29
 ### REST API
 - [t(:usertraderecords)](#t-usertraderecords) [t(:changelog_update)]
