@@ -365,8 +365,8 @@ t(:market_para_query_liqrecords)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpkList>/v2/public/liq-records</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpkList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=vpkLiq>/v2/public/liq-records</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpkLiq"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
