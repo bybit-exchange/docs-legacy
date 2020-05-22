@@ -125,6 +125,8 @@ GET
 ### t(:querysymbol)
 <a href="/docs/inverse#t-querysymbol">t(:shared_endpoint_desc)</a>
 
+### t(:query_liqrecords)
+<a href="/docs/inverse#t-query_liqrecords">t(:shared_endpoint_desc)</a>
 
 ### t(:fundingrate)
 > t(:codequote_curlExample)

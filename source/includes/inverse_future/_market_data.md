@@ -331,3 +331,48 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
+
+
+### t(:query_liqrecords)
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/v2/public/liq-records?symbol=BTCUSD&limit=1&start_time=1589979415000
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code":0,
+    "ret_msg":"OK",
+    "ext_code":"",
+    "ext_info":"",
+    "result":[
+        {
+            "id":2369683,
+            "qty":155,
+            "side":"Buy",
+            "time":1590030126798,
+            "symbol":"BTCUSD",
+            "price":9444
+        }
+    ],
+    "time_now":"1590068362.493540"
+}
+```
+t(:market_para_query_liqrecords)
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=vpkList>/v2/public/liq-records</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpkList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|from |false |integer |t(:row_comment_from) |
+|limit |false |integer |t(:row_comment_limit_liq) |
+|start_time |false |integer |t(:row_comment_startTime_ms) |
+|end_time |false |integer |t(:row_comment_endTime_ms) |
