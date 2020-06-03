@@ -64,8 +64,8 @@ POST
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|user_id |string |t(:row_comment_userID) |
-|order_id |string |t(:row_comment_orderId) |
+|> user_id |string |t(:row_comment_userID) |
+|> order_id |string |t(:row_comment_orderId) |
 
 
 ### t(:getactive)
@@ -775,6 +775,41 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|id |number |t(:row_comment_position_id)  |
+|user_id |number |t(:row_comment_userID)  |
+|risk_id |number |t(:row_comment_riskId)  |
+|symbol|string |t(:row_comment_symbol)    |
+|side |string |t(:row_comment_side)  |
+|size |number |t(:row_comment_position_size)  |
+|position_value |string |t(:row_comment_position_value)  |
+|entry_price |string |t(:row_comment_entry_price)  |
+|auto_add_margin |number |t(:row_comment_auto_add_margin)  |
+|leverage |string |t(:resp_field_leverage)  |
+|effective_leverage |string |t(:effective_leverage)  |
+|position_margin |string |t(:row_comment_position_margin)  |
+|liq_price |string |t(:row_comment_liq_price)  |
+|bust_price |string |t(:row_comment_bust_price)  |
+|occ_closing_fee |string |t(:row_comment_occ_closing_fee)  |
+|occ_funding_fee |string |t(:row_comment_occ_funding_fee)  |
+|take_profit |string |t(:row_comment_take_profit)  |
+|stop_loss |string |t(:row_comment_stop_loss)  |
+|trailing_stop |string |t(:row_comment_trailing_stop)  |
+|position_status |string |t(:row_comment_position_status)  |
+|deleverage_indicator |number |t(:row_comment_deleverage_indicator)  |
+|oc_calc_data |string |t(:row_comment_oc_calc_data)  |
+|order_margin |string |t(:row_comment_order_margin)  |
+|wallet_balance |string |t(:row_comment_wallet_balance)  |
+|realised_pnl |string |t(:row_comment_realised_pnl)  |
+|unrealised_pnl |number |t(:row_comment_unrealised_pnl)  |
+|cum_realised_pnl |string |t(:row_comment_cum_realised_pnl)  |
+|cross_seq |number |t(:row_comment_cross_seq)  |
+|position_seq |number |t(:row_comment_position_seq)  |
+|created_at |string |t(:row_comment_created_at)  |
+|updated_at |string |t(:row_comment_updated_at)  |
 
 
 ### t(:changemargin)
