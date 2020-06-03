@@ -61,6 +61,12 @@ POST
 |close_on_trigger |false |bool |t(:row_comment_closeOnTrigger)
 |order_link_id |false |string |t(:row_comment_orderLinkId) |
 
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|user_id |string |t(:row_comment_userID) |
+|order_id |string |t(:row_comment_orderId) |
+
 
 ### t(:getactive)
 > t(:codequote_responseExample)
