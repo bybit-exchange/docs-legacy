@@ -789,7 +789,7 @@ GET
 |entry_price |string |t(:row_comment_entry_price)  |
 |auto_add_margin |number |t(:row_comment_auto_add_margin)  |
 |leverage |string |t(:resp_field_leverage)  |
-|effective_leverage |string |t(:effective_leverage)  |
+|effective_leverage |string |t(:row_comment_effective_leverage)  |
 |position_margin |string |t(:row_comment_position_margin)  |
 |liq_price |string |t(:row_comment_liq_price)  |
 |bust_price |string |t(:row_comment_bust_price)  |
