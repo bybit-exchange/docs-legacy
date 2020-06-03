@@ -1,5 +1,9 @@
 # t(:changelog)
 
+## 2020-06-03
+### REST API
+- [t(:closedprofitandloss)](#t-closedprofitandloss) [t(:changelog_new)]
+
 ## 2020-05-21
 ### REST API
 - [t(:query_liqrecords)](#t-query_liqrecords) [t(:changelog_new)]
