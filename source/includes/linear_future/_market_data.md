@@ -228,6 +228,9 @@ GET
 |limit |false |integer |t(:linear_kline_row_comment_limit_200) |
 
 
+### t(:advanceddata)
+<a href="/docs/inverse#t-advanceddata">t(:shared_endpoint_desc)</a>
+
 
 
 
