@@ -1081,7 +1081,7 @@ GET
 |start_time |false |int |t(:row_comment_startTime) |
 |end_time |false |int |t(:row_comment_endTime) |
 |<a href="#exec-type-exec_type">exec_type</a> |false |string |t(:linear_exec_type) |
-|page |false |integer |t(:row_comment_page) |
+|page |false |integer |t(:row_comment_page_max50) |
 |limit |false |integer |t(:linear_row_comment_limit) |
 
 
