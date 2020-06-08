@@ -279,6 +279,7 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |order_id |true |string |t(:row_comment_orderId) |
+|order_link_id |false |string |t(:row_comment_orderLinkId) |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 |p_r_qty |false |int |t(:row_comment_pRQty) |
 |p_r_price |false |number |t(:row_comment_pRPrice) |
@@ -585,6 +586,7 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |stop_order_id |true |string |t(:row_comment_stopOrderId) |
+|order_link_id |false |string |t(:row_comment_orderLinkId) |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 |p_r_qty |false |int |t(:row_comment_pRQty) |
 |p_r_price |false |number |t(:row_comment_pRPrice) |
