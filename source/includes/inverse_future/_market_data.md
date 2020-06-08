@@ -376,3 +376,229 @@ GET
 |limit |false |integer |t(:row_comment_limit_liq) |
 |start_time |false |integer |t(:row_comment_startTime_ms) |
 |end_time |false |integer |t(:row_comment_endTime_ms) |
+
+
+### t(:advanceddata)
+#### t(:marketfundingrate)
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/v2/market-data/funding-rate?symbol=BTCUSD&limit=100
+```
+```javascript
+{
+    "ret_code":0,
+    "ret_msg":"OK",
+    "ext_code":"",
+    "ext_info":"",
+    "result":[
+        {
+            "symbol":"BTCUSD",
+            "funding_rate":0.00375,
+            "timestamp":1590998277
+                }
+    ],
+    "time_now":"1590068362.493540"
+}
+```
+
+t(:market_para_marketfundingrate)
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=vpMarketFundingRate>/v2/market-data/funding-rate</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpMarketFundingRate"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|limit |false |int |t(:row_comment_limit_100)|
+
+
+#### t(:marketopeninterest)
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/v2/market-data/open-interest?symbol=BTCUSD&limit=10&period=5min
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code":0,
+    "ret_msg":"OK",
+    "ext_code":"",
+    "ext_info":"",
+    "result":[
+        {
+            "open_interest":0,
+            "side":"Sell",
+            "timestamp":1591165240,
+            "symbol":"BTCUSD"
+        },
+        {
+            "open_interest":691449,
+            "side":"Buy",
+            "timestamp":1591165240,
+            "symbol":"BTCUSD"
+        }
+    ],
+    "time_now":"1591588171.817945"
+}
+```
+
+t(:market_para_marketopeninterest)
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=vpMarketOpenInterest>/v2/market-data/open-interest</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpMarketOpenInterest"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|limit |false |int |t(:row_comment_limit_50_200)|
+|period |false |string |t(:row_comment_period)|
+
+
+#### t(:marketbigdeal)
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/v2/market-data/big-deal?symbol=BTCUSD
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code":0,
+    "ret_msg":"OK",
+    "ext_code":"",
+    "ext_info":"",
+    "result":[
+        {
+            "symbol":"BTCUSD",
+            "side":"Buy",
+            "timestamp":1591257103,
+            "value":599950
+        },
+        {
+            "symbol":"BTCUSD",
+            "side":"Sell",
+            "timestamp":1591256194,
+            "value":599950
+        }
+    ],
+    "time_now":"1591600330.837091"
+}
+```
+
+t(:market_para_marketbigdeal)
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=vpMarketBigDeal>/v2/market-data/big-deal</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpMarketBigDeal"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+
+
+#### t(:marketaccountratio)
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/v2/market-data/account-ratio?symbol=BTCUSD&period=5min
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code":0,
+    "ret_msg":"OK",
+    "ext_code":"",
+    "ext_info":"",
+    "result":[
+        {
+            "symbol":"BTCUSD",
+            "buy_ratio":0.4288,
+            "sell_ratio":0.5712,
+            "timestamp":1591165240
+        },
+        {
+            "symbol":"XRPUSD",
+            "buy_ratio":0.3288,
+            "sell_ratio":0.6712,
+            "timestamp":1591165240
+        }
+    ],
+    "time_now":"1591597368.673697"
+}
+```
+
+t(:market_para_marketaccountratio)
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=vpMarketAccountRatio>/v2/market-data/account-ratio</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpMarketAccountRatio"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|period |false |string |t(:row_comment_period)|
+
+
+#### t(:marketeliteratio)
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/v2/market-data/elite-ratio?symbol=BTCUSD&period=5min
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code":0,
+    "ret_msg":"OK",
+    "ext_code":"",
+    "ext_info":"",
+    "result":[
+        {
+            "symbol":"BTCUSD",
+            "buy_ratio":0.4288,
+            "sell_ratio":0.5712,
+            "timestamp":1591165240
+        },
+        {
+            "symbol":"XRPUSD",
+            "buy_ratio":0.3288,
+            "sell_ratio":0.6712,
+            "timestamp":1591165240
+        }
+    ],
+    "time_now":"1591597368.673697"
+}
+```
+
+t(:market_para_marketeliteratio)
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=vpMarketEliteRatio>/v2/market-data/elite-ratio</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpMarketEliteRatio"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|period |false |string |t(:row_comment_period)|
