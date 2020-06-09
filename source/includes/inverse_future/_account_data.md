@@ -1086,8 +1086,7 @@ POST
 |updated_at |string |t(:row_comment_updated_at)  |
 |> trailing_active |string |t(:row_comment_trailing_active)  |
 |> sl_trigger_by |string |t(:row_comment_sl_trigger_by)  |
-|> v |number |t(:row_comment_v)  |
-|> mm |number |t(:row_comment_mm)  |
+
 
 ### t(:getleverage)
 > t(:codequote_responseExample)
@@ -1267,7 +1266,7 @@ GET
 |order_type |string |t(:enum_order_type_link)  |
 |side |string |t(:enum_side_link)  |
 |symbol |string |t(:enum_symbol_link)  |
-|user_id |number |t(:row_comment_trailing_stop)  |
+|user_id |number |t(:row_comment_user_id)  |
 |trade_time_ms |number |t(:row_comment_trade_time)  |
 
          
@@ -1350,9 +1349,9 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|id |number |t(:row_comment_margin_id)  |
-|coin |string |t(:row_comment_coin)  |
-|limit |number |t(:row_comment_limit)    |
+|id |number |t(:row_comment_riskId)  |
+|coin |string |t(:row_comment_coin_type)  |
+|limit |number |t(:row_comment_risk_limit)    |
 |maintain_margin |string |t(:row_comment_maintain_margin)  |
 |starting_margin |string |t(:row_comment_starting_margin)  |
 |section |string |t(:row_comment_section)  |
@@ -1477,10 +1476,9 @@ POST
 |created_at |string |t(:row_comment_created_at)  |
 |updated_at |string |t(:row_comment_updated_at)  |
 |> trailing_active |string |t(:row_comment_trailing_active)  |
-|> v |number |t(:row_comment_v)  |
-|risk > id |number |t(:row_comment_margin_id)  |
-|coin |string |t(:row_comment_coin)  |
-|limit |number |t(:row_comment_limit)    |
+|risk > id |number |t(:row_comment_riskId)  |
+|coin |string |t(:row_comment_coin_type)  |
+|limit |number |t(:row_comment_risk_limit)    |
 |maintain_margin |string |t(:row_comment_maintain_margin)  |
 |starting_margin |string |t(:row_comment_starting_margin)  |
 |section |string |t(:row_comment_section)  |
@@ -1523,6 +1521,13 @@ GET
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
 
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|symbol |string |t(:row_comment_symbol)    |
+|funding_rate |string |t(:row_comment_funding_rate)  |
+|funding_rate_timestamp |number |t(:row_comment_funding_rate_timestamp)  |
+
 ### t(:mylastfundingfee)
 > t(:codequote_responseExample)
 
@@ -1559,6 +1564,15 @@ GET
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
 
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|symbol |string |t(:row_comment_symbol)    |
+|side |string |t(:row_comment_funding_side)  |
+|size |number |t(:row_comment_funding_position_size)  |
+|funding_rate |number |t(:row_comment_funding_rate)  |
+|exec_fee |number |t(:row_comment_funding_exec_fee)  |
+|exec_timestamp |number |t(:row_comment_funding_exec_timestamp)  |
 
 
 ### t(:predictedfunding)
@@ -1592,6 +1606,11 @@ GET
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
 
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|predicted_funding_rate |number |t(:row_comment_predicted_funding_rate)    |
+|predicted_funding_fee |number |t(:row_comment_predicted_funding_fee)  |
 
 ## t(:key)
 > t(:codequote_responseExample)
@@ -1639,6 +1658,19 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|api_key |string |t(:row_comment_api_key)    |
+|type |string |t(:row_comment_type)  |
+|user_id |number |t(:row_comment_position_user_id)  |
+|inviter_id |number |t(:row_comment_position_inviter_id)  |
+|ips |string |t(:row_comment_position_ips)  |
+|note |string |t(:row_comment_note)  |
+|permissions |string |t(:row_comment_permissions)  |
+|created_at |string |t(:row_comment_created_at)  |
+|expired_at |string |t(:row_comment_expired_at)  |
+|read_only |bool |t(:row_comment_read_only)  |
 
 ## t(:lcp)
 > t(:codequote_responseExample)
@@ -1681,3 +1713,11 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|date |string |t(:row_comment_lcp_date)    |
+|self_ratio |number |t(:row_comment_lcp_self_ratio)  |
+|platform_ratio |number |t(:row_comment_lcp_platform_ratio)  |
+|score |number |t(:row_comment_lcp_score)  |
