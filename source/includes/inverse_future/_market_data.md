@@ -413,7 +413,7 @@ t(:linear_query_mark_price_kline)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=plmpk>/public/mark-price-kline</span></code>
+<code><span id=plmpk>v2/public/mark-price-kline</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#plmpk"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
