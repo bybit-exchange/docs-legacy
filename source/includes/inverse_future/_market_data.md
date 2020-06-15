@@ -383,7 +383,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/v2/market-data/funding-rate?symbol=BTCUSD&limit=100
+curl https://api.bybit.com/v2/public/funding-rate?symbol=BTCUSD&limit=100
 ```
 ```javascript
 {
@@ -406,7 +406,7 @@ t(:market_para_marketfundingrate)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpMarketFundingRate>/v2/market-data/funding-rate</span></code>
+<code><span id=vpMarketFundingRate>/v2/public/funding-rate</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpMarketFundingRate"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -420,7 +420,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/v2/market-data/open-interest?symbol=BTCUSD&limit=10&period=5min
+curl https://api.bybit.com/v2/public/open-interest?symbol=BTCUSD&limit=10&period=5min
 ```
 
 > t(:codequote_responseExample)
@@ -453,22 +453,22 @@ t(:market_para_marketopeninterest)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpMarketOpenInterest>/v2/market-data/open-interest</span></code>
+<code><span id=vpMarketOpenInterest>/v2/public/open-interest</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpMarketOpenInterest"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|period |true |string |t(:row_comment_period)|
 |limit |false |int |t(:row_comment_limit_50_200)|
-|period |false |string |t(:row_comment_period)|
 
 
 #### t(:marketbigdeal)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/v2/market-data/big-deal?symbol=BTCUSD
+curl https://api.bybit.com/v2/public/big-deal?symbol=BTCUSD
 ```
 
 > t(:codequote_responseExample)
@@ -501,7 +501,7 @@ t(:market_para_marketbigdeal)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpMarketBigDeal>/v2/market-data/big-deal</span></code>
+<code><span id=vpMarketBigDeal>/v2/public/big-deal</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpMarketBigDeal"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -514,7 +514,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/v2/market-data/account-ratio?symbol=BTCUSD&period=5min
+curl https://api.bybit.com/v2/public/account-ratio?symbol=BTCUSD&period=5min
 ```
 
 > t(:codequote_responseExample)
@@ -547,21 +547,21 @@ t(:market_para_marketaccountratio)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpMarketAccountRatio>/v2/market-data/account-ratio</span></code>
+<code><span id=vpMarketAccountRatio>/v2/public/account-ratio</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpMarketAccountRatio"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
-|period |false |string |t(:row_comment_period)|
+|period |true |string |t(:row_comment_period)|
 
 
 #### t(:marketeliteratio)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/v2/market-data/elite-ratio?symbol=BTCUSD&period=5min
+curl https://api.bybit.com/v2/public/elite-ratio?symbol=BTCUSD&period=5min
 ```
 
 > t(:codequote_responseExample)
@@ -594,11 +594,11 @@ t(:market_para_marketeliteratio)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpMarketEliteRatio>/v2/market-data/elite-ratio</span></code>
+<code><span id=vpMarketEliteRatio>/v2/public/elite-ratio</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpMarketEliteRatio"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
-|period |false |string |t(:row_comment_period)|
+|period |true |string |t(:row_comment_period)|
