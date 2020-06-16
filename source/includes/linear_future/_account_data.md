@@ -561,7 +561,7 @@ GET
            {
                "user_id":100004,
                "symbol":"BTCUSDT",
-               "side":"Buy",
+               "side":"Sell",
                "size":0,
                "position_value":0,
                "entry_price":0,
@@ -594,6 +594,23 @@ GET
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol)    |
 
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|user_id |number |t(:row_comment_userID)  |
+|symbol|string |t(:row_comment_symbol)    |
+|side |string |t(:row_comment_side)  |
+|size |number |t(:row_comment_position_size)  |
+|position_value |number |t(:linear_resp_field_position_value)  |
+|entry_price |number |t(:linear_resp_field_entry_price)  |
+|liq_price |number |t(:linear_resp_field_liq_price)  |
+|bust_price |number |t(:linear_resp_field_bust_price)  |
+|leverage |number |t(:resp_field_leverage)  |
+|position_margin |number |t(:linear_resp_field_position_margin)  |
+|occ_closing_fee |number |t(:linear_resp_field_occ_closing_fee)  |
+|realised_pnl |number |t(:linear_resp_field_realised_pnl)  |
+|cum_realised_pnl |number |t(:linear_resp_field_cum_realised_pnl)  |
+|free_qty |number |t(:linear_resp_field_free_qty)  |
 
 
 ### t(:setautoaddmargin)
@@ -814,7 +831,25 @@ POST
 |margin |true |number |t(:linear_account_row_comment_margin) |
 
 
-
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|user_id |number |t(:row_comment_userID)  |
+|symbol|string |t(:row_comment_symbol)    |
+|side |string |t(:row_comment_side)  |
+|size |number |t(:row_comment_position_size)  |
+|position_value |number |t(:linear_resp_field_position_value)  |
+|entry_price |number |t(:linear_resp_field_entry_price)  |
+|liq_price |number |t(:linear_resp_field_liq_price)  |
+|bust_price |number |t(:linear_resp_field_bust_price)  |
+|leverage |number |t(:resp_field_leverage)  |
+|position_margin |number |t(:linear_resp_field_position_margin)  |
+|occ_closing_fee |number |t(:linear_resp_field_occ_closing_fee)  |
+|realised_pnl |number |t(:linear_resp_field_realised_pnl)  |
+|cum_realised_pnl |number |t(:linear_resp_field_cum_realised_pnl)  |
+|free_qty |number |t(:linear_resp_field_free_qty)  |
+|wallet_balance |string |t(:row_comment_wallet_balance)  |
+|available_balance |string |t(:row_comment_available_balance)  |
 
 
 
@@ -893,7 +928,26 @@ GET
 |limit |false |integer |t(:linear_row_comment_limit) |
 
 
-
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|order_id |string |t(:row_comment_order_id)  |
+|order_link_id |string |t(:row_comment_order_link_id)  |
+|side |string |t(:enum_side_link)  |
+|symbol |string |t(:enum_symbol_link)  |
+|order_price |string |t(:row_comment_order_price)  |
+|order_qty |string |t(:row_comment_order_qty)  |
+|order_type |string |t(:enum_order_type_link)  |
+|fee_rate |string |t(:row_comment_fee_rate)  |
+|exec_price |number |t(:row_comment_exec_price)    |
+|exec_type |string |t(:enum_exec_type_link)  |
+|exec_qty |number |t(:row_comment_exec_qty)  |
+|exec_fee |string |t(:row_comment_exec_fee)    |
+|exec_value |string |t(:row_comment_exec_value)  |
+|leaves_qty |number |t(:row_comment_leaves_qty)  |
+|closed_size |number |t(:row_comment_closed_size)  |
+|last_liquidity_ind |string |t(:enum_Liquidity_type_link)  |
+|trade_time_ms |number |t(:row_comment_trade_time)  |
 
 
 
@@ -971,8 +1025,27 @@ GET
 |limit |false |integer |t(:linear_row_comment_limit) |
 
 
-
-
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|id |number |t(:row_comment_position_id)  |
+|user_id |number |t(:row_comment_userID)  |
+|symbol |string |t(:row_comment_symbol)    |
+|order_id |string |t(:row_comment_order_id)  |
+|side |string |t(:enum_side_link)  |
+|qty |string |t(:row_comment_order_qty)  |
+|order_price |string |t(:row_comment_order_price)  |
+|order_type |string |t(:enum_order_type_link)  |
+|exec_type |string |t(:enum_exec_type_link)  |
+|closed_size |number |t(:linear_resp_field_closed_size)  |
+|cum_entry_value |number |t(:linear_resp_field_cum_entry_value)    |
+|avg_entry_price |number |t(:linear_resp_field_avg_entry_price)    |
+|cum_exit_value |number |t(:linear_resp_field_cum_exit_value)    |
+|avg_exit_price |number |t(:linear_resp_field_avg_exit_price)    |
+|closed_pnl |number |t(:linear_resp_field_closed_pnl)    |
+|fill_count |number |t(:linear_resp_field_fill_count)    |
+|leverage |number |t(:resp_field_leverage)  |
+|created_at |string |t(:row_comment_created_at)  |
 
 
 
@@ -1219,7 +1292,18 @@ GET
 |:----- |:-------|:-----|----- |
 
 
-
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|id |number |t(:row_comment_riskId)  |
+|symbol |string |t(:row_comment_symbol)  |
+|limit |number |t(:row_comment_risk_limit)    |
+|maintain_margin |string |t(:row_comment_maintain_margin)  |
+|starting_margin |string |t(:row_comment_starting_margin)  |
+|section |string |t(:row_comment_section)  |
+|is_lowest_risk |number |t(:row_comment_is_lowest_risk)    |
+|created_at |string |t(:row_comment_created_at)  |
+|updated_at |string |t(:row_comment_updated_at)  |
 
 
 
@@ -1286,7 +1370,15 @@ GET
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 
-
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|symbol |string |t(:row_comment_symbol)    |
+|side |string |t(:row_comment_funding_side)  |
+|size |number |t(:row_comment_funding_position_size)  |
+|funding_rate |number |t(:row_comment_funding_rate)  |
+|exec_fee |number |t(:row_comment_exec_fee)  |
+|exec_time |string |t(:row_comment_exec_timestamp)  |
 
 
 
@@ -1332,7 +1424,11 @@ GET
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 
-
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|predicted_funding_rate |number |t(:row_comment_predicted_funding_rate)    |
+|predicted_funding_fee |number |t(:row_comment_predicted_funding_fee)  |
 
 
 
