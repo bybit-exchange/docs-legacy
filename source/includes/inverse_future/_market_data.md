@@ -378,8 +378,8 @@ GET
 |end_time |false |integer |t(:row_comment_endTime_ms) |
 
 
-### t(:advanceddata)
-#### t(:marketfundingrate)
+## t(:advanceddata)
+### t(:marketfundingrate)
 > t(:codequote_curlExample)
 
 ```console
@@ -416,7 +416,7 @@ GET
 |limit |false |int |t(:row_comment_limit_100)|
 
 
-#### t(:marketopeninterest)
+### t(:marketopeninterest)
 > t(:codequote_curlExample)
 
 ```console
@@ -464,7 +464,7 @@ GET
 |limit |false |int |t(:row_comment_limit_50_200)|
 
 
-#### t(:marketbigdeal)
+### t(:marketbigdeal)
 > t(:codequote_curlExample)
 
 ```console
@@ -510,7 +510,7 @@ GET
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 
 
-#### t(:marketaccountratio)
+### t(:marketaccountratio)
 > t(:codequote_curlExample)
 
 ```console
@@ -557,7 +557,7 @@ GET
 |period |true |string |t(:row_comment_period)|
 
 
-#### t(:marketeliteratio)
+### t(:marketeliteratio)
 > t(:codequote_curlExample)
 
 ```console
