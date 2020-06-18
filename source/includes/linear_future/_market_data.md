@@ -233,16 +233,16 @@ GET
 |limit |false |integer |t(:linear_kline_row_comment_limit_200) |
 
 
-### t(:advanceddata)
-#### t(:marketfundingrate)
+## t(:advanceddata)
+### t(:marketfundingrate)
 <a href="/docs/inverse#t-marketfundingrate">t(:shared_endpoint_desc)</a>
-#### t(:marketopeninterest)
+### t(:marketopeninterest)
 <a href="/docs/inverse#t-marketopeninterest">t(:shared_endpoint_desc)</a>
-#### t(:marketaccountratio)
+### t(:marketaccountratio)
 <a href="/docs/inverse#t-marketaccountratio">t(:shared_endpoint_desc)</a>
-#### t(:marketeliteratio)
+### t(:marketeliteratio)
 <a href="/docs/inverse#t-marketeliteratio">t(:shared_endpoint_desc)</a>
-#### t(:marketbigdeal)
+### t(:marketbigdeal)
 <a href="/docs/inverse#t-marketbigdeal">t(:shared_endpoint_desc)</a>
 
 
