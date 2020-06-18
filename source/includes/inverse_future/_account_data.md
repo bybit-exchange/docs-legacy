@@ -137,7 +137,7 @@ GET
 |order |false |string |t(:row_comment_order)  |
 |page |false |integer |t(:row_comment_page) |
 |limit |false |integer |t(:row_comment_limit) |
-|<a href="#order-status-order_status-get">order_status</a> |false |string |t(:account_row_comment_orderStatus) |
+|<a href="#order-status-order_status">order_status</a> |false |string |t(:account_row_comment_orderStatus) |
 
 
 ### t(:cancelactive)
@@ -1269,7 +1269,7 @@ GET
 |user_id |number |t(:row_comment_user_id)  |
 |trade_time_ms |number |t(:row_comment_trade_time)  |
 
-         
+
 
 ## t(:risklimit)
 
