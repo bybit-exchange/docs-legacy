@@ -568,14 +568,14 @@ t(:wallet_para_tradeRecords)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|symbol |string |t(:enum_symbol_link)  |
-|side |string |t(:enum_side_link)  |
+|<a href="#symbol-symbol">symbol</a> |string |t(:row_comment_symbol)  |
+|<a href="#side-side">side</a> |string |t(:row_comment_side)  |
 |order_id |string |t(:row_comment_order_id)  |
 |exec_id |string |t(:row_comment_exec_id)  |
 |order_link_id |string |t(:row_comment_order_link_id)  |
 |price |string |t(:row_comment_exec_price)    |
 |order_qty |number |t(:row_comment_order_qty)  |
-|exec_type |string |t(:enum_exec_type_link)  |
+|<a href="#exec-type-exec_type">exec_type</a> |string |t(:row_comment_exec_type)  |
 |exec_qty |number |t(:row_comment_exec_qty)  |
 |exec_fee |string |t(:row_comment_exec_fee)    |
 |trade_time |string |t(:row_comment_trade_time)  |
