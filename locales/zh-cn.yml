@@ -289,7 +289,8 @@ zh-cn:
   errorcode_meaning: 含义
   resp_field_leverage:  逐仓模式下, 值为用户设置的杠杆；全仓模式下，值为当前风险限额下最大杠杆
   resp_field_effective_leverage: 有效杠杆. 逐仓模式下, 等于`leverage`; 全仓模式下, 计算公式为： <code>position size / markprice / (wallet_balance+unrealised_pnl)</code>
-
+  row_comment_from_id: 起始ID，与direction联合使用，其中一方未填写则两者都相当于未填写
+  row_comment_direction: 搜索方向：Prev:以起始ID升序检索,Next:起始ID降序检索，与from联合使用，其中一方未填写则两者都相当于未填写
   # introduction in index.html.md
   introduction: 介绍
   intro_para:
@@ -607,6 +608,11 @@ zh-cn:
   wallet_aside_withdrawRecords: 请注意该接口数据和<code>资金记录</code>中<code>Withdraw</code>类型数据的区别：
     <p>在该接口中，一次提币申请对应一条记录，并且有<code>status</code>字段表示当前提币状态。</p>
     <p>在<code>资金记录</code>接口中，一旦用户申请提币，就会产生一条<code>Withdraw</code>类型的数据，并且当提币申请取消、过期、或审核拒绝的时候，资金记录中会再新增一条<code>Refund</code>类型的数据。</p>
+
+  ### 币种兑换记录
+  symbolexchangerecords: 币种兑换记录
+  wallet_para_symbolexchangerecords: 查询币种兑换记录
+
   ### User Trade Records
   usertraderecords: 用户成交记录
   wallet_para_tradeRecords: 获取用户成交记录，按时间升序排列。

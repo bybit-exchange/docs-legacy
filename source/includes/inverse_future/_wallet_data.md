@@ -188,3 +188,62 @@ GET
 |<a href="#withdraw-status-status">status</a> |false |string |t(:row_comment_withdrawStatus) |
 |page |false |integer |t(:row_comment_page) |
 |limit |false |integer |t(:row_comment_limit) |
+
+
+### t(:symbolexchangerecords)
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "ext_info": "",
+    "result": [
+        {
+            "id": 31,
+            "exchange_rate": 40.57202774,
+            "from_coin": "BTC",
+            "to_coin": "ETH",
+            "to_amount": 4.05720277,
+            "from_fee": 0.0005,
+            "from_amount": 0.1,
+            "created_at": "2020-06-15 03:32:52"
+        },
+        {
+            "id": 30,
+            "exchange_rate": 39.92359901,
+            "from_coin": "BTC",
+            "to_coin": "ETH",
+            "to_amount": 39.923599,
+            "from_fee": 0.0005,
+            "from_amount": 1,
+            "created_at": "2020-06-12 08:27:51"
+        }
+    ],
+    "time_now": "1592554785.486414",
+    "rate_limit_status": 119,
+    "rate_limit_reset_ms": 1592554785484,
+    "rate_limit": 120
+}
+
+```
+
+t(:wallet_para_symbolexchangerecords)
+
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=oawwList>/v2/private/exchange-order/list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawwList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|limit |false |integer |t(:row_comment_limit) |
+|from |false |integer |t(:row_comment_from_id) |
+|direction |false |string |t(:row_comment_direction) |
+
+
+
+
