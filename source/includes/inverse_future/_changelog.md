@@ -1,6 +1,6 @@
 # t(:changelog)
 
-## 2020-06-04
+## 2020-06-22
 ### REST API
 - [t(:markpricekline)](#t-markpricekline) [t(:changelog_new)]
 
