@@ -1,6 +1,6 @@
 # t(:changelog)
 
-## 2020-06-03
+## 2020-06-22
 ### REST API
 - [t(:closedprofitandloss)](#t-closedprofitandloss) [t(:changelog_new)]
 
