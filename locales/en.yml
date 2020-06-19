@@ -85,6 +85,9 @@ en:
 
     <code>effective_leverage = position size / mark_price / (wallet_balance + unrealised_pnl)</code>
 
+  row_comment_from_id: Start Id,use with direction,If one party fails to fill in the form, both of them are equivalent to failure to fill in the form
+  row_comment_direction: Search direction：Prev:ascending order of Start Id ,Next:descending order of Start Id，use with direction from,If one party fails to fill in the form, both of them are equivalent to failure to fill in the form
+
   # introduction in index.html.md
   introduction: Introduction
   intro_para:
@@ -396,6 +399,11 @@ en:
     The difference between data returned by this endpoint and data of type <code>Withdraw</code> in the <a href="#t-walletrecords">Wallet Fund Records</a> endpoint:<p></p>
     <p>This endpoint provides one withdrawal operation per record, and you can check the current withdrawal state with the <code>status</code> field.</p>
     <p>Once you have submitted a withdrawal application, there will be a record with type <code>Withdraw</code>, and if the application is <code>CancelByUser</code>, <code>Reject</code> or <code>Expire</code> in the <a href="#t-walletrecords">Wallet Fund Records</a> endpoint, with a corresponding record with type <code>Refund</code>.</p>
+
+  ### Symbol Exchange Records
+  symbolexchangerecords: Symbol Exchange Records
+  wallet_para_symbolexchangerecords: Get symbol exchange records
+
   ### User Trade Records
   usertraderecords: User Trade Records
   wallet_para_tradeRecords: Get user's trading records. The results are ordered in ascending order (the first item is the oldest).
