@@ -4828,7 +4828,7 @@ B用户：
 <li><code>Market</code> 市价单</li>
 </ul>
 <h2 id='quantity-qty'>Quantity (<code>qty</code>)</h2>
-<p><ul> <li>最大值1百万 (<code>1000000</code>)</li> <li>必须是正整数： <ul> <li><code>40</code> - 合法</li> <li><code>30.5</code> - 非法</li> </ul> </li> </ul></p>
+<p><ul> <li>最大值1000</li> <ul> </ul> </li> </ul></p>
 <h2 id='price-price'>Price (<code>price</code>)</h2>
 <p><ul> <li>活动单<ul> <li>必须是<code>tick_size</code>的整数倍<ul> <li>当前symbol信息(如<code>tick_size</code>)，可以通过<a href="#t-querysymbol">交易对接口</a>接口获得。</li> </ul> </li> <li>必须小于一百万 (<code>1000000</code>)</li> <li>如果用户没有未平仓，则价格必须大于市场价格的10%<ul> <li>如, 若当前市场价(last price) 为 10314, 那么下单价格的最小值为 1031.5。</li> <li>伪代码(假设价格是0.5的增量):<pre class="center-column"> IF price > (last_price * 0.1) // 发送订单 ELSE //  不会发送订单，因为价格将不被系统接受 </pre></li> </ul> </li> <li>如果已持有仓位，那么价格必须高于强平价格<ul> <li>如, 若多仓的强平价格为 5176.5 那么价格最小为 5177. 在做空的情况下，价格必须低于强平价格。</li> </ul> </li> </ul> </li> <li>条件单<ul> <li>必须大于等于 <code>1</code></li> </ul> </li> </ul></p>
 <h2 id='time-in-force-time_in_force'>Time in force (<code>time_in_force</code>)</h2>
