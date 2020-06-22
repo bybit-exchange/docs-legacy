@@ -37,7 +37,7 @@ t(:ENUMs_para)
 * `Market` t(:market)
 
 ## Quantity (`qty`)
-t(:quantity)
+t(:linear_quantity)
 
 ## Price (`price`)
 t(:price)
