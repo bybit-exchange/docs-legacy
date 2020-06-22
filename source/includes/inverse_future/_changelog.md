@@ -2,6 +2,7 @@
 
 ## 2020-06-22
 ### REST API
+- [t(:closedprofitandloss)](#t-closedprofitandloss) [t(:changelog_new)]
 - [t(:markpricekline)](#t-markpricekline) [t(:changelog_new)]
 
 ## 2020-05-21
