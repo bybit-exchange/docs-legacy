@@ -26,7 +26,7 @@ en:
   row_comment_stopOrderStatus: stop order status
   row_comment_from: |
     From ID. Default: return latest data
-  row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page
+  row_comment_limit: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page
   row_comment_limit_liq: Limit for data size, max size is 1000. Default size is 500
   row_comment_orderType: Active order type
   row_comment_qty: Order quantity in USD
@@ -54,7 +54,7 @@ en:
   row_comment_startDate: Start point for result
   row_comment_endDate: End point for result
   row_comment_currency: Currency type
-  row_comment_coin: <code>currency</code> alias
+  row_comment_coin: <code>currency</code> alias, returns all wallet balances if no parameters are passed
   row_comment_walletFundType: Wallet fund type
   row_comment_withdrawStatus: Withdraw status
   row_comment_startTime: Start timestamp point for result, in second
@@ -1150,7 +1150,7 @@ en:
   restapi_update_20200414: Updated <code>BTCUSDT</code> contract information
   linear_private_trade_records: Get user's trading records. The results are ordered in descending order (the first item is the latest).
   linear_private_closed_pnl_records: Get user's closed profit and loss records. The results are ordered in descending order (the first item is the latest).
-  linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
+  linear_row_comment_limit: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
   restapi_update_20200417_1: Add new symbol <code>BTCUSDT</code>
   restapi_update_20200417_2: Add new symbol <code>BTCUSDT</code>
   restapi_update_20200417_3: Add new response param <code>trade_time_ms</code>
@@ -1166,7 +1166,8 @@ en:
     Add new fields in response: <code>interval</code>, <code>open_time</code>
   restapi_update_20200518_3: |
     Abandon response fields: <code>period</code>, <code>start_at</code>
-
+  restapi_update_20200629_1: Returns all wallet balances if no parameters are passed
+  restapi_update_20200629_2: Adjust the return quantity from 50 to 200
 
   markpricekline: Query Mark Price Kline
   linear_query_mark_price_kline: Query mark price kline (like <a href="#t-querykline">Query Kline</a> but for <a href="https://help.bybit.com/hc/en-us/articles/360039261074-What-is-Dual-Price-mechanism-">mark price</a>).
