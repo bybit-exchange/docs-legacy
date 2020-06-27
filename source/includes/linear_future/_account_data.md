@@ -196,6 +196,46 @@ POST
 
 
 
+### t(:replaceactive)
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,    //Error code,
+    "ret_msg": "ok",  //Error message,
+    "ext_code": "",
+    "result": {
+        "order_id": "efa44157-c355-4a98-b6d6-1d846a936b93"
+    },
+    "time_now": "1539778407.210858",    // UTC timestamp
+    "rate_limit_status": 99, // The remaining number of accesses in one minute
+    "rate_limit_reset_ms": 1580885703683,
+    "rate_limit": 100             
+}
+```
+
+t(:account_para_replaceActive)
+
+<aside class="notice">
+t(:account_aside_replaceActive)
+</aside>
+
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=oaoReplace>/private/linear/order/replace</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oaoReplace"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|order_id |true |string |t(:row_comment_orderId) |
+|order_link_id |false |string |t(:row_comment_orderLinkId) |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|p_r_qty |false |int |t(:row_comment_pRQty) |
+|p_r_price |false |number |t(:row_comment_pRPrice) |
+
+
+
 ### t(:queryactive)
 > t(:codequote_responseExample)
 
@@ -245,6 +285,7 @@ GET
 |order_id |false |string | t(:misc_row_comment_orderIdNotOrderLinkId)|
 |order_link_id |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+
 
 
 
@@ -467,6 +508,49 @@ POST
 
 
 
+### t(:replacecond)
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "ok",
+    "ext_code": "",
+    "result": {
+        "stop_order_id": "378a1bbc-a93a-4e75-87f4-502ea754ba36"
+    },
+    "ext_info": null,
+    "time_now": "1577475760.604942",
+    "rate_limit_status": 96,
+    "rate_limit_reset_ms": 1577475760612,
+    "rate_limit": "100"
+}
+```
+
+
+t(:account_para_replaceCond)
+
+<aside class="notice">
+t(:account_aside_replaceCond)
+</aside>
+
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=oasoReplace>/private/linear/stop-order/replace</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oasoReplace"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|stop_order_id |true |string |t(:row_comment_stopOrderId) |
+|order_link_id |false |string |t(:row_comment_orderLinkId) |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|p_r_qty |false |int |t(:row_comment_pRQty) |
+|p_r_price |false |number |t(:row_comment_pRPrice) |
+|p_r_trigger_price |false |number |t(:row_comemnt_pRTriggerPrice) |
+
+
+
 ### t(:querycond)
 > t(:codequote_responseExample)
 
@@ -511,7 +595,6 @@ GET
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 |stop_order_id |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
 |order_link_id |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
-
 
 
 
@@ -1021,7 +1104,7 @@ GET
 |start_time |false |int |t(:row_comment_startTime) |
 |end_time |false |int |t(:row_comment_endTime) |
 |<a href="#exec-type-exec_type">exec_type</a> |false |string |t(:linear_exec_type) |
-|page |false |integer |t(:row_comment_page) |
+|page |false |integer |t(:row_comment_page_max50)    |
 |limit |false |integer |t(:linear_row_comment_limit) |
 
 
