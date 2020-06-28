@@ -48,7 +48,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
 
 ### t(:querykline)
 > t(:codequote_curlExample)
@@ -100,7 +100,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
 |interval |true |string |t(:row_comment_interval) |
 |from |true |integer |t(:row_comment_from_timestamp) |
 |limit |false |integer |t(:row_comment_limit_200) |
@@ -161,7 +161,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |false |string |t(:row_comment_symbol) |
+|t(:row_parameter_symbol) |false |string |t(:row_comment_symbol) |
 
 
 ### t(:publictradingrecords)
@@ -203,7 +203,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
 |from |false |int |t(:row_comment_from)|
 |limit |false |int |Number of results. Default 500; max 1000|
 
@@ -371,7 +371,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
 |from |false |integer |t(:row_comment_from) |
 |limit |false |integer |t(:row_comment_limit_liq) |
 |start_time |false |integer |t(:row_comment_startTime_ms) |
@@ -412,7 +412,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
 |limit |false |int |t(:row_comment_limit_100)|
 
 
@@ -459,7 +459,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
 |period |true |string |t(:row_comment_period)|
 |limit |false |int |t(:row_comment_limit_50_200)|
 
@@ -507,7 +507,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
 
 
 ### t(:marketaccountratio)
@@ -553,7 +553,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
 |period |true |string |t(:row_comment_period)|
 
 
@@ -600,5 +600,5 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
 |period |true |string |t(:row_comment_period)|
