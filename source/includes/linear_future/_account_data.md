@@ -681,8 +681,8 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |user_id |number |t(:row_comment_userID)  |
-|symbol|string |t(:row_comment_symbol)    |
-|side |string |t(:row_comment_side)  |
+|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
 |size |number |t(:row_comment_position_size)  |
 |position_value |number |t(:linear_resp_field_position_value)  |
 |entry_price |number |t(:linear_resp_field_entry_price)  |
@@ -918,8 +918,8 @@ POST
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |user_id |number |t(:row_comment_userID)  |
-|symbol|string |t(:row_comment_symbol)    |
-|side |string |t(:row_comment_side)  |
+|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
 |size |number |t(:row_comment_position_size)  |
 |position_value |number |t(:linear_resp_field_position_value)  |
 |entry_price |number |t(:linear_resp_field_entry_price)  |
@@ -1016,14 +1016,14 @@ GET
 |:----- |:-----|----- |
 |order_id |string |t(:row_comment_order_id)  |
 |order_link_id |string |t(:row_comment_order_link_id)  |
-|side |string |t(:enum_side_link)  |
-|symbol |string |t(:enum_symbol_link)  |
+|t(:row_parameter_side) |string |t(:enum_side_link)  |
+|t(:row_parameter_symbol) |string |t(:enum_symbol_link)  |
 |order_price |string |t(:row_comment_order_price)  |
 |order_qty |string |t(:row_comment_order_qty)  |
-|order_type |string |t(:enum_order_type_link)  |
+|t(:row_parameter_order_type) |string |t(:enum_order_type_link)  |
 |fee_rate |string |t(:row_comment_fee_rate)  |
 |exec_price |number |t(:row_comment_exec_price)    |
-|exec_type |string |t(:enum_exec_type_link)  |
+|t(:row_parameter_exec_type) |string |t(:enum_exec_type_link)  |
 |exec_qty |number |t(:row_comment_exec_qty)  |
 |exec_fee |string |t(:row_comment_exec_fee)    |
 |exec_value |string |t(:row_comment_exec_value)  |
@@ -1113,13 +1113,13 @@ GET
 |:----- |:-----|----- |
 |id |number |t(:row_comment_position_id)  |
 |user_id |number |t(:row_comment_userID)  |
-|symbol |string |t(:row_comment_symbol)    |
+|t(:row_parameter_symbol) |string |t(:row_comment_symbol)    |
 |order_id |string |t(:row_comment_order_id)  |
-|side |string |t(:enum_side_link)  |
-|qty |string |t(:row_comment_order_qty)  |
+|t(:row_parameter_side) |string |t(:enum_side_link)  |
+|t(:row_parameter_quantity) |string |t(:row_comment_order_qty)  |
 |order_price |string |t(:row_comment_order_price)  |
-|order_type |string |t(:enum_order_type_link)  |
-|exec_type |string |t(:enum_exec_type_link)  |
+|t(:row_parameter_order_type) |string |t(:enum_order_type_link)  |
+|t(:row_parameter_exec_type) |string |t(:enum_exec_type_link)  |
 |closed_size |number |t(:linear_resp_field_closed_size)  |
 |cum_entry_value |number |t(:linear_resp_field_cum_entry_value)    |
 |avg_entry_price |number |t(:linear_resp_field_avg_entry_price)    |
@@ -1379,7 +1379,7 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |id |number |t(:row_comment_riskId)  |
-|symbol |string |t(:row_comment_symbol)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_symbol)  |
 |limit |number |t(:row_comment_risk_limit)    |
 |maintain_margin |string |t(:row_comment_maintain_margin)  |
 |starting_margin |string |t(:row_comment_starting_margin)  |
@@ -1456,8 +1456,8 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|symbol |string |t(:row_comment_symbol)    |
-|side |string |t(:row_comment_funding_side)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_symbol)    |
+|t(:row_parameter_side) |string |t(:row_comment_funding_side)  |
 |size |number |t(:row_comment_funding_position_size)  |
 |funding_rate |number |t(:row_comment_funding_rate)  |
 |exec_fee |number |t(:row_comment_exec_fee)  |
