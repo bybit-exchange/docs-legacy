@@ -1383,6 +1383,66 @@ GET
 
          
 
+### t(:closedprofitandloss)
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "ext_info": "",
+    "result": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 9982,
+                "user_id": 160320,
+                "symbol": "BTCUSD",
+                "order_id": "e976ac13-10e7-4883-a7ba-13b0e93659f1",
+                "side": "Sell",
+                "qty": 226,
+                "order_price": 1600,
+                "order_type": "Limit",
+                "exec_type": "Trade",
+                "closed_size": 113,
+                "cum_entry_value": 0.07062500000000001,
+                "avg_entry_price": 1600,
+                "cum_exit_value": 0.066198,
+                "avg_exit_price": 1707,
+                "closed_pnl": 0.0043950000000000005,
+                "fill_count": 1,
+                "leverage": 100,
+                "created_at": 1591155741
+            }
+        ]
+    },
+    "time_now": "1591173153.876047",
+    "rate_limit_status": 119,
+    "rate_limit_reset_ms": 1591173153852,
+    "rate_limit": 120
+}
+```
+
+t(:linear_private_closed_pnl_records)
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=pltcList>/v2/private/trade/closed-pnl/list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pltcList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|start_time |false |int |t(:row_comment_startTime) |
+|end_time |false |int |t(:row_comment_endTime) |
+|<a href="#exec-type-exec_type">exec_type</a> |false |string |t(:linear_exec_type) |
+|page |false |integer |t(:row_comment_page_max50) |
+|limit |false |integer |t(:linear_row_comment_limit) |
+
+
+
 ## t(:risklimit)
 
 ### t(:getrisklimit)

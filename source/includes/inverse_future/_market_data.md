@@ -377,229 +377,268 @@ GET
 |start_time |false |integer |t(:row_comment_startTime_ms) |
 |end_time |false |integer |t(:row_comment_endTime_ms) |
 
+
+### t(:markpricekline)
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/v2/public/mark-price-kline?symbol=BTCUSD&interval=1&limit=2&from=1581231260
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code":0,
+    "ret_msg":"OK",
+    "ext_code":"",
+    "ext_info":"",
+    "result":[
+        {
+            "id":2,
+            "symbol":"BTCUSD",
+            "period":"1",
+            "start_at":1582231260,
+            "open":100,
+            "high":120,
+            "low":88,
+            "close":115
+        }
+    ],
+    "time_now":"1591263582.601795"
+}
+```
+
+t(:linear_query_mark_price_kline)
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=plmpk>/v2/public/mark-price-kline</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#plmpk"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|interval |true |string |t(:row_comment_interval) |
+|from |true |integer |t(:row_comment_from_timestamp) |
+|limit |false |integer |t(:linear_kline_row_comment_limit_200) |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!--
-### t(:advanceddata)
-#### t(:marketfundingrate)
+### t(:orderbook)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/v2/market-data/funding-rate?symbol=BTCUSD&limit=100
-```
-```javascript
-{
-    "ret_code":0,
-    "ret_msg":"OK",
-    "ext_code":"",
-    "ext_info":"",
-    "result":[
-        {
-            "symbol":"BTCUSD",
-            "funding_rate":0.00375,
-            "timestamp":1590998277
-                }
-    ],
-    "time_now":"1590068362.493540"
-}
-```
-
-t(:market_para_marketfundingrate)
-
-<p class="fake_header">t(:httprequest)</p>
-GET
-<code><span id=vpMarketFundingRate>/v2/market-data/funding-rate</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpMarketFundingRate"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
-|limit |false |int |t(:row_comment_limit_100)|
-
-
-#### t(:marketopeninterest)
-> t(:codequote_curlExample)
-
-```console
-curl https://api.bybit.com/v2/market-data/open-interest?symbol=BTCUSD&limit=10&period=5min
+curl https://api-testnet.bybit.com/v2/public/orderBook/L2?symbol=BTCUSD
 ```
 
 > t(:codequote_responseExample)
 
 ```javascript
 {
-    "ret_code":0,
-    "ret_msg":"OK",
-    "ext_code":"",
-    "ext_info":"",
-    "result":[
+    "ret_code": 0,                              // return code
+    "ret_msg": "OK",                            // error message
+    "ext_code": "",                             // additional error code
+    "ext_info": "",                             // additional error info
+    "result": [
         {
-            "open_interest":0,
-            "side":"Sell",
-            "timestamp":1591165240,
-            "symbol":"BTCUSD"
+            "symbol": "BTCUSD",                 // symbol
+            "price": "9487",                    // price
+            "size": 336241,                     // size (in USD contracts)
+            "side": "Buy"                       // side
         },
         {
-            "open_interest":691449,
-            "side":"Buy",
-            "timestamp":1591165240,
-            "symbol":"BTCUSD"
+            "symbol": "BTCUSD",                 // symbol
+            "price": "9487.5",                  // price
+            "size": 522147,                     // size (in USD contracts)
+            "side": "Sell"                      // side
         }
     ],
-    "time_now":"1591588171.817945"
+    "time_now": "1567108756.834357"             // UTC timestamp
 }
 ```
 
-t(:market_para_marketopeninterest)
+t(:market_para_orderbook)
+
+<aside class="notice">
+t(:market_aside_orderbook)
+</aside>
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpMarketOpenInterest>/v2/market-data/open-interest</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpMarketOpenInterest"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=vpoL2>/v2/public/orderBook/L2</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoL2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
-|limit |false |int |t(:row_comment_limit_50_200)|
-|period |false |string |t(:row_comment_period)|
 
 
-#### t(:marketbigdeal)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### t(:latestsymbolinfo)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/v2/market-data/big-deal?symbol=BTCUSD
+curl https://api-testnet.bybit.com/v2/public/tickers
 ```
 
 > t(:codequote_responseExample)
 
 ```javascript
 {
-    "ret_code":0,
-    "ret_msg":"OK",
-    "ext_code":"",
-    "ext_info":"",
-    "result":[
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "ext_info": "",
+    "result": [
         {
-            "symbol":"BTCUSD",
-            "side":"Buy",
-            "timestamp":1591257103,
-            "value":599950
-        },
-        {
-            "symbol":"BTCUSD",
-            "side":"Sell",
-            "timestamp":1591256194,
-            "value":599950
+            "symbol": "BTCUSD",
+            "bid_price": "7230",
+            "ask_price": "7230.5",
+            "last_price": "7230.00",
+            "last_tick_direction": "ZeroMinusTick",
+            "prev_price_24h": "7163.00",
+            "price_24h_pcnt": "0.009353",
+            "high_price_24h": "7267.50",
+            "low_price_24h": "7067.00",
+            "prev_price_1h": "7209.50",
+            "price_1h_pcnt": "0.002843",
+            "mark_price": "7230.31",
+            "index_price": "7230.14",
+            "open_interest": 117860186,
+            "open_value": "16157.26",
+            "total_turnover": "3412874.21",
+            "turnover_24h": "10864.63",
+            "total_volume": 28291403954,
+            "volume_24h": 78053288,
+            "funding_rate": "0.0001",
+            "predicted_funding_rate": "0.0001",
+            "next_funding_time": "2019-12-28T00:00:00Z",
+            "countdown_hour": 2
         }
     ],
-    "time_now":"1591600330.837091"
+    "time_now": "1577484619.817968"
 }
 ```
 
-t(:market_para_marketbigdeal)
+t(:market_para_symbol)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpMarketBigDeal>/v2/market-data/big-deal</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpMarketBigDeal"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=vpTickers>/v2/public/tickers</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpTickers"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
 
-
-#### t(:marketaccountratio)
-> t(:codequote_curlExample)
-
-```console
-curl https://api.bybit.com/v2/market-data/account-ratio?symbol=BTCUSD&period=5min
-```
-
-> t(:codequote_responseExample)
-
-```javascript
-{
-    "ret_code":0,
-    "ret_msg":"OK",
-    "ext_code":"",
-    "ext_info":"",
-    "result":[
-        {
-            "symbol":"BTCUSD",
-            "buy_ratio":0.4288,
-            "sell_ratio":0.5712,
-            "timestamp":1591165240
-        },
-        {
-            "symbol":"XRPUSD",
-            "buy_ratio":0.3288,
-            "sell_ratio":0.6712,
-            "timestamp":1591165240
-        }
-    ],
-    "time_now":"1591597368.673697"
-}
-```
-
-t(:market_para_marketaccountratio)
-
-<p class="fake_header">t(:httprequest)</p>
-GET
-<code><span id=vpMarketAccountRatio>/v2/market-data/account-ratio</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpMarketAccountRatio"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
-|period |false |string |t(:row_comment_period)|
-
-
-#### t(:marketeliteratio)
-> t(:codequote_curlExample)
-
-```console
-curl https://api.bybit.com/v2/market-data/elite-ratio?symbol=BTCUSD&period=5min
-```
-
-> t(:codequote_responseExample)
-
-```javascript
-{
-    "ret_code":0,
-    "ret_msg":"OK",
-    "ext_code":"",
-    "ext_info":"",
-    "result":[
-        {
-            "symbol":"BTCUSD",
-            "buy_ratio":0.4288,
-            "sell_ratio":0.5712,
-            "timestamp":1591165240
-        },
-        {
-            "symbol":"XRPUSD",
-            "buy_ratio":0.3288,
-            "sell_ratio":0.6712,
-            "timestamp":1591165240
-        }
-    ],
-    "time_now":"1591597368.673697"
-}
-```
-
-t(:market_para_marketeliteratio)
-
-<p class="fake_header">t(:httprequest)</p>
-GET
-<code><span id=vpMarketEliteRatio>/v2/market-data/elite-ratio</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpMarketEliteRatio"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
-|period |false |string |t(:row_comment_period)|
+|<a href="#symbol-symbol">symbol</a> |false |string |t(:row_comment_symbol) |
 -->
+
+
+
+
+
+
+
+
+
+
+
+<!--
+### t(:querysymbol)
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/public/linear/symbols
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+"ret_code": 0,
+"ret_msg": "OK",
+"ext_code": "",
+"ext_info": "",
+"result": [
+    {
+        "name": "BTCUSDT",
+        "base_currency": "USDT",
+        "quote_currency": "USD",
+        "price_scale": 2,
+        "taker_fee": "0.00075",
+        "maker_fee": "-0.00025",
+        "leverage_filter": {
+            "min_leverage": 1,
+            "max_leverage": 100,
+            "leverage_step": "0.01"
+        },
+        "price_filter": {
+            "min_price": "0.5",
+            "max_price": "999999.5",
+            "tick_size": "0.5"
+        },
+        "lot_size_filter": {
+            "max_trading_qty": 1000000,
+            "min_trading_qty": 0.001,
+            "qty_step": 0.001
+        }
+    }
+],
+"time_now": "1586780484.438405"
+}
+```
+
+t(:market_para_querySymbol)
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=vpSymbols>/public/linear/symbols</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpSymbols"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
