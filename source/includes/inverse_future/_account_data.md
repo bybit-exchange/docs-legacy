@@ -1264,7 +1264,7 @@ GET
 |order_price |string |t(:row_comment_order_price)  |
 |order_qty |string |t(:row_comment_order_qty)  |
 |t(:row_parameter_order_type) |string |t(:enum_order_type_link)  |
-|t(:row_parameter_side) |string |t(:enum_side_link)  |
+|t(:row_parameter_side) |string |t(:row_comment_qty)  |
 |t(:row_parameter_symbol) |string |t(:enum_symbol_link)  |
 |user_id |number |t(:row_comment_user_id)  |
 |trade_time_ms |number |t(:row_comment_trade_time)  |

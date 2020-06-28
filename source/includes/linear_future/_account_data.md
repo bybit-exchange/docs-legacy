@@ -1016,20 +1016,20 @@ GET
 |:----- |:-----|----- |
 |order_id |string |t(:row_comment_order_id)  |
 |order_link_id |string |t(:row_comment_order_link_id)  |
-|t(:row_parameter_side) |string |t(:enum_side_link)  |
-|t(:row_parameter_symbol) |string |t(:enum_symbol_link)  |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_symbol)  |
 |order_price |string |t(:row_comment_order_price)  |
 |order_qty |string |t(:row_comment_order_qty)  |
-|t(:row_parameter_order_type) |string |t(:enum_order_type_link)  |
+|t(:row_parameter_order_type) |string |t(:row_comment_order_type)  |
 |fee_rate |string |t(:row_comment_fee_rate)  |
 |exec_price |number |t(:row_comment_exec_price)    |
-|t(:row_parameter_exec_type) |string |t(:enum_exec_type_link)  |
+|t(:row_parameter_exec_type) |string |t(:row_comment_exec_type)  |
 |exec_qty |number |t(:row_comment_exec_qty)  |
 |exec_fee |string |t(:row_comment_exec_fee)    |
 |exec_value |string |t(:row_comment_exec_value)  |
 |leaves_qty |number |t(:row_comment_leaves_qty)  |
 |closed_size |number |t(:row_comment_closed_size)  |
-|last_liquidity_ind |string |t(:enum_Liquidity_type_link)  |
+|t(:row_parameter_last_liquidity_ind) |string |t(:enum_Liquidity_type_link)  |
 |trade_time_ms |number |t(:row_comment_trade_time)  |
 
 
@@ -1115,11 +1115,11 @@ GET
 |user_id |number |t(:row_comment_userID)  |
 |t(:row_parameter_symbol) |string |t(:row_comment_symbol)    |
 |order_id |string |t(:row_comment_order_id)  |
-|t(:row_parameter_side) |string |t(:enum_side_link)  |
+|t(:row_parameter_side) |string |t(:linear_row_comment_qty)  |
 |t(:row_parameter_quantity) |string |t(:row_comment_order_qty)  |
 |order_price |string |t(:row_comment_order_price)  |
-|t(:row_parameter_order_type) |string |t(:enum_order_type_link)  |
-|t(:row_parameter_exec_type) |string |t(:enum_exec_type_link)  |
+|t(:row_parameter_order_type) |string |t(:row_comment_order_type)  |
+|t(:row_parameter_exec_type) |string |t(:row_comment_exec_type)  |
 |closed_size |number |t(:linear_resp_field_closed_size)  |
 |cum_entry_value |number |t(:linear_resp_field_cum_entry_value)    |
 |avg_entry_price |number |t(:linear_resp_field_avg_entry_price)    |
