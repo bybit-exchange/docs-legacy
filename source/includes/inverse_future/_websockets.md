@@ -485,6 +485,7 @@ t(:websocket_aside_klineV2)
 ### t(:websocketposition)
 > t(:codequote_subscribe)
 
+
 ```javascript
 ws.send('{"op": "subscribe", "args": ["position"]}')
 ```
@@ -530,9 +531,47 @@ ws.send('{"op": "subscribe", "args": ["position"]}')
 }
 ```
 
+t(:account_para_myPosition)
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|user_id |number |t(:row_comment_userID)  |
+|symbol|string |t(:row_comment_symbol)    |
+|side |string |t(:row_comment_side)  |
+|size |number |t(:row_comment_position_size)  |
+|position_value |string |t(:row_comment_position_value)  |
+|entry_price |string |t(:row_comment_entry_price)  |
+|liq_price |string |t(:row_comment_liq_price)  |
+|bust_price |string |t(:row_comment_bust_price)  |
+|leverage |string |t(:resp_field_leverage)  |
+|order_margin |string |t(:row_comment_order_margin)  |
+|position_margin |string |t(:row_comment_position_margin)  |
+|available_balance |string |t(:row_comment_available_balance)  |
+|take_profit |string |t(:row_comment_take_profit)  |
+|tp_trigger_by |string |t(:row_comment_triggerBy) |
+|stop_loss |string |t(:row_comment_stop_loss)  |
+|sl_trigger_by |string |t(:row_comment_triggerBy) |
+|realised_pnl |string |t(:row_comment_realised_pnl)  |
+|trailing_stop |string |t(:row_comment_trailing_stop)  |
+|trailing_active |string |t(:row_comment_trailing_active)  |
+|wallet_balance |string |t(:row_comment_wallet_balance)  |
+|risk_id |number |t(:row_comment_riskId)  |
+|occ_closing_fee |string |t(:row_comment_occ_closing_fee)  |
+|occ_funding_fee |string |t(:row_comment_occ_funding_fee)  |
+|auto_add_margin |number |t(:row_comment_auto_add_margin)  |
+|cum_realised_pnl |string |t(:row_comment_cum_realised_pnl)  |
+|position_status |string |t(:row_comment_position_status)  |
+|position_seq |number |t(:row_comment_position_seq)  |
+
+
+
 
 ### t(:websocketexecution)
 > t(:codequote_subscribe)
+
+
+
 
 ```javascript
 ws.send('{"op": "subscribe", "args": ["execution"]}')
@@ -562,6 +601,26 @@ ws.send('{"op": "subscribe", "args": ["execution"]}')
     ]
 }
 ```
+
+t(:wallet_para_tradeRecords)
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|symbol |string |t(:enum_symbol_link)  |
+|side |string |t(:enum_side_link)  |
+|order_id |string |t(:row_comment_order_id)  |
+|exec_id |string |t(:row_comment_exec_id)  |
+|order_link_id |string |t(:row_comment_order_link_id)  |
+|price |string |t(:row_comment_exec_price)    |
+|order_qty |number |t(:row_comment_order_qty)  |
+|exec_type |string |t(:enum_exec_type_link)  |
+|exec_qty |number |t(:row_comment_exec_qty)  |
+|exec_fee |string |t(:row_comment_exec_fee)    |
+|leaves_qty |number |t(:row_comment_leaves_qty)  |
+|is_maker |bool |t(:row_comment_is_maker)  |
+|trade_time |string |t(:row_comment_trade_time)  |
+
 
 
 ### t(:websocketorder)
