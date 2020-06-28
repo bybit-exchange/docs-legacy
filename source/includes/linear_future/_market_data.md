@@ -232,7 +232,7 @@ GET
 |from |true |integer |t(:row_comment_from_timestamp) |
 |limit |false |integer |t(:linear_kline_row_comment_limit_200) |
 
-
+<!--
 ### t(:advanceddata)
 #### t(:marketfundingrate)
 <a href="/docs/inverse#t-marketfundingrate">t(:shared_endpoint_desc)</a>
@@ -244,7 +244,7 @@ GET
 <a href="/docs/inverse#t-marketeliteratio">t(:shared_endpoint_desc)</a>
 #### t(:marketbigdeal)
 <a href="/docs/inverse#t-marketbigdeal">t(:shared_endpoint_desc)</a>
-
+-->
 
 
 
