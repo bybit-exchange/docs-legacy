@@ -8,6 +8,7 @@ en:
   comment_abandoned: <b>Abandoned!!</b>
   httprequest: HTTP Request
   requestparameters: Request Parameters
+  responseparameters: Response Parameters
   codequote_responseExample: Response Example
   codequote_responseExampleFormatAll: Response Example - format of all responses
   codequote_curlExample: Curl Example
@@ -18,12 +19,102 @@ en:
   column_required: required
   column_type: type
   column_comments: comments
+  row_comment_userID: UserID
   row_comment_side: Side
-  row_comment_symbol: ""
+  row_comment_symbol: Symbol
   row_comment_margin: margin
+  row_comment_position_id: PositionID
+  row_comment_position_size: Position Qty
+  row_comment_position_value: Position value
+  row_comment_entry_price: Average entry price
+  row_comment_auto_add_margin: Whether add margin automatically
+  row_comment_position_margin: Position margin
+  row_comment_effective_leverage: Effective leverage
+  row_comment_liq_price: Liquidation price
+  row_comment_bust_price: Bankruptcy price
+  row_comment_occ_closing_fee: Position closing fee occupied
+  row_comment_occ_funding_fee: Pre-occupied funding fee that calculate from position qty and current funding fee
+  row_comment_take_profit: Take profit price
+  row_comment_stop_loss: Stop loss price
+  row_comment_trailing_stop: Trailing stop
+  row_comment_position_status: Position status, Normal, Liq, Adl
+  row_comment_deleverage_indicator: Deleverage indicator level(1,2,3,4,5)
+  row_comment_oc_calc_data: Pre-occupied calculate parameters, blq-total number of the long side unsettled orders, bmp-the lowest price of the long side, slq-total number of the short side unsettled orders, smp-the lowest price of the short side
+  row_comment_order_margin: Pre-occupied order marign
+  row_comment_wallet_balance: Wallet balance
+  row_comment_realised_pnl: Day realised pnl
+  row_comment_unrealised_pnl: Day unrealised pnl
+  row_comment_cum_realised_pnl: Accumulated realised pnl
+  row_comment_cross_seq: Cross Sequence
+  row_comment_position_seq: Position Sequence
+  row_comment_cum_commission: Accumulated commission
+  row_comment_trailing_active: Trailing stop active price
+  row_comment_sl_trigger_by: Trigger price type
+  row_comment_leverage_result: User leverage
+  row_comment_BTCUSD_leverage: BTCUSD leverage
+  row_comment_EOSUSD_leverage: EOSUSD leverage
+  row_comment_ETHUSD_leverage: ETHUSD leverage
+  row_comment_XRPUSD_leverage: XRPUSD leverage
+  row_comment_exec_fee: Transaction fee
+  row_comment_exec_id: Transaction ID
+  row_comment_exec_price: Transaction price
+  row_comment_exec_qty: Transaction Qty
+  row_comment_exec_value: Transaction Value
+  row_comment_fee_rate: Maker or Taker fee rate
+  row_comment_nth_fill: The squence of the transaction in this cross sequence data package
+  row_comment_user_id: User ID
+  row_comment_order_id: Order ID
+  row_comment_order_link_id: Order link ID
+  row_comment_order_price: Order price
+  row_comment_order_qty: Order Qty
+  row_comment_trade_time: Transaction timestamp
+  row_comment_coin_type: Coin type
+  row_comment_risk_limit: Risk limit
+  row_comment_maintain_margin: Maintain margin
+  row_comment_starting_margin: Starting margin
+  row_comment_section: Section
+  row_comment_is_lowest_risk: Is lowest risk, 0:Yes 1:No
+  row_comment_funding_rate: Funding rate
+  row_comment_funding_rate_timestamp: Funding rate timestamp
+  row_comment_funding_side: Your position side at the time of settlement
+  row_comment_funding_position_size: Your position size at the time of settlement
+  row_comment_funding_exec_fee: Funding fee
+  row_comment_funding_exec_timestamp: Funding fee execution timestamp
+  row_comment_predicted_funding_rate: Predicted funding rate
+  row_comment_predicted_funding_fee: Predicted funding fee
+  row_comment_api_key: API key
+  row_comment_type: Key type
+  row_comment_position_user_id: User ID
+  row_comment_position_inviter_id: Inviter ID
+  row_comment_position_ips: IP
+  row_comment_note: Note
+  row_comment_permissions: Key permission
+  row_comment_expired_at: Expire time
+  row_comment_read_only: ReadOnly
+  row_comment_lcp_date: Date
+  row_comment_lcp_self_ratio: Personal effective ratio
+  row_comment_lcp_platform_ratio: Platform effective ratio
+  row_comment_lcp_score: Liquidity contribution points
+  row_comment_created_at: Create time
+  row_comment_updated_at: Update time
+  row_comment_margin_result: User margin
   row_comment_activeOrderType: Active order type
   row_comment_stopOrderType: Conditional order type
-  row_comment_stopOrderStatus: stop order status
+  row_comment_stopOrderStatus: Stop order status
+  row_comment_orderStatus: Order status
+  row_comment_expected_direction: Expected direction
+  row_comment_op_from: Source of the request
+  row_comment_remark: Remark
+  row_comment_o_req_num: Used to correlate request&response
+  row_comment_leaves_qty: Number of remaining delegates
+  row_comment_leaves_value: The estimated value corresponding to the number of remaining orders
+  row_comment_reject_reason: The reason the order was rejected
+  row_comment_clOrdID: A unique order number of type UUID
+  row_comment_create_type: Trigger scenario for single action
+  row_comment_cancel_type: Trigger scenario for cancel operation
+  row_comment_cross_status: The state of initiating a matchmaking request
+  row_comment_ext_fields: Extension field
+
   row_comment_from: |
     From ID. Default: return latest data
   row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page
@@ -69,6 +160,16 @@ en:
   row_comment_interval: Data refresh interval. Enum <span>:<span> 1 3 5 15 30 60 120 240 360 720 "D" "M" "W" "Y"
   row_comment_from_timestamp: From timestamp in seconds
   row_comment_limit_200: Limit for data size per page, max size is 200. Default as showing 200 pieces of data per page
+  row_comment_limit_100: Limit for data size per page, max size is 100. Default as showing 50 pieces of data per page
+  row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page
+  row_comment_period: Data recording period. 5min 15min 30min 1h 4h 1d
+  row_comment_last_exec_time: Last transaction time
+  row_comment_last_exec_price: Last transaction price
+  row_comment_orig_order_type: Original special order type
+  row_comment_prior_x_req_price: Expected match price
+  row_comment_xreq_type:  Request type
+
+
   enum_withdraw_status_link: <a href="#withdraw-status-status">Withdraw Status Enum</a>
   enum_coin_link: <a href="#currency-currency-coin">Coin Enum</a>
   enum_side_link: <a href="#side-side">Side Enum</a>
@@ -240,6 +341,25 @@ en:
   ### Query Liquidated Orders
   query_liqrecords: Liquidated Orders
   market_para_query_liqrecords: Retrieve the liquidated orders, The query range is the last seven days of data.
+
+  ### Advanced data
+  advanceddata: Advanced Data
+  market_para_advanceddata: Get Advanced Data.
+  #### Market Funding Rate
+  marketfundingrate: Get Funding Rate
+  market_para_marketfundingrate: Get Bybit's funding rate for nearly a month.
+  #### Market Open Interest
+  marketopeninterest: Total currency holdings
+  market_para_marketopeninterest: Gets the total amount of positions held in each Bybit currency.
+  #### Market Account Ratio
+  marketaccountratio: Account Long-Empty Ratio
+  market_para_marketaccountratio: Gets the Bybit account long-empty ratio
+  #### Market Account Ratio
+  marketeliteratio: Top Trader Account Long-Empty Ratio
+  market_para_marketeliteratio: Gets the Bybit top trader account long-empty ratio
+  #### Market Big Deal
+  marketbigdeal: Actively Clinched Large Orders
+  market_para_marketbigdeal: Obtain Bybit active transaction orders over 500000USD
 
   # Account Data Endpoints
   accountdata: Account Data Endpoints

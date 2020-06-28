@@ -1,9 +1,21 @@
 # t(:changelog)
 
+
+<!--
+## 2020-06-08
+### REST API
+- [t(:marketfundingrate)](#t-marketfundingrate) [t(:changelog_new)]
+- [t(:marketopeninterest)](#t-marketopeninterest) [t(:changelog_new)]
+- [t(:marketbigdeal)](#t-marketbigdeal) [t(:changelog_new)]
+- [t(:marketaccountratio)](#t-marketaccountratio) [t(:changelog_new)]
+- [t(:marketeliteratio)](#t-marketeliteratio) [t(:changelog_new)]
+-->
+
 ## 2020-06-22
 ### REST API
 - [t(:closedprofitandloss)](#t-closedprofitandloss) [t(:changelog_new)]
 - [t(:markpricekline)](#t-markpricekline) [t(:changelog_new)]
+
 
 ## 2020-05-21
 ### REST API
