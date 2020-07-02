@@ -117,7 +117,7 @@ en:
 
   row_comment_from: |
     From ID. Default: return latest data
-  row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page
+  row_comment_limit: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page
   row_comment_limit_liq: Limit for data size, max size is 1000. Default size is 500
   row_comment_orderType: Active order type
   row_comment_qty: Order quantity in USD
@@ -145,7 +145,7 @@ en:
   row_comment_startDate: Start point for result
   row_comment_endDate: End point for result
   row_comment_currency: Currency type
-  row_comment_coin: <code>currency</code> alias
+  row_comment_coin: <code>currency</code> alias, returns all wallet balances if no parameters are passed
   row_comment_walletFundType: Wallet fund type
   row_comment_withdrawStatus: Withdraw status
   row_comment_startTime: Start timestamp point for result, in second
@@ -1289,6 +1289,8 @@ en:
     Add new fields in response: <code>interval</code>, <code>open_time</code>
   restapi_update_20200518_3: |
     Abandon response fields: <code>period</code>, <code>start_at</code>
+  restapi_update_20200630_1: Returns all wallet balances if no parameters are passed
+  restapi_update_20200630_2: Adjust the return quantity from 50 to 200
 
 
   markpricekline: Query Mark Price Kline

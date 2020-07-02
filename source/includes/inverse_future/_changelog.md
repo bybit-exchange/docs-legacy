@@ -11,6 +11,13 @@
 - [t(:marketeliteratio)](#t-marketeliteratio) [t(:changelog_new)]
 -->
 
+## 2020-06-30
+### REST API
+- [t(:balance)](#t-balance) [t(:changelog_update)]
+    - t(:restapi_update_20200630_1)
+- [t(:usertraderecords)](#t-usertraderecords) [t(:changelog_update)]
+    - t(:restapi_update_20200630_2)
+
 ## 2020-06-22
 ### REST API
 - [t(:closedprofitandloss)](#t-closedprofitandloss) [t(:changelog_new)]

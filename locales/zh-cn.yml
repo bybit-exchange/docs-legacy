@@ -118,7 +118,7 @@ zh-cn:
   row_comment_lcp_score: 流动性贡献分
   row_comment_from: |
     起始ID. 默认: 返回最新数据
-  row_comment_limit: 每页数量, 最大50. 默认每页20条
+  row_comment_limit: 每页数量, 最大200. 默认每页50条
   row_comment_limit_liq: 默认返回500条数据. 最大返回1000条数据
   row_comment_orderType: 订单类型
   row_comment_qty: 委托数量(1个委托1美元)，只能为正整数
@@ -145,7 +145,7 @@ zh-cn:
   row_comment_startDate: Start point for result
   row_comment_endDate: End point for result
   row_comment_currency: Currency type
-  row_comment_coin: <code>currency</code> alias
+  row_comment_coin: <code>currency</code> alias，如果不传参数coin，将返回所有钱包余额。
   row_comment_walletFundType: 资金记录类型
   row_comment_withdrawStatus: Withdraw status
   row_comment_startTime: 开始时间戳（秒）
@@ -1260,7 +1260,8 @@ zh-cn:
   restapi_update_20200518_1: <code>order_status</code> 支持多状态查询，状态之间用英文逗号分割。
   restapi_update_20200518_2: 新增返回字段 <code>interval</code>, <code>open_time</code>, <code>turnover</code> 字段
   restapi_update_20200518_3: 废弃返回参数 <code>period</code>, <code>start_at</code>
-
+  restapi_update_20200630_1: 更新请求参数 <code>coin</code> 如果不传参数 返回所有钱包余额
+  restapi_update_20200630_2: 返回值数量最大值从50调整到200
 
   markpricekline: 标记价格K线
   linear_query_mark_price_kline: 查询标记价格K线
