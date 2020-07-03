@@ -60,7 +60,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#currency-currency-coin">coin</a> |true |string |t(:row_comment_coin_false) |
+|<a href="#currency-currency-coin">coin</a> |false |string |t(:row_comment_coin_false) |
 
 
 ### t(:walletrecords)
