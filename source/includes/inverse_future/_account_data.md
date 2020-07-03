@@ -1353,7 +1353,7 @@ GET
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:misc_row_comment_symbolNotOrderId) |
 |start_time |false |int |t(:row_comment_startTime_ms) |
 |page |false |integer |t(:row_comment_page) |
-|limit |false |integer |t(:row_comment_limit) |
+|limit |false |integer |t(:row_comment_limit_50_200) |
 |<a href="#order-order">order</a> |false |string |t(:row_comment_order) |
 
 <p class="fake_header">t(:responseparameters)</p>
