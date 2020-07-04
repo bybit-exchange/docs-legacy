@@ -115,6 +115,10 @@ t(:wallet_para_walletRecords)
 t(:wallet_aside_walletRecords)
 </aside>
 
+<aside class="notice">
+t(:wallet_aside_walletRecords1)
+</aside>
+
 <p class="fake_header">t(:httprequest)</p>
 GET
 <code><span id=oawfRecords>/open-api/wallet/fund/records</span></code>
