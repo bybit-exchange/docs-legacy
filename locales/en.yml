@@ -24,29 +24,33 @@ en:
   row_comment_symbol: Symbol
   row_comment_margin: margin
   row_comment_position_id: PositionID
-  row_comment_position_size: Position Qty
+  row_comment_position_size: Position qty
   row_comment_position_value: Position value
   row_comment_entry_price: Average entry price
-  row_comment_auto_add_margin: Whether add margin automatically
+  row_comment_auto_add_margin: Whether to add margin automatically
   row_comment_position_margin: Position margin
   row_comment_effective_leverage: Effective leverage
   row_comment_liq_price: Liquidation price
   row_comment_bust_price: Bankruptcy price
-  row_comment_occ_closing_fee: Position closing fee occupied
-  row_comment_occ_funding_fee: Pre-occupied funding fee that calculate from position qty and current funding fee
+  row_comment_occ_closing_fee: Position closing fee occupied (your opening fee + expected maximum closing fee)
+  row_comment_occ_funding_fee: |
+    Pre-occupied funding fee: calculated from position qty and current funding fee
   row_comment_take_profit: Take profit price
   row_comment_stop_loss: Stop loss price
   row_comment_trailing_stop: Trailing stop
-  row_comment_position_status: Position status, Normal, Liq, Adl
-  row_comment_deleverage_indicator: Deleverage indicator level(1,2,3,4,5)
-  row_comment_oc_calc_data: Pre-occupied calculate parameters, blq-total number of the long side unsettled orders, bmp-the lowest price of the long side, slq-total number of the short side unsettled orders, smp-the lowest price of the short side
-  row_comment_order_margin: Pre-occupied order marign
+  row_comment_position_status: |
+    Position status: <code>Normal</code>, <code>Liq</code>, <code>Adl</code>
+  row_comment_deleverage_indicator: Deleverage indicator level (1,2,3,4,5)
+  row_comment_oc_calc_data: |
+    Pre-occupied calculate parameters. <code>blq</code>: total number of the long side unsettled orders; <code>bmp</code>: the lowest price of the long side; <code>slq</code>: total number of the short side unsettled orders; <code>smp</code>: the lowest price of the short side
+  row_comment_order_margin: Pre-occupied order margin
   row_comment_wallet_balance: Wallet balance
-  row_comment_realised_pnl: Day realised pnl
-  row_comment_unrealised_pnl: Day unrealised pnl
-  row_comment_cum_realised_pnl: Accumulated realised pnl
-  row_comment_cross_seq: Cross Sequence
-  row_comment_position_seq: Position Sequence
+  row_comment_available_balance: Available balance = wallet balance - position margin
+  row_comment_realised_pnl: Today's realised pnl
+  row_comment_unrealised_pnl: Today's unrealised pnl
+  row_comment_cum_realised_pnl: Accumulated realised pnl (all-time total)
+  row_comment_cross_seq: Cross sequence
+  row_comment_position_seq: Position sequence
   row_comment_cum_commission: Accumulated commission
   row_comment_trailing_active: Trailing stop active price
   row_comment_sl_trigger_by: Trigger price type
@@ -58,22 +62,24 @@ en:
   row_comment_exec_fee: Transaction fee
   row_comment_exec_id: Transaction ID
   row_comment_exec_price: Transaction price
-  row_comment_exec_qty: Transaction Qty
-  row_comment_exec_value: Transaction Value
-  row_comment_fee_rate: Maker or Taker fee rate
-  row_comment_nth_fill: The squence of the transaction in this cross sequence data package
+  row_comment_exec_qty: Transaction qty
+  row_comment_exec_value: Transaction value
+  row_comment_exec_timestamp: Transaction time
+  row_comment_fee_rate: Maker or taker fee rate
+  row_comment_nth_fill: The sequence of the transaction in this cross sequence data package
   row_comment_user_id: User ID
   row_comment_order_id: Order ID
   row_comment_order_link_id: Order link ID
   row_comment_order_price: Order price
-  row_comment_order_qty: Order Qty
+  row_comment_order_qty: Order qty
   row_comment_trade_time: Transaction timestamp
   row_comment_coin_type: Coin type
   row_comment_risk_limit: Risk limit
   row_comment_maintain_margin: Maintain margin
   row_comment_starting_margin: Starting margin
   row_comment_section: Section
-  row_comment_is_lowest_risk: Is lowest risk, 0:Yes 1:No
+  row_comment_is_lowest_risk: |
+    Is lowest risk. 0: Yes; 1: No
   row_comment_funding_rate: Funding rate
   row_comment_funding_rate_timestamp: Funding rate timestamp
   row_comment_funding_side: Your position side at the time of settlement
@@ -105,8 +111,8 @@ en:
   row_comment_expected_direction: Expected direction
   row_comment_op_from: Source of the request
   row_comment_remark: Remark
-  row_comment_o_req_num: Used to correlate request&response
-  row_comment_leaves_qty: Number of remaining delegates
+  row_comment_o_req_num: Used to correlate request & response
+  row_comment_leaves_qty: Number of unfilled contracts from the order's size
   row_comment_leaves_value: The estimated value corresponding to the number of remaining orders
   row_comment_reject_reason: The reason the order was rejected
   row_comment_clOrdID: A unique order number of type UUID
@@ -149,10 +155,10 @@ en:
   row_comment_coin: <code>currency</code> alias
   row_comment_walletFundType: Wallet fund type
   row_comment_withdrawStatus: Withdraw status
-  row_comment_startTime: Start timestamp point for result, in second
-  row_comment_endTime: End timestamp point for result, in second
-  row_comment_startTime_ms: Start timestamp point for result, in millisecond
-  row_comment_endTime_ms: End timestamp point for result, in millisecond
+  row_comment_startTime: Start timestamp point for result, in seconds
+  row_comment_endTime: End timestamp point for result, in seconds
+  row_comment_startTime_ms: Start timestamp point for result, in milliseconds
+  row_comment_endTime_ms: End timestamp point for result, in milliseconds
   row_comment_riskId: Risk ID. Can be found with the <a href="#get-risk-limit">Get Risk Limit</a> endpoint
   row_comment_closed_size: The corresponding closing size of the closing order
   row_comment_rate_limit: limit
@@ -163,7 +169,7 @@ en:
   row_comment_limit_200: Limit for data size per page, max size is 200. Default as showing 200 pieces of data per page
   row_comment_limit_100: Limit for data size per page, max size is 100. Default as showing 50 pieces of data per page
   row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page
-  row_comment_period: Data recording period. 5min 15min 30min 1h 4h 1d
+  row_comment_period: Data recording period. <code>5min</code>, <code>15min</code>, <code>30min</code>, <code>1h</code>, <code>4h</code>, <code>1d</code>
   row_comment_last_exec_time: Last transaction time
   row_comment_last_exec_price: Last transaction price
   row_comment_orig_order_type: Original special order type
@@ -173,6 +179,22 @@ en:
   row_comment_exec_timestamp: Execute time
   row_comment_is_maker: Is maker
   row_comment_order_type: Order type
+  row_comment_exec_type: Exec type
+
+
+  row_parameter_symbol: <a href="#symbol-symbol">symbol</a>
+  row_parameter_side: <a href="#side-side">side</a>
+  row_parameter_order_type: <a href="#order-type-order_type">order_type</a>
+  row_parameter_quantity: <a href="#quantity-qty">qty</a>
+  row_parameter_price: <a href="#price-price">price</a>
+  row_parameter_time_in_force: <a href="#time-in-force-time_in_force">time_in_force</a>
+  row_parameter_order_status: <a href="#order-status-order_status">order_status</a>
+  row_parameter_trigger_price: <a href="#trigger-price-type-trigger_by">trigger_by</a>
+  row_parameter_stop_order: <a href="#stop-order-status-stop_order_status">stop_order_status</a>
+  row_parameter_order: <a href="#order-order">order</a>
+  row_parameter_exec_type: <a href="#exec-type-exec_type">exec_type</a>
+  row_parameter_last_liquidity_ind: <a href="#liquidity-type-last_liquidity_ind">last_liquidity_ind</a>
+
 
   enum_withdraw_status_link: <a href="#withdraw-status-status">Withdraw Status Enum</a>
   enum_coin_link: <a href="#currency-currency-coin">Coin Enum</a>
@@ -182,7 +204,7 @@ en:
   enum_exec_type_link: <a href="#exec-type-exec_type">Exec Type Enum</a>
   enum_Liquidity_type_link: <a href="#liquidity-type-last_liquidity_ind">Liquidity Enum</a>
   enum_stop_order_status_link: <a href="#stop-order-status-stop_order_status">Stop Order Status</a>
-  stop_order_trigger_price: If `stop_order_type` is `TrailingProfit`, this field means trailing stop active price.
+  stop_order_trigger_price: If <code>stop_order_type<code> is <code>TrailingProfit<code>, this field is the trailing stop active price.
   errorcode_meaning: Meaning
   resp_field_leverage: In Isolated Margin mode, the value is set by user. In Cross Margin mode, the value is the max leverage at current risk level
   resp_field_effective_leverage: Effective Leverage.
@@ -190,6 +212,7 @@ en:
     In Cross Margin mode, The formula to calculate<span>:</span>
 
     <code>effective_leverage = position size / mark_price / (wallet_balance + unrealised_pnl)</code>
+
 
   # introduction in index.html.md
   introduction: Introduction
@@ -351,9 +374,9 @@ en:
   market_para_advanceddata: Get Advanced Data.
   #### Market Funding Rate
   marketfundingrate: Get Funding Rate
-  market_para_marketfundingrate: Get Bybit's funding rate for nearly a month.
+  market_para_marketfundingrate: Get Bybit's recent funding rates.
   #### Market Open Interest
-  marketopeninterest: Total currency holdings
+  marketopeninterest: Total Currency Holdings
   market_para_marketopeninterest: Gets the total amount of positions held in each Bybit currency.
   #### Market Account Ratio
   marketaccountratio: Account Long-Empty Ratio
@@ -363,7 +386,7 @@ en:
   market_para_marketeliteratio: Gets the Bybit top trader account long-empty ratio
   #### Market Big Deal
   marketbigdeal: Actively Clinched Large Orders
-  market_para_marketbigdeal: Obtain Bybit active transaction orders over 500000USD
+  market_para_marketbigdeal: Obtain Bybit active transaction orders over 500000 USD. Returns the last 50 transactions.
 
   # Account Data Endpoints
   accountdata: Account Data Endpoints
@@ -956,6 +979,7 @@ en:
   ## Liquidity type (`last_liquidity_ind`)
   addedLiquidity: "maker liquidity"
   removedLiquidity: "taker liquidity"
+  ##
 
   # Error Code
   errors_intro: The Bybit API uses the following HTTP Codes and Error Codes<span>:</span>
@@ -1199,7 +1223,7 @@ en:
   err_130127: Take Profit, Stop Loss and Trailing Stop Loss are not modified
 
   ### Linear Cancel Active Order
-  linear_row_comment_qty: Order quantity in BTC.
+  linear_row_comment_qty: Order quantity in BTC
   linear_row_comment_reduceOnly: <a href="https://help.bybit.com/hc/en-us/articles/360039260574-What-is-a-reduce-only-order-"> What is a reduce-only order?</a> True means your position can only reduce in size if this order is triggered
   linear_row_comment_closeOnTrigger: <a href="https://help.bybit.com/hc/en-us/articles/360039260534-What-is-a-close-on-trigger-Order-">  What is a close on trigger order?</a> For a closing order. It can only reduce your position, not increase it. If the account has insufficient available balance when the closing order is triggered, then other active orders of similar contracts will be cancelled or reduced. It can be used to ensure your stop loss reduces your position regardless of current available margin.
   placeactive: Place Active Order
@@ -1311,11 +1335,11 @@ en:
   linear_resp_field_occ_closing_fee: Pre-occupancy closing fee
   linear_resp_field_realised_pnl: Today's realised Profit and Loss
   linear_resp_field_cum_realised_pnl: Cumulative realised Profit and Loss
-  linear_resp_field_free_qty: Can be to closing Qty
-  linear_resp_field_closed_size: Closing size
-  linear_resp_field_cum_entry_value: Closing position value
+  linear_resp_field_free_qty: Qty which can be closed
+  linear_resp_field_closed_size: Closed size
+  linear_resp_field_cum_entry_value: Closed position value
   linear_resp_field_avg_entry_price: Average entry price
-  linear_resp_field_cum_exit_value: Cumulative trading value of closing orders
+  linear_resp_field_cum_exit_value: Cumulative trading value of position closing orders
   linear_resp_field_avg_exit_price: Average exit price
   linear_resp_field_closed_pnl: Closed Profit and Loss
   linear_resp_field_fill_count: Number of transactions

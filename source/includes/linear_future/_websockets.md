@@ -507,7 +507,31 @@ ws.send('{"op": "subscribe", "args": ["position"]}')
    ]
 }
 ```
+t(:account_para_myPosition)
 
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|user_id |number |t(:row_comment_userID)  |
+|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
+|size |number |t(:row_comment_position_size)  |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|position_value |string |t(:row_comment_position_value)  |
+|entry_price |string |t(:row_comment_entry_price)  |
+|liq_price |string |t(:row_comment_liq_price)  |
+|bust_price |string |t(:row_comment_bust_price)  |
+|leverage |string |t(:resp_field_leverage)  |
+|order_margin |string |t(:row_comment_order_margin)  |
+|position_margin |string |t(:row_comment_position_margin)  |
+|occ_closing_fee |string |t(:row_comment_occ_closing_fee)  |
+|take_profit |string |t(:row_comment_take_profit)  |
+|tp_trigger_by |number |t(:row_comment_triggerBy) |
+|stop_loss |string |t(:row_comment_stop_loss)  |
+|sl_trigger_by |string |string |t(:row_comment_triggerBy) |
+|realised_pnl |string |t(:row_comment_realised_pnl)  |
+|cum_realised_pnl |string |t(:row_comment_cum_realised_pnl)  |
+|position_status |string |t(:row_comment_position_status)  |
+|position_seq |number |t(:row_comment_position_seq)  |
 
 ### t(:websocketexecution)
 > t(:codequote_subscribe)
@@ -538,6 +562,23 @@ ws.send('{"op": "subscribe", "args": ["execution"]}')
     ]
 }
 ```
+
+t(:wallet_para_tradeRecords)
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|t(:row_parameter_symbol) |string |t(:row_comment_symbol)  |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|order_id |string |t(:row_comment_order_id)  |
+|exec_id |string |t(:row_comment_exec_id)  |
+|order_link_id |string |t(:row_comment_order_link_id)  |
+|t(:row_parameter_price) |string |t(:row_comment_exec_price)    |
+|order_qty |number |t(:row_comment_order_qty)  |
+|t(:row_parameter_exec_type) |string |t(:row_comment_exec_type)  |
+|exec_qty |number |t(:row_comment_exec_qty)  |
+|exec_fee |string |t(:row_comment_exec_fee)    |
+|trade_time |string |t(:row_comment_trade_time)  |
 
 
 ### t(:websocketorder)

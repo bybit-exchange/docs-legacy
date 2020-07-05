@@ -537,9 +537,9 @@ t(:account_para_myPosition)
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |user_id |number |t(:row_comment_userID)  |
-|symbol|string |t(:row_comment_symbol)    |
-|side |string |t(:row_comment_side)  |
-|size |number |t(:row_comment_position_size)  |
+|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|t(:row_parameter_quantity) |number |t(:row_comment_position_size)  |
 |position_value |string |t(:row_comment_position_value)  |
 |entry_price |string |t(:row_comment_entry_price)  |
 |liq_price |string |t(:row_comment_liq_price)  |
@@ -607,14 +607,14 @@ t(:wallet_para_tradeRecords)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|symbol |string |t(:enum_symbol_link)  |
-|side |string |t(:enum_side_link)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_symbol)  |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
 |order_id |string |t(:row_comment_order_id)  |
 |exec_id |string |t(:row_comment_exec_id)  |
 |order_link_id |string |t(:row_comment_order_link_id)  |
-|price |string |t(:row_comment_exec_price)    |
+|t(:row_parameter_price) |string |t(:row_comment_exec_price)    |
 |order_qty |number |t(:row_comment_order_qty)  |
-|exec_type |string |t(:enum_exec_type_link)  |
+|t(:row_parameter_exec_type) |string |t(:row_comment_exec_type)  |
 |exec_qty |number |t(:row_comment_exec_qty)  |
 |exec_fee |string |t(:row_comment_exec_fee)    |
 |leaves_qty |number |t(:row_comment_leaves_qty)  |
@@ -690,7 +690,7 @@ ws.send('{"op": "subscribe", "args": ["stop_order"]}')
             "create_type": "CreateByStopOrder",
             "cancel_type": "",
             "order_status": "Untriggered", //t(:enum_stop_order_status_link)
-            "stop_order_type": "Stop", 
+            "stop_order_type": "Stop",
             "trigger_by": "LastPrice",
             "trigger_price": "8584.5", //t(:stop_order_trigger_price)
             "timestamp": "2020-01-14T14:11:22.062Z"

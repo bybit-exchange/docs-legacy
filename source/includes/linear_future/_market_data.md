@@ -58,7 +58,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
 |interval |true |string |t(:row_comment_interval) |
 |from |true |integer |t(:row_comment_from_timestamp) |
 |limit |false |integer |t(:linear_kline_row_comment_limit_200) |
@@ -116,7 +116,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
 |limit |false |int |t(:linear_row_comment_recent_trading_records_limit)|
 
 
@@ -162,7 +162,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
 
 
 
@@ -227,24 +227,24 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
 |interval |true |string |t(:row_comment_interval) |
 |from |true |integer |t(:row_comment_from_timestamp) |
 |limit |false |integer |t(:linear_kline_row_comment_limit_200) |
 
-<!--
-### t(:advanceddata)
-#### t(:marketfundingrate)
+
+## t(:advanceddata)
+### t(:marketfundingrate)
 <a href="/docs/inverse#t-marketfundingrate">t(:shared_endpoint_desc)</a>
-#### t(:marketopeninterest)
+### t(:marketopeninterest)
 <a href="/docs/inverse#t-marketopeninterest">t(:shared_endpoint_desc)</a>
-#### t(:marketaccountratio)
+### t(:marketaccountratio)
 <a href="/docs/inverse#t-marketaccountratio">t(:shared_endpoint_desc)</a>
-#### t(:marketeliteratio)
+### t(:marketeliteratio)
 <a href="/docs/inverse#t-marketeliteratio">t(:shared_endpoint_desc)</a>
-#### t(:marketbigdeal)
+### t(:marketbigdeal)
 <a href="/docs/inverse#t-marketbigdeal">t(:shared_endpoint_desc)</a>
--->
+
 
 
 
@@ -299,7 +299,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
 
 
 
@@ -383,7 +383,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |false |string |t(:row_comment_symbol) |
+|t(:row_parameter_symbol) |false |string |t(:row_comment_symbol) |
 -->
 
 
