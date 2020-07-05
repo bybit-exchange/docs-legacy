@@ -146,6 +146,7 @@ zh-cn:
   row_comment_endDate: End point for result
   row_comment_currency: Currency type
   row_comment_coin: <code>currency</code> alias
+  row_comment_coin_false: <code>currency</code> alias，如果不传参数coin，将返回所有钱包余额。
   row_comment_walletFundType: 资金记录类型
   row_comment_withdrawStatus: Withdraw status
   row_comment_startTime: 开始时间戳（秒）
@@ -849,7 +850,7 @@ zh-cn:
     </li>
     </ul>
   ## Price (`price`)
-  price:
+  price: |
     <ul>
     <li>活动单<ul>
     <li>必须是<code>tick_size</code>的整数倍<ul>
@@ -1247,6 +1248,7 @@ zh-cn:
   linear_private_trade_records: 获取用户成交记录，按时间降序排列。
   linear_private_closed_pnl_records: 获取用户平仓记录，按时间降序排列。
   linear_row_comment_limit: 每页数量, 最大50. 默认每页20条，最多50条每页
+  linear_row_comment_limit_50_200: 每页数量, 最大200. 默认每页50条，最多200条每页
   restapi_update_20200417_1: 新增 <code>BTCUSDT</code> 至orderbook
   restapi_update_20200417_2: 新增 <code>BTCUSDT</code> 至合约最新信息
   restapi_update_20200417_3: 新增 <code>trade_time_ms</code> 字段
@@ -1260,7 +1262,8 @@ zh-cn:
   restapi_update_20200518_1: <code>order_status</code> 支持多状态查询，状态之间用英文逗号分割。
   restapi_update_20200518_2: 新增返回字段 <code>interval</code>, <code>open_time</code>, <code>turnover</code> 字段
   restapi_update_20200518_3: 废弃返回参数 <code>period</code>, <code>start_at</code>
-
+  restapi_update_20200630_1: 更新请求参数 <code>coin</code> 如果不传参数 返回所有钱包余额
+  restapi_update_20200630_2: 返回值数量最大值从50调整到200
 
   markpricekline: 标记价格K线
   linear_query_mark_price_kline: 查询标记价格K线

@@ -145,6 +145,7 @@ en:
   row_comment_startDate: Start point for result
   row_comment_endDate: End point for result
   row_comment_currency: Currency type
+  row_comment_coin_false: <code>currency</code> alias. Returns all wallet balances if not passed
   row_comment_coin: <code>currency</code> alias
   row_comment_walletFundType: Wallet fund type
   row_comment_withdrawStatus: Withdraw status
@@ -513,6 +514,7 @@ en:
   wallet_para_walletRecords: Get wallet fund records. This endpoint also shows exchanges from the <a href="https://testnet.bybit.com/app/assets/assets-exchange">Asset Exchange</a>, where the <code>type</code>s for the exchange are <code>ExchangeOrderWithdraw</code> and <code>ExchangeOrderDeposit</code>.
   wallet_aside_walletRecords: |
     Find more detail for types <code>Withdraw</code> and <code>Refund</code> in the <a href="#t-withdrawrecords">Withdraw Records</a> endpoint.
+  wallet_aside_walletRecords1: USDT records will not be returned unless you pass <code>USDT</code> with the <code>coin</code> parameter.
   ### Withdraw Records
   withdrawrecords: Withdraw Records
   wallet_para_withdrawRecords: Get withdrawal records.
@@ -790,7 +792,7 @@ en:
   websocket_aside_instrumentInfo1: |
     This topic only utilises the <code>update</code> field. Both the <code>delete</code> and <code>insert</code> fields are null. If a key is not found in the <code>update</code> field, its value has not changed.
   websocket_aside_instrumentInfo2: |
-    Some values use scientific notation. This is indicated by that value's key, which will be appended with, for example, <code>e6</code>. If the key is <code>last_price_e4</code> and the value is <code>81585000</code>, then to find the true value we can do <code>81585000 * 10^4</code>, which equals <code>8158.5</code>.
+    Some values use scientific notation. This is indicated by that value's key, which will be appended with, for example, <code>e6</code>. If the key is <code>last_price_e4</code> and the value is <code>81585000</code>, then to find the true value we can do <code>81585000 / 10^4</code>, which equals <code>8158.5</code>.
   ### klineV2
   websocketklineV2: klineV2
   websocket_para_klineV2: |
@@ -861,7 +863,7 @@ en:
     </li>
     </ul>
   ## Price (`price`)
-  price:
+  price: |
     <ul>
     <li>Active order<ul>
     <li>Must be an increment of that market&#39;s <code>tick_size</code><ul>
@@ -1274,6 +1276,7 @@ en:
   linear_private_trade_records: Get user's trading records. The results are ordered in descending order (the first item is the latest).
   linear_private_closed_pnl_records: Get user's closed profit and loss records. The results are ordered in descending order (the first item is the latest).
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
+  linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
   restapi_update_20200417_1: Add new symbol <code>BTCUSDT</code>
   restapi_update_20200417_2: Add new symbol <code>BTCUSDT</code>
   restapi_update_20200417_3: Add new response param <code>trade_time_ms</code>
@@ -1289,6 +1292,8 @@ en:
     Add new fields in response: <code>interval</code>, <code>open_time</code>
   restapi_update_20200518_3: |
     Abandon response fields: <code>period</code>, <code>start_at</code>
+  restapi_update_20200630_1: Returns all wallet balances if no parameters are passed
+  restapi_update_20200630_2: Adjust the return quantity from 50 to 200
 
 
   markpricekline: Query Mark Price Kline
