@@ -1008,7 +1008,7 @@ GET
 |end_time |false |int |t(:row_comment_endTime_ms) |
 |t(:row_parameter_exec_type) |false |string |t(:linear_exec_type) |
 |page |false |integer |t(:row_comment_page) |
-|limit |false |integer |t(:linear_row_comment_limit) |
+|limit |false |integer |t(:linear_row_comment_limit_50_200) |
 
 
 <p class="fake_header">t(:responseparameters)</p>
