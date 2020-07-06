@@ -539,7 +539,7 @@ t(:account_para_myPosition)
 |user_id |number |t(:row_comment_userID)  |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
-|t(:row_parameter_quantity) |number |t(:row_comment_position_size)  |
+|size |number |t(:row_comment_position_size)  |
 |position_value |string |t(:row_comment_position_value)  |
 |entry_price |string |t(:row_comment_entry_price)  |
 |liq_price |string |t(:row_comment_liq_price)  |

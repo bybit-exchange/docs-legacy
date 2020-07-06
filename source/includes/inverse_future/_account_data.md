@@ -907,7 +907,7 @@ GET
 |risk_id |number |t(:row_comment_riskId)  |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
-|t(:row_parameter_quantity) |number |t(:row_comment_position_size)  |
+|size |number |t(:row_comment_position_size)  |
 |position_value |string |t(:row_comment_position_value)  |
 |entry_price |string |t(:row_comment_entry_price)  |
 |auto_add_margin |number |t(:row_comment_auto_add_margin)  |
@@ -1058,7 +1058,7 @@ POST
 |user_id |number |t(:row_comment_userID)  |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
-|t(:row_parameter_quantity) |number |t(:row_comment_position_size)  |
+|size |number |t(:row_comment_position_size)  |
 |position_value |string |t(:row_comment_position_value)  |
 |entry_price |string |t(:row_comment_entry_price)  |
 |risk_id |number |t(:row_comment_riskId)  |
@@ -1509,7 +1509,7 @@ POST
 |user_id |number |t(:row_comment_userID)  |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
-|t(:row_parameter_quantity) |number |t(:row_comment_position_size)  |
+|size |number |t(:row_comment_position_size)  |
 |position_value |number |t(:row_comment_position_value)  |
 |entry_price |number |t(:row_comment_entry_price)  |
 |risk_id |number |t(:row_comment_riskId)  |
@@ -1629,7 +1629,7 @@ GET
 |:----- |:-----|----- |
 |t(:row_parameter_symbol) |string |t(:row_comment_symbol)    |
 |t(:row_parameter_side) |string |t(:row_comment_funding_side)  |
-|t(:row_parameter_quantity) |number |t(:row_comment_funding_position_size)  |
+|size |number |t(:row_comment_funding_position_size)  |
 |funding_rate |number |t(:row_comment_funding_rate)  |
 |exec_fee |number |t(:row_comment_exec_fee)  |
 |exec_timestamp |number |t(:row_comment_exec_timestamp)  |
