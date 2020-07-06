@@ -71,7 +71,7 @@ POST
 |side |string |t(:row_comment_side)  |
 |order_type |string |t(:row_comment_order_type)  |
 |price |number |t(:row_comment_resp_price)  |
-|qty |number |t(:row_comment_qty)  |
+|qty |number |t(:row_response_comment_qty)  |
 |time_in_force |string |t(:row_comment_timeInForce)  |
 |order_status |string |t(:row_comment_orderStatus)  |
 |last_exec_price |string |t(:row_comment_last_exec_price)  |
@@ -79,7 +79,7 @@ POST
 |cum_exec_value |number |t(:linear_resp_field_cum_exec_value)  |
 |cum_exec_fee |number |t(:linear_resp_field_cum_exec_fee)  |
 |reduce_only |number |t(:linear_resp_field_reduce_only)  | 
-|order_link_id |string |t(:row_comment_orderLinkId)  |
+|order_link_id |string |t(:row_response_comment_orderLinkId)  |
 |created_time |string |t(:row_comment_created_at)  |
 |updated_time |string |t(:row_comment_updated_at)  |
 
@@ -153,12 +153,12 @@ GET
 | price  |number |t(:row_comment_resp_price) | 
 | qty  |number |t(:row_comment_qty) | 
 |time_in_force |string |t(:row_comment_timeInForce)  |
-|order_status |string |t(:row_comment_orderStatus)  |
+|order_status |string |t(:row_parameter_order_status)  |
 |last_exec_price |string |t(:row_comment_last_exec_price)  |
 |cum_exec_qty |number |t(:linear_resp_field_cum_exec_qty)  |
 |cum_exec_value |number |t(:linear_resp_field_cum_exec_value)  |
 |cum_exec_fee |number |t(:linear_resp_field_cum_exec_fee)  |
-|order_link_id |string |t(:row_comment_orderLinkId)  |
+|order_link_id |string |t(:row_response_comment_orderLinkId)  |
 |reduce_only |number |t(:linear_resp_field_reduce_only)  |
 |created_time |string |t(:row_comment_created_at)  |
 |updated_time |string |t(:row_comment_updated_at)  |
@@ -357,15 +357,15 @@ GET
 |side |string |t(:row_comment_side)  |
 |order_type |string |t(:row_comment_order_type)  |
 |price |number |t(:row_comment_resp_price)  |
-|qty |number |t(:row_comment_qty)  |
+|qty |number |t(:row_response_comment_qty)  |
 |time_in_force |string |t(:row_comment_timeInForce)  |
 |order_status |string |t(:row_comment_orderStatus)  |
 |last_exec_price |string |t(:row_comment_last_exec_price)  |
 |cum_exec_qty |number |t(:linear_resp_field_cum_exec_qty)  |
 |cum_exec_value |number |t(:linear_resp_field_cum_exec_value)  |
 |cum_exec_fee |number |t(:linear_resp_field_cum_exec_fee)  |
-|reduce_only |number |t(:linear_resp_field_reduce_only)  | 
-|order_link_id |string |t(:row_comment_orderLinkId)  |
+|reduce_only |boolß |t(:linear_resp_field_reduce_only)  | 
+|order_link_id |string |t(:row_response_comment_orderLinkId)  |
 |created_time |string |t(:row_comment_created_at)  |
 |updated_time |string |t(:row_comment_updated_at)  |
 
@@ -448,7 +448,7 @@ POST
 |t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
 |t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
 |trigger_price |number |t(:stop_order_trigger_price)  |
-|order_link_id |false |string |t(:row_comment_orderLinkId) |
+|order_link_id |false |string |t(:row_response_comment_orderLinkId) |
 |created_at |string |t(:row_comment_created_at)  |
 |updated_at |string |t(:row_comment_updated_at)  |
 
@@ -536,7 +536,7 @@ GET
 |t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
 |order_status |string |t(:row_comment_stopOrderStatus) 
 |trigger_price |number |t(:stop_order_trigger_price)  |
-|order_link_id |string |t(:row_comment_orderLinkId) |
+|order_link_id |string |t(:row_response_comment_orderLinkId) |
 |created_at |string |t(:row_comment_created_at)  |
 |updated_at |string |t(:row_comment_updated_at)  |
 
