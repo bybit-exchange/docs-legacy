@@ -664,6 +664,31 @@ ws.send('{"op": "subscribe", "args": ["order"]}')
 ```
 
 
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|order_id |string |t(:row_comment_order_id)  |
+|order_link_id |string |t(:row_comment_order_link_id)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_symbol)  |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|t(:row_parameter_order_type) |string |t(:row_comment_stopOrderType) |
+|t(:row_parameter_price) |string |t(:row_comment_exec_price) |
+|qty |number |t(:row_comment_exec_qty)  |
+|t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce) |
+|create_type |string |t(:row_comment_create_type) |
+|cancel_type |string |t(:row_comment_cancel_type) |
+|order_status |string |t(:row_parameter_order_status) |
+|leaves_qty |number |t(:row_comment_leaves_qty)  |
+|cum_exec_qty |number |t(:linear_resp_field_cum_exec_qty)  |
+|cum_exec_value |string |t(:linear_resp_field_cum_exec_value)  |
+|cum_exec_fee |string |t(:linear_resp_field_cum_exec_fee)  |
+|timestamp |string |t(:row_comment_timestamp)  |
+|take_profit |string |t(:row_comment_take_profit)  |
+|stop_loss |string |t(:row_comment_stop_loss)  |
+|trailing_stop |string |t(:row_comment_trailing_stop)  |
+|trailing_active |string |t(:row_comment_trailing_active)  |
+|last_exec_price |string |t(:row_comment_last_exec_price)  |
+
 ### t(:websocketstoporder)
 > t(:codequote_subscribe)
 
