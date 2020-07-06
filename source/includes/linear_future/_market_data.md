@@ -19,17 +19,7 @@ curl https://api.bybit.com/public/linear/kline?symbol=BTCUSDT&interval=1&limit=2
 	"ret_msg": "OK",
 	"ext_code": "",
 	"ext_info": "",
-	"result": [{
-	    "id": 3866948,
-        "symbol": "BTCUSDT",
-        "period": "1",
-        "start_at": 1577836800,
-        "volume": 1451.59,
-        "open": 7700,
-        "high": 999999,
-        "low": 0.5,
-        "close": 6000
-	},
+	"result": [
 	{
 	    "id": 3866948,
         "symbol": "BTCUSDT",
@@ -63,9 +53,20 @@ GET
 |from |true |integer |t(:row_comment_from_timestamp) |
 |limit |false |integer |t(:linear_kline_row_comment_limit_200) |
 
-
-
-
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| symbol |string |t(:row_comment_symbol) | 
+| period |string |t(:row_comment_period) |
+| start_at |integer |t(:row_comment_startTime) |
+| volume |number |t(:row_comment_resp_volume) |
+| open |integer |t(:row_comment_open) |
+| high |integer |t(:row_comment_high) |
+| low |number |t(:row_comment_low) |
+| close |integer |t(:row_comment_close) |
+| interval |integer |t(:row_comment_period) |
+| open_time |integer |t(:row_comment_resp_open_time) |
+| turnover |number |t(:row_comment_resp_turnover) |
 
 
 ### t(:latestsymbolinfo)
