@@ -50,6 +50,15 @@ GET
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
 
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| symbol |string |t(:row_comment_symbol) | 
+| price |string |t(:row_comment_resp_price) |
+| size |integer |t(:row_comment_resp_size) |
+| side |string |t(:row_parameter_side) |
+
+
 ### t(:querykline)
 > t(:codequote_curlExample)
 
@@ -104,6 +113,20 @@ GET
 |interval |true |string |t(:row_comment_interval) |
 |from |true |integer |t(:row_comment_from_timestamp) |
 |limit |false |integer |t(:row_comment_limit_200) |
+
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| symbol |string |t(:row_comment_symbol) | 
+| interval |string |t(:row_comment_period) |
+| open_time |integer |t(:row_comment_resp_open_time) |
+| open |string |t(:row_comment_open) |
+| high |string |t(:row_comment_high) |
+| low |string |t(:row_comment_low) |
+| close |string |t(:row_comment_close) |
+| volume |string |t(:row_comment_resp_volume) |
+| turnover |string |t(:row_comment_resp_turnover) |
 
 ### t(:latestsymbolinfo)
 > t(:codequote_curlExample)
@@ -163,6 +186,34 @@ GET
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |false |string |t(:row_comment_symbol) |
 
+
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| symbol |string |t(:row_comment_symbol) | 
+| bid_price |string |t(:row_comment_resp_bid_price) | 
+| ask_price |string |t(:row_comment_resp_ask_price) | 
+| last_price |string |t(:row_comment_resp_last_price) | 
+| last_tick_direction |string |t(:row_parameter_tick_direction) | 
+| prev_price_24h |string |t(:row_comment_resp_prev_price_24h) | 
+| price_24h_pcnt |string |t(:row_comment_resp_price_24h_pcnt) | 
+| high_price_24h |string |t(:row_comment_resp_high_price_24h) | 
+| low_price_24h |string |t(:row_comment_resp_low_price_24h) | 
+| prev_price_1h |string |t(:row_comment_resp_prev_price_1h) | 
+| price_1h_pcnt |string |t(:row_comment_resp_price_1h_pcnt) | 
+| mark_price |string |t(:row_comment_resp_mark_price) | 
+| index_price |string |t(:row_comment_resp_index_price) | 
+| open_interest |string |t(:row_comment_resp_open_interest) | 
+| open_value |string |t(:row_comment_resp_open_value) | 
+| total_turnover |string |t(:row_comment_resp_total_turnover) | 
+| turnover_24h |string |t(:row_comment_resp_turnover_24h) | 
+| total_volume |string |t(:row_comment_resp_total_volume) | 
+| volume_24h |string |t(:row_comment_resp_volume_24h) | 
+| funding_rate |string |t(:row_comment_resp_funding_rate) | 
+| predicted_funding_rate |string |t(:row_comment_resp_predicted_funding_rate) | 
+| next_funding_time |string |t(:row_comment_resp_next_funding_time) | 
+| countdown_hour |string |t(:row_comment_resp_countdown_hour) | 
 
 ### t(:publictradingrecords)
 > t(:codequote_curlExample)
@@ -377,6 +428,63 @@ GET
 |start_time |false |integer |t(:row_comment_startTime_ms) |
 |end_time |false |integer |t(:row_comment_endTime_ms) |
 
+### t(:markpricekline)
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/v2/public/mark-price-kline?symbol=BTCUSD&interval=1&limit=2&from=1581231260
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+
+{
+    "ret_code":0,
+    "ret_msg":"OK",
+    "ext_code":"",
+    "ext_info":"",
+    "result":[
+        {
+            "id":2,
+            "symbol":"BTCUSD",
+            "period":"1",
+            "start_at":1582231260,
+            "open":100,
+            "high":120,
+            "low":88,
+            "close":115
+        }
+    ],
+    "time_now":"1591263582.601795"
+}
+```
+
+t(:linear_query_mark_price_kline)
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=plmpk>/v2/public/mark-price-kline</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#plmpk"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|interval |true |string |t(:row_comment_interval) |
+|from |true |integer |t(:row_comment_from_timestamp) |
+|limit |false |integer |t(:linear_kline_row_comment_limit_200) |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| symbol |string |t(:row_comment_symbol) | 
+| period |string |t(:row_comment_period) |
+| start_at |integer |t(:row_comment_startTime) |
+| open |integer |t(:row_comment_open) |
+| high |integer |t(:row_comment_high) |
+| low |integer |t(:row_comment_low) |
+| close |integer |t(:row_comment_close) |
 
 ## t(:advanceddata)
 ### t(:marketfundingrate)
