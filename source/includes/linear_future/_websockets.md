@@ -442,6 +442,49 @@ t(:websocket_aside_instrumentInfo2)
 |next_funding_time |number |t(:row_comment_resp_next_funding_time)  | 
 |countdown_hour |number |t(:row_comment_resp_countdown_hour)  | 
 
+
+### t(:websockettrade)
+> t(:codequote_subscribe)
+
+```javascript
+ws.send('{"op": "subscribe", "args": ["trade.BTCUSDT"]}')
+```
+
+> t(:codequote_responseExampleFormatAll)
+
+```javascript
+{
+    "topic": "trade.BTCUSDT",
+    "data": [
+        {
+            "symbol": "BTCUSDT",
+            "tick_direction": "PlusTick",
+            "price": 8098,
+            "size": 328,
+            "timestamp":"2020-03-30T02:21:06.000Z",
+            "trade_time_ms":"1585534866418",
+            "side":"Sell",
+            "trade_id":"01e79e28-d1f4-59ac-b079-ca909606d91a"
+        }
+    ]
+}
+```
+
+t(:websocket_para_trade)
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
+|tick_direction |string |t(:row_comment_position_tick_direction)  |
+|t(:row_parameter_price) |number |t(:row_response_comment_price)  |
+|size |number |t(:row_comment_position_size)  |
+|time |string |t(:row_response_comment_time)  |
+|trade_time_ms |string |t(:row_response_comment_nill_time)  |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|trade_id |string |t(:row_response_comment_trade_id)  |
+
+
 ### t(:websocketkline)
 > t(:codequote_subscribe)
 
@@ -704,6 +747,25 @@ ws.send('{"op": "subscribe", "args": ["stop_order"]}')
     ]
 }
 ```
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|stop_order_id |string |t(:row_comment_stopOrderId) |
+|order_link_id |string |t(:row_comment_order_link_id)  |
+|user_id |number |t(:row_comment_userID)  |
+|t(:row_parameter_symbol) |string |t(:enum_symbol_link)  |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|t(:row_parameter_order_type) |string |t(:enum_order_type_link)  |
+|price |string |t(:row_response_comment_price)    |
+|qty |number |t(:row_response_comment_qty)  |
+|t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
+|t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
+|stop_order_type |string |t(:row_comment_stopOrderType)  |
+|trigger_by | string |t(:row_comment_triggerBy) |
+|trigger_price | string | t(:stop_order_trigger_price)|
+|created_at |string |t(:row_comment_created_at)  |
+|updated_at |string |t(:row_comment_updated_at)  |
 
 
 ### t(:websocketwallet)

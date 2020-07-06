@@ -435,6 +435,23 @@ POST
 |order_link_id |false |string |t(:row_comment_orderLinkId) |
 |reduce_only |true |bool |t(:linear_row_comment_reduceOnly) |
 
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|stop_order_id |string |t(:row_comment_stopOrderId) |
+|user_id |number |t(:row_comment_userID)  |
+|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|t(:row_parameter_order_type) |string |t(:row_comment_orderType)  |
+|t(:row_parameter_price) |number |t(:row_response_comment_price)  |
+|t(:row_parameter_quantity) |number |t(:row_response_comment_qty)  |
+|t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
+|t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
+|trigger_price |number |t(:stop_order_trigger_price)  |
+|order_link_id |false |string |t(:row_comment_orderLinkId) |
+|created_at |string |t(:row_comment_created_at)  |
+|updated_at |string |t(:row_comment_updated_at)  |
+
 
 ### t(:getcond)
 > t(:codequote_responseExample)
@@ -506,6 +523,23 @@ GET
 |page |false |integer |t(:row_comment_page) |
 |limit |false |integer |t(:row_comment_limit) |
 
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|stop_order_id |string |t(:row_comment_stopOrderId) |
+|user_id |number |t(:row_comment_userID)  |
+|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|t(:row_parameter_order_type) |string |t(:row_comment_orderType)  |
+|t(:row_parameter_price) |number |t(:row_response_comment_price)  |
+|t(:row_parameter_quantity) |number |t(:row_response_comment_qty)  |
+|t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
+|order_status |string |t(:row_comment_stopOrderStatus) 
+|trigger_price |number |t(:stop_order_trigger_price)  |
+|order_link_id |string |t(:row_comment_orderLinkId) |
+|created_at |string |t(:row_comment_created_at)  |
+|updated_at |string |t(:row_comment_updated_at)  |
+
 
 ### t(:cancelcond)
 > t(:codequote_responseExample)
@@ -539,6 +573,11 @@ POST
 |t(:row_parameter_symbol) |true |string |t(:row_comment_symbol)|
 |stop_order_id |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
 |order_link_id |false |string | t(:misc_row_comment_orderLinkIdNotStopOrderId)|
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|stop_order_id |string |t(:row_comment_stopOrderId) |
 
 
 ### t(:cancelallcond)
@@ -620,7 +659,10 @@ POST
 |p_r_price |false |number |t(:row_comment_pRPrice) |
 |p_r_trigger_price |false |number |t(:row_comemnt_pRTriggerPrice) |
 
-
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|stop_order_id |string |t(:row_comment_stopOrderId) |
 
 ### t(:querycond)
 > t(:codequote_responseExample)
@@ -667,9 +709,22 @@ GET
 |stop_order_id |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
 |order_link_id |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
 
-
-
-
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|stop_order_id |string |t(:row_comment_stopOrderId) |
+|user_id |number |t(:row_comment_userID)  |
+|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|t(:row_parameter_order_type) |string |t(:row_comment_orderType)  |
+|t(:row_parameter_price) |number |t(:row_response_comment_price)  |
+|t(:row_parameter_quantity) |number |t(:row_response_comment_qty)  |
+|t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
+|t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
+|trigger_price |number |t(:stop_order_trigger_price)  |
+|order_link_id |string |t(:row_response_comment_orderLinkId)  |
+|created_at |string |t(:row_comment_created_at)  |
+|updated_at |string |t(:row_comment_updated_at)  |
 
 
 
