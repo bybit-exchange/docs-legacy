@@ -233,6 +233,19 @@ GET
 |limit |false |integer |t(:linear_kline_row_comment_limit_200) |
 
 
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| symbol |string |t(:row_comment_symbol) | 
+| period |string |t(:row_comment_period) |
+| start_at |integer |t(:row_comment_startTime) |
+| open |integer |t(:row_comment_open) |
+| high |integer |t(:row_comment_high) |
+| low |integer |t(:row_comment_low) |
+| close |integer |t(:row_comment_close) |
+
+
+
 ## t(:advanceddata)
 ### t(:marketfundingrate)
 <a href="/docs/inverse#t-marketfundingrate">t(:shared_endpoint_desc)</a>
