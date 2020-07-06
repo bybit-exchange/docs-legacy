@@ -357,6 +357,7 @@ t(:websocket_para_insurance)
 t(:websocket_aside_insurance)
 </aside>
 
+
 ### t(:websocketinstrumentInfo)
 > t(:codequote_subscribe)
 
@@ -443,6 +444,33 @@ t(:websocket_aside_instrumentInfo1)
 t(:websocket_aside_instrumentInfo2)
 </aside>
 
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|symbol|string |t(:row_comment_symbol)    |
+|last_price_e4 |string |t(:row_comment_resp_last_price_e4)  |
+|last_tick_direction |string |t(:row_parameter_tick_direction)  |
+|prev_price_24h_e4 |number |t(:row_comment_resp_prev_price_24h_e4)  |
+|price_24h_pcnt_e6 |number |t(:row_comment_resp_price_24h_pcnt_e4)  |
+|high_price_24h_e4 |string |t(:row_comment_resp_high_price_24h_e4)  |
+|low_price_24h_e4 |string |t(:row_comment_resp_low_price_24h_e4)  |
+|prev_price_1h_e4 |string |t(:row_comment_resp_prev_price_1h_e4)  |
+|price_1h_pcnt_e6 |number |t(:row_comment_resp_price_1h_pcnt_e6)  |
+|mark_price_e4 |number |t(:row_comment_resp_mark_price_e4)  | 
+|index_price_e4 |number |t(:row_comment_resp_index_price_e4)  | 
+|open_interest |number |t(:row_comment_resp_open_interest)  | 
+|open_value_e8 |number |t(:row_comment_resp_open_value_e8)  | 
+|total_turnover_e8 |number |t(:row_comment_resp_total_turnover_e8)  | 
+|turnover_24h_e8 |number |t(:row_comment_resp_turnover_24h_e8)  | 
+|total_volume |number |t(:row_comment_resp_total_volume)  | 
+|volume_24h |number |t(:row_comment_resp_volume_24h)  | 
+|predicted_funding_rate_e6 |number |t(:row_comment_resp_predicted_funding_rate_e6)  | 
+|cross_seq |number |t(:row_comment_cross_seq)  | 
+|created_at |number |t(:row_comment_created_at)  | 
+|updated_at |number |t(:row_comment_updated_at)  | 
+|next_funding_time |number |t(:row_comment_resp_next_funding_time)  | 
+|countdown_hour |number |t(:row_comment_resp_countdown_hour)  | 
+
 
 ### t(:websocketklineV2)
 > t(:codequote_subscribe)
@@ -478,6 +506,21 @@ t(:websocket_para_klineV2)
 <aside class="notice">
 t(:websocket_aside_klineV2)
 </aside>
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|start|string |t(:row_comment_startTime)    | 
+|end|string |t(:row_comment_endTime)    | 
+|open|string |t(:row_comment_open)    | 
+|close|string |t(:row_comment_close)    | 
+|high|string |t(:row_comment_high)    | 
+|low|string |t(:row_comment_low)    | 
+|volume|string |t(:row_comment_resp_volume)    | 
+|turnover|string |t(:row_comment_resp_turnover)    | 
+|confirm|string |t(:row_comment_confirm)    | 
+|cross_seq|string |t(:row_comment_cross_seq)    | 
+|timestamp|string |t(:row_comment_endTime)    | 
 
 
 
@@ -539,7 +582,7 @@ t(:account_para_myPosition)
 |user_id |number |t(:row_comment_userID)  |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
-|t(:row_parameter_quantity) |number |t(:row_comment_position_size)  |
+|size |number |t(:row_comment_position_size)  |
 |position_value |string |t(:row_comment_position_value)  |
 |entry_price |string |t(:row_comment_entry_price)  |
 |liq_price |string |t(:row_comment_liq_price)  |
@@ -664,6 +707,31 @@ ws.send('{"op": "subscribe", "args": ["order"]}')
 ```
 
 
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|order_id |string |t(:row_comment_order_id)  |
+|order_link_id |string |t(:row_comment_order_link_id)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_symbol)  |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|t(:row_parameter_order_type) |string |t(:row_comment_stopOrderType) |
+|t(:row_parameter_price) |string |t(:row_comment_exec_price) |
+|qty |number |t(:row_comment_exec_qty)  |
+|t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce) |
+|create_type |string |t(:row_comment_create_type) |
+|cancel_type |string |t(:row_comment_cancel_type) |
+|order_status |string |t(:row_parameter_order_status) |
+|leaves_qty |number |t(:row_comment_leaves_qty)  |
+|cum_exec_qty |number |t(:linear_resp_field_cum_exec_qty)  |
+|cum_exec_value |string |t(:linear_resp_field_cum_exec_value)  |
+|cum_exec_fee |string |t(:linear_resp_field_cum_exec_fee)  |
+|timestamp |string |t(:row_comment_timestamp)  |
+|take_profit |string |t(:row_comment_take_profit)  |
+|stop_loss |string |t(:row_comment_stop_loss)  |
+|trailing_stop |string |t(:row_comment_trailing_stop)  |
+|trailing_active |string |t(:row_comment_trailing_active)  |
+|last_exec_price |string |t(:row_comment_last_exec_price)  |
+
 ### t(:websocketstoporder)
 > t(:codequote_subscribe)
 
@@ -698,3 +766,23 @@ ws.send('{"op": "subscribe", "args": ["stop_order"]}')
     ]
 }
 ```
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|order_id |string |t(:row_comment_order_id)  |
+|order_link_id |string |t(:row_comment_order_link_id)  |
+|user_id |number |t(:row_comment_userID)  |
+|t(:row_parameter_symbol) |string |t(:enum_symbol_link)  |
+|t(:row_parameter_order_type) |string |t(:enum_order_type_link)  |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|price |string |t(:row_response_comment_price)    |
+|qty |number |t(:row_response_comment_qty)  |
+|t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
+|create_type |string |t(:row_comment_create_type)  |
+|cancel_type |string |t(:row_comment_cancel_type)  |
+|t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
+|stop_order_type |string |t(:row_comment_stopOrderType)  |
+|trigger_by | string |t(:row_comment_triggerBy) |
+|trigger_price | string | t(:stop_order_trigger_price)|
+|timestamp |string |t(:row_response_comment_time)  |
