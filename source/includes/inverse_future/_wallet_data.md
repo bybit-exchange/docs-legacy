@@ -234,8 +234,8 @@ t(:wallet_para_symbolexchangerecords)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=oawwList>/v2/private/exchange-order/list</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawwList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=vpeOrder>/v2/private/exchange-order/list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpeOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -243,7 +243,3 @@ GET
 |limit |false |integer |t(:row_comment_limit) |
 |from |false |integer |t(:row_comment_from_id) |
 |direction |false |string |t(:row_comment_direction) |
-
-
-
-
