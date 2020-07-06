@@ -71,7 +71,7 @@ POST
 |side |string |t(:row_comment_side)  |
 |order_type |string |t(:row_comment_order_type)  |
 |price |number |t(:row_comment_resp_price)  |
-|qty |number |t(:row_comment_qty)  |
+|qty |number |t(:row_response_comment_qty)  |
 |time_in_force |string |t(:row_comment_timeInForce)  |
 |order_status |string |t(:row_comment_orderStatus)  |
 |last_exec_time |string |t(:row_comment_last_exec_time)  |
@@ -165,7 +165,7 @@ GET
 | side |string |t(:row_comment_side) |
 | order_type |string |t(:row_comment_order_type) |
 | price  |number |t(:row_comment_resp_price) | 
-| qty  |number |t(:row_comment_qty) | 
+| qty  |number |t(:row_response_comment_qty) | 
 |time_in_force |string |t(:row_comment_timeInForce)  |
 |order_status |string |t(:row_comment_orderStatus)  |
 | close_on_trigger |bool |t(:row_comment_closeOnTrigger) |
@@ -250,7 +250,7 @@ POST
 |side |string |t(:row_comment_side)  |
 |order_type |string |t(:row_comment_order_type)  |
 |price |number |t(:row_comment_resp_price)  |
-|qty |number |t(:row_comment_qty)  |
+|qty |number |t(:row_response_comment_qty)  |
 |time_in_force |string |t(:row_comment_timeInForce)  |
 |order_status |string |t(:row_comment_orderStatus)  |
 |last_exec_time |string |t(:row_comment_last_exec_time)  |
@@ -327,7 +327,7 @@ POST
 |side |string |t(:row_comment_side)  |
 |order_type |string |t(:row_comment_order_type)  |
 |price |number |t(:row_comment_resp_price)  |
-|qty |number |t(:row_comment_qty)  |
+|qty |number |t(:row_response_comment_qty)  |
 |time_in_force |string |t(:row_comment_timeInForce)  |
 |create_type |string |t(:row_comment_create_type)  |
 |cancel_type |string |t(:row_comment_cancel_type)  |
@@ -443,7 +443,7 @@ GET
 |side |string |t(:row_comment_side)  |
 |order_type |string |t(:row_comment_order_type)  |
 |price |number |t(:row_comment_resp_price)  |
-|qty |number |t(:row_comment_qty)  |
+|qty |number |t(:row_response_comment_qty)  |
 |time_in_force |string |t(:row_comment_timeInForce)  |
 |order_status |string |t(:row_comment_orderStatus)  |
 |ext_fields |json |t(:row_comment_ext_fields)  |

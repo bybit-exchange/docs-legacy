@@ -327,6 +327,19 @@ ws.send('{"op": "subscribe", "args": ["trade.BTCUSDT"]}')
 
 t(:websocket_para_trade)
 
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
+|tick_direction |string |t(:row_comment_position_tick_direction)  |
+|t(:row_parameter_price) |number |t(:row_response_comment_price)  |
+|size |number |t(:row_comment_position_size)  |
+|time |string |t(:row_response_comment_time)  |
+|trade_time_ms |string |t(:row_response_comment_nill_time)  |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|trade_id |string |t(:row_response_comment_trade_id)  |
+
+
 ### t(:websocketinstrumentInfo)
 > t(:codequote_subscribe)
 
@@ -443,48 +456,6 @@ t(:websocket_aside_instrumentInfo2)
 |countdown_hour |number |t(:row_comment_resp_countdown_hour)  | 
 
 
-### t(:websockettrade)
-> t(:codequote_subscribe)
-
-```javascript
-ws.send('{"op": "subscribe", "args": ["trade.BTCUSDT"]}')
-```
-
-> t(:codequote_responseExampleFormatAll)
-
-```javascript
-{
-    "topic": "trade.BTCUSDT",
-    "data": [
-        {
-            "symbol": "BTCUSDT",
-            "tick_direction": "PlusTick",
-            "price": 8098,
-            "size": 328,
-            "timestamp":"2020-03-30T02:21:06.000Z",
-            "trade_time_ms":"1585534866418",
-            "side":"Sell",
-            "trade_id":"01e79e28-d1f4-59ac-b079-ca909606d91a"
-        }
-    ]
-}
-```
-
-t(:websocket_para_trade)
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
-|tick_direction |string |t(:row_comment_position_tick_direction)  |
-|t(:row_parameter_price) |number |t(:row_response_comment_price)  |
-|size |number |t(:row_comment_position_size)  |
-|time |string |t(:row_response_comment_time)  |
-|trade_time_ms |string |t(:row_response_comment_nill_time)  |
-|t(:row_parameter_side) |string |t(:row_comment_side)  |
-|trade_id |string |t(:row_response_comment_trade_id)  |
-
-
 ### t(:websocketkline)
 > t(:codequote_subscribe)
 
@@ -522,19 +493,6 @@ t(:websocket_para_klineV2)
 t(:websocket_aside_klineV2)
 </aside>
 
-
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|symbol|string |t(:row_comment_symbol)    |
-|tick_direction|string |t(:row_parameter_tick_direction)    | 
-|price|number |t(:row_comment_resp_price)    | 
-|size|number |t(:row_comment_resp_size)    |  
-|timestamp|string |t(:row_comment_endTime)    | 
-|trade_time_ms|string |t(:row_comment_resp_trade_time_ms)    | 
-|side|string |t(:row_comment_side)    | 
-|trade_id|string |t(:row_comment_resp_trade_id)    | 
 
 
 
