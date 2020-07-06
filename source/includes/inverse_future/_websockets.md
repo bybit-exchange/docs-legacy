@@ -698,3 +698,23 @@ ws.send('{"op": "subscribe", "args": ["stop_order"]}')
     ]
 }
 ```
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|order_id |string |t(:row_comment_order_id)  |
+|order_link_id |string |t(:row_comment_order_link_id)  |
+|user_id |number |t(:row_comment_userID)  |
+|t(:row_parameter_symbol) |string |t(:enum_symbol_link)  |
+|t(:row_parameter_order_type) |string |t(:enum_order_type_link)  |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|price |string |t(:row_response_comment_price)    |
+|qty |number |t(:row_response_comment_qty)  |
+|t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
+|create_type |string |t(:row_comment_create_type)  |
+|cancel_type |string |t(:row_comment_cancel_type)  |
+|t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
+|stop_order_type |string |t(:row_comment_stopOrderType)  |
+|trigger_by | string |t(:row_comment_triggerBy) |
+|trigger_price | string | t(:stop_order_trigger_price)|
+|timestamp |string |t(:row_response_comment_time)  |

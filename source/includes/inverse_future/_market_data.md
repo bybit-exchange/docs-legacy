@@ -207,6 +207,16 @@ GET
 |from |false |int |t(:row_comment_from)|
 |limit |false |int |Number of results. Default 500; max 1000|
 
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|id |number |t(:row_response_comment_id)  |
+|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
+|price |number |t(:row_response_comment_execprice)  |
+|t(:row_parameter_quantity) |number |t(:row_response_comment_execqty)  |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|time |string |t(:row_response_comment_time)  |
+
 
 ### t(:querysymbol)
 > t(:codequote_curlExample)
@@ -332,6 +342,25 @@ GET
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|name |string |t(:row_response_comment_name)    |
+|base_currency |string |t(:row_response_comment_base_currency)    |
+|quote_currency |string |t(:row_response_comment_quote_currency)    |
+|price_scale |number |t(:row_response_comment_price_scale)    |
+|taker_fee |string |t(:row_response_comment_taker_fee)    |
+|maker_fee |string |t(:row_response_comment_maker_fee)    |
+|leverage_filter > min_leverage |number |t(:row_response_comment_min_leverage)    |
+|max_leverage |number |t(:row_response_comment_max_leverage)    |
+|leverage_step |string |t(:row_response_comment_leverage_step)    |
+|price_filter > min_price |string |t(:row_response_comment_min_price)    |
+|max_price |string |t(:row_response_comment_max_price)    |
+|tick_size |string |t(:row_response_comment_tick_size)    |
+|lot_size_filter > max_trading_qty |number |t(:row_response_comment_max_trading_qty)    |
+|min_trading_qty |number |t(:row_response_comment_min_trading_qty)    |
+|qty_step |number |t(:row_response_comment_qty_step)    |
+
 
 ### t(:query_liqrecords)
 > t(:codequote_curlExample)
@@ -377,7 +406,7 @@ GET
 |start_time |false |integer |t(:row_comment_startTime_ms) |
 |end_time |false |integer |t(:row_comment_endTime_ms) |
 
-
+<!--
 ## t(:advanceddata)
 ### t(:marketfundingrate)
 > t(:codequote_curlExample)
@@ -602,3 +631,4 @@ GET
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
 |period |true |string |t(:row_comment_period)|
+-->

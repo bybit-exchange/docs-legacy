@@ -119,6 +119,18 @@ GET
 |t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
 |limit |false |int |t(:linear_row_comment_recent_trading_records_limit)|
 
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|id |number |t(:row_response_comment_id)  |
+|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
+|price |number |t(:row_response_comment_execprice)  |
+|t(:row_parameter_quantity) |number |t(:row_response_comment_execqty)  |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|time |string |t(:row_response_comment_time)  |
+|trade_time_ms |number |t(:row_response_comment_nill_time)  |
+
+
 
 
 
@@ -232,7 +244,7 @@ GET
 |from |true |integer |t(:row_comment_from_timestamp) |
 |limit |false |integer |t(:linear_kline_row_comment_limit_200) |
 
-
+<!--
 ## t(:advanceddata)
 ### t(:marketfundingrate)
 <a href="/docs/inverse#t-marketfundingrate">t(:shared_endpoint_desc)</a>
@@ -244,7 +256,7 @@ GET
 <a href="/docs/inverse#t-marketeliteratio">t(:shared_endpoint_desc)</a>
 ### t(:marketbigdeal)
 <a href="/docs/inverse#t-marketbigdeal">t(:shared_endpoint_desc)</a>
-
+-->
 
 
 
