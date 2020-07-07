@@ -183,7 +183,7 @@ GET
 |:----- |:-----|----- |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
 |funding_rate |number |t(:row_comment_funding_rate)  | 
-|funding_rate_timestamp |number |t(:row_comment_funding_rate_timestamp)  | 
+|funding_rate_timestamp |string |t(:row_comment_funding_rate_timestamp)  | 
 
 
 

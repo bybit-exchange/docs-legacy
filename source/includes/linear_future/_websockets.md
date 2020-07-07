@@ -450,8 +450,8 @@ t(:websocket_aside_instrumentInfo2)
 |volume_24h |integer |t(:row_comment_resp_volume_24h)  | 
 |predicted_funding_rate_e6 |integer |t(:row_comment_resp_predicted_funding_rate_e6)  | 
 |cross_seq |integer |t(:row_comment_cross_seq)  | 
-|created_at |number |t(:row_comment_created_at)  | 
-|updated_at |number |t(:row_comment_updated_at)  | 
+|created_at |string |t(:row_comment_created_at)  | 
+|updated_at |string |t(:row_comment_updated_at)  | 
 |next_funding_time |number |t(:row_comment_resp_next_funding_time)  | 
 |countdown_hour |number |t(:row_comment_resp_countdown_hour)  | 
 
@@ -681,7 +681,7 @@ ws.send('{"op": "subscribe", "args": ["order"]}')
 |qty |number |t(:row_comment_exec_qty)  |
 |t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce) |
 |t(:row_parameter_order_status) |string |t(:row_comment_orderStatus) |
-|last_exec_price |string |t(:row_comment_last_exec_price)  |
+|last_exec_price |number |t(:row_comment_last_exec_price)  |
 |cum_exec_qty |number |t(:linear_resp_field_cum_exec_qty)  |
 |cum_exec_value |string |t(:linear_resp_field_cum_exec_value)  |
 |cum_exec_fee |string |t(:linear_resp_field_cum_exec_fee)  |

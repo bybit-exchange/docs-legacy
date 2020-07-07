@@ -151,7 +151,7 @@ GET
 | side |string |t(:row_comment_side) |
 | order_type |string |t(:row_comment_order_type) |
 | price  |number |t(:row_comment_resp_price) | 
-| qty  |number |t(:row_comment_qty) | 
+| qty  |number |t(:row_response_comment_qty) | 
 |time_in_force |string |t(:row_comment_timeInForce)  |
 |order_status |string |t(:row_parameter_order_status)  |
 |last_exec_price |string |t(:row_comment_last_exec_price)  |
@@ -1241,9 +1241,9 @@ GET
 |user_id |number |t(:row_comment_userID)  |
 |t(:row_parameter_symbol) |string |t(:row_comment_symbol)    |
 |order_id |string |t(:row_comment_order_id)  |
-|t(:row_parameter_side) |string |t(:linear_row_comment_qty)  |
-|t(:row_parameter_quantity) |string |t(:row_comment_order_qty)  |
-|order_price |string |t(:row_comment_order_price)  |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|t(:row_parameter_quantity) |number |t(:row_comment_order_qty)  |
+|order_price |number |t(:row_comment_order_price)  |
 |t(:row_parameter_order_type) |string |t(:row_comment_order_type)  |
 |t(:row_parameter_exec_type) |string |t(:row_comment_exec_type)  |
 |closed_size |number |t(:linear_resp_field_closed_size)  |
@@ -1254,7 +1254,7 @@ GET
 |closed_pnl |number |t(:linear_resp_field_closed_pnl)    |
 |fill_count |number |t(:linear_resp_field_fill_count)    |
 |leverage |number |t(:resp_field_leverage)  |
-|created_at |string |t(:row_comment_created_at)  |
+|created_at |number |t(:row_comment_created_at)  |
 
 
 
@@ -1507,8 +1507,8 @@ GET
 |id |number |t(:row_comment_riskId)  |
 |t(:row_parameter_symbol) |string |t(:row_comment_symbol)  |
 |limit |number |t(:row_comment_risk_limit)    |
-|maintain_margin |string |t(:row_comment_maintain_margin)  |
-|starting_margin |string |t(:row_comment_starting_margin)  |
+|maintain_margin |number |t(:row_comment_maintain_margin)  |
+|starting_margin |number |t(:row_comment_starting_margin)  |
 |section |string |t(:row_comment_section)  |
 |is_lowest_risk |number |t(:row_comment_is_lowest_risk)    |
 |created_at |string |t(:row_comment_created_at)  |
