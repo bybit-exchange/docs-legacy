@@ -67,23 +67,19 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|user_id |number |t(:row_comment_userID)  |
-|t(:row_parameter_stop_order)|string |t(:row_comment_stopOrderStatus)    |
-|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
-|t(:row_parameter_side) |string |t(:row_comment_side)  |
-|t(:row_parameter_order_type) |string |t(:row_comment_orderType)  |
-|t(:row_parameter_price) |number |t(:row_response_comment_price)  |
-|t(:row_parameter_quantity) |number |t(:row_response_comment_qty)  |
-|t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
-|stop_order_type |string |t(:row_comment_stopOrderType)  |
-|t(:row_parameter_trigger_price) |string |t(:row_response_comment_triggerBy)  |
-|base_price |number |t(:row_response_comment_basePrice)  |
-|order_link_id |string |t(:row_response_comment_orderLinkId)  |
-|created_at |string |t(:row_comment_created_at)  |
-|updated_at |string |t(:row_comment_updated_at)  |
-|stop_px |number |t(:linear_row_comment_stopPx)  |
-|stop_order_id |string |t(:row_comment_stopOrderId) |
-
+|equity |number |t(:row_comment_equity)  |
+|available_balance |number |t(:row_comment_available_balance)  |
+|used_margin |number |t(:row_comment_used_margin)    |
+|order_margin|number |t(:row_comment_order_margin)    |
+|position_margin |number |t(:row_comment_position_margin)  |
+|occ_closing_fee |number |t(:row_comment_occ_closing_fee)  |
+|occ_funding_fee |number |t(:row_comment_occ_funding_fee)  |
+|wallet_balance |number |t(:row_comment_wallet_balance)  |
+|realised_pnl |number |t(:row_comment_realised_pnl)  |
+|unrealised_pnl |number |t(:row_comment_runrealised_pnl)  |
+|cum_realised_pnl|number |t(:row_comment_cum_realised_pnl)  |
+|given_cash |number |t(:row_response_comment_given_cash)  |
+|service_cash |number |t(:row_response_comment_service_cash)  |
 
 
 ### t(:walletrecords)
