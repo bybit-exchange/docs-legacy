@@ -1057,8 +1057,8 @@ POST
 |realised_pnl |number |t(:linear_resp_field_realised_pnl)  |
 |cum_realised_pnl |number |t(:linear_resp_field_cum_realised_pnl)  |
 |free_qty |number |t(:linear_resp_field_free_qty)  |
-|wallet_balance |string |t(:row_comment_wallet_balance)  |
-|available_balance |string |t(:row_comment_available_balance)  |
+|wallet_balance |number |t(:row_comment_wallet_balance)  |
+|available_balance |number |t(:row_comment_available_balance)  |
 
 
 

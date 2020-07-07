@@ -168,13 +168,13 @@ GET
 | qty  |number |t(:row_response_comment_qty) | 
 |time_in_force |string |t(:row_comment_timeInForce)  |
 |order_status |string |t(:row_comment_orderStatus)  |
-| close_on_trigger |bool |t(:row_comment_closeOnTrigger) |
-| orig_order_type |string |t(:row_comment_orig_order_type) |
-| prior_x_req_price  |number |t(:row_comment_prior_x_req_price) | 
-| op_from |string |t(:row_comment_op_from) |
-| remark |string |t(:row_comment_remark) |
-| o_req_num |number |t(:row_comment_o_req_num) |
-| xreq_type |string |t(:row_comment_xreq_type) |
+| ext_fields>close_on_trigger |bool |t(:row_comment_closeOnTrigger) |
+| ext_fields>orig_order_type |string |t(:row_comment_orig_order_type) |
+| ext_fields>prior_x_req_price  |number |t(:row_comment_prior_x_req_price) | 
+| ext_fields>op_from |string |t(:row_comment_op_from) |
+| ext_fields>remark |string |t(:row_comment_remark) |
+| ext_fields>o_req_num |number |t(:row_comment_o_req_num) |
+| ext_fields>xreq_type |string |t(:row_comment_xreq_type) |
 | last_exec_time |string |t(:row_comment_last_exec_time) |
 | last_exec_price |number |t(:row_comment_last_exec_price) |
 | leaves_qty |number |t(:row_comment_leaves_qty) |
@@ -251,7 +251,7 @@ POST
 |order_type |string |t(:row_comment_order_type)  |
 |price |number |t(:row_comment_resp_price)  |
 |qty |number |t(:row_response_comment_qty)  |
-|time_in_force |string |t(:row_comment_timeInForce)  |
+|t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce) |
 |order_status |string |t(:row_comment_orderStatus)  |
 |last_exec_time |string |t(:row_comment_last_exec_time)  |
 |last_exec_price |string |t(:row_comment_last_exec_price)  |
@@ -328,7 +328,7 @@ POST
 |order_type |string |t(:row_comment_order_type)  |
 |price |number |t(:row_comment_resp_price)  |
 |qty |number |t(:row_response_comment_qty)  |
-|time_in_force |string |t(:row_comment_timeInForce)  |
+|t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce) |
 |create_type |string |t(:row_comment_create_type)  |
 |cancel_type |string |t(:row_comment_cancel_type)  |
 |order_status |string |t(:row_comment_orderStatus)  |
@@ -1201,8 +1201,8 @@ POST
 |position_seq |number |t(:row_comment_position_seq)  |
 |created_at |string |t(:row_comment_created_at)  |
 |updated_at |string |t(:row_comment_updated_at)  |
-|trailing_active |string |t(:row_comment_trailing_active)  |
-|sl_trigger_by |string |t(:row_comment_sl_trigger_by)  |
+|ext_fields>trailing_active |string |t(:row_comment_trailing_active)  |
+|ext_fields>sl_trigger_by |string |t(:row_comment_sl_trigger_by)  |
 
 
 ### t(:getleverage)
@@ -1456,7 +1456,7 @@ GET
 |order_id |string |t(:row_comment_order_id) |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 |t(:row_parameter_quantity) |number |t(:row_response_comment_qty)  |
-|order_price |string |t(:row_comment_order_price)  |
+|order_price |number |t(:row_comment_order_price)  |
 |t(:row_parameter_order_type) |string |t(:row_comment_orderType)  |
 |t(:row_parameter_exec_type) |string |t(:enum_exec_type_link)  |
 |closed_size |number |t(:row_comment_closed_size)  |
@@ -1466,8 +1466,8 @@ GET
 |avg_exit_price |number |t(:linear_resp_field_avg_exit_price)    |
 |closed_pnl |number |t(:linear_resp_field_closed_pnl)    |
 |fill_count |number |t(:linear_resp_field_fill_count)    |
-|leverage |string |t(:resp_field_leverage)  |
-|created_at |string |t(:row_comment_created_at)  |
+|leverage |number |t(:resp_field_leverage)  |
+|created_at |number |t(:row_comment_created_at)  |
 
 ## t(:risklimit)
 
@@ -1673,16 +1673,16 @@ POST
 |position_seq |number |t(:row_comment_position_seq)  |
 |created_at |string |t(:row_comment_created_at)  |
 |updated_at |string |t(:row_comment_updated_at)  |
-|> trailing_active |string |t(:row_comment_trailing_active)  |
-|risk > id |number |t(:row_comment_riskId)  |
-|coin |string |t(:row_comment_coin_type)  |
-|limit |number |t(:row_comment_risk_limit)    |
-|maintain_margin |string |t(:row_comment_maintain_margin)  |
-|starting_margin |string |t(:row_comment_starting_margin)  |
-|section |string |t(:row_comment_section)  |
-|is_lowest_risk |number |t(:row_comment_is_lowest_risk)    |
-|created_at |string |t(:row_comment_created_at)  |
-|updated_at |string |t(:row_comment_updated_at)  |
+|ext_fields>trailing_active |string |t(:row_comment_trailing_active)  |
+|risk>id |number |t(:row_comment_riskId)  |
+|risk>coin |string |t(:row_comment_coin_type)  |
+|risk>limit |number |t(:row_comment_risk_limit)    |
+|risk>maintain_margin |string |t(:row_comment_maintain_margin)  |
+|risk>starting_margin |string |t(:row_comment_starting_margin)  |
+|risk>section |string |t(:row_comment_section)  |
+|risk>is_lowest_risk |number |t(:row_comment_is_lowest_risk)    |
+|risk>created_at |string |t(:row_comment_created_at)  |
+|risk>updated_at |string |t(:row_comment_updated_at)  |
 
 
 ## t(:funding)
