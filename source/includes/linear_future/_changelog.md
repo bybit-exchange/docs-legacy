@@ -1,5 +1,10 @@
 # t(:changelog)
 
+## 2020-07-07
+### REST API
+- [t(:symbolexchangerecords)](#t-wallet_para_symbolexchangerecords) [t(:changelog_new)]
+
+
 <!--
 ## 2020-06-08
 ### REST API
