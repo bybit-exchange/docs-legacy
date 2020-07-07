@@ -243,3 +243,14 @@ GET
 |limit |false |integer |t(:row_comment_limit) |
 |from |false |integer |t(:row_comment_from_id) |
 |direction |false |string |t(:row_comment_direction) |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|exchange_rate |number |t(:row_comment_exchange_rate) |
+|from_coin |string |t(:row_comment_from_coin) |
+|to_coin|string |t(:row_comment_to_coin)    |
+|to_amount |number |t(:row_comment_to_amount)  | 
+|from_fee |number |t(:row_comment_from_fee)  | 
+|from_amount |number |t(:row_comment_from_amount)  | 
+|created_at |string |t(:row_comment_created_at_in_exchange)  | 
