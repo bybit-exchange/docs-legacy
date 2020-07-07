@@ -53,10 +53,10 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| symbol |string |t(:row_comment_symbol) | 
+| t(:row_parameter_symbol) |string |t(:row_comment_symbol) | 
 | price |string |t(:row_comment_resp_price) |
 | size |integer |t(:row_comment_resp_size) |
-| side |string |t(:row_parameter_side) |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
 
 
 ### t(:querykline)
@@ -118,7 +118,7 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| symbol |string |t(:row_comment_symbol) | 
+| t(:row_parameter_symbol) |string |t(:row_comment_symbol) | 
 | interval |string |t(:row_comment_period) |
 | open_time |integer |t(:row_comment_resp_open_time) |
 | open |string |t(:row_comment_open) |
@@ -195,7 +195,7 @@ GET
 | bid_price |string |t(:row_comment_resp_bid_price) | 
 | ask_price |string |t(:row_comment_resp_ask_price) | 
 | last_price |string |t(:row_comment_resp_last_price) | 
-| last_tick_direction |string |t(:row_parameter_tick_direction) | 
+| last_tick_direction |string |t(:enum_tick_direction) | 
 | prev_price_24h |string |t(:row_comment_resp_prev_price_24h) | 
 | price_24h_pcnt |string |t(:row_comment_resp_price_24h_pcnt) | 
 | high_price_24h |string |t(:row_comment_resp_high_price_24h) | 
@@ -256,7 +256,7 @@ GET
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
 |from |false |int |t(:row_comment_from)|
-|limit |false |int |Number of results. Default 500; max 1000|
+|limit |false |int |t(:row_comment_limit_liq)|
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -403,14 +403,14 @@ GET
 |taker_fee |string |t(:row_response_comment_taker_fee)    |
 |maker_fee |string |t(:row_response_comment_maker_fee)    |
 |leverage_filter > min_leverage |number |t(:row_response_comment_min_leverage)    |
-|max_leverage |number |t(:row_response_comment_max_leverage)    |
-|leverage_step |string |t(:row_response_comment_leverage_step)    |
+|leverage_filter > max_leverage |number |t(:row_response_comment_max_leverage)    |
+|leverage_filter > leverage_step |string |t(:row_response_comment_leverage_step)    |
 |price_filter > min_price |string |t(:row_response_comment_min_price)    |
-|max_price |string |t(:row_response_comment_max_price)    |
-|tick_size |string |t(:row_response_comment_tick_size)    |
+|price_filter > max_price |string |t(:row_response_comment_max_price)    |
+|price_filter > tick_size |string |t(:row_response_comment_tick_size)    |
 |lot_size_filter > max_trading_qty |number |t(:row_response_comment_max_trading_qty)    |
-|min_trading_qty |number |t(:row_response_comment_min_trading_qty)    |
-|qty_step |number |t(:row_response_comment_qty_step)    |
+|lot_size_filter > min_trading_qty |number |t(:row_response_comment_min_trading_qty)    |
+|lot_size_filter > qty_step |number |t(:row_response_comment_qty_step)    |
 
 
 ### t(:query_liqrecords)

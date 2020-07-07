@@ -112,7 +112,7 @@ zh-cn:
   row_comment_position_inviter_id: 邀请人 ID
   row_comment_position_ips: IP地址
   row_comment_note: 备注
-  row_comment_permissions: Key 权限
+  row_comment_permissions: ApiKey 所有权限
   row_comment_expired_at: 过期时间
   row_comment_read_only: 是否只读
   row_comment_lcp_date: 日期
@@ -130,7 +130,7 @@ zh-cn:
   row_comment_basePrice: 当前市价。用于和stop_px值进行比较，确定当前条件委托是看空到<code>stop_px</code>时触发还是看多到stop_px触发。主要是用来标识当前条件单预期的方向
   row_comment_stopPx: 条件委托下单时市价
   row_comment_timeInForce: 执行策略
-  row_comment_triggerBy: 触发价格类型. 默认为上一笔成交价格
+  row_comment_triggerBy: 触发价格类型. 默认为最新市价
   row_comment_takeProfit: 止盈价格，仅开仓时生效
   row_comment_stopLoss: 止损价格，仅开仓时生效
   row_comment_trailingStop: Trailing stop
@@ -145,9 +145,9 @@ zh-cn:
   row_comment_pRPrice: 修改后的订单价格。如果不修改这个字段，请不要传这个参数。
   row_comemnt_pRTriggerPrice: 修改后的条件单的触发价格。如果不修改这个字段，请不要传这个参数。
   row_comment_leverage: 杠杆。<code>杠杆为0</code>意味着全仓模式.全场模式下修改杠杆会变成逐仓模式
-  row_comment_startDate: Start point for result
-  row_comment_endDate: End point for result
-  row_comment_currency: Currency type
+  row_comment_startDate: 起始时间点
+  row_comment_endDate: 结束时间点
+  row_comment_currency: 币种类型
   row_comment_coin: <code>currency</code> alias
   row_comment_coin_false: <code>currency</code> alias，如果不传参数coin，将返回所有钱包余额。
   row_comment_walletFundType: 资金记录类型
@@ -156,7 +156,7 @@ zh-cn:
   row_comment_endTime: 结束时间戳（秒）
   row_comment_startTime_ms: 开始时间戳（毫秒）
   row_comment_endTime_ms: 结束时间戳（毫秒）
-  row_comment_riskId: 风险限额ID. 您可以根据 <a href="#t-wallet-t-getrisklimit">风险限额表接口</a> 查看对应的含义
+  row_comment_riskId: 风险限额ID.
   row_comment_closed_size: 平仓委托对应的平仓大小
   row_comment_rate_limit: 频率限制
   row_comment_path: 请求路径
@@ -224,6 +224,8 @@ zh-cn:
   row_comment_confirm: 是否确认
   row_comment_resp_trade_time_ms: 交易时间(毫秒)
   row_comment_resp_trade_id: 交易Id
+  row_comment_equity: 用户资产
+  row_comment_used_margin: 已用保证金
 
 
   row_response_comment_price: 委托价格
@@ -263,7 +265,13 @@ zh-cn:
   row_response_comment_min_trading_qty: 最小交易数量
   row_response_comment_qty_step: 合约数量最小单位
   row_response_comment_nill_time: 毫秒时间戳
-
+  row_response_comment_given_cash: 体验金
+  row_response_comment_service_cash: 抵扣金
+  row_comment_fund_type: 资金类型
+  row_comment_fund_amount: 资金总量
+  row_comment_tx_id: 交易哈希ID
+  row_comment_address: 地址
+  row_comment_submited_at: 提交时间
 
 
 
@@ -289,6 +297,7 @@ zh-cn:
   enum_side_link: <a href="#side-side">方向枚举</a>
   enum_symbol_link: <a href="#symbol-symbol">交易对枚举</a>
   enum_order_type_link: <a href="#order-type-order_type">订单类型枚举</a>
+  enum_tick_direction: <a href="#tick-direction-type-tick_direction">价格波动方向枚举</a>
   enum_exec_type_link: <a href="#exec-type-exec_type">交易类型枚举</a>
   enum_Liquidity_type_link: <a href="#liquidity-type-last_liquidity_ind">流动性类型枚举</a>
   enum_stop_order_status_link: <a href="#stop-order-status-stop_order_status">条件单状态stop_order_status枚举</a>
@@ -1402,7 +1411,7 @@ zh-cn:
   linear_resp_field_occ_closing_fee: 预占用平仓手续费
   linear_resp_field_realised_pnl: 当日已结盈亏
   linear_resp_field_cum_realised_pnl: 累计已结盈亏
-  linear_resp_field_free_qty: 可平量
+  linear_resp_field_free_qty: 可平仓位数量
   linear_resp_field_closed_size: 对应的平仓数值
   linear_resp_field_cum_entry_value: 被平掉的仓位价值
   linear_resp_field_avg_entry_price: 平均入场价
