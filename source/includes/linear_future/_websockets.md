@@ -470,7 +470,7 @@ t(:websocket_aside_instrumentInfo2)
 |cross_seq |integer |t(:row_comment_cross_seq)  | 
 |created_at |string |t(:row_comment_created_at)  | 
 |updated_at |string |t(:row_comment_updated_at)  | 
-|next_funding_time |number |t(:row_comment_resp_next_funding_time)  | 
+|next_funding_time |string |t(:row_comment_resp_next_funding_time)  | 
 |countdown_hour |number |t(:row_comment_resp_countdown_hour)  | 
 
 
@@ -780,3 +780,9 @@ ws.send('{"op": "subscribe", "args": ["wallet"]}')
     ]
 }
 ```
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|wallet_balance |number |t(:row_comment_wallet_balance)  |
+|available_balance |number |t(:row_comment_available_balance)  |

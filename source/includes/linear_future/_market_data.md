@@ -123,7 +123,7 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|id |number |t(:row_response_comment_id)  |
+|id |string |t(:row_response_comment_id)  |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
 |price |number |t(:row_response_comment_execprice)  |
 |t(:row_parameter_quantity) |number |t(:row_response_comment_execqty)  |

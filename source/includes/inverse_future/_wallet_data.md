@@ -155,6 +155,20 @@ GET
 |limit |false |integer |t(:row_comment_limit) |
 
 
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|user_id |number |t(:row_comment_userID)  |
+|coin |string |t(:row_comment_coin_type)  |
+|type |string |t(:row_comment_fund_type)  |
+|amount |string |t(:row_comment_fund_amount)  |
+|tx_id |string |t(:row_comment_tx_id)  |
+|address |string |t(:row_comment_address)  |
+|wallet_balance |string |t(:row_comment_wallet_balance)  |
+|exec_timestamp |string |t(:row_comment_exec_timestamp)  |
+|cross_seq |number |t(:row_comment_cross_seq)  |
+
+
 ### t(:withdrawrecords)
 > t(:codequote_responseExample)
 
@@ -204,6 +218,20 @@ GET
 |start_date |false |string |t(:row_comment_startDate) |
 |end_date |false |string |t(:row_comment_endDate) |
 |<a href="#currency-currency-coin">coin</a> |false |string |t(:row_comment_currency) |
-|<a href="#withdraw-status-status">status</a> |false |string |t(:row_comment_withdrawStatus) |
+|<a href="#withdraw-status-status">status</a> |false |string |t(:enum_withdraw_status_link) |
 |page |false |integer |t(:row_comment_page) |
 |limit |false |integer |t(:row_comment_limit) |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|user_id |number |t(:row_comment_userID)  |
+|coin |string |t(:row_comment_coin_type)  |
+|status |string |t(:enum_withdraw_status_link)  |
+|amount |string |t(:row_comment_fund_amount)  |
+|fee |string |t(:row_comment_fee_rate)  |
+|address |string |t(:row_comment_address)  |
+|tx_id |string |t(:row_comment_tx_id)  |
+|submited_at |string |t(:row_comment_submited_at)  |
+|updated_at |string |t(:row_comment_updated_at)  |
+
