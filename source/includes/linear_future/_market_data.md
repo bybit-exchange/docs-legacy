@@ -56,7 +56,7 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| symbol |string |t(:row_comment_symbol) | 
+| t(:row_parameter_symbol)  |string |t(:row_comment_symbol) | 
 | period |string |t(:row_comment_period) |
 | start_at |integer |t(:row_comment_startTime) |
 | volume |number |t(:row_comment_resp_volume) |
@@ -123,7 +123,7 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|id |number |t(:row_response_comment_id)  |
+|id |string |t(:row_response_comment_id)  |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
 |price |number |t(:row_response_comment_execprice)  |
 |t(:row_parameter_quantity) |number |t(:row_response_comment_execqty)  |
@@ -181,10 +181,9 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|id |number |t(:row_response_comment_id)  |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
 |funding_rate |number |t(:row_comment_funding_rate)  | 
-|funding_rate_timestamp |number |t(:row_comment_funding_rate_timestamp)  | 
+|funding_rate_timestamp |string |t(:row_comment_funding_rate_timestamp)  | 
 
 
 
@@ -258,7 +257,7 @@ GET
 | symbol |string |t(:row_comment_symbol) | 
 | period |string |t(:row_comment_period) |
 | start_at |integer |t(:row_comment_startTime) |
-| volume |integer |t(:row_comment_resp_volume) |
+| volume |number |t(:row_comment_resp_volume) |
 | open |integer |t(:row_comment_open) |
 | high |integer |t(:row_comment_high) |
 | low |number |t(:row_comment_low) |
