@@ -220,6 +220,15 @@ t(:orderbookL2_200_link)
 t(:websocket_para_orderbook252)
 
 
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| price |string |t(:row_comment_resp_price) |
+|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|size |number |t(:row_comment_position_size)  |
+
+
 ### t(:websocketorderbook200)
 
 > t(:codequote_subscribe)
@@ -296,6 +305,15 @@ ws.send('{"op": "subscribe", "args": ["orderBook_200.100ms.BTCUSDT"]}');
 ```
 
 t(:websocket_para_orderbook200)
+
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| price |string |t(:row_comment_resp_price) |
+|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|size |number |t(:row_comment_position_size)  |
 
 
 ### t(:websockettrade)

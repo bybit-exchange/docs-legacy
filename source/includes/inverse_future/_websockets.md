@@ -220,6 +220,19 @@ t(:orderbookL2_200_link)
 t(:websocket_para_orderbook252)
 
 
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| price |string |t(:row_comment_resp_price) |
+|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|size |number |t(:row_comment_position_size)  |
+
+
+
+
+
+
 ### t(:websocketorderbook200)
 
 > t(:codequote_subscribe)
@@ -298,6 +311,14 @@ ws.send('{"op": "subscribe", "args": ["orderBook_200.100ms.BTCUSD"]}');
 t(:websocket_para_orderbook200)
 
 
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| price |string |t(:row_comment_resp_price) |
+|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|size |number |t(:row_comment_position_size)  |
+
 ### t(:websockettrade)
 > t(:codequote_subscribe)
 
@@ -328,6 +349,19 @@ ws.send('{"op": "subscribe", "args": ["trade"]}')
 
 t(:websocket_para_trade)
 
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|time |string |t(:row_response_comment_time)  |
+|trade_time_ms |number |t(:row_response_comment_nill_time)  |
+|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|size |number |t(:row_comment_position_size)  |
+|t(:row_parameter_price) |number |t(:row_response_comment_price)  |
+|t(:row_parameter_tick_direction) |string |t(:row_comment_position_tick_direction)  |
+|trade_id |string |t(:row_response_comment_trade_id)  |
+|cross_seq |number |t(:row_comment_cross_seq)  | 
+
 
 ### t(:websocketinsurance)
 > t(:codequote_subscribe)
@@ -356,6 +390,13 @@ t(:websocket_para_insurance)
 <aside class="notice">
 t(:websocket_aside_insurance)
 </aside>
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|currency |string |t(:row_comment_currency)  |
+|timestamp |string |t(:row_response_comment_time)  |
+|wallet_balance |number |t(:row_comment_wallet_balance)  |
 
 
 ### t(:websocketinstrumentInfo)
