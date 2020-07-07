@@ -56,7 +56,7 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| symbol |string |t(:row_comment_symbol) | 
+| t(:row_parameter_symbol)  |string |t(:row_comment_symbol) | 
 | period |string |t(:row_comment_period) |
 | start_at |integer |t(:row_comment_startTime) |
 | volume |number |t(:row_comment_resp_volume) |

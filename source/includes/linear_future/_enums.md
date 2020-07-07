@@ -110,3 +110,12 @@ t(:para_orderStatusGet)
 ## Liquidity type (`last_liquidity_ind`)
 * `AddedLiquidity` t(:addedLiquidity)
 * `RemovedLiquidity` t(:removedLiquidity)
+
+## Tick direction type (`tick_direction`)
+t(:tick_direction)
+
+* `PlusTick` t(:plusTick)
+* `ZeroPlusTick` t(:zeroPlusTick)
+* `MinusTick` t(:minusTick)
+* `ZeroMinusTick` t(:zeroMinusTick)
+

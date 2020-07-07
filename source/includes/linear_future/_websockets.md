@@ -432,24 +432,24 @@ t(:websocket_aside_instrumentInfo2)
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |symbol|string |t(:row_comment_symbol)    |
-|last_price_e4 |string |t(:row_comment_resp_last_price_e4)  |
-|last_tick_direction |string |t(:row_parameter_tick_direction)  |
-|prev_price_24h_e4 |number |t(:row_comment_resp_prev_price_24h_e4)  |
-|price_24h_pcnt_e6 |number |t(:row_comment_resp_price_24h_pcnt_e4)  |
-|high_price_24h_e4 |string |t(:row_comment_resp_high_price_24h_e4)  |
-|low_price_24h_e4 |string |t(:row_comment_resp_low_price_24h_e4)  |
-|prev_price_1h_e4 |string |t(:row_comment_resp_prev_price_1h_e4)  |
-|price_1h_pcnt_e6 |number |t(:row_comment_resp_price_1h_pcnt_e6)  |
-|mark_price_e4 |number |t(:row_comment_resp_mark_price_e4)  | 
-|index_price_e4 |number |t(:row_comment_resp_index_price_e4)  | 
-|open_interest |number |t(:row_comment_resp_open_interest)  | 
-|open_value_e8 |number |t(:row_comment_resp_open_value_e8)  | 
-|total_turnover_e8 |number |t(:row_comment_resp_total_turnover_e8)  | 
-|turnover_24h_e8 |number |t(:row_comment_resp_turnover_24h_e8)  | 
-|total_volume |number |t(:row_comment_resp_total_volume)  | 
-|volume_24h |number |t(:row_comment_resp_volume_24h)  | 
-|predicted_funding_rate_e6 |number |t(:row_comment_resp_predicted_funding_rate_e6)  | 
-|cross_seq |number |t(:row_comment_cross_seq)  | 
+|last_price_e4 |integer |t(:row_comment_resp_last_price_e4)  |
+|last_tick_direction |string |t(:enum_tick_direction)  |
+|prev_price_24h_e4 |integer |t(:row_comment_resp_prev_price_24h_e4)  |
+|price_24h_pcnt_e6 |integer |t(:row_comment_resp_price_24h_pcnt_e4)  |
+|high_price_24h_e4 |integer |t(:row_comment_resp_high_price_24h_e4)  |
+|low_price_24h_e4 |integer |t(:row_comment_resp_low_price_24h_e4)  |
+|prev_price_1h_e4 |integer |t(:row_comment_resp_prev_price_1h_e4)  |
+|price_1h_pcnt_e6 |integer |t(:row_comment_resp_price_1h_pcnt_e6)  |
+|mark_price_e4 |integer |t(:row_comment_resp_mark_price_e4)  | 
+|index_price_e4 |integer |t(:row_comment_resp_index_price_e4)  | 
+|open_interest |integer |t(:row_comment_resp_open_interest)  | 
+|open_value_e8 |integer |t(:row_comment_resp_open_value_e8)  | 
+|total_turnover_e8 |integer |t(:row_comment_resp_total_turnover_e8)  | 
+|turnover_24h_e8 |integer |t(:row_comment_resp_turnover_24h_e8)  | 
+|total_volume |integer |t(:row_comment_resp_total_volume)  | 
+|volume_24h |integer |t(:row_comment_resp_volume_24h)  | 
+|predicted_funding_rate_e6 |integer |t(:row_comment_resp_predicted_funding_rate_e6)  | 
+|cross_seq |integer |t(:row_comment_cross_seq)  | 
 |created_at |number |t(:row_comment_created_at)  | 
 |updated_at |number |t(:row_comment_updated_at)  | 
 |next_funding_time |number |t(:row_comment_resp_next_funding_time)  | 
@@ -492,6 +492,22 @@ t(:websocket_para_klineV2)
 <aside class="notice">
 t(:websocket_aside_klineV2)
 </aside>
+
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|start|integer |t(:row_comment_startTime)    | 
+|end|integer |t(:row_comment_endTime)    | 
+|open|number |t(:row_comment_open)    | 
+|close|number |t(:row_comment_close)    | 
+|high|number |t(:row_comment_high)    | 
+|low|number |t(:row_comment_low)    | 
+|volume|string |t(:row_comment_resp_volume)    | 
+|turnover|string |t(:row_comment_resp_turnover)    | 
+|confirm|bool |t(:row_comment_confirm)    | 
+|cross_seq|integer |t(:row_comment_cross_seq)    | 
+|timestamp|integer |t(:row_comment_endTime)    | 
 
 
 
@@ -664,7 +680,7 @@ ws.send('{"op": "subscribe", "args": ["order"]}')
 |t(:row_parameter_price) |string |t(:row_comment_exec_price) |
 |qty |number |t(:row_comment_exec_qty)  |
 |t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce) |
-|order_status |string |t(:row_parameter_order_status) |
+|t(:row_parameter_order_status) |string |t(:row_comment_orderStatus) |
 |last_exec_price |string |t(:row_comment_last_exec_price)  |
 |cum_exec_qty |number |t(:linear_resp_field_cum_exec_qty)  |
 |cum_exec_value |string |t(:linear_resp_field_cum_exec_value)  |

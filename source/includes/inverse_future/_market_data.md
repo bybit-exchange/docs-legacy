@@ -53,7 +53,7 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| symbol |string |t(:row_comment_symbol) | 
+| t(:row_parameter_symbol) |string |t(:row_comment_symbol) | 
 | price |string |t(:row_comment_resp_price) |
 | size |integer |t(:row_comment_resp_size) |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
@@ -118,7 +118,7 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| symbol |string |t(:row_comment_symbol) | 
+| t(:row_parameter_symbol) |string |t(:row_comment_symbol) | 
 | interval |string |t(:row_comment_period) |
 | open_time |integer |t(:row_comment_resp_open_time) |
 | open |string |t(:row_comment_open) |
@@ -195,7 +195,7 @@ GET
 | bid_price |string |t(:row_comment_resp_bid_price) | 
 | ask_price |string |t(:row_comment_resp_ask_price) | 
 | last_price |string |t(:row_comment_resp_last_price) | 
-| last_t(:row_parameter_tick_direction) |string |t(:row_comment_resp_last_tick_direction) | 
+| last_tick_direction) |string |t(:enum_tick_direction) | 
 | prev_price_24h |string |t(:row_comment_resp_prev_price_24h) | 
 | price_24h_pcnt |string |t(:row_comment_resp_price_24h_pcnt) | 
 | high_price_24h |string |t(:row_comment_resp_high_price_24h) | 
