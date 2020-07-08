@@ -235,7 +235,7 @@ GET
 |submited_at |string |t(:row_comment_submited_at)  |
 |updated_at |string |t(:row_comment_updated_at)  |
 
-### t(:assetsexchangerecords)
+### t(:assetexchangerecords)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -274,7 +274,7 @@ GET
 
 ```
 
-t(:wallet_para_assetsexchangerecords)
+t(:wallet_para_assetexchangerecords)
 
 
 <p class="fake_header">t(:httprequest)</p>

@@ -4,7 +4,7 @@
 
 ## 2020-07-07
 ### REST API
-- [t(:assetsexchangerecords)](#t-assetsexchangerecords) [t(:changelog_new)]
+- [t(:assetexchangerecords)](#t-assetexchangerecords) [t(:changelog_new)]
 
 <!--
 ## 2020-06-08
