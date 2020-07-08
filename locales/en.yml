@@ -102,6 +102,7 @@ en:
   row_comment_lcp_platform_ratio: Platform effective ratio
   row_comment_lcp_score: Liquidity contribution points
   row_comment_created_at: Create time
+  row_comment_created_at_in_exchange: Exchange time
   row_comment_updated_at: Update time
   row_comment_margin_result: User margin
   row_comment_activeOrderType: Active order type
@@ -264,11 +265,17 @@ en:
   row_comment_equity: User equity
   row_comment_used_margin: Used margin
   row_comment_position_tick_direction: Direction of price change
+  row_comment_from_coin: Exchange from coin
+  row_comment_to_coin: Exchange to coin
+  row_comment_to_amount: Exchange to amount
+  row_comment_from_fee: Exchange from fee
+  row_comment_from_amount: Exchange from amount
+  row_comment_exchange_rate: Exchange exchange rate
   row_comment_fund_type: Fund type
   row_comment_fund_amount: Fund amount
   row_comment_tx_id: Transaction hash ID
   row_comment_address: Address
-  row_comment_submited_at: Submite time
+  row_comment_submited_at: Submit time
 
 
 
@@ -305,6 +312,9 @@ en:
 
     <code>effective_leverage = position size / mark_price / (wallet_balance + unrealised_pnl)</code>
 
+  row_comment_from_id: Start ID. By default, returns the latest IDs
+  row_comment_direction: |
+    Search direction. <code>Prev</code>: searches in ascending order from start ID, <code>Next</code>: searches in descending order from start ID. Defaults to <code>Next</code>
 
   # introduction in index.html.md
   introduction: Introduction
@@ -620,7 +630,7 @@ en:
   wallet_para: The following wallet data endpoints require authentication.
     ### Wallet Balance
   balance: Get Wallet Balance
-  wallet_para_walletBalance: Get wallet balance info
+  wallet_para_walletBalance: Get wallet balance info.
   wallet_aside_walletBalance: |
    <code>position_margin</code> in this endpoint is not same as <a href="https://www.bybit.com/app/wallet/money">position margin on website</a>
    <p>The formula of position margin on website: <code>position_margin</code> + <code>occ_funding_fee</code> + loss(when your <code>available_balance</code> is insufficient)</p>
@@ -637,6 +647,11 @@ en:
     The difference between data returned by this endpoint and data of type <code>Withdraw</code> in the <a href="#t-walletrecords">Wallet Fund Records</a> endpoint:<p></p>
     <p>This endpoint provides one withdrawal operation per record, and you can check the current withdrawal state with the <code>status</code> field.</p>
     <p>Once you have submitted a withdrawal application, there will be a record with type <code>Withdraw</code>, and if the application is <code>CancelByUser</code>, <code>Reject</code> or <code>Expire</code> in the <a href="#t-walletrecords">Wallet Fund Records</a> endpoint, with a corresponding record with type <code>Refund</code>.</p>
+
+  ### Assets Exchange Records
+  assetexchangerecords: Asset Exchange Records
+  wallet_para_assetexchangerecords: Get asset exchange records.
+
   ### User Trade Records
   usertraderecords: User Trade Records
   wallet_para_tradeRecords: Get user's trading records. The results are ordered in ascending order (the first item is the oldest).

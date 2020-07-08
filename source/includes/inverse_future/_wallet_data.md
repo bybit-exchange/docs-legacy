@@ -235,3 +235,68 @@ GET
 |submited_at |string |t(:row_comment_submited_at)  |
 |updated_at |string |t(:row_comment_updated_at)  |
 
+### t(:assetexchangerecords)
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "ext_info": "",
+    "result": [
+        {
+            "id": 31,
+            "exchange_rate": 40.57202774,
+            "from_coin": "BTC",
+            "to_coin": "ETH",
+            "to_amount": 4.05720277,
+            "from_fee": 0.0005,
+            "from_amount": 0.1,
+            "created_at": "2020-06-15 03:32:52"
+        },
+        {
+            "id": 30,
+            "exchange_rate": 39.92359901,
+            "from_coin": "BTC",
+            "to_coin": "ETH",
+            "to_amount": 39.923599,
+            "from_fee": 0.0005,
+            "from_amount": 1,
+            "created_at": "2020-06-12 08:27:51"
+        }
+    ],
+    "time_now": "1592554785.486414",
+    "rate_limit_status": 119,
+    "rate_limit_reset_ms": 1592554785484,
+    "rate_limit": 120
+}
+
+```
+
+t(:wallet_para_assetexchangerecords)
+
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=vpeOrder>/v2/private/exchange-order/list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpeOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|limit |false |integer |t(:row_comment_limit) |
+|from |false |integer |t(:row_comment_from_id) |
+|direction |false |string |t(:row_comment_direction) |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|exchange_rate |number |t(:row_comment_exchange_rate) |
+|from_coin |string |t(:row_comment_from_coin) |
+|to_coin|string |t(:row_comment_to_coin)    |
+|to_amount |number |t(:row_comment_to_amount)  | 
+|from_fee |number |t(:row_comment_from_fee)  | 
+|from_amount |number |t(:row_comment_from_amount)  | 
+|created_at |string |t(:row_comment_created_at_in_exchange)  | 
+

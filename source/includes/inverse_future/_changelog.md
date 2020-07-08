@@ -1,6 +1,11 @@
 # t(:changelog)
 
 
+
+## 2020-07-07
+### REST API
+- [t(:assetexchangerecords)](#t-assetexchangerecords) [t(:changelog_new)]
+
 <!--
 ## 2020-06-08
 ### REST API
