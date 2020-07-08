@@ -7,6 +7,15 @@
 - [t(:assetexchangerecords)](#t-assetexchangerecords) [t(:changelog_new)]
 
 <!--
+##merge changelog of 2020-06-29 to 2020-07-07
+-->
+
+- [t(:balance)](#t-balance) [t(:changelog_update)]
+    - t(:restapi_update_20200630_1)
+- [t(:usertraderecords)](#t-usertraderecords) [t(:changelog_update)]
+    - t(:restapi_update_20200630_2)
+
+<!--
 ## 2020-06-08
 ### REST API
 - [t(:marketfundingrate)](#t-marketfundingrate) [t(:changelog_new)]
@@ -15,13 +24,6 @@
 - [t(:marketaccountratio)](#t-marketaccountratio) [t(:changelog_new)]
 - [t(:marketeliteratio)](#t-marketeliteratio) [t(:changelog_new)]
 -->
-
-## 2020-06-30
-### REST API
-- [t(:balance)](#t-balance) [t(:changelog_update)]
-    - t(:restapi_update_20200630_1)
-- [t(:usertraderecords)](#t-usertraderecords) [t(:changelog_update)]
-    - t(:restapi_update_20200630_2)
 
 ## 2020-06-22
 ### REST API
