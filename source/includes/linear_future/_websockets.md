@@ -695,7 +695,7 @@ ws.send('{"op": "subscribe", "args": ["order"]}')
 |t(:row_parameter_symbol) |string |t(:row_comment_symbol)  |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 |t(:row_parameter_order_type) |string |t(:row_comment_stopOrderType) |
-|t(:row_parameter_price) |string |t(:row_comment_exec_price) |
+|t(:row_parameter_price) |string |t(:row_comment_resp_price) |
 |qty |number |t(:row_comment_exec_qty)  |
 |t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce) |
 |t(:row_parameter_order_status) |string |t(:row_comment_orderStatus) |
