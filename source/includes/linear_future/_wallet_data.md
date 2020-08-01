@@ -10,3 +10,6 @@ t(:wallet_para)
 
 ### t(:withdrawrecords)
 <a href="/docs/inverse#t-withdrawrecords">t(:shared_endpoint_desc)</a>
+
+### t(:assetexchangerecords)
+<a href="/docs/inverse#t-assetexchangerecords">t(:shared_endpoint_desc)</a>
