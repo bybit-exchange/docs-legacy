@@ -78,7 +78,7 @@ POST
 |cum_exec_qty |number |t(:linear_resp_field_cum_exec_qty)  |
 |cum_exec_value |number |t(:linear_resp_field_cum_exec_value)  |
 |cum_exec_fee |number |t(:linear_resp_field_cum_exec_fee)  |
-|reduce_only |bool |t(:linear_resp_field_reduce_only)  | 
+|reduce_only |bool |t(:linear_resp_field_reduce_only)  |
 |order_link_id |string |t(:row_response_comment_orderLinkId)  |
 |created_time |string |t(:row_comment_created_at)  |
 |updated_time |string |t(:row_comment_updated_at)  |
@@ -150,8 +150,8 @@ GET
 | symbol |string |t(:row_comment_symbol) |
 | side |string |t(:row_comment_side) |
 | order_type |string |t(:row_comment_order_type) |
-| price  |number |t(:row_comment_resp_price) | 
-| qty  |number |t(:row_response_comment_qty) | 
+| price  |number |t(:row_comment_resp_price) |
+| qty  |number |t(:row_response_comment_qty) |
 |time_in_force |string |t(:row_comment_timeInForce)  |
 |order_status |string |t(:row_parameter_order_status)  |
 |last_exec_price |number |t(:row_comment_last_exec_price)  |
@@ -302,33 +302,33 @@ POST
 
 ```javascript
 {
-	"ret_code": 0,
-	"ret_msg": "OK",
-	"ext_code": "",
-	"ext_info": "",
-	"result": {
-	    "order_id":"bd1844f-f3c0-4e10-8c25-10fea03763f6",
-        "user_id": 1,
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "ext_info": "",
+    "result": {
+        "order_id": "e3f7662b-8b94-42e2-8d46-dead09dd2a52",
+        "user_id": 106958,
         "symbol": "BTCUSDT",
         "side": "Sell",
-        "order_type": "Limit",
-        "price": 8083,
-        "qty": 10,
-        "time_in_force": "GoodTillCancel",
-        "order_status": "New",
-        "last_exec_price": 8083,
-        "cum_exec_qty": 0,
-        "cum_exec_value": 0,
-        "cum_exec_fee": 0,
-        "reduce_only": false,
+        "order_type": "Market",
+        "price": 11775,
+        "qty": 0.001,
+        "time_in_force": "ImmediateOrCancel",
+        "order_status": "Filled",
+        "last_exec_price": 11874.5,
+        "cum_exec_qty": 0.001,
+        "cum_exec_value": 11.8745,
+        "cum_exec_fee": 0.00890588,
         "order_link_id": "",
-        "created_time": "2019-10-21T07:28:19.396246Z",
-        "updated_time": "2019-10-21T07:28:19.396246Z",
-	},
-	"time_now": "1571651135.291930",
-	"rate_limit_status": 99, // The remaining number of accesses in one minute
-	"rate_limit_reset_ms": 1580885703683,
-	"rate_limit": 100
+        "reduce_only": false,
+        "created_time": "2020-08-10T19:28:56Z",
+        "updated_time": "2020-08-10T19:28:57Z"
+    },
+    "time_now": "1597171508.869341",
+    "rate_limit_status": 598,
+    "rate_limit_reset_ms": 1597171508867,
+    "rate_limit": 600
 }
 ```
 
@@ -364,7 +364,7 @@ GET
 |cum_exec_qty |number |t(:linear_resp_field_cum_exec_qty)  |
 |cum_exec_value |number |t(:linear_resp_field_cum_exec_value)  |
 |cum_exec_fee |number |t(:linear_resp_field_cum_exec_fee)  |
-|reduce_only |bool |t(:linear_resp_field_reduce_only)  | 
+|reduce_only |bool |t(:linear_resp_field_reduce_only)  |
 |order_link_id |string |t(:row_response_comment_orderLinkId)  |
 |created_time |string |t(:row_comment_created_at)  |
 |updated_time |string |t(:row_comment_updated_at)  |
@@ -534,7 +534,7 @@ GET
 |t(:row_parameter_price) |number |t(:row_response_comment_price)  |
 |t(:row_parameter_quantity) |number |t(:row_response_comment_qty)  |
 |t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
-|order_status |string |t(:row_comment_stopOrderStatus) 
+|order_status |string |t(:row_comment_stopOrderStatus)
 |trigger_price |number |t(:stop_order_trigger_price)  |
 |order_link_id |string |t(:row_response_comment_orderLinkId) |
 |created_at |string |t(:row_comment_created_at)  |
