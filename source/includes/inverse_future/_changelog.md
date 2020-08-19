@@ -2,6 +2,12 @@
 
 
 
+## 2020-08-19
+### REST API
+- [t(:marketopeninterest)](#t-marketopeninterest) [t(:changelog_new)]
+- [t(:marketbigdeal)](#t-marketbigdeal) [t(:changelog_new)]
+- [t(:marketaccountratio)](#t-marketaccountratio) [t(:changelog_new)]
+
 ## 2020-07-07
 ### REST API
 - [t(:assetexchangerecords)](#t-assetexchangerecords) [t(:changelog_new)]
