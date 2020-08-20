@@ -467,37 +467,41 @@ print(client.Order.query().result(symbol="BTCUSD", order_id=""))
 
 ```javascript
 {
-	"ret_code": 0,
-	"ret_msg": "OK",
-	"ext_code": "",
-	"ext_info": "",
-	"result": {
-		"user_id": 1,
-		"symbol": "BTCUSD",
-		"side": "Sell",
-		"order_type": "Limit",
-		"price": "8083",
-		"qty": 10,
-		"time_in_force": "GoodTillCancel",
-		"order_status": "New",
-		"ext_fields": {
-			"o_req_num": -308787,
-			"xreq_type": "x_create",
-			"xreq_offset": 4154640
-		},
-		"leaves_qty": 10,
-		"leaves_value": "0.00123716",
-		"cum_exec_qty": 0,
-		"reject_reason": "",
-		"order_link_id": "",
-		"created_at": "2019-10-21T07:28:19.396246Z",
-		"updated_at": "2019-10-21T07:28:19.396246Z",
-		"order_id": "efa44157-c355-4a98-b6d6-1d846a936b93"
-	},
-	"time_now": "1571651135.291930",
-	"rate_limit_status": 99, // The remaining number of accesses in one minute
-	"rate_limit_reset_ms": 1580885703683,
-	"rate_limit": 100
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "ext_info": "",
+    "result": {
+        "user_id": 106958,
+        "symbol": "BTCUSD",
+        "side": "Buy",
+        "order_type": "Limit",
+        "price": "11756.5",
+        "qty": 1,
+        "time_in_force": "PostOnly",
+        "order_status": "Filled",
+        "ext_fields": {
+            "o_req_num": -68948112492,
+            "xreq_type": "x_create"
+        },
+        "last_exec_time": "1596304897.847944",
+        "last_exec_price": "11756.5",
+        "leaves_qty": 0,
+        "leaves_value": "0",
+        "cum_exec_qty": 1,
+        "cum_exec_value": "0.00008505",
+        "cum_exec_fee": "-0.00000002",
+        "reject_reason": "",
+        "cancel_type": "",
+        "order_link_id": "",
+        "created_at": "2020-08-01T18:00:26Z",
+        "updated_at": "2020-08-01T18:01:37Z",
+        "order_id": "e66b101a-ef3f-4647-83b5-28e0f38dcae0"
+    },
+    "time_now": "1597171013.867068",
+    "rate_limit_status": 599,
+    "rate_limit_reset_ms": 1597171013861,
+    "rate_limit": 600
 }
 ```
 
@@ -531,11 +535,14 @@ GET
 |leaves_qty |number |t(:row_comment_leaves_qty)  |
 |leaves_value |number |t(:row_comment_leaves_value)  |
 |cum_exec_qty |number |t(:linear_resp_field_cum_exec_qty)  |
+|cum_exec_value |number |t(:linear_resp_field_cum_exec_value)  |
+|cum_exec_fee |order_link_id |string |t(:linear_resp_field_cum_exec_fee)  |
 |reject_reason |string |t(:row_comment_reject_reason)  |
+|cancel_type |string |t(:row_comment_cancel_type)  |
 |order_link_id |string |t(:row_comment_orderLinkId)  |
 |created_at |string |t(:row_comment_created_at)  |
 |updated_at |string |t(:row_comment_updated_at)  |
-|order_id |string |t(:row_comment_orderId)  |
+|order_id |string |t(:row_comment_order_id)  |
 
 
 ## t(:conditionalorders)
