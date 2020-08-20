@@ -211,7 +211,7 @@ en:
   row_comment_resp_mark_price_e4: Mark price * 10^4
   row_comment_resp_index_price: Index_price
   row_comment_resp_index_price_e4: Index_price * 10^4
-  row_comment_resp_open_interest: open interest
+  row_comment_resp_open_interest: Open interest
   row_comment_resp_open_value: Open position value
   row_comment_resp_open_value_e8: Open position value * 10^8
   row_comment_resp_total_turnover: Total turnover
@@ -228,10 +228,10 @@ en:
   row_comment_resp_countdown_hour: Countdown of settlement capital cost
   row_comment_resp_update_time: Update time
   row_comment_confirm: Is confirm
-  row_comment_resp_trade_time_ms: Transaction time (MS)
-  row_comment_resp_trade_id: Trade Id
-  row_comment_time_stamp: Timestamp（S）
-  row_comment_open_interest: Number of open interest
+  row_comment_resp_trade_time_ms: Transaction time (ms)
+  row_comment_resp_trade_id: Trade ID
+  row_comment_time_stamp: Timestamp
+  row_comment_open_interest: Number of contracts in open interest
   row_comment_value: Value of the order
   row_comment_limit_500_1000: Limit for data size per page, max size is 1000. Default as showing 500 pieces of data per page
   row_comment_buy_ratio: Long position ratio
@@ -318,6 +318,7 @@ en:
     In Cross Margin mode, The formula to calculate<span>:</span>
 
     <code>effective_leverage = position size / mark_price / (wallet_balance + unrealised_pnl)</code>
+  row_comment_slow_update: The update is not immediate - slowest update is 1 minute
 
   row_comment_from_id: Start ID. By default, returns the latest IDs
   row_comment_direction: |
@@ -485,17 +486,17 @@ en:
   marketfundingrate: Get Funding Rate
   market_para_marketfundingrate: Get Bybit's recent funding rates.
   #### Market Open Interest
-  marketopeninterest: Total Currency Holdings
-  market_para_marketopeninterest: Gets the total amount of positions held in each Bybit currency.
+  marketopeninterest: Open Interest
+  market_para_marketopeninterest: Gets the total amount of unsettled contracts. In other words, the total number of contracts held in open positions.
   #### Market Account Ratio
-  marketaccountratio: Account Long-Empty Ratio
-  market_para_marketaccountratio: Gets the Bybit account long-short ratio
+  marketaccountratio: Long-Short Ratio
+  market_para_marketaccountratio: Gets the Bybit long-short ratio.
   #### Market Account Ratio
   marketeliteratio: Top Trader Account Long-Empty Ratio
   market_para_marketeliteratio: Gets the Bybit top trader account long-empty ratio
   #### Market Big Deal
-  marketbigdeal: Actively Clinched Large Orders
-  market_para_marketbigdeal: Obtain Bybit active transaction orders of more than 500000USD within the latest 24h.
+  marketbigdeal: Latest Large Orders
+  market_para_marketbigdeal: Obtain filled orders worth more than 500,000 USD within the last 24h.
 
   # Account Data Endpoints
   accountdata: Account Data Endpoints

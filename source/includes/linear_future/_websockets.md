@@ -458,20 +458,20 @@ t(:websocket_aside_instrumentInfo2)
 |low_price_24h_e4 |integer |t(:row_comment_resp_low_price_24h_e4)  |
 |prev_price_1h_e4 |integer |t(:row_comment_resp_prev_price_1h_e4)  |
 |price_1h_pcnt_e6 |integer |t(:row_comment_resp_price_1h_pcnt_e6)  |
-|mark_price_e4 |integer |t(:row_comment_resp_mark_price_e4)  | 
-|index_price_e4 |integer |t(:row_comment_resp_index_price_e4)  | 
-|open_interest |integer |t(:row_comment_resp_open_interest)  | 
-|open_value_e8 |integer |t(:row_comment_resp_open_value_e8)  | 
+|mark_price_e4 |integer |t(:row_comment_resp_mark_price_e4)  |
+|index_price_e4 |integer |t(:row_comment_resp_index_price_e4)  |
+|open_interest |integer |t(:row_comment_resp_open_interest). t(:row_comment_slow_update)  |
+|open_value_e8 |integer |t(:row_comment_resp_open_value_e8). t(:row_comment_slow_update)  |
 |total_turnover_e8 |integer |t(:row_comment_resp_total_turnover_e8)  | 
-|turnover_24h_e8 |integer |t(:row_comment_resp_turnover_24h_e8)  | 
-|total_volume |integer |t(:row_comment_resp_total_volume)  | 
-|volume_24h |integer |t(:row_comment_resp_volume_24h)  | 
-|predicted_funding_rate_e6 |integer |t(:row_comment_resp_predicted_funding_rate_e6)  | 
-|cross_seq |integer |t(:row_comment_cross_seq)  | 
-|created_at |string |t(:row_comment_created_at)  | 
-|updated_at |string |t(:row_comment_updated_at)  | 
-|next_funding_time |string |t(:row_comment_resp_next_funding_time)  | 
-|countdown_hour |number |t(:row_comment_resp_countdown_hour)  | 
+|turnover_24h_e8 |integer |t(:row_comment_resp_turnover_24h_e8)  |
+|total_volume |integer |t(:row_comment_resp_total_volume)  |
+|volume_24h |integer |t(:row_comment_resp_volume_24h)  |
+|predicted_funding_rate_e6 |integer |t(:row_comment_resp_predicted_funding_rate_e6)  |
+|cross_seq |integer |t(:row_comment_cross_seq)  |
+|created_at |string |t(:row_comment_created_at)  |
+|updated_at |string |t(:row_comment_updated_at)  |
+|next_funding_time |string |t(:row_comment_resp_next_funding_time)  |
+|countdown_hour |number |t(:row_comment_resp_countdown_hour)  |
 
 
 ### t(:websocketkline)
@@ -515,17 +515,17 @@ t(:websocket_aside_klineV2)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|start|integer |t(:row_comment_startTime)    | 
-|end|integer |t(:row_comment_endTime)    | 
-|open|number |t(:row_comment_open)    | 
-|close|number |t(:row_comment_close)    | 
-|high|number |t(:row_comment_high)    | 
-|low|number |t(:row_comment_low)    | 
-|volume|string |t(:row_comment_resp_volume)    | 
-|turnover|string |t(:row_comment_resp_turnover)    | 
-|confirm|bool |t(:row_comment_confirm)    | 
-|cross_seq|integer |t(:row_comment_cross_seq)    | 
-|timestamp|integer |t(:row_comment_endTime)    | 
+|start|integer |t(:row_comment_startTime)    |
+|end|integer |t(:row_comment_endTime)    |
+|open|number |t(:row_comment_open)    |
+|close|number |t(:row_comment_close)    |
+|high|number |t(:row_comment_high)    |
+|low|number |t(:row_comment_low)    |
+|volume|string |t(:row_comment_resp_volume)    |
+|turnover|string |t(:row_comment_resp_turnover)    |
+|confirm|bool |t(:row_comment_confirm)    |
+|cross_seq|integer |t(:row_comment_cross_seq)    |
+|timestamp|integer |t(:row_comment_endTime)    |
 
 
 
@@ -558,7 +558,7 @@ ws.send('{"op": "subscribe", "args": ["position"]}')
        {
            "user_id":  1,
            "symbol": "BTCUSD",
-           "size": 11, 
+           "size": 11,
            "side": "Sell",
            "position_value": "0.00159252",
            "entry_price": "6907.291588174717",
@@ -566,13 +566,13 @@ ws.send('{"op": "subscribe", "args": ["position"]}')
            "bust_price": "7088.1234",
            "leverage": "1",
            "order_margin":  "1",
-           "position_margin":  "1", 
-           "occ_closing_fee":  "0.1", 
+           "position_margin":  "1",
+           "occ_closing_fee":  "0.1",
            "take_profit":  "0.1",
            "tp_trigger_by": 0,
            "stop_loss":  "0.12",
-           "sl_trigger_by": "Normal", 
-           "realised_pnl": "Normal", 
+           "sl_trigger_by": "Normal",
+           "realised_pnl": "Normal",
            "cum_realised_pnl": "Normal",
            "position_seq": 14
        }
@@ -703,8 +703,8 @@ ws.send('{"op": "subscribe", "args": ["order"]}')
 |cum_exec_qty |number |t(:linear_resp_field_cum_exec_qty)  |
 |cum_exec_value |string |t(:linear_resp_field_cum_exec_value)  |
 |cum_exec_fee |string |t(:linear_resp_field_cum_exec_fee)  |
-|create_time |string |t(:row_comment_timestamp)  | 
-|update_time |string |t(:row_comment_resp_update_time)  | 
+|create_time |string |t(:row_comment_timestamp)  |
+|update_time |string |t(:row_comment_resp_update_time)  |
 
 ### t(:websocketstoporder)
 > t(:codequote_subscribe)
