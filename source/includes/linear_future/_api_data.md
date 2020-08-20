@@ -32,6 +32,12 @@ GET
 |:----- |:-------|:-----|----- |
 
 ### t(:announcement)
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/v2/public/announcement
+```
+
 > t(:codequote_responseExample)
 
 ```javascript

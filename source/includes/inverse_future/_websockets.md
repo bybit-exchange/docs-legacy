@@ -144,6 +144,17 @@ t(:websocket_para_response)
 ws.send('{"op": "subscribe", "args": ["orderBookL2_25.BTCUSD"]}');
 ```
 
+```python
+from BybitWebsocket import BybitWebsocket
+ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
+                    api_key=None, api_secret=None)
+ws.subscribe_orderBookL2(symbol="BTCUSD")
+while True:
+    data = ws.get_data("orderBookL2_25.BTCUSD")
+    if data:
+        print(data)
+```
+
 > t(:codequote_snapshot)
 
 ```javascript
@@ -319,11 +330,23 @@ t(:websocket_para_orderbook200)
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 |size |number |t(:row_comment_position_size)  |
 
+
 ### t(:websockettrade)
 > t(:codequote_subscribe)
 
 ```javascript
 ws.send('{"op": "subscribe", "args": ["trade"]}')
+```
+
+```python
+from BybitWebsocket import BybitWebsocket
+ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
+                    api_key=None, api_secret=None)
+ws.subscribe_trade()
+while True:
+    data = ws.get_data("trade.BTCUSD")
+    if data:
+        print(data)
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -360,7 +383,7 @@ t(:websocket_para_trade)
 |t(:row_parameter_price) |number |t(:row_response_comment_price)  |
 |t(:row_parameter_tick_direction) |string |t(:row_comment_position_tick_direction)  |
 |trade_id |string |t(:row_response_comment_trade_id)  |
-|cross_seq |number |t(:row_comment_cross_seq)  | 
+|cross_seq |number |t(:row_comment_cross_seq)  |
 
 
 ### t(:websocketinsurance)
@@ -368,6 +391,17 @@ t(:websocket_para_trade)
 
 ```javascript
 ws.send('{"op": "subscribe", "args": ["insurance"]}')
+```
+
+```python
+from BybitWebsocket import BybitWebsocket
+ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
+                    api_key=None, api_secret=None)
+ws.subscribe_insurance()
+while True:
+    data = ws.get_data("insurance.BTC")
+    if data:
+        print(data)
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -404,6 +438,17 @@ t(:websocket_aside_insurance)
 
 ```javascript
 ws.send('{"op": "subscribe", "args": ["instrument_info.100ms.BTCUSD"]}')
+```
+
+```python
+from BybitWebsocket import BybitWebsocket
+ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
+                    api_key=None, api_secret=None)
+ws.subscribe_instrument_info(symbol="BTCUSD")
+while True:
+    data = ws.get_data("instrument_info.100ms.BTCUSD")
+    if data:
+        print(data)
 ```
 
 > t(:codequote_snapshot)
@@ -497,20 +542,20 @@ t(:websocket_aside_instrumentInfo2)
 |low_price_24h_e4 |integer |t(:row_comment_resp_low_price_24h_e4)  |
 |prev_price_1h_e4 |integer |t(:row_comment_resp_prev_price_1h_e4)  |
 |price_1h_pcnt_e6 |integer |t(:row_comment_resp_price_1h_pcnt_e6)  |
-|mark_price_e4 |integer |t(:row_comment_resp_mark_price_e4)  | 
-|index_price_e4 |integer |t(:row_comment_resp_index_price_e4)  | 
-|open_interest |integer |t(:row_comment_resp_open_interest)  | 
-|open_value_e8 |integer |t(:row_comment_resp_open_value_e8)  | 
-|total_turnover_e8 |integer |t(:row_comment_resp_total_turnover_e8)  | 
-|turnover_24h_e8 |integer |t(:row_comment_resp_turnover_24h_e8)  | 
-|total_volume |integer |t(:row_comment_resp_total_volume)  | 
-|volume_24h |integer |t(:row_comment_resp_volume_24h)  | 
-|predicted_funding_rate_e6 |integer |t(:row_comment_resp_predicted_funding_rate_e6)  | 
-|cross_seq |integer |t(:row_comment_cross_seq)  | 
-|created_at |string |t(:row_comment_created_at)  | 
-|updated_at |string |t(:row_comment_updated_at)  | 
-|next_funding_time |string |t(:row_comment_resp_next_funding_time)  | 
-|countdown_hour |integer |t(:row_comment_resp_countdown_hour)  | 
+|mark_price_e4 |integer |t(:row_comment_resp_mark_price_e4)  |
+|index_price_e4 |integer |t(:row_comment_resp_index_price_e4)  |
+|open_interest |integer |t(:row_comment_resp_open_interest)  |
+|open_value_e8 |integer |t(:row_comment_resp_open_value_e8)  |
+|total_turnover_e8 |integer |t(:row_comment_resp_total_turnover_e8)  |
+|turnover_24h_e8 |integer |t(:row_comment_resp_turnover_24h_e8)  |
+|total_volume |integer |t(:row_comment_resp_total_volume)  |
+|volume_24h |integer |t(:row_comment_resp_volume_24h)  |
+|predicted_funding_rate_e6 |integer |t(:row_comment_resp_predicted_funding_rate_e6)  |
+|cross_seq |integer |t(:row_comment_cross_seq)  |
+|created_at |string |t(:row_comment_created_at)  |
+|updated_at |string |t(:row_comment_updated_at)  |
+|next_funding_time |string |t(:row_comment_resp_next_funding_time)  |
+|countdown_hour |integer |t(:row_comment_resp_countdown_hour)  |
 
 
 ### t(:websocketklineV2)
@@ -551,17 +596,17 @@ t(:websocket_aside_klineV2)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|start|integer |t(:row_comment_startTime)    | 
-|end|integer |t(:row_comment_endTime)    | 
-|open|number |t(:row_comment_open)    | 
-|close|number |t(:row_comment_close)    | 
-|high|number |t(:row_comment_high)    | 
-|low|number |t(:row_comment_low)    | 
-|volume|number |t(:row_comment_resp_volume)    | 
-|turnover|number |t(:row_comment_resp_turnover)    | 
-|confirm|bool |t(:row_comment_confirm)    | 
-|cross_seq|integer |t(:row_comment_cross_seq)    | 
-|timestamp|integer |t(:row_comment_endTime)    | 
+|start|integer |t(:row_comment_startTime)    |
+|end|integer |t(:row_comment_endTime)    |
+|open|number |t(:row_comment_open)    |
+|close|number |t(:row_comment_close)    |
+|high|number |t(:row_comment_high)    |
+|low|number |t(:row_comment_low)    |
+|volume|number |t(:row_comment_resp_volume)    |
+|turnover|number |t(:row_comment_resp_turnover)    |
+|confirm|bool |t(:row_comment_confirm)    |
+|cross_seq|integer |t(:row_comment_cross_seq)    |
+|timestamp|integer |t(:row_comment_endTime)    |
 
 
 
@@ -572,6 +617,17 @@ t(:websocket_aside_klineV2)
 
 ```javascript
 ws.send('{"op": "subscribe", "args": ["position"]}')
+```
+
+```python
+from BybitWebsocket import BybitWebsocket
+ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
+                    api_key=api_key, api_secret=api_secret)
+ws.subscribe_position()
+while True:
+    data = ws.get_data("position")
+    if data:
+        print(data)
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -661,6 +717,17 @@ t(:account_para_myPosition)
 ws.send('{"op": "subscribe", "args": ["execution"]}')
 ```
 
+```python
+from BybitWebsocket import BybitWebsocket
+ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
+                    api_key=api_key, api_secret=api_secret)
+ws.subscribe_execution()
+while True:
+    data = ws.get_data("execution")
+    if data:
+        print(data)
+```
+
 > t(:codequote_responseExampleFormatAll)
 
 ```javascript
@@ -712,6 +779,17 @@ t(:wallet_para_tradeRecords)
 
 ```javascript
 ws.send('{"op": "subscribe", "args": ["order"]}')
+```
+
+```python
+from BybitWebsocket import BybitWebsocket
+ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
+                    api_key=api_key, api_secret=api_secret)
+ws.subscribe_order()
+while True:
+    data = ws.get_data("order")
+    if data:
+        print(data)
 ```
 
 > t(:codequote_responseExampleFormatAll)

@@ -144,6 +144,17 @@ t(:websocket_para_response)
 ws.send('{"op": "subscribe", "args": ["orderBookL2_25.BTCUSDT"]}');
 ```
 
+```python
+from BybitWebsocket import BybitWebsocket
+ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime_public",
+                    api_key=None, api_secret=None)
+ws.subscribe_orderBookL2(symbol="BTCUSDT")
+while True:
+    data = ws.get_data("orderBookL2_25.BTCUSDT")
+    if data:
+        print(data)
+```
+
 > t(:codequote_snapshot)
 
 ```javascript
@@ -365,6 +376,17 @@ t(:websocket_para_trade)
 ws.send('{"op": "subscribe", "args": ["instrument_info.100ms.BTCUSDT"]}')
 ```
 
+```python
+from BybitWebsocket import BybitWebsocket
+ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime_public",
+                    api_key=None, api_secret=None)
+ws.subscribe_instrument_info("BTCUSDT")
+while True:
+    data = ws.get_data("instrument_info.100ms.BTCUSDT")
+    if data:
+        print(data)
+```
+
 > t(:codequote_snapshot)
 
 ```javascript
@@ -458,20 +480,20 @@ t(:websocket_aside_instrumentInfo2)
 |low_price_24h_e4 |integer |t(:row_comment_resp_low_price_24h_e4)  |
 |prev_price_1h_e4 |integer |t(:row_comment_resp_prev_price_1h_e4)  |
 |price_1h_pcnt_e6 |integer |t(:row_comment_resp_price_1h_pcnt_e6)  |
-|mark_price_e4 |integer |t(:row_comment_resp_mark_price_e4)  | 
-|index_price_e4 |integer |t(:row_comment_resp_index_price_e4)  | 
-|open_interest |integer |t(:row_comment_resp_open_interest)  | 
-|open_value_e8 |integer |t(:row_comment_resp_open_value_e8)  | 
-|total_turnover_e8 |integer |t(:row_comment_resp_total_turnover_e8)  | 
-|turnover_24h_e8 |integer |t(:row_comment_resp_turnover_24h_e8)  | 
-|total_volume |integer |t(:row_comment_resp_total_volume)  | 
-|volume_24h |integer |t(:row_comment_resp_volume_24h)  | 
-|predicted_funding_rate_e6 |integer |t(:row_comment_resp_predicted_funding_rate_e6)  | 
-|cross_seq |integer |t(:row_comment_cross_seq)  | 
-|created_at |string |t(:row_comment_created_at)  | 
-|updated_at |string |t(:row_comment_updated_at)  | 
-|next_funding_time |string |t(:row_comment_resp_next_funding_time)  | 
-|countdown_hour |number |t(:row_comment_resp_countdown_hour)  | 
+|mark_price_e4 |integer |t(:row_comment_resp_mark_price_e4)  |
+|index_price_e4 |integer |t(:row_comment_resp_index_price_e4)  |
+|open_interest |integer |t(:row_comment_resp_open_interest)  |
+|open_value_e8 |integer |t(:row_comment_resp_open_value_e8)  |
+|total_turnover_e8 |integer |t(:row_comment_resp_total_turnover_e8)  |
+|turnover_24h_e8 |integer |t(:row_comment_resp_turnover_24h_e8)  |
+|total_volume |integer |t(:row_comment_resp_total_volume)  |
+|volume_24h |integer |t(:row_comment_resp_volume_24h)  |
+|predicted_funding_rate_e6 |integer |t(:row_comment_resp_predicted_funding_rate_e6)  |
+|cross_seq |integer |t(:row_comment_cross_seq)  |
+|created_at |string |t(:row_comment_created_at)  |
+|updated_at |string |t(:row_comment_updated_at)  |
+|next_funding_time |string |t(:row_comment_resp_next_funding_time)  |
+|countdown_hour |number |t(:row_comment_resp_countdown_hour)  |
 
 
 ### t(:websocketkline)
@@ -515,17 +537,17 @@ t(:websocket_aside_klineV2)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|start|integer |t(:row_comment_startTime)    | 
-|end|integer |t(:row_comment_endTime)    | 
-|open|number |t(:row_comment_open)    | 
-|close|number |t(:row_comment_close)    | 
-|high|number |t(:row_comment_high)    | 
-|low|number |t(:row_comment_low)    | 
-|volume|string |t(:row_comment_resp_volume)    | 
-|turnover|string |t(:row_comment_resp_turnover)    | 
-|confirm|bool |t(:row_comment_confirm)    | 
-|cross_seq|integer |t(:row_comment_cross_seq)    | 
-|timestamp|integer |t(:row_comment_endTime)    | 
+|start|integer |t(:row_comment_startTime)    |
+|end|integer |t(:row_comment_endTime)    |
+|open|number |t(:row_comment_open)    |
+|close|number |t(:row_comment_close)    |
+|high|number |t(:row_comment_high)    |
+|low|number |t(:row_comment_low)    |
+|volume|string |t(:row_comment_resp_volume)    |
+|turnover|string |t(:row_comment_resp_turnover)    |
+|confirm|bool |t(:row_comment_confirm)    |
+|cross_seq|integer |t(:row_comment_cross_seq)    |
+|timestamp|integer |t(:row_comment_endTime)    |
 
 
 
@@ -552,33 +574,40 @@ ws.send('{"op": "subscribe", "args": ["position"]}')
 
 ```javascript
 {
-   "topic": "position",
-   "action": "update",
-   "data": [
-       {
-           "user_id":  1,
-           "symbol": "BTCUSD",
-           "size": 11, 
-           "side": "Sell",
-           "position_value": "0.00159252",
-           "entry_price": "6907.291588174717",
-           "liq_price": "7100.234",
-           "bust_price": "7088.1234",
-           "leverage": "1",
-           "order_margin":  "1",
-           "position_margin":  "1", 
-           "occ_closing_fee":  "0.1", 
-           "take_profit":  "0.1",
-           "tp_trigger_by": 0,
-           "stop_loss":  "0.12",
-           "sl_trigger_by": "Normal", 
-           "realised_pnl": "Normal", 
-           "cum_realised_pnl": "Normal",
-           "position_seq": 14
-       }
-   ]
+    "topic": "position",
+    "action": "update",
+    "data": [
+        {
+            "user_id": "1",
+            "symbol": "BTCUSDT",
+            "size": 0,
+            "side": "Buy",
+            "position_value": 0,
+            "entry_price": 0,
+            "liq_price": 0,
+            "bust_price": 0,
+            "leverage": 10,
+            "order_margin": 0,
+            "position_margin": 0,
+            "occ_closing_fee": 0,
+            "take_profit": 0,
+            "tp_trigger_by": "LastPriceOld",
+            "stop_loss": 0,
+            "sl_trigger_by": "LastPriceOld",
+            "trailing_stop": 0,
+            "realised_pnl": -0.00978863,
+            "auto_add_margin": "0",
+            "cum_realised_pnl": 7.5446267,
+            "position_status": "Normal",
+            "position_id": "0",
+            "position_seq": "433",
+            "adl_rank_indicator": "0",
+            "free_qty": 0
+        }
+    ]
 }
 ```
+
 t(:account_para_myPosition)
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -605,11 +634,23 @@ t(:account_para_myPosition)
 |position_status |string |t(:row_comment_position_status)  |
 |position_seq |number |t(:row_comment_position_seq)  |
 
+
 ### t(:websocketexecution)
 > t(:codequote_subscribe)
 
 ```javascript
 ws.send('{"op": "subscribe", "args": ["execution"]}')
+```
+
+```python
+from BybitWebsocket import BybitWebsocket
+ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime_private",
+                    api_key=api_key, api_secret=api_secret)
+ws.subscribe_execution()
+while True:
+    data = ws.get_data("execution")
+    if data:
+        print(data)
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -619,17 +660,19 @@ ws.send('{"op": "subscribe", "args": ["execution"]}')
     "topic": "execution",
     "data": [
         {
-            "symbol": "BTCUSD",
-            "side": "Buy",
+            "symbol": "BTCUSDT",
+            "side": "Sell",
             "order_id": "xxxxxxxx-xxxx-xxxx-9a8f-4a973eb5c418",
             "exec_id": "xxxxxxxx-xxxx-xxxx-8b66-c3d2fcd352f6",
             "order_link_id": "",
-            "price": "8300",
-            "order_qty": 1,
+            "price": 11527.5,
+            "order_qty": 0.001,
             "exec_type": "Trade",
-            "exec_qty": 1,
-            "exec_fee": "0.00000009",
-            "trade_time": "2020-01-14T14:07:23.629Z" // trade time
+            "exec_qty": 0.001,
+            "exec_fee": 0.00864563,
+            "leaves_qty": 0,
+            "is_maker": false,
+            "trade_time": "2020-08-12T21:16:18.142746Z"
         }
     ]
 }
@@ -660,28 +703,46 @@ t(:wallet_para_tradeRecords)
 ws.send('{"op": "subscribe", "args": ["order"]}')
 ```
 
+```python
+from BybitWebsocket import BybitWebsocket
+ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime_private",
+                    api_key=api_key, api_secret=api_secret)
+ws.subscribe_order()
+while True:
+    data = ws.get_data("order")
+    if data:
+        print(data)
+```
+
 > t(:codequote_responseExampleFormatAll)
 
 ```javascript
 {
     "topic": "order",
+    "action": "",
     "data": [
         {
             "order_id": "xxxxxxxx-xxxx-xxxx-9a8f-4a973eb5c418",
             "order_link_id": "",
-            "symbol": "BTCUSD",
-            "side": "Sell",
-            "order_type": "Market",
-            "price": "8579.5",
-            "qty": 1,
-            "time_in_force": "ImmediateOrCancel",
-            "order_status": "Filled",
+            "symbol": "BTCUSDT",
+            "side": "Buy",
+            "order_type": "Limit",
+            "price": 11000,
+            "qty": 0.001,
+            "leaves_qty": 0.001,
             "last_exec_price": 0,
-            "cum_exec_qty": 1,
-            "cum_exec_value": "0.00011655",
-            "cum_exec_fee": "0.00000009",
-            "create_time": "2020-01-14T14:09:31.778Z",
-            "update_time": "2020-01-14T14:09:31.778Z"
+            "cum_exec_qty": 0,
+            "cum_exec_value": 0,
+            "cum_exec_fee": 0,
+            "time_in_force": "GoodTillCancel",
+            "create_type": "CreateByUser",
+            "cancel_type": "UNKNOWN",
+            "order_status": "New",
+            "take_profit": 0,
+            "stop_loss": 0,
+            "trailing_stop": 0,
+            "create_time": "2020-08-12T21:18:40.780039678Z",
+            "update_time": "2020-08-12T21:18:40.787986415Z"
         }
     ]
 }
@@ -703,8 +764,8 @@ ws.send('{"op": "subscribe", "args": ["order"]}')
 |cum_exec_qty |number |t(:linear_resp_field_cum_exec_qty)  |
 |cum_exec_value |string |t(:linear_resp_field_cum_exec_value)  |
 |cum_exec_fee |string |t(:linear_resp_field_cum_exec_fee)  |
-|create_time |string |t(:row_comment_timestamp)  | 
-|update_time |string |t(:row_comment_resp_update_time)  | 
+|create_time |string |t(:row_comment_timestamp)  |
+|update_time |string |t(:row_comment_resp_update_time)  |
 
 ### t(:websocketstoporder)
 > t(:codequote_subscribe)
