@@ -88,7 +88,7 @@ GET
 |occ_funding_fee |number |t(:row_comment_occ_funding_fee)  |
 |wallet_balance |number |t(:row_comment_wallet_balance)  |
 |realised_pnl |number |t(:row_comment_realised_pnl)  |
-|unrealised_pnl |number |t(:row_comment_runrealised_pnl)  |
+|unrealised_pnl |number |t(:row_comment_unrealised_pnl)  |
 |cum_realised_pnl|number |t(:row_comment_cum_realised_pnl)  |
 |given_cash |number |t(:row_response_comment_given_cash)  |
 |service_cash |number |t(:row_response_comment_service_cash)  |

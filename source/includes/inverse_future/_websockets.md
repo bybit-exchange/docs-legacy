@@ -544,8 +544,8 @@ t(:websocket_aside_instrumentInfo2)
 |price_1h_pcnt_e6 |integer |t(:row_comment_resp_price_1h_pcnt_e6)  |
 |mark_price_e4 |integer |t(:row_comment_resp_mark_price_e4)  |
 |index_price_e4 |integer |t(:row_comment_resp_index_price_e4)  |
-|open_interest |integer |t(:row_comment_resp_open_interest)  |
-|open_value_e8 |integer |t(:row_comment_resp_open_value_e8)  |
+|open_interest |integer |t(:row_comment_resp_open_interest). t(:row_comment_slow_update)  |
+|open_value_e8 |integer |t(:row_comment_resp_open_value_e8). t(:row_comment_slow_update)  |
 |total_turnover_e8 |integer |t(:row_comment_resp_total_turnover_e8)  |
 |turnover_24h_e8 |integer |t(:row_comment_resp_turnover_24h_e8)  |
 |total_volume |integer |t(:row_comment_resp_total_volume)  |
@@ -765,7 +765,7 @@ t(:wallet_para_tradeRecords)
 |order_link_id |string |t(:row_comment_order_link_id)  |
 |t(:row_parameter_price) |string |t(:row_comment_exec_price)    |
 |order_qty |number |t(:row_comment_order_qty)  |
-|t(:row_parameter_exec_type) |string |t(:row_comment_exec_type)  |
+|t(:row_parameter_exec_type) |string |t(:enum_exec_type_link)  |
 |exec_qty |number |t(:row_comment_exec_qty)  |
 |exec_fee |string |t(:row_comment_exec_fee)    |
 |leaves_qty |number |t(:row_comment_leaves_qty)  |
@@ -819,7 +819,7 @@ while True:
             "stop_loss": "0",
             "trailing_stop": "0",
             "trailing_active": "0",
-            "last_exec_price": "8300"
+            "last_exec_price": "8580"
         }
     ]
 }

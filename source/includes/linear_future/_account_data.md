@@ -180,7 +180,7 @@ GET
 | price  |number |t(:row_comment_resp_price) |
 | qty  |number |t(:row_response_comment_qty) |
 |time_in_force |string |t(:row_comment_timeInForce)  |
-|order_status |string |t(:row_parameter_order_status)  |
+|t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
 |last_exec_price |number |t(:row_comment_last_exec_price)  |
 |cum_exec_qty |number |t(:linear_resp_field_cum_exec_qty)  |
 |cum_exec_value |number |t(:linear_resp_field_cum_exec_value)  |
@@ -1348,7 +1348,7 @@ GET
 |t(:row_parameter_order_type) |string |t(:row_comment_order_type)  |
 |fee_rate |number |t(:row_comment_fee_rate)  |
 |exec_price |number |t(:row_comment_exec_price)    |
-|t(:row_parameter_exec_type) |string |t(:row_comment_exec_type)  |
+|t(:row_parameter_exec_type) |string |t(:enum_exec_type_link)  |
 |exec_qty |number |t(:row_comment_exec_qty)  |
 |exec_fee |number |t(:row_comment_exec_fee)    |
 |exec_value |number |t(:row_comment_exec_value)  |

@@ -482,8 +482,8 @@ t(:websocket_aside_instrumentInfo2)
 |price_1h_pcnt_e6 |integer |t(:row_comment_resp_price_1h_pcnt_e6)  |
 |mark_price_e4 |integer |t(:row_comment_resp_mark_price_e4)  |
 |index_price_e4 |integer |t(:row_comment_resp_index_price_e4)  |
-|open_interest |integer |t(:row_comment_resp_open_interest)  |
-|open_value_e8 |integer |t(:row_comment_resp_open_value_e8)  |
+|open_interest |integer |t(:row_comment_resp_open_interest). t(:row_comment_slow_update)  |
+|open_value_e8 |integer |t(:row_comment_resp_open_value_e8). t(:row_comment_slow_update)  |
 |total_turnover_e8 |integer |t(:row_comment_resp_total_turnover_e8)  |
 |turnover_24h_e8 |integer |t(:row_comment_resp_turnover_24h_e8)  |
 |total_volume |integer |t(:row_comment_resp_total_volume)  |
@@ -574,37 +574,31 @@ ws.send('{"op": "subscribe", "args": ["position"]}')
 
 ```javascript
 {
-    "topic": "position",
-    "action": "update",
-    "data": [
-        {
-            "user_id": "1",
-            "symbol": "BTCUSDT",
-            "size": 0,
-            "side": "Buy",
-            "position_value": 0,
-            "entry_price": 0,
-            "liq_price": 0,
-            "bust_price": 0,
-            "leverage": 10,
-            "order_margin": 0,
-            "position_margin": 0,
-            "occ_closing_fee": 0,
-            "take_profit": 0,
-            "tp_trigger_by": "LastPriceOld",
-            "stop_loss": 0,
-            "sl_trigger_by": "LastPriceOld",
-            "trailing_stop": 0,
-            "realised_pnl": -0.00978863,
-            "auto_add_margin": "0",
-            "cum_realised_pnl": 7.5446267,
-            "position_status": "Normal",
-            "position_id": "0",
-            "position_seq": "433",
-            "adl_rank_indicator": "0",
-            "free_qty": 0
-        }
-    ]
+   "topic": "position",
+   "action": "update",
+   "data": [
+       {
+           "user_id":  1,
+           "symbol": "BTCUSD",
+           "size": 11,
+           "side": "Sell",
+           "position_value": "0.00159252",
+           "entry_price": "6907.291588174717",
+           "liq_price": "7100.234",
+           "bust_price": "7088.1234",
+           "leverage": "1",
+           "order_margin":  "1",
+           "position_margin":  "1",
+           "occ_closing_fee":  "0.1",
+           "take_profit":  "0.1",
+           "tp_trigger_by": 0,
+           "stop_loss":  "0.12",
+           "sl_trigger_by": "Normal",
+           "realised_pnl": "Normal",
+           "cum_realised_pnl": "Normal",
+           "position_seq": 14
+       }
+   ]
 }
 ```
 
@@ -690,7 +684,7 @@ t(:wallet_para_tradeRecords)
 |order_link_id |string |t(:row_comment_order_link_id)  |
 |t(:row_parameter_price) |string |t(:row_comment_exec_price)    |
 |order_qty |number |t(:row_comment_order_qty)  |
-|t(:row_parameter_exec_type) |string |t(:row_comment_exec_type)  |
+|t(:row_parameter_exec_type) |string |t(:enum_exec_type_link)  |
 |exec_qty |number |t(:row_comment_exec_qty)  |
 |exec_fee |string |t(:row_comment_exec_fee)    |
 |trade_time |string |t(:row_comment_trade_time)  |
