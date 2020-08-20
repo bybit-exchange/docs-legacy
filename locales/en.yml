@@ -170,6 +170,7 @@ en:
   row_comment_limit_200: Limit for data size per page, max size is 200. Default as showing 200 pieces of data per page
   row_comment_limit_100: Limit for data size per page, max size is 100. Default as showing 50 pieces of data per page
   row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page
+  row_comment_limit_50_500: Limit for data size per page, max size is 500. Default as showing 50 pieces of data per page
   row_comment_period: Data recording period. <code>5min</code>, <code>15min</code>, <code>30min</code>, <code>1h</code>, <code>4h</code>, <code>1d</code>
   row_comment_last_exec_time: Last execution time
   row_comment_last_exec_price: Last execution price
@@ -210,7 +211,7 @@ en:
   row_comment_resp_mark_price_e4: Mark price * 10^4
   row_comment_resp_index_price: Index_price
   row_comment_resp_index_price_e4: Index_price * 10^4
-  row_comment_resp_open_interest: open interest
+  row_comment_resp_open_interest: Open interest
   row_comment_resp_open_value: Open position value
   row_comment_resp_open_value_e8: Open position value * 10^8
   row_comment_resp_total_turnover: Total turnover
@@ -227,8 +228,14 @@ en:
   row_comment_resp_countdown_hour: Countdown of settlement capital cost
   row_comment_resp_update_time: Update time
   row_comment_confirm: Is confirm
-  row_comment_resp_trade_time_ms: Transaction time (MS)
-  row_comment_resp_trade_id: Trade Id
+  row_comment_resp_trade_time_ms: Transaction time (ms)
+  row_comment_resp_trade_id: Trade ID
+  row_comment_time_stamp: Timestamp
+  row_comment_open_interest: Number of contracts in open interest
+  row_comment_value: Value of the order
+  row_comment_limit_500_1000: Limit for data size per page, max size is 1000. Default as showing 500 pieces of data per page
+  row_comment_buy_ratio: Long position ratio
+  row_comment_sell_ratio: Short position ratio
 
 
   row_response_comment_price: Order price
@@ -311,6 +318,7 @@ en:
     In Cross Margin mode, The formula to calculate<span>:</span>
 
     <code>effective_leverage = position size / mark_price / (wallet_balance + unrealised_pnl)</code>
+  row_comment_slow_update: The update is not immediate - slowest update is 1 minute
 
   row_comment_from_id: Start ID. By default, returns the latest IDs
   row_comment_direction: |
@@ -478,17 +486,17 @@ en:
   marketfundingrate: Get Funding Rate
   market_para_marketfundingrate: Get Bybit's recent funding rates.
   #### Market Open Interest
-  marketopeninterest: Total Currency Holdings
-  market_para_marketopeninterest: Gets the total amount of positions held in each Bybit currency.
+  marketopeninterest: Open Interest
+  market_para_marketopeninterest: Gets the total amount of unsettled contracts. In other words, the total number of contracts held in open positions.
   #### Market Account Ratio
-  marketaccountratio: Account Long-Empty Ratio
-  market_para_marketaccountratio: Gets the Bybit account long-empty ratio
+  marketaccountratio: Long-Short Ratio
+  market_para_marketaccountratio: Gets the Bybit long-short ratio.
   #### Market Account Ratio
   marketeliteratio: Top Trader Account Long-Empty Ratio
   market_para_marketeliteratio: Gets the Bybit top trader account long-empty ratio
   #### Market Big Deal
-  marketbigdeal: Actively Clinched Large Orders
-  market_para_marketbigdeal: Obtain Bybit active transaction orders over 500000 USD. Returns the last 50 transactions.
+  marketbigdeal: Latest Large Orders
+  market_para_marketbigdeal: Obtain filled orders worth more than 500,000 USD within the last 24h.
 
   # Account Data Endpoints
   accountdata: Account Data Endpoints
