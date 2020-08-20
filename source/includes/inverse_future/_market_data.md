@@ -462,7 +462,7 @@ GET
 |:----- |:-----|----- |
 |id |number |t(:row_response_comment_id)  |
 |t(:row_parameter_quantity) |number |t(:row_response_comment_execqty)  |
-|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|t(:row_parameter_side) |string |t(:row_response_liq_record_side)  |
 |time |number |t(:row_response_comment_nill_time)  |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
 |price |number |t(:row_response_comment_execprice)  |
