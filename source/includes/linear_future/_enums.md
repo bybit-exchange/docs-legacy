@@ -7,6 +7,11 @@ t(:ENUMs_para)
 
 ## Symbol (`symbol`)
 * `BTCUSDT`
+* `ETHUSDT`
+* `BCHUSDT`
+* `LTCUSDT`
+* `LINKUSDT`
+* `XTZUSDT`
 
 ## Currency (`currency`/`coin`)
 * `USDT`
