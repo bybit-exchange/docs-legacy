@@ -246,6 +246,7 @@ zh-cn:
   row_response_comment_qty: 委托数量
   row_response_comment_basePrice: 当前市价
   row_response_comment_triggerBy: 触发价格类型
+  row_response_comment_stop_order_type: 条件单类型
   row_response_comment_orderLinkId: 机构自定义订单ID
   row_response_comment_id: 最新数据ID
   row_response_comment_trade_id: 交易ID
@@ -305,6 +306,7 @@ zh-cn:
   row_parameter_exec_type: <a href="#exec-type-exec_type">exec_type</a>
   row_parameter_last_liquidity_ind: <a href="#liquidity-type-last_liquidity_ind">last_liquidity_ind</a>
   row_parameter_tick_direction: <a href="#tick-direction-type-tick_direction">tick_direction</a>
+  row_parameter_stop_order_type: <a href="#stop-order-type-stop_order_type">stop_order_type</a>
 
 
   default: 默认
@@ -1087,6 +1089,17 @@ zh-cn:
   Full: "仓位止盈止损"
   Partial: "部分止盈止损"
 
+  ## Stop Order type (`stop_order_type`)
+  stop_order_type: "条件单类型"
+
+  Stop: "普通条件单"
+  TakeProfit: "仓位止盈条件单"
+  StopLoss: "仓位止损条件单"
+  TrailingStop: "追踪止损条件单"
+  TrailingProfit: "追踪止盈条件单"
+  PartialTakeProfit: "部分止盈条件单"
+  PartialStopLoss: "部分止损条件单"
+
 
 
   # Error Code
@@ -1425,7 +1438,7 @@ zh-cn:
   restapi_update_20200826_4: 支持创建部分止盈止损单,请求参数增加<code>sl_size</code>, <code>tp_size</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
   restapi_update_20200826_5: 支持撤销止盈止损单
   restapi_update_20200826_6: 支持修改止盈止损单信息,请求参数增加<code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
-  restapi_update_20200826_7: 支持撤销全部止盈止损单,请求参数增加<code>side</code>, <code>tp_sl</code>
+  restapi_update_20200826_7: 支持撤销全部止盈止损单,请求参数增加<code>side</code>, <code>is_tp_sl</code>
 
   markpricekline: 标记价格K线
   linear_query_mark_price_kline: 查询标记价格K线

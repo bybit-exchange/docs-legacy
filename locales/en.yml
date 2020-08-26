@@ -247,7 +247,7 @@ en:
   row_response_comment_price: Order price
   row_response_comment_qty: Order quantity in USD
   row_response_comment_basePrice: The current market price
-  row_response_comment_triggerBy: Trigger price type
+  row_response_comment_stop_order_type: Stop order type
   row_response_comment_orderLinkId: Customised order ID
   row_response_comment_id: Latest data ID
   row_response_comment_execprice: Execution price
@@ -1114,6 +1114,17 @@ en:
   Full: "Full stop loss take profit"
   Partial: "Partial stop loss take profit"
 
+  ## Stop Order type (`stop_order_type`)
+  stop_order_type: "stop order type"
+
+  Stop: "Normal stop order"
+  TakeProfit: "Position take profit order"
+  StopLoss: "Position stop loss order"
+  TrailingStop: "Trailing stop loss order"
+  TrailingProfit: "Trailing take profit order"
+  PartialTakeProfit: "Partial take profit order"
+  PartialStopLoss: "Partial take profit order"
+
   # Error Code
   errors_intro: The Bybit API uses the following HTTP Codes and Error Codes<span>:</span>
 
@@ -1459,7 +1470,7 @@ en:
   restapi_update_20200826_4: Support created partial take profit and stop loss order,Add new request parameter <code>sl_size</code>, <code>tp_size</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
   restapi_update_20200826_5: Support cancel take profit stop loss order
   restapi_update_20200826_6: Support replace cancel take profit stop loss order,Add new request parameter <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
-  restapi_update_20200826_7: Support cancel all take profit stop loss order,Add new request parameter <code>side</code>, <code>tp_sl</code>
+  restapi_update_20200826_7: Support cancel all take profit stop loss order,Add new request parameter <code>is_tp_sl</code>, <code>tp_sl</code>
 
   markpricekline: Query Mark Price Kline
   linear_query_mark_price_kline: Query mark price kline (like <a href="#t-querykline">Query Kline</a> but for <a href="https://help.bybit.com/hc/en-us/articles/360039261074-What-is-Dual-Price-mechanism-">mark price</a>).
