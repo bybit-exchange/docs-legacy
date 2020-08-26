@@ -131,6 +131,8 @@ zh-cn:
   row_comment_stopPx: 条件委托下单时市价
   row_comment_timeInForce: 执行策略
   row_comment_triggerBy: 触发价格类型. 默认为最新市价
+  row_comment_tp_size: 在部分止盈止损模式下，止盈合约数量
+  row_comment_sl_size: 在部分止盈止损模式下，止损合约数量
   row_comment_takeProfit: 止盈价格，仅开仓时生效
   row_comment_stopLoss: 止损价格，仅开仓时生效
   row_comment_trailingStop: Trailing stop
@@ -144,6 +146,8 @@ zh-cn:
   row_comment_pRQty: 修改后的订单数量。如果是未完全成交订单，则表示修改剩余未成交的部分。如果不修改这个字段，请不要传这个参数。
   row_comment_pRPrice: 修改后的订单价格。如果不修改这个字段，请不要传这个参数。
   row_comemnt_pRTriggerPrice: 修改后的条件单的触发价格。如果不修改这个字段，请不要传这个参数。
+  row_comemnt_replace_take_profit: 修改后的止盈价格。如果不修改这个字段，请不要传这个参数。
+  row_comemnt_replace_stop_loss: 修改后的止损价格。如果不修改这个字段，请不要传这个参数。
   row_comment_leverage: 杠杆。<code>杠杆为0</code>意味着全仓模式.全场模式下修改杠杆会变成逐仓模式
   row_comment_startDate: 起始时间点
   row_comment_endDate: 结束时间点
@@ -180,6 +184,8 @@ zh-cn:
   row_comment_low: 最低价格
   row_comment_close: 结束价格
   row_comment_timestamp: 委托时间
+  row_comment_tp_sl: true-取消对应仓位上的止盈止损单，false-取消普通条件单，默认false
+
   row_comment_resp_price: 委托价格
   row_comment_resp_size: 合约数量
   row_comment_resp_open_time: 开始时间
@@ -287,6 +293,7 @@ zh-cn:
 
   row_parameter_symbol: <a href="#symbol-symbol">symbol</a>
   row_parameter_side: <a href="#side-side">side</a>
+  row_parameter_tp_sl_mode: <a href="#tpsl-mode-type-tp_sl_mode">tp_sl_mode</a>
   row_parameter_order_type: <a href="#order-type-order_type">order_type</a>
   row_parameter_quantity: <a href="#quantity-qty">qty</a>
   row_parameter_price: <a href="#price-price">price</a>
@@ -520,7 +527,6 @@ zh-cn:
   replaceactive: 修改活动单信息
   account_para_replaceActive: |
     <p>本接口可以修改您的活动单信息.</p>
-    <p>您可以只修改<code>p_r_qty</code> 或 <code>p_r_price</code></p>
   account_aside_replaceActive:
     请注意，只有未成交或未完全成交的订单才可以被修改。
   ### Query Active Order (real-time)
@@ -549,10 +555,10 @@ zh-cn:
   ### Cancel Conditional Order
   cancelcond: 撤消条件委托单
   account_para_cancelCond: |
-    <p>您可以撤销所有未被激活的条件委托。本质上所有条件委托在被激活后都是属于活动委托，所以条件委托一旦被激活，您需要通过调用取消活动委托接口来取消所有未成交、部分成交的活动委托单。同样全部成交的活动委托不可取消。</p>
+    <p>您可以撤销所有未被激活的条件委托,或止盈止损单。本质上所有条件委托在被激活后都是属于活动委托，所以条件委托一旦被激活，您需要通过调用取消活动委托接口来取消所有未成交、部分成交的活动委托单。同样全部成交的活动委托不可取消。</p>
   ### Cancel All Conditional Orders
   cancelallcond: 撤消全部条件委托单
-  account_para_cancelAllCond: 撤销所有未被激活的条件委托。本质上所有条件委托在被激活后都是属于活动委托，所以条件委托一旦被激活，您需要通过调用取消活动委托接口来取消所有未成交、部分成交的活动委托单。同样全部成交的活动委托不可取消。
+  account_para_cancelAllCond: 撤销所有未被激活的条件委托或部分止盈止损委托。本质上所有条件委托在被激活后都是属于活动委托，所以条件委托一旦被激活，您需要通过调用取消活动委托接口来取消所有未成交、部分成交的活动委托单。同样全部成交的活动委托不可取消。
   account_aside_cancelAllCond:
     注意，此api每调用一次会导致rate_limit扣减10
   ### Replace Conditional Order
@@ -586,7 +592,7 @@ zh-cn:
   account_aside_changeMargin: 如果当前为全仓模式则不能调整保证金。请查看<a href="#t-changeleverage">修改杠杆</a>了解更多信息。
   ### Set Trading-Stop
   tradingstop: 设置止盈止损
-  account_para_tradingStop: 设置止盈止损。
+  account_para_tradingStop: 设置仓位止盈止损、部分止盈止损、追踪止损。
   account_aside_tradingStop: 传递以下参数后将会由系统创建条件单。如果仓位关闭，系统将会取消这些订单，同时调整开仓的仓位数量。
   account_row_comment_takeProfit: 不小于0,如果等于0则是取消止盈(TP)
   account_row_comment_stopLoss: 不小于0,如果等于0则是取消止损(SL)
@@ -1076,6 +1082,13 @@ zh-cn:
   minusTick: "跌"
   zeroMinusTick: "跟上一次持平，上一次跟上上一次是跌"
 
+  ## TpSl Mode type (`tp_sl_mode`)
+  tp_sl_mode: "止盈止损模式"
+  Full: "仓位止盈止损"
+  Partial: "部分止盈止损"
+
+
+
   # Error Code
   errors_intro: Bybit使用以下HTTP Code和错误码：
 
@@ -1383,10 +1396,12 @@ zh-cn:
   linear_order_fix_order_type___20200403: 修复市价单order_type显示值
   linear_exec_type: 交易类型
   closedprofitandloss: 平仓盈亏
+  switch_mode: 切换止盈止损模式
   addmargin: 增加/减少保证金
   restapi_update_20200414: 更新 <code>BTCUSDT</code> 合约信息
   linear_private_trade_records: 获取用户成交记录，按时间降序排列。
   linear_private_closed_pnl_records: 获取用户平仓记录，按时间降序排列。
+  linear_private_switch_mode: 切换止盈止损模式至全仓或部分
   linear_row_comment_limit: 每页数量, 最大50. 默认每页20条，最多50条每页
   linear_row_comment_limit_50_200: 每页数量, 最大200. 默认每页50条，最多200条每页
   restapi_update_20200417_1: 新增 <code>BTCUSDT</code> 至orderbook
@@ -1404,6 +1419,13 @@ zh-cn:
   restapi_update_20200518_3: 废弃返回参数 <code>period</code>, <code>start_at</code>
   restapi_update_20200630_1: 更新请求参数 <code>coin</code> 如果不传参数 返回所有钱包余额
   restapi_update_20200630_2: 返回值数量最大值从50调整到200
+  restapi_update_20200826_1: 支持设置止盈止损，请求参数增加 <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
+  restapi_update_20200826_3: 返回参数增加 <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
+  restapi_update_20200826_2: 返回参数增加<code>tp_sl_mode</code>
+  restapi_update_20200826_4: 支持创建部分止盈止损单,请求参数增加<code>sl_size</code>, <code>tp_size</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
+  restapi_update_20200826_5: 支持撤销止盈止损单
+  restapi_update_20200826_6: 支持修改止盈止损单信息,请求参数增加<code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
+  restapi_update_20200826_7: 支持撤销全部止盈止损单,请求参数增加<code>side</code>, <code>tp_sl</code>
 
   markpricekline: 标记价格K线
   linear_query_mark_price_kline: 查询标记价格K线
@@ -1421,6 +1443,7 @@ zh-cn:
   linear_resp_field_realised_pnl: 当日已结盈亏
   linear_resp_field_cum_realised_pnl: 累计已结盈亏
   linear_resp_field_free_qty: 可平仓位数量
+  linear_resp_tp_sl_mode: 止盈止损模式
   linear_resp_field_closed_size: 对应的平仓数值
   linear_resp_field_cum_entry_value: 被平掉的仓位价值
   linear_resp_field_avg_entry_price: 平均入场价

@@ -134,6 +134,8 @@ en:
   row_comment_stopPx: Trigger price
   row_comment_timeInForce: Time in force
   row_comment_triggerBy: Trigger price type. Default <code>LastPrice</code>
+  row_comment_tp_size: In partial mode，take profit quantity
+  row_comment_sl_size: In partial mode，stop loss quantity
   row_comment_takeProfit: Take profit price, only take effect upon opening the position
   row_comment_stopLoss: Stop loss price, only take effect upon opening the position
   row_comment_trailingStop: Trailing stop
@@ -148,6 +150,8 @@ en:
   row_comment_pRQty: New order quantity. Do not pass this field if you don't want modify it
   row_comment_pRPrice: New order price. Do not pass this field if you don't want modify it
   row_comemnt_pRTriggerPrice: New conditional order's trigger price, also known as stop_px. Do not pass this field if you don't want modify it
+  row_comemnt_replace_take_profit: New take profit price, also known as stop_px. Do not pass this field if you don't want modify it
+  row_comemnt_replace_stop_loss: New stop_loss price, also known as stop_px. Do not pass this field if you don't want modify it
   row_comment_leverage: Leverage. <code>0</code> means Cross Margin mode - any other value means Isolated Margin mode
   row_comment_startDate: Start point for result
   row_comment_endDate: End point for result
@@ -185,6 +189,8 @@ en:
   row_comment_low: Minimum price
   row_comment_close: Closing price
   row_comment_timestamp: Commission time
+  row_comment_tp_sl: true-cancel all stop loss take profit order in the side,false-cancel all normal conditional order,default false
+
   row_comment_resp_price: Order price
   row_comment_resp_size: Symbol contracts
   row_comment_resp_open_time: Starting time
@@ -289,6 +295,7 @@ en:
 
   row_parameter_symbol: <a href="#symbol-symbol">symbol</a>
   row_parameter_side: <a href="#side-side">side</a>
+  row_parameter_tp_sl_mode:  <a href="#tpsl-mode-type-tp_sl_mode">tp_sl_mode</a>
   row_parameter_order_type: <a href="#order-type-order_type">order_type</a>
   row_parameter_quantity: <a href="#quantity-qty">qty</a>
   row_parameter_price: <a href="#price-price">price</a>
@@ -535,7 +542,7 @@ en:
   account_para_replaceActive: |
     <p>Replace order can modify/amend your active orders.</p>
     <p><code>p_r_qty</code> and <code>p_r_price</code> are the modified price and quantity. If these two fields are not provided, nothing will be modified.</p>
-    <p>It is possible to modify only the qty or price of an order.</p>
+
   account_aside_replaceActive:
     Please note that only orders that are unfilled or partially filled can be modified by the replace-order API.
   ### Query Active Order (real-time)
@@ -566,10 +573,10 @@ en:
   ### Cancel Conditional Order
   cancelcond: Cancel Conditional Order
   account_para_cancelCond: |
-    <p>You may cancel all untriggered conditional orders. Essentially, after a conditional order is triggered, it will become an active order. So, when a conditional order is triggered, cancellation has to be done through the active order endpoint for any unfilled or partially filled active order. As always, orders that have been fully filled cannot be cancelled.</p>
+    <p>You may cancel all untriggered conditional orders or take profit stop loss order. Essentially, after a conditional order is triggered, it will become an active order. So, when a conditional order is triggered, cancellation has to be done through the active order endpoint for any unfilled or partially filled active order. As always, orders that have been fully filled cannot be cancelled.</p>
   ### Cancel All Conditional Orders
   cancelallcond: Cancel All Conditional Orders
-  account_para_cancelAllCond: Cancel all untriggered conditional orders.
+  account_para_cancelAllCond: Cancel all untriggered conditional orders or stop loss take profit order.
   account_aside_cancelAllCond:
     This endpoint's <code>rate_limit</code> will decrease by 10 per request
   ### Replace Conditional Order
@@ -607,7 +614,7 @@ en:
   account_aside_changeMargin: You cannot change margin when your position is in Cross Margin mode. See the <a href="#t-changeleverage">Change User Leverage</a> endpoint for more.
   ### Set Trading-Stop
   tradingstop: Set Trading-Stop
-  account_para_tradingStop: Set take profit, stop loss, and trailing stop for your open position.
+  account_para_tradingStop: Set full take profit, stop loss or partial take profit, stop loss and trailing stop for your open position.
   account_aside_tradingStop: Passing these parameters will create conditional orders controlled by the system. The system will cancel these orders if the position is closed, and adjust the qty according to the size of the open position.
   account_row_comment_takeProfit: Cannot be less than 0, 0 means cancel TP
   account_row_comment_stopLoss: Cannot be less than 0, 0 means cancel SL
@@ -1095,12 +1102,17 @@ en:
   ## Liquidity type (`last_liquidity_ind`)
   addedLiquidity: "maker liquidity"
   removedLiquidity: "taker liquidity"
+
   ## Tick direction type (`tick_direction`)
   tick_direction: "It indicates the fluctuation of price, which is up or down relative to the last transaction"
   plusTick: "Rise in price"
   zeroPlusTick: "Keep up with the last trad, the last time with the last is rise in price"
   minusTick: "Prices are down"
   zeroMinusTick: "Keep up with the last trad, the last time with the last is Prices are down"
+
+  ## TpSl Mode type (`tp_sl_mode`)
+  Full: "Full stop loss take profit"
+  Partial: "Partial stop loss take profit"
 
   # Error Code
   errors_intro: The Bybit API uses the following HTTP Codes and Error Codes<span>:</span>
@@ -1416,10 +1428,12 @@ en:
   linear_order_fix_order_type___20200403: Fix value of <code>order_type</code> in response
   linear_exec_type: Execution type
   closedprofitandloss: Closed Profit and Loss
+  switch_mode: switch take profit stop loss mode
   addmargin: Add/Reduce Margin
   restapi_update_20200414: Updated <code>BTCUSDT</code> contract information
   linear_private_trade_records: Get user's trading records. The results are ordered in descending order (the first item is the latest).
   linear_private_closed_pnl_records: Get user's closed profit and loss records. The results are ordered in descending order (the first item is the latest).
+  linear_private_switch_mode: Switch mode Full or Partial
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
   restapi_update_20200417_1: Add new symbol <code>BTCUSDT</code>
@@ -1439,7 +1453,13 @@ en:
     Abandon response fields: <code>period</code>, <code>start_at</code>
   restapi_update_20200630_1: Returns all wallet balances if no parameters are passed
   restapi_update_20200630_2: Adjust the return quantity from 50 to 200
-
+  restapi_update_20200826_1: Support setting take profit and stop loss, Add new request parameter <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
+  restapi_update_20200826_3: Add response parameter <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
+  restapi_update_20200826_2: Add response parameter <code>tp_sl_mode</code>
+  restapi_update_20200826_4: Support created partial take profit and stop loss order,Add new request parameter <code>sl_size</code>, <code>tp_size</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
+  restapi_update_20200826_5: Support cancel take profit stop loss order
+  restapi_update_20200826_6: Support replace cancel take profit stop loss order,Add new request parameter <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
+  restapi_update_20200826_7: Support cancel all take profit stop loss order,Add new request parameter <code>side</code>, <code>tp_sl</code>
 
   markpricekline: Query Mark Price Kline
   linear_query_mark_price_kline: Query mark price kline (like <a href="#t-querykline">Query Kline</a> but for <a href="https://help.bybit.com/hc/en-us/articles/360039261074-What-is-Dual-Price-mechanism-">mark price</a>).
@@ -1457,6 +1477,7 @@ en:
   linear_resp_field_realised_pnl: Today's realised Profit and Loss
   linear_resp_field_cum_realised_pnl: Cumulative realised Profit and Loss
   linear_resp_field_free_qty: Qty which can be closed
+  linear_resp_tp_sl_mode: Stop loss and take profit mode
   linear_resp_field_closed_size: Closed size
   linear_resp_field_cum_entry_value: Closed position value
   linear_resp_field_avg_entry_price: Average entry price
