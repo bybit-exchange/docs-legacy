@@ -128,7 +128,7 @@ zh-cn:
   row_comment_price: 委托价格。如果是下<b>限价单</b>，该参数为<b>必填</b>. 在没有仓位时，做多的委托价格需高于市价的10%、低于1百万。如有仓位时则需优于强平价。价格增减最小单位请参考<a href="#t-querysymbol">交易对接口</a>响应中的<b>price_filter</b>字段
   row_comment_stopOrderPrice: 条件委托执行价格。如果条件委托是限价单，则price为必传字段
   row_comment_basePrice: 当前市价。用于和stop_px值进行比较，确定当前条件委托是看空到<code>stop_px</code>时触发还是看多到stop_px触发。主要是用来标识当前条件单预期的方向
-  row_comment_stopPx: 条件委托下单时市价
+  row_comment_stopPx: 触发价格
   row_comment_timeInForce: 执行策略
   row_comment_triggerBy: 触发价格类型. 默认为最新市价
   row_comment_takeProfit: 止盈价格，仅开仓时生效
@@ -1323,7 +1323,7 @@ zh-cn:
     <p><b>当您达到订单上限的时候的时候，仍然可以下单设置了参数<code>reduce_only</code> 或 <code>closeOnTrigger</code>的订单。</b></p>
 
   linear_row_comment_basePrice: 当前市价。用于和stop_px值进行比较，确定当前条件委托是看空到<code>stop_px</code>时触发还是看多到stop_px触发。主要是用来标识当前条件单预期的方向
-  linear_row_comment_stopPx: 条件委托下单时市价
+  linear_row_comment_stopPx: 触发价格
 
   setautoaddmargin: 自动追加保证金
   linear_account_para_setAutoAddMargin: 设置自动追加保证金。
