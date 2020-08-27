@@ -1096,7 +1096,6 @@ zh-cn:
   TakeProfit: "仓位止盈条件单"
   StopLoss: "仓位止损条件单"
   TrailingStop: "追踪止损条件单"
-  TrailingProfit: "追踪止盈条件单"
   PartialTakeProfit: "部分止盈条件单"
   PartialStopLoss: "部分止损条件单"
 
@@ -1333,10 +1332,19 @@ zh-cn:
   err_130126: 盘口没有挂单
   err_130023: 本订单成交后会触发强平
   err_130127: 止盈止损及追踪止损没有修改
+  err_130149: 止盈止损校验未通过
+  err_130150: 已有止盈止损设置，不能切换止盈止损模式
+  err_130151: 此模式至少有一个止盈单，不能切换止盈止损模式
+  err_130152: 此模式至少有一个止损单，不能切换止盈止损模式
+  err_130153: 此模式至少有一个止盈或者止损条件单，不能切换止盈止损模式
+  err_130154: 此模式至少有一个止盈或者止损活动单，不能切换止盈止损模式
+  err_130155: 剩余可设置止盈止损的合约数量不足
+  err_130157: 活动单部分成交情况下，不允许修改活动单止盈止损设置
+  err_130158: 仓位模式下，不允许修改止盈止损size
 
   ### LinearPosition
   linear_row_comment_qty: 委托数量(BTC)
-  linear_row_comment_reduceOnly: 是否平仓单,true-平仓 false-开仓
+  linear_row_comment_reduceOnly: 是否平仓单,true-平仓 false-开仓,ture时止盈止损设置不生效
   linear_row_comment_closeOnTrigger: 平仓委托,只会减少您的仓位而不会增加您的仓位。如果当平仓委托被触发时，账户上的余额不足，那么该合约的其他委托将被取消或者降低委托数量。使用此选项可以确保您的止损单被用于减仓而非加仓。
   linear_account_para_placeActive: |
     <p>市价活动委托: 一个传统的市场价格订单,会以当前的最优价格为您成交订单。当且仅当选择市价单时，<code>price</code>可为空！</p>
