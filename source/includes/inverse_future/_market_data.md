@@ -579,6 +579,12 @@ GET
 curl https://api.bybit.com/v2/public/open-interest?symbol=BTCUSD&period=5min
 ```
 
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.Market.Market_openInterest(symbol="BTCUSD", period="5min").result())
+```
+
 > t(:codequote_responseExample)
 
 ```javascript
@@ -630,6 +636,12 @@ GET
 
 ```console
 curl https://api.bybit.com/v2/public/big-deal?symbol=BTCUSD
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.Market.Market_bigDeal(symbol="BTCUSD").result())
 ```
 
 > t(:codequote_responseExample)
@@ -687,6 +699,12 @@ GET
 
 ```console
 curl https://api.bybit.com/v2/public/account-ratio?symbol=BTCUSD&period=5min
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.Market.Market_accountRatio(symbol="BTCUSD"， "period"="5min").result())
 ```
 
 > t(:codequote_responseExample)
