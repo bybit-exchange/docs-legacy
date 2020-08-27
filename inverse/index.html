@@ -556,7 +556,7 @@
                             <a href="#t-marketopeninterest" class="toc-h3 toc-link" data-title="Open Interest">Open Interest</a>
                           </li>
                           <li>
-                            <a href="#t-marketbigdeal" class="toc-h3 toc-link" data-title="Latest Large Orders">Latest Large Orders</a>
+                            <a href="#t-marketbigdeal" class="toc-h3 toc-link" data-title="Latest Big Deal">Latest Big Deal</a>
                           </li>
                           <li>
                             <a href="#t-marketaccountratio" class="toc-h3 toc-link" data-title="Long-Short Ratio">Long-Short Ratio</a>
@@ -918,7 +918,7 @@ clipboard.on('error', function(e) {
 <h1 id='t-changelog'>Changelog</h1><h2 id='2020-08-19'>2020-08-19</h2><h3 id='rest-api'>REST API</h3>
 <ul>
 <li><a href="#t-marketopeninterest">Open Interest</a> [new]</li>
-<li><a href="#t-marketbigdeal">Latest Large Orders</a> [new]</li>
+<li><a href="#t-marketbigdeal">Latest Big Deal</a> [new]</li>
 <li><a href="#t-marketaccountratio">Long-Short Ratio</a> [new]</li>
 </ul>
 <h2 id='2020-07-07'>2020-07-07</h2><h3 id='rest-api-2'>REST API</h3>
@@ -948,7 +948,7 @@ clipboard.on('error', function(e) {
 ### REST API
 - [Get Funding Rate](#t-marketfundingrate) [new]
 - [Open Interest](#t-marketopeninterest) [new]
-- [Latest Large Orders](#t-marketbigdeal) [new]
+- [Latest Big Deal](#t-marketbigdeal) [new]
 - [Long-Short Ratio](#t-marketaccountratio) [new]
 - [Top Trader Account Long-Empty Ratio](#t-marketeliteratio) [new]
 -->
@@ -1474,7 +1474,7 @@ The response is in the snapshot format.
 <tr>
 <td style="text-align: left">interval</td>
 <td style="text-align: left">string</td>
-<td>Data recording period. <code>5min</code>, <code>15min</code>, <code>30min</code>, <code>1h</code>, <code>4h</code>, <code>1d</code></td>
+<td>Data refresh interval. Enum <span>:<span> 1 3 5 15 30 60 120 240 360 720 "D" "M" "W" "Y"</td>
 </tr>
 <tr>
 <td style="text-align: left">open_time</td>
@@ -2358,7 +2358,7 @@ The response is in the snapshot format.
 <td>Symbol</td>
 </tr>
 </tbody></table>
-<h3 id='t-marketbigdeal'>Latest Large Orders</h3>
+<h3 id='t-marketbigdeal'>Latest Big Deal</h3>
 <blockquote>
 <p>Curl Example</p>
 </blockquote>
