@@ -119,7 +119,7 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 | t(:row_parameter_symbol) |string |t(:row_comment_symbol) | 
-| interval |string |t(:row_comment_period) |
+| interval |string |t(:row_comment_interval) |
 | open_time |integer |t(:row_comment_resp_open_time) |
 | open |string |t(:row_comment_open) |
 | high |string |t(:row_comment_high) |
