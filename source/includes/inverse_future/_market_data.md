@@ -453,7 +453,7 @@ curl https://api.bybit.com/v2/public/liq-records?symbol=BTCUSD
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Market.Market_liq_records(symbol="BTCUSD").result())
+print(client.Market.Market_liqRecords(symbol="BTCUSD").result())
 ```
 
 > t(:codequote_responseExample)
@@ -516,7 +516,7 @@ curl "https://api.bybit.com/v2/public/mark-price-kline?symbol=BTCUSD&interval=1&
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Kline.Kline_mark_price_kline(symbol="BTCUSD", interval="m", **{'from':1581231260}, limit=2).result())
+print(client.Kline.Kline_markPrice(symbol="BTCUSD", interval="m", **{'from':1581231260}, limit=2).result())
 ```
 
 > t(:codequote_responseExample)
