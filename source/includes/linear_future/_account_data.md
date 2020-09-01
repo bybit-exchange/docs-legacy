@@ -1298,7 +1298,7 @@ GET
     "ext_code": "",
     "ext_info": "",
     "result": {
-        "tpslMode": "Partial"
+        "tp_sl_mode": "Partial"
     },
     "time_now": "1598266294.610276",
     "rate_limit_status": 72,
