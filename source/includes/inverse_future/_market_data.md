@@ -453,7 +453,7 @@ curl https://api.bybit.com/v2/public/liq-records?symbol=BTCUSD
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Market.Market_liq_records(symbol="BTCUSD").result())
+print(client.Market.Market_liqRecords(symbol="BTCUSD").result())
 ```
 
 > t(:codequote_responseExample)
@@ -516,7 +516,7 @@ curl "https://api.bybit.com/v2/public/mark-price-kline?symbol=BTCUSD&interval=1&
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Kline.Kline_mark_price_kline(symbol="BTCUSD", interval="m", **{'from':1581231260}, limit=2).result())
+print(client.Kline.Kline_markPrice(symbol="BTCUSD", interval="m", **{'from':1581231260}, limit=2).result())
 ```
 
 > t(:codequote_responseExample)
@@ -579,6 +579,12 @@ GET
 curl https://api.bybit.com/v2/public/open-interest?symbol=BTCUSD&period=5min
 ```
 
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.Market.Market_openInterest(symbol="BTCUSD", period="5min").result())
+```
+
 > t(:codequote_responseExample)
 
 ```javascript
@@ -630,6 +636,12 @@ GET
 
 ```console
 curl https://api.bybit.com/v2/public/big-deal?symbol=BTCUSD
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.Market.Market_bigDeal(symbol="BTCUSD").result())
 ```
 
 > t(:codequote_responseExample)
@@ -687,6 +699,12 @@ GET
 
 ```console
 curl https://api.bybit.com/v2/public/account-ratio?symbol=BTCUSD&period=5min
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.Market.Market_accountRatio(symbol="BTCUSD"， "period"="5min").result())
 ```
 
 > t(:codequote_responseExample)

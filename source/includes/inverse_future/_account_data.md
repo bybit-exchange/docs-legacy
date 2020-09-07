@@ -15,7 +15,7 @@ curl https://api.bybit.com/v2/private/order/create \
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Order.Order_newV2(side="Buy",symbol="BTCUSD",order_type="Limit",qty=1,price=8300,time_in_force="GoodTillCancel").result())
+print(client.Order.Order_new(side="Buy",symbol="BTCUSD",order_type="Limit",qty=1,price=8300,time_in_force="GoodTillCancel").result())
 ```
 
 > t(:codequote_responseExample)
@@ -227,7 +227,7 @@ curl https://api.bybit.com/v2/private/order/cancel \
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Order.Order_cancelV2(symbol="BTCUSD", order_id="").result())
+print(client.Order.Order_cancel(symbol="BTCUSD", order_id="").result())
 ```
 
 > t(:codequote_responseExample)
