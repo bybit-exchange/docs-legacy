@@ -1222,7 +1222,7 @@ GET
 |cum_realised_pnl |string |t(:row_comment_cum_realised_pnl)  |
 |cross_seq |number |t(:row_comment_cross_seq)  |
 |position_seq |number |t(:row_comment_position_seq)  |
-|created_at |string |t(:row_comment_created_at)  |
+|created_at |string |t(:row_comment_created_at_position)  |
 |updated_at |string |t(:row_comment_updated_at)  |
 
 
