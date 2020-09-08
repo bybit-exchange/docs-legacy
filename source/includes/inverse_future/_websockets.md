@@ -360,7 +360,7 @@ t(:websocket_para_trade)
 |t(:row_parameter_price) |number |t(:row_response_comment_price)  |
 |t(:row_parameter_tick_direction) |string |t(:row_comment_position_tick_direction)  |
 |trade_id |string |t(:row_response_comment_trade_id)  |
-|cross_seq |number |t(:row_comment_cross_seq)  | 
+|cross_seq |number |t(:row_comment_cross_seq)  |
 
 
 ### t(:websocketinsurance)
@@ -497,20 +497,20 @@ t(:websocket_aside_instrumentInfo2)
 |low_price_24h_e4 |integer |t(:row_comment_resp_low_price_24h_e4)  |
 |prev_price_1h_e4 |integer |t(:row_comment_resp_prev_price_1h_e4)  |
 |price_1h_pcnt_e6 |integer |t(:row_comment_resp_price_1h_pcnt_e6)  |
-|mark_price_e4 |integer |t(:row_comment_resp_mark_price_e4)  | 
-|index_price_e4 |integer |t(:row_comment_resp_index_price_e4)  | 
-|open_interest |integer |t(:row_comment_resp_open_interest)  | 
-|open_value_e8 |integer |t(:row_comment_resp_open_value_e8)  | 
-|total_turnover_e8 |integer |t(:row_comment_resp_total_turnover_e8)  | 
-|turnover_24h_e8 |integer |t(:row_comment_resp_turnover_24h_e8)  | 
-|total_volume |integer |t(:row_comment_resp_total_volume)  | 
-|volume_24h |integer |t(:row_comment_resp_volume_24h)  | 
-|predicted_funding_rate_e6 |integer |t(:row_comment_resp_predicted_funding_rate_e6)  | 
-|cross_seq |integer |t(:row_comment_cross_seq)  | 
-|created_at |string |t(:row_comment_created_at)  | 
-|updated_at |string |t(:row_comment_updated_at)  | 
-|next_funding_time |string |t(:row_comment_resp_next_funding_time)  | 
-|countdown_hour |integer |t(:row_comment_resp_countdown_hour)  | 
+|mark_price_e4 |integer |t(:row_comment_resp_mark_price_e4)  |
+|index_price_e4 |integer |t(:row_comment_resp_index_price_e4)  |
+|open_interest |integer |t(:row_comment_resp_open_interest). t(:row_comment_slow_update)  |
+|open_value_e8 |integer |t(:row_comment_resp_open_value_e8). t(:row_comment_slow_update)  |
+|total_turnover_e8 |integer |t(:row_comment_resp_total_turnover_e8)  |
+|turnover_24h_e8 |integer |t(:row_comment_resp_turnover_24h_e8)  |
+|total_volume |integer |t(:row_comment_resp_total_volume)  |
+|volume_24h |integer |t(:row_comment_resp_volume_24h)  |
+|predicted_funding_rate_e6 |integer |t(:row_comment_resp_predicted_funding_rate_e6)  |
+|cross_seq |integer |t(:row_comment_cross_seq)  |
+|created_at |string |t(:row_comment_created_at)  |
+|updated_at |string |t(:row_comment_updated_at)  |
+|next_funding_time |string |t(:row_comment_resp_next_funding_time)  |
+|countdown_hour |integer |t(:row_comment_resp_countdown_hour)  |
 
 
 ### t(:websocketklineV2)
@@ -551,17 +551,17 @@ t(:websocket_aside_klineV2)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|start|integer |t(:row_comment_startTime)    | 
-|end|integer |t(:row_comment_endTime)    | 
-|open|number |t(:row_comment_open)    | 
-|close|number |t(:row_comment_close)    | 
-|high|number |t(:row_comment_high)    | 
-|low|number |t(:row_comment_low)    | 
-|volume|number |t(:row_comment_resp_volume)    | 
-|turnover|number |t(:row_comment_resp_turnover)    | 
-|confirm|bool |t(:row_comment_confirm)    | 
-|cross_seq|integer |t(:row_comment_cross_seq)    | 
-|timestamp|integer |t(:row_comment_endTime)    | 
+|start|integer |t(:row_comment_startTime)    |
+|end|integer |t(:row_comment_endTime)    |
+|open|number |t(:row_comment_open)    |
+|close|number |t(:row_comment_close)    |
+|high|number |t(:row_comment_high)    |
+|low|number |t(:row_comment_low)    |
+|volume|number |t(:row_comment_resp_volume)    |
+|turnover|number |t(:row_comment_resp_turnover)    |
+|confirm|bool |t(:row_comment_confirm)    |
+|cross_seq|integer |t(:row_comment_cross_seq)    |
+|timestamp|integer |t(:row_comment_endTime)    |
 
 
 
@@ -698,7 +698,7 @@ t(:wallet_para_tradeRecords)
 |order_link_id |string |t(:row_comment_order_link_id)  |
 |t(:row_parameter_price) |string |t(:row_comment_exec_price)    |
 |order_qty |number |t(:row_comment_order_qty)  |
-|t(:row_parameter_exec_type) |string |t(:row_comment_exec_type)  |
+|t(:row_parameter_exec_type) |string |t(:enum_exec_type_link)  |
 |exec_qty |number |t(:row_comment_exec_qty)  |
 |exec_fee |string |t(:row_comment_exec_fee)    |
 |leaves_qty |number |t(:row_comment_leaves_qty)  |
@@ -741,7 +741,7 @@ ws.send('{"op": "subscribe", "args": ["order"]}')
             "stop_loss": "0",
             "trailing_stop": "0",
             "trailing_active": "0",
-            "last_exec_price": "8300"
+            "last_exec_price": "8580"
         }
     ]
 }
