@@ -3,6 +3,18 @@ t(:wallet_para)
 
 
 ### t(:balance)
+> t(:codequote_curlExample)
+
+```console
+curl "https://api.bybit.com/v2/private/wallet/balance?api_key={api_key}&coin=BTC&timestamp={timestamp}&sign={sign}"
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.Wallet.Wallet_getBalance(coin="BTC").result())
+```
+
 > t(:codequote_responseExample)
 
 ```javascript
@@ -83,6 +95,18 @@ GET
 
 
 ### t(:walletrecords)
+> t(:codequote_curlExample)
+
+```console
+curl "https://api.bybit.com/open-api/wallet/fund/records?api_key={api_key}&timestamp={timestamp}&sign={sign}"
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.Wallet.Wallet_getRecords().result())
+```
+
 > t(:codequote_responseExample)
 
 ```javascript
@@ -170,6 +194,18 @@ GET
 
 
 ### t(:withdrawrecords)
+> t(:codequote_curlExample)
+
+```console
+curl "https://api.bybit.com/open-api/wallet/withdraw/list?api_key={api_key}&timestamp={timestamp}&sign={sign}"
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.Wallet.Wallet_withdraw().result())
+```
+
 > t(:codequote_responseExample)
 
 ```javascript
@@ -236,6 +272,12 @@ GET
 |updated_at |string |t(:row_comment_updated_at)  |
 
 ### t(:assetexchangerecords)
+> t(:codequote_curlExample)
+
+```console
+curl "https://api.bybit.com/v2/private/exchange-order/list?api_key={api_key}&timestamp={timestamp}&sign={sign}"
+```
+
 > t(:codequote_responseExample)
 
 ```javascript
@@ -293,10 +335,9 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |from_coin |string |t(:row_comment_from_coin) |
-|from_amount |number |t(:row_comment_from_amount)  | 
+|from_amount |number |t(:row_comment_from_amount)  |
 |to_coin|string |t(:row_comment_to_coin)    |
-|to_amount |number |t(:row_comment_to_amount)  | 
+|to_amount |number |t(:row_comment_to_amount)  |
 |exchange_rate |number |t(:row_comment_exchange_rate) |
-|from_fee |number |t(:row_comment_from_fee)  | 
-|created_at |string |t(:row_comment_created_at_in_exchange)  | 
-
+|from_fee |number |t(:row_comment_from_fee)  |
+|created_at |string |t(:row_comment_created_at_in_exchange)  |

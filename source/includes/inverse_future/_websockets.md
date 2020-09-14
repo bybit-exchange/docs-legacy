@@ -144,6 +144,17 @@ t(:websocket_para_response)
 ws.send('{"op": "subscribe", "args": ["orderBookL2_25.BTCUSD"]}');
 ```
 
+```python
+from BybitWebsocket import BybitWebsocket
+ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
+                    api_key=None, api_secret=None)
+ws.subscribe_orderBookL2(symbol="BTCUSD")
+while True:
+    data = ws.get_data("orderBookL2_25.BTCUSD")
+    if data:
+        print(data)
+```
+
 > t(:codequote_snapshot)
 
 ```javascript
@@ -319,11 +330,23 @@ t(:websocket_para_orderbook200)
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 |size |number |t(:row_comment_position_size)  |
 
+
 ### t(:websockettrade)
 > t(:codequote_subscribe)
 
 ```javascript
 ws.send('{"op": "subscribe", "args": ["trade"]}')
+```
+
+```python
+from BybitWebsocket import BybitWebsocket
+ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
+                    api_key=None, api_secret=None)
+ws.subscribe_trade()
+while True:
+    data = ws.get_data("trade.BTCUSD")
+    if data:
+        print(data)
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -370,6 +393,17 @@ t(:websocket_para_trade)
 ws.send('{"op": "subscribe", "args": ["insurance"]}')
 ```
 
+```python
+from BybitWebsocket import BybitWebsocket
+ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
+                    api_key=None, api_secret=None)
+ws.subscribe_insurance()
+while True:
+    data = ws.get_data("insurance.BTC")
+    if data:
+        print(data)
+```
+
 > t(:codequote_responseExampleFormatAll)
 
 ```javascript
@@ -404,6 +438,17 @@ t(:websocket_aside_insurance)
 
 ```javascript
 ws.send('{"op": "subscribe", "args": ["instrument_info.100ms.BTCUSD"]}')
+```
+
+```python
+from BybitWebsocket import BybitWebsocket
+ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
+                    api_key=None, api_secret=None)
+ws.subscribe_instrument_info(symbol="BTCUSD")
+while True:
+    data = ws.get_data("instrument_info.100ms.BTCUSD")
+    if data:
+        print(data)
 ```
 
 > t(:codequote_snapshot)
@@ -574,6 +619,17 @@ t(:websocket_aside_klineV2)
 ws.send('{"op": "subscribe", "args": ["position"]}')
 ```
 
+```python
+from BybitWebsocket import BybitWebsocket
+ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
+                    api_key=api_key, api_secret=api_secret)
+ws.subscribe_position()
+while True:
+    data = ws.get_data("position")
+    if data:
+        print(data)
+```
+
 > t(:codequote_responseExampleFormatAll)
 
 ```javascript
@@ -661,6 +717,17 @@ t(:account_para_myPosition)
 ws.send('{"op": "subscribe", "args": ["execution"]}')
 ```
 
+```python
+from BybitWebsocket import BybitWebsocket
+ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
+                    api_key=api_key, api_secret=api_secret)
+ws.subscribe_execution()
+while True:
+    data = ws.get_data("execution")
+    if data:
+        print(data)
+```
+
 > t(:codequote_responseExampleFormatAll)
 
 ```javascript
@@ -712,6 +779,17 @@ t(:wallet_para_tradeRecords)
 
 ```javascript
 ws.send('{"op": "subscribe", "args": ["order"]}')
+```
+
+```python
+from BybitWebsocket import BybitWebsocket
+ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
+                    api_key=api_key, api_secret=api_secret)
+ws.subscribe_order()
+while True:
+    data = ws.get_data("order")
+    if data:
+        print(data)
 ```
 
 > t(:codequote_responseExampleFormatAll)

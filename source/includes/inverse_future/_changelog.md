@@ -157,7 +157,7 @@
 ## 2019-11-07
 
 ### REST API
-- [t(:changeleverage)](#t-changeleverage) [t(:changelog_update)]
+- [t(:setleverage)](#t-setleverage) [t(:changelog_update)]
 - [t(:my_20191107)] [t(:changelog_update)]
 - [t(:changemargin)](#t-changemargin) [t(:changelog_update)]
 - [t(:tradingstop)](#t-tradingstop) [t(:changelog_update)]

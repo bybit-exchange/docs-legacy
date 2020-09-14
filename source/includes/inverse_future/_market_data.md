@@ -8,6 +8,12 @@ t(:market_para_auth)
 curl https://api.bybit.com/v2/public/orderBook/L2?symbol=BTCUSD
 ```
 
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.Market.Market_orderbook(symbol="BTCUSD").result())
+```
+
 > t(:codequote_responseExample)
 
 ```javascript
@@ -53,7 +59,7 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| t(:row_parameter_symbol) |string |t(:row_comment_symbol) | 
+| t(:row_parameter_symbol) |string |t(:row_comment_symbol) |
 | price |string |t(:row_comment_resp_price) |
 | size |integer |t(:row_comment_resp_size) |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
@@ -64,6 +70,12 @@ GET
 
 ```console
 curl https://api.bybit.com/v2/public/kline/list?symbol=BTCUSD&interval=1&limit=2&from=1581231260
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.Kline.Kline_get(symbol="BTCUSD", interval="m", **{'from':1}).result())
 ```
 
 > t(:codequote_responseExample)
@@ -135,6 +147,12 @@ GET
 curl https://api.bybit.com/v2/public/tickers
 ```
 
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.Market.Market_symbolInfo().result())
+```
+
 > t(:codequote_responseExample)
 
 ```javascript
@@ -191,35 +209,41 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| symbol |string |t(:row_comment_symbol) | 
-| bid_price |string |t(:row_comment_resp_bid_price) | 
-| ask_price |string |t(:row_comment_resp_ask_price) | 
-| last_price |string |t(:row_comment_resp_last_price) | 
-| last_tick_direction |string |t(:enum_tick_direction) | 
-| prev_price_24h |string |t(:row_comment_resp_prev_price_24h) | 
-| price_24h_pcnt |string |t(:row_comment_resp_price_24h_pcnt) | 
-| high_price_24h |string |t(:row_comment_resp_high_price_24h) | 
-| low_price_24h |string |t(:row_comment_resp_low_price_24h) | 
-| prev_price_1h |string |t(:row_comment_resp_prev_price_1h) | 
-| price_1h_pcnt |string |t(:row_comment_resp_price_1h_pcnt) | 
-| mark_price |string |t(:row_comment_resp_mark_price) | 
-| index_price |string |t(:row_comment_resp_index_price) | 
-| open_interest |number |t(:row_comment_resp_open_interest) | 
-| open_value |string |t(:row_comment_resp_open_value) | 
-| total_turnover |string |t(:row_comment_resp_total_turnover) | 
-| turnover_24h |string |t(:row_comment_resp_turnover_24h) | 
-| total_volume |number |t(:row_comment_resp_total_volume) | 
-| volume_24h |number |t(:row_comment_resp_volume_24h) | 
-| funding_rate |string |t(:row_comment_resp_funding_rate) | 
-| predicted_funding_rate |string |t(:row_comment_resp_predicted_funding_rate) | 
-| next_funding_time |string |t(:row_comment_resp_next_funding_time) | 
-| countdown_hour |number |t(:row_comment_resp_countdown_hour) | 
+| symbol |string |t(:row_comment_symbol) |
+| bid_price |string |t(:row_comment_resp_bid_price) |
+| ask_price |string |t(:row_comment_resp_ask_price) |
+| last_price |string |t(:row_comment_resp_last_price) |
+| last_tick_direction |string |t(:enum_tick_direction) |
+| prev_price_24h |string |t(:row_comment_resp_prev_price_24h) |
+| price_24h_pcnt |string |t(:row_comment_resp_price_24h_pcnt) |
+| high_price_24h |string |t(:row_comment_resp_high_price_24h) |
+| low_price_24h |string |t(:row_comment_resp_low_price_24h) |
+| prev_price_1h |string |t(:row_comment_resp_prev_price_1h) |
+| price_1h_pcnt |string |t(:row_comment_resp_price_1h_pcnt) |
+| mark_price |string |t(:row_comment_resp_mark_price) |
+| index_price |string |t(:row_comment_resp_index_price) |
+| open_interest |number |t(:row_comment_resp_open_interest) |
+| open_value |string |t(:row_comment_resp_open_value) |
+| total_turnover |string |t(:row_comment_resp_total_turnover) |
+| turnover_24h |string |t(:row_comment_resp_turnover_24h) |
+| total_volume |number |t(:row_comment_resp_total_volume) |
+| volume_24h |number |t(:row_comment_resp_volume_24h) |
+| funding_rate |string |t(:row_comment_resp_funding_rate) |
+| predicted_funding_rate |string |t(:row_comment_resp_predicted_funding_rate) |
+| next_funding_time |string |t(:row_comment_resp_next_funding_time) |
+| countdown_hour |number |t(:row_comment_resp_countdown_hour) |
 
 ### t(:publictradingrecords)
 > t(:codequote_curlExample)
 
 ```console
 curl https://api.bybit.com/v2/public/trading-records?symbol=BTCUSD
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.Market.Market_trading_records(symbol="BTCUSD").result())
 ```
 
 > t(:codequote_responseExample)
@@ -274,6 +298,12 @@ GET
 
 ```console
 curl https://api.bybit.com/v2/public/symbols
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.Symbol.Symbol_get().result())
 ```
 
 > t(:codequote_responseExample)
@@ -417,7 +447,13 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/v2/public/liq-records?symbol=BTCUSD&limit=1&start_time=1589979415000
+curl https://api.bybit.com/v2/public/liq-records?symbol=BTCUSD
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.Market.Market_liqRecords(symbol="BTCUSD").result())
 ```
 
 > t(:codequote_responseExample)
@@ -472,7 +508,15 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/v2/public/mark-price-kline?symbol=BTCUSD&interval=1&limit=2&from=1581231260
+curl "https://api.bybit.com/v2/public/mark-price-kline?symbol=BTCUSD&interval=1&limit=2&from=1581231260"
+```
+
+> t(:codequote_curlExample)
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.Kline.Kline_markPrice(symbol="BTCUSD", interval="m", **{'from':1581231260}, limit=2).result())
 ```
 
 > t(:codequote_responseExample)
@@ -518,7 +562,7 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| symbol |string |t(:row_comment_symbol) | 
+| symbol |string |t(:row_comment_symbol) |
 | period |string |t(:row_comment_period) |
 | start_at |integer |t(:row_comment_startTime) |
 | open |integer |t(:row_comment_open) |
@@ -533,6 +577,12 @@ GET
 
 ```console
 curl https://api.bybit.com/v2/public/open-interest?symbol=BTCUSD&period=5min
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.Market.Market_openInterest(symbol="BTCUSD", period="5min").result())
 ```
 
 > t(:codequote_responseExample)
@@ -578,7 +628,7 @@ GET
 |:----- |:-----|----- |
 | open_interest |number |t(:row_comment_open_interest) |
 | timestamp |number |t(:row_comment_time_stamp) |
-| symbol |string |t(:row_comment_symbol) | 
+| symbol |string |t(:row_comment_symbol) |
 
 
 ### t(:marketbigdeal)
@@ -586,6 +636,12 @@ GET
 
 ```console
 curl https://api.bybit.com/v2/public/big-deal?symbol=BTCUSD
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.Market.Market_bigDeal(symbol="BTCUSD").result())
 ```
 
 > t(:codequote_responseExample)
@@ -630,7 +686,7 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| symbol |string |t(:row_comment_symbol) | 
+| symbol |string |t(:row_comment_symbol) |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 | timestamp |number |t(:row_comment_time_stamp) |
 | value |number |t(:row_comment_value) |
@@ -643,6 +699,12 @@ GET
 
 ```console
 curl https://api.bybit.com/v2/public/account-ratio?symbol=BTCUSD&period=5min
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.Market.Market_accountRatio(symbol="BTCUSD"， "period"="5min").result())
 ```
 
 > t(:codequote_responseExample)
@@ -688,9 +750,9 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| symbol |string |t(:row_comment_symbol) | 
-| buy_ratio |number |t(:row_comment_buy_ratio) | 
-| sell_ratio |number |t(:row_comment_sell_ratio) | 
+| symbol |string |t(:row_comment_symbol) |
+| buy_ratio |number |t(:row_comment_buy_ratio) |
+| sell_ratio |number |t(:row_comment_sell_ratio) |
 | timestamp |number |t(:row_comment_time_stamp) |
 
 
