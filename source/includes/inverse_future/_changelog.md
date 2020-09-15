@@ -5,7 +5,7 @@
 ### REST API
 - [t(:marketaccountratio)](#t-marketaccountratio) [t(:changelog_update)]
     - t(:restapi_update_20200915_1)
-- [t(:conditionalorders)](#t-conditionalorders) [t(:changelog_update)]   
+- [t(:placecond)](#t-placecond) [t(:changelog_update)]   
     - t(:restapi_update_20200915_2)
 
 ## 2020-08-19
