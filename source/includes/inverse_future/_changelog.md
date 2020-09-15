@@ -1,6 +1,10 @@
 # t(:changelog)
 
 
+## 2020-09-15
+### REST API
+- [t(:marketaccountratio)](#t-marketaccountratio) [t(:changelog_update)]
+    - t(:restapi_update_20200915_1)
 
 ## 2020-08-19
 ### REST API
