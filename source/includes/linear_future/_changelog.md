@@ -6,10 +6,10 @@
 - [t(:placecond)](#t-placecond) [t(:changelog_update)]
     - t(:restapi_update_20200826_1)
     - t(:restapi_update_20200826_3)
+- [t(:placeactive)](#t-placeactive) [t(:changelog_update)]
+    - t(:restapi_update_20200826_3)
 - [t(:myposition)](#t-myposition) [t(:changelog_update)]
     - t(:restapi_update_20200826_2)
-- [t(:activeorders)](#t-activeorders) [t(:changelog_update)]
-    - t(:restapi_update_20200826_3)
 - [t(:tradingstop)](#t-tradingstop) [t(:changelog_update)]
     - t(:restapi_update_20200826_4)
 - [t(:cancelcond)](#t-cancelcond) [t(:changelog_update)]
