@@ -39,6 +39,10 @@ t(:account_para)
 
 t(:linear_account_para_placeActive)
 
+<aside class="notice">
+t(:account_aside_placeActive_linear)
+</aside>
+
 <p class="fake_header">t(:httprequest)</p>
 POST
 <code><span id=vpoCreate>/private/linear/order/create</span></code>
@@ -425,7 +429,7 @@ GET
 t(:account_para_placeCond)
 
 <aside class="notice">
-t(:account_aside_placeCond)
+t(:account_aside_placeCond_linear)
 </aside>
 
 <p class="fake_header">t(:httprequest)</p>

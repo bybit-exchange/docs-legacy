@@ -564,6 +564,12 @@ en:
 
   account_aside_placeCond:
     Take profit/Stop loss is not supported in placing conditional orders. One can only use these 2 functions when placing active orders. Moreover, each account can hold up to 10 conditional orders yet to be filled entirely simultaneously.
+  account_aside_placeCond_linear:
+    <p>Each account can hold up to 10 conditional orders yet to be filled entirely simultaneously.</p>
+    <p>Return value ext_code is not empty,Please refer to <a href="#t-errors">Errors</a></p>
+  account_aside_placeActive_linear:
+    <p>Return value ext_code is not empty,Please refer to <a href="#t-errors">Errors</a></p>
+
 
   ### Get Conditional Order
   getcond: Get Conditional Order
@@ -1364,16 +1370,17 @@ en:
   err_130126: No orders
   err_130023: Will be triggered Liq after order is completed
   err_130127: Take Profit, Stop Loss and Trailing Stop Loss are not modified
-  err_130149: Take Profit, Stop Loss verification failed
-  err_130150: The same profit,Cannot be switched
+  err_130149: SL/TP setting failed.
+  err_130150: Please try again later.
   err_130151: At least one take profit order in the mode,Cannot be switched
   err_130152: At least one stop loss order in the mode,Cannot be switched
-  err_130153: At least one stop loss or take profit stop order in the mode,Cannot be switched
-  err_130154: At least one stop loss or take profit activity order in the mode,Cannot be switched
-  err_130155: Available balance not enough
-  err_130157: Partial transaction，setting activity order stop loss or take profit is not allowed
-  err_130158: In tpsl-model is Full,Replace take profit or stop loss size is not allowed
-
+  err_130153: Switching failed. Please cancel the current SL/TP setting.
+  err_130154: Switching failed. Please cancel the SL/TP setting of active orders.
+  err_130155: Insufficient quantity required to set TP/SL
+  err_130156: Modify the trigger price when the price and quantity of the active order is not allowed.
+  err_130157: Amendment failed. SL/TP price cannot be amended as order is filled partially.
+  err_130158: SL/TP price cannot be amended under position mode.
+  err_130159: There are more than 20 SL/TP settings in the partial SL/TP mode.
 
   ### Linear Cancel Active Order
   linear_row_comment_qty: Order quantity in BTC
