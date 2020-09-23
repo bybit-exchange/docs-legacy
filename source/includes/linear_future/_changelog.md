@@ -13,9 +13,7 @@
 - [t(:tradingstop)](#t-tradingstop) [t(:changelog_update)]
     - t(:restapi_update_20200826_4)
 - [t(:cancelcond)](#t-cancelcond) [t(:changelog_update)]
-    - t(:restapi_update_20200826_5)
-- [t(:cancelallcond)](#t-cancelallcond) [t(:changelog_update)]
-    - t(:restapi_update_20200826_7) 
+    - t(:restapi_update_20200826_5) 
 - [t(:replacecond)](#t-replacecond) [t(:changelog_update)]
     - t(:restapi_update_20200826_6)
 - [t(:getactive)](#t-getactive) [t(:changelog_update)]

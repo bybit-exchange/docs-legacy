@@ -189,8 +189,6 @@ en:
   row_comment_low: Minimum price
   row_comment_close: Closing price
   row_comment_timestamp: Commission time
-  row_comment_tp_sl: true-cancel all stop loss take profit order in the side,false-cancel all normal conditional order,default false
-
   row_comment_resp_price: Order price
   row_comment_resp_size: Symbol contracts
   row_comment_resp_open_time: Starting time
@@ -247,7 +245,6 @@ en:
   row_response_comment_price: Order price
   row_response_comment_qty: Order quantity in USD
   row_response_comment_basePrice: The current market price
-  row_response_comment_stop_order_type: Stop order type
   row_response_comment_orderLinkId: Customised order ID
   row_response_comment_id: Latest data ID
   row_response_comment_execprice: Execution price
@@ -582,7 +579,7 @@ en:
     <p>You may cancel all untriggered conditional orders or take profit stop loss order. Essentially, after a conditional order is triggered, it will become an active order. So, when a conditional order is triggered, cancellation has to be done through the active order endpoint for any unfilled or partially filled active order. As always, orders that have been fully filled cannot be cancelled.</p>
   ### Cancel All Conditional Orders
   cancelallcond: Cancel All Conditional Orders
-  account_para_cancelAllCond: Cancel all untriggered conditional orders or stop loss take profit order.
+  account_para_cancelAllCond: Cancel all untriggered conditional orders.
   account_aside_cancelAllCond:
     This endpoint's <code>rate_limit</code> will decrease by 10 per request
   ### Replace Conditional Order
@@ -1120,9 +1117,6 @@ en:
   Full: "Full stop loss take profit"
   Partial: "Partial stop loss take profit"
 
-  ## Stop Order type (`stop_order_type`)
-  stop_order_type: "stop order type"
-
   Stop: "Normal stop order"
   TakeProfit: "Position take profit order"
   StopLoss: "Position stop loss order"
@@ -1486,7 +1480,6 @@ en:
   restapi_update_20200826_4: Support created partial take profit and stop loss order,Add new request parameter <code>sl_size</code>, <code>tp_size</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
   restapi_update_20200826_5: Support cancel take profit stop loss order
   restapi_update_20200826_6: Support replace cancel take profit stop loss order,Add new request parameter <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
-  restapi_update_20200826_7: Support cancel all take profit stop loss order,Add new request parameter <code>is_tp_sl</code>, <code>tp_sl</code>
 
   markpricekline: Query Mark Price Kline
   linear_query_mark_price_kline: Query mark price kline (like <a href="#t-querykline">Query Kline</a> but for <a href="https://help.bybit.com/hc/en-us/articles/360039261074-What-is-Dual-Price-mechanism-">mark price</a>).

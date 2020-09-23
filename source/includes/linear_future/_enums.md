@@ -124,14 +124,3 @@ t(:tp_sl_mode)
 
 * `Full` t(:Full)
 * `Partial` t(:Partial) 
-
-## Stop Order type (`stop_order_type`)
-t(:stop_order_type)
-
-* `Stop` t(:Stop)
-* `TakeProfit` t(:TakeProfit) 
-* `StopLoss` t(:StopLoss) 
-* `TrailingStop` t(:TrailingStop)
-* `PartialTakeProfit` t(:PartialTakeProfit) 
-* `PartialStopLoss` t(:PartialStopLoss) 
- 

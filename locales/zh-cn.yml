@@ -184,8 +184,6 @@ zh-cn:
   row_comment_low: 最低价格
   row_comment_close: 结束价格
   row_comment_timestamp: 委托时间
-  row_comment_tp_sl: true-取消对应仓位上的止盈止损单，false-取消普通条件单，默认false
-
   row_comment_resp_price: 委托价格
   row_comment_resp_size: 合约数量
   row_comment_resp_open_time: 开始时间
@@ -246,7 +244,6 @@ zh-cn:
   row_response_comment_qty: 委托数量
   row_response_comment_basePrice: 当前市价
   row_response_comment_triggerBy: 触发价格类型
-  row_response_comment_stop_order_type: 条件单类型
   row_response_comment_orderLinkId: 机构自定义订单ID
   row_response_comment_id: 最新数据ID
   row_response_comment_trade_id: 交易ID
@@ -566,7 +563,7 @@ zh-cn:
     <p>您可以撤销所有未被激活的条件委托,或止盈止损单。本质上所有条件委托在被激活后都是属于活动委托，所以条件委托一旦被激活，您需要通过调用取消活动委托接口来取消所有未成交、部分成交的活动委托单。同样全部成交的活动委托不可取消。</p>
   ### Cancel All Conditional Orders
   cancelallcond: 撤消全部条件委托单
-  account_para_cancelAllCond: 撤销所有未被激活的条件委托或部分止盈止损委托。本质上所有条件委托在被激活后都是属于活动委托，所以条件委托一旦被激活，您需要通过调用取消活动委托接口来取消所有未成交、部分成交的活动委托单。同样全部成交的活动委托不可取消。
+  account_para_cancelAllCond: 撤销所有未被激活的条件委托。本质上所有条件委托在被激活后都是属于活动委托，所以条件委托一旦被激活，您需要通过调用取消活动委托接口来取消所有未成交、部分成交的活动委托单。同样全部成交的活动委托不可取消。
   account_aside_cancelAllCond:
     注意，此api每调用一次会导致rate_limit扣减10
   ### Replace Conditional Order
@@ -1095,17 +1092,6 @@ zh-cn:
   Full: "仓位止盈止损"
   Partial: "部分止盈止损"
 
-  ## Stop Order type (`stop_order_type`)
-  stop_order_type: "条件单类型"
-
-  Stop: "普通条件单"
-  TakeProfit: "仓位止盈条件单"
-  StopLoss: "仓位止损条件单"
-  TrailingStop: "追踪止损条件单"
-  PartialTakeProfit: "部分止盈条件单"
-  PartialStopLoss: "部分止损条件单"
-
-
 
   # Error Code
   errors_intro: Bybit使用以下HTTP Code和错误码：
@@ -1454,7 +1440,6 @@ zh-cn:
   restapi_update_20200826_4: 支持创建部分止盈止损单,请求参数增加<code>sl_size</code>, <code>tp_size</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
   restapi_update_20200826_5: 支持撤销止盈止损单
   restapi_update_20200826_6: 支持修改止盈止损单信息,请求参数增加<code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
-  restapi_update_20200826_7: 支持撤销全部止盈止损单,请求参数增加<code>side</code>, <code>is_tp_sl</code>
 
   markpricekline: 标记价格K线
   linear_query_mark_price_kline: 查询标记价格K线

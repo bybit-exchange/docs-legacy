@@ -568,8 +568,7 @@ GET
 |stop_loss |number |t(:row_comment_stop_loss)  |
 |tp_trigger_by |string |t(:row_response_comment_triggerBy)  |
 |sl_trigger_by |string |t(:row_response_comment_triggerBy)  |
-|t(:row_parameter_stop_order_type) |string |t(:row_response_comment_stop_order_type)  |
-
+ 
 
 ### t(:cancelcond)
 > t(:codequote_responseExample)
@@ -645,8 +644,6 @@ POST
 |t(:column_parameter)|required|type | comments|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |true |string |t(:row_comment_symbol)|
-|t(:row_parameter_side) |false |string |t(:row_comment_side)   |
-|is_tp_sl |false |bool |t(:row_comment_tp_sl)|
 
 
 
@@ -765,8 +762,7 @@ GET
 |stop_loss |number |t(:row_comment_stop_loss)  |
 |tp_trigger_by |string |t(:row_response_comment_triggerBy)  |
 |sl_trigger_by |string |t(:row_response_comment_triggerBy)  |
-|t(:row_parameter_stop_order_type) |string |t(:row_response_comment_stop_order_type)  |
-
+ 
 
 
 
