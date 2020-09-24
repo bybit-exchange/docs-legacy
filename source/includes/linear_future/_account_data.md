@@ -3,6 +3,21 @@ t(:account_para)
 
 ## t(:activeorders)
 ### t(:placeactive)
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/private/linear/order/create \
+-H "Content-Type: application/json" \
+-d '{"api_key":"{api_key}","side"="Buy","symbol"="BTCUSD","order_type":"Market","qty":10,"time_in_force":"GoodTillCancel","timestamp":{timestamp},"sign":"{sign}"}'
+
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.LinearOrder.new(side="Buy",symbol="BTCUSD",order_type="Limit",qty=1,price=8300,time_in_force="GoodTillCancel").result())
+```
+
 > t(:codequote_responseExample)
 
 ```javascript
@@ -84,6 +99,18 @@ POST
 |updated_time |string |t(:row_comment_updated_at)  |
 
 ### t(:getactive)
+> t(:codequote_curlExample)
+
+```console
+curl "https://api.bybit.com/private/linear/order/list?api_key={api_key}&timestamp={timestamp}&sign={sign}&symbol=BTCUSDT"
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.LinearOrder.LinearOrder_getOrders(symbol="BTCUSDT").result())
+```
+
 > t(:codequote_responseExample)
 
 ```javascript
@@ -164,9 +191,21 @@ GET
 |updated_time |string |t(:row_comment_updated_at)  |
 
 
-
-
 ### t(:cancelactive)
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/private/linear/order/cancel \
+-H "Content-Type: application/json" \
+-d '{"api_key":"{api_key}","symbol":"BTCUSD","order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.LinearOrder.LinearOrder_cancel(symbol="BTCUSDT", order_id="").result())
+```
+
 > t(:codequote_responseExample)
 
 ```javascript
@@ -209,6 +248,20 @@ POST
 
 
 ### t(:cancelallactive)
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/private/linear/order/cancel-all \
+-H "Content-Type: application/json" \
+-d '{"api_key":"{api_key}","symbol":"BTCUSDT","timestamp":{timestamp},"sign":"{sign}"}'
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.LinearOrder.LinearOrder_cancelAll(symbol="BTCUSDT").result())
+```
+
 > t(:codequote_responseExample)
 
 ```javascript
@@ -252,6 +305,20 @@ POST
 
 
 ### t(:replaceactive)
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/private/linear/order/replace \
+-H "Content-Type: application/json" \
+-d '{"api_key":"{api_key}","symbol":"BTCUSDT","order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.LinearOrder.LinearOrder_replace(symbol="BTCUSDT", order_id="").result())
+```
+
 > t(:codequote_responseExample)
 
 ```javascript
@@ -298,6 +365,18 @@ POST
 
 
 ### t(:queryactive)
+> t(:codequote_curlExample)
+
+```console
+curl "https://api.bybit.com/private/linear/order/search?api_key={api_key}&symbol=BTCUSDT&timestamp={timestamp}order_id={order_id}&sign={sign}"
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.Order.query().result(symbol="BTCUSD", order_id=""))
+```
+
 > t(:codequote_responseExample)
 
 ```javascript
@@ -377,6 +456,20 @@ GET
 
 ## t(:conditionalorders)
 ### t(:placecond)
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/private/linear/stop-order/create \
+-H "Content-Type: application/json" \
+-d '{"api_key":"{api_key}","order_type":"Limit","side":"Buy","symbol":"BTCUSD","qty":1,"price":8100,"base_price":8300,"stop_px":8150,"time_in_force":"GoodTillCancel","order_link_id":"cus_order_id_1","reduce_only":false,"close_on_trigger":false,"timestamp":{timestamp},"sign":"{sign}"}'
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.LinearConditional.LinearConditional_new(order_type="Limit", side="Buy", symbol="BTCUSD", qty=1, price=8100, base_price=8300, stop_px=8150, time_in_force="GoodTillCancel", order_link_id="cus_order_id_1", reduce_only=False, close_on_trigger=False).result())
+```
+
 > t(:codequote_responseExample)
 
 ```javascript
@@ -454,6 +547,18 @@ POST
 
 
 ### t(:getcond)
+> t(:codequote_curlExample)
+
+```console
+curl "https://api.bybit.com/private/linear/stop-order/list?api_key={api_key}&timestamp={timestamp}&sign={sign}"
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.LinearConditional.LinearConditional_getOrders().result())
+```
+
 > t(:codequote_responseExample)
 
 ```javascript
@@ -542,6 +647,20 @@ GET
 
 
 ### t(:cancelcond)
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/private/linear/stop-order/cancel \
+-H "Content-Type: application/json" \
+-d '{"api_key":"{api_key}","symbol":"BTCUSDT","order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.LinearConditional.LinearConditional_cancel(symbol="BTCUSDT", order_id="").result())
+```
+
 > t(:codequote_responseExample)
 
 ```javascript
@@ -581,6 +700,20 @@ POST
 
 
 ### t(:cancelallcond)
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/private/linear/stop-order/cancel-all \
+-H "Content-Type: application/json" \
+-d '{"api_key":"{api_key}","symbol":"BTCUSDT","timestamp":{timestamp},"sign":"{sign}"}'
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.LinearOrder.LinearOrder_cancelAll(symbol="BTCUSDT").result())
+```
+
 > t(:codequote_responseExample)
 
 ```javascript
@@ -619,6 +752,20 @@ POST
 
 
 ### t(:replacecond)
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/private/linear/stop-order/replace \
+-H "Content-Type: application/json" \
+-d '{"api_key":"{api_key}","symbol":"BTCUSDT","stop_order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.LinearConditional.LinearConditional_replace(symbol="BTCUSDT", stop_order_id="").result())
+```
+
 > t(:codequote_responseExample)
 
 ```javascript
@@ -665,6 +812,18 @@ POST
 |stop_order_id |string |t(:row_comment_stopOrderId) |
 
 ### t(:querycond)
+> t(:codequote_curlExample)
+
+```console
+curl "https://api.bybit.com/private/linear/stop-order/search?api_key={api_key}&symbol=BTCUSDT&timestamp={timestamp}order_id={order_id}&sign={sign}"
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.LinearConditional.LinearConditional_query(symbol="BTCUSDT", stop_order_id="").result())
+```
+
 > t(:codequote_responseExample)
 
 ```javascript
@@ -727,21 +886,20 @@ GET
 |updated_at |string |t(:row_comment_updated_at)  |
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## t(:position)
 ### t(:myposition)
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/private/linear/position/list?api_key={api_key}&symbol=BTCUSDT&timestamp={timestamp}&sign={sign}"
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.LinearPositions.LinearPositions_myPosition(symbol="BTCUSDT").result())
+```
+
 > t(:codequote_responseExample)
 
 ```javascript
@@ -823,6 +981,20 @@ GET
 
 
 ### t(:setautoaddmargin)
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/private/linear/position/set-auto-add-margin \
+-H "Content-Type: application/json" \
+-d '{"api_key":"{api_key}","symbol":"BTCUSDT",margin="10","timestamp":{timestamp},"sign":"{sign}"}'
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.LinearPositions.LinearPositions_setAutoAddMargin(symbol="BTCUSDT", margin="10").result())
+```
+
 > t(:codequote_responseExample)
 
 ```javascript
@@ -854,41 +1026,20 @@ POST
 |auto_add_margin |true |bool |t(:linear_row_comment_set_auto_margin)  |
 
 
-### t(:setleverage)
-> t(:codequote_responseExample)
+### t(:marginswitch)
+> t(:codequote_curlExample)
 
-```javascript
-{
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
-    "ext_info": "",
-    "result": null,
-    "time_now": "1585881527.650138",
-    "rate_limit_status": 74,
-    "rate_limit_reset_ms": 1585881527648,
-    "rate_limit": 75
-}
+```console
+curl https://api.bybit.com/private/linear/position/switch-isolated \
+-H "Content-Type: application/json" \
+-d '{"api_key":"{api_key}","symbol":"BTCUSDT","is_isolated":true,"buy_leverage":1,"sell_leverage":1,"timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
-t(:linear_account_para_setLeverage)
-
-<p class="fake_header">t(:httprequest)</p>
-POST
-<code><span id=pSetLeverage>/private/linear/position/set-leverage</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pSetLeverage"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol)    |
-|buy_leverage |true |number |t(:linear_row_comment_leverage)  |
-|sell_leverage |true |number |t(:linear_row_comment_leverage)  |
-
-
-
-
-### t(:marginswitch)
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.LinearPositions.LinearPositions_switchIsolated(symbol="BTCUSDT", is_isolated=True, buy_leverage=1, sell_leverage=1).result())
+```
 > t(:codequote_responseExample)
 
 ```javascript
@@ -907,18 +1058,6 @@ POST
 
 t(:linear_account_para_switchIsolated)
 
-
-
-
-
-
-
-
-
-
-
-
-
 <p class="fake_header">t(:httprequest)</p>
 POST
 <code><span id=pSwitchIsolated>/private/linear/position/switch-isolated</span></code>
@@ -933,62 +1072,20 @@ POST
 |sell_leverage |true |number |t(:linear_row_comment_leverage)  |
 
 
-### t(:tradingstop)
-> t(:codequote_responseExample)
+### t(:addmargin)
+> t(:codequote_curlExample)
 
-```javascript
-{
-  "ret_code": 0,
-  "ret_msg": "OK",
-  "ext_code": "",
-  "ext_info": "",
-  "result": null,
-  "time_now": "1586780408.193508",
-  "rate_limit_status": 73,
-  "rate_limit_reset_ms": 1586780408191,
-  "rate_limit": 75
-}
+```console
+curl https://api.bybit.com \
+-H "Content-Type: application/json" \
+-d '{"api_key":"{api_key}","symbol":"BTCUSDT","side":"Buy","margin":0.01","timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
-t(:account_para_tradingStop)
-
-<aside class="notice">
-t(:account_aside_tradingStop)
-</aside>
-
-<p class="fake_header">t(:httprequest)</p>
-POST
-<code><span id=pSetTpSlTs>/private/linear/position/trading-stop</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pSetTpSlTs"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
-|t(:row_parameter_side) |true |string |t(:row_comment_side)    |
-|take_profit |false |number |t(:account_row_comment_takeProfit) |
-|stop_loss |false |number |t(:account_row_comment_stopLoss) |
-|trailing_stop |false |number |t(:account_row_comment_trailingStop) |
-|tp_trigger_by |false |string |t(:row_comment_triggerBy) |
-|sl_trigger_by |false |string |t(:row_comment_triggerBy) |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### t(:addmargin)
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.LinearPositions.LinearPositions_changeMargin(symbol="BTCUSDT", side="Buy", margin=0.01).result())
+```
 > t(:codequote_responseExample)
 
 ```javascript
@@ -1061,16 +1158,118 @@ POST
 |available_balance |number |t(:row_comment_available_balance)  |
 
 
+### t(:setleverage)
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/private/linear/position/set-leverage \
+-H "Content-Type: application/json" \
+-d '{"api_key":"{api_key}","symbol":"BTCUSDT","buy_leverage":10,"sell_leverage":10"sign":"{sign}"}'
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.LinearPositions.LinearPositions_saveLeverage(symbol="BTCUSDT", buy_leverage=10, sell_leverage=10).result())
+```
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "ext_info": "",
+    "result": null,
+    "time_now": "1585881527.650138",
+    "rate_limit_status": 74,
+    "rate_limit_reset_ms": 1585881527648,
+    "rate_limit": 75
+}
+```
+
+t(:linear_account_para_setLeverage)
+
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=pSetLeverage>/private/linear/position/set-leverage</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pSetLeverage"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol)    |
+|buy_leverage |true |number |t(:linear_row_comment_leverage)  |
+|sell_leverage |true |number |t(:linear_row_comment_leverage)  |
 
 
+### t(:tradingstop)
+> t(:codequote_curlExample)
 
+```console
+curl https://api.bybit.com/private/linear/position/trading-stop \
+-H "Content-Type: application/json" \
+-d '{"api_key":"{api_key}","symbol":"BTCUSDT","side":"Buy","take_profit":10,"timestamp":{timestamp},"sign":"{sign}"}'
+```
 
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.LinearPositions.LinearPositions_tradingStop(symbol="BTCUSDT", side="Buy", take_profit=10).result())
+```
 
+> t(:codequote_responseExample)
 
+```javascript
+{
+  "ret_code": 0,
+  "ret_msg": "OK",
+  "ext_code": "",
+  "ext_info": "",
+  "result": null,
+  "time_now": "1586780408.193508",
+  "rate_limit_status": 73,
+  "rate_limit_reset_ms": 1586780408191,
+  "rate_limit": 75
+}
+```
 
+t(:account_para_tradingStop)
+
+<aside class="notice">
+t(:account_aside_tradingStop)
+</aside>
+
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=pSetTpSlTs>/private/linear/position/trading-stop</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pSetTpSlTs"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
+|t(:row_parameter_side) |true |string |t(:row_comment_side)    |
+|take_profit |false |number |t(:account_row_comment_takeProfit) |
+|stop_loss |false |number |t(:account_row_comment_stopLoss) |
+|trailing_stop |false |number |t(:account_row_comment_trailingStop) |
+|tp_trigger_by |false |string |t(:row_comment_triggerBy) |
+|sl_trigger_by |false |string |t(:row_comment_triggerBy) |
 
 
 ### t(:usertraderecords)
+> t(:codequote_curlExample)
+
+```console
+curl "https://api.bybit.com/private/linear/trade/execution/list?api_key={api_key}&symbol=BTCUSDT&timestamp={timestamp}&sign={sign}"
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.LinearExecution.LinearExecution_getTrades(symbol="BTCUSDT").result())
+```
+
 > t(:codequote_responseExample)
 
 ```javascript
@@ -1159,22 +1358,19 @@ GET
 |trade_time_ms |number |t(:row_comment_trade_time)  |
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ### t(:closedprofitandloss)
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/private/linear/trade/closed-pnl/list?api_key={api_key}&symbol=BTCUSDT&timestamp={timestamp}&sign={sign}
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.LinearPositions.LinearPositions_closePnlRecords(symbol="BTCUSDT").result())
+```
+
 > t(:codequote_responseExample)
 
 ```javascript
@@ -1257,20 +1453,21 @@ GET
 |created_at |number |t(:row_comment_created_at)  |
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## t(:risklimit)
 
 ### t(:getrisklimit)
+> t(:codequote_curlExample)
+
+```console
+curl "https://api.bybit.com/public/linear/risk-limit?api_key={api_key}&timestamp={timestamp}&sign={sign}"
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.LinearWallet.LinearWallet_getRiskLimit().result())
+```
+
 > t(:codequote_responseExample)
 
 ```javascript
@@ -1515,33 +1712,70 @@ GET
 |updated_at |string |t(:row_comment_updated_at)  |
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## t(:funding)
+
+### t(:predictedfunding)
+> t(:codequote_curlExample)
+
+```console
+curl "https://api.bybit.com/private/linear/funding/predicted-funding?api_key={api_key}&symbol=BTCUSDT&timestamp={timestamp}&sign={sign}"
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.LinearFunding.LinearFunding_predicted(symbol="BTCUSDT").result())
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "ext_info": "",
+    "result": {
+        "predicted_funding_rate": -0.00375,
+        "predicted_funding_fee": 0.13081256
+    },
+    "time_now": "1587035697.424492",
+    "rate_limit_status": 119,
+    "rate_limit_reset_ms": 1587035697422,
+    "rate_limit": 120
+}
+```
+
+t(:account_para_predictedFunding)
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=vpPredictedFunding>/private/linear/funding/predicted-funding</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpPredictedFunding"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|predicted_funding_rate |number |t(:row_comment_predicted_funding_rate)    |
+|predicted_funding_fee |number |t(:row_comment_predicted_funding_fee)  |
+
+
 ### t(:mylastfundingfee)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/private/linear/funding/prev-funding?symbol=BTCUSDT
+curl "https://api.bybit.com/private/linear/funding/prev-funding?api_key={api_key}&symbolt=BTCUSDT&timestamp={timestamp}&sign={sign}"
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.LinearFunding.LinearFunding_prevRate(symbol="BTCUSDT").result())
 ```
 
 > t(:codequote_responseExample)
@@ -1590,67 +1824,5 @@ GET
 |exec_time |string |t(:row_comment_exec_timestamp)  |
 
 
-
-
-
-
-
-### t(:predictedfunding)
-> t(:codequote_curlExample)
-
-```console
-curl https://api.bybit.com/private/linear/funding/predicted-funding?symbol=BTCUSDT
-```
-
-> t(:codequote_responseExample)
-
-```javascript
-{
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
-    "ext_info": "",
-    "result": {
-        "predicted_funding_rate": -0.00375,
-        "predicted_funding_fee": 0.13081256
-    },
-    "time_now": "1587035697.424492",
-    "rate_limit_status": 119,
-    "rate_limit_reset_ms": 1587035697422,
-    "rate_limit": 120
-}
-```
-
-t(:account_para_predictedFunding)
-
-<p class="fake_header">t(:httprequest)</p>
-GET
-<code><span id=vpPredictedFunding>/private/linear/funding/predicted-funding</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpPredictedFunding"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|predicted_funding_rate |number |t(:row_comment_predicted_funding_rate)    |
-|predicted_funding_fee |number |t(:row_comment_predicted_funding_fee)  |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## t(:key)
-<a href="/docs/inverse#t-latestsymbolinfo">t(:shared_endpoint_desc)</a>
+<a href="/docs/inverse#t-key">t(:shared_endpoint_desc)</a>

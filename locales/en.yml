@@ -11,7 +11,7 @@ en:
   responseparameters: Response Parameters
   codequote_responseExample: Response Example
   codequote_responseExampleFormatAll: Response Example - format of all responses
-  codequote_curlExample: Curl Example
+  codequote_curlExample: Request Example
   codequote_subscribe: How to Subscribe
   codequote_snapshot: Snapshot Response Example - format of the first response
   codequote_delta: Delta Response Example - format of the responses following the snapshot response
@@ -49,7 +49,7 @@ en:
   row_comment_realised_pnl: Today's realised pnl
   row_comment_unrealised_pnl: Today's unrealised pnl
   row_comment_cum_realised_pnl: Accumulated realised pnl (all-time total)
-  row_comment_cross_seq: Cross sequence
+  row_comment_cross_seq: Cross sequence (internal value)
   row_comment_position_seq: Position sequence
   row_comment_cum_commission: Accumulated commission
   row_comment_trailing_active: Trailing stop active price
@@ -102,6 +102,7 @@ en:
   row_comment_lcp_platform_ratio: Platform effective ratio
   row_comment_lcp_score: Liquidity contribution points
   row_comment_created_at: Creation time
+  row_comment_created_at_position: The account creation time
   row_comment_created_at_in_exchange: Exchange time
   row_comment_updated_at: Update time
   row_comment_margin_result: User margin
@@ -491,7 +492,7 @@ en:
   market_para_marketopeninterest: Gets the total amount of unsettled contracts. In other words, the total number of contracts held in open positions.
   #### Market Account Ratio
   marketaccountratio: Long-Short Ratio
-  market_para_marketaccountratio: Gets the Bybit long-short ratio.
+  market_para_marketaccountratio: Gets the Bybit user accounts' long-short ratio.
   #### Market Account Ratio
   marketeliteratio: Top Trader Account Long-Empty Ratio
   market_para_marketeliteratio: Gets the Bybit top trader account long-empty ratio
@@ -590,11 +591,9 @@ en:
   ### User Leverage
   getleverage: User Leverage
   account_para_userLeverage: Get user leverage.
-  ### Change User Leverage
-  changeleverage: Change User Leverage
-  account_para_changeLeverage: |
-    <p>Change user leverage.</p>
-  account_aside_changeLeverage: Set <code>leverage</code> to <code>0</code> if you want to trade in <a href="https://help.bybit.com/hc/en-us/articles/360037683633-What-is-Cross-Margin">Cross Margin mode</a>. Note that your position mode will be changed to Isolated Margin mode if you change your leverage from 0 to any other value.
+  ### Set Leverage
+  # see setleverage
+  account_aside_setleverage: Set <code>leverage</code> to <code>0</code> if you want to trade in <a href="https://help.bybit.com/hc/en-us/articles/360037683633-What-is-Cross-Margin">Cross Margin mode</a>. Note that your position mode will be changed to Isolated Margin mode if you change your leverage from 0 to any other value.
 
   ## Position
   position: Position
@@ -604,7 +603,7 @@ en:
   ### Change Margin
   changemargin: Change Margin
   account_para_changeMargin: Update margin.
-  account_aside_changeMargin: You cannot change margin when your position is in Cross Margin mode. See the <a href="#t-changeleverage">Change User Leverage</a> endpoint for more.
+  account_aside_changeMargin: You cannot change margin when your position is in Cross Margin mode. See the <a href="#t-setleverage">Change User Leverage</a> endpoint for more.
   ### Set Trading-Stop
   tradingstop: Set Trading-Stop
   account_para_tradingStop: Set take profit, stop loss, and trailing stop for your open position.
@@ -682,7 +681,7 @@ en:
   api_para_time: Get Bybit server time.
   ### Announcement
   announcement: Announcement
-  api_para_announcement: Get Bybit OpenAPI announcements in the last 30 days by reverse order.
+  api_para_announcement: Get Bybit OpenAPI announcements in the last 30 days in reverse order.
 
   # API Rate Limits
   ratelimits: API Rate Limits
@@ -1439,6 +1438,8 @@ en:
     Abandon response fields: <code>period</code>, <code>start_at</code>
   restapi_update_20200630_1: Returns all wallet balances if no parameters are passed
   restapi_update_20200630_2: Adjust the return quantity from 50 to 200
+  restapi_update_20200915_1: Fix <a href="#t-marketaccountratio">Account Long-short ratio</a> data error
+  restapi_update_20200915_2: Change the return value of the field <code>time_in_force</code> of <a href="#t-placecond">placing conditional market order</a> from <code>GoodTillCancel</code> to <code>ImmediateOrCancel</code> which is the actual execution strategy
 
 
   markpricekline: Query Mark Price Kline
