@@ -1025,6 +1025,10 @@ POST
 
 t(:linear_private_switchmode)
 
+<aside class="notice">
+t(:switchmode_aside)
+</aside>
+
 <p class="fake_header">t(:httprequest)</p>
 POST
 <code><span id=pltcList>/private/linear/tpsl/switch-mode</span></code>
