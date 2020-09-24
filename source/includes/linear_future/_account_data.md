@@ -1003,7 +1003,7 @@ POST
 |tp_size |false |number |t(:row_comment_tp_size) |
 
 
-### t(:switch_mode)
+### t(:switchmode)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -1023,7 +1023,7 @@ POST
 
 ```
 
-t(:linear_private_switch_mode)
+t(:linear_private_switchmode)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
