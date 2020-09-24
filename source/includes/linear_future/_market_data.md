@@ -264,6 +264,16 @@ GET
 | close |integer |t(:row_comment_close) |
 
 
+## t(:advanceddata)
+### t(:marketopeninterest)
+<a href="/docs/inverse#t-marketopeninterest">t(:shared_endpoint_desc)</a>
+### t(:marketbigdeal)
+<a href="/docs/inverse#t-marketbigdeal">t(:shared_endpoint_desc)</a>
+### t(:marketaccountratio)
+<a href="/docs/inverse#t-marketaccountratio">t(:shared_endpoint_desc)</a>
+
+
+
 <!--
 ## t(:advanceddata)
 ### t(:marketfundingrate)

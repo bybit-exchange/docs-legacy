@@ -1,5 +1,37 @@
 # t(:changelog)
 
+## 2020-09-27
+### REST API
+- [t(:switch_mode)](#t-switch_mode) [t(:changelog_new)]
+- [t(:placecond)](#t-placecond) [t(:changelog_update)]
+    - t(:restapi_update_20200826_1)
+    - t(:restapi_update_20200826_3)
+- [t(:placeactive)](#t-placeactive) [t(:changelog_update)]
+    - t(:restapi_update_20200826_3)
+- [t(:myposition)](#t-myposition) [t(:changelog_update)]
+    - t(:restapi_update_20200826_2)
+- [t(:tradingstop)](#t-tradingstop) [t(:changelog_update)]
+    - t(:restapi_update_20200826_4)
+- [t(:cancelcond)](#t-cancelcond) [t(:changelog_update)]
+    - t(:restapi_update_20200826_5) 
+- [t(:replacecond)](#t-replacecond) [t(:changelog_update)]
+    - t(:restapi_update_20200826_6)
+- [t(:getactive)](#t-getactive) [t(:changelog_update)]
+    - t(:restapi_update_20200826_3)    
+- [t(:queryactive)](#t-queryactive) [t(:changelog_update)]
+    - t(:restapi_update_20200826_3)    
+- [t(:getcond)](#t-getcond) [t(:changelog_update)]
+    - t(:restapi_update_20200826_3)    
+- [t(:querycond)](#t-querycond) [t(:changelog_update)]
+    - t(:restapi_update_20200826_3)    
+ 
+
+## 2020-08-19
+### REST API
+- [t(:marketopeninterest)](#t-marketopeninterest) [t(:changelog_new)]
+- [t(:marketbigdeal)](#t-marketbigdeal) [t(:changelog_new)]
+- [t(:marketaccountratio)](#t-marketaccountratio) [t(:changelog_new)]
+
 ## 2020-07-07
 ### REST API
 - [t(:assetexchangerecords)](#t-assetexchangerecords) [t(:changelog_new)]

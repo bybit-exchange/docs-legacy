@@ -134,6 +134,8 @@ en:
   row_comment_stopPx: Trigger price
   row_comment_timeInForce: Time in force
   row_comment_triggerBy: Trigger price type. Default <code>LastPrice</code>
+  row_comment_tp_size: Take profit quantity (when in <a href="#t-switch_mode">partial mode</a>)
+  row_comment_sl_size: Stop loss quantity (when in <a href="#t-switch_mode">partial mode</a>)
   row_comment_takeProfit: Take profit price, only take effect upon opening the position
   row_comment_stopLoss: Stop loss price, only take effect upon opening the position
   row_comment_trailingStop: Trailing stop
@@ -147,7 +149,9 @@ en:
   row_comment_stopOrderId: Your conditional order ID. The unique order ID returned to you when the corresponding active order was created
   row_comment_pRQty: New order quantity. Do not pass this field if you don't want modify it
   row_comment_pRPrice: New order price. Do not pass this field if you don't want modify it
-  row_comemnt_pRTriggerPrice: New conditional order's trigger price, also known as stop_px. Do not pass this field if you don't want modify it
+  row_comemnt_pRTriggerPrice: New conditional order's trigger price or TP/SL order price, also known as stop_px. Do not pass this field if you don't want modify it
+  row_comemnt_replace_take_profit: New take_profit price, also known as stop_px. Do not pass this field if you don't want modify it
+  row_comemnt_replace_stop_loss: New stop_loss price, also known as stop_px. Do not pass this field if you don't want modify it
   row_comment_leverage: Leverage. <code>0</code> means Cross Margin mode - any other value means Isolated Margin mode
   row_comment_startDate: Start point for result
   row_comment_endDate: End point for result
@@ -170,6 +174,7 @@ en:
   row_comment_limit_200: Limit for data size per page, max size is 200. Default as showing 200 pieces of data per page
   row_comment_limit_100: Limit for data size per page, max size is 100. Default as showing 50 pieces of data per page
   row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page
+  row_comment_limit_50_500: Limit for data size per page, max size is 500. Default as showing 50 pieces of data per page
   row_comment_period: Data recording period. <code>5min</code>, <code>15min</code>, <code>30min</code>, <code>1h</code>, <code>4h</code>, <code>1d</code>
   row_comment_last_exec_time: Last execution time
   row_comment_last_exec_price: Last execution price
@@ -210,7 +215,7 @@ en:
   row_comment_resp_mark_price_e4: Mark price * 10^4
   row_comment_resp_index_price: Index_price
   row_comment_resp_index_price_e4: Index_price * 10^4
-  row_comment_resp_open_interest: open interest
+  row_comment_resp_open_interest: Open interest
   row_comment_resp_open_value: Open position value
   row_comment_resp_open_value_e8: Open position value * 10^8
   row_comment_resp_total_turnover: Total turnover
@@ -227,14 +232,19 @@ en:
   row_comment_resp_countdown_hour: Countdown of settlement capital cost
   row_comment_resp_update_time: Update time
   row_comment_confirm: Is confirm
-  row_comment_resp_trade_time_ms: Transaction time (MS)
-  row_comment_resp_trade_id: Trade Id
+  row_comment_resp_trade_time_ms: Transaction time (ms)
+  row_comment_resp_trade_id: Trade ID
+  row_comment_time_stamp: Timestamp
+  row_comment_open_interest: Number of contracts in open interest
+  row_comment_value: Value of the order
+  row_comment_limit_500_1000: Limit for data size per page, max size is 1000. Default as showing 500 pieces of data per page
+  row_comment_buy_ratio: Long position ratio
+  row_comment_sell_ratio: Short position ratio
 
 
   row_response_comment_price: Order price
   row_response_comment_qty: Order quantity in USD
   row_response_comment_basePrice: The current market price
-  row_response_comment_triggerBy: Trigger price type
   row_response_comment_orderLinkId: Customised order ID
   row_response_comment_id: Latest data ID
   row_response_comment_execprice: Execution price
@@ -276,11 +286,13 @@ en:
   row_comment_tx_id: Transaction hash ID
   row_comment_address: Address
   row_comment_submited_at: Submit time
+  row_response_liq_record_side: Liquidated order's side
 
 
 
   row_parameter_symbol: <a href="#symbol-symbol">symbol</a>
   row_parameter_side: <a href="#side-side">side</a>
+  row_parameter_tp_sl_mode:  <a href="#tpsl-mode-type-tp_sl_mode">tp_sl_mode</a>
   row_parameter_order_type: <a href="#order-type-order_type">order_type</a>
   row_parameter_quantity: <a href="#quantity-qty">qty</a>
   row_parameter_price: <a href="#price-price">price</a>
@@ -311,6 +323,7 @@ en:
     In Cross Margin mode, The formula to calculate<span>:</span>
 
     <code>effective_leverage = position size / mark_price / (wallet_balance + unrealised_pnl)</code>
+  row_comment_slow_update: The update is not immediate - slowest update is 1 minute
 
   row_comment_from_id: Start ID. By default, returns the latest IDs
   row_comment_direction: |
@@ -478,17 +491,17 @@ en:
   marketfundingrate: Get Funding Rate
   market_para_marketfundingrate: Get Bybit's recent funding rates.
   #### Market Open Interest
-  marketopeninterest: Total Currency Holdings
-  market_para_marketopeninterest: Gets the total amount of positions held in each Bybit currency.
+  marketopeninterest: Open Interest
+  market_para_marketopeninterest: Gets the total amount of unsettled contracts. In other words, the total number of contracts held in open positions.
   #### Market Account Ratio
-  marketaccountratio: Account Long-Empty Ratio
-  market_para_marketaccountratio: Gets the Bybit account long-empty ratio
+  marketaccountratio: Long-Short Ratio
+  market_para_marketaccountratio: Gets the Bybit long-short ratio.
   #### Market Account Ratio
   marketeliteratio: Top Trader Account Long-Empty Ratio
   market_para_marketeliteratio: Gets the Bybit top trader account long-empty ratio
   #### Market Big Deal
-  marketbigdeal: Actively Clinched Large Orders
-  market_para_marketbigdeal: Obtain Bybit active transaction orders over 500000 USD. Returns the last 50 transactions.
+  marketbigdeal: Latest Large Orders
+  market_para_marketbigdeal: Obtain filled orders worth more than 500,000 USD within the last 24h.
 
   # Account Data Endpoints
   accountdata: Account Data Endpoints
@@ -526,7 +539,7 @@ en:
   account_para_replaceActive: |
     <p>Replace order can modify/amend your active orders.</p>
     <p><code>p_r_qty</code> and <code>p_r_price</code> are the modified price and quantity. If these two fields are not provided, nothing will be modified.</p>
-    <p>It is possible to modify only the qty or price of an order.</p>
+
   account_aside_replaceActive:
     Please note that only orders that are unfilled or partially filled can be modified by the replace-order API.
   ### Query Active Order (real-time)
@@ -542,12 +555,18 @@ en:
     <p>Limit price conditional order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
     <p>Take profit/Stop loss: You may only set a take-profit/stop-loss conditional order upon opening the position. Once you hold a position, the take profit and stop loss information you sent when placing an order will no longer be valid.</p>
     <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell, currently Bybit only support order quantity in an integer.</p>
-    <p>Order price: If it is a condition order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the price_filter field in the <a href="#t-querysymbol">Query Symbols</a> endpoint.</p>
+    <p>Order price: If it is a stop order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the price_filter field in the <a href="#t-querysymbol">Query Symbols</a> endpoint.</p>
     <p>Conditional order trigger price: You may set a trigger price for your conditional order. conditional order will not enter the order book until the last price hits the trigger price. When last price hits trigger price: 1) your limit conditional order will enter order book, and wait to be executed; 2) your market conditional order will be executed immediately at the best available market price.</p>
     <p>Customize conditional order ID: You may customize order IDs for active orders. We will link it to the system order ID , and return the unique system order ID to you after the active order is created successfully. You may use this order ID to cancel your active order. The customized order ID is asked to be unique, with a maximum length of 36 characters.</p>
 
   account_aside_placeCond:
     Take profit/Stop loss is not supported in placing conditional orders. One can only use these 2 functions when placing active orders. Moreover, each account can hold up to 10 conditional orders yet to be filled entirely simultaneously.
+  account_aside_placeCond_linear:
+    <p>Each account can hold up to 10 conditional orders yet to be filled entirely simultaneously.</p>
+    <p>If <code>ext_code</code> is not empty, please refer to <a href="#t-errors">Errors</a></p>
+  account_aside_placeActive_linear:
+    <p>If <code>ext_code</code> is not empty, please refer to <a href="#t-errors">Errors</a></p>
+
 
   ### Get Conditional Order
   getcond: Get Conditional Order
@@ -557,7 +576,7 @@ en:
   ### Cancel Conditional Order
   cancelcond: Cancel Conditional Order
   account_para_cancelCond: |
-    <p>You may cancel all untriggered conditional orders. Essentially, after a conditional order is triggered, it will become an active order. So, when a conditional order is triggered, cancellation has to be done through the active order endpoint for any unfilled or partially filled active order. As always, orders that have been fully filled cannot be cancelled.</p>
+    <p>You may cancel all untriggered conditional orders or take profit/stop loss order. Essentially, after a conditional order is triggered, it will become an active order. So, when a conditional order is triggered, cancellation has to be done through the active order endpoint for any unfilled or partially filled active order. As always, orders that have been fully filled cannot be cancelled.</p>
   ### Cancel All Conditional Orders
   cancelallcond: Cancel All Conditional Orders
   account_para_cancelAllCond: Cancel all untriggered conditional orders.
@@ -597,6 +616,7 @@ en:
   ### Set Trading-Stop
   tradingstop: Set Trading-Stop
   account_para_tradingStop: Set take profit, stop loss, and trailing stop for your open position.
+  account_para_tradingStop_linear: Set take profit, stop loss, and trailing stop for your open position. If using <a href="#t-switch_mode">partial mode</a>, TP/SL/TS orders will not close your entire position.
   account_aside_tradingStop: Passing these parameters will create conditional orders controlled by the system. The system will cancel these orders if the position is closed, and adjust the qty according to the size of the open position.
   account_row_comment_takeProfit: Cannot be less than 0, 0 means cancel TP
   account_row_comment_stopLoss: Cannot be less than 0, 0 means cancel SL
@@ -1082,14 +1102,27 @@ en:
   exec_adlTrade: ""
   exec_bustTrade: ""
   ## Liquidity type (`last_liquidity_ind`)
-  addedLiquidity: "maker liquidity"
-  removedLiquidity: "taker liquidity"
+  addedLiquidity: "- Maker liquidity"
+  removedLiquidity: "- Taker liquidity"
+
   ## Tick direction type (`tick_direction`)
   tick_direction: "It indicates the fluctuation of price, which is up or down relative to the last transaction"
-  plusTick: "Rise in price"
-  zeroPlusTick: "Keep up with the last trad, the last time with the last is rise in price"
-  minusTick: "Prices are down"
-  zeroMinusTick: "Keep up with the last trad, the last time with the last is Prices are down"
+  plusTick: "- Rise in price"
+  zeroPlusTick: "- Rise in price compared to last trade of different price"
+  minusTick: "- Drop in price"
+  zeroMinusTick: "- Drop in price compared to last trade of different price"
+
+  ## TpSl Mode type (`tp_sl_mode`)
+  tp_sl_mode: "Take profit/stop loss mode"
+  Full: "- Full stop loss take profit"
+  Partial: "- Partial stop loss take profit"
+
+  Stop: "- Normal stop order"
+  TakeProfit: "- Position take profit order"
+  StopLoss: "- Position stop loss order"
+  TrailingStop: "- Position trailing stop loss order"
+  PartialTakeProfit: "- Position partial take profit order"
+  PartialStopLoss: "- Position partial take profit order"
 
   # Error Code
   errors_intro: The Bybit API uses the following HTTP Codes and Error Codes<span>:</span>
@@ -1278,7 +1311,7 @@ en:
   err_130029: the price set for Buy position should be between liq_price and base_price
   err_130030: the price set for Sell position should be lower than base_price
   err_130032: invalid order_status, cannot cancel or execute trigger
-  err_130033: number of condition order >= 10
+  err_130033: number of stop order >= 10
   err_130034: stop_order cannot replace
   err_130035: Too freq to cancel, Try it later
   err_130037: Order already cancelled
@@ -1331,10 +1364,21 @@ en:
   err_130126: No orders
   err_130023: Will be triggered Liq after order is completed
   err_130127: Take Profit, Stop Loss and Trailing Stop Loss are not modified
+  err_130149: Order creation successful but SL/TP setting failed.
+  err_130150: Please try again later.
+  err_130151: At least one take profit order in the mode,Cannot be switched
+  err_130152: At least one stop loss order in the mode,Cannot be switched
+  err_130153: Switching failed. Please cancel the current SL/TP setting.
+  err_130154: Switching failed. Please cancel the SL/TP setting of active orders.
+  err_130155: Insufficient quantity required to set TP/SL
+  err_130156: Modify the trigger price when the price and quantity of the active order is not allowed.
+  err_130157: Amendment failed. SL/TP price cannot be amended as order is partially filled.
+  err_130158: SL/TP price cannot be amended under position mode.
+  err_130159: There are more than 20 SL/TP settings in the partial SL/TP mode.
 
   ### Linear Cancel Active Order
   linear_row_comment_qty: Order quantity in BTC
-  linear_row_comment_reduceOnly: <a href="https://help.bybit.com/hc/en-us/articles/360039260574-What-is-a-reduce-only-order-"> What is a reduce-only order?</a> True means your position can only reduce in size if this order is triggered
+  linear_row_comment_reduceOnly: <a href="https://help.bybit.com/hc/en-us/articles/360039260574-What-is-a-reduce-only-order-"> What is a reduce-only order?</a> True means your position can only reduce in size if this order is triggered. When <code>reduce_only</code> is true, take profit/stop loss cannot be set
   linear_row_comment_closeOnTrigger: <a href="https://help.bybit.com/hc/en-us/articles/360039260534-What-is-a-close-on-trigger-Order-">  What is a close on trigger order?</a> For a closing order. It can only reduce your position, not increase it. If the account has insufficient available balance when the closing order is triggered, then other active orders of similar contracts will be cancelled or reduced. It can be used to ensure your stop loss reduces your position regardless of current available margin.
   placeactive: Place Active Order
   linear_account_para_placeActive: |
@@ -1342,7 +1386,7 @@ en:
     <p>Limit price active order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
     <p><b>Take profit/Stop loss: You may only set a TP/SL conditional order upon opening the position. Once you hold a position, any new active order requests which contain TP/SL data will be accepted but TP/SL data will be ignored. <code>tp_trigger_by</code>/<code>sl_trigger_by</code> default to LastPrice. Passing values to the <code>take_profit</code> or <code>stop_loss</code> parameters in this endpoint will create conditional orders managed by the system, which will be be automatically cancelled if the position is closed.</b></p>
     <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell. This must modulo by 0.5 (20 and 21.5 are accepted, but 16.1 or 16.15 are not).</p>
-    <p>Order price: If it is a condition order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the price_filter field in the <a href="#t-querysymbol">Query Symbols</a> endpoint.</p>
+    <p>Order price: If it is a stop order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the price_filter field in the <a href="#t-querysymbol">Query Symbols</a> endpoint.</p>
     <p>Custom order ID: You may customise order IDs for active orders. We will link it to the system order ID, and return the unique system order ID to you after the active order is created successfully. You may use this order ID or your custom order ID to cancel your active order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
     <p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSDT instrument and 280 active orders on the ETHUSDT instrument. And order with parameter <code>reduce_only</code> or <code>closeOnTrigger</code> is unlimited.</b></p>
   linear_row_comment_basePrice: It will be used to compare with the value of <code>stop_px</code>, to decide whether your conditional order will be triggered by crossing trigger price from upper side or lower side. Mainly used to identify the expected direction of the current conditional order.
@@ -1405,10 +1449,12 @@ en:
   linear_order_fix_order_type___20200403: Fix value of <code>order_type</code> in response
   linear_exec_type: Execution type
   closedprofitandloss: Closed Profit and Loss
+  switch_mode: Full/Partial Position SL/TP Switch
   addmargin: Add/Reduce Margin
   restapi_update_20200414: Updated <code>BTCUSDT</code> contract information
   linear_private_trade_records: Get user's trading records. The results are ordered in descending order (the first item is the latest).
   linear_private_closed_pnl_records: Get user's closed profit and loss records. The results are ordered in descending order (the first item is the latest).
+  linear_private_switch_mode: Switch mode Full or Partial
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
   restapi_update_20200417_1: Add new symbol <code>BTCUSDT</code>
@@ -1428,7 +1474,13 @@ en:
     Abandon response fields: <code>period</code>, <code>start_at</code>
   restapi_update_20200630_1: Returns all wallet balances if no parameters are passed
   restapi_update_20200630_2: Adjust the return quantity from 50 to 200
-
+  restapi_update_20200826_1: Support setting take profit and stop loss, Add new request parameter <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
+  restapi_update_20200826_3: Add response parameter <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
+  restapi_update_20200826_2: Add response parameter <code>tp_sl_mode</code>
+  restapi_update_20200826_4: Support created partial take profit and stop loss order,Add new request parameter <code>sl_size</code>, <code>tp_size</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
+  restapi_update_20200826_5: Support cancel take profit stop loss order
+  restapi_update_20200826_6: Support replace cancel take profit stop loss order,Add new request parameter <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
+  restapi_update_20200927_1: Support <code>order_link_id</code>
 
   markpricekline: Query Mark Price Kline
   linear_query_mark_price_kline: Query mark price kline (like <a href="#t-querykline">Query Kline</a> but for <a href="https://help.bybit.com/hc/en-us/articles/360039261074-What-is-Dual-Price-mechanism-">mark price</a>).
@@ -1446,6 +1498,7 @@ en:
   linear_resp_field_realised_pnl: Today's realised Profit and Loss
   linear_resp_field_cum_realised_pnl: Cumulative realised Profit and Loss
   linear_resp_field_free_qty: Qty which can be closed
+  linear_resp_tp_sl_mode: Stop loss and take profit mode
   linear_resp_field_closed_size: Closed size
   linear_resp_field_cum_entry_value: Closed position value
   linear_resp_field_avg_entry_price: Average entry price

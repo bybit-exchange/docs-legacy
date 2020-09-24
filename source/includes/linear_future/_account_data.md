@@ -39,6 +39,10 @@ t(:account_para)
 
 t(:linear_account_para_placeActive)
 
+<aside class="notice">
+t(:account_aside_placeActive_linear)
+</aside>
+
 <p class="fake_header">t(:httprequest)</p>
 POST
 <code><span id=vpoCreate>/private/linear/order/create</span></code>
@@ -78,10 +82,14 @@ POST
 |cum_exec_qty |number |t(:linear_resp_field_cum_exec_qty)  |
 |cum_exec_value |number |t(:linear_resp_field_cum_exec_value)  |
 |cum_exec_fee |number |t(:linear_resp_field_cum_exec_fee)  |
-|reduce_only |bool |t(:linear_resp_field_reduce_only)  | 
+|reduce_only |bool |t(:linear_resp_field_reduce_only)  |
 |order_link_id |string |t(:row_response_comment_orderLinkId)  |
 |created_time |string |t(:row_comment_created_at)  |
 |updated_time |string |t(:row_comment_updated_at)  |
+|take_profit |number |t(:row_comment_take_profit)  |
+|stop_loss |number |t(:row_comment_stop_loss)  |
+|tp_trigger_by |string |t(:row_response_comment_triggerBy)  |
+|sl_trigger_by |string |t(:row_response_comment_triggerBy)  |
 
 ### t(:getactive)
 > t(:codequote_responseExample)
@@ -150,10 +158,10 @@ GET
 | symbol |string |t(:row_comment_symbol) |
 | side |string |t(:row_comment_side) |
 | order_type |string |t(:row_comment_order_type) |
-| price  |number |t(:row_comment_resp_price) | 
-| qty  |number |t(:row_response_comment_qty) | 
+| price  |number |t(:row_comment_resp_price) |
+| qty  |number |t(:row_response_comment_qty) |
 |time_in_force |string |t(:row_comment_timeInForce)  |
-|order_status |string |t(:row_parameter_order_status)  |
+|t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
 |last_exec_price |number |t(:row_comment_last_exec_price)  |
 |cum_exec_qty |number |t(:linear_resp_field_cum_exec_qty)  |
 |cum_exec_value |number |t(:linear_resp_field_cum_exec_value)  |
@@ -162,7 +170,10 @@ GET
 |reduce_only |bool |t(:linear_resp_field_reduce_only)  |
 |created_time |string |t(:row_comment_created_at)  |
 |updated_time |string |t(:row_comment_updated_at)  |
-
+|take_profit |number |t(:row_comment_take_profit)  |
+|stop_loss |number |t(:row_comment_stop_loss)  |
+|tp_trigger_by |string |t(:row_response_comment_triggerBy)  |
+|sl_trigger_by |string |t(:row_response_comment_triggerBy)  |
 
 
 
@@ -288,7 +299,10 @@ POST
 |t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
 |p_r_qty |false |int |t(:row_comment_pRQty) |
 |p_r_price |false |number |t(:row_comment_pRPrice) |
-
+|take_profit |false |number |t(:row_comemnt_replace_take_profit)  |
+|stop_loss |false |number |t(:row_comemnt_replace_stop_loss)  |
+|tp_trigger_by |false |string |t(:row_response_comment_triggerBy)  |
+|sl_trigger_by |false |string |t(:row_response_comment_triggerBy)  |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -364,10 +378,14 @@ GET
 |cum_exec_qty |number |t(:linear_resp_field_cum_exec_qty)  |
 |cum_exec_value |number |t(:linear_resp_field_cum_exec_value)  |
 |cum_exec_fee |number |t(:linear_resp_field_cum_exec_fee)  |
-|reduce_only |bool |t(:linear_resp_field_reduce_only)  | 
+|reduce_only |bool |t(:linear_resp_field_reduce_only)  |
 |order_link_id |string |t(:row_response_comment_orderLinkId)  |
 |created_time |string |t(:row_comment_created_at)  |
 |updated_time |string |t(:row_comment_updated_at)  |
+|take_profit |number |t(:row_comment_take_profit)  |
+|stop_loss |number |t(:row_comment_stop_loss)  |
+|tp_trigger_by |string |t(:row_response_comment_triggerBy)  |
+|sl_trigger_by |string |t(:row_response_comment_triggerBy)  |
 
 
 
@@ -411,7 +429,7 @@ GET
 t(:account_para_placeCond)
 
 <aside class="notice">
-t(:account_aside_placeCond)
+t(:account_aside_placeCond_linear)
 </aside>
 
 <p class="fake_header">t(:httprequest)</p>
@@ -434,6 +452,10 @@ POST
 |close_on_trigger |true |bool |t(:row_comment_closeOnTrigger)
 |order_link_id |false |string |t(:row_comment_orderLinkId) |
 |reduce_only |true |bool |t(:linear_row_comment_reduceOnly) |
+|take_profit |false |number |t(:row_comment_takeProfit) |
+|stop_loss |false |number |t(:row_comment_stopLoss) |
+|tp_trigger_by |false |string |t(:row_comment_triggerBy) |
+|sl_trigger_by |false |string |t(:row_comment_triggerBy) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -451,7 +473,10 @@ POST
 |order_link_id |string |t(:row_response_comment_orderLinkId) |
 |created_at |string |t(:row_comment_created_at)  |
 |updated_at |string |t(:row_comment_updated_at)  |
-
+|take_profit |number |t(:row_comment_take_profit)  |
+|stop_loss |number |t(:row_comment_stop_loss)  |
+|tp_trigger_by |string |t(:row_response_comment_triggerBy)  |
+|sl_trigger_by |string |t(:row_response_comment_triggerBy)  |
 
 ### t(:getcond)
 > t(:codequote_responseExample)
@@ -534,11 +559,15 @@ GET
 |t(:row_parameter_price) |number |t(:row_response_comment_price)  |
 |t(:row_parameter_quantity) |number |t(:row_response_comment_qty)  |
 |t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
-|order_status |string |t(:row_comment_stopOrderStatus) 
+|order_status |string |t(:row_comment_stopOrderStatus)
 |trigger_price |number |t(:stop_order_trigger_price)  |
 |order_link_id |string |t(:row_response_comment_orderLinkId) |
 |created_at |string |t(:row_comment_created_at)  |
 |updated_at |string |t(:row_comment_updated_at)  |
+|take_profit |number |t(:row_comment_take_profit)  |
+|stop_loss |number |t(:row_comment_stop_loss)  |
+|tp_trigger_by |string |t(:row_response_comment_triggerBy)  |
+|sl_trigger_by |string |t(:row_response_comment_triggerBy)  |
 
 
 ### t(:cancelcond)
@@ -658,6 +687,10 @@ POST
 |p_r_qty |false |int |t(:row_comment_pRQty) |
 |p_r_price |false |number |t(:row_comment_pRPrice) |
 |p_r_trigger_price |false |number |t(:row_comemnt_pRTriggerPrice) |
+|take_profit |false |number |t(:row_comemnt_replace_take_profit)  |
+|stop_loss |false |number |t(:row_comemnt_replace_stop_loss)  |
+|tp_trigger_by |false |string |t(:row_response_comment_triggerBy)  |
+|sl_trigger_by |false |string |t(:row_response_comment_triggerBy)  |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -725,16 +758,10 @@ GET
 |order_link_id |string |t(:row_response_comment_orderLinkId)  |
 |created_at |string |t(:row_comment_created_at)  |
 |updated_at |string |t(:row_comment_updated_at)  |
-
-
-
-
-
-
-
-
-
-
+|take_profit |number |t(:row_comment_take_profit)  |
+|stop_loss |number |t(:row_comment_stop_loss)  |
+|tp_trigger_by |string |t(:row_response_comment_triggerBy)  |
+|sl_trigger_by |string |t(:row_response_comment_triggerBy)  |
 
 
 
@@ -820,6 +847,7 @@ GET
 |realised_pnl |number |t(:linear_resp_field_realised_pnl)  |
 |cum_realised_pnl |number |t(:linear_resp_field_cum_realised_pnl)  |
 |free_qty |number |t(:linear_resp_field_free_qty)  |
+|t(:row_parameter_tp_sl_mode) |string |t(:linear_resp_tp_sl_mode)  |
 
 
 ### t(:setautoaddmargin)
@@ -950,7 +978,7 @@ POST
 }
 ```
 
-t(:account_para_tradingStop)
+t(:account_para_tradingStop_linear)
 
 <aside class="notice">
 t(:account_aside_tradingStop)
@@ -971,9 +999,49 @@ POST
 |trailing_stop |false |number |t(:account_row_comment_trailingStop) |
 |tp_trigger_by |false |string |t(:row_comment_triggerBy) |
 |sl_trigger_by |false |string |t(:row_comment_triggerBy) |
+|sl_size |false |number |t(:row_comment_sl_size) |
+|tp_size |false |number |t(:row_comment_tp_size) |
+
+
+### t(:switch_mode)
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "ext_info": "",
+    "result": {
+        "tp_sl_mode": "Partial"
+    },
+    "time_now": "1598266294.610276",
+    "rate_limit_status": 72,
+    "rate_limit_reset_ms": 1598266294607,
+    "rate_limit": 75
+}
+
+```
+
+t(:linear_private_switch_mode)
+
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=pltcList>/private/linear/tpsl/switch-mode</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pltcList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
+|t(:row_parameter_tp_sl_mode) |true |string |t(:linear_resp_tp_sl_mode)  |
 
 
 
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|t(:row_parameter_tp_sl_mode) |string |t(:linear_resp_tp_sl_mode)  |
 
 
 
@@ -1149,7 +1217,7 @@ GET
 |t(:row_parameter_order_type) |string |t(:row_comment_order_type)  |
 |fee_rate |number |t(:row_comment_fee_rate)  |
 |exec_price |number |t(:row_comment_exec_price)    |
-|t(:row_parameter_exec_type) |string |t(:row_comment_exec_type)  |
+|t(:row_parameter_exec_type) |string |t(:enum_exec_type_link)  |
 |exec_qty |number |t(:row_comment_exec_qty)  |
 |exec_fee |number |t(:row_comment_exec_fee)    |
 |exec_value |number |t(:row_comment_exec_value)  |
@@ -1255,16 +1323,6 @@ GET
 |fill_count |number |t(:linear_resp_field_fill_count)    |
 |leverage |number |t(:resp_field_leverage)  |
 |created_at |number |t(:row_comment_created_at)  |
-
-
-
-
-
-
-
-
-
-
 
 
 
