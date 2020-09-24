@@ -1,6 +1,6 @@
 # t(:changelog)
 
-## 2020-08-26
+## 2020-09-27
 ### REST API
 - [t(:switch_mode)](#t-switch_mode) [t(:changelog_new)]
 - [t(:placecond)](#t-placecond) [t(:changelog_update)]

@@ -1,6 +1,12 @@
 # t(:changelog)
 
-
+## 2020-09-27
+### REST API
+- [t(:replaceactive)](#t-replaceactive) [t(:changelog_update)]
+     - t(:restapi_update_20200927_1)
+- [t(:replacecond)](#t-replacecond) [t(:changelog_update)]
+     - t(:restapi_update_20200927_1)
+     
 
 ## 2020-08-19
 ### REST API
