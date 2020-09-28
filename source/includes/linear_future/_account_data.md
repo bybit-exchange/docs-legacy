@@ -54,6 +54,10 @@ print(client.LinearOrder.new(side="Buy",symbol="BTCUSD",order_type="Limit",qty=1
 
 t(:linear_account_para_placeActive)
 
+<aside class="notice">
+t(:account_aside_placeActive_linear)
+</aside>
+
 <p class="fake_header">t(:httprequest)</p>
 POST
 <code><span id=vpoCreate>/private/linear/order/create</span></code>
@@ -97,6 +101,10 @@ POST
 |order_link_id |string |t(:row_response_comment_orderLinkId)  |
 |created_time |string |t(:row_comment_created_at)  |
 |updated_time |string |t(:row_comment_updated_at)  |
+|take_profit |number |t(:row_comment_take_profit)  |
+|stop_loss |number |t(:row_comment_stop_loss)  |
+|tp_trigger_by |string |t(:row_comment_triggerBy)  |
+|sl_trigger_by |string |t(:row_comment_triggerBy)  |
 
 ### t(:getactive)
 > t(:codequote_curlExample)
@@ -189,7 +197,10 @@ GET
 |reduce_only |bool |t(:linear_resp_field_reduce_only)  |
 |created_time |string |t(:row_comment_created_at)  |
 |updated_time |string |t(:row_comment_updated_at)  |
-
+|take_profit |number |t(:row_comment_take_profit)  |
+|stop_loss |number |t(:row_comment_stop_loss)  |
+|tp_trigger_by |string |t(:row_comment_triggerBy)  |
+|sl_trigger_by |string |t(:row_comment_triggerBy)  |
 
 ### t(:cancelactive)
 > t(:codequote_curlExample)
@@ -355,7 +366,10 @@ POST
 |t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
 |p_r_qty |false |int |t(:row_comment_pRQty) |
 |p_r_price |false |number |t(:row_comment_pRPrice) |
-
+|take_profit |false |number |t(:row_comemnt_replace_take_profit)  |
+|stop_loss |false |number |t(:row_comemnt_replace_stop_loss)  |
+|tp_trigger_by |false |string |t(:row_comment_triggerBy)  |
+|sl_trigger_by |false |string |t(:row_comment_triggerBy)  |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -447,6 +461,10 @@ GET
 |order_link_id |string |t(:row_response_comment_orderLinkId)  |
 |created_time |string |t(:row_comment_created_at)  |
 |updated_time |string |t(:row_comment_updated_at)  |
+|take_profit |number |t(:row_comment_take_profit)  |
+|stop_loss |number |t(:row_comment_stop_loss)  |
+|tp_trigger_by |string |t(:row_comment_triggerBy)  |
+|sl_trigger_by |string |t(:row_comment_triggerBy)  |
 
 
 
@@ -504,7 +522,7 @@ print(client.LinearConditional.LinearConditional_new(order_type="Limit", side="B
 t(:account_para_placeCond)
 
 <aside class="notice">
-t(:account_aside_placeCond)
+t(:account_aside_placeCond_linear)
 </aside>
 
 <p class="fake_header">t(:httprequest)</p>
@@ -527,6 +545,10 @@ POST
 |close_on_trigger |true |bool |t(:row_comment_closeOnTrigger)
 |order_link_id |false |string |t(:row_comment_orderLinkId) |
 |reduce_only |true |bool |t(:linear_row_comment_reduceOnly) |
+|take_profit |false |number |t(:row_comment_takeProfit) |
+|stop_loss |false |number |t(:row_comment_stopLoss) |
+|tp_trigger_by |false |string |t(:row_comment_triggerBy) |
+|sl_trigger_by |false |string |t(:row_comment_triggerBy) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -544,7 +566,10 @@ POST
 |order_link_id |string |t(:row_response_comment_orderLinkId) |
 |created_at |string |t(:row_comment_created_at)  |
 |updated_at |string |t(:row_comment_updated_at)  |
-
+|take_profit |number |t(:row_comment_take_profit)  |
+|stop_loss |number |t(:row_comment_stop_loss)  |
+|tp_trigger_by |string |t(:row_comment_triggerBy)  |
+|sl_trigger_by |string |t(:row_comment_triggerBy)  |
 
 ### t(:getcond)
 > t(:codequote_curlExample)
@@ -644,6 +669,10 @@ GET
 |order_link_id |string |t(:row_response_comment_orderLinkId) |
 |created_at |string |t(:row_comment_created_at)  |
 |updated_at |string |t(:row_comment_updated_at)  |
+|take_profit |number |t(:row_comment_take_profit)  |
+|stop_loss |number |t(:row_comment_stop_loss)  |
+|tp_trigger_by |string |t(:row_comment_triggerBy)  |
+|sl_trigger_by |string |t(:row_comment_triggerBy)  |
 
 
 ### t(:cancelcond)
@@ -805,6 +834,10 @@ POST
 |p_r_qty |false |int |t(:row_comment_pRQty) |
 |p_r_price |false |number |t(:row_comment_pRPrice) |
 |p_r_trigger_price |false |number |t(:row_comemnt_pRTriggerPrice) |
+|take_profit |false |number |t(:row_comemnt_replace_take_profit)  |
+|stop_loss |false |number |t(:row_comemnt_replace_stop_loss)  |
+|tp_trigger_by |false |string |t(:row_comment_triggerBy)  |
+|sl_trigger_by |false |string |t(:row_comment_triggerBy)  |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -884,6 +917,10 @@ GET
 |order_link_id |string |t(:row_response_comment_orderLinkId)  |
 |created_at |string |t(:row_comment_created_at)  |
 |updated_at |string |t(:row_comment_updated_at)  |
+|take_profit |number |t(:row_comment_take_profit)  |
+|stop_loss |number |t(:row_comment_stop_loss)  |
+|tp_trigger_by |string |t(:row_comment_triggerBy)  |
+|sl_trigger_by |string |t(:row_comment_triggerBy)  |
 
 
 ## t(:position)
@@ -978,6 +1015,7 @@ GET
 |realised_pnl |number |t(:linear_resp_field_realised_pnl)  |
 |cum_realised_pnl |number |t(:linear_resp_field_cum_realised_pnl)  |
 |free_qty |number |t(:linear_resp_field_free_qty)  |
+|t(:row_parameter_tp_sl_mode) |string |t(:linear_resp_tp_sl_mode)  |
 
 
 ### t(:setautoaddmargin)
@@ -1071,6 +1109,62 @@ POST
 |buy_leverage |true |number |t(:linear_row_comment_leverage)  |
 |sell_leverage |true |number |t(:linear_row_comment_leverage)  |
 
+### t(:switchmode)
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "ext_info": "",
+    "result": {
+        "tp_sl_mode": "Partial"
+    },
+    "time_now": "1598266294.610276",
+    "rate_limit_status": 72,
+    "rate_limit_reset_ms": 1598266294607,
+    "rate_limit": 75
+}
+
+```
+
+t(:linear_private_switchmode)
+
+<aside class="notice">
+t(:switchmode_aside)
+</aside>
+
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=pltcList>/private/linear/tpsl/switch-mode</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pltcList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
+|t(:row_parameter_tp_sl_mode) |true |string |t(:linear_resp_tp_sl_mode)  |
+
+
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|t(:row_parameter_tp_sl_mode) |string |t(:linear_resp_tp_sl_mode)  |
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### t(:addmargin)
 > t(:codequote_curlExample)
@@ -1080,12 +1174,12 @@ curl https://api.bybit.com \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDT","side":"Buy","margin":0.01","timestamp":{timestamp},"sign":"{sign}"}'
 ```
-
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
 print(client.LinearPositions.LinearPositions_changeMargin(symbol="BTCUSDT", side="Buy", margin=0.01).result())
 ```
+
 > t(:codequote_responseExample)
 
 ```javascript
@@ -1234,7 +1328,7 @@ print(client.LinearPositions.LinearPositions_tradingStop(symbol="BTCUSDT", side=
 }
 ```
 
-t(:account_para_tradingStop)
+t(:account_para_tradingStop_linear)
 
 <aside class="notice">
 t(:account_aside_tradingStop)
@@ -1255,6 +1349,8 @@ POST
 |trailing_stop |false |number |t(:account_row_comment_trailingStop) |
 |tp_trigger_by |false |string |t(:row_comment_triggerBy) |
 |sl_trigger_by |false |string |t(:row_comment_triggerBy) |
+|sl_size |false |number |t(:row_comment_sl_size) |
+|tp_size |false |number |t(:row_comment_tp_size) |
 
 
 ### t(:usertraderecords)
@@ -1454,7 +1550,6 @@ GET
 
 
 ## t(:risklimit)
-
 ### t(:getrisklimit)
 > t(:codequote_curlExample)
 
