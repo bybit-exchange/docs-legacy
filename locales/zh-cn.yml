@@ -548,10 +548,12 @@ zh-cn:
     请注意:只允许最多创建10个条件委托单
   account_aside_placeCond_linear:
     <p>请注意:只允许最多创建10个条件委托单</p>
-  account_aside_placeCond_linear_warn:
-    <p>请注意:接口返回值中 <code>ext_code</code> 可能不为空,详情参阅<a href="#t-errors">错误码</a></p>
   account_aside_placeActive_linear_warn:
-    <p>请注意:接口返回值中 <code>ext_code</code> 可能不为空,详情参阅<a href="#t-errors">错误码</a></p>
+    <p>请注意:<p>
+    <p><code>ret_code</code>=0 和 <code>ext_code</code>="" 表示下单成功<p>
+    <p><code>ret_code</code>=0 和 <code>ext_code</code>!=""表示下单成功，但是部分参数设置失败<p>
+    <p><code>ret_code</code>!=0 表示下单失败<p>
+    <p><code>ext_code</code> 详情参阅 <a href="#t-errors">Errors</a></p>
 
   ### Get Conditional Order
   getcond: 查询条件委托
@@ -1348,7 +1350,7 @@ zh-cn:
   linear_account_para_placeActive: |
     <p>市价活动委托: 一个传统的市场价格订单,会以当前的最优价格为您成交订单。当且仅当选择市价单时，<code>price</code>可为空！</p>
     <p>限价活动委托: 您可以为您的订单设置一个执行价格，当市场价格达到您的设置价格时，系统会为您成交订单。</p>
-    <p><b>止盈止损: 您仅能在开仓时设置止盈止损条件单，一旦持有仓位后提交活动委托时关联的止盈止损则不会生效。如果不设置止盈止损触发条件<code>triggerBy</code>则默认使用LastPrice</b></p>
+    <p><b>止盈止损: 您仅能在开仓时设置止盈止损条件单，一旦持有仓位后提交活动委托时关联的止盈止损则不会生效。如果不设置止盈止损触发条件<code>trigger_by</code>则默认使用LastPrice</b></p>
     <p>委托数量: 表示您要购买/卖出的永续合约数，对于委托数量目前Bybit只允许提交正整数。</p>
     <p>委托价格: 如果是下<b>限价单</b>，该参数为<b>必填</b>. 在没有仓位时，做多的委托价格需高于市价的10%、低于1百万。如有仓位时则需优于强平价。价格增减最小单位请参考<a href="#t-querysymbol">交易对接口</a>响应中的<b>price_filter</b>字段。</p>
     <p>自定义条件单ID: 您可以自定义活动委托订单ID，我们会为您关联到系统的订单ID，并把系统的唯一订单ID在活动委托创建成功后一并返回给您，您可以使用该订单ID去取消活动委托，同时要求您传递的自定义订单ID<code>最大长度不超过36个字段且唯一</code>。</p>
@@ -1452,7 +1454,7 @@ zh-cn:
   restapi_update_20200826_4: 支持创建部分止盈止损单,请求参数增加<code>sl_size</code>, <code>tp_size</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
   restapi_update_20200826_5: 支持撤销止盈止损单
   restapi_update_20200826_6: 支持修改止盈止损单信息,请求参数增加<code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
-  restapi_update_20200927_1: 支持<code>order_link_id</code>
+  restapi_update_20200927_1: 支持<code>order_link_id</code>修改订单
   restapi_update_20200915_1: 修复<a href="#t-marketaccountratio">用户多空持仓比率</a>数据错误
   restapi_update_20200915_2: 创建条件市价单时，返回字段<code>time_in_force</code>的值由<code>GoodTillCancel</code>修复为<code>ImmediateOrCancel</code>(<code>ImmediateOrCancel</code>是实际的执行策略)
   ws_update_20200927_1: 新增Websocket域名
