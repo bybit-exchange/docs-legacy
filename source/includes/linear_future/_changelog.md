@@ -1,5 +1,65 @@
 # t(:changelog)
 
+## 2020-09-27
+### REST API
+- [t(:switchmode)](#t-switchmode) [t(:changelog_new)]
+- [t(:placecond)](#t-placecond) [t(:changelog_update)]
+    - t(:restapi_update_20200826_1)
+    - t(:restapi_update_20200826_3)
+- [t(:placeactive)](#t-placeactive) [t(:changelog_update)]
+    - t(:restapi_update_20200826_3)
+- [t(:myposition)](#t-myposition) [t(:changelog_update)]
+    - t(:restapi_update_20200826_2)
+- [t(:tradingstop)](#t-tradingstop) [t(:changelog_update)]
+    - t(:restapi_update_20200826_4)
+- [t(:cancelcond)](#t-cancelcond) [t(:changelog_update)]
+    - t(:restapi_update_20200826_5) 
+- [t(:replacecond)](#t-replacecond) [t(:changelog_update)]
+    - t(:restapi_update_20200826_6)
+- [t(:getactive)](#t-getactive) [t(:changelog_update)]
+    - t(:restapi_update_20200826_3)    
+- [t(:queryactive)](#t-queryactive) [t(:changelog_update)]
+    - t(:restapi_update_20200826_3)    
+- [t(:getcond)](#t-getcond) [t(:changelog_update)]
+    - t(:restapi_update_20200826_3)    
+- [t(:querycond)](#t-querycond) [t(:changelog_update)]
+    - t(:restapi_update_20200826_3)    
+ 
+
+## 2020-08-19
+### REST API
+- [t(:marketopeninterest)](#t-marketopeninterest) [t(:changelog_new)]
+- [t(:marketbigdeal)](#t-marketbigdeal) [t(:changelog_new)]
+- [t(:marketaccountratio)](#t-marketaccountratio) [t(:changelog_new)]
+
+## 2020-07-07
+### REST API
+- [t(:assetexchangerecords)](#t-assetexchangerecords) [t(:changelog_new)]
+
+<!--
+##merge changelog of 2020-06-29 to 2020-07-07
+-->
+
+- [t(:balance)](#t-balance) [t(:changelog_update)]
+    - t(:restapi_update_20200630_1)
+- [t(:usertraderecords)](#t-usertraderecords) [t(:changelog_update)]
+    - t(:restapi_update_20200630_2)
+
+<!--
+## 2020-06-08
+### REST API
+- [t(:marketfundingrate)](#t-marketfundingrate) [t(:changelog_new)]
+- [t(:marketopeninterest)](#t-marketopeninterest) [t(:changelog_new)]
+- [t(:marketbigdeal)](#t-marketbigdeal) [t(:changelog_new)]
+- [t(:marketaccountratio)](#t-marketaccountratio) [t(:changelog_new)]
+- [t(:marketeliteratio)](#t-marketeliteratio) [t(:changelog_new)]
+-->
+
+## 2020-06-17
+### REST API
+- [t(:replaceactive)](#t-replaceactive) [t(:changelog_new)]
+- [t(:replacecond)](#t-replacecond) [t(:changelog_new)]
+
 ## 2020-05-21
 ### REST API
 - [t(:query_liqrecords)](#t-query_liqrecords) [t(:changelog_new)]

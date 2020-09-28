@@ -39,6 +39,7 @@ t(:rate_para_understanding)
     <td>1 / request</td>
   </tr>
   <tr><td>/private/linear/position/switch-isolated </td><td>1 / request</td></tr>
+  <tr><td>/private/linear/tpsl/switch-mode </td><td>1 / request</td></tr>
   <tr><td>/private/linear/position/set-auto-add-margin </td><td>1 / request</td></tr>
   <tr><td>/private/linear/position/trading-stop </td><td>1 / request</td></tr>
   <tr><td>/private/linear/position/add-margin </td><td>1 / request</td></tr>

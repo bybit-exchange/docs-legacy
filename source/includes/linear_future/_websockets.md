@@ -220,6 +220,15 @@ t(:orderbookL2_200_link)
 t(:websocket_para_orderbook252)
 
 
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| price |string |t(:row_comment_resp_price) |
+|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|size |number |t(:row_comment_position_size)  |
+
+
 ### t(:websocketorderbook200)
 
 > t(:codequote_subscribe)
@@ -296,6 +305,57 @@ ws.send('{"op": "subscribe", "args": ["orderBook_200.100ms.BTCUSDT"]}');
 ```
 
 t(:websocket_para_orderbook200)
+
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| price |string |t(:row_comment_resp_price) |
+|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|size |number |t(:row_comment_position_size)  |
+
+
+### t(:websockettrade)
+> t(:codequote_subscribe)
+
+```javascript
+ws.send('{"op": "subscribe", "args": ["trade.BTCUSDT"]}')
+```
+
+> t(:codequote_responseExampleFormatAll)
+
+```javascript
+{
+    "topic": "trade.BTCUSDT",
+    "data": [
+        {
+            "symbol": "BTCUSDT",
+            "tick_direction": "PlusTick",
+            "price": 8098,
+            "size": 328,
+            "timestamp":"2020-03-30T02:21:06.000Z",
+            "trade_time_ms":"1585534866418",
+            "side":"Sell",
+            "trade_id":"01e79e28-d1f4-59ac-b079-ca909606d91a"
+        }
+    ]
+}
+```
+
+t(:websocket_para_trade)
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
+|tick_direction |string |t(:row_comment_position_tick_direction)  |
+|t(:row_parameter_price) |number |t(:row_response_comment_price)  |
+|size |number |t(:row_comment_position_size)  |
+|time |string |t(:row_response_comment_time)  |
+|trade_time_ms |string |t(:row_response_comment_nill_time)  |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|trade_id |string |t(:row_response_comment_trade_id)  |
 
 
 ### t(:websocketinstrumentInfo)
@@ -386,36 +446,32 @@ t(:websocket_aside_instrumentInfo2)
 
 
 
-
-
-### t(:websockettrade)
-> t(:codequote_subscribe)
-
-```javascript
-ws.send('{"op": "subscribe", "args": ["trade.BTCUSDT"]}')
-```
-
-> t(:codequote_responseExampleFormatAll)
-
-```javascript
-{
-    "topic": "trade.BTCUSDT",
-    "data": [
-        {
-            "symbol": "BTCUSDT",
-            "tick_direction": "PlusTick",
-            "price": 8098,
-            "size": 328,
-            "timestamp":"2020-03-30T02:21:06.000Z",
-            "trade_time_ms":"1585534866418",
-            "side":"Sell",
-            "trade_id":"01e79e28-d1f4-59ac-b079-ca909606d91a"
-        }
-    ]
-}
-```
-
-t(:websocket_para_trade)
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|symbol|string |t(:row_comment_symbol)    |
+|last_price_e4 |integer |t(:row_comment_resp_last_price_e4)  |
+|last_tick_direction |string |t(:enum_tick_direction)  |
+|prev_price_24h_e4 |integer |t(:row_comment_resp_prev_price_24h_e4)  |
+|price_24h_pcnt_e6 |integer |t(:row_comment_resp_price_24h_pcnt_e4)  |
+|high_price_24h_e4 |integer |t(:row_comment_resp_high_price_24h_e4)  |
+|low_price_24h_e4 |integer |t(:row_comment_resp_low_price_24h_e4)  |
+|prev_price_1h_e4 |integer |t(:row_comment_resp_prev_price_1h_e4)  |
+|price_1h_pcnt_e6 |integer |t(:row_comment_resp_price_1h_pcnt_e6)  |
+|mark_price_e4 |integer |t(:row_comment_resp_mark_price_e4)  |
+|index_price_e4 |integer |t(:row_comment_resp_index_price_e4)  |
+|open_interest |integer |t(:row_comment_resp_open_interest). t(:row_comment_slow_update)  |
+|open_value_e8 |integer |t(:row_comment_resp_open_value_e8). t(:row_comment_slow_update)  |
+|total_turnover_e8 |integer |t(:row_comment_resp_total_turnover_e8)  | 
+|turnover_24h_e8 |integer |t(:row_comment_resp_turnover_24h_e8)  |
+|total_volume |integer |t(:row_comment_resp_total_volume)  |
+|volume_24h |integer |t(:row_comment_resp_volume_24h)  |
+|predicted_funding_rate_e6 |integer |t(:row_comment_resp_predicted_funding_rate_e6)  |
+|cross_seq |integer |t(:row_comment_cross_seq)  |
+|created_at |string |t(:row_comment_created_at)  |
+|updated_at |string |t(:row_comment_updated_at)  |
+|next_funding_time |string |t(:row_comment_resp_next_funding_time)  |
+|countdown_hour |number |t(:row_comment_resp_countdown_hour)  |
 
 
 ### t(:websocketkline)
@@ -456,6 +512,22 @@ t(:websocket_aside_klineV2)
 </aside>
 
 
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|start|integer |t(:row_comment_startTime)    |
+|end|integer |t(:row_comment_endTime)    |
+|open|number |t(:row_comment_open)    |
+|close|number |t(:row_comment_close)    |
+|high|number |t(:row_comment_high)    |
+|low|number |t(:row_comment_low)    |
+|volume|string |t(:row_comment_resp_volume)    |
+|turnover|string |t(:row_comment_resp_turnover)    |
+|confirm|bool |t(:row_comment_confirm)    |
+|cross_seq|integer |t(:row_comment_cross_seq)    |
+|timestamp|integer |t(:row_comment_endTime)    |
+
+
 
 
 
@@ -486,7 +558,7 @@ ws.send('{"op": "subscribe", "args": ["position"]}')
        {
            "user_id":  1,
            "symbol": "BTCUSD",
-           "size": 11, 
+           "size": 11,
            "side": "Sell",
            "position_value": "0.00159252",
            "entry_price": "6907.291588174717",
@@ -494,20 +566,44 @@ ws.send('{"op": "subscribe", "args": ["position"]}')
            "bust_price": "7088.1234",
            "leverage": "1",
            "order_margin":  "1",
-           "position_margin":  "1", 
-           "occ_closing_fee":  "0.1", 
+           "position_margin":  "1",
+           "occ_closing_fee":  "0.1",
            "take_profit":  "0.1",
            "tp_trigger_by": 0,
            "stop_loss":  "0.12",
-           "sl_trigger_by": "Normal", 
-           "realised_pnl": "Normal", 
+           "sl_trigger_by": "Normal",
+           "realised_pnl": "Normal",
            "cum_realised_pnl": "Normal",
            "position_seq": 14
        }
    ]
 }
 ```
+t(:account_para_myPosition)
 
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|user_id |number |t(:row_comment_userID)  |
+|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
+|size |number |t(:row_comment_position_size)  |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|position_value |string |t(:row_comment_position_value)  |
+|entry_price |string |t(:row_comment_entry_price)  |
+|liq_price |string |t(:row_comment_liq_price)  |
+|bust_price |string |t(:row_comment_bust_price)  |
+|leverage |string |t(:resp_field_leverage)  |
+|order_margin |string |t(:row_comment_order_margin)  |
+|position_margin |string |t(:row_comment_position_margin)  |
+|occ_closing_fee |string |t(:row_comment_occ_closing_fee)  |
+|take_profit |string |t(:row_comment_take_profit)  |
+|tp_trigger_by |number |t(:row_comment_triggerBy) |
+|stop_loss |string |t(:row_comment_stop_loss)  |
+|sl_trigger_by |string |string |t(:row_comment_triggerBy) |
+|realised_pnl |string |t(:row_comment_realised_pnl)  |
+|cum_realised_pnl |string |t(:row_comment_cum_realised_pnl)  |
+|position_status |string |t(:row_comment_position_status)  |
+|position_seq |number |t(:row_comment_position_seq)  |
 
 ### t(:websocketexecution)
 > t(:codequote_subscribe)
@@ -538,6 +634,23 @@ ws.send('{"op": "subscribe", "args": ["execution"]}')
     ]
 }
 ```
+
+t(:wallet_para_tradeRecords)
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|t(:row_parameter_symbol) |string |t(:row_comment_symbol)  |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|order_id |string |t(:row_comment_order_id)  |
+|exec_id |string |t(:row_comment_exec_id)  |
+|order_link_id |string |t(:row_comment_order_link_id)  |
+|t(:row_parameter_price) |string |t(:row_comment_exec_price)    |
+|order_qty |number |t(:row_comment_order_qty)  |
+|t(:row_parameter_exec_type) |string |t(:enum_exec_type_link)  |
+|exec_qty |number |t(:row_comment_exec_qty)  |
+|exec_fee |string |t(:row_comment_exec_fee)    |
+|trade_time |string |t(:row_comment_trade_time)  |
 
 
 ### t(:websocketorder)
@@ -574,6 +687,24 @@ ws.send('{"op": "subscribe", "args": ["order"]}')
 }
 ```
 
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|order_id |string |t(:row_comment_order_id)  |
+|order_link_id |string |t(:row_comment_order_link_id)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_symbol)  |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|t(:row_parameter_order_type) |string |t(:row_comment_stopOrderType) |
+|t(:row_parameter_price) |string |t(:row_comment_resp_price) |
+|qty |number |t(:row_comment_exec_qty)  |
+|t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce) |
+|t(:row_parameter_order_status) |string |t(:row_comment_orderStatus) |
+|last_exec_price |number |t(:row_comment_last_exec_price)  |
+|cum_exec_qty |number |t(:linear_resp_field_cum_exec_qty)  |
+|cum_exec_value |string |t(:linear_resp_field_cum_exec_value)  |
+|cum_exec_fee |string |t(:linear_resp_field_cum_exec_fee)  |
+|create_time |string |t(:row_comment_timestamp)  |
+|update_time |string |t(:row_comment_resp_update_time)  |
 
 ### t(:websocketstoporder)
 > t(:codequote_subscribe)
@@ -609,6 +740,25 @@ ws.send('{"op": "subscribe", "args": ["stop_order"]}')
 }
 ```
 
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|stop_order_id |string |t(:row_comment_stopOrderId) |
+|order_link_id |string |t(:row_comment_order_link_id)  |
+|user_id |number |t(:row_comment_userID)  |
+|t(:row_parameter_symbol) |string |t(:enum_symbol_link)  |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|t(:row_parameter_order_type) |string |t(:enum_order_type_link)  |
+|price |string |t(:row_response_comment_price)    |
+|qty |number |t(:row_response_comment_qty)  |
+|t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
+|t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
+|stop_order_type |string |t(:row_comment_stopOrderType)  |
+|trigger_by | string |t(:row_comment_triggerBy) |
+|trigger_price | string | t(:stop_order_trigger_price)|
+|created_at |string |t(:row_comment_created_at)  |
+|updated_at |string |t(:row_comment_updated_at)  |
+
 
 ### t(:websocketwallet)
 > t(:codequote_subscribe)
@@ -630,3 +780,9 @@ ws.send('{"op": "subscribe", "args": ["wallet"]}')
     ]
 }
 ```
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|wallet_balance |number |t(:row_comment_wallet_balance)  |
+|available_balance |number |t(:row_comment_available_balance)  |

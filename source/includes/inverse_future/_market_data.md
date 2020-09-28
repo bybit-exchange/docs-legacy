@@ -48,7 +48,16 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| t(:row_parameter_symbol) |string |t(:row_comment_symbol) | 
+| price |string |t(:row_comment_resp_price) |
+| size |integer |t(:row_comment_resp_size) |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
+
 
 ### t(:querykline)
 > t(:codequote_curlExample)
@@ -100,10 +109,24 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
 |interval |true |string |t(:row_comment_interval) |
 |from |true |integer |t(:row_comment_from_timestamp) |
 |limit |false |integer |t(:row_comment_limit_200) |
+
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| t(:row_parameter_symbol) |string |t(:row_comment_symbol) | 
+| interval |string |t(:row_comment_period) |
+| open_time |integer |t(:row_comment_resp_open_time) |
+| open |string |t(:row_comment_open) |
+| high |string |t(:row_comment_high) |
+| low |string |t(:row_comment_low) |
+| close |string |t(:row_comment_close) |
+| volume |string |t(:row_comment_resp_volume) |
+| turnover |string |t(:row_comment_resp_turnover) |
 
 ### t(:latestsymbolinfo)
 > t(:codequote_curlExample)
@@ -161,8 +184,36 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |false |string |t(:row_comment_symbol) |
+|t(:row_parameter_symbol) |false |string |t(:row_comment_symbol) |
 
+
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| symbol |string |t(:row_comment_symbol) | 
+| bid_price |string |t(:row_comment_resp_bid_price) | 
+| ask_price |string |t(:row_comment_resp_ask_price) | 
+| last_price |string |t(:row_comment_resp_last_price) | 
+| last_tick_direction |string |t(:enum_tick_direction) | 
+| prev_price_24h |string |t(:row_comment_resp_prev_price_24h) | 
+| price_24h_pcnt |string |t(:row_comment_resp_price_24h_pcnt) | 
+| high_price_24h |string |t(:row_comment_resp_high_price_24h) | 
+| low_price_24h |string |t(:row_comment_resp_low_price_24h) | 
+| prev_price_1h |string |t(:row_comment_resp_prev_price_1h) | 
+| price_1h_pcnt |string |t(:row_comment_resp_price_1h_pcnt) | 
+| mark_price |string |t(:row_comment_resp_mark_price) | 
+| index_price |string |t(:row_comment_resp_index_price) | 
+| open_interest |number |t(:row_comment_resp_open_interest) | 
+| open_value |string |t(:row_comment_resp_open_value) | 
+| total_turnover |string |t(:row_comment_resp_total_turnover) | 
+| turnover_24h |string |t(:row_comment_resp_turnover_24h) | 
+| total_volume |number |t(:row_comment_resp_total_volume) | 
+| volume_24h |number |t(:row_comment_resp_volume_24h) | 
+| funding_rate |string |t(:row_comment_resp_funding_rate) | 
+| predicted_funding_rate |string |t(:row_comment_resp_predicted_funding_rate) | 
+| next_funding_time |string |t(:row_comment_resp_next_funding_time) | 
+| countdown_hour |number |t(:row_comment_resp_countdown_hour) | 
 
 ### t(:publictradingrecords)
 > t(:codequote_curlExample)
@@ -203,9 +254,19 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
 |from |false |int |t(:row_comment_from)|
-|limit |false |int |Number of results. Default 500; max 1000|
+|limit |false |int |t(:row_comment_limit_liq)|
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|id |number |t(:row_response_comment_id)  |
+|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
+|price |number |t(:row_response_comment_execprice)  |
+|t(:row_parameter_quantity) |number |t(:row_response_comment_execqty)  |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|time |string |t(:row_response_comment_time)  |
 
 
 ### t(:querysymbol)
@@ -332,6 +393,25 @@ GET
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|name |string |t(:row_response_comment_name)    |
+|base_currency |string |t(:row_response_comment_base_currency)    |
+|quote_currency |string |t(:row_response_comment_quote_currency)    |
+|price_scale |number |t(:row_response_comment_price_scale)    |
+|taker_fee |string |t(:row_response_comment_taker_fee)    |
+|maker_fee |string |t(:row_response_comment_maker_fee)    |
+|leverage_filter > min_leverage |number |t(:row_response_comment_min_leverage)    |
+|leverage_filter > max_leverage |number |t(:row_response_comment_max_leverage)    |
+|leverage_filter > leverage_step |string |t(:row_response_comment_leverage_step)    |
+|price_filter > min_price |string |t(:row_response_comment_min_price)    |
+|price_filter > max_price |string |t(:row_response_comment_max_price)    |
+|price_filter > tick_size |string |t(:row_response_comment_tick_size)    |
+|lot_size_filter > max_trading_qty |number |t(:row_response_comment_max_trading_qty)    |
+|lot_size_filter > min_trading_qty |number |t(:row_response_comment_min_trading_qty)    |
+|lot_size_filter > qty_step |number |t(:row_response_comment_qty_step)    |
+
 
 ### t(:query_liqrecords)
 > t(:codequote_curlExample)
@@ -371,8 +451,330 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
 |from |false |integer |t(:row_comment_from) |
 |limit |false |integer |t(:row_comment_limit_liq) |
 |start_time |false |integer |t(:row_comment_startTime_ms) |
 |end_time |false |integer |t(:row_comment_endTime_ms) |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|id |number |t(:row_response_comment_id)  |
+|t(:row_parameter_quantity) |number |t(:row_response_comment_execqty)  |
+|t(:row_parameter_side) |string |t(:row_response_liq_record_side)  |
+|time |number |t(:row_response_comment_nill_time)  |
+|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
+|price |number |t(:row_response_comment_execprice)  |
+
+
+### t(:markpricekline)
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/v2/public/mark-price-kline?symbol=BTCUSD&interval=1&limit=2&from=1581231260
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+
+{
+    "ret_code":0,
+    "ret_msg":"OK",
+    "ext_code":"",
+    "ext_info":"",
+    "result":[
+        {
+            "id":2,
+            "symbol":"BTCUSD",
+            "period":"1",
+            "start_at":1582231260,
+            "open":100,
+            "high":120,
+            "low":88,
+            "close":115
+        }
+    ],
+    "time_now":"1591263582.601795"
+}
+```
+
+t(:linear_query_mark_price_kline)
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=plmpk>/v2/public/mark-price-kline</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#plmpk"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|interval |true |string |t(:row_comment_interval) |
+|from |true |integer |t(:row_comment_from_timestamp) |
+|limit |false |integer |t(:linear_kline_row_comment_limit_200) |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| symbol |string |t(:row_comment_symbol) | 
+| period |string |t(:row_comment_period) |
+| start_at |integer |t(:row_comment_startTime) |
+| open |integer |t(:row_comment_open) |
+| high |integer |t(:row_comment_high) |
+| low |integer |t(:row_comment_low) |
+| close |integer |t(:row_comment_close) |
+
+
+## t(:advanceddata)
+### t(:marketopeninterest)
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/v2/public/open-interest?symbol=BTCUSD&period=5min
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code":0,
+    "ret_msg":"OK",
+    "ext_code":"",
+    "ext_info":"",
+    "result":[
+        {
+            "open_interest":371491978,
+            "timestamp":1597658100,
+            "symbol":"BTCUSD"
+        },
+        {
+            "open_interest":370696076,
+            "timestamp":1597657800,
+            "symbol":"BTCUSD"
+        }
+    ],
+    "time_now":"1597658304.938839"
+}
+```
+
+t(:market_para_marketopeninterest)
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=vpMarketOpenInterest>/v2/public/open-interest</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpMarketOpenInterest"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
+|period |true |string |t(:row_comment_period)|
+|limit |false |int |t(:row_comment_limit_50_200)|
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| open_interest |number |t(:row_comment_open_interest) |
+| timestamp |number |t(:row_comment_time_stamp) |
+| symbol |string |t(:row_comment_symbol) | 
+
+
+### t(:marketbigdeal)
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/v2/public/big-deal?symbol=BTCUSD
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code":0,
+    "ret_msg":"OK",
+    "ext_code":"",
+    "ext_info":"",
+    "result":[
+        {
+            "symbol":"BTCUSD",
+            "side":"Sell",
+            "timestamp":1597623362,
+            "value":1242368
+        },
+        {
+            "symbol":"BTCUSD",
+            "side":"Buy",
+            "timestamp":1597623363,
+            "value":1242368
+        }
+    ],
+    "time_now":"1597658434.219859"
+}
+```
+
+t(:market_para_marketbigdeal)
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=vpMarketBigDeal>/v2/public/big-deal</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpMarketBigDeal"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
+|limit |false |int |t(:row_comment_limit_500_1000)|
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| symbol |string |t(:row_comment_symbol) | 
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
+| timestamp |number |t(:row_comment_time_stamp) |
+| value |number |t(:row_comment_value) |
+
+
+
+
+### t(:marketaccountratio)
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/v2/public/account-ratio?symbol=BTCUSD&period=5min
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code":0,
+    "ret_msg":"OK",
+    "ext_code":"",
+    "ext_info":"",
+    "result":[
+        {
+            "symbol":"BTCUSD",
+            "buy_ratio":0.6538,
+            "sell_ratio":0.3462,
+            "timestamp":1597659000
+        },
+        {
+            "symbol":"BTCUSD",
+            "buy_ratio":0.6533,
+            "sell_ratio":0.3467,
+            "timestamp":1597658700
+        }
+    ],
+    "time_now":"1597659230.743313"
+}
+```
+
+t(:market_para_marketaccountratio)
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=vpMarketAccountRatio>/v2/public/account-ratio</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpMarketAccountRatio"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
+|period |true |string |t(:row_comment_period)|
+|limit |false |int |t(:row_comment_limit_50_500)|
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| symbol |string |t(:row_comment_symbol) | 
+| buy_ratio |number |t(:row_comment_buy_ratio) | 
+| sell_ratio |number |t(:row_comment_sell_ratio) | 
+| timestamp |number |t(:row_comment_time_stamp) |
+
+
+<!--
+### t(:marketfundingrate)
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/v2/public/funding-rate?symbol=BTCUSD&limit=100
+```
+```javascript
+{
+    "ret_code":0,
+    "ret_msg":"OK",
+    "ext_code":"",
+    "ext_info":"",
+    "result":[
+        {
+            "symbol":"BTCUSD",
+            "funding_rate":0.00375,
+            "timestamp":1590998277
+                }
+    ],
+    "time_now":"1590068362.493540"
+}
+```
+
+t(:market_para_marketfundingrate)
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=vpMarketFundingRate>/v2/public/funding-rate</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpMarketFundingRate"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
+|limit |false |int |t(:row_comment_limit_100)|
+
+
+### t(:marketeliteratio)
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/v2/public/elite-ratio?symbol=BTCUSD&period=5min
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code":0,
+    "ret_msg":"OK",
+    "ext_code":"",
+    "ext_info":"",
+    "result":[
+        {
+            "symbol":"BTCUSD",
+            "buy_ratio":0.4288,
+            "sell_ratio":0.5712,
+            "timestamp":1591165240
+        },
+        {
+            "symbol":"XRPUSD",
+            "buy_ratio":0.3288,
+            "sell_ratio":0.6712,
+            "timestamp":1591165240
+        }
+    ],
+    "time_now":"1591597368.673697"
+}
+```
+
+t(:market_para_marketeliteratio)
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=vpMarketEliteRatio>/v2/public/elite-ratio</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpMarketEliteRatio"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
+|period |true |string |t(:row_comment_period)|
+-->

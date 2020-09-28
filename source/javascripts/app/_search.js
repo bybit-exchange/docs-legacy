@@ -8,16 +8,7 @@
   var highlightOpts = { element: 'span', className: 'search-highlight' };
   var searchDelay = 0;
   var timeoutHandle = 0;
-
-  var index = new lunr.Index();
-
-  index.ref('id');
-  index.field('title', { boost: 10 });
-  index.field('body');
-  index.pipeline.add(lunr.trimmer, lunr.stopWordFilter);
-
-  $(populate);
-  $(bind);
+  var index;
 
   function populate() {
     $('h1, h2, h3, h4').each(function() {
@@ -28,12 +19,16 @@
         title: title.text(),
         body: body.text()
       });
-    });
 
+    });
     determineSearchDelay();
   }
+
+  $(populate);
+  $(bind);
+
   function determineSearchDelay() {
-    if(index.tokenStore.length>5000) {
+    if (index.tokenSet.toArray().length>5000) {
       searchDelay = 300;
     }
   }
@@ -51,7 +46,7 @@
       }();
       wait(function(){
         search(e);
-      }, searchDelay );
+      }, searchDelay);
     });
   }
 

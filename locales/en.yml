@@ -8,6 +8,7 @@ en:
   comment_abandoned: <b>Abandoned!!</b>
   httprequest: HTTP Request
   requestparameters: Request Parameters
+  responseparameters: Response Parameters
   codequote_responseExample: Response Example
   codequote_responseExampleFormatAll: Response Example - format of all responses
   codequote_curlExample: Curl Example
@@ -18,12 +19,109 @@ en:
   column_required: required
   column_type: type
   column_comments: comments
+  row_comment_userID: UserID
   row_comment_side: Side
-  row_comment_symbol: ""
+  row_comment_symbol: Symbol
   row_comment_margin: margin
+  row_comment_position_id: PositionID
+  row_comment_position_size: Position qty
+  row_comment_position_value: Position value
+  row_comment_entry_price: Average entry price
+  row_comment_auto_add_margin: Whether to add margin automatically
+  row_comment_position_margin: Position margin
+  row_comment_effective_leverage: Effective leverage
+  row_comment_liq_price: Liquidation price
+  row_comment_bust_price: Bankruptcy price
+  row_comment_occ_closing_fee: Position closing fee occupied (your opening fee + expected maximum closing fee)
+  row_comment_occ_funding_fee: |
+    Pre-occupied funding fee: calculated from position qty and current funding fee
+  row_comment_take_profit: Take profit price
+  row_comment_stop_loss: Stop loss price
+  row_comment_trailing_stop: Trailing stop
+  row_comment_position_status: |
+    Position status: <code>Normal</code>, <code>Liq</code>, <code>Adl</code>
+  row_comment_deleverage_indicator: Deleverage indicator level (1,2,3,4,5)
+  row_comment_oc_calc_data: |
+    Pre-occupied calculate parameters. <code>blq</code>: total number of the long side unsettled orders; <code>bmp</code>: the lowest price of the long side; <code>slq</code>: total number of the short side unsettled orders; <code>smp</code>: the lowest price of the short side
+  row_comment_order_margin: Pre-occupied order margin
+  row_comment_wallet_balance: Wallet balance
+  row_comment_available_balance: Available balance = wallet balance - position margin
+  row_comment_realised_pnl: Today's realised pnl
+  row_comment_unrealised_pnl: Today's unrealised pnl
+  row_comment_cum_realised_pnl: Accumulated realised pnl (all-time total)
+  row_comment_cross_seq: Cross sequence
+  row_comment_position_seq: Position sequence
+  row_comment_cum_commission: Accumulated commission
+  row_comment_trailing_active: Trailing stop active price
+  row_comment_sl_trigger_by: Trigger price type
+  row_comment_leverage_result: User leverage
+  row_comment_BTCUSD_leverage: BTCUSD leverage
+  row_comment_EOSUSD_leverage: EOSUSD leverage
+  row_comment_ETHUSD_leverage: ETHUSD leverage
+  row_comment_XRPUSD_leverage: XRPUSD leverage
+  row_comment_exec_fee: Transaction fee
+  row_comment_exec_id: Transaction ID
+  row_comment_exec_price: Transaction price
+  row_comment_exec_qty: Transaction qty
+  row_comment_exec_value: Transaction value
+  row_comment_exec_timestamp: Transaction time
+  row_comment_fee_rate: Maker or taker fee rate
+  row_comment_nth_fill: The sequence of the transaction in this cross sequence data package
+  row_comment_user_id: User ID
+  row_comment_order_id: Order ID
+  row_comment_order_link_id: Order link ID
+  row_comment_order_price: Order price
+  row_comment_order_qty: Order qty
+  row_comment_trade_time: Transaction timestamp
+  row_comment_coin_type: Coin type
+  row_comment_risk_limit: Risk limit
+  row_comment_maintain_margin: Maintain margin
+  row_comment_starting_margin: Starting margin
+  row_comment_section: Section
+  row_comment_is_lowest_risk: |
+    Is lowest risk. 0: Yes; 1: No
+  row_comment_funding_rate: Funding rate
+  row_comment_funding_rate_timestamp: Funding rate timestamp
+  row_comment_funding_side: Your position side at the time of settlement
+  row_comment_funding_position_size: Your position size at the time of settlement
+  row_comment_funding_exec_fee: Funding fee
+  row_comment_funding_exec_timestamp: Funding fee execution timestamp
+  row_comment_predicted_funding_rate: Predicted funding rate
+  row_comment_predicted_funding_fee: Predicted funding fee
+  row_comment_api_key: API key
+  row_comment_type: Key type
+  row_comment_position_user_id: User ID
+  row_comment_position_inviter_id: Inviter ID
+  row_comment_position_ips: IP
+  row_comment_note: Note
+  row_comment_permissions: ApiKey permission
+  row_comment_expired_at: Expire time
+  row_comment_read_only: ReadOnly
+  row_comment_lcp_date: Date
+  row_comment_lcp_self_ratio: Personal effective ratio
+  row_comment_lcp_platform_ratio: Platform effective ratio
+  row_comment_lcp_score: Liquidity contribution points
+  row_comment_created_at: Create time
+  row_comment_created_at_in_exchange: Exchange time
+  row_comment_updated_at: Update time
+  row_comment_margin_result: User margin
   row_comment_activeOrderType: Active order type
   row_comment_stopOrderType: Conditional order type
-  row_comment_stopOrderStatus: stop order status
+  row_comment_stopOrderStatus: Stop order status
+  row_comment_orderStatus: Order status
+  row_comment_expected_direction: Expected direction
+  row_comment_op_from: Source of the request
+  row_comment_remark: Remark
+  row_comment_o_req_num: Used to correlate request & response
+  row_comment_leaves_qty: Number of unfilled contracts from the order's size
+  row_comment_leaves_value: The estimated value corresponding to the number of remaining orders
+  row_comment_reject_reason: The reason the order was rejected
+  row_comment_clOrdID: A unique order number of type UUID
+  row_comment_create_type: Trigger scenario for single action
+  row_comment_cancel_type: Trigger scenario for cancel operation
+  row_comment_cross_status: The state of initiating a matchmaking request
+  row_comment_ext_fields: Extension field
+
   row_comment_from: |
     From ID. Default: return latest data
   row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page
@@ -36,31 +134,37 @@ en:
   row_comment_stopPx: Trigger price
   row_comment_timeInForce: Time in force
   row_comment_triggerBy: Trigger price type. Default <code>LastPrice</code>
+  row_comment_tp_size: Take profit quantity (when in <a href="#t-switchmode">partial mode</a>)
+  row_comment_sl_size: Stop loss quantity (when in <a href="#t-switchmode">partial mode</a>)
   row_comment_takeProfit: Take profit price, only take effect upon opening the position
   row_comment_stopLoss: Stop loss price, only take effect upon opening the position
   row_comment_trailingStop: Trailing stop
   row_comment_reduceOnly: <a href="https://help.bybit.com/hc/en-us/articles/360039260574-What-is-a-reduce-only-order-"> What is a reduce-only order?</a> True means your position can only reduce in size if this order is triggered
   row_comment_closeOnTrigger: <a href="https://help.bybit.com/hc/en-us/articles/360039260534-What-is-a-close-on-trigger-Order-">  What is a close on trigger order?</a> For a closing order. It can only reduce your position, not increase it. If the account has insufficient available balance when the closing order is triggered, then other active orders of similar contracts will be cancelled or reduced. It can be used to ensure your stop loss reduces your position regardless of current available margin.
   row_comment_orderLinkId: Customised order ID, maximum length at 36 characters, and order ID under the same agency has to be unique.
-  row_comment_page: Page. Default getting first page data
+  row_comment_page: Page. By default, gets first page of data
+  row_comment_page_max50: Page. By default, gets first page of data. Maximum of 50 pages
   row_comment_order: Sort orders by creation date
   row_comment_orderId: Your active order ID. The unique order ID returned to you when the corresponding active order was created
   row_comment_stopOrderId: Your conditional order ID. The unique order ID returned to you when the corresponding active order was created
   row_comment_pRQty: New order quantity. Do not pass this field if you don't want modify it
   row_comment_pRPrice: New order price. Do not pass this field if you don't want modify it
-  row_comemnt_pRTriggerPrice: New conditional order's trigger price, also known as stop_px. Do not pass this field if you don't want modify it
+  row_comemnt_pRTriggerPrice: New conditional order's trigger price or TP/SL order price, also known as stop_px. Do not pass this field if you don't want modify it
+  row_comemnt_replace_take_profit: New take_profit price, also known as stop_px. Do not pass this field if you don't want modify it
+  row_comemnt_replace_stop_loss: New stop_loss price, also known as stop_px. Do not pass this field if you don't want modify it
   row_comment_leverage: Leverage. <code>0</code> means Cross Margin mode - any other value means Isolated Margin mode
   row_comment_startDate: Start point for result
   row_comment_endDate: End point for result
   row_comment_currency: Currency type
+  row_comment_coin_false: <code>currency</code> alias. Returns all wallet balances if not passed
   row_comment_coin: <code>currency</code> alias
   row_comment_walletFundType: Wallet fund type
   row_comment_withdrawStatus: Withdraw status
-  row_comment_startTime: Start timestamp point for result, in second
-  row_comment_endTime: End timestamp point for result, in second
-  row_comment_startTime_ms: Start timestamp point for result, in millisecond
-  row_comment_endTime_ms: End timestamp point for result, in millisecond
-  row_comment_riskId: Risk ID. Can be found with the <a href="#get-risk-limit">Get Risk Limit</a> endpoint
+  row_comment_startTime: Start timestamp point for result, in seconds
+  row_comment_endTime: End timestamp point for result, in seconds
+  row_comment_startTime_ms: Start timestamp point for result, in milliseconds
+  row_comment_endTime_ms: End timestamp point for result, in milliseconds
+  row_comment_riskId: Risk ID.
   row_comment_closed_size: The corresponding closing size of the closing order
   row_comment_rate_limit: limit
   row_comment_path: path
@@ -68,15 +172,150 @@ en:
   row_comment_interval: Data refresh interval. Enum <span>:<span> 1 3 5 15 30 60 120 240 360 720 "D" "M" "W" "Y"
   row_comment_from_timestamp: From timestamp in seconds
   row_comment_limit_200: Limit for data size per page, max size is 200. Default as showing 200 pieces of data per page
+  row_comment_limit_100: Limit for data size per page, max size is 100. Default as showing 50 pieces of data per page
+  row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page
+  row_comment_limit_50_500: Limit for data size per page, max size is 500. Default as showing 50 pieces of data per page
+  row_comment_period: Data recording period. <code>5min</code>, <code>15min</code>, <code>30min</code>, <code>1h</code>, <code>4h</code>, <code>1d</code>
+  row_comment_last_exec_time: Last execution time
+  row_comment_last_exec_price: Last execution price
+  row_comment_orig_order_type: Original special order type
+  row_comment_prior_x_req_price: Expected match price
+  row_comment_xreq_type:  Request type
+  row_comment_is_maker: Is maker
+  row_comment_order_type: Order type
+  row_comment_exec_type: Exec type
+  row_comment_open: Starting price
+  row_comment_high: Maximum price
+  row_comment_low: Minimum price
+  row_comment_close: Closing price
+  row_comment_timestamp: Commission time
+  row_comment_resp_price: Order price
+  row_comment_resp_size: Symbol contracts
+  row_comment_resp_open_time: Starting time
+  row_comment_resp_volume: Trading volume
+  row_comment_resp_turnover: Transaction amount
+  row_comment_resp_bid_price: Purchase price of the first order
+  row_comment_resp_ask_price: Selling price of the first order
+  row_comment_resp_last_price: Latest transaction price
+  row_comment_resp_last_price_e4: Latest transaction price 10^4
+  row_comment_resp_last_tick_direction: Price change direction
+  row_comment_resp_prev_price_24h: Price of 24 hours ago
+  row_comment_resp_prev_price_24h_e4: Price of 24 hours ago * 10^4
+  row_comment_resp_price_24h_pcnt: Percentage change of market price relative to 24h
+  row_comment_resp_price_24h_pcnt_e4: Percentage change of market price relative to 24h * 10^4
+  row_comment_resp_high_price_24h: The highest price in the last 24 hours
+  row_comment_resp_high_price_24h_e4: The highest price in the last 24 hours * 10^4
+  row_comment_resp_low_price_24h: Lowest price in the last 24 hours
+  row_comment_resp_low_price_24h_e4: Lowest price in the last 24 hours * 10^4
+  row_comment_resp_prev_price_1h: Hourly market price an hour ago
+  row_comment_resp_prev_price_1h_e4: Hourly market price an hour ago * 10^4
+  row_comment_resp_price_1h_pcnt: Percentage change of market price relative to 1 hour ago
+  row_comment_resp_price_1h_pcnt_e6: Percentage change of market price relative to 1 hour ago * 10^6
+  row_comment_resp_mark_price: Mark price
+  row_comment_resp_mark_price_e4: Mark price * 10^4
+  row_comment_resp_index_price: Index_price
+  row_comment_resp_index_price_e4: Index_price * 10^4
+  row_comment_resp_open_interest: Open interest
+  row_comment_resp_open_value: Open position value
+  row_comment_resp_open_value_e8: Open position value * 10^8
+  row_comment_resp_total_turnover: Total turnover
+  row_comment_resp_total_turnover_e8: Total turnover  * 10^8
+  row_comment_resp_turnover_24h: Turnover for 24H
+  row_comment_resp_turnover_24h_e8: Turnover for 24H * 10^8
+  row_comment_resp_total_volume: Total volume
+  row_comment_resp_volume_24h: Trading volume in the last 24 hours
+  row_comment_resp_funding_rate: Funding rate
+  row_comment_resp_funding_rate_e6: Funding rate * 10^8
+  row_comment_resp_predicted_funding_rate: Predicted funding rate
+  row_comment_resp_predicted_funding_rate_e6: Predicted funding rate *10^6
+  row_comment_resp_next_funding_time: Next settlement time of capital cost
+  row_comment_resp_countdown_hour: Countdown of settlement capital cost
+  row_comment_resp_update_time: Update time
+  row_comment_confirm: Is confirm
+  row_comment_resp_trade_time_ms: Transaction time (ms)
+  row_comment_resp_trade_id: Trade ID
+  row_comment_time_stamp: Timestamp
+  row_comment_open_interest: Number of contracts in open interest
+  row_comment_value: Value of the order
+  row_comment_limit_500_1000: Limit for data size per page, max size is 1000. Default as showing 500 pieces of data per page
+  row_comment_buy_ratio: Long position ratio
+  row_comment_sell_ratio: Short position ratio
+
+
+  row_response_comment_price: Order price
+  row_response_comment_qty: Order quantity in USD
+  row_response_comment_basePrice: The current market price
+  row_response_comment_orderLinkId: Customised order ID
+  row_response_comment_id: Latest data ID
+  row_response_comment_execprice: Execution price
+  row_response_comment_time: UTC time
+  row_response_comment_execqty: Order quantity in USD
+  row_response_comment_name: Symbol name
+  row_response_comment_base_currency: Base currency
+  row_response_comment_quote_currency: Quote currency
+  row_response_comment_price_scale: Price scale
+  row_response_comment_taker_fee: Taker fee
+  row_response_comment_maker_fee: Maker fee
+  row_response_comment_leverage_filter: Leverage filter
+  row_response_comment_min_leverage: Min leverage
+  row_response_comment_max_leverage: Max leverage
+  row_response_comment_leverage_step: Leverage step
+  row_response_comment_price_filter: Price filter
+  row_response_comment_min_price: Min price
+  row_response_comment_max_price: Max price
+  row_response_comment_tick_size: Tick size
+  row_response_comment_lot_size_filter: Trading quantity info
+  row_response_comment_max_trading_qty: Max trading quantity
+  row_response_comment_min_trading_qty: Min trading quantity
+  row_response_comment_qty_step: Qty step
+  row_response_comment_nill_time: Millisecond timestamp
+  row_response_comment_trade_id: Trade ID
+  row_response_comment_given_cash: Experience gold
+  row_response_comment_service_cash: Service cash is used for user's service charge
+  row_comment_equity: User equity
+  row_comment_used_margin: Used margin
+  row_comment_position_tick_direction: Direction of price change
+  row_comment_from_coin: Exchange from coin
+  row_comment_to_coin: Exchange to coin
+  row_comment_to_amount: Exchange to amount
+  row_comment_from_fee: Exchange fee in `from_coin` unit
+  row_comment_from_amount: Exchange from amount
+  row_comment_exchange_rate: Exchange exchange rate
+  row_comment_fund_type: Fund type
+  row_comment_fund_amount: Fund amount
+  row_comment_tx_id: Transaction hash ID
+  row_comment_address: Address
+  row_comment_submited_at: Submit time
+  row_response_liq_record_side: Liquidated order's side
+
+
+
+  row_parameter_symbol: <a href="#symbol-symbol">symbol</a>
+  row_parameter_side: <a href="#side-side">side</a>
+  row_parameter_tp_sl_mode:  <a href="#tpsl-mode-type-tp_sl_mode">tp_sl_mode</a>
+  row_parameter_order_type: <a href="#order-type-order_type">order_type</a>
+  row_parameter_quantity: <a href="#quantity-qty">qty</a>
+  row_parameter_price: <a href="#price-price">price</a>
+  row_parameter_time_in_force: <a href="#time-in-force-time_in_force">time_in_force</a>
+  row_parameter_order_status: <a href="#order-status-order_status">order_status</a>
+  row_parameter_trigger_price: <a href="#trigger-price-type-trigger_by">trigger_by</a>
+  row_parameter_stop_order: <a href="#stop-order-status-stop_order_status">stop_order_status</a>
+  row_parameter_order: <a href="#order-order">order</a>
+  row_parameter_exec_type: <a href="#exec-type-exec_type">exec_type</a>
+  row_parameter_last_liquidity_ind: <a href="#liquidity-type-last_liquidity_ind">last_liquidity_ind</a>
+  row_parameter_tick_direction: <a href="#tick-direction-type-tick_direction">tick_direction</a>
+
+
   enum_withdraw_status_link: <a href="#withdraw-status-status">Withdraw Status Enum</a>
   enum_coin_link: <a href="#currency-currency-coin">Coin Enum</a>
   enum_side_link: <a href="#side-side">Side Enum</a>
   enum_symbol_link: <a href="#symbol-symbol">Symbol Enum</a>
   enum_order_type_link: <a href="#order-type-order_type">Order Type Enum</a>
+  enum_tick_direction: <a href="#tick-direction-type-tick_direction">Tick Direction</a>
   enum_exec_type_link: <a href="#exec-type-exec_type">Exec Type Enum</a>
   enum_Liquidity_type_link: <a href="#liquidity-type-last_liquidity_ind">Liquidity Enum</a>
   enum_stop_order_status_link: <a href="#stop-order-status-stop_order_status">Stop Order Status</a>
-  stop_order_trigger_price: If `stop_order_type` is `TrailingProfit`, this field means trailing stop active price.
+  stop_order_trigger_price: If <code>stop_order_type</code> is <code>TrailingProfit</code>, this field is the trailing stop active price.
   errorcode_meaning: Meaning
   resp_field_leverage: In Isolated Margin mode, the value is set by user. In Cross Margin mode, the value is the max leverage at current risk level
   resp_field_effective_leverage: Effective Leverage.
@@ -84,6 +323,11 @@ en:
     In Cross Margin mode, The formula to calculate<span>:</span>
 
     <code>effective_leverage = position size / mark_price / (wallet_balance + unrealised_pnl)</code>
+  row_comment_slow_update: The update is not immediate - slowest update is 1 minute
+
+  row_comment_from_id: Start ID. By default, returns the latest IDs
+  row_comment_direction: |
+    Search direction. <code>Prev</code>: searches in ascending order from start ID, <code>Next</code>: searches in descending order from start ID. Defaults to <code>Next</code>
 
   # introduction in index.html.md
   introduction: Introduction
@@ -240,6 +484,25 @@ en:
   query_liqrecords: Liquidated Orders
   market_para_query_liqrecords: Retrieve the liquidated orders, The query range is the last seven days of data.
 
+  ### Advanced data
+  advanceddata: Advanced Data
+  market_para_advanceddata: Get Advanced Data.
+  #### Market Funding Rate
+  marketfundingrate: Get Funding Rate
+  market_para_marketfundingrate: Get Bybit's recent funding rates.
+  #### Market Open Interest
+  marketopeninterest: Open Interest
+  market_para_marketopeninterest: Gets the total amount of unsettled contracts. In other words, the total number of contracts held in open positions.
+  #### Market Account Ratio
+  marketaccountratio: Long-Short Ratio
+  market_para_marketaccountratio: Gets the Bybit long-short ratio.
+  #### Market Account Ratio
+  marketeliteratio: Top Trader Account Long-Empty Ratio
+  market_para_marketeliteratio: Gets the Bybit top trader account long-empty ratio
+  #### Market Big Deal
+  marketbigdeal: Latest Large Orders
+  market_para_marketbigdeal: Obtain filled orders worth more than 500,000 USD within the last 24h.
+
   # Account Data Endpoints
   accountdata: Account Data Endpoints
   account_para: The following account data endpoints require authentication.
@@ -276,7 +539,7 @@ en:
   account_para_replaceActive: |
     <p>Replace order can modify/amend your active orders.</p>
     <p><code>p_r_qty</code> and <code>p_r_price</code> are the modified price and quantity. If these two fields are not provided, nothing will be modified.</p>
-    <p>It is possible to modify only the qty or price of an order.</p>
+
   account_aside_replaceActive:
     Please note that only orders that are unfilled or partially filled can be modified by the replace-order API.
   ### Query Active Order (real-time)
@@ -292,12 +555,18 @@ en:
     <p>Limit price conditional order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
     <p>Take profit/Stop loss: You may only set a take-profit/stop-loss conditional order upon opening the position. Once you hold a position, the take profit and stop loss information you sent when placing an order will no longer be valid.</p>
     <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell, currently Bybit only support order quantity in an integer.</p>
-    <p>Order price: If it is a condition order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the price_filter field in the <a href="#t-querysymbol">Query Symbols</a> endpoint.</p>
+    <p>Order price: If it is a stop order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the price_filter field in the <a href="#t-querysymbol">Query Symbols</a> endpoint.</p>
     <p>Conditional order trigger price: You may set a trigger price for your conditional order. conditional order will not enter the order book until the last price hits the trigger price. When last price hits trigger price: 1) your limit conditional order will enter order book, and wait to be executed; 2) your market conditional order will be executed immediately at the best available market price.</p>
     <p>Customize conditional order ID: You may customize order IDs for active orders. We will link it to the system order ID , and return the unique system order ID to you after the active order is created successfully. You may use this order ID to cancel your active order. The customized order ID is asked to be unique, with a maximum length of 36 characters.</p>
 
   account_aside_placeCond:
     Take profit/Stop loss is not supported in placing conditional orders. One can only use these 2 functions when placing active orders. Moreover, each account can hold up to 10 conditional orders yet to be filled entirely simultaneously.
+  account_aside_placeCond_linear:
+    <p>Each account can hold up to 10 conditional orders yet to be filled entirely simultaneously.</p>
+    <p>If <code>ext_code</code> is not empty, please refer to <a href="#t-errors">Errors</a></p>
+  account_aside_placeActive_linear:
+    <p>If <code>ext_code</code> is not empty, please refer to <a href="#t-errors">Errors</a></p>
+
 
   ### Get Conditional Order
   getcond: Get Conditional Order
@@ -307,7 +576,7 @@ en:
   ### Cancel Conditional Order
   cancelcond: Cancel Conditional Order
   account_para_cancelCond: |
-    <p>You may cancel all untriggered conditional orders. Essentially, after a conditional order is triggered, it will become an active order. So, when a conditional order is triggered, cancellation has to be done through the active order endpoint for any unfilled or partially filled active order. As always, orders that have been fully filled cannot be cancelled.</p>
+    <p>You may cancel all untriggered conditional orders or take profit/stop loss order. Essentially, after a conditional order is triggered, it will become an active order. So, when a conditional order is triggered, cancellation has to be done through the active order endpoint for any unfilled or partially filled active order. As always, orders that have been fully filled cannot be cancelled.</p>
   ### Cancel All Conditional Orders
   cancelallcond: Cancel All Conditional Orders
   account_para_cancelAllCond: Cancel all untriggered conditional orders.
@@ -331,11 +600,9 @@ en:
   ### User Leverage
   getleverage: User Leverage
   account_para_userLeverage: Get user leverage.
-  ### Change User Leverage
-  changeleverage: Change User Leverage
-  account_para_changeLeverage: |
-    <p>Change user leverage.</p>
-  account_aside_changeLeverage: Set <code>leverage</code> to <code>0</code> if you want to trade in <a href="https://help.bybit.com/hc/en-us/articles/360037683633-What-is-Cross-Margin">Cross Margin mode</a>. Note that your position mode will be changed to Isolated Margin mode if you change your leverage from 0 to any other value.
+  ### Set Leverage
+  # see setleverage
+  account_aside_setleverage: Set <code>leverage</code> to <code>0</code> if you want to trade in <a href="https://help.bybit.com/hc/en-us/articles/360037683633-What-is-Cross-Margin">Cross Margin mode</a>. Note that your position mode will be changed to Isolated Margin mode if you change your leverage from 0 to any other value.
 
   ## Position
   position: Position
@@ -345,10 +612,11 @@ en:
   ### Change Margin
   changemargin: Change Margin
   account_para_changeMargin: Update margin.
-  account_aside_changeMargin: You cannot change margin when your position is in Cross Margin mode. See the <a href="#t-changeleverage">Change User Leverage</a> endpoint for more.
+  account_aside_changeMargin: You cannot change margin when your position is in Cross Margin mode. See the <a href="#t-setleverage">Change User Leverage</a> endpoint for more.
   ### Set Trading-Stop
   tradingstop: Set Trading-Stop
   account_para_tradingStop: Set take profit, stop loss, and trailing stop for your open position.
+  account_para_tradingStop_linear: Set take profit, stop loss, and trailing stop for your open position. If using <a href="#t-switchmode">partial mode</a>, TP/SL/TS orders will not close your entire position.
   account_aside_tradingStop: Passing these parameters will create conditional orders controlled by the system. The system will cancel these orders if the position is closed, and adjust the qty according to the size of the open position.
   account_row_comment_takeProfit: Cannot be less than 0, 0 means cancel TP
   account_row_comment_stopLoss: Cannot be less than 0, 0 means cancel SL
@@ -380,7 +648,7 @@ en:
   wallet_para: The following wallet data endpoints require authentication.
     ### Wallet Balance
   balance: Get Wallet Balance
-  wallet_para_walletBalance: Get wallet balance info
+  wallet_para_walletBalance: Get wallet balance info.
   wallet_aside_walletBalance: |
    <code>position_margin</code> in this endpoint is not same as <a href="https://www.bybit.com/app/wallet/money">position margin on website</a>
    <p>The formula of position margin on website: <code>position_margin</code> + <code>occ_funding_fee</code> + loss(when your <code>available_balance</code> is insufficient)</p>
@@ -389,6 +657,7 @@ en:
   wallet_para_walletRecords: Get wallet fund records. This endpoint also shows exchanges from the <a href="https://testnet.bybit.com/app/assets/assets-exchange">Asset Exchange</a>, where the <code>type</code>s for the exchange are <code>ExchangeOrderWithdraw</code> and <code>ExchangeOrderDeposit</code>.
   wallet_aside_walletRecords: |
     Find more detail for types <code>Withdraw</code> and <code>Refund</code> in the <a href="#t-withdrawrecords">Withdraw Records</a> endpoint.
+  wallet_aside_walletRecords1: USDT records will not be returned unless you pass <code>USDT</code> with the <code>coin</code> parameter.
   ### Withdraw Records
   withdrawrecords: Withdraw Records
   wallet_para_withdrawRecords: Get withdrawal records.
@@ -396,6 +665,11 @@ en:
     The difference between data returned by this endpoint and data of type <code>Withdraw</code> in the <a href="#t-walletrecords">Wallet Fund Records</a> endpoint:<p></p>
     <p>This endpoint provides one withdrawal operation per record, and you can check the current withdrawal state with the <code>status</code> field.</p>
     <p>Once you have submitted a withdrawal application, there will be a record with type <code>Withdraw</code>, and if the application is <code>CancelByUser</code>, <code>Reject</code> or <code>Expire</code> in the <a href="#t-walletrecords">Wallet Fund Records</a> endpoint, with a corresponding record with type <code>Refund</code>.</p>
+
+  ### Assets Exchange Records
+  assetexchangerecords: Asset Exchange Records
+  wallet_para_assetexchangerecords: Get asset exchange records.
+
   ### User Trade Records
   usertraderecords: User Trade Records
   wallet_para_tradeRecords: Get user's trading records. The results are ordered in ascending order (the first item is the oldest).
@@ -666,7 +940,7 @@ en:
   websocket_aside_instrumentInfo1: |
     This topic only utilises the <code>update</code> field. Both the <code>delete</code> and <code>insert</code> fields are null. If a key is not found in the <code>update</code> field, its value has not changed.
   websocket_aside_instrumentInfo2: |
-    Some values use scientific notation. This is indicated by that value's key, which will be appended with, for example, <code>e6</code>. If the key is <code>last_price_e4</code> and the value is <code>81585000</code>, then to find the true value we can do <code>81585000 * 10^4</code>, which equals <code>8158.5</code>.
+    Some values use scientific notation. This is indicated by that value's key, which will be appended with, for example, <code>e6</code>. If the key is <code>last_price_e4</code> and the value is <code>81585000</code>, then to find the true value we can do <code>81585000 / 10^4</code>, which equals <code>8158.5</code>.
   ### klineV2
   websocketklineV2: klineV2
   websocket_para_klineV2: |
@@ -737,7 +1011,7 @@ en:
     </li>
     </ul>
   ## Price (`price`)
-  price:
+  price: |
     <ul>
     <li>Active order<ul>
     <li>Must be an increment of that market&#39;s <code>tick_size</code><ul>
@@ -828,8 +1102,27 @@ en:
   exec_adlTrade: ""
   exec_bustTrade: ""
   ## Liquidity type (`last_liquidity_ind`)
-  addedLiquidity: "maker liquidity"
-  removedLiquidity: "taker liquidity"
+  addedLiquidity: "- Maker liquidity"
+  removedLiquidity: "- Taker liquidity"
+
+  ## Tick direction type (`tick_direction`)
+  tick_direction: "It indicates the fluctuation of price, which is up or down relative to the last transaction"
+  plusTick: "- Rise in price"
+  zeroPlusTick: "- Rise in price compared to last trade of different price"
+  minusTick: "- Drop in price"
+  zeroMinusTick: "- Drop in price compared to last trade of different price"
+
+  ## TpSl Mode type (`tp_sl_mode`)
+  tp_sl_mode: "Take profit/stop loss mode"
+  Full: "- Full stop loss take profit"
+  Partial: "- Partial stop loss take profit"
+
+  Stop: "- Normal stop order"
+  TakeProfit: "- Position take profit order"
+  StopLoss: "- Position stop loss order"
+  TrailingStop: "- Position trailing stop loss order"
+  PartialTakeProfit: "- Position partial take profit order"
+  PartialStopLoss: "- Position partial take profit order"
 
   # Error Code
   errors_intro: The Bybit API uses the following HTTP Codes and Error Codes<span>:</span>
@@ -1018,7 +1311,7 @@ en:
   err_130029: the price set for Buy position should be between liq_price and base_price
   err_130030: the price set for Sell position should be lower than base_price
   err_130032: invalid order_status, cannot cancel or execute trigger
-  err_130033: number of condition order >= 10
+  err_130033: number of stop order >= 10
   err_130034: stop_order cannot replace
   err_130035: Too freq to cancel, Try it later
   err_130037: Order already cancelled
@@ -1071,10 +1364,21 @@ en:
   err_130126: No orders
   err_130023: Will be triggered Liq after order is completed
   err_130127: Take Profit, Stop Loss and Trailing Stop Loss are not modified
+  err_130149: Order creation successful but SL/TP setting failed
+  err_130150: Please try again later.
+  err_130151: At least one take profit order in the mode,Cannot be switched
+  err_130152: At least one stop loss order in the mode,Cannot be switched
+  err_130153: Switching failed. Please cancel the current SL/TP setting
+  err_130154: Switching failed. Please cancel the SL/TP setting of active orders
+  err_130155: Insufficient quantity required to set TP/SL
+  err_130156: Replacing active order price and qty simultaneously is not allowed
+  err_130157: Amendment failed. SL/TP price cannot be amended as order is partially filled
+  err_130158: SL/TP price cannot be amended under 'Full' position mode
+  err_130159: Max SL/TP orders under 'Partial' mode is 20
 
   ### Linear Cancel Active Order
-  linear_row_comment_qty: Order quantity in BTC.
-  linear_row_comment_reduceOnly: <a href="https://help.bybit.com/hc/en-us/articles/360039260574-What-is-a-reduce-only-order-"> What is a reduce-only order?</a> True means your position can only reduce in size if this order is triggered
+  linear_row_comment_qty: Order quantity in BTC
+  linear_row_comment_reduceOnly: <a href="https://help.bybit.com/hc/en-us/articles/360039260574-What-is-a-reduce-only-order-"> What is a reduce-only order?</a> True means your position can only reduce in size if this order is triggered. When <code>reduce_only</code> is true, take profit/stop loss cannot be set
   linear_row_comment_closeOnTrigger: <a href="https://help.bybit.com/hc/en-us/articles/360039260534-What-is-a-close-on-trigger-Order-">  What is a close on trigger order?</a> For a closing order. It can only reduce your position, not increase it. If the account has insufficient available balance when the closing order is triggered, then other active orders of similar contracts will be cancelled or reduced. It can be used to ensure your stop loss reduces your position regardless of current available margin.
   placeactive: Place Active Order
   linear_account_para_placeActive: |
@@ -1082,7 +1386,7 @@ en:
     <p>Limit price active order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
     <p><b>Take profit/Stop loss: You may only set a TP/SL conditional order upon opening the position. Once you hold a position, any new active order requests which contain TP/SL data will be accepted but TP/SL data will be ignored. <code>tp_trigger_by</code>/<code>sl_trigger_by</code> default to LastPrice. Passing values to the <code>take_profit</code> or <code>stop_loss</code> parameters in this endpoint will create conditional orders managed by the system, which will be be automatically cancelled if the position is closed.</b></p>
     <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell. This must modulo by 0.5 (20 and 21.5 are accepted, but 16.1 or 16.15 are not).</p>
-    <p>Order price: If it is a condition order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the price_filter field in the <a href="#t-querysymbol">Query Symbols</a> endpoint.</p>
+    <p>Order price: If it is a stop order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the price_filter field in the <a href="#t-querysymbol">Query Symbols</a> endpoint.</p>
     <p>Custom order ID: You may customise order IDs for active orders. We will link it to the system order ID, and return the unique system order ID to you after the active order is created successfully. You may use this order ID or your custom order ID to cancel your active order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
     <p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSDT instrument and 280 active orders on the ETHUSDT instrument. And order with parameter <code>reduce_only</code> or <code>closeOnTrigger</code> is unlimited.</b></p>
   linear_row_comment_basePrice: It will be used to compare with the value of <code>stop_px</code>, to decide whether your conditional order will be triggered by crossing trigger price from upper side or lower side. Mainly used to identify the expected direction of the current conditional order.
@@ -1145,11 +1449,15 @@ en:
   linear_order_fix_order_type___20200403: Fix value of <code>order_type</code> in response
   linear_exec_type: Execution type
   closedprofitandloss: Closed Profit and Loss
+  switchmode: Full/Partial Position SL/TP Switch
+  switchmode_aside: When set to Partial, SL/TP orders may have a quantity less than the position size. This is set with the <a href="#t-tradingstop">Trading-Stop endpoint</a>.
   addmargin: Add/Reduce Margin
   restapi_update_20200414: Updated <code>BTCUSDT</code> contract information
   linear_private_trade_records: Get user's trading records. The results are ordered in descending order (the first item is the latest).
   linear_private_closed_pnl_records: Get user's closed profit and loss records. The results are ordered in descending order (the first item is the latest).
+  linear_private_switchmode: Switch mode between Full or Partial
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
+  linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
   restapi_update_20200417_1: Add new symbol <code>BTCUSDT</code>
   restapi_update_20200417_2: Add new symbol <code>BTCUSDT</code>
   restapi_update_20200417_3: Add new response param <code>trade_time_ms</code>
@@ -1165,9 +1473,22 @@ en:
     Add new fields in response: <code>interval</code>, <code>open_time</code>
   restapi_update_20200518_3: |
     Abandon response fields: <code>period</code>, <code>start_at</code>
+  restapi_update_20200630_1: Returns all wallet balances if no parameters are passed
+  restapi_update_20200630_2: Adjust the return quantity from 50 to 200
+  restapi_update_20200826_1: |
+    Support setting take profit and stop loss; Add new request parameters: <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
+  restapi_update_20200826_3: |
+    Add response parameters: <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
+  restapi_update_20200826_2: |
+    Add response parameters: <code>tp_sl_mode</code>
+  restapi_update_20200826_4: |
+    Support creating partial take profit and stop loss orders; Add new request parameters: <code>sl_size</code>, <code>tp_size</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
+  restapi_update_20200826_5: Support cancelling take profit and stop loss orders
+  restapi_update_20200826_6: |
+    Support replacing take profit stop loss orders; Add new request parameters: <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
+  restapi_update_20200927_1: Support <code>order_link_id</code>
 
-
-  markpricekline: Mark Price Kline
+  markpricekline: Query Mark Price Kline
   linear_query_mark_price_kline: Query mark price kline (like <a href="#t-querykline">Query Kline</a> but for <a href="https://help.bybit.com/hc/en-us/articles/360039261074-What-is-Dual-Price-mechanism-">mark price</a>).
   linear_resp_field_last_exec_price: Last execution price
   linear_resp_field_cum_exec_qty: Cumulative qty of trading
@@ -1182,11 +1503,12 @@ en:
   linear_resp_field_occ_closing_fee: Pre-occupancy closing fee
   linear_resp_field_realised_pnl: Today's realised Profit and Loss
   linear_resp_field_cum_realised_pnl: Cumulative realised Profit and Loss
-  linear_resp_field_free_qty: Can be to closing Qty
-  linear_resp_field_closed_size: Closing size
-  linear_resp_field_cum_entry_value: Closing position value
+  linear_resp_field_free_qty: Qty which can be closed
+  linear_resp_tp_sl_mode: Stop loss and take profit mode
+  linear_resp_field_closed_size: Closed size
+  linear_resp_field_cum_entry_value: Closed position value
   linear_resp_field_avg_entry_price: Average entry price
-  linear_resp_field_cum_exit_value: Cumulative trading value of closing orders
+  linear_resp_field_cum_exit_value: Cumulative trading value of position closing orders
   linear_resp_field_avg_exit_price: Average exit price
   linear_resp_field_closed_pnl: Closed Profit and Loss
   linear_resp_field_fill_count: Number of transactions

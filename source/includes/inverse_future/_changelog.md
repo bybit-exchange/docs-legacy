@@ -1,5 +1,48 @@
 # t(:changelog)
 
+## 2020-09-27
+### REST API
+- [t(:replaceactive)](#t-replaceactive) [t(:changelog_update)]
+     - t(:restapi_update_20200927_1)
+- [t(:replacecond)](#t-replacecond) [t(:changelog_update)]
+     - t(:restapi_update_20200927_1)
+     
+
+## 2020-08-19
+### REST API
+- [t(:marketopeninterest)](#t-marketopeninterest) [t(:changelog_new)]
+- [t(:marketbigdeal)](#t-marketbigdeal) [t(:changelog_new)]
+- [t(:marketaccountratio)](#t-marketaccountratio) [t(:changelog_new)]
+
+## 2020-07-07
+### REST API
+- [t(:assetexchangerecords)](#t-assetexchangerecords) [t(:changelog_new)]
+
+<!--
+##merge changelog of 2020-06-29 to 2020-07-07
+-->
+
+- [t(:balance)](#t-balance) [t(:changelog_update)]
+    - t(:restapi_update_20200630_1)
+- [t(:usertraderecords)](#t-usertraderecords) [t(:changelog_update)]
+    - t(:restapi_update_20200630_2)
+
+<!--
+## 2020-06-08
+### REST API
+- [t(:marketfundingrate)](#t-marketfundingrate) [t(:changelog_new)]
+- [t(:marketopeninterest)](#t-marketopeninterest) [t(:changelog_new)]
+- [t(:marketbigdeal)](#t-marketbigdeal) [t(:changelog_new)]
+- [t(:marketaccountratio)](#t-marketaccountratio) [t(:changelog_new)]
+- [t(:marketeliteratio)](#t-marketeliteratio) [t(:changelog_new)]
+-->
+
+## 2020-06-22
+### REST API
+- [t(:closedprofitandloss)](#t-closedprofitandloss) [t(:changelog_new)]
+- [t(:markpricekline)](#t-markpricekline) [t(:changelog_new)]
+
+
 ## 2020-05-21
 ### REST API
 - [t(:query_liqrecords)](#t-query_liqrecords) [t(:changelog_new)]
@@ -120,7 +163,7 @@
 ## 2019-11-07
 
 ### REST API
-- [t(:changeleverage)](#t-changeleverage) [t(:changelog_update)]
+- [t(:setleverage)](#t-setleverage) [t(:changelog_update)]
 - [t(:my_20191107)] [t(:changelog_update)]
 - [t(:changemargin)](#t-changemargin) [t(:changelog_update)]
 - [t(:tradingstop)](#t-tradingstop) [t(:changelog_update)]

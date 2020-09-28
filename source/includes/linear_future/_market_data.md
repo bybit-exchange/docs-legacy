@@ -19,17 +19,7 @@ curl https://api.bybit.com/public/linear/kline?symbol=BTCUSDT&interval=1&limit=2
 	"ret_msg": "OK",
 	"ext_code": "",
 	"ext_info": "",
-	"result": [{
-	    "id": 3866948,
-        "symbol": "BTCUSDT",
-        "period": "1",
-        "start_at": 1577836800,
-        "volume": 1451.59,
-        "open": 7700,
-        "high": 999999,
-        "low": 0.5,
-        "close": 6000
-	},
+	"result": [
 	{
 	    "id": 3866948,
         "symbol": "BTCUSDT",
@@ -58,14 +48,25 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
 |interval |true |string |t(:row_comment_interval) |
 |from |true |integer |t(:row_comment_from_timestamp) |
 |limit |false |integer |t(:linear_kline_row_comment_limit_200) |
 
-
-
-
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| t(:row_parameter_symbol)  |string |t(:row_comment_symbol) | 
+| period |string |t(:row_comment_period) |
+| start_at |integer |t(:row_comment_startTime) |
+| volume |number |t(:row_comment_resp_volume) |
+| open |integer |t(:row_comment_open) |
+| high |integer |t(:row_comment_high) |
+| low |number |t(:row_comment_low) |
+| close |integer |t(:row_comment_close) |
+| interval |integer |t(:row_comment_period) |
+| open_time |integer |t(:row_comment_resp_open_time) |
+| turnover |number |t(:row_comment_resp_turnover) |
 
 
 ### t(:latestsymbolinfo)
@@ -116,8 +117,20 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
 |limit |false |int |t(:linear_row_comment_recent_trading_records_limit)|
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|id |string |t(:row_response_comment_id)  |
+|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
+|price |number |t(:row_response_comment_execprice)  |
+|t(:row_parameter_quantity) |number |t(:row_response_comment_execqty)  |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|time |string |t(:row_response_comment_time)  |
+|trade_time_ms |number |t(:row_response_comment_nill_time)  |
+
 
 
 
@@ -162,9 +175,15 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
 
 
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
+|funding_rate |number |t(:row_comment_funding_rate)  | 
+|funding_rate_timestamp |string |t(:row_comment_funding_rate_timestamp)  | 
 
 
 
@@ -227,20 +246,47 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
 |interval |true |string |t(:row_comment_interval) |
 |from |true |integer |t(:row_comment_from_timestamp) |
 |limit |false |integer |t(:linear_kline_row_comment_limit_200) |
 
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| symbol |string |t(:row_comment_symbol) | 
+| period |string |t(:row_comment_period) |
+| start_at |integer |t(:row_comment_startTime) |
+| volume |number |t(:row_comment_resp_volume) |
+| open |integer |t(:row_comment_open) |
+| high |integer |t(:row_comment_high) |
+| low |number |t(:row_comment_low) |
+| close |integer |t(:row_comment_close) |
+
+
+## t(:advanceddata)
+### t(:marketopeninterest)
+<a href="/docs/inverse#t-marketopeninterest">t(:shared_endpoint_desc)</a>
+### t(:marketbigdeal)
+<a href="/docs/inverse#t-marketbigdeal">t(:shared_endpoint_desc)</a>
+### t(:marketaccountratio)
+<a href="/docs/inverse#t-marketaccountratio">t(:shared_endpoint_desc)</a>
 
 
 
-
-
-
-
-
-
+<!--
+## t(:advanceddata)
+### t(:marketfundingrate)
+<a href="/docs/inverse#t-marketfundingrate">t(:shared_endpoint_desc)</a>
+### t(:marketopeninterest)
+<a href="/docs/inverse#t-marketopeninterest">t(:shared_endpoint_desc)</a>
+### t(:marketaccountratio)
+<a href="/docs/inverse#t-marketaccountratio">t(:shared_endpoint_desc)</a>
+### t(:marketeliteratio)
+<a href="/docs/inverse#t-marketeliteratio">t(:shared_endpoint_desc)</a>
+### t(:marketbigdeal)
+<a href="/docs/inverse#t-marketbigdeal">t(:shared_endpoint_desc)</a>
+-->
 
 
 
@@ -295,7 +341,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
 
 
 
@@ -379,7 +425,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |false |string |t(:row_comment_symbol) |
+|t(:row_parameter_symbol) |false |string |t(:row_comment_symbol) |
 -->
 
 
