@@ -11,7 +11,7 @@ en:
   responseparameters: Response Parameters
   codequote_responseExample: Response Example
   codequote_responseExampleFormatAll: Response Example - format of all responses
-  codequote_curlExample: Curl Example
+  codequote_curlExample: Request Example
   codequote_subscribe: How to Subscribe
   codequote_snapshot: Snapshot Response Example - format of the first response
   codequote_delta: Delta Response Example - format of the responses following the snapshot response
@@ -49,7 +49,7 @@ en:
   row_comment_realised_pnl: Today's realised pnl
   row_comment_unrealised_pnl: Today's unrealised pnl
   row_comment_cum_realised_pnl: Accumulated realised pnl (all-time total)
-  row_comment_cross_seq: Cross sequence
+  row_comment_cross_seq: Cross sequence (internal value)
   row_comment_position_seq: Position sequence
   row_comment_cum_commission: Accumulated commission
   row_comment_trailing_active: Trailing stop active price
@@ -101,7 +101,8 @@ en:
   row_comment_lcp_self_ratio: Personal effective ratio
   row_comment_lcp_platform_ratio: Platform effective ratio
   row_comment_lcp_score: Liquidity contribution points
-  row_comment_created_at: Create time
+  row_comment_created_at: Creation time
+  row_comment_created_at_position: The account creation time
   row_comment_created_at_in_exchange: Exchange time
   row_comment_updated_at: Update time
   row_comment_margin_result: User margin
@@ -495,12 +496,12 @@ en:
   market_para_marketopeninterest: Gets the total amount of unsettled contracts. In other words, the total number of contracts held in open positions.
   #### Market Account Ratio
   marketaccountratio: Long-Short Ratio
-  market_para_marketaccountratio: Gets the Bybit long-short ratio.
+  market_para_marketaccountratio: Gets the Bybit user accounts' long-short ratio.
   #### Market Account Ratio
   marketeliteratio: Top Trader Account Long-Empty Ratio
   market_para_marketeliteratio: Gets the Bybit top trader account long-empty ratio
   #### Market Big Deal
-  marketbigdeal: Latest Large Orders
+  marketbigdeal: Latest Big Deal
   market_para_marketbigdeal: Obtain filled orders worth more than 500,000 USD within the last 24h.
 
   # Account Data Endpoints
@@ -691,7 +692,7 @@ en:
   api_para_time: Get Bybit server time.
   ### Announcement
   announcement: Announcement
-  api_para_announcement: Get Bybit OpenAPI announcements in the last 30 days by reverse order.
+  api_para_announcement: Get Bybit OpenAPI announcements in the last 30 days in reverse order.
 
   # API Rate Limits
   ratelimits: API Rate Limits
@@ -1487,6 +1488,9 @@ en:
   restapi_update_20200826_6: |
     Support replacing take profit stop loss orders; Add new request parameters: <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
   restapi_update_20200927_1: Support <code>order_link_id</code>
+  restapi_update_20200915_1: Fix <a href="#t-marketaccountratio">Account Long-short ratio</a> data error
+  restapi_update_20200915_2: Change the return value of the field <code>time_in_force</code> of <a href="#t-placecond">placing conditional market order</a> from <code>GoodTillCancel</code> to <code>ImmediateOrCancel</code> which is the actual execution strategy
+
 
   markpricekline: Query Mark Price Kline
   linear_query_mark_price_kline: Query mark price kline (like <a href="#t-querykline">Query Kline</a> but for <a href="https://help.bybit.com/hc/en-us/articles/360039261074-What-is-Dual-Price-mechanism-">mark price</a>).

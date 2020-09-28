@@ -144,6 +144,17 @@ t(:websocket_para_response)
 ws.send('{"op": "subscribe", "args": ["orderBookL2_25.BTCUSDT"]}');
 ```
 
+```python
+from BybitWebsocket import BybitWebsocket
+ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime_public",
+                    api_key=None, api_secret=None)
+ws.subscribe_orderBookL2(symbol="BTCUSDT")
+while True:
+    data = ws.get_data("orderBookL2_25.BTCUSDT")
+    if data:
+        print(data)
+```
+
 > t(:codequote_snapshot)
 
 ```javascript
@@ -365,6 +376,17 @@ t(:websocket_para_trade)
 ws.send('{"op": "subscribe", "args": ["instrument_info.100ms.BTCUSDT"]}')
 ```
 
+```python
+from BybitWebsocket import BybitWebsocket
+ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime_public",
+                    api_key=None, api_secret=None)
+ws.subscribe_instrument_info("BTCUSDT")
+while True:
+    data = ws.get_data("instrument_info.100ms.BTCUSDT")
+    if data:
+        print(data)
+```
+
 > t(:codequote_snapshot)
 
 ```javascript
@@ -462,7 +484,7 @@ t(:websocket_aside_instrumentInfo2)
 |index_price_e4 |integer |t(:row_comment_resp_index_price_e4)  |
 |open_interest |integer |t(:row_comment_resp_open_interest). t(:row_comment_slow_update)  |
 |open_value_e8 |integer |t(:row_comment_resp_open_value_e8). t(:row_comment_slow_update)  |
-|total_turnover_e8 |integer |t(:row_comment_resp_total_turnover_e8)  | 
+|total_turnover_e8 |integer |t(:row_comment_resp_total_turnover_e8)  |
 |turnover_24h_e8 |integer |t(:row_comment_resp_turnover_24h_e8)  |
 |total_volume |integer |t(:row_comment_resp_total_volume)  |
 |volume_24h |integer |t(:row_comment_resp_volume_24h)  |
@@ -579,6 +601,7 @@ ws.send('{"op": "subscribe", "args": ["position"]}')
    ]
 }
 ```
+
 t(:account_para_myPosition)
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -605,11 +628,23 @@ t(:account_para_myPosition)
 |position_status |string |t(:row_comment_position_status)  |
 |position_seq |number |t(:row_comment_position_seq)  |
 
+
 ### t(:websocketexecution)
 > t(:codequote_subscribe)
 
 ```javascript
 ws.send('{"op": "subscribe", "args": ["execution"]}')
+```
+
+```python
+from BybitWebsocket import BybitWebsocket
+ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime_private",
+                    api_key=api_key, api_secret=api_secret)
+ws.subscribe_execution()
+while True:
+    data = ws.get_data("execution")
+    if data:
+        print(data)
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -619,17 +654,19 @@ ws.send('{"op": "subscribe", "args": ["execution"]}')
     "topic": "execution",
     "data": [
         {
-            "symbol": "BTCUSD",
-            "side": "Buy",
+            "symbol": "BTCUSDT",
+            "side": "Sell",
             "order_id": "xxxxxxxx-xxxx-xxxx-9a8f-4a973eb5c418",
             "exec_id": "xxxxxxxx-xxxx-xxxx-8b66-c3d2fcd352f6",
             "order_link_id": "",
-            "price": "8300",
-            "order_qty": 1,
+            "price": 11527.5,
+            "order_qty": 0.001,
             "exec_type": "Trade",
-            "exec_qty": 1,
-            "exec_fee": "0.00000009",
-            "trade_time": "2020-01-14T14:07:23.629Z" // trade time
+            "exec_qty": 0.001,
+            "exec_fee": 0.00864563,
+            "leaves_qty": 0,
+            "is_maker": false,
+            "trade_time": "2020-08-12T21:16:18.142746Z"
         }
     ]
 }
@@ -660,28 +697,46 @@ t(:wallet_para_tradeRecords)
 ws.send('{"op": "subscribe", "args": ["order"]}')
 ```
 
+```python
+from BybitWebsocket import BybitWebsocket
+ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime_private",
+                    api_key=api_key, api_secret=api_secret)
+ws.subscribe_order()
+while True:
+    data = ws.get_data("order")
+    if data:
+        print(data)
+```
+
 > t(:codequote_responseExampleFormatAll)
 
 ```javascript
 {
     "topic": "order",
+    "action": "",
     "data": [
         {
             "order_id": "xxxxxxxx-xxxx-xxxx-9a8f-4a973eb5c418",
             "order_link_id": "",
-            "symbol": "BTCUSD",
-            "side": "Sell",
-            "order_type": "Market",
-            "price": "8579.5",
-            "qty": 1,
-            "time_in_force": "ImmediateOrCancel",
-            "order_status": "Filled",
+            "symbol": "BTCUSDT",
+            "side": "Buy",
+            "order_type": "Limit",
+            "price": 11000,
+            "qty": 0.001,
+            "leaves_qty": 0.001,
             "last_exec_price": 0,
-            "cum_exec_qty": 1,
-            "cum_exec_value": "0.00011655",
-            "cum_exec_fee": "0.00000009",
-            "create_time": "2020-01-14T14:09:31.778Z",
-            "update_time": "2020-01-14T14:09:31.778Z"
+            "cum_exec_qty": 0,
+            "cum_exec_value": 0,
+            "cum_exec_fee": 0,
+            "time_in_force": "GoodTillCancel",
+            "create_type": "CreateByUser",
+            "cancel_type": "UNKNOWN",
+            "order_status": "New",
+            "take_profit": 0,
+            "stop_loss": 0,
+            "trailing_stop": 0,
+            "create_time": "2020-08-12T21:18:40.780039678Z",
+            "update_time": "2020-08-12T21:18:40.787986415Z"
         }
     ]
 }
