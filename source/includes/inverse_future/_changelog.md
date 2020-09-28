@@ -7,6 +7,9 @@
 - [t(:replacecond)](#t-replacecond) [t(:changelog_update)]
      - t(:restapi_update_20200927_1)
      
+### Websocket API
+- [t(:ws_update_20200927_1)](#t-websocket) [t(:changelog_update)]
+     
 ## 2020-09-15
 ### REST API
 - [t(:marketaccountratio)](#t-marketaccountratio) [t(:changelog_update)]

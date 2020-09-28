@@ -564,8 +564,9 @@ en:
     Take profit/Stop loss is not supported in placing conditional orders. One can only use these 2 functions when placing active orders. Moreover, each account can hold up to 10 conditional orders yet to be filled entirely simultaneously.
   account_aside_placeCond_linear:
     <p>Each account can hold up to 10 conditional orders yet to be filled entirely simultaneously.</p>
+  account_aside_placeCond_linear_warn:
     <p>If <code>ext_code</code> is not empty, please refer to <a href="#t-errors">Errors</a></p>
-  account_aside_placeActive_linear:
+  account_aside_placeActive_linear_warn:
     <p>If <code>ext_code</code> is not empty, please refer to <a href="#t-errors">Errors</a></p>
 
 
@@ -871,9 +872,12 @@ en:
       </li>
     </p>
     <p>
-      <li>Mainnet:
+      <li>Mainnet(both endpoints are available):<br/>
         <span id="mainnet_address">wss://stream.bybit.com/realtime</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <br/>
+        <span id="mainnet_address_2">wss://stream.bytick.com/realtime</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
       </li>
     </p>
     </ul>
@@ -1389,7 +1393,7 @@ en:
     <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell. This must modulo by 0.5 (20 and 21.5 are accepted, but 16.1 or 16.15 are not).</p>
     <p>Order price: If it is a stop order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the price_filter field in the <a href="#t-querysymbol">Query Symbols</a> endpoint.</p>
     <p>Custom order ID: You may customise order IDs for active orders. We will link it to the system order ID, and return the unique system order ID to you after the active order is created successfully. You may use this order ID or your custom order ID to cancel your active order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
-    <p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSDT instrument and 280 active orders on the ETHUSDT instrument. And order with parameter <code>reduce_only</code> or <code>closeOnTrigger</code> is unlimited.</b></p>
+    <p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSDT instrument and 280 active orders on the ETHUSDT instrument. And order with parameter <code>reduce_only</code> or <code>close_on_trigger</code> is unlimited.</b></p>
   linear_row_comment_basePrice: It will be used to compare with the value of <code>stop_px</code>, to decide whether your conditional order will be triggered by crossing trigger price from upper side or lower side. Mainly used to identify the expected direction of the current conditional order.
   linear_row_comment_stopPx: Trigger price
 
@@ -1423,13 +1427,21 @@ en:
       </li>
     </p>
     <p>
-      <li>Mainnet public:
+      <li>Mainnet public(both endpoints are available):<br/>
         <span id="mainnet_public_address">wss://stream.bybit.com/realtime_public</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_public_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <br/>
+        <span id="mainnet_public_address_2">wss://stream.bytick.com/realtime_public</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_public_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
       </li>
-      <li>Mainnet private:
+    </p>
+    <p>
+      <li>Mainnet private(both endpoints are available):<br/>
         <span id="mainnet_private_address">wss://stream.bybit.com/realtime_private</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_private_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <br/>
+        <span id="mainnet_private_address_2">wss://stream.bytick.com/realtime_private</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_private_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
       </li>
     </p>
     </ul>
@@ -1490,6 +1502,7 @@ en:
   restapi_update_20200927_1: Support <code>order_link_id</code>
   restapi_update_20200915_1: Fix <a href="#t-marketaccountratio">Account Long-short ratio</a> data error
   restapi_update_20200915_2: Change the return value of the field <code>time_in_force</code> of <a href="#t-placecond">placing conditional market order</a> from <code>GoodTillCancel</code> to <code>ImmediateOrCancel</code> which is the actual execution strategy
+  ws_update_20200927_1: Add new websocket base endpoint
 
 
   markpricekline: Query Mark Price Kline

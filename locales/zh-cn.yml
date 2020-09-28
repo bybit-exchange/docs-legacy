@@ -548,8 +548,9 @@ zh-cn:
     请注意:只允许最多创建10个条件委托单
   account_aside_placeCond_linear:
     <p>请注意:只允许最多创建10个条件委托单</p>
+  account_aside_placeCond_linear_warn:
     <p>请注意:接口返回值中 <code>ext_code</code> 可能不为空,详情参阅<a href="#t-errors">错误码</a></p>
-  account_aside_placeActive_linear:
+  account_aside_placeActive_linear_warn:
     <p>请注意:接口返回值中 <code>ext_code</code> 可能不为空,详情参阅<a href="#t-errors">错误码</a></p>
 
   ### Get Conditional Order
@@ -854,9 +855,12 @@ zh-cn:
       </li>
     </p>
     <p>
-      <li>主网:
+      <li>主网(请根据您的网络情况选择以下任意一个地址使用):<br/>
         <span id="mainnet_address">wss://stream.bybit.com/realtime</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <br/>
+        <span id="mainnet_address_2">wss://stream.bytick.com/realtime</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
       </li>
     </p>
     </ul>
@@ -1349,7 +1353,7 @@ zh-cn:
     <p>委托价格: 如果是下<b>限价单</b>，该参数为<b>必填</b>. 在没有仓位时，做多的委托价格需高于市价的10%、低于1百万。如有仓位时则需优于强平价。价格增减最小单位请参考<a href="#t-querysymbol">交易对接口</a>响应中的<b>price_filter</b>字段。</p>
     <p>自定义条件单ID: 您可以自定义活动委托订单ID，我们会为您关联到系统的订单ID，并把系统的唯一订单ID在活动委托创建成功后一并返回给您，您可以使用该订单ID去取消活动委托，同时要求您传递的自定义订单ID<code>最大长度不超过36个字段且唯一</code>。</p>
     <p><b>每个账户最多可同时持有500个活动订单。这是针对合约的，因此可以允许出现例如：账户同时持有300个BTCUSDT的活动单、280个ETHUSDT合约的活动单。</b></p>
-    <p><b>当您达到订单上限的时候的时候，仍然可以下单设置了参数<code>reduce_only</code> 或 <code>closeOnTrigger</code>的订单。</b></p>
+    <p><b>当您达到订单上限的时候的时候，仍然可以下单设置了参数<code>reduce_only</code> 或 <code>close_on_trigger</code>的订单。</b></p>
 
   linear_row_comment_basePrice: 当前市价。用于和stop_px值进行比较，确定当前条件委托是看空到<code>stop_px</code>时触发还是看多到stop_px触发。主要是用来标识当前条件单预期的方向
   linear_row_comment_stopPx: 触发价格
@@ -1384,13 +1388,21 @@ zh-cn:
       </li>
     </p>
     <p>
-      <li>主网公共topic地址:
+      <li>主网公共topic地址(请根据您的网络情况选择以下任意一个地址使用):<br/>
         <span id="mainnet_address">wss://stream.bybit.com/realtime_public</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <br/>
+        <span id="mainnet_address_2">wss://stream.bytick.com/realtime_public</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
       </li>
-      <li>主网私有topic地址:
+    </p>
+     <p>
+      <li>主网私有topic地址(请根据您的网络情况选择以下任意一个地址使用):<br/>
         <span id="mainnet_address">wss://stream.bybit.com/realtime_private</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <br/>
+        <span id="mainnet_address_2">wss://stream.bytick.com/realtime_private</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
       </li>
     </p>
     </ul>
@@ -1443,6 +1455,7 @@ zh-cn:
   restapi_update_20200927_1: 支持<code>order_link_id</code>
   restapi_update_20200915_1: 修复<a href="#t-marketaccountratio">用户多空持仓比率</a>数据错误
   restapi_update_20200915_2: 创建条件市价单时，返回字段<code>time_in_force</code>的值由<code>GoodTillCancel</code>修复为<code>ImmediateOrCancel</code>(<code>ImmediateOrCancel</code>是实际的执行策略)
+  ws_update_20200927_1: 新增Websocket域名
 
   markpricekline: 标记价格K线
   linear_query_mark_price_kline: 查询标记价格K线

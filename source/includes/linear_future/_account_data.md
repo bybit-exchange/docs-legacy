@@ -54,8 +54,8 @@ print(client.LinearOrder.new(side="Buy",symbol="BTCUSD",order_type="Limit",qty=1
 
 t(:linear_account_para_placeActive)
 
-<aside class="notice">
-t(:account_aside_placeActive_linear)
+<aside class="warning">
+t(:account_aside_placeActive_linear_warn)
 </aside>
 
 <p class="fake_header">t(:httprequest)</p>
@@ -523,6 +523,10 @@ t(:account_para_placeCond)
 
 <aside class="notice">
 t(:account_aside_placeCond_linear)
+</aside>
+
+<aside class="warning">
+t(:account_aside_placeCond_linear_warn)
 </aside>
 
 <p class="fake_header">t(:httprequest)</p>
