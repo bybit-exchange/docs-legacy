@@ -2,7 +2,7 @@
 
 ## 2020-09-27
 ### REST API
-- [t(:switch_mode)](#t-switch_mode) [t(:changelog_new)]
+- [t(:switchmode)](#t-switchmode) [t(:changelog_new)]
 - [t(:placecond)](#t-placecond) [t(:changelog_update)]
     - t(:restapi_update_20200826_1)
     - t(:restapi_update_20200826_3)

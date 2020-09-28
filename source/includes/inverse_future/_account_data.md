@@ -164,13 +164,13 @@ GET
 | symbol |string |t(:row_comment_symbol) |
 | side |string |t(:row_comment_side) |
 | order_type |string |t(:row_comment_order_type) |
-| price  |number |t(:row_comment_resp_price) | 
-| qty  |number |t(:row_response_comment_qty) | 
+| price  |number |t(:row_comment_resp_price) |
+| qty  |number |t(:row_response_comment_qty) |
 |time_in_force |string |t(:row_comment_timeInForce)  |
 |order_status |string |t(:row_comment_orderStatus)  |
 | ext_fields>close_on_trigger |bool |t(:row_comment_closeOnTrigger) |
 | ext_fields>orig_order_type |string |t(:row_comment_orig_order_type) |
-| ext_fields>prior_x_req_price  |number |t(:row_comment_prior_x_req_price) | 
+| ext_fields>prior_x_req_price  |number |t(:row_comment_prior_x_req_price) |
 | ext_fields>op_from |string |t(:row_comment_op_from) |
 | ext_fields>remark |string |t(:row_comment_remark) |
 | ext_fields>o_req_num |number |t(:row_comment_o_req_num) |
@@ -543,7 +543,7 @@ POST
 |t(:row_parameter_quantity) |number |t(:row_response_comment_qty)  |
 |t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
 |ext_fields>stop_order_type |string |t(:row_comment_stopOrderType)  |
-|ext_fields>t(:row_parameter_trigger_price) |string |t(:row_response_comment_triggerBy)  |
+|ext_fields>t(:row_parameter_trigger_price) |string |t(:row_comment_triggerBy)  |
 |ext_fields>base_price |number |t(:row_response_comment_basePrice)  |
 |ext_fields>t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
 |ext_fields>stop_order_type |string |t(:row_comment_stopOrderType)  |
@@ -650,7 +650,7 @@ GET
 |t(:row_parameter_quantity) |number |t(:row_response_comment_qty)  |
 |t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
 |stop_order_type |string |t(:row_comment_stopOrderType)  |
-|t(:row_parameter_trigger_price) |string |t(:row_response_comment_triggerBy)  |
+|t(:row_parameter_trigger_price) |string |t(:row_comment_triggerBy)  |
 |base_price |number |t(:row_response_comment_basePrice)  |
 |order_link_id |string |t(:row_response_comment_orderLinkId)  |
 |created_at |string |t(:row_comment_created_at)  |
@@ -1258,7 +1258,7 @@ GET
 
 
 
-### t(:changeleverage)
+### t(:setleverage)
 > t(:codequote_responseExample)
 
 ```javascript
@@ -1275,10 +1275,10 @@ GET
 }
 ```
 
-t(:account_para_changeLeverage)
+t(:account_para_setleverage)
 
 <aside class="notice">
-t(:account_aside_changeLeverage)
+t(:account_aside_setleverage)
 </aside>
 
 <p class="fake_header">t(:httprequest)</p>

@@ -123,6 +123,12 @@ under the License.
     <% else %>
       <%= javascript_include_tag  "all_nosearch" %>
     <% end %>
+
+    <% if current_page.data.code_clipboard %>
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
+    <% end %>
   </head>
   <header class="top-nav">
   <div class="top-menu">

@@ -82,14 +82,14 @@ POST
 |cum_exec_qty |number |t(:linear_resp_field_cum_exec_qty)  |
 |cum_exec_value |number |t(:linear_resp_field_cum_exec_value)  |
 |cum_exec_fee |number |t(:linear_resp_field_cum_exec_fee)  |
-|reduce_only |bool |t(:linear_resp_field_reduce_only)  | 
+|reduce_only |bool |t(:linear_resp_field_reduce_only)  |
 |order_link_id |string |t(:row_response_comment_orderLinkId)  |
 |created_time |string |t(:row_comment_created_at)  |
 |updated_time |string |t(:row_comment_updated_at)  |
 |take_profit |number |t(:row_comment_take_profit)  |
 |stop_loss |number |t(:row_comment_stop_loss)  |
-|tp_trigger_by |string |t(:row_response_comment_triggerBy)  |
-|sl_trigger_by |string |t(:row_response_comment_triggerBy)  |
+|tp_trigger_by |string |t(:row_comment_triggerBy)  |
+|sl_trigger_by |string |t(:row_comment_triggerBy)  |
 
 ### t(:getactive)
 > t(:codequote_responseExample)
@@ -158,8 +158,8 @@ GET
 | symbol |string |t(:row_comment_symbol) |
 | side |string |t(:row_comment_side) |
 | order_type |string |t(:row_comment_order_type) |
-| price  |number |t(:row_comment_resp_price) | 
-| qty  |number |t(:row_response_comment_qty) | 
+| price  |number |t(:row_comment_resp_price) |
+| qty  |number |t(:row_response_comment_qty) |
 |time_in_force |string |t(:row_comment_timeInForce)  |
 |t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
 |last_exec_price |number |t(:row_comment_last_exec_price)  |
@@ -172,8 +172,8 @@ GET
 |updated_time |string |t(:row_comment_updated_at)  |
 |take_profit |number |t(:row_comment_take_profit)  |
 |stop_loss |number |t(:row_comment_stop_loss)  |
-|tp_trigger_by |string |t(:row_response_comment_triggerBy)  |
-|sl_trigger_by |string |t(:row_response_comment_triggerBy)  |
+|tp_trigger_by |string |t(:row_comment_triggerBy)  |
+|sl_trigger_by |string |t(:row_comment_triggerBy)  |
 
 
 
@@ -301,8 +301,8 @@ POST
 |p_r_price |false |number |t(:row_comment_pRPrice) |
 |take_profit |false |number |t(:row_comemnt_replace_take_profit)  |
 |stop_loss |false |number |t(:row_comemnt_replace_stop_loss)  |
-|tp_trigger_by |false |string |t(:row_response_comment_triggerBy)  |
-|sl_trigger_by |false |string |t(:row_response_comment_triggerBy)  |
+|tp_trigger_by |false |string |t(:row_comment_triggerBy)  |
+|sl_trigger_by |false |string |t(:row_comment_triggerBy)  |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -378,14 +378,14 @@ GET
 |cum_exec_qty |number |t(:linear_resp_field_cum_exec_qty)  |
 |cum_exec_value |number |t(:linear_resp_field_cum_exec_value)  |
 |cum_exec_fee |number |t(:linear_resp_field_cum_exec_fee)  |
-|reduce_only |bool |t(:linear_resp_field_reduce_only)  | 
+|reduce_only |bool |t(:linear_resp_field_reduce_only)  |
 |order_link_id |string |t(:row_response_comment_orderLinkId)  |
 |created_time |string |t(:row_comment_created_at)  |
 |updated_time |string |t(:row_comment_updated_at)  |
 |take_profit |number |t(:row_comment_take_profit)  |
 |stop_loss |number |t(:row_comment_stop_loss)  |
-|tp_trigger_by |string |t(:row_response_comment_triggerBy)  |
-|sl_trigger_by |string |t(:row_response_comment_triggerBy)  |
+|tp_trigger_by |string |t(:row_comment_triggerBy)  |
+|sl_trigger_by |string |t(:row_comment_triggerBy)  |
 
 
 
@@ -475,8 +475,8 @@ POST
 |updated_at |string |t(:row_comment_updated_at)  |
 |take_profit |number |t(:row_comment_take_profit)  |
 |stop_loss |number |t(:row_comment_stop_loss)  |
-|tp_trigger_by |string |t(:row_response_comment_triggerBy)  |
-|sl_trigger_by |string |t(:row_response_comment_triggerBy)  |
+|tp_trigger_by |string |t(:row_comment_triggerBy)  |
+|sl_trigger_by |string |t(:row_comment_triggerBy)  |
 
 ### t(:getcond)
 > t(:codequote_responseExample)
@@ -559,16 +559,16 @@ GET
 |t(:row_parameter_price) |number |t(:row_response_comment_price)  |
 |t(:row_parameter_quantity) |number |t(:row_response_comment_qty)  |
 |t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
-|order_status |string |t(:row_comment_stopOrderStatus) 
+|order_status |string |t(:row_comment_stopOrderStatus)
 |trigger_price |number |t(:stop_order_trigger_price)  |
 |order_link_id |string |t(:row_response_comment_orderLinkId) |
 |created_at |string |t(:row_comment_created_at)  |
 |updated_at |string |t(:row_comment_updated_at)  |
 |take_profit |number |t(:row_comment_take_profit)  |
 |stop_loss |number |t(:row_comment_stop_loss)  |
-|tp_trigger_by |string |t(:row_response_comment_triggerBy)  |
-|sl_trigger_by |string |t(:row_response_comment_triggerBy)  |
- 
+|tp_trigger_by |string |t(:row_comment_triggerBy)  |
+|sl_trigger_by |string |t(:row_comment_triggerBy)  |
+
 
 ### t(:cancelcond)
 > t(:codequote_responseExample)
@@ -689,8 +689,8 @@ POST
 |p_r_trigger_price |false |number |t(:row_comemnt_pRTriggerPrice) |
 |take_profit |false |number |t(:row_comemnt_replace_take_profit)  |
 |stop_loss |false |number |t(:row_comemnt_replace_stop_loss)  |
-|tp_trigger_by |false |string |t(:row_response_comment_triggerBy)  |
-|sl_trigger_by |false |string |t(:row_response_comment_triggerBy)  |
+|tp_trigger_by |false |string |t(:row_comment_triggerBy)  |
+|sl_trigger_by |false |string |t(:row_comment_triggerBy)  |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -760,9 +760,9 @@ GET
 |updated_at |string |t(:row_comment_updated_at)  |
 |take_profit |number |t(:row_comment_take_profit)  |
 |stop_loss |number |t(:row_comment_stop_loss)  |
-|tp_trigger_by |string |t(:row_response_comment_triggerBy)  |
-|sl_trigger_by |string |t(:row_response_comment_triggerBy)  |
- 
+|tp_trigger_by |string |t(:row_comment_triggerBy)  |
+|sl_trigger_by |string |t(:row_comment_triggerBy)  |
+
 
 
 
@@ -978,7 +978,7 @@ POST
 }
 ```
 
-t(:account_para_tradingStop)
+t(:account_para_tradingStop_linear)
 
 <aside class="notice">
 t(:account_aside_tradingStop)
@@ -1003,7 +1003,49 @@ POST
 |tp_size |false |number |t(:row_comment_tp_size) |
 
 
+### t(:switchmode)
+> t(:codequote_responseExample)
 
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "ext_info": "",
+    "result": {
+        "tp_sl_mode": "Partial"
+    },
+    "time_now": "1598266294.610276",
+    "rate_limit_status": 72,
+    "rate_limit_reset_ms": 1598266294607,
+    "rate_limit": 75
+}
+
+```
+
+t(:linear_private_switchmode)
+
+<aside class="notice">
+t(:switchmode_aside)
+</aside>
+
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=pltcList>/private/linear/tpsl/switch-mode</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pltcList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
+|t(:row_parameter_tp_sl_mode) |true |string |t(:linear_resp_tp_sl_mode)  |
+
+
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|t(:row_parameter_tp_sl_mode) |string |t(:linear_resp_tp_sl_mode)  |
 
 
 
@@ -1285,48 +1327,6 @@ GET
 |fill_count |number |t(:linear_resp_field_fill_count)    |
 |leverage |number |t(:resp_field_leverage)  |
 |created_at |number |t(:row_comment_created_at)  |
-
-
-
-### t(:switch_mode)
-> t(:codequote_responseExample)
-
-```javascript
-{
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
-    "ext_info": "",
-    "result": {
-        "tp_sl_mode": "Partial"
-    },
-    "time_now": "1598266294.610276",
-    "rate_limit_status": 72,
-    "rate_limit_reset_ms": 1598266294607,
-    "rate_limit": 75
-}
-
-```
-
-t(:linear_private_switch_mode)
-
-<p class="fake_header">t(:httprequest)</p>
-POST
-<code><span id=pltcList>/private/linear/tpsl/switch-mode</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pltcList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
-|t(:row_parameter_tp_sl_mode) |true |string |t(:linear_resp_tp_sl_mode)  |
-
-
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|t(:row_parameter_tp_sl_mode) |string |t(:linear_resp_tp_sl_mode)  |
 
 
 

@@ -134,8 +134,8 @@ en:
   row_comment_stopPx: Trigger price
   row_comment_timeInForce: Time in force
   row_comment_triggerBy: Trigger price type. Default <code>LastPrice</code>
-  row_comment_tp_size: In partial mode，take profit quantity
-  row_comment_sl_size: In partial mode，stop loss quantity
+  row_comment_tp_size: Take profit quantity (when in <a href="#t-switchmode">partial mode</a>)
+  row_comment_sl_size: Stop loss quantity (when in <a href="#t-switchmode">partial mode</a>)
   row_comment_takeProfit: Take profit price, only take effect upon opening the position
   row_comment_stopLoss: Stop loss price, only take effect upon opening the position
   row_comment_trailingStop: Trailing stop
@@ -150,7 +150,7 @@ en:
   row_comment_pRQty: New order quantity. Do not pass this field if you don't want modify it
   row_comment_pRPrice: New order price. Do not pass this field if you don't want modify it
   row_comemnt_pRTriggerPrice: New conditional order's trigger price or TP/SL order price, also known as stop_px. Do not pass this field if you don't want modify it
-  row_comemnt_replace_take_profit: New take profit price, also known as stop_px. Do not pass this field if you don't want modify it
+  row_comemnt_replace_take_profit: New take_profit price, also known as stop_px. Do not pass this field if you don't want modify it
   row_comemnt_replace_stop_loss: New stop_loss price, also known as stop_px. Do not pass this field if you don't want modify it
   row_comment_leverage: Leverage. <code>0</code> means Cross Margin mode - any other value means Isolated Margin mode
   row_comment_startDate: Start point for result
@@ -563,9 +563,9 @@ en:
     Take profit/Stop loss is not supported in placing conditional orders. One can only use these 2 functions when placing active orders. Moreover, each account can hold up to 10 conditional orders yet to be filled entirely simultaneously.
   account_aside_placeCond_linear:
     <p>Each account can hold up to 10 conditional orders yet to be filled entirely simultaneously.</p>
-    <p>Return value ext_code is not empty,Please refer to <a href="#t-errors">Errors</a></p>
+    <p>If <code>ext_code</code> is not empty, please refer to <a href="#t-errors">Errors</a></p>
   account_aside_placeActive_linear:
-    <p>Return value ext_code is not empty,Please refer to <a href="#t-errors">Errors</a></p>
+    <p>If <code>ext_code</code> is not empty, please refer to <a href="#t-errors">Errors</a></p>
 
 
   ### Get Conditional Order
@@ -576,7 +576,7 @@ en:
   ### Cancel Conditional Order
   cancelcond: Cancel Conditional Order
   account_para_cancelCond: |
-    <p>You may cancel all untriggered conditional orders or take profit stop loss order. Essentially, after a conditional order is triggered, it will become an active order. So, when a conditional order is triggered, cancellation has to be done through the active order endpoint for any unfilled or partially filled active order. As always, orders that have been fully filled cannot be cancelled.</p>
+    <p>You may cancel all untriggered conditional orders or take profit/stop loss order. Essentially, after a conditional order is triggered, it will become an active order. So, when a conditional order is triggered, cancellation has to be done through the active order endpoint for any unfilled or partially filled active order. As always, orders that have been fully filled cannot be cancelled.</p>
   ### Cancel All Conditional Orders
   cancelallcond: Cancel All Conditional Orders
   account_para_cancelAllCond: Cancel all untriggered conditional orders.
@@ -600,11 +600,9 @@ en:
   ### User Leverage
   getleverage: User Leverage
   account_para_userLeverage: Get user leverage.
-  ### Change User Leverage
-  changeleverage: Change User Leverage
-  account_para_changeLeverage: |
-    <p>Change user leverage.</p>
-  account_aside_changeLeverage: Set <code>leverage</code> to <code>0</code> if you want to trade in <a href="https://help.bybit.com/hc/en-us/articles/360037683633-What-is-Cross-Margin">Cross Margin mode</a>. Note that your position mode will be changed to Isolated Margin mode if you change your leverage from 0 to any other value.
+  ### Set Leverage
+  # see setleverage
+  account_aside_setleverage: Set <code>leverage</code> to <code>0</code> if you want to trade in <a href="https://help.bybit.com/hc/en-us/articles/360037683633-What-is-Cross-Margin">Cross Margin mode</a>. Note that your position mode will be changed to Isolated Margin mode if you change your leverage from 0 to any other value.
 
   ## Position
   position: Position
@@ -614,10 +612,11 @@ en:
   ### Change Margin
   changemargin: Change Margin
   account_para_changeMargin: Update margin.
-  account_aside_changeMargin: You cannot change margin when your position is in Cross Margin mode. See the <a href="#t-changeleverage">Change User Leverage</a> endpoint for more.
+  account_aside_changeMargin: You cannot change margin when your position is in Cross Margin mode. See the <a href="#t-setleverage">Change User Leverage</a> endpoint for more.
   ### Set Trading-Stop
   tradingstop: Set Trading-Stop
-  account_para_tradingStop: Set full take profit, stop loss or partial take profit, stop loss and trailing stop for your open position.
+  account_para_tradingStop: Set take profit, stop loss, and trailing stop for your open position.
+  account_para_tradingStop_linear: Set take profit, stop loss, and trailing stop for your open position. If using <a href="#t-switchmode">partial mode</a>, TP/SL/TS orders will not close your entire position.
   account_aside_tradingStop: Passing these parameters will create conditional orders controlled by the system. The system will cancel these orders if the position is closed, and adjust the qty according to the size of the open position.
   account_row_comment_takeProfit: Cannot be less than 0, 0 means cancel TP
   account_row_comment_stopLoss: Cannot be less than 0, 0 means cancel SL
@@ -1103,26 +1102,27 @@ en:
   exec_adlTrade: ""
   exec_bustTrade: ""
   ## Liquidity type (`last_liquidity_ind`)
-  addedLiquidity: "maker liquidity"
-  removedLiquidity: "taker liquidity"
+  addedLiquidity: "- Maker liquidity"
+  removedLiquidity: "- Taker liquidity"
 
   ## Tick direction type (`tick_direction`)
   tick_direction: "It indicates the fluctuation of price, which is up or down relative to the last transaction"
-  plusTick: "Rise in price"
-  zeroPlusTick: "Keep up with the last trad, the last time with the last is rise in price"
-  minusTick: "Prices are down"
-  zeroMinusTick: "Keep up with the last trad, the last time with the last is Prices are down"
+  plusTick: "- Rise in price"
+  zeroPlusTick: "- Rise in price compared to last trade of different price"
+  minusTick: "- Drop in price"
+  zeroMinusTick: "- Drop in price compared to last trade of different price"
 
   ## TpSl Mode type (`tp_sl_mode`)
-  Full: "Full stop loss take profit"
-  Partial: "Partial stop loss take profit"
+  tp_sl_mode: "Take profit/stop loss mode"
+  Full: "- Full stop loss take profit"
+  Partial: "- Partial stop loss take profit"
 
-  Stop: "Normal stop order"
-  TakeProfit: "Position take profit order"
-  StopLoss: "Position stop loss order"
-  TrailingStop: "Trailing stop loss order"
-  PartialTakeProfit: "Partial take profit order"
-  PartialStopLoss: "Partial take profit order"
+  Stop: "- Normal stop order"
+  TakeProfit: "- Position take profit order"
+  StopLoss: "- Position stop loss order"
+  TrailingStop: "- Position trailing stop loss order"
+  PartialTakeProfit: "- Position partial take profit order"
+  PartialStopLoss: "- Position partial take profit order"
 
   # Error Code
   errors_intro: The Bybit API uses the following HTTP Codes and Error Codes<span>:</span>
@@ -1364,21 +1364,21 @@ en:
   err_130126: No orders
   err_130023: Will be triggered Liq after order is completed
   err_130127: Take Profit, Stop Loss and Trailing Stop Loss are not modified
-  err_130149: SL/TP setting failed.
+  err_130149: Order creation successful but SL/TP setting failed
   err_130150: Please try again later.
   err_130151: At least one take profit order in the mode,Cannot be switched
   err_130152: At least one stop loss order in the mode,Cannot be switched
-  err_130153: Switching failed. Please cancel the current SL/TP setting.
-  err_130154: Switching failed. Please cancel the SL/TP setting of active orders.
+  err_130153: Switching failed. Please cancel the current SL/TP setting
+  err_130154: Switching failed. Please cancel the SL/TP setting of active orders
   err_130155: Insufficient quantity required to set TP/SL
-  err_130156: Modify the trigger price when the price and quantity of the active order is not allowed.
-  err_130157: Amendment failed. SL/TP price cannot be amended as order is filled partially.
-  err_130158: SL/TP price cannot be amended under position mode.
-  err_130159: There are more than 20 SL/TP settings in the partial SL/TP mode.
+  err_130156: Replacing active order price and qty simultaneously is not allowed
+  err_130157: Amendment failed. SL/TP price cannot be amended as order is partially filled
+  err_130158: SL/TP price cannot be amended under 'Full' position mode
+  err_130159: Max SL/TP orders under 'Partial' mode is 20
 
   ### Linear Cancel Active Order
   linear_row_comment_qty: Order quantity in BTC
-  linear_row_comment_reduceOnly: <a href="https://help.bybit.com/hc/en-us/articles/360039260574-What-is-a-reduce-only-order-"> What is a reduce-only order?</a> True means your position can only reduce in size if this order is triggered,when reduce_only is ture take profit stop loss setting inoperative
+  linear_row_comment_reduceOnly: <a href="https://help.bybit.com/hc/en-us/articles/360039260574-What-is-a-reduce-only-order-"> What is a reduce-only order?</a> True means your position can only reduce in size if this order is triggered. When <code>reduce_only</code> is true, take profit/stop loss cannot be set
   linear_row_comment_closeOnTrigger: <a href="https://help.bybit.com/hc/en-us/articles/360039260534-What-is-a-close-on-trigger-Order-">  What is a close on trigger order?</a> For a closing order. It can only reduce your position, not increase it. If the account has insufficient available balance when the closing order is triggered, then other active orders of similar contracts will be cancelled or reduced. It can be used to ensure your stop loss reduces your position regardless of current available margin.
   placeactive: Place Active Order
   linear_account_para_placeActive: |
@@ -1449,12 +1449,13 @@ en:
   linear_order_fix_order_type___20200403: Fix value of <code>order_type</code> in response
   linear_exec_type: Execution type
   closedprofitandloss: Closed Profit and Loss
-  switch_mode: switch take profit stop loss mode
+  switchmode: Full/Partial Position SL/TP Switch
+  switchmode_aside: When set to Partial, SL/TP orders may have a quantity less than the position size. This is set with the <a href="#t-tradingstop">Trading-Stop endpoint</a>.
   addmargin: Add/Reduce Margin
   restapi_update_20200414: Updated <code>BTCUSDT</code> contract information
   linear_private_trade_records: Get user's trading records. The results are ordered in descending order (the first item is the latest).
   linear_private_closed_pnl_records: Get user's closed profit and loss records. The results are ordered in descending order (the first item is the latest).
-  linear_private_switch_mode: Switch mode Full or Partial
+  linear_private_switchmode: Switch mode between Full or Partial
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
   restapi_update_20200417_1: Add new symbol <code>BTCUSDT</code>
@@ -1474,12 +1475,17 @@ en:
     Abandon response fields: <code>period</code>, <code>start_at</code>
   restapi_update_20200630_1: Returns all wallet balances if no parameters are passed
   restapi_update_20200630_2: Adjust the return quantity from 50 to 200
-  restapi_update_20200826_1: Support setting take profit and stop loss, Add new request parameter <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
-  restapi_update_20200826_3: Add response parameter <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
-  restapi_update_20200826_2: Add response parameter <code>tp_sl_mode</code>
-  restapi_update_20200826_4: Support created partial take profit and stop loss order,Add new request parameter <code>sl_size</code>, <code>tp_size</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
-  restapi_update_20200826_5: Support cancel take profit stop loss order
-  restapi_update_20200826_6: Support replace cancel take profit stop loss order,Add new request parameter <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
+  restapi_update_20200826_1: |
+    Support setting take profit and stop loss; Add new request parameters: <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
+  restapi_update_20200826_3: |
+    Add response parameters: <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
+  restapi_update_20200826_2: |
+    Add response parameters: <code>tp_sl_mode</code>
+  restapi_update_20200826_4: |
+    Support creating partial take profit and stop loss orders; Add new request parameters: <code>sl_size</code>, <code>tp_size</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
+  restapi_update_20200826_5: Support cancelling take profit and stop loss orders
+  restapi_update_20200826_6: |
+    Support replacing take profit stop loss orders; Add new request parameters: <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
   restapi_update_20200927_1: Support <code>order_link_id</code>
 
   markpricekline: Query Mark Price Kline
