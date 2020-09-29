@@ -564,10 +564,13 @@ en:
     Take profit/Stop loss is not supported in placing conditional orders. One can only use these 2 functions when placing active orders. Moreover, each account can hold up to 10 conditional orders yet to be filled entirely simultaneously.
   account_aside_placeCond_linear:
     <p>Each account can hold up to 10 conditional orders yet to be filled entirely simultaneously.</p>
-  account_aside_placeCond_linear_warn:
-    <p>If <code>ext_code</code> is not empty, please refer to <a href="#t-errors">Errors</a></p>
+
   account_aside_placeActive_linear_warn:
-    <p>If <code>ext_code</code> is not empty, please refer to <a href="#t-errors">Errors</a></p>
+    <p>For response:<p>
+    <p><code>ret_code</code>=0 and <code>ext_code</code>="" means create order success.<p>
+    <p><code>ret_code</code>=0 and <code>ext_code</code>!="" means create order success but partial parameter setting fail.<p>
+    <p><code>ret_code</code>!=0 means create order fail<p>
+    <p><code>ext_code</code> means please refer to <a href="#t-errors">Errors</a></p>
 
 
   ### Get Conditional Order
@@ -1499,7 +1502,7 @@ en:
   restapi_update_20200826_5: Support cancelling take profit and stop loss orders
   restapi_update_20200826_6: |
     Support replacing take profit stop loss orders; Add new request parameters: <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
-  restapi_update_20200927_1: Support <code>order_link_id</code>
+  restapi_update_20200927_1: Support replace order by <code>order_link_id</code>
   restapi_update_20200915_1: Fix <a href="#t-marketaccountratio">Account Long-short ratio</a> data error
   restapi_update_20200915_2: Change the return value of the field <code>time_in_force</code> of <a href="#t-placecond">placing conditional market order</a> from <code>GoodTillCancel</code> to <code>ImmediateOrCancel</code> which is the actual execution strategy
   ws_update_20200927_1: Add new websocket base endpoint
