@@ -7,11 +7,10 @@ t(:ENUMs_para)
 
 ## Symbol (`symbol`)
 * `BTCUSDT`
-* `ETHUSDT`
-* `BCHUSDT`
-* `LTCUSDT`
-* `LINKUSDT`
-* `XTZUSDT`
+* `ETHUSDT` t(:linear_testnet_only)
+* `LTCUSDT` t(:linear_testnet_only)
+* `LINKUSDT` t(:linear_testnet_only)
+* `XTZUSDT` t(:linear_testnet_only)
 
 ## Currency (`currency`/`coin`)
 * `USDT`

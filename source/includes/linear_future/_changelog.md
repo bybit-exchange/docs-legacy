@@ -1,9 +1,9 @@
 # t(:changelog)
 
-## 2020-08-25
+## 2020-10-16
 ### REST API
-- [t(:row_comment_symbol)](#symbol-symbol) [t(:changelog_new)]
-- [t(:risklimit)](#t-risklimit) [t(:changelog_new)]
+- [t(:row_comment_symbol)](#symbol-symbol) [t(:changelog_update)]
+- [t(:row_comment_order_qty)](#quantity-qty) [t(:changelog_update)]
 
 ## 2020-09-27
 ### REST API
