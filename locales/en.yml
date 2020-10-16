@@ -1225,7 +1225,7 @@ en:
   err_30068: exit value must be positive
   err_33004: apikey already expired
   err_34026: the limit is no change
-
+  err_35014: over order limit
 
 
 
@@ -1249,7 +1249,11 @@ en:
   ## LinearQuantity (`qty`)
   linear_quantity:
     <ul>
-    <li>Maximum quantity of 1000</li>
+    <li><code>BTCUSDT</code> - Maximum quantity of 100 for opening; Maximum quantity of 200 for closing</li>
+    <li><code>ETHUSDT</code> - Maximum quantity of 1000 for opening; Maximum quantity of 2000 for closing</li>
+    <li><code>LINKUSDT</code> - Maximum quantity of 100000 for opening; Maximum quantity of 200000 for closing</li>
+    <li><code>LTCUSDT</code> - Maximum quantity of 10000 for opening; Maximum quantity of 20000 for closing</li>
+    <li><code>XTZUSDT</code> - Maximum quantity of 100000 for opening; Maximum quantity of 200000 for closing</li>
     <ul>
     </ul>
     </li>
@@ -1515,7 +1519,7 @@ en:
   linear_resp_field_cum_exec_qty: Cumulative qty of trading
   linear_resp_field_cum_exec_value: Cumulative value of trading
   linear_resp_field_cum_exec_fee: Cumulative trading fees
-  linear_resp_field_reduce_only: true means close order, false means open close
+  linear_resp_field_reduce_only: true means close order, false means open position
   linear_resp_field_position_value: Current position value
   linear_resp_field_entry_price: Average opening price
   linear_resp_field_liq_price: Liquidation price
@@ -1534,3 +1538,5 @@ en:
   linear_resp_field_closed_pnl: Closed Profit and Loss
   linear_resp_field_fill_count: Number of transactions
   linear_row_comment_recent_trading_records_limit: Number of results. Default 500; max 1000
+
+  linear_testnet_only: testnet only

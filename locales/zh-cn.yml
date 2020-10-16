@@ -1193,6 +1193,7 @@ zh-cn:
   err_30068: 退出价值必须大于0
   err_33004: apikey已过期
   err_34026: 风险限额没有变化
+  err_35014: 下单数量超过上限
 
   # Misc.
   misc_row_comment_orderLinkIdNotOrderId: 机构ID。如果未填order_id则为<b>必填</b>字段。
@@ -1213,7 +1214,11 @@ zh-cn:
   ## LinearQuantity (`qty`)
   linear_quantity:
     <ul>
-    <li>最大值1000</li>
+    <li>BTCUSDT 开仓最大值 100，平仓最大值 200</li>
+    <li>ETHUSDT 开仓最大值 1000，平仓最大值 2000</li>
+    <li>LINKUSDT 开仓最大值 100000，平仓最大值 200000</li>
+    <li>LTCUSDT 开仓最大值 10000，平仓最大值 20000</li>
+    <li>XTZUSDT 开仓最大值 100000，平仓最大值 200000</li>
     <ul>
     </ul>
     </li>
@@ -1486,3 +1491,5 @@ zh-cn:
   linear_resp_field_closed_pnl: 与平仓size等比例对应的盈亏
   linear_resp_field_fill_count: 成交笔数
   linear_row_comment_recent_trading_records_limit: 返回条数，最大1000，默认500
+
+  linear_testnet_only: 仅testnet环境
