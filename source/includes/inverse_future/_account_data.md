@@ -15,7 +15,7 @@ curl https://api.bybit.com/v2/private/order/create \
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Order.Order_new(side="Buy",symbol="BTCUSD",order_type="Limit",qty=1,price=8300,time_in_force="GoodTillCancel").result())
+print(client.Order.Order_newV2(side="Buy",symbol="BTCUSD",order_type="Limit",qty=1,price=8300,time_in_force="GoodTillCancel").result())
 ```
 
 > t(:codequote_responseExample)
@@ -227,7 +227,7 @@ curl https://api.bybit.com/v2/private/order/cancel \
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Order.Order_cancel(symbol="BTCUSD", order_id="").result())
+print(client.Order.Order_cancelV2(symbol="BTCUSD", order_id="").result())
 ```
 
 > t(:codequote_responseExample)
@@ -317,7 +317,7 @@ curl https://api.bybit.com/v2/private/order/cancelAll \
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Order.cancelAll(symbol="BTCUSD").result())
+print(client.Order.Order_cancelAll(symbol="BTCUSD").result())
 ```
 
 > t(:codequote_responseExample)
@@ -406,7 +406,7 @@ curl https://api.bybit.com/open-api/order/replace \
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Order.Order_Replace(symbol="BTCUSD", order_id="").result())
+print(client.Order.Order_replace(symbol="BTCUSD", order_id="").result())
 ```
 
 > t(:codequote_responseExample)
@@ -461,7 +461,7 @@ curl "https://api.bybit.com/v2/private/order?api_key={api_key}&symbol=BTCUSD&tim
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Order.query().result(symbol="BTCUSD", order_id=""))
+print(client.Order.Order_query(symbol="BTCUSD", order_id="").result())
 ```
 
 > t(:codequote_responseExample)
@@ -1419,7 +1419,7 @@ curl "https://api.bybit.com/user/leverage?api_key={api_key}&timestamp={timestamp
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Positions.userLeverage())
+print(client.Positions.Positions_userLeverage().result())
 ```
 
 > t(:codequote_responseExample)

@@ -15,7 +15,7 @@ curl https://api.bybit.com/private/linear/order/create \
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.LinearOrder.new(side="Buy",symbol="BTCUSD",order_type="Limit",qty=1,price=8300,time_in_force="GoodTillCancel").result())
+print(client.LinearOrder.LinearOrder_new(side="Sell",symbol="BTCUSDT",order_type="Limit",qty=0.22,price=10000,time_in_force="GoodTillCancel",reduce_only=False, close_on_trigger=False).result())
 ```
 
 > t(:codequote_responseExample)
@@ -388,7 +388,7 @@ curl "https://api.bybit.com/private/linear/order/search?api_key={api_key}&symbol
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Order.query().result(symbol="BTCUSD", order_id=""))
+print(client.LinearOrder.LinearOrder_query(symbol="BTCUSDT", order_id="87d8a4ed-dc9d-41c9-8dac-6e3c51356645").result())
 ```
 
 > t(:codequote_responseExample)
@@ -585,7 +585,7 @@ curl "https://api.bybit.com/private/linear/stop-order/list?api_key={api_key}&tim
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.LinearConditional.LinearConditional_getOrders().result())
+print(client.LinearConditional.LinearConditional_getOrders(symbol="BTCUSDT").result())
 ```
 
 > t(:codequote_responseExample)
@@ -691,7 +691,7 @@ curl https://api.bybit.com/private/linear/stop-order/cancel \
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.LinearConditional.LinearConditional_cancel(symbol="BTCUSDT", order_id="").result())
+print(client.LinearConditional.LinearConditional_cancel(symbol="BTCUSDT", stop_order_id="52095ff7-b080-498e-b3a4-8b3e76c42f5e").result())
 ```
 
 > t(:codequote_responseExample)
@@ -744,7 +744,7 @@ curl https://api.bybit.com/private/linear/stop-order/cancel-all \
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.LinearOrder.LinearOrder_cancelAll(symbol="BTCUSDT").result())
+print(client.LinearConditional.LinearConditional_cancelAll(symbol="BTCUSDT").result())
 ```
 
 > t(:codequote_responseExample)
@@ -1034,7 +1034,7 @@ curl https://api.bybit.com/private/linear/position/set-auto-add-margin \
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.LinearPositions.LinearPositions_setAutoAddMargin(symbol="BTCUSDT", margin="10").result())
+print(client.LinearPositions.LinearPositions_setAutoAddMargin(symbol="BTCUSDT", side="Sell", auto_add_margin=False).result())
 ```
 
 > t(:codequote_responseExample)
@@ -1564,7 +1564,7 @@ curl "https://api.bybit.com/public/linear/risk-limit?api_key={api_key}&timestamp
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.LinearWallet.LinearWallet_getRiskLimit().result())
+print(client.LinearWallet.LinearWallet_getRiskLimit(symbol="BTCUSDT").result())
 ```
 
 > t(:codequote_responseExample)
