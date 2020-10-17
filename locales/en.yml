@@ -703,7 +703,7 @@ en:
   ### IP Rate Limit
   ipratelimits: IP Rate Limit
   ip_rate_para_understanding: |
-    <p> Bybit has different IP frequency limits for <code>GET</code> and <code>POST</code> method：</p>
+    <p>Bybit has different IP frequency limits for <code>GET</code> and <code>POST</code> method:</p>
     <ul>
     <li>
       <code>GET</code>method:
@@ -723,7 +723,9 @@ en:
   ### Account rate limit
   understandingratelimits: Understanding Your Request Rate Limit
   rate_para_understanding: |
-    Bybit makes frequency limits based on <b>the rolling time window per minute and UID, and each symbol is independent</b>. Every request to the API returns the fields shown in the code panel:
+    <p>Bybit makes frequency limits based on <b>the rolling time window per minute and UID, and each symbol is independent</b>.</p>
+    <p>It is helpful to think of the limits in terms of intervals, where your first interval begins at the first timestamp of your first request, and the second interval beginning at the first timestamp of a request occurring after the end of the first interval.</p>
+    <p>Every request to the API returns the fields shown in the code panel:</p>
   rate_text_limitStatus_understanding: your remaining requests for current endpoint
   rate_text_limit_understanding: your current limit for current endpoint
   rate_text_limitReset: the timestamp indicating when your request limit resets if you have exceeded your rate_limit. Otherwise, this is just the current timestamp.
