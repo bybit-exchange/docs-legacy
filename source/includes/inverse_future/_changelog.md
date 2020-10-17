@@ -1,6 +1,22 @@
 # t(:changelog)
 
+## 2020-10-12
+### REST API
+- [t(:getcond)](#t-getcond) [t(:changelog_bugfix)]
+     - t(:restapi_update_20201012_1)
+- [t(:queryactive)](#t-queryactive) [t(:changelog_bugfix)]
+     - t(:restapi_update_20201012_2)
 
+## 2020-09-27
+### REST API
+- [t(:replaceactive)](#t-replaceactive) [t(:changelog_update)]
+     - t(:restapi_update_20200927_1)
+- [t(:replacecond)](#t-replacecond) [t(:changelog_update)]
+     - t(:restapi_update_20200927_1)
+     
+### Websocket API
+- [t(:ws_update_20200927_1)](#t-websocket) [t(:changelog_update)]
+     
 ## 2020-09-15
 ### REST API
 - [t(:marketaccountratio)](#t-marketaccountratio) [t(:changelog_update)]

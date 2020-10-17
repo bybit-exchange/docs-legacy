@@ -1,5 +1,40 @@
 # t(:changelog)
 
+## 2020-10-16
+### REST API
+- [t(:row_comment_symbol)](#symbol-symbol) [t(:changelog_update)]
+- [t(:row_comment_order_qty)](#quantity-qty) [t(:changelog_update)]
+
+## 2020-09-27
+### REST API
+- [t(:switchmode)](#t-switchmode) [t(:changelog_new)]
+- [t(:placecond)](#t-placecond) [t(:changelog_update)]
+    - t(:restapi_update_20200826_1)
+    - t(:restapi_update_20200826_3)
+- [t(:placeactive)](#t-placeactive) [t(:changelog_update)]
+    - t(:restapi_update_20200826_3)
+- [t(:myposition)](#t-myposition) [t(:changelog_update)]
+    - t(:restapi_update_20200826_2)
+- [t(:tradingstop)](#t-tradingstop) [t(:changelog_update)]
+    - t(:restapi_update_20200826_4)
+- [t(:cancelcond)](#t-cancelcond) [t(:changelog_update)]
+    - t(:restapi_update_20200826_5) 
+- [t(:replacecond)](#t-replacecond) [t(:changelog_update)]
+    - t(:restapi_update_20200826_6)
+- [t(:replaceactive)](#t-replaceactive) [t(:changelog_update)]
+    - t(:restapi_update_20200826_6) 
+- [t(:getactive)](#t-getactive) [t(:changelog_update)]
+    - t(:restapi_update_20200826_3)    
+- [t(:queryactive)](#t-queryactive) [t(:changelog_update)]
+    - t(:restapi_update_20200826_3)    
+- [t(:getcond)](#t-getcond) [t(:changelog_update)]
+    - t(:restapi_update_20200826_3)    
+- [t(:querycond)](#t-querycond) [t(:changelog_update)]
+    - t(:restapi_update_20200826_3)
+    
+### Websocket API
+- [t(:ws_update_20200927_1)](#t-websocket) [t(:changelog_update)]
+ 
 ## 2020-09-15
 ### REST API
 - [t(:marketaccountratio)](#t-marketaccountratio) [t(:changelog_update)]
