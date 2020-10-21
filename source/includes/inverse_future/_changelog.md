@@ -4,6 +4,8 @@
 ### REST API
 - [t(:balance)](#t-balance) [t(:changelog_update)]
     - t(:restapi_update_20201021_1)
+- [t(:tradingstop)](#t-tradingstop) [t(:changelog_update)]
+    - t(:restapi_update_20201021_3)
 
 ## 2020-10-12
 ### REST API

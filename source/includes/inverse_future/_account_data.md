@@ -1370,6 +1370,8 @@ POST
 |take_profit |false |number |t(:account_row_comment_takeProfit) |
 |stop_loss |false |number |t(:account_row_comment_stopLoss) |
 |trailing_stop |false |number |t(:account_row_comment_trailingStop) |
+|t(:row_parameter_tp_trigger_by) | false | string | t(:account_row_comment_tp_trigger_by)
+|t(:row_parameter_sl_trigger_by) | false | string | t(:account_row_comment_tp_trigger_by)
 |new_trailing_active |false |number |t(:account_row_comment_trailingStop_active) |
 
 <p class="fake_header">t(:responseparameters)</p>

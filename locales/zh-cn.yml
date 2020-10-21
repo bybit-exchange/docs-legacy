@@ -50,7 +50,8 @@ zh-cn:
   row_comment_position_seq: 仓位变化版本号
   row_comment_cum_commission: 累计佣金
   row_comment_trailing_active: 激活价格
-  row_comment_sl_trigger_by: 激活价格类型
+  row_comment_sl_trigger_by: 止损激活价格类型
+  row_comment_tp_trigger_by: 止盈激活价格类型
   row_comment_BTCUSD_leverage: BTCUSD杠杆
   row_comment_EOSUSD_leverage: EOSUSD杠杆
   row_comment_ETHUSD_leverage: ETHUSD杠杆
@@ -289,6 +290,8 @@ zh-cn:
 
 
 
+  row_parameter_tp_trigger_by: <a href="#trigger-price-type-trigger_by">tp_trigger_by</a>
+  row_parameter_sl_trigger_by: <a href="#trigger-price-type-trigger_by">sl_trigger_by</a>
   row_parameter_symbol: <a href="#symbol-symbol">symbol</a>
   row_parameter_side: <a href="#side-side">side</a>
   row_parameter_tp_sl_mode: <a href="#tpsl-mode-type-tp_sl_mode">tp_sl_mode</a>
@@ -605,9 +608,10 @@ zh-cn:
   account_aside_tradingStop: 传递以下参数后将会由系统创建条件单。如果仓位关闭，系统将会取消这些订单，同时调整开仓的仓位数量。
   account_row_comment_takeProfit: 不小于0,如果等于0则是取消止盈(TP)
   account_row_comment_stopLoss: 不小于0,如果等于0则是取消止损(SL)
+  account_row_comment_tp_trigger_by: 止盈激活价格类型，默认为<code>LastPrice</code>
+  account_row_comment_sl_trigger_by: 止损激活价格类型，默认为<code>LastPrice</code>
   account_row_comment_trailingStop: 不小于0,如果等于0则是取消追踪止损(TS)
   account_row_comment_trailingStop_active: 追踪止损触发价格。追踪止损会在到达该价格后才会触发（追踪止损默认立即触发）。
-
   ## Risklimit
   risklimit: 风险限额
 
@@ -1467,6 +1471,7 @@ zh-cn:
   restapi_update_20201012_2: 修复已成交订单<code>cum_exec_fee</code>字段错误的问题
   restapi_update_20201021_1: 修复<code>usdt</code> <code>given_cash<code/>和<code>service_cash<code/>总是为0的问题
   restapi_update_20201021_2: USDT合约上线新交易对：<a href="#symbol-symbol">ETHUSDT、LINKUSDT、LTCUSDT、XTZUSDT</a>
+  restapi_update_20201021_3: 支持根据价格类型设置止盈止损
 
   markpricekline: 标记价格K线
   linear_query_mark_price_kline: 查询标记价格K线
