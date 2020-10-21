@@ -2,6 +2,7 @@
 
 ## 2020-10-21
 ### REST API
+- t(:restapi_update_20201021_2) [t(:changelog_update)]
 - [t(:balance)](#t-balance) [t(:changelog_update)]
     - t(:restapi_update_20201021_1)
 
