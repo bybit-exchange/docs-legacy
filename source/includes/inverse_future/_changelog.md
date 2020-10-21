@@ -1,5 +1,10 @@
 # t(:changelog)
 
+## 2020-10-21
+### REST API
+- [t(:balance)](#t-balance) [t(:changelog_update)]
+    - t(:restapi_update_20201021_1)
+
 ## 2020-10-12
 ### REST API
 - [t(:getcond)](#t-getcond) [t(:changelog_bugfix)]
