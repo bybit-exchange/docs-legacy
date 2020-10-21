@@ -973,6 +973,11 @@ clipboard.on('error', function(e) {
 <ul>
 <li>Fix bug of <code>given_cash</code> and <code>service_cash</code> are always Zero when coin is <code>USDT</code></li>
 </ul></li>
+<li><a href="#t-tradingstop">Set Trading-Stop</a> [update]
+
+<ul>
+<li>Support setting tp/sl by different trigger price types</li>
+</ul></li>
 </ul>
 <h2 id='2020-10-12'>2020-10-12</h2><h3 id='rest-api-2'>REST API</h3>
 <ul>
@@ -5568,6 +5573,18 @@ Passing these parameters will create conditional orders controlled by the system
 <td>Cannot be less than 0, 0 means cancel TS</td>
 </tr>
 <tr>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>translation missing: en.account_row_comment_tp_trigger_by</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>translation missing: en.account_row_comment_tp_trigger_by</td>
+</tr>
+<tr>
 <td style="text-align: left">new_trailing_active</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">number</td>
@@ -5745,7 +5762,7 @@ Passing these parameters will create conditional orders controlled by the system
 <tr>
 <td style="text-align: left">ext_fields&gt;sl_trigger_by</td>
 <td style="text-align: left">string</td>
-<td>Trigger price type</td>
+<td>Stoploss trigger price type</td>
 </tr>
 </tbody></table>
 <h3 id='t-getleverage'>User Leverage</h3>

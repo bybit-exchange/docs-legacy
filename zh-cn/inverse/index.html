@@ -973,6 +973,11 @@ clipboard.on('error', function(e) {
 <ul>
 <li>修复<code>usdt</code> <code>given_cash<code/>和<code>service_cash<code/>总是为0的问题</li>
 </ul></li>
+<li><a href="#t-tradingstop">设置止盈止损</a> [更新]
+
+<ul>
+<li>支持根据价格类型设置止盈止损</li>
+</ul></li>
 </ul>
 <h2 id='2020-10-12'>2020-10-12</h2><h3 id='rest-api-2'>REST API</h3>
 <ul>
@@ -5562,6 +5567,18 @@ GET
 <td>不小于0,如果等于0则是取消追踪止损(TS)</td>
 </tr>
 <tr>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>止盈激活价格类型，默认为<code>LastPrice</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>止盈激活价格类型，默认为<code>LastPrice</code></td>
+</tr>
+<tr>
 <td style="text-align: left">new_trailing_active</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">number</td>
@@ -5736,7 +5753,7 @@ GET
 <tr>
 <td style="text-align: left">ext_fields&gt;sl_trigger_by</td>
 <td style="text-align: left">string</td>
-<td>激活价格类型</td>
+<td>止损激活价格类型</td>
 </tr>
 </tbody></table>
 <h3 id='t-getleverage'>用户杠杆</h3>
