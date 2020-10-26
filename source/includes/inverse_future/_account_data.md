@@ -1149,6 +1149,7 @@ print(client.Positions.Positions_myPosition(symbol="BTCUSD").result())
         "size": 5,
         "position_value": "0.0006947",
         "entry_price": "7197.35137469",
+        "is_isolated":true,
         "auto_add_margin": 0,
         "leverage": "1",  //t(:resp_field_leverage)
         "effective_leverage": "1", // t(:resp_field_effective_leverage)
@@ -1203,6 +1204,7 @@ GET
 |size |number |t(:row_comment_position_size)  |
 |position_value |string |t(:row_comment_position_value)  |
 |entry_price |string |t(:row_comment_entry_price)  |
+|is_isolated | bool | t(:row_comment_isolated) |
 |auto_add_margin |number |t(:row_comment_auto_add_margin)  |
 |leverage |string |t(:resp_field_leverage)  |
 |effective_leverage |string |t(:row_comment_effective_leverage)  |
