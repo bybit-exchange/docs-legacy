@@ -997,7 +997,8 @@ print(client.LinearPositions.LinearPositions_myPosition(symbol="BTCUSDT").result
     "ext_info": "",
     "result": [
         {
-            "data": {
+            "is_valid": true, //t(:resp_field_position_list_valid)
+            "data": { //t(:resp_field_position_list_data)
                 "user_id": 118921,
                 "symbol": "BTCUSDT",
                 "side": "Buy",
@@ -1013,11 +1014,11 @@ print(client.LinearPositions.LinearPositions_myPosition(symbol="BTCUSDT").result
                 "cum_realised_pnl": -1.50755354,
                 "free_qty": 0.009,
                 "tp_sl_mode": "Full"
-            },
-            "is_valid": true
+            }
         },
         {
-            "data": {
+            "is_valid": true, //t(:resp_field_position_list_valid)
+            "data": { //t(:resp_field_position_list_data)
                 "user_id": 118921,
                 "symbol": "BTCUSDT",
                 "side": "Sell",
@@ -1033,12 +1034,12 @@ print(client.LinearPositions.LinearPositions_myPosition(symbol="BTCUSDT").result
                 "cum_realised_pnl": 164.30402588,
                 "free_qty": 0.001,
                 "tp_sl_mode": "Full"
-            },
-            "is_valid": true
+            }
         },
         ...
         {
-            "data": {
+            "is_valid": true, //t(:resp_field_position_list_valid)
+            "data": { //t(:resp_field_position_list_data)
                 "user_id": 118921,
                 "symbol": "XTZUSDT",
                 "side": "Buy",
@@ -1054,11 +1055,11 @@ print(client.LinearPositions.LinearPositions_myPosition(symbol="BTCUSDT").result
                 "cum_realised_pnl": 0,
                 "free_qty": 0,
                 "tp_sl_mode": "Full"
-            },
-            "is_valid": true
+            }
         },
         {
-            "data": {
+            "is_valid": true, //t(:resp_field_position_list_valid)
+            "data": { //t(:resp_field_position_list_data)
                 "user_id": 118921,
                 "symbol": "XTZUSDT",
                 "side": "Sell",
@@ -1074,8 +1075,7 @@ print(client.LinearPositions.LinearPositions_myPosition(symbol="BTCUSDT").result
                 "cum_realised_pnl": 0,
                 "free_qty": 0,
                 "tp_sl_mode": "Full"
-            },
-            "is_valid": true
+            }
         }
     ],
     "time_now": "1604302080.356538",

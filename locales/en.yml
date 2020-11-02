@@ -330,7 +330,9 @@ en:
     <code>effective_leverage = position size / mark_price / (wallet_balance + unrealised_pnl)</code>
   row_comment_slow_update: The update is not immediate - slowest update is 1 minute
 
-  resp_field_position_list: When the parameter <code>symbol</code> is not passed, the return structure is as follows, <code>is_valid</code> represents whether the current data is available, When the value of <code>is_valid</code> is <code>true</code>, the data is valid and available, and when the value of <code>is_valid</code> is <code>false</code>, represents the service exception, data should not be used.
+  resp_field_position_list: When the parameter <code>symbol</code> is not passed,<br/> the return structure is as following
+  resp_field_position_list_valid: represents whether the current data is valid
+  resp_field_position_list_data: the data can only be used when <code>is_valid</code> is <b>true</b>
   row_comment_from_id: Start ID. By default, returns the latest IDs
   row_comment_direction: |
     Search direction. <code>Prev</code>: searches in ascending order from start ID, <code>Next</code>: searches in descending order from start ID. Defaults to <code>Next</code>

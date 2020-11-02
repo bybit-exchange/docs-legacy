@@ -1188,7 +1188,8 @@ print(client.Positions.Positions_myPosition(symbol="BTCUSD").result())
     "ext_info": "",
     "result": [
         {
-            "data": {
+            "is_valid": true, //t(:resp_field_position_list_valid)
+            "data": { //t(:resp_field_position_list_data)
                 "id": 0,
                 "user_id": 118921,
                 "risk_id": 1,
@@ -1221,12 +1222,12 @@ print(client.Positions.Positions_myPosition(symbol="BTCUSD").result())
                 "position_seq": 581513847,
                 "created_at": "2020-08-10T07:04:32Z",
                 "updated_at": "2020-11-02T00:00:11.943371457Z"
-            },
-            "is_valid": true
+            }
         },
         ...
         {
-            "data": {
+            "is_valid": true, //t(:resp_field_position_list_valid)
+            "data": { //t(:resp_field_position_list_data)
                 "id": 0,
                 "user_id": 118921,
                 "risk_id": 35,
@@ -1259,8 +1260,7 @@ print(client.Positions.Positions_myPosition(symbol="BTCUSD").result())
                 "position_seq": 352149441,
                 "created_at": "2020-08-10T07:04:32Z",
                 "updated_at": "2020-08-22T08:06:32Z"
-            },
-            "is_valid": true
+            }
         }
     ],
     "time_now": "1604302124.031104",
