@@ -1,5 +1,26 @@
 # t(:changelog)
 
+## 2020-11-09
+### REST API
+- [t(:a_getleverage)](#t-a_getleverage) [t(:changelog_delete)] 
+- [t(:getleverage)](#t-getleverage) [t(:changelog_new)] 
+- [t(:a_setleverage)](#t-a_setleverage) [t(:changelog_delete)] 
+- [t(:setleverage)](#t-setleverage) [t(:changelog_new)] 
+- [t(:getactive)](#t-getactive) [t(:changelog_delete)] 
+- [t(:a_getactive)](#t-a_getactive) [t(:changelog_new)] 
+- [t(:getcond)](#t-getcond) [t(:changelog_delete)] 
+- [t(:a_getcond)](#t-a_getcond) [t(:changelog_new)] 
+- [t(:placecond)](#t-placecond) [t(:changelog_delete)] 
+- [t(:a_placecond)](#t-a_placecond) [t(:changelog_new)] 
+- [t(:cancelcond)](#t-cancelcond) [t(:changelog_delete)] 
+- [t(:a_cancelcond)](#t-a_cancelcond) [t(:changelog_new)] 
+- [t(:replacecond)](#t-replacecond) [t(:changelog_delete)] 
+- [t(:a_replacecond)](#t-a_replacecond) [t(:changelog_new)] 
+- [t(:replaceactive)](#t-replaceactive) [t(:changelog_delete)] 
+- [t(:a_replaceactive)](#t-a_replaceactive) [t(:changelog_new)] 
+
+
+
 ## 2020-11-02
 ### REST API
 - [t(:position)](#t-position) [t(:changelog_update)]

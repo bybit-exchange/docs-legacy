@@ -124,6 +124,8 @@ zh-cn:
   row_comment_from: |
     起始ID. 默认: 返回最新数据
   row_comment_limit: 每页数量, 最大50. 默认每页20条
+  row_comment_cursor: 翻页标记,请使用返回的cursor
+  row_comment_resp_cursor: 翻页标记
   row_comment_limit_liq: 默认返回500条数据. 最大返回1000条数据
   row_comment_orderType: 订单类型
   row_comment_qty: 委托数量(1个委托1美元)，只能为正整数
@@ -326,6 +328,7 @@ zh-cn:
   resp_field_effective_leverage: 有效杠杆. 逐仓模式下, 等于`leverage`; 全仓模式下, 计算公式为： <code>position size / markprice / (wallet_balance+unrealised_pnl)</code>
   row_comment_from_id: 起始ID，默认为最新id
   row_comment_direction: 搜索方向：Prev:以起始ID升序检索,Next:起始ID降序检索，默认为Next
+  row_comment_cursor_direction: 搜索方向：<code>prev</code>:上一页,<code>next</code>:下一页,默认为 <code>next</code>
   resp_field_position_list:  当不传参数<code>symbol</code>的时候，返回结构如下：
   resp_field_position_list_valid: 表示当前data对应的symbol数据是否可用
   resp_field_position_list_data: 只有在<code>is_valid</code>为<b>true</b>时，<code>data</code>才可用，否则请不要使用data
@@ -353,6 +356,7 @@ zh-cn:
   changelog: 更新日志
   changelog_new: 新增
   changelog_update: 更新
+  changelog_delete: 废弃
   changelog_bugfix: bugfix
   ## 2020-04-10
   bugfix_20200410:  调整行情接口请求示例地址为主网
@@ -517,6 +521,7 @@ zh-cn:
     <p><b>当您达到订单上限的时候的时候，仍然可以下单设置了参数<code>reduce_only</code> 或 <code>closeOnTrigger</code>的订单。</b></p>
   ### Get Active Order
   getactive: 查询活动委托
+  a_getactive: 查询活动委托
   account_para_getActive: |
     <p>获取我的活动委托单列表。</p>
     <p>创建/取消订单是异步的，因此<b>该接口可能返回的数据可能会有延迟</b>。如果要获取订单的实时信息，可以调用接口<a href="#t-queryactive">实时查询活动单信息</a>.</p>
@@ -535,6 +540,7 @@ zh-cn:
     注意，此api每调用一次会导致<code>rate_limit</code>扣减10
   ### Replace Active Order
   replaceactive: 修改活动单信息
+  a_replaceactive: 修改活动单信息
   account_para_replaceActive: |
     <p>本接口可以修改您的活动单信息.</p>
   account_aside_replaceActive:
@@ -547,6 +553,7 @@ zh-cn:
   ### Place Conditional Order
   conditionalorders: 条件单
   placecond: 创建条件委托单
+  a_placecond: 创建条件委托单
   account_para_placeCond: |
     <p>市价条件委托: 一个传统的市场价格订单,会以当前的最优价格为您成交订单。当且仅当选择市价单时，'price', '可为空！</p>
     <p>限价条件委托: 您可以为您的订单设置一个执行价格，当市场价格达到您的设置价格时，系统会为您成交订单。</p>
@@ -568,11 +575,13 @@ zh-cn:
 
   ### Get Conditional Order
   getcond: 查询条件委托
+  a_getcond: 查询条件委托
   account_para_getCond:
     <p>获取我的条件委托单列表。</p>
     <p>创建/取消订单是异步的，因此<b>该接口可能返回的数据可能会有延迟</b>。如果要获取订单的实时信息，可以调用接口<a href="#t-querycond">实时查询条件单信息</a>。</p>
   ### Cancel Conditional Order
   cancelcond: 撤消条件委托单
+  a_cancelcond: 撤消条件委托单
   account_para_cancelCond: |
     <p>您可以撤销所有未被激活的条件委托,或止盈止损单。本质上所有条件委托在被激活后都是属于活动委托，所以条件委托一旦被激活，您需要通过调用取消活动委托接口来取消所有未成交、部分成交的活动委托单。同样全部成交的活动委托不可取消。</p>
   ### Cancel All Conditional Orders
@@ -582,6 +591,7 @@ zh-cn:
     注意，此api每调用一次会导致rate_limit扣减10
   ### Replace Conditional Order
   replacecond: 修改条件委托单
+  a_replacecond: 修改条件委托单
   account_para_replaceCond:
     <p>修改未触发的条件单。</p>
   account_aside_replaceCond: |

@@ -128,6 +128,8 @@ en:
   row_comment_from: |
     From ID. Default: return latest data
   row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page
+  row_comment_cursor: Page turning mark，Use return <code>cursor</code>
+  row_comment_resp_cursor: Page turning mark
   row_comment_limit_liq: Limit for data size, max size is 1000. Default size is 500
   row_comment_orderType: Active order type
   row_comment_qty: Order quantity in USD
@@ -336,6 +338,8 @@ en:
   row_comment_from_id: Start ID. By default, returns the latest IDs
   row_comment_direction: |
     Search direction. <code>Prev</code>: searches in ascending order from start ID, <code>Next</code>: searches in descending order from start ID. Defaults to <code>Next</code>
+  row_comment_cursor_direction: |
+    Search direction. <code>prev</code>: prev page, <code>next</code>: next page. Defaults to <code>next</code>
 
   # introduction in index.html.md
   introduction: Introduction
@@ -360,6 +364,7 @@ en:
   changelog: Changelog
   changelog_new: new
   changelog_update: update
+  changelog_delete: abandoned
   changelog_bugfix: bugfix
   ## 2020-04-10
   bugfix_20200410: Change market api curl example URL
@@ -530,6 +535,7 @@ en:
     <p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSD instrument and 280 active orders on the ETHUSD instrument. And order with parameter <code>reduce_only</code> or <code>closeOnTrigger</code> is unlimited.</b></p>
   ### Get Active Order
   getactive: Get Active Order
+  a_getactive: Get Active Order
   account_para_getActive: |
     <p>Get my active order list.</p>
     <p>Cause order creation/cancellation is asynchronous, sometimes there is a data delay in this endpoint. You can get real-time order info in <a href="#t-queryactive">Query Active Order (real-time)</a> endpoint.</p>
@@ -548,6 +554,7 @@ en:
     This endpoint's <code>rate_limit</code> will decrease by 10 per request
   ### Replace Active Order
   replaceactive: Replace Active Order
+  a_replaceactive: Replace Active Order
   account_para_replaceActive: |
     <p>Replace order can modify/amend your active orders.</p>
     <p><code>p_r_qty</code> and <code>p_r_price</code> are the modified price and quantity. If these two fields are not provided, nothing will be modified.</p>
@@ -562,6 +569,7 @@ en:
   conditionalorders: Conditional Orders
   ### Place Conditional Order
   placecond: Place Conditional Order
+  a_placecond: Place Conditional Order
   account_para_placeCond: |
     <p>Market price conditional order: A traditional market price order, will be filled at the best available price. <code>price</code> is not required for this type of order.</p>
     <p>Limit price conditional order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
@@ -586,11 +594,13 @@ en:
 
   ### Get Conditional Order
   getcond: Get Conditional Order
+  a_getcond: Get Conditional Order
   account_para_getCond:
     <p>Get my conditional order list.</p>
     <p>Cause order creation/cancellation is asynchronous, sometimes there is a data delay in this endpoint. You can get real-time order info in <a href="#t-querycond">Query Conditional Order (real-time)</a> endpoint.</p>
   ### Cancel Conditional Order
   cancelcond: Cancel Conditional Order
+  a_cancelcond: Cancel Conditional Order
   account_para_cancelCond: |
     <p>You may cancel all untriggered conditional orders or take profit/stop loss order. Essentially, after a conditional order is triggered, it will become an active order. So, when a conditional order is triggered, cancellation has to be done through the active order endpoint for any unfilled or partially filled active order. As always, orders that have been fully filled cannot be cancelled.</p>
   ### Cancel All Conditional Orders
@@ -600,6 +610,7 @@ en:
     This endpoint's <code>rate_limit</code> will decrease by 10 per request
   ### Replace Conditional Order
   replacecond: Replace Conditional Order
+  a_replacecond: Replace Conditional Order
   account_para_replaceCond:
     <p>Replace conditional order can modify/amend your conditional orders.</p>
     <p><code>order_id</code> and <code>symbol</code> are required for identifying a conditional order.</p>
