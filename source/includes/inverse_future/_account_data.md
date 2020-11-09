@@ -604,7 +604,7 @@ POST
 |t(:row_parameter_order_type) |string |t(:row_comment_orderType)  |
 |t(:row_parameter_price) |string |t(:row_response_comment_price)  |
 |t(:row_parameter_quantity) |string |t(:row_response_comment_qty)  |
-|t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  | 
+|t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
 |t(:row_parameter_trigger_price) |string |t(:row_comment_triggerBy)  |
 |base_price |string |t(:row_response_comment_basePrice)  |
 |remark |string |t(:row_comment_remark)  |
@@ -753,7 +753,7 @@ POST
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- | 
+|:----- |:-----|----- |
 |stop_order_id |string |t(:row_comment_stopOrderId) |
 
 ### t(:cancelallcond)
@@ -1080,7 +1080,7 @@ print(client.Positions.Positions_myPosition(symbol="BTCUSD").result())
     "rate_limit": 120
 }
 
-//t(:resp_field_position_list) 
+//t(:resp_field_position_list)
 {
     "ret_code": 0,
     "ret_msg": "OK",

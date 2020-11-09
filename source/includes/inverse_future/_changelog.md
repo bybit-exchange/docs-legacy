@@ -48,10 +48,10 @@
      - t(:restapi_update_20200927_1)
 - [t(:replacecond)](#t-replacecond) [t(:changelog_update)]
      - t(:restapi_update_20200927_1)
-     
+
 ### Websocket API
 - [t(:ws_update_20200927_1)](#t-websocket) [t(:changelog_update)]
-     
+
 ## 2020-09-15
 ### REST API
 - [t(:marketaccountratio)](#t-marketaccountratio) [t(:changelog_update)]
@@ -97,7 +97,7 @@
 ## 2020-05-21
 ### REST API
 - [t(:query_liqrecords)](#t-query_liqrecords) [t(:changelog_new)]
-    
+
 ## 2020-04-29
 ### REST API
 - [t(:usertraderecords)](#t-usertraderecords) [t(:changelog_update)]
@@ -110,7 +110,7 @@
 - [t(:lcp)](#t-lcp) [t(:changelog_new)]
 - [t(:latestsymbolinfo)](#t-latestsymbolinfo) [t(:changelog_update)]
    - t(:restapi_update_20200427_1)
-   
+
 ## 2020-04-17
 ### REST API
 - [t(:orderbook)](#t-orderbook) [t(:changelog_update)]
@@ -126,12 +126,12 @@
 ### REST API
 - [t(:querysymbol)](#t-querysymbol) [t(:changelog_update)]
    - t(:restapi_update_20200414)
-        
+
 ## 2020-03-31
 ### REST API
 - [t(:balance)](#t-balance) [t(:changelog_update)]
     - t(:bugfix1_20200331)
-    
+
 ## 2020-03-26
 ### REST API
 - [t(:tradingstop)](#t-tradingstop) [t(:changelog_update)]

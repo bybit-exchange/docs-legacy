@@ -604,10 +604,3 @@ POST
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |order_id |string |t(:account_row_comment_orderId) |
-
-
-
-
-
-
-
