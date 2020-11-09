@@ -100,7 +100,7 @@ POST
 |created_at |string |t(:row_comment_created_at)  |
 |updated_at |string |t(:row_comment_updated_at)  |
 
-### t(:a_getactive)
+### t(:getactive)
 > t(:codequote_curlExample)
 
 ```console
@@ -372,7 +372,7 @@ POST
 |cross_status |string |t(:row_comment_cross_status)  |
 |cross_seq |number |t(:row_comment_cross_seq)  |
 
-### t(:a_replaceactive)
+### t(:replaceactive)
 > t(:codequote_curlExample)
 
 ```console
@@ -525,7 +525,7 @@ GET
 
 
 ## t(:conditionalorders)
-### t(:a_placecond)
+### t(:placecond)
 > t(:codequote_curlExample)
 
 ```console
@@ -616,7 +616,7 @@ POST
 |order_link_id |string |t(:row_response_comment_orderLinkId)  |
 
 
-### t(:a_getcond)
+### t(:getcond)
 > t(:codequote_curlExample)
 
 ```console
@@ -704,7 +704,7 @@ GET
 |cursor |false |string |t(:row_comment_resp_cursor) |
 
 
-### t(:a_cancelcond)
+### t(:cancelcond)
 > t(:codequote_curlExample)
 
 ```console
@@ -876,7 +876,7 @@ POST
 |expected_direction |string |t(:row_comment_expected_direction)  |
 
 
-### t(:a_replacecond)
+### t(:replacecond)
 > t(:codequote_curlExample)
 
 ```console
