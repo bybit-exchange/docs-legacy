@@ -1149,6 +1149,7 @@ print(client.Positions.Positions_myPosition(symbol="BTCUSD").result())
         "size": 5,
         "position_value": "0.0006947",
         "entry_price": "7197.35137469",
+        "is_isolated":true,
         "auto_add_margin": 0,
         "leverage": "1",  //t(:resp_field_leverage)
         "effective_leverage": "1", // t(:resp_field_effective_leverage)
@@ -1178,6 +1179,95 @@ print(client.Positions.Positions_myPosition(symbol="BTCUSD").result())
     "rate_limit_reset_ms": 1580885703683,
     "rate_limit": 120
 }
+
+//t(:resp_field_position_list) 
+{
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "ext_info": "",
+    "result": [
+        {
+            "is_valid": true, //t(:resp_field_position_list_valid)
+            "data": { //t(:resp_field_position_list_data)
+                "id": 0,
+                "user_id": 118921,
+                "risk_id": 1,
+                "symbol": "BTCUSD",
+                "side": "Buy",
+                "size": 10,
+                "position_value": "0.00076448",
+                "entry_price": "13080.78694014",
+                "is_isolated": false,
+                "auto_add_margin": 1,
+                "leverage": "100",
+                "effective_leverage": "0.01",
+                "position_margin": "0.40111704",
+                "liq_price": "25",
+                "bust_price": "25",
+                "occ_closing_fee": "0.0003",
+                "occ_funding_fee": "0",
+                "take_profit": "0",
+                "stop_loss": "0",
+                "trailing_stop": "0",
+                "position_status": "Normal",
+                "deleverage_indicator": 1,
+                "oc_calc_data": "{\"blq\":0,\"slq\":0,\"bmp\":0,\"smp\":0,\"fq\":-10,\"bv2c\":0.0115075,\"sv2c\":0.0114925}",
+                "order_margin": "0",
+                "wallet_balance": "0.40141704",
+                "realised_pnl": "-0.00000008",
+                "unrealised_pnl": 0.00003797,
+                "cum_realised_pnl": "-0.090626",
+                "cross_seq": 764786721,
+                "position_seq": 581513847,
+                "created_at": "2020-08-10T07:04:32Z",
+                "updated_at": "2020-11-02T00:00:11.943371457Z"
+            }
+        },
+        ...
+        {
+            "is_valid": true, //t(:resp_field_position_list_valid)
+            "data": { //t(:resp_field_position_list_data)
+                "id": 0,
+                "user_id": 118921,
+                "risk_id": 35,
+                "symbol": "XRPUSD",
+                "side": "None",
+                "size": 0,
+                "position_value": "0",
+                "entry_price": "0",
+                "is_isolated": false,
+                "auto_add_margin": 1,
+                "leverage": "16.67",
+                "effective_leverage": "16.67",
+                "position_margin": "0",
+                "liq_price": "0",
+                "bust_price": "0",
+                "occ_closing_fee": "0",
+                "occ_funding_fee": "0",
+                "take_profit": "0",
+                "stop_loss": "0",
+                "trailing_stop": "0",
+                "position_status": "Normal",
+                "deleverage_indicator": 0,
+                "oc_calc_data": "{\"blq\":0,\"slq\":0,\"bmp\":0,\"smp\":0,\"bv2c\":0.06153301,\"sv2c\":0.06144302}",
+                "order_margin": "0",
+                "wallet_balance": "0",
+                "realised_pnl": "0",
+                "unrealised_pnl": 0,
+                "cum_realised_pnl": "0",
+                "cross_seq": -1,
+                "position_seq": 352149441,
+                "created_at": "2020-08-10T07:04:32Z",
+                "updated_at": "2020-08-22T08:06:32Z"
+            }
+        }
+    ],
+    "time_now": "1604302124.031104",
+    "rate_limit_status": 118,
+    "rate_limit_reset_ms": 1604302124020,
+    "rate_limit": 120
+}
 ```
 
 t(:account_para_myPosition)
@@ -1190,7 +1280,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol)    |
+|t(:row_parameter_symbol) |false |string |t(:row_comment_symbol)    |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -1203,6 +1293,7 @@ GET
 |size |number |t(:row_comment_position_size)  |
 |position_value |string |t(:row_comment_position_value)  |
 |entry_price |string |t(:row_comment_entry_price)  |
+|is_isolated | bool | t(:row_comment_isolated) |
 |auto_add_margin |number |t(:row_comment_auto_add_margin)  |
 |leverage |string |t(:resp_field_leverage)  |
 |effective_leverage |string |t(:row_comment_effective_leverage)  |
@@ -1370,6 +1461,8 @@ POST
 |take_profit |false |number |t(:account_row_comment_takeProfit) |
 |stop_loss |false |number |t(:account_row_comment_stopLoss) |
 |trailing_stop |false |number |t(:account_row_comment_trailingStop) |
+|t(:row_parameter_tp_trigger_by) | false | string | t(:account_row_comment_tp_trigger_by)
+|t(:row_parameter_sl_trigger_by) | false | string | t(:account_row_comment_tp_trigger_by)
 |new_trailing_active |false |number |t(:account_row_comment_trailingStop_active) |
 
 <p class="fake_header">t(:responseparameters)</p>

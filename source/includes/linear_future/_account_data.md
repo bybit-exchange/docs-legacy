@@ -988,6 +988,104 @@ print(client.LinearPositions.LinearPositions_myPosition(symbol="BTCUSDT").result
     "rate_limit_reset_ms": 1580885703683,
     "rate_limit": 120
 }
+
+//t(:resp_field_position_list) 
+{
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "ext_info": "",
+    "result": [
+        {
+            "is_valid": true, //t(:resp_field_position_list_valid)
+            "data": { //t(:resp_field_position_list_data)
+                "user_id": 118921,
+                "symbol": "BTCUSDT",
+                "side": "Buy",
+                "size": 0.009,
+                "position_value": 117.6845,
+                "entry_price": 13076.05555555,
+                "liq_price": 11834,
+                "bust_price": 11768.5,
+                "leverage": 10,
+                "position_margin": 11.84788704,
+                "occ_closing_fee": 0.07943738,
+                "realised_pnl": 0,
+                "cum_realised_pnl": -1.50755354,
+                "free_qty": 0.009,
+                "tp_sl_mode": "Full"
+            }
+        },
+        {
+            "is_valid": true, //t(:resp_field_position_list_valid)
+            "data": { //t(:resp_field_position_list_data)
+                "user_id": 118921,
+                "symbol": "BTCUSDT",
+                "side": "Sell",
+                "size": 0.001,
+                "position_value": 13.078,
+                "entry_price": 13078,
+                "liq_price": 14320,
+                "bust_price": 14385.5,
+                "leverage": 10,
+                "position_margin": 1.31858935,
+                "occ_closing_fee": 0.01078913,
+                "realised_pnl": 0,
+                "cum_realised_pnl": 164.30402588,
+                "free_qty": 0.001,
+                "tp_sl_mode": "Full"
+            }
+        },
+        ...
+        {
+            "is_valid": true, //t(:resp_field_position_list_valid)
+            "data": { //t(:resp_field_position_list_data)
+                "user_id": 118921,
+                "symbol": "XTZUSDT",
+                "side": "Buy",
+                "size": 0,
+                "position_value": 0,
+                "entry_price": 0,
+                "liq_price": 0,
+                "bust_price": 0,
+                "leverage": 25,
+                "position_margin": 0,
+                "occ_closing_fee": 0,
+                "realised_pnl": 0,
+                "cum_realised_pnl": 0,
+                "free_qty": 0,
+                "tp_sl_mode": "Full"
+            }
+        },
+        {
+            "is_valid": true, //t(:resp_field_position_list_valid)
+            "data": { //t(:resp_field_position_list_data)
+                "user_id": 118921,
+                "symbol": "XTZUSDT",
+                "side": "Sell",
+                "size": 0,
+                "position_value": 0,
+                "entry_price": 0,
+                "liq_price": 0,
+                "bust_price": 0,
+                "leverage": 25,
+                "position_margin": 0,
+                "occ_closing_fee": 0,
+                "realised_pnl": 0,
+                "cum_realised_pnl": 0,
+                "free_qty": 0,
+                "tp_sl_mode": "Full"
+            }
+        }
+    ],
+    "time_now": "1604302080.356538",
+    "rate_limit_status": 119,
+    "rate_limit_reset_ms": 1604302080353,
+    "rate_limit": 120
+}
+
+
+
 ```
 
 t(:account_para_myPosition)
@@ -1000,7 +1098,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol)    |
+|t(:row_parameter_symbol) |false |string |t(:row_comment_symbol)    |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -1351,8 +1449,8 @@ POST
 |take_profit |false |number |t(:account_row_comment_takeProfit) |
 |stop_loss |false |number |t(:account_row_comment_stopLoss) |
 |trailing_stop |false |number |t(:account_row_comment_trailingStop) |
-|tp_trigger_by |false |string |t(:row_comment_triggerBy) |
-|sl_trigger_by |false |string |t(:row_comment_triggerBy) |
+|t(:row_parameter_tp_trigger_by) | false | string | t(:account_row_comment_tp_trigger_by)
+|t(:row_parameter_sl_trigger_by) | false | string | t(:account_row_comment_tp_trigger_by)
 |sl_size |false |number |t(:row_comment_sl_size) |
 |tp_size |false |number |t(:row_comment_tp_size) |
 

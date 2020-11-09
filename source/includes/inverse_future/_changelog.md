@@ -1,5 +1,22 @@
 # t(:changelog)
 
+## 2020-11-02
+### REST API
+- [t(:position)](#t-position) [t(:changelog_update)]
+    - t(:restapi_update_20201102_1)
+
+## 2020-10-26
+### REST API
+- [t(:position)](#t-position) [t(:changelog_update)]
+    - t(:restapi_update_20201026_1)
+
+## 2020-10-21
+### REST API
+- [t(:balance)](#t-balance) [t(:changelog_update)]
+    - t(:restapi_update_20201021_1)
+- [t(:tradingstop)](#t-tradingstop) [t(:changelog_update)]
+    - t(:restapi_update_20201021_3)
+
 ## 2020-10-12
 ### REST API
 - [t(:getcond)](#t-getcond) [t(:changelog_bugfix)]

@@ -27,6 +27,7 @@ en:
   row_comment_position_size: Position qty
   row_comment_position_value: Position value
   row_comment_entry_price: Average entry price
+  row_comment_isolated: <code>true</code> means isolated margin mode; <code>false</code> means cross margin mode
   row_comment_auto_add_margin: Whether to add margin automatically
   row_comment_position_margin: Position margin
   row_comment_effective_leverage: Effective leverage
@@ -53,7 +54,8 @@ en:
   row_comment_position_seq: Position sequence
   row_comment_cum_commission: Accumulated commission
   row_comment_trailing_active: Trailing stop active price
-  row_comment_sl_trigger_by: Trigger price type
+  row_comment_sl_trigger_by: Stoploss trigger price type
+  row_comment_tp_trigger_by: Takeprofit trigger price type
   row_comment_leverage_result: User leverage
   row_comment_BTCUSD_leverage: BTCUSD leverage
   row_comment_EOSUSD_leverage: EOSUSD leverage
@@ -291,6 +293,8 @@ en:
 
 
 
+  row_parameter_tp_trigger_by: <a href="#trigger-price-type-trigger_by">tp_trigger_by</a>
+  row_parameter_sl_trigger_by: <a href="#trigger-price-type-trigger_by">sl_trigger_by</a>
   row_parameter_symbol: <a href="#symbol-symbol">symbol</a>
   row_parameter_side: <a href="#side-side">side</a>
   row_parameter_tp_sl_mode:  <a href="#tpsl-mode-type-tp_sl_mode">tp_sl_mode</a>
@@ -326,6 +330,9 @@ en:
     <code>effective_leverage = position size / mark_price / (wallet_balance + unrealised_pnl)</code>
   row_comment_slow_update: The update is not immediate - slowest update is 1 minute
 
+  resp_field_position_list: When the parameter <code>symbol</code> is not passed,<br/> the return structure is as following
+  resp_field_position_list_valid: represents whether the current data is valid
+  resp_field_position_list_data: the data can only be used when <code>is_valid</code> is <b>true</b>
   row_comment_from_id: Start ID. By default, returns the latest IDs
   row_comment_direction: |
     Search direction. <code>Prev</code>: searches in ascending order from start ID, <code>Next</code>: searches in descending order from start ID. Defaults to <code>Next</code>
@@ -626,6 +633,8 @@ en:
   account_aside_tradingStop: Passing these parameters will create conditional orders controlled by the system. The system will cancel these orders if the position is closed, and adjust the qty according to the size of the open position.
   account_row_comment_takeProfit: Cannot be less than 0, 0 means cancel TP
   account_row_comment_stopLoss: Cannot be less than 0, 0 means cancel SL
+  account_row_comment_tp_trigger_by: take profit trigger price type，default<span>:</span> <code>LastPrice</code>
+  account_row_comment_sl_trigger_by: stop loss trigger price type，default<span>:</span> <code>LastPrice</code>
   account_row_comment_trailingStop: Cannot be less than 0, 0 means cancel TS
   account_row_comment_trailingStop_active: Trailing stop trigger price. Trailing stops are triggered only when the price reaches the specified price. Trailing stops are triggered immediately by default.
 
@@ -1517,6 +1526,11 @@ en:
   ws_update_20200927_1: Add new websocket base endpoint
   restapi_update_20201012_1: Fix issue where not returning stop orders of <code>Deactivated</code> status
   restapi_update_20201012_2: Fix issue where returning wrong <code>cum_exec_fee</code> for filled orders
+  restapi_update_20201021_1: Fix bug of <code>given_cash</code> and <code>service_cash</code> are always Zero when coin is <code>USDT</code>
+  restapi_update_20201021_2: Add new USDT perpetual symbols<span>:</span> <a href="#symbol-symbol">ETHUSDT、LINKUSDT、LTCUSDT、XTZUSDT</a>
+  restapi_update_20201021_3: Support setting tp/sl by different trigger price types
+  restapi_update_20201026_1: Add field <code>is_isolated</code> in response
+  restapi_update_20201102_1: Request parameter <code>symbol</code> is optional now; If symbol is not passed, return positions of all symbols
 
   markpricekline: Query Mark Price Kline
   linear_query_mark_price_kline: Query mark price kline (like <a href="#t-querykline">Query Kline</a> but for <a href="https://help.bybit.com/hc/en-us/articles/360039261074-What-is-Dual-Price-mechanism-">mark price</a>).

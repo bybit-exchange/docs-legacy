@@ -27,6 +27,7 @@ zh-cn:
   row_comment_position_size: 仓位数量
   row_comment_position_value: 仓位价值
   row_comment_entry_price: 平均入场价
+  row_comment_isolated: 是否逐仓，true-逐仓 false-全仓
   row_comment_auto_add_margin: 是否自动追加保证金
   row_comment_position_margin: 仓位保证金
   row_comment_effective_leverage: 有效杠杆
@@ -50,7 +51,8 @@ zh-cn:
   row_comment_position_seq: 仓位变化版本号
   row_comment_cum_commission: 累计佣金
   row_comment_trailing_active: 激活价格
-  row_comment_sl_trigger_by: 激活价格类型
+  row_comment_sl_trigger_by: 止损激活价格类型
+  row_comment_tp_trigger_by: 止盈激活价格类型
   row_comment_BTCUSD_leverage: BTCUSD杠杆
   row_comment_EOSUSD_leverage: EOSUSD杠杆
   row_comment_ETHUSD_leverage: ETHUSD杠杆
@@ -289,6 +291,8 @@ zh-cn:
 
 
 
+  row_parameter_tp_trigger_by: <a href="#trigger-price-type-trigger_by">tp_trigger_by</a>
+  row_parameter_sl_trigger_by: <a href="#trigger-price-type-trigger_by">sl_trigger_by</a>
   row_parameter_symbol: <a href="#symbol-symbol">symbol</a>
   row_parameter_side: <a href="#side-side">side</a>
   row_parameter_tp_sl_mode: <a href="#tpsl-mode-type-tp_sl_mode">tp_sl_mode</a>
@@ -322,6 +326,10 @@ zh-cn:
   resp_field_effective_leverage: 有效杠杆. 逐仓模式下, 等于`leverage`; 全仓模式下, 计算公式为： <code>position size / markprice / (wallet_balance+unrealised_pnl)</code>
   row_comment_from_id: 起始ID，默认为最新id
   row_comment_direction: 搜索方向：Prev:以起始ID升序检索,Next:起始ID降序检索，默认为Next
+  resp_field_position_list:  当不传参数<code>symbol</code>的时候，返回结构如下：
+  resp_field_position_list_valid: 表示当前data对应的symbol数据是否可用
+  resp_field_position_list_data: 只有在<code>is_valid</code>为<b>true</b>时，<code>data</code>才可用，否则请不要使用data
+
   # introduction in index.html.md
   introduction: 介绍
   intro_para:
@@ -334,9 +342,9 @@ zh-cn:
       <li><a href="https://help.bybit.com/hc/zh-cn">帮助中心<img src="/images/favicon.ico" height="14", width="14"></a> - 在这里了解合约交易
       <li><a href="https://github.com/bybit-exchange/docs/issues">Bybit API docs<img src="/images/github_logo_icon.png" height="14", width="14"></a> - 在这里提bug
       <li><a href="https://github.com/bybit-exchange/api-connectors/">Bybit's api-connectors <img src="/images/github_logo_icon.png" height="14", width="14"></a> - 官方API SDK
-      <li><a href="https://t.me/Bybitapi">API Discussion Group <img src="/images/telegram_logo_icon.png" height="14", width="14"></a> - API讨论群
+      <li><a href="https://t.me/Bybitapi">API Discussion Group <img src="/images/telegram_logo_icon.png" height="14", width="14"></a> - API英文讨论群
+      <li><a href="https://t.me/Bybitchineseapi">Chinese API Discussion Group <img src="/images/telegram_logo_icon.png" height="14", width="14"></a> - API中文讨论群
       <li><a href="https://t.me/Bybit_API_Announcements">API Announcements Channel <img src="/images/telegram_logo_icon.png" height="14", width="14"></a> - API公告群
-      <li>添加小助手微信号：BybitAPI，加入Bybit API中文交流群</li>
     </ul>
   shared_endpoint_desc: 请点击查看接口描述。
 
@@ -605,9 +613,10 @@ zh-cn:
   account_aside_tradingStop: 传递以下参数后将会由系统创建条件单。如果仓位关闭，系统将会取消这些订单，同时调整开仓的仓位数量。
   account_row_comment_takeProfit: 不小于0,如果等于0则是取消止盈(TP)
   account_row_comment_stopLoss: 不小于0,如果等于0则是取消止损(SL)
+  account_row_comment_tp_trigger_by: 止盈激活价格类型，默认为<code>LastPrice</code>
+  account_row_comment_sl_trigger_by: 止损激活价格类型，默认为<code>LastPrice</code>
   account_row_comment_trailingStop: 不小于0,如果等于0则是取消追踪止损(TS)
   account_row_comment_trailingStop_active: 追踪止损触发价格。追踪止损会在到达该价格后才会触发（追踪止损默认立即触发）。
-
   ## Risklimit
   risklimit: 风险限额
 
@@ -627,7 +636,7 @@ zh-cn:
   account_para_key: 获取账户API密钥信息。
   ## LCP point
   lcp: 流动性贡献分
-  account_para_lcp: 查询用户流动性贡献分(当天数据每小时更新一次), 目前只支持反向合约
+  account_para_lcp: 查询用户流动性贡献分(当天数据每小时更新一次)
 
   # Wallet Data Endpoints
   wallet: 钱包接口
@@ -1465,6 +1474,11 @@ zh-cn:
   ws_update_20200927_1: 新增Websocket域名
   restapi_update_20201012_1: 修复未返回<code>Deactivated</code>状态条件单的问题
   restapi_update_20201012_2: 修复已成交订单<code>cum_exec_fee</code>字段错误的问题
+  restapi_update_20201021_1: 修复<code>usdt</code> <code>given_cash</code>和<code>service_cash</code>总是为0的问题
+  restapi_update_20201021_2: USDT合约上线新交易对：<a href="#symbol-symbol">ETHUSDT、LINKUSDT、LTCUSDT、XTZUSDT</a>
+  restapi_update_20201021_3: 支持根据价格类型设置止盈止损
+  restapi_update_20201026_1: 返回参数中新增字段<code>is_isolated</code>，用于判断当前仓位是否是逐仓模式
+  restapi_update_20201102_1: 参数<code>symbol</code>改为非必传；如果不指定<code>symbol</code>则返回所有交易对的持仓信息
 
   markpricekline: 标记价格K线
   linear_query_mark_price_kline: 查询标记价格K线
