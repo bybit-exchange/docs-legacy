@@ -3,9 +3,6 @@
 ## 2020-11-09
 ### REST API
 - [t(:a_getleverage)](#t-a_getleverage) [t(:changelog_delete)] 
-- [t(:getleverage)](#t-getleverage) [t(:changelog_new)] 
-- [t(:a_setleverage)](#t-a_setleverage) [t(:changelog_delete)] 
-- [t(:setleverage)](#t-setleverage) [t(:changelog_new)] 
 - [t(:getactive)](#t-getactive) [t(:changelog_delete)] 
 - [t(:a_getactive)](#t-a_getactive) [t(:changelog_new)] 
 - [t(:getcond)](#t-getcond) [t(:changelog_delete)] 
