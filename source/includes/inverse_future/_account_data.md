@@ -157,8 +157,8 @@ t(:account_para_getActive)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=oaoList>/v2/private/order/list</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oaoList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=vpoList>/v2/private/order/list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -412,8 +412,8 @@ t(:account_aside_replaceActive)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=oaoReplace>/v2/private/order/replace</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oaoReplace"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=vpoReplace>/v2/private/order/replace</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoReplace"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -577,8 +577,8 @@ t(:account_aside_placeCond)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=oasoCreate>/v2/private/stop-order/create</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oasoCreate"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=vpsoCreate>/v2/private/stop-order/create</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpsoCreate"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -670,8 +670,8 @@ t(:account_para_getCond)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=oasoList>/v2/private/stop-order/list</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oasoList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=vpsoList>/v2/private/stop-order/list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpsoList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -741,8 +741,8 @@ t(:account_para_cancelCond)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=oasoCancel>/v2/private/stop-order/cancel</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oasoCancel"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=vpsoCancel>/v2/private/stop-order/cancel</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpsoCancel"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|required|type | comments|
@@ -918,8 +918,8 @@ t(:account_aside_replaceCond)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=oasoReplace>/v2/private/stop-order/replace</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oasoReplace"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=vpsoReplace>/v2/private/stop-order/replace</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpsoReplace"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
