@@ -96,7 +96,7 @@ POST
 |cum_exec_value |number |t(:linear_resp_field_cum_exec_value)  |
 |cum_exec_fee |number |t(:linear_resp_field_cum_exec_fee)  |
 |reject_reason |string |t(:row_comment_reject_reason)  |
-|order_link_id |string |t(:row_comment_orderLinkId)  |
+|order_link_id |string |t(:row_response_comment_orderLinkId)  |
 |created_at |string |t(:row_comment_created_at)  |
 |updated_at |string |t(:row_comment_updated_at)  |
 
@@ -187,7 +187,7 @@ GET
 |data > cum_exec_value |string |t(:linear_resp_field_cum_exec_value)  |
 |data > cum_exec_fee |string |t(:linear_resp_field_cum_exec_fee)  |
 |data > reject_reason |string |t(:row_comment_reject_reason)  |
-|data > order_link_id |string |t(:row_comment_orderLinkId)  |
+|data > order_link_id |string |t(:row_response_comment_orderLinkId)  |
 |data > created_at |string |t(:row_comment_created_at)  |
 |data > order_id |string |t(:account_row_comment_orderId) |
 |cursor |false |string |t(:row_comment_resp_cursor) |
@@ -279,7 +279,7 @@ POST
 |cum_exec_value |number |t(:linear_resp_field_cum_exec_value)  |
 |cum_exec_fee |number |t(:linear_resp_field_cum_exec_fee)  |
 |reject_reason |string |t(:row_comment_reject_reason)  |
-|order_link_id |string |t(:row_comment_orderLinkId)  |
+|order_link_id |string |t(:row_response_comment_orderLinkId)  |
 |created_at |string |t(:row_comment_created_at)  |
 |updated_at |string |t(:row_comment_updated_at)  |
 
@@ -518,7 +518,7 @@ GET
 |cum_exec_fee |order_link_id |string |t(:linear_resp_field_cum_exec_fee)  |
 |reject_reason |string |t(:row_comment_reject_reason)  |
 |cancel_type |string |t(:row_comment_cancel_type)  |
-|order_link_id |string |t(:row_comment_orderLinkId)  |
+|order_link_id |string |t(:row_response_comment_orderLinkId)  |
 |created_at |string |t(:row_comment_created_at)  |
 |updated_at |string |t(:row_comment_updated_at)  |
 |order_id |string |t(:row_comment_order_id)  |
@@ -611,8 +611,9 @@ POST
 |reject_reason |string |t(:row_comment_reject_reason)  |
 |stop_px |string |t(:linear_row_comment_stopPx)  |
 |stop_order_id |string |t(:row_comment_stopOrderId) |
+|stop_order_id |string |t(:row_comment_stopOrderId) |
 |created_at |string |t(:row_comment_created_at)  |
-|updated_at |string |t(:row_comment_updated_at)  |
+|order_link_id |string |t(:row_response_comment_orderLinkId)  |
 
 
 ### t(:a_getcond)
