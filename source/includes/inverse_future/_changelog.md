@@ -1,6 +1,6 @@
 # t(:changelog)
 
-## 2020-11-11
+## 2020-11-10
 
 ### Websocket API
 - The topic <a href="https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/websocket.md#public-topic">orderBook25</a> [t(:changelog_delete)]
