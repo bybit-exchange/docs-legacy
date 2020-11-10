@@ -110,7 +110,7 @@ curl "https://api.bybit.com/v2/private/order/list?api_key={api_key}&timestamp={t
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Order.Order_getOrders().result())
+print(client.Order.Order_getOrders(symbol="BTCUSD",order_status="PendingCancel").result())
 ```
 
 > t(:codequote_responseExample)
@@ -384,7 +384,7 @@ curl https://api.bybit.com/v2/private/order/replace \
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Order.Order_Replace(symbol="BTCUSD", order_id="").result())
+print(client.Order.Order_replace(symbol="BTCUSD", order_id="").result())
 ```
 
 > t(:codequote_responseExample)
@@ -537,7 +537,8 @@ curl https://api.bybit.com/v2/private/stop-order/create \
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Conditional.Conditional_new(order_type="Limit",side="Buy",symbol="BTCUSD",qty=1,price=8100,base_price=8300,stop_px=8150,time_in_force="GoodTillCancel", order_link_id="cus_order_id_1").result())
+print(client.Conditional.Conditional_new(order_type="Limit",side="Buy",symbol="XRPUSD",qty="1",price="0.2569",base_price="15700",stop_px="0.2119",time_in_force="GoodTillCancel").result())
+
 ```
 
 > t(:codequote_responseExample)
@@ -626,7 +627,7 @@ curl "https://api.bybit.com/v2/private/stop-order/list?api_key={api_key}&timesta
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Conditional.Conditional_getOrders().result())
+print(client.Conditional.Conditional_getOrders(symbol="BTCUSD",stop_order_status="Untriggered").result())
 ```
 
 > t(:codequote_responseExample)
@@ -716,7 +717,7 @@ curl https://api.bybit.com/v2/private/stop-order/cancel \
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Conditional.Conditional_cancel(symbol="BTCUSD", order_id="").result())
+print(client.Conditional.Conditional_cancel(symbol="BTCUSD", stop_order_id="").result())
 ```
 
 > t(:codequote_responseExample)
@@ -888,7 +889,8 @@ curl https://api.bybit.com/v2/private/stop-order/replace \
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Conditional.Conditional_replace(symbol="BTCUSD", stop_order_id="").result())
+print(client.Conditional.Conditional_replace(symbol="BTCUSD", stop_order_id="", p_r_trigger_price="16003").result())
+
 ```
 
 > t(:codequote_responseExample)
