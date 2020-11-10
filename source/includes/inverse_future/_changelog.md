@@ -1,21 +1,28 @@
 # t(:changelog)
 
-## 2020-11-09
+## 2020-11-11
 ### REST API
-- [t(:a_getleverage)](#t-a_getleverage) [t(:changelog_delete)]
-- [t(:getactive)](#t-a_getactive) [t(:changelog_delete)]
-- [t(:a_getactive)](#t-getactive) [t(:changelog_new)]
-- [t(:getcond)](#t-a_getcond) [t(:changelog_delete)]
-- [t(:a_getcond)](#t-getcond) [t(:changelog_new)]
-- [t(:placecond)](#t-a_placecond) [t(:changelog_delete)]
-- [t(:a_placecond)](#t-placecond) [t(:changelog_new)]
-- [t(:cancelcond)](#t-a_cancelcond) [t(:changelog_delete)]
-- [t(:a_cancelcond)](#t-cancelcond) [t(:changelog_new)]
-- [t(:replacecond)](#t-a_replacecond) [t(:changelog_delete)]
-- [t(:a_replacecond)](#t-replacecond) [t(:changelog_new)]
-- [t(:replaceactive)](#t-a_replaceactive) [t(:changelog_delete)]
-- [t(:a_replaceactive)](#t-replaceactive) [t(:changelog_new)]
 
+- [t(:getactive)](#t-a_getactive) [t(:changelog_delete)]
+    - please replace with [t(:a_getactive)](#t-getactive) [t(:changelog_new)]
+- [t(:getcond)](#t-a_getcond) [t(:changelog_delete)]
+    - please replace with [t(:a_getcond)](#t-getcond) [t(:changelog_new)]
+- [t(:placecond)](#t-a_placecond) [t(:changelog_delete)]
+    - please replace with [t(:a_placecond)](#t-placecond) [t(:changelog_new)]
+- [t(:cancelcond)](#t-a_cancelcond) [t(:changelog_delete)]
+    - please replace with [t(:a_cancelcond)](#t-cancelcond) [t(:changelog_new)]
+- [t(:replacecond)](#t-a_replacecond) [t(:changelog_delete)]
+    - please replace with [t(:a_replacecond)](#t-replacecond) [t(:changelog_new)]
+- [t(:replaceactive)](#t-a_replaceactive) [t(:changelog_delete)]
+    - please replace with [t(:a_replaceactive)](#t-replaceactive) [t(:changelog_new)]
+- [t(:a_getleverage)](#t-a_getleverage) [t(:changelog_delete)]
+    - please replace with [t(:myposition)](#t-myposition)
+- <a href="https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/rest_api.md#open-apiordercreatepost">/open-api/order/create</a> [t(:changelog_delete)]
+    - please replace with [t(:placeactive)](#t-placeactive)
+- <a href="https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/rest_api.md#open-apiordercancelpost">/open-api/order/cancel</a> [t(:changelog_delete)]
+    - please replace with [t(:cancelactive)](#t-cancelactive)
+- <a href="https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/rest_api.md#positionlistget">/position/list</a> [t(:changelog_delete)]
+    - please replace with [t(:myposition)](#t-myposition)
 
 
 ## 2020-11-02
