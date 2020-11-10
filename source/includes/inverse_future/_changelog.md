@@ -1,6 +1,15 @@
 # t(:changelog)
 
-## 2020-11-11
+## 2020-11-10
+
+### Websocket API
+- The topic <a href="https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/websocket.md#public-topic">orderBook25</a> [t(:changelog_delete)]
+    - please replace with [t(:websocketorderbook25)](#t-websocketorderbook25) or [t(:websocketorderbook200)](#t-websocketorderbook200)
+- The topic <a href="https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/websocket.md#public-topic">kline</a> [t(:changelog_delete)]
+    - please replace with [t(:websocketklineV2)](#t-websocketklinev2)
+- The topic <a href="https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/websocket.md#public-topic">instrument</a> [t(:changelog_delete)]
+    - please replace with [t(:websocketinstrumentInfo)](#t-websocketinstrumentinfo)
+    
 ### REST API
 
 - [t(:getactive)](#t-a_getactive) [t(:changelog_delete)]
