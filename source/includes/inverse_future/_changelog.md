@@ -4,34 +4,34 @@
 
 ### Websocket API
 - The topic <a href="https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/websocket.md#public-topic">orderBook25</a> [t(:changelog_delete)]
-    - please replace with [t(:websocketorderbook25)](#t-websocketorderbook25) or [t(:websocketorderbook200)](#t-websocketorderbook200)
+    - t(:replace_by_new_topic) [t(:websocketorderbook25)](#t-websocketorderbook25) or [t(:websocketorderbook200)](#t-websocketorderbook200)
 - The topic <a href="https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/websocket.md#public-topic">kline</a> [t(:changelog_delete)]
-    - please replace with [t(:websocketklineV2)](#t-websocketklinev2)
+    - t(:replace_by_new_topic) [t(:websocketklineV2)](#t-websocketklinev2)
 - The topic <a href="https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/websocket.md#public-topic">instrument</a> [t(:changelog_delete)]
-    - please replace with [t(:websocketinstrumentInfo)](#t-websocketinstrumentinfo)
+    - t(:replace_by_new_topic) [t(:websocketinstrumentInfo)](#t-websocketinstrumentinfo)
     
 ### REST API
 
 - [t(:getactive)](#t-a_getactive) [t(:changelog_delete)]
-    - please replace with [t(:a_getactive)](#t-getactive) [t(:changelog_new)]
+    - t(:replace_by_new) [t(:a_getactive)](#t-getactive) [t(:changelog_new)]
 - [t(:getcond)](#t-a_getcond) [t(:changelog_delete)]
-    - please replace with [t(:a_getcond)](#t-getcond) [t(:changelog_new)]
+    - t(:replace_by_new) [t(:a_getcond)](#t-getcond) [t(:changelog_new)]
 - [t(:placecond)](#t-a_placecond) [t(:changelog_delete)]
-    - please replace with [t(:a_placecond)](#t-placecond) [t(:changelog_new)]
+    - t(:replace_by_new) [t(:a_placecond)](#t-placecond) [t(:changelog_new)]
 - [t(:cancelcond)](#t-a_cancelcond) [t(:changelog_delete)]
-    - please replace with [t(:a_cancelcond)](#t-cancelcond) [t(:changelog_new)]
+    - t(:replace_by_new) [t(:a_cancelcond)](#t-cancelcond) [t(:changelog_new)]
 - [t(:replacecond)](#t-a_replacecond) [t(:changelog_delete)]
-    - please replace with [t(:a_replacecond)](#t-replacecond) [t(:changelog_new)]
+    - t(:replace_by_new) [t(:a_replacecond)](#t-replacecond) [t(:changelog_new)]
 - [t(:replaceactive)](#t-a_replaceactive) [t(:changelog_delete)]
-    - please replace with [t(:a_replaceactive)](#t-replaceactive) [t(:changelog_new)]
+    - t(:replace_by_new) [t(:a_replaceactive)](#t-replaceactive) [t(:changelog_new)]
 - [t(:a_getleverage)](#t-a_getleverage) [t(:changelog_delete)]
-    - please replace with [t(:myposition)](#t-myposition)
+    - t(:replace_by_new) [t(:myposition)](#t-myposition)
 - <a href="https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/rest_api.md#open-apiordercreatepost">/open-api/order/create</a> [t(:changelog_delete)]
-    - please replace with [t(:placeactive)](#t-placeactive)
+    - t(:replace_by_new) [t(:placeactive)](#t-placeactive)
 - <a href="https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/rest_api.md#open-apiordercancelpost">/open-api/order/cancel</a> [t(:changelog_delete)]
-    - please replace with [t(:cancelactive)](#t-cancelactive)
+    - t(:replace_by_new) [t(:cancelactive)](#t-cancelactive)
 - <a href="https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/rest_api.md#positionlistget">/position/list</a> [t(:changelog_delete)]
-    - please replace with [t(:myposition)](#t-myposition)
+    - t(:replace_by_new) [t(:myposition)](#t-myposition)
 
 
 ## 2020-11-02
