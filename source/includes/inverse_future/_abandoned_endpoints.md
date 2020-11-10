@@ -62,7 +62,7 @@ GET
 |XRPUSD > leverage |number |t(:row_comment_XRPUSD_leverage)  |
 
 
-### t(:getactive)
+### t(:a_getactive)
 > t(:codequote_curlExample)
 
 ```console
@@ -177,7 +177,7 @@ GET
 |order_id |string |t(:account_row_comment_orderId) |
 
 
-### t(:getcond)
+### t(:a_getcond)
 > t(:codequote_curlExample)
 
 ```console
@@ -286,7 +286,7 @@ GET
 |stop_order_id |string |t(:row_comment_stopOrderId) |
 
 
-### t(:placecond)
+### t(:a_placecond)
 > t(:codequote_curlExample)
 
 ```console
@@ -403,7 +403,7 @@ POST
 |stop_order_id |string |t(:row_comment_stopOrderId) |
 
 
-### t(:cancelcond)
+### t(:a_cancelcond)
 > t(:codequote_curlExample)
 
 ```console
@@ -487,7 +487,7 @@ POST
 
 
 
-### t(:replacecond)
+### t(:a_replacecond)
 > t(:codequote_curlExample)
 
 ```console
@@ -548,7 +548,7 @@ POST
 |:----- |:-----|----- |
 |stop_order_id |string |t(:row_comment_stopOrderId) |      
 
-### t(:replaceactive)
+### t(:a_replaceactive)
 > t(:codequote_curlExample)
 
 ```console
@@ -604,10 +604,3 @@ POST
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |order_id |string |t(:account_row_comment_orderId) |
-
-
-
-
-
-
-
