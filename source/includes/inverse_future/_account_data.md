@@ -104,7 +104,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/open-api/order/list?api_key={api_key}&timestamp={timestamp}&sign={sign}&symbol=BTCUSD"
+curl "https://api.bybit.com/open-api/order/list?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}&sign={sign}"
 ```
 
 ```python
