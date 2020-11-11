@@ -3,6 +3,8 @@
 ## 2020-11-10
 
 ### Websocket API
+
+#### t(:restapi_update_20201111_1) 
 - Topic<a href="https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/websocket.md#public-topic">orderBook25</a> [t(:changelog_delete)]
     - t(:replace_by_new_topic) [t(:websocketorderbook25)](#t-websocketorderbook25) or [t(:websocketorderbook200)](#t-websocketorderbook200)
 - Topic <a href="https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/websocket.md#public-topic">kline</a> [t(:changelog_delete)]
@@ -10,8 +12,8 @@
 - Topic <a href="https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/websocket.md#public-topic">instrument</a> [t(:changelog_delete)]
     - t(:replace_by_new_topic) [t(:websocketinstrumentInfo)](#t-websocketinstrumentinfo)
     
-### REST API
-
+### REST API 
+#### t(:restapi_update_20201111_1) 
 - [t(:getactive)](#t-a_getactive) [t(:changelog_delete)]
     - t(:replace_by_new) [t(:a_getactive)](#t-getactive) [t(:changelog_new)]
 - [t(:getcond)](#t-a_getcond) [t(:changelog_delete)]

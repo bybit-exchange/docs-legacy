@@ -1018,6 +1018,8 @@ GET
 |created_at |string |t(:row_comment_created_at)  |
 |updated_at |string |t(:row_comment_updated_at)  |
 |order_id |string |t(:row_comment_order_id)  |
+|base_price |string |t(:row_response_comment_basePrice)  |
+|stop_px |string |t(:linear_row_comment_stopPx)  |
 
 
 ## t(:position)
