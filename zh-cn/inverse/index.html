@@ -340,9 +340,19 @@
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#websocket-api" class="toc-h3 toc-link" data-title="Websocket API">Websocket API</a>
+                              <ul class="toc-list-h4">
+                                  <li>
+                                    <a href="#t-restapi_update_20201111_2" class="toc-h4 toc-link" data-title="废弃接口将于2020年11月30日彻底下线">废弃接口将于2020年11月30日彻底下线</a>
+                                  </li>
+                              </ul>
                           </li>
                           <li>
                             <a href="#rest-api" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                              <ul class="toc-list-h4">
+                                  <li>
+                                    <a href="#t-restapi_update_20201111_1" class="toc-h4 toc-link" data-title="旧版API将在2020年12月10日进行废弃处理。届时旧版API的频率限制将会降低到原有的1/2，并在12月17日彻底下线。">旧版API将在2020年12月10日进行废弃处理。届时旧版API的频率限制将会降低到原有的1/2，并在12月17日彻底下线。</a>
+                                  </li>
+                              </ul>
                           </li>
                       </ul>
                   </li>
@@ -1016,7 +1026,7 @@ clipboard.on('error', function(e) {
 <p><p>欢迎使用 <a href="https://www.bybit.com/">Bybit</a> APIs 和 Websocket官方文档！</p> <p>如果您在使用API的过程中遇到问题需要帮助，请加入我们的 <a href="https://t.me/Bybitapi">官方Telegram API讨论群</a>！</p></p>
 <h3 id='t-resources'>参考资料</h3>
 <p><ul> <li><a href="https://help.bybit.com/hc/zh-cn">帮助中心<img src="../../images/bybit_favicon-066372d5.png" height="14", width="14"></a> - 在这里了解合约交易 <li><a href="https://github.com/bybit-exchange/docs/issues">Bybit API docs<img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"></a> - 在这里提bug <li><a href="https://github.com/bybit-exchange/api-connectors/">Bybit's api-connectors <img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"></a> - 官方API SDK <li><a href="https://t.me/Bybitapi">API Discussion Group <img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> - API英文讨论群 <li><a href="https://t.me/Bybitchineseapi">Chinese API Discussion Group <img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> - API中文讨论群 <li><a href="https://t.me/Bybit_API_Announcements">API Announcements Channel <img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> - API公告群 </ul></p>
-<h1 id='t-changelog'>更新日志</h1><h2 id='2020-11-10'>2020-11-10</h2><h3 id='websocket-api'>Websocket API</h3>
+<h1 id='t-changelog'>更新日志</h1><h2 id='2020-11-10'>2020-11-10</h2><h3 id='websocket-api'>Websocket API</h3><h4 id='t-restapi_update_20201111_2'>废弃接口将于2020年11月30日彻底下线</h4>
 <ul>
 <li>Topic<a href="https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/websocket.md#public-topic">orderBook25</a> [废弃]
 
@@ -1034,7 +1044,7 @@ clipboard.on('error', function(e) {
 <li>请使用新topic <a href="#t-websocketinstrumentinfo">行情</a></li>
 </ul></li>
 </ul>
-<h3 id='rest-api'>REST API</h3>
+<h3 id='rest-api'>REST API</h3><h4 id='t-restapi_update_20201111_1'>旧版API将在2020年12月10日进行废弃处理。届时旧版API的频率限制将会降低到原有的1/2，并在12月17日彻底下线。</h4>
 <ul>
 <li><a href="#t-a_getactive">查询活动委托</a> [废弃]
 
@@ -5021,6 +5031,16 @@ GET
 <td style="text-align: left">order_id</td>
 <td style="text-align: left">string</td>
 <td>订单ID</td>
+</tr>
+<tr>
+<td style="text-align: left">base_price</td>
+<td style="text-align: left">string</td>
+<td>当前市价</td>
+</tr>
+<tr>
+<td style="text-align: left">stop_px</td>
+<td style="text-align: left">string</td>
+<td>触发价格</td>
 </tr>
 </tbody></table>
 <h2 id='t-position'>持仓</h2><h3 id='t-myposition'>获取持仓（实时）</h3>
@@ -9668,8 +9688,7 @@ ELSE
 <li><code>asc</code> </li>
 </ul>
 <h2 id='order-status-order_status'>Order status (<code>order_status</code>)</h2>
-<p>在查询接口中，您可以通过逗号分割来指定查询多种状态，如: <code>Filled,New</code>
-</p>
+<p></p>
 
 <ul>
 <li><code>Created</code> </li>

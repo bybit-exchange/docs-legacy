@@ -340,9 +340,19 @@
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#websocket-api" class="toc-h3 toc-link" data-title="Websocket API">Websocket API</a>
+                              <ul class="toc-list-h4">
+                                  <li>
+                                    <a href="#t-restapi_update_20201111_2" class="toc-h4 toc-link" data-title="The abandoned endpoints will be deprecated on November 30 ,2020">The abandoned endpoints will be deprecated on November 30 ,2020</a>
+                                  </li>
+                              </ul>
                           </li>
                           <li>
                             <a href="#rest-api" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                              <ul class="toc-list-h4">
+                                  <li>
+                                    <a href="#t-restapi_update_20201111_1" class="toc-h4 toc-link" data-title="The following REST API will be upgraded. The abandoned endpoints will be deprecated on December 10, 2020. Effective immediately, the rate limit will be reduced by half before being completely removed from service on December 17, 2020.">The following REST API will be upgraded. The abandoned endpoints will be deprecated on December 10, 2020. Effective immediately, the rate limit will be reduced by half before being completely removed from service on December 17, 2020.</a>
+                                  </li>
+                              </ul>
                           </li>
                       </ul>
                   </li>
@@ -1016,7 +1026,7 @@ clipboard.on('error', function(e) {
 <p><p>Welcome to the official documentation for the <a href="https://www.bybit.com/">Bybit</a> APIs and Websocket! Here you can find details on how to access all of our endpoints, their respective expected outputs, and possible errors you may encounter.</p> <p>If you encounter an issue you need help with, have a suggestions for us, or just want to have a chat with fellow developers then please head on over to our <a href="https://t.me/Bybitapi">API Telegram chat</a>!</p></p>
 <h3 id='t-resources'>Bybit API Resources</h3>
 <p><ul> <li><a href="https://help.bybit.com/hc/en-us">Help Center <img src="../images/bybit_favicon-066372d5.png" height="14", width="14"></a> - learn about exchange mechanisms here! <li><a href="https://github.com/bybit-exchange/docs/issues">Bybit API docs <img src="../images/github_logo_icon-768757c0.png" height="14", width="14"></a> - report issues here! <li><a href="https://github.com/bybit-exchange/api-connectors/">Bybit's api-connectors <img src="../images/github_logo_icon-768757c0.png" height="14", width="14"></a> - find a repo of prebuilt libraries here! <li><a href="https://t.me/Bybitapi">API Discussion Group <img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> - get English help here! <li><a href="https://t.me/Bybitchineseapi">Chinese API Discussion Group <img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> - get Chinese help here! <li><a href="https://t.me/Bybit_API_Announcements">API Announcements Channel <img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> - subscribe for changes to the API! </ul></p>
-<h1 id='t-changelog'>Changelog</h1><h2 id='2020-11-10'>2020-11-10</h2><h3 id='websocket-api'>Websocket API</h3>
+<h1 id='t-changelog'>Changelog</h1><h2 id='2020-11-10'>2020-11-10</h2><h3 id='websocket-api'>Websocket API</h3><h4 id='t-restapi_update_20201111_2'>The abandoned endpoints will be deprecated on November 30 ,2020</h4>
 <ul>
 <li>Topic<a href="https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/websocket.md#public-topic">orderBook25</a> [abandoned]
 
@@ -1034,7 +1044,7 @@ clipboard.on('error', function(e) {
 <li>please replace with <a href="#t-websocketinstrumentinfo">instrument_info</a></li>
 </ul></li>
 </ul>
-<h3 id='rest-api'>REST API</h3>
+<h3 id='rest-api'>REST API</h3><h4 id='t-restapi_update_20201111_1'>The following REST API will be upgraded. The abandoned endpoints will be deprecated on December 10, 2020. Effective immediately, the rate limit will be reduced by half before being completely removed from service on December 17, 2020.</h4>
 <ul>
 <li><a href="#t-a_getactive">Get Active Order</a> [abandoned]
 
@@ -5025,6 +5035,16 @@ Please note that you can only modify untriggered conditional orders.
 <td style="text-align: left">order_id</td>
 <td style="text-align: left">string</td>
 <td>Order ID</td>
+</tr>
+<tr>
+<td style="text-align: left">base_price</td>
+<td style="text-align: left">string</td>
+<td>The current market price</td>
+</tr>
+<tr>
+<td style="text-align: left">stop_px</td>
+<td style="text-align: left">string</td>
+<td>Trigger price</td>
 </tr>
 </tbody></table>
 <h2 id='t-position'>Position</h2><h3 id='t-myposition'>My Position</h3>
@@ -9692,8 +9712,7 @@ ELSE
 <li><code>asc</code> </li>
 </ul>
 <h2 id='order-status-order_status'>Order status (<code>order_status</code>)</h2>
-<p>Filter fetched orders by their order statuses. To filter by multiple statuses, separate with a comma like so: <code>Filled,New</code>
-</p>
+<p></p>
 
 <ul>
 <li><code>Created</code> - order accepted by the system but not yet put through matching engine</li>
