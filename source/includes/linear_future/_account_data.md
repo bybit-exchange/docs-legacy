@@ -960,6 +960,8 @@ print(client.LinearPositions.LinearPositions_myPosition(symbol="BTCUSDT").result
                "liq_price":1,           //t(:linear_resp_field_liq_price)
                "bust_price":100,        //t(:linear_resp_field_bust_price)
                "leverage":0,
+               "is_isolated":true,
+               "auto_add_margin": 0,
                "position_margin":0,     //t(:linear_resp_field_position_margin)
                "occ_closing_fee":0,     //t(:linear_resp_field_occ_closing_fee)
                "realised_pnl":0,        //t(:linear_resp_field_realised_pnl)
@@ -976,6 +978,8 @@ print(client.LinearPositions.LinearPositions_myPosition(symbol="BTCUSDT").result
                "liq_price":1,
                "bust_price":100,
                "leverage":0,
+               "is_isolated":true,
+               "auto_add_margin": 0,
                "position_margin":0,
                "occ_closing_fee":0,
                "realised_pnl":0,
@@ -1008,6 +1012,8 @@ print(client.LinearPositions.LinearPositions_myPosition(symbol="BTCUSDT").result
                 "liq_price": 11834,
                 "bust_price": 11768.5,
                 "leverage": 10,
+                "is_isolated":true,
+                "auto_add_margin": 0,
                 "position_margin": 11.84788704,
                 "occ_closing_fee": 0.07943738,
                 "realised_pnl": 0,
@@ -1028,6 +1034,8 @@ print(client.LinearPositions.LinearPositions_myPosition(symbol="BTCUSDT").result
                 "liq_price": 14320,
                 "bust_price": 14385.5,
                 "leverage": 10,
+                "is_isolated":true,
+                "auto_add_margin": 0,
                 "position_margin": 1.31858935,
                 "occ_closing_fee": 0.01078913,
                 "realised_pnl": 0,
@@ -1049,6 +1057,8 @@ print(client.LinearPositions.LinearPositions_myPosition(symbol="BTCUSDT").result
                 "liq_price": 0,
                 "bust_price": 0,
                 "leverage": 25,
+                "is_isolated":true,
+                "auto_add_margin": 0,
                 "position_margin": 0,
                 "occ_closing_fee": 0,
                 "realised_pnl": 0,
@@ -1069,6 +1079,8 @@ print(client.LinearPositions.LinearPositions_myPosition(symbol="BTCUSDT").result
                 "liq_price": 0,
                 "bust_price": 0,
                 "leverage": 25,
+                "is_isolated":true,
+                "auto_add_margin": 0,
                 "position_margin": 0,
                 "occ_closing_fee": 0,
                 "realised_pnl": 0,
@@ -1112,6 +1124,8 @@ GET
 |liq_price |number |t(:linear_resp_field_liq_price)  |
 |bust_price |number |t(:linear_resp_field_bust_price)  |
 |leverage |number |t(:resp_field_leverage)  |
+|auto_add_margin |number |t(:row_comment_auto_add_margin)  |
+|is_isolated | bool | t(:row_comment_isolated) |
 |position_margin |number |t(:linear_resp_field_position_margin)  |
 |occ_closing_fee |number |t(:linear_resp_field_occ_closing_fee)  |
 |realised_pnl |number |t(:linear_resp_field_realised_pnl)  |
