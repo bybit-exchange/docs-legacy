@@ -989,7 +989,7 @@ print(client.LinearPositions.LinearPositions_myPosition(symbol="BTCUSDT").result
     "rate_limit": 120
 }
 
-//t(:resp_field_position_list) 
+//t(:resp_field_position_list)
 {
     "ret_code": 0,
     "ret_msg": "OK",
@@ -1445,7 +1445,7 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
-|t(:row_parameter_side) |true |string |t(:row_comment_side)    |
+|t(:row_parameter_side) |true |string |t(:account_row_comment_side)    |
 |take_profit |false |number |t(:account_row_comment_takeProfit) |
 |stop_loss |false |number |t(:account_row_comment_stopLoss) |
 |trailing_stop |false |number |t(:account_row_comment_trailingStop) |
