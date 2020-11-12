@@ -1,5 +1,14 @@
 # t(:changelog)
 
+
+## 2020-11-12
+### REST API
+- [t(:a_getactive)](#t-getactive) [t(:changelog_update)]
+    - t(:restapi_update_20201112_1)
+- [t(:a_getcond)](#t-getcond) [t(:changelog_update)]
+    - t(:restapi_update_20201112_2)
+    
+    
 ## 2020-11-10
 
 ### Websocket API
