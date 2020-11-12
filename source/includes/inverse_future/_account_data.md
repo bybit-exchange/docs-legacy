@@ -164,7 +164,7 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
-|t(:row_parameter_order_status) |false |string |t(:account_row_comment_req_orderStatus) |
+|t(:row_parameter_order_status) |false |string |t(:account_row_comment_orderStatus) |
 |direction |false |string |t(:row_comment_cursor_direction) |
 |limit |false |integer |t(:row_comment_limit) |
 |cursor |false |string |t(:row_comment_cursor) |
@@ -678,7 +678,7 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
-|t(:row_parameter_stop_order) |false |string |t(:account_row_comment_req_orderStatus) |
+|t(:row_parameter_stop_order) |false |string |t(:account_row_comment_stopOrderStatus) |
 |direction |false |string |t(:row_comment_cursor_direction) |
 |limit |false |integer |t(:row_comment_limit) |
 |cursor |false |string |t(:row_comment_cursor) |
