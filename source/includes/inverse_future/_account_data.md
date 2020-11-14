@@ -439,7 +439,7 @@ curl "https://api.bybit.com/v2/private/order?api_key={api_key}&symbol=BTCUSD&tim
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Order.Order_query().result(symbol="BTCUSD", order_id=""))
+print(client.Order.Order_query(symbol="BTCUSD", order_id="").result())
 ```
 
 > t(:codequote_responseExample)
