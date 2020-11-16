@@ -509,8 +509,8 @@ print(client.LinearConditional.LinearConditional_new(order_type="Limit", side="B
        "trigger_by": "LastPrice",
        "trigger_price": 8003,
        "order_link_id": "",
-       "created_at": "2019-10-21T07:28:19.396246Z",
-       "updated_at": "2019-10-21T07:28:19.396246Z",
+       "created_time": "2019-10-21T07:28:19.396246Z",
+       "updated_time": "2019-10-21T07:28:19.396246Z",
        "tp_trigger_by": "UNKNOWN",
        "sl_trigger_by": "UNKNOWN",
     },
@@ -572,8 +572,8 @@ POST
 |t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
 |trigger_price |number |t(:stop_order_trigger_price)  |
 |order_link_id |string |t(:row_response_comment_orderLinkId) |
-|created_at |string |t(:row_comment_created_at)  |
-|updated_at |string |t(:row_comment_updated_at)  |
+|created_time |string |t(:row_comment_created_at)  |
+|updated_time |string |t(:row_comment_updated_at)  |
 |take_profit |number |t(:row_comment_take_profit)  |
 |stop_loss |number |t(:row_comment_stop_loss)  |
 |tp_trigger_by |string |t(:row_comment_triggerBy)  |
@@ -617,8 +617,8 @@ print(client.LinearConditional.LinearConditional_getOrders().result())
                  "order_status": "New",
                  "trigger_price": 8003,
                  "order_link_id": "",
-                 "created_at": "2019-10-21T07:28:19.396246Z",
-                 "updated_at": "2019-10-21T07:28:19.396246Z",
+                 "created_time": "2019-10-21T07:28:19.396246Z",
+                 "updated_time": "2019-10-21T07:28:19.396246Z",
                  "take_profit": 0,
                  "stop_loss": 0,
                  "tp_trigger_by": "UNKNOWN",
@@ -638,8 +638,8 @@ print(client.LinearConditional.LinearConditional_getOrders().result())
                  "order_status": "New",
                  "trigger_price": 8003,
                  "order_link_id": "",
-                 "created_at": "2019-10-21T07:28:19.396246Z",
-                 "updated_at": "2019-10-21T07:28:19.396246Z",
+                 "created_time": "2019-10-21T07:28:19.396246Z",
+                 "updated_time": "2019-10-21T07:28:19.396246Z",
                  "take_profit": 0,
                  "stop_loss": 0,
                  "tp_trigger_by": "UNKNOWN",
@@ -689,8 +689,8 @@ GET
 |order_status |string |t(:row_comment_stopOrderStatus)
 |trigger_price |number |t(:stop_order_trigger_price)  |
 |order_link_id |string |t(:row_response_comment_orderLinkId) |
-|created_at |string |t(:row_comment_created_at)  |
-|updated_at |string |t(:row_comment_updated_at)  |
+|created_time |string |t(:row_comment_created_at)  |
+|updated_time |string |t(:row_comment_updated_at)  |
 |take_profit |number |t(:row_comment_take_profit)  |
 |stop_loss |number |t(:row_comment_stop_loss)  |
 |tp_trigger_by |string |t(:row_comment_triggerBy)  |
@@ -901,8 +901,8 @@ print(client.LinearConditional.LinearConditional_query(symbol="BTCUSDT", stop_or
         "order_status": "New",
         "trigger_price": 8003,
         "order_link_id": "",
-        "created_at": "2019-10-21T07:28:19.396246Z",
-        "updated_at": "2019-10-21T07:28:19.396246Z",
+        "created_time": "2019-10-21T07:28:19.396246Z",
+        "updated_time": "2019-10-21T07:28:19.396246Z",
         "take_profit": 0,
         "stop_loss": 0,
         "tp_trigger_by": "UNKNOWN",
@@ -945,8 +945,8 @@ GET
 |t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
 |trigger_price |number |t(:stop_order_trigger_price)  |
 |order_link_id |string |t(:row_response_comment_orderLinkId)  |
-|created_at |string |t(:row_comment_created_at)  |
-|updated_at |string |t(:row_comment_updated_at)  |
+|created_time |string |t(:row_comment_created_at)  |
+|updated_time |string |t(:row_comment_updated_at)  |
 |take_profit |number |t(:row_comment_take_profit)  |
 |stop_loss |number |t(:row_comment_stop_loss)  |
 |tp_trigger_by |string |t(:row_comment_triggerBy)  |
