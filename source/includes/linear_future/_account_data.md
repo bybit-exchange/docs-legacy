@@ -505,10 +505,14 @@ print(client.LinearConditional.LinearConditional_new(order_type="Limit", side="B
        "qty": 10,
        "time_in_force": "GoodTillCancel",
        "order_status": "New",
+       "base_price": "16100.0000",
+       "trigger_by": "LastPrice",
        "trigger_price": 8003,
        "order_link_id": "",
        "created_at": "2019-10-21T07:28:19.396246Z",
        "updated_at": "2019-10-21T07:28:19.396246Z",
+       "tp_trigger_by": "UNKNOWN",
+       "sl_trigger_by": "UNKNOWN",
     },
     "ext_info": null,
     "time_now": "1577450904.327654",
@@ -574,6 +578,8 @@ POST
 |stop_loss |number |t(:row_comment_stop_loss)  |
 |tp_trigger_by |string |t(:row_comment_triggerBy)  |
 |sl_trigger_by |string |t(:row_comment_triggerBy)  |
+|base_price |string |t(:row_response_comment_basePrice)  |
+|trigger_by |string |t(:row_comment_triggerBy)  |
 
 ### t(:getcond)
 > t(:codequote_curlExample)
@@ -613,6 +619,12 @@ print(client.LinearConditional.LinearConditional_getOrders().result())
                  "order_link_id": "",
                  "created_at": "2019-10-21T07:28:19.396246Z",
                  "updated_at": "2019-10-21T07:28:19.396246Z",
+                 "take_profit": 0,
+                 "stop_loss": 0,
+                 "tp_trigger_by": "UNKNOWN",
+                 "sl_trigger_by": "UNKNOWN",
+                 "base_price": "16100.0000",
+                 "trigger_by": "LastPrice",
             },
             {
                  "stop_order_id":"bd1844f-f3c0-4e10-8c25-10fea03763f6",
@@ -628,6 +640,12 @@ print(client.LinearConditional.LinearConditional_getOrders().result())
                  "order_link_id": "",
                  "created_at": "2019-10-21T07:28:19.396246Z",
                  "updated_at": "2019-10-21T07:28:19.396246Z",
+                 "take_profit": 0,
+                 "stop_loss": 0,
+                 "tp_trigger_by": "UNKNOWN",
+                 "sl_trigger_by": "UNKNOWN",
+                 "base_price": "16100.0000",
+                 "trigger_by": "LastPrice",
             }
         ]
     },
@@ -677,6 +695,8 @@ GET
 |stop_loss |number |t(:row_comment_stop_loss)  |
 |tp_trigger_by |string |t(:row_comment_triggerBy)  |
 |sl_trigger_by |string |t(:row_comment_triggerBy)  |
+|base_price |string |t(:row_response_comment_basePrice)  |
+|trigger_by |string |t(:row_comment_triggerBy)  |
 
 
 ### t(:cancelcond)
@@ -883,6 +903,12 @@ print(client.LinearConditional.LinearConditional_query(symbol="BTCUSDT", stop_or
         "order_link_id": "",
         "created_at": "2019-10-21T07:28:19.396246Z",
         "updated_at": "2019-10-21T07:28:19.396246Z",
+        "take_profit": 0,
+        "stop_loss": 0,
+        "tp_trigger_by": "UNKNOWN",
+        "sl_trigger_by": "UNKNOWN",
+        "base_price": "16100.0000",
+        "trigger_by": "LastPrice", 
     },
     "time_now": "1577476584.386958",
     "rate_limit_status": 99,
@@ -924,7 +950,9 @@ GET
 |take_profit |number |t(:row_comment_take_profit)  |
 |stop_loss |number |t(:row_comment_stop_loss)  |
 |tp_trigger_by |string |t(:row_comment_triggerBy)  |
-|sl_trigger_by |string |t(:row_comment_triggerBy)  |
+|sl_trigger_by |string |t(:row_comment_triggerBy)  | 
+|base_price |string |t(:row_response_comment_basePrice)  |
+|trigger_by |string |t(:row_comment_triggerBy)  |
 
 
 ## t(:position)
