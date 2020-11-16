@@ -574,6 +574,8 @@ POST
 |stop_loss |number |t(:row_comment_stop_loss)  |
 |tp_trigger_by |string |t(:row_comment_triggerBy)  |
 |sl_trigger_by |string |t(:row_comment_triggerBy)  |
+|base_price |string |t(:row_response_comment_basePrice)  |
+|trigger_by |string |t(:row_comment_triggerBy)  |
 
 ### t(:getcond)
 > t(:codequote_curlExample)
@@ -677,6 +679,8 @@ GET
 |stop_loss |number |t(:row_comment_stop_loss)  |
 |tp_trigger_by |string |t(:row_comment_triggerBy)  |
 |sl_trigger_by |string |t(:row_comment_triggerBy)  |
+|base_price |string |t(:row_response_comment_basePrice)  |
+|trigger_by |string |t(:row_comment_triggerBy)  |
 
 
 ### t(:cancelcond)
@@ -924,7 +928,9 @@ GET
 |take_profit |number |t(:row_comment_take_profit)  |
 |stop_loss |number |t(:row_comment_stop_loss)  |
 |tp_trigger_by |string |t(:row_comment_triggerBy)  |
-|sl_trigger_by |string |t(:row_comment_triggerBy)  |
+|sl_trigger_by |string |t(:row_comment_triggerBy)  | 
+|base_price |string |t(:row_response_comment_basePrice)  |
+|trigger_by |string |t(:row_comment_triggerBy)  |
 
 
 ## t(:position)
