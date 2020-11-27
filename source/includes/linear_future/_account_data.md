@@ -423,6 +423,68 @@ print(client.Order.query().result(symbol="BTCUSD", order_id=""))
     "rate_limit_reset_ms": 1597171508867,
     "rate_limit": 600
 }
+
+//t(:resp_field_order_list)
+{
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "ext_info": "",
+    "result": [
+        {
+            "order_id": "6449d89e-6ef5-4f54-a065-12b2744de0ae",
+            "user_id": 118921,
+            "symbol": "LINKUSDT",
+            "side": "Buy",
+            "order_type": "Limit",
+            "price": 9,
+            "qty": 0.1,
+            "time_in_force": "GoodTillCancel",
+            "order_status": "New",
+            "last_exec_price": 11874.5,
+            "cum_exec_qty": 0.005,
+            "cum_exec_value": 11.8745,
+            "cum_exec_fee": 0.00890588,
+            "order_link_id": "",
+            "reduce_only": false,
+            "created_time": "2020-11-27T08:25:44Z",
+            "updated_time": "2020-11-27T08:25:44Z",
+            "take_profit": 0,
+            "stop_loss": 0,
+            "tp_trigger_by": "UNKNOWN",
+            "sl_trigger_by": "UNKNOWN"
+        },
+        ...
+        {
+            "order_id": "6d4dc4e0-b4e3-4fc5-a92d-3d693bdff4a5",
+            "user_id": 118921,
+            "symbol": "LINKUSDT",
+            "side": "Buy",
+            "order_type": "Limit",
+            "price": 8.2,
+            "qty": 9999,
+            "time_in_force": "GoodTillCancel",
+            "order_status": "New",
+            "last_exec_price": 11888.5,
+            "cum_exec_qty": 0.004,
+            "cum_exec_value": 11.8745,
+            "cum_exec_fee": 0.00890588,
+            "order_link_id": "",
+            "reduce_only": false,
+            "created_time": "2020-11-23T09:19:49Z",
+            "updated_time": "2020-11-23T09:20:31Z",
+            "take_profit": 0,
+            "stop_loss": 0,
+            "tp_trigger_by": "UNKNOWN",
+            "sl_trigger_by": "UNKNOWN"
+        }
+    ],
+    "time_now": "1606465563.551193",
+    "rate_limit_status": 599,
+    "rate_limit_reset_ms": 1606465563547,
+    "rate_limit": 600
+}
+
 ```
 
 
@@ -436,8 +498,8 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|order_id |false |string | t(:misc_row_comment_orderIdNotOrderLinkId)|
-|order_link_id |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
+|order_id |false |string | t(:misc_row_comment_orderIdOrOrderLinkId)|
+|order_link_id |false |string |t(:misc_row_comment_orderLinkIdOrOrderId) |
 |t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
 
 
@@ -915,6 +977,62 @@ print(client.LinearConditional.LinearConditional_query(symbol="BTCUSDT", stop_or
     "rate_limit_reset_ms": 1580885703683,
     "rate_limit": 100
 }
+
+//t(:resp_field_order_list)
+{
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "ext_info": "",
+    "result": [
+        {
+            "user_id": 1301180,
+            "stop_order_id": "a1dbf284-b6ee-4eaf-9fda-2d3f3fa4c501",
+            "symbol": "BTCUSDT",
+            "side": "Buy",
+            "order_type": "Limit",
+            "price": 8020,
+            "qty": 0.001,
+            "time_in_force": "GoodTillCancel",
+            "order_status": "Untriggered",
+            "trigger_price": 16000,
+            "order_link_id": "",
+            "created_time": "2020-11-16T09:06:17.000Z",
+            "updated_time": "2020-11-16T09:06:17.000Z",
+            "take_profit": 0,
+            "stop_loss": 0,
+            "tp_trigger_by": "UNKNOWN",
+            "sl_trigger_by": "UNKNOWN",
+            "trigger_by": "LastPrice"
+        },
+        ...
+        {
+            "user_id": 1301180,
+            "stop_order_id": "d4g5bf862-b6ee-4eaf-9fda-2d3f3fd9g4j6",
+            "symbol": "BTCUSDT",
+            "side": "Sell",
+            "order_type": "Limit",
+            "price": 8022,
+            "qty": 0.005,
+            "time_in_force": "GoodTillCancel",
+            "order_status": "Untriggered",
+            "trigger_price": 16000,
+            "order_link_id": "",
+            "created_time": "2020-11-16T09:06:17.000Z",
+            "updated_time": "2020-11-16T09:06:17.000Z",
+            "take_profit": 0,
+            "stop_loss": 0,
+            "tp_trigger_by": "UNKNOWN",
+            "sl_trigger_by": "UNKNOWN",
+            "trigger_by": "LastPrice"
+        }
+    ],
+    "time_now": "1606445293.547976",
+    "rate_limit_status": 599,
+    "rate_limit_reset_ms": 1606445293545,
+    "rate_limit": 600
+}
+
 ```
 
 t(:account_para_queryConditional)
@@ -928,8 +1046,8 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
-|stop_order_id |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
-|order_link_id |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
+|order_id |false |string | t(:misc_row_comment_orderIdOrOrderLinkId)|
+|order_link_id |false |string |t(:misc_row_comment_orderLinkIdOrOrderId) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
