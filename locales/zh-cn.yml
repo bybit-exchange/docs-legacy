@@ -255,6 +255,7 @@ zh-cn:
   row_response_comment_execqty: 交易数量
   row_response_comment_time: UTC 时间
   row_response_comment_name: 合约名称
+  row_response_close_on_trigger: 是否平仓委托 true-平仓 false-开仓
   row_comment_position_tick_direction: 价格变化方向
   row_comment_from_coin: 兑出币种
   row_comment_to_coin: 兑入币种
@@ -1390,8 +1391,8 @@ zh-cn:
 
   ### LinearPosition
   linear_row_comment_qty: 委托数量(BTC)
-  linear_row_comment_reduceOnly: 是否平仓单,true-平仓 false-开仓,ture时止盈止损设置不生效
-  linear_row_comment_closeOnTrigger: 平仓委托,只会减少您的仓位而不会增加您的仓位。如果当平仓委托被触发时，账户上的余额不足，那么该合约的其他委托将被取消或者降低委托数量。使用此选项可以确保您的止损单被用于减仓而非加仓。
+  linear_row_comment_reduceOnly:  <a href="https://help.bybit.com/hc/zh-cn/articles/360039260574-%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%AA%E5%87%8F%E4%BB%93-"> 什么是 reduce-only order?</a>,true-平仓 false-开仓,ture时止盈止损设置不生效
+  linear_row_comment_closeOnTrigger: <a href="https://help.bybit.com/hc/zh-cn/articles/360039260534-%E4%BB%80%E4%B9%88%E6%98%AF%E8%A7%A6%E5%8F%91%E5%90%8E%E5%B9%B3%E4%BB%93-"> 什么是 close on trigger order?</a>只会减少您的仓位而不会增加您的仓位。如果当平仓委托被触发时，账户上的余额不足，那么该合约的其他委托将被取消或者降低委托数量。使用此选项可以确保您的止损单被用于减仓而非加仓。
   linear_account_para_placeActive: |
     <p>市价活动委托: 一个传统的市场价格订单,会以当前的最优价格为您成交订单。当且仅当选择市价单时，<code>price</code>可为空！</p>
     <p>限价活动委托: 您可以为您的订单设置一个执行价格，当市场价格达到您的设置价格时，系统会为您成交订单。</p>
