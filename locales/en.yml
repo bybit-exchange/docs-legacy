@@ -332,7 +332,10 @@ en:
     <code>effective_leverage = position size / mark_price / (wallet_balance + unrealised_pnl)</code>
   row_comment_slow_update: The update is not immediate - slowest update is 1 minute
 
-  resp_field_position_list: When the parameter <code>symbol</code> is not passed,<br/> the return structure is as following
+  resp_field_position_list: |
+    When <code>symbol</code> is not passed, the response uses a different structure:
+  resp_field_order_list: |
+    When only <code>symbol</code> is passed, the response uses a different structure:
   resp_field_position_list_valid: represents whether the current data is valid
   resp_field_position_list_data: the data can only be used when <code>is_valid</code> is <b>true</b>
   row_comment_from_id: Start ID. By default, returns the latest IDs
@@ -581,7 +584,7 @@ en:
     Please note that only orders that are unfilled or partially filled can be modified by the replace-order API.
   ### Query Active Order (real-time)
   queryactive: Query Active Order (real-time)
-  account_para_queryActive: Query real-time active order information.
+  account_para_queryActive: Query real-time active order information. If only <code>order_id</code> or <code>order_link_id</code> are passed, a single order will be returned; otherwise, <b>return multiple unfilled orders,max size is 500</b>.
 
   ## Conditional Orders
   conditionalorders: Conditional Orders
@@ -637,7 +640,7 @@ en:
     Please note that you can only modify untriggered conditional orders.
   ### Query Conditional Order (real-time)
   querycond: Query Conditional Order (real-time)
-  account_para_queryConditional: Query real-time stop order information.
+  account_para_queryConditional: Query real-time stop order information. When passing the parameter <code>order_id</code> or <code>order_link_id</code>, a single order data will be returned; If the parameters <code>order_id</code> and <code>order_link_id</code> are not passed, <b>return multiple unfilled orders,max size is 50</b>.
 
 
   ## Leverage
@@ -1277,6 +1280,10 @@ en:
   misc_row_comment_orderLinkIdNotStopOrderId: Agency customized order ID. <b>Required</b> if not passing stop_order_id
   misc_row_comment_orderIdNotOrderLinkId: Order ID. <b>Required</b> if not passing order_link_id
   misc_row_comment_symbolNotOrderId: Contract type. <b>Required</b>
+
+  misc_row_comment_orderLinkIdOrOrderId: Agency customized order ID.
+  misc_row_comment_orderIdOrOrderLinkId: Order ID.
+
   default: Default
   # fix problem of nested common subheadings
   httprequest1: HTTP Request
@@ -1566,6 +1573,8 @@ en:
   restapi_update_20201116_1: Add field <code>is_isolated</code> and <code>auto_add_margin</code> in response
   restapi_update_20201116_2: Add field <code>base_price</code> and <code>trigger_by</code> in response
   restapi_update_20201120_1: Add field <code>trigger_by</code> in response
+  restapi_update_20201127_1: Real-time queries can return multiple orders
+  restapi_update_20201127_2: Real-time queries can return multiple orders
 
 
   markpricekline: Query Mark Price Kline

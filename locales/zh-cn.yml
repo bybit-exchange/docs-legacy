@@ -333,6 +333,7 @@ zh-cn:
   resp_field_position_list:  当不传参数<code>symbol</code>的时候，返回结构如下：
   resp_field_position_list_valid: 表示当前data对应的symbol数据是否可用
   resp_field_position_list_data: 只有在<code>is_valid</code>为<b>true</b>时，<code>data</code>才可用，否则请不要使用data
+  resp_field_order_list:  当只传参数<code>symbol</code>的时候，返回结构如下：
 
   # introduction in index.html.md
   introduction: 中文社区和参考资料
@@ -566,7 +567,7 @@ zh-cn:
     请注意，只有未成交或未完全成交的订单才可以被修改。
   ### Query Active Order (real-time)
   queryactive: 实时查询活动委托
-  account_para_queryActive: 实时查询活动委托
+  account_para_queryActive: 实时查询活动委托。实时查询活动委托，当传递参数<code>order_id</code>或<code>order_link_id</code>其中任意一个时，将返回单条订单数据，如果参数<code>order_id</code>和<code>order_link_id</code>都不传递时，将返回所有<b>未成交</b>的订单，最多500条。
 
   ## Conditional Orders
   ### Place Conditional Order
@@ -617,7 +618,7 @@ zh-cn:
     请注意，只有未触发的条件单才能被修改。
   ### Query Conditional Order (real-time)
   querycond: 实时查询条件委托
-  account_para_queryConditional: 实时查询条件委托。
+  account_para_queryConditional: 实时查询条件委托。当传递参数<code>order_id</code>或<code>order_link_id</code>其中任意一个时，将返回单条订单数据；如果参数<code>order_id</code>和<code>order_link_id</code>都不传递时，将返回所有<b>未成交</b>的订单，最多50条。
 
   ## Leverage
   leverage: 用户杠杆
@@ -1241,6 +1242,10 @@ zh-cn:
   misc_row_comment_orderLinkIdNotStopOrderId: 机构ID。如果未填stop_order_id则为<b>必填</b>字段。
   misc_row_comment_orderIdNotOrderLinkId: 订单ID。如果未填order_link_id则为<b>必填</b>字段。
   misc_row_comment_symbolNotOrderId: 交易对 <b>必填</b>
+
+  misc_row_comment_orderLinkIdOrOrderId: 机构ID。
+  misc_row_comment_orderIdOrOrderLinkId: 订单ID。
+
   # fix problem of nested common subheadings
   httprequest1: HTTP 请求
   requestparameters1: 请求参数
@@ -1518,10 +1523,11 @@ zh-cn:
   restapi_update_20201116_1: 返回参数中新增字段 <code>is_isolated</code> 和 <code>auto_add_margin</code>，用于判断当前仓位是否是逐仓模式以及是否开启自动追加保证金
   restapi_update_20201116_2: 返回参数中新增字段 <code>base_price</code> 和 <code>trigger_by</code>
   restapi_update_20201120_1: 返回参数中新增字段<code>trigger_by</code>
+  restapi_update_20201127_1: 实时查询支持返回更多订单数据
+  restapi_update_20201127_2: 实时查询支持返回更多订单数据
   restapi_update_20201203_1: 返回参数中新增字段 <code>deleverage_indicator</code> 和 <code>unrealised_pnl</code>
   restapi_update_20201203_2: 返回参数中新增字段 <code>close_on_trigger</code>
   restapi_update_20201203_4: 返回参数中新增字段 <code>close_on_trigger</code> 和 <code>reduce_only</code>
-
 
   markpricekline: 标记价格K线
   linear_query_mark_price_kline: 查询标记价格K线
