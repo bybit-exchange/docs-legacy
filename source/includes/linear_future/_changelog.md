@@ -3,9 +3,9 @@
 ## 2020-12-03
 ### REST API
 - [t(:querycond)](#t-querycond) [t(:changelog_update)]
-    - t(:restapi_update_20201127_1)
+    - t(:restapi_update_20201203_5)
 - [t(:queryactive)](#t-queryactive) [t(:changelog_update)]
-    - t(:restapi_update_20201127_2)
+    - t(:restapi_update_20201203_6)
 - [t(:myposition)](#t-position) [t(:changelog_update)]
     - t(:restapi_update_20201203_1)
 - [t(:placecond)](#t-placecond) [t(:changelog_update)]
