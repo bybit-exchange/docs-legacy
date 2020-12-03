@@ -41,6 +41,7 @@ print(client.LinearOrder.new(side="Buy",symbol="BTCUSD",order_type="Limit",qty=1
         "cum_exec_value": 0,        //t(:linear_resp_field_cum_exec_value)
         "cum_exec_fee": 0,          //t(:linear_resp_field_cum_exec_fee)
         "reduce_only": false,       //t(:linear_resp_field_reduce_only)
+        "close_on_trigger": false
         "order_link_id": "",
         "created_time": "2019-10-21T07:28:19.396246Z",
         "updated_time": "2019-10-21T07:28:19.396246Z",
@@ -98,6 +99,7 @@ POST
 |cum_exec_value |number |t(:linear_resp_field_cum_exec_value)  |
 |cum_exec_fee |number |t(:linear_resp_field_cum_exec_fee)  |
 |reduce_only |bool |t(:linear_resp_field_reduce_only)  |
+|close_on_trigger |bool |t(:row_response_close_on_trigger)  |
 |order_link_id |string |t(:row_response_comment_orderLinkId)  |
 |created_time |string |t(:row_comment_created_at)  |
 |updated_time |string |t(:row_comment_updated_at)  |
@@ -146,6 +148,7 @@ print(client.LinearOrder.LinearOrder_getOrders(symbol="BTCUSDT").result())
                 "cum_exec_fee": 0,
                 "order_link_id": "",
                 "reduce_only": false,
+                "close_on_trigger": false, 
                 "created_time": "2019-10-21T07:28:19.396246Z",
                 "updated_time": "2019-10-21T07:28:19.396246Z",
             }
@@ -194,7 +197,8 @@ GET
 |cum_exec_value |number |t(:linear_resp_field_cum_exec_value)  |
 |cum_exec_fee |number |t(:linear_resp_field_cum_exec_fee)  |
 |order_link_id |string |t(:row_response_comment_orderLinkId)  |
-|reduce_only |bool |t(:linear_resp_field_reduce_only)  |
+|reduce_only |bool |t(:linear_resp_field_reduce_only)  | 
+|close_on_trigger |bool |t(:row_response_close_on_trigger)  |
 |created_time |string |t(:row_comment_created_at)  |
 |updated_time |string |t(:row_comment_updated_at)  |
 |take_profit |number |t(:row_comment_take_profit)  |
@@ -415,6 +419,7 @@ print(client.Order.query().result(symbol="BTCUSD", order_id=""))
         "cum_exec_fee": 0.00890588,
         "order_link_id": "",
         "reduce_only": false,
+        "close_on_trigger": false, 
         "created_time": "2020-08-10T19:28:56Z",
         "updated_time": "2020-08-10T19:28:57Z"
     },
@@ -519,7 +524,8 @@ GET
 |cum_exec_qty |number |t(:linear_resp_field_cum_exec_qty)  |
 |cum_exec_value |number |t(:linear_resp_field_cum_exec_value)  |
 |cum_exec_fee |number |t(:linear_resp_field_cum_exec_fee)  |
-|reduce_only |bool |t(:linear_resp_field_reduce_only)  |
+|reduce_only |bool |t(:linear_resp_field_reduce_only)  | 
+|close_on_trigger |bool |t(:row_response_close_on_trigger)  |
 |order_link_id |string |t(:row_response_comment_orderLinkId)  |
 |created_time |string |t(:row_comment_created_at)  |
 |updated_time |string |t(:row_comment_updated_at)  |
@@ -571,6 +577,8 @@ print(client.LinearConditional.LinearConditional_new(order_type="Limit", side="B
        "trigger_by": "LastPrice",
        "trigger_price": 8003,
        "order_link_id": "",
+       "reduce_only": false,
+       "close_on_trigger": false, 
        "created_time": "2019-10-21T07:28:19.396246Z",
        "updated_time": "2019-10-21T07:28:19.396246Z",
        "tp_trigger_by": "UNKNOWN",
@@ -642,6 +650,8 @@ POST
 |sl_trigger_by |string |t(:row_comment_triggerBy)  |
 |base_price |string |t(:row_response_comment_basePrice)  |
 |trigger_by |string |t(:row_comment_triggerBy)  |
+|reduce_only |bool |t(:linear_resp_field_reduce_only)  | 
+|close_on_trigger |bool |t(:row_response_close_on_trigger)  |
 
 ### t(:getcond)
 > t(:codequote_curlExample)
@@ -708,6 +718,8 @@ print(client.LinearConditional.LinearConditional_getOrders().result())
                  "sl_trigger_by": "UNKNOWN",
                  "base_price": "16100.0000",
                  "trigger_by": "LastPrice",
+                 "reduce_only": false,
+                 "close_on_trigger": false, 
             }
         ]
     },
@@ -759,6 +771,8 @@ GET
 |sl_trigger_by |string |t(:row_comment_triggerBy)  |
 |base_price |string |t(:row_response_comment_basePrice)  |
 |trigger_by |string |t(:row_comment_triggerBy)  |
+|reduce_only |bool |t(:linear_resp_field_reduce_only)  | 
+|close_on_trigger |bool |t(:row_response_close_on_trigger)  |
 
 
 ### t(:cancelcond)
@@ -971,6 +985,8 @@ print(client.LinearConditional.LinearConditional_query(symbol="BTCUSDT", stop_or
         "sl_trigger_by": "UNKNOWN",
         "base_price": "16100.0000",
         "trigger_by": "LastPrice", 
+        "reduce_only": false,
+        "close_on_trigger": false, 
     },
     "time_now": "1577476584.386958",
     "rate_limit_status": 99,
@@ -1071,6 +1087,8 @@ GET
 |sl_trigger_by |string |t(:row_comment_triggerBy)  | 
 |base_price |string |t(:row_response_comment_basePrice)  |
 |trigger_by |string |t(:row_comment_triggerBy)  |
+|reduce_only |bool |t(:linear_resp_field_reduce_only)  | 
+|close_on_trigger |bool |t(:row_response_close_on_trigger)  |
 
 
 ## t(:position)
@@ -1113,6 +1131,9 @@ print(client.LinearPositions.LinearPositions_myPosition(symbol="BTCUSDT").result
                "realised_pnl":0,        //t(:linear_resp_field_realised_pnl)
                "cum_realised_pnl":0,    //t(:linear_resp_field_cum_realised_pnl)
                "free_qty": 30,          //t(:linear_resp_field_free_qty)
+               "tp_sl_mode": "Full",
+               "unrealised_pnl": 0,
+               "deleverage_indicator": 0,
            },
            {
                "user_id":100004,
@@ -1131,6 +1152,9 @@ print(client.LinearPositions.LinearPositions_myPosition(symbol="BTCUSDT").result
                "realised_pnl":0,
                "cum_realised_pnl":0,
                "free_qty": 30,
+               "tp_sl_mode": "Full",
+               "unrealised_pnl": 0,
+               "deleverage_indicator": 0,
            }
     ],
     "time_now": "1577480599.097287",
@@ -1165,7 +1189,9 @@ print(client.LinearPositions.LinearPositions_myPosition(symbol="BTCUSDT").result
                 "realised_pnl": 0,
                 "cum_realised_pnl": -1.50755354,
                 "free_qty": 0.009,
-                "tp_sl_mode": "Full"
+                "tp_sl_mode": "Full",
+                "unrealised_pnl": 0,
+                "deleverage_indicator": 0,
             }
         },
         {
@@ -1187,7 +1213,10 @@ print(client.LinearPositions.LinearPositions_myPosition(symbol="BTCUSDT").result
                 "realised_pnl": 0,
                 "cum_realised_pnl": 164.30402588,
                 "free_qty": 0.001,
-                "tp_sl_mode": "Full"
+                "tp_sl_mode": "Full",
+                "unrealised_pnl": 0,
+                "deleverage_indicator": 0,
+
             }
         },
         ...
@@ -1210,7 +1239,9 @@ print(client.LinearPositions.LinearPositions_myPosition(symbol="BTCUSDT").result
                 "realised_pnl": 0,
                 "cum_realised_pnl": 0,
                 "free_qty": 0,
-                "tp_sl_mode": "Full"
+                "tp_sl_mode": "Full",
+                "unrealised_pnl": 0,
+                "deleverage_indicator": 0,
             }
         },
         {
@@ -1232,7 +1263,9 @@ print(client.LinearPositions.LinearPositions_myPosition(symbol="BTCUSDT").result
                 "realised_pnl": 0,
                 "cum_realised_pnl": 0,
                 "free_qty": 0,
-                "tp_sl_mode": "Full"
+                "tp_sl_mode": "Full",
+                "unrealised_pnl": 0,
+                "deleverage_indicator": 0,
             }
         }
     ],
@@ -1278,6 +1311,8 @@ GET
 |cum_realised_pnl |number |t(:linear_resp_field_cum_realised_pnl)  |
 |free_qty |number |t(:linear_resp_field_free_qty)  |
 |t(:row_parameter_tp_sl_mode) |string |t(:linear_resp_tp_sl_mode)  |
+|deleverage_indicator |number |t(:row_comment_deleverage_indicator)  |
+|unrealised_pnl |number |t(:row_comment_unrealised_pnl)  |
 
 
 ### t(:setautoaddmargin)
