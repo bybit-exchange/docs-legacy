@@ -34,7 +34,7 @@ t(:rate_para_understanding)
   <tr><td>/private/linear/stop-order/cancel </td><td>1 / request</td></tr>
   <tr><td>/private/linear/stop-order/cancel-all </td><td>10 / request</td></tr>
   <tr>
-    <td rowspan="5">75/min</td>
+    <td rowspan="6">75/min</td>
     <td>/private/linear/position/set-leverage   </td>
     <td>1 / request</td>
   </tr>
