@@ -985,6 +985,8 @@ curl "https://api.bybit.com/v2/private/stop-order?api_key={api_key}&symbol=BTCUS
 <!--
 t(:account_para_queryConditional)
 -->
+t(:account_para_queryConditionalNote)
+
 <p class="fake_header">t(:httprequest)</p>
 GET
 <code><span id=vpStopOrder>/v2/private/stop-order</span></code>
