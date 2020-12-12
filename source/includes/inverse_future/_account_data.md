@@ -122,7 +122,7 @@ print(client.Order.Order_getOrders(symbol="BTCUSD",order_status="PendingCancel")
     "ext_code": "",
     "ext_info": "",
     "result": {
-        "data": [ 
+        "data": [
             {
                 "user_id": 160861,
                 "order_status": "Cancelled",
@@ -985,7 +985,9 @@ curl "https://api.bybit.com/v2/private/stop-order?api_key={api_key}&symbol=BTCUS
 <!--
 t(:account_para_queryConditional)
 -->
+<aside class="notice">
 t(:account_para_queryConditionalNote)
+</aside>
 
 <p class="fake_header">t(:httprequest)</p>
 GET
