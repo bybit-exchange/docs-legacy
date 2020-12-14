@@ -1,5 +1,9 @@
 # t(:changelog)
 
+## 2020-12-14
+### REST API
+- t(:restapi_update_20201214_1) [t(:changelog_update)]
+
 ## 2020-12-03
 ### REST API
 - [t(:querycond)](#t-querycond) [t(:changelog_update)]
