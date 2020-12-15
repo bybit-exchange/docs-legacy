@@ -3239,7 +3239,7 @@ GET
     <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span> 
+        <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
                 <span class="dl">"</span><span class="s2">user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">160861</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">order_status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Cancelled</span><span class="dl">"</span><span class="p">,</span>
@@ -4947,6 +4947,10 @@ GET
 <!--
 实时查询条件委托。当传递参数<code>order_id</code>或<code>order_link_id</code>其中任意一个时，将返回单条订单数据；如果参数<code>order_id</code>和<code>order_link_id</code>都不传递时，将返回所有<b>未成交</b>的订单，最多50条。
 -->
+
+<aside class="notice">
+<b>条件单触发后，在系统内部会成为活动单，实际上，返回结构体中的<code>order_id</code>等同于请求参数的<code>stop_order_id</code></b>
+</aside>
 
 <p class="fake_header">HTTP 请求</p>
 

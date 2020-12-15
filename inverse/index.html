@@ -3240,7 +3240,7 @@ GET
     <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span> 
+        <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
                 <span class="dl">"</span><span class="s2">user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">160861</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">order_status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Cancelled</span><span class="dl">"</span><span class="p">,</span>
@@ -4951,6 +4951,10 @@ Please note that you can only modify untriggered conditional orders.
 <!--
 Query real-time stop order information. When passing the parameter <code>order_id</code> or <code>order_link_id</code>, a single order data will be returned; If the parameters <code>order_id</code> and <code>order_link_id</code> are not passed, <b>return multiple unfilled orders,max size is 50</b>.
 -->
+
+<aside class="notice">
+<b>When a stop order is triggered, it becomes an active order within the system. This endpoint returns <code>order_id</code> which is equal to <code>stop_order_id</code> request parameter.</b>
+</aside>
 
 <p class="fake_header">HTTP Request</p>
 
