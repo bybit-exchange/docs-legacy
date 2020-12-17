@@ -482,10 +482,76 @@ print(client.Order.Order_query(symbol="BTCUSD", order_id="").result())
     "rate_limit_reset_ms": 1597171013861,
     "rate_limit": 600
 }
+
+//t(:resp_field_order_list)
+{
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "ext_info": "",
+    "result": [
+        {
+            "user_id": 100228,
+            "symbol": "BTCUSD",
+            "side": "Sell",
+            "order_type": "Limit",
+            "price": "17740",
+            "qty": 10,
+            "time_in_force": "GoodTillCancel",
+            "order_status": "New",
+            "ext_fields": {
+                "o_req_num": 434743,
+                "xreq_type": "x_create"
+            },
+            "last_exec_time": "1608193181.827761",
+            "leaves_qty": 10,
+            "leaves_value": "0.00056369",
+            "cum_exec_qty": 0,
+            "cum_exec_value": "0.00008505",
+            "cum_exec_fee": "-0.00000002",
+            "reject_reason": "EC_NoError",
+            "cancel_type": "UNKNOWN",
+            "order_link_id": "",
+            "created_at": "2020-12-17T08:19:41.827637283Z",
+            "updated_at": "2020-12-17T08:19:41.827761Z",
+            "order_id": "d570d931-771e-4911-a24e-cdeddedb5b0e"
+        },
+        ...
+        {
+            "user_id": 100228,
+            "symbol": "BTCUSD",
+            "side": "Sell",
+            "order_type": "Limit",
+            "price": "17740",
+            "qty": 10,
+            "time_in_force": "GoodTillCancel",
+            "order_status": "New",
+            "ext_fields": {
+                "o_req_num": 434728,
+                "xreq_type": "x_create"
+            },
+            "last_exec_time": "1608193178.955412",
+            "leaves_qty": 10,
+            "leaves_value": "0.00056369",
+            "cum_exec_qty": 0,
+            "cum_exec_value": "0.00008505",
+            "cum_exec_fee": "-0.00000002",
+            "reject_reason": "EC_NoError",
+            "cancel_type": "UNKNOWN",
+            "order_link_id": "",
+            "created_at": "2020-12-17T08:19:38.955297869Z",
+            "updated_at": "2020-12-17T08:19:38.955412Z",
+            "order_id": "88b91101-7ac1-40af-90b8-72d53fe23622"
+        }
+    ],
+    "time_now": "1608193190.911073",
+    "rate_limit_status": 599,
+    "rate_limit_reset_ms": 1608193190909,
+    "rate_limit": 600
+}
+
 ```
-<!--
 t(:account_para_queryActive)
--->
 
 <p class="fake_header">t(:httprequest)</p>
 GET
@@ -981,10 +1047,74 @@ curl "https://api.bybit.com/v2/private/stop-order?api_key={api_key}&symbol=BTCUS
     "rate_limit_reset_ms": 1580885703683,
     "rate_limit": 100
 }
+
+//t(:resp_field_order_list)
+{
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "ext_info": "",
+    "result": [
+        {
+            "user_id": 100328,
+            "symbol": "EOSUSD",
+            "side": "Sell",
+            "order_type": "Limit",
+            "price": "2.7",
+            "qty": 1,
+            "stop_px": "2.0000",
+            "base_price": "2.7000",
+            "time_in_force": "GoodTillCancel",
+            "order_status": "Untriggered",
+            "ext_fields": {},
+            "leaves_qty": 1,
+            "leaves_value": "0.37037037",
+            "cum_exec_qty": 0,
+            "cum_exec_value": null,
+            "cum_exec_fee": null,
+            "reject_reason": "EC_NoError",
+            "cancel_type": "UNKNOWN",
+            "order_link_id": "",
+            "created_at": "2020-12-17T08:21:15.246331281Z",
+            "updated_at": "2020-12-17T08:21:15.246331281Z",
+            "order_id": "a0dee45e-ae2a-4eb4-8205-9739075a7a81",
+            "trigger_by": "MarkPrice"
+        },
+        ...
+        {
+            "user_id": 100328,
+            "symbol": "EOSUSD",
+            "side": "Sell",
+            "order_type": "Limit",
+            "price": "2.6",
+            "qty": 1,
+            "stop_px": "2.0000",
+            "base_price": "2.7000",
+            "time_in_force": "GoodTillCancel",
+            "order_status": "Untriggered",
+            "ext_fields": {},
+            "leaves_qty": 1,
+            "leaves_value": "0.38461538",
+            "cum_exec_qty": 0,
+            "cum_exec_value": null,
+            "cum_exec_fee": null,
+            "reject_reason": "EC_NoError",
+            "cancel_type": "UNKNOWN",
+            "order_link_id": "",
+            "created_at": "2020-12-17T08:21:10.924193413Z",
+            "updated_at": "2020-12-17T08:21:10.924193413Z",
+            "order_id": "51d048ba-a71f-40ef-b4c4-897e94590b80",
+            "trigger_by": "MarkPrice"
+        }
+    ],
+    "time_now": "1608193281.690286",
+    "rate_limit_status": 599,
+    "rate_limit_reset_ms": 1608193281687,
+    "rate_limit": 600
+}
 ```
-<!--
 t(:account_para_queryConditional)
--->
+
 <aside class="notice">
 t(:account_para_queryConditionalNote)
 </aside>
