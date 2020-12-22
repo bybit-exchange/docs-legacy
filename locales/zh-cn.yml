@@ -27,6 +27,7 @@ zh-cn:
   row_comment_position_size: 仓位数量
   row_comment_position_value: 仓位价值
   row_comment_entry_price: 平均入场价
+  row_comment_isolated: 是否逐仓，true-逐仓 false-全仓
   row_comment_auto_add_margin: 是否自动追加保证金
   row_comment_position_margin: 仓位保证金
   row_comment_effective_leverage: 有效杠杆
@@ -50,7 +51,8 @@ zh-cn:
   row_comment_position_seq: 仓位变化版本号
   row_comment_cum_commission: 累计佣金
   row_comment_trailing_active: 激活价格
-  row_comment_sl_trigger_by: 激活价格类型
+  row_comment_sl_trigger_by: 止损激活价格类型
+  row_comment_tp_trigger_by: 止盈激活价格类型
   row_comment_BTCUSD_leverage: BTCUSD杠杆
   row_comment_EOSUSD_leverage: EOSUSD杠杆
   row_comment_ETHUSD_leverage: ETHUSD杠杆
@@ -122,6 +124,8 @@ zh-cn:
   row_comment_from: |
     起始ID. 默认: 返回最新数据
   row_comment_limit: 每页数量, 最大50. 默认每页20条
+  row_comment_cursor: 翻页标记,请使用返回的cursor,签名时使用返回的原始数据，发送request时请进行urlencode
+  row_comment_resp_cursor: 翻页标记
   row_comment_limit_liq: 默认返回500条数据. 最大返回1000条数据
   row_comment_orderType: 订单类型
   row_comment_qty: 委托数量(1个委托1美元)，只能为正整数
@@ -242,7 +246,7 @@ zh-cn:
 
   row_response_comment_price: 委托价格
   row_response_comment_qty: 委托数量
-  row_response_comment_basePrice: 当前市价
+  row_response_comment_basePrice: 下单时市价
   row_response_comment_triggerBy: 触发价格类型
   row_response_comment_orderLinkId: 机构自定义订单ID
   row_response_comment_id: 最新数据ID
@@ -251,6 +255,7 @@ zh-cn:
   row_response_comment_execqty: 交易数量
   row_response_comment_time: UTC 时间
   row_response_comment_name: 合约名称
+  row_response_close_on_trigger: 是否平仓委托 true-平仓 false-开仓
   row_comment_position_tick_direction: 价格变化方向
   row_comment_from_coin: 兑出币种
   row_comment_to_coin: 兑入币种
@@ -289,6 +294,8 @@ zh-cn:
 
 
 
+  row_parameter_tp_trigger_by: <a href="#trigger-price-type-trigger_by">tp_trigger_by</a>
+  row_parameter_sl_trigger_by: <a href="#trigger-price-type-trigger_by">sl_trigger_by</a>
   row_parameter_symbol: <a href="#symbol-symbol">symbol</a>
   row_parameter_side: <a href="#side-side">side</a>
   row_parameter_tp_sl_mode: <a href="#tpsl-mode-type-tp_sl_mode">tp_sl_mode</a>
@@ -322,21 +329,28 @@ zh-cn:
   resp_field_effective_leverage: 有效杠杆. 逐仓模式下, 等于`leverage`; 全仓模式下, 计算公式为： <code>position size / markprice / (wallet_balance+unrealised_pnl)</code>
   row_comment_from_id: 起始ID，默认为最新id
   row_comment_direction: 搜索方向：Prev:以起始ID升序检索,Next:起始ID降序检索，默认为Next
+  row_comment_cursor_direction: 搜索方向：<code>prev</code>:上一页,<code>next</code>:下一页,默认为 <code>next</code>
+  resp_field_position_list:  当不传参数<code>symbol</code>的时候，返回结构如下：
+  resp_field_position_list_valid: 表示当前data对应的symbol数据是否可用
+  resp_field_position_list_data: 只有在<code>is_valid</code>为<b>true</b>时，<code>data</code>才可用，否则请不要使用data
+  resp_field_order_list:  当只传参数<code>symbol</code>的时候，返回结构如下：
+
   # introduction in index.html.md
-  introduction: 介绍
+  introduction: 中文社区和参考资料
   intro_para:
     <p>欢迎使用 <a href="https://www.bybit.com/">Bybit</a> APIs 和 Websocket官方文档！</p>
     <p>如果您在使用API的过程中遇到问题需要帮助，请加入我们的 <a href="https://t.me/Bybitapi">官方Telegram API讨论群</a>！</p>
 
-  resources: 参考资料
+  resources: 中文社区和参考资料
   intro_para_resources:
-    <ul>
-      <li><a href="https://help.bybit.com/hc/zh-cn">帮助中心<img src="/images/bybit_favicon.png" height="14", width="14"></a> - 在这里了解合约交易
-      <li><a href="https://github.com/bybit-exchange/docs/issues">Bybit API docs<img src="/images/github_logo_icon.png" height="14", width="14"></a> - 在这里提bug
-      <li><a href="https://github.com/bybit-exchange/api-connectors/">Bybit's api-connectors <img src="/images/github_logo_icon.png" height="14", width="14"></a> - 官方API SDK
-      <li><a href="https://t.me/Bybitapi">API Discussion Group <img src="/images/telegram_logo_icon.png" height="14", width="14"></a> - API讨论群
-      <li><a href="https://t.me/Bybit_API_Announcements">API Announcements Channel <img src="/images/telegram_logo_icon.png" height="14", width="14"></a> - API公告群
-      <li>添加小助手微信号：BybitAPI，加入Bybit API中文交流群</li>
+    <ul class="bybit-community">
+      <li><a href="https://help.bybit.com/hc/zh-cn"><strong>帮助中心</strong><img src="/images/bybit_favicon.png" height="14", width="14"></a> - <strong>在这里了解合约交易</strong>
+      <li><a href="https://github.com/bybit-exchange/docs/issues"><strong>Bybit API docs</strong><img src="/images/github_logo_icon.png" height="14", width="14"></a> - <strong>在这里提bug</strong>
+      <li><a href="https://github.com/bybit-exchange/api-connectors/"><strong>Bybit's api-connectors</strong> <img src="/images/github_logo_icon.png" height="14", width="14"></a> - <strong>官方API SDK</strong>
+      <li><a href="https://t.me/Bybitapi"><strong>API Discussion Group</strong> <img src="/images/telegram_logo_icon.png" height="14", width="14"></a> - <strong>API英文讨论群</strong>
+      <li><a href="https://t.me/Bybitchineseapi"><strong>Chinese API Discussion Group</strong> <img src="/images/telegram_logo_icon.png" height="14", width="14"></a> - <strong>API中文讨论群</strong>
+      <li><a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong> <img src="/images/telegram_logo_icon.png" height="14", width="14"></a> - <strong>API公告群</strong>
+      <li><a href="mailto:api@bybit.com"><strong>IT@bybit.com</strong> <img src="/images/email_icon.png" height="14", width="14"></a> - <strong>官方技术支持邮箱!</strong>
     </ul>
   shared_endpoint_desc: 请点击查看接口描述。
 
@@ -345,6 +359,7 @@ zh-cn:
   changelog: 更新日志
   changelog_new: 新增
   changelog_update: 更新
+  changelog_delete: 废弃
   changelog_bugfix: bugfix
   ## 2020-04-10
   bugfix_20200410:  调整行情接口请求示例地址为主网
@@ -395,8 +410,23 @@ zh-cn:
   auth_aside_key: 请先生成<a href="https://testnet.bybit.com/app/user/api-management"><b>测试网</b></a> 或 <a href="https://www.bybit.com/app/user/api-management"<b>主网</b></a>API KEY。
   auth_aside_env: |
     REST接口根URL:
-    <p><b>测试网</b><span>:<span> https://api-testnet.bybit.com</p>
-    <p><b>主网</b><span>:<span> https://api.bybit.com</p>
+    <ul>
+    <p>
+      <li>测试网:<br/>
+        <span id="testnet">https://api-testnet.bybit.com</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+      </li>
+    </p>
+    <p>
+      <li>主网(请根据您的网络情况选择以下任意一个地址使用):<br/>
+        <span id="mainnet_1">https://api.bybit.com</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_1"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <br/>
+        <span id="mainnet_2">https://api.bytick.com</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+      </li>
+    </p>
+    </ul>
   auth_para_domains: |
     Domains:
     <ul>
@@ -488,6 +518,9 @@ zh-cn:
   marketbigdeal: 主动成交大额订单
   market_para_marketbigdeal: 获取Bybit主动成交大于500000USD的订单，时间范围是最近24h内。
 
+  # Abandoned Endpoints
+  abandonedendpoints: 废弃接口
+
   # Account Data Endpoints
   accountdata: 账户/交易接口
   account_para: 以下账户/交易接口都需要鉴权.
@@ -506,11 +539,15 @@ zh-cn:
     <p><b>当您达到订单上限的时候的时候，仍然可以下单设置了参数<code>reduce_only</code> 或 <code>closeOnTrigger</code>的订单。</b></p>
   ### Get Active Order
   getactive: 查询活动委托
+  a_getactive: 查询活动委托
   account_para_getActive: |
     <p>获取我的活动委托单列表。</p>
     <p>创建/取消订单是异步的，因此<b>该接口可能返回的数据可能会有延迟</b>。如果要获取订单的实时信息，可以调用接口<a href="#t-queryactive">实时查询活动单信息</a>.</p>
   account_row_comment_orderId: 订单ID
   account_row_comment_orderStatus: 指定订单状态查询订单列表。不传该参数则默认查询所有状态订单。该参数支持多状态查询，状态之间用英文逗号分割。
+  account_row_comment_req_orderStatus: 指定订单状态查询订单列表。不传该参数则默认查询所有状态订单
+  account_row_comment_stopOrderStatus: 指定订单状态查询订单列表。不传该参数则默认查询<code>Untriggered</code>,<code>Active</code>,<code>Deactivated</code>这三种状态的订单列表。该参数支持多状态查询，状态之间用英文逗号分割。
+  account_row_comment_req_stopOrderStatus: 指定订单状态查询订单列表。不传该参数则默认查询所有状态订单
   ### Cancel Active Order V2
   cancelactive: 撤销活动委托单
   account_para_cancelActive: |
@@ -524,18 +561,20 @@ zh-cn:
     注意，此api每调用一次会导致<code>rate_limit</code>扣减10
   ### Replace Active Order
   replaceactive: 修改活动单信息
+  a_replaceactive: 修改活动单信息
   account_para_replaceActive: |
     <p>本接口可以修改您的活动单信息.</p>
   account_aside_replaceActive:
     请注意，只有未成交或未完全成交的订单才可以被修改。
   ### Query Active Order (real-time)
   queryactive: 实时查询活动委托
-  account_para_queryActive: 实时查询活动委托
+  account_para_queryActive: 实时查询活动委托。当传递参数<code>order_id</code>或<code>order_link_id</code>其中任意一个时，将返回单条订单数据，如果参数<code>order_id</code>和<code>order_link_id</code>都不传递时，将返回所有<b>未成交</b>的订单，最多500条。
 
   ## Conditional Orders
   ### Place Conditional Order
   conditionalorders: 条件单
   placecond: 创建条件委托单
+  a_placecond: 创建条件委托单
   account_para_placeCond: |
     <p>市价条件委托: 一个传统的市场价格订单,会以当前的最优价格为您成交订单。当且仅当选择市价单时，'price', '可为空！</p>
     <p>限价条件委托: 您可以为您的订单设置一个执行价格，当市场价格达到您的设置价格时，系统会为您成交订单。</p>
@@ -557,11 +596,13 @@ zh-cn:
 
   ### Get Conditional Order
   getcond: 查询条件委托
+  a_getcond: 查询条件委托
   account_para_getCond:
     <p>获取我的条件委托单列表。</p>
     <p>创建/取消订单是异步的，因此<b>该接口可能返回的数据可能会有延迟</b>。如果要获取订单的实时信息，可以调用接口<a href="#t-querycond">实时查询条件单信息</a>。</p>
   ### Cancel Conditional Order
   cancelcond: 撤消条件委托单
+  a_cancelcond: 撤消条件委托单
   account_para_cancelCond: |
     <p>您可以撤销所有未被激活的条件委托,或止盈止损单。本质上所有条件委托在被激活后都是属于活动委托，所以条件委托一旦被激活，您需要通过调用取消活动委托接口来取消所有未成交、部分成交的活动委托单。同样全部成交的活动委托不可取消。</p>
   ### Cancel All Conditional Orders
@@ -571,13 +612,15 @@ zh-cn:
     注意，此api每调用一次会导致rate_limit扣减10
   ### Replace Conditional Order
   replacecond: 修改条件委托单
+  a_replacecond: 修改条件委托单
   account_para_replaceCond:
     <p>修改未触发的条件单。</p>
   account_aside_replaceCond: |
     请注意，只有未触发的条件单才能被修改。
   ### Query Conditional Order (real-time)
   querycond: 实时查询条件委托
-  account_para_queryConditional: 实时查询条件委托。
+  account_para_queryConditional: 实时查询条件委托。当传递参数<code>order_id</code>或<code>order_link_id</code>其中任意一个时，将返回单条订单数据；如果参数<code>order_id</code>和<code>order_link_id</code>都不传递时，将返回所有<b>未成交</b>的订单，最多50条。
+  account_para_queryConditionalNote: <b>条件单触发后，在系统内部会成为活动单，实际上，返回结构体中的<code>order_id</code>等同于请求参数的<code>stop_order_id</code></b>
 
   ## Leverage
   leverage: 用户杠杆
@@ -605,9 +648,10 @@ zh-cn:
   account_aside_tradingStop: 传递以下参数后将会由系统创建条件单。如果仓位关闭，系统将会取消这些订单，同时调整开仓的仓位数量。
   account_row_comment_takeProfit: 不小于0,如果等于0则是取消止盈(TP)
   account_row_comment_stopLoss: 不小于0,如果等于0则是取消止损(SL)
+  account_row_comment_tp_trigger_by: 止盈激活价格类型，默认为<code>LastPrice</code>
+  account_row_comment_sl_trigger_by: 止损激活价格类型，默认为<code>LastPrice</code>
   account_row_comment_trailingStop: 不小于0,如果等于0则是取消追踪止损(TS)
   account_row_comment_trailingStop_active: 追踪止损触发价格。追踪止损会在到达该价格后才会触发（追踪止损默认立即触发）。
-
   ## Risklimit
   risklimit: 风险限额
 
@@ -627,7 +671,7 @@ zh-cn:
   account_para_key: 获取账户API密钥信息。
   ## LCP point
   lcp: 流动性贡献分
-  account_para_lcp: 查询用户流动性贡献分(当天数据每小时更新一次), 目前只支持反向合约
+  account_para_lcp: 查询用户流动性贡献分(当天数据每小时更新一次)
 
   # Wallet Data Endpoints
   wallet: 钱包接口
@@ -1045,7 +1089,7 @@ zh-cn:
   asc:  ""
   ## Order status (`order_status`)
   para_orderStatusGet: |
-    在查询接口中，您可以通过逗号分割来指定查询多种状态，如: <code>Filled,New</code>
+#    在查询接口中，您可以通过逗号分割来指定查询多种状态，如: <code>Filled,New</code>
   created1:         ""
   rejected1:        ""
   new1:             ""
@@ -1200,6 +1244,10 @@ zh-cn:
   misc_row_comment_orderLinkIdNotStopOrderId: 机构ID。如果未填stop_order_id则为<b>必填</b>字段。
   misc_row_comment_orderIdNotOrderLinkId: 订单ID。如果未填order_link_id则为<b>必填</b>字段。
   misc_row_comment_symbolNotOrderId: 交易对 <b>必填</b>
+
+  misc_row_comment_orderLinkIdOrOrderId: 机构ID。
+  misc_row_comment_orderIdOrOrderLinkId: 订单ID。
+
   # fix problem of nested common subheadings
   httprequest1: HTTP 请求
   requestparameters1: 请求参数
@@ -1214,11 +1262,12 @@ zh-cn:
   ## LinearQuantity (`qty`)
   linear_quantity:
     <ul>
-    <li>BTCUSDT 开仓最大值 100，平仓最大值 200</li>
-    <li>ETHUSDT 开仓最大值 1000，平仓最大值 2000</li>
-    <li>LINKUSDT 开仓最大值 100000，平仓最大值 200000</li>
-    <li>LTCUSDT 开仓最大值 10000，平仓最大值 20000</li>
-    <li>XTZUSDT 开仓最大值 100000，平仓最大值 200000</li>
+    <li>BTCUSDT 开仓最大值 100，平仓最大值 100</li>
+    <li>ETHUSDT 开仓最大值 1000，平仓最大值 1000</li>
+    <li>LINKUSDT 开仓最大值 10000，平仓最大值 10000</li>
+    <li>LTCUSDT 开仓最大值 2000，平仓最大值 2000</li>
+    <li>XTZUSDT 开仓最大值 20000，平仓最大值 20000</li>
+    <li>BCHUSDT 开仓最大值 600，平仓最大值 600</li>
     <ul>
     </ul>
     </li>
@@ -1350,8 +1399,8 @@ zh-cn:
 
   ### LinearPosition
   linear_row_comment_qty: 委托数量(BTC)
-  linear_row_comment_reduceOnly: 是否平仓单,true-平仓 false-开仓,ture时止盈止损设置不生效
-  linear_row_comment_closeOnTrigger: 平仓委托,只会减少您的仓位而不会增加您的仓位。如果当平仓委托被触发时，账户上的余额不足，那么该合约的其他委托将被取消或者降低委托数量。使用此选项可以确保您的止损单被用于减仓而非加仓。
+  linear_row_comment_reduceOnly:  <a href="https://help.bybit.com/hc/zh-cn/articles/360039260574-%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%AA%E5%87%8F%E4%BB%93-"> 什么是 reduce-only order?</a>,true-平仓 false-开仓,ture时止盈止损设置不生效
+  linear_row_comment_closeOnTrigger: <a href="https://help.bybit.com/hc/zh-cn/articles/360039260534-%E4%BB%80%E4%B9%88%E6%98%AF%E8%A7%A6%E5%8F%91%E5%90%8E%E5%B9%B3%E4%BB%93-"> 什么是 close on trigger order?</a>只会减少您的仓位而不会增加您的仓位。如果当平仓委托被触发时，账户上的余额不足，那么该合约的其他委托将被取消或者降低委托数量。使用此选项可以确保您的止损单被用于减仓而非加仓。
   linear_account_para_placeActive: |
     <p>市价活动委托: 一个传统的市场价格订单,会以当前的最优价格为您成交订单。当且仅当选择市价单时，<code>price</code>可为空！</p>
     <p>限价活动委托: 您可以为您的订单设置一个执行价格，当市场价格达到您的设置价格时，系统会为您成交订单。</p>
@@ -1465,6 +1514,24 @@ zh-cn:
   ws_update_20200927_1: 新增Websocket域名
   restapi_update_20201012_1: 修复未返回<code>Deactivated</code>状态条件单的问题
   restapi_update_20201012_2: 修复已成交订单<code>cum_exec_fee</code>字段错误的问题
+  restapi_update_20201021_1: 修复<code>usdt</code> <code>given_cash</code>和<code>service_cash</code>总是为0的问题
+  restapi_update_20201021_2: USDT合约上线新交易对：<a href="#symbol-symbol">ETHUSDT、LINKUSDT、LTCUSDT、XTZUSDT</a>
+  restapi_update_20201021_3: 支持根据价格类型设置止盈止损
+  restapi_update_20201026_1: 返回参数中新增字段<code>is_isolated</code>，用于判断当前仓位是否是逐仓模式
+  restapi_update_20201102_1: 参数<code>symbol</code>改为非必传；如果不指定<code>symbol</code>则返回所有交易对的持仓信息
+  restapi_update_20201111_1: 旧版API将在2020年12月10日进行废弃处理。届时旧版API的频率限制将会降低到原有的1/2，并在12月17日彻底下线。
+  restapi_update_20201111_2: 废弃接口将于2020年11月30日彻底下线
+  restapi_update_20201112_1: <code>order_status</code> 支持多状态查询，状态之间用英文逗号分割。
+  restapi_update_20201112_2: <code>stop_order_status</code> 支持多状态查询，状态之间用英文逗号分割。
+  restapi_update_20201116_1: 返回参数中新增字段 <code>is_isolated</code> 和 <code>auto_add_margin</code>，用于判断当前仓位是否是逐仓模式以及是否开启自动追加保证金
+  restapi_update_20201116_2: 返回参数中新增字段 <code>base_price</code> 和 <code>trigger_by</code>
+  restapi_update_20201120_1: 返回参数中新增字段<code>trigger_by</code>
+  restapi_update_20201203_5: 实时查询支持返回多个未成交订单数据
+  restapi_update_20201203_6: 实时查询支持返回多个未成交订单数据
+  restapi_update_20201203_1: 返回参数中新增字段 <code>deleverage_indicator</code> 和 <code>unrealised_pnl</code>
+  restapi_update_20201203_2: 返回参数中新增字段 <code>close_on_trigger</code>
+  restapi_update_20201203_4: 返回参数中新增字段 <code>close_on_trigger</code> 和 <code>reduce_only</code>
+  restapi_update_20201214_1: USDT合约上线新交易对：<a href="#symbol-symbol">BCHUSDT</a>
 
   markpricekline: 标记价格K线
   linear_query_mark_price_kline: 查询标记价格K线
@@ -1493,3 +1560,9 @@ zh-cn:
   linear_row_comment_recent_trading_records_limit: 返回条数，最大1000，默认500
 
   linear_testnet_only: 仅testnet环境
+
+  # abandoned endpoints
+  a_getleverage: 用户杠杆
+  a_setleverage: 修改杠杆
+  replace_by_new: 请使用新接口
+  replace_by_new_topic: 请使用新topic

@@ -1,5 +1,79 @@
 # t(:changelog)
 
+
+## 2020-12-17
+### REST API
+- [t(:querycond)](#t-querycond) [t(:changelog_update)]
+    - t(:restapi_update_20201203_5)
+- [t(:queryactive)](#t-queryactive) [t(:changelog_update)]
+    - t(:restapi_update_20201203_6)
+
+## 2020-11-20
+### REST API 
+- [t(:a_getcond)](#t-getcond) [t(:changelog_update)]
+    - t(:restapi_update_20201120_1)
+
+## 2020-11-12
+### REST API
+- [t(:a_getactive)](#t-getactive) [t(:changelog_update)]
+    - t(:restapi_update_20201112_1)
+- [t(:a_getcond)](#t-getcond) [t(:changelog_update)]
+    - t(:restapi_update_20201112_2)
+    
+    
+## 2020-11-10
+
+### Websocket API
+
+#### t(:restapi_update_20201111_2) 
+- Topic<a href="https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/websocket.md#public-topic">orderBook25</a> [t(:changelog_delete)]
+    - t(:replace_by_new_topic) [t(:websocketorderbook25)](#t-websocketorderbook25) or [t(:websocketorderbook200)](#t-websocketorderbook200)
+- Topic <a href="https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/websocket.md#public-topic">kline</a> [t(:changelog_delete)]
+    - t(:replace_by_new_topic) [t(:websocketklineV2)](#t-websocketklinev2)
+- Topic <a href="https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/websocket.md#public-topic">instrument</a> [t(:changelog_delete)]
+    - t(:replace_by_new_topic) [t(:websocketinstrumentInfo)](#t-websocketinstrumentinfo)
+   
+### REST API 
+#### t(:restapi_update_20201111_1) 
+- [t(:getactive)](#t-a_getactive) [t(:changelog_delete)]
+    - t(:replace_by_new) [t(:a_getactive)](#t-getactive) [t(:changelog_new)]
+- [t(:getcond)](#t-a_getcond) [t(:changelog_delete)]
+    - t(:replace_by_new) [t(:a_getcond)](#t-getcond) [t(:changelog_new)]
+- [t(:placecond)](#t-a_placecond) [t(:changelog_delete)]
+    - t(:replace_by_new) [t(:a_placecond)](#t-placecond) [t(:changelog_new)]
+- [t(:cancelcond)](#t-a_cancelcond) [t(:changelog_delete)]
+    - t(:replace_by_new) [t(:a_cancelcond)](#t-cancelcond) [t(:changelog_new)]
+- [t(:replacecond)](#t-a_replacecond) [t(:changelog_delete)]
+    - t(:replace_by_new) [t(:a_replacecond)](#t-replacecond) [t(:changelog_new)]
+- [t(:replaceactive)](#t-a_replaceactive) [t(:changelog_delete)]
+    - t(:replace_by_new) [t(:a_replaceactive)](#t-replaceactive) [t(:changelog_new)]
+- [t(:a_getleverage)](#t-a_getleverage) [t(:changelog_delete)]
+    - t(:replace_by_new) [t(:myposition)](#t-myposition)
+- <a href="https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/rest_api.md#open-apiordercreatepost">/open-api/order/create</a> [t(:changelog_delete)]
+    - t(:replace_by_new) [t(:placeactive)](#t-placeactive)
+- <a href="https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/rest_api.md#open-apiordercancelpost">/open-api/order/cancel</a> [t(:changelog_delete)]
+    - t(:replace_by_new) [t(:cancelactive)](#t-cancelactive)
+- <a href="https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/rest_api.md#positionlistget">/position/list</a> [t(:changelog_delete)]
+    - t(:replace_by_new) [t(:myposition)](#t-myposition)
+
+
+## 2020-11-02
+### REST API
+- [t(:position)](#t-position) [t(:changelog_update)]
+    - t(:restapi_update_20201102_1)
+
+## 2020-10-26
+### REST API
+- [t(:position)](#t-position) [t(:changelog_update)]
+    - t(:restapi_update_20201026_1)
+
+## 2020-10-21
+### REST API
+- [t(:balance)](#t-balance) [t(:changelog_update)]
+    - t(:restapi_update_20201021_1)
+- [t(:tradingstop)](#t-tradingstop) [t(:changelog_update)]
+    - t(:restapi_update_20201021_3)
+
 ## 2020-10-12
 ### REST API
 - [t(:getcond)](#t-getcond) [t(:changelog_bugfix)]
@@ -13,10 +87,10 @@
      - t(:restapi_update_20200927_1)
 - [t(:replacecond)](#t-replacecond) [t(:changelog_update)]
      - t(:restapi_update_20200927_1)
-     
+
 ### Websocket API
 - [t(:ws_update_20200927_1)](#t-websocket) [t(:changelog_update)]
-     
+
 ## 2020-09-15
 ### REST API
 - [t(:marketaccountratio)](#t-marketaccountratio) [t(:changelog_update)]
@@ -62,7 +136,7 @@
 ## 2020-05-21
 ### REST API
 - [t(:query_liqrecords)](#t-query_liqrecords) [t(:changelog_new)]
-    
+
 ## 2020-04-29
 ### REST API
 - [t(:usertraderecords)](#t-usertraderecords) [t(:changelog_update)]
@@ -75,7 +149,7 @@
 - [t(:lcp)](#t-lcp) [t(:changelog_new)]
 - [t(:latestsymbolinfo)](#t-latestsymbolinfo) [t(:changelog_update)]
    - t(:restapi_update_20200427_1)
-   
+
 ## 2020-04-17
 ### REST API
 - [t(:orderbook)](#t-orderbook) [t(:changelog_update)]
@@ -91,12 +165,12 @@
 ### REST API
 - [t(:querysymbol)](#t-querysymbol) [t(:changelog_update)]
    - t(:restapi_update_20200414)
-        
+
 ## 2020-03-31
 ### REST API
 - [t(:balance)](#t-balance) [t(:changelog_update)]
     - t(:bugfix1_20200331)
-    
+
 ## 2020-03-26
 ### REST API
 - [t(:tradingstop)](#t-tradingstop) [t(:changelog_update)]
