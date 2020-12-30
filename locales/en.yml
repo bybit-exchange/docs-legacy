@@ -48,7 +48,7 @@ en:
   row_comment_wallet_balance: Wallet balance
   row_comment_available_balance: Available balance = wallet balance - position margin
   row_comment_realised_pnl: Today's realised pnl
-  row_comment_unrealised_pnl: Unrealised pnl
+  row_comment_unrealised_pnl: Today's unrealised pnl
   row_comment_cum_realised_pnl: Accumulated realised pnl (all-time total)
   row_comment_cross_seq: Cross sequence (internal value)
   row_comment_position_seq: Position sequence
@@ -93,7 +93,7 @@ en:
   row_comment_api_key: API key
   row_comment_type: Key type
   row_comment_position_user_id: User ID
-  row_comment_position_inviter_id: Inviter ID, which is the User ID of the user who invited this account to Bybit
+  row_comment_position_inviter_id: Inviter ID
   row_comment_position_ips: IP
   row_comment_note: Note
   row_comment_permissions: ApiKey permission
@@ -128,6 +128,8 @@ en:
   row_comment_from: |
     From ID. Default: return latest data
   row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page
+  row_comment_cursor: Page turning mark. Use return <code>cursor</code>. Sign using origin data, in request please use urlencode
+  row_comment_resp_cursor: Page turning mark
   row_comment_limit_liq: Limit for data size, max size is 1000. Default size is 500
   row_comment_orderType: Active order type
   row_comment_qty: Order quantity in USD
@@ -244,16 +246,16 @@ en:
   row_comment_buy_ratio: Long position ratio
   row_comment_sell_ratio: Short position ratio
 
-
   row_response_comment_price: Order price
   row_response_comment_qty: Order quantity in USD
-  row_response_comment_basePrice: The current market price
+  row_response_comment_basePrice: Market price at placing order
   row_response_comment_orderLinkId: Customised order ID
   row_response_comment_id: Latest data ID
   row_response_comment_execprice: Execution price
   row_response_comment_time: UTC time
   row_response_comment_execqty: Order quantity in USD
   row_response_comment_name: Symbol name
+  row_response_close_on_trigger: Is close on trigger order
   row_response_comment_base_currency: Base currency
   row_response_comment_quote_currency: Quote currency
   row_response_comment_price_scale: Price scale
@@ -330,27 +332,34 @@ en:
     <code>effective_leverage = position size / mark_price / (wallet_balance + unrealised_pnl)</code>
   row_comment_slow_update: The update is not immediate - slowest update is 1 minute
 
-  resp_field_position_list: When the parameter <code>symbol</code> is not passed,<br/> the return structure is as following
+  resp_field_position_list: |
+    When <code>symbol</code> is not passed, the response uses a different structure:
+  resp_field_order_list: |
+    When only <code>symbol</code> is passed, the response uses a different structure:
   resp_field_position_list_valid: represents whether the current data is valid
   resp_field_position_list_data: the data can only be used when <code>is_valid</code> is <b>true</b>
   row_comment_from_id: Start ID. By default, returns the latest IDs
   row_comment_direction: |
     Search direction. <code>Prev</code>: searches in ascending order from start ID, <code>Next</code>: searches in descending order from start ID. Defaults to <code>Next</code>
+  row_comment_cursor_direction: |
+    Search direction. <code>prev</code>: prev page, <code>next</code>: next page. Defaults to <code>next</code>
 
   # introduction in index.html.md
-  introduction: Introduction
+  introduction: Group And Resources
   intro_para:
     <p>Welcome to the official documentation for the <a href="https://www.bybit.com/">Bybit</a> APIs and Websocket! Here you can find details on how to access all of our endpoints, their respective expected outputs, and possible errors you may encounter.</p>
     <p>If you encounter an issue you need help with, have a suggestions for us, or just want to have a chat with fellow developers then please head on over to our <a href="https://t.me/Bybitapi">API Telegram chat</a>!</p>
 
-  resources: Bybit API Resources
+  resources: Group And Bybit API Resources
   intro_para_resources:
-    <ul>
-      <li><a href="https://help.bybit.com/hc/en-us">Help Center <img src="/images/favicon.ico" height="14", width="14"></a> - learn about exchange mechanisms here!
-      <li><a href="https://github.com/bybit-exchange/docs/issues">Bybit API docs <img src="/images/github_logo_icon.png" height="14", width="14"></a> - report issues here!
-      <li><a href="https://github.com/bybit-exchange/api-connectors/">Bybit's api-connectors <img src="/images/github_logo_icon.png" height="14", width="14"></a> - find a repo of prebuilt libraries here!
-      <li><a href="https://t.me/BybitAPI">API Discussion Group <img src="/images/telegram_logo_icon.png" height="14", width="14"></a> - get English help here!
-      <li><a href="https://t.me/Bybit_API_Announcements">API Announcements Channel <img src="/images/telegram_logo_icon.png" height="14", width="14"></a> - subscribe for changes to the API!
+    <ul class="bybit-community">
+      <li><a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong> <img src="/images/bybit_favicon.png" height="14", width="14"></a> - <strong>learn about exchange mechanisms here!</strong>
+      <li><a href="https://github.com/bybit-exchange/docs/issues"><strong>Bybit API docs</strong> <img src="/images/github_logo_icon.png" height="14", width="14"></a> - <strong>report issues here!</strong>
+      <li><a href="https://github.com/bybit-exchange/api-connectors/"><strong>Bybit's api-connectors</strong> <img src="/images/github_logo_icon.png" height="14", width="14"></a> - <strong>find a repo of prebuilt libraries here!</strong>
+      <li><a href="https://t.me/Bybitapi"><strong>API Discussion Group</strong> <img src="/images/telegram_logo_icon.png" height="14", width="14"></a> - <strong>get English help here!</strong>
+      <li><a href="https://t.me/Bybitchineseapi"><strong>Chinese API Discussion Group</strong> <img src="/images/telegram_logo_icon.png" height="14", width="14"></a> - <strong>get Chinese help here!</strong>
+      <li><a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong> <img src="/images/telegram_logo_icon.png" height="14", width="14"></a> - <strong>subscribe for changes to the API!</strong>
+      <li><a href="mailto:api@bybit.com"><strong>IT@bybit.com</strong> <img src="/images/email_icon.png" height="14", width="14"></a> - <strong>Official IT support email!</strong>
     </ul>
   shared_endpoint_desc: Please see the shared endpoint.
 
@@ -359,6 +368,7 @@ en:
   changelog: Changelog
   changelog_new: new
   changelog_update: update
+  changelog_delete: abandoned
   changelog_bugfix: bugfix
   ## 2020-04-10
   bugfix_20200410: Change market api curl example URL
@@ -411,8 +421,23 @@ en:
   auth_aside_key: To generate an API key please go <a href="https://testnet.bybit.com/app/user/api-management">here for the <b>testnet</b></a> or <a href="https://www.bybit.com/app/user/api-management">here for the <b>mainnet</b></a>.
   auth_aside_env: |
     REST Base Endpoint:
-    <p><b>Testnet</b>: <span id=testnet>https://api-testnet.bybit.com</span> <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button></p>
-    <p><b>Mainnet</b>: <span id=mainnet>https://api.bybit.com</span> <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button></p>
+     <ul>
+      <p>
+        <li>Testnet:<br/>
+          <span id="testnet">https://api-testnet.bybit.com</span>
+          <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        </li>
+      </p>
+      <p>
+        <li>Mainnet(both endpoints are available):<br/>
+          <span id="mainnet_1">https://api.bybit.com</span>
+          <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_1"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+          <br/>
+          <span id="mainnet_2">https://api.bytick.com</span>
+          <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        </li>
+      </p>
+     </ul>
   auth_para_domains: |
     Domains:
     <ul>
@@ -510,6 +535,10 @@ en:
   marketbigdeal: Latest Big Deal
   market_para_marketbigdeal: Obtain filled orders worth more than 500,000 USD within the last 24h.
 
+
+  # Abandoned Endpoints
+  abandonedendpoints: Abandoned Endpoints
+
   # Account Data Endpoints
   accountdata: Account Data Endpoints
   account_para: The following account data endpoints require authentication.
@@ -525,11 +554,15 @@ en:
     <p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSD instrument and 280 active orders on the ETHUSD instrument. And order with parameter <code>reduce_only</code> or <code>closeOnTrigger</code> is unlimited.</b></p>
   ### Get Active Order
   getactive: Get Active Order
+  a_getactive: Get Active Order
   account_para_getActive: |
     <p>Get my active order list.</p>
-    <p>Because order creation/cancellation is asynchronous, there can be a data delay in this endpoint. You can get real-time order info with the <a href="#t-queryactive">Query Active Order (real-time)</a> endpoint.</p>
+    <p>Cause order creation/cancellation is asynchronous, sometimes there is a data delay in this endpoint. You can get real-time order info in <a href="#t-queryactive">Query Active Order (real-time)</a> endpoint.</p>
   account_row_comment_orderId: Order ID
-  account_row_comment_orderStatus: Query your orders for all statuses if 'order_status' is empty. If you want to query orders with specific statuses, you can pass the order_status split by ','.
+  account_row_comment_orderStatus: Queries orders of all statuses if <code>order_status</code> not provided. If you want to query orders with specific statuses, you can pass the order_status split by ',' (eg <code>Filled,New</code>).
+  account_row_comment_req_orderStatus: Queries orders of all statuses if <code>order_status</code> is not provided
+  account_row_comment_stopOrderStatus: Queries orders of <code>Untriggered</code>,<code>Active</code>,<code>Deactivated</code> statuses if <code>stop_order_status</code> not provided. If you want to query orders with specific statuses, you can pass the stop_order_status split by ',' (eg <code>Untriggered,Active</code>)
+  account_row_comment_req_stopOrderStatus: Queries orders of all statuses if 'stop_order_status' not provided
   ### Cancel Active Order V2
   cancelactive: Cancel Active Order
   account_para_cancelActive: |
@@ -543,6 +576,7 @@ en:
     This endpoint's <code>rate_limit</code> will decrease by 10 per request
   ### Replace Active Order
   replaceactive: Replace Active Order
+  a_replaceactive: Replace Active Order
   account_para_replaceActive: |
     <p>Replace order can modify/amend your active orders.</p>
     <p><code>p_r_qty</code> and <code>p_r_price</code> are the modified price and quantity. If these two fields are not provided, nothing will be modified.</p>
@@ -551,12 +585,13 @@ en:
     Please note that only orders that are unfilled or partially filled can be modified by the replace-order API.
   ### Query Active Order (real-time)
   queryactive: Query Active Order (real-time)
-  account_para_queryActive: Query real-time active order information.
+  account_para_queryActive: Query real-time active order information. If only <code>order_id</code> or <code>order_link_id</code> are passed, a single order will be returned; otherwise, <b>return multiple unfilled orders,max size is 500</b>.
 
   ## Conditional Orders
   conditionalorders: Conditional Orders
   ### Place Conditional Order
   placecond: Place Conditional Order
+  a_placecond: Place Conditional Order
   account_para_placeCond: |
     <p>Market price conditional order: A traditional market price order, will be filled at the best available price. <code>price</code> is not required for this type of order.</p>
     <p>Limit price conditional order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
@@ -581,11 +616,13 @@ en:
 
   ### Get Conditional Order
   getcond: Get Conditional Order
+  a_getcond: Get Conditional Order
   account_para_getCond:
     <p>Get my conditional order list.</p>
-    <p>Because order creation/cancellation is asynchronous, there can be a data delay in this endpoint. You can get real-time order info with the <a href="#t-querycond">Query Conditional Order (real-time)</a> endpoint.</p>
+    <p>Cause order creation/cancellation is asynchronous, sometimes there is a data delay in this endpoint. You can get real-time order info in <a href="#t-querycond">Query Conditional Order (real-time)</a> endpoint.</p>
   ### Cancel Conditional Order
   cancelcond: Cancel Conditional Order
+  a_cancelcond: Cancel Conditional Order
   account_para_cancelCond: |
     <p>You may cancel all untriggered conditional orders or take profit/stop loss order. Essentially, after a conditional order is triggered, it will become an active order. So, when a conditional order is triggered, cancellation has to be done through the active order endpoint for any unfilled or partially filled active order. As always, orders that have been fully filled cannot be cancelled.</p>
   ### Cancel All Conditional Orders
@@ -595,6 +632,7 @@ en:
     This endpoint's <code>rate_limit</code> will decrease by 10 per request
   ### Replace Conditional Order
   replacecond: Replace Conditional Order
+  a_replacecond: Replace Conditional Order
   account_para_replaceCond:
     <p>Replace conditional order can modify/amend your conditional orders.</p>
     <p><code>order_id</code> and <code>symbol</code> are required for identifying a conditional order.</p>
@@ -603,8 +641,8 @@ en:
     Please note that you can only modify untriggered conditional orders.
   ### Query Conditional Order (real-time)
   querycond: Query Conditional Order (real-time)
-  account_para_queryConditional: Query real-time stop order information.
-
+  account_para_queryConditional: Query real-time stop order information. When passing the parameter <code>order_id</code> or <code>order_link_id</code>, a single order data will be returned; If the parameters <code>order_id</code> and <code>order_link_id</code> are not passed, <b>return multiple unfilled orders,max size is 50</b>.
+  account_para_queryConditionalNote: <b>When a stop order is triggered, it becomes an active order within the system. This endpoint returns <code>order_id</code> which is equal to <code>stop_order_id</code> request parameter.</b>
 
   ## Leverage
   leverage: Leverage
@@ -613,6 +651,7 @@ en:
   account_para_userLeverage: Get user leverage.
   ### Set Leverage
   # see setleverage
+  setleverage: Set Leverage
   account_aside_setleverage: Set <code>leverage</code> to <code>0</code> if you want to trade in <a href="https://help.bybit.com/hc/en-us/articles/360037683633-What-is-Cross-Margin">Cross Margin mode</a>. Note that your position mode will be changed to Isolated Margin mode if you change your leverage from 0 to any other value.
 
   ## Position
@@ -629,11 +668,10 @@ en:
   account_para_tradingStop: Set take profit, stop loss, and trailing stop for your open position.
   account_para_tradingStop_linear: Set take profit, stop loss, and trailing stop for your open position. If using <a href="#t-switchmode">partial mode</a>, TP/SL/TS orders will not close your entire position.
   account_aside_tradingStop: Passing these parameters will create conditional orders controlled by the system. The system will cancel these orders if the position is closed, and adjust the qty according to the size of the open position.
-  account_row_comment_side: Position side
   account_row_comment_takeProfit: Cannot be less than 0, 0 means cancel TP
   account_row_comment_stopLoss: Cannot be less than 0, 0 means cancel SL
-  account_row_comment_tp_trigger_by: Take profit trigger price type, default<span>:</span> <code>LastPrice</code>
-  account_row_comment_sl_trigger_by: Stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
+  account_row_comment_tp_trigger_by: take profit trigger price type，default<span>:</span> <code>LastPrice</code>
+  account_row_comment_sl_trigger_by: stop loss trigger price type，default<span>:</span> <code>LastPrice</code>
   account_row_comment_trailingStop: Cannot be less than 0, 0 means cancel TS
   account_row_comment_trailingStop_active: Trailing stop trigger price. Trailing stops are triggered only when the price reaches the specified price. Trailing stops are triggered immediately by default.
 
@@ -712,7 +750,7 @@ en:
   ### IP Rate Limit
   ipratelimits: IP Rate Limit
   ip_rate_para_understanding: |
-    <p>Bybit has different IP frequency limits for <code>GET</code> and <code>POST</code> method:</p>
+    <p> Bybit has different IP frequency limits for <code>GET</code> and <code>POST</code> method：</p>
     <ul>
     <li>
       <code>GET</code>method:
@@ -732,9 +770,7 @@ en:
   ### Account rate limit
   understandingratelimits: Understanding Your Request Rate Limit
   rate_para_understanding: |
-    <p>Bybit makes frequency limits based on <b>the rolling time window per minute and UID, and each symbol is independent</b>.</p>
-    <p>It is helpful to think of the limits in terms of intervals, where your first interval begins at the first timestamp of your first request, and the second interval beginning at the first timestamp of a request occurring after the end of the first interval.</p>
-    <p>Every request to the API returns the fields shown in the code panel:</p>
+    Bybit makes frequency limits based on <b>the rolling time window per minute and UID, and each symbol is independent</b>. Every request to the API returns the fields shown in the code panel:
   rate_text_limitStatus_understanding: your remaining requests for current endpoint
   rate_text_limit_understanding: your current limit for current endpoint
   rate_text_limitReset: the timestamp indicating when your request limit resets if you have exceeded your rate_limit. Otherwise, this is just the current timestamp.
@@ -886,7 +922,7 @@ en:
       </li>
     </p>
     <p>
-      <li>Mainnet (both endpoints are available):<br/>
+      <li>Mainnet(both endpoints are available):<br/>
         <span id="mainnet_address">wss://stream.bybit.com/realtime</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
         <br/>
@@ -895,7 +931,6 @@ en:
       </li>
     </p>
     </ul>
-    <p>wss://stream.<b>bytick</b>.com/realtime should be used as an alternative base endpoint to be switched to when the user experiences consistent disconnections. It is based in AWS Singapore, like the standard base endpoint, but uses a different CDN.</p>
   websocket_aside_auth: <b>Public</b> topics do not require authentication. The following section applies to <b>private</b> topics only.
   websocket_para_methods: There are two methods of authentication, as shown in the code panel to the right.
   websocket_aside_signature: Example signature algorithms can be found <a href="https://github.com/bybit-exchange/api-connectors/tree/master/encryption_example">here</a>.
@@ -1083,7 +1118,7 @@ en:
   aside_orderStatusGet: |
     These are the possible values for <code>order_status</code> as included in the response of a <b>Get Order</b> request. To see the options for <code>order_status</code> in the response for a Create Active/Conditional request, see <a href="#order-status-order_status-creation">here</a>.
   para_orderStatusGet: |
-    Filter fetched orders by their order statuses. To filter by multiple statuses, separate with a comma like so: <code>Filled,New</code>
+#    Filter fetched orders by their order statuses. To filter by multiple statuses, separate with a comma like so: <code>Filled,New</code>
   created1:         "- order accepted by the system but not yet put through matching engine"
   rejected1:        ""
   new1:             "- order has placed successfully"
@@ -1246,6 +1281,10 @@ en:
   misc_row_comment_orderLinkIdNotStopOrderId: Agency customized order ID. <b>Required</b> if not passing stop_order_id
   misc_row_comment_orderIdNotOrderLinkId: Order ID. <b>Required</b> if not passing order_link_id
   misc_row_comment_symbolNotOrderId: Contract type. <b>Required</b>
+
+  misc_row_comment_orderLinkIdOrOrderId: Agency customized order ID.
+  misc_row_comment_orderIdOrOrderLinkId: Order ID.
+
   default: Default
   # fix problem of nested common subheadings
   httprequest1: HTTP Request
@@ -1261,11 +1300,12 @@ en:
   ## LinearQuantity (`qty`)
   linear_quantity:
     <ul>
-    <li><code>BTCUSDT</code> - Maximum quantity of 100 for opening; Maximum quantity of 200 for closing</li>
-    <li><code>ETHUSDT</code> - Maximum quantity of 1000 for opening; Maximum quantity of 2000 for closing</li>
-    <li><code>LINKUSDT</code> - Maximum quantity of 100000 for opening; Maximum quantity of 200000 for closing</li>
-    <li><code>LTCUSDT</code> - Maximum quantity of 10000 for opening; Maximum quantity of 20000 for closing</li>
-    <li><code>XTZUSDT</code> - Maximum quantity of 100000 for opening; Maximum quantity of 200000 for closing</li>
+    <li><code>BTCUSDT</code> - Maximum quantity of 100 for opening; Maximum quantity of 100 for closing</li>
+    <li><code>ETHUSDT</code> - Maximum quantity of 1000 for opening; Maximum quantity of 1000 for closing</li>
+    <li><code>LINKUSDT</code> - Maximum quantity of 10000 for opening; Maximum quantity of 10000 for closing</li>
+    <li><code>LTCUSDT</code> - Maximum quantity of 2000 for opening; Maximum quantity of 2000 for closing</li>
+    <li><code>XTZUSDT</code> - Maximum quantity of 20000 for opening; Maximum quantity of 20000 for closing</li>
+    <li><code>BCHUSDT</code> - Maximum quantity of 600 for opening; Maximum quantity of 600 for closing</li>
     <ul>
     </ul>
     </li>
@@ -1420,9 +1460,7 @@ en:
   linear_account_para_setAutoAddMargin: Set auto add margin, or <a href="https://help.bybit.com/hc/en-us/articles/900000394403-Introduction-to-Auto-Margin-Replenishment-USDT-Contract-">Auto-Margin Replenishment</a>.
   linear_row_comment_set_auto_margin: Auto add margin button
 
-  setleverage: Set Leverage
   linear_account_para_setLeverage: Set Leverage
-  account_para_setleverage: Set Leverage
   linear_row_comment_leverage: Must be greater than 0 and less than the <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>.
 
   marginswitch: Cross/Isolated Margin Switch
@@ -1470,7 +1508,7 @@ en:
   websocketwallet: wallet
 
   ## order-list 查询不支持多状态查询
-  linear_account_row_comment_orderStatus: Query your orders for all statuses if 'order_status' is empty. If you want to query orders with specific statuses, you can pass the order_status split by ','.
+  linear_account_row_comment_orderStatus: Query your orders for all statuses if 'order_status' not provided. If you want to query orders with specific statuses, you can pass the order_status split by ','.
 
   ## change-log
   linear_update_20200331: <code>order_status</code> field not support query orders with specific statuses
@@ -1530,6 +1568,19 @@ en:
   restapi_update_20201021_3: Support setting tp/sl by different trigger price types
   restapi_update_20201026_1: Add field <code>is_isolated</code> in response
   restapi_update_20201102_1: Request parameter <code>symbol</code> is optional now; If symbol is not passed, return positions of all symbols
+  restapi_update_20201111_1: The following REST API will be upgraded. The abandoned endpoints will be deprecated on December 10, 2020. Effective immediately, the rate limit will be reduced by half before being completely removed from service on December 17, 2020.
+  restapi_update_20201111_2: The abandoned endpoints will be deprecated on November 30 ,2020
+  restapi_update_20201112_1: <code>order_status</code> query orders with specific statuses by passing each <code>order_status</code> split with ','.
+  restapi_update_20201112_2: <code>stop_order_status</code> query orders with specific statuses by passing each <code>stop_order_status</code> split with ','.
+  restapi_update_20201116_1: Add field <code>is_isolated</code> and <code>auto_add_margin</code> in response
+  restapi_update_20201116_2: Add field <code>base_price</code> and <code>trigger_by</code> in response
+  restapi_update_20201120_1: Add field <code>trigger_by</code> in response
+  restapi_update_20201203_5: Real-time queries can return multiple unfilled orders
+  restapi_update_20201203_6: Real-time queries can return multiple unfilled orders
+  restapi_update_20201203_1: Add field <code>deleverage_indicator</code> and <code>unrealised_pnl</code>
+  restapi_update_20201203_2: Add field <code>close_on_trigger</code>
+  restapi_update_20201203_4: Add field <code>close_on_trigger</code> and <code>reduce_only</code>
+  restapi_update_20201214_1: Add new USDT perpetual symbols<span>:</span> <a href="#symbol-symbol">BCHUSDT</a>
 
   markpricekline: Query Mark Price Kline
   linear_query_mark_price_kline: Query mark price kline (like <a href="#t-querykline">Query Kline</a> but for <a href="https://help.bybit.com/hc/en-us/articles/360039261074-What-is-Dual-Price-mechanism-">mark price</a>).
@@ -1558,3 +1609,10 @@ en:
   linear_row_comment_recent_trading_records_limit: Number of results. Default 500; max 1000
 
   linear_testnet_only: testnet only
+
+
+  # abandoned endpoints
+  a_getleverage: User Leverage
+  a_setleverage: Set Leverage
+  replace_by_new: please replace with
+  replace_by_new_topic: please replace with

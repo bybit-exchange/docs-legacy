@@ -1,5 +1,43 @@
 # t(:changelog)
 
+## 2020-12-14
+### REST API
+- t(:restapi_update_20201214_1) [t(:changelog_update)]
+
+## 2020-12-03
+### REST API
+- [t(:querycond)](#t-querycond) [t(:changelog_update)]
+    - t(:restapi_update_20201203_5)
+- [t(:queryactive)](#t-queryactive) [t(:changelog_update)]
+    - t(:restapi_update_20201203_6)
+- [t(:myposition)](#t-position) [t(:changelog_update)]
+    - t(:restapi_update_20201203_1)
+- [t(:placecond)](#t-placecond) [t(:changelog_update)]
+    - t(:restapi_update_20201203_2)
+- [t(:getactive)](#t-getactive) [t(:changelog_update)]
+    - t(:restapi_update_20201203_2)
+- [t(:queryactive)](#t-queryactive) [t(:changelog_update)]
+    - t(:restapi_update_20201203_2)
+- [t(:placecond)](#t-placecond) [t(:changelog_update)]
+    - t(:restapi_update_20201203_4)
+- [t(:getcond)](#t-getcond) [t(:changelog_update)]
+    - t(:restapi_update_20201203_4)
+- [t(:querycond)](#t-querycond) [t(:changelog_update)]
+    - t(:restapi_update_20201203_4)
+ 
+    
+## 2020-11-16
+### REST API
+- [t(:myposition)](#t-position) [t(:changelog_update)]
+    - t(:restapi_update_20201116_1)
+- [t(:placecond)](#t-placecond) [t(:changelog_update)]
+    - t(:restapi_update_20201116_2)
+- [t(:getcond)](#t-getcond) [t(:changelog_update)]
+    - t(:restapi_update_20201116_2)
+- [t(:querycond)](#t-querycond) [t(:changelog_update)]
+    - t(:restapi_update_20201116_2)
+
+    
 ## 2020-11-02
 ### REST API
 - [t(:myposition)](#t-position) [t(:changelog_update)]
