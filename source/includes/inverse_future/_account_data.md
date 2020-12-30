@@ -679,7 +679,6 @@ POST
 |reject_reason |string |t(:row_comment_reject_reason)  |
 |stop_px |string |t(:linear_row_comment_stopPx)  |
 |stop_order_id |string |t(:row_comment_stopOrderId) |
-|stop_order_id |string |t(:row_comment_stopOrderId) |
 |created_at |string |t(:row_comment_created_at)  |
 |order_link_id |string |t(:row_response_comment_orderLinkId)  |
 
