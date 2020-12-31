@@ -46,7 +46,7 @@ en:
     Pre-occupied calculate parameters. <code>blq</code>: total number of the long side unsettled orders; <code>bmp</code>: the lowest price of the long side; <code>slq</code>: total number of the short side unsettled orders; <code>smp</code>: the lowest price of the short side
   row_comment_order_margin: Pre-occupied order margin
   row_comment_wallet_balance: Wallet balance
-  row_comment_available_balance: Available balance = wallet balance - position margin
+  row_comment_available_balance: Available balance = wallet balance - used margin
   row_comment_realised_pnl: Today's realised pnl
   row_comment_unrealised_pnl: Today's unrealised pnl
   row_comment_cum_realised_pnl: Accumulated realised pnl (all-time total)
@@ -354,13 +354,13 @@ en:
   resources: Group And Bybit API Resources
   intro_para_resources:
     <ul class="bybit-community">
-    <li><a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong> <img src="/images/bybit_favicon.png" height="14", width="14"></a> - <strong>learn about exchange mechanisms here!</strong>
-    <li><a href="https://github.com/bybit-exchange/docs/issues"><strong>Bybit API docs</strong> <img src="/images/github_logo_icon.png" height="14", width="14"></a> - <strong>report issues here!</strong>
-    <li><a href="https://github.com/bybit-exchange/api-connectors/"><strong>Bybit's api-connectors</strong> <img src="/images/github_logo_icon.png" height="14", width="14"></a> - <strong>find a repo of prebuilt libraries here!</strong>
-    <li><a href="https://t.me/Bybitapi"><strong>API Discussion Group</strong> <img src="/images/telegram_logo_icon.png" height="14", width="14"></a> - <strong>get English help here!</strong>
-    <li><a href="https://t.me/Bybitchineseapi"><strong>Chinese API Discussion Group</strong> <img src="/images/telegram_logo_icon.png" height="14", width="14"></a> - <strong>get Chinese help here!</strong>
-    <li><a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong> <img src="/images/telegram_logo_icon.png" height="14", width="14"></a> - <strong>subscribe for changes to the API!</strong>
-    <li><a href="mailto:IT@bybit.com"><strong>IT@bybit.com</strong> <img src="/images/email_icon.png" height="14", width="14"></a> - <strong>Official IT support email!</strong>
+      <li><img src="/images/favicon.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong></a> - <strong>learn about exchange mechanisms here!</strong>
+      <li><img src="/images/github_logo_icon.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/docs/issues"><strong>Bybit API docs</strong></a> - <strong>report issues here!</strong>
+      <li><img src="/images/github_logo_icon.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/api-connectors/"><strong>Bybit's api-connectors</strong></a> - <strong>find a repo of prebuilt libraries here!</strong>
+      <li><img src="/images/telegram_logo_icon.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong> - <strong>get English help here!</strong>
+      <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>get Chinese help here!</strong>
+      <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>subscribe for changes to the API!</strong>
+      <li><img src="/images/email_icon.png" height="14", width="14"> <a href="mailto:IT@bybit.com"><strong>IT@bybit.com</strong></a> - <strong>official IT support email!</strong>
     </ul>
   shared_endpoint_desc: Please see the shared endpoint.
 
@@ -558,7 +558,7 @@ en:
   a_getactive: Get Active Order
   account_para_getActive: |
     <p>Get my active order list.</p>
-    <p>Cause order creation/cancellation is asynchronous, sometimes there is a data delay in this endpoint. You can get real-time order info in <a href="#t-queryactive">Query Active Order (real-time)</a> endpoint.</p>
+    <p>Because order creation/cancellation is asynchronous, there can be a data delay in this endpoint. You can get real-time order info with the <a href="#t-queryactive">Query Active Order (real-time)</a> endpoint.</p>
   account_row_comment_orderId: Order ID
   account_row_comment_orderStatus: Queries orders of all statuses if <code>order_status</code> not provided. If you want to query orders with specific statuses, you can pass the order_status split by ',' (eg <code>Filled,New</code>).
   account_row_comment_req_orderStatus: Queries orders of all statuses if <code>order_status</code> is not provided
@@ -620,7 +620,7 @@ en:
   a_getcond: Get Conditional Order
   account_para_getCond:
     <p>Get my conditional order list.</p>
-    <p>Cause order creation/cancellation is asynchronous, sometimes there is a data delay in this endpoint. You can get real-time order info in <a href="#t-querycond">Query Conditional Order (real-time)</a> endpoint.</p>
+    <p>Because order creation/cancellation is asynchronous, there can be a data delay in this endpoint. You can get real-time order info with the <a href="#t-querycond">Query Conditional Order (real-time)</a> endpoint.</p>
   ### Cancel Conditional Order
   cancelcond: Cancel Conditional Order
   a_cancelcond: Cancel Conditional Order
@@ -796,7 +796,7 @@ en:
         <li>Your Bybit UIDs or registered Emails, and the symbol which you are trading</li>
         <li>General description of your trading strategy and why requires higher rate limit</li>
         <li>Screenshot of previous monthly trading volume (maker/taker) with other platforms</li>
-        <li>Optional: your order history in CVS files</li>
+        <li>Optional: your order history in CSV files</li>
       </ol>
     </ul>
   ### Understanding Bybit's Liquidity System
@@ -923,12 +923,13 @@ en:
       </li>
     </p>
     <p>
-      <li>Mainnet(both endpoints are available):<br/>
-        <span id="mainnet_address">wss://stream.bybit.com/realtime</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-        <br/>
-        <span id="mainnet_address_2">wss://stream.bytick.com/realtime</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+      <li>Mainnet (both endpoints are available):<br/>
+        <ul>
+        <li><span id="mainnet_address">wss://stream.bybit.com/realtime</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button></li>
+        <li><span id="mainnet_address_2">wss://stream.bytick.com/realtime</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button></li>
+        </ul>
       </li>
     </p>
     </ul>
@@ -1486,21 +1487,23 @@ en:
       </li>
     </p>
     <p>
-      <li>Mainnet public(both endpoints are available):<br/>
-        <span id="mainnet_public_address">wss://stream.bybit.com/realtime_public</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_public_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-        <br/>
-        <span id="mainnet_public_address_2">wss://stream.bytick.com/realtime_public</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_public_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+      <li>Mainnet public (both endpoints are available):<br/>
+        <ul>
+        <li><span id="mainnet_public_address">wss://stream.bybit.com/realtime_public</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_public_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button></li>
+        <li><span id="mainnet_public_address_2">wss://stream.bytick.com/realtime_public</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_public_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button></li>
+        </ul>
       </li>
     </p>
     <p>
-      <li>Mainnet private(both endpoints are available):<br/>
-        <span id="mainnet_private_address">wss://stream.bybit.com/realtime_private</span>
+      <li>Mainnet private (both endpoints are available):<br/>
+        <ul>
+        <li><span id="mainnet_private_address">wss://stream.bybit.com/realtime_private</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_private_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-        <br/>
-        <span id="mainnet_private_address_2">wss://stream.bytick.com/realtime_private</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_private_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <li><span id="mainnet_private_address_2">wss://stream.bytick.com/realtime_private</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_private_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button></li>
+        </ul>
       </li>
     </p>
     </ul>
