@@ -1363,7 +1363,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/position/change-position-margin \
+curl https://api.bybit.com/v2/private/position/change-position-margin \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD",margin:"10","timestamp":{timestamp},"sign":"{sign}"}'
 ```
@@ -1398,8 +1398,8 @@ t(:account_aside_changeMargin)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=pChangePositionMargin>/position/change-position-margin</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pChangePositionMargin"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=pChangePositionMarginNew>/v2/private/position/change-position-margin</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pChangePositionMarginNew"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -1419,7 +1419,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/open-api/position/trading-stop \
+curl https://api.bybit.com/v2/private/position/trading-stop \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","stop_loss":7000,"timestamp":{timestamp},"sign":"{sign}"}'
 ```
@@ -1491,8 +1491,8 @@ t(:account_aside_tradingStop)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=oapTradingStop>/open-api/position/trading-stop</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oapTradingStop"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=oapTradingStopNew>/v2/private/position/trading-stop</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oapTradingStopNew"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -1547,7 +1547,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/user/leverage/save \
+curl https://api.bybit.com/v2/private/position/leverage/save \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","leverage":14,"timestamp":{timestamp},"sign":"{sign}"}'
 ```
@@ -1582,8 +1582,8 @@ t(:account_aside_setleverage)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=ulSave>/user/leverage/save</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ulSave"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=ulSaveNew>/v2/private/position/leverage/save</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ulSaveNew"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -2041,7 +2041,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/open-api/funding/prev-funding-rate?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}&sign={sign}"
+curl "https://api.bybit.com/2/private/funding/prev-funding-rate?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}&sign={sign}"
 ```
 
 ```python
@@ -2074,8 +2074,8 @@ t(:market_para_fundingRate)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=oafPrevFundingRate>/open-api/funding/prev-funding-rate</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oafPrevFundingRate"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=oafPrevFundingRateNew>/2/private/funding/prev-funding-rate</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oafPrevFundingRateNew"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -2093,7 +2093,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/open-api/funding/prev-funding?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}&sign={sign}"
+curl "https://api.bybit.com/v2/private/funding/prev-funding?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}&sign={sign}"
 ```
 
 ```python
@@ -2129,8 +2129,8 @@ t(:account_para_myLastFunding)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=oafPrevFunding>/open-api/funding/prev-funding</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oafPrevFunding"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=oafPrevFundingNew>/v2/private/funding/prev-funding</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oafPrevFundingNew"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -2152,7 +2152,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/open-api/funding/predicted-funding?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}&sign={sign}"
+curl "https://api.bybit.com/v2/private/funding/predicted-funding?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}&sign={sign}"
 ```
 
 ```python
@@ -2183,8 +2183,8 @@ t(:account_para_predictedFunding)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=oafPredictedFunding>/open-api/funding/predicted-funding</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oafPredictedFunding"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=oafPredictedFundingNew>/v2/private/funding/predicted-funding</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oafPredictedFundingNew"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -2201,7 +2201,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/open-api/api-key?api_key={api_key}&timestamp={timestamp}&sign={sign}"
+curl "https://api.bybit.com/v2/private/account/api-key?api_key={api_key}&timestamp={timestamp}&sign={sign}"
 ```
 
 ```python
@@ -2248,8 +2248,8 @@ t(:account_para_key)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=oaApiKey>/open-api/api-key</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oaApiKey"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=oaApiKeyNew>/v2/private/account/api-key</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oaApiKeyNew"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|

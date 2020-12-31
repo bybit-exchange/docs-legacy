@@ -292,6 +292,7 @@ en:
   row_comment_address: Address
   row_comment_submited_at: Submit time
   row_response_liq_record_side: Liquidated order's side
+  request_disable: Endpoint are not recommended!
 
 
 
@@ -353,13 +354,13 @@ en:
   resources: Group And Bybit API Resources
   intro_para_resources:
     <ul class="bybit-community">
-      <li><a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong> <img src="/images/bybit_favicon.png" height="14", width="14"></a> - <strong>learn about exchange mechanisms here!</strong>
-      <li><a href="https://github.com/bybit-exchange/docs/issues"><strong>Bybit API docs</strong> <img src="/images/github_logo_icon.png" height="14", width="14"></a> - <strong>report issues here!</strong>
-      <li><a href="https://github.com/bybit-exchange/api-connectors/"><strong>Bybit's api-connectors</strong> <img src="/images/github_logo_icon.png" height="14", width="14"></a> - <strong>find a repo of prebuilt libraries here!</strong>
-      <li><a href="https://t.me/Bybitapi"><strong>API Discussion Group</strong> <img src="/images/telegram_logo_icon.png" height="14", width="14"></a> - <strong>get English help here!</strong>
-      <li><a href="https://t.me/Bybitchineseapi"><strong>Chinese API Discussion Group</strong> <img src="/images/telegram_logo_icon.png" height="14", width="14"></a> - <strong>get Chinese help here!</strong>
-      <li><a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong> <img src="/images/telegram_logo_icon.png" height="14", width="14"></a> - <strong>subscribe for changes to the API!</strong>
-      <li><a href="mailto:IT@bybit.com"><strong>IT@bybit.com</strong> <img src="/images/email_icon.png" height="14", width="14"></a> - <strong>Official IT support email!</strong>
+    <li><a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong> <img src="/images/bybit_favicon.png" height="14", width="14"></a> - <strong>learn about exchange mechanisms here!</strong>
+    <li><a href="https://github.com/bybit-exchange/docs/issues"><strong>Bybit API docs</strong> <img src="/images/github_logo_icon.png" height="14", width="14"></a> - <strong>report issues here!</strong>
+    <li><a href="https://github.com/bybit-exchange/api-connectors/"><strong>Bybit's api-connectors</strong> <img src="/images/github_logo_icon.png" height="14", width="14"></a> - <strong>find a repo of prebuilt libraries here!</strong>
+    <li><a href="https://t.me/Bybitapi"><strong>API Discussion Group</strong> <img src="/images/telegram_logo_icon.png" height="14", width="14"></a> - <strong>get English help here!</strong>
+    <li><a href="https://t.me/Bybitchineseapi"><strong>Chinese API Discussion Group</strong> <img src="/images/telegram_logo_icon.png" height="14", width="14"></a> - <strong>get Chinese help here!</strong>
+    <li><a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong> <img src="/images/telegram_logo_icon.png" height="14", width="14"></a> - <strong>subscribe for changes to the API!</strong>
+    <li><a href="mailto:IT@bybit.com"><strong>IT@bybit.com</strong> <img src="/images/email_icon.png" height="14", width="14"></a> - <strong>Official IT support email!</strong>
     </ul>
   shared_endpoint_desc: Please see the shared endpoint.
 
@@ -464,7 +465,7 @@ en:
     </ul>
   auth_aside_timestamp: |
     Make sure to conform to the timestamp rule of verification or your request will be rejected! Timestamp rule of verification: <b>server_time - recv_window <= timestamp < server_time + 1000</b>; <b>server_time</b> stands for Bybit server time, you can get it from <a href="#t-servertime">Server Time</a> endpoint.
-  auth_para_recv : |
+  auth_para_recv: |
     <p>Additionally, we offer the <code>recv_window</code>, which indicates for how long an HTTP request is valid. This should be sent in milliseconds. Default value: 5000. It used to prevent replay attacks.</p>
     <p>A smaller <code>recv_window</code> is more secure, but your request may fail if the transmission time is greater than your <code>recv_window</code>.</p>
     <p>Please ensure that your <code>timestamp</code> is synced with our server time. You can use the <a href=#t-servertime>Server Time</a> endpoint.</p>
@@ -698,12 +699,12 @@ en:
   # Wallet Data Endpoints
   wallet: Wallet Data Endpoints
   wallet_para: The following wallet data endpoints require authentication.
-    ### Wallet Balance
+  ### Wallet Balance
   balance: Get Wallet Balance
   wallet_para_walletBalance: Get wallet balance info.
   wallet_aside_walletBalance: |
-   <code>position_margin</code> in this endpoint is not same as <a href="https://www.bybit.com/app/wallet/money">position margin on website</a>
-   <p>The formula of position margin on website: <code>position_margin</code> + <code>occ_funding_fee</code> + loss(when your <code>available_balance</code> is insufficient)</p>
+    <code>position_margin</code> in this endpoint is not same as <a href="https://www.bybit.com/app/wallet/money">position margin on website</a>
+    <p>The formula of position margin on website: <code>position_margin</code> + <code>occ_funding_fee</code> + loss(when your <code>available_balance</code> is insufficient)</p>
   ### Wallet Fund Records
   walletrecords: Wallet Fund Records
   wallet_para_walletRecords: Get wallet fund records. This endpoint also shows exchanges from the <a href="https://testnet.bybit.com/app/assets/assets-exchange">Asset Exchange</a>, where the <code>type</code>s for the exchange are <code>ExchangeOrderWithdraw</code> and <code>ExchangeOrderDeposit</code>.
@@ -952,7 +953,7 @@ en:
   websocket_codequote_filters2: How to subscribe with multiple filters
   websocket_codequote_filters3: How to subscribe without filters
   websocket_para_filters: |
-   After establishing the connection, one can subscribe to a new topic by sending a JSON request. The specific formats are as follows:
+    After establishing the connection, one can subscribe to a new topic by sending a JSON request. The specific formats are as follows:
   websocket_para_filters1: |
     <p>The <code>topic</code> indicates the data you would like to receive whilst the <code>filter</code> parses for the specific data you desire - for example, the symbol. The <code>topic</code> is mandatory but the <code>filter</code> is optional.</p>
     <p>To subscribe to more than one topic, simply list multiple topics out, like so:</p>
@@ -1057,11 +1058,11 @@ en:
   ## Quantity (`qty`)
   quantity:
     <ul>
-      <li>Maximum quantity of 1 million (<code>1000000</code>)</li>
-      <li>Must be an integer - no decimals, only a whole number of USD contracts
+    <li>Maximum quantity of 1 million (<code>1000000</code>)</li>
+    <li>Must be an integer - no decimals, only a whole number of USD contracts
     <ul>
-      <li><code>40</code> - allowed</li>
-      <li><code>30.5</code> - illegal</li>
+    <li><code>40</code> - allowed</li>
+    <li><code>30.5</code> - illegal</li>
     </ul>
     </li>
     </ul>
@@ -1101,24 +1102,24 @@ en:
     </ul>
     </li>
     </ul>
-## Time in force (`time_in_force`)
+  ## Time in force (`time_in_force`)
   goodTillCancel:     ""
   immediateOrCancel:  ""
   fillOrKill:         ""
   postOnly:           ""
-## Trigger price type (`trigger_by`)
+  ## Trigger price type (`trigger_by`)
   lastPrice:  ""
   indexPrice: ""
   markPrice:  ""
-## Order (`order`)
+  ## Order (`order`)
   para_order: This is for sorting orders/trades in a specified direction.
   desc: ""
   asc:  ""
-## Order status (`order_status`)
+  ## Order status (`order_status`)
   aside_orderStatusGet: |
     These are the possible values for <code>order_status</code> as included in the response of a <b>Get Order</b> request. To see the options for <code>order_status</code> in the response for a Create Active/Conditional request, see <a href="#order-status-order_status-creation">here</a>.
   para_orderStatusGet: |
-#    Filter fetched orders by their order statuses. To filter by multiple statuses, separate with a comma like so: <code>Filled,New</code>
+  #    Filter fetched orders by their order statuses. To filter by multiple statuses, separate with a comma like so: <code>Filled,New</code>
   created1:         "- order accepted by the system but not yet put through matching engine"
   rejected1:        ""
   new1:             "- order has placed successfully"
@@ -1127,11 +1128,11 @@ en:
   cancelled1:       ""
   pendingCancel1:   "- the matching engine has received the cancellation but there is no guarantee that it will be successful"
   ## Stop order status (`stop_order_status`)
-  active      : "- order is triggered and placed successfully"
-  untriggered : "- order waits to be triggered"
-  triggered   : "- order is triggered"
-  cancelled   : "- order is cancelled"
-  rejected    : "- order is triggered but failed to be placed (for example, due to insufficient margin)"
+  active: "- order is triggered and placed successfully"
+  untriggered: "- order waits to be triggered"
+  triggered: "- order is triggered"
+  cancelled: "- order is cancelled"
+  rejected: "- order is triggered but failed to be placed (for example, due to insufficient margin)"
   deactivated1: "- order was cancelled by user before triggering"
   ## Cancel type (`cancel_type`)
   cancelByReduceOnly:   ""
@@ -1581,6 +1582,26 @@ en:
   restapi_update_20201203_2: Add field <code>close_on_trigger</code>
   restapi_update_20201203_4: Add field <code>close_on_trigger</code> and <code>reduce_only</code>
   restapi_update_20201214_1: Add new USDT perpetual symbols<span>:</span> <a href="#symbol-symbol">BCHUSDT</a>
+  restapi_update_20201231_0: After service upgrade, add some <code>V2</code> endpoints route, the list is as follow：
+  restapi_update_20201231_1: <code>/user/leverage/save</code> <b><code>Not recommended</code></b>
+  restapi_update_20201231_2: <code>/open-api/wallet/fund/records</code> <b><code>Not recommended</code></b>
+  restapi_update_20201231_3: <code>/open-api/wallet/withdraw/list</code> <b><code>Not recommended</code></b>
+  restapi_update_20201231_4: <code>/position/change-position-margin</code> <b><code>Not recommended</code></b>
+  restapi_update_20201231_5: <code>/open-api/api-key</code> <b><code>Not recommended</code></b>
+  restapi_update_20201231_6: <code>/open-api/position/trading-stop</code> <b><code>Not recommended</code></b>
+  restapi_update_20201231_7: <code>/open-api/funding/prev-funding-rate</code> <b><code>Not recommended</code></b>
+  restapi_update_20201231_8: <code>/open-api/funding/prev-funding</code> <b><code>Not recommended</code></b>
+  restapi_update_20201231_9: <code>/open-api/funding/predicted-funding</code> <b><code>Not recommended</code></b>
+  restapi_update_20201231_1_1: Add：<code>/v2/private/position/leverage/save</code>
+  restapi_update_20201231_2_2: Add：<code>/v2/private/wallet/fund/records</code>
+  restapi_update_20201231_3_3: Add：<code>/v2/private/wallet/withdraw/list</code>
+  restapi_update_20201231_4_4: Add：<code>/v2/private/position/change-position-margin</code>
+  restapi_update_20201231_5_5: Add：<code>/v2/private/account/api-key</code>
+  restapi_update_20201231_6_6: Add：<code>/v2/private/position/trading-stop</code>
+  restapi_update_20201231_7_7: Add：<code>/2/private/funding/prev-funding-rate</code>
+  restapi_update_20201231_8_8: Add：<code>/v2/private/funding/prev-funding</code>
+  restapi_update_20201231_9_9: Add：<code>/v2/private/funding/predicted-funding</code>
+
 
   markpricekline: Query Mark Price Kline
   linear_query_mark_price_kline: Query mark price kline (like <a href="#t-querykline">Query Kline</a> but for <a href="https://help.bybit.com/hc/en-us/articles/360039261074-What-is-Dual-Price-mechanism-">mark price</a>).

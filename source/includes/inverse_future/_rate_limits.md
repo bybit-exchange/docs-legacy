@@ -49,11 +49,11 @@ t(:rate_para_understanding)
   </tr>
   <tr>
     <td rowspan="3">75/min</td>
-    <td>user/leverage/save  </td>
+    <td>v2/private/position/leverage/save </td>
     <td>1 / request</td>
   </tr>
-  <tr><td>position/change-position-margin </td><td>1 / request</td></tr>
-  <tr><td>position/trading-stop           </td><td>1 / request</td></tr>
+  <tr><td>v2/private/position/change-position-margin</td><td>1 / request</td></tr>
+  <tr><td>v2/private/position/trading-stop</td><td>1 / request</td></tr>
   <tr>
     <td rowspan="4">120/min</td> 
   </tr>
@@ -61,21 +61,21 @@ t(:rate_para_understanding)
   <tr><td>v2/private/position/list</td><td>1 / request</td></tr>
     <tr><td>v2/private/wallet/balance</td><td>1 / request</td></tr>
   <tr>
-    <td rowspan="3">120/min</td>
-    <td>open-api/funding/prev-funding-rate  </td>
+    <td rowspan="4">120/min</td>
+    <tr><td>v2/private/funding/prev-funding-rate</td>
     <td>1 / request</td>
   </tr>
-  <tr><td>open-api/funding/prev-funding      </td><td>1 / request</td></tr>
-  <tr><td>open-api/funding/predicted-funding </td><td>1 / request</td></tr>
+  <tr><td>v2/private/funding/prev-funding</td><td>1 / request</td></tr>
+  <tr><td>v2/private/funding/predicted-funding</td><td>1 / request</td></tr>
   <tr>
-    <td rowspan="2">120/min</td>
-    <td>open-api/wallet/fund/records  </td>
+    <td rowspan="3">120/min</td>
+    <tr><td>v2/private/wallet/fund/records</td>
     <td>1 / request</td>
   </tr>
-<tr><td>open-api/wallet/withdraw/list </td><td>1 / request</td></tr>
+<tr><td>v2/private/wallet/withdraw/list</td><td>1 / request</td></tr>
 <tr>
-    <td rowspan="1">600/min</td>
-    <td>open-api/api-key  </td>
+    <td rowspan="2">600/min</td>
+    <tr><td>v2/private/account/api-key</td>
     <td>1 / request</td>
   </tr>
 </table>
