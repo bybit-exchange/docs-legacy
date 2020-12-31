@@ -2,7 +2,7 @@
 
 ## 2020-12-31
 ### REST API
-#### t(:restapi_update_20201231_0) 
+#### t(:restapi_update_20201231_0)
 
 - [t(:setleverage)](#t-setleverage) [t(:changelog_new)]
     - t(:restapi_update_20201231_1)
@@ -41,33 +41,32 @@
     - t(:restapi_update_20201203_6)
 
 ## 2020-11-20
-### REST API 
+### REST API
 - [t(:a_getcond)](#t-getcond) [t(:changelog_update)]
     - t(:restapi_update_20201120_1)
 
 ## 2020-11-12
 ### REST API
-### REST API
 - [t(:a_getactive)](#t-getactive) [t(:changelog_update)]
     - t(:restapi_update_20201112_1)
 - [t(:a_getcond)](#t-getcond) [t(:changelog_update)]
     - t(:restapi_update_20201112_2)
-    
-    
+
+
 ## 2020-11-10
 
 ### Websocket API
 
-#### t(:restapi_update_20201111_2) 
-- Topic<a href="https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/websocket.md#public-topic">orderBook25</a> [t(:changelog_delete)]
+#### t(:restapi_update_20201111_2)
+- Topic <a href="https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/websocket.md#public-topic">orderBook25</a> [t(:changelog_delete)]
     - t(:replace_by_new_topic) [t(:websocketorderbook25)](#t-websocketorderbook25) or [t(:websocketorderbook200)](#t-websocketorderbook200)
 - Topic <a href="https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/websocket.md#public-topic">kline</a> [t(:changelog_delete)]
     - t(:replace_by_new_topic) [t(:websocketklineV2)](#t-websocketklinev2)
 - Topic <a href="https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/websocket.md#public-topic">instrument</a> [t(:changelog_delete)]
     - t(:replace_by_new_topic) [t(:websocketinstrumentInfo)](#t-websocketinstrumentinfo)
-   
-### REST API 
-#### t(:restapi_update_20201111_1) 
+
+### REST API
+#### t(:restapi_update_20201111_1)
 - [t(:getactive)](#t-a_getactive) [t(:changelog_delete)]
     - t(:replace_by_new) [t(:a_getactive)](#t-getactive) [t(:changelog_new)]
 - [t(:getcond)](#t-a_getcond) [t(:changelog_delete)]
