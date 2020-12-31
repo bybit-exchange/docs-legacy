@@ -1,5 +1,37 @@
 # t(:changelog)
 
+## 2020-12-31
+### REST API
+#### t(:restapi_update_20201231_0) 
+
+- [t(:setleverage)](#t-setleverage) [t(:changelog_new)]
+    - t(:restapi_update_20201231_1)
+    - t(:restapi_update_20201231_1_1)
+- [t(:walletrecords)](#t-walletrecords) [t(:changelog_new)]
+    - t(:restapi_update_20201231_2)
+    - t(:restapi_update_20201231_2_2)
+- [t(:withdrawrecords)](#t-withdrawrecords) [t(:changelog_new)]
+    - t(:restapi_update_20201231_3)
+    - t(:restapi_update_20201231_3_3)
+- [t(:changemargin)](#t-changemargin) [t(:changelog_new)]
+    - t(:restapi_update_20201231_4)
+    - t(:restapi_update_20201231_4_4)
+- [t(:key)](#t-key) [t(:changelog_new)]
+    - t(:restapi_update_20201231_5)
+    - t(:restapi_update_20201231_5_5)
+- [t(:tradingstop)](#t-tradingstop) [t(:changelog_new)]
+    - t(:restapi_update_20201231_6)
+    - t(:restapi_update_20201231_6_6)
+- [t(:fundingrate)](#t-fundingrate) [t(:changelog_new)]
+    - t(:restapi_update_20201231_7)
+    - t(:restapi_update_20201231_7_7)
+- [t(:mylastfundingfee)](#t-mylastfundingfee) [t(:changelog_new)]
+    - t(:restapi_update_20201231_8)
+    - t(:restapi_update_20201231_8_8)
+- [t(:predictedfunding)](#t-predictedfunding) [t(:changelog_new)]
+    - t(:restapi_update_20201231_9)
+    - t(:restapi_update_20201231_9_9)
+
 
 ## 2020-12-17
 ### REST API
@@ -14,6 +46,7 @@
     - t(:restapi_update_20201120_1)
 
 ## 2020-11-12
+### REST API
 ### REST API
 - [t(:a_getactive)](#t-getactive) [t(:changelog_update)]
     - t(:restapi_update_20201112_1)

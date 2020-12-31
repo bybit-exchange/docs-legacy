@@ -98,7 +98,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/open-api/wallet/fund/records?api_key={api_key}&timestamp={timestamp}&sign={sign}"
+curl "https://api.bybit.com/v2/private/wallet/fund/records?api_key={api_key}&timestamp={timestamp}&sign={sign}"
 ```
 
 ```python
@@ -164,8 +164,8 @@ t(:wallet_aside_walletRecords1)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=oawfRecords>/open-api/wallet/fund/records</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawfRecords"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=oawfRecordsNew>/v2/private/wallet/fund/records</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawfRecordsNew"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -197,7 +197,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/open-api/wallet/withdraw/list?api_key={api_key}&timestamp={timestamp}&sign={sign}"
+curl "https://api.bybit.com/v2/private/wallet/withdraw/list?api_key={api_key}&timestamp={timestamp}&sign={sign}"
 ```
 
 ```python
@@ -245,8 +245,8 @@ t(:wallet_aside_withdrawRecords)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=oawwList>/open-api/wallet/withdraw/list</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawwList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=oawwListNew>/v2/private/wallet/withdraw/list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawwListNew"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
