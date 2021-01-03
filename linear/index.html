@@ -12,7 +12,7 @@
       gtag('config', 'UA-158616893-1');
     </script>
 
-    <link href="../images/favicon-542cd9a8.png" rel="icon" type="image/png" />
+    <link href="../images/favicon-4f296779.ico" rel="icon" type="image/ico" />
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -917,7 +917,7 @@ clipboard.on('error', function(e) {
 <h1 id='t-introduction'>Group And Resources</h1>
 <p><p>Welcome to the official documentation for the <a href="https://www.bybit.com/">Bybit</a> APIs and Websocket! Here you can find details on how to access all of our endpoints, their respective expected outputs, and possible errors you may encounter.</p> <p>If you encounter an issue you need help with, have a suggestions for us, or just want to have a chat with fellow developers then please head on over to our <a href="https://t.me/Bybitapi">API Telegram chat</a>!</p></p>
 <h3 id='t-resources'>Group And Bybit API Resources</h3>
-<p><ul class="bybit-community"> <li><a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong> <img src="../images/bybit_favicon-066372d5.png" height="14", width="14"></a> - <strong>learn about exchange mechanisms here!</strong> <li><a href="https://github.com/bybit-exchange/docs/issues"><strong>Bybit API docs</strong> <img src="../images/github_logo_icon-768757c0.png" height="14", width="14"></a> - <strong>report issues here!</strong> <li><a href="https://github.com/bybit-exchange/api-connectors/"><strong>Bybit's api-connectors</strong> <img src="../images/github_logo_icon-768757c0.png" height="14", width="14"></a> - <strong>find a repo of prebuilt libraries here!</strong> <li><a href="https://t.me/Bybitapi"><strong>API Discussion Group</strong> <img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> - <strong>get English help here!</strong> <li><a href="https://t.me/Bybitchineseapi"><strong>Chinese API Discussion Group</strong> <img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> - <strong>get Chinese help here!</strong> <li><a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong> <img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> - <strong>subscribe for changes to the API!</strong> <li><a href="mailto:IT@bybit.com"><strong>IT@bybit.com</strong> <img src="../images/email_icon-e7dd7b20.png" height="14", width="14"></a> - <strong>Official IT support email!</strong> </ul></p>
+<p><ul class="bybit-community"> <li><img src="../images/favicon-4f296779.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong></a> - <strong>learn about exchange mechanisms here!</strong> <li><img src="../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/docs/issues"><strong>Bybit API docs</strong></a> - <strong>report issues here!</strong> <li><img src="../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/api-connectors/"><strong>Bybit's api-connectors</strong></a> - <strong>find a repo of prebuilt libraries here!</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong> - <strong>get English help here!</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>subscribe for changes to the API!</strong> <li><img src="../images/email_icon-e7dd7b20.png" height="14", width="14"> <a href="mailto:IT@bybit.com"><strong>IT@bybit.com</strong></a> - <strong>official IT support email!</strong> </ul></p>
 <h1 id='t-changelog'>Changelog</h1><h2 id='2020-12-14'>2020-12-14</h2><h3 id='rest-api'>REST API</h3>
 <ul>
 <li>Add new USDT perpetual symbols<span>:</span> <a href="#symbol-symbol">BCHUSDT</a> [update]</li>
@@ -2130,7 +2130,7 @@ GET
 
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">LinearOrder</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="s">"Buy"</span><span class="p">,</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span><span class="n">order_type</span><span class="o">=</span><span class="s">"Limit"</span><span class="p">,</span><span class="n">qty</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">price</span><span class="o">=</span><span class="mi">8300</span><span class="p">,</span><span class="n">time_in_force</span><span class="o">=</span><span class="s">"GoodTillCancel"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">LinearOrder</span><span class="p">.</span><span class="n">LinearOrder_new</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="s">"Sell"</span><span class="p">,</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">,</span><span class="n">order_type</span><span class="o">=</span><span class="s">"Limit"</span><span class="p">,</span><span class="n">qty</span><span class="o">=</span><span class="mf">0.22</span><span class="p">,</span><span class="n">price</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span><span class="n">time_in_force</span><span class="o">=</span><span class="s">"GoodTillCancel"</span><span class="p">,</span><span class="n">reduce_only</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">close_on_trigger</span><span class="o">=</span><span class="bp">False</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
 </code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -2445,7 +2445,7 @@ GET
 <span class="p">}</span>
 </code></pre></div>
 <p><p>Get my active order list.</p>
-<p>Cause order creation/cancellation is asynchronous, sometimes there is a data delay in this endpoint. You can get real-time order info in <a href="#t-queryactive">Query Active Order (real-time)</a> endpoint.</p>
+<p>Because order creation/cancellation is asynchronous, there can be a data delay in this endpoint. You can get real-time order info with the <a href="#t-queryactive">Query Active Order (real-time)</a> endpoint.</p>
 </p>
 
 <p class="fake_header">HTTP Request</p>
@@ -2915,7 +2915,7 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/private/linear/order/search?api_key={api_key}&amp;symbol=BTCUSDT&amp;timestamp={timestamp}order_id={order_id}&amp;sign={sign}"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Order</span><span class="p">.</span><span class="n">query</span><span class="p">().</span><span class="n">result</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span> <span class="n">order_id</span><span class="o">=</span><span class="s">""</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">LinearOrder</span><span class="p">.</span><span class="n">LinearOrder_query</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">,</span> <span class="n">order_id</span><span class="o">=</span><span class="s">"87d8a4ed-dc9d-41c9-8dac-6e3c51356645"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
 </code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -3471,7 +3471,7 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/private/linear/stop-order/list?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">LinearConditional</span><span class="p">.</span><span class="n">LinearConditional_getOrders</span><span class="p">().</span><span class="n">result</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">LinearConditional</span><span class="p">.</span><span class="n">LinearConditional_getOrders</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
 </code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -3537,7 +3537,7 @@ Please note that only orders that are unfilled or partially filled can be modifi
     <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">600</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><p>Get my conditional order list.</p> <p>Cause order creation/cancellation is asynchronous, sometimes there is a data delay in this endpoint. You can get real-time order info in <a href="#t-querycond">Query Conditional Order (real-time)</a> endpoint.</p></p>
+<p><p>Get my conditional order list.</p> <p>Because order creation/cancellation is asynchronous, there can be a data delay in this endpoint. You can get real-time order info with the <a href="#t-querycond">Query Conditional Order (real-time)</a> endpoint.</p></p>
 
 <p class="fake_header">HTTP Request</p>
 
@@ -3723,7 +3723,7 @@ Please note that only orders that are unfilled or partially filled can be modifi
 -d '{"api_key":"{api_key}","symbol":"BTCUSDT","order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">LinearConditional</span><span class="p">.</span><span class="n">LinearConditional_cancel</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">,</span> <span class="n">order_id</span><span class="o">=</span><span class="s">""</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">LinearConditional</span><span class="p">.</span><span class="n">LinearConditional_cancel</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">,</span> <span class="n">stop_order_id</span><span class="o">=</span><span class="s">"52095ff7-b080-498e-b3a4-8b3e76c42f5e"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
 </code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -3805,7 +3805,7 @@ Please note that only orders that are unfilled or partially filled can be modifi
 -d '{"api_key":"{api_key}","symbol":"BTCUSDT","timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">LinearOrder</span><span class="p">.</span><span class="n">LinearOrder_cancelAll</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">LinearConditional</span><span class="p">.</span><span class="n">LinearConditional_cancelAll</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
 </code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -4306,7 +4306,7 @@ Please note that you can only modify untriggered conditional orders.
 <span class="p">}</span>
 
 <span class="c1">//When <code>symbol</code> is not passed, the response uses a different structure:
- </span>
+</span>
 <span class="p">{</span>
     <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
@@ -4561,7 +4561,7 @@ Please note that you can only modify untriggered conditional orders.
 -d '{"api_key":"{api_key}","symbol":"BTCUSDT",margin="10","timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">LinearPositions</span><span class="p">.</span><span class="n">LinearPositions_setAutoAddMargin</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">,</span> <span class="n">margin</span><span class="o">=</span><span class="s">"10"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">LinearPositions</span><span class="p">.</span><span class="n">LinearPositions_setAutoAddMargin</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">,</span> <span class="n">side</span><span class="o">=</span><span class="s">"Sell"</span><span class="p">,</span> <span class="n">auto_add_margin</span><span class="o">=</span><span class="bp">False</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
 </code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -4924,7 +4924,7 @@ When set to Partial, SL/TP orders may have a quantity less than the position siz
 <tr>
 <td style="text-align: left">available_balance</td>
 <td style="text-align: left">number</td>
-<td>Available balance = wallet balance - position margin</td>
+<td>Available balance = wallet balance - used margin</td>
 </tr>
 </tbody></table>
 <h3 id='t-setleverage'>Set Leverage</h3>
@@ -5048,7 +5048,7 @@ Passing these parameters will create conditional orders controlled by the system
 <td style="text-align: left"><a href="#side-side">side</a></td>
 <td style="text-align: left">true</td>
 <td style="text-align: left">string</td>
-<td>Side</td>
+<td>translation missing: en.account_row_comment_side</td>
 </tr>
 <tr>
 <td style="text-align: left">take_profit</td>
@@ -5512,7 +5512,7 @@ One order may have multiple trade records.
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/public/linear/risk-limit?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">LinearWallet</span><span class="p">.</span><span class="n">LinearWallet_getRiskLimit</span><span class="p">().</span><span class="n">result</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">LinearWallet</span><span class="p">.</span><span class="n">LinearWallet_getRiskLimit</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
 </code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -6178,7 +6178,7 @@ Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles
     <li>Your Bybit UIDs or registered Emails, and the symbol which you are trading</li>
     <li>General description of your trading strategy and why requires higher rate limit</li>
     <li>Screenshot of previous monthly trading volume (maker/taker) with other platforms</li>
-    <li>Optional: your order history in CVS files</li>
+    <li>Optional: your order history in CSV files</li>
   </ol>
 </ul>
 </p>
@@ -6343,21 +6343,23 @@ Prior notice will be given via the website if we update this mechanism.
   </li>
 </p>
 <p>
-  <li>Mainnet public(both endpoints are available):<br/>
-    <span id="mainnet_public_address">wss://stream.bybit.com/realtime_public</span>
-    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_public_address"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
-    <br/>
-    <span id="mainnet_public_address_2">wss://stream.bytick.com/realtime_public</span>
-    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_public_address_2"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+  <li>Mainnet public (both endpoints are available):<br/>
+    <ul>
+    <li><span id="mainnet_public_address">wss://stream.bybit.com/realtime_public</span>
+    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_public_address"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></li>
+    <li><span id="mainnet_public_address_2">wss://stream.bytick.com/realtime_public</span>
+    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_public_address_2"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></li>
+    </ul>
   </li>
 </p>
 <p>
-  <li>Mainnet private(both endpoints are available):<br/>
-    <span id="mainnet_private_address">wss://stream.bybit.com/realtime_private</span>
+  <li>Mainnet private (both endpoints are available):<br/>
+    <ul>
+    <li><span id="mainnet_private_address">wss://stream.bybit.com/realtime_private</span>
     <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_private_address"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
-    <br/>
-    <span id="mainnet_private_address_2">wss://stream.bytick.com/realtime_private</span>
-    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_private_address_2"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+    <li><span id="mainnet_private_address_2">wss://stream.bytick.com/realtime_private</span>
+    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_private_address_2"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></li>
+    </ul>
   </li>
 </p>
 </ul>
@@ -7624,7 +7626,7 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 <tr>
 <td style="text-align: left">available_balance</td>
 <td style="text-align: left">number</td>
-<td>Available balance = wallet balance - position margin</td>
+<td>Available balance = wallet balance - used margin</td>
 </tr>
 </tbody></table>
 <h1 id='t-errors'>Errors</h1>

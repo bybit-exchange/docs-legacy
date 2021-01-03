@@ -12,7 +12,7 @@
       gtag('config', 'UA-158616893-1');
     </script>
 
-    <link href="../../images/favicon-542cd9a8.png" rel="icon" type="image/png" />
+    <link href="../../images/favicon-4f296779.ico" rel="icon" type="image/ico" />
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -917,7 +917,7 @@ clipboard.on('error', function(e) {
 <h1 id='t-introduction'>中文社区和参考资料</h1>
 <p><p>欢迎使用 <a href="https://www.bybit.com/">Bybit</a> APIs 和 Websocket官方文档！</p> <p>如果您在使用API的过程中遇到问题需要帮助，请加入我们的 <a href="https://t.me/Bybitapi">官方Telegram API讨论群</a>！</p></p>
 <h3 id='t-resources'>中文社区和参考资料</h3>
-<p><ul class="bybit-community"> <li><a href="https://help.bybit.com/hc/zh-cn"><strong>帮助中心</strong><img src="../../images/bybit_favicon-066372d5.png" height="14", width="14"></a> - <strong>在这里了解合约交易</strong> <li><a href="https://github.com/bybit-exchange/docs/issues"><strong>Bybit API docs</strong><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"></a> - <strong>在这里提bug</strong> <li><a href="https://github.com/bybit-exchange/api-connectors/"><strong>Bybit's api-connectors</strong> <img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"></a> - <strong>官方API SDK</strong> <li><a href="https://t.me/Bybitapi"><strong>API Discussion Group</strong> <img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> - <strong>API英文讨论群</strong> <li><a href="https://t.me/Bybitchineseapi"><strong>Chinese API Discussion Group</strong> <img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> - <strong>API中文讨论群</strong> <li><a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong> <img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> - <strong>API公告群</strong> <li><a href="mailto:IT@bybit.com"><strong>IT@bybit.com</strong> <img src="../../images/email_icon-e7dd7b20.png" height="14", width="14"></a> - <strong>官方技术支持邮箱!</strong> </ul></p>
+<p><ul class="bybit-community"> <li><img src="../../images/favicon-4f296779.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/zh-cn"><strong>帮助中心</strong></a> - <strong>在这里了解合约交易</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/docs/issues"><strong>Bybit API docs</strong></a> - <strong>在这里提bug</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/api-connectors/"><strong>Bybit's api-connectors</strong></a> - <strong>官方API SDK</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文讨论群</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文讨论群</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong> <li><img src="../../images/email_icon-e7dd7b20.png" height="14", width="14"> <a href="mailto:IT@bybit.com"><strong>IT@bybit.com</strong></a> - <strong>官方技术支持邮箱!</strong> </ul></p>
 <h1 id='t-changelog'>更新日志</h1><h2 id='2020-12-14'>2020-12-14</h2><h3 id='rest-api'>REST API</h3>
 <ul>
 <li>USDT合约上线新交易对：<a href="#symbol-symbol">BCHUSDT</a> [更新]</li>
@@ -2115,7 +2115,7 @@ GET
 
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">LinearOrder</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="s">"Buy"</span><span class="p">,</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span><span class="n">order_type</span><span class="o">=</span><span class="s">"Limit"</span><span class="p">,</span><span class="n">qty</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">price</span><span class="o">=</span><span class="mi">8300</span><span class="p">,</span><span class="n">time_in_force</span><span class="o">=</span><span class="s">"GoodTillCancel"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">LinearOrder</span><span class="p">.</span><span class="n">LinearOrder_new</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="s">"Sell"</span><span class="p">,</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">,</span><span class="n">order_type</span><span class="o">=</span><span class="s">"Limit"</span><span class="p">,</span><span class="n">qty</span><span class="o">=</span><span class="mf">0.22</span><span class="p">,</span><span class="n">price</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span><span class="n">time_in_force</span><span class="o">=</span><span class="s">"GoodTillCancel"</span><span class="p">,</span><span class="n">reduce_only</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">close_on_trigger</span><span class="o">=</span><span class="bp">False</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
 </code></pre></div>
 <blockquote>
 <p>响应示例</p>
@@ -2900,7 +2900,7 @@ GET
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/private/linear/order/search?api_key={api_key}&amp;symbol=BTCUSDT&amp;timestamp={timestamp}order_id={order_id}&amp;sign={sign}"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Order</span><span class="p">.</span><span class="n">query</span><span class="p">().</span><span class="n">result</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span> <span class="n">order_id</span><span class="o">=</span><span class="s">""</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">LinearOrder</span><span class="p">.</span><span class="n">LinearOrder_query</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">,</span> <span class="n">order_id</span><span class="o">=</span><span class="s">"87d8a4ed-dc9d-41c9-8dac-6e3c51356645"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
 </code></pre></div>
 <blockquote>
 <p>响应示例</p>
@@ -3455,7 +3455,7 @@ GET
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/private/linear/stop-order/list?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">LinearConditional</span><span class="p">.</span><span class="n">LinearConditional_getOrders</span><span class="p">().</span><span class="n">result</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">LinearConditional</span><span class="p">.</span><span class="n">LinearConditional_getOrders</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
 </code></pre></div>
 <blockquote>
 <p>响应示例</p>
@@ -3707,7 +3707,7 @@ GET
 -d '{"api_key":"{api_key}","symbol":"BTCUSDT","order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">LinearConditional</span><span class="p">.</span><span class="n">LinearConditional_cancel</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">,</span> <span class="n">order_id</span><span class="o">=</span><span class="s">""</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">LinearConditional</span><span class="p">.</span><span class="n">LinearConditional_cancel</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">,</span> <span class="n">stop_order_id</span><span class="o">=</span><span class="s">"52095ff7-b080-498e-b3a4-8b3e76c42f5e"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
 </code></pre></div>
 <blockquote>
 <p>响应示例</p>
@@ -3789,7 +3789,7 @@ GET
 -d '{"api_key":"{api_key}","symbol":"BTCUSDT","timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">LinearOrder</span><span class="p">.</span><span class="n">LinearOrder_cancelAll</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">LinearConditional</span><span class="p">.</span><span class="n">LinearConditional_cancelAll</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
 </code></pre></div>
 <blockquote>
 <p>响应示例</p>
@@ -4288,7 +4288,7 @@ GET
     <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">120</span>
 <span class="p">}</span>
 
-<span class="c1">//当不传参数<code>symbol</code>的时候，返回结构如下： </span>
+<span class="c1">//当不传参数<code>symbol</code>的时候，返回结构如下：</span>
 <span class="p">{</span>
     <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
@@ -4543,7 +4543,7 @@ GET
 -d '{"api_key":"{api_key}","symbol":"BTCUSDT",margin="10","timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">LinearPositions</span><span class="p">.</span><span class="n">LinearPositions_setAutoAddMargin</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">,</span> <span class="n">margin</span><span class="o">=</span><span class="s">"10"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">LinearPositions</span><span class="p">.</span><span class="n">LinearPositions_setAutoAddMargin</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">,</span> <span class="n">side</span><span class="o">=</span><span class="s">"Sell"</span><span class="p">,</span> <span class="n">auto_add_margin</span><span class="o">=</span><span class="bp">False</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
 </code></pre></div>
 <blockquote>
 <p>响应示例</p>
@@ -5030,7 +5030,7 @@ When set to Partial, SL/TP orders may have a quantity less than the position siz
 <td style="text-align: left"><a href="#side-side">side</a></td>
 <td style="text-align: left">true</td>
 <td style="text-align: left">string</td>
-<td>方向</td>
+<td>translation missing: zh-cn.account_row_comment_side</td>
 </tr>
 <tr>
 <td style="text-align: left">take_profit</td>
@@ -5494,7 +5494,7 @@ When set to Partial, SL/TP orders may have a quantity less than the position siz
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/public/linear/risk-limit?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">LinearWallet</span><span class="p">.</span><span class="n">LinearWallet_getRiskLimit</span><span class="p">().</span><span class="n">result</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">LinearWallet</span><span class="p">.</span><span class="n">LinearWallet_getRiskLimit</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
 </code></pre></div>
 <blockquote>
 <p>响应示例</p>
