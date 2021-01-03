@@ -7,12 +7,6 @@
 curl "https://api.bybit.com/user/leverage?api_key={api_key}&timestamp={timestamp}&sign={sign}"
 ```
 
-```python
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Positions.userLeverage())
-```
-
 > t(:codequote_responseExample)
 
 ```javascript
