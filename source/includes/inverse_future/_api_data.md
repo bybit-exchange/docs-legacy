@@ -11,7 +11,7 @@ curl https://api-testnet.bybit.com/v2/public/time
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Common.Common_get().result())
+print(client.Common.Common_getTime().result())
 ```
 
 > t(:codequote_responseExample)
