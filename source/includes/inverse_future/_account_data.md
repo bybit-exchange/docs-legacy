@@ -1709,7 +1709,7 @@ curl "https://api.bybit.com/v2/private/trade/closed-pnl/list?api_key={api_key}&s
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Execution.Execution_closed_pnl(symbol="BTCUSD").result())
+print(client.Execution.Positions_closePnlRecords(symbol="BTCUSD").result())
 ```
 
 > t(:codequote_responseExample)
