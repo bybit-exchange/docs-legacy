@@ -1062,7 +1062,7 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
-|order_id |false |string | t(:misc_row_comment_orderIdOrOrderLinkId)|
+|stop_order_id |false |string | t(:misc_row_comment_orderIdOrOrderLinkId)|
 |order_link_id |false |string |t(:misc_row_comment_orderLinkIdOrOrderId) |
 
 <p class="fake_header">t(:responseparameters)</p>
