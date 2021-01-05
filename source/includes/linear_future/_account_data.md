@@ -2103,9 +2103,9 @@ GET
 |is_lowest_risk |number |t(:row_comment_is_lowest_risk)    |
 |created_at |string |t(:row_comment_created_at)  |
 |updated_at |string |t(:row_comment_updated_at)  |
- 
 
 ### t(:setrisklimit)
+
 > t(:codequote_curlExample)
 
 ```console
@@ -2122,8 +2122,7 @@ print(client.Wallet.Wallet_setRiskLimit(symbol="BTCUSD", risk_id=2).result())
 
 > t(:codequote_responseExample)
 
-```javascript
-
+```javascript  
 {
     "ret_code": 0,
     "ret_msg": "OK",
@@ -2136,10 +2135,8 @@ print(client.Wallet.Wallet_setRiskLimit(symbol="BTCUSD", risk_id=2).result())
     "rate_limit_status": 73,
     "rate_limit_reset_ms": 1609839125560,
     "rate_limit": 75
-}
-
-```
-
+} 
+``` 
 t(:wallet_para_setRisk)
 
 <aside class="notice">
@@ -2162,28 +2159,7 @@ POST
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |risk_id |number |t(:row_comment_riskId)  | 
-   
-<aside class="notice">
-t(:wallet_aside_getRisk)
-</aside>
-
-<p class="fake_header">t(:httprequest)</p>
-POST
-<code><span id=oawRiskLimit>/open-api/wallet/risk-limit</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawRiskLimit"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
-|t(:row_parameter_side) |string |t(:row_comment_side)  |
-|risk_id |true |integer |t(:row_comment_riskId) |
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|id |number |t(:row_comment_riskId)  | 
-
+    
 ## t(:funding)
 
 ### t(:predictedfunding)
