@@ -266,6 +266,7 @@ GET
 
 ### t(:indexpricekline)
 > t(:codequote_curlExample)
+
 ```console
 curl "https://api.bybit.com/public/linear/index-price-kline?symbol=BTCUSDT&interval=1&limit=2&from=1581231260"
 ```
@@ -278,14 +279,13 @@ curl "https://api.bybit.com/public/linear/index-price-kline?symbol=BTCUSDT&inter
     "ext_code":"",
     "ext_info":"",
     "result":[{
-        "id":2,
         "symbol":"BTCUSDT",
         "period":"1",
-        "start_at":1582231260,
-        "open":100,
-        "high":120,
-        "low":88,
-        "close":115
+        "open_time":1582231260,
+        "open":"30015.5",
+        "high":"33110.5",
+        "low":"29909",
+        "close":"32210.5"
     }],
     "time_now":"1591263582.601795"
 }
@@ -310,16 +310,17 @@ GET
 |:----- |:-----|----- |
 | symbol |string |t(:row_comment_symbol) |
 | period |string |t(:row_comment_period) |
-| start_at |integer |t(:row_comment_startTime) |
-| open |integer |t(:row_comment_open) |
-| high |integer |t(:row_comment_high) |
-| low |integer |t(:row_comment_low) |
-| close |integer |t(:row_comment_close) |
+| open_time |integer |t(:row_comment_startTime) |
+| open |string |t(:row_comment_open) |
+| high |string |t(:row_comment_high) |
+| low |string |t(:row_comment_low) |
+| close |string |t(:row_comment_close) |
 
 
 
 ### t(:premiumindiceskline)
 > t(:codequote_curlExample)
+
 ```console
 curl "https://api.bybit.com/public/linear/premium-indices-kline?symbol=BTCUSDT&interval=1&limit=2&from=1581231260"
 ```
@@ -332,14 +333,13 @@ curl "https://api.bybit.com/public/linear/premium-indices-kline?symbol=BTCUSDT&i
     "ext_code":"",
     "ext_info":"",
     "result":[{
-        "id":2,
         "symbol":"BTCUSDT",
         "period":"1",
-        "start_at":1582231260,
-        "open":100,
-        "high":120,
-        "low":88,
-        "close":115
+        "open_time":1582231260,
+        "open":"30015.5",
+        "high":"33110.5",
+        "low":"29909",
+        "close":"32210.5"
     }],
     "time_now":"1591263582.601795"
 }
@@ -364,11 +364,11 @@ GET
 |:----- |:-----|----- |
 | symbol |string |t(:row_comment_symbol) |
 | period |string |t(:row_comment_period) |
-| start_at |integer |t(:row_comment_startTime) |
-| open |integer |t(:row_comment_open) |
-| high |integer |t(:row_comment_high) |
-| low |integer |t(:row_comment_low) |
-| close |integer |t(:row_comment_close) |
+| open_time |integer |t(:row_comment_startTime) |
+| open |string |t(:row_comment_open) |
+| high |string |t(:row_comment_high) |
+| low |string |t(:row_comment_low) |
+| close |string |t(:row_comment_close) |
 
 
 
