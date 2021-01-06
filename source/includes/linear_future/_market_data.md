@@ -273,23 +273,21 @@ curl "https://api.bybit.com/public/linear/index-price-kline?symbol=BTCUSDT&inter
 
 ```javascript
 {
-"ret_code":0,
-"ret_msg":"OK",
-"ext_code":"",
-"ext_info":"",
-"result":[
-{
-"id":2,
-"symbol":"BTCUSDT",
-"period":"1",
-"start_at":1582231260,
-"open":100,
-"high":120,
-"low":88,
-"close":115
-}
-],
-"time_now":"1591263582.601795"
+    "ret_code":0,
+    "ret_msg":"OK",
+    "ext_code":"",
+    "ext_info":"",
+    "result":[{
+        "id":2,
+        "symbol":"BTCUSDT",
+        "period":"1",
+        "start_at":1582231260,
+        "open":100,
+        "high":120,
+        "low":88,
+        "close":115
+    }],
+    "time_now":"1591263582.601795"
 }
 ```
 t(:inverse_query_index_price_kline)
@@ -329,23 +327,21 @@ curl "https://api.bybit.com/public/linear/premium-indices-kline?symbol=BTCUSDT&i
 
 ```javascript
 {
-"ret_code":0,
-"ret_msg":"OK",
-"ext_code":"",
-"ext_info":"",
-"result":[
-{
-"id":2,
-"symbol":"BTCUSDT",
-"period":"1",
-"start_at":1582231260,
-"open":100,
-"high":120,
-"low":88,
-"close":115
-}
-],
-"time_now":"1591263582.601795"
+    "ret_code":0,
+    "ret_msg":"OK",
+    "ext_code":"",
+    "ext_info":"",
+    "result":[{
+        "id":2,
+        "symbol":"BTCUSDT",
+        "period":"1",
+        "start_at":1582231260,
+        "open":100,
+        "high":120,
+        "low":88,
+        "close":115
+    }],
+    "time_now":"1591263582.601795"
 }
 ```
 t(:inverse_query_premium_indices_kline)

@@ -2,7 +2,7 @@
 
 ## 2021-01-07
 ### REST API
-### t(:restapi_update_20210107_1)
+### t(:restapi_update_20210107_0)
 - [t(:indexpricekline)](#t-indexpricekline) [t(:changelog_new)]
   - t(:restapi_update_20210107_1)
 - [t(:premiumindiceskline)](#t-premiumindiceskline) [t(:changelog_new)]

@@ -565,23 +565,23 @@ curl "https://api.bybit.com/v2/public/index-price-kline?symbol=BTCUSD&interval=1
 
 ```javascript
 {
-"ret_code":0,
-"ret_msg":"OK",
-"ext_code":"",
-"ext_info":"",
-"result":[
-{
-"id":2,
-"symbol":"BTCUSD",
-"period":"1",
-"start_at":1582231260,
-"open":100,
-"high":120,
-"low":88,
-"close":115
-}
-],
-"time_now":"1591263582.601795"
+    "ret_code":0,
+    "ret_msg":"OK",
+    "ext_code":"",
+    "ext_info":"",
+    "result":[
+        {
+            "id":2,
+            "symbol":"BTCUSD",
+            "period":"1",
+            "start_at":1582231260,
+            "open":100,
+            "high":120,
+            "low":88,
+            "close":115
+        }
+    ],
+    "time_now":"1591263582.601795"
 }
 ```
 t(:inverse_query_index_price_kline)
@@ -621,23 +621,23 @@ curl "https://api.bybit.com/v2/public/premium-indces-kline?symbol=BTCUSD&interva
 
 ```javascript
 {
-"ret_code":0,
-"ret_msg":"OK",
-"ext_code":"",
-"ext_info":"",
-"result":[
-{
-"id":2,
-"symbol":"BTCUSD",
-"period":"1",
-"start_at":1582231260,
-"open":100,
-"high":120,
-"low":88,
-"close":115
-}
-],
-"time_now":"1591263582.601795"
+  "ret_code":0,
+    "ret_msg":"OK",
+    "ext_code":"",
+    "ext_info":"",
+    "result":[
+        {
+            "id":2,
+            "symbol":"BTCUSD",
+            "period":"1",
+            "start_at":1582231260,
+            "open":100,
+            "high":120,
+            "low":88,
+            "close":115
+        }
+  ],
+    "time_now":"1591263582.601795"
 }
 ```
 t(:inverse_query_premium_indices_kline)
