@@ -1858,7 +1858,7 @@ curl "https://api.bybit.com/public/linear/risk-limit?api_key={api_key}&timestamp
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.LinearWallet.LinearWallet_getRiskLimit(symbol="BTCUSDT").result())
+print(client.LinearPositions.LinearPositions_getRiskLimit(symbol="BTCUSDT").result())
 ```
 
 > t(:codequote_responseExample)
@@ -2109,15 +2109,15 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/open-api/wallet/risk-limit \
+curl https://api.bybit.com/private/linear/position/set-risk \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSD","risk_id":2,"timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","symbol":"BTCUSDT","risk_id":2,"timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Wallet.Wallet_setRiskLimit(symbol="BTCUSD", risk_id=2).result())
+print(client.LinearPositions.LinearPositions_setRiskLimit(symbol="BTCUSDT", side="Buy",risk_id=1).result())
 ```
 
 > t(:codequote_responseExample)
