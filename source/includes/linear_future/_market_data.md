@@ -264,7 +264,7 @@ GET
 | close |integer |t(:row_comment_close) |
 
 
-### t(:indexpricekline)
+### t(:queryindexpricekline)
 > t(:codequote_curlExample)
 
 ```console
