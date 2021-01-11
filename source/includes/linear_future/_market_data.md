@@ -56,7 +56,7 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| t(:row_parameter_symbol)  |string |t(:row_comment_symbol) | 
+| t(:row_parameter_symbol)  |string |t(:row_comment_symbol) |
 | period |string |t(:row_comment_period) |
 | start_at |integer |t(:row_comment_startTime) |
 | volume |number |t(:row_comment_resp_volume) |
@@ -182,8 +182,8 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
-|funding_rate |number |t(:row_comment_funding_rate)  | 
-|funding_rate_timestamp |string |t(:row_comment_funding_rate_timestamp)  | 
+|funding_rate |number |t(:row_comment_funding_rate)  |
+|funding_rate_timestamp |string |t(:row_comment_funding_rate_timestamp)  |
 
 
 
@@ -254,7 +254,7 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| symbol |string |t(:row_comment_symbol) | 
+| symbol |string |t(:row_comment_symbol) |
 | period |string |t(:row_comment_period) |
 | start_at |integer |t(:row_comment_startTime) |
 | volume |number |t(:row_comment_resp_volume) |
@@ -294,8 +294,8 @@ t(:inverse_query_index_price_kline)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=plmpk>/public/linear/index-price-kline</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#plmpk"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=plIndexPriceKline>/public/linear/index-price-kline</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#plIndexPriceKline"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -308,7 +308,7 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| symbol |string |t(:row_comment_symbol) |
+| <a href="#symbol-symbol">symbol</a> |string |t(:row_comment_symbol) |
 | period |string |t(:row_comment_period) |
 | open_time |integer |t(:row_comment_startTime) |
 | open |string |t(:row_comment_open) |
@@ -322,7 +322,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/public/linear/premium-indices-kline?symbol=BTCUSDT&interval=1&limit=2&from=1581231260"
+curl "https://api.bybit.com/public/linear/premium-index-kline?symbol=BTCUSDT&interval=1&limit=2&from=1581231260"
 ```
 > t(:codequote_responseExample)
 
@@ -348,8 +348,8 @@ t(:inverse_query_premium_indices_kline)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=plmpk>/public/linear/premium-indices-kline</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#plmpk"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=plPremiumIndexKline>/public/linear/premium-index-kline</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#plPremiumIndexKline"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -362,7 +362,7 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| symbol |string |t(:row_comment_symbol) |
+| <a href="#symbol-symbol">symbol</a> |string |t(:row_comment_symbol) |
 | period |string |t(:row_comment_period) |
 | open_time |integer |t(:row_comment_startTime) |
 | open |string |t(:row_comment_open) |
