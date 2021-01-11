@@ -318,7 +318,7 @@ GET
 
 
 
-### t(:premiumindiceskline)
+### t(:querypremiumindexkline)
 > t(:codequote_curlExample)
 
 ```console

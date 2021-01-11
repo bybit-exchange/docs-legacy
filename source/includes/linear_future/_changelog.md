@@ -5,7 +5,7 @@
 ### t(:restapi_update_20210107_0)
 - [t(:queryindexpricekline)](#t-queryindexpricekline) [t(:changelog_new)]
   - t(:restapi_update_20210107_3)
-- [t(:premiumindiceskline)](#t-premiumindiceskline) [t(:changelog_new)]
+- [t(:querypremiumindexkline)](#t-querypremiumindexkline) [t(:changelog_new)]
   - t(:restapi_update_20210107_4)
 
 ## 2020-12-14
