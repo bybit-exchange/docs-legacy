@@ -1,6 +1,6 @@
 # t(:changelog)
 
-## 2021-01-11
+## 2021-01-12
 ### REST API
 ### t(:restapi_update_20210107_0)
 - [t(:indexpricekline)](#t-indexpricekline) [t(:changelog_new)]
