@@ -264,6 +264,114 @@ GET
 | close |integer |t(:row_comment_close) |
 
 
+### t(:indexpricekline)
+> t(:codequote_curlExample)
+
+```console
+curl "https://api.bybit.com/public/linear/index-price-kline?symbol=BTCUSDT&interval=1&limit=2&from=1581231260"
+```
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code":0,
+    "ret_msg":"OK",
+    "ext_code":"",
+    "ext_info":"",
+    "result":[{
+        "symbol":"BTCUSDT",
+        "period":"1",
+        "open_time":1582231260,
+        "open":"30015.5",
+        "high":"33110.5",
+        "low":"29909",
+        "close":"32210.5"
+    }],
+    "time_now":"1591263582.601795"
+}
+```
+t(:inverse_query_index_price_kline)
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=plmpk>/public/linear/index-price-kline</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#plmpk"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|interval |true |string |t(:row_comment_interval) |
+|from |true |integer |t(:row_comment_from_timestamp) |
+|limit |false |integer |t(:linear_kline_row_comment_limit_200) |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| symbol |string |t(:row_comment_symbol) |
+| period |string |t(:row_comment_period) |
+| open_time |integer |t(:row_comment_startTime) |
+| open |string |t(:row_comment_open) |
+| high |string |t(:row_comment_high) |
+| low |string |t(:row_comment_low) |
+| close |string |t(:row_comment_close) |
+
+
+
+### t(:premiumindiceskline)
+> t(:codequote_curlExample)
+
+```console
+curl "https://api.bybit.com/public/linear/premium-indices-kline?symbol=BTCUSDT&interval=1&limit=2&from=1581231260"
+```
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code":0,
+    "ret_msg":"OK",
+    "ext_code":"",
+    "ext_info":"",
+    "result":[{
+        "symbol":"BTCUSDT",
+        "period":"1",
+        "open_time":1582231260,
+        "open":"30015.5",
+        "high":"33110.5",
+        "low":"29909",
+        "close":"32210.5"
+    }],
+    "time_now":"1591263582.601795"
+}
+```
+t(:inverse_query_premium_indices_kline)
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=plmpk>/public/linear/premium-indices-kline</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#plmpk"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
+|interval |true |string |t(:row_comment_interval) |
+|from |true |integer |t(:row_comment_from_timestamp) |
+|limit |false |integer |t(:linear_kline_row_comment_limit_200) |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| symbol |string |t(:row_comment_symbol) |
+| period |string |t(:row_comment_period) |
+| open_time |integer |t(:row_comment_startTime) |
+| open |string |t(:row_comment_open) |
+| high |string |t(:row_comment_high) |
+| low |string |t(:row_comment_low) |
+| close |string |t(:row_comment_close) |
+
+
+
 ## t(:advanceddata)
 ### t(:marketopeninterest)
 <a href="/docs/inverse#t-marketopeninterest">t(:shared_endpoint_desc)</a>
