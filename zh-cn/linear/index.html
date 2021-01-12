@@ -934,16 +934,8 @@ clipboard.on('error', function(e) {
 <p><ul class="bybit-community"> <li><img src="../../images/favicon-4f296779.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/zh-cn"><strong>帮助中心</strong></a> - <strong>在这里了解合约交易</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/docs/issues"><strong>Bybit API docs</strong></a> - <strong>在这里提bug</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/api-connectors/"><strong>Bybit's api-connectors</strong></a> - <strong>官方API SDK</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文讨论群</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文讨论群</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong> <li><img src="../../images/email_icon-e7dd7b20.png" height="14", width="14"> <a href="mailto:IT@bybit.com"><strong>IT@bybit.com</strong></a> - <strong>官方技术支持邮箱!</strong> </ul></p>
 <h1 id='t-changelog'>更新日志</h1><h2 id='2021-01-12'>2021-01-12</h2><h3 id='rest-api'>REST API</h3>
 <ul>
-<li><a href="#t-indexpricekline">查询指数价格K线数据</a> [新增]
-
-<ul>
-<li>新增：<code>/public/linear/index-price-kline</code></li>
-</ul></li>
-<li><a href="#t-premiumindiceskline">查询溢价K线数据</a> [新增]
-
-<ul>
-<li>新增：<code>/public/linear/premium-index-kline</code></li>
-</ul></li>
+<li><a href="#t-indexpricekline">查询指数价格K线数据</a> [新增]</li>
+<li><a href="#t-premiumindiceskline">查询溢价K线数据</a> [新增]</li>
 </ul>
 <h2 id='2020-12-14'>2020-12-14</h2><h3 id='rest-api-2'>REST API</h3>
 <ul>
@@ -1936,10 +1928,10 @@ function copyStringToClipboard (endpoint) {
         <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">period</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">open_time</span><span class="dl">"</span><span class="p">:</span><span class="mi">1582231260</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">open</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">30015.5</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">high</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">33110.5</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">low</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">29909</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">close</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">32210.5</span><span class="dl">"</span>
+        <span class="dl">"</span><span class="s2">open</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">10106.09</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">high</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">10108.75</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">low</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">10104.66</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">close</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">10108.73</span><span class="dl">"</span>
     <span class="p">}],</span>
     <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1591263582.601795</span><span class="dl">"</span>
 <span class="p">}</span>
@@ -2037,7 +2029,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>Curl 请求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/public/linear/premium-indices-kline?symbol=BTCUSDT&amp;interval=1&amp;limit=2&amp;from=1581231260"
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/public/linear/premium-index-kline?symbol=BTCUSDT&amp;interval=1&amp;limit=2&amp;from=1581231260"
 </span></code></pre></div>
 <blockquote>
 <p>响应示例</p>
@@ -2051,10 +2043,10 @@ function copyStringToClipboard (endpoint) {
         <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">period</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">open_time</span><span class="dl">"</span><span class="p">:</span><span class="mi">1582231260</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">open</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">30015.5</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">high</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">33110.5</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">low</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">29909</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">close</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">32210.5</span><span class="dl">"</span>
+        <span class="dl">"</span><span class="s2">open</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.000588</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">high</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.000618</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">low</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.000588</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">close</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.000618</span><span class="dl">"</span>
     <span class="p">}],</span>
     <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1591263582.601795</span><span class="dl">"</span>
 <span class="p">}</span>
@@ -2064,7 +2056,7 @@ function copyStringToClipboard (endpoint) {
 <p class="fake_header">HTTP 请求</p>
 
 <p>GET
-<code><span id=plmpk>/public/linear/premium-indices-kline</span></code>
+<code><span id=plmpk>/public/linear/premium-index-kline</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#plmpk"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">请求参数</p>
