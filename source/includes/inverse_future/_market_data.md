@@ -575,10 +575,10 @@ curl "https://api.bybit.com/v2/public/index-price-kline?symbol=BTCUSD&interval=1
             "symbol":"BTCUSD",
             "period":"1",
             "open_time":1582231260,
-            "open":"30015.5",
-            "high":"33110.5",
-            "low":"29909",
-            "close":"32210.5"
+            "open":"10106.09",
+            "high":"10108.75",
+            "low":"10104.66",
+            "close":"10108.73"
         }
     ],
     "time_now":"1591263582.601795"
@@ -616,7 +616,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/v2/public/premium-indces-kline?symbol=BTCUSD&interval=1&limit=2&from=1581231260"
+curl "https://api.bybit.com/v2/public/premium-index-kline?symbol=BTCUSD&interval=1&limit=2&from=1581231260"
 ```
 > t(:codequote_responseExample)
 
@@ -631,10 +631,10 @@ curl "https://api.bybit.com/v2/public/premium-indces-kline?symbol=BTCUSD&interva
             "symbol":"BTCUSD",
             "period":"1",
             "open_time":1582231260,
-            "open":"30015.5",
-            "high":"33110.5",
-            "low":"29909",
-            "close":"32210.5"
+            "open":"0.000588",
+            "high":"0.000618",
+            "low":"0.000588",
+            "close":"0.000618"
         }
   ],
     "time_now":"1591263582.601795"
@@ -644,7 +644,7 @@ t(:inverse_query_premium_indices_kline)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=plmpk>/v2/public/premium-indces-kline</span></code>
+<code><span id=plmpk>/v2/public/premium-index-kline</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#plmpk"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
