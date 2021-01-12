@@ -622,7 +622,7 @@ curl "https://api.bybit.com/v2/public/premium-indces-kline?symbol=BTCUSD&interva
 
 ```javascript
 {
-  "ret_code":0,
+    "ret_code":0,
     "ret_msg":"OK",
     "ext_code":"",
     "ext_info":"",
