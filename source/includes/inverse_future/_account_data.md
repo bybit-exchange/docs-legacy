@@ -418,8 +418,8 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|order_id |false |string |t(:row_comment_orderId) |
-|order_link_id |false |string |t(:row_comment_orderLinkId) |
+|order_id |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
+|order_link_id |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol). |
 |p_r_qty |false |string |t(:row_comment_pRQty) |
 |p_r_price |false |string |t(:row_comment_pRPrice) |
@@ -992,8 +992,8 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|stop_order_id |false |string |t(:row_comment_stopOrderId) |
-|order_link_id |false |string |t(:row_comment_orderLinkId) |
+|stop_order_id |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
+|order_link_id |false |string |t(:misc_row_comment_orderLinkIdNotStopOrderId) |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol). |
 |p_r_qty |false |integer |t(:row_comment_pRQty) |
 |p_r_price |false |string |t(:row_comment_pRPrice) |
