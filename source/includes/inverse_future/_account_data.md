@@ -561,9 +561,9 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|order_id |false |string | t(:misc_row_comment_orderIdNotOrderLinkId)|
-|order_link_id |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
 |t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
+|order_id |false |string | t(:row_comment_order_id)|
+|order_link_id |false |string |t(:row_comment_order_link_id) |
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -1127,8 +1127,8 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
-|stop_order_id |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
-|order_link_id |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
+|stop_order_id |false |string | t(:row_comment_order_id)|
+|order_link_id |false |string |t(:row_comment_order_link_id) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
