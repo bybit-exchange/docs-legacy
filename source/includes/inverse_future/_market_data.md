@@ -556,7 +556,7 @@ GET
 | low |integer |t(:row_comment_low) |
 | close |integer |t(:row_comment_close) |
 
-### t(:indexpricekline)
+### t(:queryindexpricekline)
 > t(:codequote_curlExample)
 
 ```console
@@ -588,8 +588,8 @@ t(:inverse_query_index_price_kline)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=plmpk>/v2/public/index-price-kline</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#plmpk"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=v2pIndexPriceKline>/v2/public/index-price-kline</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#v2pIndexPriceKline"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -602,7 +602,7 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| symbol |string |t(:row_comment_symbol) |
+| <a href="#symbol-symbol">symbol</a> |string |t(:row_comment_symbol) |
 | period |string |t(:row_comment_period) |
 | open_time |integer |t(:row_comment_startTime) |
 | open |string |t(:row_comment_open) |
@@ -612,7 +612,7 @@ GET
 
 
 
-### t(:premiumindiceskline)
+### t(:querypremiumindexkline)
 > t(:codequote_curlExample)
 
 ```console
@@ -644,8 +644,8 @@ t(:inverse_query_premium_indices_kline)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=plmpk>/v2/public/premium-index-kline</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#plmpk"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=vpPremiumIndexKline>/v2/public/premium-index-kline</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpPremiumIndexKline"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -658,7 +658,7 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| symbol |string |t(:row_comment_symbol) |
+| <a href="#symbol-symbol">symbol</a> |string |t(:row_comment_symbol) |
 | period |string |t(:row_comment_period) |
 | open_time |integer |t(:row_comment_startTime) |
 | open |string |t(:row_comment_open) |
