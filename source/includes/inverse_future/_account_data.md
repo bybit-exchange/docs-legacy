@@ -190,7 +190,7 @@ GET
 |data > order_link_id |string |t(:row_response_comment_orderLinkId)  |
 |data > created_at |string |t(:row_comment_created_at)  |
 |data > order_id |string |t(:account_row_comment_orderId) |
-|cursor |false |string |t(:row_comment_resp_cursor) |
+|cursor |string |t(:row_comment_resp_cursor) |
 
 
 ### t(:cancelactive)
@@ -768,7 +768,7 @@ GET
 |data > updated_at |string |t(:row_comment_updated_at)  |
 |data > stop_px |number |t(:linear_row_comment_stopPx)  |
 |data > stop_order_id |string |t(:row_comment_stopOrderId) |
-|cursor |false |string |t(:row_comment_resp_cursor) |
+|cursor |string |t(:row_comment_resp_cursor) |
 
 
 ### t(:cancelcond)
@@ -2040,7 +2040,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/2/private/funding/prev-funding-rate?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}&sign={sign}"
+curl "https://api.bybit.com/v2/private/funding/prev-funding-rate?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}&sign={sign}"
 ```
 
 ```python
@@ -2073,7 +2073,7 @@ t(:market_para_fundingRate)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=oafPrevFundingRateNew>/2/private/funding/prev-funding-rate</span></code>
+<code><span id=oafPrevFundingRateNew>/v2/private/funding/prev-funding-rate</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oafPrevFundingRateNew"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>

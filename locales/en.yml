@@ -169,7 +169,7 @@ en:
   row_comment_endTime: End timestamp point for result, in seconds
   row_comment_startTime_ms: Start timestamp point for result, in milliseconds
   row_comment_endTime_ms: End timestamp point for result, in milliseconds
-  row_comment_riskId: Risk ID.
+  row_comment_riskId: Risk ID
   row_comment_closed_size: The corresponding closing size of the closing order
   row_comment_rate_limit: limit
   row_comment_path: path
@@ -498,6 +498,10 @@ en:
   ### Query Klne
   querykline: Query Kline
   market_para_querykline: Get kline.
+  ### Query Index Price Kline
+  indexpricekline: Query index price kline
+  ### Query Premium Index Kline
+  premiumindiceskline: Query premium index kline
   linear_market_para_querykline: |
     <p>Get kline.</p>
     <p>For mark price klines, see the <a href="#t-markpricekline">Mark Price Kline</a> endpoint.</p>
@@ -1443,6 +1447,11 @@ en:
   err_130157: Amendment failed. SL/TP price cannot be amended as order is partially filled
   err_130158: SL/TP price cannot be amended under 'Full' position mode
   err_130159: Max SL/TP orders under 'Partial' mode is 20
+  err_134026: Risk limit has not been changed.
+  err_132011: Current position size exceeds risk limit. Risk limit adjustment failed.
+  err_130090: Risk limit is invalid.
+
+
 
   ### Linear Cancel Active Order
   linear_row_comment_qty: Order quantity in BTC
@@ -1643,6 +1652,9 @@ en:
   linear_resp_field_closed_pnl: Closed Profit and Loss
   linear_resp_field_fill_count: Number of transactions
   linear_row_comment_recent_trading_records_limit: Number of results. Default 500; max 1000
+
+  inverse_query_index_price_kline: Index price kline
+  inverse_query_premium_indices_kline: Premium index kline
 
   linear_testnet_only: testnet only
 

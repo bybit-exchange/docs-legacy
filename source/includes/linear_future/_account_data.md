@@ -1313,6 +1313,7 @@ GET
 |t(:row_parameter_tp_sl_mode) |string |t(:linear_resp_tp_sl_mode)  |
 |deleverage_indicator |number |t(:row_comment_deleverage_indicator)  |
 |unrealised_pnl |number |t(:row_comment_unrealised_pnl)  |
+|risk_id  |integer |t(:row_comment_riskId) |
 
 
 ### t(:setautoaddmargin)
@@ -1857,7 +1858,7 @@ curl "https://api.bybit.com/public/linear/risk-limit?api_key={api_key}&timestamp
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.LinearWallet.LinearWallet_getRiskLimit(symbol="BTCUSDT").result())
+print(client.LinearPositions.LinearPositions_getRiskLimit(symbol="BTCUSDT").result())
 ```
 
 > t(:codequote_responseExample)
@@ -2103,7 +2104,62 @@ GET
 |created_at |string |t(:row_comment_created_at)  |
 |updated_at |string |t(:row_comment_updated_at)  |
 
+### t(:setrisklimit)
 
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/private/linear/position/set-risk \
+-H "Content-Type: application/json" \
+-d '{"api_key":"{api_key}","symbol":"BTCUSDT","risk_id":2,"timestamp":{timestamp},"sign":"{sign}"}'
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.LinearPositions.LinearPositions_setRiskLimit(symbol="BTCUSDT", side="Buy",risk_id=1).result())
+```
+
+> t(:codequote_responseExample)
+
+```javascript  
+{
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "ext_info": "",
+    "result": {
+        "risk_id": 2
+    },
+    "time_now": "1609839125.563609",
+    "rate_limit_status": 73,
+    "rate_limit_reset_ms": 1609839125560,
+    "rate_limit": 75
+} 
+``` 
+t(:wallet_para_setRisk)
+
+<aside class="notice">
+t(:wallet_para_setRisk)
+</aside>
+
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=oawrlList>/private/linear/position/set-risk</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawrlList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
+|t(:row_parameter_side) |true |string |t(:row_comment_side)    |
+|risk_id |true |integer |t(:row_comment_riskId) |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|risk_id |number |t(:row_comment_riskId)  | 
+    
 ## t(:funding)
 
 ### t(:predictedfunding)

@@ -164,7 +164,7 @@ zh-cn:
   row_comment_endTime: 结束时间戳（秒）
   row_comment_startTime_ms: 开始时间戳（毫秒）
   row_comment_endTime_ms: 结束时间戳（毫秒）
-  row_comment_riskId: 风险限额ID.
+  row_comment_riskId: 风险限额ID
   row_comment_closed_size: 平仓委托对应的平仓大小
   row_comment_rate_limit: 频率限制
   row_comment_path: 请求路径
@@ -480,9 +480,13 @@ zh-cn:
   orderbook: Orderbook
   market_para_orderbook: 获取Bybit当前Orderbook信息.
   market_aside_orderbook: 响应数据是当前时间的切片数据.
-  ### Query Klne
+  ### Query Kline
   querykline: 查询K线数据
   market_para_querykline: 查询K线数据
+  ### Query Index Price Kline
+  indexpricekline: 查询指数价格K线数据
+  ### Query Premium Index Kline
+  premiumindiceskline: 查询溢价K线数据
   ### Latest Information for Symbol
   latestsymbolinfo: 合约最新信息
   market_para_symbol: 获取Bybit的最新合约信息.
@@ -1397,6 +1401,9 @@ zh-cn:
   err_130157: 修改失败，此活动单已部分成交情况下，不能修改止盈止损价格
   err_130158: 仓位止盈止损模式下，不允许修改止盈止损数量
   err_130159: 部分止盈止损模式下，止盈止损设置超过20条
+  err_134026: 风险限额未修改
+  err_132011: 调整失败，当前仓位大小超出风险限额
+  err_130090: 风险限额无效
 
   ### LinearPosition
   linear_row_comment_qty: 委托数量(BTC)
@@ -1553,6 +1560,7 @@ zh-cn:
   restapi_update_20201231_8_8: 新增：<code>/v2/private/funding/prev-funding</code>
   restapi_update_20201231_9_9: 新增：<code>/v2/private/funding/predicted-funding</code>
 
+
   markpricekline: 标记价格K线
   linear_query_mark_price_kline: 查询标记价格K线
   linear_resp_field_last_exec_price: 最近成交价格
@@ -1578,6 +1586,9 @@ zh-cn:
   linear_resp_field_closed_pnl: 与平仓size等比例对应的盈亏
   linear_resp_field_fill_count: 成交笔数
   linear_row_comment_recent_trading_records_limit: 返回条数，最大1000，默认500
+
+  inverse_query_index_price_kline: 指数价格K线
+  inverse_query_premium_indices_kline: 溢价K线
 
   linear_testnet_only: 仅testnet环境
 
