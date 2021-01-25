@@ -190,7 +190,7 @@ GET
 |data > order_link_id |string |t(:row_response_comment_orderLinkId)  |
 |data > created_at |string |t(:row_comment_created_at)  |
 |data > order_id |string |t(:account_row_comment_orderId) |
-|cursor |false |string |t(:row_comment_resp_cursor) |
+|cursor |string |t(:row_comment_resp_cursor) |
 
 
 ### t(:cancelactive)
@@ -768,7 +768,7 @@ GET
 |data > updated_at |string |t(:row_comment_updated_at)  |
 |data > stop_px |number |t(:linear_row_comment_stopPx)  |
 |data > stop_order_id |string |t(:row_comment_stopOrderId) |
-|cursor |false |string |t(:row_comment_resp_cursor) |
+|cursor |string |t(:row_comment_resp_cursor) |
 
 
 ### t(:cancelcond)
