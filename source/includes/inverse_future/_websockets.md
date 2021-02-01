@@ -141,16 +141,16 @@ t(:websocket_para_response)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op": "subscribe", "args": ["orderBookL2_25.BTCUSD"]}');
+ws.send('{"op": "subscribe", "args": ["BTCUSD"]}');
 ```
 
 ```python
 from BybitWebsocket import BybitWebsocket
 ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
                     api_key=None, api_secret=None)
-ws.subscribe_orderBookL2(symbol="BTCUSD")
+ws.subscribe_orderBookL2("BTCUSD")
 while True:
-    data = ws.get_data("orderBookL2_25.BTCUSD")
+    data = ws.get_orderBookL2("BTCUSD")
     if data:
         print(data)
 ```
@@ -249,7 +249,7 @@ t(:websocket_para_orderbook252)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op": "subscribe", "args": ["orderBook_200.100ms.BTCUSD"]}');
+ws.send('{"op": "subscribe", "args": ["BTCUSD", 200]}');
 ```
 
 > t(:codequote_snapshot)
@@ -335,16 +335,16 @@ t(:websocket_para_orderbook200)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op": "subscribe", "args": ["trade"]}')
+ws.send('{"op": "subscribe", "args": ["BTCUSD"]}')
 ```
 
 ```python
 from BybitWebsocket import BybitWebsocket
 ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
                     api_key=None, api_secret=None)
-ws.subscribe_trade()
+ws.subscribe_trade("BTCUSD")
 while True:
-    data = ws.get_data("trade.BTCUSD")
+    data = ws.get_trade("BTCUSD")
     if data:
         print(data)
 ```
@@ -390,7 +390,7 @@ t(:websocket_para_trade)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op": "subscribe", "args": ["insurance"]}')
+ws.send('{"op": "subscribe"}')
 ```
 
 ```python
@@ -399,7 +399,7 @@ ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
                     api_key=None, api_secret=None)
 ws.subscribe_insurance()
 while True:
-    data = ws.get_data("insurance.BTC")
+    data = ws.get_insurance("BTC")
     if data:
         print(data)
 ```
@@ -437,7 +437,7 @@ t(:websocket_aside_insurance)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op": "subscribe", "args": ["instrument_info.100ms.BTCUSD"]}')
+ws.send('{"op": "subscribe", "args": ["BTCUSD"]}')
 ```
 
 ```python
@@ -446,7 +446,7 @@ ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
                     api_key=None, api_secret=None)
 ws.subscribe_instrument_info(symbol="BTCUSD")
 while True:
-    data = ws.get_data("instrument_info.100ms.BTCUSD")
+    data = ws.get_instrument_info("BTCUSD")
     if data:
         print(data)
 ```
@@ -562,7 +562,7 @@ t(:websocket_aside_instrumentInfo2)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op":"subscribe","args":["klineV2.1.BTCUSD"]}')
+ws.send('{"op":"subscribe","args":["BTCUSD"，"1"]}')
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -616,7 +616,7 @@ t(:websocket_aside_klineV2)
 
 
 ```javascript
-ws.send('{"op": "subscribe", "args": ["position"]}')
+ws.send('{"op": "subscribe"}')
 ```
 
 ```python
@@ -625,7 +625,7 @@ ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
                     api_key=api_key, api_secret=api_secret)
 ws.subscribe_position()
 while True:
-    data = ws.get_data("position")
+    data = ws.get_position()
     if data:
         print(data)
 ```
@@ -714,7 +714,7 @@ t(:account_para_myPosition)
 
 
 ```javascript
-ws.send('{"op": "subscribe", "args": ["execution"]}')
+ws.send('{"op": "subscribe"}')
 ```
 
 ```python
@@ -723,7 +723,7 @@ ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
                     api_key=api_key, api_secret=api_secret)
 ws.subscribe_execution()
 while True:
-    data = ws.get_data("execution")
+    data = ws.get_execution()
     if data:
         print(data)
 ```
@@ -778,7 +778,7 @@ t(:wallet_para_tradeRecords)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op": "subscribe", "args": ["order"]}')
+ws.send('{"op": "subscribe"}')
 ```
 
 ```python
@@ -787,7 +787,7 @@ ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
                     api_key=api_key, api_secret=api_secret)
 ws.subscribe_order()
 while True:
-    data = ws.get_data("order")
+    data = ws.get_order()
     if data:
         print(data)
 ```
@@ -855,7 +855,7 @@ while True:
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op": "subscribe", "args": ["stop_order"]}')
+ws.send('{"op": "subscribe"}')
 ```
 
 > t(:codequote_responseExampleFormatAll)
