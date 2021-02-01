@@ -499,9 +499,9 @@ en:
   querykline: Query Kline
   market_para_querykline: Get kline.
   ### Query Index Price Kline
-  indexpricekline: Query index price kline
+  queryindexpricekline: Query index price kline
   ### Query Premium Index Kline
-  premiumindiceskline: Query premium index kline
+  querypremiumindexkline: Query premium index kline
   linear_market_para_querykline: |
     <p>Get kline.</p>
     <p>For mark price klines, see the <a href="#t-markpricekline">Mark Price Kline</a> endpoint.</p>
@@ -1625,6 +1625,11 @@ en:
     Replaced by: <code>/v2/private/funding/predicted-funding</code>
   restapi_update_20210201_0_1: Upgrade <b>Tiered Margin</b> to <a href="https://help.bybit.com/hc/en-us/articles/900000170023-Risk-Limit-USDT-Contract-">Risk Limit</a>, add below endpoint<span>:</span>
 
+  restapi_update_20210125_0: <code>/v2/private/funding/prev-funding-rate</code> - <b>Not recommended</b>
+  restapi_update_20210125_0_1: |
+    Replaced by: <code>/v2/public/funding/prev-funding-rate</code>
+
+
 
   markpricekline: Query Mark Price Kline
   linear_query_mark_price_kline: Query mark price kline (like <a href="#t-querykline">Query Kline</a> but for <a href="https://help.bybit.com/hc/en-us/articles/360039261074-What-is-Dual-Price-mechanism-">mark price</a>).
@@ -1652,8 +1657,8 @@ en:
   linear_resp_field_fill_count: Number of transactions
   linear_row_comment_recent_trading_records_limit: Number of results. Default 500; max 1000
 
-  inverse_query_index_price_kline: Index price kline
-  inverse_query_premium_indices_kline: Premium index kline
+  inverse_query_index_price_kline: Index price kline. Tracks BTC spot prices, with a frequency of every second (learn more <a href="https://www.bybit.com/app/contracts">here</a>.
+  inverse_query_premium_indices_kline: Premium index kline. Tracks the premium / discount of BTC perpetual contracts relative to the mark price per minute (learn more <a href="https://www.bybit.com/app/contracts">here</a>.
 
   linear_testnet_only: testnet only
 

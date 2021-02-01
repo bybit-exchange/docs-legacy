@@ -1,9 +1,16 @@
 # t(:changelog)
 
+
+## 2021-01-25
+### REST API
+- [t(:fundingrate)](#t-fundingrate) [t(:changelog_update)]
+    - t(:restapi_update_20210125_0)
+    - t(:restapi_update_20210125_0_1)
+
 ## 2021-01-12
 ### REST API
-- [t(:indexpricekline)](#t-indexpricekline) [t(:changelog_new)]
-- [t(:premiumindiceskline)](#t-premiumindiceskline) [t(:changelog_new)]
+- [t(:queryindexpricekline)](#t-queryindexpricekline) [t(:changelog_new)]
+- [t(:querypremiumindexkline)](#t-querypremiumindexkline) [t(:changelog_new)]
   
 ## 2020-12-31
 ### REST API

@@ -9,8 +9,8 @@
 ## 2021-01-12
 ### REST API
 
-- [t(:indexpricekline)](#t-indexpricekline) [t(:changelog_new)]
-- [t(:premiumindiceskline)](#t-premiumindiceskline) [t(:changelog_new)]
+- [t(:queryindexpricekline)](#t-queryindexpricekline) [t(:changelog_new)]
+- [t(:querypremiumindexkline)](#t-querypremiumindexkline) [t(:changelog_new)]
 
 ## 2020-12-14
 ### REST API
