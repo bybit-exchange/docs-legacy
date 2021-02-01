@@ -1,5 +1,11 @@
 # t(:changelog)
 
+## 2021-02-01
+### REST API
+
+- t(:restapi_update_20210201_0_1)
+    - [t(:setrisklimit)](#t-setrisklimit) [t(:changelog_new)]
+
 ## 2021-01-12
 ### REST API
 ### t(:restapi_update_20210107_0)

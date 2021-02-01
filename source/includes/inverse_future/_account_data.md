@@ -2040,7 +2040,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/v2/private/funding/prev-funding-rate?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}&sign={sign}"
+curl "https://api.bybit.com/v2/public/funding/prev-funding-rate?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}&sign={sign}"
 ```
 
 ```python
@@ -2073,7 +2073,7 @@ t(:market_para_fundingRate)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=oafPrevFundingRateNew>/v2/private/funding/prev-funding-rate</span></code>
+<code><span id=oafPrevFundingRateNew>/v2/public/funding/prev-funding-rate</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oafPrevFundingRateNew"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>

@@ -2135,8 +2135,8 @@ print(client.LinearPositions.LinearPositions_setRiskLimit(symbol="BTCUSDT", side
     "rate_limit_status": 73,
     "rate_limit_reset_ms": 1609839125560,
     "rate_limit": 75
-} 
-``` 
+}
+```
 t(:wallet_para_setRisk)
 
 <aside class="notice">
@@ -2145,8 +2145,8 @@ t(:wallet_para_setRisk)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=oawrlList>/private/linear/position/set-risk</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawrlList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=plpSetRisk>/private/linear/position/set-risk</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#plpSetRisk"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -2158,8 +2158,8 @@ POST
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|risk_id |number |t(:row_comment_riskId)  | 
-    
+|risk_id |number |t(:row_comment_riskId)  |
+
 ## t(:funding)
 
 ### t(:predictedfunding)

@@ -174,7 +174,7 @@ en:
   row_comment_rate_limit: limit
   row_comment_path: path
   row_comment_consume: consume
-  row_comment_interval: Data refresh interval. Enum <span>:<span> 1 3 5 15 30 60 120 240 360 720 "D" "M" "W" "Y"
+  row_comment_interval: Data refresh interval. Enum <span>:<span> 1 3 5 15 30 60 120 240 360 720 "D" "M" "W"
   row_comment_from_timestamp: From timestamp in seconds
   row_comment_limit_200: Limit for data size per page, max size is 200. Default as showing 200 pieces of data per page
   row_comment_limit_100: Limit for data size per page, max size is 100. Default as showing 50 pieces of data per page
@@ -1625,15 +1625,13 @@ en:
     Replaced by: <code>/v2/private/funding/prev-funding</code>
   restapi_update_20201231_9_9: |
     Replaced by: <code>/v2/private/funding/predicted-funding</code>
-  restapi_update_20210107_0: Add Index Price Kline and Premium Index Kline
-  restapi_update_20210107_1: |
-    Add: <code>/v2/public/index-price-kline</code>
-  restapi_update_20210107_2: |
-    Add: <code>/v2/public/premium-index-kline</code>
-  restapi_update_20210107_3: |
-    Add: <code>/public/linear/index-price-kline</code>
-  restapi_update_20210107_4: |
-    Add: <code>/public/linear/premium-index-kline</code>
+  restapi_update_20210201_0_1: Upgrade <b>Tiered Margin</b> to <a href="https://help.bybit.com/hc/en-us/articles/900000170023-Risk-Limit-USDT-Contract-">Risk Limit</a>, add below endpoint<span>:</span>
+
+  restapi_update_20210125_0: <code>/v2/private/funding/prev-funding-rate</code> - <b>Not recommended</b>
+  restapi_update_20210125_0_1: |
+    Replaced by: <code>/v2/public/funding/prev-funding-rate</code>
+
+
 
   markpricekline: Query Mark Price Kline
   linear_query_mark_price_kline: Query mark price kline (like <a href="#t-querykline">Query Kline</a> but for <a href="https://help.bybit.com/hc/en-us/articles/360039261074-What-is-Dual-Price-mechanism-">mark price</a>).
