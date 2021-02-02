@@ -18,9 +18,11 @@
 
 ## 2021-01-12
 ### REST API
-
+### t(:restapi_update_20210107_0)
 - [t(:queryindexpricekline)](#t-queryindexpricekline) [t(:changelog_new)]
+  - t(:restapi_update_20210107_3)
 - [t(:querypremiumindexkline)](#t-querypremiumindexkline) [t(:changelog_new)]
+  - t(:restapi_update_20210107_4)
 
 ## 2020-12-14
 ### REST API
@@ -46,8 +48,8 @@
     - t(:restapi_update_20201203_4)
 - [t(:querycond)](#t-querycond) [t(:changelog_update)]
     - t(:restapi_update_20201203_4)
- 
-    
+
+
 ## 2020-11-16
 ### REST API
 - [t(:myposition)](#t-position) [t(:changelog_update)]
@@ -59,7 +61,7 @@
 - [t(:querycond)](#t-querycond) [t(:changelog_update)]
     - t(:restapi_update_20201116_2)
 
-    
+
 ## 2020-11-02
 ### REST API
 - [t(:myposition)](#t-position) [t(:changelog_update)]
@@ -89,11 +91,11 @@
 - [t(:tradingstop)](#t-tradingstop) [t(:changelog_update)]
     - t(:restapi_update_20200826_4)
 - [t(:cancelcond)](#t-cancelcond) [t(:changelog_update)]
-    - t(:restapi_update_20200826_5) 
+    - t(:restapi_update_20200826_5)
 - [t(:replacecond)](#t-replacecond) [t(:changelog_update)]
     - t(:restapi_update_20200826_6)
 - [t(:replaceactive)](#t-replaceactive) [t(:changelog_update)]
-    - t(:restapi_update_20200826_6) 
+    - t(:restapi_update_20200826_6)
 - [t(:getactive)](#t-getactive) [t(:changelog_update)]
     - t(:restapi_update_20200826_3)    
 - [t(:queryactive)](#t-queryactive) [t(:changelog_update)]
@@ -102,10 +104,10 @@
     - t(:restapi_update_20200826_3)    
 - [t(:querycond)](#t-querycond) [t(:changelog_update)]
     - t(:restapi_update_20200826_3)
-    
+
 ### Websocket API
 - [t(:ws_update_20200927_1)](#t-websocket) [t(:changelog_update)]
- 
+
 ## 2020-09-15
 ### REST API
 - [t(:marketaccountratio)](#t-marketaccountratio) [t(:changelog_update)]
@@ -160,13 +162,13 @@
 - [t(:querykline)](#t-querykline) [t(:changelog_update)]   
    - t(:restapi_update_20200518_2)
    - t(:restapi_update_20200518_3)
-   
-   
+
+
 ## 2020-04-29
 ### REST API
 - [t(:key)](#t-key) [t(:changelog_bugfix)]
     - t(:restapi_update_20200429_2)
-    
+
 ### Websocket API
 - [t(:websocketkline)](#t-websocketkline) [t(:changelog_new)]
 
@@ -175,7 +177,7 @@
 ### REST API
 - [t(:latestsymbolinfo)](#t-latestsymbolinfo) [t(:changelog_update)]
    - t(:restapi_update_20200427_1)
-   
+
 ## 2020-04-18
 ### REST API
 - [t(:usertraderecords)](#t-usertraderecords) [t(:changelog_update)]
@@ -202,7 +204,7 @@
 - [t(:markpricekline)](#t-markpricekline) [t(:changelog_new)]
 - [t(:predictedfunding)](#t-predictedfunding) [t(:changelog_new)]
 
-   
+
 ## 2020-04-14
 ### REST API
 - [t(:mylastfundingfee)](#t-mylastfundingfee) [t(:changelog_new)]
@@ -240,7 +242,7 @@
 ## 2020-03-31
 ### REST API
 - [t(:queryactive)](#t-queryactive) [t(:changelog_new)]
-- [t(:getactive)](#t-getactive) 
+- [t(:getactive)](#t-getactive)
     - t(:linear_update_20200331)
 
 ### Websocket API

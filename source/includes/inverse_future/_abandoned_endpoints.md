@@ -361,14 +361,14 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|t(:row_parameter_side) |true |string |t(:row_comment_side)    |
-|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol)    |
-|t(:row_parameter_order_type) |true |string |t(:row_comment_stopOrderType) |
-|t(:row_parameter_quantity) |true |integer |t(:row_comment_qty) |
+|t(:row_parameter_side) |<b>true</b> |string |t(:row_comment_side)    |
+|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
+|t(:row_parameter_order_type) |<b>true</b> |string |t(:row_comment_stopOrderType) |
+|t(:row_parameter_quantity) |<b>true</b> |integer |t(:row_comment_qty) |
 |t(:row_parameter_price) |false | number |t(:row_comment_stopOrderPrice) |
-|base_price |true |number | t(:row_comment_basePrice) |
-|stop_px | true | number | t(:row_comment_stopPx) |
-|t(:row_parameter_time_in_force) |true |string |t(:row_comment_timeInForce) |
+|base_price |<b>true</b> |number | t(:row_comment_basePrice) |
+|stop_px |<b>true</b> | number | t(:row_comment_stopPx) |
+|t(:row_parameter_time_in_force) |<b>true</b> |string |t(:row_comment_timeInForce) |
 |t(:row_parameter_trigger_price) | false | string | t(:row_comment_triggerBy)|
 |close_on_trigger |false |bool |t(:row_comment_closeOnTrigger)
 |order_link_id |false |string |t(:row_comment_orderLinkId) |
@@ -461,7 +461,7 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|required|type | comments|
 |:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol)|
+|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)|
 |stop_order_id |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
 |order_link_id |false |string | t(:misc_row_comment_orderLinkIdNotStopOrderId)|
 
@@ -538,7 +538,7 @@ POST
 |stop_order_id |false |string |t(:row_comment_stopOrderId) |
 |order_id |false |string |t(:comment_abandoned) t(:row_comment_stopOrderId) |
 |order_link_id |false |string |t(:row_comment_orderLinkId) |
-|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol). |
+|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol). |
 |p_r_qty |false |int |t(:row_comment_pRQty) |
 |p_r_price |false |number |t(:row_comment_pRPrice) |
 |p_r_trigger_price |false |number |t(:row_comemnt_pRTriggerPrice) |
@@ -596,7 +596,7 @@ POST
 |:----- |:-------|:-----|----- |
 |order_id |false |string |t(:row_comment_orderId) |
 |order_link_id |false |string |t(:row_comment_orderLinkId) |
-|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol). |
+|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol). |
 |p_r_qty |false |int |t(:row_comment_pRQty) |
 |p_r_price |false |number |t(:row_comment_pRPrice) |
 

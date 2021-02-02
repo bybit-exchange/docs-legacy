@@ -48,9 +48,9 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
-|interval |true |string |t(:row_comment_interval) |
-|from |true |integer |t(:row_comment_from_timestamp) |
+|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
+|interval |<b>true</b> |string |t(:row_comment_interval) |
+|from |<b>true</b> |integer |t(:row_comment_from_timestamp) |
 |limit |false |integer |t(:linear_kline_row_comment_limit_200) |
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -117,7 +117,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
+|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
 |limit |false |int |t(:linear_row_comment_recent_trading_records_limit)|
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -175,7 +175,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
+|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -246,9 +246,9 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
-|interval |true |string |t(:row_comment_interval) |
-|from |true |integer |t(:row_comment_from_timestamp) |
+|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
+|interval |<b>true</b> |string |t(:row_comment_interval) |
+|from |<b>true</b> |integer |t(:row_comment_from_timestamp) |
 |limit |false |integer |t(:linear_kline_row_comment_limit_200) |
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -449,7 +449,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
+|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
 
 
 

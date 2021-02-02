@@ -258,7 +258,7 @@ en:
   row_response_close_on_trigger: Is close on trigger order
   row_response_comment_base_currency: Base currency
   row_response_comment_quote_currency: Quote currency
-  row_response_comment_price_scale: Price scale
+  row_response_comment_price_scale: Price scale (how many decimal places the price of a symbol has)
   row_response_comment_taker_fee: Taker fee
   row_response_comment_maker_fee: Maker fee
   row_response_comment_leverage_filter: Leverage filter
@@ -499,9 +499,9 @@ en:
   querykline: Query Kline
   market_para_querykline: Get kline.
   ### Query Index Price Kline
-  queryindexpricekline: Query index price kline
+  queryindexpricekline: Query Index Price Kline
   ### Query Premium Index Kline
-  querypremiumindexkline: Query premium index kline
+  querypremiumindexkline: Query Premium Index Kline
   linear_market_para_querykline: |
     <p>Get kline.</p>
     <p>For mark price klines, see the <a href="#t-markpricekline">Mark Price Kline</a> endpoint.</p>
@@ -538,7 +538,9 @@ en:
   market_para_marketeliteratio: Gets the Bybit top trader account long-empty ratio
   #### Market Big Deal
   marketbigdeal: Latest Big Deal
-  market_para_marketbigdeal: Obtain filled orders worth more than 500,000 USD within the last 24h.
+  market_para_marketbigdeal: |
+    <p>Obtain filled orders worth more than 500,000 USD within the last 24h.</p>
+    <p>This endpoint may return orders which are over the maximum order qty for the symbol you call. For instance, the maximum order qty for BTCUSD is 1 million contracts, but in the event of the liquidation of a position larger than 1 million this endpoint returns this "impossible" order size.</p>
 
 
   # Abandoned Endpoints
@@ -590,7 +592,7 @@ en:
     Please note that only orders that are unfilled or partially filled can be modified by the replace-order API.
   ### Query Active Order (real-time)
   queryactive: Query Active Order (real-time)
-  account_para_queryActive: Query real-time active order information. If only <code>order_id</code> or <code>order_link_id</code> are passed, a single order will be returned; otherwise, <b>return multiple unfilled orders,max size is 500</b>.
+  account_para_queryActive: Query real-time active order information. If only <code>order_id</code> or <code>order_link_id</code> are passed, a single order will be returned; otherwise, <b>returns up to 500 unfilled orders</b>.
 
   ## Conditional Orders
   conditionalorders: Conditional Orders
@@ -646,7 +648,7 @@ en:
     Please note that you can only modify untriggered conditional orders.
   ### Query Conditional Order (real-time)
   querycond: Query Conditional Order (real-time)
-  account_para_queryConditional: Query real-time stop order information. When passing the parameter <code>order_id</code> or <code>order_link_id</code>, a single order data will be returned; If the parameters <code>order_id</code> and <code>order_link_id</code> are not passed, <b>return multiple unfilled orders,max size is 50</b>.
+  account_para_queryConditional: Query real-time stop order information. When passing the parameter <code>order_id</code> or <code>order_link_id</code>, a single order data will be returned; otherwise, <b>returns up to 50 unfilled orders</b>.
   account_para_queryConditionalNote: <b>When a stop order is triggered, it becomes an active order within the system. This endpoint returns <code>order_id</code> which is equal to <code>stop_order_id</code> request parameter.</b>
 
   ## Leverage
