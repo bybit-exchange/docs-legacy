@@ -701,10 +701,10 @@
                     <a href="#t-markpricekline" class="toc-h2 toc-link" data-title="Query Mark Price Kline">Query Mark Price Kline</a>
                   </li>
                   <li>
-                    <a href="#t-queryindexpricekline" class="toc-h2 toc-link" data-title="Query index price kline">Query index price kline</a>
+                    <a href="#t-queryindexpricekline" class="toc-h2 toc-link" data-title="Query Index Price Kline">Query Index Price Kline</a>
                   </li>
                   <li>
-                    <a href="#t-querypremiumindexkline" class="toc-h2 toc-link" data-title="Query premium index kline">Query premium index kline</a>
+                    <a href="#t-querypremiumindexkline" class="toc-h2 toc-link" data-title="Query Premium Index Kline">Query Premium Index Kline</a>
                   </li>
                   <li>
                     <a href="#t-advanceddata" class="toc-h2 toc-link" data-title="Advanced Data">Advanced Data</a>
@@ -1120,8 +1120,16 @@ clipboard.on('error', function(e) {
 </ul>
 <h2 id='2021-01-12'>2021-01-12</h2><h3 id='rest-api-2'>REST API</h3>
 <ul>
-<li><a href="#t-queryindexpricekline">Query index price kline</a> [new]</li>
-<li><a href="#t-querypremiumindexkline">Query premium index kline</a> [new]</li>
+<li><a href="#t-queryindexpricekline">Query Index Price Kline</a> [new]
+
+<ul>
+<li>translation missing: en.restapi_update_20210107_1</li>
+</ul></li>
+<li><a href="#t-querypremiumindexkline">Query Premium Index Kline</a> [new]
+
+<ul>
+<li>translation missing: en.restapi_update_20210107_2</li>
+</ul></li>
 </ul>
 <h2 id='2020-12-31'>2020-12-31</h2><h3 id='rest-api-3'>REST API</h3><h4 id='t-restapi_update_20201231_0'>After a service upgrade, a number of <code>v2</code> endpoints have been added to replace the old routes:
 </h4>
@@ -1809,7 +1817,7 @@ The response is in the snapshot format.
 </thead><tbody>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
@@ -1906,19 +1914,19 @@ The response is in the snapshot format.
 </thead><tbody>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
 <tr>
 <td style="text-align: left">interval</td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Data refresh interval. Enum <span>:<span> 1 3 5 15 30 60 120 240 360 720 "D" "M" "W"</td>
 </tr>
 <tr>
 <td style="text-align: left">from</td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">integer</td>
 <td>From timestamp in seconds</td>
 </tr>
@@ -2233,7 +2241,7 @@ The response is in the snapshot format.
 </thead><tbody>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
@@ -2453,7 +2461,7 @@ The response is in the snapshot format.
 <tr>
 <td style="text-align: left">price_scale</td>
 <td style="text-align: left">number</td>
-<td>Price scale</td>
+<td>Price scale (how many decimal places the price of a symbol has)</td>
 </tr>
 <tr>
 <td style="text-align: left">taker_fee</td>
@@ -2558,7 +2566,7 @@ The response is in the snapshot format.
 </thead><tbody>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
@@ -2679,19 +2687,19 @@ The response is in the snapshot format.
 </thead><tbody>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
 <tr>
 <td style="text-align: left">interval</td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Data refresh interval. Enum <span>:<span> 1 3 5 15 30 60 120 240 360 720 "D" "M" "W"</td>
 </tr>
 <tr>
 <td style="text-align: left">from</td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">integer</td>
 <td>From timestamp in seconds</td>
 </tr>
@@ -2748,7 +2756,7 @@ The response is in the snapshot format.
 <td>Closing price</td>
 </tr>
 </tbody></table>
-<h3 id='t-queryindexpricekline'>Query index price kline</h3>
+<h3 id='t-queryindexpricekline'>Query Index Price Kline</h3>
 <blockquote>
 <p>Request Example</p>
 </blockquote>
@@ -2865,7 +2873,7 @@ The response is in the snapshot format.
 <td>Closing price</td>
 </tr>
 </tbody></table>
-<h3 id='t-querypremiumindexkline'>Query premium index kline</h3>
+<h3 id='t-querypremiumindexkline'>Query Premium Index Kline</h3>
 <blockquote>
 <p>Request Example</p>
 </blockquote>
@@ -3031,13 +3039,13 @@ The response is in the snapshot format.
 </thead><tbody>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
 <tr>
 <td style="text-align: left">period</td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Data recording period. <code>5min</code>, <code>15min</code>, <code>30min</code>, <code>1h</code>, <code>4h</code>, <code>1d</code></td>
 </tr>
@@ -3105,7 +3113,9 @@ The response is in the snapshot format.
     <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1597658434.219859</span><span class="dl">"</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Obtain filled orders worth more than 500,000 USD within the last 24h.</p>
+<p><p>Obtain filled orders worth more than 500,000 USD within the last 24h.</p>
+<p>This endpoint may return orders which are over the maximum order qty for the symbol you call. For instance, the maximum order qty for BTCUSD is 1 million contracts, but in the event of the liquidation of a position larger than 1 million this endpoint returns this "impossible" order size.</p>
+</p>
 
 <p class="fake_header">HTTP Request</p>
 
@@ -3125,7 +3135,7 @@ The response is in the snapshot format.
 </thead><tbody>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
@@ -3218,13 +3228,13 @@ The response is in the snapshot format.
 </thead><tbody>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
 <tr>
 <td style="text-align: left">period</td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Data recording period. <code>5min</code>, <code>15min</code>, <code>30min</code>, <code>1h</code>, <code>4h</code>, <code>1d</code></td>
 </tr>
@@ -3301,7 +3311,7 @@ GET
 <p class="fake_header">Request Parameters</p>
 |parameter|required|type|comments|
 |:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |Symbol |
+|<a href="#symbol-symbol">symbol</a> |<b>true</b> |string |Symbol |
 |limit |false |int |Limit for data size per page, max size is 100. Default as showing 50 pieces of data per page|
 
 
@@ -3348,8 +3358,8 @@ GET
 <p class="fake_header">Request Parameters</p>
 |parameter|required|type|comments|
 |:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |Symbol |
-|period |true |string |Data recording period. <code>5min</code>, <code>15min</code>, <code>30min</code>, <code>1h</code>, <code>4h</code>, <code>1d</code>|
+|<a href="#symbol-symbol">symbol</a> |<b>true</b> |string |Symbol |
+|period |<b>true</b> |string |Data recording period. <code>5min</code>, <code>15min</code>, <code>30min</code>, <code>1h</code>, <code>4h</code>, <code>1d</code>|
 -->
 <h1 id='t-accountdata'>Account Data Endpoints</h1>
 <p>The following account data endpoints require authentication.</p>
@@ -3427,25 +3437,25 @@ GET
 </thead><tbody>
 <tr>
 <td style="text-align: left"><a href="#side-side">side</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Side</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#order-type-order_type">order_type</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Active order type</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#quantity-qty">qty</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">integer</td>
 <td>Order quantity in USD</td>
 </tr>
@@ -3457,7 +3467,7 @@ GET
 </tr>
 <tr>
 <td style="text-align: left"><a href="#time-in-force-time_in_force">time_in_force</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Time in force</td>
 </tr>
@@ -3668,7 +3678,7 @@ GET
 </thead><tbody>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
@@ -3867,7 +3877,7 @@ GET
 </thead><tbody>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
@@ -4061,7 +4071,7 @@ This endpoint's <code>rate_limit</code> will decrease by 10 per request
 </thead><tbody>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
@@ -4217,17 +4227,17 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <td style="text-align: left">order_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Your active order ID. The unique order ID returned to you when the corresponding active order was created</td>
+<td>Order ID. <b>Required</b> if not passing order_link_id</td>
 </tr>
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Customised order ID, maximum length at 36 characters, and order ID under the same agency has to be unique.</td>
+<td>Agency customized order ID. <b>Required</b> if not passing order_id</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Symbol.</td>
 </tr>
@@ -4379,7 +4389,7 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <span class="p">}</span>
 
 </code></pre></div>
-<p>Query real-time active order information. If only <code>order_id</code> or <code>order_link_id</code> are passed, a single order will be returned; otherwise, <b>return multiple unfilled orders,max size is 500</b>.</p>
+<p>Query real-time active order information. If only <code>order_id</code> or <code>order_link_id</code> are passed, a single order will be returned; otherwise, <b>returns up to 500 unfilled orders</b>.</p>
 
 <p class="fake_header">HTTP Request</p>
 
@@ -4398,22 +4408,22 @@ Please note that only orders that are unfilled or partially filled can be modifi
 </tr>
 </thead><tbody>
 <tr>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Symbol</td>
+</tr>
+<tr>
 <td style="text-align: left">order_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Order ID. <b>Required</b> if not passing order_link_id</td>
+<td>Order ID</td>
 </tr>
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Agency customized order ID. <b>Required</b> if not passing order_id</td>
-</tr>
-<tr>
-<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left">true</td>
-<td style="text-align: left">string</td>
-<td>Symbol</td>
+<td>Order link ID</td>
 </tr>
 </tbody></table>
 
@@ -4598,25 +4608,25 @@ Take profit/Stop loss is not supported in placing conditional orders. One can on
 </thead><tbody>
 <tr>
 <td style="text-align: left"><a href="#side-side">side</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Side</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#order-type-order_type">order_type</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Conditional order type</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#quantity-qty">qty</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Order quantity in USD</td>
 </tr>
@@ -4628,19 +4638,19 @@ Take profit/Stop loss is not supported in placing conditional orders. One can on
 </tr>
 <tr>
 <td style="text-align: left">base_price</td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>It will be used to compare with the value of <code>stop_px</code>, to decide whether your conditional order will be triggered by crossing trigger price from upper side or lower side. Mainly used to identify the expected direction of the current conditional order.</td>
 </tr>
 <tr>
 <td style="text-align: left">stop_px</td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Trigger price</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#time-in-force-time_in_force">time_in_force</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Time in force</td>
 </tr>
@@ -4814,7 +4824,7 @@ Take profit/Stop loss is not supported in placing conditional orders. One can on
 </thead><tbody>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
@@ -4989,7 +4999,7 @@ Take profit/Stop loss is not supported in placing conditional orders. One can on
 </thead><tbody>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
@@ -5119,7 +5129,7 @@ This endpoint's <code>rate_limit</code> will decrease by 10 per request
 </thead><tbody>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
@@ -5296,17 +5306,17 @@ Please note that you can only modify untriggered conditional orders.
 <td style="text-align: left">stop_order_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Your conditional order ID. The unique order ID returned to you when the corresponding active order was created</td>
+<td>Order ID. <b>Required</b> if not passing order_link_id</td>
 </tr>
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Customised order ID, maximum length at 36 characters, and order ID under the same agency has to be unique.</td>
+<td>Agency customized order ID. <b>Required</b> if not passing stop_order_id</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Symbol.</td>
 </tr>
@@ -5452,7 +5462,7 @@ Please note that you can only modify untriggered conditional orders.
     <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">600</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Query real-time stop order information. When passing the parameter <code>order_id</code> or <code>order_link_id</code>, a single order data will be returned; If the parameters <code>order_id</code> and <code>order_link_id</code> are not passed, <b>return multiple unfilled orders,max size is 50</b>.</p>
+<p>Query real-time stop order information. When passing the parameter <code>order_id</code> or <code>order_link_id</code>, a single order data will be returned; otherwise, <b>returns up to 50 unfilled orders</b>.</p>
 
 <aside class="notice">
 <b>When a stop order is triggered, it becomes an active order within the system. This endpoint returns <code>order_id</code> which is equal to <code>stop_order_id</code> request parameter.</b>
@@ -5476,7 +5486,7 @@ Please note that you can only modify untriggered conditional orders.
 </thead><tbody>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
@@ -5484,13 +5494,13 @@ Please note that you can only modify untriggered conditional orders.
 <td style="text-align: left">stop_order_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Order ID. <b>Required</b> if not passing order_link_id</td>
+<td>Order ID</td>
 </tr>
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Agency customized order ID. <b>Required</b> if not passing order_id</td>
+<td>Order link ID</td>
 </tr>
 </tbody></table>
 
@@ -6011,13 +6021,13 @@ You cannot change margin when your position is in Cross Margin mode. See the <a 
 </thead><tbody>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
 <tr>
 <td style="text-align: left">margin</td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>margin</td>
 </tr>
@@ -6125,7 +6135,7 @@ Passing these parameters will create conditional orders controlled by the system
 </thead><tbody>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
@@ -6390,13 +6400,13 @@ Set <code>leverage</code> to <code>0</code> if you want to trade in <a href="htt
 </thead><tbody>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
 <tr>
 <td style="text-align: left">leverage</td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">number</td>
 <td>Leverage. <code>0</code> means Cross Margin mode - any other value means Isolated Margin mode</td>
 </tr>
@@ -6499,7 +6509,7 @@ One order may have multiple trade records.
 </tr>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Contract type. <b>Required</b></td>
 </tr>
@@ -6651,7 +6661,7 @@ One order may have multiple trade records.
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/private/trade/closed-pnl/list?api_key={api_key}&amp;symbol=BTCUSD&amp;timestamp={timestamp}&amp;sign={sign}"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Execution</span><span class="p">.</span><span class="n">Execution_closed_pnl</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Positions</span><span class="p">.</span><span class="n">Positions_closePnlRecords</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
 </code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -6712,7 +6722,7 @@ One order may have multiple trade records.
 </thead><tbody>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
@@ -7091,13 +7101,13 @@ Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles
 </thead><tbody>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
 <tr>
 <td style="text-align: left">risk_id</td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">integer</td>
 <td>Risk ID</td>
 </tr>
@@ -7365,7 +7375,7 @@ Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles
 </thead><tbody>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
@@ -7447,7 +7457,7 @@ Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles
 </thead><tbody>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
@@ -7540,7 +7550,7 @@ Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles
 </thead><tbody>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
@@ -7744,7 +7754,7 @@ Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles
 </thead><tbody>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
@@ -11396,25 +11406,25 @@ Take profit/Stop loss is not supported in placing conditional orders. One can on
 </thead><tbody>
 <tr>
 <td style="text-align: left"><a href="#side-side">side</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Side</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#order-type-order_type">order_type</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Conditional order type</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#quantity-qty">qty</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">integer</td>
 <td>Order quantity in USD</td>
 </tr>
@@ -11426,19 +11436,19 @@ Take profit/Stop loss is not supported in placing conditional orders. One can on
 </tr>
 <tr>
 <td style="text-align: left">base_price</td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">number</td>
 <td>It will be used to compare with the value of <code>stop_px</code>, to decide whether your conditional order will be triggered by crossing trigger price from upper side or lower side. Mainly used to identify the expected direction of the current conditional order.</td>
 </tr>
 <tr>
 <td style="text-align: left">stop_px</td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">number</td>
 <td>Trigger price</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#time-in-force-time_in_force">time_in_force</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Time in force</td>
 </tr>
@@ -11661,7 +11671,7 @@ Take profit/Stop loss is not supported in placing conditional orders. One can on
 </thead><tbody>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
@@ -11840,7 +11850,7 @@ Please note that you can only modify untriggered conditional orders.
 </tr>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Symbol.</td>
 </tr>
@@ -11944,7 +11954,7 @@ Please note that only orders that are unfilled or partially filled can be modifi
 </tr>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Symbol.</td>
 </tr>
