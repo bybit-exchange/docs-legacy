@@ -336,6 +336,14 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="更新日志">更新日志</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#2021-02-02" class="toc-h2 toc-link" data-title="2021-02-02">2021-02-02</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#websocket-api" class="toc-h3 toc-link" data-title="Websocket API">Websocket API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
                     <a href="#2021-02-01" class="toc-h2 toc-link" data-title="2021-02-01">2021-02-01</a>
                       <ul class="toc-list-h3">
                           <li>
@@ -406,7 +414,7 @@
                             <a href="#rest-api-9" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                           <li>
-                            <a href="#websocket-api" class="toc-h3 toc-link" data-title="Websocket API">Websocket API</a>
+                            <a href="#websocket-api-2" class="toc-h3 toc-link" data-title="Websocket API">Websocket API</a>
                           </li>
                       </ul>
                   </li>
@@ -465,7 +473,7 @@
                             <a href="#rest-api-16" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                           <li>
-                            <a href="#websocket-api-2" class="toc-h3 toc-link" data-title="Websocket API">Websocket API</a>
+                            <a href="#websocket-api-3" class="toc-h3 toc-link" data-title="Websocket API">Websocket API</a>
                           </li>
                       </ul>
                   </li>
@@ -524,7 +532,7 @@
                             <a href="#rest-api-23" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                           <li>
-                            <a href="#websocket-api-3" class="toc-h3 toc-link" data-title="Websocket API">Websocket API</a>
+                            <a href="#websocket-api-4" class="toc-h3 toc-link" data-title="Websocket API">Websocket API</a>
                           </li>
                       </ul>
                   </li>
@@ -535,7 +543,7 @@
                             <a href="#rest-api-24" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                           <li>
-                            <a href="#websocket-api-4" class="toc-h3 toc-link" data-title="Websocket API">Websocket API</a>
+                            <a href="#websocket-api-5" class="toc-h3 toc-link" data-title="Websocket API">Websocket API</a>
                           </li>
                       </ul>
                   </li>
@@ -943,7 +951,20 @@ clipboard.on('error', function(e) {
 <p><p>欢迎使用 <a href="https://www.bybit.com/">Bybit</a> APIs 和 Websocket官方文档！</p> <p>如果您在使用API的过程中遇到问题需要帮助，请加入我们的 <a href="https://t.me/Bybitapi">官方Telegram API讨论群</a>！</p></p>
 <h3 id='t-resources'>中文社区和参考资料</h3>
 <p><ul class="bybit-community"> <li><img src="../../images/favicon-4f296779.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/zh-cn"><strong>帮助中心</strong></a> - <strong>在这里了解合约交易</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/docs/issues"><strong>Bybit API docs</strong></a> - <strong>在这里提bug</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/api-connectors/"><strong>Bybit's api-connectors</strong></a> - <strong>官方API SDK</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文讨论群</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文讨论群</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong> <li><img src="../../images/email_icon-e7dd7b20.png" height="14", width="14"> <a href="mailto:IT@bybit.com"><strong>IT@bybit.com</strong></a> - <strong>官方技术支持邮箱!</strong> </ul></p>
-<h1 id='t-changelog'>更新日志</h1><h2 id='2021-02-01'>2021-02-01</h2><h3 id='rest-api'>REST API</h3>
+<h1 id='t-changelog'>更新日志</h1><h2 id='2021-02-02'>2021-02-02</h2><h3 id='websocket-api'>Websocket API</h3>
+<ul>
+<li>Topic <a href="#t-websocketorder">order</a> [更新]
+
+<ul>
+<li>新增字段<code>reduce_only</code>,<code>close_on_trigger</code></li>
+</ul></li>
+<li>Topic <a href="#t-websocketstoporder">stop_order</a> [更新]
+
+<ul>
+<li>新增字段<code>reduce_only</code>,<code>close_on_trigger</code></li>
+</ul></li>
+</ul>
+<h2 id='2021-02-01'>2021-02-01</h2><h3 id='rest-api'>REST API</h3>
 <ul>
 <li>阶梯保证金升级为<a href="https://help.bybit.com/hc/zh-cn/articles/900000170023-%E9%A3%8E%E9%99%A9%E9%99%90%E9%A2%9D-USDT%E6%B0%B8%E7%BB%AD-">风险限额</a>，新增以下接口
 
@@ -1113,7 +1134,7 @@ clipboard.on('error', function(e) {
 <li>返回参数增加 <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code></li>
 </ul></li>
 </ul>
-<h3 id='websocket-api'>Websocket API</h3>
+<h3 id='websocket-api-2'>Websocket API</h3>
 <ul>
 <li><a href="#t-websocket">新增Websocket域名</a> [更新]</li>
 </ul>
@@ -1203,7 +1224,7 @@ clipboard.on('error', function(e) {
 <li>修复某些情况下<code>inviter_id</code>总是为0的bug</li>
 </ul></li>
 </ul>
-<h3 id='websocket-api-2'>Websocket API</h3>
+<h3 id='websocket-api-3'>Websocket API</h3>
 <ul>
 <li><a href="#t-websocketkline">K线</a> [新增]</li>
 </ul>
@@ -1315,7 +1336,7 @@ clipboard.on('error', function(e) {
 <li><code>order_status</code> 参数不再支持多条件查询。</li>
 </ul></li>
 </ul>
-<h3 id='websocket-api-3'>Websocket API</h3>
+<h3 id='websocket-api-4'>Websocket API</h3>
 <ul>
 <li><a href="#t-websocketwallet">钱包</a> [新增]</li>
 <li><a href="#t-websockettrade">平台成交</a> [新增]</li>
@@ -1331,7 +1352,7 @@ clipboard.on('error', function(e) {
 <li><a href="#t-activeorders">创建活动委托单</a> [新增]</li>
 <li><a href="#t-position">获取持仓（实时）</a> [新增]</li>
 </ul>
-<h3 id='websocket-api-4'>Websocket API</h3>
+<h3 id='websocket-api-5'>Websocket API</h3>
 <ul>
 <li><a href="#t-websocketorderbook25">orderBook25档</a> [新增]</li>
 <li><a href="#t-websocketorderbook200">orderBook200档</a> [新增]</li>
@@ -7722,6 +7743,8 @@ B用户：
             <span class="dl">"</span><span class="s2">take_profit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">stop_loss</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">trailing_stop</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">reduce_only</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">close_on_trigger</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">create_time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2020-08-12T21:18:40.780039678Z</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">update_time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2020-08-12T21:18:40.787986415Z</span><span class="dl">"</span>
         <span class="p">}</span>
@@ -7803,6 +7826,16 @@ B用户：
 <td>累计成交手续费</td>
 </tr>
 <tr>
+<td style="text-align: left">reduce_only</td>
+<td style="text-align: left">bool</td>
+<td>只减仓</td>
+</tr>
+<tr>
+<td style="text-align: left">close_on_trigger</td>
+<td style="text-align: left">bool</td>
+<td>触发后平仓. 如果下平仓单，请设置为<code>true</code>，避免因为保证金不足而导致下单失败</td>
+</tr>
+<tr>
 <td style="text-align: left">create_time</td>
 <td style="text-align: left">string</td>
 <td>委托时间</td>
@@ -7839,6 +7872,8 @@ B用户：
             <span class="dl">"</span><span class="s2">stop_order_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Stop</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">trigger_by</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LastPrice</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">trigger_price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">8584.5</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">reduce_only</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">close_on_trigger</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">create_time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2020-01-14T14:11:22.062Z</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">update_time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2020-01-14T14:11:22.062Z</span><span class="dl">"</span>
         <span class="p">}</span>
@@ -7918,6 +7953,16 @@ B用户：
 <td style="text-align: left">trigger_price</td>
 <td style="text-align: left">string</td>
 <td>如果stop_order_type为`TrailingProfit`时，为激活价格，否则为触发价格。</td>
+</tr>
+<tr>
+<td style="text-align: left">reduce_only</td>
+<td style="text-align: left">bool</td>
+<td>只减仓</td>
+</tr>
+<tr>
+<td style="text-align: left">close_on_trigger</td>
+<td style="text-align: left">bool</td>
+<td>触发后平仓. 如果下平仓单，请设置为<code>true</code>，避免因为保证金不足而导致下单失败</td>
 </tr>
 <tr>
 <td style="text-align: left">created_at</td>
