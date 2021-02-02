@@ -1,6 +1,16 @@
 # t(:changelog)
 
 
+## 2021-02-02
+
+### Websocket API
+
+- Topic <a href="#t-websocketorder">order</a> [t(:changelog_update)]
+    - t(:ws_update_20210202_0)
+          
+- Topic <a href="#t-websocketstoporder">stop_order</a> [t(:changelog_update)]
+    - t(:ws_update_20210202_1)
+
 ## 2021-01-25
 ### REST API
 - [t(:fundingrate)](#t-fundingrate) [t(:changelog_update)]

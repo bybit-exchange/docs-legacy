@@ -735,6 +735,8 @@ while True:
             "take_profit": 0,
             "stop_loss": 0,
             "trailing_stop": 0,
+            "reduce_only": false,
+            "close_on_trigger": false,
             "create_time": "2020-08-12T21:18:40.780039678Z",
             "update_time": "2020-08-12T21:18:40.787986415Z"
         }
@@ -758,6 +760,8 @@ while True:
 |cum_exec_qty |number |t(:linear_resp_field_cum_exec_qty)  |
 |cum_exec_value |string |t(:linear_resp_field_cum_exec_value)  |
 |cum_exec_fee |string |t(:linear_resp_field_cum_exec_fee)  |
+|reduce_only | bool | t(:row_comment_reduceOnly)|
+|close_on_trigger | bool | t(:row_comment_closeOnTrigger)|
 |create_time |string |t(:row_comment_timestamp)  |
 |update_time |string |t(:row_comment_resp_update_time)  |
 
@@ -788,6 +792,8 @@ ws.send('{"op": "subscribe", "args": ["stop_order"]}')
             "stop_order_type": "Stop",
             "trigger_by": "LastPrice",
             "trigger_price": "8584.5",
+            "reduce_only": false,
+            "close_on_trigger": false,
             "create_time": "2020-01-14T14:11:22.062Z",
             "update_time": "2020-01-14T14:11:22.062Z"
         }
@@ -811,6 +817,8 @@ ws.send('{"op": "subscribe", "args": ["stop_order"]}')
 |stop_order_type |string |t(:row_comment_stopOrderType)  |
 |trigger_by | string |t(:row_comment_triggerBy) |
 |trigger_price | string | t(:stop_order_trigger_price)|
+|reduce_only | bool | t(:row_comment_reduceOnly)|
+|close_on_trigger | bool | t(:row_comment_closeOnTrigger)|
 |created_at |string |t(:row_comment_created_at)  |
 |updated_at |string |t(:row_comment_updated_at)  |
 

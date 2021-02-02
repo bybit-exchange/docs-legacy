@@ -819,7 +819,9 @@ while True:
             "stop_loss": "0",
             "trailing_stop": "0",
             "trailing_active": "0",
-            "last_exec_price": "8580"
+            "last_exec_price": "8580",
+            "reduce_only": false,
+            "close_on_trigger": false
         }
     ]
 }
@@ -850,6 +852,8 @@ while True:
 |trailing_stop |string |t(:row_comment_trailing_stop)  |
 |trailing_active |string |t(:row_comment_trailing_active)  |
 |last_exec_price |string |t(:row_comment_last_exec_price)  |
+|reduce_only | bool | t(:row_comment_reduceOnly)|
+|close_on_trigger | bool | t(:row_comment_closeOnTrigger)|
 
 ### t(:websocketstoporder)
 > t(:codequote_subscribe)
@@ -880,6 +884,7 @@ ws.send('{"op": "subscribe", "args": ["stop_order"]}')
             "stop_order_type": "Stop",
             "trigger_by": "LastPrice",
             "trigger_price": "8584.5", //t(:stop_order_trigger_price)
+            "close_on_trigger": false,
             "timestamp": "2020-01-14T14:11:22.062Z"
         }
     ]
@@ -904,4 +909,5 @@ ws.send('{"op": "subscribe", "args": ["stop_order"]}')
 |stop_order_type |string |t(:row_comment_stopOrderType)  |
 |trigger_by | string |t(:row_comment_triggerBy) |
 |trigger_price | string | t(:stop_order_trigger_price)|
+|close_on_trigger | bool | t(:row_comment_closeOnTrigger)|
 |timestamp |string |t(:row_response_comment_time)  |
