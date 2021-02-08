@@ -152,7 +152,7 @@ zh-cn:
   row_comemnt_pRTriggerPrice: 修改后的条件单的触发价格或止盈止损的价格。如果不修改这个字段，请不要传这个参数。
   row_comemnt_replace_take_profit: 修改后的止盈价格。如果不修改这个字段，请不要传这个参数。
   row_comemnt_replace_stop_loss: 修改后的止损价格。如果不修改这个字段，请不要传这个参数。
-  row_comment_leverage: 杠杆。<code>杠杆为0</code>意味着全仓模式.全场模式下修改杠杆会变成逐仓模式
+  row_comment_leverage: 杠杆。<code>杠杆为0</code>意味着全仓模式.全仓模式下修改杠杆会变成逐仓模式
   row_comment_startDate: 起始时间点
   row_comment_endDate: 结束时间点
   row_comment_currency: 币种类型
@@ -645,7 +645,7 @@ zh-cn:
   ### Change Margin
   changemargin: 更新保证金
   account_para_changeMargin: 更新保证金。
-  account_aside_changeMargin: 如果当前为全仓模式则不能调整保证金。请查看<a href="#t-setleverage">修改杠杆</a>了解更多信息。
+  account_aside_changeMargin: 修改保证金不能低于<a href="https://help.bybit.com/hc/zh-cn/articles/360039261174-%E8%B5%B7%E5%A7%8B%E4%BF%9D%E8%AF%81%E9%87%91%E8%AE%A1%E7%AE%97-%E5%8F%8D%E5%90%91%E6%B0%B8%E7%BB%AD-">起始保证金</a>，如果当前为全仓模式则不能调整保证金。请查看<a href="#t-setleverage">修改杠杆</a>了解更多信息。
   ### Set Trading-Stop
   tradingstop: 设置止盈止损
   account_para_tradingStop: 设置仓位止盈止损、追踪止损。
@@ -1413,7 +1413,7 @@ zh-cn:
     <p>市价活动委托: 一个传统的市场价格订单,会以当前的最优价格为您成交订单。当且仅当选择市价单时，<code>price</code>可为空！</p>
     <p>限价活动委托: 您可以为您的订单设置一个执行价格，当市场价格达到您的设置价格时，系统会为您成交订单。</p>
     <p><b>止盈止损: 您仅能在开仓时设置止盈止损条件单，一旦持有仓位后提交活动委托时关联的止盈止损则不会生效。如果不设置止盈止损触发条件<code>trigger_by</code>则默认使用LastPrice</b></p>
-    <p>委托数量: 表示您要购买/卖出的永续合约数，对于委托数量目前Bybit只允许提交正整数。</p>
+    <p>委托数量: 表示您要购买/卖出的永续合约数，对于委托数量目前Bybit只允许提交正整数。增减最小单位请参考交易对接口响应中的<code>lot_size_filter</code>字段。</p>
     <p>委托价格: 如果是下<b>限价单</b>，该参数为<b>必填</b>. 在没有仓位时，做多的委托价格需高于市价的10%、低于1百万。如有仓位时则需优于强平价。价格增减最小单位请参考<a href="#t-querysymbol">交易对接口</a>响应中的<b>price_filter</b>字段。</p>
     <p>自定义条件单ID: 您可以自定义活动委托订单ID，我们会为您关联到系统的订单ID，并把系统的唯一订单ID在活动委托创建成功后一并返回给您，您可以使用该订单ID去取消活动委托，同时要求您传递的自定义订单ID<code>最大长度不超过36个字段且唯一</code>。</p>
     <p><b>每个账户最多可同时持有500个活动订单。这是针对合约的，因此可以允许出现例如：账户同时持有300个BTCUSDT的活动单、280个ETHUSDT合约的活动单。</b></p>
