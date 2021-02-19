@@ -7,7 +7,6 @@
 
 - Topic <a href="#t-websocketorder">order</a> [t(:changelog_update)]
     - t(:ws_update_20210202_0)
-          
 - Topic <a href="#t-websocketstoporder">stop_order</a> [t(:changelog_update)]
     - t(:ws_update_20210202_1)
 
@@ -20,9 +19,7 @@
 ## 2021-01-12
 ### REST API
 - [t(:queryindexpricekline)](#t-queryindexpricekline) [t(:changelog_new)]
-  - t(:restapi_update_20210107_1)
 - [t(:querypremiumindexkline)](#t-querypremiumindexkline) [t(:changelog_new)]
-  - t(:restapi_update_20210107_2)
 
 ## 2020-12-31
 ### REST API
