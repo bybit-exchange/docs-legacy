@@ -2274,3 +2274,6 @@ GET
 
 ## t(:key)
 <a href="/docs/inverse#t-key">t(:shared_endpoint_desc)</a>
+
+## t(:lcp)
+<a href="/docs/inverse#t-lcp">t(:shared_endpoint_desc)</a>

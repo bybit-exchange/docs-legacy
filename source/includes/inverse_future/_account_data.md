@@ -1544,13 +1544,105 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
-|buy_leverage |<b>true</b> |number |t(:row_comment_leverage) |
-|sell_leverage |<b>true</b> |number |t(:row_comment_leverage) |
+|buy_leverage |<b>true</b> |number |t(:future_row_comment_leverage) |
+|sell_leverage |<b>true</b> |number |t(:future_row_comment_leverage) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |result |number |t(:row_comment_leverage_result)  |
+
+
+### t(:switchpositionmode)
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/future/private/position/switch-mode \
+-H "Content-Type: application/json" \
+-d '{"api_key":"{api_key}","symbol":"BTCUSDH21","mode":0,"timestamp":{timestamp},"sign":"{sign}"}'
+```
+
+```python
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "ok",
+    "ext_code": "",
+    "result": 2,
+    "ext_info": null,
+    "time_now": "1577477968.175013",
+    "rate_limit_status": 74,
+    "rate_limit_reset_ms": 1577477968183,
+    "rate_limit": 75
+}
+```
+
+t(:account_para_switchpositionmode)
+
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=ulSwitchMode>/future/private/position/switch-mode</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ulSwitchMode"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
+|mode |<b>true</b> |int |t(:row_comment_positionmode) |
+
+<p class="fake_header">t(:responseparameters)</p>
+
+
+### t(:marginswitch)
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/future/private/position/switch-isolated \
+-H "Content-Type: application/json" \
+-d '{"api_key":"{api_key}","symbol":"BTCUSDH21", "position_idx":1, "is_isolated":true,"buy_leverage":10,"sell_leverage":20, "timestamp":{timestamp},"sign":"{sign}"}'
+```
+
+```python
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "ok",
+    "ext_code": "",
+    "result": 2,
+    "ext_info": null,
+    "time_now": "1577477968.175013",
+    "rate_limit_status": 74,
+    "rate_limit_reset_ms": 1577477968183,
+    "rate_limit": 75
+}
+```
+
+t(:future_account_para_switchIsolated)
+
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=ulSwitchMode>/future/private/position/switch-mode</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ulSwitchMode"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
+|is_isolated |<b>true</b> |bool |t(:future_row_comment_switch_isolated)  |
+|buy_leverage |<b>true</b> |number |t(:future_row_comment_leverage)  |
+|sell_leverage |<b>true</b> |number |t(:future_row_comment_leverage)  |
+
+<p class="fake_header">t(:responseparameters)</p>
+
+
 
 ### t(:usertraderecords)
 > t(:codequote_curlExample)
@@ -1747,512 +1839,10 @@ GET
 ## t(:risklimit)
 
 ### t(:getrisklimit)
-> t(:codequote_curlExample)
-
-```console
-curl "https://api.bybit.com/open-api/wallet/risk-limit/list?api_key={api_key}&timestamp={timestamp}&sign={sign}"
-```
-
-```python
-```
-
-> t(:codequote_responseExample)
-
-```javascript
-{
-  "ret_code": 0,
-  "ret_msg": "ok",
-  "ext_code": "",
-  "result": [
-    {
-      "id": 1,
-      "coin": "BTC",
-      "limit": 150,
-      "maintain_margin": "0.50",
-      "starting_margin": "1.00",
-      "section": [
-        "1",
-        "2",
-        "3",
-        "5",
-        "10",
-        "25",
-        "50",
-        "100"
-      ],
-      "is_lowest_risk": 1,
-      "created_at": "2018-11-09T13:53:04.000Z",
-      "updated_at": "2018-11-09T13:53:04.000Z"
-    },
-    {
-      "id": 11,
-      "coin": "ETH",
-      "limit": 3000,
-      "maintain_margin": "1.00",
-      "starting_margin": "2.00",
-      "section": [
-        "1",
-        "2",
-        "3",
-        "5",
-        "15",
-        "30",
-        "40",
-        "50"
-      ],
-      "is_lowest_risk": 1,
-      "created_at": "2019-01-25T08:31:54.000Z",
-      "updated_at": "2019-01-25T08:31:54.000Z"
-    }
-  ],
-  "ext_info": null,
-  "time_now": "1577587907.157396",
-  "rate_limit_status": 99,
-  "rate_limit_reset_ms": 1577587907162,
-  "rate_limit": 100
-}
-```
-
-t(:wallet_para_getRisk)
-
-<aside class="notice">
-t(:wallet_aside_getRisk)
-</aside>
-
-<p class="fake_header">t(:httprequest)</p>
-GET
-<code><span id=oawrlList>/open-api/wallet/risk-limit/list</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawrlList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|id |number |t(:row_comment_riskId)  |
-|coin |string |t(:row_comment_coin_type)  |
-|limit |number |t(:row_comment_risk_limit)    |
-|maintain_margin |string |t(:row_comment_maintain_margin)  |
-|starting_margin |string |t(:row_comment_starting_margin)  |
-|section |string |t(:row_comment_section)  |
-|is_lowest_risk |number |t(:row_comment_is_lowest_risk)    |
-|created_at |string |t(:row_comment_created_at)  |
-|updated_at |string |t(:row_comment_updated_at)  |
-
+<a href="/docs/inverse#t-getrisklimit">t(:shared_endpoint_desc)</a>
 
 ### t(:setrisklimit)
-> t(:codequote_curlExample)
-
-```console
-curl https://api.bybit.com/open-api/wallet/risk-limit \
--H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSDH21","risk_id":2,"timestamp":{timestamp},"sign":"{sign}"}'
-```
-
-```python
-```
-
-> t(:codequote_responseExample)
-
-```javascript
-{
-  "ret_code": 0,
-  "ret_msg": "ok",
-  "ext_code": "",
-  "result": {
-    "position": {
-      "id": 1,
-      "user_id": 1,
-      "symbol": "BTCUSDH21",
-      "side": "None",
-      "size": 0,
-      "position_value": 0,
-      "entry_price": 0,
-      "risk_id": 2,
-      "auto_add_margin": 0,
-      "leverage": 1,
-      "position_margin": 0,
-      "liq_price": 0,
-      "bust_price": 0,
-      "occ_closing_fee": 0,
-      "occ_funding_fee": 0,
-      "take_profit": 0,
-      "stop_loss": 0,
-      "trailing_stop": 0,
-      "position_status": "Normal",
-      "deleverage_indicator": 0,
-      "oc_calc_data": "{\"blq\":1,\"blv\":\"0.000125\",\"slq\":0,\"bmp\":8000,\"smp\":0,\"fc\":-0.00012529,\"bv2c\":1.00225,\"sv2c\":1.0007575}",
-      "order_margin": 0.00012529,
-      "wallet_balance": 1000,
-      "realised_pnl": 0,
-      "cum_realised_pnl": 0,
-      "cum_commission": 0,
-      "cross_seq": 4376,
-      "position_seq": 13689,
-      "created_at": "2019-08-13T06:51:29.000Z",
-      "updated_at": "2019-12-29T03:11:08.000Z",
-      "ext_fields": {
-        "trailing_active": "9000",
-        "v": 4
-      }
-    },
-    "risk": {
-      "id": 2,
-      "coin": "BTC",
-      "limit": 300,
-      "maintain_margin": "1.00",
-      "starting_margin": "1.50",
-      "section": "[\"1\",\"2\",\"3\",\"5\",\"10\",\"25\",\"50\",\"66\"]",
-      "is_lowest_risk": 0,
-      "created_at": "2019-06-26T05:46:45.000Z",
-      "updated_at": "2019-06-26T05:46:55.000Z"
-    }
-  },
-  "ext_info": null,
-  "time_now": "1577589068.435439",
-  "rate_limit_status": 71,
-  "rate_limit_reset_ms": 1577589068546,
-  "rate_limit": 75
-}
-```
-
-t(:wallet_para_setRisk)
-
-<aside class="notice">
-t(:wallet_aside_getRisk)
-</aside>
-
-<p class="fake_header">t(:httprequest)</p>
-POST
-<code><span id=oawRiskLimit>/open-api/wallet/risk-limit</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawRiskLimit"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
-|risk_id |<b>true</b> |integer |t(:row_comment_riskId) |
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|position > id |number |t(:row_comment_position_id)  |
-|user_id |number |t(:row_comment_userID)  |
-|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
-|t(:row_parameter_side) |string |t(:row_comment_side)  |
-|size |number |t(:row_comment_position_size)  |
-|position_value |number |t(:row_comment_position_value)  |
-|entry_price |number |t(:row_comment_entry_price)  |
-|risk_id |number |t(:row_comment_riskId)  |
-|auto_add_margin |number |t(:row_comment_auto_add_margin)  |
-|leverage |number |t(:resp_field_leverage)  |
-|position_margin |number |t(:row_comment_position_margin)  |
-|liq_price |number |t(:row_comment_liq_price)  |
-|bust_price |number |t(:row_comment_bust_price)  |
-|occ_closing_fee |number |t(:row_comment_occ_closing_fee)  |
-|occ_funding_fee |number |t(:row_comment_occ_funding_fee)  |
-|take_profit |number |t(:row_comment_take_profit)  |
-|stop_loss |number |t(:row_comment_stop_loss)  |
-|trailing_stop |number |t(:row_comment_trailing_stop)  |
-|position_status |string |t(:row_comment_position_status)  |
-|deleverage_indicator |number |t(:row_comment_deleverage_indicator)  |
-|oc_calc_data |string |t(:row_comment_oc_calc_data)  |
-|order_margin |number |t(:row_comment_order_margin)  |
-|wallet_balance |number |t(:row_comment_wallet_balance)  |
-|realised_pnl |number |t(:row_comment_realised_pnl)  |
-|cum_realised_pnl |number |t(:row_comment_cum_realised_pnl)  |
-|cum_commission |number |t(:row_comment_cum_commission)  |
-|cross_seq |number |t(:row_comment_cross_seq)  |
-|position_seq |number |t(:row_comment_position_seq)  |
-|created_at |string |t(:row_comment_created_at)  |
-|updated_at |string |t(:row_comment_updated_at)  |
-|ext_fields>trailing_active |string |t(:row_comment_trailing_active)  |
-|risk>id |number |t(:row_comment_riskId)  |
-|risk>coin |string |t(:row_comment_coin_type)  |
-|risk>limit |number |t(:row_comment_risk_limit)    |
-|risk>maintain_margin |string |t(:row_comment_maintain_margin)  |
-|risk>starting_margin |string |t(:row_comment_starting_margin)  |
-|risk>section |string |t(:row_comment_section)  |
-|risk>is_lowest_risk |number |t(:row_comment_is_lowest_risk)    |
-|risk>created_at |string |t(:row_comment_created_at)  |
-|risk>updated_at |string |t(:row_comment_updated_at)  |
-
-
-## t(:funding)
-### t(:fundingRate)
-> t(:codequote_curlExample)
-
-```console
-curl "https://api.bybit.com/v2/public/funding/prev-funding-rate?api_key={api_key}&symbol=BTCUSDH21&timestamp={timestamp}&sign={sign}"
-```
-
-```python
-```
-
-> t(:codequote_responseExample)
-
-```javascript
-{
-    "ret_code": 0,
-    "ret_msg": "ok",
-    "ext_code": "",
-    "result": {
-        "symbol": "BTCUSDH21",
-        "funding_rate": "0.00010000",
-        "funding_rate_timestamp": 1577433600
-    },
-    "ext_info": null,
-    "time_now": "1577445586.446797",
-    "rate_limit_status": 119,
-    "rate_limit_reset_ms": 1577445586454,
-    "rate_limit": 120
-}
-```
-
-t(:market_para_fundingRate)
-
-<p class="fake_header">t(:httprequest)</p>
-GET
-<code><span id=oafPrevFundingRateNew>/v2/public/funding/prev-funding-rate</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oafPrevFundingRateNew"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-|parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|t(:row_parameter_symbol) |string |t(:row_comment_symbol)    |
-|funding_rate |string |t(:row_comment_funding_rate)  |
-|funding_rate_timestamp |number |t(:row_comment_funding_rate_timestamp)  |
-
-### t(:mylastfundingfee)
-> t(:codequote_curlExample)
-
-```console
-curl "https://api.bybit.com/future/private/funding/prev-funding?api_key={api_key}&symbol=BTCUSDH21&timestamp={timestamp}&sign={sign}"
-```
-
-```python
-```
-
-> t(:codequote_responseExample)
-
-```javascript
-{
-    "ret_code": 0,
-    "ret_msg": "ok",
-    "ext_code": "",
-    "result": {
-        "symbol": "BTCUSDH21",
-        "side": "Buy",  // Your position side at the time of settlement
-        "size": 1,      // Your position size at the time of settlement
-        "funding_rate": 0.0001,  // Funding rate for settlement. When the funding rate is positive, longs pay shorts. When it is negative, shorts pay longs.
-        "exec_fee": 0.00000002,  // Funding fee.
-        "exec_timestamp": 1575907200  // The time of funding settlement occurred, UTC timestamp
-    },
-    "ext_info": null,
-    "time_now": "1577446900.717204",
-    "rate_limit_status": 119,
-    "rate_limit_reset_ms": 1577446900724,
-    "rate_limit": 120
-}
-```
-
-t(:account_para_myLastFunding)
-
-<p class="fake_header">t(:httprequest)</p>
-GET
-<code><span id=oafPrevFundingNew>/future/private/funding/prev-funding</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oafPrevFundingNew"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|t(:row_parameter_symbol) |string |t(:row_comment_symbol)    |
-|t(:row_parameter_side) |string |t(:row_comment_funding_side)  |
-|size |number |t(:row_comment_funding_position_size)  |
-|funding_rate |number |t(:row_comment_funding_rate)  |
-|exec_fee |number |t(:row_comment_exec_fee)  |
-|exec_timestamp |number |t(:row_comment_exec_timestamp)  |
-
-
-### t(:predictedfunding)
-> t(:codequote_curlExample)
-
-```console
-curl "https://api.bybit.com/future/private/funding/predicted-funding?api_key={api_key}&symbol=BTCUSDH21&timestamp={timestamp}&sign={sign}"
-```
-
-```python
-```
-
-> t(:codequote_responseExample)
-
-```javascript
-{
-    "ret_code": 0,
-    "ret_msg": "ok",
-    "ext_code": "",
-    "result": {
-        "predicted_funding_rate": 0.0001,
-        "predicted_funding_fee": 0
-    },
-    "ext_info": null,
-    "time_now": "1577447415.583259",
-    "rate_limit_status": 118,
-    "rate_limit_reset_ms": 1577447415590,
-    "rate_limit": 120
-}
-```
-t(:account_para_predictedFunding)
-
-<p class="fake_header">t(:httprequest)</p>
-GET
-<code><span id=oafPredictedFundingNew>/future/private/funding/predicted-funding</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oafPredictedFundingNew"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|predicted_funding_rate |number |t(:row_comment_predicted_funding_rate)    |
-|predicted_funding_fee |number |t(:row_comment_predicted_funding_fee)  |
+<a href="/docs/inverse#t-setrisklimit">t(:shared_endpoint_desc)</a>
 
 ## t(:key)
-> t(:codequote_curlExample)
-
-```console
-curl "https://api.bybit.com/future/private/account/api-key?api_key={api_key}&timestamp={timestamp}&sign={sign}"
-```
-
-```python
-```
-
-> t(:codequote_responseExample)
-
-```javascript
-{
-    "ret_code": 0,
-    "ret_msg": "ok",
-    "ext_code": "",
-    "result": [
-        {
-            "api_key": "7GkMBBLTbGRfa0Nuh1",
-            "type": "personal",
-            "user_id": 1,
-            "inviter_id": 3,
-            "ips": [
-                "*"
-            ],
-            "note": "scalping_bot",
-            "permissions": [
-                "Order",
-                "Position"
-            ],
-            "created_at": "2019-10-28T13:22:39.000Z",
-            "expired_at": "2020-01-28T13:22:39.000Z",
-            "read_only": false
-        }
-    ],
-    "ext_info": null,
-    "time_now": "1577445138.790150",
-    "rate_limit_status": 99,
-    "rate_limit_reset_ms": 1577445138812,
-    "rate_limit": 100
-}
-```
-
-t(:account_para_key)
-
-<p class="fake_header">t(:httprequest)</p>
-GET
-<code><span id=oaApiKeyNew>/future/private/account/api-key</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oaApiKeyNew"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|api_key |string |t(:row_comment_api_key)    |
-|type |string |t(:row_comment_type)  |
-|user_id |number |t(:row_comment_position_user_id)  |
-|inviter_id |number |t(:row_comment_position_inviter_id)  |
-|ips |string |t(:row_comment_position_ips)  |
-|note |string |t(:row_comment_note)  |
-|permissions |string |t(:row_comment_permissions)  |
-|created_at |string |t(:row_comment_created_at)  |
-|expired_at |string |t(:row_comment_expired_at)  |
-|read_only |bool |t(:row_comment_read_only)  |
-
-## t(:lcp)
-> t(:codequote_curlExample)
-
-```console
-curl "https://api.bybit.com/future/private/account/lcp?api_key={api_key}&symbol=BTCUSDH21&timestamp={timestamp}&sign={sign}"
-```
-
-> t(:codequote_responseExample)
-
-```javascript
-{
-    "ret_code": 0,
-    "ret_msg": "ok",
-    "ext_code": "",
-    "result": [
-        {
-            "date": "2020-04-27",
-            "self_ratio": 1.1251,
-            "platform_ratio": 0.001254,
-            "score": 0.1459
-        },
-        {
-            "date": "2020-04-26",
-            "self_ratio": 1.1251,
-            "platform_ratio": 0.001254,
-            "score": 0.1459
-        }
-    ],
-    "ext_info": null,
-    "time_now": "1577445138.790150",
-    "rate_limit_status": 99,
-    "rate_limit_reset_ms": 1577445138812,
-    "rate_limit": 100
-}
-```
-
-t(:account_para_lcp)
-
-<p class="fake_header">t(:httprequest)</p>
-GET
-<code><span id=oaApiLcp>/future/private/account/lcp</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oaApiLcp"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|date |string |t(:row_comment_lcp_date)    |
-|self_ratio |number |t(:row_comment_lcp_self_ratio)  |
-|platform_ratio |number |t(:row_comment_lcp_platform_ratio)  |
-|score |number |t(:row_comment_lcp_score)  |
+<a href="/docs/inverse#t-key">t(:shared_endpoint_desc)</a>
