@@ -302,6 +302,7 @@
   <ul class="con">
     <li><a href="/docs/inverse">Inverse Perpetual</a></li>
     <li><a href="/docs/linear" class="selected">USDT Perpetual</a></li>
+    <li><a href="/docs/inverse_future">Inverse Future(Testnet)</a></li>
   </ul>
   </div>
   <a class="international" id="international" href="javascript:void(0);">简体中文</a>
@@ -714,6 +715,9 @@
                   </li>
                   <li>
                     <a href="#t-key" class="toc-h2 toc-link" data-title="API Key Info">API Key Info</a>
+                  </li>
+                  <li>
+                    <a href="#t-lcp" class="toc-h2 toc-link" data-title="LCP Info">LCP Info</a>
                   </li>
               </ul>
           </li>
@@ -4935,7 +4939,7 @@ Please note that you can only modify untriggered conditional orders.
     <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">75</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Switch Cross/Isolated; must be leverage value when switching from Cross to Isolated</p>
+<p>Switch Cross/Isolated; must set leverage value when switching from Cross to Isolated</p>
 
 <p class="fake_header">HTTP Request</p>
 
@@ -6364,6 +6368,8 @@ Set risk limit.
 </tbody></table>
 <h2 id='t-key'>API Key Info</h2>
 <p><a href="/docs/inverse#t-key">Please see the shared endpoint.</a></p>
+<h2 id='t-lcp'>LCP Info</h2>
+<p><a href="/docs/inverse#t-lcp">Please see the shared endpoint.</a></p>
 <h1 id='t-wallet'>Wallet Data Endpoints</h1>
 <p>The following wallet data endpoints require authentication.</p>
 <h3 id='t-balance'>Get Wallet Balance</h3>
@@ -8698,7 +8704,11 @@ ELSE
         window.location=currentUrl.replace(/\/zh-cn/,"");
       } else {
         if (currentUrl.indexOf("inverse") > -1) {
-          window.location=currentUrl.replace(/\/inverse/,"/zh-cn/inverse");
+            if (currentUrl.indexOf("inverse-future") > -1) {
+                window.location=currentUrl.replace(/\/inverse-future/,"/zh-cn/inverse-future");
+            } else {
+                window.location=currentUrl.replace(/\/inverse/,"/zh-cn/inverse");
+            }
         } else {
           window.location=currentUrl.replace(/\/linear/,"/zh-cn/linear");
         }

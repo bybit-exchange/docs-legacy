@@ -302,6 +302,7 @@
   <ul class="con">
     <li><a href="/docs/zh-cn/inverse" class="selected">反向永续</a></li>
     <li><a href="/docs/zh-cn/linear">USDT永续</a></li>
+    <li><a href="/docs/zh-cn/inverse_future">反向交割(Testnet)</a></li>
   </ul>
   </div>
   <a class="international" id="international" href="javascript:void(0);">English</a>
@@ -8793,8 +8794,8 @@ B用户：
 <blockquote>
 <p>直接订阅</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Subscribing to the trade data for ETHBTC</span>
-<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["trade.ETHBTC"]}</span><span class="dl">'</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Subscribing to the trade data for BTCUSD</span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["trade.BTCUSD"]}</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
 <p>通过分隔符来订阅多个topic</p>
@@ -11966,7 +11967,11 @@ ELSE
         window.location=currentUrl.replace(/\/zh-cn/,"");
       } else {
         if (currentUrl.indexOf("inverse") > -1) {
-          window.location=currentUrl.replace(/\/inverse/,"/zh-cn/inverse");
+            if (currentUrl.indexOf("inverse-future") > -1) {
+                window.location=currentUrl.replace(/\/inverse-future/,"/zh-cn/inverse-future");
+            } else {
+                window.location=currentUrl.replace(/\/inverse/,"/zh-cn/inverse");
+            }
         } else {
           window.location=currentUrl.replace(/\/linear/,"/zh-cn/linear");
         }

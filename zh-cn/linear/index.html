@@ -302,6 +302,7 @@
   <ul class="con">
     <li><a href="/docs/zh-cn/inverse">反向永续</a></li>
     <li><a href="/docs/zh-cn/linear" class="selected">USDT永续</a></li>
+    <li><a href="/docs/zh-cn/inverse_future">反向交割(Testnet)</a></li>
   </ul>
   </div>
   <a class="international" id="international" href="javascript:void(0);">English</a>
@@ -714,6 +715,9 @@
                   </li>
                   <li>
                     <a href="#t-key" class="toc-h2 toc-link" data-title="APIKey信息">APIKey信息</a>
+                  </li>
+                  <li>
+                    <a href="#t-lcp" class="toc-h2 toc-link" data-title="流动性贡献分">流动性贡献分</a>
                   </li>
               </ul>
           </li>
@@ -6345,6 +6349,8 @@ When set to Partial, SL/TP orders may have a quantity less than the position siz
 </tbody></table>
 <h2 id='t-key'>APIKey信息</h2>
 <p><a href="/docs/inverse#t-key">请点击查看接口描述。</a></p>
+<h2 id='t-lcp'>流动性贡献分</h2>
+<p><a href="/docs/inverse#t-lcp">请点击查看接口描述。</a></p>
 <h1 id='t-wallet'>钱包接口</h1>
 <p>钱包相关接口需要认证。</p>
 <h3 id='t-balance'>获取钱包余额</h3>
@@ -8674,7 +8680,11 @@ ELSE
         window.location=currentUrl.replace(/\/zh-cn/,"");
       } else {
         if (currentUrl.indexOf("inverse") > -1) {
-          window.location=currentUrl.replace(/\/inverse/,"/zh-cn/inverse");
+            if (currentUrl.indexOf("inverse-future") > -1) {
+                window.location=currentUrl.replace(/\/inverse-future/,"/zh-cn/inverse-future");
+            } else {
+                window.location=currentUrl.replace(/\/inverse/,"/zh-cn/inverse");
+            }
         } else {
           window.location=currentUrl.replace(/\/linear/,"/zh-cn/linear");
         }
