@@ -2,8 +2,8 @@
 zh-cn:
   # universal/global
   international: English
-  inverse_future: 反向永续
-  linear_future: USDT永续
+  inverse_perpetual: 反向永续
+  linear_perpetual: USDT永续
   search: 搜索
   comment_abandoned: <b>已废弃!!</b>
   httprequest: HTTP 请求
@@ -24,6 +24,8 @@ zh-cn:
   row_comment_symbol: 合约类型
   row_comment_margin: 保证金
   row_comment_position_id: 仓位ID
+  row_comment_position_idx: Position idx, 用于在不同仓位模式下标识仓位：<br/>0-单向持仓 <br/>1-双向持仓Buy<br/> 2-双向持仓Sell
+  row_comment_position_mode: 仓位模式
   row_comment_position_size: 仓位数量
   row_comment_position_value: 仓位价值
   row_comment_entry_price: 平均入场价
@@ -1437,6 +1439,16 @@ zh-cn:
   linear_account_para_addMargin: 追加保证金
   linear_account_row_comment_margin: 增加/减少多少保证金,增加10，减少-10，支持小数后4位
 
+  ### inverse future
+  switchpositionmode: 切换仓位模式
+  account_para_switchpositionmode: 单仓模式下，只能在单方向下持仓<br/>双仓模式下，可以同时在两个方向持仓。
+  row_comment_positionmode: 仓位模式<span>:</span> 0 - 单仓模式  3 - 双仓模式
+  future_row_comment_leverage: <code>杠杆大于0，小于风险限额对应的杠杆</code>
+
+  future_account_para_switchIsolated: 全仓/逐仓切换，从全仓切换至逐仓时需要传杠杆
+  future_row_comment_switch_isolated: 全仓/逐仓, true是逐仓，false是全仓
+
+
   ### 正向websocket
   linear_websocket_para_endpoint: |
     Websocket服务器地址:
@@ -1562,11 +1574,13 @@ zh-cn:
   restapi_update_20210125_0: <code>/v2/private/funding/prev-funding-rate</code> <code>此接口不再推荐使用。</code>
   restapi_update_20210125_0_1: 新增：<code>/v2/public/funding/prev-funding-rate</code>
   restapi_update_20210201_0_1: 阶梯保证金升级为<a href="https://help.bybit.com/hc/zh-cn/articles/900000170023-%E9%A3%8E%E9%99%A9%E9%99%90%E9%A2%9D-USDT%E6%B0%B8%E7%BB%AD-">风险限额</a>，新增以下接口
+  restapi_update_20210225: 反向交割合约API发布
 
   ws_update_20210202_0: 新增字段<code>reduce_only</code>和<code>close_on_trigger</code>
   ws_update_20210202_1: 新增字段<code>close_on_trigger</code>
 
   ws_update_20210202_2: 新增字段<code>reduce_only</code>,<code>close_on_trigger</code>
+  ws_update_20210225: websocket支持交割合约
 
   markpricekline: 标记价格K线
   linear_query_mark_price_kline: 查询标记价格K线
@@ -1598,6 +1612,9 @@ zh-cn:
   inverse_query_premium_indices_kline: 溢价K线
 
   linear_testnet_only: 仅testnet环境
+
+  # Inverse Future
+  inverse_future: 反向交割(Testnet)
 
   # abandoned endpoints
   a_getleverage: 用户杠杆

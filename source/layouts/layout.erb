@@ -141,14 +141,19 @@ under the License.
 <% end %>
   <ul class="con">
   <% if page_classes.end_with?("inverse_index") %>
-    <li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/inverse" class="selected"><%=t(:inverse_future)%></a></li>
+    <li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/inverse" class="selected"><%=t(:inverse_perpetual)%></a></li>
   <% else %>
-    <li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/inverse"><%=t(:inverse_future)%></a></li>
+    <li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/inverse"><%=t(:inverse_perpetual)%></a></li>
   <% end %>
   <% if page_classes.end_with?("linear_index") %>
-    <li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/linear" class="selected"><%=t(:linear_future)%></a></li>
+    <li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/linear" class="selected"><%=t(:linear_perpetual)%></a></li>
   <% else %>
-    <li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/linear"><%=t(:linear_future)%></a></li>
+    <li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/linear"><%=t(:linear_perpetual)%></a></li>
+  <% end %>
+  <% if page_classes.end_with?("inverse_future_index") %>
+    <li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/inverse_future" class="selected"><%=t(:inverse_future)%></a></li>
+  <% else %>
+    <li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/inverse_future"><%=t(:inverse_future)%></a></li>
   <% end %>
   </ul>
   </div>
@@ -255,7 +260,11 @@ under the License.
         window.location=currentUrl.replace(/\/zh-cn/,"");
       } else {
         if (currentUrl.indexOf("inverse") > -1) {
-          window.location=currentUrl.replace(/\/inverse/,"/zh-cn/inverse");
+            if (currentUrl.indexOf("inverse-future") > -1) {
+                window.location=currentUrl.replace(/\/inverse-future/,"/zh-cn/inverse-future");
+            } else {
+                window.location=currentUrl.replace(/\/inverse/,"/zh-cn/inverse");
+            }
         } else {
           window.location=currentUrl.replace(/\/linear/,"/zh-cn/linear");
         }

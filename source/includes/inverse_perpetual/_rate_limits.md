@@ -26,42 +26,47 @@ t(:rate_para_understanding)
   <tr>
     <td rowspan="10">100/min</td>  
   </tr>
-  <tr><td>future/private/order/cancel       </td><td>1 / request</td></tr>
-  <tr><td>future/private/stop-order/create  </td><td>1 / request</td></tr>
-  <tr><td>future/private/stop-order/cancel  </td><td>1 / request</td></tr>
-  <tr><td>future/private/order/replace      </td><td>1 / request</td></tr>
-  <tr><td>future/private/stop-order/replace </td><td>1 / request</td></tr>
-  <tr><td>future/private/order/create     </td><td>1 / request</td></tr>
-  <tr><td>future/private/order/cancel     </td><td>1 / request</td></tr>
-  <tr><td>future/private/order/cancelAll  </td><td>10 / request</td></tr>
-  <tr><td>future/private/stop-order/cancelAll </td><td>10 / request</td></tr>
+  <tr><td>v2/private/order/cancel       </td><td>1 / request</td></tr>
+  <tr><td>v2/private/stop-order/create  </td><td>1 / request</td></tr>
+  <tr><td>v2/private/stop-order/cancel  </td><td>1 / request</td></tr>
+  <tr><td>v2/private/order/replace      </td><td>1 / request</td></tr>
+  <tr><td>v2/private/stop-order/replace </td><td>1 / request</td></tr>
+  <tr><td>v2/private/order/create     </td><td>1 / request</td></tr>
+  <tr><td>v2/private/order/cancel     </td><td>1 / request</td></tr>
+  <tr><td>v2/private/order/cancelAll  </td><td>10 / request</td></tr>
+  <tr><td>v2/private/stop-order/cancelAll </td><td>10 / request</td></tr>
   <tr>
     <td rowspan="3">600/min</td>
-    <td>future/private/order/list </td>
+    <td>v2/private/order/list </td>
     <td>1 / request</td>
   </tr>
-  <tr><td>future/private/stop-order/list </td><td>1 / request</td></tr>
-  <tr><td>future/private/order </td><td>1 / request</td></tr>
+  <tr><td>v2/private/stop-order/list </td><td>1 / request</td></tr>
+  <tr><td>v2/private/order </td><td>1 / request</td></tr>
   <tr>
     <td>120/min</td>
-    <td>future/private/execution/list</td>
+    <td>v2/private/execution/list</td>
     <td>1 / request</td>
   </tr>
   <tr>
-    <td rowspan="5">75/min</td>
-    <td>future/private/position/leverage/save </td>
+    <td rowspan="3">75/min</td>
+    <td>v2/private/position/leverage/save </td>
     <td>1 / request</td>
   </tr>
-  <tr><td>future/private/position/change-position-margin</td><td>1 / request</td></tr>
-  <tr><td>future/private/position/trading-stop</td><td>1 / request</td></tr>
-  <tr><td>future/private/position/switch-mode</td><td>1 / request</td></tr>
-  <tr><td>future/private/position/switch-isolated</td><td>1 / request</td></tr>
+  <tr><td>v2/private/position/change-position-margin</td><td>1 / request</td></tr>
+  <tr><td>v2/private/position/trading-stop</td><td>1 / request</td></tr>
   <tr>
     <td rowspan="4">120/min</td> 
   </tr>
   <tr></tr>
-  <tr><td>future/private/position/list</td><td>1 / request</td></tr>
+  <tr><td>v2/private/position/list</td><td>1 / request</td></tr>
     <tr><td>v2/private/wallet/balance</td><td>1 / request</td></tr>
+  <tr>
+    <td rowspan="4">120/min</td>
+    <tr><td>v2/private/funding/prev-funding-rate</td>
+    <td>1 / request</td>
+  </tr>
+  <tr><td>v2/private/funding/prev-funding</td><td>1 / request</td></tr>
+  <tr><td>v2/private/funding/predicted-funding</td><td>1 / request</td></tr>
   <tr>
     <td rowspan="3">120/min</td>
     <tr><td>v2/private/wallet/fund/records</td>

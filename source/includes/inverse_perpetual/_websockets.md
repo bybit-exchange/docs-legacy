@@ -85,15 +85,15 @@ t(:websocket_para_limit)
 > t(:websocket_codequote_filters1)
 
 ```javascript
-// Subscribing to the trade data for BTCUSDH21
-ws.send('{"op":"subscribe","args":["trade.BTCUSDH21"]}')
+// Subscribing to the trade data for BTCUSD
+ws.send('{"op":"subscribe","args":["trade.BTCUSD"]}')
 ```
 
 > t(:websocket_codequote_filters2)
 
 ```javascript
-// Example: Subscribing to the trade data for BTCUSDH21 and BTCUSDM21
-ws.send('{"op":"subscribe","args":["trade.BTCUSDH21|BTCUSDM21"]}')
+// Example: Subscribing to the trade data for BTCUSD and XRPUSD
+ws.send('{"op":"subscribe","args":["trade.BTCUSD|XRPUSD"]}')
 ```
 
 
@@ -128,7 +128,7 @@ t(:websocket_para_intervals)
    "request": {     // Request to your subscription
        "op": "subscribe",
        "args": [
-           "kline.BTCUSDH21.1m"
+           "kline.BTCUSD.1m"
        ]
    }
 }
@@ -141,16 +141,16 @@ t(:websocket_para_response)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op": "subscribe", "args": ["orderBookL2_25.BTCUSDH21"]}');
+ws.send('{"op": "subscribe", "args": ["orderBookL2_25.BTCUSD"]}');
 ```
 
 ```python
 from BybitWebsocket import BybitWebsocket
 ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
                     api_key=None, api_secret=None)
-ws.subscribe_orderBookL2(symbol="BTCUSDH21")
+ws.subscribe_orderBookL2(symbol="BTCUSD")
 while True:
-    data = ws.get_data("orderBookL2_25.BTCUSDH21")
+    data = ws.get_data("orderBookL2_25.BTCUSD")
     if data:
         print(data)
 ```
@@ -159,19 +159,19 @@ while True:
 
 ```javascript
 {
-     "topic": "orderBookL2_25.BTCUSDH21",
+     "topic": "orderBookL2_25.BTCUSD",
      "type": "snapshot",
      "data": [
         {
             "price": "2999.00",
-            "symbol": "BTCUSDH21",
+            "symbol": "BTCUSD",
             "id": 29990000,
             "side": "Buy",
             "size": 9
         },
         {
             "price": "3001.00",
-            "symbol": "BTCUSDH21",
+            "symbol": "BTCUSD",
             "id": 30010000,
             "side": "Sell",
             "size": 10
@@ -186,13 +186,13 @@ while True:
 
 ```javascript
 {
-     "topic": "orderBookL2_25.BTCUSDH21",
+     "topic": "orderBookL2_25.BTCUSD",
      "type": "delta",
      "data": {
           "delete": [
              {
                    "price": "3001.00",
-                   "symbol": "BTCUSDH21",
+                   "symbol": "BTCUSD",
                    "id": 30010000,
                    "side": "Sell"
              }
@@ -200,7 +200,7 @@ while True:
           "update": [
              {
                    "price": "2999.00",
-                   "symbol": "BTCUSDH21",
+                   "symbol": "BTCUSD",
                    "id": 29990000,
                    "side": "Buy",
                    "size": 8
@@ -209,7 +209,7 @@ while True:
           "insert": [
              {
                    "price": "2998.00",
-                   "symbol": "BTCUSDH21",
+                   "symbol": "BTCUSD",
                    "id": 29980000,
                    "side": "Buy",
                    "size": 8
@@ -249,26 +249,26 @@ t(:websocket_para_orderbook252)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op": "subscribe", "args": ["orderBook_200.100ms.BTCUSDH21"]}');
+ws.send('{"op": "subscribe", "args": ["orderBook_200.100ms.BTCUSD"]}');
 ```
 
 > t(:codequote_snapshot)
 
 ```javascript
 {
-     "topic": "orderBook_200.100ms.BTCUSDH21",
+     "topic": "orderBook_200.100ms.BTCUSD",
      "type": "snapshot",
      "data": [
         {
             "price": "2999.00",
-            "symbol": "BTCUSDH21",
+            "symbol": "BTCUSD",
             "id": 29990000,
             "side": "Buy",
             "size": 9
         },
         {
             "price": "3001.00",
-            "symbol": "BTCUSDH21",
+            "symbol": "BTCUSD",
             "id": 30010000,
             "side": "Sell",
             "size": 10
@@ -283,13 +283,13 @@ ws.send('{"op": "subscribe", "args": ["orderBook_200.100ms.BTCUSDH21"]}');
 
 ```javascript
 {
-     "topic": "orderBook_200.100ms.BTCUSDH21",
+     "topic": "orderBook_200.100ms.BTCUSD",
      "type": "delta",
      "data": {
           "delete": [
              {
                    "price": "3001.00",
-                   "symbol": "BTCUSDH21",
+                   "symbol": "BTCUSD",
                    "id": 30010000,
                    "side": "Sell"
              }
@@ -297,7 +297,7 @@ ws.send('{"op": "subscribe", "args": ["orderBook_200.100ms.BTCUSDH21"]}');
           "update": [
              {
                    "price": "2999.00",
-                   "symbol": "BTCUSDH21",
+                   "symbol": "BTCUSD",
                    "id": 29990000,
                    "side": "Buy",
                    "size": 8
@@ -306,7 +306,7 @@ ws.send('{"op": "subscribe", "args": ["orderBook_200.100ms.BTCUSDH21"]}');
           "insert": [
              {
                    "price": "2998.00",
-                   "symbol": "BTCUSDH21",
+                   "symbol": "BTCUSD",
                    "id": 29980000,
                    "side": "Buy",
                    "size": 8
@@ -344,7 +344,7 @@ ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
                     api_key=None, api_secret=None)
 ws.subscribe_trade()
 while True:
-    data = ws.get_data("trade.BTCUSDH21")
+    data = ws.get_data("trade.BTCUSD")
     if data:
         print(data)
 ```
@@ -353,12 +353,12 @@ while True:
 
 ```javascript
 {
-    "topic": "trade.BTCUSDH21",
+    "topic": "trade.BTCUSD",
     "data": [
         {
             "timestamp": "2020-01-12T16:59:59.000Z",
             "trade_time_ms": 1582793344685, // trade time in millisecond
-            "symbol": "BTCUSDH21",
+            "symbol": "BTCUSD",
             "side": "Sell",
             "size": 328,
             "price": 8098,
@@ -437,16 +437,16 @@ t(:websocket_aside_insurance)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op": "subscribe", "args": ["instrument_info.100ms.BTCUSDH21"]}')
+ws.send('{"op": "subscribe", "args": ["instrument_info.100ms.BTCUSD"]}')
 ```
 
 ```python
 from BybitWebsocket import BybitWebsocket
 ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
                     api_key=None, api_secret=None)
-ws.subscribe_instrument_info(symbol="BTCUSDH21")
+ws.subscribe_instrument_info(symbol="BTCUSD")
 while True:
-    data = ws.get_data("instrument_info.100ms.BTCUSDH21")
+    data = ws.get_data("instrument_info.100ms.BTCUSD")
     if data:
         print(data)
 ```
@@ -455,11 +455,11 @@ while True:
 
 ```javascript
 {
-    "topic": "instrument_info.100ms.BTCUSDH21",
+    "topic": "instrument_info.100ms.BTCUSD",
     "type": "snapshot",
     "data": {
         "id": 1,
-        "symbol": "BTCUSDH21",                           //instrument name
+        "symbol": "BTCUSD",                           //instrument name
         "last_price_e4": 81165000,                    //the latest price
         "last_tick_direction": "ZeroPlusTick",        //the direction of last tick:PlusTick,ZeroPlusTick,MinusTick,ZeroMinusTick
         "prev_price_24h_e4": 81585000,                //the price of prev 24h
@@ -494,14 +494,14 @@ while True:
 
 ```javascript
 {
-    "topic": "instrument_info.100ms.BTCUSDH21",
+    "topic": "instrument_info.100ms.BTCUSD",
     "type": "delta",
     "data": {
         "delete": [],
         "update": [
             {
                 "id": 1,
-                "symbol": "BTCUSDH21",
+                "symbol": "BTCUSD",
                 "prev_price_24h_e4": 81565000,
                 "price_24h_pcnt_e6": -4904,
                 "open_value_e8": 2000479681106,
@@ -562,14 +562,14 @@ t(:websocket_aside_instrumentInfo2)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op":"subscribe","args":["klineV2.1.BTCUSDH21"]}')
+ws.send('{"op":"subscribe","args":["klineV2.1.BTCUSD"]}')
 ```
 
 > t(:codequote_responseExampleFormatAll)
 
 ```javascript
 {
-    "topic": "klineV2.1.BTCUSDH21",                //topic name
+    "topic": "klineV2.1.BTCUSD",                //topic name
     "data": [{
         "start": 1572425640,                    //start time of the candle
         "end": 1572425700,                      //end time of the candle
@@ -639,12 +639,9 @@ while True:
    "data": [
        {
            "user_id":  1,                            // user ID
-           "symbol": "BTCUSDH21",                       // the contract for this position
-           "position_idx":1,
+           "symbol": "BTCUSD",                       // the contract for this position
            "size": 11,                               // the current position amount
            "side": "Sell",                           // side
-           "mode": 0,                                // 0- merged single mode 3- both side mode
-           "isolated":true,
            "position_value": "0.00159252",           // positional value
            "entry_price": "6907.291588174717",       // entry price
            "liq_price": "7100.234",                  // liquidation price
@@ -738,7 +735,7 @@ while True:
     "topic": "execution",
     "data": [
         {
-            "symbol": "BTCUSDH21",
+            "symbol": "BTCUSD",
             "side": "Buy",
             "order_id": "xxxxxxxx-xxxx-xxxx-9a8f-4a973eb5c418",
             "exec_id": "xxxxxxxx-xxxx-xxxx-8b66-c3d2fcd352f6",
@@ -804,7 +801,7 @@ while True:
         {
             "order_id": "xxxxxxxx-xxxx-xxxx-9a8f-4a973eb5c418",
             "order_link_id": "",
-            "symbol": "BTCUSDH21",
+            "symbol": "BTCUSD",
             "side": "Sell",
             "order_type": "Market",
             "price": "8579.5",
@@ -875,7 +872,7 @@ ws.send('{"op": "subscribe", "args": ["stop_order"]}')
             "order_id": "xxxxxxxx-xxxx-xxxx-98fb-335aaa6c613b",
             "order_link_id": "",
             "user_id": 1,
-            "symbol": "BTCUSDH21",
+            "symbol": "BTCUSD",
             "side": "Buy",
             "order_type": "Limit",
             "price": "8584.5",
