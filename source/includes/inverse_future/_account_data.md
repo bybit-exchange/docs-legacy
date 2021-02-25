@@ -1507,7 +1507,7 @@ POST
 ```console
 curl https://api.bybit.com/future/private/position/leverage/save \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSDH21","leverage":14,"timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","symbol":"BTCUSDH21","buy_leverage":14,"sell_leverage":14,"timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
 ```python
@@ -1544,7 +1544,8 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
-|leverage |<b>true</b> |number |t(:row_comment_leverage) |
+|buy_leverage |<b>true</b> |number |t(:row_comment_leverage) |
+|sell_leverage |<b>true</b> |number |t(:row_comment_leverage) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
