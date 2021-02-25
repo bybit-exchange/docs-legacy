@@ -640,8 +640,11 @@ while True:
        {
            "user_id":  1,                            // user ID
            "symbol": "BTCUSDH21",                       // the contract for this position
+           "position_idx":1,
            "size": 11,                               // the current position amount
            "side": "Sell",                           // side
+           "mode": 0,                                // 0- merged single mode 3- both side mode
+           "isolated":true,
            "position_value": "0.00159252",           // positional value
            "entry_price": "6907.291588174717",       // entry price
            "liq_price": "7100.234",                  // liquidation price

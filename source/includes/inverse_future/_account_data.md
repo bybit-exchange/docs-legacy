@@ -1146,6 +1146,8 @@ curl "https://api.bybit.com/future/private/position/list?api_key={api_key}&symbo
     "ext_info": "",
     "result": {
         "id": 27913,
+        "position_idx":0,
+        "mode":1,
         "user_id": 1,
         "risk_id": 1,
         "symbol": "BTCUSDH21",
@@ -1195,6 +1197,8 @@ curl "https://api.bybit.com/future/private/position/list?api_key={api_key}&symbo
             "is_valid": true, //t(:resp_field_position_list_valid)
             "data": { //t(:resp_field_position_list_data)
                 "id": 0,
+                "position_idx":1,
+                "mode":3,
                 "user_id": 118921,
                 "risk_id": 1,
                 "symbol": "BTCUSDH21",
@@ -1233,6 +1237,8 @@ curl "https://api.bybit.com/future/private/position/list?api_key={api_key}&symbo
             "is_valid": true, //t(:resp_field_position_list_valid)
             "data": { //t(:resp_field_position_list_data)
                 "id": 0,
+                "position_idx":2,
+                "mode":3,
                 "user_id": 118921,
                 "risk_id": 35,
                 "symbol": "XRPUSD",
@@ -1290,6 +1296,8 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |id |number |t(:row_comment_position_id)  |
+|position_idx |number |t(:row_comment_position_idx)  |
+|mode |number |t(:row_comment_position_mode)  |
 |user_id |number |t(:row_comment_userID)  |
 |risk_id |number |t(:row_comment_riskId)  |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
