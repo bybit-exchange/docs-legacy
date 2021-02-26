@@ -24,7 +24,8 @@ en:
   row_comment_symbol: Symbol
   row_comment_margin: margin
   row_comment_position_id: PositionID
-  row_comment_position_idx: Position idx，used to identify positions in different position modes：<br/>0-single side of merged single side mode <br/>1-Buy side of both side mode <br/> 2-Sell side of both side mode
+  row_comment_position_idx: |
+    Position idx, used to identify positions in different position modes: <br/>0-single side of merged single side mode <br/>1-Buy side of both side mode <br/> 2-Sell side of both side mode
   row_comment_position_mode: Position mode
   row_comment_position_size: Position qty
   row_comment_position_value: Position value
@@ -679,8 +680,10 @@ en:
   account_aside_tradingStop: Passing these parameters will create conditional orders controlled by the system. The system will cancel these orders if the position is closed, and adjust the qty according to the size of the open position.
   account_row_comment_takeProfit: Cannot be less than 0, 0 means cancel TP
   account_row_comment_stopLoss: Cannot be less than 0, 0 means cancel SL
-  account_row_comment_tp_trigger_by: take profit trigger price type，default<span>:</span> <code>LastPrice</code>
-  account_row_comment_sl_trigger_by: stop loss trigger price type，default<span>:</span> <code>LastPrice</code>
+  account_row_comment_tp_trigger_by: |
+    take profit trigger price type, default<span>:</span> <code>LastPrice</code>
+  account_row_comment_sl_trigger_by: |
+    stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
   account_row_comment_trailingStop: Cannot be less than 0, 0 means cancel TS
   account_row_comment_trailingStop_active: Trailing stop trigger price. Trailing stops are triggered only when the price reaches the specified price. Trailing stops are triggered immediately by default.
 
@@ -759,7 +762,7 @@ en:
   ### IP Rate Limit
   ipratelimits: IP Rate Limit
   ip_rate_para_understanding: |
-    <p> Bybit has different IP frequency limits for <code>GET</code> and <code>POST</code> method：</p>
+    <p>Bybit has different IP frequency limits for <code>GET</code> and <code>POST</code> method: </p>
     <ul>
     <li>
       <code>GET</code>method:
@@ -1400,7 +1403,7 @@ en:
   err_130058: can not set margin less than minPositionCost
   err_130059: can not set pz open limit more than symbol limit
   err_130060: autoAddMargin not changed
-  err_130061: not change fee，invalid req
+  err_130061: not change fee, invalid req
   err_130062: can not set pz open limit less than current buy pz value
   err_130063: can not set pz open limit less than current sell pz value
   err_130064: just support usdt
@@ -1487,9 +1490,11 @@ en:
   linear_account_row_comment_margin: Add/Remove how much margin<span>:</span> Increase 10; decrease -10, supports 4 decimal places
 
   ### inverse future
-  switchpositionmode: Position mode Switch
-  account_para_switchpositionmode: If you are in merged single side mode, you can only open one position on <code>Buy</code> or <code>Sell</code> side;<br/> If you are in both side mode, you can open both <code>Buy</code> and <code>Sell</code> side positions simultaneously.
-  row_comment_positionmode: Position Mode<span>:</span> 0 - Merged single side  3 - Both side
+  switchpositionmode: Position Mode Switch
+  account_para_switchpositionmode: |
+    If you are in One-Way Mode, you can only open one position on <code>Buy</code> or <code>Sell</code> side;<br/> If you are in Hedge Mode, you can open both <code>Buy</code> and <code>Sell</code> side positions simultaneously.
+  row_comment_positionmode: |
+    Position Mode. <code>0</code>: One-Way Mode; <code>3</code>: Hedge Mode
   future_row_comment_leverage: Must be greater than 0 and less than the <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>.
 
   future_account_para_switchIsolated: Switch Cross/Isolated; must set leverage value when switching from Cross to Isolated
@@ -1648,7 +1653,7 @@ en:
   ws_update_20210202_1: Add field <code>close_on_trigger</code>
 
   ws_update_20210202_2: Add fields <code>reduce_only</code>,<code>close_on_trigger</code>
-  ws_update_20210225: Websocket support inverse future
+  ws_update_20210225: Add websocket support to inverse future
 
 
 
@@ -1686,7 +1691,7 @@ en:
 
 
   # Inverse Future
-  inverse_future: Inverse Future(Testnet)
+  inverse_future: Inverse Future (Testnet)
 
 
   # abandoned endpoints
