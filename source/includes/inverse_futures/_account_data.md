@@ -6,7 +6,7 @@ t(:account_para)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/future/private/order/create \
+curl https://api.bybit.com/futures/private/order/create \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","side"="Buy","symbol"="BTCUSDH21","order_type":"Market","qty":10,"time_in_force":"GoodTillCancel","timestamp":{timestamp},"sign":"{sign}"}'
 
@@ -56,7 +56,7 @@ t(:account_para_placeActive)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/future/private/order/create</span></code>
+<code><span id=vpoCreate>/futures/private/order/create</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -102,7 +102,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/future/private/order/list?api_key={api_key}&timestamp={timestamp}&sign={sign}&symbol=BTCUSDH21"
+curl "https://api.bybit.com/futures/private/order/list?api_key={api_key}&timestamp={timestamp}&sign={sign}&symbol=BTCUSDH21"
 ```
 
 ```python
@@ -152,7 +152,7 @@ t(:account_para_getActive)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpoList>/future/private/order/list</span></code>
+<code><span id=vpoList>/futures/private/order/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -192,7 +192,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/future/private/order/cancel \
+curl https://api.bybit.com/futures/private/order/cancel \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDH21","order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
 ```
@@ -240,7 +240,7 @@ t(:account_para_cancelActive)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCancel>/future/private/order/cancel</span></code>
+<code><span id=vpoCancel>/futures/private/order/cancel</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancel"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -279,7 +279,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/future/private/order/cancelAll \
+curl https://api.bybit.com/futures/private/order/cancelAll \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDH21","timestamp":{timestamp},"sign":"{sign}"}'
 ```
@@ -331,7 +331,7 @@ t(:account_aside_cancelAllActive)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCancelAll>/future/private/order/cancelAll</span></code>
+<code><span id=vpoCancelAll>/futures/private/order/cancelAll</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancelAll"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -365,7 +365,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/future/private/order/replace \
+curl https://api.bybit.com/futures/private/order/replace \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDH21","order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
 ```
@@ -398,7 +398,7 @@ t(:account_aside_replaceActive)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoReplace>/future/private/order/replace</span></code>
+<code><span id=vpoReplace>/futures/private/order/replace</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoReplace"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -419,7 +419,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/future/private/order?api_key={api_key}&symbol=BTCUSDH21&timestamp={timestamp}order_id={order_id}&sign={sign}"
+curl "https://api.bybit.com/futures/private/order?api_key={api_key}&symbol=BTCUSDH21&timestamp={timestamp}order_id={order_id}&sign={sign}"
 ```
 
 ```python
@@ -538,7 +538,7 @@ t(:account_para_queryActive)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpOrder>/future/private/order</span></code>
+<code><span id=vpOrder>/futures/private/order</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -579,7 +579,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/future/private/stop-order/create \
+curl https://api.bybit.com/futures/private/stop-order/create \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","order_type":"Limit","side":"Buy","symbol":"BTCUSDH21","qty":1,"price":8100,"base_price":8300,"stop_px":8150,"time_in_force":"GoodTillCancel","order_link_id":"cus_order_id_1","timestamp":{timestamp},"sign":"{sign}"}'
 ```
@@ -625,7 +625,7 @@ t(:account_aside_placeCond)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpsoCreate>/future/private/stop-order/create</span></code>
+<code><span id=vpsoCreate>/futures/private/stop-order/create</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpsoCreate"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -667,7 +667,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/future/private/stop-order/list?api_key={api_key}&timestamp={timestamp}&sign={sign}"
+curl "https://api.bybit.com/futures/private/stop-order/list?api_key={api_key}&timestamp={timestamp}&sign={sign}"
 ```
 
 ```python
@@ -714,7 +714,7 @@ t(:account_para_getCond)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpsoList>/future/private/stop-order/list</span></code>
+<code><span id=vpsoList>/futures/private/stop-order/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpsoList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -752,7 +752,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/future/private/stop-order/cancel \
+curl https://api.bybit.com/futures/private/stop-order/cancel \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDH21","stop_order_id":"xxx","timestamp":{timestamp},"sign":"{sign}"}'
 ```
@@ -782,7 +782,7 @@ t(:account_para_cancelCond)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpsoCancel>/future/private/stop-order/cancel</span></code>
+<code><span id=vpsoCancel>/futures/private/stop-order/cancel</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpsoCancel"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -801,7 +801,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/future/private/stop-order/cancelAll \
+curl https://api.bybit.com/futures/private/stop-order/cancelAll \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDH21","timestamp":{timestamp},"sign":"{sign}"}'
 ```
@@ -880,7 +880,7 @@ t(:account_aside_cancelAllCond)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpsoCancelAll>/future/private/stop-order/cancelAll</span></code>
+<code><span id=vpsoCancelAll>/futures/private/stop-order/cancelAll</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpsoCancelAll"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -918,7 +918,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/future/private/stop-order/replace \
+curl https://api.bybit.com/futures/private/stop-order/replace \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDH21","stop_order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
 ```
@@ -954,7 +954,7 @@ t(:account_aside_replaceCond)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpsoReplace>/future/private/stop-order/replace</span></code>
+<code><span id=vpsoReplace>/futures/private/stop-order/replace</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpsoReplace"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -977,7 +977,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/future/private/stop-order?api_key={api_key}&symbol=BTCUSDH21&timestamp={timestamp}order_id={order_id}&sign={sign}"
+curl "https://api.bybit.com/futures/private/stop-order?api_key={api_key}&symbol=BTCUSDH21&timestamp={timestamp}order_id={order_id}&sign={sign}"
 ```
 
 > t(:codequote_responseExample)
@@ -1088,7 +1088,7 @@ t(:account_para_queryConditionalNote)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpStopOrder>/future/private/stop-order</span></code>
+<code><span id=vpStopOrder>/futures/private/stop-order</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpStopOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -1130,7 +1130,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/future/private/position/list?api_key={api_key}&symbol=BTCUSDH21&timestamp={timestamp}&sign={sign}"
+curl "https://api.bybit.com/futures/private/position/list?api_key={api_key}&symbol=BTCUSDH21&timestamp={timestamp}&sign={sign}"
 ```
 
 ```python
@@ -1284,7 +1284,7 @@ t(:account_para_myPosition)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=pList>/future/private/position/list</span></code>
+<code><span id=pList>/futures/private/position/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -1335,7 +1335,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/future/private/position/change-position-margin \
+curl https://api.bybit.com/futures/private/position/change-position-margin \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDH21",margin:"10","timestamp":{timestamp},"sign":"{sign}"}'
 ```
@@ -1367,7 +1367,7 @@ t(:account_aside_changeMargin)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=pChangePositionMarginNew>/future/private/position/change-position-margin</span></code>
+<code><span id=pChangePositionMarginNew>/futures/private/position/change-position-margin</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pChangePositionMarginNew"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -1388,7 +1388,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/future/private/position/trading-stop \
+curl https://api.bybit.com/futures/private/position/trading-stop \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDH21","stop_loss":7000,"timestamp":{timestamp},"sign":"{sign}"}'
 ```
@@ -1457,7 +1457,7 @@ t(:account_aside_tradingStop)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=oapTradingStopNew>/future/private/position/trading-stop</span></code>
+<code><span id=oapTradingStopNew>/futures/private/position/trading-stop</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oapTradingStopNew"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -1513,7 +1513,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/future/private/position/leverage/save \
+curl https://api.bybit.com/futures/private/position/leverage/save \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDH21","buy_leverage":14,"sell_leverage":14,"timestamp":{timestamp},"sign":"{sign}"}'
 ```
@@ -1545,15 +1545,15 @@ t(:account_aside_setleverage)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=ulSaveNew>/future/private/position/leverage/save</span></code>
+<code><span id=ulSaveNew>/futures/private/position/leverage/save</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ulSaveNew"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
-|buy_leverage |<b>true</b> |number |t(:future_row_comment_leverage) |
-|sell_leverage |<b>true</b> |number |t(:future_row_comment_leverage) |
+|buy_leverage |<b>true</b> |number |t(:futures_row_comment_leverage) |
+|sell_leverage |<b>true</b> |number |t(:futures_row_comment_leverage) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -1565,7 +1565,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/future/private/position/switch-mode \
+curl https://api.bybit.com/futures/private/position/switch-mode \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDH21","mode":0,"timestamp":{timestamp},"sign":"{sign}"}'
 ```
@@ -1593,7 +1593,7 @@ t(:account_para_switchpositionmode)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=ulSwitchMode>/future/private/position/switch-mode</span></code>
+<code><span id=ulSwitchMode>/futures/private/position/switch-mode</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ulSwitchMode"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -1609,7 +1609,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/future/private/position/switch-isolated \
+curl https://api.bybit.com/futures/private/position/switch-isolated \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDH21", "position_idx":1, "is_isolated":true,"buy_leverage":10,"sell_leverage":20, "timestamp":{timestamp},"sign":"{sign}"}'
 ```
@@ -1633,20 +1633,20 @@ curl https://api.bybit.com/future/private/position/switch-isolated \
 }
 ```
 
-t(:future_account_para_switchIsolated)
+t(:futures_account_para_switchIsolated)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=ulSwitchMode>/future/private/position/switch-isolated</span></code>
+<code><span id=ulSwitchMode>/futures/private/position/switch-isolated</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ulSwitchMode"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
-|is_isolated |<b>true</b> |bool |t(:future_row_comment_switch_isolated)  |
-|buy_leverage |<b>true</b> |number |t(:future_row_comment_leverage)  |
-|sell_leverage |<b>true</b> |number |t(:future_row_comment_leverage)  |
+|is_isolated |<b>true</b> |bool |t(:futures_row_comment_switch_isolated)  |
+|buy_leverage |<b>true</b> |number |t(:futures_row_comment_leverage)  |
+|sell_leverage |<b>true</b> |number |t(:futures_row_comment_leverage)  |
 
 <p class="fake_header">t(:responseparameters)</p>
 
@@ -1656,7 +1656,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/future/private/execution/list?api_key={api_key}&symbol=BTCUSDH21&timestamp={timestamp}&sign={sign}"
+curl "https://api.bybit.com/futures/private/execution/list?api_key={api_key}&symbol=BTCUSDH21&timestamp={timestamp}&sign={sign}"
 ```
 
 ```python
@@ -1714,7 +1714,7 @@ t(:wallet_aside_tradeRecords)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpeList>/future/private/execution/list</span></code>
+<code><span id=vpeList>/futures/private/execution/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpeList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -1757,7 +1757,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/future/private/trade/closed-pnl/list?api_key={api_key}&symbol=BTCUSDH21&timestamp={timestamp}&sign={sign}"
+curl "https://api.bybit.com/futures/private/trade/closed-pnl/list?api_key={api_key}&symbol=BTCUSDH21&timestamp={timestamp}&sign={sign}"
 ```
 
 ```python
@@ -1807,7 +1807,7 @@ t(:linear_private_closed_pnl_records)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=pltcList>/future/private/trade/closed-pnl/list</span></code>
+<code><span id=pltcList>/futures/private/trade/closed-pnl/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pltcList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
