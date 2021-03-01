@@ -302,7 +302,7 @@
   <ul class="con">
     <li><a href="/docs/inverse" class="selected">Inverse Perpetual</a></li>
     <li><a href="/docs/linear">USDT Perpetual</a></li>
-    <li><a href="/docs/inverse_future">Inverse Future(Testnet)</a></li>
+    <li><a href="/docs/inverse_futures">Inverse Futures(Testnet)</a></li>
   </ul>
   </div>
   <a class="international" id="international" href="javascript:void(0);">简体中文</a>
@@ -6377,7 +6377,7 @@ Passing these parameters will create conditional orders controlled by the system
     <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">75</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>translation missing: en.account_para_setleverage</p>
+<p>Set Leverage</p>
 
 <aside class="notice">
 Set <code>leverage</code> to <code>0</code> if you want to trade in <a href="https://help.bybit.com/hc/en-us/articles/360037683633-What-is-Cross-Margin">Cross Margin mode</a>. Note that your position mode will be changed to Isolated Margin mode if you change your leverage from 0 to any other value.
@@ -12011,8 +12011,8 @@ Please note that only orders that are unfilled or partially filled can be modifi
         window.location=currentUrl.replace(/\/zh-cn/,"");
       } else {
         if (currentUrl.indexOf("inverse") > -1) {
-            if (currentUrl.indexOf("inverse-future") > -1) {
-                window.location=currentUrl.replace(/\/inverse-future/,"/zh-cn/inverse-future");
+            if (currentUrl.indexOf("inverse-futures") > -1) {
+                window.location=currentUrl.replace(/\/inverse-futures/,"/zh-cn/inverse-futures");
             } else {
                 window.location=currentUrl.replace(/\/inverse/,"/zh-cn/inverse");
             }

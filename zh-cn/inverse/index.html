@@ -302,7 +302,7 @@
   <ul class="con">
     <li><a href="/docs/zh-cn/inverse" class="selected">反向永续</a></li>
     <li><a href="/docs/zh-cn/linear">USDT永续</a></li>
-    <li><a href="/docs/zh-cn/inverse_future">反向交割(Testnet)</a></li>
+    <li><a href="/docs/zh-cn/inverse_futures">反向交割(Testnet)</a></li>
   </ul>
   </div>
   <a class="international" id="international" href="javascript:void(0);">English</a>
@@ -6348,8 +6348,7 @@ GET
     <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">75</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><p>修改杠杆。</p>
-</p>
+<p>设置杠杆</p>
 
 <aside class="notice">
 如果您想使用<a href="https://help.bybit.com/hc/en-us/articles/360037683633-What-is-Cross-Margin">全仓模式</a>请将<code>杠杆</code>设置为0。请注意，一旦您将杠杆由0改为其他任何值，仓位模式将自动切换到逐仓模式。
@@ -11967,8 +11966,8 @@ ELSE
         window.location=currentUrl.replace(/\/zh-cn/,"");
       } else {
         if (currentUrl.indexOf("inverse") > -1) {
-            if (currentUrl.indexOf("inverse-future") > -1) {
-                window.location=currentUrl.replace(/\/inverse-future/,"/zh-cn/inverse-future");
+            if (currentUrl.indexOf("inverse-futures") > -1) {
+                window.location=currentUrl.replace(/\/inverse-futures/,"/zh-cn/inverse-futures");
             } else {
                 window.location=currentUrl.replace(/\/inverse/,"/zh-cn/inverse");
             }

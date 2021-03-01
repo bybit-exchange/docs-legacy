@@ -302,13 +302,13 @@
   <ul class="con">
     <li><a href="/docs/zh-cn/inverse">反向永续</a></li>
     <li><a href="/docs/zh-cn/linear">USDT永续</a></li>
-    <li><a href="/docs/zh-cn/inverse_future" class="selected">反向交割(Testnet)</a></li>
+    <li><a href="/docs/zh-cn/inverse_futures" class="selected">反向交割(Testnet)</a></li>
   </ul>
   </div>
   <a class="international" id="international" href="javascript:void(0);">English</a>
   </header>
 
-  <body class="zh-cn zh-cn_inverse_future zh-cn_inverse_future_index" data-languages="[&quot;console&quot;,&quot;python&quot;]">
+  <body class="zh-cn zh-cn_inverse_futures zh-cn_inverse_futures_index" data-languages="[&quot;console&quot;,&quot;python&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -344,6 +344,14 @@
                           </li>
                           <li>
                             <a href="#websocket-api" class="toc-h3 toc-link" data-title="Websocket API">Websocket API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2021-03-01" class="toc-h2 toc-link" data-title="2021-03-01">2021-03-01</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-2" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                       </ul>
                   </li>
@@ -747,6 +755,10 @@ clipboard.on('error', function(e) {
 <ul>
 <li>websocket支持交割合约</li>
 </ul>
+<h2 id='2021-03-01'>2021-03-01</h2><h3 id='rest-api-2'>REST API</h3>
+<ul>
+<li>修改url前缀<code>future</code> 为 <code>futures</code></li>
+</ul>
 <h1 id='t-authentication'>鉴权/认证</h1>
 <aside class="notice">
 请先生成<a href="https://testnet.bybit.com/app/user/api-management"><b>测试网</b></a> 或 <a href="https://www.bybit.com/app/user/api-management"<b>主网</b></a>API KEY。
@@ -815,14 +827,14 @@ REST接口根URL:
 <p><b>GET</b>请求格式（查询杠杆）:
 </p>
 </blockquote>
-<div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/future/private/order?symbol=BTCUSDH21&amp;api_key=B2Rou0PLPpGqcU0Vu2&amp;timestamp=1542434791000&amp;sign=670e3e4aa32b243f2dedf1dafcec2fd17a440e71b05681550416507de591d908</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/futures/private/order?symbol=BTCUSDH21&amp;api_key=B2Rou0PLPpGqcU0Vu2&amp;timestamp=1542434791000&amp;sign=670e3e4aa32b243f2dedf1dafcec2fd17a440e71b05681550416507de591d908</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api-testnet.bybit.com</span>
 </code></pre></div>
 <blockquote>
 <p><b>POST</b>请求格式（修改杠杆）:
 </p>
 </blockquote>
-<div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/future/private/order/cancel</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/futures/private/order/cancel</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api-testnet.bybit.com</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
@@ -901,7 +913,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>Curl 请求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/future/private/order/create \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/futures/private/order/create \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","side"="Buy","symbol"="BTCUSDH21","order_type":"Market","qty":10,"time_in_force":"GoodTillCancel","timestamp":{timestamp},"sign":"{sign}"}'
 
@@ -954,7 +966,7 @@ function copyStringToClipboard (endpoint) {
 <p class="fake_header">HTTP 请求</p>
 
 <p>POST
-<code><span id=vpoCreate>/future/private/order/create</span></code>
+<code><span id=vpoCreate>/futures/private/order/create</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
 
 <p class="fake_header">请求参数</p>
@@ -1144,7 +1156,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>Curl 请求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/future/private/order/list?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}&amp;symbol=BTCUSDH21"
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/futures/private/order/list?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}&amp;symbol=BTCUSDH21"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
 <blockquote>
 <p>响应示例</p>
@@ -1192,7 +1204,7 @@ function copyStringToClipboard (endpoint) {
 <p class="fake_header">HTTP 请求</p>
 
 <p>GET
-<code><span id=vpoList>/future/private/order/list</span></code>
+<code><span id=vpoList>/futures/private/order/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoList"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">请求参数</p>
@@ -1341,7 +1353,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>Curl 请求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/future/private/order/cancel \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/futures/private/order/cancel \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDH21","order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
@@ -1387,7 +1399,7 @@ function copyStringToClipboard (endpoint) {
 <p class="fake_header">HTTP 请求</p>
 
 <p>POST
-<code><span id=vpoCancel>/future/private/order/cancel</span></code>
+<code><span id=vpoCancel>/futures/private/order/cancel</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancel"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">请求参数</p>
@@ -1529,7 +1541,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>Curl 请求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/future/private/order/cancelAll \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/futures/private/order/cancelAll \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDH21","timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
@@ -1578,7 +1590,7 @@ function copyStringToClipboard (endpoint) {
 <p class="fake_header">HTTP 请求</p>
 
 <p>POST
-<code><span id=vpoCancelAll>/future/private/order/cancelAll</span></code>
+<code><span id=vpoCancelAll>/futures/private/order/cancelAll</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancelAll"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">请求参数</p>
@@ -1698,7 +1710,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>Curl 请求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/future/private/order/replace \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/futures/private/order/replace \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDH21","order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
@@ -1728,7 +1740,7 @@ function copyStringToClipboard (endpoint) {
 <p class="fake_header">HTTP 请求</p>
 
 <p>POST
-<code><span id=vpoReplace>/future/private/order/replace</span></code>
+<code><span id=vpoReplace>/futures/private/order/replace</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoReplace"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">请求参数</p>
@@ -1792,7 +1804,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>Curl 请求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/future/private/order?api_key={api_key}&amp;symbol=BTCUSDH21&amp;timestamp={timestamp}order_id={order_id}&amp;sign={sign}"
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/futures/private/order?api_key={api_key}&amp;symbol=BTCUSDH21&amp;timestamp={timestamp}order_id={order_id}&amp;sign={sign}"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
 <blockquote>
 <p>响应示例</p>
@@ -1908,7 +1920,7 @@ function copyStringToClipboard (endpoint) {
 <p class="fake_header">HTTP 请求</p>
 
 <p>GET
-<code><span id=vpOrder>/future/private/order</span></code>
+<code><span id=vpOrder>/futures/private/order</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">请求参数</p>
@@ -2055,7 +2067,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>Curl 请求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/future/private/stop-order/create \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/futures/private/stop-order/create \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","order_type":"Limit","side":"Buy","symbol":"BTCUSDH21","qty":1,"price":8100,"base_price":8300,"stop_px":8150,"time_in_force":"GoodTillCancel","order_link_id":"cus_order_id_1","timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
@@ -2104,7 +2116,7 @@ function copyStringToClipboard (endpoint) {
 <p class="fake_header">HTTP 请求</p>
 
 <p>POST
-<code><span id=vpsoCreate>/future/private/stop-order/create</span></code>
+<code><span id=vpsoCreate>/futures/private/stop-order/create</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpsoCreate"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">请求参数</p>
@@ -2274,7 +2286,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>Curl 请求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/future/private/stop-order/list?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}"
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/futures/private/stop-order/list?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
 <blockquote>
 <p>响应示例</p>
@@ -2317,7 +2329,7 @@ function copyStringToClipboard (endpoint) {
 <p class="fake_header">HTTP 请求</p>
 
 <p>GET
-<code><span id=vpsoList>/future/private/stop-order/list</span></code>
+<code><span id=vpsoList>/futures/private/stop-order/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpsoList"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">请求参数</p>
@@ -2419,7 +2431,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">data &gt; <a href="#trigger-price-type-trigger_by">trigger_by</a></td>
 <td style="text-align: left">string</td>
-<td>触发价格类型</td>
+<td>触发价格类型. 默认为最新市价</td>
 </tr>
 <tr>
 <td style="text-align: left">data &gt; base_price</td>
@@ -2461,7 +2473,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>Curl 请求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/future/private/stop-order/cancel \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/futures/private/stop-order/cancel \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDH21","stop_order_id":"xxx","timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
@@ -2488,7 +2500,7 @@ function copyStringToClipboard (endpoint) {
 <p class="fake_header">HTTP 请求</p>
 
 <p>POST
-<code><span id=vpsoCancel>/future/private/stop-order/cancel</span></code>
+<code><span id=vpsoCancel>/futures/private/stop-order/cancel</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpsoCancel"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">请求参数</p>
@@ -2540,7 +2552,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>Curl 请求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/future/private/stop-order/cancelAll \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/futures/private/stop-order/cancelAll \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDH21","timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
@@ -2615,7 +2627,7 @@ function copyStringToClipboard (endpoint) {
 <p class="fake_header">HTTP 请求</p>
 
 <p>POST
-<code><span id=vpsoCancelAll>/future/private/stop-order/cancelAll</span></code>
+<code><span id=vpsoCancelAll>/futures/private/stop-order/cancelAll</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpsoCancelAll"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">请求参数</p>
@@ -2755,7 +2767,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>Curl 请求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/future/private/stop-order/replace \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/futures/private/stop-order/replace \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDH21","stop_order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
@@ -2787,7 +2799,7 @@ function copyStringToClipboard (endpoint) {
 <p class="fake_header">HTTP 请求</p>
 
 <p>POST
-<code><span id=vpsoReplace>/future/private/stop-order/replace</span></code>
+<code><span id=vpsoReplace>/futures/private/stop-order/replace</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpsoReplace"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">请求参数</p>
@@ -2857,7 +2869,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>Curl 请求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/future/private/stop-order?api_key={api_key}&amp;symbol=BTCUSDH21&amp;timestamp={timestamp}order_id={order_id}&amp;sign={sign}"
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/futures/private/stop-order?api_key={api_key}&amp;symbol=BTCUSDH21&amp;timestamp={timestamp}order_id={order_id}&amp;sign={sign}"
 </span></code></pre></div>
 <blockquote>
 <p>响应示例</p>
@@ -2968,7 +2980,7 @@ function copyStringToClipboard (endpoint) {
 <p class="fake_header">HTTP 请求</p>
 
 <p>GET
-<code><span id=vpStopOrder>/future/private/stop-order</span></code>
+<code><span id=vpStopOrder>/futures/private/stop-order</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpStopOrder"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">请求参数</p>
@@ -3118,14 +3130,14 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">trigger_by</a></td>
 <td style="text-align: left">string</td>
-<td>触发价格类型</td>
+<td>触发价格类型. 默认为最新市价</td>
 </tr>
 </tbody></table>
 <h2 id='t-position'>持仓</h2><h3 id='t-myposition'>获取持仓（实时）</h3>
 <blockquote>
 <p>Curl 请求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/future/private/position/list?api_key={api_key}&amp;symbol=BTCUSDH21&amp;timestamp={timestamp}&amp;sign={sign}"
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/futures/private/position/list?api_key={api_key}&amp;symbol=BTCUSDH21&amp;timestamp={timestamp}&amp;sign={sign}"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
 <blockquote>
 <p>响应示例</p>
@@ -3275,7 +3287,7 @@ function copyStringToClipboard (endpoint) {
 <p class="fake_header">HTTP 请求</p>
 
 <p>GET
-<code><span id=pList>/future/private/position/list</span></code>
+<code><span id=pList>/futures/private/position/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pList"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">请求参数</p>
@@ -3480,7 +3492,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>Curl 请求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/future/private/position/change-position-margin \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/futures/private/position/change-position-margin \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDH21",margin:"10","timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
@@ -3508,7 +3520,7 @@ function copyStringToClipboard (endpoint) {
 <p class="fake_header">HTTP 请求</p>
 
 <p>POST
-<code><span id=pChangePositionMarginNew>/future/private/position/change-position-margin</span></code>
+<code><span id=pChangePositionMarginNew>/futures/private/position/change-position-margin</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pChangePositionMarginNew"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">请求参数</p>
@@ -3554,7 +3566,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>Curl 请求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/future/private/position/trading-stop \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/futures/private/position/trading-stop \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDH21","stop_loss":7000,"timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
@@ -3619,7 +3631,7 @@ function copyStringToClipboard (endpoint) {
 <p class="fake_header">HTTP 请求</p>
 
 <p>POST
-<code><span id=oapTradingStopNew>/future/private/position/trading-stop</span></code>
+<code><span id=oapTradingStopNew>/futures/private/position/trading-stop</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oapTradingStopNew"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">请求参数</p>
@@ -3850,7 +3862,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>Curl 请求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/future/private/position/leverage/save \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/futures/private/position/leverage/save \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDH21","buy_leverage":14,"sell_leverage":14,"timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
@@ -3869,8 +3881,7 @@ function copyStringToClipboard (endpoint) {
     <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">75</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><p>修改杠杆。</p>
-</p>
+<p>设置杠杆</p>
 
 <aside class="notice">
 如果您想使用<a href="https://help.bybit.com/hc/en-us/articles/360037683633-What-is-Cross-Margin">全仓模式</a>请将<code>杠杆</code>设置为0。请注意，一旦您将杠杆由0改为其他任何值，仓位模式将自动切换到逐仓模式。
@@ -3879,7 +3890,7 @@ function copyStringToClipboard (endpoint) {
 <p class="fake_header">HTTP 请求</p>
 
 <p>POST
-<code><span id=ulSaveNew>/future/private/position/leverage/save</span></code>
+<code><span id=ulSaveNew>/futures/private/position/leverage/save</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ulSaveNew"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">请求参数</p>
@@ -3931,7 +3942,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>Curl 请求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/future/private/position/switch-mode \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/futures/private/position/switch-mode \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDH21","mode":0,"timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
@@ -3955,7 +3966,7 @@ function copyStringToClipboard (endpoint) {
 <p class="fake_header">HTTP 请求</p>
 
 <p>POST
-<code><span id=ulSwitchMode>/future/private/position/switch-mode</span></code>
+<code><span id=ulSwitchMode>/futures/private/position/switch-mode</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ulSwitchMode"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">请求参数</p>
@@ -3987,7 +3998,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>Curl 请求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/future/private/position/switch-isolated \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/futures/private/position/switch-isolated \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDH21", "position_idx":1, "is_isolated":true,"buy_leverage":10,"sell_leverage":20, "timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
@@ -4011,7 +4022,7 @@ function copyStringToClipboard (endpoint) {
 <p class="fake_header">HTTP 请求</p>
 
 <p>POST
-<code><span id=ulSwitchMode>/future/private/position/switch-isolated</span></code>
+<code><span id=ulSwitchMode>/futures/private/position/switch-isolated</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ulSwitchMode"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">请求参数</p>
@@ -4055,7 +4066,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>Curl 请求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/future/private/execution/list?api_key={api_key}&amp;symbol=BTCUSDH21&amp;timestamp={timestamp}&amp;sign={sign}"
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/futures/private/execution/list?api_key={api_key}&amp;symbol=BTCUSDH21&amp;timestamp={timestamp}&amp;sign={sign}"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
 <blockquote>
 <p>响应示例</p>
@@ -4109,7 +4120,7 @@ function copyStringToClipboard (endpoint) {
 <p class="fake_header">HTTP 请求</p>
 
 <p>GET
-<code><span id=vpeList>/future/private/execution/list</span></code>
+<code><span id=vpeList>/futures/private/execution/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpeList"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">请求参数</p>
@@ -4279,7 +4290,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>Curl 请求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/future/private/trade/closed-pnl/list?api_key={api_key}&amp;symbol=BTCUSDH21&amp;timestamp={timestamp}&amp;sign={sign}"
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/futures/private/trade/closed-pnl/list?api_key={api_key}&amp;symbol=BTCUSDH21&amp;timestamp={timestamp}&amp;sign={sign}"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
 <blockquote>
 <p>响应示例</p>
@@ -4325,7 +4336,7 @@ function copyStringToClipboard (endpoint) {
 <p class="fake_header">HTTP 请求</p>
 
 <p>GET
-<code><span id=pltcList>/future/private/trade/closed-pnl/list</span></code>
+<code><span id=pltcList>/futures/private/trade/closed-pnl/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pltcList"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">请求参数</p>
@@ -4620,41 +4631,41 @@ function copyStringToClipboard (endpoint) {
   <tr>
     <td rowspan="10">100/min</td>  
   </tr>
-  <tr><td>future/private/order/cancel       </td><td>1 / request</td></tr>
-  <tr><td>future/private/stop-order/create  </td><td>1 / request</td></tr>
-  <tr><td>future/private/stop-order/cancel  </td><td>1 / request</td></tr>
-  <tr><td>future/private/order/replace      </td><td>1 / request</td></tr>
-  <tr><td>future/private/stop-order/replace </td><td>1 / request</td></tr>
-  <tr><td>future/private/order/create     </td><td>1 / request</td></tr>
-  <tr><td>future/private/order/cancel     </td><td>1 / request</td></tr>
-  <tr><td>future/private/order/cancelAll  </td><td>10 / request</td></tr>
-  <tr><td>future/private/stop-order/cancelAll </td><td>10 / request</td></tr>
+  <tr><td>futures/private/order/cancel       </td><td>1 / request</td></tr>
+  <tr><td>futures/private/stop-order/create  </td><td>1 / request</td></tr>
+  <tr><td>futures/private/stop-order/cancel  </td><td>1 / request</td></tr>
+  <tr><td>futures/private/order/replace      </td><td>1 / request</td></tr>
+  <tr><td>futures/private/stop-order/replace </td><td>1 / request</td></tr>
+  <tr><td>futures/private/order/create     </td><td>1 / request</td></tr>
+  <tr><td>futures/private/order/cancel     </td><td>1 / request</td></tr>
+  <tr><td>futures/private/order/cancelAll  </td><td>10 / request</td></tr>
+  <tr><td>futures/private/stop-order/cancelAll </td><td>10 / request</td></tr>
   <tr>
     <td rowspan="3">600/min</td>
-    <td>future/private/order/list </td>
+    <td>futures/private/order/list </td>
     <td>1 / request</td>
   </tr>
-  <tr><td>future/private/stop-order/list </td><td>1 / request</td></tr>
-  <tr><td>future/private/order </td><td>1 / request</td></tr>
+  <tr><td>futures/private/stop-order/list </td><td>1 / request</td></tr>
+  <tr><td>futures/private/order </td><td>1 / request</td></tr>
   <tr>
     <td>120/min</td>
-    <td>future/private/execution/list</td>
+    <td>futures/private/execution/list</td>
     <td>1 / request</td>
   </tr>
   <tr>
     <td rowspan="5">75/min</td>
-    <td>future/private/position/leverage/save </td>
+    <td>futures/private/position/leverage/save </td>
     <td>1 / request</td>
   </tr>
-  <tr><td>future/private/position/change-position-margin</td><td>1 / request</td></tr>
-  <tr><td>future/private/position/trading-stop</td><td>1 / request</td></tr>
-  <tr><td>future/private/position/switch-mode</td><td>1 / request</td></tr>
-  <tr><td>future/private/position/switch-isolated</td><td>1 / request</td></tr>
+  <tr><td>futures/private/position/change-position-margin</td><td>1 / request</td></tr>
+  <tr><td>futures/private/position/trading-stop</td><td>1 / request</td></tr>
+  <tr><td>futures/private/position/switch-mode</td><td>1 / request</td></tr>
+  <tr><td>futures/private/position/switch-isolated</td><td>1 / request</td></tr>
   <tr>
     <td rowspan="4">120/min</td> 
   </tr>
   <tr></tr>
-  <tr><td>future/private/position/list</td><td>1 / request</td></tr>
+  <tr><td>futures/private/position/list</td><td>1 / request</td></tr>
     <tr><td>v2/private/wallet/balance</td><td>1 / request</td></tr>
   <tr>
     <td rowspan="3">120/min</td>
@@ -6843,8 +6854,8 @@ ELSE
         window.location=currentUrl.replace(/\/zh-cn/,"");
       } else {
         if (currentUrl.indexOf("inverse") > -1) {
-            if (currentUrl.indexOf("inverse-future") > -1) {
-                window.location=currentUrl.replace(/\/inverse-future/,"/zh-cn/inverse-future");
+            if (currentUrl.indexOf("inverse-futures") > -1) {
+                window.location=currentUrl.replace(/\/inverse-futures/,"/zh-cn/inverse-futures");
             } else {
                 window.location=currentUrl.replace(/\/inverse/,"/zh-cn/inverse");
             }
