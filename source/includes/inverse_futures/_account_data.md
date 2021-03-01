@@ -738,7 +738,7 @@ GET
 |data > t(:row_parameter_quantity) |number |t(:row_response_comment_qty)  |
 |data > t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
 |data > stop_order_type |string |t(:row_comment_stopOrderType)  |
-|data > t(:row_parameter_trigger_price) |string |t(:row_response_comment_triggerBy)  |
+|data > t(:row_parameter_trigger_price) |string |t(:row_comment_triggerBy)  |
 |data > base_price |number |t(:row_response_comment_basePrice)  |
 |data > order_link_id |string |t(:row_response_comment_orderLinkId)  |
 |data > created_at |string |t(:row_comment_created_at)  |
@@ -1122,7 +1122,7 @@ GET
 |order_id |string |t(:row_comment_order_id)  |
 |base_price |string |t(:row_response_comment_basePrice)  |
 |stop_px |string |t(:linear_row_comment_stopPx)  |
-|t(:row_parameter_trigger_price) |string |t(:row_response_comment_triggerBy)  |
+|t(:row_parameter_trigger_price) |string |t(:row_comment_triggerBy)  |
 
 
 ## t(:position)
@@ -1537,7 +1537,7 @@ curl https://api.bybit.com/futures/private/position/leverage/save \
 }
 ```
 
-t(:account_para_setleverage)
+t(:linear_account_para_setLeverage)
 
 <aside class="notice">
 t(:account_aside_setleverage)
