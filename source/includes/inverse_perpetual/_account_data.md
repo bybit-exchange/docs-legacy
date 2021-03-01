@@ -1573,7 +1573,7 @@ print(client.Positions.Positions_saveLeverage(symbol="BTCUSD", leverage="14").re
 }
 ```
 
-t(:account_para_setleverage)
+t(:linear_account_para_setLeverage)
 
 <aside class="notice">
 t(:account_aside_setleverage)

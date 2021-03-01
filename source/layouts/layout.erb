@@ -150,10 +150,10 @@ under the License.
   <% else %>
     <li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/linear"><%=t(:linear_perpetual)%></a></li>
   <% end %>
-  <% if page_classes.end_with?("inverse_future_index") %>
-    <li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/inverse_future" class="selected"><%=t(:inverse_future)%></a></li>
+  <% if page_classes.end_with?("inverse_futures_index") %>
+    <li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/inverse_futures" class="selected"><%=t(:inverse_futures)%></a></li>
   <% else %>
-    <li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/inverse_future"><%=t(:inverse_future)%></a></li>
+    <li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/inverse_futures"><%=t(:inverse_futures)%></a></li>
   <% end %>
   </ul>
   </div>
@@ -260,8 +260,8 @@ under the License.
         window.location=currentUrl.replace(/\/zh-cn/,"");
       } else {
         if (currentUrl.indexOf("inverse") > -1) {
-            if (currentUrl.indexOf("inverse-future") > -1) {
-                window.location=currentUrl.replace(/\/inverse-future/,"/zh-cn/inverse-future");
+            if (currentUrl.indexOf("inverse-futures") > -1) {
+                window.location=currentUrl.replace(/\/inverse-futures/,"/zh-cn/inverse-futures");
             } else {
                 window.location=currentUrl.replace(/\/inverse/,"/zh-cn/inverse");
             }
