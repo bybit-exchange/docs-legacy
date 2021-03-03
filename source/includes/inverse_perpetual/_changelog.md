@@ -1,9 +1,9 @@
 # t(:changelog)
 
 
-## 2021-03-03
+## 2021-03-04
 - [t(:walletrecords)](#t-walletrecords) [t(:changelog_update)]
-    - t(:restapi_update_20210303)
+    - t(:restapi_update_20210304)
     
 ## 2021-02-02
 
