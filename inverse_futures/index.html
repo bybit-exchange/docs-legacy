@@ -302,7 +302,7 @@
   <ul class="con">
     <li><a href="/docs/inverse">Inverse Perpetual</a></li>
     <li><a href="/docs/linear">USDT Perpetual</a></li>
-    <li><a href="/docs/inverse_futures" class="selected">Inverse Futures(Testnet)</a></li>
+    <li><a href="/docs/inverse_futures" class="selected">Inverse Futures (Testnet)</a></li>
   </ul>
   </div>
   <a class="international" id="international" href="javascript:void(0);">简体中文</a>
@@ -476,7 +476,7 @@
                             <a href="#t-setleverage" class="toc-h3 toc-link" data-title="Set Leverage">Set Leverage</a>
                           </li>
                           <li>
-                            <a href="#t-switchpositionmode" class="toc-h3 toc-link" data-title="Position mode Switch">Position mode Switch</a>
+                            <a href="#t-switchpositionmode" class="toc-h3 toc-link" data-title="Position Mode Switch">Position Mode Switch</a>
                           </li>
                           <li>
                             <a href="#t-marginswitch" class="toc-h3 toc-link" data-title="Cross/Isolated Margin Switch">Cross/Isolated Margin Switch</a>
@@ -753,7 +753,7 @@ clipboard.on('error', function(e) {
 </ul>
 <h3 id='websocket-api'>Websocket API</h3>
 <ul>
-<li>Websocket support inverse futures</li>
+<li>Add websocket support to inverse future</li>
 </ul>
 <h2 id='2021-03-01'>2021-03-01</h2><h3 id='rest-api-2'>REST API</h3>
 <ul>
@@ -3333,7 +3333,8 @@ Please note that you can only modify untriggered conditional orders.
 <tr>
 <td style="text-align: left">position_idx</td>
 <td style="text-align: left">number</td>
-<td>Position idx，used to identify positions in different position modes：<br/>0-single side of merged single side mode <br/>1-Buy side of both side mode <br/> 2-Sell side of both side mode</td>
+<td>Position idx, used to identify positions in different position modes<span>:</span> <br/>0-One-Way Mode <br/>1-Buy side of both side mode <br/> 2-Sell side of both side mode
+</td>
 </tr>
 <tr>
 <td style="text-align: left">mode</td>
@@ -3683,13 +3684,15 @@ Passing these parameters will create conditional orders controlled by the system
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>take profit trigger price type，default<span>:</span> <code>LastPrice</code></td>
+<td>take profit trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>take profit trigger price type，default<span>:</span> <code>LastPrice</code></td>
+<td>take profit trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
 </tr>
 <tr>
 <td style="text-align: left">new_trailing_active</td>
@@ -3927,13 +3930,13 @@ Set <code>leverage</code> to <code>0</code> if you want to trade in <a href="htt
 <td style="text-align: left">buy_leverage</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">number</td>
-<td>Must be greater than 0 and less than the <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>.</td>
+<td>translation missing: en.futures_row_comment_leverage</td>
 </tr>
 <tr>
 <td style="text-align: left">sell_leverage</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">number</td>
-<td>Must be greater than 0 and less than the <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>.</td>
+<td>translation missing: en.futures_row_comment_leverage</td>
 </tr>
 </tbody></table>
 
@@ -3952,7 +3955,7 @@ Set <code>leverage</code> to <code>0</code> if you want to trade in <a href="htt
 <td>User leverage</td>
 </tr>
 </tbody></table>
-<h3 id='t-switchpositionmode'>Position mode Switch</h3>
+<h3 id='t-switchpositionmode'>Position Mode Switch</h3>
 <blockquote>
 <p>Request Example</p>
 </blockquote>
@@ -3975,7 +3978,8 @@ Set <code>leverage</code> to <code>0</code> if you want to trade in <a href="htt
     <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">75</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>If you are in merged single side mode, you can only open one position on <code>Buy</code> or <code>Sell</code> side;<br/> If you are in both side mode, you can open both <code>Buy</code> and <code>Sell</code> side positions simultaneously.</p>
+<p>If you are in One-Way Mode, you can only open one position on <code>Buy</code> or <code>Sell</code> side;<br/> If you are in Hedge Mode, you can open both <code>Buy</code> and <code>Sell</code> side positions simultaneously.
+</p>
 
 <p class="fake_header">HTTP Request</p>
 
@@ -4003,11 +4007,27 @@ Set <code>leverage</code> to <code>0</code> if you want to trade in <a href="htt
 <td style="text-align: left">mode</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">int</td>
-<td>Position Mode<span>:</span> 0 - Merged single side  3 - Both side</td>
+<td>Position Mode. <code>0</code><span>:</span> One-Way Mode; <code>3</code><span>:</span> Hedge Mode
+</td>
 </tr>
 </tbody></table>
 
 <p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">parameter</th>
+<th style="text-align: left">type</th>
+<th>comments</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">result</td>
+<td style="text-align: left">number</td>
+<td>Position Mode. <code>0</code><span>:</span> One-Way Mode; <code>3</code><span>:</span> Hedge Mode
+</td>
+</tr>
+</tbody></table>
 <h3 id='t-marginswitch'>Cross/Isolated Margin Switch</h3>
 <blockquote>
 <p>Request Example</p>
@@ -4065,17 +4085,31 @@ Set <code>leverage</code> to <code>0</code> if you want to trade in <a href="htt
 <td style="text-align: left">buy_leverage</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">number</td>
-<td>Must be greater than 0 and less than the <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>.</td>
+<td>translation missing: en.futures_row_comment_leverage</td>
 </tr>
 <tr>
 <td style="text-align: left">sell_leverage</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">number</td>
-<td>Must be greater than 0 and less than the <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>.</td>
+<td>translation missing: en.futures_row_comment_leverage</td>
 </tr>
 </tbody></table>
 
 <p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">parameter</th>
+<th style="text-align: left">type</th>
+<th>comments</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">result</td>
+<td style="text-align: left">number</td>
+<td></td>
+</tr>
+</tbody></table>
 <h3 id='t-usertraderecords'>User Trade Records</h3>
 <blockquote>
 <p>Request Example</p>
@@ -4605,7 +4639,7 @@ One order may have multiple trade records.
 </thead><tbody>
 </tbody></table>
 <h1 id='t-ratelimits'>API Rate Limits</h1><h3 id='t-ipratelimits'>IP Rate Limit</h3>
-<p><p> Bybit has different IP frequency limits for <code>GET</code> and <code>POST</code> method：</p>
+<p><p>Bybit has different IP frequency limits for <code>GET</code> and <code>POST</code> method<span>:</span></p>
 <ul>
 <li>
   <code>GET</code>method:

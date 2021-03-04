@@ -302,7 +302,7 @@
   <ul class="con">
     <li><a href="/docs/inverse">Inverse Perpetual</a></li>
     <li><a href="/docs/linear" class="selected">USDT Perpetual</a></li>
-    <li><a href="/docs/inverse_futures">Inverse Futures(Testnet)</a></li>
+    <li><a href="/docs/inverse_futures">Inverse Futures (Testnet)</a></li>
   </ul>
   </div>
   <a class="international" id="international" href="javascript:void(0);">简体中文</a>
@@ -861,6 +861,14 @@
                             <a href="#t-websocketwallet" class="toc-h3 toc-link" data-title="wallet">wallet</a>
                           </li>
                       </ul>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#t-archivedata" class="toc-h1 toc-link" data-title="Archive Data">Archive Data</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-historicalmarketdata" class="toc-h2 toc-link" data-title="Historical Market Data">Historical Market Data</a>
                   </li>
               </ul>
           </li>
@@ -5370,13 +5378,15 @@ Passing these parameters will create conditional orders controlled by the system
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>take profit trigger price type，default<span>:</span> <code>LastPrice</code></td>
+<td>take profit trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>take profit trigger price type，default<span>:</span> <code>LastPrice</code></td>
+<td>take profit trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
 </tr>
 <tr>
 <td style="text-align: left">sl_size</td>
@@ -6465,7 +6475,7 @@ Set risk limit.
 </thead><tbody>
 </tbody></table>
 <h1 id='t-ratelimits'>API Rate Limits</h1><h3 id='t-ipratelimits'>IP Rate Limit</h3>
-<p><p> Bybit has different IP frequency limits for <code>GET</code> and <code>POST</code> method：</p>
+<p><p>Bybit has different IP frequency limits for <code>GET</code> and <code>POST</code> method<span>:</span></p>
 <ul>
 <li>
   <code>GET</code>method:
@@ -8038,6 +8048,8 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 <td>Available balance = wallet balance - used margin</td>
 </tr>
 </tbody></table>
+<h1 id='t-archivedata'>Archive Data</h1><h3 id='t-historicalmarketdata'>Historical Market Data</h3>
+<p>You can get Bybit's <a href="https://public.bybit.com">historical market data here</a>.</p>
 <h1 id='t-errors'>Errors</h1>
 <p>The Bybit API uses the following HTTP Codes and Error Codes<span>:</span></p>
 
@@ -8297,7 +8309,7 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 </tr>
 <tr>
 <td>130061</td>
-<td>not change fee，invalid req</td>
+<td>not change fee, invalid req</td>
 </tr>
 <tr>
 <td>130062</td>
