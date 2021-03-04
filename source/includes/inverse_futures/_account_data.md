@@ -1603,6 +1603,9 @@ POST
 |mode |<b>true</b> |int |t(:row_comment_positionmode) |
 
 <p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|result |number |t(:row_comment_positionmode)  |
 
 
 ### t(:marginswitch)
@@ -1649,6 +1652,9 @@ POST
 |sell_leverage |<b>true</b> |number |t(:futures_row_comment_leverage)  |
 
 <p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|result |number |  |
 
 
 
