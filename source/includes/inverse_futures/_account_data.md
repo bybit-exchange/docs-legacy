@@ -62,6 +62,7 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
+|position_idx |<b>true</b>|integer |t(:row_comment_position_idx)  |
 |t(:row_parameter_side) |<b>true</b> |string |t(:row_comment_side)    |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)   |
 |t(:row_parameter_order_type) |<b>true</b> |string |t(:row_comment_activeOrderType)   |
@@ -631,6 +632,7 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
+|position_idx |<b>true</b>|integer |t(:row_comment_position_idx)  |
 |t(:row_parameter_side) |<b>true</b> |string |t(:row_comment_side)    |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
 |t(:row_parameter_order_type) |<b>true</b> |string |t(:row_comment_stopOrderType) |
@@ -1144,138 +1146,89 @@ curl "https://api.bybit.com/futures/private/position/list?api_key={api_key}&symb
     "ret_msg": "OK",
     "ext_code": "",
     "ext_info": "",
-    "result": {
-        "id": 27913,
-        "position_idx":0,
-        "mode":1,
-        "user_id": 1,
-        "risk_id": 1,
-        "symbol": "BTCUSDH21",
-        "side": "Buy",
-        "size": 5,
-        "position_value": "0.0006947",
-        "entry_price": "7197.35137469",
-        "is_isolated":true,
-        "auto_add_margin": 0,
-        "leverage": "1",  //t(:resp_field_leverage)
-        "effective_leverage": "1", // t(:resp_field_effective_leverage)
-        "position_margin": "0.0006947",
-        "liq_price": "3608",
-        "bust_price": "3599",
-        "occ_closing_fee": "0.00000105",
-        "occ_funding_fee": "0",
-        "take_profit": "0",
-        "stop_loss": "0",
-        "trailing_stop": "0",
-        "position_status": "Normal",
-        "deleverage_indicator": 4,
-        "oc_calc_data": "{\"blq\":2,\"blv\":\"0.0002941\",\"slq\":0,\"bmp\":6800.408,\"smp\":0,\"fq\":-5,\"fc\":-0.00029477,\"bv2c\":1.00225,\"sv2c\":1.0007575}",
-        "order_margin": "0.00029477",
-        "wallet_balance": "0.03000227",
-        "realised_pnl": "-0.00000126",
-        "unrealised_pnl": 0,
-        "cum_realised_pnl": "-0.00001306",
-        "cross_seq": 444081383,
-        "position_seq": 287141589,
-        "created_at": "2019-10-19T17:04:55Z",
-        "updated_at": "2019-12-27T20:25:45.158767Z"
-    },
-    "time_now": "1577480599.097287",
-    "rate_limit_status": 119,
-    "rate_limit_reset_ms": 1580885703683,
-    "rate_limit": 120
-}
-
-//t(:resp_field_position_list)
-{
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
-    "ext_info": "",
     "result": [
         {
-            "is_valid": true, //t(:resp_field_position_list_valid)
-            "data": { //t(:resp_field_position_list_data)
+            "data": {
                 "id": 0,
-                "position_idx":1,
-                "mode":3,
-                "user_id": 118921,
-                "risk_id": 1,
+                "position_idx": 1,
+                "mode": 3,
+                "user_id": 103669,
+                "risk_id": 61,
                 "symbol": "BTCUSDH21",
                 "side": "Buy",
-                "size": 10,
-                "position_value": "0.00076448",
-                "entry_price": "13080.78694014",
+                "size": 200000,
+                "position_value": "3.62934747",
+                "entry_price": "55106.32466392",
+                "is_isolated": true,
+                "auto_add_margin": 0,
+                "leverage": "10",
+                "effective_leverage": "0",
+                "position_margin": "0.36592896",
+                "liq_price": "50325.5",
+                "bust_price": "50097",
+                "occ_closing_fee": "0.0029942",
+                "occ_funding_fee": "0",
+                "take_profit": "0",
+                "stop_loss": "0",
+                "trailing_stop": "0",
+                "position_status": "Normal",
+                "deleverage_indicator": 4,
+                "oc_calc_data": "{\"blq\":0,\"slq\":0,\"bmp\":0,\"smp\":0,\"fq\":-200000,\"bv2c\":0.101575,\"sv2c\":0.101425}",
+                "order_margin": "0",
+                "wallet_balance": "9.95270565",
+                "realised_pnl": "-0.00272207",
+                "unrealised_pnl": 0,
+                "cum_realised_pnl": "-0.00272207",
+                "cross_seq": 2392689554,
+                "position_seq": 0,
+                "created_at": "2021-03-11T08:11:17.747178448Z",
+                "updated_at": "2021-03-11T08:24:18.923067183Z"
+            },
+            "is_valid": true
+        },
+        {
+            "data": {
+                "id": 0,
+                "position_idx": 0,
+                "mode": 0,
+                "user_id": 103669,
+                "risk_id": 71,
+                "symbol": "BTCUSDM21",
+                "side": "Buy",
+                "size": 2,
+                "position_value": "0.00003644",
+                "entry_price": "54884.74204171",
                 "is_isolated": false,
                 "auto_add_margin": 1,
                 "leverage": "100",
-                "effective_leverage": "0.01",
-                "position_margin": "0.40111704",
-                "liq_price": "25",
-                "bust_price": "25",
-                "occ_closing_fee": "0.0003",
+                "effective_leverage": "0",
+                "position_margin": "0.0000004",
+                "liq_price": "0.5",
+                "bust_price": "0.5",
+                "occ_closing_fee": "0.003",
                 "occ_funding_fee": "0",
                 "take_profit": "0",
                 "stop_loss": "0",
                 "trailing_stop": "0",
                 "position_status": "Normal",
-                "deleverage_indicator": 1,
-                "oc_calc_data": "{\"blq\":0,\"slq\":0,\"bmp\":0,\"smp\":0,\"fq\":-10,\"bv2c\":0.0115075,\"sv2c\":0.0114925}",
+                "deleverage_indicator": 3,
+                "oc_calc_data": "{\"blq\":0,\"slq\":0,\"bmp\":0,\"smp\":0,\"fq\":-2,\"bv2c\":0.0115075,\"sv2c\":0.0114925}",
                 "order_margin": "0",
-                "wallet_balance": "0.40141704",
-                "realised_pnl": "-0.00000008",
-                "unrealised_pnl": 0.00003797,
-                "cum_realised_pnl": "-0.090626",
-                "cross_seq": 764786721,
-                "position_seq": 581513847,
-                "created_at": "2020-08-10T07:04:32Z",
-                "updated_at": "2020-11-02T00:00:11.943371457Z"
-            }
-        },
-        ...
-        {
-            "is_valid": true, //t(:resp_field_position_list_valid)
-            "data": { //t(:resp_field_position_list_data)
-                "id": 0,
-                "position_idx":2,
-                "mode":3,
-                "user_id": 118921,
-                "risk_id": 35,
-                "symbol": "XRPUSD",
-                "side": "None",
-                "size": 0,
-                "position_value": "0",
-                "entry_price": "0",
-                "is_isolated": false,
-                "auto_add_margin": 1,
-                "leverage": "16.67",
-                "effective_leverage": "16.67",
-                "position_margin": "0",
-                "liq_price": "0",
-                "bust_price": "0",
-                "occ_closing_fee": "0",
-                "occ_funding_fee": "0",
-                "take_profit": "0",
-                "stop_loss": "0",
-                "trailing_stop": "0",
-                "position_status": "Normal",
-                "deleverage_indicator": 0,
-                "oc_calc_data": "{\"blq\":0,\"slq\":0,\"bmp\":0,\"smp\":0,\"bv2c\":0.06153301,\"sv2c\":0.06144302}",
-                "order_margin": "0",
-                "wallet_balance": "0",
+                "wallet_balance": "9.95270565",
                 "realised_pnl": "0",
                 "unrealised_pnl": 0,
-                "cum_realised_pnl": "0",
-                "cross_seq": -1,
-                "position_seq": 352149441,
-                "created_at": "2020-08-10T07:04:32Z",
-                "updated_at": "2020-08-22T08:06:32Z"
-            }
+                "cum_realised_pnl": "-0.00000002",
+                "cross_seq": 2360303954,
+                "position_seq": 0,
+                "created_at": "2021-02-24T05:56:07.964274148Z",
+                "updated_at": "2021-03-11T08:52:06.772110817Z"
+            },
+            "is_valid": true
         }
     ],
-    "time_now": "1604302124.031104",
-    "rate_limit_status": 118,
-    "rate_limit_reset_ms": 1604302124020,
+    "time_now": "1615452727.664848",
+    "rate_limit_status": 119,
+    "rate_limit_reset_ms": 1615452727660,
     "rate_limit": 120
 }
 ```
@@ -1296,7 +1249,7 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |id |number |t(:row_comment_position_id)  |
-|position_idx |number |t(:row_comment_position_idx)  |
+|position_idx |integer |t(:row_comment_position_idx)  |
 |mode |number |t(:row_comment_position_mode)  |
 |user_id |number |t(:row_comment_userID)  |
 |risk_id |number |t(:row_comment_riskId)  |
@@ -1374,6 +1327,7 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
+|position_idx |<b>true</b>|integer |t(:row_comment_position_idx)  |
 |margin |<b>true</b> |string |t(:row_comment_margin)  |
 
 
@@ -1464,6 +1418,7 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
+|position_idx |<b>true</b>|integer |t(:row_comment_position_idx)  |
 |take_profit |false |number |t(:account_row_comment_takeProfit) |
 |stop_loss |false |number |t(:account_row_comment_stopLoss) |
 |trailing_stop |false |number |t(:account_row_comment_trailingStop) |
@@ -1552,6 +1507,7 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
+|position_idx |<b>true</b>|integer |t(:row_comment_position_idx)  |
 |buy_leverage |<b>true</b> |number |t(:futures_row_comment_leverage) |
 |sell_leverage |<b>true</b> |number |t(:futures_row_comment_leverage) |
 
