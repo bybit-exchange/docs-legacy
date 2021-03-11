@@ -6,7 +6,6 @@ t(:ENUMs_para)
 * `Sell`
 
 ## Symbol (`symbol`)
-* `BTCUSDH21`
 * `BTCUSDM21`
 
 ## Currency (`currency`/`coin`)
