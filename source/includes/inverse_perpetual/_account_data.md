@@ -1879,12 +1879,14 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
+|t(:row_parameter_symbol) |<b>false</b> |string |t(:row_comment_symbol)   |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |id |number |t(:row_comment_riskId)  |
 |coin |string |t(:row_comment_coin_type)  |
+|t(:row_parameter_symbol)|string |t(:row_comment_symbol)   |
 |limit |number |t(:row_comment_risk_limit)    |
 |maintain_margin |string |t(:row_comment_maintain_margin)  |
 |starting_margin |string |t(:row_comment_starting_margin)  |

@@ -1,6 +1,12 @@
 # t(:changelog)
 
 
+## 2021-03-11
+- [t(:getactive)](#t-getactive) [t(:changelog_update)]
+    - t(:restapi_update_20210311)
+- [t(:getcond)](#t-getcond) [t(:changelog_update)]
+    - t(:restapi_update_20210311)
+  
 ## 2021-03-04
 - [t(:walletrecords)](#t-walletrecords) [t(:changelog_update)]
     - t(:restapi_update_20210304)
