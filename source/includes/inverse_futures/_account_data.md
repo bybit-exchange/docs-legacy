@@ -1850,13 +1850,5 @@ GET
 |created_at |number |t(:row_comment_created_at)  |
 
 
-## t(:risklimit)
-
-### t(:getrisklimit)
-<a href="/docs/inverse#t-getrisklimit">t(:shared_endpoint_desc)</a>
-
-### t(:setrisklimit)
-<a href="/docs/inverse#t-setrisklimit">t(:shared_endpoint_desc)</a>
-
 ## t(:key)
 <a href="/docs/inverse#t-key">t(:shared_endpoint_desc)</a>
