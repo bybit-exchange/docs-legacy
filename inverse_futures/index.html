@@ -981,6 +981,13 @@ function copyStringToClipboard (endpoint) {
 </tr>
 </thead><tbody>
 <tr>
+<td style="text-align: left">position_idx</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">Position idx, used to identify positions in different position modes<span>:</span> <br/>0-One-Way Mode <br/>1-Buy side of both side mode <br/> 2-Sell side of both side mode
+</td>
+<td></td>
+</tr>
+<tr>
 <td style="text-align: left"><a href="#side-side">side</a></td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
@@ -2134,6 +2141,13 @@ Take profit/Stop loss is not supported in placing conditional orders. One can on
 </tr>
 </thead><tbody>
 <tr>
+<td style="text-align: left">position_idx</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">Position idx, used to identify positions in different position modes<span>:</span> <br/>0-One-Way Mode <br/>1-Buy side of both side mode <br/> 2-Sell side of both side mode
+</td>
+<td></td>
+</tr>
+<tr>
 <td style="text-align: left"><a href="#side-side">side</a></td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
@@ -3153,140 +3167,89 @@ Please note that you can only modify untriggered conditional orders.
     <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">27913</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">position_idx</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">mode</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">risk_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDH21</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">position_value</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0006947</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">entry_price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">7197.35137469</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">is_isolated</span><span class="dl">"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">auto_add_margin</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">leverage</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>  <span class="c1">//In Isolated Margin mode, the value is set by user. In Cross Margin mode, the value is the max leverage at current risk level</span>
-        <span class="dl">"</span><span class="s2">effective_leverage</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span> <span class="c1">// Effective Leverage. In Isolated Margin mode, its value equals `leverage`; In Cross Margin mode, The formula to calculate<span>:</span>
-<code>effective_leverage = position size / mark_price / (wallet_balance + unrealised_pnl)</code></span>
-        <span class="dl">"</span><span class="s2">position_margin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0006947</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">liq_price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">3608</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">bust_price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">3599</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">occ_closing_fee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000105</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">occ_funding_fee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">take_profit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">stop_loss</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">trailing_stop</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">position_status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Normal</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">deleverage_indicator</span><span class="dl">"</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">oc_calc_data</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">{</span><span class="se">\"</span><span class="s2">blq</span><span class="se">\"</span><span class="s2">:2,</span><span class="se">\"</span><span class="s2">blv</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">0.0002941</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">slq</span><span class="se">\"</span><span class="s2">:0,</span><span class="se">\"</span><span class="s2">bmp</span><span class="se">\"</span><span class="s2">:6800.408,</span><span class="se">\"</span><span class="s2">smp</span><span class="se">\"</span><span class="s2">:0,</span><span class="se">\"</span><span class="s2">fq</span><span class="se">\"</span><span class="s2">:-5,</span><span class="se">\"</span><span class="s2">fc</span><span class="se">\"</span><span class="s2">:-0.00029477,</span><span class="se">\"</span><span class="s2">bv2c</span><span class="se">\"</span><span class="s2">:1.00225,</span><span class="se">\"</span><span class="s2">sv2c</span><span class="se">\"</span><span class="s2">:1.0007575}</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">order_margin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00029477</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">wallet_balance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.03000227</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">realised_pnl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-0.00000126</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">unrealised_pnl</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">cum_realised_pnl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-0.00001306</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">cross_seq</span><span class="dl">"</span><span class="p">:</span> <span class="mi">444081383</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">position_seq</span><span class="dl">"</span><span class="p">:</span> <span class="mi">287141589</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">created_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2019-10-19T17:04:55Z</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">updated_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2019-12-27T20:25:45.158767Z</span><span class="dl">"</span>
-    <span class="p">},</span>
-    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1577480599.097287</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">119</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1580885703683</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">120</span>
-<span class="p">}</span>
-
-<span class="c1">//When <code>symbol</code> is not passed, the response uses a different structure:
-</span>
-<span class="p">{</span>
-    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
-            <span class="dl">"</span><span class="s2">is_valid</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">//represents whether the current data is valid</span>
-            <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span> <span class="c1">//the data can only be used when <code>is_valid</code> is <b>true</b></span>
+            <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
                 <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">position_idx</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">mode</span><span class="dl">"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">118921</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">risk_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">position_idx</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">mode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">103669</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">risk_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">61</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDH21</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">position_value</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00076448</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">entry_price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">13080.78694014</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span> <span class="mi">200000</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">position_value</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">3.62934747</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">entry_price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">55106.32466392</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">is_isolated</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">auto_add_margin</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">leverage</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">effective_leverage</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">position_margin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.36592896</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">liq_price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">50325.5</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">bust_price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">50097</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">occ_closing_fee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0029942</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">occ_funding_fee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">take_profit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">stop_loss</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">trailing_stop</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">position_status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Normal</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">deleverage_indicator</span><span class="dl">"</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">oc_calc_data</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">{</span><span class="se">\"</span><span class="s2">blq</span><span class="se">\"</span><span class="s2">:0,</span><span class="se">\"</span><span class="s2">slq</span><span class="se">\"</span><span class="s2">:0,</span><span class="se">\"</span><span class="s2">bmp</span><span class="se">\"</span><span class="s2">:0,</span><span class="se">\"</span><span class="s2">smp</span><span class="se">\"</span><span class="s2">:0,</span><span class="se">\"</span><span class="s2">fq</span><span class="se">\"</span><span class="s2">:-200000,</span><span class="se">\"</span><span class="s2">bv2c</span><span class="se">\"</span><span class="s2">:0.101575,</span><span class="se">\"</span><span class="s2">sv2c</span><span class="se">\"</span><span class="s2">:0.101425}</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">order_margin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">wallet_balance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">9.95270565</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">realised_pnl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-0.00272207</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">unrealised_pnl</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cum_realised_pnl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-0.00272207</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cross_seq</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2392689554</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">position_seq</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">created_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2021-03-11T08:11:17.747178448Z</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">updated_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2021-03-11T08:24:18.923067183Z</span><span class="dl">"</span>
+            <span class="p">},</span>
+            <span class="dl">"</span><span class="s2">is_valid</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">position_idx</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">mode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">103669</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">risk_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">71</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDM21</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">position_value</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00003644</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">entry_price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">54884.74204171</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">is_isolated</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">auto_add_margin</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">leverage</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">100</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">effective_leverage</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">position_margin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.40111704</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">liq_price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">25</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">bust_price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">25</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">occ_closing_fee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0003</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">effective_leverage</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">position_margin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000004</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">liq_price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.5</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">bust_price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.5</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">occ_closing_fee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.003</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">occ_funding_fee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">take_profit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">stop_loss</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">trailing_stop</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">position_status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Normal</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">deleverage_indicator</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">oc_calc_data</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">{</span><span class="se">\"</span><span class="s2">blq</span><span class="se">\"</span><span class="s2">:0,</span><span class="se">\"</span><span class="s2">slq</span><span class="se">\"</span><span class="s2">:0,</span><span class="se">\"</span><span class="s2">bmp</span><span class="se">\"</span><span class="s2">:0,</span><span class="se">\"</span><span class="s2">smp</span><span class="se">\"</span><span class="s2">:0,</span><span class="se">\"</span><span class="s2">fq</span><span class="se">\"</span><span class="s2">:-10,</span><span class="se">\"</span><span class="s2">bv2c</span><span class="se">\"</span><span class="s2">:0.0115075,</span><span class="se">\"</span><span class="s2">sv2c</span><span class="se">\"</span><span class="s2">:0.0114925}</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">deleverage_indicator</span><span class="dl">"</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">oc_calc_data</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">{</span><span class="se">\"</span><span class="s2">blq</span><span class="se">\"</span><span class="s2">:0,</span><span class="se">\"</span><span class="s2">slq</span><span class="se">\"</span><span class="s2">:0,</span><span class="se">\"</span><span class="s2">bmp</span><span class="se">\"</span><span class="s2">:0,</span><span class="se">\"</span><span class="s2">smp</span><span class="se">\"</span><span class="s2">:0,</span><span class="se">\"</span><span class="s2">fq</span><span class="se">\"</span><span class="s2">:-2,</span><span class="se">\"</span><span class="s2">bv2c</span><span class="se">\"</span><span class="s2">:0.0115075,</span><span class="se">\"</span><span class="s2">sv2c</span><span class="se">\"</span><span class="s2">:0.0114925}</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">order_margin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">wallet_balance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.40141704</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">realised_pnl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-0.00000008</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">unrealised_pnl</span><span class="dl">"</span><span class="p">:</span> <span class="mf">0.00003797</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">cum_realised_pnl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-0.090626</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">cross_seq</span><span class="dl">"</span><span class="p">:</span> <span class="mi">764786721</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">position_seq</span><span class="dl">"</span><span class="p">:</span> <span class="mi">581513847</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">created_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2020-08-10T07:04:32Z</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">updated_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2020-11-02T00:00:11.943371457Z</span><span class="dl">"</span>
-            <span class="p">}</span>
-        <span class="p">},</span>
-        <span class="p">...</span>
-        <span class="p">{</span>
-            <span class="dl">"</span><span class="s2">is_valid</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">//represents whether the current data is valid</span>
-            <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span> <span class="c1">//the data can only be used when <code>is_valid</code> is <b>true</b></span>
-                <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">position_idx</span><span class="dl">"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">mode</span><span class="dl">"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">118921</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">risk_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">35</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">XRPUSD</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">None</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">position_value</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">entry_price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">is_isolated</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">auto_add_margin</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">leverage</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">16.67</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">effective_leverage</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">16.67</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">position_margin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">liq_price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">bust_price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">occ_closing_fee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">occ_funding_fee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">take_profit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">stop_loss</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">trailing_stop</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">position_status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Normal</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">deleverage_indicator</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">oc_calc_data</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">{</span><span class="se">\"</span><span class="s2">blq</span><span class="se">\"</span><span class="s2">:0,</span><span class="se">\"</span><span class="s2">slq</span><span class="se">\"</span><span class="s2">:0,</span><span class="se">\"</span><span class="s2">bmp</span><span class="se">\"</span><span class="s2">:0,</span><span class="se">\"</span><span class="s2">smp</span><span class="se">\"</span><span class="s2">:0,</span><span class="se">\"</span><span class="s2">bv2c</span><span class="se">\"</span><span class="s2">:0.06153301,</span><span class="se">\"</span><span class="s2">sv2c</span><span class="se">\"</span><span class="s2">:0.06144302}</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">order_margin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">wallet_balance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">wallet_balance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">9.95270565</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">realised_pnl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">unrealised_pnl</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">cum_realised_pnl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">cross_seq</span><span class="dl">"</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">position_seq</span><span class="dl">"</span><span class="p">:</span> <span class="mi">352149441</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">created_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2020-08-10T07:04:32Z</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">updated_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2020-08-22T08:06:32Z</span><span class="dl">"</span>
-            <span class="p">}</span>
+                <span class="dl">"</span><span class="s2">cum_realised_pnl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-0.00000002</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cross_seq</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2360303954</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">position_seq</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">created_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2021-02-24T05:56:07.964274148Z</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">updated_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2021-03-11T08:52:06.772110817Z</span><span class="dl">"</span>
+            <span class="p">},</span>
+            <span class="dl">"</span><span class="s2">is_valid</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span>
         <span class="p">}</span>
     <span class="p">],</span>
-    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1604302124.031104</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">118</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1604302124020</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1615452727.664848</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">119</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1615452727660</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">120</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -3332,7 +3295,7 @@ Please note that you can only modify untriggered conditional orders.
 </tr>
 <tr>
 <td style="text-align: left">position_idx</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">integer</td>
 <td>Position idx, used to identify positions in different position modes<span>:</span> <br/>0-One-Way Mode <br/>1-Buy side of both side mode <br/> 2-Sell side of both side mode
 </td>
 </tr>
@@ -3552,6 +3515,13 @@ You cannot change margin when your position is in Cross Margin mode, and margin 
 <td>Symbol</td>
 </tr>
 <tr>
+<td style="text-align: left">position_idx</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">Position idx, used to identify positions in different position modes<span>:</span> <br/>0-One-Way Mode <br/>1-Buy side of both side mode <br/> 2-Sell side of both side mode
+</td>
+<td></td>
+</tr>
+<tr>
 <td style="text-align: left">margin</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
@@ -3661,6 +3631,13 @@ Passing these parameters will create conditional orders controlled by the system
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
+</tr>
+<tr>
+<td style="text-align: left">position_idx</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">Position idx, used to identify positions in different position modes<span>:</span> <br/>0-One-Way Mode <br/>1-Buy side of both side mode <br/> 2-Sell side of both side mode
+</td>
+<td></td>
 </tr>
 <tr>
 <td style="text-align: left">take_profit</td>
@@ -3925,6 +3902,13 @@ Set <code>leverage</code> to <code>0</code> if you want to trade in <a href="htt
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
+</tr>
+<tr>
+<td style="text-align: left">position_idx</td>
+<td style="text-align: left">integer</td>
+<td style="text-align: left">Position idx, used to identify positions in different position modes<span>:</span> <br/>0-One-Way Mode <br/>1-Buy side of both side mode <br/> 2-Sell side of both side mode
+</td>
+<td></td>
 </tr>
 <tr>
 <td style="text-align: left">buy_leverage</td>
