@@ -324,7 +324,7 @@ zh-cn:
   enum_order_type_link: <a href="#order-type-order_type">订单类型枚举</a>
   enum_tick_direction: <a href="#tick-direction-type-tick_direction">价格波动方向枚举</a>
   enum_exec_type_link: <a href="#exec-type-exec_type">交易类型枚举</a>
-  enum_Liquidity_type_link: <a href="#liquidity-type-last_liquidity_ind">流动性类型枚举</a>
+  enum_Liquidity_type_link: <a href="#liquidity-type-last_liquidity_ind">流动性类型枚举</a>, 只有当<code>exec_type</code>字段类型为<code>Trade、AdlTrade、BustTrade</code>时有效
   enum_stop_order_status_link: <a href="#stop-order-status-stop_order_status">条件单状态stop_order_status枚举</a>
   stop_order_trigger_price: 如果stop_order_type为`TrailingProfit`时，为激活价格，否则为触发价格。
   errorcode_meaning: 含义
@@ -1584,6 +1584,7 @@ zh-cn:
 
   ws_update_20210202_2: 新增字段<code>reduce_only</code>,<code>close_on_trigger</code>
   ws_update_20210225: websocket支持交割合约
+  restapi_update_20210312: 修复 <a href="#t-usertraderecords">User Trade Record</a>接口返回值<code>exec_type,last_liquidity_ind</code> 值不对的问题
 
   markpricekline: 标记价格K线
   linear_query_mark_price_kline: 查询标记价格K线

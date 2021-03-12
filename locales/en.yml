@@ -324,7 +324,7 @@ en:
   enum_order_type_link: <a href="#order-type-order_type">Order Type Enum</a>
   enum_tick_direction: <a href="#tick-direction-type-tick_direction">Tick Direction</a>
   enum_exec_type_link: <a href="#exec-type-exec_type">Exec Type Enum</a>
-  enum_Liquidity_type_link: <a href="#liquidity-type-last_liquidity_ind">Liquidity Enum</a>
+  enum_Liquidity_type_link: <a href="#liquidity-type-last_liquidity_ind">Liquidity Enum</a>, only valid while <code>exec_type</code> is <code>Trade、AdlTrade、BustTrade</code>
   enum_stop_order_status_link: <a href="#stop-order-status-stop_order_status">Stop Order Status</a>
   stop_order_trigger_price: If <code>stop_order_type</code> is <code>TrailingProfit</code>, this field is the trailing stop active price.
   errorcode_meaning: Meaning
@@ -1657,6 +1657,8 @@ en:
 
   ws_update_20210202_2: Add fields <code>reduce_only</code>,<code>close_on_trigger</code>
   ws_update_20210225: Add websocket support to inverse future
+
+  restapi_update_20210312: Fix value of <code>exec_type,last_liquidity_ind</code> for <a href="#t-usertraderecords">User Trade Record</a> endpoint
 
 
 

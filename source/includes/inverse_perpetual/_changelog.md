@@ -1,5 +1,9 @@
 # t(:changelog)
 
+## 2021-03-12
+
+### REST API
+- t(:restapi_update_20210312)
 
 ## 2021-03-11
 - [t(:getactive)](#t-getactive) [t(:changelog_update)]
