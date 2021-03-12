@@ -5419,7 +5419,7 @@ When set to Partial, SL/TP orders may have a quantity less than the position siz
                     <span class="dl">"</span><span class="s2">exec_value</span><span class="dl">"</span><span class="p">:</span> <span class="mf">5.894</span><span class="p">,</span>
                     <span class="dl">"</span><span class="s2">leaves_qty</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
                     <span class="dl">"</span><span class="s2">closed_size</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="c1">// 平仓委托对应的平仓大小</span>
-                    <span class="dl">"</span><span class="s2">last_liquidity_ind</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">RemovedLiquidity</span><span class="dl">"</span><span class="p">,</span>  <span class="c1">//<a href="#liquidity-type-last_liquidity_ind">流动性类型枚举</a></span>
+                    <span class="dl">"</span><span class="s2">last_liquidity_ind</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">RemovedLiquidity</span><span class="dl">"</span><span class="p">,</span>  <span class="c1">//<a href="#liquidity-type-last_liquidity_ind">流动性类型枚举</a>, 只有当<code>exec_type</code>字段类型为<code>Trade、AdlTrade、BustTrade</code>时有效</span>
                     <span class="dl">"</span><span class="s2">trade_time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1585547384</span><span class="p">,</span><span class="c1">//<b>已废弃!!</b></span>
                     <span class="dl">"</span><span class="s2">trade_time_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1585547384847</span>
                 <span class="p">}</span>
@@ -5580,7 +5580,7 @@ When set to Partial, SL/TP orders may have a quantity less than the position siz
 <tr>
 <td style="text-align: left"><a href="#liquidity-type-last_liquidity_ind">last_liquidity_ind</a></td>
 <td style="text-align: left">string</td>
-<td><a href="#liquidity-type-last_liquidity_ind">流动性类型枚举</a></td>
+<td><a href="#liquidity-type-last_liquidity_ind">流动性类型枚举</a>, 只有当<code>exec_type</code>字段类型为<code>Trade、AdlTrade、BustTrade</code>时有效</td>
 </tr>
 <tr>
 <td style="text-align: left">trade_time_ms</td>
