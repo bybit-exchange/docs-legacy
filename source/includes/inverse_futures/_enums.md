@@ -6,7 +6,12 @@ t(:ENUMs_para)
 * `Sell`
 
 ## Symbol (`symbol`)
-* `BTCUSDM21`
+* `BTCUSDH21`  // H: t(:first_quarter);    21: 2021
+* `BTCUSDM21`  // M: t(:second_quarter);     21: 2021
+* `BTCUSDU21`  // U: t(:third_quarter);     21: 2021
+* `BTCUSDZ21`  // Z: t(:fourth_quarter);    21: 2021
+
+t(:trading_symbol_comment) 
 
 ## Currency (`currency`/`coin`)
 * `BTC`
@@ -14,6 +19,16 @@ t(:ENUMs_para)
 * `EOS`
 * `XRP`
 * `USDT`
+
+## Contract Type(`contract_type`)
+* `InversePerpetual`
+* `LinearPerpetual`
+* `InverseFutures`
+
+## Contract Status(`status`)
+* `Trading`
+* `Settling`
+* `Closed`
 
 
 ## Wallet fund type (`wallet_fund_type`)

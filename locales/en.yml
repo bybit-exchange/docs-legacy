@@ -258,6 +258,8 @@ en:
   row_response_comment_time: UTC time
   row_response_comment_execqty: Order quantity in USD
   row_response_comment_name: Symbol name
+  row_response_comment_alias: Symbol alias
+  row_response_comment_status: <a href="#contract-status-status">Symbol status</a>
   row_response_close_on_trigger: Is close on trigger order
   row_response_comment_base_currency: Base currency
   row_response_comment_quote_currency: Quote currency
@@ -321,6 +323,7 @@ en:
   enum_coin_link: <a href="#currency-currency-coin">Coin Enum</a>
   enum_side_link: <a href="#side-side">Side Enum</a>
   enum_symbol_link: <a href="#symbol-symbol">Symbol Enum</a>
+  enum_contract_type_link: <a href="#contract-type-contract_type">Contract Type Enum</a>
   enum_order_type_link: <a href="#order-type-order_type">Order Type Enum</a>
   enum_tick_direction: <a href="#tick-direction-type-tick_direction">Tick Direction</a>
   enum_exec_type_link: <a href="#exec-type-exec_type">Exec Type Enum</a>
@@ -555,7 +558,9 @@ en:
   ## Active Orders
   activeorders: Active Orders
   account_para_placeActive: |
-    <p>Market price active order: A traditional market price order which will be filled at the best available price. <code>price</code> is not required for this type of order.</p>
+    <p>Market price active order: A traditional market price order which will be filled at the best available price. <code>price</code> is not required for this type of order.
+    <b>To protect market order from excessive slippage, Bybit converts a market order into a limit order with a spread. A market buy order is converted into a limit order at a higher than best ask price; a market sell order is covnerted into a limit order at a lower than best bid price.
+       The converted limit price and executed price are both available in trade history.</b>.</p>
     <p>Limit price active order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
     <p><b>Take profit/Stop loss: You may only set a TP/SL conditional order upon opening the position. Once you hold a position, any new active order requests which contain TP/SL data will be accepted but the TP/SL data will be ignored. <code>tp_trigger_by</code>/<code>sl_trigger_by</code> default to LastPrice. Passing values to the <code>take_profit</code> or <code>stop_loss</code> parameters in this endpoint will create conditional orders managed by the system, which will be be automatically cancelled if the position is closed.</b></p>
     <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell. All USD markets have a contract size of 1 USD. See more</p>
@@ -1659,6 +1664,7 @@ en:
   ws_update_20210225: Add websocket support to inverse future
 
   restapi_update_20210312: Fix value of <code>exec_type,last_liquidity_ind</code> for <a href="#t-usertraderecords">User Trade Record</a> endpoint
+  restapi_update_20210315: Prior to December 31, 2020, order price of a market order was returned as the last traded price as of the moment of order placement. On and after December 31, 2020, order price of a market order is returned as a revised limit price. For more information, please refer to  <a href="#t-activeorders">description of market order</a>.
 
 
 
@@ -1697,6 +1703,11 @@ en:
 
   # Inverse Futures
   inverse_futures: Inverse Futures
+  first_quarter: First quarter
+  second_quarter: Second quarter
+  third_quarter: Third quarter
+  fourth_quarter: Fourth quarter
+  trading_symbol_comment: You can find trading symbols by <a href="#t-querysymbol">Query Symbol</a> endpoint
 
 
   # abandoned endpoints

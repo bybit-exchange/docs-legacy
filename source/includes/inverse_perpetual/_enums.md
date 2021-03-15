@@ -18,6 +18,17 @@ t(:ENUMs_para)
 * `XRP`
 * `USDT`
 
+## Contract Type(`contract_type`)
+* `InversePerpetual`
+* `LinearPerpetual`
+* `InverseFutures`
+
+## Contract Status(`status`)
+* `Trading`
+* `Settling`
+* `Closed`
+
+
 
 ## Wallet fund type (`wallet_fund_type`)
 * `Deposit` t(:deposit)
