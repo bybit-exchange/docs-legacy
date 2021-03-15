@@ -402,6 +402,8 @@ while True:
         "price_24h_pcnt_e6": -5148,                   //the current last price percentage change from prev 24h price
         "high_price_24h_e4": 82900000,                //the highest price of prev 24h
         "low_price_24h_e4": 79655000,                 //the lowest price of prev 24h
+        "bid1_price_e4":400025000,                    //best bid price
+        "ask1_price_e4":475450000,                    //best ask price
         "prev_price_1h_e4": 81395000,                 //the price of prev 1h
         "price_1h_pcnt_e6": -2825,                    //the current last price percentage change from prev 1h price
         "mark_price_e4": 81178500,                    //mark price
