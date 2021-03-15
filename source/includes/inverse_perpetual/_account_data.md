@@ -1683,7 +1683,7 @@ GET
 |exec_price |number |t(:row_comment_exec_price)    |
 |exec_qty |number |t(:row_comment_exec_qty)  |
 |t(:row_parameter_exec_type) |string |t(:enum_exec_type_link)  |
-|exec_value |string |t(:row_comment_exec_value)  |
+|exec_value |number |t(:row_comment_exec_value)  |
 |fee_rate |string |t(:row_comment_fee_rate)  |
 |last_liquidity_ind |string |t(:enum_Liquidity_type_link)  |
 |leaves_qty |number |t(:row_comment_leaves_qty)  |
