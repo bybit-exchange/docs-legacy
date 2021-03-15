@@ -539,7 +539,7 @@ zh-cn:
   ### Place Active Order V2
   placeactive: 创建活动委托单
   account_para_placeActive: |
-    <p>市价活动委托: 一个传统的市场价格订单,会以当前的最优价格为您成交订单。当且仅当选择市价单时，<code>price</code>可为空！</p>
+    <p>市价活动委托: 一个传统的市场价格订单,会以当前的最优价格为您成交订单。当且仅当选择市价单时，<code>price</code>可为空！<b>为了保护市价单遭遇严重的滑点，Bybit将市价单转为限价单进入撮合，买单价格高于最优卖价，卖单价格低于最优买价。限价价格和成交价格均可通过用户成交记录接口查询。</b></p>
     <p>限价活动委托: 您可以为您的订单设置一个执行价格，当市场价格达到您的设置价格时，系统会为您成交订单。</p>
     <p><b>止盈止损: 您仅能在开仓时设置止盈止损条件单，一旦持有仓位后提交活动委托时关联的止盈止损则不会生效。</b></p>
     <p>委托数量: 表示您要购买/卖出的永续合约数，对于委托数量目前Bybit只允许提交正整数。</p>
@@ -1588,6 +1588,7 @@ zh-cn:
   ws_update_20210202_2: 新增字段<code>reduce_only</code>,<code>close_on_trigger</code>
   ws_update_20210225: websocket支持交割合约
   restapi_update_20210312: 修复 <a href="#t-usertraderecords">User Trade Record</a>接口返回值<code>exec_type,last_liquidity_ind</code> 值不对的问题
+  restapi_update_20210315: 2020年12月31日前，市价单返回的订单价格是下单时刻的最新市场价；自2020年12月31日起，市价单返回的订单价格是修订后的限价价格。详情可见<a href="#t-activeorders">市价活动委托说明</a>。
 
   markpricekline: 标记价格K线
   linear_query_mark_price_kline: 查询标记价格K线
