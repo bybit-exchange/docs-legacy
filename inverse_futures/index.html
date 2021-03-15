@@ -666,6 +666,12 @@
                     <a href="#currency-currency-coin" class="toc-h2 toc-link" data-title="Currency (currency/coin)">Currency (<code>currency</code>/<code>coin</code>)</a>
                   </li>
                   <li>
+                    <a href="#contract-type-contract_type" class="toc-h2 toc-link" data-title="Contract Type(contract_type)">Contract Type(<code>contract_type</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#contract-status-status" class="toc-h2 toc-link" data-title="Contract Status(status)">Contract Status(<code>status</code>)</a>
+                  </li>
+                  <li>
                     <a href="#wallet-fund-type-wallet_fund_type" class="toc-h2 toc-link" data-title="Wallet fund type (wallet_fund_type)">Wallet fund type (<code>wallet_fund_type</code>)</a>
                   </li>
                   <li>
@@ -956,7 +962,9 @@ function copyStringToClipboard (endpoint) {
     <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">100</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><p>Market price active order: A traditional market price order which will be filled at the best available price. <code>price</code> is not required for this type of order.</p>
+<p><p>Market price active order: A traditional market price order which will be filled at the best available price. <code>price</code> is not required for this type of order.
+<b>To protect market order from excessive slippage, Bybit converts a market order into a limit order with a spread. A market buy order is converted into a limit order at a higher than best ask price; a market sell order is covnerted into a limit order at a lower than best bid price.
+   The converted limit price and executed price are both available in trade history.</b>.</p>
 <p>Limit price active order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
 <p><b>Take profit/Stop loss: You may only set a TP/SL conditional order upon opening the position. Once you hold a position, any new active order requests which contain TP/SL data will be accepted but the TP/SL data will be ignored. <code>tp_trigger_by</code>/<code>sl_trigger_by</code> default to LastPrice. Passing values to the <code>take_profit</code> or <code>stop_loss</code> parameters in this endpoint will create conditional orders managed by the system, which will be be automatically cancelled if the position is closed.</b></p>
 <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell. All USD markets have a contract size of 1 USD. See more</p>
@@ -5382,38 +5390,53 @@ The <code>wallet_balance</code> is in Satoshis, with one Satoshi being 100 milli
 <p>Snapshot Response Example - format of the first response</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">instrument_info.100ms.BTCUSDH21</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">snapshot</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDH21</span><span class="dl">"</span><span class="p">,</span>                           <span class="c1">//instrument name</span>
-        <span class="dl">"</span><span class="s2">last_price_e4</span><span class="dl">"</span><span class="p">:</span> <span class="mi">81165000</span><span class="p">,</span>                    <span class="c1">//the latest price</span>
-        <span class="dl">"</span><span class="s2">last_tick_direction</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ZeroPlusTick</span><span class="dl">"</span><span class="p">,</span>        <span class="c1">//the direction of last tick:PlusTick,ZeroPlusTick,MinusTick,ZeroMinusTick</span>
-        <span class="dl">"</span><span class="s2">prev_price_24h_e4</span><span class="dl">"</span><span class="p">:</span> <span class="mi">81585000</span><span class="p">,</span>                <span class="c1">//the price of prev 24h</span>
-        <span class="dl">"</span><span class="s2">price_24h_pcnt_e6</span><span class="dl">"</span><span class="p">:</span> <span class="o">-</span><span class="mi">5148</span><span class="p">,</span>                   <span class="c1">//the current last price percentage change from prev 24h price</span>
-        <span class="dl">"</span><span class="s2">high_price_24h_e4</span><span class="dl">"</span><span class="p">:</span> <span class="mi">82900000</span><span class="p">,</span>                <span class="c1">//the highest price of prev 24h</span>
-        <span class="dl">"</span><span class="s2">low_price_24h_e4</span><span class="dl">"</span><span class="p">:</span> <span class="mi">79655000</span><span class="p">,</span>                 <span class="c1">//the lowest price of prev 24h</span>
-        <span class="dl">"</span><span class="s2">prev_price_1h_e4</span><span class="dl">"</span><span class="p">:</span> <span class="mi">81395000</span><span class="p">,</span>                 <span class="c1">//the price of prev 1h</span>
-        <span class="dl">"</span><span class="s2">price_1h_pcnt_e6</span><span class="dl">"</span><span class="p">:</span> <span class="o">-</span><span class="mi">2825</span><span class="p">,</span>                    <span class="c1">//the current last price percentage change from prev 1h price</span>
-        <span class="dl">"</span><span class="s2">mark_price_e4</span><span class="dl">"</span><span class="p">:</span> <span class="mi">81178500</span><span class="p">,</span>                    <span class="c1">//mark price</span>
-        <span class="dl">"</span><span class="s2">index_price_e4</span><span class="dl">"</span><span class="p">:</span> <span class="mi">81172800</span><span class="p">,</span>                   <span class="c1">//index price</span>
-        <span class="dl">"</span><span class="s2">open_interest</span><span class="dl">"</span><span class="p">:</span> <span class="mi">154418471</span><span class="p">,</span>                   <span class="c1">//open interest quantity - Attention, the update is not immediate - slowest update is 1 minute</span>
-        <span class="dl">"</span><span class="s2">open_value_e8</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1997561103030</span><span class="p">,</span>               <span class="c1">//open value quantity - Attention, the update is not immediate - the slowest update is 1 minute</span>
-        <span class="dl">"</span><span class="s2">total_turnover_e8</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2029370141961401</span><span class="p">,</span>        <span class="c1">//total turnover</span>
-        <span class="dl">"</span><span class="s2">turnover_24h_e8</span><span class="dl">"</span><span class="p">:</span> <span class="mi">9072939873591</span><span class="p">,</span>             <span class="c1">//24h turnover</span>
-        <span class="dl">"</span><span class="s2">total_volume</span><span class="dl">"</span><span class="p">:</span> <span class="mi">175654418740</span><span class="p">,</span>                 <span class="c1">//total volume</span>
-        <span class="dl">"</span><span class="s2">volume_24h</span><span class="dl">"</span><span class="p">:</span> <span class="mi">735865248</span><span class="p">,</span>                      <span class="c1">//24h volume</span>
-        <span class="dl">"</span><span class="s2">funding_rate_e6</span><span class="dl">"</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>                       <span class="c1">//funding rate</span>
-        <span class="dl">"</span><span class="s2">predicted_funding_rate_e6</span><span class="dl">"</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>             <span class="c1">//predicted funding rate</span>
-        <span class="dl">"</span><span class="s2">cross_seq</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1053192577</span><span class="p">,</span>                      <span class="c1">//sequence</span>
-        <span class="dl">"</span><span class="s2">created_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2018-11-14T16:33:26Z</span><span class="dl">"</span><span class="p">,</span>         
-        <span class="dl">"</span><span class="s2">updated_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2020-01-12T18:25:16Z</span><span class="dl">"</span><span class="p">,</span>         
-        <span class="dl">"</span><span class="s2">next_funding_time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2020-01-13T00:00:00Z</span><span class="dl">"</span><span class="p">,</span>  <span class="c1">//next funding time</span>
-                                                      <span class="c1">//the rest time to settle funding fee</span>
-        <span class="dl">"</span><span class="s2">countdown_hour</span><span class="dl">"</span><span class="p">:</span> <span class="mi">6</span>                           <span class="c1">//the remaining time to settle the funding fee</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">instrument_info.100ms.BTCUSDH21</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">snapshot</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
+        <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDM21</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">symbol_name</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSD0625</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">symbol_year</span><span class="dl">"</span><span class="p">:</span><span class="mi">2021</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">contract_type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">InverseFutures</span><span class="dl">"</span><span class="p">,</span>  <span class="c1">// <a href="#contract-type-contract_type">Contract Type Enum</a>             </span>
+        <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">quote_symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSD</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">mode</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">MergedSingle</span><span class="dl">"</span><span class="p">,</span> <span class="c1">// Supported position mode: MergedSingle - Single side position mode  BothSide - Both side mode</span>
+        <span class="dl">"</span><span class="s2">is_up_borrowable</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">import_time_e9</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">start_trading_time_e9</span><span class="dl">"</span><span class="p">:</span><span class="mi">1602732600000000000</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">time_to_settle</span><span class="dl">"</span><span class="p">:</span><span class="mi">1038939</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">settle_time_e9</span><span class="dl">"</span><span class="p">:</span><span class="mi">1616833800000000000</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">settle_fee_rate_e8</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">contract_status</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Trading</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">system_subsidy_e8</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">last_price_e4</span><span class="dl">"</span><span class="p">:</span><span class="mi">500340000</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">last_tick_direction</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">MinusTick</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">bid1_price_e4</span><span class="dl">"</span><span class="p">:</span><span class="mi">400025000</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">ask1_price_e4</span><span class="dl">"</span><span class="p">:</span><span class="mi">475450000</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">prev_price_24h_e4</span><span class="dl">"</span><span class="p">:</span><span class="mi">467820000</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">price_24h_pcnt_e6</span><span class="dl">"</span><span class="p">:</span><span class="mi">90205</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">high_price_24h_e4</span><span class="dl">"</span><span class="p">:</span><span class="mi">573420000</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">low_price_24h_e4</span><span class="dl">"</span><span class="p">:</span><span class="mi">510020000</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">prev_price_1h_e4</span><span class="dl">"</span><span class="p">:</span><span class="mi">543920000</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">price_1h_pcnt_e6</span><span class="dl">"</span><span class="p">:</span><span class="o">-</span><span class="mi">62325</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">mark_price_e4</span><span class="dl">"</span><span class="p">:</span><span class="mi">507019537</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">index_price_e4</span><span class="dl">"</span><span class="p">:</span><span class="mi">579821900</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">open_interest</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">open_value_e8</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">total_turnover_e8</span><span class="dl">"</span><span class="p">:</span><span class="mi">874161217</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">turnover_24h_e8</span><span class="dl">"</span><span class="p">:</span><span class="mi">6781366</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">total_volume</span><span class="dl">"</span><span class="p">:</span><span class="mi">426476</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">volume_24h</span><span class="dl">"</span><span class="p">:</span><span class="mi">3613</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">fair_basis_e8</span><span class="dl">"</span><span class="p">:</span><span class="o">-</span><span class="mi">793519000000</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">fair_basis_rate_e8</span><span class="dl">"</span><span class="p">:</span><span class="o">-</span><span class="mi">13685564</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">basis_in_year_e8</span><span class="dl">"</span><span class="p">:</span><span class="o">-</span><span class="mi">412313782</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">expect_price_e4</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">cross_seq</span><span class="dl">"</span><span class="p">:</span><span class="mi">8761176</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">created_at_e9</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">updated_at_e9</span><span class="dl">"</span><span class="p">:</span><span class="mi">1615541855287480000</span>
     <span class="p">},</span>
-    <span class="dl">"</span><span class="s2">cross_seq</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1053192634</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">timestamp_e6</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1578853524091081</span>                  <span class="c1">//the timestamp when this information was produced</span>
+    <span class="dl">"</span><span class="s2">cross_seq</span><span class="dl">"</span><span class="p">:</span><span class="mi">9267002</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">timestamp_e6</span><span class="dl">"</span><span class="p">:</span><span class="mi">1615794861826248</span>
 <span class="p">}</span>
 </code></pre></div>
 <blockquote>
@@ -6323,8 +6346,13 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 </ul>
 <h2 id='symbol-symbol'>Symbol (<code>symbol</code>)</h2>
 <ul>
-<li><code>BTCUSDM21</code></li>
+<li><code>BTCUSDH21</code>  // H: First quarter;    21: 2021</li>
+<li><code>BTCUSDM21</code>  // M: Second quarter;     21: 2021</li>
+<li><code>BTCUSDU21</code>  // U: Third quarter;     21: 2021</li>
+<li><code>BTCUSDZ21</code>  // Z: Fourth quarter;    21: 2021</li>
 </ul>
+
+<p>You can find trading symbols by <a href="#t-querysymbol">Query Symbol</a> endpoint </p>
 <h2 id='currency-currency-coin'>Currency (<code>currency</code>/<code>coin</code>)</h2>
 <ul>
 <li><code>BTC</code></li>
@@ -6332,6 +6360,18 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 <li><code>EOS</code></li>
 <li><code>XRP</code></li>
 <li><code>USDT</code></li>
+</ul>
+<h2 id='contract-type-contract_type'>Contract Type(<code>contract_type</code>)</h2>
+<ul>
+<li><code>InversePerpetual</code></li>
+<li><code>LinearPerpetual</code></li>
+<li><code>InverseFutures</code></li>
+</ul>
+<h2 id='contract-status-status'>Contract Status(<code>status</code>)</h2>
+<ul>
+<li><code>Trading</code></li>
+<li><code>Settling</code></li>
+<li><code>Closed</code></li>
 </ul>
 <h2 id='wallet-fund-type-wallet_fund_type'>Wallet fund type (<code>wallet_fund_type</code>)</h2>
 <ul>
@@ -6511,14 +6551,6 @@ ELSE
 <th>Meaning</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>10001</td>
-<td>parameter error</td>
-</tr>
-<tr>
-<td>10002</td>
-<td>request expired, check your <code>timestamp</code> and <code>recv_window</code></td>
-</tr>
 <tr>
 <td>10001</td>
 <td>parameter error</td>
