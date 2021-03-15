@@ -25,6 +25,11 @@ t(:trading_symbol_comment)
 * `LinearPerpetual`
 * `InverseFutures`
 
+## Contract Status(`status`)
+* `Trading`
+* `Settling`
+* `Closed`
+
 
 ## Wallet fund type (`wallet_fund_type`)
 * `Deposit` t(:deposit)
