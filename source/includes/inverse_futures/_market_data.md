@@ -57,8 +57,6 @@ curl https://api.bybit.com/futures/public/settle-record?symol=BTCUSDH21 \
         "symbol_name": "BTCUSD1225",
         "settle_price_e4": 23609.2628,
         "settle_time_e9": "2020-12-25 15:30:00",
-        "risk_pool_subsidy_e8": ,
-        "platform_fee_subsidy_e8": 
       }
     ],
       "cursor": "w01XFyyZc8lhtCLl6NgAaYBRfsN9Qtpp1f2AUy3AS4+fFDzNSlVKa0od8DKCqgAn"
@@ -86,5 +84,3 @@ GET
 |data > symbol_name |string |t(:row_comment_symbol) |
 |data > SettlePriceE4 |number |t(:row_comment_settle_price_e4)
 |data > settle_time_e9 |string |t(:row_comment_settle_time_e9)
-|data > risk_pool_subsidy_e8 |number |t(:row_comment_risk_pool_subsidy_e8)
-|data > platform_fee_subsidy_e8 |number |t(:row_comment_platform_fee_subsidy_e8)
