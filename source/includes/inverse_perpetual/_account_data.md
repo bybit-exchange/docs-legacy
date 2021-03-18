@@ -15,7 +15,7 @@ curl https://api.bybit.com/v2/private/order/create \
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Order.Order_new(side="Buy",symbol="BTCUSD",order_type="Limit",qty=1,price=8300,time_in_force="GoodTillCancel").result())
+print(client.Order.Order_new(side="Buy",symbol="BTCUSD",order_type="Market",qty=1,time_in_force="GoodTillCancel").result())
 ```
 
 > t(:codequote_responseExample)
@@ -110,7 +110,7 @@ curl "https://api.bybit.com/v2/private/order/list?api_key={api_key}&timestamp={t
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Order.Order_getOrders(symbol="BTCUSD",order_status="PendingCancel").result())
+print(client.Order.Order_getOrders(symbol="BTCUSD",order_status="New").result())
 ```
 
 > t(:codequote_responseExample)
@@ -1010,6 +1010,12 @@ POST
 
 ```console
 curl "https://api.bybit.com/v2/private/stop-order?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}order_id={order_id}&sign={sign}"
+```
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.Conditional.Conditional_query(symbol="BTCUSD", stop_order_id="", p_r_trigger_price="16003").result())
+
 ```
 
 > t(:codequote_responseExample)
