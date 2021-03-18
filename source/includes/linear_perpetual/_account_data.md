@@ -1865,18 +1865,18 @@ print(client.LinearPositions.LinearPositions_getRiskLimit(symbol="BTCUSDT").resu
 
 ```javascript
 {
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
-    "ext_info": "",
-    "result": [
+    "ret_code":0,
+    "ret_msg":"OK",
+    "ext_code":"",
+    "ext_info":"",
+    "result":[
         {
-            "id": 1,
-            "symbol": "BTCUSDT",
-            "limit": 1000000,
-            "maintain_margin": 0.005,
-            "starting_margin": 0.01,
-            "section": [
+            "id":1,
+            "symbol":"BTCUSDT",
+            "limit":1000000,
+            "maintain_margin":0.005,
+            "starting_margin":0.01,
+            "section":[
                 "1",
                 "2",
                 "3",
@@ -1886,17 +1886,18 @@ print(client.LinearPositions.LinearPositions_getRiskLimit(symbol="BTCUSDT").resu
                 "50",
                 "100"
             ],
-            "is_lowest_risk": 1,
-            "created_at": "2020-01-06T09:45:28.000Z",
-            "updated_at": "2020-01-06T09:45:28.000Z"
+            "is_lowest_risk":1,
+            "created_at":"2021-03-17T08:20:53.000Z",
+            "updated_at":"2021-03-17T08:20:53.000Z",
+            "max_leverage":100
         },
         {
-            "id": 2,
-            "symbol": "BTCUSDT",
-            "limit": 1500000,
-            "maintain_margin": 0.01,
-            "starting_margin": 0.015,
-            "section": [
+            "id":2,
+            "symbol":"BTCUSDT",
+            "limit":2000000,
+            "maintain_margin":0.01,
+            "starting_margin":0.015,
+            "section":[
                 "1",
                 "2",
                 "3",
@@ -1906,17 +1907,18 @@ print(client.LinearPositions.LinearPositions_getRiskLimit(symbol="BTCUSDT").resu
                 "50",
                 "66"
             ],
-            "is_lowest_risk": 0,
-            "created_at": "2020-01-06T09:45:28.000Z",
-            "updated_at": "2020-01-06T09:45:28.000Z"
+            "is_lowest_risk":0,
+            "created_at":"2021-03-17T08:21:12.000Z",
+            "updated_at":"2021-03-17T08:21:12.000Z",
+            "max_leverage":66.66
         },
         {
-            "id": 3,
-            "symbol": "BTCUSDT",
-            "limit": 2000000,
-            "maintain_margin": 0.015,
-            "starting_margin": 0.02,
-            "section": [
+            "id":3,
+            "symbol":"BTCUSDT",
+            "limit":3000000,
+            "maintain_margin":0.015,
+            "starting_margin":0.02,
+            "section":[
                 "1",
                 "2",
                 "3",
@@ -1926,17 +1928,18 @@ print(client.LinearPositions.LinearPositions_getRiskLimit(symbol="BTCUSDT").resu
                 "33",
                 "50"
             ],
-            "is_lowest_risk": 0,
-            "created_at": "2020-01-06T09:45:28.000Z",
-            "updated_at": "2020-01-06T09:45:28.000Z"
+            "is_lowest_risk":0,
+            "created_at":"2021-03-17T08:21:12.000Z",
+            "updated_at":"2021-03-17T08:21:12.000Z",
+            "max_leverage":50
         },
         {
-            "id": 4,
-            "symbol": "BTCUSDT",
-            "limit": 2500000,
-            "maintain_margin": 0.02,
-            "starting_margin": 0.025,
-            "section": [
+            "id":4,
+            "symbol":"BTCUSDT",
+            "limit":4000000,
+            "maintain_margin":0.02,
+            "starting_margin":0.025,
+            "section":[
                 "1",
                 "2",
                 "3",
@@ -1946,17 +1949,18 @@ print(client.LinearPositions.LinearPositions_getRiskLimit(symbol="BTCUSDT").resu
                 "33",
                 "40"
             ],
-            "is_lowest_risk": 0,
-            "created_at": "2020-01-06T09:45:28.000Z",
-            "updated_at": "2020-01-06T09:45:28.000Z"
+            "is_lowest_risk":0,
+            "created_at":"2021-03-17T08:21:12.000Z",
+            "updated_at":"2021-03-17T08:21:12.000Z",
+            "max_leverage":40
         },
         {
-            "id": 5,
-            "symbol": "BTCUSDT",
-            "limit": 3000000,
-            "maintain_margin": 0.025,
-            "starting_margin": 0.03,
-            "section": [
+            "id":5,
+            "symbol":"BTCUSDT",
+            "limit":5000000,
+            "maintain_margin":0.025,
+            "starting_margin":0.03,
+            "section":[
                 "1",
                 "2",
                 "3",
@@ -1966,37 +1970,39 @@ print(client.LinearPositions.LinearPositions_getRiskLimit(symbol="BTCUSDT").resu
                 "25",
                 "33"
             ],
-            "is_lowest_risk": 0,
-            "created_at": "2020-01-06T09:45:28.000Z",
-            "updated_at": "2020-01-06T09:45:28.000Z"
+            "is_lowest_risk":0,
+            "created_at":"2021-03-17T08:21:12.000Z",
+            "updated_at":"2021-03-17T08:21:12.000Z",
+            "max_leverage":33.33
         },
         {
-            "id": 6,
-            "symbol": "BTCUSDT",
-            "limit": 3500000,
-            "maintain_margin": 0.03,
-            "starting_margin": 0.035,
-            "section": [
+            "id":6,
+            "symbol":"BTCUSDT",
+            "limit":6000000,
+            "maintain_margin":0.03,
+            "starting_margin":0.035,
+            "section":[
                 "1",
                 "2",
                 "3",
                 "5",
                 "10",
                 "15",
-                "20",
+                "25",
                 "28"
             ],
-            "is_lowest_risk": 0,
-            "created_at": "2020-01-06T09:45:28.000Z",
-            "updated_at": "2020-01-06T09:45:28.000Z"
+            "is_lowest_risk":0,
+            "created_at":"2021-03-17T08:21:12.000Z",
+            "updated_at":"2021-03-17T08:21:12.000Z",
+            "max_leverage":28.57
         },
         {
-            "id": 7,
-            "symbol": "BTCUSDT",
-            "limit": 4000000,
-            "maintain_margin": 0.035,
-            "starting_margin": 0.04,
-            "section": [
+            "id":7,
+            "symbol":"BTCUSDT",
+            "limit":7000000,
+            "maintain_margin":0.035,
+            "starting_margin":0.04,
+            "section":[
                 "1",
                 "2",
                 "3",
@@ -2006,17 +2012,18 @@ print(client.LinearPositions.LinearPositions_getRiskLimit(symbol="BTCUSDT").resu
                 "20",
                 "25"
             ],
-            "is_lowest_risk": 0,
-            "created_at": "2020-01-06T09:45:28.000Z",
-            "updated_at": "2020-01-06T09:45:28.000Z"
+            "is_lowest_risk":0,
+            "created_at":"2021-03-17T08:21:12.000Z",
+            "updated_at":"2021-03-17T08:21:12.000Z",
+            "max_leverage":25
         },
         {
-            "id": 8,
-            "symbol": "BTCUSDT",
-            "limit": 4500000,
-            "maintain_margin": 0.04,
-            "starting_margin": 0.045,
-            "section": [
+            "id":8,
+            "symbol":"BTCUSDT",
+            "limit":8000000,
+            "maintain_margin":0.04,
+            "starting_margin":0.045,
+            "section":[
                 "1",
                 "2",
                 "3",
@@ -2026,17 +2033,18 @@ print(client.LinearPositions.LinearPositions_getRiskLimit(symbol="BTCUSDT").resu
                 "20",
                 "22"
             ],
-            "is_lowest_risk": 0,
-            "created_at": "2020-01-06T09:45:28.000Z",
-            "updated_at": "2020-01-06T09:45:28.000Z"
+            "is_lowest_risk":0,
+            "created_at":"2021-03-17T08:21:12.000Z",
+            "updated_at":"2021-03-17T08:21:12.000Z",
+            "max_leverage":22.22
         },
         {
-            "id": 9,
-            "symbol": "BTCUSDT",
-            "limit": 5000000,
-            "maintain_margin": 0.045,
-            "starting_margin": 0.05,
-            "section": [
+            "id":9,
+            "symbol":"BTCUSDT",
+            "limit":9000000,
+            "maintain_margin":0.045,
+            "starting_margin":0.05,
+            "section":[
                 "1",
                 "2",
                 "3",
@@ -2046,17 +2054,18 @@ print(client.LinearPositions.LinearPositions_getRiskLimit(symbol="BTCUSDT").resu
                 "15",
                 "20"
             ],
-            "is_lowest_risk": 0,
-            "created_at": "2020-01-06T09:45:28.000Z",
-            "updated_at": "2020-01-06T09:45:28.000Z"
+            "is_lowest_risk":0,
+            "created_at":"2021-03-17T08:21:12.000Z",
+            "updated_at":"2021-03-17T08:21:12.000Z",
+            "max_leverage":20
         },
         {
-            "id": 10,
-            "symbol": "BTCUSDT",
-            "limit": 5500000,
-            "maintain_margin": 0.05,
-            "starting_margin": 0.055,
-            "section": [
+            "id":10,
+            "symbol":"BTCUSDT",
+            "limit":10000000,
+            "maintain_margin":0.05,
+            "starting_margin":0.055,
+            "section":[
                 "1",
                 "2",
                 "3",
@@ -2066,12 +2075,13 @@ print(client.LinearPositions.LinearPositions_getRiskLimit(symbol="BTCUSDT").resu
                 "15",
                 "18"
             ],
-            "is_lowest_risk": 0,
-            "created_at": "2020-01-06T09:45:29.000Z",
-            "updated_at": "2020-01-06T09:45:29.000Z"
+            "is_lowest_risk":0,
+            "created_at":"2021-03-17T08:21:12.000Z",
+            "updated_at":"2021-03-17T08:21:12.000Z",
+            "max_leverage":18.18
         }
     ],
-    "time_now": "1586780586.850288"
+    "time_now":"1616052270.701108"
 }
 ```
 

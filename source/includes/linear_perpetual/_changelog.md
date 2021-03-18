@@ -1,5 +1,14 @@
 # t(:changelog)
 
+
+
+## 2021-03-18
+### REST API
+- t(:restapi_update_20210318_1) [t(:changelog_update)]
+- [t(:getrisklimit)](#t-getrisklimit) [t(:changelog_update)]
+    - t(:restapi_update_20210318_2)
+
+
 ## 2021-02-02
 
 ### Websocket API
