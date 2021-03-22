@@ -649,7 +649,7 @@ POST
 |tp_trigger_by |string |t(:row_comment_triggerBy)  |
 |sl_trigger_by |string |t(:row_comment_triggerBy)  |
 |base_price |string |t(:row_response_comment_basePrice)  |
-|trigger_by |string |t(:row_comment_triggerBy)  |
+|t(:row_parameter_trigger_price) |string |t(:row_comment_triggerBy)  |
 |reduce_only |bool |t(:linear_resp_field_reduce_only)  |
 |close_on_trigger |bool |t(:row_response_close_on_trigger)  |
 
@@ -770,7 +770,7 @@ GET
 |tp_trigger_by |string |t(:row_comment_triggerBy)  |
 |sl_trigger_by |string |t(:row_comment_triggerBy)  |
 |base_price |string |t(:row_response_comment_basePrice)  |
-|trigger_by |string |t(:row_comment_triggerBy)  |
+|t(:row_parameter_trigger_price) |string |t(:row_comment_triggerBy)  |
 |reduce_only |bool |t(:linear_resp_field_reduce_only)  |
 |close_on_trigger |bool |t(:row_response_close_on_trigger)  |
 
@@ -1086,7 +1086,7 @@ GET
 |tp_trigger_by |string |t(:row_comment_triggerBy)  |
 |sl_trigger_by |string |t(:row_comment_triggerBy)  |
 |base_price |string |t(:row_response_comment_basePrice)  |
-|trigger_by |string |t(:row_comment_triggerBy)  |
+|t(:row_parameter_trigger_price) |string |t(:row_comment_triggerBy)  |
 |reduce_only |bool |t(:linear_resp_field_reduce_only)  |
 |close_on_trigger |bool |t(:row_response_close_on_trigger)  |
 
