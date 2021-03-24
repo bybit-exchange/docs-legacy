@@ -3471,7 +3471,7 @@ GET
 
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Order</span><span class="p">.</span><span class="n">Order_new</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="s">"Buy"</span><span class="p">,</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span><span class="n">order_type</span><span class="o">=</span><span class="s">"Limit"</span><span class="p">,</span><span class="n">qty</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">price</span><span class="o">=</span><span class="mi">8300</span><span class="p">,</span><span class="n">time_in_force</span><span class="o">=</span><span class="s">"GoodTillCancel"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Order</span><span class="p">.</span><span class="n">Order_new</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="s">"Buy"</span><span class="p">,</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span><span class="n">order_type</span><span class="o">=</span><span class="s">"Market"</span><span class="p">,</span><span class="n">qty</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">time_in_force</span><span class="o">=</span><span class="s">"GoodTillCancel"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
 </code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -3715,7 +3715,7 @@ GET
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/private/order/list?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}&amp;symbol=BTCUSD"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Order</span><span class="p">.</span><span class="n">Order_getOrders</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span><span class="n">order_status</span><span class="o">=</span><span class="s">"PendingCancel"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Order</span><span class="p">.</span><span class="n">Order_getOrders</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span><span class="n">order_status</span><span class="o">=</span><span class="s">"New"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
 </code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -5460,7 +5460,11 @@ Please note that you can only modify untriggered conditional orders.
 <p>Request Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/private/stop-order?api_key={api_key}&amp;symbol=BTCUSD&amp;timestamp={timestamp}order_id={order_id}&amp;sign={sign}"
-</span></code></pre></div>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Conditional</span><span class="p">.</span><span class="n">Conditional_query</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span> <span class="n">stop_order_id</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">p_r_trigger_price</span><span class="o">=</span><span class="s">"16003"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
+
+</code></pre></div>
 <blockquote>
 <p>Response Example</p>
 </blockquote>
