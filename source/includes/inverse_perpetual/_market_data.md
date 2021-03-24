@@ -243,7 +243,7 @@ curl https://api.bybit.com/v2/public/trading-records?symbol=BTCUSD
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Market.Market_trading_records(symbol="BTCUSD").result())
+print(client.Market.Market_tradingRecords(symbol="BTCUSD").result())
 ```
 
 > t(:codequote_responseExample)

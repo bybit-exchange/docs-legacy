@@ -368,7 +368,7 @@ POST
 |order_id |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
 |order_link_id |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
-|p_r_qty |false |int |t(:row_comment_pRQty) |
+|p_r_qty |false |string |t(:row_comment_pRQty) |
 |p_r_price |false |number |t(:row_comment_pRPrice) |
 |take_profit |false |number |t(:row_comemnt_replace_take_profit)  |
 |stop_loss |false |number |t(:row_comemnt_replace_stop_loss)  |
@@ -625,8 +625,8 @@ POST
 |reduce_only |<b>true</b> |bool |t(:linear_row_comment_reduceOnly) |
 |take_profit |false |number |t(:row_comment_takeProfit) |
 |stop_loss |false |number |t(:row_comment_stopLoss) |
-|tp_trigger_by |false |string |t(:row_comment_triggerBy) |
-|sl_trigger_by |false |string |t(:row_comment_triggerBy) |
+|t(:row_parameter_tp_trigger_by) |false |string |t(:row_comment_triggerBy) |
+|t(:row_parameter_sl_trigger_by) |false |string |t(:row_comment_triggerBy) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -646,8 +646,8 @@ POST
 |updated_time |string |t(:row_comment_updated_at)  |
 |take_profit |number |t(:row_comment_take_profit)  |
 |stop_loss |number |t(:row_comment_stop_loss)  |
-|tp_trigger_by |string |t(:row_comment_triggerBy)  |
-|sl_trigger_by |string |t(:row_comment_triggerBy)  |
+|t(:row_parameter_tp_trigger_by) |string |t(:row_comment_triggerBy)  |
+|t(:row_parameter_sl_trigger_by) |string |t(:row_comment_triggerBy)  |
 |base_price |string |t(:row_response_comment_basePrice)  |
 |t(:row_parameter_trigger_price) |string |t(:row_comment_triggerBy)  |
 |reduce_only |bool |t(:linear_resp_field_reduce_only)  |
@@ -1083,8 +1083,8 @@ GET
 |updated_time |string |t(:row_comment_updated_at)  |
 |take_profit |number |t(:row_comment_take_profit)  |
 |stop_loss |number |t(:row_comment_stop_loss)  |
-|tp_trigger_by |string |t(:row_comment_triggerBy)  |
-|sl_trigger_by |string |t(:row_comment_triggerBy)  |
+|t(:row_parameter_tp_trigger_by) |string |t(:row_comment_triggerBy)  |
+|t(:row_parameter_sl_trigger_by) |string |t(:row_comment_triggerBy)  |
 |base_price |string |t(:row_response_comment_basePrice)  |
 |t(:row_parameter_trigger_price) |string |t(:row_comment_triggerBy)  |
 |reduce_only |bool |t(:linear_resp_field_reduce_only)  |
