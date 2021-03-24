@@ -2113,6 +2113,7 @@ GET
 |is_lowest_risk |number |t(:row_comment_is_lowest_risk)    |
 |created_at |string |t(:row_comment_created_at)  |
 |updated_at |string |t(:row_comment_updated_at)  |
+|max_leverage |string |t(:row_comment_max_leverage)  |
 
 ### t(:setrisklimit)
 

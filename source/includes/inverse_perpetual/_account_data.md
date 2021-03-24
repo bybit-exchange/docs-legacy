@@ -1812,56 +1812,60 @@ print(client.Wallet.Wallet_getRiskLimit().result())
 
 ```javascript
 {
-  "ret_code": 0,
-  "ret_msg": "ok",
-  "ext_code": "",
-  "result": [
-    {
-      "id": 1,
-      "coin": "BTC",
-      "limit": 150,
-      "maintain_margin": "0.50",
-      "starting_margin": "1.00",
-      "section": [
-        "1",
-        "2",
-        "3",
-        "5",
-        "10",
-        "25",
-        "50",
-        "100"
-      ],
-      "is_lowest_risk": 1,
-      "created_at": "2018-11-09T13:53:04.000Z",
-      "updated_at": "2018-11-09T13:53:04.000Z"
-    },
-    {
-      "id": 11,
-      "coin": "ETH",
-      "limit": 3000,
-      "maintain_margin": "1.00",
-      "starting_margin": "2.00",
-      "section": [
-        "1",
-        "2",
-        "3",
-        "5",
-        "15",
-        "30",
-        "40",
-        "50"
-      ],
-      "is_lowest_risk": 1,
-      "created_at": "2019-01-25T08:31:54.000Z",
-      "updated_at": "2019-01-25T08:31:54.000Z"
-    }
-  ],
-  "ext_info": null,
-  "time_now": "1577587907.157396",
-  "rate_limit_status": 99,
-  "rate_limit_reset_ms": 1577587907162,
-  "rate_limit": 100
+    "ret_code": 0,
+    "ret_msg": "ok",
+    "ext_code": "",
+    "result": [
+        {
+            "id": 1,
+            "coin": "BTC",
+            "symbol": "BTCUSD",
+            "limit": 150,
+            "maintain_margin": "0.50",
+            "starting_margin": "1.00",
+            "section": [
+                "1",
+                "2",
+                "3",
+                "5",
+                "10",
+                "25",
+                "50",
+                "100"
+            ],
+            "is_lowest_risk": 1,
+            "created_at": "2018-09-21T11:34:11.000Z",
+            "updated_at": "2018-09-21T11:34:11.000Z",
+            "max_leverage": "100.00"
+        },
+        {
+            "id": 10,
+            "coin": "BTC",
+            "symbol": "BTCUSD",
+            "limit": 1500,
+            "maintain_margin": "5.00",
+            "starting_margin": "5.50",
+            "section": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "10",
+                "15",
+                "18"
+            ],
+            "is_lowest_risk": 0,
+            "created_at": "2018-09-21T11:34:11.000Z",
+            "updated_at": "2018-09-21T11:34:11.000Z",
+            "max_leverage": "18.18"
+        }
+    ],
+    "ext_info": null,
+    "time_now": "1616568086.769014",
+    "rate_limit_status": 599,
+    "rate_limit_reset_ms": 1616568086777,
+    "rate_limit": 600
 }
 ```
 
@@ -1894,6 +1898,7 @@ GET
 |is_lowest_risk |number |t(:row_comment_is_lowest_risk)    |
 |created_at |string |t(:row_comment_created_at)  |
 |updated_at |string |t(:row_comment_updated_at)  |
+|max_leverage |string |t(:row_comment_max_leverage)  |
 
 
 ### t(:setrisklimit)

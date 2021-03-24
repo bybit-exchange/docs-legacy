@@ -1,5 +1,9 @@
 # t(:changelog)
 
+## 2021-03-24
+- [t(:getrisklimit)](#t-getrisklimit) [t(:changelog_update)]
+    - t(:restapi_update_20210324)
+
 ## 2021-03-22
 - [t(:walletrecords)](#t-walletrecords) [t(:changelog_update)]
     - t(:restapi_update_20210322)
