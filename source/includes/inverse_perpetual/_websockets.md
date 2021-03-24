@@ -699,6 +699,7 @@ t(:account_para_myPosition)
 |trailing_active |string |t(:row_comment_trailing_active)  |
 |wallet_balance |string |t(:row_comment_wallet_balance)  |
 |risk_id |number |t(:row_comment_riskId)  |
+|is_isolated | bool | t(:row_comment_isolated) |
 |occ_closing_fee |string |t(:row_comment_occ_closing_fee)  |
 |occ_funding_fee |string |t(:row_comment_occ_funding_fee)  |
 |auto_add_margin |number |t(:row_comment_auto_add_margin)  |
