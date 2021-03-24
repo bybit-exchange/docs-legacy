@@ -386,7 +386,7 @@ curl https://api.bybit.com/futures/private/order/replace \
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-# print(client.FuturesOrder.FuturesOrder_replace(symbol="BTCUSDM21", order_id="69bd5b88-fa2e-4c33-a489-1860f595191d", p_r_qty="2").result())
+print(client.FuturesOrder.FuturesOrder_replace(symbol="BTCUSDM21", order_id="69bd5b88-fa2e-4c33-a489-1860f595191d", p_r_qty="2").result())
 ```
 
 > t(:codequote_responseExample)
@@ -957,7 +957,7 @@ curl https://api.bybit.com/futures/private/stop-order/replace \
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-# print(client.FuturesConditional.FuturesConditional_replace(symbol="BTCUSDM21", stop_order_id="69bd5b88-fa2e-4c33-a489-1860f595191d",p_r_qty="2").result())
+print(client.FuturesConditional.FuturesConditional_replace(symbol="BTCUSDM21", stop_order_id="69bd5b88-fa2e-4c33-a489-1860f595191d",p_r_qty="2").result())
 
 ```
 
@@ -1394,7 +1394,7 @@ curl https://api.bybit.com/futures/private/position/trading-stop \
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-# print(client.FuturesPositions.FuturesPositions_tradingStop(symbol="BTCUSDM21",take_profit="0", stop_loss="9110", trailing_stop="0", new_trailing_active="0").result())
+print(client.FuturesPositions.FuturesPositions_tradingStop(symbol="BTCUSDM21",take_profit="0", stop_loss="9110", trailing_stop="0", new_trailing_active="0").result())
 ```
 
 > t(:codequote_responseExample)
@@ -1523,7 +1523,7 @@ curl https://api.bybit.com/futures/private/position/leverage/save \
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-# print(client.FuturesPositions.FuturesPositions_saveLeverage(symbol="BTCUSDM21",position_idx=1, buy_leverage="14",sell_leverage="14").result())
+print(client.FuturesPositions.FuturesPositions_saveLeverage(symbol="BTCUSDM21",position_idx=1, buy_leverage="14",sell_leverage="14").result())
 ```
 
 > t(:codequote_responseExample)
@@ -1629,7 +1629,7 @@ curl https://api.bybit.com/futures/private/position/switch-isolated \
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-# print(client.FuturesPositions.FuturesPositions_switchIsolated(symbol="BTCUSDM21",position_idx=1,is_isolated=True, buy_leverage="1", sell_leverage="1").result())
+print(client.FuturesPositions.FuturesPositions_switchIsolated(symbol="BTCUSDM21",position_idx=1,is_isolated=True, buy_leverage="1", sell_leverage="1").result())
 ```
 
 > t(:codequote_responseExample)
