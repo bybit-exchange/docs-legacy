@@ -8,11 +8,14 @@ t(:account_para)
 ```console
 curl https://api.bybit.com/futures/private/order/create \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","side"="Buy","symbol"="BTCUSDH21","order_type":"Market","qty":10,"time_in_force":"GoodTillCancel","timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","side"="Buy","symbol"="BTCUSDM21","order_type":"Market","qty":10,"time_in_force":"GoodTillCancel","timestamp":{timestamp},"sign":"{sign}"}'
 
 ```
 
 ```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.FuturesOrder.FuturesOrder_new(side="Buy",symbol="BTCUSDM21",order_type="Market",qty=1,time_in_force="GoodTillCancel").result())
 ```
 
 
@@ -27,7 +30,7 @@ curl https://api.bybit.com/futures/private/order/create \
     "result": {
         "user_id": 1,
         "order_id": "335fd977-e5a5-4781-b6d0-c772d5bfb95b",
-        "symbol": "BTCUSDH21",
+        "symbol": "BTCUSDM21",
         "side": "Buy",
         "order_type": "Limit",
         "price": 8800,
@@ -103,10 +106,13 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/futures/private/order/list?api_key={api_key}&timestamp={timestamp}&sign={sign}&symbol=BTCUSDH21"
+curl "https://api.bybit.com/futures/private/order/list?api_key={api_key}&timestamp={timestamp}&sign={sign}&symbol=BTCUSDM21"
 ```
 
 ```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.FuturesOrder.FuturesOrder_getOrders(symbol="BTCUSDM21",order_status="New").result())
 ```
 
 > t(:codequote_responseExample)
@@ -122,7 +128,7 @@ curl "https://api.bybit.com/futures/private/order/list?api_key={api_key}&timesta
             {
                 "user_id": 160861,
                 "order_status": "Cancelled",
-                "symbol": "BTCUSDH21",
+                "symbol": "BTCUSDM21",
                 "side": "Buy",
                 "order_type": "Market",
                 "price": "9800",
@@ -195,10 +201,13 @@ GET
 ```console
 curl https://api.bybit.com/futures/private/order/cancel \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSDH21","order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","symbol":"BTCUSDM21","order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
 ```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.FuturesOrder.FuturesOrder_cancel(symbol="BTCUSDM21", order_id="").result())
 ```
 
 > t(:codequote_responseExample)
@@ -212,7 +221,7 @@ curl https://api.bybit.com/futures/private/order/cancel \
     "result": {
         "user_id": 1,
         "order_id": "3bd1844f-f3c0-4e10-8c25-10fea03763f6",
-        "symbol": "BTCUSDH21",
+        "symbol": "BTCUSDM21",
         "side": "Buy",
         "order_type": "Limit",
         "price": 8800,
@@ -282,10 +291,13 @@ POST
 ```console
 curl https://api.bybit.com/futures/private/order/cancelAll \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSDH21","timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","symbol":"BTCUSDM21","timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
 ```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.FuturesOrder.FuturesOrder_cancelAll(symbol="BTCUSDM21").result())
 ```
 
 > t(:codequote_responseExample)
@@ -300,7 +312,7 @@ curl https://api.bybit.com/futures/private/order/cancelAll \
         {
             "clOrdID": "89a38056-80f1-45b2-89d3-4d8e3a203a79",  
             "user_id": 1,                                  
-            "symbol": "BTCUSDH21",                                
+            "symbol": "BTCUSDM21",                                
             "side": "Buy",                                      
             "order_type": "Limit",                              
             "price": "7693.5",                                  
@@ -368,10 +380,13 @@ POST
 ```console
 curl https://api.bybit.com/futures/private/order/replace \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSDH21","order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","symbol":"BTCUSDM21","order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
 ```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+# print(client.FuturesOrder.FuturesOrder_replace(symbol="BTCUSDM21", order_id="69bd5b88-fa2e-4c33-a489-1860f595191d", p_r_qty="2").result())
 ```
 
 > t(:codequote_responseExample)
@@ -420,10 +435,13 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/futures/private/order?api_key={api_key}&symbol=BTCUSDH21&timestamp={timestamp}order_id={order_id}&sign={sign}"
+curl "https://api.bybit.com/futures/private/order?api_key={api_key}&symbol=BTCUSDM21&timestamp={timestamp}order_id={order_id}&sign={sign}"
 ```
 
 ```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.FuturesOrder.FuturesOrder_query(symbol="BTCUSDM21", order_id="").result())
 ```
 
 > t(:codequote_responseExample)
@@ -436,7 +454,7 @@ curl "https://api.bybit.com/futures/private/order?api_key={api_key}&symbol=BTCUS
     "ext_info": "",
     "result": {
         "user_id": 106958,
-        "symbol": "BTCUSDH21",
+        "symbol": "BTCUSDM21",
         "side": "Buy",
         "order_type": "Limit",
         "price": "11756.5",
@@ -476,7 +494,7 @@ curl "https://api.bybit.com/futures/private/order?api_key={api_key}&symbol=BTCUS
     "result": [
         {
             "user_id": 100228,
-            "symbol": "BTCUSDH21",
+            "symbol": "BTCUSDM21",
             "side": "Sell",
             "order_type": "Limit",
             "price": "17740",
@@ -503,7 +521,7 @@ curl "https://api.bybit.com/futures/private/order?api_key={api_key}&symbol=BTCUS
         ...
         {
             "user_id": 100228,
-            "symbol": "BTCUSDH21",
+            "symbol": "BTCUSDM21",
             "side": "Sell",
             "order_type": "Limit",
             "price": "17740",
@@ -582,11 +600,13 @@ GET
 ```console
 curl https://api.bybit.com/futures/private/stop-order/create \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","order_type":"Limit","side":"Buy","symbol":"BTCUSDH21","qty":1,"price":8100,"base_price":8300,"stop_px":8150,"time_in_force":"GoodTillCancel","order_link_id":"cus_order_id_1","timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","order_type":"Limit","side":"Buy","symbol":"BTCUSDM21","qty":1,"price":8100,"base_price":8300,"stop_px":8150,"time_in_force":"GoodTillCancel","order_link_id":"cus_order_id_1","timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
 ```python
-
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.FuturesConditional.FuturesConditional_new(order_type="Limit",side="Buy",symbol="BTCUSDM21",qty="1",price="0.2569",base_price="15700",stop_px="0.2119",time_in_force="GoodTillCancel").result())
 ```
 
 > t(:codequote_responseExample)
@@ -599,7 +619,7 @@ curl https://api.bybit.com/futures/private/stop-order/create \
     "ext_info":"",
     "result":{
         "user_id":160880,
-        "symbol":"BTCUSDH21",
+        "symbol":"BTCUSDM21",
         "side":"Buy",
         "order_type":"Limit",
         "price":"9003",
@@ -673,6 +693,9 @@ curl "https://api.bybit.com/futures/private/stop-order/list?api_key={api_key}&ti
 ```
 
 ```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.FuturesConditional.FuturesConditional_getOrders(symbol="BTCUSDM21",stop_order_status="Untriggered").result())
 ```
 
 > t(:codequote_responseExample)
@@ -756,10 +779,13 @@ GET
 ```console
 curl https://api.bybit.com/futures/private/stop-order/cancel \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSDH21","stop_order_id":"xxx","timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","symbol":"BTCUSDM21","stop_order_id":"xxx","timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
 ```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.FuturesConditional.FuturesConditional_cancel(symbol="BTCUSDM21", stop_order_id="").result())
 ```
 
 > t(:codequote_responseExample)
@@ -805,10 +831,13 @@ POST
 ```console
 curl https://api.bybit.com/futures/private/stop-order/cancelAll \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSDH21","timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","symbol":"BTCUSDM21","timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
 ```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.FuturesConditional.FuturesConditional_cancelAll(symbol="BTCUSDM21").result())
 ```
 
 > t(:codequote_responseExample)
@@ -823,7 +852,7 @@ curl https://api.bybit.com/futures/private/stop-order/cancelAll \
         {
             "clOrdID": "dea89649-9492-459d-a8c4-c298b87b3d26",
             "user_id": 1,
-            "symbol": "BTCUSDH21",
+            "symbol": "BTCUSDM21",
             "side": "Sell",
             "order_type": "Limit",
             "price": "999999",
@@ -846,7 +875,7 @@ curl https://api.bybit.com/futures/private/stop-order/cancelAll \
         {
             "clOrdID": "a85cd1c0-a9a4-49d3-a1bd-bab5ebe946d5",
             "user_id": 1,
-            "symbol": "BTCUSDH21",
+            "symbol": "BTCUSDM21",
             "side": "Buy",
             "order_type": "Limit",
             "price": "8000",
@@ -922,10 +951,13 @@ POST
 ```console
 curl https://api.bybit.com/futures/private/stop-order/replace \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSDH21","stop_order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","symbol":"BTCUSDM21","stop_order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
 ```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+# print(client.FuturesConditional.FuturesConditional_replace(symbol="BTCUSDM21", stop_order_id="69bd5b88-fa2e-4c33-a489-1860f595191d",p_r_qty="2").result())
 
 ```
 
@@ -979,7 +1011,13 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/futures/private/stop-order?api_key={api_key}&symbol=BTCUSDH21&timestamp={timestamp}order_id={order_id}&sign={sign}"
+curl "https://api.bybit.com/futures/private/stop-order?api_key={api_key}&symbol=BTCUSDM21&timestamp={timestamp}order_id={order_id}&sign={sign}"
+```
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.FuturesConditional.FuturesConditional_query(symbol="BTCUSDM21", stop_order_id="", p_r_trigger_price="16003").result())
+
 ```
 
 > t(:codequote_responseExample)
@@ -992,7 +1030,7 @@ curl "https://api.bybit.com/futures/private/stop-order?api_key={api_key}&symbol=
     "ext_info": "",
     "result": {
         "user_id": 1,
-        "symbol": "BTCUSDH21",
+        "symbol": "BTCUSDM21",
         "side": "Buy",
         "order_type": "Limit",
         "price": "8000",
@@ -1132,10 +1170,13 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/futures/private/position/list?api_key={api_key}&symbol=BTCUSDH21&timestamp={timestamp}&sign={sign}"
+curl "https://api.bybit.com/futures/private/position/list?api_key={api_key}&symbol=BTCUSDM21&timestamp={timestamp}&sign={sign}"
 ```
 
 ```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.FuturesPositions.FuturesPositions_myPosition(symbol="BTCUSDM21").result())
 ```
 
 > t(:codequote_responseExample)
@@ -1154,7 +1195,7 @@ curl "https://api.bybit.com/futures/private/position/list?api_key={api_key}&symb
                 "mode": 3,
                 "user_id": 103669,
                 "risk_id": 61,
-                "symbol": "BTCUSDH21",
+                "symbol": "BTCUSDM21",
                 "side": "Buy",
                 "size": 200000,
                 "position_value": "3.62934747",
@@ -1290,10 +1331,13 @@ GET
 ```console
 curl https://api.bybit.com/futures/private/position/change-position-margin \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSDH21",margin:"10","timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","symbol":"BTCUSDM21",margin:"10","timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
 ```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.FuturesPositions.FuturesPositions_changeMargin(symbol="BTCUSDM21", margin="10").result())
 ```
 
 > t(:codequote_responseExample)
@@ -1344,10 +1388,13 @@ POST
 ```console
 curl https://api.bybit.com/futures/private/position/trading-stop \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSDH21","stop_loss":7000,"timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","symbol":"BTCUSDM21","stop_loss":7000,"timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
 ```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+# print(client.FuturesPositions.FuturesPositions_tradingStop(symbol="BTCUSDM21",take_profit="0", stop_loss="9110", trailing_stop="0", new_trailing_active="0").result())
 ```
 
 > t(:codequote_responseExample)
@@ -1360,7 +1407,7 @@ curl https://api.bybit.com/futures/private/position/trading-stop \
     "result": {
         "id": 27913,
         "user_id": 1,
-        "symbol": "BTCUSDH21",
+        "symbol": "BTCUSDM21",
         "side": "Buy",
         "size": 5,
         "position_value": 0.0006947,
@@ -1470,10 +1517,13 @@ POST
 ```console
 curl https://api.bybit.com/futures/private/position/leverage/save \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSDH21","buy_leverage":14,"sell_leverage":14,"timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","symbol":"BTCUSDM21","buy_leverage":14,"sell_leverage":14,"timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
 ```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+# print(client.FuturesPositions.FuturesPositions_saveLeverage(symbol="BTCUSDM21",position_idx=1, buy_leverage="14",sell_leverage="14").result())
 ```
 
 > t(:codequote_responseExample)
@@ -1523,10 +1573,13 @@ POST
 ```console
 curl https://api.bybit.com/futures/private/position/switch-mode \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSDH21","mode":0,"timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","symbol":"BTCUSDM21","mode":0,"timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
 ```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.FuturesPositions.FuturesPositions_switchPositionMode(symbol="BTCUSDM21",mode=0).result())
 ```
 
 > t(:codequote_responseExample)
@@ -1570,10 +1623,13 @@ POST
 ```console
 curl https://api.bybit.com/futures/private/position/switch-isolated \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSDH21", "position_idx":1, "is_isolated":true,"buy_leverage":10,"sell_leverage":20, "timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","symbol":"BTCUSDM21", "position_idx":1, "is_isolated":true,"buy_leverage":10,"sell_leverage":20, "timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
 ```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+# print(client.FuturesPositions.FuturesPositions_switchIsolated(symbol="BTCUSDM21",position_idx=1,is_isolated=True, buy_leverage="1", sell_leverage="1").result())
 ```
 
 > t(:codequote_responseExample)
@@ -1603,6 +1659,7 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
+|position_idx |<b>true</b>|integer |t(:row_comment_position_idx)  |
 |is_isolated |<b>true</b> |bool |t(:futures_row_comment_switch_isolated)  |
 |buy_leverage |<b>true</b> |number |t(:futures_row_comment_leverage)  |
 |sell_leverage |<b>true</b> |number |t(:futures_row_comment_leverage)  |
@@ -1618,10 +1675,13 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/futures/private/execution/list?api_key={api_key}&symbol=BTCUSDH21&timestamp={timestamp}&sign={sign}"
+curl "https://api.bybit.com/futures/private/execution/list?api_key={api_key}&symbol=BTCUSDM21&timestamp={timestamp}&sign={sign}"
 ```
 
 ```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.FuturesExecution.FuturesExecution_getTrades(symbol="BTCUSDM21").result())
 ```
 
 > t(:codequote_responseExample)
@@ -1655,7 +1715,7 @@ curl "https://api.bybit.com/futures/private/execution/list?api_key={api_key}&sym
                 "order_qty": 1,
                 "order_type": "Market", //t(:enum_order_type_link)
                 "side": "Buy", //t(:enum_side_link)
-                "symbol": "BTCUSDH21", //t(:enum_symbol_link)
+                "symbol": "BTCUSDM21", //t(:enum_symbol_link)
                 "user_id": 1,
                 "trade_time_ms": 1577480599000
             }
@@ -1719,10 +1779,13 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/futures/private/trade/closed-pnl/list?api_key={api_key}&symbol=BTCUSDH21&timestamp={timestamp}&sign={sign}"
+curl "https://api.bybit.com/futures/private/trade/closed-pnl/list?api_key={api_key}&symbol=BTCUSDM21&timestamp={timestamp}&sign={sign}"
 ```
 
 ```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.FuturesPositions.FuturesPositions_closePnlRecords(symbol="BTCUSDM21").result())
 ```
 
 > t(:codequote_responseExample)
@@ -1739,7 +1802,7 @@ curl "https://api.bybit.com/futures/private/trade/closed-pnl/list?api_key={api_k
             {
                 "id": 9982,
                 "user_id": 160320,
-                "symbol": "BTCUSDH21",
+                "symbol": "BTCUSDM21",
                 "order_id": "e976ac13-10e7-4883-a7ba-13b0e93659f1",
                 "side": "Sell",
                 "qty": 226,
