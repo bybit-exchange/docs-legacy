@@ -337,6 +337,9 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="更新日志">更新日志</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#2021-03-24" class="toc-h2 toc-link" data-title="2021-03-24">2021-03-24</a>
+                  </li>
+                  <li>
                     <a href="#2021-03-22" class="toc-h2 toc-link" data-title="2021-03-22">2021-03-22</a>
                   </li>
                   <li>
@@ -1125,7 +1128,15 @@ clipboard.on('error', function(e) {
 <p><p>欢迎使用 <a href="https://www.bybit.com/">Bybit</a> APIs 和 Websocket官方文档！</p> <p>如果您在使用API的过程中遇到问题需要帮助，请加入我们的 <a href="https://t.me/Bybitapi">官方Telegram API讨论群</a>！</p></p>
 <h3 id='t-resources'>中文社区和参考资料</h3>
 <p><ul class="bybit-community"> <li><img src="../../images/favicon-4f296779.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/zh-cn"><strong>帮助中心</strong></a> - <strong>在这里了解合约交易</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/docs/issues"><strong>Bybit API docs</strong></a> - <strong>在这里提bug</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/api-connectors/"><strong>Bybit's api-connectors</strong></a> - <strong>官方API SDK</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文讨论群</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文讨论群</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong> <li><img src="../../images/email_icon-e7dd7b20.png" height="14", width="14"> <a href="mailto:IT@bybit.com"><strong>IT@bybit.com</strong></a> - <strong>官方技术支持邮箱!</strong> </ul></p>
-<h1 id='t-changelog'>更新日志</h1><h2 id='2021-03-22'>2021-03-22</h2>
+<h1 id='t-changelog'>更新日志</h1><h2 id='2021-03-24'>2021-03-24</h2>
+<ul>
+<li><a href="#t-getrisklimit">查询风险限额表</a> [更新]
+
+<ul>
+<li>查询风险限额新增返回字段最大杠杆<code>max_leverage</code></li>
+</ul></li>
+</ul>
+<h2 id='2021-03-22'>2021-03-22</h2>
 <ul>
 <li><a href="#t-walletrecords">资金记录</a> [更新]
 
@@ -6929,56 +6940,60 @@ GET
 <p>响应示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">150</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">maintain_margin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.50</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">starting_margin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1.00</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">section</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
-        <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">2</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">3</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">5</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">10</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">25</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">50</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">100</span><span class="dl">"</span>
-      <span class="p">],</span>
-      <span class="dl">"</span><span class="s2">is_lowest_risk</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">created_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2018-11-09T13:53:04.000Z</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">updated_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2018-11-09T13:53:04.000Z</span><span class="dl">"</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ETH</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">3000</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">maintain_margin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1.00</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">starting_margin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2.00</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">section</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
-        <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">2</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">3</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">5</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">15</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">30</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">40</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">50</span><span class="dl">"</span>
-      <span class="p">],</span>
-      <span class="dl">"</span><span class="s2">is_lowest_risk</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">created_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2019-01-25T08:31:54.000Z</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">updated_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2019-01-25T08:31:54.000Z</span><span class="dl">"</span>
-    <span class="p">}</span>
-  <span class="p">],</span>
-  <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1577587907.157396</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">99</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1577587907162</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">100</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSD</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">150</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">maintain_margin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.50</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">starting_margin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1.00</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">section</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+                <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">2</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">3</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">5</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">10</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">25</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">50</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">100</span><span class="dl">"</span>
+            <span class="p">],</span>
+            <span class="dl">"</span><span class="s2">is_lowest_risk</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">created_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2018-09-21T11:34:11.000Z</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">updated_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2018-09-21T11:34:11.000Z</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">max_leverage</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">100.00</span><span class="dl">"</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSD</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1500</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">maintain_margin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5.00</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">starting_margin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5.50</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">section</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+                <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">2</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">3</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">4</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">5</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">10</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">15</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">18</span><span class="dl">"</span>
+            <span class="p">],</span>
+            <span class="dl">"</span><span class="s2">is_lowest_risk</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">created_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2018-09-21T11:34:11.000Z</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">updated_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2018-09-21T11:34:11.000Z</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">max_leverage</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">18.18</span><span class="dl">"</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1616568086.769014</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">599</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1616568086777</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">600</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>查询风险限额表。</p>
@@ -7069,6 +7084,11 @@ GET
 <td style="text-align: left">updated_at</td>
 <td style="text-align: left">string</td>
 <td>更新时间</td>
+</tr>
+<tr>
+<td style="text-align: left">max_leverage</td>
+<td style="text-align: left">string</td>
+<td>最大杠杆</td>
 </tr>
 </tbody></table>
 <h3 id='t-setrisklimit'>设置风险限额</h3>
