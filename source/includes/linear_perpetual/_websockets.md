@@ -622,9 +622,9 @@ t(:account_para_myPosition)
 |position_margin |string |t(:row_comment_position_margin)  |
 |occ_closing_fee |string |t(:row_comment_occ_closing_fee)  |
 |take_profit |string |t(:row_comment_take_profit)  |
-|t(:row_parameter_tp_trigger_by)|number |t(:row_comment_triggerBy) |
+|t(:row_parameter_tp_trigger_by)|number |t(:account_row_comment_tp_trigger_by) |
 |stop_loss |string |t(:row_comment_stop_loss)  |
-|t(:row_parameter_sl_trigger_by) |string |string |t(:row_comment_triggerBy) |
+|t(:row_parameter_sl_trigger_by) |string |string |t(:account_row_comment_sl_trigger_by) |
 |realised_pnl |string |t(:row_comment_realised_pnl)  |
 |cum_realised_pnl |string |t(:row_comment_cum_realised_pnl)  |
 |position_status |string |t(:row_comment_position_status)  |
