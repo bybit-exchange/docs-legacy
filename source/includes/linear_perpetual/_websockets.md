@@ -117,6 +117,33 @@ t(:websocket_para_filters2)
 ### t(:intervals)
 t(:websocket_para_intervals)
 
+
+## t(:unsubscribe)
+### t(:unsubscribefilters)
+> t(:websocket_unsubscribe_filters1)
+
+```javascript
+// Unsubscribing to the trade data for ETHUSDT
+ws.send('{"op":"unsubscribe","args":["trade.ETHUSDT"]}')
+```
+
+> t(:websocket_unsubscribe_filters2)
+```javascript
+// Example: Subscribing to the trade data for BTCUSD and XRPUSD
+ws.send('{"op":"unsubscribe","args":["trade.BTCUSDT|XRPUSDT"]}')
+```
+
+
+> t(:websocket_unsubscribe_filters3)
+```javascript
+// Example: Subscribing to the trade data for all symbols
+ws.send('{"op": "unsubscribe", "args": ["trade.*"]}')
+```
+
+t(:websocket_unsubscribe_filters)
+
+
+
 ## t(:websocketresponse)
 > t(:websocket_codequote_response)
 
