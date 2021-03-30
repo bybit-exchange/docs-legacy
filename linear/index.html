@@ -1545,7 +1545,10 @@ function copyStringToClipboard (endpoint) {
 <p>Request Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/public/linear/kline?symbol=BTCUSDT&amp;interval=1&amp;limit=2&amp;from=1581231260
-</span></code></pre></div>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Kline</span><span class="p">.</span><span class="n">Kline_get</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="s">"m"</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s">'from'</span><span class="p">:</span><span class="mi">1581231260</span><span class="p">}).</span><span class="n">result</span><span class="p">())</span>
+</code></pre></div>
 <blockquote>
 <p>Response Example</p>
 </blockquote>
@@ -1690,7 +1693,10 @@ function copyStringToClipboard (endpoint) {
 <p>Request Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/public/linear/recent-trading-records?symbol=BTCUSDT&amp;limit=500
-</span></code></pre></div>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Symbol</span><span class="p">.</span><span class="n">Symbol_get</span><span class="p">().</span><span class="n">result</span><span class="p">())</span>
+</code></pre></div>
 <blockquote>
 <p>Response Example</p>
 </blockquote>
@@ -2571,13 +2577,15 @@ GET
 <td style="text-align: left">tp_trigger_by</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Trigger price type. Default <code>LastPrice</code></td>
+<td>take profit trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
 </tr>
 <tr>
 <td style="text-align: left">sl_trigger_by</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Trigger price type. Default <code>LastPrice</code></td>
+<td>stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
 </tr>
 <tr>
 <td style="text-align: left">reduce_only</td>
@@ -2711,12 +2719,14 @@ GET
 <tr>
 <td style="text-align: left">tp_trigger_by</td>
 <td style="text-align: left">string</td>
-<td>Trigger price type. Default <code>LastPrice</code></td>
+<td>take profit trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
 </tr>
 <tr>
 <td style="text-align: left">sl_trigger_by</td>
 <td style="text-align: left">string</td>
-<td>Trigger price type. Default <code>LastPrice</code></td>
+<td>stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
 </tr>
 </tbody></table>
 <h3 id='t-getactive'>Get Active Order</h3>
@@ -2944,12 +2954,14 @@ GET
 <tr>
 <td style="text-align: left">tp_trigger_by</td>
 <td style="text-align: left">string</td>
-<td>Trigger price type. Default <code>LastPrice</code></td>
+<td>take profit trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
 </tr>
 <tr>
 <td style="text-align: left">sl_trigger_by</td>
 <td style="text-align: left">string</td>
-<td>Trigger price type. Default <code>LastPrice</code></td>
+<td>stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
 </tr>
 </tbody></table>
 <h3 id='t-cancelactive'>Cancel Active Order</h3>
@@ -3207,13 +3219,15 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <td style="text-align: left">tp_trigger_by</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Trigger price type. Default <code>LastPrice</code></td>
+<td>take profit trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
 </tr>
 <tr>
 <td style="text-align: left">sl_trigger_by</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Trigger price type. Default <code>LastPrice</code></td>
+<td>stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
 </tr>
 </tbody></table>
 
@@ -3488,12 +3502,14 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <tr>
 <td style="text-align: left">tp_trigger_by</td>
 <td style="text-align: left">string</td>
-<td>Trigger price type. Default <code>LastPrice</code></td>
+<td>take profit trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
 </tr>
 <tr>
 <td style="text-align: left">sl_trigger_by</td>
 <td style="text-align: left">string</td>
-<td>Trigger price type. Default <code>LastPrice</code></td>
+<td>stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
 </tr>
 </tbody></table>
 <h2 id='t-conditionalorders'>Conditional Orders</h2><h3 id='t-placecond'>Place Conditional Order</h3>
@@ -3663,13 +3679,15 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Trigger price type. Default <code>LastPrice</code></td>
+<td>take profit trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Trigger price type. Default <code>LastPrice</code></td>
+<td>stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
 </tr>
 </tbody></table>
 
@@ -3760,12 +3778,14 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <tr>
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
 <td style="text-align: left">string</td>
-<td>Trigger price type. Default <code>LastPrice</code></td>
+<td>take profit trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
 <td style="text-align: left">string</td>
-<td>Trigger price type. Default <code>LastPrice</code></td>
+<td>stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
 </tr>
 <tr>
 <td style="text-align: left">base_price</td>
@@ -4010,12 +4030,14 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <tr>
 <td style="text-align: left">tp_trigger_by</td>
 <td style="text-align: left">string</td>
-<td>Trigger price type. Default <code>LastPrice</code></td>
+<td>take profit trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
 </tr>
 <tr>
 <td style="text-align: left">sl_trigger_by</td>
 <td style="text-align: left">string</td>
-<td>Trigger price type. Default <code>LastPrice</code></td>
+<td>stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
 </tr>
 <tr>
 <td style="text-align: left">base_price</td>
@@ -4250,7 +4272,7 @@ Please note that you can only modify untriggered conditional orders.
 <tr>
 <td style="text-align: left">p_r_qty</td>
 <td style="text-align: left">false</td>
-<td style="text-align: left">int</td>
+<td style="text-align: left">string</td>
 <td>New order quantity. Do not pass this field if you don't want modify it</td>
 </tr>
 <tr>
@@ -4281,13 +4303,15 @@ Please note that you can only modify untriggered conditional orders.
 <td style="text-align: left">tp_trigger_by</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Trigger price type. Default <code>LastPrice</code></td>
+<td>take profit trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
 </tr>
 <tr>
 <td style="text-align: left">sl_trigger_by</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Trigger price type. Default <code>LastPrice</code></td>
+<td>stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
 </tr>
 </tbody></table>
 
@@ -4534,12 +4558,14 @@ Please note that you can only modify untriggered conditional orders.
 <tr>
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
 <td style="text-align: left">string</td>
-<td>Trigger price type. Default <code>LastPrice</code></td>
+<td>take profit trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
 <td style="text-align: left">string</td>
-<td>Trigger price type. Default <code>LastPrice</code></td>
+<td>stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
 </tr>
 <tr>
 <td style="text-align: left">base_price</td>
@@ -5408,7 +5434,7 @@ Passing these parameters will create conditional orders controlled by the system
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>take profit trigger price type, default<span>:</span> <code>LastPrice</code>
+<td>stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
 </td>
 </tr>
 <tr>
@@ -6842,14 +6868,14 @@ Due to unstable networks or program errors, we strongly advise you to send the <
 <blockquote>
 <p>How to subscribe with a filter</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Subscribing to the trade data for ETHBTC</span>
-<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["trade.ETHBTC"]}</span><span class="dl">'</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Subscribing to the trade data for ETHUSDT</span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["trade.ETHUSDT"]}</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
 <p>How to subscribe with multiple filters</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Example: Subscribing to the trade data for BTCUSD and XRPUSD</span>
-<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["trade.BTCUSD|XRPUSD"]}</span><span class="dl">'</span><span class="p">)</span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["trade.BTCUSDT|XRPUSDT"]}</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
 <p>How to subscribe without filters</p>
@@ -6884,7 +6910,7 @@ Due to unstable networks or program errors, we strongly advise you to send the <
    <span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>     <span class="c1">// Request to your subscription</span>
        <span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">subscribe</span><span class="dl">"</span><span class="p">,</span>
        <span class="dl">"</span><span class="s2">args</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
-           <span class="dl">"</span><span class="s2">kline.BTCUSD.1m</span><span class="dl">"</span>
+           <span class="dl">"</span><span class="s2">kline.BTCUSDT.1m</span><span class="dl">"</span>
        <span class="p">]</span>
    <span class="p">}</span>
 <span class="p">}</span>
@@ -7637,7 +7663,8 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 <tr>
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
 <td style="text-align: left">number</td>
-<td>Trigger price type. Default <code>LastPrice</code></td>
+<td>take profit trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
 </tr>
 <tr>
 <td style="text-align: left">stop_loss</td>

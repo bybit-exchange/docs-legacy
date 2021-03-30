@@ -1530,7 +1530,10 @@ function copyStringToClipboard (endpoint) {
 <p>请求示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/public/linear/kline?symbol=BTCUSDT&amp;interval=1&amp;limit=2&amp;from=1581231260
-</span></code></pre></div>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Kline</span><span class="p">.</span><span class="n">Kline_get</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="s">"m"</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s">'from'</span><span class="p">:</span><span class="mi">1581231260</span><span class="p">}).</span><span class="n">result</span><span class="p">())</span>
+</code></pre></div>
 <blockquote>
 <p>响应示例</p>
 </blockquote>
@@ -1675,7 +1678,10 @@ function copyStringToClipboard (endpoint) {
 <p>请求示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/public/linear/recent-trading-records?symbol=BTCUSDT&amp;limit=500
-</span></code></pre></div>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Symbol</span><span class="p">.</span><span class="n">Symbol_get</span><span class="p">().</span><span class="n">result</span><span class="p">())</span>
+</code></pre></div>
 <blockquote>
 <p>响应示例</p>
 </blockquote>
@@ -2557,13 +2563,13 @@ GET
 <td style="text-align: left">tp_trigger_by</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>触发价格类型. 默认为最新市价</td>
+<td>止盈激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
 <tr>
 <td style="text-align: left">sl_trigger_by</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>触发价格类型. 默认为最新市价</td>
+<td>止损激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
 <tr>
 <td style="text-align: left">reduce_only</td>
@@ -2697,12 +2703,12 @@ GET
 <tr>
 <td style="text-align: left">tp_trigger_by</td>
 <td style="text-align: left">string</td>
-<td>触发价格类型. 默认为最新市价</td>
+<td>止盈激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
 <tr>
 <td style="text-align: left">sl_trigger_by</td>
 <td style="text-align: left">string</td>
-<td>触发价格类型. 默认为最新市价</td>
+<td>止损激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
 </tbody></table>
 <h3 id='t-getactive'>查询活动委托</h3>
@@ -2930,12 +2936,12 @@ GET
 <tr>
 <td style="text-align: left">tp_trigger_by</td>
 <td style="text-align: left">string</td>
-<td>触发价格类型. 默认为最新市价</td>
+<td>止盈激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
 <tr>
 <td style="text-align: left">sl_trigger_by</td>
 <td style="text-align: left">string</td>
-<td>触发价格类型. 默认为最新市价</td>
+<td>止损激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
 </tbody></table>
 <h3 id='t-cancelactive'>撤销活动委托单</h3>
@@ -3192,13 +3198,13 @@ GET
 <td style="text-align: left">tp_trigger_by</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>触发价格类型. 默认为最新市价</td>
+<td>止盈激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
 <tr>
 <td style="text-align: left">sl_trigger_by</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>触发价格类型. 默认为最新市价</td>
+<td>止损激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
 </tbody></table>
 
@@ -3472,12 +3478,12 @@ GET
 <tr>
 <td style="text-align: left">tp_trigger_by</td>
 <td style="text-align: left">string</td>
-<td>触发价格类型. 默认为最新市价</td>
+<td>止盈激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
 <tr>
 <td style="text-align: left">sl_trigger_by</td>
 <td style="text-align: left">string</td>
-<td>触发价格类型. 默认为最新市价</td>
+<td>止损激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
 </tbody></table>
 <h2 id='t-conditionalorders'>条件单</h2><h3 id='t-placecond'>创建条件委托单</h3>
@@ -3647,13 +3653,13 @@ GET
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>触发价格类型. 默认为最新市价</td>
+<td>止盈激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>触发价格类型. 默认为最新市价</td>
+<td>止损激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
 </tbody></table>
 
@@ -3744,12 +3750,12 @@ GET
 <tr>
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
 <td style="text-align: left">string</td>
-<td>触发价格类型. 默认为最新市价</td>
+<td>止盈激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
 <td style="text-align: left">string</td>
-<td>触发价格类型. 默认为最新市价</td>
+<td>止损激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
 <tr>
 <td style="text-align: left">base_price</td>
@@ -3994,12 +4000,12 @@ GET
 <tr>
 <td style="text-align: left">tp_trigger_by</td>
 <td style="text-align: left">string</td>
-<td>触发价格类型. 默认为最新市价</td>
+<td>止盈激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
 <tr>
 <td style="text-align: left">sl_trigger_by</td>
 <td style="text-align: left">string</td>
-<td>触发价格类型. 默认为最新市价</td>
+<td>止损激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
 <tr>
 <td style="text-align: left">base_price</td>
@@ -4234,7 +4240,7 @@ GET
 <tr>
 <td style="text-align: left">p_r_qty</td>
 <td style="text-align: left">false</td>
-<td style="text-align: left">int</td>
+<td style="text-align: left">string</td>
 <td>修改后的订单数量。如果是未完全成交订单，则表示修改剩余未成交的部分。如果不修改这个字段，请不要传这个参数。</td>
 </tr>
 <tr>
@@ -4265,13 +4271,13 @@ GET
 <td style="text-align: left">tp_trigger_by</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>触发价格类型. 默认为最新市价</td>
+<td>止盈激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
 <tr>
 <td style="text-align: left">sl_trigger_by</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>触发价格类型. 默认为最新市价</td>
+<td>止损激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
 </tbody></table>
 
@@ -4517,12 +4523,12 @@ GET
 <tr>
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
 <td style="text-align: left">string</td>
-<td>触发价格类型. 默认为最新市价</td>
+<td>止盈激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
 <td style="text-align: left">string</td>
-<td>触发价格类型. 默认为最新市价</td>
+<td>止损激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
 <tr>
 <td style="text-align: left">base_price</td>
@@ -5389,7 +5395,7 @@ When set to Partial, SL/TP orders may have a quantity less than the position siz
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>止盈激活价格类型，默认为<code>LastPrice</code></td>
+<td>止损激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
 <tr>
 <td style="text-align: left">sl_size</td>
@@ -6823,14 +6829,14 @@ B用户：
 <blockquote>
 <p>直接订阅</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Subscribing to the trade data for ETHBTC</span>
-<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["trade.ETHBTC"]}</span><span class="dl">'</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Subscribing to the trade data for ETHUSDT</span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["trade.ETHUSDT"]}</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
 <p>通过分隔符来订阅多个topic</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Example: Subscribing to the trade data for BTCUSD and XRPUSD</span>
-<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["trade.BTCUSD|XRPUSD"]}</span><span class="dl">'</span><span class="p">)</span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["trade.BTCUSDT|XRPUSDT"]}</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
 <p>通过匹配符来订阅多个topic</p>
@@ -6864,7 +6870,7 @@ B用户：
    <span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>     <span class="c1">// Request to your subscription</span>
        <span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">subscribe</span><span class="dl">"</span><span class="p">,</span>
        <span class="dl">"</span><span class="s2">args</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
-           <span class="dl">"</span><span class="s2">kline.BTCUSD.1m</span><span class="dl">"</span>
+           <span class="dl">"</span><span class="s2">kline.BTCUSDT.1m</span><span class="dl">"</span>
        <span class="p">]</span>
    <span class="p">}</span>
 <span class="p">}</span>
@@ -7618,7 +7624,7 @@ B用户：
 <tr>
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
 <td style="text-align: left">number</td>
-<td>触发价格类型. 默认为最新市价</td>
+<td>止盈激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
 <tr>
 <td style="text-align: left">stop_loss</td>

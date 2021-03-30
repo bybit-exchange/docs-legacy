@@ -1925,7 +1925,7 @@ function copyStringToClipboard (endpoint) {
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/public/kline/list?symbol=BTCUSD&amp;interval=1&amp;limit=2&amp;from=1581231260
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Kline</span><span class="p">.</span><span class="n">Kline_get</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="s">"m"</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s">'from'</span><span class="p">:</span><span class="mi">1</span><span class="p">}).</span><span class="n">result</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Kline</span><span class="p">.</span><span class="n">Kline_get</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="s">"m"</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s">'from'</span><span class="p">:</span><span class="mi">1581231260</span><span class="p">}).</span><span class="n">result</span><span class="p">())</span>
 </code></pre></div>
 <blockquote>
 <p>响应示例</p>
@@ -9797,7 +9797,7 @@ B用户：
 <tr>
 <td style="text-align: left">tp_trigger_by</td>
 <td style="text-align: left">string</td>
-<td>触发价格类型. 默认为最新市价</td>
+<td>止盈激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
 <tr>
 <td style="text-align: left">stop_loss</td>
@@ -9807,7 +9807,7 @@ B用户：
 <tr>
 <td style="text-align: left">sl_trigger_by</td>
 <td style="text-align: left">string</td>
-<td>触发价格类型. 默认为最新市价</td>
+<td>止损激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
 <tr>
 <td style="text-align: left">realised_pnl</td>
