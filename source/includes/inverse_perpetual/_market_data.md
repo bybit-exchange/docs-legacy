@@ -75,7 +75,7 @@ curl https://api.bybit.com/v2/public/kline/list?symbol=BTCUSD&interval=1&limit=2
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Kline.Kline_get(symbol="BTCUSD", interval="m", **{'from':1}).result())
+print(client.Kline.Kline_get(symbol="BTCUSD", interval="m", **{'from':1581231260}).result())
 ```
 
 > t(:codequote_responseExample)
