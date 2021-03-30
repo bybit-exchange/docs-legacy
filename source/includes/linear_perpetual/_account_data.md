@@ -105,8 +105,8 @@ POST
 |updated_time |string |t(:row_comment_updated_at)  |
 |take_profit |number |t(:row_comment_take_profit)  |
 |stop_loss |number |t(:row_comment_stop_loss)  |
-|tp_trigger_by |string |t(:row_comment_triggerBy)  |
-|sl_trigger_by |string |t(:row_comment_triggerBy)  |
+|tp_trigger_by |string |t(:account_row_comment_tp_trigger_by)  |
+|sl_trigger_by |string |t(:account_row_comment_sl_trigger_by)  |
 
 ### t(:getactive)
 > t(:codequote_curlExample)
@@ -625,8 +625,8 @@ POST
 |reduce_only |<b>true</b> |bool |t(:linear_row_comment_reduceOnly) |
 |take_profit |false |number |t(:row_comment_takeProfit) |
 |stop_loss |false |number |t(:row_comment_stopLoss) |
-|t(:row_parameter_tp_trigger_by) |false |string |t(:row_comment_triggerBy) |
-|t(:row_parameter_sl_trigger_by) |false |string |t(:row_comment_triggerBy) |
+|t(:row_parameter_tp_trigger_by) |false |string |t(:account_row_comment_tp_trigger_by) |
+|t(:row_parameter_sl_trigger_by) |false |string |t(:account_row_comment_sl_trigger_by) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -646,8 +646,8 @@ POST
 |updated_time |string |t(:row_comment_updated_at)  |
 |take_profit |number |t(:row_comment_take_profit)  |
 |stop_loss |number |t(:row_comment_stop_loss)  |
-|t(:row_parameter_tp_trigger_by) |string |t(:row_comment_triggerBy)  |
-|t(:row_parameter_sl_trigger_by) |string |t(:row_comment_triggerBy)  |
+|t(:row_parameter_tp_trigger_by) |string |t(:account_row_comment_tp_trigger_by)  |
+|t(:row_parameter_sl_trigger_by) |string |t(:account_row_comment_sl_trigger_by)  |
 |base_price |string |t(:row_response_comment_basePrice)  |
 |t(:row_parameter_trigger_price) |string |t(:row_comment_triggerBy)  |
 |reduce_only |bool |t(:linear_resp_field_reduce_only)  |
@@ -767,8 +767,8 @@ GET
 |updated_time |string |t(:row_comment_updated_at)  |
 |take_profit |number |t(:row_comment_take_profit)  |
 |stop_loss |number |t(:row_comment_stop_loss)  |
-|tp_trigger_by |string |t(:row_comment_triggerBy)  |
-|sl_trigger_by |string |t(:row_comment_triggerBy)  |
+|tp_trigger_by |string |t(:account_row_comment_tp_trigger_by)  |
+|sl_trigger_by |string |t(:account_row_comment_sl_trigger_by)  |
 |base_price |string |t(:row_response_comment_basePrice)  |
 |t(:row_parameter_trigger_price) |string |t(:row_comment_triggerBy)  |
 |reduce_only |bool |t(:linear_resp_field_reduce_only)  |
@@ -936,8 +936,8 @@ POST
 |p_r_trigger_price |false |number |t(:row_comemnt_pRTriggerPrice) |
 |take_profit |false |number |t(:row_comemnt_replace_take_profit)  |
 |stop_loss |false |number |t(:row_comemnt_replace_stop_loss)  |
-|tp_trigger_by |false |string |t(:row_comment_triggerBy)  |
-|sl_trigger_by |false |string |t(:row_comment_triggerBy)  |
+|tp_trigger_by |false |string |t(:account_row_comment_tp_trigger_by)  |
+|sl_trigger_by |false |string |t(:account_row_comment_sl_trigger_by)  |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -1083,8 +1083,8 @@ GET
 |updated_time |string |t(:row_comment_updated_at)  |
 |take_profit |number |t(:row_comment_take_profit)  |
 |stop_loss |number |t(:row_comment_stop_loss)  |
-|t(:row_parameter_tp_trigger_by) |string |t(:row_comment_triggerBy)  |
-|t(:row_parameter_sl_trigger_by) |string |t(:row_comment_triggerBy)  |
+|t(:row_parameter_tp_trigger_by) |string |t(:account_row_comment_tp_trigger_by)  |
+|t(:row_parameter_sl_trigger_by) |string |t(:account_row_comment_sl_trigger_by)  |
 |base_price |string |t(:row_response_comment_basePrice)  |
 |t(:row_parameter_trigger_price) |string |t(:row_comment_triggerBy)  |
 |reduce_only |bool |t(:linear_resp_field_reduce_only)  |
