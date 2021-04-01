@@ -1,6 +1,9 @@
 # t(:changelog)
 
+## 2021-04-02
 
+### REST API
+- t(:linear_restapi_update_20210402)
 
 ## 2021-03-18
 ### REST API

@@ -1213,7 +1213,9 @@ en:
   err_10006: too many requests
   err_10007: api_key not found in your request parameters
   err_10010: request ip mismatch
+  err_10016: unexpect error or timeout
   err_10017: request path not found or request method is invalid
+  err_10018: exceed ip rate limit
   err_20001: Order not exists
   err_20003: missing parameter <code>side</code>
   err_20004: invalid parameter <code>side</code>
@@ -1289,6 +1291,8 @@ en:
   err_30063: reduce-only rule not satisfied
   err_30067: insufficient available balance
   err_30068: exit value must be positive
+  err_30074: can't create the stop order, because you expect the order will be triggered when the <code>LastPrice</code>(or <code>IndexPrice</code>、 <code>MarkPrice</code>, determined by <code>trigger_by</code>) is raising to <code>stop_px</code>, but the <code>LastPrice</code>(or <code>IndexPrice</code>、 <code>MarkPrice</code>) is already equal to or greater than <code>stop_px</code>, please adjust <code>base_price</code> or <code>stop_px</code>
+  err_30075: can't create the stop order, because you expect the order will be triggered when the <code>LastPrice</code>(or <code>IndexPrice</code>、 <code>MarkPrice</code>, determined by <code>trigger_by</code>) is falling to <code>stop_px</code>, but the <code>LastPrice</code>(or <code>IndexPrice</code>、 <code>MarkPrice</code>) is already equal to or less than <code>stop_px</code>, please adjust <code>base_price</code> or <code>stop_px</code>
   err_33004: apikey already expired
   err_34026: the limit is no change
   err_35014: over order limit
@@ -1450,6 +1454,7 @@ en:
   err_130126: No orders
   err_130023: Will be triggered Liq after order is completed
   err_130127: Take Profit, Stop Loss and Trailing Stop Loss are not modified
+  err_130145: Close order side is large than position's leaving qty
   err_130149: Order creation successful but SL/TP setting failed
   err_130150: Please try again later.
   err_130151: At least one take profit order in the mode,Cannot be switched
@@ -1674,7 +1679,8 @@ en:
 
   restapi_update_20210312: Fix value of <code>exec_type,last_liquidity_ind</code> for <a href="#t-usertraderecords">User Trade Record</a> endpoint
   restapi_update_20210315: Prior to December 31, 2020, order price of a market order was returned as the last traded price as of the moment of order placement. On and after December 31, 2020, order price of a market order is returned as a revised limit price. For more information, please refer to  <a href="#t-activeorders">description of market order</a>.
-
+  restapi_update_20210402: Add comment of errcode 10016,10018,30074,30075
+  linear_restapi_update_20210402: Add comment of errcode 10016,10018,130145
 
 
   markpricekline: Query Mark Price Kline
