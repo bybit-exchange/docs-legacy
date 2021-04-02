@@ -1171,7 +1171,9 @@ zh-cn:
   err_10006: 请求次数超限
   err_10007: 您的请求中没有<code>api_key</code>
   err_10010: 请求ip不匹配
+  err_10016: 服务异常或请求超时
   err_10017: 请求路径不存在或请求方法错误
+  err_10018: 超过ip频率限制
   err_20001: 订单不存在
   err_20003: 缺少参数<code>side</code>
   err_20004: <code>side</code>不合法
@@ -1247,6 +1249,8 @@ zh-cn:
   err_30063: 不满足只减仓的条件
   err_30067: 可用余额不足
   err_30068: 退出价值必须大于0
+  err_30074: 无法创建条件单，由<code>base_price</code>和<code>stop_px</code>比较可知预期涨至<code>stop_px</code>时触发条件单，而此时<code>LastPrice</code>(或<code>IndexPrice</code>、<code>MarkPrice</code>，由<code>trigger_by</code>指定)已经达到或高于<code>stop_px</code>
+  err_30075: 无法创建条件单，由<code>base_price</code>和<code>stop_px</code>比较可知预期跌至<code>stop_px</code>时触发条件单，而此时<code>LastPrice</code>(或<code>IndexPrice</code>、<code>MarkPrice</code>，由<code>trigger_by</code>指定)已经达到或低于<code>stop_px</code>
   err_33004: apikey已过期
   err_34026: 风险限额没有变化
   err_35014: 下单数量超过上限
@@ -1400,6 +1404,7 @@ zh-cn:
   err_130126: 盘口没有挂单
   err_130023: 本订单成交后会触发强平
   err_130127: 止盈止损及追踪止损没有修改
+  err_130145: 平仓单size大于仓位可平量
   err_130149: 止盈止损设置失败，价格校验未通过
   err_130150: 操作过快，请稍后重试
   err_130151: 此模式至少有一个止盈单，不能切换止盈止损模式
@@ -1599,6 +1604,8 @@ zh-cn:
   ws_update_20210225: websocket支持交割合约
   restapi_update_20210312: 修复 <a href="#t-usertraderecords">User Trade Record</a>接口返回值<code>exec_type,last_liquidity_ind</code> 值不对的问题
   restapi_update_20210315: 2020年12月31日前，市价单返回的订单价格是下单时刻的最新市场价；自2020年12月31日起，市价单返回的订单价格是修订后的限价价格。详情可见<a href="#t-activeorders">市价活动委托说明</a>。
+  restapi_update_20210402: 增加错误码描述：10016,10018,30074,30075
+  linear_restapi_update_20210402: 增加错误码描述：10016,10018,130145
 
   markpricekline: 标记价格K线
   linear_query_mark_price_kline: 查询标记价格K线
