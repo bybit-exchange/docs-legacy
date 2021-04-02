@@ -337,7 +337,7 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#2021-03-12" class="toc-h2 toc-link" data-title="2021-03-12">2021-03-12</a>
+                    <a href="#2021-04-02" class="toc-h2 toc-link" data-title="2021-04-02">2021-04-02</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#rest-api" class="toc-h3 toc-link" data-title="REST API">REST API</a>
@@ -345,10 +345,18 @@
                       </ul>
                   </li>
                   <li>
-                    <a href="#2021-02-25" class="toc-h2 toc-link" data-title="2021-02-25">2021-02-25</a>
+                    <a href="#2021-03-12" class="toc-h2 toc-link" data-title="2021-03-12">2021-03-12</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#rest-api-2" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2021-02-25" class="toc-h2 toc-link" data-title="2021-02-25">2021-02-25</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-3" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                           <li>
                             <a href="#websocket-api" class="toc-h3 toc-link" data-title="Websocket API">Websocket API</a>
@@ -359,7 +367,7 @@
                     <a href="#2021-03-01" class="toc-h2 toc-link" data-title="2021-03-01">2021-03-01</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#rest-api-3" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                            <a href="#rest-api-4" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                       </ul>
                   </li>
@@ -750,11 +758,15 @@ clipboard.on('error', function(e) {
 <p><p>Welcome to the official documentation for the <a href="https://www.bybit.com/">Bybit</a> APIs and Websocket! Here you can find details on how to access all of our endpoints, their respective expected outputs, and possible errors you may encounter.</p> <p>If you encounter an issue you need help with, have a suggestions for us, or just want to have a chat with fellow developers then please head on over to our <a href="https://t.me/Bybitapi">API Telegram chat</a>!</p></p>
 <h3 id='t-resources'>Group And Bybit API Resources</h3>
 <p><ul class="bybit-community"> <li><img src="../images/favicon-4f296779.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong></a> - <strong>learn about exchange mechanisms here!</strong> <li><img src="../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/docs/issues"><strong>Bybit API docs</strong></a> - <strong>report issues here!</strong> <li><img src="../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/api-connectors/"><strong>Bybit's api-connectors</strong></a> - <strong>find a repo of prebuilt libraries here!</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong> - <strong>get English help here!</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>subscribe for changes to the API!</strong> <li><img src="../images/email_icon-e7dd7b20.png" height="14", width="14"> <a href="mailto:IT@bybit.com"><strong>IT@bybit.com</strong></a> - <strong>official IT support email!</strong> </ul></p>
-<h1 id='t-changelog'>Changelog</h1><h2 id='2021-03-12'>2021-03-12</h2><h3 id='rest-api'>REST API</h3>
+<h1 id='t-changelog'>Changelog</h1><h2 id='2021-04-02'>2021-04-02</h2><h3 id='rest-api'>REST API</h3>
+<ul>
+<li>Add comment of errcode 10016,10018,30074,30075</li>
+</ul>
+<h2 id='2021-03-12'>2021-03-12</h2><h3 id='rest-api-2'>REST API</h3>
 <ul>
 <li>Fix value of <code>exec_type,last_liquidity_ind</code> for <a href="#t-usertraderecords">User Trade Record</a> endpoint</li>
 </ul>
-<h2 id='2021-02-25'>2021-02-25</h2><h3 id='rest-api-2'>REST API</h3>
+<h2 id='2021-02-25'>2021-02-25</h2><h3 id='rest-api-3'>REST API</h3>
 <ul>
 <li>Inverse Futures API released!</li>
 </ul>
@@ -762,7 +774,7 @@ clipboard.on('error', function(e) {
 <ul>
 <li>Add websocket support to inverse future</li>
 </ul>
-<h2 id='2021-03-01'>2021-03-01</h2><h3 id='rest-api-3'>REST API</h3>
+<h2 id='2021-03-01'>2021-03-01</h2><h3 id='rest-api-4'>REST API</h3>
 <ul>
 <li>Change url prefix from <code>future</code> to <code>futures</code></li>
 </ul>
@@ -6653,8 +6665,16 @@ ELSE
 <td>request ip mismatch</td>
 </tr>
 <tr>
+<td>10016</td>
+<td>unexpect error or timeout</td>
+</tr>
+<tr>
 <td>10017</td>
 <td>request path not found or request method is invalid</td>
+</tr>
+<tr>
+<td>10018</td>
+<td>exceed ip rate limit</td>
 </tr>
 <tr>
 <td>20001</td>
@@ -6955,6 +6975,14 @@ ELSE
 <tr>
 <td>30068</td>
 <td>exit value must be positive</td>
+</tr>
+<tr>
+<td>30074</td>
+<td>can't create the stop order, because you expect the order will be triggered when the <code>LastPrice</code>(or <code>IndexPrice</code>、 <code>MarkPrice</code>, determined by <code>trigger_by</code>) is raising to <code>stop_px</code>, but the <code>LastPrice</code>(or <code>IndexPrice</code>、 <code>MarkPrice</code>) is already equal to or greater than <code>stop_px</code>, please adjust <code>base_price</code> or <code>stop_px</code></td>
+</tr>
+<tr>
+<td>30075</td>
+<td>can't create the stop order, because you expect the order will be triggered when the <code>LastPrice</code>(or <code>IndexPrice</code>、 <code>MarkPrice</code>, determined by <code>trigger_by</code>) is falling to <code>stop_px</code>, but the <code>LastPrice</code>(or <code>IndexPrice</code>、 <code>MarkPrice</code>) is already equal to or less than <code>stop_px</code>, please adjust <code>base_price</code> or <code>stop_px</code></td>
 </tr>
 <tr>
 <td>33004</td>
