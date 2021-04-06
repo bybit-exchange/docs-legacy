@@ -160,6 +160,12 @@ GET
 curl https://api.bybit.com/public/linear/funding/prev-funding-rate?symbol=BTCUSDT
 ```
 
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.LinearFunding.LinearFunding_prevRate(symbol="BTCUSDT").result())
+```
+
 > t(:codequote_responseExample)
 
 ```javascript
@@ -212,6 +218,12 @@ GET
 
 ```console
 curl https://api.bybit.com/public/linear/mark-price-kline?symbol=BTCUSDT&interval=1&limit=2&from=1581231260
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.LinearKline.LinearKline_markPrice(symbol="BTCUSDT", interval="m", limit=10, **{'from':1}).result())
 ```
 
 > t(:codequote_responseExample)
