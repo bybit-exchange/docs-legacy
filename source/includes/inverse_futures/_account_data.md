@@ -127,6 +127,7 @@ print(client.FuturesOrder.FuturesOrder_getOrders(symbol="BTCUSDM21",order_status
         "data": [
             {
                 "user_id": 160861,
+                "position_idx": 0,
                 "order_status": "Cancelled",
                 "symbol": "BTCUSDM21",
                 "side": "Buy",
@@ -176,6 +177,7 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |data > user_id |integer |t(:row_comment_userID) |
+|data > position_idx |integer |t(:row_comment_position_idx)  |
 |data > symbol |string |t(:row_comment_symbol) |
 |data > side |string |t(:row_comment_side) |
 |data > order_type |string |t(:row_comment_order_type) |
@@ -454,6 +456,7 @@ print(client.FuturesOrder.FuturesOrder_query(symbol="BTCUSDM21", order_id="").re
     "ext_info": "",
     "result": {
         "user_id": 106958,
+        "position_idx":0,
         "symbol": "BTCUSDM21",
         "side": "Buy",
         "order_type": "Limit",
@@ -494,6 +497,7 @@ print(client.FuturesOrder.FuturesOrder_query(symbol="BTCUSDM21", order_id="").re
     "result": [
         {
             "user_id": 100228,
+            "position_idx":0,
             "symbol": "BTCUSDM21",
             "side": "Sell",
             "order_type": "Limit",
@@ -521,6 +525,7 @@ print(client.FuturesOrder.FuturesOrder_query(symbol="BTCUSDM21", order_id="").re
         ...
         {
             "user_id": 100228,
+            "position_idx":0,
             "symbol": "BTCUSDM21",
             "side": "Sell",
             "order_type": "Limit",
@@ -572,6 +577,7 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |user_id |number |t(:row_comment_userID)  |
+|position_idx |integer |t(:row_comment_position_idx)  |
 |symbol|string |t(:row_comment_symbol)    |
 |side |string |t(:row_comment_side)  |
 |order_type |string |t(:row_comment_order_type)  |
@@ -710,6 +716,7 @@ print(client.FuturesConditional.FuturesConditional_getOrders(symbol="BTCUSDM21",
         "data": [
             {
                 "user_id": 160861,
+                "position_idx": 0,
                 "stop_order_status": "Active",
                 "symbol": "ETHUSD",
                 "side": "Buy",
@@ -755,6 +762,7 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |data > user_id |integer |t(:row_comment_userID)  |
+|data > position_idx |integer |t(:row_comment_position_idx)  |
 |data > t(:row_parameter_stop_order)|string |t(:row_comment_stopOrderStatus)    |
 |data > t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
 |data > t(:row_parameter_side) |string |t(:row_comment_side)  |
@@ -1030,6 +1038,7 @@ print(client.FuturesConditional.FuturesConditional_query(symbol="BTCUSDM21", sto
     "ext_info": "",
     "result": {
         "user_id": 1,
+        "position_idx": 0,
         "symbol": "BTCUSDM21",
         "side": "Buy",
         "order_type": "Limit",
@@ -1064,6 +1073,7 @@ print(client.FuturesConditional.FuturesConditional_query(symbol="BTCUSDM21", sto
     "result": [
         {
             "user_id": 100328,
+            "position_idx": 0,
             "symbol": "EOSUSD",
             "side": "Sell",
             "order_type": "Limit",
@@ -1090,6 +1100,7 @@ print(client.FuturesConditional.FuturesConditional_query(symbol="BTCUSDM21", sto
         ...
         {
             "user_id": 100328,
+            "position_idx": 0,
             "symbol": "EOSUSD",
             "side": "Sell",
             "order_type": "Limit",
@@ -1142,6 +1153,7 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |user_id |number |t(:row_comment_userID)  |
+|position_idx |integer |t(:row_comment_position_idx)  |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 |t(:row_parameter_order_type) |string |t(:row_comment_orderType)  |
