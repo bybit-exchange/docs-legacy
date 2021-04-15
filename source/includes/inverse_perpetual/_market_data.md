@@ -185,7 +185,38 @@ print(client.Market.Market_symbolInfo().result())
             "funding_rate": "0.0001",
             "predicted_funding_rate": "0.0001",
             "next_funding_time": "2019-12-28T00:00:00Z",
-            "countdown_hour": 2
+            "countdown_hour": 2,
+            "delivery_fee_rate": "0",
+            "predicted_delivery_price": "0.00",
+            "delivery_time": ""
+        },
+        {
+            "symbol": "BTCUSDM21",
+            "bid_price": "67895",
+            "ask_price": "67895.5",
+            "last_price": "67895.50",
+            "last_tick_direction": "ZeroPlusTick",
+            "prev_price_24h": "68073.00",
+            "price_24h_pcnt": "-0.002607",
+            "high_price_24h": "69286.50",
+            "low_price_24h": "66156.00",
+            "prev_price_1h": "68028.50",
+            "price_1h_pcnt": "-0.001955",
+            "mark_price": "67883.88",
+            "index_price": "62687.89",
+            "open_interest": 531821673,
+            "open_value": "0.00",
+            "total_turnover": "85713.36",
+            "turnover_24h": "2371.47",
+            "total_volume": 5352251354,
+            "volume_24h": 160716002,
+            "funding_rate": "0",
+            "predicted_funding_rate": "0",
+            "next_funding_time": "",
+            "countdown_hour": 0,
+            "delivery_fee_rate": "0.0005",
+            "predicted_delivery_price": "0.00",
+            "delivery_time": "2021-06-25T08:00:00Z"
         }
     ],
     "time_now": "1577484619.817968"
@@ -232,7 +263,9 @@ GET
 | predicted_funding_rate |string |t(:row_comment_resp_predicted_funding_rate) |
 | next_funding_time |string |t(:row_comment_resp_next_funding_time) |
 | countdown_hour |number |t(:row_comment_resp_countdown_hour) |
-
+| delivery_fee_rate |string |t(:row_comment_resp_delivery_fee_rate) |
+| predicted_delivery_price |string |t(:row_comment_resp_predicted_delivery_price) |
+| delivery_time |string |t(:row_comment_resp_delivery_time) |
 ### t(:publictradingrecords)
 > t(:codequote_curlExample)
 
