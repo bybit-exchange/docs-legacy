@@ -120,8 +120,8 @@ zh-cn:
   row_comment_expired_at: 过期时间
   row_comment_read_only: 是否只读
   row_comment_lcp_date: 日期
-  row_comment_lcp_self_ratio: 个人有效挂单占比
-  row_comment_lcp_platform_ratio: 平台有效挂单占比
+  row_comment_lcp_self_ratio: 已废弃! 个人有效挂单占比
+  row_comment_lcp_platform_ratio: 已废弃! 平台有效挂单占比
   row_comment_lcp_score: 流动性贡献分
   row_comment_from: |
     起始ID. 默认: 返回最新数据
@@ -1034,7 +1034,7 @@ zh-cn:
   realisedpnl:  "已结盈亏"
   commission:   "佣金"
   refund:       "系统返还（如提币审核拒绝返还、用户提币取消返还）"
-  prize:        "增进"
+  prize:        "赠金"
   exchangeOrderWithdraw: "兑出"
   exchangeOrderDeposit:  "兑入"
   ## Withdraw status (`status`)
@@ -1613,6 +1613,7 @@ zh-cn:
   restapi_update_20210414_1: <a href="#t-getcond">查询条件委托</a>,<a href="#t-querycond">实时查询条件委托</a>,<a href="#t-getactive">查询活动委托</a>,<a href="#t-queryactive">实时查询活动委托</a>返回值新增 <code>position_idx</code>
   restapi_update_20210414_2: 修复双仓模式下，不传<code>symbol</code>参数情况下持仓列表数据不完整问题
   restapi_update_20210415: 修复<a href="#t-balance">获取钱包余额</a>接口字段<code>used_margin、order_margin、position_margin、occ_closing_fee、unrealised_pnl</code> 未计算交割持仓的问题
+  restapi_update_20210421: 废弃字段self_ratio与platform_ratio，现阶段返回值均为0
 
   markpricekline: 标记价格K线
   linear_query_mark_price_kline: 查询标记价格K线
