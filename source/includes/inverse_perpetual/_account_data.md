@@ -2296,18 +2296,20 @@ curl "https://api.bybit.com/v2/private/account/lcp?api_key={api_key}&symbol=BTCU
     "ret_msg": "ok",
     "ext_code": "",
     "result": [
+        "lcp_list": [
         {
             "date": "2020-04-27",
-            "self_ratio": 1.1251,
-            "platform_ratio": 0.001254,
+            "self_ratio": 0,
+            "platform_ratio": 0,
             "score": 0.1459
         },
         {
             "date": "2020-04-26",
-            "self_ratio": 1.1251,
-            "platform_ratio": 0.001254,
+            "self_ratio": 0,
+            "platform_ratio": 0,
             "score": 0.1459
         }
+        ]
     ],
     "ext_info": null,
     "time_now": "1577445138.790150",
