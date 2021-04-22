@@ -538,7 +538,8 @@ GET
 |t(:row_parameter_side) |string |t(:row_response_liq_record_side)  |
 |time |number |t(:row_response_comment_nill_time)  |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
-|price |number |t(:row_response_comment_execprice)  |
+|liq_price |number |t(:row_comment_liq_price)      |
+|price |number |t(:row_comment_bust_price)  |
 
 
 ### t(:markpricekline)
