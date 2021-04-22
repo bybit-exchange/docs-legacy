@@ -1,9 +1,9 @@
 # t(:changelog)
 
-## 2021-04-21
+## 2021-04-22
 ### REST API
 - [t(:lcp)](#t-lcp) [t(:changelog_update)]
-  - t(:restapi_update_20210421)
+  - t(:restapi_update_20210422)
 
 ## 2021-04-07
 ### REST API
