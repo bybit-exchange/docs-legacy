@@ -1601,7 +1601,7 @@ print(client.FuturesPositions.FuturesPositions_switchPositionMode(symbol="BTCUSD
     "ret_code": 0,
     "ret_msg": "ok",
     "ext_code": "",
-    "result": 2,
+    "result": null,
     "ext_info": null,
     "time_now": "1577477968.175013",
     "rate_limit_status": 74,
@@ -1651,7 +1651,7 @@ print(client.FuturesPositions.FuturesPositions_switchIsolated(symbol="BTCUSDM21"
     "ret_code": 0,
     "ret_msg": "ok",
     "ext_code": "",
-    "result": 2,
+    "result": null,
     "ext_info": null,
     "time_now": "1577477968.175013",
     "rate_limit_status": 74,
@@ -1676,10 +1676,6 @@ POST
 |buy_leverage |<b>true</b> |number |t(:futures_row_comment_leverage)  |
 |sell_leverage |<b>true</b> |number |t(:futures_row_comment_leverage)  |
 
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|result |number |  |
 
 
 

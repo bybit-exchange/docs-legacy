@@ -1601,6 +1601,101 @@ POST
 |:----- |:-----|----- |
 |result |number |t(:row_comment_leverage_result)  |
 
+
+### t(:switchmode)
+> t(:codequote_curlExample)
+
+```console
+curl "https://api.bybit.com/v2/private/switch-mode
+-H "Content-Type: application/json" \
+-d '{"api_key":"{api_key}","symbol":"BTCUSD","mode":3,"timestamp":{timestamp},"sign":"{sign}"}'
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.FuturesPositions.FuturesPositions_switchPositionMode(symbol="BTCUSDM21",mode=0).result())
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "ok",
+    "ext_code": "",
+    "result": null,
+    "ext_info": null,
+    "time_now": "1577477968.175013",
+    "rate_limit_status": 74,
+    "rate_limit_reset_ms": 1577477968183,
+    "rate_limit": 75
+}
+```
+
+t(:account_para_switchpositionmode)
+
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=ulSwitchMode>/v2/private/position/switch-mode</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ulSwitchMode"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
+|mode |<b>true</b> |int |t(:row_comment_positionmode) |
+
+
+
+### t(:marginswitch)
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/v2/private/position/switch-isolated \
+-H "Content-Type: application/json" \
+-d '{"api_key":"{api_key}","symbol":"BTCUSDM21", "position_idx":1, "is_isolated":true,"buy_leverage":10,"sell_leverage":20, "timestamp":{timestamp},"sign":"{sign}"}'
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.FuturesPositions.FuturesPositions_switchIsolated(symbol="BTCUSDM21",position_idx=1,is_isolated=True, buy_leverage="1", sell_leverage="1").result())
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "ok",
+    "ext_code": "",
+    "result": null,
+    "ext_info": null,
+    "time_now": "1577477968.175013",
+    "rate_limit_status": 74,
+    "rate_limit_reset_ms": 1577477968183,
+    "rate_limit": 75
+}
+```
+
+t(:futures_account_para_switchIsolated)
+
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=ulSwitchMode>/v2/private/position/switch-isolated</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ulSwitchMode"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
+|position_idx |<b>true</b>|integer |t(:row_comment_position_idx)  |
+|is_isolated |<b>true</b> |bool |t(:futures_row_comment_switch_isolated)  |
+|buy_leverage |<b>true</b> |number |t(:futures_row_comment_leverage)  |
+|sell_leverage |<b>true</b> |number |t(:futures_row_comment_leverage)  |
+
+
 ### t(:usertraderecords)
 > t(:codequote_curlExample)
 

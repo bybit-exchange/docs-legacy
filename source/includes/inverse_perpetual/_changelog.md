@@ -1,5 +1,14 @@
 # t(:changelog)
 
+
+## 2021-04-27
+### REST API
+- [t(:switchmode)](#t-switchmode) [t(:changelog_update)]
+  - t(:restapi_update_2021042701)
+
+- [t(:marginswitch)](#t-marginswitch) [t(:changelog_update)]
+  - t(:restapi_update_2021042702)
+
 ## 2021-04-22
 ### REST API
 - [t(:lcp)](#t-lcp) [t(:changelog_update)]
