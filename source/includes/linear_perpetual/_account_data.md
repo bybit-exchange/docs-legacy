@@ -73,8 +73,8 @@ POST
 |t(:row_parameter_quantity) |<b>true</b> |number |t(:linear_row_comment_qty) |
 |t(:row_parameter_price) |false |number |t(:row_comment_price) |
 |t(:row_parameter_time_in_force) |<b>true</b> |string |t(:row_comment_timeInForce) |
-|take_profit |false |number |t(:row_comment_takeProfit) |
-|stop_loss |false |number |t(:row_comment_stopLoss) |
+|take_profit |false |number |t(:row_comment_linear_takeProfit) |
+|stop_loss |false |number |t(:row_comment_linear_stopLoss) |
 |tp_trigger_by |false |string |t(:account_row_comment_tp_trigger_by) |
 |sl_trigger_by |false |string |t(:account_row_comment_sl_trigger_by) |
 |reduce_only |<b>true</b> |bool |t(:linear_row_comment_reduceOnly) |
@@ -623,8 +623,8 @@ POST
 |close_on_trigger |<b>true</b> |bool |t(:row_comment_closeOnTrigger)
 |order_link_id |false |string |t(:row_comment_orderLinkId) |
 |reduce_only |<b>true</b> |bool |t(:linear_row_comment_reduceOnly) |
-|take_profit |false |number |t(:row_comment_takeProfit) |
-|stop_loss |false |number |t(:row_comment_stopLoss) |
+|take_profit |false |number |t(:row_comment_linear_takeProfit) |
+|stop_loss |false |number |t(:row_comment_linear_stopLoss) |
 |t(:row_parameter_tp_trigger_by) |false |string |t(:account_row_comment_tp_trigger_by) |
 |t(:row_parameter_sl_trigger_by) |false |string |t(:account_row_comment_sl_trigger_by) |
 
