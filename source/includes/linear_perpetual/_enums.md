@@ -15,6 +15,10 @@ t(:ENUMs_para)
 * `ADAUSDT`
 * `DOTUSDT`
 * `UNIUSDT`
+* `XRPUSDT`
+* `XEMUSDT`
+* `SUSHIUSDT`
+* `AAVEUSDT`
 
 ## Currency (`currency`/`coin`)
 * `USDT`
