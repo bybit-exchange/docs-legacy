@@ -1,106 +1,61 @@
 # t(:accountdata)
 t(:account_para)
 
-## t(:activeorders)
-### t(:placeactive)
+### t(:spotOrderCreate)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/futures/private/order/create \
+curl https://api.bybit.com/spot/v1/order \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","side"="Buy","symbol"="BTCUSDM21","order_type":"Market","qty":10,"time_in_force":"GoodTillCancel","timestamp":{timestamp},"sign":"{sign}"}'
 
 ```
 
 ```python
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.FuturesOrder.FuturesOrder_new(side="Buy",symbol="BTCUSDM21",order_type="Market",qty=1,time_in_force="GoodTillCancel").result())
+
 ```
 
 
 > t(:codequote_responseExample)
 
 ```javascript
-{
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
-    "ext_info": "",
-    "result": {
-        "user_id": 1,
-        "order_id": "335fd977-e5a5-4781-b6d0-c772d5bfb95b",
-        "symbol": "BTCUSDM21",
-        "side": "Buy",
-        "order_type": "Limit",
-        "price": 8800,
-        "qty": 1,
-        "time_in_force": "GoodTillCancel",
-        "order_status": "Created",
-        "last_exec_time": 0,
-        "last_exec_price": 0,
-        "leaves_qty": 1,
-        "cum_exec_qty": 0,
-        "cum_exec_value": 0,
-        "cum_exec_fee": 0,
-        "reject_reason": "",
-        "order_link_id": "",
-        "created_at": "2019-11-30T11:03:43.452Z",
-        "updated_at": "2019-11-30T11:03:43.455Z"
-    },
-    "time_now": "1575111823.458705",
-    "rate_limit_status": 98,
-    "rate_limit_reset_ms": 1580885703683,
-    "rate_limit": 100
-}
+
 ```
 
-t(:account_para_placeActive)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/futures/private/order/create</span></code>
+<code><span id=vpoCreate>/spot/v1/order</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|position_idx |<b>true</b>|integer |t(:row_comment_position_idx)  |
-|t(:row_parameter_side) |<b>true</b> |string |t(:row_comment_side)    |
-|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)   |
-|t(:row_parameter_order_type) |<b>true</b> |string |t(:row_comment_activeOrderType)   |
-|t(:row_parameter_quantity) |<b>true</b> |integer |t(:row_comment_qty) |
-|t(:row_parameter_price) |false |number |t(:row_comment_resp_price) |
-|t(:row_parameter_time_in_force) |<b>true</b> |string |t(:row_comment_timeInForce) |
-|take_profit |false |number |t(:row_comment_takeProfit) |
-|stop_loss |false |number |t(:row_comment_stopLoss) |
-|reduce_only |false |bool |t(:row_comment_reduceOnly) |
-|close_on_trigger |false |bool |t(:row_comment_closeOnTrigger)
-|order_link_id |false |string |t(:row_comment_orderLinkId) |
+|t(:row_parameter_symbol)|<b>true</b>|string|t(:spotSymbol)|
+|quantity|<b>true</b>|number|t(:spotQuantity)|
+|t(:row_parameter_side)|<b>true</b>|string|t(:spotSide)|
+|t(:row_parameter_type)|<b>true</b>|string|t(:spotOrderType)|
+|t(:row_parameter_timeInForce)|false|string|t(:spotTimeInForce)|
+|price|false|number|t(:spotPrice)|
+|newClientOrderId|false|string|t(:tOrderClientOrdID)|
+
 
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| user_id |number |t(:row_comment_userID) |
-| order_id |string |t(:row_comment_orderId) |
-|symbol|string |t(:row_comment_symbol)    |
-|side |string |t(:row_comment_side)  |
-|order_type |string |t(:row_comment_order_type)  |
-|price |number |t(:row_comment_resp_price)  |
-|qty |number |t(:row_response_comment_qty)  |
-|time_in_force |string |t(:row_comment_timeInForce)  |
-|order_status |string |t(:row_comment_orderStatus)  |
-|last_exec_time |string |t(:row_comment_last_exec_time)  |
-|last_exec_price |string |t(:row_comment_last_exec_price)  |
-|leaves_qty |number |t(:row_comment_leaves_qty)  |
-|cum_exec_qty |number |t(:linear_resp_field_cum_exec_qty)  |
-|cum_exec_value |number |t(:linear_resp_field_cum_exec_value)  |
-|cum_exec_fee |number |t(:linear_resp_field_cum_exec_fee)  |
-|reject_reason |string |t(:row_comment_reject_reason)  |
-|order_link_id |string |t(:row_response_comment_orderLinkId)  |
-|created_at |string |t(:row_comment_created_at)  |
-|updated_at |string |t(:row_comment_updated_at)  |
+|orderId|integer|t(:spotOrderID)|
+|clientOrderId|string|t(:tOrderClientOrdID)
+|symbol|string|t(:spotSymbol)|
+|transactTime|int|t(:spotTransactTime)|
+|price|float|t(:spotPrice)|
+|origQty|float|t(:spotOriQty)|
+|executedQty|float|t(:spotExecQty)|
+|avgPrice|float|t(:spotAvgPrice)|
+|type|string|t(:spotType)|
+|side|string|t(:spotSide)|
+|status|string|t(:spotStatus)|
+|timeInForce|string|t(:spotTimeInForce)
 
 ### t(:getactive)
 > t(:codequote_curlExample)

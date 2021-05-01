@@ -5,11 +5,18 @@ t(:ENUMs_para)
 * `Buy`
 * `Sell`
 
+## TimeInForce (`timeInForce`)
+* `GTC: Good Till Canceled`
+* `FOK: Fill or Kill`
+* `IOC: Immediate or Cancel`
+
 ## Symbol (`symbol`)
 * `BTCUSDH21`  // H: t(:first_quarter);    21: 2021
-* `BTCUSDM21`  // M: t(:second_quarter);     21: 2021
-* `BTCUSDU21`  // U: t(:third_quarter);     21: 2021
-* `BTCUSDZ21`  // Z: t(:fourth_quarter);    21: 2021
+
+## Type (`type`)
+* `LIMIT`
+* `MARKET`
+* `LIMIT_MAKER`
 
 t(:trading_symbol_comment) 
 
