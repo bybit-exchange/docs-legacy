@@ -715,9 +715,7 @@ t(:spot_websocket_user_order_desc)
 | L | string | t(:spot_recent_price) |
 | n | string | t(:spot_fee) |
 | N | string | t(:spot_fee_symbol) |
-| u | boolean | t(:spot_ig) |
-| w | boolean | t(:spot_ig)|
-| m | string | t(:spot_ig) |
+| m | string | t(:spot_m) |
 | a | string | t(:spot_asset) |
 | O | string | t(:spot_order_create_timestamp) |
 | Z | string | t(:spot_cumulative_trade) |
