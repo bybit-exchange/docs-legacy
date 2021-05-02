@@ -963,6 +963,7 @@ zh-cn:
   websocket_para_response: 每个topic订阅请求都会有对应的响应，您可以根据返回结果判断是否订阅成功。
   ## Public Topics
   publictopics: 公共 Topics
+  publictopics_v2: 公共 Topics V2
   ### orderBookL2_25
   websocketorderbook25: orderBook25档
   websocket_para_orderbook251: 获取25档orderbook数据.
@@ -1676,7 +1677,142 @@ zh-cn:
   spotTimeInForce: 订单时间指令（Time in Force）。可能出现的值为：GTC（Good Till Canceled，一直有效），FOK（Fill or Kill，全部成交或者取消），IOC（Immediate or Cancel，立即成交或者取消）
   spotPrice: 订单价格，对于LIMIT 订单必需发送
   tOrderClientOrdID: 特殊订单ID，用户自己生成
+  spotOrderCQuery: 查询订单
 
 
   row_parameter_type: <a href="#type-type">type</a>
   row_parameter_timeInForce: <a href="#timeinforce-timeinforce">timeInForce</a>
+
+  #spot_ws_v1
+  spot_price: 价格
+  spot_symbol: 币对
+  spot_quantity: 数量
+  spot_side: true买, false卖
+  spot_order_type: 订单类型, LIMIT/MARKET/LIMIT_MAKER
+  spot_order_client_id: 用户创建orderid
+  spot_order_status: 订单状态 NEW - 新订单、暂无成交，PARTIALLY_FILLED - 部分成交，FILLED - 完全成交，CANCELED - 已取消，PENDING_CANCEL - 等待取消，REJECTED - 被拒绝
+  spot_first: 是否首次返回
+  spot_timestamp: 时间戳
+  spot_timestamp_kline: k线开始时间
+  spot_time_in_force: 订单时间指令（Time in Force）。可能出现的值为：GTC（Good Till Canceled，一直有效），FOK（Fill or Kill，全部成交或者取消），IOC（Immediate or Cancel，立即成交或者取消）
+  spot_close: 收盘价
+  spot_high: 最高价
+  spot_low: 最低价
+  spot_open: 开盘价
+  spot_volume: 成交量
+  spot_quota_volume: 成交额
+  spot_version: 版本号
+  spot_buy: 买一价、数量
+  spot_sell: 卖一价、数量
+  spot_binary: 是否压缩 true压缩, false未压缩（默认）
+  spot_kline_type: k线间隔
+  spot_buy_price: 买一价价格
+  spot_buy_qty: 买一价数量
+  spot_sell_price: 卖一价价格
+  spot_sell_qty: 卖一价数量
+  spot_binance_change: 余额变化
+  spot_asset: 资产名称
+  spot_available_qty: 可用数量
+  spot_frezen_qty: 冻结数量
+  spot_event_type: 事件类型
+  spot_allow_trade: 允许交易
+  spot_allow_withdraw: 允许提现
+  spot_allow_deposit: 允许充值
+  spot_cumulative_trade: 累计成交数额
+  spot_event_timestamp: 事件时间
+  spot_order_create_timestamp: 订单创建时间
+  spot_order_id: 订单id
+  spot_recent_qty: 最近成交数量
+  spot_cumulative_qty: 累计成交数量
+  spot_recent_price: 最近成交价格
+  spot_free: 手续费
+  spot_free_symbol: 手续费币种
+  spot_websocket_trade_v1: 逐笔交易
+  spot_websocket_trade_desc_v1: |
+    <p>逐笔交易推送每一笔成交的信息。成交，或者说交易的定义是仅有一个吃单者与一个挂单者相互交易。</p>
+    <p>在成功连接到服务器后，服务器首先会推送一条最近的60条成交。在这条推送之后，每条推送都是实时的成交。</p>
+    <p>变量“v”可以理解成一个交易ID。这个变量是全局递增的并且独特的。例如：假设过去5秒有3笔交易发生，分别是ETHUSDT、BTCUSDT、BHTBTC。它们的“v”会为连续的值（112，113，114）。</p>
+
+  spot_websocket_ticker_v1: Symbol的Ticker
+  spot_websocket_ticker_desc_v1: 按Symbol逐秒刷新的24小时完整ticker信息。
+  spot_websocket_kline_v1: K线/蜡烛图
+  spot_websocket_kline_desc_v1: |
+    <p>K线stream逐秒推送所请求的K线种类(最新一根K线)的更新</p>
+    <p>订阅Kline需要提供间隔参数，最短为分钟线，最长为月线。支持以下间隔:</p>
+    <p>m -> 分钟; h -> 小时; d -> 天; w -> 周; M -> 月</p>
+      <ul>
+      <li>1m</li>
+      <li>5m</li>
+      <li>15m</li>
+      <li>30m</li>
+      <li>1h</li>
+      <li>2h</li>
+      <li>4h</li>
+      <li>6h</li>
+      <li>12h</li>
+      <li>1d</li>
+      <li>1w</li>
+      <li>1M</li>
+      </ul>
+  
+  spot_broker_info: brokerinfo数据返回
+  spot_websocket_orderbook_v1: 订单簿(全量深度)
+  spot_websocket_orderbook_desc_v1: |
+    <p>Symbol的深度信息。</p>
+    <p>这里是订单簿快照推送的详细信息：</p>
+    <ul>
+      <li>订单簿快照频率：每300ms, 如果book变了的话。</li>
+      <li>订单簿快照频率深度：bids 和 asks各300</li>
+      <li>订单簿版本变更触发事件：
+        <ul>
+          <li>订单进入订单簿</li>
+          <li>订单离开订单簿</li>
+          <li>订单数量变更</li>
+          <li>订单已完成</li>
+        </ul>
+      </li>
+    </ul>
+    <p>这个订阅会推送全量深度信息，因此数据量大。如果想要推送评率更快，请订阅合并深度。</p>
+
+  spot_websocket_orderbook_merge_v1: 订单簿(合并深度)
+  spot_websocket_orderbook_merge_desc_v1: 这个订阅必须传dumpScale（合并精度）这个参数。dumpScale不能大于ticker的精度。你可以在brokerInfo这个端点查询ticker的精度信息。
+
+  spot_websocket_orderbook_delta_v1: 订单簿(增量深度)
+  spot_websocket_orderbook_delta_desc_v1: |
+    <p>每秒推送订单簿的变化部分（如果有）。</p>
+    <p>在增量深度信息中，数量不一定等于对应价格的数量。如果数量=0，这说明在上一条推送中的这个价格已经没有了。如果数量>0，这时的数量为更新后的这个价格所对应的数量。</p>
+    <p>假设我们收到的返回数据中有这样一条：</p>
+    <p>&nbsp;&nbsp;> ["0.00181860", "155.92000000"]// 价格，数量</p>
+    <p>如果下一条返回数据中有：</p>
+    <p>&nbsp;&nbsp;> ["0.00181860", "12.3"]</p>
+    <p>这说明这个价格对应的数量有变更，已经更新变更的数量。</p>
+    <p>如果下一条返回数据中有：</p>
+    <p>&nbsp;&nbsp;> ["0.00181860", "0"]</p>
+    <p>这说明这个价格对应的数量已经消失，将会在客户端中删除。</p>
+  
+  spot_websocket_many_symbol_desc: 支持多symbol，使用,隔开。
+  spot_websocket_subscribe_desc: |
+    <p>建立连接后, 可以通过发送JSON请求来订阅topic. 请求格式如下:</p>
+    <p>ws.send('{"symbol":"BTCUSDT","topic":"trade","event":"sub","params":{"binary":false}}');</p>
+    <p>支持多币种，用','隔开</p>
+    <p>ws.send('{"symbol":"BTCUSDT,ETHUSDT","topic":"trade","event":"sub","params":{"binary":false}}');</p>
+
+  #用户
+  spot_websocket_user_account: 账户变更
+  spot_websocket_user_account_desc: 使用 outboundAccountInfo event进行账户更新。
+  spot_websocket_user_order: 订单更新
+  spot_websocket_user_order_desc: 订单通过executionReport事件进行更新。详细说明信息请查看这里。通过将Z除以z可以找到平均价格。
+
+  
+  #spot_ws_v2
+  spot_websocket_ticker_v2: Symbol的Ticker
+  spot_websocket_ticker_desc_v2: ''
+
+  spot_websocket_kline_v2: K线/蜡烛图
+  spot_websocket_kline_desc_v2: ''
+
+  spot_websocket_trade_v2: 逐笔交易
+  spot_websocket_trade_desc_v2: ''
+
+  spot_websocket_orderbook_v2: 订单簿(全量深度)
+  spot_websocket_orderbook_desc_v2: ''
