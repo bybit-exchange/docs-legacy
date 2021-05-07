@@ -1535,7 +1535,7 @@ curl https://api.bybit.com/futures/private/position/leverage/save \
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.FuturesPositions.FuturesPositions_saveLeverage(symbol="BTCUSDM21",position_idx=1, buy_leverage="14",sell_leverage="14").result())
+print(client.FuturesPositions.FuturesPositions_saveLeverage(symbol="BTCUSDM21", buy_leverage="14",sell_leverage="14").result())
 ```
 
 > t(:codequote_responseExample)
@@ -1632,13 +1632,13 @@ POST
 ```console
 curl https://api.bybit.com/futures/private/position/switch-isolated \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSDM21", "position_idx":1, "is_isolated":true,"buy_leverage":10,"sell_leverage":20, "timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","symbol":"BTCUSDM21", "is_isolated":true,"buy_leverage":10,"sell_leverage":20, "timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.FuturesPositions.FuturesPositions_switchIsolated(symbol="BTCUSDM21",position_idx=1,is_isolated=True, buy_leverage="1", sell_leverage="1").result())
+print(client.FuturesPositions.FuturesPositions_switchIsolated(symbol="BTCUSDM21",is_isolated=True, buy_leverage="1", sell_leverage="1").result())
 ```
 
 > t(:codequote_responseExample)
@@ -1668,7 +1668,7 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
-|position_idx |<b>true</b>|integer |t(:row_comment_position_idx)  |
+|position_idx |<b>true</b>|integer |t(:row_comment_position_idx_leverage)  |
 |is_isolated |<b>true</b> |bool |t(:futures_row_comment_switch_isolated)  |
 |buy_leverage |<b>true</b> |number |t(:futures_row_comment_leverage)  |
 |sell_leverage |<b>true</b> |number |t(:futures_row_comment_leverage)  |
