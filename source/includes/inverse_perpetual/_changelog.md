@@ -6,6 +6,16 @@
 - [t(:getrisklimit)](#t-getrisklimit) [t(:changelog_new)]
   - t(:restapi_update_2021051101)
 
+## 2021-05-07
+### REST API IN TESTNET ENVIRONMENT
+- [t(:setleverage)](#t-setleverage) [t(:changelog_update)]
+ - t(:restapi_update_2021050703)
+ - t(:restapi_update_2021050704)
+- [t(:switchpositionmode)] (#t-switchpositionmode) [t(:changelog_new)]
+ - t(:restapi_update_2021050701)
+- [t(:marginswitch)] (#t-marginswitch) [t(:changelog_new)]
+ - t(:restapi_update_2021050702)
+
 ## 2021-04-22
 ### REST API
 - [t(:lcp)](#t-lcp) [t(:changelog_update)]
