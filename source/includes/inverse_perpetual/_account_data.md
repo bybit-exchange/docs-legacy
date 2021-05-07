@@ -1846,7 +1846,7 @@ POST
 ```console
 curl https://api.bybit.com/v2/private/position/switch-isolated \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSD", "position_idx":1, "is_isolated":true,"buy_leverage":10,"sell_leverage":20, "timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","symbol":"BTCUSD", "is_isolated":true,"buy_leverage":10,"sell_leverage":20, "timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
 
@@ -1870,14 +1870,13 @@ t(:futures_account_para_switchIsolated)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=ulSwitchMode>/v2/private/position/switch-isolated</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ulSwitchMode"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=ulSwitchIsolated>/v2/private/position/switch-isolated</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ulSwitchIsolated"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
-|position_idx |<b>true</b>|integer |t(:row_comment_position_idx)  |
 |is_isolated |<b>true</b> |bool |t(:futures_row_comment_switch_isolated)  |
 |buy_leverage |<b>true</b> |number |t(:futures_row_comment_leverage)  |
 |sell_leverage |<b>true</b> |number |t(:futures_row_comment_leverage)  |

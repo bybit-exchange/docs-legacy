@@ -1,5 +1,10 @@
 # t(:changelog)
 
+## 2021-05-07
+### REST API IN TESTNET ENVIRONMENT
+- t(:restapi_update_2021050705)
+- t(:restapi_update_2021050706)
+
 ## 2021-04-15
 ### REST API
 - t(:restapi_update_20210415)
