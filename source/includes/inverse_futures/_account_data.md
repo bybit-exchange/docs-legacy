@@ -1570,8 +1570,8 @@ POST
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
 |position_idx |<b>true</b>|integer |t(:row_comment_position_idx_leverage)  |
-|buy_leverage |<b>true</b> |number |t(:futures_row_comment_leverage) |
-|sell_leverage |<b>true</b> |number |t(:futures_row_comment_leverage) |
+|buy_leverage |<b>true</b> |number |t(:future_row_comment_leverage) |
+|sell_leverage |<b>true</b> |number |t(:future_row_comment_leverage) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
