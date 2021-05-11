@@ -604,3 +604,251 @@ POST
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |order_id |string |t(:account_row_comment_orderId) |
+
+
+
+### t(:a_getrisklimit)
+> t(:codequote_curlExample)
+
+```console
+curl "https://api.bybit.com/open-api/wallet/risk-limit/list?api_key={api_key}&timestamp={timestamp}&sign={sign}"
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.Wallet.Wallet_getRiskLimit().result())
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "ok",
+    "ext_code": "",
+    "result": [
+        {
+            "id": 1,
+            "coin": "BTC",
+            "symbol": "BTCUSD",
+            "limit": 150,
+            "maintain_margin": "0.50",
+            "starting_margin": "1.00",
+            "section": [
+                "1",
+                "2",
+                "3",
+                "5",
+                "10",
+                "25",
+                "50",
+                "100"
+            ],
+            "is_lowest_risk": 1,
+            "created_at": "2018-09-21T11:34:11.000Z",
+            "updated_at": "2018-09-21T11:34:11.000Z",
+            "max_leverage": "100.00"
+        },
+        {
+            "id": 10,
+            "coin": "BTC",
+            "symbol": "BTCUSD",
+            "limit": 1500,
+            "maintain_margin": "5.00",
+            "starting_margin": "5.50",
+            "section": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "10",
+                "15",
+                "18"
+            ],
+            "is_lowest_risk": 0,
+            "created_at": "2018-09-21T11:34:11.000Z",
+            "updated_at": "2018-09-21T11:34:11.000Z",
+            "max_leverage": "18.18"
+        }
+    ],
+    "ext_info": null,
+    "time_now": "1616568086.769014",
+    "rate_limit_status": 599,
+    "rate_limit_reset_ms": 1616568086777,
+    "rate_limit": 600
+}
+```
+
+t(:wallet_para_getRisk)
+
+<aside class="notice">
+t(:wallet_aside_getRisk)
+</aside>
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=oawrlList>/open-api/wallet/risk-limit/list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawrlList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|t(:row_parameter_symbol) |<b>false</b> |string |t(:row_comment_symbol)   |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|id |number |t(:row_comment_riskId)  |
+|coin |string |t(:row_comment_coin_type)  |
+|t(:row_parameter_symbol)|string |t(:row_comment_symbol)   |
+|limit |number |t(:row_comment_risk_limit)    |
+|maintain_margin |string |t(:row_comment_maintain_margin)  |
+|starting_margin |string |t(:row_comment_starting_margin)  |
+|section |string |t(:row_comment_section)  |
+|is_lowest_risk |number |t(:row_comment_is_lowest_risk)    |
+|created_at |string |t(:row_comment_created_at)  |
+|updated_at |string |t(:row_comment_updated_at)  |
+|max_leverage |string |t(:row_comment_max_leverage)  |
+
+
+### t(:a_setrisklimit)
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/open-api/wallet/risk-limit \
+-H "Content-Type: application/json" \
+-d '{"api_key":"{api_key}","symbol":"BTCUSD","risk_id":2,"timestamp":{timestamp},"sign":"{sign}"}'
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.Wallet.Wallet_setRiskLimit(symbol="BTCUSD", risk_id=2).result())
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+  "ret_code": 0,
+  "ret_msg": "ok",
+  "ext_code": "",
+  "result": {
+    "position": {
+      "id": 1,
+      "user_id": 1,
+      "symbol": "BTCUSD",
+      "side": "None",
+      "size": 0,
+      "position_value": 0,
+      "entry_price": 0,
+      "risk_id": 2,
+      "auto_add_margin": 0,
+      "leverage": 1,
+      "position_margin": 0,
+      "liq_price": 0,
+      "bust_price": 0,
+      "occ_closing_fee": 0,
+      "occ_funding_fee": 0,
+      "take_profit": 0,
+      "stop_loss": 0,
+      "trailing_stop": 0,
+      "position_status": "Normal",
+      "deleverage_indicator": 0,
+      "oc_calc_data": "{\"blq\":1,\"blv\":\"0.000125\",\"slq\":0,\"bmp\":8000,\"smp\":0,\"fc\":-0.00012529,\"bv2c\":1.00225,\"sv2c\":1.0007575}",
+      "order_margin": 0.00012529,
+      "wallet_balance": 1000,
+      "realised_pnl": 0,
+      "cum_realised_pnl": 0,
+      "cum_commission": 0,
+      "cross_seq": 4376,
+      "position_seq": 13689,
+      "created_at": "2019-08-13T06:51:29.000Z",
+      "updated_at": "2019-12-29T03:11:08.000Z",
+      "ext_fields": {
+        "trailing_active": "9000",
+        "v": 4
+      }
+    },
+    "risk": {
+      "id": 2,
+      "coin": "BTC",
+      "limit": 300,
+      "maintain_margin": "1.00",
+      "starting_margin": "1.50",
+      "section": "[\"1\",\"2\",\"3\",\"5\",\"10\",\"25\",\"50\",\"66\"]",
+      "is_lowest_risk": 0,
+      "created_at": "2019-06-26T05:46:45.000Z",
+      "updated_at": "2019-06-26T05:46:55.000Z"
+    }
+  },
+  "ext_info": null,
+  "time_now": "1577589068.435439",
+  "rate_limit_status": 71,
+  "rate_limit_reset_ms": 1577589068546,
+  "rate_limit": 75
+}
+```
+
+t(:wallet_para_setRisk)
+
+<aside class="notice">
+t(:wallet_aside_getRisk)
+</aside>
+
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=oawRiskLimit>/open-api/wallet/risk-limit</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawRiskLimit"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
+|risk_id |<b>true</b> |integer |t(:row_comment_riskId) |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|position > id |number |t(:row_comment_position_id)  |
+|user_id |number |t(:row_comment_userID)  |
+|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|size |number |t(:row_comment_position_size)  |
+|position_value |number |t(:row_comment_position_value)  |
+|entry_price |number |t(:row_comment_entry_price)  |
+|risk_id |number |t(:row_comment_riskId)  |
+|auto_add_margin |number |t(:row_comment_auto_add_margin)  |
+|leverage |number |t(:resp_field_leverage)  |
+|position_margin |number |t(:row_comment_position_margin)  |
+|liq_price |number |t(:row_comment_liq_price)  |
+|bust_price |number |t(:row_comment_bust_price)  |
+|occ_closing_fee |number |t(:row_comment_occ_closing_fee)  |
+|occ_funding_fee |number |t(:row_comment_occ_funding_fee)  |
+|take_profit |number |t(:row_comment_take_profit)  |
+|stop_loss |number |t(:row_comment_stop_loss)  |
+|trailing_stop |number |t(:row_comment_trailing_stop)  |
+|position_status |string |t(:row_comment_position_status)  |
+|deleverage_indicator |number |t(:row_comment_deleverage_indicator)  |
+|oc_calc_data |string |t(:row_comment_oc_calc_data)  |
+|order_margin |number |t(:row_comment_order_margin)  |
+|wallet_balance |number |t(:row_comment_wallet_balance)  |
+|realised_pnl |number |t(:row_comment_realised_pnl)  |
+|cum_realised_pnl |number |t(:row_comment_cum_realised_pnl)  |
+|cum_commission |number |t(:row_comment_cum_commission)  |
+|cross_seq |number |t(:row_comment_cross_seq)  |
+|position_seq |number |t(:row_comment_position_seq)  |
+|created_at |string |t(:row_comment_created_at)  |
+|updated_at |string |t(:row_comment_updated_at)  |
+|ext_fields>trailing_active |string |t(:row_comment_trailing_active)  |
+|risk>id |number |t(:row_comment_riskId)  |
+|risk>coin |string |t(:row_comment_coin_type)  |
+|risk>limit |number |t(:row_comment_risk_limit)    |
+|risk>maintain_margin |string |t(:row_comment_maintain_margin)  |
+|risk>starting_margin |string |t(:row_comment_starting_margin)  |
+|risk>section |string |t(:row_comment_section)  |
+|risk>is_lowest_risk |number |t(:row_comment_is_lowest_risk)    |
+|risk>created_at |string |t(:row_comment_created_at)  |
+|risk>updated_at |string |t(:row_comment_updated_at)  |
