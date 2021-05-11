@@ -607,7 +607,7 @@ POST
 
 
 
-### t(:getrisklimit)
+### t(:a_getrisklimit)
 > t(:codequote_curlExample)
 
 ```console
@@ -713,7 +713,7 @@ GET
 |max_leverage |string |t(:row_comment_max_leverage)  |
 
 
-### t(:setrisklimit)
+### t(:a_setrisklimit)
 > t(:codequote_curlExample)
 
 ```console

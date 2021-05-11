@@ -1801,6 +1801,7 @@ GET
 
 ### t(:setrisklimit)
 > t(:codequote_curlExample)
+
 ```console
 curl https://api.bybit.com/v2/private/position/risk-limit \
 -H "Content-Type: application/json" \
