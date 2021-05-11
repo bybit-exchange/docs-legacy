@@ -337,6 +337,14 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="更新日志">更新日志</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#2021-05-07" class="toc-h2 toc-link" data-title="2021-05-07">2021-05-07</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-in-testnet-environment" class="toc-h3 toc-link" data-title="REST API IN TESTNET ENVIRONMENT">REST API IN TESTNET ENVIRONMENT</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
                     <a href="#2021-04-15" class="toc-h2 toc-link" data-title="2021-04-15">2021-04-15</a>
                       <ul class="toc-list-h3">
                           <li>
@@ -782,7 +790,12 @@ clipboard.on('error', function(e) {
 <p><p>欢迎使用 <a href="https://www.bybit.com/">Bybit</a> APIs 和 Websocket官方文档！</p> <p>如果您在使用API的过程中遇到问题需要帮助，请加入我们的 <a href="https://t.me/Bybitapi">官方Telegram API讨论群</a>！</p></p>
 <h3 id='t-resources'>中文社区和参考资料</h3>
 <p><ul class="bybit-community"> <li><img src="../../images/favicon-4f296779.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/zh-cn"><strong>帮助中心</strong></a> - <strong>在这里了解合约交易</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/docs/issues"><strong>Bybit API docs</strong></a> - <strong>在这里提bug</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/api-connectors/"><strong>Bybit's api-connectors</strong></a> - <strong>官方API SDK</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文讨论群</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文讨论群</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong> <li><img src="../../images/email_icon-e7dd7b20.png" height="14", width="14"> <a href="mailto:IT@bybit.com"><strong>IT@bybit.com</strong></a> - <strong>官方技术支持邮箱!</strong> </ul></p>
-<h1 id='t-changelog'>更新日志</h1><h2 id='2021-04-15'>2021-04-15</h2><h3 id='rest-api'>REST API</h3>
+<h1 id='t-changelog'>更新日志</h1><h2 id='2021-05-07'>2021-05-07</h2><h3 id='rest-api-in-testnet-environment'>REST API IN TESTNET ENVIRONMENT</h3>
+<ul>
+<li><a href="#t-setleverage">修改杠杆接口</a> 废弃字段<code>position_idx</code></li>
+<li><a href="#t-marginswitch">全仓/逐仓切换接口</a> 废弃字段<code>position_idx</code></li>
+</ul>
+<h2 id='2021-04-15'>2021-04-15</h2><h3 id='rest-api'>REST API</h3>
 <ul>
 <li>修复<a href="#t-balance">获取钱包余额</a>接口字段<code>used_margin、order_margin、position_margin、occ_closing_fee、unrealised_pnl</code> 未计算交割持仓的问题</li>
 </ul>
@@ -3971,7 +3984,7 @@ function copyStringToClipboard (endpoint) {
 -d '{"api_key":"{api_key}","symbol":"BTCUSDM21","buy_leverage":14,"sell_leverage":14,"timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">FuturesPositions</span><span class="p">.</span><span class="n">FuturesPositions_saveLeverage</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDM21"</span><span class="p">,</span><span class="n">position_idx</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">buy_leverage</span><span class="o">=</span><span class="s">"14"</span><span class="p">,</span><span class="n">sell_leverage</span><span class="o">=</span><span class="s">"14"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">FuturesPositions</span><span class="p">.</span><span class="n">FuturesPositions_saveLeverage</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDM21"</span><span class="p">,</span> <span class="n">buy_leverage</span><span class="o">=</span><span class="s">"14"</span><span class="p">,</span><span class="n">sell_leverage</span><span class="o">=</span><span class="s">"14"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
 </code></pre></div>
 <blockquote>
 <p>响应示例</p>
@@ -4020,19 +4033,19 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">position_idx</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">integer</td>
-<td>Position idx, 用于在不同仓位模式下标识仓位：<br/>0-单向持仓 <br/>1-双向持仓Buy<br/> 2-双向持仓Sell</td>
+<td>已废弃!! Position idx</td>
 </tr>
 <tr>
 <td style="text-align: left">buy_leverage</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">number</td>
-<td><code>杠杆大于0，小于风险限额对应的杠杆</code></td>
+<td>Must be greater than 0 and less than the <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>.</td>
 </tr>
 <tr>
 <td style="text-align: left">sell_leverage</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">number</td>
-<td><code>杠杆大于0，小于风险限额对应的杠杆</code></td>
+<td>Must be greater than 0 and less than the <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>.</td>
 </tr>
 </tbody></table>
 
@@ -4114,10 +4127,10 @@ function copyStringToClipboard (endpoint) {
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/futures/private/position/switch-isolated \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSDM21", "position_idx":1, "is_isolated":true,"buy_leverage":10,"sell_leverage":20, "timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","symbol":"BTCUSDM21", "is_isolated":true,"buy_leverage":10,"sell_leverage":20, "timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">FuturesPositions</span><span class="p">.</span><span class="n">FuturesPositions_switchIsolated</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDM21"</span><span class="p">,</span><span class="n">position_idx</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">is_isolated</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">buy_leverage</span><span class="o">=</span><span class="s">"1"</span><span class="p">,</span> <span class="n">sell_leverage</span><span class="o">=</span><span class="s">"1"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">FuturesPositions</span><span class="p">.</span><span class="n">FuturesPositions_switchIsolated</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDM21"</span><span class="p">,</span><span class="n">is_isolated</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">buy_leverage</span><span class="o">=</span><span class="s">"1"</span><span class="p">,</span> <span class="n">sell_leverage</span><span class="o">=</span><span class="s">"1"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
 </code></pre></div>
 <blockquote>
 <p>响应示例</p>
@@ -4162,7 +4175,7 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">position_idx</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">integer</td>
-<td>Position idx, 用于在不同仓位模式下标识仓位：<br/>0-单向持仓 <br/>1-双向持仓Buy<br/> 2-双向持仓Sell</td>
+<td>已废弃!! Position idx</td>
 </tr>
 <tr>
 <td style="text-align: left">is_isolated</td>
