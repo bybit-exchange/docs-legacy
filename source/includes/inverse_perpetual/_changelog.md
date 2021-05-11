@@ -6,7 +6,7 @@
 - [t(:getrisklimit)](#t-getrisklimit) [t(:changelog_new)]
   - t(:restapi_update_2021051101)
 
-## 2021-05-07
+## 2021-05-11
 ### REST API IN TESTNET ENVIRONMENT
 - [t(:setleverage)](#t-setleverage) [t(:changelog_update)]
  - t(:restapi_update_2021050703)
