@@ -583,7 +583,8 @@ zh-cn:
   ### Query Active Order (real-time)
   queryactive: 实时查询活动委托
   account_para_queryActive: 实时查询活动委托。当传递参数<code>order_id</code>或<code>order_link_id</code>其中任意一个时，将返回单条订单数据，如果参数<code>order_id</code>和<code>order_link_id</code>都不传递时，将返回所有<b>未成交</b>的订单，最多500条。
-
+  a_getrisklimit: 查询风险限额表
+  a_setrisklimit: 设置风险限额
   ## Conditional Orders
   ### Place Conditional Order
   conditionalorders: 条件单
@@ -1618,6 +1619,8 @@ zh-cn:
   restapi_update_20210414_2: 修复双仓模式下，不传<code>symbol</code>参数情况下持仓列表数据不完整问题
   restapi_update_20210415: 修复<a href="#t-balance">获取钱包余额</a>接口字段<code>used_margin、order_margin、position_margin、occ_closing_fee、unrealised_pnl</code> 未计算交割持仓的问题
   restapi_update_20210422: 废弃字段self_ratio与platform_ratio，现阶段返回值均为0
+  restapi_update_20210511: 新增：<code>v2/private/position/risk-limit</code>
+  restapi_update_2021051101: 新增：<code>v2/public/risk-limit/list</code>
 
   markpricekline: 标记价格K线
   linear_query_mark_price_kline: 查询标记价格K线

@@ -606,6 +606,8 @@ en:
   queryactive: Query Active Order (real-time)
   account_para_queryActive: Query real-time active order information. If only <code>order_id</code> or <code>order_link_id</code> are passed, a single order will be returned; otherwise, <b>returns up to 500 unfilled orders</b>.
 
+  a_getrisklimit: Get risk limit
+  a_setrisklimit: Set Risk Limit
   ## Conditional Orders
   conditionalorders: Conditional Orders
   ### Place Conditional Order
@@ -1693,6 +1695,8 @@ en:
   restapi_update_20210414_2: Fix data of position list when request without request parameter <code>symbol</code> if the position is under both side mode
   restapi_update_20210415: Fix value of <code>used_margin、order_margin、position_margin、occ_closing_fee、unrealised_pnl</code> of <a href="#t-balance">Get Wallet Balance</a> endpoint not contains Inverse Futures positions
   restapi_update_20210422: Deprecated Fields of self_ratio and platform_ratio, it is returned as 0 currently
+  restapi_update_20210511: Add：<code>v2/private/position/risk-limit</code>
+  restapi_update_2021051101: Add：<code>v2/public/risk-limit/list</code>
 
   markpricekline: Query Mark Price Kline
   linear_query_mark_price_kline: Query mark price kline (like <a href="#t-querykline">Query Kline</a> but for <a href="https://help.bybit.com/hc/en-us/articles/360039261074-What-is-Dual-Price-mechanism-">mark price</a>).
