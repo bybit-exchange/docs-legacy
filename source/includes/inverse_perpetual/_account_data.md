@@ -1913,7 +1913,7 @@ t(:wallet_aside_getRisk)
 </aside>
 
 <p class="fake_header">t(:httprequest)</p>
-GET
+POST
 <code><span id=oawrlList>v2/private/position/risk-limit</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawrlList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
