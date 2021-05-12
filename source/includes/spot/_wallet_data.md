@@ -1,15 +1,49 @@
 # t(:wallet)
 t(:wallet_para)
 
+## t(:spot_balance)
+> t(:codequote_curlExample)
 
-### t(:balance)
-<a href="/docs/inverse#t-balance">t(:shared_endpoint_desc)</a>
+```console
+```
 
-### t(:walletrecords)
-<a href="/docs/inverse#t-walletrecords">t(:shared_endpoint_desc)</a>
+```python
+```
 
-### t(:withdrawrecords)
-<a href="/docs/inverse#t-withdrawrecords">t(:shared_endpoint_desc)</a>
+> t(:codequote_responseExample)
 
-### t(:assetexchangerecords)
-<a href="/docs/inverse#t-assetexchangerecords">t(:shared_endpoint_desc)</a>
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "",
+    "ext_code": null,
+    "ext_info": null,
+    "result": {
+        "balances": [
+            {
+                "asset": "USDT",
+                "assetId": "USDT",
+                "assetName": "USDT",
+                "total": "82273228.72794932",
+                "free": "13513278.72794932",
+                "locked": "68759950"
+            }
+        ]
+    }
+}
+```
+
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=vpOrder>/spot/v1/account</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|asset| string | t(:spot_token)|
+|fee| float| t(:spot_fee)|
+|locked| float | t(:spot_locked)

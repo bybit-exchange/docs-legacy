@@ -20,7 +20,7 @@ curl https://api.bybit.com/spot/v1/order \
 
 ```javascript
 {
-    "ret_code": 200,
+    "ret_code": 0,
     "ret_msg": "",
     "ext_code": null,
     "ext_info": null,
@@ -90,7 +90,7 @@ POST
 
 ```javascript
 {
-    "ret_code": 200,
+    "ret_code": 0,
     "ret_msg": "",
     "ext_code": null,
     "ext_info": null,
@@ -164,7 +164,7 @@ GET
 
 ```javascript
 {
-    "ret_code": 200,
+    "ret_code": 0,
     "ret_msg": "",
     "ext_code": null,
     "ext_info": null,
@@ -229,7 +229,7 @@ DELETE
 
 ```javascript
 {
-    "ret_code": 200,
+    "ret_code": 0,
     "ret_msg": "",
     "ext_code": null,
     "ext_info": null,
@@ -325,7 +325,7 @@ GET
 
 ```javascript
 {
-    "ret_code": 200,
+    "ret_code": 0,
     "ret_msg": "",
     "ext_code": null,
     "ext_info": null,
@@ -400,7 +400,7 @@ GET
 
 ```javascript
 {
-    "ret_code": 200,
+    "ret_code": 0,
     "ret_msg": "",
     "ext_code": null,
     "ext_info": null,
