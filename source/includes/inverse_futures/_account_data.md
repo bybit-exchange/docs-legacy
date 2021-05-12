@@ -1873,5 +1873,50 @@ GET
 |created_at |number |t(:row_comment_created_at)  |
 
 
+### t(:setrisklimit)
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/futures/private/position/risk-limit \
+-H "Content-Type: application/json" \
+-d '{"api_key":"{api_key}","symbol":"BTCUSDM21","risk_id":2,"timestamp":{timestamp},"sign":"{sign}"}'
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "ext_info": "",
+    "result": {
+        "risk_id": 2
+    },
+    "time_now": "1620283810.393787",
+    "token": null
+}
+```
+
+<aside class="notice">
+t(:wallet_aside_getRisk)
+</aside>
+
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=oawrlList>futures/private/position/risk-limit</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawrlList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
+|risk_id |<b>true</b> |integer |t(:row_comment_riskId) |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|risk_id |number |t(:row_comment_riskId)  |
+
 ## t(:key)
 <a href="/docs/inverse#t-key">t(:shared_endpoint_desc)</a>
