@@ -340,6 +340,14 @@
                     <a href="#2021-05-12" class="toc-h2 toc-link" data-title="2021-05-12">2021-05-12</a>
                       <ul class="toc-list-h3">
                           <li>
+                            <a href="#rest-api-in-testnet-environment" class="toc-h3 toc-link" data-title="REST API IN TESTNET ENVIRONMENT">REST API IN TESTNET ENVIRONMENT</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2021-05-12-2" class="toc-h2 toc-link" data-title="2021-05-12">2021-05-12</a>
+                      <ul class="toc-list-h3">
+                          <li>
                             <a href="#rest-api" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                       </ul>
@@ -348,7 +356,7 @@
                     <a href="#2021-05-07" class="toc-h2 toc-link" data-title="2021-05-07">2021-05-07</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#rest-api-in-testnet-environment" class="toc-h3 toc-link" data-title="REST API IN TESTNET ENVIRONMENT">REST API IN TESTNET ENVIRONMENT</a>
+                            <a href="#rest-api-in-testnet-environment-2" class="toc-h3 toc-link" data-title="REST API IN TESTNET ENVIRONMENT">REST API IN TESTNET ENVIRONMENT</a>
                           </li>
                       </ul>
                   </li>
@@ -542,6 +550,9 @@
                           </li>
                           <li>
                             <a href="#t-closedprofitandloss" class="toc-h3 toc-link" data-title="Closed Profit and Loss">Closed Profit and Loss</a>
+                          </li>
+                          <li>
+                            <a href="#t-setrisklimit" class="toc-h3 toc-link" data-title="Set Risk Limit">Set Risk Limit</a>
                           </li>
                       </ul>
                   </li>
@@ -798,12 +809,16 @@ clipboard.on('error', function(e) {
 <p><p>Welcome to the official documentation for the <a href="https://www.bybit.com/">Bybit</a> APIs and Websocket! Here you can find details on how to access all of our endpoints, their respective expected outputs, and possible errors you may encounter.</p> <p>If you encounter an issue you need help with, have a suggestions for us, or just want to have a chat with fellow developers then please head on over to our <a href="https://t.me/Bybitapi">API Telegram chat</a>!</p></p>
 <h3 id='t-resources'>Group And Bybit API Resources</h3>
 <p><ul class="bybit-community"> <li><img src="../images/favicon-4f296779.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong></a> - <strong>learn about exchange mechanisms here!</strong> <li><img src="../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/docs/issues"><strong>Bybit API docs</strong></a> - <strong>report issues here!</strong> <li><img src="../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/api-connectors/"><strong>Bybit's api-connectors</strong></a> - <strong>find a repo of prebuilt libraries here!</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong> - <strong>get English help here!</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>subscribe for changes to the API!</strong> <li><img src="../images/email_icon-e7dd7b20.png" height="14", width="14"> <a href="mailto:IT@bybit.com"><strong>IT@bybit.com</strong></a> - <strong>official IT support email!</strong> </ul></p>
-<h1 id='t-changelog'>Changelog</h1><h2 id='2021-05-12'>2021-05-12</h2><h3 id='rest-api'>REST API</h3>
+<h1 id='t-changelog'>Changelog</h1><h2 id='2021-05-12'>2021-05-12</h2><h3 id='rest-api-in-testnet-environment'>REST API IN TESTNET ENVIRONMENT</h3>
+<ul>
+<li>Add：<code>futures/private/position/risk-limit</code></li>
+</ul>
+<h2 id='2021-05-12-2'>2021-05-12</h2><h3 id='rest-api'>REST API</h3>
 <ul>
 <li><a href="#t-setleverage">Set Leverage</a> Deprecated Field<code>position_idx</code></li>
 <li><a href="#t-marginswitch">Cross/Isolated Margin Switch</a> Deprecated Field<code>position_idx</code></li>
 </ul>
-<h2 id='2021-05-07'>2021-05-07</h2><h3 id='rest-api-in-testnet-environment'>REST API IN TESTNET ENVIRONMENT</h3>
+<h2 id='2021-05-07'>2021-05-07</h2><h3 id='rest-api-in-testnet-environment-2'>REST API IN TESTNET ENVIRONMENT</h3>
 <ul>
 <li><a href="#t-setleverage">Set Leverage</a> Deprecated Field<code>position_idx</code></li>
 <li><a href="#t-marginswitch">Cross/Isolated Margin Switch</a> Deprecated Field<code>position_idx</code></li>
@@ -4653,6 +4668,78 @@ One order may have multiple trade records.
 <td style="text-align: left">created_at</td>
 <td style="text-align: left">number</td>
 <td>Creation time</td>
+</tr>
+</tbody></table>
+<h3 id='t-setrisklimit'>Set Risk Limit</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/futures/private/position/risk-limit \
+-H "Content-Type: application/json" \
+-d '{"api_key":"{api_key}","symbol":"BTCUSDM21","risk_id":2,"timestamp":{timestamp},"sign":"{sign}"}'
+</span></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">risk_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1620283810.393787</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">token</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</code></pre></div>
+<aside class="notice">
+Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles/360007107454-Risk-Limit-Overview">here</a>.
+</aside>
+
+<p class="fake_header">HTTP Request</p>
+
+<p>POST
+<code><span id=oawrlList>futures/private/position/risk-limit</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawrlList"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">parameter</th>
+<th style="text-align: left">required</th>
+<th style="text-align: left">type</th>
+<th>comments</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Symbol</td>
+</tr>
+<tr>
+<td style="text-align: left">risk_id</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">integer</td>
+<td>Risk ID</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">parameter</th>
+<th style="text-align: left">type</th>
+<th>comments</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">risk_id</td>
+<td style="text-align: left">number</td>
+<td>Risk ID</td>
 </tr>
 </tbody></table>
 <h2 id='t-key'>API Key Info</h2>

@@ -340,6 +340,14 @@
                     <a href="#2021-05-12" class="toc-h2 toc-link" data-title="2021-05-12">2021-05-12</a>
                       <ul class="toc-list-h3">
                           <li>
+                            <a href="#rest-api-in-testnet-environment" class="toc-h3 toc-link" data-title="REST API IN TESTNET ENVIRONMENT">REST API IN TESTNET ENVIRONMENT</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2021-05-12-2" class="toc-h2 toc-link" data-title="2021-05-12">2021-05-12</a>
+                      <ul class="toc-list-h3">
+                          <li>
                             <a href="#rest-api" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                       </ul>
@@ -348,7 +356,7 @@
                     <a href="#2021-05-07" class="toc-h2 toc-link" data-title="2021-05-07">2021-05-07</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#rest-api-in-testnet-environment" class="toc-h3 toc-link" data-title="REST API IN TESTNET ENVIRONMENT">REST API IN TESTNET ENVIRONMENT</a>
+                            <a href="#rest-api-in-testnet-environment-2" class="toc-h3 toc-link" data-title="REST API IN TESTNET ENVIRONMENT">REST API IN TESTNET ENVIRONMENT</a>
                           </li>
                       </ul>
                   </li>
@@ -542,6 +550,9 @@
                           </li>
                           <li>
                             <a href="#t-closedprofitandloss" class="toc-h3 toc-link" data-title="平仓盈亏">平仓盈亏</a>
+                          </li>
+                          <li>
+                            <a href="#t-setrisklimit" class="toc-h3 toc-link" data-title="设置风险限额">设置风险限额</a>
                           </li>
                       </ul>
                   </li>
@@ -798,12 +809,16 @@ clipboard.on('error', function(e) {
 <p><p>欢迎使用 <a href="https://www.bybit.com/">Bybit</a> APIs 和 Websocket官方文档！</p> <p>如果您在使用API的过程中遇到问题需要帮助，请加入我们的 <a href="https://t.me/Bybitapi">官方Telegram API讨论群</a>！</p></p>
 <h3 id='t-resources'>中文社区和参考资料</h3>
 <p><ul class="bybit-community"> <li><img src="../../images/favicon-4f296779.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/zh-cn"><strong>帮助中心</strong></a> - <strong>在这里了解合约交易</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/docs/issues"><strong>Bybit API docs</strong></a> - <strong>在这里提bug</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/api-connectors/"><strong>Bybit's api-connectors</strong></a> - <strong>官方API SDK</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文讨论群</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文讨论群</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong> <li><img src="../../images/email_icon-e7dd7b20.png" height="14", width="14"> <a href="mailto:IT@bybit.com"><strong>IT@bybit.com</strong></a> - <strong>官方技术支持邮箱!</strong> </ul></p>
-<h1 id='t-changelog'>更新日志</h1><h2 id='2021-05-12'>2021-05-12</h2><h3 id='rest-api'>REST API</h3>
+<h1 id='t-changelog'>更新日志</h1><h2 id='2021-05-12'>2021-05-12</h2><h3 id='rest-api-in-testnet-environment'>REST API IN TESTNET ENVIRONMENT</h3>
+<ul>
+<li>新增：<code>futures/private/position/risk-limit</code></li>
+</ul>
+<h2 id='2021-05-12-2'>2021-05-12</h2><h3 id='rest-api'>REST API</h3>
 <ul>
 <li><a href="#t-setleverage">修改杠杆接口</a> 废弃字段<code>position_idx</code></li>
 <li><a href="#t-marginswitch">全仓/逐仓切换接口</a> 废弃字段<code>position_idx</code></li>
 </ul>
-<h2 id='2021-05-07'>2021-05-07</h2><h3 id='rest-api-in-testnet-environment'>REST API IN TESTNET ENVIRONMENT</h3>
+<h2 id='2021-05-07'>2021-05-07</h2><h3 id='rest-api-in-testnet-environment-2'>REST API IN TESTNET ENVIRONMENT</h3>
 <ul>
 <li><a href="#t-setleverage">修改杠杆接口</a> 废弃字段<code>position_idx</code></li>
 <li><a href="#t-marginswitch">全仓/逐仓切换接口</a> 废弃字段<code>position_idx</code></li>
@@ -4626,6 +4641,78 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">created_at</td>
 <td style="text-align: left">number</td>
 <td>创建时间</td>
+</tr>
+</tbody></table>
+<h3 id='t-setrisklimit'>设置风险限额</h3>
+<blockquote>
+<p>请求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/futures/private/position/risk-limit \
+-H "Content-Type: application/json" \
+-d '{"api_key":"{api_key}","symbol":"BTCUSDM21","risk_id":2,"timestamp":{timestamp},"sign":"{sign}"}'
+</span></code></pre></div>
+<blockquote>
+<p>响应示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">risk_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1620283810.393787</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">token</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</code></pre></div>
+<aside class="notice">
+关于风险限额，点击<a href="https://help.bybit.com/hc/en-us/articles/360007107454-Risk-Limit-Overview">这里</a>了解更多。
+</aside>
+
+<p class="fake_header">HTTP 请求</p>
+
+<p>POST
+<code><span id=oawrlList>futures/private/position/risk-limit</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawrlList"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">请求参数</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">参数</th>
+<th style="text-align: left">是否必须</th>
+<th style="text-align: left">类型</th>
+<th>说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>合约类型</td>
+</tr>
+<tr>
+<td style="text-align: left">risk_id</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">integer</td>
+<td>风险限额ID</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">返回参数</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">参数</th>
+<th style="text-align: left">类型</th>
+<th>说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">risk_id</td>
+<td style="text-align: left">number</td>
+<td>风险限额ID</td>
 </tr>
 </tbody></table>
 <h2 id='t-key'>APIKey信息</h2>
