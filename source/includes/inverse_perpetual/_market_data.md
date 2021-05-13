@@ -493,6 +493,12 @@ GET
 curl https://api.bybit.com/v2/public/liq-records?symbol=BTCUSD
 ```
 
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.Market.Market_liqRecords(symbol="BTCUSD").result())
+```
+
 > t(:codequote_responseExample)
 
 ```javascript
@@ -611,6 +617,13 @@ GET
 ```console
 curl "https://api.bybit.com/v2/public/index-price-kline?symbol=BTCUSD&interval=1&limit=2&from=1581231260"
 ```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.Kline.Kline_indexPrice(symbol="BTCUSD", interval="1", **{'from':1615067084}).result())
+```
+
 > t(:codequote_responseExample)
 
 ```javascript
@@ -666,6 +679,12 @@ GET
 
 ```console
 curl "https://api.bybit.com/v2/public/premium-index-kline?symbol=BTCUSD&interval=1&limit=2&from=1581231260"
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.Kline.Kline_premiumIndexPrice(symbol="BTCUSD", interval="1", **{'from':1615067084}).result())
 ```
 > t(:codequote_responseExample)
 
