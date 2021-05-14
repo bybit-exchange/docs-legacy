@@ -470,11 +470,11 @@ en:
       <li><code>price * available_balance * leverage * perc * (1 - (0.00075 * 2))</code></li>
       <li>Unfortunately this is not a perfectly accurate formula; the real calculation is complex and may be published in the docs at a later date.</li>
       <ul>
-        <li><code>price</code> - last price - can be found with the <a href="#t-latestsymbolinfo">Latest Symbol Info endpoint</a>.</li>
+        <li><code>price</code> - last price (or your entry price) - can be found with the <a href="#t-latestsymbolinfo">Latest Symbol Info endpoint</a>.</li>
         <li><code>available_balance</code> - can be found with the <a href="#t-myposition">My Position endpoint</a>.</li>
-        <li><code>leverage</code> - up to the respective maximum leverage for the market and your risk limit (eg 2, 10, 50)</li>
-        <li><code>perc</code> - 0.1 for 10%, 0.25 for 25%, etc</li>
-        <li><code>1 - (0.00075 * 2)</code> - used to calculate the maximum order cost (always assumes entry &amp; exit orders use taker fee regardless actual fee)</li>
+        <li><code>leverage</code> - up to the respective maximum leverage for the market and your risk limit (eg 2, 10, 50).</li>
+        <li><code>perc</code> - 0.1 for 10%, 0.25 for 25%, etc.</li>
+        <li><code>1 - (0.00075 * 2)</code> - used to calculate the maximum order cost (always assumes entry &amp; exit orders use taker fee regardless actual fee).</li>
       </ul>
     </ul>
 
@@ -489,7 +489,34 @@ en:
   ## Where are Bybit's servers located?
   faq_server_location: Where are Bybit's servers located?
   faq_server_location_para: |
-    AWS Singapore, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-availability-zones">Availability Zone ID</a> apse1-az3
+    AWS Singapore, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-availability-zones">Availability Zone ID</a> apse1-az3.
+
+  ## How do I get funds for testnet?
+  faq_testnet_funds: How do I get funds for testnet?
+  faq_testnet_funds_para: |
+    To get testnet funds, please contact the website's customer support using the "Support" button <a href="https://testnet.bybit.com">shown in the bottom-right corner</a>.
+
+  ## Why are my Closed PNL prices inaccurate?
+  faq_closed_pnl_price: Why are my Closed PNL prices inaccurate?
+  faq_closed_pnl_price_para: |
+    <ul>
+      <li>The <code>entry_price</code> and <code>exit_price</code> returned by Closed PNL endpoints are not the actual execution prices of the orders.
+      <li>It is based on the total costs of the order
+      <ul>
+        <li>(whether or not the position was only opened/closed by one order executed at one price - it is more complicated if multiple orders opened/closed a position.)</li>
+      </ul>
+      <li>For instance, the <code>entry_price</code> and <code>exit_price</code> reported by this endpoint are influenced by the fee paid/received on the orders.</li>
+    </ul>
+
+  ## Why are values returned to too many decimal places? (float precision issue)
+  faq_float_precision: Why are values returned to too many decimal places? (float precision issue)
+  faq_float_precision_para: |
+    <ul>
+      <li>Some values are returned to too many decimal places due to a float precision problem - the extra decimals are meaningless.</li>
+      <li>This issue will be fixed in the next complete version of the API.</li>
+      <li>For now, we recommend rounding the received value to the correct decimal place.</li>
+      <li>Search "float precision" in the Telegram Bybit API Discussion group to learn more.</li>
+    </ul>
 
 
   # api_auth
