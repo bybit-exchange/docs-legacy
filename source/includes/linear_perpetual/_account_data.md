@@ -1134,6 +1134,7 @@ print(client.LinearPositions.LinearPositions_myPosition(symbol="BTCUSDT").result
                "tp_sl_mode": "Full",
                "unrealised_pnl": 0,
                "deleverage_indicator": 0,
+               "risk_id": 0,
            },
            {
                "user_id":100004,
@@ -1155,6 +1156,7 @@ print(client.LinearPositions.LinearPositions_myPosition(symbol="BTCUSDT").result
                "tp_sl_mode": "Full",
                "unrealised_pnl": 0,
                "deleverage_indicator": 0,
+               "risk_id": 0,
            }
     ],
     "time_now": "1577480599.097287",
@@ -1192,6 +1194,7 @@ print(client.LinearPositions.LinearPositions_myPosition(symbol="BTCUSDT").result
                 "tp_sl_mode": "Full",
                 "unrealised_pnl": 0,
                 "deleverage_indicator": 0,
+                "risk_id": 0,
             }
         },
         {
@@ -1216,7 +1219,7 @@ print(client.LinearPositions.LinearPositions_myPosition(symbol="BTCUSDT").result
                 "tp_sl_mode": "Full",
                 "unrealised_pnl": 0,
                 "deleverage_indicator": 0,
-
+                "risk_id": 0,
             }
         },
         ...
@@ -1242,6 +1245,7 @@ print(client.LinearPositions.LinearPositions_myPosition(symbol="BTCUSDT").result
                 "tp_sl_mode": "Full",
                 "unrealised_pnl": 0,
                 "deleverage_indicator": 0,
+                "risk_id": 0,
             }
         },
         {
@@ -1266,6 +1270,7 @@ print(client.LinearPositions.LinearPositions_myPosition(symbol="BTCUSDT").result
                 "tp_sl_mode": "Full",
                 "unrealised_pnl": 0,
                 "deleverage_indicator": 0,
+                "risk_id": 0,
             }
         }
     ],
