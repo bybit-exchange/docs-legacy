@@ -435,7 +435,7 @@ t(:spot_websocket_orderbook_delta_desc_v1)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"topic":"depth","event":"sub","params":{"binary":false,"symbol":"$symbol",}}');
+ws.send('{"topic":"depth","event":"sub","params":{"binary":false,"symbol":"$symbol"}}');
 ```
 
 ```python
@@ -502,7 +502,7 @@ t(:spot_websocket_orderbook_desc_v2)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"topic":"kline","event":"sub","params":{"binary":false,"symbol":"$symbol",}}');
+ws.send('{"topic":"kline","event":"sub","params":{"binary":false,"symbol":"$symbol"}}');
 ```
 
 ```python
@@ -550,7 +550,7 @@ t(:spot_websocket_kline_desc_v2)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"topic":"trade","event":"sub","params":{"binary":false,"symbol":"$symbol",}}');
+ws.send('{"topic":"trade","event":"sub","params":{"binary":false,"symbol":"$symbol"}}');
 ```
 
 ```python
@@ -591,7 +591,7 @@ t(:spot_websocket_trade_v2)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"topic":"bookTicker","event":"sub","params":{"binary":false,"symbol":"$symbol",}}');
+ws.send('{"topic":"bookTicker","event":"sub","params":{"binary":false,"symbol":"$symbol"}}');
 ```
 
 ```python
@@ -629,6 +629,58 @@ t(:spot_websocket_ticker_desc_v2)
 | askPrice | string | t(:spot_sell_price)|
 | askQty | boolean | t(:spot_sell_qty) |
 | time | member | t(:spot_timestamp) |
+
+
+### t(:spot_websocket_symbol_ticker_v2)
+> t(:codequote_subscribe)
+
+```javascript
+ws.send('{"topic":"realtimes","event":"sub","params":{"binary":false,"symbol":"$symbol"}}');
+```
+
+```python
+
+```
+
+> t(:codequote_snapshot)
+
+```javascript
+{
+  "topic": "realtimes",
+  "params": {
+    "symbol": "BTCUSDT",
+    "binary": "false"
+  },
+  "data": {
+    "t": 1582001616500,
+    "s": "BTCUSDT",
+    "o": "9736.5",
+    "h": "9830.19",
+    "l": "9455.71",
+    "c": "9796.75",
+    "v": "77211.561764",
+    "qv": "740412516.91255711",
+    "m": "0.0062"
+  }
+}
+```
+t(:spot_websocket_symbol_ticker_desc_v2)
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| symbol | string | t(:spot_symbol) |
+| binary | string | t(:spot_binary) |
+| t | number | t(:spot_timestamp_kline) |
+| s | string | t(:spot_symbol) |
+| c | string | t(:spot_close)|
+| h | string | t(:spot_high)|
+| l | string | t(:spot_low)|
+| o | string | t(:spot_open)|
+| v | string | t(:spot_volume)|
+| qv | string | t(:spot_quota_volume)|
+| m | string | t(:spot_gains)|
+
 
 ## t(:privatetopics)
 ### t(:spot_websocket_user_account)

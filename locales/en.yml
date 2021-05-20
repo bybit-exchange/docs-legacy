@@ -1828,8 +1828,9 @@ en:
   spot_cumulative_qty: Cumulative filled quantity
   spot_recent_price: Last executed price
   spot_fee: fee
-  spot_fee_symbol: fee symbol
+  spot_fee_symbol: fee coin
   spot_m: is maker
+  spot_gains: gains
   spot_websocket_trade_v1: Trade Streams
   spot_websocket_trade_desc_v1: |
     <p>The Trade Streams push raw trade information; each trade has a unique buyer and seller.</p>
@@ -1844,6 +1845,7 @@ en:
     <p>m -> minutes; h -> hours; d -> days; w -> weeks; M -> months</p>
       <ul>
       <li>1m</li>
+      <li>3m</li>
       <li>5m</li>
       <li>15m</li>
       <li>30m</li>
@@ -1906,14 +1908,50 @@ en:
   spot_websocket_user_order_desc: Orders are updated with the executionReport event. Check the API documentation and below for relevant enum definitions. Average price can be found by doing Z divided by z.
 
   #spot_ws_v2
-  spot_websocket_ticker_v2: Market Tickers Stream
-  spot_websocket_ticker_desc_v2: ''
+  
+  spot_websocket_ticker_v2: Bookticker
+  spot_websocket_ticker_desc_v2: 'Optimal buy one sell one price'
 
   spot_websocket_kline_v2: Kline/Candlestick Streams
-  spot_websocket_kline_desc_v2: ''
+  spot_websocket_kline_desc_v2: |
+    <p>The Kline/Candlestick Stream push updates to the current klines/candlestick every second.</p>
+    <p>m -> minutes; h -> hours; d -> days; w -> weeks; M -> months</p>
+      <ul>
+      <li>1m</li>
+      <li>3m</li>
+      <li>5m</li>
+      <li>15m</li>
+      <li>30m</li>
+      <li>1h</li>
+      <li>2h</li>
+      <li>4h</li>
+      <li>6h</li>
+      <li>12h</li>
+      <li>1d</li>
+      <li>1w</li>
+      <li>1M</li>
+      </ul>
 
   spot_websocket_trade_v2: Trade Streams
-  spot_websocket_trade_desc_v2: ''
+  spot_websocket_trade_desc_v2: |
+    <p>The Trade Streams push raw trade information; each trade has a unique buyer and seller.</p>
+    <p>After successful handshake and connected to server, the server will return the latest 60 trades. After this payload, the following will be real-time trades.</p>
+    <p>Variable "v" acts as an tradeId. This variable is shared across different symbols; however, each ID is unique. For example, suppose in the last 5 seconds 3 trades happened in ETHSUDT, BTCUSDT, and BHTBTC. Their version (which is "v") will be consecutive: 112, 113, 114.</p>
 
   spot_websocket_orderbook_v2: Orderbook Stream(Full Depth)
-  spot_websocket_orderbook_desc_v2: ''
+  spot_websocket_orderbook_desc_v2: </p>
+    <ul>
+      <li>The book dump frequency：Every 300ms, if book version changed.</li>
+      <li>The book dump depth：300 for asks and bids each.</li>
+      <li>The book version change event：
+        <ul>
+          <li>order enters book</li>
+          <li>order leaves book</li>
+          <li>order quantity or amount changes</li>
+          <li>order is finished</li>
+        </ul>
+      </li>
+    </ul>
+
+  spot_websocket_symbol_ticker_v2: Market Tickers Stream
+  spot_websocket_symbol_ticker_desc_v2: ''

@@ -1689,7 +1689,8 @@ zh-cn:
   spot_to_id: 以此tradeId为终点
   spot_balance: 账号余额
   spot_token: 币种
-  spot_fee: 可用余额
+  spot_fee: 手续费
+  spot_fee_symbol: 手续费币种
   spot_locked: 冻结余额
   spot_depth_limit: 默认100，最大100
   spot_depth_time: 当前时间
@@ -1763,6 +1764,7 @@ zh-cn:
   spot_m: is maker
   spot_u: is maker
   spot_w: is maker
+  spot_gains: 涨幅
   spot_websocket_trade_v1: 逐笔交易
   spot_websocket_trade_desc_v1: |
     <p>逐笔交易推送每一笔成交的信息。成交，或者说交易的定义是仅有一个吃单者与一个挂单者相互交易。</p>
@@ -1778,6 +1780,7 @@ zh-cn:
     <p>m -> 分钟; h -> 小时; d -> 天; w -> 周; M -> 月</p>
       <ul>
       <li>1m</li>
+      <li>3m</li>
       <li>5m</li>
       <li>15m</li>
       <li>30m</li>
@@ -1841,14 +1844,53 @@ zh-cn:
 
   
   #spot_ws_v2
-  spot_websocket_ticker_v2: Symbol的Ticker
-  spot_websocket_ticker_desc_v2: ''
+  spot_websocket_ticker_v2: 订单簿的Ticker
+  spot_websocket_ticker_desc_v2: '最优买一卖一价'
 
   spot_websocket_kline_v2: K线/蜡烛图
-  spot_websocket_kline_desc_v2: ''
+  spot_websocket_kline_desc_v2: |
+    <p>K线stream逐秒推送所请求的K线种类(最新一根K线)的更新</p>
+    <p>订阅Kline需要提供间隔参数，最短为分钟线，最长为月线。支持以下间隔:</p>
+    <p>m -> 分钟; h -> 小时; d -> 天; w -> 周; M -> 月</p>
+      <ul>
+      <li>1m</li>
+      <li>3m</li>
+      <li>5m</li>
+      <li>15m</li>
+      <li>30m</li>
+      <li>1h</li>
+      <li>2h</li>
+      <li>4h</li>
+      <li>6h</li>
+      <li>12h</li>
+      <li>1d</li>
+      <li>1w</li>
+      <li>1M</li>
+      </ul>
 
   spot_websocket_trade_v2: 逐笔交易
-  spot_websocket_trade_desc_v2: ''
+  spot_websocket_trade_desc_v2: |
+    <p>逐笔交易推送每一笔成交的信息。成交，或者说交易的定义是仅有一个吃单者与一个挂单者相互交易。</p>
+    <p>在成功连接到服务器后，服务器首先会推送一条最近的60条成交。在这条推送之后，每条推送都是实时的成交。</p>
+    <p>变量“v”可以理解成一个交易ID。这个变量是全局递增的并且独特的。例如：假设过去5秒有3笔交易发生，分别是ETHUSDT、BTCUSDT、BHTBTC。它们的“v”会为连续的值（112，113，114）。</p>
 
   spot_websocket_orderbook_v2: 订单簿(全量深度)
-  spot_websocket_orderbook_desc_v2: ''
+  spot_websocket_orderbook_desc_v2: |
+    <p>Symbol的深度信息。</p>
+    <p>这里是订单簿快照推送的详细信息：</p>
+    <ul>
+      <li>订单簿快照频率：每300ms, 如果book变了的话。</li>
+      <li>订单簿快照频率深度：bids 和 asks各300</li>
+      <li>订单簿版本变更触发事件：
+        <ul>
+          <li>订单进入订单簿</li>
+          <li>订单离开订单簿</li>
+          <li>订单数量变更</li>
+          <li>订单已完成</li>
+        </ul>
+      </li>
+    </ul>
+    <p>这个订阅会推送全量深度信息，因此数据量大。如果想要推送评率更快，请订阅合并深度。</p>
+  
+  spot_websocket_symbol_ticker_v2: symbol的Ticker
+  spot_websocket_symbol_ticker_desc_v2: ''
