@@ -2,9 +2,7 @@
 ## 2021-05-11
 ### REST API
 - [t(:setrisklimit)](#t-setrisklimit) [t(:changelog_new)]
-  - t(:restapi_update_20210511)
 - [t(:getrisklimit)](#t-getrisklimit) [t(:changelog_new)]
-  - t(:restapi_update_2021051101)
 
 ## 2021-05-11
 ### REST API IN TESTNET ENVIRONMENT
@@ -12,9 +10,7 @@
  - t(:restapi_update_2021050703)
  - t(:restapi_update_2021050704)
 - [t(:switchpositionmode)] (#t-switchpositionmode) [t(:changelog_new)]
- - t(:restapi_update_2021050701)
 - [t(:marginswitch)] (#t-marginswitch) [t(:changelog_new)]
- - t(:restapi_update_2021050702)
 
 ## 2021-04-22
 ### REST API
@@ -77,9 +73,7 @@
 ## 2021-01-12
 ### REST API
 - [t(:queryindexpricekline)](#t-queryindexpricekline) [t(:changelog_new)]
-  - t(:restapi_update_20210107_1)
 - [t(:querypremiumindexkline)](#t-querypremiumindexkline) [t(:changelog_new)]
-  - t(:restapi_update_20210107_2)
 
 ## 2020-12-31
 ### REST API
