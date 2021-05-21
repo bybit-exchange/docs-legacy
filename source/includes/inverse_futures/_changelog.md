@@ -4,11 +4,12 @@
 
 ## 2021-05-17
 ### REST API
-- t(:restapi_update_20210517)
+- [t(:setrisklimit)](#t-setrisklimit) [t(:changelog_new)]
+
 
 ## 2021-05-12
 ### REST API IN TESTNET ENVIRONMENT
-- t(:restapi_update_2021051203)
+- [t(:setrisklimit)](#t-setrisklimit) [t(:changelog_new)]
 
 
 ## 2021-05-12
