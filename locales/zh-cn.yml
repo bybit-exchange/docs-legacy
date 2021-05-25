@@ -911,16 +911,19 @@ zh-cn:
     <ul>
     <p>
       <li>测试网:
-        <span id="testnet_address">wss://stream-testnet.bybit.com/realtime</span>
+        <span id="testnet_address">wss://stream-testnet.bybit.com/spot/quote/ws/v2</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <br/>
+        <span id="testnet_address_2">wss://stream-testnet.bybit.com/spot/ws/</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
       </li>
     </p>
     <p>
       <li>主网(请根据您的网络情况选择以下任意一个地址使用):<br/>
-        <span id="mainnet_address">wss://stream.bybit.com/realtime</span>
+        <span id="mainnet_address">wss://stream.bybit.com/spot/quote/ws/v2</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
         <br/>
-        <span id="mainnet_address_2">wss://stream.bytick.com/realtime</span>
+        <span id="mainnet_address_2">wss://stream.bybit.com/spot/ws/</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
       </li>
     </p>
@@ -1670,20 +1673,43 @@ zh-cn:
   # spot
   spot: 现货
   spotOrderCreate: 创建订单
-  spotSymbol: 现货symbol
+  spotAccountId: 账户ID
+  spotExchangeId: 币对交易ID
+  spotSymbol: 币对名称
+  spotSymbolName: 现货币对名称
+  spotIcebergQty: 最小允许数量
+  spotCummulativeQuoteQty: 对于某些历史数据 `cummulativeQuoteQty` 可能会 < 0, 这说明数据当前不可用。
+  spotStopPrice: 停止价
+  spot_kline_interval: K线图区间。可识别发送的值为：1m, 5m, 15m, 30m, 1h, 1d, 1W, 1M (m=分钟, h=小时, d=天, w=星期, M=月)
+  spotTime: 订单生成时的时间戳
+  spotTradeId: The ID for the trade
+  spotUpdateTime: 订单上次更新的时间戳
   spotQuantity: 订单数量，对于市价买单（MARKET BUY）订单，quantity=amount
-  spotSide: 订单方向, BUY/SELL
+  spotSide: 订单方向, BUY(买入做多)/SELL(卖出做空)
   spotOrderType: 订单类型, LIMIT/MARKET/LIMIT_MAKER
   spotTimeInForce: 订单时间指令（Time in Force）。可能出现的值为：GTC（Good Till Canceled，一直有效），FOK（Fill or Kill，全部成交或者取消），IOC（Immediate or Cancel，立即成交或者取消）
   spotPrice: 订单价格，对于LIMIT 订单必需发送
+  spotOrderID: 订单ID
+  spotFees: 订单的手续费
+  spotOriQty: 订单数量
+  spotFeeTokenId: 手续费类型（Token名称）
+  spotExecQty: 订单已执行数量
+  spotAvgPrice: 订单已经成交的平均价格
+  spotType: 订单类型。可能出现的值只能为:LIMIT(限价)和MARKET（市价）
+  spotStatus: 订单状态。可能出现的值为：NEW(新订单，无成交)、PARTIALLY_FILLED（部分成交）、FILLED（全部成交）、CANCELED（已取消）和REJECTED（订单被拒绝）.
   tOrderClientOrdID: 特殊订单ID，用户自己生成
   spot_get_order: 查询订单
   cancel_spot_order: 撤销订单
   spot_order_list: 订单列表
   spot_order_list_limit: 默认500；最大1000
-  spot_orders_start_time: 开始时间戳(毫秒)
-  spot_orders_end_time: 结束时间戳(毫秒)
+  spot_orders_start_time: 第一条返回的时间戳(毫秒)
+  spot_orders_end_time: 最后一条返回的时间戳(毫秒)
   spot_history_orders: 历史订单
+  spotLeverage: 订单杠杆
+  spotMarginLocked: 该订单锁定的保证金。这包括实际需要的保证金外加开仓和平仓所需的费用
+  spotPriceType: 价格类型（INPUT、OPPONENT、QUEUE、OVER、MARKET）
+  spotFeeToken: 手续费计价类型
+  spotFee: 实际手续费
   spot_my_trades: 交易记录
   spot_from_id: 从此tradeId 开始查询
   spot_to_id: 以此tradeId为终点
@@ -1709,9 +1735,18 @@ zh-cn:
   spot_open_price: 开盘价
   spot_high_price: 最高价
   spot_low_price: 最低价
-  spot_volume: 交易量
   spotSymbolPrice: Symbol最新价
   spotBestTicker: 最佳买卖价
+  spotRealtimeInterval: 时间间隔
+  spotOpen: 开盘价
+  spotHigh: 最高价
+  spotLow: 最低价
+  spotClose: 收盘价
+  spotVolume: 合约交易金额
+  spotTrades: 交易数量（张数）
+  spotTakerBaseVolume: 买方购买金额
+  spotTakerQuoteVolume: 买方购买数量（张数）
+
 
 
   row_parameter_type: <a href="#type-type">type</a>
@@ -1722,7 +1757,7 @@ zh-cn:
   spot_symbol: 币对
   spot_quantity: 数量
   spot_side: true买, false卖
-  spot_order_type: 订单类型, LIMIT/MARKET/LIMIT_MAKER
+  spot_order_type: 订单类型, LIMIT/MARKET/LIMIT_MAKER/MARKET OF QUOTE
   spot_order_client_id: 用户创建orderid
   spot_order_status: 订单状态 NEW - 新订单、暂无成交，PARTIALLY_FILLED - 部分成交，FILLED - 完全成交，CANCELED - 已取消，PENDING_CANCEL - 等待取消，REJECTED - 被拒绝
   spot_first: 是否首次返回
@@ -1793,7 +1828,7 @@ zh-cn:
       <li>1w</li>
       <li>1M</li>
       </ul>
-  
+
   spot_broker_info: brokerinfo数据返回
   spot_websocket_orderbook_v1: 订单簿(全量深度)
   spot_websocket_orderbook_desc_v1: |
@@ -1821,14 +1856,14 @@ zh-cn:
     <p>每秒推送订单簿的变化部分（如果有）。</p>
     <p>在增量深度信息中，数量不一定等于对应价格的数量。如果数量=0，这说明在上一条推送中的这个价格已经没有了。如果数量>0，这时的数量为更新后的这个价格所对应的数量。</p>
     <p>假设我们收到的返回数据中有这样一条：</p>
-    <p>&nbsp;&nbsp;> ["0.00181860", "155.92000000"]// 价格，数量</p>
+    <p>&nbsp;&nbsp;> ["0.00181860", "155.92000000"] // 价格，数量</p>
     <p>如果下一条返回数据中有：</p>
     <p>&nbsp;&nbsp;> ["0.00181860", "12.3"]</p>
     <p>这说明这个价格对应的数量有变更，已经更新变更的数量。</p>
     <p>如果下一条返回数据中有：</p>
     <p>&nbsp;&nbsp;> ["0.00181860", "0"]</p>
     <p>这说明这个价格对应的数量已经消失，将会在客户端中删除。</p>
-  
+
   spot_websocket_many_symbol_desc: 支持多symbol，使用,隔开。
   spot_websocket_subscribe_desc: |
     <p>建立连接后, 可以通过发送JSON请求来订阅topic. 请求格式如下:</p>
@@ -1841,8 +1876,8 @@ zh-cn:
   spot_websocket_user_account_desc: 使用 outboundAccountInfo event进行账户更新。
   spot_websocket_user_order: 订单更新
   spot_websocket_user_order_desc: 订单通过executionReport事件进行更新。详细说明信息请查看这里。通过将Z除以z可以找到平均价格。
+  spot_websocket_ticket_info: TicketInfo
 
-  
   #spot_ws_v2
   spot_websocket_ticker_v2: 订单簿的Ticker
   spot_websocket_ticker_desc_v2: '最优买一卖一价'
@@ -1891,6 +1926,6 @@ zh-cn:
       </li>
     </ul>
     <p>这个订阅会推送全量深度信息，因此数据量大。如果想要推送评率更快，请订阅合并深度。</p>
-  
+
   spot_websocket_symbol_ticker_v2: symbol的Ticker
   spot_websocket_symbol_ticker_desc_v2: ''

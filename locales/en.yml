@@ -1746,11 +1746,29 @@ en:
   #spot
   spot: Spot
   spotOrderCreate: Create Spot Order
-  spotSymbol: spot symbol
-  spotQuantity: quantity
-  spotTimeInForce: 
-  spotPrice:  price
-  tOrderClientOrdID: client order id
+  spotSymbol: Name of the symbol
+  spot_kline_interval: spot kline interval
+  spotTime: Timestamp when the order is created.
+  spotFeeTokenId: Fee token name.
+  spotFee: Fee of the trade.
+  spotTradeId: The ID for the trade
+  spotUpdateTime: Last time this order was updated
+  spotLeverage: Leverage of the order.
+  spotMarginLocked: Amount of margin locked for this order. This includes the actually margin needed plus fees to open and close the position.
+  spotPriceType: The price type. Possible values include INPUT, OPPONENT, QUEUE, OVER, and MARKET.
+  spotQuantity: The quantity traded
+  spotSide: Direction of the order. Possible values include BUY_OPEN, SELL_OPEN, BUY_CLOSE, and SELL_CLOSE.
+  spotOrderType: order type , LIMIT/MARKET/LIMIT_MAKER
+  spotTimeInForce: Order time order（Time in Force）。The possible values are：GTC（Good Till Canceled，Always effective），FOK（Fill or Kill，All deal or canncel），IOC（Immediate or Cancel，Close or cancel immediately）
+  spotPrice:  The price of the trade
+  spotOrderID: order id
+  spotFees: Fees incurred for this order.
+  spotOriQty: Quantity ordered
+  spotExecQty: Quantity of orders that has been executed
+  spotAvgPrice: Average price of filled orders.
+  spotType: order type
+  spotStatus: The state of the order.Possible values include NEW, PARTIALLY_FILLED, FILLED, CANCELED, and REJECTED.
+  tOrderClientOrdID: Unique ID of the order.
   spot_get_order: Query Spot Order
   cancel_spot_order: Cancel Spot Order
   spot_order_list: Spot Order List
@@ -1769,9 +1787,11 @@ en:
   spot_depth_time:  cunrrent time, unit is ms
   spot_depth_bids: Price and quantity information for bids, with the optimal bid prices ranked top to bottom
   spot_depth_asks: Ask price and quantity information, the best ASK prices are arranged from top to bottom
+  mergedOrderBook: merged order book
   spot_trades: recent trades
   spot_trades_limit: default 500, max 10000
-  spot_trade_time: cunrrent time, unit is ms
+  spot_is_buyer_maker: true= Order is a buy order when created, false = Order is a sell order when created
+  spot_trade_time: Current timestamp (ms)
   spot_klines: klines
   spotTicker: 24 hours Ticker price change data
   spot_best_bid_price: best bid price
@@ -1780,10 +1800,22 @@ en:
   spot_open_price: open price
   spot_high_price: max price
   spot_low_price: min price
-  spot_volume: volume
   spotSymbolPrice: Latest Symbol Price
   spotBestTicker: Best Bid/Ask Price
+  spotRealtimeInterval: time interval
+  spotOpen: Open price
+  spotHigh: High price
+  spotLow: Low price
+  spotClose: Close price
+  spotVolume: Trade volume amount
+  spotTrades: Number of trades
+  spotTakerBaseVolume: Taker buy base asset volume
+  spotTakerQuoteVolume: Taker buy quote asset volume
 
+
+
+  row_parameter_type: <a href="#type-type">type</a>
+  row_parameter_timeInForce: <a href="#timeinforce-timeinforce">timeInForce</a>
 
   #spot_ws_v1
   spot_price: price
@@ -1797,11 +1829,11 @@ en:
   spot_timestamp: timestamp
   spot_timestamp_kline: kline start time
   spot_time_in_force: time in Force - GTC(Good Till Canceled),FOK(Fill or Kill),IOC(Immediate or Cancel)
-  spot_close: close
-  spot_high: high
-  spot_low: low
-  spot_open: open
-  spot_volume: volume
+  spot_close: close price
+  spot_high: high price
+  spot_low: low price
+  spot_open: open price
+  spot_volume: trade volume
   spot_quota_volume: trade amount (in base asset, in this case is USDT)
   spot_version: version
   spot_buy: first buy price，quantity
@@ -1827,7 +1859,6 @@ en:
   spot_recent_qty: Last executed quantity
   spot_cumulative_qty: Cumulative filled quantity
   spot_recent_price: Last executed price
-  spot_fee: fee
   spot_fee_symbol: fee coin
   spot_m: is maker
   spot_gains: gains
@@ -1858,7 +1889,7 @@ en:
       <li>1w</li>
       <li>1M</li>
       </ul>
-  
+
   spot_broker_info: brokerinfo return
   spot_websocket_orderbook_v1: Orderbook Stream(Full Depth)
   spot_websocket_orderbook_desc_v1: |
@@ -1906,9 +1937,10 @@ en:
   spot_websocket_user_account_desc: Account state is updated with the outboundAccountInfo event.
   spot_websocket_user_order: Order Update
   spot_websocket_user_order_desc: Orders are updated with the executionReport event. Check the API documentation and below for relevant enum definitions. Average price can be found by doing Z divided by z.
+  spot_websocket_ticket_info: TicketInfo
 
   #spot_ws_v2
-  
+
   spot_websocket_ticker_v2: Bookticker
   spot_websocket_ticker_desc_v2: 'Optimal buy one sell one price'
 
