@@ -49,6 +49,7 @@ POST
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
+
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol)|<b>true</b>|string|t(:spotSymbol)|
@@ -62,6 +63,7 @@ POST
 
 
 <p class="fake_header">t(:responseparameters)</p>
+
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |orderId|integer|t(:spotOrderID)|
@@ -127,27 +129,35 @@ GET
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
+
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|orderId|false|string|t(:spotOrderID)|
-|origClientOrderId|false|string|t(:tOrderClientOrdID)|
+|orderId|OPTIONAL|string|t(:spotOrderID)|
+|origClientOrderId|OPTIONAL|string|t(:tOrderClientOrdID)|
 
 
 <p class="fake_header">t(:responseparameters)</p>
+
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
+|time|long|t(:spotTime)|
+|updateTime|long|t(:spotUpdateTime)|
 |orderId|integer|t(:spotOrderID)|
 |clientOrderId|string|t(:tOrderClientOrdID)
 |symbol|string|t(:spotSymbol)|
-|transactTime|int|t(:spotTransactTime)|
 |price|float|t(:spotPrice)|
+|leverage|float|t(:spotLeverage)|
 |origQty|float|t(:spotOriQty)|
 |executedQty|float|t(:spotExecQty)|
 |avgPrice|float|t(:spotAvgPrice)|
-|type|string|t(:spotType)|
+|marginLocked|float|t(:spotMarginLocked)|
+|orderType|string|t(:spotOrderType)|
+|priceType|string|t(:spotPriceType)|
 |side|string|t(:spotSide)|
 |status|string|t(:spotStatus)|
 |timeInForce|string|t(:spotTimeInForce)|
+|feeToken|string|t(:spotFeeToken)|
+|fee|float|t(:spotFee)|
 
 
 ### t(:cancel_spot_order)
@@ -195,26 +205,18 @@ DELETE
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
 |orderId|false|string|t(:spotOrderID)|
 |origClientOrderId|false|string|t(:tOrderClientOrdID)|
 
 
 <p class="fake_header">t(:responseparameters)</p>
+
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |orderId|integer|t(:spotOrderID)|
 |clientOrderId|string|t(:tOrderClientOrdID)
 |symbol|string|t(:spotSymbol)|
-|transactTime|int|t(:spotTransactTime)|
-|price|float|t(:spotPrice)|
-|origQty|float|t(:spotOriQty)|
-|executedQty|float|t(:spotExecQty)|
-|avgPrice|float|t(:spotAvgPrice)|
-|type|string|t(:spotType)|
-|side|string|t(:spotSide)|
 |status|string|t(:spotStatus)|
-|timeInForce|string|t(:spotTimeInForce)|
 
 ### t(:spot_order_list)
 > t(:codequote_curlExample)
@@ -235,48 +237,42 @@ DELETE
     "ext_info": null,
     "result": [
         {
-            "accountId": "10054",
-            "exchangeId": "301",
-            "symbol": "ETHUSDT",
-            "symbolName": "ETHUSDT",
-            "clientOrderId": "162080709527252",
-            "orderId": "889788838461927936",
-            "price": "20000",
-            "origQty": "10",
-            "executedQty": "0",
-            "cummulativeQuoteQty": "0",
-            "avgPrice": "0",
-            "status": "NEW",
-            "timeInForce": "GTC",
-            "type": "LIMIT",
-            "side": "BUY",
-            "stopPrice": "0.0",
-            "icebergQty": "0.0",
-            "time": "1620807095287",
-            "updateTime": "1620807095307",
-            "isWorking": true
+            'time': '1570760254539',
+            'updateTime': '0',
+            'orderId': '469965509788581888',
+            'clientOrderId': '1570760253946',
+            'symbol': 'BTC-PERP-REV',
+            'price': '8502.34',
+            'leverage': '20',
+            'origQty': '222',
+            'executedQty': '0',
+            'avgPrice': '0',
+            'marginLocked': '0.00130552',
+            'orderType': 'LIMIT',
+            'side': 'BUY_OPEN',
+            'fees': [],
+            'timeInForce': 'GTC',
+            'status': 'NEW',
+            'priceType': 'INPUT'
         },
         {
-            "accountId": "10054",
-            "exchangeId": "301",
-            "symbol": "ETHUSDT",
-            "symbolName": "ETHUSDT",
-            "clientOrderId": "162063873503148",
-            "orderId": "888376530389004800",
-            "price": "20000",
-            "origQty": "10",
-            "executedQty": "0",
-            "cummulativeQuoteQty": "0",
-            "avgPrice": "0",
-            "status": "NEW",
-            "timeInForce": "GTC",
-            "type": "LIMIT",
-            "side": "BUY",
-            "stopPrice": "0.0",
-            "icebergQty": "0.0",
-            "time": "1620638735044",
-            "updateTime": "1620638735062",
-            "isWorking": true
+            'time': '1570760254539',
+            'updateTime': '0',
+            'orderId': '469965509788581888',
+            'clientOrderId': '1570760253946',
+            'symbol': 'BTC-PERP-REV',
+            'price': '8502.34',
+            'leverage': '20',
+            'origQty': '222',
+            'executedQty': '0',
+            'avgPrice': '0',
+            'marginLocked': '0.00130552',
+            'orderType': 'LIMIT',
+            'side': 'BUY_OPEN',
+            'fees': [],
+            'timeInForce': 'GTC',
+            'status': 'NEW',
+            'priceType': 'INPUT'
         }
     ]
 }
@@ -288,6 +284,7 @@ GET
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancelAll"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
+
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |symbol|false|string|t(:spotSymbol)|
@@ -296,20 +293,29 @@ GET
 
 
 <p class="fake_header">t(:responseparameters)</p>
+
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
+|time|long|t(:spotTime)|
+|updateTime|long|t(:spotUpdateTime)|
 |orderId|integer|t(:spotOrderID)|
 |clientOrderId|string|t(:tOrderClientOrdID)
 |symbol|string|t(:spotSymbol)|
-|transactTime|int|t(:spotTransactTime)|
 |price|float|t(:spotPrice)|
+|leverage|float|t(:spotLeverage)|
 |origQty|float|t(:spotOriQty)|
 |executedQty|float|t(:spotExecQty)|
 |avgPrice|float|t(:spotAvgPrice)|
-|type|string|t(:spotType)|
+|marginLocked|float|t(:spotMarginLocked)|
+|orderType|string|t(:spotOrderType)|
+|priceType|string|t(:spotPriceType)|
 |side|string|t(:spotSide)|
 |status|string|t(:spotStatus)|
 |timeInForce|string|t(:spotTimeInForce)|
+|fees|float|t(:spotFees)|
+
+
+
 
 ### t(:spot_history_orders)
 > t(:codequote_curlExample)
@@ -331,26 +337,23 @@ GET
     "ext_info": null,
     "result": [
         {
-            "accountId": "10054",
-            "exchangeId": "301",
-            "symbol": "ETHUSDT",
-            "symbolName": "ETHUSDT",
-            "clientOrderId": "1620615771764",
-            "orderId": "888183901021893120",
-            "price": "5000",
-            "origQty": "1",
-            "executedQty": "0",
-            "cummulativeQuoteQty": "0",
-            "avgPrice": "0",
-            "status": "CANCELED",
-            "timeInForce": "GTC",
-            "type": "LIMIT",
-            "side": "BUY",
-            "stopPrice": "0.0",
-            "icebergQty": "0.0",
-            "time": "1620615771836",
-            "updateTime": "1620617056334",
-            "isWorking": true
+            'time': '1570759718825',
+            'updateTime': '0',
+            'orderId': '469961015902208000',
+            'clientOrderId': '6423344174',
+            'symbol': 'BTC-PERP-REV',
+            'price': '8200',
+            'leverage': '12.08',
+            'origQty': '5',
+            'executedQty': '0',
+            'avgPrice': '0',
+            'marginLocked': '0',
+            'orderType': 'LIMIT',
+            'side': 'BUY_OPEN',
+            'fees': [],
+            'timeInForce': 'GTC',
+            'status': 'CANCELED',
+            'priceType': 'INPUT'
         }
     ]
 }
@@ -365,27 +368,35 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
+|orderType|false|string|t(:spotOrderType)|
 |symbol|false|string|t(:spotSymbol)|
 |orderId|false|string|t(:spotOrderID)|
 |limit|false|integer|t(:spot_order_list_limit)|
-|startTime|false|integer|t(:spot_orders_start_time)|
-|endTime|false|integer|t(:spot_orders_end_time)|
 
 <p class="fake_header">t(:responseparameters)</p>
+
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
+|time|long|t(:spotTime)|
+|updateTime|long|t(:spotUpdateTime)|
 |orderId|integer|t(:spotOrderID)|
 |clientOrderId|string|t(:tOrderClientOrdID)
 |symbol|string|t(:spotSymbol)|
-|transactTime|int|t(:spotTransactTime)|
 |price|float|t(:spotPrice)|
+|leverage|float|t(:spotLeverage)|
 |origQty|float|t(:spotOriQty)|
 |executedQty|float|t(:spotExecQty)|
 |avgPrice|float|t(:spotAvgPrice)|
-|type|string|t(:spotType)|
+|marginLocked|float|t(:spotMarginLocked)|
+|orderType|string|t(:spotOrderType)|
+|priceType|string|t(:spotPriceType)|
 |side|string|t(:spotSide)|
 |status|string|t(:spotStatus)|
 |timeInForce|string|t(:spotTimeInForce)|
+|fees|float|t(:spotFees)|
+
+
+
 
 ### t(:spot_my_trades)
 > t(:codequote_curlExample)
@@ -406,48 +417,17 @@ GET
     "ext_info": null,
     "result": [
         {
-            "accountId": "10054",
-            "exchangeId": "301",
-            "symbol": "ETHUSDT",
-            "symbolName": "ETHUSDT",
-            "clientOrderId": "162071288011552",
-            "orderId": "888998504417030656",
-            "price": "0",
-            "origQty": "14",
-            "executedQty": "14",
-            "cummulativeQuoteQty": "700000",
-            "avgPrice": "50000",
-            "status": "FILLED",
-            "timeInForce": "GTC",
-            "type": "MARKET",
-            "side": "SELL",
-            "stopPrice": "0.0",
-            "icebergQty": "0.0",
-            "time": "1620712880126",
-            "updateTime": "1620712880195",
-            "isWorking": true
-        },
-        {
-            "accountId": "10054",
-            "exchangeId": "301",
-            "symbol": "ETHUSDT",
-            "symbolName": "ETHUSDT",
-            "clientOrderId": "1620615771764",
-            "orderId": "888183901021893120",
-            "price": "5000",
-            "origQty": "1",
-            "executedQty": "0",
-            "cummulativeQuoteQty": "0",
-            "avgPrice": "0",
-            "status": "CANCELED",
-            "timeInForce": "GTC",
-            "type": "LIMIT",
-            "side": "BUY",
-            "stopPrice": "0.0",
-            "icebergQty": "0.0",
-            "time": "1620615771836",
-            "updateTime": "1620617056334",
-            "isWorking": true
+            'time': '1570760582848',
+            'tradeId': '469968263995080704',
+            'orderId': '469968263793737728',
+            'accountId': '456552319339779840',
+            'symbolId': 'BTC-PERP-REV',
+            'price': '8531.17',
+            'quantity': '100',
+             'feeTokenId': 'TBTC',
+            'fee': '0.00000586',
+            'type': 'LIMIT',
+            'side': 'BUY_OPEN'
         }
     ]
 }
@@ -464,24 +444,21 @@ GET
 |:----- |:-------|:-----|----- |
 |symbol|true|string|t(:spotSymbol)|
 |limit|false|integer|t(:spot_order_list_limit)|
-|startTime|false|integer|t(:spot_orders_start_time)|
-|endTime|false|integer|t(:spot_orders_end_time)|
 |fromId|false|integer|t(:spot_from_id)|
 |toId|false|integer|t(:spot_to_id)|
 
 
 <p class="fake_header">t(:responseparameters)</p>
+
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
+|time|long|t(:spotTime)|
+|tradeId|long|t(:spotTradeId)|
 |orderId|integer|t(:spotOrderID)|
-|clientOrderId|string|t(:tOrderClientOrdID)
-|symbol|string|t(:spotSymbol)|
-|transactTime|int|t(:spotTransactTime)|
+|symbolId|string|t(:spotSymbol)|
 |price|float|t(:spotPrice)|
-|origQty|float|t(:spotOriQty)|
-|executedQty|float|t(:spotExecQty)|
-|avgPrice|float|t(:spotAvgPrice)|
-|type|string|t(:spotType)|
+|quantity|float|t(:spotQuantity)|
+|feeTokenId|string|t(:spotFeeTokenId)|
+|fee| |t(:spotFee)|
 |side|string|t(:spotSide)|
-|status|string|t(:spotStatus)|
-|timeInForce|string|t(:spotTimeInForce)|
+|orderType|string|t(:spotOrderType)|

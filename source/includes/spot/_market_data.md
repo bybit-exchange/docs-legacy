@@ -53,8 +53,8 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 | time | long | t(:spot_depth_time) |
-| bids | list | t(:spot_depth_bids) |
-| asks | list | t(:spot_depth_asks) |
+| bids | string | t(:spot_depth_bids) |
+| asks | string | t(:spot_depth_asks) |
 
 ### t(:mergedOrderBook)
 
@@ -109,8 +109,8 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 | time | long | t(:spot_depth_time) |
-| bids | list | t(:spot_depth_bids) |
-| asks | list | t(:spot_depth_asks) |
+| bids | string | t(:spot_depth_bids) |
+| asks | string | t(:spot_depth_asks) |
 
 ### t(:spot_trades)
 > t(:codequote_curlExample)
@@ -169,7 +169,7 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 | price | float | t(:spotPrice) |
-| time | float | t(:spot_trade_time) |
+| time | long | t(:spot_trade_time) |
 | qty | float | t(:spotQuantity) |
 | isBuyerMaker | bool | t(:spot_is_buyer_maker) |
 
@@ -226,18 +226,19 @@ GET
 
 
 <p class="fake_header">t(:responseparameters)</p>
+
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|| long | t(:spot_trade_time)|
-|| float | t(:spot_kline_open_price) |
-|| float | t(:spot_kline_max_price) |
-|| float | t(:sopt_kline_min_price) |
-|| float | t(:spot_kline_close_price) |
-|| float | t(:spot_volume) |
-|| float | t(:spot_kline_end_time) |
-|| float | |
-|| integer || 
-|| float |  |
+|startTime| long | t(:spot_orders_start_time)|
+|open| float | t(:spotOpen) |
+|high| float | t(:spotHigh) |
+|low| float | t(:spotLow) |
+|close| float | t(:spotClose) |
+|volume| float | t(:spotVolume) |
+|endTime| float | t(:spot_orders_end_time) |
+|trades| integer | t(:spotTrades) |
+|takerBaseVolume| float | t(:spotTakerBaseVolume) | 
+|takerQuoteVolume| float | t(:spotTakerQuoteVolume) |
 
 ### t(:spotTicker)
 > t(:codequote_curlExample)
@@ -274,20 +275,22 @@ GET
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpOrder>/spot/quote/v1/klines</span></code>
+<code><span id=vpOrder>/spot/quote/v1/ticker/24hr</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
+
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|flase|string|t(:spotSymbol)|
+|symbol|false|string|t(:spotSymbol)|
 
 
 <p class="fake_header">t(:responseparameters)</p>
+
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| time| long | t(:spot_trade_time)|
-| symbol | string | t(:spotSymbol) |
+|time| long | t(:spot_trade_time)|
+|symbol| string | t(:spotSymbol) |
 |bestBidPrice|float|t(:spot_best_bid_price)|
 |bestAskPrice|float|t(:spot_best_ask_price)
 |lastPrice|float|t(:spot_last_price)|
@@ -323,13 +326,13 @@ GET
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpOrder>/spot/quote/v1/price</span></code>
+<code><span id=vpOrder>/spot/quote/v1/ticker/price</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|flase|string|t(:spotSymbol)|
+|symbol|false|string|t(:spotSymbol)|
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -369,13 +372,13 @@ GET
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpOrder>/spot/quote/v1/price</span></code>
+<code><span id=vpOrder>/spot/quote/v1/ticker/bookTicker</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|flase|string|t(:spotSymbol)|
+|symbol|false|string|t(:spotSymbol)|
 
 
 <p class="fake_header">t(:responseparameters)</p>

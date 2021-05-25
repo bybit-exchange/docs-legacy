@@ -312,7 +312,7 @@ t(:spot_websocket_orderbook_desc_v1)
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
+|:----- |:----- |----- |
 | t | number | t(:spot_timestamp) |
 | s | string | t(:spot_symbol) |
 | v | string | t(:spot_version) |
@@ -360,9 +360,11 @@ ws.send('{"symbol":"BTCUSDT","topic":"mergedDepth","event":"sub","params":{"bina
 ```
 
 t(:spot_websocket_orderbook_merge_desc_v1)
+
 <p class="fake_header">t(:responseparameters)</p>
+
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
+|:----- |:----- |----- |
 | t | number | t(:spot_timestamp) |
 | s | string | t(:spot_symbol) |
 | v | string | t(:spot_version) |
@@ -420,7 +422,9 @@ ws.send('{"symbol":"BTCUSDT","topic":"depth","event":"sub","params":{"binary":fa
 ```
 
 t(:spot_websocket_orderbook_delta_desc_v1)
+
 <p class="fake_header">t(:responseparameters)</p>
+
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 | t | number | t(:spot_timestamp) |
@@ -488,6 +492,7 @@ ws.send('{"topic":"depth","event":"sub","params":{"binary":false,"symbol":"$symb
 t(:spot_websocket_orderbook_desc_v2)
 
 <p class="fake_header">t(:responseparameters)</p>
+
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 | symbol | string | t(:spot_symbol) |
@@ -533,6 +538,7 @@ ws.send('{"topic":"kline","event":"sub","params":{"binary":false,"symbol":"$symb
 t(:spot_websocket_kline_desc_v2)
 
 <p class="fake_header">t(:responseparameters)</p>
+
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 | symbol | string | t(:spot_symbol) |
@@ -578,6 +584,7 @@ ws.send('{"topic":"trade","event":"sub","params":{"binary":false,"symbol":"$symb
 t(:spot_websocket_trade_v2)
 
 <p class="fake_header">t(:responseparameters)</p>
+
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 | symbol | string | t(:spot_symbol) |
@@ -620,6 +627,7 @@ ws.send('{"topic":"bookTicker","event":"sub","params":{"binary":false,"symbol":"
 t(:spot_websocket_ticker_desc_v2)
 
 <p class="fake_header">t(:responseparameters)</p>
+
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 | symbol | string | t(:spot_symbol) |
@@ -667,6 +675,7 @@ ws.send('{"topic":"realtimes","event":"sub","params":{"binary":false,"symbol":"$
 t(:spot_websocket_symbol_ticker_desc_v2)
 
 <p class="fake_header">t(:responseparameters)</p>
+
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 | symbol | string | t(:spot_symbol) |
@@ -706,6 +715,7 @@ t(:spot_websocket_symbol_ticker_desc_v2)
 t(:spot_websocket_user_account_desc)
 
 <p class="fake_header">t(:responseparameters)</p>
+
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 | e | string | t(:spot_event_type) |
@@ -749,6 +759,7 @@ t(:spot_websocket_user_account_desc)
 t(:spot_websocket_user_order_desc)
 
 <p class="fake_header">t(:responseparameters)</p>
+
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 | e | string | t(:spot_event_type) |
@@ -771,3 +782,40 @@ t(:spot_websocket_user_order_desc)
 | a | string | t(:spot_asset) |
 | O | string | t(:spot_order_create_timestamp) |
 | Z | string | t(:spot_cumulative_trade) |
+
+
+### t(:spot_websocket_ticket_info)
+> t(:codequote_responseExampleFormatAll)
+
+```javascript
+{
+  "e":"ticketInfo",
+  "E":"1621912542359",
+  "s":"BTCUSDT",
+  "q":"0.001639",
+  "t":"1621912542314",
+  "p":"61000.0",
+  "T":"899062000267837441",
+  "o":"899048013515737344",
+  "c":"1621910874883",
+  "O":"899062000118679808",
+  "a":"10043",
+  "A":"10024"}
+```
+
+<p class="fake_header">t(:responseparameters)</p>
+
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| e | string | t(:spot_event_type) |
+| E | member | t(:spot_event_timestamp) |
+| s | string | t(:spot_symbol) |
+| q | string | t(:spot_quantity) |
+| t | string | t(:spot_timestamp) |
+| p | string | t(:spot_price) |
+| T | boolean | t(:spot_ticket_id) |
+| o | string | t(:spot_order_id) |
+| c | string | t(:spot_order_client_id) |
+| O | string | t(:spot_match_order_id) |
+| a | string | t(:spot_account_id) |
+| A | string | t(:spot_match_account_id) |
