@@ -691,9 +691,9 @@ t(:account_para_myPosition)
 |position_margin |string |t(:row_comment_position_margin)  |
 |available_balance |string |t(:row_comment_available_balance)  |
 |take_profit |string |t(:row_comment_take_profit)  |
-|tp_trigger_by |string |t(:account_row_comment_tp_trigger_by) |
+|t(:row_parameter_tp_trigger_by) |string |t(:account_row_comment_tp_trigger_by) |
 |stop_loss |string |t(:row_comment_stop_loss)  |
-|sl_trigger_by |string |t(:account_row_comment_sl_trigger_by) |
+|t(:row_parameter_sl_trigger_by) |string |t(:account_row_comment_sl_trigger_by) |
 |realised_pnl |string |t(:row_comment_realised_pnl)  |
 |trailing_stop |string |t(:row_comment_trailing_stop)  |
 |trailing_active |string |t(:row_comment_trailing_active)  |
