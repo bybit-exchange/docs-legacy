@@ -44,6 +44,9 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|asset| string | t(:spot_token)|
+|coin| string | t(:spot_token)|
+|coinId| string | t(:spot_token)|
+|coinName| string | t(:spot_token)|
+|total| string | t(:spot_total)|
 |fee| float| t(:spot_fee)|
 |locked| float | t(:spot_locked)

@@ -212,7 +212,7 @@ GET
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpOrder>/spot/quote/v1/klines</span></code>
+<code><span id=vpOrder>/spot/quote/v1/kline</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -221,8 +221,8 @@ GET
 |symbol|true|string|t(:spotSymbol)|
 | interval | true | string | t(:spot_kline_interval)|
 | limit | false | integer | t(:spot_trades_limit) |
-| startTime | false | number | t (:spot_orders_start_time) |
-| endTime | false | number | t (:spot_orders_end_time) |
+| startTime | false | number | t(:spot_orders_start_time) |
+| endTime | false | number | t(:spot_orders_end_time) |
 
 
 <p class="fake_header">t(:responseparameters)</p>

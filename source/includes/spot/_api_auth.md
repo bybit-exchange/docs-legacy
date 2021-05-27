@@ -40,14 +40,14 @@ t(:auth_para_construct2)
 > t(:auth_codequote_construct2)
 
 ```http
-GET /futures/private/order?symbol=BTCUSDH21&api_key=B2Rou0PLPpGqcU0Vu2&timestamp=1542434791000&sign=670e3e4aa32b243f2dedf1dafcec2fd17a440e71b05681550416507de591d908 HTTP/1.1
+GET /spot/v1/account?symbol=BTCUSDH21&api_key=B2Rou0PLPpGqcU0Vu2&timestamp=1542434791000&sign=670e3e4aa32b243f2dedf1dafcec2fd17a440e71b05681550416507de591d908 HTTP/1.1
 Host: api-testnet.bybit.com
 ```
 
 > t(:auth_codequote_construct3)
 
 ```http
-POST /futures/private/order/cancel HTTP/1.1
+POST /spot/v1/order HTTP/1.1
 Host: api-testnet.bybit.com
 Content-Type: application/json
 

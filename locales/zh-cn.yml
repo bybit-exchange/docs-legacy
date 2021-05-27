@@ -13,6 +13,7 @@ zh-cn:
   codequote_responseExampleFormatAll: 响应示例
   codequote_curlExample: 请求示例
   codequote_subscribe: 请求订阅
+  spot_transactId: 交易ID
   codequote_snapshot: 快照推送示例 - 连接建立成功后首次推送
   codequote_delta: 增量推送示例 - 快照数据推送后，推送的增量数据
   column_parameter: 参数
@@ -466,13 +467,13 @@ zh-cn:
     注意，timestamp参数必须符合如下规则: <b>server_time - recv_window <= timestamp < server_time + 1000</b>，其中server_time是Bybit服务器时间，您可以通过<a href="#t-servertime">服务器时间接口</a>获取。
   constructingtherequest: 构建请求
   auth_codequote_construct1a:
-    拼接参数示例（以修改杠杆接口为例）：
+    拼接参数示例（以查询账号余额接口为例）：
   auth_codequote_construct1b:
     参数按照 <b>字母顺序</b> 排列，然后计算<code>sign</code>。
   auth_codequote_construct2: |
-    <b>GET</b>请求格式（查询杠杆）:
+    <b>GET</b>请求格式（查询账号余额）:
   auth_codequote_construct3: |
-    <b>POST</b>请求格式（修改杠杆）:
+    <b>POST</b>请求格式（创建订单）:
   auth_para_construct1:
     <p>1. 所有参数按照字母顺序排序，然后按照<a href="https://en.wikipedia.org/wiki/Query_string">query string</a>格式拼接。</p>
   auth_para_construct2:
@@ -1676,13 +1677,21 @@ zh-cn:
   spotAccountId: 账户ID
   spotExchangeId: 币对交易ID
   spotSymbol: 币对名称
+  spotId: 交易ID
+  spotQty: 交易数量
+  spotCommission: 交易手续费
+  spotCommissionAsset: 交易手续费币种
+  spotIsBuyer: true= Buyer false= Seller
+  spotIsMaker: true=Maker false=Taker
   spotSymbolName: 现货币对名称
   spotIcebergQty: 最小允许数量
   spotCummulativeQuoteQty: 对于某些历史数据 `cummulativeQuoteQty` 可能会 < 0, 这说明数据当前不可用。
   spotStopPrice: 停止价
   spot_kline_interval: K线图区间。可识别发送的值为：1m, 5m, 15m, 30m, 1h, 1d, 1W, 1M (m=分钟, h=小时, d=天, w=星期, M=月)
   spotTime: 订单生成时的时间戳
-  spotTradeId: The ID for the trade
+  spotOrderLinkId: 订单ID
+  spotTradeId: 交易ID
+  spotIsWorking: 是否生效
   spotUpdateTime: 订单上次更新的时间戳
   spotQuantity: 订单数量，对于市价买单（MARKET BUY）订单，quantity=amount
   spotSide: 订单方向, BUY(买入做多)/SELL(卖出做空)
@@ -1715,6 +1724,7 @@ zh-cn:
   spot_to_id: 以此tradeId为终点
   spot_balance: 账号余额
   spot_token: 币种
+  spot_total: 总额
   spot_fee: 手续费
   spot_fee_symbol: 手续费币种
   spot_locked: 冻结余额

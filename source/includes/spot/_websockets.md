@@ -125,7 +125,14 @@ t(:websocket_para_response)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"symbol":"BTCUSDT","topic":"trade","event":"sub","params":{"binary":false}}');
+{
+  "topic": "trade",
+  "event": "sub",
+  "params": {
+    "symbol": "$symbol",
+    "binary": false // Whether data returned is in binary format
+  }
+}
 ```
 
 ```python
@@ -136,35 +143,32 @@ ws.send('{"symbol":"BTCUSDT","topic":"trade","event":"sub","params":{"binary":fa
 
 ```javascript
 {
-  "symbol": "BTCUSDT",
   "topic": "trade",
-  "data": [{
-    "v": "426635153180475392", 
-    "t": 1565594873508, 
-    "p": "12800", 
-    "q": "0.01", 
-    "m": false 
-  }, {
-    "v": "426635153373413376",
-    "t": 1565594873531,
-    "p": "12800",
-    "q": "0.0012",
-    "m": false
-  }],
-  "f": false 
+  "params": {
+    "symbol": "BTCUSDT",
+    "binary": "false"
+  },
+  "data": {
+    "v": "564265886622695424",
+    "t": 1582001735462,
+    "p": "9787.5",
+    "q": "0.195009",
+    "m": true // true=买，false=卖
+  }
 }
 ```
 
 t(:spot_websocket_trade_desc_v1)
 
 <p class="fake_header">t(:responseparameters)</p>
+
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| t | number | t(:spot_timestamp) |
-| p | string | t(:spot_price) |
-| q | string | t(:spot_quantity)|
-| m | boolean | t(:spot_side) |
-| f | boolean | t(:spot_first) |
+| v | string | t(:spot_transactId) |
+| t | string | t(:spot_time) |
+| p | string | t(:spot_price)|
+| q | boolean | t(:spot_quantity) |
+| m | boolean | t(:spot_message) |
 
 
 ### t(:spot_websocket_ticker_v1)
