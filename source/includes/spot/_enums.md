@@ -11,7 +11,12 @@ t(:ENUMs_para)
 * `IOC: Immediate or Cancel`
 
 ## Symbol (`symbol`)
-* `BTCUSDH21`  // H: t(:first_quarter);    21: 2021
+  * `SPOT`
+  * `FUTURE`
+  * `OPTION`
+  * `ALL`
+  * `UNKNOWN`
+
 
 ## Type (`type`)
 * `LIMIT`

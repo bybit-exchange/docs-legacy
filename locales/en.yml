@@ -1209,17 +1209,69 @@ en:
   http_403: Forbidden -- You request too many times
   http_404: Request path not found
 
-  err_10001: parameter error
-  err_10002: request expired, check your <code>timestamp</code> and <code>recv_window</code>
-  err_10003: Invalid apikey
+  err_10000: An unknown error occured while processing the request.
+  err_10001: Internal error; unable to process your request. Please try again.
+  err_10002: You are not authorized to execute this request. Request need API Key included in . We suggest that API Key be included in any request.
+  err_10003: Too many requests; please use the websocket for live updates.Too many requests; current limit is %s requests per minute. Please use the websocket for live updates to avoid polling the API.
   err_10004: invalid sign
   err_10005: permission denied for current apikey
-  err_10006: too many requests
-  err_10007: api_key not found in your request parameters
+  err_10006: An unexpected response was received from the message bus. Execution status unknown. OPEN API server find some exception in execute request .Please report to Customer service.
+  err_10007: Timeout waiting for response from backend server. Send status unknown; execution status unknown.
   err_10010: request ip mismatch
-  err_10016: unexpect error or timeout
+  err_10014: Unsupported order combination.
+  err_10015: Reach the rate limit .Please slow down your request speed.Too many new orders.
+  err_10016: This service is no longer available.
   err_10017: request path not found or request method is invalid
   err_10018: exceed ip rate limit
+
+
+  err_10020: This operation is not supported.
+  err_10021: Timestamp for this request is outside of the recvWindow.Timestamp for this request was 1000ms ahead of the server's time.
+  err_10022: Signature for this request is not valid.
+  err_11000: Illegal characters found in a parameter.Illegal characters found in parameter '%s'; legal range is '%s'.
+  err_11001: Too many parameters sent for this endpoint.Too many parameters; expected '%s' and received '%s'.
+  err_11002: A mandatory parameter was not sent, was empty/null, or malformed.Mandatory parameter '%s' was not sent, was empty/null, or malformed.
+  err_11003: An unknown parameter was sent.
+  err_11004: Not all sent parameters were read.
+  err_11005: A parameter was empty.
+  err_11006: A parameter was sent when not required.
+  err_11011: Precision is over the maximum defined for this asset.
+  err_11012: No orders on book for symbol.
+  err_11014: TimeInForce parameter sent when not required.
+  err_11015: Invalid timeInForce.
+  err_11016: Invalid orderType.
+  err_11017: Invalid side.
+  err_11018: New client order ID was empty.
+  err_11019: Original client order ID was empty.
+  err_11020: Invalid interval.
+  err_11021: Invalid symbol.
+  err_11025: This listenKey does not exist.
+  err_11027: Lookup interval is too big.
+  err_11028: Combination of optional parameters invalid.
+  err_11030: Invalid data sent for a parameter.
+  err_11032: Order price too high.
+  err_11033: Order price lower than the minimum,please check general broker info.
+  err_11034: Order price decimal too long,please check general broker info.
+  err_11035: Order quantity too large.
+  err_11036: Order quantity lower than the minimum.
+  err_11037: Order quantity decimal too long.
+  err_11038: Order price exceeds permissible range.
+  err_11039: Order has been filled.
+  err_11040: Transaction amount lower than the minimum.
+  err_11041: Duplicate clientOrderId
+  err_11042: Order has been canceled
+  err_11043: Cannot be found on order book
+  err_11044: Order has been locked
+  err_11045: This order type does not support cancellation
+  err_11046: Order creation timeout
+  err_11047: Order cancellation timeout
+  err_20010: NEW_ORDER_REJECTED
+  err_20011: CANCEL_REJECTED
+  err_20013: Order does not exist.
+  err_20014: API-key format invalid.
+  err_20015: Invalid API-key, IP, or permissions for action.
+  err_20016: No trading window could be found for the symbol. Try ticker/24hrs instead.
+
   err_20001: Order not exists
   err_20003: missing parameter <code>side</code>
   err_20004: invalid parameter <code>side</code>
@@ -1228,13 +1280,7 @@ en:
   err_20007: missing parameter <code>order_type</code>
   err_20008: invalid parameter <code>order_type</code>
   err_20009: missing parameter <code>qty</code>
-  err_20010: qty must be greater than 0
-  err_20011: qty must be an integer
   err_20012: qty must be greater than zero and less than 1 million
-  err_20013: missing parameter <code>price</code>
-  err_20014: price must be greater than 0
-  err_20015: missing parameter <code>time_in_force</code>
-  err_20016: invalid value for parameter <code>time_in_force</code>
   err_20017: missing parameter <code>order_id</code>
   err_20018: invalid date format
   err_20019: missing parameter <code>stop_px</code>

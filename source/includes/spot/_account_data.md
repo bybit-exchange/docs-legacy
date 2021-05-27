@@ -220,6 +220,42 @@ DELETE
 |symbol|string|t(:spotSymbol)|
 |status|string|t(:spotStatus)|
 
+
+
+### t(:cancel_spot_order)
+> t(:codequote_curlExample)
+
+```console
+
+```
+
+```python
+
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    success: true
+}
+```
+
+
+<p class="fake_header">t(:httprequest)</p>
+DELETE
+<code><span id=vpoCancel>/spot/api/order/batch_cancel</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancel"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|accountId|false|long|t(:spotAccountId)|
+|symbol|false|string|t(:spotSymbol)|
+|side|false|string|t(:side)|
+
+
 ### t(:spot_order_list)
 > t(:codequote_curlExample)
 
