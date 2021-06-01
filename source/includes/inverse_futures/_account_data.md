@@ -77,8 +77,8 @@ POST
 |order_link_id |false |string |t(:row_comment_orderLinkId) |
 |take_profit |false |number |t(:row_comment_takeProfit) |
 |stop_loss |false |number |t(:row_comment_stopLoss) |
-|tp_trigger_by |false |string |t(:account_row_comment_tp_trigger_by) |
-|sl_trigger_by |false |string |t(:account_row_comment_sl_trigger_by) |
+|t(:row_parameter_tp_trigger_by) |false |string |t(:account_row_comment_tp_trigger_by) |
+|t(:row_parameter_sl_trigger_by) |false |string |t(:account_row_comment_sl_trigger_by) |
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -105,8 +105,8 @@ POST
 |updated_at |string |t(:row_comment_updated_at)  |
 |take_profit |number |t(:row_comment_take_profit)  |
 |stop_loss |number |t(:row_comment_stop_loss)  |
-|tp_trigger_by |string |t(:account_row_comment_tp_trigger_by)  |
-|sl_trigger_by |string |t(:account_row_comment_sl_trigger_by)  |
+|t(:row_parameter_tp_trigger_by) |string |t(:account_row_comment_tp_trigger_by)  |
+|t(:row_parameter_sl_trigger_by) |string |t(:account_row_comment_sl_trigger_by)  |
 
 ### t(:getactive)
 > t(:codequote_curlExample)
@@ -202,8 +202,8 @@ GET
 |data > order_id |string |t(:account_row_comment_orderId) |
 |data > take_profit |number |t(:row_comment_take_profit)  |
 |data > stop_loss |number |t(:row_comment_stop_loss)  |
-|data > tp_trigger_by |string |t(:account_row_comment_tp_trigger_by) |
-|data > sl_trigger_by |string |t(:account_row_comment_sl_trigger_by) |
+|data > t(:row_parameter_tp_trigger_by) |string |t(:account_row_comment_tp_trigger_by) |
+|data > t(:row_parameter_sl_trigger_by) |string |t(:account_row_comment_sl_trigger_by) |
 |cursor |string |t(:row_comment_resp_cursor) |
 
 
@@ -439,8 +439,8 @@ POST
 |p_r_price |false |string |t(:row_comment_pRPrice) |
 |take_profit |false |number |t(:row_comemnt_replace_take_profit)  |
 |stop_loss |false |number |t(:row_comemnt_replace_stop_loss)  |
-|tp_trigger_by |false |string |t(:account_row_comment_tp_trigger_by) |
-|sl_trigger_by |false |string |t(:account_row_comment_sl_trigger_by) |
+|t(:row_parameter_tp_trigger_by) |false |string |t(:account_row_comment_tp_trigger_by) |
+|t(:row_parameter_sl_trigger_by) |false |string |t(:account_row_comment_sl_trigger_by) |
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -614,8 +614,8 @@ GET
 |order_id |string |t(:row_comment_order_id)  |
 |take_profit |number |t(:row_comment_take_profit)  |
 |stop_loss |number |t(:row_comment_stop_loss)  |
-|tp_trigger_by |string |t(:account_row_comment_tp_trigger_by) |
-|sl_trigger_by |string |t(:account_row_comment_sl_trigger_by) |
+|t(:row_parameter_tp_trigger_by) |string |t(:account_row_comment_tp_trigger_by) |
+|t(:row_parameter_sl_trigger_by) |string |t(:account_row_comment_sl_trigger_by) |
 
 ## t(:conditionalorders)
 ### t(:placecond)
@@ -806,8 +806,8 @@ GET
 |data > stop_order_id |string |t(:row_comment_stopOrderId) |
 |data > take_profit |number |t(:row_comment_take_profit)  |
 |data > stop_loss |number |t(:row_comment_stop_loss)  |
-|data > tp_trigger_by |string |t(:account_row_comment_tp_trigger_by) |
-|data > sl_trigger_by |string |t(:account_row_comment_sl_trigger_by) |
+|data > t(:row_parameter_tp_trigger_by) |string |t(:account_row_comment_tp_trigger_by) |
+|data > t(:row_parameter_sl_trigger_by) |string |t(:account_row_comment_sl_trigger_by) |
 |cursor |string |t(:row_comment_resp_cursor) |
 
 
@@ -1040,8 +1040,8 @@ POST
 |p_r_trigger_price |false |string |t(:row_comemnt_pRTriggerPrice) |
 |take_profit |false |number |t(:row_comemnt_replace_take_profit)  |
 |stop_loss |false |number |t(:row_comemnt_replace_stop_loss)  |
-|tp_trigger_by |false |string |t(:account_row_comment_tp_trigger_by)  |
-|sl_trigger_by |false |string |t(:account_row_comment_sl_trigger_by)  |
+|t(:row_parameter_tp_trigger_by) |false |string |t(:account_row_comment_tp_trigger_by)  |
+|t(:row_parameter_sl_trigger_by) |false |string |t(:account_row_comment_sl_trigger_by)  |
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -1695,8 +1695,8 @@ t(:switchmode_aside)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=pltcList>/futures/private/tpsl/switch-mode</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pltcList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=fptSwitchMode>/futures/private/tpsl/switch-mode</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#fptSwitchMode"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
