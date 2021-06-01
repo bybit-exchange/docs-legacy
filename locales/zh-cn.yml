@@ -14,6 +14,8 @@ zh-cn:
   codequote_curlExample: 请求示例
   codequote_subscribe: 请求订阅
   spot_transactId: 交易ID
+  spot_time: 时间
+  spot_message: 是否成功
   codequote_snapshot: 快照推送示例 - 连接建立成功后首次推送
   codequote_delta: 增量推送示例 - 快照数据推送后，推送的增量数据
   column_parameter: 参数
@@ -912,19 +914,25 @@ zh-cn:
     <ul>
     <p>
       <li>测试网:
-        <span id="testnet_address">wss://stream-testnet.bybit.com/spot/quote/ws/v2</span>
+        <span id="testnet_address">公共Topics: wss://stream-testnet.bybit.com/spot/quote/ws/v1</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
         <br/>
-        <span id="testnet_address_2">wss://stream-testnet.bybit.com/spot/ws/</span>
+        <span id="testnet_address">公共Topics2: wss://stream-testnet.bybit.com/spot/quote/ws/v2</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <br/>
+        <span id="testnet_address_2">私有Topics: wss://stream-testnet.bybit.com/spot/ws/</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
       </li>
     </p>
     <p>
       <li>主网(请根据您的网络情况选择以下任意一个地址使用):<br/>
-        <span id="mainnet_address">wss://stream.bybit.com/spot/quote/ws/v2</span>
+        <span id="mainnet_address">公共Topics: wss://stream.bybit.com/spot/quote/ws/v1</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
         <br/>
-        <span id="mainnet_address_2">wss://stream.bybit.com/spot/ws/</span>
+        <span id="mainnet_address">公共Topics2: wss://stream.bybit.com/spot/quote/ws/v2</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <br/>
+        <span id="mainnet_address_2">私有Topics: wss://stream.bybit.com/spot/ws/</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
       </li>
     </p>
@@ -951,7 +959,7 @@ zh-cn:
   websocket_codequote_filters2: 通过分隔符来订阅多个topic
   websocket_codequote_filters3: 通过匹配符来订阅多个topic
   websocket_para_filters: |
-    建立连接后, 可以通过发送JSON请求来订阅topic. 请求格式如下:
+    建立连接后, 可以通过发送JSON请求来订阅topic. 其中bianry为false表示不进行压缩传输，为true时表示以GZIP格式进行压缩，请求格式如下:
   websocket_para_filters1: |
     <p>您也可以同时订阅多个感兴趣的topic，订阅方式如下</p>
   websocket_para_filters2: |
@@ -1668,6 +1676,7 @@ zh-cn:
   restapi_update_20210414_2: 修复双仓模式下，不传<code>symbol</code>参数情况下持仓列表数据不完整问题
   restapi_update_20210415: 修复<a href="#t-balance">获取钱包余额</a>接口字段<code>used_margin、order_margin、position_margin、occ_closing_fee、unrealised_pnl</code> 未计算交割持仓的问题
   restapi_update_20210422: 废弃字段self_ratio与platform_ratio，现阶段返回值均为0
+  restapi_update_20210527: 新增现货open-api文档
 
   markpricekline: 标记价格K线
   linear_query_mark_price_kline: 查询标记价格K线
@@ -1773,7 +1782,7 @@ zh-cn:
   spot_fee: 手续费
   spot_fee_symbol: 手续费币种
   spot_locked: 冻结余额
-  spot_depth_limit: 默认100，最大100
+  spot_depth_limit: 默认40，最大40
   spot_depth_time: 当前时间
   spot_depth_bids: bid的价格和数量信息，最优bid价格由上到下排列
   spot_depth_asks: ask的价格和数量信息，最优ask价格由上到下排列

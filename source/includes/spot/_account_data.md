@@ -324,7 +324,7 @@ DELETE
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpoCancelAll>/spot/v1/openOrders</span></code>
+<code><span id=vpoCancelAll>/spot/v1/open_orders</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancelAll"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>

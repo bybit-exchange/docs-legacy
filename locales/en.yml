@@ -1740,6 +1740,7 @@ en:
   restapi_update_20210414_2: Fix data of position list when request without request parameter <code>symbol</code> if the position is under both side mode
   restapi_update_20210415: Fix value of <code>used_margin、order_margin、position_margin、occ_closing_fee、unrealised_pnl</code> of <a href="#t-balance">Get Wallet Balance</a> endpoint not contains Inverse Futures positions
   restapi_update_20210422: Deprecated Fields of self_ratio and platform_ratio, it is returned as 0 currently
+  restapi_update_20210527: New add spot open-api document
 
   markpricekline: Query Mark Price Kline
   linear_query_mark_price_kline: Query mark price kline (like <a href="#t-querykline">Query Kline</a> but for <a href="https://help.bybit.com/hc/en-us/articles/360039261074-What-is-Dual-Price-mechanism-">mark price</a>).
@@ -1826,6 +1827,8 @@ en:
   cancel_spot_order: Cancel Spot Order
   spot_order_list: Spot Order List
   spot_transactId: transaction id
+  spot_time: time
+  spot_message: 是否成功
   spot_order_list_limit: default 500, max 1000
   spot_orders_start_time: start time (unit:ms)
   spot_orders_end_time: end time(unit:ms)
@@ -1837,13 +1840,13 @@ en:
   spot_token: token
   spot_fee: available balance
   spot_locked: locked balance
-  spot_depth_limit: default 100, max 100
+  spot_depth_limit: default 40, max 40
   spot_depth_time:  cunrrent time, unit is ms
   spot_depth_bids: Price and quantity information for bids, with the optimal bid prices ranked top to bottom
   spot_depth_asks: Ask price and quantity information, the best ASK prices are arranged from top to bottom
   mergedOrderBook: merged order book
   spot_trades: recent trades
-  spot_trades_limit: default 500, max 10000
+  spot_trades_limit: default 500, max 1000
   spot_is_buyer_maker: true= Order is a buy order when created, false = Order is a sell order when created
   spot_trade_time: Current timestamp (ms)
   spot_klines: klines

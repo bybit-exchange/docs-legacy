@@ -52,21 +52,13 @@ t(:websocket_best_practices)
 > t(:websocket_codequote_heartbeat)
 
 ```javascript
-ws.send('{"op":"ping"}');
+ws.send(JSON.stringify({"ping": 1535975085052}));
 ```
 
 > t(:codequote_responseExample)
 
 ```javascript
-{
-    "success": true, // Whether ping is successful
-    "ret_msg": "pong",
-    "conn_id": "036e5d21-804c-4447-a92d-b65a44d00700",// current connection id
-    "request": {
-        "op": "ping",
-        "args": null
-    }
-}
+{"pong":1622536662988}
 ```
 
 
@@ -106,15 +98,15 @@ t(:websocket_para_intervals)
 
 ```javascript
 {
-   "success": true, // Whether subscription is successful
-   "ret_msg": "",   // Successful subscription: "", otherwise it shows error message
-   "conn_id":"e0e10eee-4eff-4d21-881e-a0c55c25e2da",// current connection id
-   "request": {     // Request to your subscription
-       "op": "subscribe",
-       "args": [
-           "kline.BTCUSDH21.1m"
-       ]
-   }
+  "topic":"trade",
+  "event":"sub",
+  "params":{
+    "symbol":"BTCUSDT",
+    "binary":"false",
+    "symbolName":"BTCUSDT"
+    },
+  "code":"0",
+  "msg":"Success"
 }
 ```
 
@@ -328,7 +320,7 @@ t(:spot_websocket_orderbook_desc_v1)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"symbol":"BTCUSDT","topic":"mergedDepth","event":"sub","params":{"binary":false}}');
+ws.send('{"symbol":"BTCUSDT","topic":"mergedDepth","event":"sub","params":{"binary":false,"dumpScale":1}}');
 ```
 
 ```python
@@ -338,6 +330,41 @@ ws.send('{"symbol":"BTCUSDT","topic":"mergedDepth","event":"sub","params":{"bina
 > t(:spot_broker_info)
 
 ```javascript
+{
+  "symbol":"ETHUSDT",
+  "symbolName":"ETHUSDT",
+  "topic":"mergedDepth",
+  "params":{"
+    realtimeInterval":"24h",
+    "dumpScale":"1",
+    "binary":"false"
+    },
+  "data":[{
+    "e":301,
+    "s":"ETHUSDT",
+    "t":1622541360174,
+    "v":"10544_1",
+    "b":[
+          ["12001","1"],
+          ["12000","0.8"],
+          ["10000","1"],
+          ["4988","0.5"],
+          ["4987","0.8"],
+          ["4986","1"],
+          ["4985","0.9"],
+          ["4984","1.1"],
+          ["4983","1.3"],
+          ["4982","0.5"],
+          ["100000","0.94"]
+        ],
+    "o":0
+    }],
+    "f":false,
+    "sendTime":1622541360301,
+    "shared":false
+}
+
+
 {
 "filters":[
     {"minPrice":"0.01",
