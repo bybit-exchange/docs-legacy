@@ -1,6 +1,6 @@
 # t(:changelog)
 
-## 2021-06-01
+## 2021-06-02
 ### REST API IN TESTNET ENVIRONMENT
 - [t(:switchmode)](#t-switchmode) [t(:changelog_new)]
 - [t(:placecond)](#t-placecond) [t(:changelog_update)]
