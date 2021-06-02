@@ -994,6 +994,7 @@ en:
   websocket_para_response: Every subscription will have a response.
   ## Public Topics
   publictopics: Public Topics
+  publictopics_v2: Public Topics V2
   ### orderBookL2_25
   websocketorderbook25: orderBookL2_25
   websocket_para_orderbook251: Fetches the orderbook with a depth of 25 orders per side.
@@ -1211,17 +1212,69 @@ en:
   http_403: Forbidden -- You request too many times
   http_404: Request path not found
 
-  err_10001: parameter error
-  err_10002: request expired, check your <code>timestamp</code> and <code>recv_window</code>
-  err_10003: Invalid apikey
+  err_10000: An unknown error occured while processing the request.
+  err_10001: Internal error; unable to process your request. Please try again.
+  err_10002: You are not authorized to execute this request. Request need API Key included in . We suggest that API Key be included in any request.
+  err_10003: Too many requests; please use the websocket for live updates.Too many requests; current limit is %s requests per minute. Please use the websocket for live updates to avoid polling the API.
   err_10004: invalid sign
   err_10005: permission denied for current apikey
-  err_10006: too many requests
-  err_10007: api_key not found in your request parameters
+  err_10006: An unexpected response was received from the message bus. Execution status unknown. OPEN API server find some exception in execute request .Please report to Customer service.
+  err_10007: Timeout waiting for response from backend server. Send status unknown; execution status unknown.
   err_10010: request ip mismatch
-  err_10016: unexpect error or timeout
+  err_10014: Unsupported order combination.
+  err_10015: Reach the rate limit .Please slow down your request speed.Too many new orders.
+  err_10016: This service is no longer available.
   err_10017: request path not found or request method is invalid
   err_10018: exceed ip rate limit
+
+
+  err_10020: This operation is not supported.
+  err_10021: Timestamp for this request is outside of the recvWindow.Timestamp for this request was 1000ms ahead of the server's time.
+  err_10022: Signature for this request is not valid.
+  err_11000: Illegal characters found in a parameter.Illegal characters found in parameter '%s'; legal range is '%s'.
+  err_11001: Too many parameters sent for this endpoint.Too many parameters; expected '%s' and received '%s'.
+  err_11002: A mandatory parameter was not sent, was empty/null, or malformed.Mandatory parameter '%s' was not sent, was empty/null, or malformed.
+  err_11003: An unknown parameter was sent.
+  err_11004: Not all sent parameters were read.
+  err_11005: A parameter was empty.
+  err_11006: A parameter was sent when not required.
+  err_11011: Precision is over the maximum defined for this asset.
+  err_11012: No orders on book for symbol.
+  err_11014: TimeInForce parameter sent when not required.
+  err_11015: Invalid timeInForce.
+  err_11016: Invalid orderType.
+  err_11017: Invalid side.
+  err_11018: New client order ID was empty.
+  err_11019: Original client order ID was empty.
+  err_11020: Invalid interval.
+  err_11021: Invalid symbol.
+  err_11025: This listenKey does not exist.
+  err_11027: Lookup interval is too big.
+  err_11028: Combination of optional parameters invalid.
+  err_11030: Invalid data sent for a parameter.
+  err_11032: Order price too high.
+  err_11033: Order price lower than the minimum,please check general broker info.
+  err_11034: Order price decimal too long,please check general broker info.
+  err_11035: Order quantity too large.
+  err_11036: Order quantity lower than the minimum.
+  err_11037: Order quantity decimal too long.
+  err_11038: Order price exceeds permissible range.
+  err_11039: Order has been filled.
+  err_11040: Transaction amount lower than the minimum.
+  err_11041: Duplicate clientOrderId
+  err_11042: Order has been canceled
+  err_11043: Cannot be found on order book
+  err_11044: Order has been locked
+  err_11045: This order type does not support cancellation
+  err_11046: Order creation timeout
+  err_11047: Order cancellation timeout
+  err_20010: NEW_ORDER_REJECTED
+  err_20011: CANCEL_REJECTED
+  err_20013: Order does not exist.
+  err_20014: API-key format invalid.
+  err_20015: Invalid API-key, IP, or permissions for action.
+  err_20016: No trading window could be found for the symbol. Try ticker/24hrs instead.
+
   err_20001: Order not exists
   err_20003: missing parameter <code>side</code>
   err_20004: invalid parameter <code>side</code>
@@ -1230,13 +1283,7 @@ en:
   err_20007: missing parameter <code>order_type</code>
   err_20008: invalid parameter <code>order_type</code>
   err_20009: missing parameter <code>qty</code>
-  err_20010: qty must be greater than 0
-  err_20011: qty must be an integer
   err_20012: qty must be greater than zero and less than 1 million
-  err_20013: missing parameter <code>price</code>
-  err_20014: price must be greater than 0
-  err_20015: missing parameter <code>time_in_force</code>
-  err_20016: invalid value for parameter <code>time_in_force</code>
   err_20017: missing parameter <code>order_id</code>
   err_20018: invalid date format
   err_20019: missing parameter <code>stop_px</code>
@@ -1713,6 +1760,7 @@ en:
   restapi_update_2021051203: Add：<code>futures/private/position/risk-limit</code>
   restapi_update_20210517: Add：<code>futures/private/position/risk-limit</code>
   restapi_update_20210520: ETH Inverse Futures released
+  restapi_update_20210527: New add spot open-api document
 
   markpricekline: Query Mark Price Kline
   linear_query_mark_price_kline: Query mark price kline (like <a href="#t-querykline">Query Kline</a> but for <a href="https://help.bybit.com/hc/en-us/articles/360039261074-What-is-Dual-Price-mechanism-">mark price</a>).
@@ -1761,3 +1809,261 @@ en:
   a_setleverage: Set Leverage
   replace_by_new: please replace with
   replace_by_new_topic: please replace with
+
+  #spot
+  spot: Spot
+  spotOrderCreate: Create Spot Order
+  spotSymbol: Name of the symbol
+  spotId: Trade ID
+  spotQty: the quantity of trade
+  spotCommission: Trading fee
+  spotCommissionAsset: Trading fee token name
+  spotIsBuyer: true= Buyer false= Seller
+  spotIsMaker: true=Maker false=Taker
+  spot_kline_interval: spot kline interval
+  spotTime: Timestamp when the order is created.
+  spotFeeTokenId: Fee token name.
+  spotFee: Fee of the trade.
+  spotIsWorking: is working (true / false)
+  spotTradeId: The ID for the trade
+  spotUpdateTime: Last time this order was updated
+  spotLeverage: Leverage of the order.
+  spotMarginLocked: Amount of margin locked for this order. This includes the actually margin needed plus fees to open and close the position.
+  spotPriceType: The price type. Possible values include INPUT, OPPONENT, QUEUE, OVER, and MARKET.
+  spotQuantity: The quantity traded
+  spotSide: Direction of the order. Possible values include BUY_OPEN, SELL_OPEN, BUY_CLOSE, and SELL_CLOSE.
+  spotOrderType: order type , LIMIT/MARKET/LIMIT_MAKER
+  spotTimeInForce: Order time order（Time in Force）。The possible values are：GTC（Good Till Canceled，Always effective），FOK（Fill or Kill，All deal or canncel），IOC（Immediate or Cancel，Close or cancel immediately）
+  spotPrice:  The price of the trade
+  spotOrderID: order id
+  spotFees: Fees incurred for this order.
+  spotOriQty: Quantity ordered
+  spotExecQty: Quantity of orders that has been executed
+  spotAvgPrice: Average price of filled orders.
+  spotType: order type
+  spotStatus: The state of the order.Possible values include NEW, PARTIALLY_FILLED, FILLED, CANCELED, and REJECTED.
+  tOrderClientOrdID: Unique ID of the order.
+  spot_get_order: Query Spot Order
+  cancel_spot_order: Cancel Spot Order
+  spot_order_list: Spot Order List
+  spot_transactId: transaction id
+  spot_time: time
+  spot_message: 是否成功
+  spot_order_list_limit: default 500, max 1000
+  spot_orders_start_time: start time (unit:ms)
+  spot_orders_end_time: end time(unit:ms)
+  spot_history_orders: history orders
+  spot_my_trades: trade records
+  spot_from_id:  query begins with the tradeId
+  spot_to_id: query end with the tradeId
+  spot_balance: spot balance
+  spot_token: token
+  spot_fee: available balance
+  spot_locked: locked balance
+  spot_depth_limit: default 40, max 40
+  spot_depth_time:  cunrrent time, unit is ms
+  spot_depth_bids: Price and quantity information for bids, with the optimal bid prices ranked top to bottom
+  spot_depth_asks: Ask price and quantity information, the best ASK prices are arranged from top to bottom
+  mergedOrderBook: merged order book
+  spot_trades: recent trades
+  spot_trades_limit: default 500, max 1000
+  spot_is_buyer_maker: true= Order is a buy order when created, false = Order is a sell order when created
+  spot_trade_time: Current timestamp (ms)
+  spot_klines: klines
+  spotTicker: 24 hours Ticker price change data
+  spot_best_bid_price: best bid price
+  spot_best_ask_price: best ask price
+  spot_last_price: latest price
+  spot_open_price: open price
+  spot_high_price: max price
+  spot_low_price: min price
+  spotSymbolPrice: Latest Symbol Price
+  spotBestTicker: Best Bid/Ask Price
+  spotRealtimeInterval: time interval
+  spotOpen: Open price
+  spotHigh: High price
+  spotLow: Low price
+  spot_total: total
+  spotClose: Close price
+  spotVolume: Trade volume amount
+  spotTrades: Number of trades
+  spotTakerBaseVolume: Taker buy base asset volume
+  spotTakerQuoteVolume: Taker buy quote asset volume
+  spot_ticket_id: ticket id
+  spot_match_order_id: match order id
+  spot_account_id: account id
+  spot_match_account_id: match account id
+
+  row_parameter_type: <a href="#type-type">type</a>
+  row_parameter_timeInForce: <a href="#timeinforce-timeinforce">timeInForce</a>
+
+  #spot_ws_v1
+  spot_price: price
+  spot_symbol: Symbol
+  spot_quantity: quantity
+  spot_side: Side SELL/BUY
+  spot_order_type: Order type - LIMIT,MARKET,LIMIT_MAKER
+  spot_order_client_id: Client order ID
+  spot_order_status: Current order status - NEW,PARTIALLY_FILLED,FILLED,CANCELED,PENDING_CANCEL,REJECTED
+  spot_first: true(first),false(not first)
+  spot_timestamp: timestamp
+  spot_timestamp_kline: kline start time
+  spot_time_in_force: time in Force - GTC(Good Till Canceled),FOK(Fill or Kill),IOC(Immediate or Cancel)
+  spot_close: close price
+  spot_high: high price
+  spot_low: low price
+  spot_open: open price
+  spot_volume: trade volume
+  spot_quota_volume: trade amount (in base asset, in this case is USDT)
+  spot_version: version
+  spot_buy: first buy price，quantity
+  spot_sell: first sell price，quantity
+  spot_binary: true false（default）
+  spot_kline_type: kline interval
+  spot_buy_price: first buy price
+  spot_buy_qty: first buy quantity
+  spot_sell_price: first sell price
+  spot_sell_qty: first sell quantity
+  spot_binance_change: binance change
+  spot_asset: asset name
+  spot_available_qty: available quantity
+  spot_frezen_qty: frezen quantity
+  spot_event_type: Event type
+  spot_allow_trade: allow trade
+  spot_allow_withdraw: allow withdraw
+  spot_allow_deposit: allow deposit
+  spot_cumulative_trade: cumulative trade amount
+  spot_event_timestamp: Event time
+  spot_order_create_timestamp: order create timestamp
+  spot_order_id: order id
+  spot_recent_qty: Last executed quantity
+  spot_cumulative_qty: Cumulative filled quantity
+  spot_recent_price: Last executed price
+  spot_fee_symbol: fee coin
+  spot_m: is maker
+  spot_gains: gains
+  spot_websocket_trade_v1: Trade Streams
+  spot_websocket_trade_desc_v1: |
+    <p>The Trade Streams push raw trade information; each trade has a unique buyer and seller.</p>
+    <p>After successful handshake and connected to server, the server will return the latest 60 trades. After this payload, the following will be real-time trades.</p>
+    <p>Variable "v" acts as an tradeId. This variable is shared across different symbols; however, each ID is unique. For example, suppose in the last 5 seconds 3 trades happened in ETHSUDT, BTCUSDT, and BHTBTC. Their version (which is "v") will be consecutive: 112, 113, 114.</p>
+
+  spot_websocket_ticker_v1: Market Tickers Stream
+  spot_websocket_ticker_desc_v1: 24hr Ticker statistics for a symbol that changed in an array.
+  spot_websocket_kline_v1: Kline/Candlestick Streams
+  spot_websocket_kline_desc_v1: |
+    <p>The Kline/Candlestick Stream push updates to the current klines/candlestick every second.</p>
+    <p>m -> minutes; h -> hours; d -> days; w -> weeks; M -> months</p>
+      <ul>
+      <li>1m</li>
+      <li>3m</li>
+      <li>5m</li>
+      <li>15m</li>
+      <li>30m</li>
+      <li>1h</li>
+      <li>2h</li>
+      <li>4h</li>
+      <li>6h</li>
+      <li>12h</li>
+      <li>1d</li>
+      <li>1w</li>
+      <li>1M</li>
+      </ul>
+
+  spot_broker_info: brokerinfo return
+  spot_websocket_orderbook_v1: Orderbook Stream(Full Depth)
+  spot_websocket_orderbook_desc_v1: |
+    <p>The Depth Streams for symbols.</p>
+    <p>Here is the book dump instructions：</p>
+    <ul>
+      <li>The book dump frequency：Every 300ms, if book version changed.</li>
+      <li>The book dump depth：300 for asks and bids each.</li>
+      <li>The book version change event：
+        <ul>
+          <li>order enters book</li>
+          <li>order leaves book</li>
+          <li>order quantity or amount changes</li>
+          <li>order is finished</li>
+        </ul>
+      </li>
+    </ul>
+    <p>Full depth streams all orderbook data, therefore the data frequency is relatively low. If you wish to get higher frequency streams, please see below to subscribe to merged depth. Notice: "mergedDepth" has fewer data.</p>
+
+  spot_websocket_orderbook_merge_v1: Orderbook Stream(Merge Depth)
+  spot_websocket_orderbook_merge_desc_v1: dumpScale must be specified for this endpoint. It it the precision of the ticker, it cannot be larger than the specified precision. Check precision at brokerInfo (token, options, and contracts).
+
+  spot_websocket_orderbook_delta_v1: Orderbook Stream(Delta Depth)
+  spot_websocket_orderbook_delta_desc_v1: |
+    <p>Order book price and quantity depth updates used to locally manage an order book pushed every second.</p>
+    <p>In the Diff. (difference) depth stream, the quantity doesn"t necessarily mean the corresponding quantity to the price anymore. If the quantity is 0, it means this previous price level is not in the orderbook anymore. If the quantity is > 0, it means the updated quantity for this price level.</p>
+    <p>Suppose now we have received the first depth data payload:</p>
+    <p>&nbsp;&nbsp;> ["0.00181860", "155.92000000"]// price, quantity</p>
+    <p>If the next payload is:</p>
+    <p>&nbsp;&nbsp;> ["0.00181860", "12.3"]</p>
+    <p>This means that this price level"s quantity has changed.</p>
+    <p>If the next payload is:</p>
+    <p>&nbsp;&nbsp;> ["0.00181860", "0"]</p>
+    <p>This means that this price level is not in orderbook anymore.</p>
+
+  spot_websocket_many_symbol_desc: support many symbol, separate with ','.
+  spot_websocket_subscribe_desc: |
+    <p>After establishing the connection, one can subscribe to a new topic by sending a JSON request. The specific formats are as follows:</p>
+    <p>ws.send('{"symbol":"BTCUSDT","topic":"trade","event":"sub","params":{"binary":false}}');</p>
+    <p>support many symbol, separate with ',':</p>
+    <p>ws.send('{"symbol":"BTCUSDT,ETHUSDT","topic":"trade","event":"sub","params":{"binary":false}}');</p>
+
+  #user
+  spot_websocket_user_account: Account Update
+  spot_websocket_user_account_desc: Account state is updated with the outboundAccountInfo event.
+  spot_websocket_user_order: Order Update
+  spot_websocket_user_order_desc: Orders are updated with the executionReport event. Check the API documentation and below for relevant enum definitions. Average price can be found by doing Z divided by z.
+  spot_websocket_ticket_info: TicketInfo
+
+  #spot_ws_v2
+
+  spot_websocket_ticker_v2: Bookticker
+  spot_websocket_ticker_desc_v2: 'Optimal buy one sell one price'
+
+  spot_websocket_kline_v2: Kline/Candlestick Streams
+  spot_websocket_kline_desc_v2: |
+    <p>The Kline/Candlestick Stream push updates to the current klines/candlestick every second.</p>
+    <p>m -> minutes; h -> hours; d -> days; w -> weeks; M -> months</p>
+      <ul>
+      <li>1m</li>
+      <li>3m</li>
+      <li>5m</li>
+      <li>15m</li>
+      <li>30m</li>
+      <li>1h</li>
+      <li>2h</li>
+      <li>4h</li>
+      <li>6h</li>
+      <li>12h</li>
+      <li>1d</li>
+      <li>1w</li>
+      <li>1M</li>
+      </ul>
+
+  spot_websocket_trade_v2: Trade Streams
+  spot_websocket_trade_desc_v2: |
+    <p>The Trade Streams push raw trade information; each trade has a unique buyer and seller.</p>
+    <p>After successful handshake and connected to server, the server will return the latest 60 trades. After this payload, the following will be real-time trades.</p>
+    <p>Variable "v" acts as an tradeId. This variable is shared across different symbols; however, each ID is unique. For example, suppose in the last 5 seconds 3 trades happened in ETHSUDT, BTCUSDT, and BHTBTC. Their version (which is "v") will be consecutive: 112, 113, 114.</p>
+
+  spot_websocket_orderbook_v2: Orderbook Stream(Full Depth)
+  spot_websocket_orderbook_desc_v2: </p>
+    <ul>
+      <li>The book dump frequency：Every 300ms, if book version changed.</li>
+      <li>The book dump depth：300 for asks and bids each.</li>
+      <li>The book version change event：
+        <ul>
+          <li>order enters book</li>
+          <li>order leaves book</li>
+          <li>order quantity or amount changes</li>
+          <li>order is finished</li>
+        </ul>
+      </li>
+    </ul>
+
+  spot_websocket_symbol_ticker_v2: Market Tickers Stream
+  spot_websocket_symbol_ticker_desc_v2: ''

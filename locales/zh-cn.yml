@@ -13,6 +13,9 @@ zh-cn:
   codequote_responseExampleFormatAll: 响应示例
   codequote_curlExample: 请求示例
   codequote_subscribe: 请求订阅
+  spot_transactId: 交易ID
+  spot_time: 时间
+  spot_message: 是否成功
   codequote_snapshot: 快照推送示例 - 连接建立成功后首次推送
   codequote_delta: 增量推送示例 - 快照数据推送后，推送的增量数据
   column_parameter: 参数
@@ -468,13 +471,13 @@ zh-cn:
     注意，timestamp参数必须符合如下规则: <b>server_time - recv_window <= timestamp < server_time + 1000</b>，其中server_time是Bybit服务器时间，您可以通过<a href="#t-servertime">服务器时间接口</a>获取。
   constructingtherequest: 构建请求
   auth_codequote_construct1a:
-    拼接参数示例（以修改杠杆接口为例）：
+    拼接参数示例（以查询账号余额接口为例）：
   auth_codequote_construct1b:
     参数按照 <b>字母顺序</b> 排列，然后计算<code>sign</code>。
   auth_codequote_construct2: |
-    <b>GET</b>请求格式（查询杠杆）:
+    <b>GET</b>请求格式（查询账号余额）:
   auth_codequote_construct3: |
-    <b>POST</b>请求格式（修改杠杆）:
+    <b>POST</b>请求格式（创建订单）:
   auth_para_construct1:
     <p>1. 所有参数按照字母顺序排序，然后按照<a href="https://en.wikipedia.org/wiki/Query_string">query string</a>格式拼接。</p>
   auth_para_construct2:
@@ -916,16 +919,25 @@ zh-cn:
     <ul>
     <p>
       <li>测试网:
-        <span id="testnet_address">wss://stream-testnet.bybit.com/realtime</span>
+        <span id="testnet_address">公共Topics: wss://stream-testnet.bybit.com/spot/quote/ws/v1</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <br/>
+        <span id="testnet_address">公共Topics2: wss://stream-testnet.bybit.com/spot/quote/ws/v2</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <br/>
+        <span id="testnet_address_2">私有Topics: wss://stream-testnet.bybit.com/spot/ws/</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
       </li>
     </p>
     <p>
       <li>主网(请根据您的网络情况选择以下任意一个地址使用):<br/>
-        <span id="mainnet_address">wss://stream.bybit.com/realtime</span>
+        <span id="mainnet_address">公共Topics: wss://stream.bybit.com/spot/quote/ws/v1</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
         <br/>
-        <span id="mainnet_address_2">wss://stream.bytick.com/realtime</span>
+        <span id="mainnet_address">公共Topics2: wss://stream.bybit.com/spot/quote/ws/v2</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <br/>
+        <span id="mainnet_address_2">私有Topics: wss://stream.bybit.com/spot/ws/</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
       </li>
     </p>
@@ -952,7 +964,7 @@ zh-cn:
   websocket_codequote_filters2: 通过分隔符来订阅多个topic
   websocket_codequote_filters3: 通过匹配符来订阅多个topic
   websocket_para_filters: |
-    建立连接后, 可以通过发送JSON请求来订阅topic. 请求格式如下:
+    建立连接后, 可以通过发送JSON请求来订阅topic. 其中bianry为false表示不进行压缩传输，为true时表示以GZIP格式进行压缩，请求格式如下:
   websocket_para_filters1: |
     <p>您也可以同时订阅多个感兴趣的topic，订阅方式如下</p>
   websocket_para_filters2: |
@@ -968,6 +980,7 @@ zh-cn:
   websocket_para_response: 每个topic订阅请求都会有对应的响应，您可以根据返回结果判断是否订阅成功。
   ## Public Topics
   publictopics: 公共 Topics
+  publictopics_v2: 公共 Topics V2
   ### orderBookL2_25
   websocketorderbook25: orderBook25档
   websocket_para_orderbook251: 获取25档orderbook数据.
@@ -1171,17 +1184,68 @@ zh-cn:
   http_403: 拒绝访问
   http_404: 访问路径不存在
 
-  err_10001: 参数错误
-  err_10002: 请求过期，请检查 <code>timestamp</code> 和 <code>recv_window</code>
-  err_10003: 无效的apikey
+  err_10000: 处理请求时发生未知错误
+  err_10001: 内部错误; 无法处理您的请求。 请再试一次.
+  err_10002: 您无权执行此请求。请求需要发送API Key，我们建议在所有的请求中都附加API Key
+  err_10003: 排队的请求过多。请求权重过多； 请使用websocket进行实时更新。请求权重过多； 当前限制为每分钟％s请求权重。 请使用websocket进行实时更新，以避免轮询API。 请求权重过多； IP被禁止，直到％s。 请使用websocket进行实时更新，以免被禁。
   err_10004: 签名错误
   err_10005: apikey权限不足
-  err_10006: 请求次数超限
-  err_10007: 您的请求中没有<code>api_key</code>
+  err_10006: 从消息总线收到意外的响应。 执行状态未知。请向客服求证关于此订单的详细状态和其他信息。
+  err_10007: 等待后端服务器响应超时。 发送状态未知； 执行状态未知。
   err_10010: 请求ip不匹配
-  err_10016: 服务异常或请求超时
+  err_10014: 不支持的订单组合。
+  err_10015: 新订单太多。请减少你的请求频率。新订单太多； 当前限制为每％s ％s个订单。
+  err_10016: 该服务不可用
   err_10017: 请求路径不存在或请求方法错误
   err_10018: 超过ip频率限制
+  err_10020: 不支持此操作
+  err_10021: 此请求的时间戳不在recvWindow之外。此请求的时间戳比服务器时间提前1000毫秒。请查证你的本地时间和服务器时间
+  err_10022: 此请求的签名无效。
+  err_11000: 在参数中发现非法字符。在参数'％s'中发现非法字符； 合法范围是“％s”。
+  err_11001: 为此端点发送的参数太多。
+  err_11002: 未发送强制性参数，该参数为空/空或格式错误。强制参数'％s'未发送，为空/空或格式错误。
+  err_11003: 发送了未知参数。
+  err_11004: 并非所有发送的参数都被读取
+  err_11005: 参数为空。
+  err_11006: 不需要时已发送参数。
+  err_11011: 精度超过为此资产定义的最大值。
+  err_11012: 交易对没有挂单
+  err_11014: 不需要时发送了TimeInForce参数。
+  err_11015: 无效 timeInForce.
+  err_11016: 无效订单类型。
+  err_11017: 无效买卖方向。
+  err_11018: 新的客户订单ID为空。
+  err_11019: 新的客户订单ID为空。
+  err_11020: 无效时间间隔。
+  err_11021: 无效符号。
+  err_11025: 该listenKey不存在。
+  err_11027: 查询间隔太大。
+  err_11028: 可选参数组合无效。
+  err_11030: 发送的参数为无效数据。
+  err_11032: 订单价格过高
+  err_11033: 订单价格过低，请查询Broker Info信息
+  err_11034: 订单价格精度过长，请查询Broker Info信息
+  err_11035: 订单quantity过大
+  err_11036: 订单quantity小于最小值
+  err_11037: 订单quantity精度过长
+  err_11038: 订单价格超出允许范围
+  err_11039: 订单已经被执行
+  err_11040: 交易金额小于最小值
+  err_11041: clientOrderId重复
+  err_11042: 订单已经被撤销
+  err_11043: 订单当前不在订单簿上
+  err_11044: 订单已被锁定
+  err_11045: 该订单类型不支持撤销
+  err_11046: 订单生成超时
+  err_11047: 订单撤销超时
+  err_20010: NEW_ORDER_REJECTED
+  err_20011: CANCEL_REJECTED
+  err_20013: Order不存在
+  err_20014: API-key格式无效
+  err_20015: 无效的API密钥，IP或操作权限。.
+  err_20016: 找不到该交易对的交易窗口。 尝试改为24小时自动报价。
+
+
   err_20001: 订单不存在
   err_20003: 缺少参数<code>side</code>
   err_20004: <code>side</code>不合法
@@ -1190,13 +1254,7 @@ zh-cn:
   err_20007: 缺少参数<code>order_type</code>
   err_20008: <code>order_type</code>不合法
   err_20009: 缺少参数<code>qty</code>
-  err_20010: <code>qty</code> 必须大于0
-  err_20011: <code>qty</code> 必须为整数
   err_20012: <code>qty</code> 必须大于0并小于1百万
-  err_20013: 缺少参数<code>price</code>
-  err_20014: <code>price</code>必须大于0
-  err_20015: 缺少参数<code>time_in_force</code>
-  err_20016: <code>time_in_force</code>不合法
   err_20017: 缺少参数<code>order_id</code>
   err_20018: 日期格式不对
   err_20019: 缺少参数<code>stop_px</code>
@@ -1641,6 +1699,7 @@ zh-cn:
   restapi_update_2021051203: 新增：<code>futures/private/position/risk-limit</code>
   restapi_update_20210517: 新增：<code>futures/private/position/risk-limit</code>
   restapi_update_20210520: ETH反向交割合约发布
+  restapi_update_20210527: 新增现货open-api文档
 
   markpricekline: 标记价格K线
   linear_query_mark_price_kline: 查询标记价格K线
@@ -1687,3 +1746,275 @@ zh-cn:
   a_setleverage: 修改杠杆
   replace_by_new: 请使用新接口
   replace_by_new_topic: 请使用新topic
+
+
+  # spot
+  spot: 现货
+  spotOrderCreate: 创建订单
+  spotAccountId: 账户ID
+  spotExchangeId: 币对交易ID
+  spotSymbol: 币对名称
+  spotId: 交易ID
+  spotQty: 交易数量
+  spotCommission: 交易手续费
+  spotCommissionAsset: 交易手续费币种
+  spotIsBuyer: true= Buyer false= Seller
+  spotIsMaker: true=Maker false=Taker
+  spotSymbolName: 现货币对名称
+  spotIcebergQty: 最小允许数量
+  spotCummulativeQuoteQty: 对于某些历史数据 `cummulativeQuoteQty` 可能会 < 0, 这说明数据当前不可用。
+  spotStopPrice: 停止价
+  spot_kline_interval: K线图区间。可识别发送的值为：1m, 5m, 15m, 30m, 1h, 1d, 1W, 1M (m=分钟, h=小时, d=天, w=星期, M=月)
+  spotTime: 订单生成时的时间戳
+  spotOrderLinkId: 订单ID
+  spotTradeId: 交易ID
+  spotIsWorking: 是否生效
+  spotUpdateTime: 订单上次更新的时间戳
+  spotQuantity: 订单数量，对于市价买单（MARKET BUY）订单，quantity=amount
+  spotSide: 订单方向, BUY(买入做多)/SELL(卖出做空)
+  spotOrderType: 订单类型, LIMIT/MARKET/LIMIT_MAKER
+  spotTimeInForce: 订单时间指令（Time in Force）。可能出现的值为：GTC（Good Till Canceled，一直有效），FOK（Fill or Kill，全部成交或者取消），IOC（Immediate or Cancel，立即成交或者取消）
+  spotPrice: 订单价格，对于LIMIT 订单必需发送
+  spotOrderID: 订单ID
+  spotFees: 订单的手续费
+  spotOriQty: 订单数量
+  spotFeeTokenId: 手续费类型（Token名称）
+  spotExecQty: 订单已执行数量
+  spotAvgPrice: 订单已经成交的平均价格
+  spotType: 订单类型。可能出现的值只能为:LIMIT(限价)和MARKET（市价）
+  spotStatus: 订单状态。可能出现的值为：NEW(新订单，无成交)、PARTIALLY_FILLED（部分成交）、FILLED（全部成交）、CANCELED（已取消）和REJECTED（订单被拒绝）.
+  tOrderClientOrdID: 特殊订单ID，用户自己生成
+  spot_get_order: 查询订单
+  cancel_spot_order: 撤销订单
+  spot_order_list: 订单列表
+  spot_order_list_limit: 默认500；最大1000
+  spot_orders_start_time: 第一条返回的时间戳(毫秒)
+  spot_orders_end_time: 最后一条返回的时间戳(毫秒)
+  spot_history_orders: 历史订单
+  spotLeverage: 订单杠杆
+  spotMarginLocked: 该订单锁定的保证金。这包括实际需要的保证金外加开仓和平仓所需的费用
+  spotPriceType: 价格类型（INPUT、OPPONENT、QUEUE、OVER、MARKET）
+  spotFeeToken: 手续费计价类型
+  spotFee: 实际手续费
+  spot_my_trades: 交易记录
+  spot_from_id: 从此tradeId 开始查询
+  spot_to_id: 以此tradeId为终点
+  spot_balance: 账号余额
+  spot_token: 币种
+  spot_total: 总额
+  spot_fee: 手续费
+  spot_fee_symbol: 手续费币种
+  spot_locked: 冻结余额
+  spot_depth_limit: 默认40，最大40
+  spot_depth_time: 当前时间
+  spot_depth_bids: bid的价格和数量信息，最优bid价格由上到下排列
+  spot_depth_asks: ask的价格和数量信息，最优ask价格由上到下排列
+  mergedOrderBook: 合并订单簿
+  spot_trades: 最近成交
+  spot_trades_limit: 默认500， 最大1000
+  spot_is_buyer_maker: true为买单， false为卖单
+  spot_trade_time: 当前Unix时间戳，毫秒(ms)
+  spot_klines: K线
+  spotTicker: 24小时ticker价格变化数据
+  spot_best_bid_price: 最佳买价
+  spot_best_ask_price: 最佳卖价
+  spot_last_price: 最新成交价
+  spot_open_price: 开盘价
+  spot_high_price: 最高价
+  spot_low_price: 最低价
+  spotSymbolPrice: Symbol最新价
+  spotBestTicker: 最佳买卖价
+  spotRealtimeInterval: 时间间隔
+  spotOpen: 开盘价
+  spotHigh: 最高价
+  spotLow: 最低价
+  spotClose: 收盘价
+  spotVolume: 合约交易金额
+  spotTrades: 交易数量（张数）
+  spotTakerBaseVolume: 买方购买金额
+  spotTakerQuoteVolume: 买方购买数量（张数）
+  spot_ticket_id: ticket id
+  spot_match_order_id: 撮合订单id
+  spot_account_id: 账户id
+  spot_match_account_id: 撮合账户id
+
+  row_parameter_type: <a href="#type-type">type</a>
+  row_parameter_timeInForce: <a href="#timeinforce-timeinforce">timeInForce</a>
+
+  #spot_ws_v1
+  spot_price: 价格
+  spot_symbol: 币对
+  spot_quantity: 数量
+  spot_side: true买, false卖
+  spot_order_type: 订单类型, LIMIT/MARKET/LIMIT_MAKER/MARKET OF QUOTE
+  spot_order_client_id: 用户创建orderid
+  spot_order_status: 订单状态 NEW - 新订单、暂无成交，PARTIALLY_FILLED - 部分成交，FILLED - 完全成交，CANCELED - 已取消，PENDING_CANCEL - 等待取消，REJECTED - 被拒绝
+  spot_first: 是否首次返回
+  spot_timestamp: 时间戳
+  spot_timestamp_kline: k线开始时间
+  spot_time_in_force: 订单时间指令（Time in Force）。可能出现的值为：GTC（Good Till Canceled，一直有效），FOK（Fill or Kill，全部成交或者取消），IOC（Immediate or Cancel，立即成交或者取消）
+  spot_close: 收盘价
+  spot_high: 最高价
+  spot_low: 最低价
+  spot_open: 开盘价
+  spot_volume: 成交量
+  spot_quota_volume: 成交额
+  spot_version: 版本号
+  spot_buy: 买一价、数量
+  spot_sell: 卖一价、数量
+  spot_binary: 是否压缩 true压缩, false未压缩（默认）
+  spot_kline_type: k线间隔
+  spot_buy_price: 买一价价格
+  spot_buy_qty: 买一价数量
+  spot_sell_price: 卖一价价格
+  spot_sell_qty: 卖一价数量
+  spot_binance_change: 余额变化
+  spot_asset: 资产名称
+  spot_available_qty: 可用数量
+  spot_frezen_qty: 冻结数量
+  spot_event_type: 事件类型
+  spot_allow_trade: 允许交易
+  spot_allow_withdraw: 允许提现
+  spot_allow_deposit: 允许充值
+  spot_cumulative_trade: 累计成交数额
+  spot_event_timestamp: 事件时间
+  spot_order_create_timestamp: 订单创建时间
+  spot_order_id: 订单id
+  spot_recent_qty: 最近成交数量
+  spot_cumulative_qty: 累计成交数量
+  spot_recent_price: 最近成交价格
+  spot_free: 手续费
+  spot_free_symbol: 手续费币种
+  spot_m: is maker
+  spot_u: is maker
+  spot_w: is maker
+  spot_gains: 涨幅
+  spot_websocket_trade_v1: 逐笔交易
+  spot_websocket_trade_desc_v1: |
+    <p>逐笔交易推送每一笔成交的信息。成交，或者说交易的定义是仅有一个吃单者与一个挂单者相互交易。</p>
+    <p>在成功连接到服务器后，服务器首先会推送一条最近的60条成交。在这条推送之后，每条推送都是实时的成交。</p>
+    <p>变量“v”可以理解成一个交易ID。这个变量是全局递增的并且独特的。例如：假设过去5秒有3笔交易发生，分别是ETHUSDT、BTCUSDT、BHTBTC。它们的“v”会为连续的值（112，113，114）。</p>
+
+  spot_websocket_ticker_v1: Symbol的Ticker
+  spot_websocket_ticker_desc_v1: 按Symbol逐秒刷新的24小时完整ticker信息。
+  spot_websocket_kline_v1: K线/蜡烛图
+  spot_websocket_kline_desc_v1: |
+    <p>K线stream逐秒推送所请求的K线种类(最新一根K线)的更新</p>
+    <p>订阅Kline需要提供间隔参数，最短为分钟线，最长为月线。支持以下间隔:</p>
+    <p>m -> 分钟; h -> 小时; d -> 天; w -> 周; M -> 月</p>
+      <ul>
+      <li>1m</li>
+      <li>3m</li>
+      <li>5m</li>
+      <li>15m</li>
+      <li>30m</li>
+      <li>1h</li>
+      <li>2h</li>
+      <li>4h</li>
+      <li>6h</li>
+      <li>12h</li>
+      <li>1d</li>
+      <li>1w</li>
+      <li>1M</li>
+      </ul>
+
+  spot_broker_info: brokerinfo数据返回
+  spot_websocket_orderbook_v1: 订单簿(全量深度)
+  spot_websocket_orderbook_desc_v1: |
+    <p>Symbol的深度信息。</p>
+    <p>这里是订单簿快照推送的详细信息：</p>
+    <ul>
+      <li>订单簿快照频率：每300ms, 如果book变了的话。</li>
+      <li>订单簿快照频率深度：bids 和 asks各300</li>
+      <li>订单簿版本变更触发事件：
+        <ul>
+          <li>订单进入订单簿</li>
+          <li>订单离开订单簿</li>
+          <li>订单数量变更</li>
+          <li>订单已完成</li>
+        </ul>
+      </li>
+    </ul>
+    <p>这个订阅会推送全量深度信息，因此数据量大。如果想要推送评率更快，请订阅合并深度。</p>
+
+  spot_websocket_orderbook_merge_v1: 订单簿(合并深度)
+  spot_websocket_orderbook_merge_desc_v1: 这个订阅必须传dumpScale（合并精度）这个参数。dumpScale不能大于ticker的精度。你可以在brokerInfo这个端点查询ticker的精度信息。
+
+  spot_websocket_orderbook_delta_v1: 订单簿(增量深度)
+  spot_websocket_orderbook_delta_desc_v1: |
+    <p>每秒推送订单簿的变化部分（如果有）。</p>
+    <p>在增量深度信息中，数量不一定等于对应价格的数量。如果数量=0，这说明在上一条推送中的这个价格已经没有了。如果数量>0，这时的数量为更新后的这个价格所对应的数量。</p>
+    <p>假设我们收到的返回数据中有这样一条：</p>
+    <p>&nbsp;&nbsp;> ["0.00181860", "155.92000000"] // 价格，数量</p>
+    <p>如果下一条返回数据中有：</p>
+    <p>&nbsp;&nbsp;> ["0.00181860", "12.3"]</p>
+    <p>这说明这个价格对应的数量有变更，已经更新变更的数量。</p>
+    <p>如果下一条返回数据中有：</p>
+    <p>&nbsp;&nbsp;> ["0.00181860", "0"]</p>
+    <p>这说明这个价格对应的数量已经消失，将会在客户端中删除。</p>
+
+  spot_websocket_many_symbol_desc: 支持多symbol，使用,隔开。
+  spot_websocket_subscribe_desc: |
+    <p>建立连接后, 可以通过发送JSON请求来订阅topic. 请求格式如下:</p>
+    <p>ws.send('{"symbol":"BTCUSDT","topic":"trade","event":"sub","params":{"binary":false}}');</p>
+    <p>支持多币种，用','隔开</p>
+    <p>ws.send('{"symbol":"BTCUSDT,ETHUSDT","topic":"trade","event":"sub","params":{"binary":false}}');</p>
+
+  #用户
+  spot_websocket_user_account: 账户变更
+  spot_websocket_user_account_desc: 使用 outboundAccountInfo event进行账户更新。
+  spot_websocket_user_order: 订单更新
+  spot_websocket_user_order_desc: 订单通过executionReport事件进行更新。详细说明信息请查看这里。通过将Z除以z可以找到平均价格。
+  spot_websocket_ticket_info: TicketInfo
+
+  #spot_ws_v2
+  spot_websocket_ticker_v2: 订单簿的Ticker
+  spot_websocket_ticker_desc_v2: '最优买一卖一价'
+
+  spot_websocket_kline_v2: K线/蜡烛图
+  spot_websocket_kline_desc_v2: |
+    <p>K线stream逐秒推送所请求的K线种类(最新一根K线)的更新</p>
+    <p>订阅Kline需要提供间隔参数，最短为分钟线，最长为月线。支持以下间隔:</p>
+    <p>m -> 分钟; h -> 小时; d -> 天; w -> 周; M -> 月</p>
+      <ul>
+      <li>1m</li>
+      <li>3m</li>
+      <li>5m</li>
+      <li>15m</li>
+      <li>30m</li>
+      <li>1h</li>
+      <li>2h</li>
+      <li>4h</li>
+      <li>6h</li>
+      <li>12h</li>
+      <li>1d</li>
+      <li>1w</li>
+      <li>1M</li>
+      </ul>
+
+  spot_websocket_trade_v2: 逐笔交易
+  spot_websocket_trade_desc_v2: |
+    <p>逐笔交易推送每一笔成交的信息。成交，或者说交易的定义是仅有一个吃单者与一个挂单者相互交易。</p>
+    <p>在成功连接到服务器后，服务器首先会推送一条最近的60条成交。在这条推送之后，每条推送都是实时的成交。</p>
+    <p>变量“v”可以理解成一个交易ID。这个变量是全局递增的并且独特的。例如：假设过去5秒有3笔交易发生，分别是ETHUSDT、BTCUSDT、BHTBTC。它们的“v”会为连续的值（112，113，114）。</p>
+
+  spot_websocket_orderbook_v2: 订单簿(全量深度)
+  spot_websocket_orderbook_desc_v2: |
+    <p>Symbol的深度信息。</p>
+    <p>这里是订单簿快照推送的详细信息：</p>
+    <ul>
+      <li>订单簿快照频率：每300ms, 如果book变了的话。</li>
+      <li>订单簿快照频率深度：bids 和 asks各300</li>
+      <li>订单簿版本变更触发事件：
+        <ul>
+          <li>订单进入订单簿</li>
+          <li>订单离开订单簿</li>
+          <li>订单数量变更</li>
+          <li>订单已完成</li>
+        </ul>
+      </li>
+    </ul>
+    <p>这个订阅会推送全量深度信息，因此数据量大。如果想要推送评率更快，请订阅合并深度。</p>
+
+  spot_websocket_symbol_ticker_v2: symbol的Ticker
+  spot_websocket_symbol_ticker_desc_v2: ''

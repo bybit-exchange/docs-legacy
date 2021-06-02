@@ -155,6 +155,11 @@ under the License.
   <% else %>
     <li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/inverse_futures"><%=t(:inverse_futures)%></a></li>
   <% end %>
+  <% if page_classes.end_with?("spot_index") %>
+  <li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/spot" class="selected"><%=t(:spot)%></a></li>
+<% else %>
+  <li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/spot"><%=t(:spot)%></a></li>
+<% end %>
   </ul>
   </div>
   <a class="international" id="international" href="javascript:void(0);"><%=t(:international)%></a>
