@@ -2613,13 +2613,13 @@ GET
 <td>止损价格，仅开仓时生效</td>
 </tr>
 <tr>
-<td style="text-align: left">tp_trigger_by</td>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>止盈激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
 <tr>
-<td style="text-align: left">sl_trigger_by</td>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>止损激活价格类型，默认为<code>LastPrice</code></td>
@@ -2754,12 +2754,12 @@ GET
 <td>止损价格</td>
 </tr>
 <tr>
-<td style="text-align: left">tp_trigger_by</td>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
 <td style="text-align: left">string</td>
 <td>止盈激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
 <tr>
-<td style="text-align: left">sl_trigger_by</td>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
 <td style="text-align: left">string</td>
 <td>止损激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
@@ -2987,12 +2987,12 @@ GET
 <td>止损价格</td>
 </tr>
 <tr>
-<td style="text-align: left">tp_trigger_by</td>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
 <td style="text-align: left">string</td>
 <td>止盈激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
 <tr>
-<td style="text-align: left">sl_trigger_by</td>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
 <td style="text-align: left">string</td>
 <td>止损激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
@@ -3248,13 +3248,13 @@ GET
 <td>修改后的止损价格。如果不修改这个字段，请不要传这个参数。</td>
 </tr>
 <tr>
-<td style="text-align: left">tp_trigger_by</td>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>止盈激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
 <tr>
-<td style="text-align: left">sl_trigger_by</td>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>止损激活价格类型，默认为<code>LastPrice</code></td>
@@ -3529,12 +3529,12 @@ GET
 <td>止损价格</td>
 </tr>
 <tr>
-<td style="text-align: left">tp_trigger_by</td>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
 <td style="text-align: left">string</td>
 <td>止盈激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
 <tr>
-<td style="text-align: left">sl_trigger_by</td>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
 <td style="text-align: left">string</td>
 <td>止损激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
@@ -4051,12 +4051,12 @@ GET
 <td>止损价格</td>
 </tr>
 <tr>
-<td style="text-align: left">tp_trigger_by</td>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
 <td style="text-align: left">string</td>
 <td>止盈激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
 <tr>
-<td style="text-align: left">sl_trigger_by</td>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
 <td style="text-align: left">string</td>
 <td>止损激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
@@ -4321,13 +4321,13 @@ GET
 <td>修改后的止损价格。如果不修改这个字段，请不要传这个参数。</td>
 </tr>
 <tr>
-<td style="text-align: left">tp_trigger_by</td>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>止盈激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
 <tr>
-<td style="text-align: left">sl_trigger_by</td>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>止损激活价格类型，默认为<code>LastPrice</code></td>
@@ -5081,7 +5081,7 @@ GET
 <p>切换止盈止损模式至全仓或部分</p>
 
 <aside class="notice">
-When set to Partial, SL/TP orders may have a quantity less than the position size. This is set with the <a href="#t-tradingstop">Trading-Stop endpoint</a>.
+当设置部分止盈止损模式时，止盈或者止损的订单数量可以小于仓位大小, 请使用<a href="#t-tradingstop">Trading-Stop endpoint</a>。
 </aside>
 
 <p class="fake_header">HTTP 请求</p>

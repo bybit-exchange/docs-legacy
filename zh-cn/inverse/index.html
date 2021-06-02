@@ -337,6 +337,14 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="更新日志">更新日志</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#2021-06-02" class="toc-h2 toc-link" data-title="2021-06-02">2021-06-02</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-in-testnet-environment" class="toc-h3 toc-link" data-title="REST API IN TESTNET ENVIRONMENT">REST API IN TESTNET ENVIRONMENT</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
                     <a href="#2021-05-11" class="toc-h2 toc-link" data-title="2021-05-11">2021-05-11</a>
                       <ul class="toc-list-h3">
                           <li>
@@ -348,7 +356,7 @@
                     <a href="#2021-05-11-2" class="toc-h2 toc-link" data-title="2021-05-11">2021-05-11</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#rest-api-in-testnet-environment" class="toc-h3 toc-link" data-title="REST API IN TESTNET ENVIRONMENT">REST API IN TESTNET ENVIRONMENT</a>
+                            <a href="#rest-api-in-testnet-environment-2" class="toc-h3 toc-link" data-title="REST API IN TESTNET ENVIRONMENT">REST API IN TESTNET ENVIRONMENT</a>
                           </li>
                       </ul>
                   </li>
@@ -863,6 +871,9 @@
                             <a href="#t-switchpositionmode" class="toc-h3 toc-link" data-title="切换仓位模式">切换仓位模式</a>
                           </li>
                           <li>
+                            <a href="#t-switchmode" class="toc-h3 toc-link" data-title="切换止盈止损模式">切换止盈止损模式</a>
+                          </li>
+                          <li>
                             <a href="#t-marginswitch" class="toc-h3 toc-link" data-title="全仓/逐仓切换">全仓/逐仓切换</a>
                           </li>
                           <li>
@@ -1109,6 +1120,9 @@
                   <li>
                     <a href="#tick-direction-type-tick_direction" class="toc-h2 toc-link" data-title="Tick direction type (tick_direction)">Tick direction type (<code>tick_direction</code>)</a>
                   </li>
+                  <li>
+                    <a href="#tpsl-mode-type-tp_sl_mode" class="toc-h2 toc-link" data-title="TpSl Mode type (tp_sl_mode)">TpSl Mode type (<code>tp_sl_mode</code>)</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -1175,12 +1189,73 @@ clipboard.on('error', function(e) {
 <p><p>欢迎使用 <a href="https://www.bybit.com/">Bybit</a> APIs 和 Websocket官方文档！</p> <p>如果您在使用API的过程中遇到问题需要帮助，请加入我们的 <a href="https://t.me/Bybitapi">官方Telegram API讨论群</a>！</p></p>
 <h3 id='t-resources'>中文社区和参考资料</h3>
 <p><ul class="bybit-community"> <li><img src="../../images/favicon-4f296779.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/zh-cn"><strong>帮助中心</strong></a> - <strong>在这里了解合约交易</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/docs/issues"><strong>Bybit API docs</strong></a> - <strong>在这里提bug</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/api-connectors/"><strong>Bybit's api-connectors</strong></a> - <strong>官方API SDK</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文讨论群</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文讨论群</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong> <li><img src="../../images/email_icon-e7dd7b20.png" height="14", width="14"> <a href="mailto:IT@bybit.com"><strong>IT@bybit.com</strong></a> - <strong>官方技术支持邮箱!</strong> </ul></p>
-<h1 id='t-changelog'>更新日志</h1><h2 id='2021-05-11'>2021-05-11</h2><h3 id='rest-api'>REST API</h3>
+<h1 id='t-changelog'>更新日志</h1><h2 id='2021-06-02'>2021-06-02</h2><h3 id='rest-api-in-testnet-environment'>REST API IN TESTNET ENVIRONMENT</h3>
+<ul>
+<li><a href="#t-switchmode">切换止盈止损模式</a> [新增]</li>
+<li><a href="#t-placecond">创建条件委托单</a> [更新]
+
+<ul>
+<li>支持设置止盈止损，请求参数增加 <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code></li>
+<li>返回参数增加 <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code></li>
+</ul></li>
+<li><a href="#t-placeactive">创建活动委托单</a> [更新]
+
+<ul>
+<li>请求参数增加 <code>tp_trigger_by</code>, <code>sl_trigger_by</code></li>
+<li>返回参数增加 <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code></li>
+</ul></li>
+<li><a href="#t-myposition">获取持仓（实时）</a> [更新]
+
+<ul>
+<li>返回参数增加<code>tp_sl_mode</code></li>
+</ul></li>
+<li><a href="#t-tradingstop">设置止盈止损</a> [更新]
+
+<ul>
+<li>支持创建部分止盈止损单,请求参数增加<code>sl_size</code>, <code>tp_size</code></li>
+</ul></li>
+<li><a href="#t-cancelcond">撤消条件委托单</a> [更新]
+
+<ul>
+<li>支持撤销止盈止损单</li>
+</ul></li>
+<li><a href="#t-replacecond">修改条件委托单</a> [更新]
+
+<ul>
+<li>支持修改止盈止损单信息,请求参数增加<code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code></li>
+</ul></li>
+<li><a href="#t-replaceactive">修改活动单信息</a> [更新]
+
+<ul>
+<li>支持修改止盈止损单信息,请求参数增加<code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code></li>
+</ul></li>
+<li><a href="#t-getactive">查询活动委托</a> [更新]
+
+<ul>
+<li>返回参数增加 <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code><br></li>
+</ul></li>
+<li><a href="#t-queryactive">实时查询活动委托</a> [更新]
+
+<ul>
+<li>返回参数增加 <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code><br></li>
+</ul></li>
+<li><a href="#t-getcond">查询条件委托</a> [更新]
+
+<ul>
+<li>返回参数增加 <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code><br></li>
+</ul></li>
+<li><a href="#t-querycond">实时查询条件委托</a> [更新]
+
+<ul>
+<li>返回参数增加 <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code></li>
+</ul></li>
+</ul>
+<h2 id='2021-05-11'>2021-05-11</h2><h3 id='rest-api'>REST API</h3>
 <ul>
 <li><a href="#t-setrisklimit">设置风险限额</a> [新增]</li>
 <li><a href="#t-getrisklimit">查询风险限额表</a> [新增]</li>
 </ul>
-<h2 id='2021-05-11-2'>2021-05-11</h2><h3 id='rest-api-in-testnet-environment'>REST API IN TESTNET ENVIRONMENT</h3>
+<h2 id='2021-05-11-2'>2021-05-11</h2><h3 id='rest-api-in-testnet-environment-2'>REST API IN TESTNET ENVIRONMENT</h3>
 <ul>
 <li><a href="#t-setleverage">修改杠杆</a> [更新]
 
@@ -3704,6 +3779,18 @@ GET
 <td>止损价格，仅开仓时生效</td>
 </tr>
 <tr>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>止盈激活价格类型，默认为<code>LastPrice</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>止损激活价格类型，默认为<code>LastPrice</code></td>
+</tr>
+<tr>
 <td style="text-align: left">reduce_only</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">bool</td>
@@ -3826,6 +3913,26 @@ GET
 <td style="text-align: left">updated_at</td>
 <td style="text-align: left">string</td>
 <td>更新时间</td>
+</tr>
+<tr>
+<td style="text-align: left">take_profit</td>
+<td style="text-align: left">number</td>
+<td>止盈价格</td>
+</tr>
+<tr>
+<td style="text-align: left">stop_loss</td>
+<td style="text-align: left">number</td>
+<td>止损价格</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
+<td style="text-align: left">string</td>
+<td>止盈激活价格类型，默认为<code>LastPrice</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
+<td style="text-align: left">string</td>
+<td>止损激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
 </tbody></table>
 <h3 id='t-getactive'>查询活动委托</h3>
@@ -4023,6 +4130,26 @@ GET
 <td>订单ID</td>
 </tr>
 <tr>
+<td style="text-align: left">data &gt; take_profit</td>
+<td style="text-align: left">number</td>
+<td>止盈价格</td>
+</tr>
+<tr>
+<td style="text-align: left">data &gt; stop_loss</td>
+<td style="text-align: left">number</td>
+<td>止损价格</td>
+</tr>
+<tr>
+<td style="text-align: left">data &gt; <a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
+<td style="text-align: left">string</td>
+<td>止盈激活价格类型，默认为<code>LastPrice</code></td>
+</tr>
+<tr>
+<td style="text-align: left">data &gt; <a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
+<td style="text-align: left">string</td>
+<td>止损激活价格类型，默认为<code>LastPrice</code></td>
+</tr>
+<tr>
 <td style="text-align: left">cursor</td>
 <td style="text-align: left">string</td>
 <td>翻页标记</td>
@@ -4217,6 +4344,26 @@ GET
 <td style="text-align: left">updated_at</td>
 <td style="text-align: left">string</td>
 <td>更新时间</td>
+</tr>
+<tr>
+<td style="text-align: left">take_profit</td>
+<td style="text-align: left">number</td>
+<td>止盈价格</td>
+</tr>
+<tr>
+<td style="text-align: left">stop_loss</td>
+<td style="text-align: left">number</td>
+<td>止损价格</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
+<td style="text-align: left">string</td>
+<td>止盈激活价格类型，默认为<code>LastPrice</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
+<td style="text-align: left">string</td>
+<td>止损激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
 </tbody></table>
 <h3 id='t-cancelallactive'>撤销所有活动委托单</h3>
@@ -4470,6 +4617,30 @@ GET
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>修改后的订单价格。如果不修改这个字段，请不要传这个参数。</td>
+</tr>
+<tr>
+<td style="text-align: left">take_profit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">number</td>
+<td>修改后的止盈价格。如果不修改这个字段，请不要传这个参数。</td>
+</tr>
+<tr>
+<td style="text-align: left">stop_loss</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">number</td>
+<td>修改后的止损价格。如果不修改这个字段，请不要传这个参数。</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>止盈激活价格类型，默认为<code>LastPrice</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>止损激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
 </tbody></table>
 
@@ -4753,6 +4924,26 @@ GET
 <td style="text-align: left">string</td>
 <td>订单ID</td>
 </tr>
+<tr>
+<td style="text-align: left">take_profit</td>
+<td style="text-align: left">number</td>
+<td>止盈价格</td>
+</tr>
+<tr>
+<td style="text-align: left">stop_loss</td>
+<td style="text-align: left">number</td>
+<td>止损价格</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
+<td style="text-align: left">string</td>
+<td>止盈激活价格类型，默认为<code>LastPrice</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
+<td style="text-align: left">string</td>
+<td>止损激活价格类型，默认为<code>LastPrice</code></td>
+</tr>
 </tbody></table>
 <h2 id='t-conditionalorders'>条件单</h2><h3 id='t-placecond'>创建条件委托单</h3>
 <blockquote>
@@ -4889,6 +5080,30 @@ GET
 <td style="text-align: left">string</td>
 <td>机构自定义订单ID, 最大长度36位，且同一机构下自定义ID不可重复</td>
 </tr>
+<tr>
+<td style="text-align: left">take_profit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">number</td>
+<td>止盈价格</td>
+</tr>
+<tr>
+<td style="text-align: left">stop_loss</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">number</td>
+<td>止损价格</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>止盈激活价格类型，默认为<code>LastPrice</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>止损激活价格类型，默认为<code>LastPrice</code></td>
+</tr>
 </tbody></table>
 
 <p class="fake_header">返回参数</p>
@@ -4974,6 +5189,26 @@ GET
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">string</td>
 <td>机构自定义订单ID</td>
+</tr>
+<tr>
+<td style="text-align: left">take_profit</td>
+<td style="text-align: left">number</td>
+<td>止盈价格</td>
+</tr>
+<tr>
+<td style="text-align: left">stop_loss</td>
+<td style="text-align: left">number</td>
+<td>止损价格</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
+<td style="text-align: left">string</td>
+<td>止盈激活价格类型，默认为<code>LastPrice</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
+<td style="text-align: left">string</td>
+<td>止损激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
 </tbody></table>
 <h3 id='t-getcond'>查询条件委托</h3>
@@ -5159,6 +5394,26 @@ GET
 <td style="text-align: left">data &gt; stop_order_id</td>
 <td style="text-align: left">string</td>
 <td>条件委托订单ID。</td>
+</tr>
+<tr>
+<td style="text-align: left">data &gt; take_profit</td>
+<td style="text-align: left">number</td>
+<td>止盈价格</td>
+</tr>
+<tr>
+<td style="text-align: left">data &gt; stop_loss</td>
+<td style="text-align: left">number</td>
+<td>止损价格</td>
+</tr>
+<tr>
+<td style="text-align: left">data &gt; tp_trigger_by</td>
+<td style="text-align: left">string</td>
+<td>止盈激活价格类型，默认为<code>LastPrice</code></td>
+</tr>
+<tr>
+<td style="text-align: left">data &gt; sl_trigger_by</td>
+<td style="text-align: left">string</td>
+<td>止损激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
 <tr>
 <td style="text-align: left">cursor</td>
@@ -5554,6 +5809,30 @@ GET
 <td style="text-align: left">string</td>
 <td>修改后的条件单的触发价格或止盈止损的价格。如果不修改这个字段，请不要传这个参数。</td>
 </tr>
+<tr>
+<td style="text-align: left">take_profit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">number</td>
+<td>修改后的止盈价格。如果不修改这个字段，请不要传这个参数。</td>
+</tr>
+<tr>
+<td style="text-align: left">stop_loss</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">number</td>
+<td>修改后的止损价格。如果不修改这个字段，请不要传这个参数。</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>止盈激活价格类型，默认为<code>LastPrice</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>止损激活价格类型，默认为<code>LastPrice</code></td>
+</tr>
 </tbody></table>
 
 <p class="fake_header">返回参数</p>
@@ -5841,6 +6120,26 @@ GET
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">trigger_by</a></td>
 <td style="text-align: left">string</td>
 <td>触发价格类型</td>
+</tr>
+<tr>
+<td style="text-align: left">take_profit</td>
+<td style="text-align: left">number</td>
+<td>止盈价格</td>
+</tr>
+<tr>
+<td style="text-align: left">stop_loss</td>
+<td style="text-align: left">number</td>
+<td>止损价格</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
+<td style="text-align: left">string</td>
+<td>止盈激活价格类型，默认为<code>LastPrice</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
+<td style="text-align: left">string</td>
+<td>止损激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
 </tbody></table>
 <h2 id='t-position'>持仓</h2><h3 id='t-myposition'>获取持仓（实时）</h3>
@@ -6184,6 +6483,11 @@ GET
 <td style="text-align: left">string</td>
 <td>更新时间</td>
 </tr>
+<tr>
+<td style="text-align: left"><a href="#tpsl-mode-type-tp_sl_mode">tp_sl_mode</a></td>
+<td style="text-align: left">string</td>
+<td>止盈止损模式</td>
+</tr>
 </tbody></table>
 <h3 id='t-changemargin'>更新保证金</h3>
 <blockquote>
@@ -6388,6 +6692,18 @@ GET
 <td style="text-align: left">false</td>
 <td style="text-align: left">number</td>
 <td>追踪止损触发价格。追踪止损会在到达该价格后才会触发（追踪止损默认立即触发）。</td>
+</tr>
+<tr>
+<td style="text-align: left">sl_size</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">number</td>
+<td>在部分止盈止损模式下，止损合约数量</td>
+</tr>
+<tr>
+<td style="text-align: left">tp_size</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">number</td>
+<td>在部分止盈止损模式下，止盈合约数量</td>
 </tr>
 </tbody></table>
 
@@ -7135,6 +7451,76 @@ GET
 <td>仓位模式<span>:</span> 0 - 单仓模式  3 - 双仓模式</td>
 </tr>
 </tbody></table>
+<h3 id='t-switchmode'>切换止盈止损模式</h3>
+<blockquote>
+<p>响应示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">tp_sl_mode</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Partial</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1598266294.610276</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">72</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1598266294607</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">75</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<p>切换止盈止损模式至全仓或部分</p>
+
+<aside class="notice">
+当设置部分止盈止损模式时，止盈或者止损的订单数量可以小于仓位大小, 请使用<a href="#t-tradingstop">Trading-Stop endpoint</a>。
+</aside>
+
+<p class="fake_header">HTTP 请求</p>
+
+<p>POST
+<code><span id=vptSwitchMode>/v2/private/tpsl/switch-mode</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vptSwitchMode"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">请求参数</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">参数</th>
+<th style="text-align: left">是否必须</th>
+<th style="text-align: left">类型</th>
+<th>说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>合约类型</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#tpsl-mode-type-tp_sl_mode">tp_sl_mode</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>止盈止损模式</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">返回参数</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">参数</th>
+<th style="text-align: left">类型</th>
+<th>说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#tpsl-mode-type-tp_sl_mode">tp_sl_mode</a></td>
+<td style="text-align: left">string</td>
+<td>止盈止损模式</td>
+</tr>
+</tbody></table>
 <h3 id='t-marginswitch'>全仓/逐仓切换</h3>
 <blockquote>
 <p>请求示例</p>
@@ -7231,7 +7617,7 @@ GET
 <p class="fake_header">HTTP 请求</p>
 
 <p>POST
-<code><span id=oawrlList>v2/private/position/risk-limit</span></code>
+<code><span id=oawrlList>/v2/private/position/risk-limit</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawrlList"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">请求参数</p>
@@ -8677,7 +9063,7 @@ GET
   <tr>
     <td rowspan="4">120/min</td> 
   </tr>
-  <tr></tr>
+  <tr><td>v2/private/tpsl/switch-mode</td><td>1 / request</td></tr>
   <tr><td>v2/private/position/list</td><td>1 / request</td></tr>
     <tr><td>v2/private/wallet/balance</td><td>1 / request</td></tr>
   <tr>
@@ -9816,7 +10202,7 @@ B用户：
 <td>止盈价格</td>
 </tr>
 <tr>
-<td style="text-align: left">tp_trigger_by</td>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
 <td style="text-align: left">string</td>
 <td>止盈激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
@@ -9826,7 +10212,7 @@ B用户：
 <td>止损价格</td>
 </tr>
 <tr>
-<td style="text-align: left">sl_trigger_by</td>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
 <td style="text-align: left">string</td>
 <td>止损激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
@@ -10486,6 +10872,13 @@ ELSE
 <li><code>ZeroPlusTick</code> 跟上一次持平，上一次跟上上一次是涨</li>
 <li><code>MinusTick</code> 跌</li>
 <li><code>ZeroMinusTick</code> 跟上一次持平，上一次跟上上一次是跌</li>
+</ul>
+<h2 id='tpsl-mode-type-tp_sl_mode'>TpSl Mode type (<code>tp_sl_mode</code>)</h2>
+<p>止盈止损模式</p>
+
+<ul>
+<li><code>Full</code> 仓位止盈止损</li>
+<li><code>Partial</code> 部分止盈止损 </li>
 </ul>
 <h1 id='t-errors'>错误码</h1>
 <p>Bybit使用以下HTTP Code和错误码：</p>

@@ -337,6 +337,14 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#2021-06-02" class="toc-h2 toc-link" data-title="2021-06-02">2021-06-02</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-in-testnet-environment" class="toc-h3 toc-link" data-title="REST API IN TESTNET ENVIRONMENT">REST API IN TESTNET ENVIRONMENT</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
                     <a href="#2021-05-11" class="toc-h2 toc-link" data-title="2021-05-11">2021-05-11</a>
                       <ul class="toc-list-h3">
                           <li>
@@ -348,7 +356,7 @@
                     <a href="#2021-05-11-2" class="toc-h2 toc-link" data-title="2021-05-11">2021-05-11</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#rest-api-in-testnet-environment" class="toc-h3 toc-link" data-title="REST API IN TESTNET ENVIRONMENT">REST API IN TESTNET ENVIRONMENT</a>
+                            <a href="#rest-api-in-testnet-environment-2" class="toc-h3 toc-link" data-title="REST API IN TESTNET ENVIRONMENT">REST API IN TESTNET ENVIRONMENT</a>
                           </li>
                       </ul>
                   </li>
@@ -865,6 +873,9 @@
                             <a href="#t-switchpositionmode" class="toc-h3 toc-link" data-title="Position Mode Switch">Position Mode Switch</a>
                           </li>
                           <li>
+                            <a href="#t-switchmode" class="toc-h3 toc-link" data-title="Full/Partial Position SL/TP Switch">Full/Partial Position SL/TP Switch</a>
+                          </li>
+                          <li>
                             <a href="#t-marginswitch" class="toc-h3 toc-link" data-title="Cross/Isolated Margin Switch">Cross/Isolated Margin Switch</a>
                           </li>
                           <li>
@@ -1111,6 +1122,9 @@
                   <li>
                     <a href="#tick-direction-type-tick_direction" class="toc-h2 toc-link" data-title="Tick direction type (tick_direction)">Tick direction type (<code>tick_direction</code>)</a>
                   </li>
+                  <li>
+                    <a href="#tpsl-mode-type-tp_sl_mode" class="toc-h2 toc-link" data-title="TpSl Mode type (tp_sl_mode)">TpSl Mode type (<code>tp_sl_mode</code>)</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -1177,12 +1191,84 @@ clipboard.on('error', function(e) {
 <p><p>Welcome to the official documentation for the <a href="https://www.bybit.com/">Bybit</a> APIs and Websocket! Here you can find details on how to access all of our endpoints, their respective expected outputs, and possible errors you may encounter.</p> <p>If you encounter an issue you need help with, have a suggestions for us, or just want to have a chat with fellow developers then please head on over to our <a href="https://t.me/Bybitapi">API Telegram chat</a>!</p></p>
 <h3 id='t-resources'>Group And Bybit API Resources</h3>
 <p><ul class="bybit-community"> <li><img src="../images/favicon-4f296779.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong></a> - <strong>learn about exchange mechanisms here!</strong> <li><img src="../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/docs/issues"><strong>Bybit API docs</strong></a> - <strong>report issues here!</strong> <li><img src="../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/api-connectors/"><strong>Bybit's api-connectors</strong></a> - <strong>find a repo of prebuilt libraries here!</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong> - <strong>get English help here!</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>subscribe for changes to the API!</strong> <li><img src="../images/email_icon-e7dd7b20.png" height="14", width="14"> <a href="mailto:IT@bybit.com"><strong>IT@bybit.com</strong></a> - <strong>official IT support email!</strong> </ul></p>
-<h1 id='t-changelog'>Changelog</h1><h2 id='2021-05-11'>2021-05-11</h2><h3 id='rest-api'>REST API</h3>
+<h1 id='t-changelog'>Changelog</h1><h2 id='2021-06-02'>2021-06-02</h2><h3 id='rest-api-in-testnet-environment'>REST API IN TESTNET ENVIRONMENT</h3>
+<ul>
+<li><a href="#t-switchmode">Full/Partial Position SL/TP Switch</a> [new]</li>
+<li><a href="#t-placecond">Place Conditional Order</a> [update]
+
+<ul>
+<li>Support setting take profit and stop loss; Add new request parameters: <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
+</li>
+<li>Add response parameters: <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
+</li>
+</ul></li>
+<li><a href="#t-placeactive">Place Active Order</a> [update]
+
+<ul>
+<li>translation missing: en.restapi_update_20210527</li>
+<li>Add response parameters: <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
+</li>
+</ul></li>
+<li><a href="#t-myposition">My Position</a> [update]
+
+<ul>
+<li>Add response parameters: <code>tp_sl_mode</code>
+</li>
+</ul></li>
+<li><a href="#t-tradingstop">Set Trading-Stop</a> [update]
+
+<ul>
+<li>Support creating partial take profit and stop loss orders; Add new request parameters: <code>sl_size</code>, <code>tp_size</code>
+</li>
+</ul></li>
+<li><a href="#t-cancelcond">Cancel Conditional Order</a> [update]
+
+<ul>
+<li>Support cancelling take profit and stop loss orders</li>
+</ul></li>
+<li><a href="#t-replacecond">Replace Conditional Order</a> [update]
+
+<ul>
+<li>Support replacing take profit stop loss orders; Add new request parameters: <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
+</li>
+</ul></li>
+<li><a href="#t-replaceactive">Replace Active Order</a> [update]
+
+<ul>
+<li>Support replacing take profit stop loss orders; Add new request parameters: <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
+</li>
+</ul></li>
+<li><a href="#t-getactive">Get Active Order</a> [update]
+
+<ul>
+<li>Add response parameters: <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
+<br></li>
+</ul></li>
+<li><a href="#t-queryactive">Query Active Order (real-time)</a> [update]
+
+<ul>
+<li>Add response parameters: <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
+<br></li>
+</ul></li>
+<li><a href="#t-getcond">Get Conditional Order</a> [update]
+
+<ul>
+<li>Add response parameters: <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
+<br></li>
+</ul></li>
+<li><a href="#t-querycond">Query Conditional Order (real-time)</a> [update]
+
+<ul>
+<li>Add response parameters: <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
+</li>
+</ul></li>
+</ul>
+<h2 id='2021-05-11'>2021-05-11</h2><h3 id='rest-api'>REST API</h3>
 <ul>
 <li><a href="#t-setrisklimit">Set Risk Limit</a> [new]</li>
 <li><a href="#t-getrisklimit">Get Risk Limit</a> [new]</li>
 </ul>
-<h2 id='2021-05-11-2'>2021-05-11</h2><h3 id='rest-api-in-testnet-environment'>REST API IN TESTNET ENVIRONMENT</h3>
+<h2 id='2021-05-11-2'>2021-05-11</h2><h3 id='rest-api-in-testnet-environment-2'>REST API IN TESTNET ENVIRONMENT</h3>
 <ul>
 <li><a href="#t-setleverage">Set Leverage</a> [update]
 
@@ -3722,6 +3808,20 @@ GET
 <td>Stop loss price, only take effect upon opening the position</td>
 </tr>
 <tr>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>take profit trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
+</tr>
+<tr>
 <td style="text-align: left">reduce_only</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">bool</td>
@@ -3844,6 +3944,28 @@ GET
 <td style="text-align: left">updated_at</td>
 <td style="text-align: left">string</td>
 <td>Update time</td>
+</tr>
+<tr>
+<td style="text-align: left">take_profit</td>
+<td style="text-align: left">number</td>
+<td>Take profit price</td>
+</tr>
+<tr>
+<td style="text-align: left">stop_loss</td>
+<td style="text-align: left">number</td>
+<td>Stop loss price</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
+<td style="text-align: left">string</td>
+<td>take profit trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
+<td style="text-align: left">string</td>
+<td>stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
 </tr>
 </tbody></table>
 <h3 id='t-getactive'>Get Active Order</h3>
@@ -4042,6 +4164,28 @@ GET
 <td>Order ID</td>
 </tr>
 <tr>
+<td style="text-align: left">data &gt; take_profit</td>
+<td style="text-align: left">number</td>
+<td>Take profit price</td>
+</tr>
+<tr>
+<td style="text-align: left">data &gt; stop_loss</td>
+<td style="text-align: left">number</td>
+<td>Stop loss price</td>
+</tr>
+<tr>
+<td style="text-align: left">data &gt; <a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
+<td style="text-align: left">string</td>
+<td>take profit trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
+</tr>
+<tr>
+<td style="text-align: left">data &gt; <a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
+<td style="text-align: left">string</td>
+<td>stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
+</tr>
+<tr>
 <td style="text-align: left">cursor</td>
 <td style="text-align: left">string</td>
 <td>Page turning mark</td>
@@ -4236,6 +4380,28 @@ GET
 <td style="text-align: left">updated_at</td>
 <td style="text-align: left">string</td>
 <td>Update time</td>
+</tr>
+<tr>
+<td style="text-align: left">take_profit</td>
+<td style="text-align: left">number</td>
+<td>Take profit price</td>
+</tr>
+<tr>
+<td style="text-align: left">stop_loss</td>
+<td style="text-align: left">number</td>
+<td>Stop loss price</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
+<td style="text-align: left">string</td>
+<td>take profit trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
+<td style="text-align: left">string</td>
+<td>stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
 </tr>
 </tbody></table>
 <h3 id='t-cancelallactive'>Cancel All Active Orders</h3>
@@ -4490,6 +4656,32 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>New order price. Do not pass this field if you don't want modify it</td>
+</tr>
+<tr>
+<td style="text-align: left">take_profit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">number</td>
+<td>New take_profit price, also known as stop_px. Do not pass this field if you don't want modify it</td>
+</tr>
+<tr>
+<td style="text-align: left">stop_loss</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">number</td>
+<td>New stop_loss price, also known as stop_px. Do not pass this field if you don't want modify it</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>take profit trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
 </tr>
 </tbody></table>
 
@@ -4774,6 +4966,28 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <td style="text-align: left">string</td>
 <td>Order ID</td>
 </tr>
+<tr>
+<td style="text-align: left">take_profit</td>
+<td style="text-align: left">number</td>
+<td>Take profit price</td>
+</tr>
+<tr>
+<td style="text-align: left">stop_loss</td>
+<td style="text-align: left">number</td>
+<td>Stop loss price</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
+<td style="text-align: left">string</td>
+<td>take profit trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
+<td style="text-align: left">string</td>
+<td>stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
+</tr>
 </tbody></table>
 <h2 id='t-conditionalorders'>Conditional Orders</h2><h3 id='t-placecond'>Place Conditional Order</h3>
 <blockquote>
@@ -4910,6 +5124,32 @@ Take profit/Stop loss is not supported in placing conditional orders. One can on
 <td style="text-align: left">string</td>
 <td>Customised order ID, maximum length at 36 characters, and order ID under the same agency has to be unique.</td>
 </tr>
+<tr>
+<td style="text-align: left">take_profit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">number</td>
+<td>Take profit price</td>
+</tr>
+<tr>
+<td style="text-align: left">stop_loss</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">number</td>
+<td>Stop loss price</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>take profit trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
+</tr>
 </tbody></table>
 
 <p class="fake_header">Response Parameters</p>
@@ -4995,6 +5235,28 @@ Take profit/Stop loss is not supported in placing conditional orders. One can on
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">string</td>
 <td>Customised order ID</td>
+</tr>
+<tr>
+<td style="text-align: left">take_profit</td>
+<td style="text-align: left">number</td>
+<td>Take profit price</td>
+</tr>
+<tr>
+<td style="text-align: left">stop_loss</td>
+<td style="text-align: left">number</td>
+<td>Stop loss price</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
+<td style="text-align: left">string</td>
+<td>take profit trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
+<td style="text-align: left">string</td>
+<td>stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
 </tr>
 </tbody></table>
 <h3 id='t-getcond'>Get Conditional Order</h3>
@@ -5181,6 +5443,28 @@ Take profit/Stop loss is not supported in placing conditional orders. One can on
 <td style="text-align: left">data &gt; stop_order_id</td>
 <td style="text-align: left">string</td>
 <td>Your conditional order ID. The unique order ID returned to you when the corresponding active order was created</td>
+</tr>
+<tr>
+<td style="text-align: left">data &gt; take_profit</td>
+<td style="text-align: left">number</td>
+<td>Take profit price</td>
+</tr>
+<tr>
+<td style="text-align: left">data &gt; stop_loss</td>
+<td style="text-align: left">number</td>
+<td>Stop loss price</td>
+</tr>
+<tr>
+<td style="text-align: left">data &gt; tp_trigger_by</td>
+<td style="text-align: left">string</td>
+<td>take profit trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
+</tr>
+<tr>
+<td style="text-align: left">data &gt; sl_trigger_by</td>
+<td style="text-align: left">string</td>
+<td>stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
 </tr>
 <tr>
 <td style="text-align: left">cursor</td>
@@ -5576,6 +5860,32 @@ Please note that you can only modify untriggered conditional orders.
 <td style="text-align: left">string</td>
 <td>New conditional order's trigger price or TP/SL order price, also known as stop_px. Do not pass this field if you don't want modify it</td>
 </tr>
+<tr>
+<td style="text-align: left">take_profit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">number</td>
+<td>New take_profit price, also known as stop_px. Do not pass this field if you don't want modify it</td>
+</tr>
+<tr>
+<td style="text-align: left">stop_loss</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">number</td>
+<td>New stop_loss price, also known as stop_px. Do not pass this field if you don't want modify it</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>take profit trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
+</tr>
 </tbody></table>
 
 <p class="fake_header">Response Parameters</p>
@@ -5864,6 +6174,28 @@ Please note that you can only modify untriggered conditional orders.
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">trigger_by</a></td>
 <td style="text-align: left">string</td>
 <td>translation missing: en.row_response_comment_triggerBy</td>
+</tr>
+<tr>
+<td style="text-align: left">take_profit</td>
+<td style="text-align: left">number</td>
+<td>Take profit price</td>
+</tr>
+<tr>
+<td style="text-align: left">stop_loss</td>
+<td style="text-align: left">number</td>
+<td>Stop loss price</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
+<td style="text-align: left">string</td>
+<td>take profit trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
+<td style="text-align: left">string</td>
+<td>stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
+</td>
 </tr>
 </tbody></table>
 <h2 id='t-position'>Position</h2><h3 id='t-myposition'>My Position</h3>
@@ -6212,6 +6544,11 @@ Please note that you can only modify untriggered conditional orders.
 <td style="text-align: left">string</td>
 <td>Update time</td>
 </tr>
+<tr>
+<td style="text-align: left"><a href="#tpsl-mode-type-tp_sl_mode">tp_sl_mode</a></td>
+<td style="text-align: left">string</td>
+<td>Stop loss and take profit mode</td>
+</tr>
 </tbody></table>
 <h3 id='t-changemargin'>Change Margin</h3>
 <blockquote>
@@ -6418,6 +6755,18 @@ Passing these parameters will create conditional orders controlled by the system
 <td style="text-align: left">false</td>
 <td style="text-align: left">number</td>
 <td>Trailing stop trigger price. Trailing stops are triggered only when the price reaches the specified price. Trailing stops are triggered immediately by default.</td>
+</tr>
+<tr>
+<td style="text-align: left">sl_size</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">number</td>
+<td>Stop loss quantity (when in <a href="#t-switchmode">partial mode</a>)</td>
+</tr>
+<tr>
+<td style="text-align: left">tp_size</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">number</td>
+<td>Take profit quantity (when in <a href="#t-switchmode">partial mode</a>)</td>
 </tr>
 </tbody></table>
 
@@ -7170,6 +7519,76 @@ One order may have multiple trade records.
 </td>
 </tr>
 </tbody></table>
+<h3 id='t-switchmode'>Full/Partial Position SL/TP Switch</h3>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">tp_sl_mode</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Partial</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1598266294.610276</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">72</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1598266294607</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">75</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<p>Switch mode between Full or Partial</p>
+
+<aside class="notice">
+When set to Partial, SL/TP orders may have a quantity less than the position size. This is set with the <a href="#t-tradingstop">Trading-Stop endpoint</a>.
+</aside>
+
+<p class="fake_header">HTTP Request</p>
+
+<p>POST
+<code><span id=vptSwitchMode>/v2/private/tpsl/switch-mode</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vptSwitchMode"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">parameter</th>
+<th style="text-align: left">required</th>
+<th style="text-align: left">type</th>
+<th>comments</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Symbol</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#tpsl-mode-type-tp_sl_mode">tp_sl_mode</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Stop loss and take profit mode</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">parameter</th>
+<th style="text-align: left">type</th>
+<th>comments</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#tpsl-mode-type-tp_sl_mode">tp_sl_mode</a></td>
+<td style="text-align: left">string</td>
+<td>Stop loss and take profit mode</td>
+</tr>
+</tbody></table>
 <h3 id='t-marginswitch'>Cross/Isolated Margin Switch</h3>
 <blockquote>
 <p>Request Example</p>
@@ -7266,7 +7685,7 @@ Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles
 <p class="fake_header">HTTP Request</p>
 
 <p>POST
-<code><span id=oawrlList>v2/private/position/risk-limit</span></code>
+<code><span id=oawrlList>/v2/private/position/risk-limit</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawrlList"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
@@ -8718,7 +9137,7 @@ Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles
   <tr>
     <td rowspan="4">120/min</td> 
   </tr>
-  <tr></tr>
+  <tr><td>v2/private/tpsl/switch-mode</td><td>1 / request</td></tr>
   <tr><td>v2/private/position/list</td><td>1 / request</td></tr>
     <tr><td>v2/private/wallet/balance</td><td>1 / request</td></tr>
   <tr>
@@ -9854,7 +10273,7 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 <td>Take profit price</td>
 </tr>
 <tr>
-<td style="text-align: left">tp_trigger_by</td>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
 <td style="text-align: left">string</td>
 <td>take profit trigger price type, default<span>:</span> <code>LastPrice</code>
 </td>
@@ -9865,7 +10284,7 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 <td>Stop loss price</td>
 </tr>
 <tr>
-<td style="text-align: left">sl_trigger_by</td>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
 <td style="text-align: left">string</td>
 <td>stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
 </td>
@@ -10534,6 +10953,13 @@ ELSE
 <li><code>ZeroPlusTick</code> - Rise in price compared to last trade of different price</li>
 <li><code>MinusTick</code> - Drop in price</li>
 <li><code>ZeroMinusTick</code> - Drop in price compared to last trade of different price</li>
+</ul>
+<h2 id='tpsl-mode-type-tp_sl_mode'>TpSl Mode type (<code>tp_sl_mode</code>)</h2>
+<p>Take profit/stop loss mode</p>
+
+<ul>
+<li><code>Full</code> - Full stop loss take profit</li>
+<li><code>Partial</code> - Partial stop loss take profit </li>
 </ul>
 <h1 id='t-errors'>Errors</h1>
 <p>The Bybit API uses the following HTTP Codes and Error Codes<span>:</span></p>
