@@ -372,7 +372,7 @@ GET
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpOrder>/spot/quote/v1/ticker/book_ticker</span></code>
+<code><span id=vpOrder>/spot/quote/v1/ticker/book-ticker</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
