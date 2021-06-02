@@ -48,7 +48,7 @@ t(:rate_para_understanding)
     <td>1 / request</td>
   </tr>
   <tr>
-    <td rowspan="5">75/min</td>
+    <td rowspan="6">75/min</td>
     <td>futures/private/position/leverage/save </td>
     <td>1 / request</td>
   </tr>
@@ -56,10 +56,10 @@ t(:rate_para_understanding)
   <tr><td>futures/private/position/trading-stop</td><td>1 / request</td></tr>
   <tr><td>futures/private/position/switch-mode</td><td>1 / request</td></tr>
   <tr><td>futures/private/position/switch-isolated</td><td>1 / request</td></tr>
-  <tr>
-    <td rowspan="4">120/min</td> 
-  </tr>
   <tr><td>futures/private/tpsl/switch-mode</td><td>1 / request</td></tr>
+  <tr>
+    <td rowspan="3">120/min</td> 
+  </tr>
   <tr><td>futures/private/position/list</td><td>1 / request</td></tr>
     <tr><td>v2/private/wallet/balance</td><td>1 / request</td></tr>
   <tr>
