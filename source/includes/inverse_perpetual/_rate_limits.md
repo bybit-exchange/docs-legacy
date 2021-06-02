@@ -57,7 +57,7 @@ t(:rate_para_understanding)
   <tr>
     <td rowspan="4">120/min</td> 
   </tr>
-  <tr></tr>
+  <tr><td>v2/private/tpsl/switch-mode</td><td>1 / request</td></tr>
   <tr><td>v2/private/position/list</td><td>1 / request</td></tr>
     <tr><td>v2/private/wallet/balance</td><td>1 / request</td></tr>
   <tr>
