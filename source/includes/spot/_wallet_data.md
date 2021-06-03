@@ -48,5 +48,5 @@ GET
 |coinId| string | t(:spot_token)|
 |coinName| string | t(:spot_token)|
 |total| string | t(:spot_total)|
-|fee| float| t(:spot_fee)|
+|fee| float| t(:spot_fees)|
 |locked| float | t(:spot_locked)

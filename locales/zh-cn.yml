@@ -16,6 +16,7 @@ zh-cn:
   spot_transactId: 交易ID
   spot_time: 时间
   spot_message: 是否成功
+  spot_sMessage: 是否成功
   codequote_snapshot: 快照推送示例 - 连接建立成功后首次推送
   codequote_delta: 增量推送示例 - 快照数据推送后，推送的增量数据
   column_parameter: 参数
@@ -1727,12 +1728,14 @@ zh-cn:
 
   # spot
   spot: 现货
+  spotOPrice: 订单价格
   spotOrderCreate: 创建订单
   spotAccountId: 账户ID
   spotExchangeId: 币对交易ID
   spotSymbol: 币对名称
   spotId: 交易ID
   spotQty: 交易数量
+  spotTransactTime: 交易时间戳
   spotCommission: 交易手续费
   spotCommissionAsset: 交易手续费币种
   spotIsBuyer: true= Buyer false= Seller
@@ -1747,7 +1750,9 @@ zh-cn:
   spotTradeId: 交易ID
   spotIsWorking: 是否生效
   spotUpdateTime: 订单上次更新的时间戳
-  spotQuantity: 订单数量，对于市价买单（MARKET BUY）订单，quantity=amount
+  spotQuantity: 最佳买价数量
+  spotBidQuantity: 最佳买价数量
+  spotAskQuantity: 最佳卖价数量
   spotSide: 订单方向, BUY(买入做多)/SELL(卖出做空)
   spotOrderType: 订单类型, LIMIT/MARKET/LIMIT_MAKER
   spotTimeInForce: 订单时间指令（Time in Force）。可能出现的值为：GTC（Good Till Canceled，一直有效），FOK（Fill or Kill，全部成交或者取消），IOC（Immediate or Cancel，立即成交或者取消）
@@ -1757,12 +1762,13 @@ zh-cn:
   spotOriQty: 订单数量
   spotFeeTokenId: 手续费类型（Token名称）
   spotExecQty: 订单已执行数量
-  spotAvgPrice: 订单已经成交的平均价格
+  spotAvgPrice: 订单已成交的平均价格
   spotType: 订单类型。可能出现的值只能为:LIMIT(限价)和MARKET（市价）
   spotStatus: 订单状态。可能出现的值为：NEW(新订单，无成交)、PARTIALLY_FILLED（部分成交）、FILLED（全部成交）、CANCELED（已取消）和REJECTED（订单被拒绝）.
   tOrderClientOrdID: 特殊订单ID，用户自己生成
   spot_get_order: 查询订单
   cancel_spot_order: 撤销订单
+  batch_cancel_spot_order: 批量撤销订单
   spot_order_list: 订单列表
   spot_order_list_limit: 默认500；最大1000
   spot_orders_start_time: 第一条返回的时间戳(毫秒)
@@ -1779,6 +1785,7 @@ zh-cn:
   spot_balance: 账号余额
   spot_token: 币种
   spot_total: 总额
+  spot_fees: 手续费
   spot_fee: 手续费
   spot_fee_symbol: 手续费币种
   spot_locked: 冻结余额

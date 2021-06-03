@@ -160,7 +160,7 @@ t(:spot_websocket_trade_desc_v1)
 | t | string | t(:spot_time) |
 | p | string | t(:spot_price)|
 | q | boolean | t(:spot_quantity) |
-| m | boolean | t(:spot_message) |
+| m | boolean | t(:spot_sMessage) |
 
 
 ### t(:spot_websocket_ticker_v1)

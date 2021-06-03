@@ -386,7 +386,7 @@ GET
 |:----- |:-----|----- |
 | symbol | string | t(:spotSymbol) |
 | bidPrice| float | t(:spot_best_bid_price)|
-| bidQty | float | t(:spotQuantity)|
+| bidQty | float | t(:spotBidQuantity)|
 | askPrice| float | t(:spot_best_ask_price)|
-| askQty | float |t(:spotQuantity)|
+| askQty | float |t(:spotAskQuantity)|
 

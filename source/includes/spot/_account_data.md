@@ -53,11 +53,11 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol)|<b>true</b>|string|t(:spotSymbol)|
-|qty|<b>true</b>|number|t(:spotQuantity)|
+|qty|<b>true</b>|number|t(:spotQty)|
 |t(:row_parameter_side)|<b>true</b>|string|t(:spotSide)|
 |t(:row_parameter_type)|<b>true</b>|string|t(:spotOrderType)|
 |t(:row_parameter_timeInForce)|false|string|t(:spotTimeInForce)|
-|price|false|number|t(:spotPrice)|
+|price|false|number|t(:spotOPrice)|
 |order_link_id|false|string|t(:tOrderClientOrdID)|
 
 
@@ -146,7 +146,7 @@ GET
 |symbolName|string|t(:spotSymbol)|
 |order_link_id|string|t(:spotOrderLinkId)|
 |orderId|long|t(:spotOrderId)|
-|price|float|t(:spotPrice)|
+|price|float|t(:spotOPrice)|
 |origQty|float|t(:spotOriQty)|
 |executedQty|float|t(:spotExecQty)|
 |cummulativeQuoteQty|float|t(:spotCummulativeQuoteQty)|
@@ -156,7 +156,6 @@ GET
 |type|string|t(:spotType)|
 |side|string|t(:spotSide)|
 |stopPrice|float|t(:spotStopPrice)|
-|icebergQty|float|t(:spotIcebergQty)|
 |time|long|t(:spotTime)|
 |updateTime|long|t(:spotUpdateTime)|
 |isWorking|boolean|t(:spotIsWorking)|
@@ -222,7 +221,7 @@ DELETE
 
 
 
-### t(:cancel_spot_order)
+### t(:batch_cancel_spot_order)
 > t(:codequote_curlExample)
 
 ```console
@@ -253,7 +252,7 @@ DELETE
 |:----- |:-------|:-----|----- |
 |accountId|false|long|t(:spotAccountId)|
 |symbol|false|string|t(:spotSymbol)|
-|side|false|string|t(:side)|
+|side|false|string|t(:spotSide)|
 
 
 ### t(:spot_order_list)
@@ -346,7 +345,7 @@ GET
 |symbolName|string|t(:spotSymbol)|
 |order_link_id|string|t(:spotOrderLinkId)|
 |orderId|long|t(:spotOrderId)|
-|price|float|t(:spotPrice)|
+|price|float|t(:spotOPrice)|
 |origQty|float|t(:spotOriQty)|
 |executedQty|float|t(:spotExecQty)|
 |cummulativeQuoteQty|float|t(:spotCummulativeQuoteQty)|
@@ -356,7 +355,6 @@ GET
 |type|string|t(:spotType)|
 |side|string|t(:spotSide)|
 |stopPrice|float|t(:spotStopPrice)|
-|icebergQty|float|t(:spotIcebergQty)|
 |time|long|t(:spotTime)|
 |updateTime|long|t(:spotUpdateTime)|
 |isWorking|boolean|t(:spotIsWorking)|
