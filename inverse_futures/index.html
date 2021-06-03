@@ -337,6 +337,9 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#2021-06-03" class="toc-h2 toc-link" data-title="2021-06-03">2021-06-03</a>
+                  </li>
+                  <li>
                     <a href="#2021-06-02" class="toc-h2 toc-link" data-title="2021-06-02">2021-06-02</a>
                       <ul class="toc-list-h3">
                           <li>
@@ -834,7 +837,79 @@ clipboard.on('error', function(e) {
 <p><p>Welcome to the official documentation for the <a href="https://www.bybit.com/">Bybit</a> APIs and Websocket! Here you can find details on how to access all of our endpoints, their respective expected outputs, and possible errors you may encounter.</p> <p>If you encounter an issue you need help with, have a suggestions for us, or just want to have a chat with fellow developers then please head on over to our <a href="https://t.me/Bybitapi">API Telegram chat</a>!</p></p>
 <h3 id='t-resources'>Group And Bybit API Resources</h3>
 <p><ul class="bybit-community"> <li><img src="../images/favicon-4f296779.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong></a> - <strong>learn about exchange mechanisms here!</strong> <li><img src="../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/docs/issues"><strong>Bybit API docs</strong></a> - <strong>report issues here!</strong> <li><img src="../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/api-connectors/"><strong>Bybit's api-connectors</strong></a> - <strong>find a repo of prebuilt libraries here!</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong> - <strong>get English help here!</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>subscribe for changes to the API!</strong> <li><img src="../images/email_icon-e7dd7b20.png" height="14", width="14"> <a href="mailto:IT@bybit.com"><strong>IT@bybit.com</strong></a> - <strong>official IT support email!</strong> </ul></p>
-<h1 id='t-changelog'>Changelog</h1><h2 id='2021-06-02'>2021-06-02</h2><h3 id='rest-api-in-testnet-environment'>REST API IN TESTNET ENVIRONMENT</h3>
+<h1 id='t-changelog'>Changelog</h1><h2 id='2021-06-03'>2021-06-03</h2>
+<ul>
+<li><a href="#t-switchmode">Full/Partial Position SL/TP Switch</a> [new]</li>
+<li><a href="#t-placecond">Place Conditional Order</a> [update]
+
+<ul>
+<li>Support setting take profit and stop loss; Add new request parameters: <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
+</li>
+<li>Add response parameters: <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
+</li>
+</ul></li>
+<li><a href="#t-placeactive">Place Active Order</a> [update]
+
+<ul>
+<li>translation missing: en.restapi_update_20210527</li>
+<li>Add response parameters: <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
+</li>
+</ul></li>
+<li><a href="#t-myposition">My Position</a> [update]
+
+<ul>
+<li>Add response parameters: <code>tp_sl_mode</code>
+</li>
+</ul></li>
+<li><a href="#t-tradingstop">Set Trading-Stop</a> [update]
+
+<ul>
+<li>Support creating partial take profit and stop loss orders; Add new request parameters: <code>sl_size</code>, <code>tp_size</code>
+</li>
+</ul></li>
+<li><a href="#t-cancelcond">Cancel Conditional Order</a> [update]
+
+<ul>
+<li>Support cancelling take profit and stop loss orders</li>
+</ul></li>
+<li><a href="#t-replacecond">Replace Conditional Order</a> [update]
+
+<ul>
+<li>Support replacing take profit stop loss orders; Add new request parameters: <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
+</li>
+</ul></li>
+<li><a href="#t-replaceactive">Replace Active Order</a> [update]
+
+<ul>
+<li>Support replacing take profit stop loss orders; Add new request parameters: <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
+</li>
+</ul></li>
+<li><a href="#t-getactive">Get Active Order</a> [update]
+
+<ul>
+<li>Add response parameters: <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
+<br></li>
+</ul></li>
+<li><a href="#t-queryactive">Query Active Order (real-time)</a> [update]
+
+<ul>
+<li>Add response parameters: <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
+<br></li>
+</ul></li>
+<li><a href="#t-getcond">Get Conditional Order</a> [update]
+
+<ul>
+<li>Add response parameters: <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
+<br></li>
+</ul></li>
+<li><a href="#t-querycond">Query Conditional Order (real-time)</a> [update]
+
+<ul>
+<li>Add response parameters: <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
+</li>
+</ul></li>
+</ul>
+<h2 id='2021-06-02'>2021-06-02</h2><h3 id='rest-api-in-testnet-environment'>REST API IN TESTNET ENVIRONMENT</h3>
 <ul>
 <li><a href="#t-switchmode">Full/Partial Position SL/TP Switch</a> [new]</li>
 <li><a href="#t-placecond">Place Conditional Order</a> [update]
