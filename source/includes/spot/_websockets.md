@@ -30,7 +30,7 @@ ws.send('{"op":"auth","args":["{api_key}","{expires}","{signature}"]}');
 ```
 
 
-t(:websocket_para_endpoint)
+t(:spot_websocket_para_endpoint)
 
 <aside class="notice">
 t(:websocket_aside_auth)
