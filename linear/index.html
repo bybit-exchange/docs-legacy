@@ -303,7 +303,6 @@
     <li><a href="/docs/inverse">Inverse Perpetual</a></li>
     <li><a href="/docs/linear" class="selected">USDT Perpetual</a></li>
     <li><a href="/docs/inverse_futures">Inverse Futures</a></li>
-  <li><a href="/docs/spot">Spot(testnet)</a></li>
   </ul>
   </div>
   <a class="international" id="international" href="javascript:void(0);">简体中文</a>
@@ -606,7 +605,7 @@
                     <a href="#t-authenticationparameters" class="toc-h2 toc-link" data-title="Parameters for Authenticated Endpoints">Parameters for Authenticated Endpoints</a>
                   </li>
                   <li>
-                    <a href="#t-constructingtherequest" class="toc-h2 toc-link" data-title="Create A Request">Create A Request</a>
+                    <a href="#t-constructingtherequest" class="toc-h2 toc-link" data-title="Constructing the Request">Constructing the Request</a>
                   </li>
               </ul>
           </li>
@@ -614,7 +613,7 @@
             <a href="#t-marketdata" class="toc-h1 toc-link" data-title="Market Data Endpoints">Market Data Endpoints</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#t-orderbook" class="toc-h2 toc-link" data-title="Order book">Order book</a>
+                    <a href="#t-orderbook" class="toc-h2 toc-link" data-title="Orderbook">Orderbook</a>
                   </li>
                   <li>
                     <a href="#t-querykline" class="toc-h2 toc-link" data-title="Query Kline">Query Kline</a>
@@ -814,7 +813,7 @@
                     <a href="#t-orderlimits" class="toc-h2 toc-link" data-title="Order Limits">Order Limits</a>
                   </li>
                   <li>
-                    <a href="#t-raisemylimit" class="toc-h2 toc-link" data-title="How to Increase API Limits">How to Increase API Limits</a>
+                    <a href="#t-raisemylimit" class="toc-h2 toc-link" data-title="How to Raise Your API Limit">How to Raise Your API Limit</a>
                   </li>
                   <li>
                     <a href="#t-liquidity" class="toc-h2 toc-link" data-title="Understanding Bybit's Liquidity System">Understanding Bybit's Liquidity System</a>
@@ -834,7 +833,7 @@
                               </ul>
                           </li>
                           <li>
-                            <a href="#t-frequencylimit" class="toc-h3 toc-link" data-title="Rate Limits for API Requests">Rate Limits for API Requests</a>
+                            <a href="#t-frequencylimit" class="toc-h3 toc-link" data-title="API Request Frequency Limits">API Request Frequency Limits</a>
                               <ul class="toc-list-h4">
                                   <li>
                                     <a href="#t-liquiditypoints" class="toc-h4 toc-link" data-title="Liquidity Contribution Points (LCP)">Liquidity Contribution Points (LCP)</a>
@@ -855,7 +854,7 @@
                     <a href="#t-websocketauthentication" class="toc-h2 toc-link" data-title="Authentication">Authentication</a>
                   </li>
                   <li>
-                    <a href="#t-heartbeat" class="toc-h2 toc-link" data-title="How to Send Heartbeat Packet">How to Send Heartbeat Packet</a>
+                    <a href="#t-heartbeat" class="toc-h2 toc-link" data-title="How to Send the Heartbeat Packet">How to Send the Heartbeat Packet</a>
                   </li>
                   <li>
                     <a href="#t-subscribe" class="toc-h2 toc-link" data-title="How to Subscribe to Topics">How to Subscribe to Topics</a>
@@ -869,7 +868,7 @@
                       </ul>
                   </li>
                   <li>
-                    <a href="#t-websocketresponse" class="toc-h2 toc-link" data-title="Understanding Subscription Response">Understanding Subscription Response</a>
+                    <a href="#t-websocketresponse" class="toc-h2 toc-link" data-title="Understanding the Subscription Response">Understanding the Subscription Response</a>
                   </li>
                   <li>
                     <a href="#t-publictopics" class="toc-h2 toc-link" data-title="Public Topics">Public Topics</a>
@@ -1015,7 +1014,7 @@ clipboard.on('error', function(e) {
 });
 </script>
 <h1 id='t-introduction'>Group And Resources</h1>
-<p><p> <a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their respective expected outputs, and common errors.</p> <p> For further assistanc or feedback, please join <a href="https://t.me/Bybitapi">API Telegram chat</a>! API discussion group on Telegram. Our fellow developers are happy to chat!</p></p>
+<p><p>Welcome to the official documentation for the <a href="https://www.bybit.com/">Bybit</a> APIs and Websocket! Here you can find details on how to access all of our endpoints, their respective expected outputs, and possible errors you may encounter.</p> <p>If you encounter an issue you need help with, have a suggestions for us, or just want to have a chat with fellow developers then please head on over to our <a href="https://t.me/Bybitapi">API Telegram chat</a>!</p></p>
 <h3 id='t-resources'>Group And Bybit API Resources</h3>
 <p><ul class="bybit-community"> <li><img src="../images/favicon-4f296779.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong></a> - <strong>learn about exchange mechanisms here!</strong> <li><img src="../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/docs/issues"><strong>Bybit API docs</strong></a> - <strong>report issues here!</strong> <li><img src="../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/api-connectors/"><strong>Bybit's api-connectors</strong></a> - <strong>find a repo of prebuilt libraries here!</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong> - <strong>get English help here!</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>subscribe for changes to the API!</strong> <li><img src="../images/email_icon-e7dd7b20.png" height="14", width="14"> <a href="mailto:IT@bybit.com"><strong>IT@bybit.com</strong></a> - <strong>official IT support email!</strong> </ul></p>
 <h1 id='t-changelog'>Changelog</h1><h2 id='2021-06-02'>2021-06-02</h2><h3 id='rest-api'>REST API</h3>
@@ -1361,7 +1360,7 @@ clipboard.on('error', function(e) {
 </ul>
 <h2 id='2020-04-17'>2020-04-17</h2><h3 id='rest-api-25'>REST API</h3>
 <ul>
-<li><a href="#t-orderbook">Order book</a> [update]
+<li><a href="#t-orderbook">Orderbook</a> [update]
 
 <ul>
 <li>Add new symbol <code>BTCUSDT</code></li>
@@ -1473,7 +1472,7 @@ clipboard.on('error', function(e) {
 </ul>
 <h1 id='t-authentication'>Authentication</h1>
 <aside class="notice">
-Please visit Bybit's <a href="https://testnet.bybit.com/app/user/api-management"> <b>testnet</b></a> or <a href="https://www.bybit.com/app/user/api-management"> <b>mainnet</b></a> to generate an API key
+To generate an API key please go <a href="https://testnet.bybit.com/app/user/api-management">here for the <b>testnet</b></a> or <a href="https://www.bybit.com/app/user/api-management">here for the <b>mainnet</b></a>.
 </aside>
 
 <aside class="notice">
@@ -1508,16 +1507,16 @@ REST Base Endpoint:
 </ul>
 </p>
 
-<p><p>We also provide <code>recv_window</code> (unit in millsecond and defualt value is 5,000) to specify how long an HTTP request is valid. It is also used to prevent replay attacks.</p>
+<p><p>Additionally, we offer the <code>recv_window</code>, which indicates for how long an HTTP request is valid. This should be sent in milliseconds. Default value: 5000. It used to prevent replay attacks.</p>
 <p>A smaller <code>recv_window</code> is more secure, but your request may fail if the transmission time is greater than your <code>recv_window</code>.</p>
 <p>Please ensure that your <code>timestamp</code> is synced with our server time. You can use the <a href=#t-servertime>Server Time</a> endpoint.</p>
 </p>
 
 <aside class="warning">
-Please make sure that the timestamp parameter adheres to the following rule: server_time - recv_window <= timestamp < server_time + 1000; server_time stands for Bybit server time, which can be queried via the <a href="#t-servertime">Server Time</a> endpoint.
+Make sure to conform to the timestamp rule of verification or your request will be rejected! Timestamp rule of verification: <b>server_time - recv_window <= timestamp < server_time + 1000</b>; <b>server_time</b> stands for Bybit server time, you can get it from <a href="#t-servertime">Server Time</a> endpoint.
 
 </aside>
-<h2 id='t-constructingtherequest'>Create A Request</h2>
+<h2 id='t-constructingtherequest'>Constructing the Request</h2>
 <blockquote>
 <p>An example for adjusting leverage</p>
 </blockquote>
@@ -1535,7 +1534,7 @@ Please make sure that the timestamp parameter adheres to the following rule: ser
 <p><p>1. Concatenate all the public parameters in the <a href="https://en.wikipedia.org/wiki/Query_string">query string</a> format. The parameters must be ordered in <b>alphabetical</b> order. This will be used to generate the <code>sign</code>.</p>
 <div></div></p>
 
-<p><p>2. Use the HMAC_SHA256 algorithm to sign the query string in step 1, and convert it to a hex string to obtain the sign parameter.</p></p>
+<p><p>2. Sign the parameters string.</p></p>
 
 <blockquote>
 <p>Different requests need different message formats. Message format for <b>GET</b> requests:
@@ -1560,7 +1559,7 @@ Please make sure that the timestamp parameter adheres to the following rule: ser
     </span><span class="nl">"sign"</span><span class="p">:</span><span class="w"> </span><span class="s2">"670e3e4aa32b243f2dedf1dafcec2fd17a440e71b05681550416507de591d908"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p><p>3. Append the sign parameter to the end of the parameters string, and send the HTTP request. Note that the message format for GET and POST requests is different. Please refer to the examples.</p></p>
+<p><p>3. Append the signature at the end of the parameters string, and send the HTTP request. Please note that the format for messages is different depending on whether you are sending a GET or POST request.</p></p>
 
 <aside class="notice">
 Example signature algorithms can be found <a href="https://github.com/bybit-exchange/api-connectors/tree/master/encryption_example">here</a>.
@@ -1599,7 +1598,7 @@ function copyStringToClipboard (endpoint) {
 </script>
 <h1 id='t-marketdata'>Market Data Endpoints</h1>
 <p>The following market data endpoints do not require authentication.</p>
-<h3 id='t-orderbook'>Order book</h3>
+<h3 id='t-orderbook'>Orderbook</h3>
 <p><a href="/docs/inverse#t-orderbook">Please see the shared endpoint.</a></p>
 <h3 id='t-querykline'>Query Kline</h3>
 <blockquote>
@@ -2325,7 +2324,7 @@ function copyStringToClipboard (endpoint) {
 -->
 
 <!--
-### Order book
+### Orderbook
 > Request Example
 
 ```console
@@ -5346,7 +5345,7 @@ When set to Partial, SL/TP orders may have a quantity less than the position siz
 <tr>
 <td style="text-align: left">wallet_balance</td>
 <td style="text-align: left">number</td>
-<td>Wallet Data Endpoints</td>
+<td>Wallet balance</td>
 </tr>
 <tr>
 <td style="text-align: left">available_balance</td>
@@ -6694,37 +6693,37 @@ Set risk limit.
   <tr><td>/private/linear/funding/predicted-funding </td><td>1 / request</td></tr>
 </table>
 <h3 id='t-orderlimits'>Order Limits</h3>
-<p><p>Max. number of active orders supported under each trading pair:</p>
+<p><p>The number of orders per instrument that can be held entirely simultaneously:</p>
 <ul>
 <li>Active orders: 500</li>
 <li>Conditional orders: 10</li>
 </ul>
 </p>
-<h3 id='t-raisemylimit'>How to Increase API Limits</h3>
+<h3 id='t-raisemylimit'>How to Raise Your API Limit</h3>
 <p><ul>
-<li>Please refer to <a href="#t-raisemylimit">Understanding Bybit&#39;s Liquidity System</a> regarding how our system automatically allocates rate limits for users who place over 2,000 orders per day.</li>
-<li>Please email <a href="mailto:api@bybit.com">api@bybit.com</a> with the following information. We will reply within 1-4 working days:</li>
+<li>Please read <a href="#t-raisemylimit">Understanding Bybit&#39;s Liquidity System</a> to understand how our system automatically allocates rate limits for users placing over 2000 orders per day.</li>
+<li>Please send your application email to <a href="mailto:api@bybit.com">api@bybit.com</a>. We will reply in 1-4 working days. And the email must include below information:</li>
   <ol>
     <li>Your name and your company details</li>
-    <li>Your Bybit UID or registered email, and the assets you are trading</li>
-    <li>General description of your trading strategy and reasons for higher rate limits</li>
-    <li>Screenshot of previous monthly trading volume (maker/taker) on other platforms</li>
-    <li>Optional: your order history in CSV format</li>
+    <li>Your Bybit UIDs or registered Emails, and the symbol which you are trading</li>
+    <li>General description of your trading strategy and why requires higher rate limit</li>
+    <li>Screenshot of previous monthly trading volume (maker/taker) with other platforms</li>
+    <li>Optional: your order history in CSV files</li>
   </ol>
 </ul>
 </p>
 <h3 id='t-liquidity'>Understanding Bybit's Liquidity System</h3>
-<p><p>Bybit uses <code>Order Fill Ratio (OFR)</code> and <code>Liquidity Contribution Points (LCP)</code> to measure customers&#39; contribution to our executable liquidity.</p>
-<p>The <code>LCP</code> and <code>OFR</code> of different assets are calculated separately.</p>
+<p><p>Bybit uses an <code>Order Fill Ratio (OFR)</code> and <code>Liquidity Contribution Points (LCP)</code> to measure customers&#39; contribution to our executable liquidity.</p>
+<p>The <code>LCP</code> and <code>OFR</code> of different symbols are calculated separately.</p>
 </p>
 <h4 id='t-ofrthreshold'>Order Fill Ratio (OFR) Threshold</h4>
-<p>If you place more than <code>2000</code> orders per day on Bybit, please make sure that your 7-day OFR is above a <code>Minimum OFR threshold</code>, Otherwise, Bybit may reduce the rate limits for your API request.
+<p>If you place more than <code>2000</code> orders per day on Bybit, please maintain your 7-day OFR above a <code>Minimum OFR threshold</code>, or Bybit may reduce your API request frequency limit.
 </p>
 <h5 id='t-ofrratio'>Order Fill Ratio (OFR)</h5>
 <p><ul>
 <li><code>Order Fill Ratio (OFR)</code>: <code>Orders Filled</code> to <code>Orders Submitted to Bybit</code> to Bybit.</li>
-<li><code>Orders Submitted to Bybit</code>: any order submitted  to Bybit.</li>
-<li><code>Orders Filled</code>: any order that has been filled (regardless of filled quantity).</li>
+<li><code>Orders Submitted to Bybit</code>: any order sent to Bybit.</li>
+<li><code>Orders Filled</code>: any order that has been filled for any amount.</li>
 <li><code>OFR = (number of orders filled / number of orders submitted to Bybit)</code></li>
 </ul>
 </p>
@@ -6746,8 +6745,8 @@ QFR = 1/1 = 100%
 </pre>
 <h5 id='t-ofrminimum'>Minimum OFR Threshold</h5>
 <p>7-day OFR must be kept above 0.1%.</p>
-<h4 id='t-frequencylimit'>Rate Limits for API Requests</h4>
-<p>The rate limits for your API requests are based on your min. <code>Liquidity Contribution Points (LCP)</code> within <code>7</code> days.</p>
+<h4 id='t-frequencylimit'>API Request Frequency Limits</h4>
+<p>Your API request frequency limit is based on your min <code>Liquidity Contribution Points (LCP)</code> of <code>7</code> days.</p>
 
 <table><thead>
 <tr>
@@ -6783,9 +6782,9 @@ QFR = 1/1 = 100%
 </p>
 <h5 id='t-ratelimitsexplanation'>Explanation</h5><h6 id='t-pricerange'>Effective Price Range</h6>
 <p><ul>
-<li><p><code>effective price range</code>: order price that falls within the lower and upper price bounds.</p>
+<li><p><code>effective price range</code>: 6 tick sizes range around middle of best bid price and best ask price.</p>
 </li>
-<li><p>Min <code>effective price</code>:   (best bid price + best ask price) / 2 - (3 * tick_size)</p>
+<li><p>Min <code>effective price</code>:  (best bid price + best ask price) / 2 - (3 * tick_size)</p>
 </li>
 <li><p>Max <code>effective price</code>:  (best bid price + best ask price) / 2 + (3 * tick_size)</p>
 </li>
@@ -6800,9 +6799,9 @@ Effective Price Range: [(10000 + 10001) / 2 - 3* 0.5, (10000 + 10001) / 2 + 3* 0
 </pre>
 <h6 id='t-pou'>POU</h6>
 <p><ul>
-<li><code>POU</code>: The size of your orders that fall within the <code>effective price range</code> in proportion to the total size of your orders in the order book.</li>
+<li><code>POU</code>: the proportion of your orders within <code>effective price range</code> to all your orders in orderbook.</li>
 </ul>
-<p>Bybit calculates the size of your orders that fall within the <code>effective price range</code> / the total size of your orders in the order book per second, and then computes the time-weighted-average of the day.</p>
+<p>Bybit calculates your amount of orders within <code>effective price range</code> / amount of all your orders in orderbook, and then performs a 1-Day Time-Weighted-Average over the series of seconds rates.</p>
 </p>
 
 <pre class="center-column-nonindent">
@@ -6818,11 +6817,11 @@ POU = 8000 / 10000 = 0.8
 <p>Bybit calculates your amount of orders within <code>effective price range</code> / amount of all orders within <code>effective price range</code> in orderbook, and then performs a 1-Day Time-Weighted-Average over the series of seconds rates.</p>
 </p>
 <h6 id='t-poaexample'>POA example</h6>
-<p>The size of user C's orders that fall within the effective price range is 8,000, while the total size of orders in the order book that fall within the effective price range is 200,000.</p>
+<p>User C only has 8000 contracts within effective price range, while Bybit have 200000 contracts within effective price range in orderbook.</p>
 
 <pre class="center-column-nonindent">
-Size of user C's orders within effective price range = 8000
-Total size of orders within effective price range = 200000
+amount of User C's orders within effective price range = 8000
+amount of all orders within effective price range = 200000
 POA = 8000 / 200000 = 0.04
 
 </pre>
@@ -6907,9 +6906,9 @@ Example signature algorithms can be found <a href="https://github.com/bybit-exch
 </aside>
 
 <aside class="warning">
-Due to network complexity, your may get disconnected at any time. Please follow the instructions below to ensure that you receive WebSocket messages on time:</span> <p>1. Keep connection alive by <a href="#t-heartbeat">sending heartbeat packet</a></p> <p>2. Reconnect as soon as possible if disconnected</p>
+Due to the complexity of the network, your program may lose connection at any time. In order to ensure that you receive messages on time, you should do the following<span>:</span> <p>1. Keep connection alive by <a href="#t-heartbeat">sending heartbeat packet</a></p> <p>2. Reconnect as soon as the connection is broken</p>
 </aside>
-<h2 id='t-heartbeat'>How to Send Heartbeat Packet</h2>
+<h2 id='t-heartbeat'>How to Send the Heartbeat Packet</h2>
 <blockquote>
 <p>How to Send</p>
 </blockquote>
@@ -6929,7 +6928,7 @@ Due to network complexity, your may get disconnected at any time. Please follow 
 <span class="p">}</span>
 </code></pre></div>
 <aside class="warning">
-To avoid networks or program issues, we recommend that you send the <code>ping</code> heartbeat packet every 30 seconds to maintain the WebSocket connection.
+Due to unstable networks or program errors, we strongly advise you to send the <code>ping</code> heartbeat packet to maintain websocket connections. We recommend every 30 seconds to 1 minute.
 </aside>
 
 <!-- 连接数限制
@@ -6971,7 +6970,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 </p>
 <h3 id='t-intervals'>Intervals</h3>
 <p>Some topics are pushed at intervals. If the <code>args</code> contain a millisecond param, such as <code>100ms</code>, this topic is pushed at intervals. Otherwise, it is pushed constantly.</p>
-<h2 id='t-websocketresponse'>Understanding Subscription Response</h2>
+<h2 id='t-websocketresponse'>Understanding the Subscription Response</h2>
 <blockquote>
 <p>Subscription Response</p>
 </blockquote>
@@ -6987,7 +6986,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
    <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Each subscription will have a response. You can determine whether the subscription is successful based on the response.</p>
+<p>Every subscription will have a response.</p>
 <h2 id='t-publictopics'>Public Topics</h2><h3 id='t-websocketorderbook25'>orderBookL2_25</h3>
 <blockquote>
 <p>How to Subscribe</p>
@@ -8179,7 +8178,7 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 <tr>
 <td style="text-align: left">wallet_balance</td>
 <td style="text-align: left">number</td>
-<td>Wallet Data Endpoints</td>
+<td>Wallet balance</td>
 </tr>
 <tr>
 <td style="text-align: left">available_balance</td>
@@ -8200,11 +8199,11 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 </thead><tbody>
 <tr>
 <td>200</td>
-<td>Request is valid -- Your request is valid</td>
+<td>Request valid -- Your request is valid</td>
 </tr>
 <tr>
 <td>403</td>
-<td>Access denied -- You request too many times</td>
+<td>Forbidden -- You request too many times</td>
 </tr>
 <tr>
 <td>404</td>
@@ -8220,15 +8219,15 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 </thead><tbody>
 <tr>
 <td>10001</td>
-<td>Error - request failed processed. Please try again.</td>
+<td>parameter error</td>
 </tr>
 <tr>
 <td>10002</td>
-<td>Request not authorized - an API key is required and should be included in all requests.</td>
+<td>request expired, check your <code>timestamp</code> and <code>recv_window</code></td>
 </tr>
 <tr>
 <td>10003</td>
-<td>Too many requests - please use WebSocket for live updates. Current limit is %s requests per minute.</td>
+<td>Invalid apikey</td>
 </tr>
 <tr>
 <td>10004</td>
@@ -8240,11 +8239,11 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 </tr>
 <tr>
 <td>10006</td>
-<td>System not responding. Request status unknown. Please contact live support.</td>
+<td>too many requests</td>
 </tr>
 <tr>
 <td>10007</td>
-<td>Response timeout from backend server. Delivery and request status unknown.</td>
+<td>api_key not found in your request parameters</td>
 </tr>
 <tr>
 <td>10010</td>
@@ -8252,7 +8251,7 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 </tr>
 <tr>
 <td>10016</td>
-<td>Service not available.</td>
+<td>unexpect error or timeout</td>
 </tr>
 <tr>
 <td>10017</td>
@@ -8660,7 +8659,7 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 </tr>
 </tbody></table>
 <h1 id='t-enums'>ENUMs Definitions</h1>
-<p>The following lists enumerator names for the request and resonse parameters of each endpoint.</p>
+<p>This is a list of valid options (and rules) for the different parameters when sending a request to the API.</p>
 <h2 id='side-side'>Side (<code>side</code>)</h2>
 <ul>
 <li><code>Buy</code></li>
@@ -8730,9 +8729,9 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 <h2 id='price-price'>Price (<code>price</code>)</h2>
 <p><ul>
 <li>Active order<ul>
-<li>Must be an integral multiple of <code>tick_size</code><ul>
-<li>Information about current trading pair (e.g. tick size) can be queried with the <a href="#t-querysymbol">Query Symbol endpoint</a>.</li>
-<li>Modulo (<code>%</code>) can be used to calculate whether the price will be accepted:<pre class="center-column">
+<li>Must be an increment of that market&#39;s <code>tick_size</code><ul>
+<li>Current symbol information (like tick sizes) can be found with the <a href="#t-querysymbol">Query Symbol endpoint</a>.</li>
+<li>Use modulo (<code>%</code>) to calculate whether or not a price will be accepted, like so:<pre class="center-column">
 IF price % tick_size = 0
     // send request
 ELSE
@@ -8741,9 +8740,9 @@ ELSE
 </ul>
 </li>
 <li>Must be less than 1 million (<code>1000000</code>)</li>
-<li>If the user has no open position, the order price must be higher than 10% of the last traded price<ul>
-<li>or example, if the last traded price (last price) is <code>10314</code>, the min. order price will be <code>1031.5</code>.</li>
-<li>Pseudocode (assuming the price is a multiple of 0.5):<pre class="center-column">
+<li>If the user has no open position then the price must be greater than 10% of the market price<ul>
+<li>For example, if the current market price (last price) is <code>10314</code>, then the absolute minimum the price may be is <code>1031.5</code>. It may not be <code>1031</code> or below.</li>
+<li>In pseudocode (assuming the price is an increment of 0.5):<pre class="center-column">
 IF price > (last_price * 0.1)
     // send request
 ELSE
@@ -8751,14 +8750,14 @@ ELSE
 </pre></li>
 </ul>
 </li>
-<li>If the user has an open position, the order price must be better than the liquidation price.<ul>
-<li>For example, if the liquidation price of a long position is <code>5176.5</code> , the min. order price will be <code>5177</code>. For short position, the order price must be less than the liquidation price.</li>
+<li>If the user holds a position, the order price must be better than the liquidation price.<ul>
+<li>For example, if the liquidation price of an open long position is <code>5176.5</code> then the price may be a minimum of <code>5177</code>. In the case of a short position the price must be less than the liquidation price.</li>
 </ul>
 </li>
 </ul>
 </li>
 <li>Conditional order<ul>
-<li>Must be greater than or equal to <code>1</code></li>
+<li>Must be equal to order greater than <code>1</code></li>
 </ul>
 </li>
 </ul>
@@ -8777,7 +8776,7 @@ ELSE
 <li><code>MarkPrice</code> </li>
 </ul>
 <h2 id='order-order'>Order (<code>order</code>)</h2>
-<p>This is used for sorting orders/trades in a specified direction.</p>
+<p>This is for sorting orders/trades in a specified direction.</p>
 
 <ul>
 <li><code>desc</code> </li>
@@ -8787,33 +8786,33 @@ ELSE
 <p></p>
 
 <ul>
-<li><code>Created</code> -  order has been accepted by the system but not yet put through the matching engine</li>
-<li><code>Rejected</code> - order has been triggered but failed to be placed (e.g. due to insufficient margin)</li>
-<li><code>New</code> - order has been placed successfully</li>
+<li><code>Created</code> - order accepted by the system but not yet put through matching engine</li>
+<li><code>Rejected</code> - order is triggered but failed to be placed (for example, due to insufficient margin)</li>
+<li><code>New</code> - order has placed successfully</li>
 <li><code>PartiallyFilled</code> </li>
 <li><code>Filled</code> </li>
 <li><code>Cancelled</code> </li>
-<li><code>PendingCancel</code> - matching engine has received the cancelation request but it may not be canceled successfully</li>
+<li><code>PendingCancel</code> - the matching engine has received the cancellation but there is no guarantee that it will be successful</li>
 </ul>
 
 <!--
 ## Stop order status (`stop_order_status`)
-* `Active` -  order has been triggered and placed successfully
-* `Untriggered` - order yet to be triggered
-* `Triggered` - order has been triggered by last traded price
-* `Cancelled` - order has been canceled successfully
-* `Rejected` - order has been triggered but failed to be placed (e.g. due to insufficient margin)
-* `Deactivated` - order has been canceled by the user before being triggered
+* `Active` - order is triggered and placed successfully
+* `Untriggered` - order waits to be triggered
+* `Triggered` - order is triggered
+* `Cancelled` - order is cancelled
+* `Rejected` - order is triggered but failed to be placed (for example, due to insufficient margin)
+* `Deactivated` - order was cancelled by user before triggering
 -->
 <h2 id='cancel-type-cancel_type'>Cancel type (<code>cancel_type</code>)</h2>
 <ul>
 <li><code>CancelByUser</code> </li>
 <li><code>CancelByReduceOnly</code> </li>
-<li><code>CancelByPrepareLiq</code>,<code>CancelAllBeforeLiq</code> - canceled due to liquidation</li>
-<li><code>CancelByPrepareAdl</code>,<code>CancelAllBeforeAdl</code> - canceled due to ADL</li>
+<li><code>CancelByPrepareLiq</code>,<code>CancelAllBeforeLiq</code> - Cancelled by force liquidation</li>
+<li><code>CancelByPrepareAdl</code>,<code>CancelAllBeforeAdl</code> - Cancelled by ADL</li>
 <li><code>CancelByAdmin</code> </li>
-<li><code>CancelByTpSlTsClear</code> - TP/SL order canceled successfully</li>
-<li><code>CancelByPzSideCh</code> - order has been canceled after TP/SL is triggered</li>
+<li><code>CancelByTpSlTsClear</code> - This is a cancelled TP/SL/TS order</li>
+<li><code>CancelByPzSideCh</code> - This order is cancelled after TP/SL/TS</li>
 </ul>
 <h2 id='create-type-create_type'>Create type (<code>create_type</code>)</h2>
 <ul>
@@ -8837,17 +8836,17 @@ ELSE
 </ul>
 <h2 id='liquidity-type-last_liquidity_ind'>Liquidity type (<code>last_liquidity_ind</code>)</h2>
 <ul>
-<li><code>AddedLiquidity</code> - liquidity maker</li>
-<li><code>RemovedLiquidity</code> - liquidity Taker</li>
+<li><code>AddedLiquidity</code> - Maker liquidity</li>
+<li><code>RemovedLiquidity</code> - Taker liquidity</li>
 </ul>
 <h2 id='tick-direction-type-tick_direction'>Tick direction type (<code>tick_direction</code>)</h2>
-<p>It indicates price fluctuation relative to the last trade</p>
+<p>It indicates the fluctuation of price, which is up or down relative to the last transaction</p>
 
 <ul>
-<li><code>PlusTick</code> - price rise</li>
-<li><code>ZeroPlusTick</code> - trade occurs at the same price as the previous trade, which occurred at a price higher than that for the trade preceding it </li>
-<li><code>MinusTick</code> - price drop</li>
-<li><code>ZeroMinusTick</code> - trade occurs at the same price as the previous trade, which occurred at a price lower than that for the trade preceding it </li>
+<li><code>PlusTick</code> - Rise in price</li>
+<li><code>ZeroPlusTick</code> - Rise in price compared to last trade of different price</li>
+<li><code>MinusTick</code> - Drop in price</li>
+<li><code>ZeroMinusTick</code> - Drop in price compared to last trade of different price</li>
 </ul>
 <h2 id='tpsl-mode-type-tp_sl_mode'>TpSl Mode type (<code>tp_sl_mode</code>)</h2>
 <p>Take profit/stop loss mode</p>

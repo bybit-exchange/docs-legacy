@@ -303,7 +303,6 @@
     <li><a href="/docs/zh-cn/inverse" class="selected">反向永续</a></li>
     <li><a href="/docs/zh-cn/linear">USDT永续</a></li>
     <li><a href="/docs/zh-cn/inverse_futures">反向交割</a></li>
-  <li><a href="/docs/zh-cn/spot">现货(testnet)</a></li>
   </ul>
   </div>
   <a class="international" id="international" href="javascript:void(0);">English</a>
@@ -1205,7 +1204,7 @@ clipboard.on('error', function(e) {
 <li><a href="#t-placeactive">创建活动委托单</a> [更新]
 
 <ul>
-<li>新增现货open-api文档</li>
+<li>请求参数增加 <code>tp_trigger_by</code>, <code>sl_trigger_by</code></li>
 <li>返回参数增加 <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code></li>
 </ul></li>
 <li><a href="#t-myposition">获取持仓（实时）</a> [更新]
@@ -1266,7 +1265,7 @@ clipboard.on('error', function(e) {
 <li><a href="#t-placeactive">创建活动委托单</a> [更新]
 
 <ul>
-<li>新增现货open-api文档</li>
+<li>请求参数增加 <code>tp_trigger_by</code>, <code>sl_trigger_by</code></li>
 <li>返回参数增加 <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code></li>
 </ul></li>
 <li><a href="#t-myposition">获取持仓（实时）</a> [更新]
@@ -1955,7 +1954,7 @@ REST接口根URL:
 </aside>
 <h2 id='t-constructingtherequest'>构建请求</h2>
 <blockquote>
-<p>拼接参数示例（以查询账号余额接口为例）：</p>
+<p>拼接参数示例（以修改杠杆接口为例）：</p>
 </blockquote>
 <div class="highlight"><pre class="highlight python tab-python"><code><span class="n">param_str</span> <span class="o">=</span> <span class="s">"api_key=B2Rou0PLPpGqcU0Vu2&amp;leverage=100&amp;symbol=BTCUSD&amp;timestamp=1542434791747"</span>
 
@@ -1974,14 +1973,14 @@ REST接口根URL:
 <p><p>2. 使用<code>HMAC_SHA256</code>算法对第1步中拼接的query string签名，并转换为16进制字符串，得出<code>sign</code>参数。</p></p>
 
 <blockquote>
-<p><b>GET</b>请求格式（查询账号余额）:
+<p><b>GET</b>请求格式（查询杠杆）:
 </p>
 </blockquote>
 <div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v2/private/order?symbol=BTCUSD&amp;api_key=B2Rou0PLPpGqcU0Vu2&amp;timestamp=1542434791000&amp;sign=670e3e4aa32b243f2dedf1dafcec2fd17a440e71b05681550416507de591d908</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api-testnet.bybit.com</span>
 </code></pre></div>
 <blockquote>
-<p><b>POST</b>请求格式（创建订单）:
+<p><b>POST</b>请求格式（修改杠杆）:
 </p>
 </blockquote>
 <div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/v2/private/order/cancel</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -9326,25 +9325,16 @@ B用户：
 <ul>
 <p>
   <li>测试网:
-    <span id="testnet_address">公共Topics: wss://stream-testnet.bybit.com/spot/quote/ws/v1</span>
+    <span id="testnet_address">wss://stream-testnet.bybit.com/realtime</span>
     <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
-    <br/>
-    <span id="testnet_address">公共Topics2: wss://stream-testnet.bybit.com/spot/quote/ws/v2</span>
-    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
-    <br/>
-    <span id="testnet_address_2">私有Topics: wss://stream-testnet.bybit.com/spot/ws/</span>
-    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address_2"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
   </li>
 </p>
 <p>
   <li>主网(请根据您的网络情况选择以下任意一个地址使用):<br/>
-    <span id="mainnet_address">公共Topics: wss://stream.bybit.com/spot/quote/ws/v1</span>
+    <span id="mainnet_address">wss://stream.bybit.com/realtime</span>
     <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
     <br/>
-    <span id="mainnet_address">公共Topics2: wss://stream.bybit.com/spot/quote/ws/v2</span>
-    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
-    <br/>
-    <span id="mainnet_address_2">私有Topics: wss://stream.bybit.com/spot/ws/</span>
+    <span id="mainnet_address_2">wss://stream.bytick.com/realtime</span>
     <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address_2"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
   </li>
 </p>
@@ -9410,7 +9400,7 @@ B用户：
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Example: Subscribing to the trade data for all symbols</span>
 <span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op": "subscribe", "args": ["trade.*"]}</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div>
-<p>建立连接后, 可以通过发送JSON请求来订阅topic. 其中bianry为false表示不进行压缩传输，为true时表示以GZIP格式进行压缩，请求格式如下:
+<p>建立连接后, 可以通过发送JSON请求来订阅topic. 请求格式如下:
 </p>
 
 <p><code>ws.send(&#39;{&quot;op&quot;: &quot;subscribe&quot;, &quot;args&quot;: [&quot;topic.filter&quot;]}&#39;);</code></p>
@@ -10985,15 +10975,15 @@ ELSE
 </thead><tbody>
 <tr>
 <td>10001</td>
-<td>内部错误; 无法处理您的请求。 请再试一次.</td>
+<td>参数错误</td>
 </tr>
 <tr>
 <td>10002</td>
-<td>您无权执行此请求。请求需要发送API Key，我们建议在所有的请求中都附加API Key</td>
+<td>请求过期，请检查 <code>timestamp</code> 和 <code>recv_window</code></td>
 </tr>
 <tr>
 <td>10003</td>
-<td>排队的请求过多。请求权重过多； 请使用websocket进行实时更新。请求权重过多； 当前限制为每分钟％s请求权重。 请使用websocket进行实时更新，以避免轮询API。 请求权重过多； IP被禁止，直到％s。 请使用websocket进行实时更新，以免被禁。</td>
+<td>无效的apikey</td>
 </tr>
 <tr>
 <td>10004</td>
@@ -11005,11 +10995,11 @@ ELSE
 </tr>
 <tr>
 <td>10006</td>
-<td>从消息总线收到意外的响应。 执行状态未知。请向客服求证关于此订单的详细状态和其他信息。</td>
+<td>请求次数超限</td>
 </tr>
 <tr>
 <td>10007</td>
-<td>等待后端服务器响应超时。 发送状态未知； 执行状态未知。</td>
+<td>您的请求中没有<code>api_key</code></td>
 </tr>
 <tr>
 <td>10010</td>
@@ -11017,7 +11007,7 @@ ELSE
 </tr>
 <tr>
 <td>10016</td>
-<td>该服务不可用</td>
+<td>服务异常或请求超时</td>
 </tr>
 <tr>
 <td>10017</td>
@@ -11061,11 +11051,11 @@ ELSE
 </tr>
 <tr>
 <td>20010</td>
-<td>NEW_ORDER_REJECTED</td>
+<td><code>qty</code> 必须大于0</td>
 </tr>
 <tr>
 <td>20011</td>
-<td>CANCEL_REJECTED</td>
+<td><code>qty</code> 必须为整数</td>
 </tr>
 <tr>
 <td>20012</td>
@@ -11073,19 +11063,19 @@ ELSE
 </tr>
 <tr>
 <td>20013</td>
-<td>Order不存在</td>
+<td>缺少参数<code>price</code></td>
 </tr>
 <tr>
 <td>20014</td>
-<td>API-key格式无效</td>
+<td><code>price</code>必须大于0</td>
 </tr>
 <tr>
 <td>20015</td>
-<td>无效的API密钥，IP或操作权限。.</td>
+<td>缺少参数<code>time_in_force</code></td>
 </tr>
 <tr>
 <td>20016</td>
-<td>找不到该交易对的交易窗口。 尝试改为24小时自动报价。</td>
+<td><code>time_in_force</code>不合法</td>
 </tr>
 <tr>
 <td>20017</td>
