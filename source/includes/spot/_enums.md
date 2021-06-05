@@ -127,9 +127,9 @@ t(:para_orderStatusGet)
 * `CreateByTakeProfit`
 * `CreateByStopLoss`
 * `CreateByTrailingStop`
-* `CreateByLiq` - Created by partial liquidation
-* `CreateByAdl_PassThrough` - Created by ADL
-* `CreateByTakeOver_PassThrough` - Created by liquidation takeover
+* `CreateByLiq` - created by partial liquidation
+* `CreateByAdl_PassThrough` - created by ADL
+* `CreateByTakeOver_PassThrough` - created by liquidation takeover
 
 ## Exec type (`exec_type`)
 * `Trade` t(:exec_trade)

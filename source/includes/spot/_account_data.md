@@ -141,7 +141,7 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |accountId|long |t(:spotAccountId)|
-|exchangeId|long|t(:spotOrderID)|
+|exchangeId|long|t(:spotOrderId)|
 |symbol|string|t(:spotSymbol)|
 |symbolName|string|t(:spotSymbol)|
 |order_link_id|string|t(:spotOrderLinkId)|
