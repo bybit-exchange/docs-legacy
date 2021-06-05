@@ -354,8 +354,12 @@ zh-cn:
   intro_para:
     <p>欢迎使用 <a href="https://www.bybit.com/">Bybit</a> APIs 和 Websocket官方文档！</p>
     <p>如果您在使用API的过程中遇到问题需要帮助，请加入我们的 <a href="https://t.me/Bybitapi">官方Telegram API讨论群</a>！</p>
-
+  spot_intro_para:
+    <p>欢迎使用 <a href="https://www.bybit.com/">Bybit</a> APIs 和 Websocket官方文档！</p>
+    <p>该文档旨在提供指导，以帮助您快速访问Bybit的API接口，了解参数说明和常见错误码等。
+    若您有任何疑问或需要帮助，请加入我们的 <a href="https://t.me/Bybitapi">官方Telegram API讨论群</a>！</p>
   resources: 中文社区和参考资料
+  spot_resources: 中文社区和参考资料
   intro_para_resources:
     <ul class="bybit-community">
       <li><img src="/images/favicon.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/zh-cn"><strong>帮助中心</strong></a> - <strong>在这里了解合约交易</strong>
@@ -365,6 +369,17 @@ zh-cn:
       <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文讨论群</strong>
       <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong>
       <li><img src="/images/email_icon.png" height="14", width="14"> <a href="mailto:IT@bybit.com"><strong>IT@bybit.com</strong></a> - <strong>官方技术支持邮箱!</strong>
+    </ul>
+
+  spot_intro_para_resources:
+    <ul class="bybit-community">
+    <li><img src="/images/favicon.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/zh-cn"><strong>帮助中心</strong></a> - <strong>在这里了解合约交易</strong>
+    <li><img src="/images/github_logo_icon.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/docs/issues"><strong>Bybit API docs</strong></a> - <strong>在这里提bug</strong>
+    <li><img src="/images/github_logo_icon.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/api-connectors/"><strong>Bybit's api-connectors</strong></a> - <strong>官方API SDK</strong>
+    <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文讨论群</strong>
+    <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文讨论群</strong>
+    <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong>
+    <li><img src="/images/email_icon.png" height="14", width="14"> <a href="mailto:IT@bybit.com"><strong>IT@bybit.com</strong></a> - <strong>官方技术支持邮箱!</strong>
     </ul>
   shared_endpoint_desc: 请点击查看接口描述。
 
@@ -761,13 +776,38 @@ zh-cn:
       </ul>
     </li>
     </ul>
+  spot_ip_rate_para_understanding: |
+       <p> Bybit会基于请求IP做频率限制，针对不同的请求方法有以下规则：</p>
+       <ul>
+       <li>
+         <code>GET</code>方法:
+         <ul>
+           <li>每秒不超过70个请求</li>
+           <li>连续2分钟内每秒不超过50个请求</li>
+         </ul>
+       </li>
+       <li>
+         <code>POST</code>方法:
+         <ul>
+           <li>每秒不超过50个请求</li>
+           <li>连续2分钟内每秒不超过20个请求</li>
+         </ul>
+       </li>
+       </ul>
+
   ### Account rate limit
   understandingratelimits: 账户频率限制
+  spot_understandingratelimits: 账户频率限制
   rate_para_understanding: |
+    Bybit基于<b>每分钟</b>的滚动时间窗口来做频率限制，并且是按<b>账户</b>（uid）和交易对（symbol）来做划分限制，每次请求API响应中都会包含如下字段：
+  spot_rate_para_understanding: |
     Bybit基于<b>每分钟</b>的滚动时间窗口来做频率限制，并且是按<b>账户</b>（uid）和交易对（symbol）来做划分限制，每次请求API响应中都会包含如下字段：
   rate_text_limitStatus_understanding: 该接口当前时间窗口剩余可用请求数
   rate_text_limit_understanding: 该接口当前频率限制上限
   rate_text_limitReset: 如果您已超过该接口当前窗口频率限制，该字段表示下个可用时间窗口的时间戳（毫秒），即什么时候可以恢复访问；如果您未超过该接口当前窗口频率限制，该字段表示返回的是当前服务器时间（毫秒).
+  spot_rate_text_limitStatus_understanding: 该接口当前时间窗口剩余可用请求数
+  spot_rate_text_limit_understanding: 该接口当前频率限制上限
+  spot_rate_text_limitReset: 如果您已超过该接口当前窗口频率限制，该字段表示下个可用时间窗口的时间戳（毫秒），即什么时候可以恢复访问；如果您未超过该接口当前窗口频率限制，该字段表示返回的是当前服务器时间（毫秒).
   ### Rate Limits For All Endpoints
   perendpoint: 接口频率限制表
   ### Order Limits
@@ -829,6 +869,7 @@ zh-cn:
   ##### Minimum OFR Threshold
   ofrminimum: API 交易用户最小报单成交率门槛
   rate_para_minimum: <code>7</code>日内API 交易用户最小报单成交率门槛 0.1%
+  spot_rate_para_minimum: <code>7</code>日内API 交易用户最小报单成交率门槛 0.1%
   #### API Request Frequency Limits
   frequencylimit: API 交易用户提高频率的条件
   rate_para_frequency:
@@ -891,6 +932,12 @@ zh-cn:
     <li><code>有效价格挂单平台占比</code>: 定义为该用户在有效价格范围内的挂单数量占平台所有用户在<code>有效价格</code>范围内的挂单总数量的比例.</li>
     </ul>
     <p>每秒计算 该用户在<code>有效价格</code>范围内的挂单数量 / 平台所有用户在<code>有效价格</code>范围内的挂单总数量，然后每日计算用户当日占比的平均值。</p>
+  spot_poa: 有效价格挂单平台占比
+  spot_rate_para_POA: |
+    <ul>
+    <li><code>有效价格挂单平台占比</code>: 定义为该用户在有效价格范围内的挂单数量占平台所有用户在<code>有效价格</code>范围内的挂单总数量的比例.</li>
+    </ul>
+    <p>每秒计算 该用户在<code>有效价格</code>范围内的挂单数量 / 平台所有用户在<code>有效价格</code>范围内的挂单总数量，然后每日计算用户当日占比的平均值。</p>
   ###### POA example
   poaExample: 有效价格挂单平台占比举例：
   rate_para_POAExample: 某一秒，用户在“有效价格”范围：[9999, 10002] 内的挂单有8000张，全平台的交易委托账本在 [9999, 10002] 内的挂单总量为200000。
@@ -899,6 +946,7 @@ zh-cn:
     平台所有用户在<code>有效价格</code>范围内的挂单总数量 = 200000
     有效价格挂单量平台占比 = 8000 / 200000 = 0.04
   rate_aside_POAExample: 如果机制有更新，我们会提前通过官网提前通知。
+  spot_rate_aside_POAExample: 如果机制有更新，我们会提前通过官网提前通知。
 
   # WebSocket Data
   websocket: WebSocket接口
@@ -956,6 +1004,7 @@ zh-cn:
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
       </li>
     </p>
+    <p>所有private接口都需要认证，public 接口不需要认证.</p>
     </ul>
   websocket_aside_auth: <b>公共类</b>topics不需要进行验证. 以下部分只适用于 <b>私有</b> 类接口.
   websocket_para_methods: 如右侧代码区所示，一共有两种验证方法.
@@ -1057,6 +1106,7 @@ zh-cn:
 
   # Error Definitions
   errors: 错误码
+  spot_errors: 错误码
 
   # ENUMs Definitions
   enums: 枚举定义
@@ -1194,23 +1244,38 @@ zh-cn:
 
   # Error Code
   errors_intro: Bybit使用以下HTTP Code和错误码：
+  spot_errors_intro: Bybit使用以下HTTP Code和错误码：
 
   http_200: 请求有效
   http_403: 拒绝访问
   http_404: 访问路径不存在
+  # spot
+  spot_http_200: 请求有效
+  spot_http_403: 拒绝访问
+  spot_http_404: 访问路径不存在
 
   err_10000: 处理请求时发生未知错误
   err_10001: 内部错误; 无法处理您的请求。 请再试一次.
-  err_10002: 您无权执行此请求。请求需要发送API Key，我们建议在所有的请求中都附加API Key
-  err_10003: 排队的请求过多。请求权重过多； 请使用websocket进行实时更新。请求权重过多； 当前限制为每分钟％s请求权重。 请使用websocket进行实时更新，以避免轮询API。 请求权重过多； IP被禁止，直到％s。 请使用websocket进行实时更新，以免被禁。
+  #spot
+  err_1001: 参数错误
+  err_1002: 您无权执行此请求。请求需要发送API Key，我们建议在所有的请求中都附加API Key
+  err_1003: 排队的请求过多。请求权重过多； 请使用websocket进行实时更新。请求权重过多； 当前限制为每分钟％s请求权重。 请使用websocket进行实时更新，以避免轮询API。 请求权重过多； IP被禁止，直到％s。 请使用websocket进行实时更新，以免被禁。
+  err_1006: 从消息总线收到意外的响应。 执行状态未知。请向客服求证关于此订单的详细状态和其他信息。
+  err_1007: 等待后端服务器响应超时。 发送状态未知； 执行状态未知。
+  err_1015: 新订单太多。请减少你的请求频率。新订单太多； 当前限制为每％s ％s个订单。
+  err_1016: 该服务不可用
+
+
+  err_10002: 请求过期，请检查 <code>timestamp</code> 和 <code>recv_window</code>
+  err_10003: 无效的apikey
   err_10004: 签名错误
   err_10005: apikey权限不足
-  err_10006: 从消息总线收到意外的响应。 执行状态未知。请向客服求证关于此订单的详细状态和其他信息。
-  err_10007: 等待后端服务器响应超时。 发送状态未知； 执行状态未知。
+  err_10006: 请求次数超限
+  err_10007: 您的请求中没有<code>api_key</code>
   err_10010: 请求ip不匹配
   err_10014: 不支持的订单组合。
-  err_10015: 新订单太多。请减少你的请求频率。新订单太多； 当前限制为每％s ％s个订单。
-  err_10016: 该服务不可用
+  err_10015: 不支持的订单组合。
+  err_10016: 服务异常或请求超时
   err_10017: 请求路径不存在或请求方法错误
   err_10018: 超过ip频率限制
   err_10020: 不支持此操作
@@ -1814,6 +1879,7 @@ zh-cn:
   spot_depth_asks: ask的价格和数量信息，最优ask价格由上到下排列
   mergedOrderBook: 合并订单簿
   spot_trades: 最近成交
+  spot_OrderPrice: 价格
   spot_trades_limit: 默认500， 最大1000
   spot_is_buyer_maker: true为买单， false为卖单
   spot_trade_time: 当前Unix时间戳，毫秒(ms)
@@ -1924,7 +1990,6 @@ zh-cn:
   spot_broker_info: brokerinfo数据返回
   spot_websocket_orderbook_v1: 订单簿(全量深度)
   spot_websocket_orderbook_desc_v1: |
-    <p>Symbol的深度信息。</p>
     <p>这里是订单簿快照推送的详细信息：</p>
     <ul>
       <li>订单簿快照频率：每300ms, 如果book变了的话。</li>

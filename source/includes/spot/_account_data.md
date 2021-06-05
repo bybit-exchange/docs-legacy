@@ -236,7 +236,13 @@ DELETE
 
 ```javascript
 {
-    success: true
+    “ret_code”: 0,
+    “ret_msg”: “”,
+    “ext_code”: null,
+    “ext_info”: null,
+    “result”: {
+        “success”: true
+    }
 }
 ```
 
@@ -312,7 +318,6 @@ DELETE
             "type": "LIMIT",
             "side": "BUY",
             "stopPrice": "0.0",
-            "icebergQty": "0.0",
             "time": "1620638735044",
             "updateTime": "1620638735062",
             "isWorking": true
@@ -398,7 +403,6 @@ GET
             "type": "LIMIT",
             "side": "BUY",
             "stopPrice": "0.0",
-            "icebergQty": "0.0",
             "time": "1620615771836",
             "updateTime": "1620617056334",
             "isWorking": true
@@ -441,7 +445,6 @@ GET
 |type|string|t(:spotType)|
 |side|string|t(:spotSide)|
 |stopPrice|float|t(:spotStopPrice)|
-|icebergQty|float|t(:spotIcebergQty)|
 |time|long|t(:spotTime)|
 |updateTime|long|t(:spotUpdateTime)|
 |isWorking|boolean|t(:spotIsWorking)|

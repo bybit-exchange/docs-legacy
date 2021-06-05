@@ -1,9 +1,9 @@
 # t(:ratelimits)
 ### t(:ipratelimits)
-t(:ip_rate_para_understanding)
+t(:spot_ip_rate_para_understanding)
 
-### t(:understandingratelimits)
-t(:rate_para_understanding)
+### t(:spot_understandingratelimits)
+t(:spot_rate_para_understanding)
 
 ```
 "rate_limit_status": 119,
@@ -11,9 +11,9 @@ t(:rate_para_understanding)
 "rate_limit": 120
 ```
 
-* `rate_limit_status` - t(:rate_text_limitStatus_understanding)
-* `rate_limit` - t(:rate_text_limit_understanding)
-* `rate_limit_reset_ms` - t(:rate_text_limitReset)
+* `rate_limit_status` - t(:spot_rate_text_limitStatus_understanding)
+* `rate_limit` - t(:spot_rate_text_limit_understanding)
+* `rate_limit_reset_ms` - t(:spot_rate_text_limitReset)
 
 
 ### t(:perendpoint)
@@ -103,7 +103,7 @@ t(:rate_pre_ratioExampleB)
 
 
 ##### t(:ofrminimum)
-t(:rate_para_minimum)
+t(:spot_rate_para_minimum)
 
 
 #### t(:frequencylimit)
@@ -139,8 +139,8 @@ t(:rate_pre_POUExample)
 </pre>
 
 
-###### t(:poa)
-t(:rate_para_POA)
+###### t(:spot_poa)
+t(:spot_rate_para_POA)
 
 ###### t(:poaExample)
 t(:rate_para_POAExample)
@@ -150,5 +150,5 @@ t(:rate_pre_POAExample)
 </pre>
 
 <aside class="notice">
-t(:rate_aside_POAExample)
+t(:spot_rate_aside_POAExample)
 </aside>

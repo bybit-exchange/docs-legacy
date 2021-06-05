@@ -15,10 +15,10 @@ en:
   codequote_subscribe: How to Subscribe
   codequote_snapshot: Snapshot Response Example - format of the first response
   codequote_delta: Delta Response Example - format of the responses following the snapshot response
-  column_parameter: parameter
-  column_required: required
-  column_type: type
-  column_comments: comments
+  column_parameter: Parameter
+  column_required: Required
+  column_type: Type
+  column_comments: Comments
   row_comment_userID: UserID
   row_comment_side: Side
   row_comment_symbol: Symbol
@@ -174,9 +174,9 @@ en:
   row_comment_endTime_ms: End timestamp point for result, in milliseconds
   row_comment_riskId: Risk ID
   row_comment_closed_size: The corresponding closing size of the closing order
-  row_comment_rate_limit: limit
-  row_comment_path: path
-  row_comment_consume: consume
+  row_comment_rate_limit: Limit
+  row_comment_path: Path
+  row_comment_consume: Consume
   row_comment_interval: Data refresh interval. Enum <span>:<span> 1 3 5 15 30 60 120 240 360 720 "D" "M" "W"
   row_comment_from_timestamp: From timestamp in seconds
   row_comment_limit_200: Limit for data size per page, max size is 200. Default as showing 200 pieces of data per page
@@ -363,15 +363,16 @@ en:
 
 
   resources: Group And Bybit API Resources
+  spot_resources: API Resources and Support Channels
   intro_para_resources:
     <ul class="bybit-community">
-    <li><img src="/images/favicon.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong></a> - <strong>learn about exchange mechanisms here!</strong>
-    <li><img src="/images/github_logo_icon.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/docs/issues"><strong>Bybit API docs</strong></a> - <strong>report issues here!</strong>
-    <li><img src="/images/github_logo_icon.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/api-connectors/"><strong>Bybit's api-connectors</strong></a> - <strong>find a repo of prebuilt libraries here!</strong>
-    <li><img src="/images/telegram_logo_icon.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong> - <strong>get English help here!</strong>
-    <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>get Chinese help here!</strong>
-    <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>subscribe for changes to the API!</strong>
-    <li><img src="/images/email_icon.png" height="14", width="14"> <a href="mailto:IT@bybit.com"><strong>IT@bybit.com</strong></a> - <strong>official IT support email!</strong>
+    <li><img src="/images/favicon.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong></a> - <strong>Learn more about spot trading here!</strong>
+    <li><img src="/images/github_logo_icon.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/docs/issues"><strong>Bybit API Documentation</strong></a> - <strong>Report any issues here!</strong>
+    <li><img src="/images/github_logo_icon.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/api-connectors/"><strong>Bybit's api-connectors</strong></a> - <strong>Learn more about Bybit's API SDK here!</strong>
+    <li><img src="/images/telegram_logo_icon.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong> - <strong>Our English-speaking support team is here to help!</strong>
+    <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>Our Chinese-speaking support team is here to help!</strong>
+    <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>Subscribe to our announcement channel to stay in the know! </strong>
+    <li><img src="/images/email_icon.png" height="14", width="14"> <a href="mailto:IT@bybit.com"><strong>IT@bybit.com</strong></a> - <strong>Contact our IT support via email for further assistance!</strong>
     </ul>
   shared_endpoint_desc: Please see the shared endpoint.
 
@@ -463,7 +464,7 @@ en:
       </li>
     </ul>
   auth_para_privatepublic:
-    <p>All requests made to <b>private</b> endpoints must be authenticated. Requests made to <b>public</b> endpoints do not require the additional parameters needed for authentication.</p>
+    <p>All requests made to private endpoints must be authenticated. Requests made to public endpoints do not require additional authentication.</p>
 
   ## Parameters for Authenticated Endpoints
   authenticationparameters: Parameters for Authenticated Endpoints
@@ -479,7 +480,7 @@ en:
   auth_para_recv: |
     <p>We also provide <code>recv_window</code> (unit in millsecond and defualt value is 5,000) to specify how long an HTTP request is valid. It is also used to prevent replay attacks.</p>
     <p>A smaller <code>recv_window</code> is more secure, but your request may fail if the transmission time is greater than your <code>recv_window</code>.</p>
-    <p>Please ensure that your <code>timestamp</code> is synced with our server time. You can use the <a href=#t-servertime>Server Time</a> endpoint.</p>
+    <p>Please make sure that your <code>timestamp</code> is in sync with our server time. You can use the <a href=#t-servertime>Server Time</a> endpoint.</p>
   ## Constructing the Request
   constructingtherequest: Create A Request
   auth_codequote_construct1a:
@@ -789,13 +790,39 @@ en:
       </ul>
     </li>
     </ul>
+  spot_ip_rate_para_understanding: |
+        <p>Bybit has different IP rate limits for <code>GET</code> and <code>POST</code> method<span>:</span></p>
+        <ul>
+        <li>
+          <code>GET</code>method:
+          <ul>
+            <li>No more than 70 requests per second</li>
+            <li>No more than 50 requests per second for 2 consecutive minutes</li>
+          </ul>
+        </li>
+        <li>
+          <code>POST</code>method:
+          <ul>
+            <li>No more than 70 requests per second</li>
+            <li>No more than 20 requests per second for 2 consecutive minutes</li>
+          </ul>
+        </li>
+        </ul>
   ### Account rate limit
   understandingratelimits: Understanding Your Request Rate Limit
+  spot_understandingratelimits: Rate Limits for Requests
   rate_para_understanding: |
     Bybit makes frequency limits based on <b>the rolling time window per minute and UID, and each symbol is independent</b>. Every request to the API returns the fields shown in the code panel:
+  spot_rate_para_understanding: |
+    Bybit sets rate limits based on <b>the rolling time window per minute and UID, and each trading pair is independent</b>. API request returns the fields shown below:
   rate_text_limitStatus_understanding: your remaining requests for current endpoint
   rate_text_limit_understanding: your current limit for current endpoint
   rate_text_limitReset: the timestamp indicating when your request limit resets if you have exceeded your rate_limit. Otherwise, this is just the current timestamp.
+  #spot
+  spot_rate_text_limitStatus_understanding: your number of remaining requests for current endpoint
+  spot_rate_text_limit_understanding: your rate limit for current endpoint
+  spot_rate_text_limitReset: If you have exceeded rate_limit, the timestamp indicates when your limit will reset. Otherwise, it indicates the current timestamp (unit in millisecond).
+
   ### Rate Limits For All Endpoints
   perendpoint: Rate Limits For All Private Endpoints
   ### Order Limits
@@ -857,6 +884,7 @@ en:
   ##### Minimum OFR Threshold
   ofrminimum: Minimum OFR Threshold
   rate_para_minimum: 7-day OFR must be kept above 0.1%.
+  spot_rate_para_minimum: 7-day OFR must be above 0.1%.
   #### API Request Frequency Limits
   frequencylimit: Rate Limits for API Requests
   rate_para_frequency:
@@ -915,6 +943,13 @@ en:
     <li><code>POA</code>: the proportion of your orders within <code>effective price range</code> to all orders within <code>effective price range</code> in orderbook.</li>
     </ul>
     <p>Bybit calculates your amount of orders within <code>effective price range</code> / amount of all orders within <code>effective price range</code> in orderbook, and then performs a 1-Day Time-Weighted-Average over the series of seconds rates.</p>
+  ### spot
+  spot_poa: POA
+  spot_rate_para_POA: |
+    <ul>
+    <li><code>POA</code>: The size of your orders that fall within the <code>effective price range</code> to the total size of orders in the order book that falls within the <code>effective price range</code>.</li>
+    </ul>
+    <p>Bybit calculates the size of your orders that fall within the <code>effective price range</code> / the total size of orders in the order book that falls within the <code>effective price range</code> per second, and then computes the time-weighted-average of the day.</p>
   ###### POA example
   poaExample: POA example
   rate_para_POAExample: The size of user C's orders that fall within the effective price range is 8,000, while the total size of orders in the order book that fall within the effective price range is 200,000.
@@ -923,6 +958,7 @@ en:
     Total size of orders within effective price range = 200000
     POA = 8000 / 200000 = 0.04
   rate_aside_POAExample: Prior notice will be given via the website if we update this mechanism.
+  spot_rate_aside_POAExample: Bybit will notify all users in advance if the mechanism is updated.
 
   # WebSocket Data
   websocket: WebSocket Data
@@ -970,7 +1006,7 @@ en:
       </li>
     </p>
     <p>
-      <li>Mainnet (both endpoints are available):<br/>
+      <li>Mainnet (please choose one based on your network status):<br/>
         <span id="mainnet_address">Public Topics: wss://stream.bybit.com/spot/quote/ws/v1</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
         <br/>
@@ -984,6 +1020,7 @@ en:
     </ul>
   websocket_aside_auth: <b>Public</b> topics do not require authentication. The following section applies to <b>private</b> topics only.
   websocket_para_methods: There are two methods of authentication, as shown in the code panel to the right.
+  spot_websocket_para_methods: There are two authentication methods. Example of signing algorithms can be found here.
   websocket_aside_signature: Example signature algorithms can be found <a href="https://github.com/bybit-exchange/api-connectors/tree/master/encryption_example">here</a>.
   websocket_best_practices: Due to network complexity, your may get disconnected at any time. Please follow the instructions below to ensure that you receive WebSocket messages on time:</span>
     <p>1. Keep connection alive by <a href="#t-heartbeat">sending heartbeat packet</a></p>
@@ -1082,9 +1119,11 @@ en:
 
   # Error Definitions
   errors: Errors
+  #spot
+  spot_errors: Error Codes
 
   # ENUMs Definitions
-  enums: ENUMs Definitions
+  enums: Enums Definitions
   ENUMs_para: The following lists enumerator names for the request and resonse parameters of each endpoint.
   ## Wallet fund type (`wallet_fund_type`)
   deposit:      ""
@@ -1109,11 +1148,11 @@ en:
   ## Quantity (`qty`)
   quantity:
     <ul>
-    <li>Max. quantity:1 million (<code>1000000</code>)</li>
+    <li>Max.quantity:1 million (<code>1000000</code>)</li>
     <li>Must be a postive integer
     <ul>
     <li><code>40</code> - allowed</li>
-    <li><code>30.5</code> - illegal</li>
+    <li><code>30.5</code> - not allowed</li>
     </ul>
     </li>
     </ul>
@@ -1133,7 +1172,7 @@ en:
     </li>
     <li>Must be less than 1 million (<code>1000000</code>)</li>
     <li>If the user has no open position, the order price must be higher than 10% of the last traded price<ul>
-    <li>or example, if the last traded price (last price) is <code>10314</code>, the min. order price will be <code>1031.5</code>.</li>
+    <li>For example, if the last traded price (last price) is <code>10314</code>, the min. order price will be <code>1031.5</code>.</li>
     <li>Pseudocode (assuming the price is a multiple of 0.5):<pre class="center-column">
     IF price > (last_price * 0.1)
         // send request
@@ -1213,7 +1252,7 @@ en:
   removedLiquidity: "- liquidity Taker"
 
   ## Tick direction type (`tick_direction`)
-  tick_direction: "It indicates price fluctuation relative to the last trade"
+  tick_direction: "It indicates price fluctuation relative to the last trade."
   plusTick: "- price rise"
   zeroPlusTick: "- trade occurs at the same price as the previous trade, which occurred at a price higher than that for the trade preceding it "
   minusTick: "- price drop"
@@ -1233,10 +1272,25 @@ en:
 
   # Error Code
   errors_intro: The Bybit API uses the following HTTP Codes and Error Codes<span>:</span>
+  spot_errors_intro: Bybit API uses the following HTTP and error codes <span>:</span>
 
   http_200: Request is valid -- Your request is valid
   http_403: Access denied -- You request too many times
   http_404: Request path not found
+  #spot
+  spot_http_200: Request is valid
+  spot_http_403: Access denied
+  spot_http_404: Request path not found
+
+  #spot error
+  err_1001: Request failed to be processed. Please try again.
+  err_1002: Request not authorized. An API key is required and should be included in all requests.
+  err_1003: Too many requests. Please use WebSocket for live updates. Current limit is %s requests per minute.
+  err_1006: System not responding. Request status unknown. Please contact live support.
+  err_1007: Response timeout from backend server. Delivery and request status unknown.
+  err_1015: Too many new orders. Please lower request frequency.
+  err_1016: Service not available.
+
 
   err_10000: An unknown error occured while processing the request
   err_10001: Error - request failed processed. Please try again.
@@ -1252,7 +1306,6 @@ en:
   err_10016: Service not available.
   err_10017: request path not found or request method is invalid
   err_10018: exceed ip rate limit
-
 
   err_10020: Request not supported.
   err_10021: Timestamp for the request is outside of the recvWindow. The timestamp of this request is 1000 milliseconds ahead of the server time. Please check local time and server time.
@@ -1294,8 +1347,8 @@ en:
   err_11045: Order cannot be canceled.
   err_11046: Order creation timeout.
   err_11047: Order cancellation timeout.
-  err_20010: NEW_ORDER_REJECTED
-  err_20011: CANCEL_REJECTED
+  err_20010: New order rejected.
+  err_20011: Cancelation rejected.
   err_20013: Order does not exist.
   err_20014: Invalid API key format.
   err_20015: Invalid API key or IP.
@@ -1823,7 +1876,7 @@ en:
   spot: Spot(testnet)
   spotOrderCreate: Create Spot Order
   spotAccountId: Account ID
-  spotOrderLinkId: Order ID
+  spotOrderLinkId: User-generated order ID
 
   spotSymbol: Name of the trading pair
   spotId: Trade ID
@@ -1838,7 +1891,7 @@ en:
   spotFee: Fee of the trade.
   spotIsWorking: Working or not (true/false)
   spotTradeId: The ID for the trade
-  spotUpdateTime: Last time this order was updated
+  spotUpdateTime: Last time order was updated
   spotLeverage: Leverage of the order.
   spotMarginLocked: Amount of margin locked for this order. This includes the actually margin needed plus fees to open and close the position.
   spotPriceType: The price type. Possible values include INPUT, OPPONENT, QUEUE, OVER, and MARKET.
@@ -1852,7 +1905,8 @@ en:
   spotTimeInForce: Time in force, possible values include GTC (Good Till Canceled), FOK (Fill or Kill) and IOC (Immediate or Cancel)
   spotPrice:  Last traded price
   spotOPrice: Order price
-  spotOrderID: order id
+  spot_OrderPrice: Order price
+  spotOrderID: Order id
   spotFees: Fees incurred for this order.
   spotOriQty: Order quantity
   spotExecQty: Filled quantity
@@ -1864,16 +1918,16 @@ en:
   spot_get_order: Query Spot Order
   cancel_spot_order: Cancel Spot Order
   batch_cancel_spot_order: Batch Cancel Spot Order
-  spot_order_list: Spot Order List
-  spot_transactId: transaction id
+  spot_order_list: Order List
+  spot_transactId: Transaction id
   spot_time: Timestamp
   spot_message: Success or not (true/false)
   spot_sMessage: True indicates buy order, false indicates sell order
-  spot_order_list_limit: default 500, max 1000
+  spot_order_list_limit: Default value is 500, max 1,000
   spot_orders_start_time: Start time, unit in milliesecond
   spot_orders_end_time: End time, unit in milliesecond
-  spot_history_orders: Trade History
-  spot_my_trades: trade records
+  spot_history_orders: Past Orders
+  spot_my_trades: Trade History
   spot_from_id:  Query begins with the trade ID
   spot_to_id: Query ends with the trade ID
   spot_balance: Spot Wallet Balance
@@ -1885,18 +1939,18 @@ en:
   spot_depth_bids: Bid price and quantity, with best bid prices ranked  from top to bottom
   spot_depth_asks: Ask price and quantity, with best ask prices ranked from top to bottom
   mergedOrderBook: Merged Order Book
-  spot_trades: recent trades
+  spot_trades: Recent trades
   spot_trades_limit: Default value is 500, max 10,000
   spot_is_buyer_maker: True indicates buy order, false indicates sell order
   spot_trade_time: Current timestamp, unit in millisecond
-  spot_klines: klines
+  spot_klines: Candlestick Chart
   spotTicker: 24-Hour Change
   spot_best_bid_price: Best bid price
   spot_best_ask_price: Best ask price
-  spot_last_price: Latest price
+  spot_last_price: Last traded price
   spot_open_price: Open price
-  spot_high_price: Max price
-  spot_low_price: Min price
+  spot_high_price: High price
+  spot_low_price: Low price
   spotSymbolPrice: Last Traded Price
   spotBestTicker: Best Bid/Ask Price
   spotRealtimeInterval: time interval
@@ -1909,11 +1963,11 @@ en:
   spotVolume: Trading volume
   spotTrades: Number of trades
   spotTakerBaseVolume: Taker buy  volume in base asset
-  spotTakerQuoteVolume: Taker buy volume in quote asse
+  spotTakerQuoteVolume: Taker buy volume in quote asset
   spot_ticket_id: Ticket ID
   spot_match_order_id: Match order id
-  spot_account_id: account id
-  spot_match_account_id: match account id
+  spot_account_id: Account ID
+  spot_match_account_id: Account ID
 
   row_parameter_type: <a href="#type-type">type</a>
   row_parameter_timeInForce: <a href="#timeinforce-timeinforce">timeInForce</a>
@@ -1925,11 +1979,11 @@ en:
   spot_side: True indicates buy order, false indicates sell order
   spot_order_type: Order type. Possible values are LIMIT,MARKET, and LIMIT_MAKER
   spot_order_client_id: User-generated order ID
-  spot_order_status: Current order status - NEW,PARTIALLY_FILLED,FILLED,CANCELED,PENDING_CANCEL,REJECTED
+  spot_order_status: Order status, possible values include NEW, PARTIALLY_FILLED, FILLED, CANCELED, and REJECTED
   spot_first: First time or not (true/false)
   spot_timestamp: Timestamp
   spot_timestamp_kline: Chart start time
-  spot_time_in_force: Time in Force - GTC(Good Till Canceled),FOK(Fill or Kill),IOC(Immediate or Cancel)
+  spot_time_in_force: Time in force, possible values include GTC (Good Till Canceled), FOK (Fill or Kill) and IOC (Immediate or Cancel)
   spot_close: Close price
   spot_high: High price
   spot_low: Low price
@@ -1956,21 +2010,21 @@ en:
   spot_cumulative_trade: Total filled value
   spot_event_timestamp: Event time
   spot_order_create_timestamp: Order creation time
-  spot_order_id: order id
+  spot_order_id: Order ID
   spot_recent_qty: Last filled quantity
   spot_cumulative_qty: Total filled quantity
   spot_recent_price: Last traded price
   spot_fee_symbol: Asset type in which fee is paid
-  spot_m: is maker
-  spot_gains: gains
+  spot_m: Is maker
+  spot_gains: Change
   spot_websocket_trade_v1: Trade Streams
   spot_websocket_trade_desc_v1: |
     <p>Trade Streams push raw data for each trade, which has a unique buyer and seller.</p>
     <p>After successful handshake and server connection, the server will return the last 60 trades. After this payload, the rest will be real-time trades.</p>
     <p>Variable "v" acts as a trade ID, and this variable is shared across different assets. Each ID, however, is unique. Suppose three trades of ETHSUDT, BTCUSDT, and BHTBTC Contracts happened in the last five seconds, then version (which is "v") will be consecutive: 112, 113, 114.</p>
 
-  spot_websocket_ticker_v1: Market Tickers Stream
-  spot_websocket_ticker_desc_v1: 24hr Ticker statistics for a symbol that changed in an array.
+  spot_websocket_ticker_v1: Trading Pair Stream
+  spot_websocket_ticker_desc_v1: The 24-hr statistics of a trading pair refreshed every second.
   spot_websocket_kline_v1: Candlestick Chart Streams
   spot_websocket_kline_desc_v1: |
     <p>Candlestick Streams push data of the requested candlestick chart every second.</p>
@@ -1992,14 +2046,13 @@ en:
       </ul>
 
   spot_broker_info: brokerinfo return
-  spot_websocket_orderbook_v1: Orderbook Stream(Full Depth)
+  spot_websocket_orderbook_v1: Order Book Streams (Full Depth)
   spot_websocket_orderbook_desc_v1: |
-    <p>The Depth Streams for symbols.</p>
     <p>Market depth data for a trading pair: </p>
     <ul>
       <li>Snapchat frequency: every 300 milleseconds (if the bid-ask spread of the order book changes).</li>
       <li>Snapshot depth: 300 each for asks and bids.</li>
-      <li>TEvents trigger order book version change：
+      <li>Events trigger order book version change：
         <ul>
           <li>order enters order book</li>
           <li>order leaves order book</li>
@@ -2008,7 +2061,7 @@ en:
         </ul>
       </li>
     </ul>
-    <p>Full depth streams all orderbook data, therefore the data frequency is relatively low. If you wish to get higher frequency streams, please see below to subscribe to merged depth. Notice: "mergedDepth" has fewer data.</p>
+    <p>Order Book Streams (Full Depth) pushes all data, and the frequency is relatively low. For higher frequency streams, please subscribe to merged depth. Please be noted that mergedDepth pushes fewer data.</p>
 
   spot_websocket_orderbook_merge_v1: Orderbook Stream(Merge Depth)
   spot_websocket_orderbook_merge_desc_v1: dumpScale must be specified for this endpoint. It cannot be larger than the selected order book grouping price interval, which can be queried via brokerInfo.
@@ -2030,14 +2083,14 @@ en:
   spot_websocket_subscribe_desc: |
     <p>After establishing the connection, you can subscribe to a new topic by sending a JSON request. The request formats are as follows:</p>
     <p>ws.send('{"symbol":"BTCUSDT","topic":"trade","event":"sub","params":{"binary":false}}');</p>
-    <p>support many symbol, separate with ',':</p>
+    <p> Multiple assets supported, separated by ','.</p>
     <p>ws.send('{"symbol":"BTCUSDT,ETHUSDT","topic":"trade","event":"sub","params":{"binary":false}}');</p>
 
   #user
   spot_websocket_user_account: Account Update
   spot_websocket_user_account_desc: Account is updated with the outboundAccountInfo event.
-  spot_websocket_user_order: Order Update
-  spot_websocket_user_order_desc: Orders are updated with the executionReport event. Check the API documentation and below for relevant enum definitions. Average price can be found by doing Z divided by z.
+  spot_websocket_user_order: Order Updates
+  spot_websocket_user_order_desc: Orders are updated with the executionReport event. Z divided by z equals the average filled price..
   spot_websocket_ticket_info: TicketInfo
 
   #spot_ws_v2

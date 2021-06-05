@@ -168,7 +168,7 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| price | float | t(:spotPrice) |
+| price | float | t(:spot_OrderPrice) |
 | time | long | t(:spot_trade_time) |
 | qty | float | t(:spotQuantity) |
 | isBuyerMaker | bool | t(:spot_is_buyer_maker) |
