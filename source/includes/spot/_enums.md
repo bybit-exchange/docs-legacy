@@ -11,11 +11,6 @@ t(:ENUMs_para)
 * `IOC: Immediate or Cancel`
 
 ## Symbol (`symbol`)
-  * `SPOT`
-  * `FUTURE`
-  * `OPTION`
-  * `ALL`
-  * `UNKNOWN`
 
 
 ## Type (`type`)
@@ -32,36 +27,10 @@ t(:trading_symbol_comment)
 * `XRP`
 * `USDT`
 
-## Contract Type(`contract_type`)
-* `InversePerpetual`
-* `LinearPerpetual`
-* `InverseFutures`
-
 ## Contract Status(`status`)
 * `Trading`
 * `Settling`
 * `Closed`
-
-
-## Wallet fund type (`wallet_fund_type`)
-* `Deposit` t(:deposit)
-* `Withdraw` t(:withdraw)
-* `RealisedPNL` t(:realisedpnl)
-* `Commission` t(:commission)
-* `Refund` t(:refund)
-* `Prize` t(:prize)
-* `ExchangeOrderWithdraw` t(:exchangeOrderWithdraw)
-* `ExchangeOrderDeposit` t(:exchangeOrderDeposit)
-
-## Withdraw status (`status`)
-* `ToBeConfirmed` t(:toBeConfirmed)
-* `UnderReview` t(:underReview)
-* `Pending` t(:pending)
-* `Success` t(:success)
-* `CancelByUser` t(:cancelByUser)
-* `Reject` t(:reject)
-* `Expire` t(:expire)
-
 
 ## Order type (`order_type`)
 * `Limit` t(:limit)
@@ -78,75 +47,3 @@ t(:price)
 * `ImmediateOrCancel` t(:immediateOrCancel)
 * `FillOrKill` t(:fillOrKill)
 * `PostOnly` t(:postOnly)
-
-## Trigger price type (`trigger_by`)
-* `LastPrice` t(:lastPrice)
-* `IndexPrice` t(:indexPrice)
-* `MarkPrice` t(:markPrice)
-
-## Order (`order`)
-t(:para_order)
-
-* `desc` t(:desc)
-* `asc` t(:asc)
-
-## Order status (`order_status`)
-t(:para_orderStatusGet)
-
-* `Created` t(:created1)
-* `Rejected` t(:rejected1)
-* `New` t(:new1)
-* `PartiallyFilled` t(:partiallyFilled1)
-* `Filled` t(:filled1)
-* `Cancelled` t(:cancelled1)
-* `PendingCancel` t(:pendingCancel1)
-
-## Stop order status (`stop_order_status`)
-* `Active` t(:active)
-* `Untriggered` t(:untriggered)
-* `Triggered` t(:triggered)
-* `Cancelled` t(:cancelled)
-* `Rejected` t(:rejected)
-* `Deactivated` t(:deactivated1)
-
-
-## Cancel type (`cancel_type`)
-* `CancelByUser` t(:cancelByUser)
-* `CancelByReduceOnly` t(:cancelByReduceOnly)
-* `CancelByPrepareLiq`,`CancelAllBeforeLiq` t(:cancelByPrepareLiq)
-* `CancelByPrepareAdl`,`CancelAllBeforeAdl` t(:cancelByPrepareAdl)
-* `CancelByAdmin` t(:cancelByAdmin)
-* `CancelByTpSlTsClear` t(:cancelByTpSlTsClear)
-* `CancelByPzSideCh` t(:cancelByPzSideCh)
-
-## Create type (`create_type`)
-* `CreateByUser`
-* `CreateByClosing`
-* `CreateByAdminClosing`
-* `CreateByStopOrder`
-* `CreateByTakeProfit`
-* `CreateByStopLoss`
-* `CreateByTrailingStop`
-* `CreateByLiq` - created by partial liquidation
-* `CreateByAdl_PassThrough` - created by ADL
-* `CreateByTakeOver_PassThrough` - created by liquidation takeover
-
-## Exec type (`exec_type`)
-* `Trade` t(:exec_trade)
-* `AdlTrade` t(:exec_adlTrade)
-* `Funding` t(:exec_funding)
-* `BustTrade` t(:exec_bustTrade)
-
-## Liquidity type (`last_liquidity_ind`)
-* `AddedLiquidity` t(:addedLiquidity)
-* `RemovedLiquidity` t(:removedLiquidity)
-
-
-## Tick direction type (`tick_direction`)
-t(:tick_direction)
-
-* `PlusTick` t(:plusTick)
-* `ZeroPlusTick` t(:zeroPlusTick)
-* `MinusTick` t(:minusTick)
-* `ZeroMinusTick` t(:zeroMinusTick)
-
