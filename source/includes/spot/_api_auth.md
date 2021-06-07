@@ -4,7 +4,7 @@ t(:auth_aside_key)
 </aside>
 
 <aside class="notice">
-t(:auth_aside_env)
+t(:spot_auth_aside_env)
 </aside>
 
 t(:auth_para_privatepublic)
@@ -63,7 +63,7 @@ Content-Type: application/json
 t(:auth_para_construct3)
 
 <aside class="notice">
-t(:auth_aside_signature)
+t(:spot_auth_aside_signature)
 </aside>
 
 <!--

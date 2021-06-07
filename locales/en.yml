@@ -363,7 +363,7 @@ en:
     <p> For further assistanc or feedback, please join <a href="https://t.me/Bybitapi">API Telegram chat</a>! API discussion group on Telegram. Our fellow developers are happy to chat!</p>
   spot_intro_para:
     <p> <a href="https://www.bybit.com/">Bybit</a>Bybit's API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common error codes.</p>
-    <p> For further assistanc or feedback, please join Bybit's <a href="https://t.me/Bybitapi">API Telegram chat</a> on Telegram. Our fellow developers are happy to chat!</p>
+    <p> For further assistanc or feedback, please join Bybit's <a href="https://t.me/Bybitapi">API discussion group</a> on Telegram. Our fellow developers are happy to chat!</p>
 
   resources: Group And Bybit API Resources
   spot_resources: API Resources and Support Channels
@@ -383,7 +383,10 @@ en:
     <li><img src="/images/favicon.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong></a> - <strong>Learn more about spot trading here!</strong>
     <li><img src="/images/github_logo_icon.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/docs/issues"><strong>Bybit API Documentation</strong></a> - <strong>Report any issues here!</strong>
     <li><img src="/images/github_logo_icon.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/api-connectors/"><strong>Bybit's api-connectors</strong></a> - <strong>Learn more about Bybit's API SDK here!</strong>
-    <li><img src="/images/telegram_logo_icon.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong> - <strong>Our English-speaking support team is here to help!</strong>
+
+    <li><img src="/images/github_logo_icon.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/api-connectors/"><strong>Bybit's api-connectors</strong></a> - <strong>Learn more about Bybit's API SDK here!</strong>
+    <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>Our English-speaking support team is here to help!</strong>
+
     <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>Our Chinese-speaking support team is here to help!</strong>
     <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>Subscribe to our announcement channel to stay in the know! </strong>
     <li><img src="/images/email_icon.png" height="14", width="14"> <a href="mailto:IT@bybit.com"><strong>IT@bybit.com</strong></a> - <strong>Contact our IT support via email for further assistance!</strong>
@@ -466,6 +469,25 @@ en:
         </li>
       </p>
      </ul>
+  spot_auth_aside_env: |
+    REST Base Endpoint:
+     <ul>
+      <p>
+        <li>Testnet:<br/>
+          <span id="testnet">https://api-testnet.bybit.com</span>
+          <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        </li>
+      </p>
+      <p>
+        <li>Mainnet (please choose one based on your network status):<br/>
+          <span id="mainnet_1">https://api.bybit.com</span>
+          <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_1"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+          <br/>
+          <span id="mainnet_2">https://api.bytick.com</span>
+          <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        </li>
+      </p>
+     </ul>
   auth_para_domains: |
     Domains:
     <ul>
@@ -514,6 +536,8 @@ en:
     <p>3. Append the sign parameter to the end of the parameters string, and send the HTTP request. Note that the message format for GET and POST requests is different. Please refer to the examples.</p>
   auth_aside_signature:
     Example signature algorithms can be found <a href="https://github.com/bybit-exchange/api-connectors/tree/master/encryption_example">here</a>.
+  spot_auth_aside_signature:
+    Examples of signing algorithms can be found <a href="https://github.com/bybit-exchange/api-connectors/tree/master/encryption_example">here</a>.
 
   # Market Data Endpoints
   marketdata: Market Data Endpoints
@@ -1941,8 +1965,8 @@ en:
   spotPrice:  Last traded price
   spotOPrice: Order price
   spot_OrderPrice: Order price
-  spotOrderID: Order Id
-  spotOrderId: Order Id
+  spotOrderID: Order ID
+  spotOrderId: Order ID
   spotFees: Fees incurred for this order.
   spotOriQty: Order quantity
   spotExecQty: Filled quantity
@@ -1955,7 +1979,7 @@ en:
   cancel_spot_order: Cancel Spot Order
   batch_cancel_spot_order: Batch Cancel Spot Order
   spot_order_list: Order List
-  spot_transactId: Transaction id
+  spot_transactId: Transaction ID
   spot_time: Timestamp
   spot_message: Success or not (true/false)
   spot_sMessage: True indicates buy order, false indicates sell order
