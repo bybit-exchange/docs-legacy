@@ -627,8 +627,10 @@ clipboard.on('error', function(e) {
     console.log(e);
 });
 </script>
-<h1 id='t-introduction'>Group And Resources</h1><h5 id='t-spot_intro_para'><p> <a href="https://www.bybit.com/">Bybit</a>Bybit's API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common error codes.</p> <p> For further assistanc or feedback, please join Bybit's <a href="https://t.me/Bybitapi">API Telegram chat</a> on Telegram. Our fellow developers are happy to chat!</p></h5><h3 id='t-resources'>Group And Bybit API Resources</h3>
-<p><ul class="bybit-community"> <li><img src="../images/favicon-4f296779.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong></a> - <strong>Learn more about spot trading here!</strong> <li><img src="../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/docs/issues"><strong>Bybit API Documentation</strong></a> - <strong>Report any issues here!</strong> <li><img src="../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/api-connectors/"><strong>Bybit's api-connectors</strong></a> - <strong>Learn more about Bybit's API SDK here!</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong> - <strong>Our English-speaking support team is here to help!</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>Our Chinese-speaking support team is here to help!</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>Subscribe to our announcement channel to stay in the know! </strong> <li><img src="../images/email_icon-e7dd7b20.png" height="14", width="14"> <a href="mailto:IT@bybit.com"><strong>IT@bybit.com</strong></a> - <strong>Contact our IT support via email for further assistance!</strong> </ul></p>
+<h1 id='t-introduction'>Group And Resources</h1><h5 id='t-spot_intro_para'><p> <a href="https://www.bybit.com/">Bybit</a>Bybit's API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common error codes.</p> <p> For further assistanc or feedback, please join Bybit's <a href="https://t.me/Bybitapi">API discussion group</a> on Telegram. Our fellow developers are happy to chat!</p></h5><h3 id='t-resources'>Group And Bybit API Resources</h3>
+<p><ul class="bybit-community"> <li><img src="../images/favicon-4f296779.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong></a> - <strong>Learn more about spot trading here!</strong> <li><img src="../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/docs/issues"><strong>Bybit API Documentation</strong></a> - <strong>Report any issues here!</strong> <li><img src="../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/api-connectors/"><strong>Bybit's api-connectors</strong></a> - <strong>Learn more about Bybit's API SDK here!</strong>
+<li><img src="../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/api-connectors/"><strong>Bybit's api-connectors</strong></a> - <strong>Learn more about Bybit's API SDK here!</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>Our English-speaking support team is here to help!</strong>
+<li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>Our Chinese-speaking support team is here to help!</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>Subscribe to our announcement channel to stay in the know! </strong> <li><img src="../images/email_icon-e7dd7b20.png" height="14", width="14"> <a href="mailto:IT@bybit.com"><strong>IT@bybit.com</strong></a> - <strong>Contact our IT support via email for further assistance!</strong> </ul></p>
 <h1 id='t-changelog'>Changelog</h1><h2 id='2021-05-27'>2021-05-27</h2><h3 id='rest-api'>REST API</h3>
 <ul>
 <li>New add spot open-api document</li>
@@ -648,7 +650,7 @@ REST Base Endpoint:
     </li>
   </p>
   <p>
-    <li>Mainnet(both endpoints are available):<br/>
+    <li>Mainnet (please choose one based on your network status):<br/>
       <span id="mainnet_1">https://api.bybit.com</span>
       <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_1"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
       <br/>
@@ -725,7 +727,7 @@ Please make sure that the timestamp parameter adheres to the following rule: ser
 <p><p>3. Append the sign parameter to the end of the parameters string, and send the HTTP request. Note that the message format for GET and POST requests is different. Please refer to the examples.</p></p>
 
 <aside class="notice">
-Example signature algorithms can be found <a href="https://github.com/bybit-exchange/api-connectors/tree/master/encryption_example">here</a>.
+Examples of signing algorithms can be found <a href="https://github.com/bybit-exchange/api-connectors/tree/master/encryption_example">here</a>.
 </aside>
 
 <!--
@@ -1524,7 +1526,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">orderId</td>
 <td style="text-align: left">integer</td>
-<td>Order Id</td>
+<td>Order ID</td>
 </tr>
 <tr>
 <td style="text-align: left">order_link_id</td>
@@ -1641,7 +1643,7 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">orderId</td>
 <td style="text-align: left">OPTIONAL</td>
 <td style="text-align: left">string</td>
-<td>Order Id</td>
+<td>Order ID</td>
 </tr>
 <tr>
 <td style="text-align: left">order_link_id</td>
@@ -1668,7 +1670,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">exchangeId</td>
 <td style="text-align: left">long</td>
-<td>Order Id</td>
+<td>Order ID</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -1688,7 +1690,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">orderId</td>
 <td style="text-align: left">long</td>
-<td>Order Id</td>
+<td>Order ID</td>
 </tr>
 <tr>
 <td style="text-align: left">price</td>
@@ -1806,7 +1808,7 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">orderId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Order Id</td>
+<td>Order ID</td>
 </tr>
 <tr>
 <td style="text-align: left">order_link_id</td>
@@ -1828,7 +1830,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">orderId</td>
 <td style="text-align: left">integer</td>
-<td>Order Id</td>
+<td>Order ID</td>
 </tr>
 <tr>
 <td style="text-align: left">order_link_id</td>
@@ -1987,7 +1989,7 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">orderId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Order Id</td>
+<td>Order ID</td>
 </tr>
 <tr>
 <td style="text-align: left">limit</td>
@@ -2014,7 +2016,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">exchangeId</td>
 <td style="text-align: left">long</td>
-<td>Order Id</td>
+<td>Order ID</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -2034,7 +2036,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">orderId</td>
 <td style="text-align: left">long</td>
-<td>Order Id</td>
+<td>Order ID</td>
 </tr>
 <tr>
 <td style="text-align: left">price</td>
@@ -2173,7 +2175,7 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">orderId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Order Id</td>
+<td>Order ID</td>
 </tr>
 <tr>
 <td style="text-align: left">limit</td>
@@ -2200,7 +2202,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">exchangeId</td>
 <td style="text-align: left">long</td>
-<td>Order Id</td>
+<td>Order ID</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -2220,7 +2222,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">orderId</td>
 <td style="text-align: left">long</td>
-<td>Order Id</td>
+<td>Order ID</td>
 </tr>
 <tr>
 <td style="text-align: left">price</td>
@@ -2381,7 +2383,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">orderId</td>
 <td style="text-align: left">integer</td>
-<td>Order Id</td>
+<td>Order ID</td>
 </tr>
 <tr>
 <td style="text-align: left">price</td>
@@ -2985,7 +2987,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <tr>
 <td style="text-align: left">v</td>
 <td style="text-align: left">string</td>
-<td>Transaction id</td>
+<td>Transaction ID</td>
 </tr>
 <tr>
 <td style="text-align: left">t</td>
