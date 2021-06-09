@@ -161,22 +161,24 @@ while True:
 {
      "topic": "orderBookL2_25.BTCUSDT",
      "type": "snapshot",
-     "data": [
-        {
-            "price": "2999.00",
-            "symbol": "BTCUSDT",
-            "id": 29990000,
-            "side": "Buy",
-            "size": 9
-        },
-        {
-            "price": "3001.00",
-            "symbol": "BTCUSDT",
-            "id": 30010000,
-            "side": "Sell",
-            "size": 10
-        }
-     ],
+     "data": {
+         "order_book":[
+             {
+                 "price": "2999.00",
+                 "symbol": "BTCUSDT",
+                 "id": 29990000,
+                 "side": "Buy",
+                 "size": 9
+             },
+             {
+                 "price": "3001.00",
+                 "symbol": "BTCUSDT",
+                 "id": 30010000,
+                 "side": "Sell",
+                 "size": 10
+             }
+          ]
+     },
      "cross_seq": 11518,
      "timestamp_e6": 1555647164875373
 }
@@ -254,22 +256,24 @@ ws.send('{"op": "subscribe", "args": ["orderBook_200.100ms.BTCUSDT"]}');
 {
      "topic": "orderBook_200.100ms.BTCUSDT",
      "type": "snapshot",
-     "data": [
-        {
-            "price": "2999.00",
-            "symbol": "BTCUSDT",
-            "id": 29990000,
-            "side": "Buy",
-            "size": 9
-        },
-        {
-            "price": "3001.00",
-            "symbol": "BTCUSDT",
-            "id": 30010000,
-            "side": "Sell",
-            "size": 10
-        }
-     ],
+     "data": {
+         "order_book":[
+             {
+                 "price": "2999.00",
+                 "symbol": "BTCUSDT",
+                 "id": 29990000,
+                 "side": "Buy",
+                 "size": 9
+             },
+             {
+                 "price": "3001.00",
+                 "symbol": "BTCUSDT",
+                 "id": 30010000,
+                 "side": "Sell",
+                 "size": 10
+             }
+          ]
+     },
      "cross_seq": 11518,
      "timestamp_e6": 1555647164875373
 }
