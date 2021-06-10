@@ -1486,7 +1486,7 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left"><a href="#side-side">side</a></td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Order direction, possible values include BUY_OPEN, SELL_OPEN, BUY_CLOSE, and SELL_CLOSE</td>
+<td>Order direction, possible values include Buy and Sell</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#type-type">type</a></td>
@@ -1571,7 +1571,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">side</td>
 <td style="text-align: left">string</td>
-<td>Order direction, possible values include BUY_OPEN, SELL_OPEN, BUY_CLOSE, and SELL_CLOSE</td>
+<td>Order direction, possible values include Buy and Sell</td>
 </tr>
 <tr>
 <td style="text-align: left">status</td>
@@ -1640,14 +1640,20 @@ function copyStringToClipboard (endpoint) {
 </tr>
 </thead><tbody>
 <tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Name of the trading pair</td>
+</tr>
+<tr>
 <td style="text-align: left">orderId</td>
-<td style="text-align: left">OPTIONAL</td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>Order ID</td>
 </tr>
 <tr>
 <td style="text-align: left">order_link_id</td>
-<td style="text-align: left">OPTIONAL</td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>User-generated order ID</td>
 </tr>
@@ -1735,7 +1741,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">side</td>
 <td style="text-align: left">string</td>
-<td>Order direction, possible values include BUY_OPEN, SELL_OPEN, BUY_CLOSE, and SELL_CLOSE</td>
+<td>Order direction, possible values include Buy and Sell</td>
 </tr>
 <tr>
 <td style="text-align: left">stopPrice</td>
@@ -1808,13 +1814,13 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">orderId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Order ID</td>
+<td>Order ID. <b>Required</b> if not passing order_link_id</td>
 </tr>
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>User-generated order ID</td>
+<td>Agency customized order ID. <b>Required</b> if not passing order_id</td>
 </tr>
 </tbody></table>
 
@@ -1900,7 +1906,7 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">side</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Order direction, possible values include BUY_OPEN, SELL_OPEN, BUY_CLOSE, and SELL_CLOSE</td>
+<td>Order direction, possible values include Buy and Sell</td>
 </tr>
 </tbody></table>
 <h3 id='t-spot_order_list'>Order List</h3>
@@ -2081,7 +2087,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">side</td>
 <td style="text-align: left">string</td>
-<td>Order direction, possible values include BUY_OPEN, SELL_OPEN, BUY_CLOSE, and SELL_CLOSE</td>
+<td>Order direction, possible values include Buy and Sell</td>
 </tr>
 <tr>
 <td style="text-align: left">stopPrice</td>
@@ -2267,7 +2273,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">side</td>
 <td style="text-align: left">string</td>
-<td>Order direction, possible values include BUY_OPEN, SELL_OPEN, BUY_CLOSE, and SELL_CLOSE</td>
+<td>Order direction, possible values include Buy and Sell</td>
 </tr>
 <tr>
 <td style="text-align: left">stopPrice</td>

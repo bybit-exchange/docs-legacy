@@ -1636,14 +1636,20 @@ function copyStringToClipboard (endpoint) {
 </tr>
 </thead><tbody>
 <tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>币对名称</td>
+</tr>
+<tr>
 <td style="text-align: left">orderId</td>
-<td style="text-align: left">OPTIONAL</td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>订单ID</td>
 </tr>
 <tr>
 <td style="text-align: left">order_link_id</td>
-<td style="text-align: left">OPTIONAL</td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>特殊订单ID，用户自己生成</td>
 </tr>
@@ -1804,13 +1810,13 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">orderId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>订单ID</td>
+<td>订单ID。如果未填order_link_id则为<b>必填</b>字段。</td>
 </tr>
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>特殊订单ID，用户自己生成</td>
+<td>机构ID。如果未填order_id则为<b>必填</b>字段。</td>
 </tr>
 </tbody></table>
 
