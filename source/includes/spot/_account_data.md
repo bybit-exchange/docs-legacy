@@ -132,8 +132,9 @@ GET
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|orderId|OPTIONAL|string|t(:spotOrderID)|
-|order_link_id|OPTIONAL|string|t(:tOrderClientOrdID)|
+|symbol|false|string|t(:spotSymbol)|
+|orderId|false|string|t(:spotOrderID)|
+|order_link_id|false|string|t(:tOrderClientOrdID)|
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -206,8 +207,8 @@ DELETE
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|orderId|false|string|t(:spotOrderID)|
-|order_link_id|false|string|t(:tOrderClientOrdID)|
+|orderId|false|string|t(:misc_row_comment_orderIdNotOrderLinkId)|
+|order_link_id|false|string|t(:misc_row_comment_orderLinkIdNotOrderId)|
 
 
 <p class="fake_header">t(:responseparameters)</p>
