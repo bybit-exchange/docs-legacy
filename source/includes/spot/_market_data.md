@@ -1,6 +1,81 @@
 # t(:marketdata)
 t(:market_para_auth)
 
+
+### t(:spotGetSymbols)
+> t(:codequote_curlExample)
+
+```console
+```
+
+```python
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    “ret_code”: 0,
+    “ret_msg”: “”,
+    “ext_code”: null,
+    “ext_info”: null,
+    “result”: [
+        {
+            “name”: “BTCUSDT”,
+            “alias”: “BTCUSDT”,
+            “baseCurrency”: “BTC”,
+            “quoteCurrency”: “USDT”,
+            “basePrecision”: “0.000001",
+            “quotePrecision”: “0.01",
+            “minTradeQuantity”: “0.0001",
+            “minTradeAmount”: “10",
+            “minPricePrecision”: “0.01",
+            “category”: 1
+        },
+        {
+            “name”: “ETHUSDT”,
+            “alias”: “ETHUSDT”,
+            “baseCurrency”: “ETH”,
+            “quoteCurrency”: “USDT”,
+            “basePrecision”: “0.0001”,
+            “quotePrecision”: “0.01”,
+            “minTradeQuantity”: “0.0001”,
+            “minTradeAmount”: “10”,
+            “minPricePrecision”: “0.01”,
+            “category”: 1
+        }
+    ]
+}
+```
+
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=vpOrder>/spot/v1/symbols</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+
+
+<p class="fake_header">t(:responseparameters)</p>
+
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| name | string | t(:spotSymbol) |
+| alias | string | t(:spot_Alias)|
+| baseCurrency | string | t(:spotBaseCurrency)|
+| quoteCurrency | string | t(:spotQuoteCurrency)|
+| basePrecision | string |t(:spotBasePrecision)|
+| quotePrecision | string |t(:spotQuotePrecision)|
+| minTradeQuantity | string |t(:spotMinTradeQuantity)|
+| minTradeAmount | string |t(:spotMinTradeAmount)|
+| minPricePrecision | string |t(:spotMinPricePrecision)|
+| category | int  |t(:spotCategory)|
+
+
 ### t(:orderbook)
 > t(:codequote_curlExample)
 
@@ -376,12 +451,14 @@ GET
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
+
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |symbol|false|string|t(:spotSymbol)|
 
 
 <p class="fake_header">t(:responseparameters)</p>
+
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 | symbol | string | t(:spotSymbol) |
@@ -389,4 +466,3 @@ GET
 | bidQty | float | t(:spotBidQuantity)|
 | askPrice| float | t(:spot_best_ask_price)|
 | askQty | float |t(:spotAskQuantity)|
-

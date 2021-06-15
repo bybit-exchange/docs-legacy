@@ -502,6 +502,8 @@ zh-cn:
     另外我们提供可选的<code>recv_window</code>参数（单位是毫秒，默认值为<code>5000</code>），来指定请求在多长时间内有效，同时用来防止重放攻击。
   auth_aside_timestamp: |
     注意，timestamp参数必须符合如下规则: <b>server_time - recv_window <= timestamp < server_time + 1000</b>，其中server_time是Bybit服务器时间，您可以通过<a href="#t-servertime">服务器时间接口</a>获取。
+  spot_auth_aside_timestamp: |
+    注意，timestamp参数必须符合如下规则: <b>server_time - recvWindow <= timestamp < serverTime + 1000</b>，其中serverTime是Bybit服务器时间，您可以通过<a href="#t-servertime">服务器时间接口</a>获取。
   constructingtherequest: 构建请求
   auth_codequote_construct1a:
     拼接参数示例（以查询账号余额接口为例）：
@@ -525,6 +527,11 @@ zh-cn:
   # Market Data Endpoints
   marketdata: 行情接口
   market_para_auth: 以下市场行情数据接口不需要验权.
+  ### Symbols
+  spotGetSymbols: 获取币对
+
+
+
   ### Orderbook
   orderbook: Orderbook
   market_para_orderbook: 获取Bybit当前Orderbook信息.
@@ -1783,6 +1790,7 @@ zh-cn:
   restapi_update_20210415: 修复<a href="#t-balance">获取钱包余额</a>接口字段<code>used_margin、order_margin、position_margin、occ_closing_fee、unrealised_pnl</code> 未计算交割持仓的问题
   restapi_update_20210422: 废弃字段self_ratio与platform_ratio，现阶段返回值均为0
   restapi_update_20210527: 新增现货open-api文档
+  restapi_update_20210615: 新增获取交易币对接口
 
   markpricekline: 标记价格K线
   linear_query_mark_price_kline: 查询标记价格K线
@@ -1838,6 +1846,16 @@ zh-cn:
   spotAccountId: 账户ID
   spotExchangeId: 币对交易ID
   spotSymbol: 币对名称
+  spot_Alias: 币对别名
+  spotBaseCurrency: base币种
+  spotQuoteCurrency: quote币种
+  spotBasePrecision: base币种精度
+  spotQuotePrecision: quote币种精度
+  spotMinTradeQuantity: 最小订单数量
+  spotMinTradeAmount: 最小订单额
+  spotMinPricePrecision: 最小价格精度
+  spotCategory: symbol 所在分区:1主类别
+
   spotId: 交易ID
   spotQty: 交易数量
   spotTransactTime: 交易时间戳
