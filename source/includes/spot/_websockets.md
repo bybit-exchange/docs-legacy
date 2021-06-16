@@ -407,7 +407,7 @@ t(:spot_websocket_orderbook_merge_desc_v1)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"symbol":"BTCUSDT","topic":"depth","event":"sub","params":{"binary":false}}');
+ws.send('{"symbol":"BTCUSDT","topic":"diffDepth","event":"sub","params":{"binary":false}}');
 ```
 
 ```python

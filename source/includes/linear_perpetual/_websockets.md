@@ -89,20 +89,14 @@ t(:websocket_para_limit)
 ws.send('{"op":"subscribe","args":["trade.ETHUSDT"]}')
 ```
 
-> t(:websocket_codequote_filters2)
+> t(:websocket_codequote_filters_linear)
 
 ```javascript
 // Example: Subscribing to the trade data for BTCUSD and XRPUSD
-ws.send('{"op":"subscribe","args":["trade.BTCUSDT|XRPUSDT"]}')
+ws.send('{"op":"subscribe","args":["trade.BTCUSDT","trade.XRPUSDT"]}')
 ```
 
 
-> t(:websocket_codequote_filters3)
-
-```javascript
-// Example: Subscribing to the trade data for all symbols
-ws.send('{"op": "subscribe", "args": ["trade.*"]}')
-```
 
 t(:websocket_para_filters)
 
@@ -112,7 +106,6 @@ t(:websocket_para_filters1)
 
 `ws.send('{"op": "subscribe", "args": ["topic.filter", "topic.filter"]}');`
 
-t(:websocket_para_filters2)
 
 ### t(:intervals)
 t(:websocket_para_intervals)
