@@ -6910,16 +6910,10 @@ B用户：
 <span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["trade.ETHUSDT"]}</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
-<p>通过分隔符来订阅多个topic</p>
+<p>订阅多个topic</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Example: Subscribing to the trade data for BTCUSD and XRPUSD</span>
-<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["trade.BTCUSDT|XRPUSDT"]}</span><span class="dl">'</span><span class="p">)</span>
-</code></pre></div>
-<blockquote>
-<p>通过匹配符来订阅多个topic</p>
-</blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Example: Subscribing to the trade data for all symbols</span>
-<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op": "subscribe", "args": ["trade.*"]}</span><span class="dl">'</span><span class="p">)</span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["trade.BTCUSDT","trade.XRPUSDT"]}</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div>
 <p>建立连接后, 可以通过发送JSON请求来订阅topic. 其中bianry为false表示不进行压缩传输，为true时表示以GZIP格式进行压缩，请求格式如下:
 </p>
@@ -6930,10 +6924,6 @@ B用户：
 </p>
 
 <p><code>ws.send(&#39;{&quot;op&quot;: &quot;subscribe&quot;, &quot;args&quot;: [&quot;topic.filter&quot;, &quot;topic.filter&quot;]}&#39;);</code></p>
-
-<p><p>您可以使用管道符号(<code>|</code>)来分割多个参数，前提是这些参数都是合法的.</p>
-<p>您还可以使用匹配符号(<code>*</code>)来匹配多个topic，具体用法见右侧代码栏</p>
-</p>
 <h3 id='t-intervals'>推送周期</h3>
 <p>如果topic名中包含一个<code>推送周期</code>，如<code>100ms</code>, 那么表明这个topic是每隔<code>100ms</code>推送一次.否则, 这个topic<code>只要有消息就会推送</code>.</p>
 <h2 id='t-websocketresponse'>订阅结果</h2>

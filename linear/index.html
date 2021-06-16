@@ -6950,16 +6950,10 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["trade.ETHUSDT"]}</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
-<p>How to subscribe with multiple filters</p>
+<p>Subscribe with multiple filters</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Example: Subscribing to the trade data for BTCUSD and XRPUSD</span>
-<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["trade.BTCUSDT|XRPUSDT"]}</span><span class="dl">'</span><span class="p">)</span>
-</code></pre></div>
-<blockquote>
-<p>How to subscribe without filters</p>
-</blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Example: Subscribing to the trade data for all symbols</span>
-<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op": "subscribe", "args": ["trade.*"]}</span><span class="dl">'</span><span class="p">)</span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["trade.BTCUSDT","trade.XRPUSDT"]}</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div>
 <p>After establishing the connection, one can subscribe to a new topic by sending a JSON request. The specific formats are as follows:
 </p>
@@ -6971,10 +6965,6 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 </p>
 
 <p><code>ws.send(&#39;{&quot;op&quot;: &quot;subscribe&quot;, &quot;args&quot;: [&quot;topic.filter&quot;, &quot;topic.filter&quot;]}&#39;);</code></p>
-
-<p><p>It is possible to use multiple filters for the same topic by splitting them with a pipe (<code>|</code>) - of course, these filters must all be applicable to the selected <code>topic</code>.</p>
-<p>Finally, to subscribe to the topic without filters please use the <code>*</code> wildcard.</p>
-</p>
 <h3 id='t-intervals'>Intervals</h3>
 <p>Some topics are pushed at intervals. If the <code>args</code> contain a millisecond param, such as <code>100ms</code>, this topic is pushed at intervals. Otherwise, it is pushed constantly.</p>
 <h2 id='t-websocketresponse'>Understanding Subscription Response</h2>
