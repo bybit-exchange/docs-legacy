@@ -341,10 +341,18 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="更新日志">更新日志</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#2021-05-27" class="toc-h2 toc-link" data-title="2021-05-27">2021-05-27</a>
+                    <a href="#2021-06-17" class="toc-h2 toc-link" data-title="2021-06-17">2021-06-17</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#rest-api" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2021-05-27" class="toc-h2 toc-link" data-title="2021-05-27">2021-05-27</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-2" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                       </ul>
                   </li>
@@ -364,6 +372,9 @@
           <li>
             <a href="#t-marketdata" class="toc-h1 toc-link" data-title="行情接口">行情接口</a>
               <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-spotgetsymbols" class="toc-h2 toc-link" data-title="获取币对">获取币对</a>
+                  </li>
                   <li>
                     <a href="#t-orderbook" class="toc-h2 toc-link" data-title="Orderbook">Orderbook</a>
                   </li>
@@ -396,9 +407,19 @@
                   <li>
                     <a href="#t-spot_get_order" class="toc-h2 toc-link" data-title="查询订单">查询订单</a>
                   </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#order_link_id-false-string-t-torderclientordid" class="toc-h1 toc-link" data-title="|order_link_id|false|string|特殊订单ID，用户自己生成|">|order_link_id|false|string|特殊订单ID，用户自己生成|</a>
+              <ul class="toc-list-h2">
                   <li>
                     <a href="#t-cancel_spot_order" class="toc-h2 toc-link" data-title="撤销订单">撤销订单</a>
                   </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#order_link_id-false-string-t-misc_row_comment_orderlinkidnotorderid" class="toc-h1 toc-link" data-title="|order_link_id|false|string|机构ID。如果未填order_id则为必填字段。|">|order_link_id|false|string|机构ID。如果未填order_id则为<b>必填</b>字段。|</a>
+              <ul class="toc-list-h2">
                   <li>
                     <a href="#t-batch_cancel_spot_order" class="toc-h2 toc-link" data-title="批量撤销订单">批量撤销订单</a>
                   </li>
@@ -629,7 +650,11 @@ clipboard.on('error', function(e) {
 </script>
 <h1 id='t-introduction'>中文社区和参考资料</h1><h5 id='t-spot_intro_para'><p>欢迎使用 <a href="https://www.bybit.com/">Bybit</a> APIs 和 Websocket官方文档！</p> <p>该文档旨在提供指导，以帮助您快速访问Bybit的API接口，了解参数说明和常见错误码等。 若您有任何疑问或需要帮助，请加入我们的 <a href="https://t.me/Bybitapi">官方Telegram API讨论群</a>！</p></h5><h3 id='t-resources'>中文社区和参考资料</h3>
 <p><ul class="bybit-community"> <li><img src="../../images/favicon-4f296779.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/zh-cn"><strong>帮助中心</strong></a> - <strong>在这里了解现货交易</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/docs/issues"><strong>Bybit API docs</strong></a> - <strong>在这里提bug</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/api-connectors/"><strong>Bybit's api-connectors</strong></a> - <strong>官方API SDK</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文讨论群</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文讨论群</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong> <li><img src="../../images/email_icon-e7dd7b20.png" height="14", width="14"> <a href="mailto:IT@bybit.com"><strong>IT@bybit.com</strong></a> - <strong>官方技术支持邮箱!</strong> </ul></p>
-<h1 id='t-changelog'>更新日志</h1><h2 id='2021-05-27'>2021-05-27</h2><h3 id='rest-api'>REST API</h3>
+<h1 id='t-changelog'>更新日志</h1><h2 id='2021-06-17'>2021-06-17</h2><h3 id='rest-api'>REST API</h3>
+<ul>
+<li>新增获取交易币对接口，修改接口参数order_link_id为orderLinkId</li>
+</ul>
+<h2 id='2021-05-27'>2021-05-27</h2><h3 id='rest-api-2'>REST API</h3>
 <ul>
 <li>新增现货open-api文档</li>
 </ul>
@@ -670,11 +695,11 @@ REST接口根URL:
 </ul>
 </p>
 
-<p>另外我们提供可选的<code>recv_window</code>参数（单位是毫秒，默认值为<code>5000</code>），来指定请求在多长时间内有效，同时用来防止重放攻击。
+<p>另外我们提供可选的<code>recvWindow</code>参数（单位是毫秒，默认值为<code>5000</code>），来指定请求在多长时间内有效，同时用来防止重放攻击。
 </p>
 
 <aside class="warning">
-注意，timestamp参数必须符合如下规则: <b>server_time - recv_window <= timestamp < server_time + 1000</b>，其中server_time是Bybit服务器时间，您可以通过<a href="#t-servertime">服务器时间接口</a>获取。
+注意，timestamp参数必须符合如下规则: <b>serverTime - recvWindow <= timestamp < serverTime + 1000</b>，其中serverTime是Bybit服务器时间，您可以通过<a href="#t-servertime">服务器时间接口</a>获取。
 
 </aside>
 <h2 id='t-constructingtherequest'>构建请求</h2>
@@ -701,7 +726,7 @@ REST接口根URL:
 <p><b>GET</b>请求格式（查询账号余额）:
 </p>
 </blockquote>
-<div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/spot/v1/account?symbol=BTCUSDH21&amp;api_key=B2Rou0PLPpGqcU0Vu2&amp;timestamp=1542434791000&amp;sign=670e3e4aa32b243f2dedf1dafcec2fd17a440e71b05681550416507de591d908</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/spot/v1/order?api_key=q1ksyOX2T0G2SkK8nu&amp;qty=100&amp;recvWindow=999999999&amp;side=BUY&amp;symbol=BTCUSDT&amp;timestamp=1623208423972&amp;type=MARKET&amp;sign=b452640c21a2c9eaec30d24a9bce1a9660d1fb9d07ccc0d623a2a4fca0940095</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api-testnet.bybit.com</span>
 </code></pre></div>
 <blockquote>
@@ -710,16 +735,18 @@ REST接口根URL:
 </blockquote>
 <div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/spot/v1/order</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api-testnet.bybit.com</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">multipart/form-data</span>
 
-<span class="p">{</span><span class="w">
-    </span><span class="nl">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B2Rou0PLPpGqcU0Vu2"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTCUSDH21"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3bd1844f-f3c0-4e10-8c25-10fea03763f6"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1542434791000</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"sign"</span><span class="p">:</span><span class="w"> </span><span class="s2">"670e3e4aa32b243f2dedf1dafcec2fd17a440e71b05681550416507de591d908"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
+api_key:q1ksyOX2T0G2SkK8nu
+qty:100
+recvWindow:999999999
+side:BUY
+symbol:BTCUSDT
+timestamp:1623208423972
+type:MARKET
+sign:b452640c21a2c9eaec30d24a9bce1a9660d1fb9d07ccc0d623a2a4fca0940095
+
+</code></pre></div>
 <p><p>3. 将<code>sign</code>参数加到请求参数中即可；注意<code>GET</code>和<code>POST</code>请求参数格式不同，详见右边示例。</p></p>
 
 <aside class="notice">
@@ -759,6 +786,125 @@ function copyStringToClipboard (endpoint) {
 </script>
 <h1 id='t-marketdata'>行情接口</h1>
 <p>以下市场行情数据接口不需要验权.</p>
+<h3 id='t-spotgetsymbols'>获取币对</h3>
+<blockquote>
+<p>请求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
+<blockquote>
+<p>响应示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="err">“</span><span class="nx">ret_code</span><span class="err">”</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="err">“</span><span class="nx">ret_msg</span><span class="err">”</span><span class="p">:</span> <span class="err">“”</span><span class="p">,</span>
+    <span class="err">“</span><span class="nx">ext_code</span><span class="err">”</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="err">“</span><span class="nx">ext_info</span><span class="err">”</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="err">“</span><span class="nx">result</span><span class="err">”</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="err">“</span><span class="nx">name</span><span class="err">”</span><span class="p">:</span> <span class="err">“</span><span class="nx">BTCUSDT</span><span class="err">”</span><span class="p">,</span>
+            <span class="err">“</span><span class="nx">alias</span><span class="err">”</span><span class="p">:</span> <span class="err">“</span><span class="nx">BTCUSDT</span><span class="err">”</span><span class="p">,</span>
+            <span class="err">“</span><span class="nx">baseCurrency</span><span class="err">”</span><span class="p">:</span> <span class="err">“</span><span class="nx">BTC</span><span class="err">”</span><span class="p">,</span>
+            <span class="err">“</span><span class="nx">quoteCurrency</span><span class="err">”</span><span class="p">:</span> <span class="err">“</span><span class="nx">USDT</span><span class="err">”</span><span class="p">,</span>
+            <span class="err">“</span><span class="nx">basePrecision</span><span class="err">”</span><span class="p">:</span> <span class="err">“</span><span class="mf">0.000001</span><span class="dl">"</span><span class="s2">,
+            “quotePrecision”: “0.01</span><span class="dl">"</span><span class="p">,</span>
+            <span class="err">“</span><span class="nx">minTradeQuantity</span><span class="err">”</span><span class="p">:</span> <span class="err">“</span><span class="mf">0.0001</span><span class="dl">"</span><span class="s2">,
+            “minTradeAmount”: “10</span><span class="dl">"</span><span class="p">,</span>
+            <span class="err">“</span><span class="nx">minPricePrecision</span><span class="err">”</span><span class="p">:</span> <span class="err">“</span><span class="mf">0.01</span><span class="dl">"</span><span class="s2">,
+            “category”: 1
+        },
+        {
+            “name”: “ETHUSDT”,
+            “alias”: “ETHUSDT”,
+            “baseCurrency”: “ETH”,
+            “quoteCurrency”: “USDT”,
+            “basePrecision”: “0.0001”,
+            “quotePrecision”: “0.01”,
+            “minTradeQuantity”: “0.0001”,
+            “minTradeAmount”: “10”,
+            “minPricePrecision”: “0.01”,
+            “category”: 1
+        }
+    ]
+}
+</span></code></pre></div>
+<p class="fake_header">HTTP 请求</p>
+
+<p>GET
+<code><span id=vpOrder>/spot/v1/symbols</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">请求参数</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">参数</th>
+<th style="text-align: left">是否必须</th>
+<th style="text-align: left">类型</th>
+<th>说明</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<p class="fake_header">返回参数</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">参数</th>
+<th style="text-align: left">类型</th>
+<th>说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">name</td>
+<td style="text-align: left">string</td>
+<td>币对名称</td>
+</tr>
+<tr>
+<td style="text-align: left">alias</td>
+<td style="text-align: left">string</td>
+<td>币对别名</td>
+</tr>
+<tr>
+<td style="text-align: left">baseCurrency</td>
+<td style="text-align: left">string</td>
+<td>base币种</td>
+</tr>
+<tr>
+<td style="text-align: left">quoteCurrency</td>
+<td style="text-align: left">string</td>
+<td>quote币种</td>
+</tr>
+<tr>
+<td style="text-align: left">basePrecision</td>
+<td style="text-align: left">string</td>
+<td>base币种精度</td>
+</tr>
+<tr>
+<td style="text-align: left">quotePrecision</td>
+<td style="text-align: left">string</td>
+<td>quote币种精度</td>
+</tr>
+<tr>
+<td style="text-align: left">minTradeQuantity</td>
+<td style="text-align: left">string</td>
+<td>最小订单数量</td>
+</tr>
+<tr>
+<td style="text-align: left">minTradeAmount</td>
+<td style="text-align: left">string</td>
+<td>最小订单额</td>
+</tr>
+<tr>
+<td style="text-align: left">minPricePrecision</td>
+<td style="text-align: left">string</td>
+<td>最小价格精度</td>
+</tr>
+<tr>
+<td style="text-align: left">category</td>
+<td style="text-align: left">int</td>
+<td>symbol 所在分区:1主类别</td>
+</tr>
+</tbody></table>
 <h3 id='t-orderbook'>Orderbook</h3>
 <blockquote>
 <p>请求示例</p>
@@ -1503,7 +1649,7 @@ function copyStringToClipboard (endpoint) {
 <td>订单价格</td>
 </tr>
 <tr>
-<td style="text-align: left">order_link_id</td>
+<td style="text-align: left">orderLinkId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>特殊订单ID，用户自己生成</td>
@@ -1525,7 +1671,7 @@ function copyStringToClipboard (endpoint) {
 <td>订单ID</td>
 </tr>
 <tr>
-<td style="text-align: left">order_link_id</td>
+<td style="text-align: left">orderLinkId</td>
 <td style="text-align: left">string</td>
 <td>特殊订单ID，用户自己生成</td>
 </tr>
@@ -1635,25 +1781,30 @@ function copyStringToClipboard (endpoint) {
 <th>说明</th>
 </tr>
 </thead><tbody>
-<tr>
-<td style="text-align: left">symbol</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>币对名称</td>
-</tr>
-<tr>
-<td style="text-align: left">orderId</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>订单ID</td>
-</tr>
-<tr>
-<td style="text-align: left">order_link_id</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>特殊订单ID，用户自己生成</td>
-</tr>
 </tbody></table>
+
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+|symbol|false|string|币对名称|
+|orderId|false|string|订单ID|</p>
+<h1 id='order_link_id-false-string-t-torderclientordid'>|order_link_id|false|string|特殊订单ID，用户自己生成|</h1>
+<p>|orderId|OPTIONAL|string|订单ID|
+|orderLinkId|OPTIONAL|string|特殊订单ID，用户自己生成|</p>
+
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>origin/spot</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
 
 <p class="fake_header">返回参数</p>
 
@@ -1685,7 +1836,7 @@ function copyStringToClipboard (endpoint) {
 <td>币对名称</td>
 </tr>
 <tr>
-<td style="text-align: left">order_link_id</td>
+<td style="text-align: left">orderLinkId</td>
 <td style="text-align: left">string</td>
 <td>订单ID</td>
 </tr>
@@ -1806,19 +1957,29 @@ function copyStringToClipboard (endpoint) {
 <th>说明</th>
 </tr>
 </thead><tbody>
-<tr>
-<td style="text-align: left">orderId</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>订单ID。如果未填order_link_id则为<b>必填</b>字段。</td>
-</tr>
-<tr>
-<td style="text-align: left">order_link_id</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>机构ID。如果未填order_id则为<b>必填</b>字段。</td>
-</tr>
 </tbody></table>
+
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+|orderId|false|string|订单ID。如果未填order_link_id则为<b>必填</b>字段。|</p>
+<h1 id='order_link_id-false-string-t-misc_row_comment_orderlinkidnotorderid'>|order_link_id|false|string|机构ID。如果未填order_id则为<b>必填</b>字段。|</h1>
+<p>|orderId|false|string|订单ID|
+|orderLinkId|false|string|特殊订单ID，用户自己生成|</p>
+
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>origin/spot</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
 
 <p class="fake_header">返回参数</p>
 
@@ -1835,7 +1996,7 @@ function copyStringToClipboard (endpoint) {
 <td>订单ID</td>
 </tr>
 <tr>
-<td style="text-align: left">order_link_id</td>
+<td style="text-align: left">orderLinkId</td>
 <td style="text-align: left">string</td>
 <td>特殊订单ID，用户自己生成</td>
 </tr>
@@ -2031,7 +2192,7 @@ function copyStringToClipboard (endpoint) {
 <td>币对名称</td>
 </tr>
 <tr>
-<td style="text-align: left">order_link_id</td>
+<td style="text-align: left">orderLinkId</td>
 <td style="text-align: left">string</td>
 <td>订单ID</td>
 </tr>
@@ -2217,7 +2378,7 @@ function copyStringToClipboard (endpoint) {
 <td>币对名称</td>
 </tr>
 <tr>
-<td style="text-align: left">order_link_id</td>
+<td style="text-align: left">orderLinkId</td>
 <td style="text-align: left">string</td>
 <td>订单ID</td>
 </tr>
