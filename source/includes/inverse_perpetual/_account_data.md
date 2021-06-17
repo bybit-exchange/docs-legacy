@@ -1977,8 +1977,8 @@ POST
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
 |is_isolated |<b>true</b> |bool |t(:futures_row_comment_switch_isolated)  |
-|buy_leverage |<b>true</b> |number |t(:futures_row_comment_leverage)  |
-|sell_leverage |<b>true</b> |number |t(:futures_row_comment_leverage)  |
+|buy_leverage |<b>true</b> |number |t(:inverse_row_comment_leverage)  |
+|sell_leverage |<b>true</b> |number |t(:inverse_row_comment_leverage)  |
 
 
 
