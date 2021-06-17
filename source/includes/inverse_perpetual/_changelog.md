@@ -1,11 +1,11 @@
 # t(:changelog)
 
 ## 2021-06-17
-- [t(:marginswitch)](#t-marginswitch) [t(:changelog_new)]
+- [t(:marginswitch)](#t-marginswitch) [t(:changelog_update)]
     - t(:restapi_update_20210617_1)
     - t(:restapi_update_20210617_2)
 
-## 2021-06-03 
+## 2021-06-03
 - [t(:switchmode)](#t-switchmode) [t(:changelog_new)]
 - [t(:placecond)](#t-placecond) [t(:changelog_update)]
     - t(:restapi_update_20200826_1)
@@ -112,18 +112,18 @@
     - t(:restapi_update_20210311)
 - [t(:getcond)](#t-getcond) [t(:changelog_update)]
     - t(:restapi_update_20210311)
-  
+
 ## 2021-03-04
 - [t(:walletrecords)](#t-walletrecords) [t(:changelog_update)]
     - t(:restapi_update_20210304)
-    
+
 ## 2021-02-02
 
 ### Websocket API
 
 - Topic <a href="#t-websocketorder">order</a> [t(:changelog_update)]
     - t(:ws_update_20210202_0)
-          
+
 - Topic <a href="#t-websocketstoporder">stop_order</a> [t(:changelog_update)]
     - t(:ws_update_20210202_1)
 
