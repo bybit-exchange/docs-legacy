@@ -13,10 +13,10 @@ t(:auth_para_privatepublic)
 
 t(:auth_para_params)
 
-t(:auth_para_recv)
+t(:spot_auth_para_recv)
 
 <aside class="warning">
-t(:auth_aside_timestamp)
+t(:spot_auth_aside_timestamp)
 </aside>
 
 ## t(:constructingtherequest)
@@ -40,7 +40,7 @@ t(:auth_para_construct2)
 > t(:auth_codequote_construct2)
 
 ```http
-GET /spot/v1/account?symbol=BTCUSDH21&api_key=B2Rou0PLPpGqcU0Vu2&timestamp=1542434791000&sign=670e3e4aa32b243f2dedf1dafcec2fd17a440e71b05681550416507de591d908 HTTP/1.1
+GET /spot/v1/order?api_key=q1ksyOX2T0G2SkK8nu&qty=100&recvWindow=999999999&side=BUY&symbol=BTCUSDT&timestamp=1623208423972&type=MARKET&sign=b452640c21a2c9eaec30d24a9bce1a9660d1fb9d07ccc0d623a2a4fca0940095 HTTP/1.1
 Host: api-testnet.bybit.com
 ```
 
@@ -49,15 +49,17 @@ Host: api-testnet.bybit.com
 ```http
 POST /spot/v1/order HTTP/1.1
 Host: api-testnet.bybit.com
-Content-Type: application/json
+Content-Type: multipart/form-data
 
-{
-    "api_key": "B2Rou0PLPpGqcU0Vu2",
-    "symbol": "BTCUSDH21",
-    "order_id": "3bd1844f-f3c0-4e10-8c25-10fea03763f6",
-    "timestamp": 1542434791000,
-    "sign": "670e3e4aa32b243f2dedf1dafcec2fd17a440e71b05681550416507de591d908"
-}
+api_key:q1ksyOX2T0G2SkK8nu
+qty:100
+recvWindow:999999999
+side:BUY
+symbol:BTCUSDT
+timestamp:1623208423972
+type:MARKET
+sign:b452640c21a2c9eaec30d24a9bce1a9660d1fb9d07ccc0d623a2a4fca0940095
+
 ```
 
 t(:auth_para_construct3)

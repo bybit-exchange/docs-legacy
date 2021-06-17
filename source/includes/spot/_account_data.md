@@ -58,7 +58,7 @@ POST
 |t(:row_parameter_type)|<b>true</b>|string|t(:spotOrderType)|
 |t(:row_parameter_timeInForce)|false|string|t(:spotTimeInForce)|
 |price|false|number|t(:spotOPrice)|
-|order_link_id|false|string|t(:tOrderClientOrdID)|
+|orderLinkId|false|string|t(:tOrderClientOrdID)|
 
 
 
@@ -67,7 +67,7 @@ POST
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |orderId|integer|t(:spotOrderID)|
-|order_link_id|string|t(:tOrderClientOrdID)
+|orderLinkId|string|t(:tOrderClientOrdID)
 |symbol|string|t(:spotSymbol)|
 |transactTime|int|t(:spotTransactTime)|
 |price|float|t(:spotPrice)|
@@ -132,9 +132,14 @@ GET
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
+<<<<<<< HEAD
 |symbol|false|string|t(:spotSymbol)|
 |orderId|false|string|t(:spotOrderID)|
 |order_link_id|false|string|t(:tOrderClientOrdID)|
+=======
+|orderId|OPTIONAL|string|t(:spotOrderID)|
+|orderLinkId|OPTIONAL|string|t(:tOrderClientOrdID)|
+>>>>>>> origin/spot
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -145,7 +150,7 @@ GET
 |exchangeId|long|t(:spotOrderId)|
 |symbol|string|t(:spotSymbol)|
 |symbolName|string|t(:spotSymbol)|
-|order_link_id|string|t(:spotOrderLinkId)|
+|orderLinkId|string|t(:spotOrderLinkId)|
 |orderId|long|t(:spotOrderId)|
 |price|float|t(:spotOPrice)|
 |origQty|float|t(:spotOriQty)|
@@ -207,8 +212,13 @@ DELETE
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
+<<<<<<< HEAD
 |orderId|false|string|t(:misc_row_comment_orderIdNotOrderLinkId)|
 |order_link_id|false|string|t(:misc_row_comment_orderLinkIdNotOrderId)|
+=======
+|orderId|false|string|t(:spotOrderID)|
+|orderLinkId|false|string|t(:tOrderClientOrdID)|
+>>>>>>> origin/spot
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -216,7 +226,7 @@ DELETE
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |orderId|integer|t(:spotOrderID)|
-|order_link_id|string|t(:tOrderClientOrdID)
+|orderLinkId|string|t(:tOrderClientOrdID)
 |symbol|string|t(:spotSymbol)|
 |status|string|t(:spotStatus)|
 
@@ -349,7 +359,7 @@ GET
 |exchangeId|long|t(:spotOrderID)|
 |symbol|string|t(:spotSymbol)|
 |symbolName|string|t(:spotSymbol)|
-|order_link_id|string|t(:spotOrderLinkId)|
+|orderLinkId|string|t(:spotOrderLinkId)|
 |orderId|long|t(:spotOrderId)|
 |price|float|t(:spotOPrice)|
 |origQty|float|t(:spotOriQty)|
@@ -434,7 +444,7 @@ GET
 |exchangeId|long|t(:spotOrderID)|
 |symbol|string|t(:spotSymbol)|
 |symbolName|string|t(:spotSymbol)|
-|order_link_id|string|t(:spotOrderLinkId)|
+|orderLinkId|string|t(:spotOrderLinkId)|
 |orderId|long|t(:spotOrderId)|
 |price|float|t(:spotPrice)|
 |origQty|float|t(:spotOriQty)|
