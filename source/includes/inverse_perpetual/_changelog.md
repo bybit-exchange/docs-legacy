@@ -1,5 +1,9 @@
 # t(:changelog)
 
+## 2021-06-17
+- [t(:marginswitch)](#t-marginswitch) [t(:changelog_new)]
+
+
 ## 2021-06-03 
 - [t(:switchmode)](#t-switchmode) [t(:changelog_new)]
 - [t(:placecond)](#t-placecond) [t(:changelog_update)]
