@@ -513,11 +513,16 @@ en:
     </ul>
   auth_aside_timestamp: |
     Please make sure that the timestamp parameter adheres to the following rule: server_time - recv_window <= timestamp < server_time + 1000; server_time stands for Bybit server time, which can be queried via the <a href="#t-servertime">Server Time</a> endpoint.
-  spot_auth_aside_timestamp: |
-    Please make sure that the timestamp parameter adheres to the following rule: serverTime - recvWindow <= timestamp < serverTime + 1000; serverTime stands for Bybit server time, which can be queried via the <a href="#t-servertime">Server Time</a> endpoint.
   auth_para_recv: |
     <p>We also provide <code>recv_window</code> (unit in millsecond and defualt value is 5,000) to specify how long an HTTP request is valid. It is also used to prevent replay attacks.</p>
     <p>A smaller <code>recv_window</code> is more secure, but your request may fail if the transmission time is greater than your <code>recv_window</code>.</p>
+    <p>Please make sure that your <code>timestamp</code> is in sync with our server time. You can use the <a href=#t-servertime>Server Time</a> endpoint.</p>
+  spot_auth_aside_timestamp: |
+    Please make sure that the timestamp parameter adheres to the following rule: serverTime - recvWindow <= timestamp < serverTime + 1000; serverTime stands for Bybit server time, which can be queried via the <a href="#t-servertime">Server Time</a> endpoint.
+
+  spot_auth_para_recv: |
+    <p>We also provide <code>recvWindow</code> (unit in millsecond and defualt value is 5,000) to specify how long an HTTP request is valid. It is also used to prevent replay attacks.</p>
+    <p>A smaller <code>recvWindow</code> is more secure, but your request may fail if the transmission time is greater than your <code>recvWindow</code>.</p>
     <p>Please make sure that your <code>timestamp</code> is in sync with our server time. You can use the <a href=#t-servertime>Server Time</a> endpoint.</p>
   ## Constructing the Request
   constructingtherequest: Create A Request

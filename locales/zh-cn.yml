@@ -502,8 +502,11 @@ zh-cn:
     另外我们提供可选的<code>recv_window</code>参数（单位是毫秒，默认值为<code>5000</code>），来指定请求在多长时间内有效，同时用来防止重放攻击。
   auth_aside_timestamp: |
     注意，timestamp参数必须符合如下规则: <b>server_time - recv_window <= timestamp < server_time + 1000</b>，其中server_time是Bybit服务器时间，您可以通过<a href="#t-servertime">服务器时间接口</a>获取。
+  spot_auth_para_recv : |
+    另外我们提供可选的<code>recvWindow</code>参数（单位是毫秒，默认值为<code>5000</code>），来指定请求在多长时间内有效，同时用来防止重放攻击。
   spot_auth_aside_timestamp: |
-    注意，timestamp参数必须符合如下规则: <b>server_time - recvWindow <= timestamp < serverTime + 1000</b>，其中serverTime是Bybit服务器时间，您可以通过<a href="#t-servertime">服务器时间接口</a>获取。
+    注意，timestamp参数必须符合如下规则: <b>serverTime - recvWindow <= timestamp < serverTime + 1000</b>，其中serverTime是Bybit服务器时间，您可以通过<a href="#t-servertime">服务器时间接口</a>获取。
+
   constructingtherequest: 构建请求
   auth_codequote_construct1a:
     拼接参数示例（以查询账号余额接口为例）：

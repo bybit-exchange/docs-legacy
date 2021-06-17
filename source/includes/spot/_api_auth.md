@@ -13,10 +13,10 @@ t(:auth_para_privatepublic)
 
 t(:auth_para_params)
 
-t(:auth_para_recv)
+t(:spot_auth_para_recv)
 
 <aside class="warning">
-t(:auth_aside_timestamp)
+t(:spot_auth_aside_timestamp)
 </aside>
 
 ## t(:constructingtherequest)
