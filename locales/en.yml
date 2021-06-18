@@ -161,7 +161,7 @@ en:
   row_comemnt_pRTriggerPrice: New conditional order's trigger price or TP/SL order price, also known as stop_px. Do not pass this field if you don't want modify it
   row_comemnt_replace_take_profit: New take_profit price, also known as stop_px. Do not pass this field if you don't want modify it
   row_comemnt_replace_stop_loss: New stop_loss price, also known as stop_px. Do not pass this field if you don't want modify it
-  row_comment_leverage_old: Not Recommand!! Recommand to use buy_leverage and sell_leverage!! Leverage. <code>0</code> means Cross Margin mode - any other value means Isolated Margin mode
+  row_comment_leverage_old: Not recommended! It is recommended to use <code>buy_leverage</code> and <code>sell_leverage</code>!
   row_comment_startDate: Start point for result
   row_comment_endDate: End point for result
   row_comment_currency: Currency type
@@ -725,7 +725,7 @@ en:
   ### Set Leverage
   # see setleverage
   setleverage: Set Leverage
-  account_aside_setleverage: Set <code>leverage</code> to <code>0</code> if you want to trade in <a href="https://help.bybit.com/hc/en-us/articles/360037683633-What-is-Cross-Margin">Cross Margin mode</a>. Note that your position mode will be changed to Isolated Margin mode if you change your leverage from 0 to any other value.
+  account_aside_setleverage: This endpoint only concerns isolated margin. If you want to use cross margin, please use the <a href="Cross/Isolated Margin Switch"></a> endpoint.
 
   ## Position
   position: Position
@@ -1895,7 +1895,9 @@ en:
   restapi_update_20210520: ETH Inverse Futures released
   restapi_update_20210527: New add spot open-api document
   restapi_update_20210617: New add get symbols API. Parameter name for order_link_id updated to orderLinkId
-
+  restapi_update_20210617_1: <code>is_isolated</code> illustrates if position is Isolated Margin or Cross Margin
+  restapi_update_20210617_2: Deprecate to use <code>auto_add_margin</code> to determine if position is Isolated Margin or Cross Margin
+  restapi_update_20210618_1: After June 24, 2021 do not use <code>leverage</code> to determine if position is Isolated Margin or Cross Margin. You will not be able to set cross margin with <code>leverage</code>=0
 
   markpricekline: Query Mark Price Kline
   linear_query_mark_price_kline: Query mark price kline (like <a href="#t-querykline">Query Kline</a> but for <a href="https://help.bybit.com/hc/en-us/articles/360039261074-What-is-Dual-Price-mechanism-">mark price</a>).
