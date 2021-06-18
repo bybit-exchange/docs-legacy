@@ -1,9 +1,11 @@
 # t(:changelog)
 
-## 2021-06-17
+## 2021-06-18
 - [t(:marginswitch)](#t-marginswitch) [t(:changelog_update)]
     - t(:restapi_update_20210617_1)
     - t(:restapi_update_20210617_2)
+- [t(:setleverage)](#t-setleverage) [t(:changelog_update)]
+    - t(:restapi_update_20210618_1) 
 
 ## 2021-06-03
 - [t(:switchmode)](#t-switchmode) [t(:changelog_new)]
