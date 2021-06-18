@@ -161,7 +161,7 @@ en:
   row_comemnt_pRTriggerPrice: New conditional order's trigger price or TP/SL order price, also known as stop_px. Do not pass this field if you don't want modify it
   row_comemnt_replace_take_profit: New take_profit price, also known as stop_px. Do not pass this field if you don't want modify it
   row_comemnt_replace_stop_loss: New stop_loss price, also known as stop_px. Do not pass this field if you don't want modify it
-  row_comment_leverage_old: Not recommended! It is recommended to use <code>buy_leverage</code> and <code>sell_leverage</code>!
+  row_comment_leverage_old: Must be greater than 0 and less than the <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>. If you need to switch to cross margin please see the <a href="#t-marginswitch">Cross/Isolated Margin Switch</a> endpoint
   row_comment_startDate: Start point for result
   row_comment_endDate: End point for result
   row_comment_currency: Currency type
@@ -725,7 +725,7 @@ en:
   ### Set Leverage
   # see setleverage
   setleverage: Set Leverage
-  account_aside_setleverage: This endpoint only concerns isolated margin. If you want to use cross margin, please use the <a href="Cross/Isolated Margin Switch"></a> endpoint.
+  account_aside_setleverage: This endpoint only concerns isolated margin. If you want to use cross margin, please use the <a href="#t-marginswitch">Cross/Isolated Margin Switch</a> endpoint.
 
   ## Position
   position: Position
@@ -1699,7 +1699,7 @@ en:
     If you are in One-Way Mode, you can only open one position on <code>Buy</code> or <code>Sell</code> side;<br/> If you are in Hedge Mode, you can open both <code>Buy</code> and <code>Sell</code> side positions simultaneously.
   row_comment_positionmode: |
     Position Mode. <code>0</code><span>:</span> One-Way Mode; <code>3</code><span>:</span> Hedge Mode
-  future_row_comment_leverage: Must be greater than 0 and less than the <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>.
+  futures_row_comment_leverage: Must be greater than 0 and less than the <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>.
   inverse_row_comment_leverage: Switch Cross/Isolated; must set leverage value when switching from Cross to Isolated and the value of <code>buy_leverage</code> must be equal to <code>sell_leverage</code>.
   futures_account_para_switchIsolated: Switch Cross/Isolated; must set leverage value when switching from Cross to Isolated
   futures_row_comment_switch_isolated: Cross/Isolated<span>:</span> true is Isolated; false is Cross
@@ -1897,7 +1897,7 @@ en:
   restapi_update_20210617: New add get symbols API. Parameter name for order_link_id updated to orderLinkId
   restapi_update_20210617_1: <code>is_isolated</code> illustrates if position is Isolated Margin or Cross Margin
   restapi_update_20210617_2: Deprecate to use <code>auto_add_margin</code> to determine if position is Isolated Margin or Cross Margin
-  restapi_update_20210618_1: After June 24, 2021 do not use <code>leverage</code> to determine if position is Isolated Margin or Cross Margin. You will not be able to set cross margin with <code>leverage</code>=0
+  restapi_update_20210618_1: After June 24, 2021 do not use <code>leverage</code> to determine if position is Isolated Margin or Cross Margin. <code>leverage</code> must be greater than 0 and less than the <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>.
 
   markpricekline: Query Mark Price Kline
   linear_query_mark_price_kline: Query mark price kline (like <a href="#t-querykline">Query Kline</a> but for <a href="https://help.bybit.com/hc/en-us/articles/360039261074-What-is-Dual-Price-mechanism-">mark price</a>).

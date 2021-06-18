@@ -159,7 +159,7 @@ zh-cn:
   row_comemnt_pRTriggerPrice: 修改后的条件单的触发价格或止盈止损的价格。如果不修改这个字段，请不要传这个参数。
   row_comemnt_replace_take_profit: 修改后的止盈价格。如果不修改这个字段，请不要传这个参数。
   row_comemnt_replace_stop_loss: 修改后的止损价格。如果不修改这个字段，请不要传这个参数。
-  row_comment_leverage_old: 不建议使用！！推荐使用buy_leverage和sell_leverage！！ 杠杆。
+  row_comment_leverage_old: leverage必须大于0且小于最大可设置杠杆 <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>,如果你想切换全逐仓，请使用 <a href="#t-marginswitch">全仓/逐仓切换</a>
   row_comment_startDate: 起始时间点
   row_comment_endDate: 结束时间点
   row_comment_currency: 币种类型
@@ -700,7 +700,7 @@ zh-cn:
   setleverage: 修改杠杆
   account_para_setleverage: |
     <p>修改杠杆。</p>
-  account_aside_setleverage: 该接口仅涉及逐仓。如果你想使用全仓，请使用<a href="Cross/Isolated Margin Switch"></a>
+  account_aside_setleverage: 该接口仅涉及逐仓。如果你想使用全仓，请使用<a href="#t-marginswitch">全仓/逐仓切换</a>
   ## Position
   position: 持仓
   ### My Position V2 (real-time)
@@ -1790,7 +1790,7 @@ zh-cn:
   restapi_update_20210527: 请求参数增加 <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
   restapi_update_20210617_1: 以参数<code>is_isolated</code>来判断全逐仓，true是逐仓，false是全仓。
   restapi_update_20210617_2: 废弃使用<code>auto_add_margin</code>来判断全逐仓。
-  restapi_update_20210618_1: 2021年6月24日起，停止使用<code>leverage</code>切换全逐仓,不允许设置<code>leverage</code>=0。
+  restapi_update_20210618_1: 2021年6月24日起，停止使用<code>leverage</code>切换全逐仓,必须大于0且小于最大可设置杠杆 <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>.
 
   ws_update_20210202_0: 新增字段<code>reduce_only</code>和<code>close_on_trigger</code>
   ws_update_20210202_1: 新增字段<code>close_on_trigger</code>
