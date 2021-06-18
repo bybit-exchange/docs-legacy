@@ -132,6 +132,7 @@ GET
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
+
 |orderId|OPTIONAL|string|t(:spotOrderID)|
 |orderLinkId|OPTIONAL|string|t(:tOrderClientOrdID)|
 
