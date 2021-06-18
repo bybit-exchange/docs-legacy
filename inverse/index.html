@@ -338,7 +338,7 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#2021-06-17" class="toc-h2 toc-link" data-title="2021-06-17">2021-06-17</a>
+                    <a href="#2021-06-18" class="toc-h2 toc-link" data-title="2021-06-18">2021-06-18</a>
                   </li>
                   <li>
                     <a href="#2021-06-03" class="toc-h2 toc-link" data-title="2021-06-03">2021-06-03</a>
@@ -1198,9 +1198,19 @@ clipboard.on('error', function(e) {
 <p><p> <a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their respective expected outputs, and common errors.</p> <p> For further assistanc or feedback, please join <a href="https://t.me/Bybitapi">API Telegram chat</a>! API discussion group on Telegram. Our fellow developers are happy to chat!</p></p>
 <h3 id='t-resources'>Group And Bybit API Resources</h3>
 <p><ul class="bybit-community"> <li><img src="../images/favicon-4f296779.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/docs/issues"><strong>Bybit API Documentation</strong></a> - <strong>report issues here!</strong> <li><img src="../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/api-connectors/"><strong>Bybit's api-connectors</strong></a> - <strong>find a repo of prebuilt libraries here!</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong> - <strong>get English help here!</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API! </strong> <li><img src="../images/email_icon-e7dd7b20.png" height="14", width="14"> <a href="mailto:IT@bybit.com"><strong>IT@bybit.com</strong></a> - <strong>official IT support email!</strong> </ul></p>
-<h1 id='t-changelog'>Changelog</h1><h2 id='2021-06-17'>2021-06-17</h2>
+<h1 id='t-changelog'>Changelog</h1><h2 id='2021-06-18'>2021-06-18</h2>
 <ul>
-<li><a href="#t-marginswitch">Cross/Isolated Margin Switch</a> [new]</li>
+<li><a href="#t-marginswitch">Cross/Isolated Margin Switch</a> [update]
+
+<ul>
+<li><code>is_isolated</code> illustrates if position is Isolated Margin or Cross Margin</li>
+<li>Deprecate to use <code>auto_add_margin</code> to determine if position is Isolated Margin or Cross Margin</li>
+</ul></li>
+<li><a href="#t-setleverage">Set Leverage</a> [update]
+
+<ul>
+<li>After June 24, 2021 do not use <code>leverage</code> to determine if position is Isolated Margin or Cross Margin. <code>leverage</code> must be greater than 0 and less than the <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>. </li>
+</ul></li>
 </ul>
 <h2 id='2021-06-03'>2021-06-03</h2>
 <ul>
@@ -7055,7 +7065,7 @@ Passing these parameters will create conditional orders controlled by the system
 <p>Set Leverage</p>
 
 <aside class="notice">
-Set <code>leverage</code> to <code>0</code> if you want to trade in <a href="https://help.bybit.com/hc/en-us/articles/360037683633-What-is-Cross-Margin">Cross Margin mode</a>. Note that your position mode will be changed to Isolated Margin mode if you change your leverage from 0 to any other value.
+This endpoint only concerns isolated margin. If you want to use cross margin, please use the <a href="#t-marginswitch">Cross/Isolated Margin Switch</a> endpoint.
 </aside>
 
 <p class="fake_header">HTTP Request</p>
@@ -7084,21 +7094,14 @@ Set <code>leverage</code> to <code>0</code> if you want to trade in <a href="htt
 <td style="text-align: left">leverage</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">number</td>
-<td>Not Recommand!! Recommand to use buy_leverage and sell_leverage!! Leverage. <code>0</code> means Cross Margin mode - any other value means Isolated Margin mode</td>
-</tr>
-<tr>
-<td style="text-align: left">buy_leverage</td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">number</td>
-<td>Must be greater than 0 and less than the <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>.</td>
-</tr>
-<tr>
-<td style="text-align: left">sell_leverage</td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">number</td>
-<td>Must be greater than 0 and less than the <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>.</td>
+<td>Must be greater than 0 and less than the <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>. If you need to switch to cross margin please see the <a href="#t-marginswitch">Cross/Isolated Margin Switch</a> endpoint</td>
 </tr>
 </tbody></table>
+
+<!--
+|buy_leverage |<b>true</b> |number |Must be greater than 0 and less than the <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>. |
+|sell_leverage |<b>true</b> |number |Must be greater than 0 and less than the <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>. |
+-->
 
 <p class="fake_header">Response Parameters</p>
 

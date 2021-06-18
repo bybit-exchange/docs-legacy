@@ -338,7 +338,7 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="更新日志">更新日志</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#2021-06-17" class="toc-h2 toc-link" data-title="2021-06-17">2021-06-17</a>
+                    <a href="#2021-06-18" class="toc-h2 toc-link" data-title="2021-06-18">2021-06-18</a>
                   </li>
                   <li>
                     <a href="#2021-06-03" class="toc-h2 toc-link" data-title="2021-06-03">2021-06-03</a>
@@ -1196,9 +1196,19 @@ clipboard.on('error', function(e) {
 <p><p>欢迎使用 <a href="https://www.bybit.com/">Bybit</a> APIs 和 Websocket官方文档！</p> <p>如果您在使用API的过程中遇到问题需要帮助，请加入我们的 <a href="https://t.me/Bybitapi">官方Telegram API讨论群</a>！</p></p>
 <h3 id='t-resources'>中文社区和参考资料</h3>
 <p><ul class="bybit-community"> <li><img src="../../images/favicon-4f296779.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/zh-cn"><strong>帮助中心</strong></a> - <strong>在这里了解合约交易</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/docs/issues"><strong>Bybit API docs</strong></a> - <strong>在这里提bug</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/api-connectors/"><strong>Bybit's api-connectors</strong></a> - <strong>官方API SDK</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文讨论群</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文讨论群</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong> <li><img src="../../images/email_icon-e7dd7b20.png" height="14", width="14"> <a href="mailto:IT@bybit.com"><strong>IT@bybit.com</strong></a> - <strong>官方技术支持邮箱!</strong> </ul></p>
-<h1 id='t-changelog'>更新日志</h1><h2 id='2021-06-17'>2021-06-17</h2>
+<h1 id='t-changelog'>更新日志</h1><h2 id='2021-06-18'>2021-06-18</h2>
 <ul>
-<li><a href="#t-marginswitch">全仓/逐仓切换</a> [新增]</li>
+<li><a href="#t-marginswitch">全仓/逐仓切换</a> [更新]
+
+<ul>
+<li>以参数<code>is_isolated</code>来判断全逐仓，true是逐仓，false是全仓。</li>
+<li>废弃使用<code>auto_add_margin</code>来判断全逐仓。</li>
+</ul></li>
+<li><a href="#t-setleverage">修改杠杆</a> [更新]
+
+<ul>
+<li>2021年6月24日起，停止使用<code>leverage</code>切换全逐仓,必须大于0且小于最大可设置杠杆 <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>. </li>
+</ul></li>
 </ul>
 <h2 id='2021-06-03'>2021-06-03</h2>
 <ul>
@@ -6978,7 +6988,7 @@ GET
 <p>设置杠杆</p>
 
 <aside class="notice">
-如果您想使用<a href="https://help.bybit.com/hc/en-us/articles/360037683633-What-is-Cross-Margin">全仓模式</a>请将<code>杠杆</code>设置为0。请注意，一旦您将杠杆由0改为其他任何值，仓位模式将自动切换到逐仓模式。
+该接口仅涉及逐仓。如果你想使用全仓，请使用<a href="#t-marginswitch">全仓/逐仓切换</a>
 </aside>
 
 <p class="fake_header">HTTP 请求</p>
@@ -7007,21 +7017,14 @@ GET
 <td style="text-align: left">leverage</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">number</td>
-<td>不建议使用！！推荐使用buy_leverage和sell_leverage！！ 杠杆。<code>杠杆为0</code>意味着全仓模式.全仓模式下修改杠杆会变成逐仓模式。</td>
-</tr>
-<tr>
-<td style="text-align: left">buy_leverage</td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">number</td>
-<td>Must be greater than 0 and less than the <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>.</td>
-</tr>
-<tr>
-<td style="text-align: left">sell_leverage</td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">number</td>
-<td>Must be greater than 0 and less than the <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>.</td>
+<td>leverage必须大于0且小于最大可设置杠杆 <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>,如果你想切换全逐仓，请使用 <a href="#t-marginswitch">全仓/逐仓切换</a></td>
 </tr>
 </tbody></table>
+
+<!--
+|buy_leverage |<b>true</b> |number |<code>杠杆大于0，小于风险限额对应的杠杆</code> |
+|sell_leverage |<b>true</b> |number |<code>杠杆大于0，小于风险限额对应的杠杆</code> |
+-->
 
 <p class="fake_header">返回参数</p>
 
