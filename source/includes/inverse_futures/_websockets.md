@@ -114,6 +114,18 @@ t(:websocket_para_filters1)
 
 t(:websocket_para_filters2)
 
+### t(:websocketunsubfilters)
+> t(:websocket_codequote_unsubfilters)
+
+```javascript
+// Unsubscribing to the trade data for BTCUSDM21
+ws.send('{"op":"unsubscribe","args":["trade.BTCUSDM21"]}')
+```
+
+t(:websocket_para_unsubfilters)
+
+`ws.send('{"op": "unsubscribe", "args": ["topic.filter", "topic.filter"]}');`
+
 ### t(:intervals)
 t(:websocket_para_intervals)
 

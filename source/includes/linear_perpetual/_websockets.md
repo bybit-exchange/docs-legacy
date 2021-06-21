@@ -106,6 +106,17 @@ t(:websocket_para_filters1)
 
 `ws.send('{"op": "subscribe", "args": ["topic.filter", "topic.filter"]}');`
 
+### t(:websocketunsubfilters)
+> t(:websocket_codequote_unsubfilters)
+
+```javascript
+// Unsubscribing to the trade data for ETHUSDT
+ws.send('{"op":"unsubscribe","args":["trade.ETHUSDT"]}')
+```
+
+t(:websocket_para_unsubfilters)
+
+`ws.send('{"op": "unsubscribe", "args": ["topic.filter", "topic.filter"]}');`
 
 ### t(:intervals)
 t(:websocket_para_intervals)
