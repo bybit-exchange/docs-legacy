@@ -6475,6 +6475,7 @@ var rboxStyle = new RegExp( cssExpand.join( "|" ), "i" );
 		// Some styles come back with percentage values, even though they shouldn't
 		div.style.right = "60%";
 		pixelBoxStylesVal = roundPixelMeasures( divStyle.right ) === 36;
+		console.log(pixelBoxStylesVal);
 
 		// Support: IE 9 - 11 only
 		// Detect misreporting of content dimensions for box-sizing:border-box elements
@@ -6517,22 +6518,27 @@ var rboxStyle = new RegExp( cssExpand.join( "|" ), "i" );
 	jQuery.extend( support, {
 		boxSizingReliable: function() {
 			computeStyleTests();
+			console.log('boxSizing');
 			return boxSizingReliableVal;
 		},
 		pixelBoxStyles: function() {
 			computeStyleTests();
+			console.log(pixelBoxStylesVal);
 			return pixelBoxStylesVal;
 		},
 		pixelPosition: function() {
 			computeStyleTests();
+			console.log('pixelPosition');
 			return pixelPositionVal;
 		},
 		reliableMarginLeft: function() {
 			computeStyleTests();
+			console.log('MarginLeft');
 			return reliableMarginLeftVal;
 		},
 		scrollboxSize: function() {
 			computeStyleTests();
+			console.log('scrollboxSize');
 			return scrollboxSizeVal;
 		},
 
