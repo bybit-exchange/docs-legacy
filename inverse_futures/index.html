@@ -681,6 +681,9 @@
                             <a href="#t-websocketfilters" class="toc-h3 toc-link" data-title="Understanding Websocket Filters">Understanding Websocket Filters</a>
                           </li>
                           <li>
+                            <a href="#t-websocketunsubfilters" class="toc-h3 toc-link" data-title="Unsubscribing From Websocket Topics">Unsubscribing From Websocket Topics</a>
+                          </li>
+                          <li>
                             <a href="#t-intervals" class="toc-h3 toc-link" data-title="Intervals">Intervals</a>
                           </li>
                       </ul>
@@ -5046,7 +5049,7 @@ One order may have multiple trade records.
 <td style="text-align: left"><a href="#exec-type-exec_type">exec_type</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Execution type</td>
+<td>Execution type (cannot be <code>Funding</code>)</td>
 </tr>
 <tr>
 <td style="text-align: left">page</td>
@@ -5684,6 +5687,17 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <p><p>It is possible to use multiple filters for the same topic by splitting them with a pipe (<code>|</code>) - of course, these filters must all be applicable to the selected <code>topic</code>.</p>
 <p>Finally, to subscribe to the topic without filters please use the <code>*</code> wildcard.</p>
 </p>
+<h3 id='t-websocketunsubfilters'>Unsubscribing From Websocket Topics</h3>
+<blockquote>
+<p>How to unsubscribe with a filter</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Unsubscribing to the trade data for BTCUSDM21</span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"unsubscribe","args":["trade.BTCUSDM21"]}</span><span class="dl">'</span><span class="p">)</span>
+</code></pre></div>
+<p>You can dynamically subscribe and unsubscribe from topics (with or without filters) without websocket disconnection as follows:
+</p>
+
+<p><code>ws.send(&#39;{&quot;op&quot;: &quot;unsubscribe&quot;, &quot;args&quot;: [&quot;topic.filter&quot;, &quot;topic.filter&quot;]}&#39;);</code></p>
 <h3 id='t-intervals'>Intervals</h3>
 <p>Some topics are pushed at intervals. If the <code>args</code> contain a millisecond param, such as <code>100ms</code>, this topic is pushed at intervals. Otherwise, it is pushed constantly.</p>
 <h2 id='t-websocketresponse'>Understanding Subscription Response</h2>
