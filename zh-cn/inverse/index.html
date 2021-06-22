@@ -937,7 +937,7 @@
                     <a href="#t-announcement" class="toc-h2 toc-link" data-title="公告">公告</a>
                   </li>
                   <li>
-                    <a href="#t-getrisklimit" class="toc-h2 toc-link" data-title="查询风险限额表">查询风险限额表</a>
+                    <a href="#t-getrisklimit" class="toc-h2 toc-link" data-title="查询风险限表">查询风险限表</a>
                   </li>
               </ul>
           </li>
@@ -1334,7 +1334,7 @@ clipboard.on('error', function(e) {
 <h2 id='2021-05-11'>2021-05-11</h2><h3 id='rest-api'>REST API</h3>
 <ul>
 <li><a href="#t-setrisklimit">设置风险限额</a> [新增]</li>
-<li><a href="#t-getrisklimit">查询风险限额表</a> [新增]</li>
+<li><a href="#t-getrisklimit">查询风险限表</a> [新增]</li>
 </ul>
 <h2 id='2021-05-11-2'>2021-05-11</h2><h3 id='rest-api-in-testnet-environment-2'>REST API IN TESTNET ENVIRONMENT</h3>
 <ul>
@@ -1365,7 +1365,7 @@ clipboard.on('error', function(e) {
 </ul>
 <h2 id='2021-03-24'>2021-03-24</h2>
 <ul>
-<li><a href="#t-getrisklimit">查询风险限额表</a> [更新]
+<li><a href="#t-getrisklimit">查询风险限表</a> [更新]
 
 <ul>
 <li>查询风险限额新增返回字段最大杠杆<code>max_leverage</code></li>
@@ -1842,7 +1842,7 @@ clipboard.on('error', function(e) {
 <h2 id='2019-12-27'>2019-12-27</h2><h3 id='rest-api-34'>REST API</h3>
 <ul>
 <li><a href="#t-setrisklimit">设置风险限额</a> [新增]</li>
-<li><a href="#t-getrisklimit">查询风险限额表</a> [新增]</li>
+<li><a href="#t-getrisklimit">查询风险限表</a> [新增]</li>
 </ul>
 <h2 id='2019-12-18'>2019-12-18</h2><h3 id='rest-api-35'>REST API</h3>
 <ul>
@@ -6417,7 +6417,7 @@ GET
 <tr>
 <td style="text-align: left">risk_id</td>
 <td style="text-align: left">number</td>
-<td>风险限额ID</td>
+<td><a href="#t-getrisklimit">风险限额ID</a></td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
@@ -6835,7 +6835,7 @@ GET
 <tr>
 <td style="text-align: left">risk_id</td>
 <td style="text-align: left">number</td>
-<td>风险限额ID</td>
+<td><a href="#t-getrisklimit">风险限额ID</a></td>
 </tr>
 <tr>
 <td style="text-align: left">auto_add_margin</td>
@@ -7496,6 +7496,10 @@ GET
 </code></pre></div>
 <p>单仓模式下，只能在单方向下持仓<br/>双仓模式下，可以同时在两个方向持仓。</p>
 
+<aside class="notice">
+仅在Testnet环境可用
+</aside>
+
 <p class="fake_header">HTTP 请求</p>
 
 <p>POST
@@ -7714,7 +7718,7 @@ GET
 <td style="text-align: left">risk_id</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">integer</td>
-<td>风险限额ID</td>
+<td><a href="#t-getrisklimit">风险限额ID</a></td>
 </tr>
 </tbody></table>
 
@@ -7730,7 +7734,7 @@ GET
 <tr>
 <td style="text-align: left">risk_id</td>
 <td style="text-align: left">number</td>
-<td>风险限额ID</td>
+<td><a href="#t-getrisklimit">风险限额ID</a></td>
 </tr>
 </tbody></table>
 <h2 id='t-funding'>资金费率</h2><h3 id='t-fundingrate'>查询上个周期的资金费率</h3>
@@ -8904,7 +8908,7 @@ GET
 </tr>
 </thead><tbody>
 </tbody></table>
-<h3 id='t-getrisklimit'>查询风险限额表</h3>
+<h3 id='t-getrisklimit'>查询风险限表</h3>
 <blockquote>
 <p>请求示例</p>
 </blockquote>
@@ -9012,7 +9016,7 @@ GET
 <tr>
 <td style="text-align: left">id</td>
 <td style="text-align: left">number</td>
-<td>风险限额ID</td>
+<td><a href="#t-getrisklimit">风险限额ID</a></td>
 </tr>
 <tr>
 <td style="text-align: left">coin</td>
@@ -10324,7 +10328,7 @@ B用户：
 <tr>
 <td style="text-align: left">risk_id</td>
 <td style="text-align: left">number</td>
-<td>风险限额ID</td>
+<td><a href="#t-getrisklimit">风险限额ID</a></td>
 </tr>
 <tr>
 <td style="text-align: left">is_isolated</td>
@@ -12701,7 +12705,7 @@ ELSE
 <tr>
 <td style="text-align: left">id</td>
 <td style="text-align: left">number</td>
-<td>风险限额ID</td>
+<td><a href="#t-getrisklimit">风险限额ID</a></td>
 </tr>
 <tr>
 <td style="text-align: left">coin</td>
@@ -12860,7 +12864,7 @@ ELSE
 <td style="text-align: left">risk_id</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">integer</td>
-<td>风险限额ID</td>
+<td><a href="#t-getrisklimit">风险限额ID</a></td>
 </tr>
 </tbody></table>
 
@@ -12911,7 +12915,7 @@ ELSE
 <tr>
 <td style="text-align: left">risk_id</td>
 <td style="text-align: left">number</td>
-<td>风险限额ID</td>
+<td><a href="#t-getrisklimit">风险限额ID</a></td>
 </tr>
 <tr>
 <td style="text-align: left">auto_add_margin</td>
@@ -13031,7 +13035,7 @@ ELSE
 <tr>
 <td style="text-align: left">risk&gt;id</td>
 <td style="text-align: left">number</td>
-<td>风险限额ID</td>
+<td><a href="#t-getrisklimit">风险限额ID</a></td>
 </tr>
 <tr>
 <td style="text-align: left">risk&gt;coin</td>
