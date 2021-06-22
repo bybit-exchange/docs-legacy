@@ -78,5 +78,5 @@ GET
 
 
 
-### t(:futureswalletparagetrisk)
+### t(:getrisklimit)
 <a href="/docs/inverse#t-getrisklimit">t(:shared_endpoint_desc)</a>
