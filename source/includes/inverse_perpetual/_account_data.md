@@ -1849,7 +1849,7 @@ GET
 |leverage |number |t(:resp_field_leverage)  |
 |created_at |number |t(:row_comment_created_at)  |
 
-### t(:switchpositionmode)
+### t(:inverseswitchpositionmode)
 > t(:codequote_curlExample)
 
 ```console
