@@ -1849,7 +1849,7 @@ GET
 |leverage |number |t(:resp_field_leverage)  |
 |created_at |number |t(:row_comment_created_at)  |
 
-### t(:inverseswitchpositionmode)
+### t(:switchpositionmode)
 > t(:codequote_curlExample)
 
 ```console
@@ -1876,6 +1876,10 @@ curl https://api.bybit.com/v2/private/position/switch-mode \
 ```
 
 t(:account_para_switchpositionmode)
+
+<aside class="notice">
+t(:account_aside_switchpositionmode)
+</aside>
 
 <p class="fake_header">t(:httprequest)</p>
 POST
