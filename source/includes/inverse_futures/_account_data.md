@@ -2001,6 +2001,7 @@ POST
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
 |risk_id |<b>true</b> |integer |t(:row_comment_riskId) |
+|position_idx |<b>false</b>|integer |t(:row_comment_position_idx)  |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
