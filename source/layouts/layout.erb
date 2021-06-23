@@ -115,6 +115,13 @@ under the License.
         padding: 0 20px;
         color: #F0B90B;
       }
+    <style media="screen">
+      <%= Rouge::Themes::MonokaiSublimeSlate.render(:scope => '.highlight') %>
+    <style media="print">
+      * {
+        transition:none!important;
+      }
+      <%= Rouge::Themes::Base16::Solarized.render(:scope => '.highlight') %>
     </style>
     <%= stylesheet_link_tag :screen, media: :screen %>
     <%= stylesheet_link_tag :print, media: :print %>
