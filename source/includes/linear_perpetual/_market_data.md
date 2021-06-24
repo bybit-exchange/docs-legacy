@@ -239,7 +239,6 @@ print(client.LinearKline.LinearKline_markPrice(symbol="BTCUSDT", interval="m", l
         "symbol": "BTCUSDT",
         "period": "1",
         "start_at": 1577836800,
-        "volume": 1451.59,
         "open": 7700,
         "high": 999999,
         "low": 0.5,
@@ -250,7 +249,6 @@ print(client.LinearKline.LinearKline_markPrice(symbol="BTCUSDT", interval="m", l
         "symbol": "BTCUSDT",
         "period": "1",
         "start_at": 1577836800,
-        "volume": 1451.59,
         "open": 7700,
         "high": 999999,
         "low": 0.5,
@@ -281,7 +279,6 @@ GET
 | symbol |string |t(:row_comment_symbol) |
 | period |string |t(:row_comment_period) |
 | start_at |integer |t(:row_comment_startTime) |
-| volume |number |t(:row_comment_resp_volume) |
 | open |integer |t(:row_comment_open) |
 | high |integer |t(:row_comment_high) |
 | low |number |t(:row_comment_low) |
