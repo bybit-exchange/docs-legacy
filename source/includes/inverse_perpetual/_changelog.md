@@ -1,12 +1,14 @@
 # t(:changelog)
 
 ## 2021-06-18
+### REST API
 - [t(:marginswitch)](#t-marginswitch) [t(:changelog_update)]
     - t(:restapi_update_20210617_1)
-    - t(:restapi_update_20210617_2) 
+    - t(:restapi_update_20210617_2)
     - t(:restapi_update_20210617_3)
 
 ## 2021-06-03
+### REST API
 - [t(:switchmode)](#t-switchmode) [t(:changelog_new)]
 - [t(:placecond)](#t-placecond) [t(:changelog_update)]
     - t(:restapi_update_20200826_1)
@@ -32,36 +34,6 @@
     - t(:restapi_update_20200826_3)    
 - [t(:querycond)](#t-querycond) [t(:changelog_update)]
     - t(:restapi_update_20200826_3)
-
-
-## 2021-06-02
-### REST API IN TESTNET ENVIRONMENT
-- [t(:switchmode)](#t-switchmode) [t(:changelog_new)]
-- [t(:placecond)](#t-placecond) [t(:changelog_update)]
-    - t(:restapi_update_20200826_1)
-    - t(:restapi_update_20200826_3)
-- [t(:placeactive)](#t-placeactive) [t(:changelog_update)]
-    - t(:restapi_update_20210527)
-    - t(:restapi_update_20200826_3)
-- [t(:myposition)](#t-myposition) [t(:changelog_update)]
-    - t(:restapi_update_20200826_2)
-- [t(:tradingstop)](#t-tradingstop) [t(:changelog_update)]
-    - t(:restapi_update_20200826_4)
-- [t(:cancelcond)](#t-cancelcond) [t(:changelog_update)]
-    - t(:restapi_update_20200826_5)
-- [t(:replacecond)](#t-replacecond) [t(:changelog_update)]
-    - t(:restapi_update_20200826_6)
-- [t(:replaceactive)](#t-replaceactive) [t(:changelog_update)]
-    - t(:restapi_update_20200826_6)
-- [t(:getactive)](#t-getactive) [t(:changelog_update)]
-    - t(:restapi_update_20200826_3)    
-- [t(:queryactive)](#t-queryactive) [t(:changelog_update)]
-    - t(:restapi_update_20200826_3)    
-- [t(:getcond)](#t-getcond) [t(:changelog_update)]
-    - t(:restapi_update_20200826_3)    
-- [t(:querycond)](#t-querycond) [t(:changelog_update)]
-    - t(:restapi_update_20200826_3)
-
 
 ## 2021-05-11
 ### REST API
@@ -69,7 +41,7 @@
 - [t(:getrisklimit)](#t-getrisklimit) [t(:changelog_new)]
 
 ## 2021-05-11
-### REST API IN TESTNET ENVIRONMENT
+### REST API
 - [t(:setleverage)](#t-setleverage) [t(:changelog_update)]
  - t(:restapi_update_2021050703)
  - t(:restapi_update_2021050704)
