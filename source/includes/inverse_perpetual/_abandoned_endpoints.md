@@ -681,10 +681,10 @@ print(client.Wallet.Wallet_getRiskLimit().result())
 }
 ```
 
-t(:wallet_para_getRisk)
+t(:account_para_getRisk)
 
 <aside class="notice">
-t(:wallet_aside_getRisk)
+t(:account_aside_getRisk)
 </aside>
 
 <p class="fake_header">t(:httprequest)</p>
@@ -792,10 +792,10 @@ print(client.Wallet.Wallet_setRiskLimit(symbol="BTCUSD", risk_id=2).result())
 }
 ```
 
-t(:wallet_para_setRisk)
+t(:account_para_setRisk)
 
 <aside class="notice">
-t(:wallet_aside_getRisk)
+t(:account_aside_getRisk)
 </aside>
 
 <p class="fake_header">t(:httprequest)</p>
