@@ -2032,174 +2032,7 @@ print(client.Wallet.Wallet_getRiskLimit().result())
             "updated_at":"2021-03-17T08:20:53.000Z",
             "max_leverage":100
         },
-        {
-            "id":2,
-            "symbol":"BTCUSD",
-            "limit":2000000,
-            "maintain_margin":0.01,
-            "starting_margin":0.015,
-            "section":[
-                "1",
-                "2",
-                "3",
-                "5",
-                "10",
-                "25",
-                "50",
-                "66"
-            ],
-            "is_lowest_risk":0,
-            "created_at":"2021-03-17T08:21:12.000Z",
-            "updated_at":"2021-03-17T08:21:12.000Z",
-            "max_leverage":66.66
-        },
-        {
-            "id":3,
-            "symbol":"BTCUSD",
-            "limit":3000000,
-            "maintain_margin":0.015,
-            "starting_margin":0.02,
-            "section":[
-                "1",
-                "2",
-                "3",
-                "5",
-                "10",
-                "25",
-                "33",
-                "50"
-            ],
-            "is_lowest_risk":0,
-            "created_at":"2021-03-17T08:21:12.000Z",
-            "updated_at":"2021-03-17T08:21:12.000Z",
-            "max_leverage":50
-        },
-        {
-            "id":4,
-            "symbol":"BTCUSD",
-            "limit":4000000,
-            "maintain_margin":0.02,
-            "starting_margin":0.025,
-            "section":[
-                "1",
-                "2",
-                "3",
-                "5",
-                "10",
-                "25",
-                "33",
-                "40"
-            ],
-            "is_lowest_risk":0,
-            "created_at":"2021-03-17T08:21:12.000Z",
-            "updated_at":"2021-03-17T08:21:12.000Z",
-            "max_leverage":40
-        },
-        {
-            "id":5,
-            "symbol":"BTCUSD",
-            "limit":5000000,
-            "maintain_margin":0.025,
-            "starting_margin":0.03,
-            "section":[
-                "1",
-                "2",
-                "3",
-                "5",
-                "10",
-                "15",
-                "25",
-                "33"
-            ],
-            "is_lowest_risk":0,
-            "created_at":"2021-03-17T08:21:12.000Z",
-            "updated_at":"2021-03-17T08:21:12.000Z",
-            "max_leverage":33.33
-        },
-        {
-            "id":6,
-            "symbol":"BTCUSD",
-            "limit":6000000,
-            "maintain_margin":0.03,
-            "starting_margin":0.035,
-            "section":[
-                "1",
-                "2",
-                "3",
-                "5",
-                "10",
-                "15",
-                "25",
-                "28"
-            ],
-            "is_lowest_risk":0,
-            "created_at":"2021-03-17T08:21:12.000Z",
-            "updated_at":"2021-03-17T08:21:12.000Z",
-            "max_leverage":28.57
-        },
-        {
-            "id":7,
-            "symbol":"BTCUSD",
-            "limit":7000000,
-            "maintain_margin":0.035,
-            "starting_margin":0.04,
-            "section":[
-                "1",
-                "2",
-                "3",
-                "5",
-                "10",
-                "15",
-                "20",
-                "25"
-            ],
-            "is_lowest_risk":0,
-            "created_at":"2021-03-17T08:21:12.000Z",
-            "updated_at":"2021-03-17T08:21:12.000Z",
-            "max_leverage":25
-        },
-        {
-            "id":8,
-            "symbol":"BTCUSD",
-            "limit":8000000,
-            "maintain_margin":0.04,
-            "starting_margin":0.045,
-            "section":[
-                "1",
-                "2",
-                "3",
-                "5",
-                "10",
-                "15",
-                "20",
-                "22"
-            ],
-            "is_lowest_risk":0,
-            "created_at":"2021-03-17T08:21:12.000Z",
-            "updated_at":"2021-03-17T08:21:12.000Z",
-            "max_leverage":22.22
-        },
-        {
-            "id":9,
-            "symbol":"BTCUSD",
-            "limit":9000000,
-            "maintain_margin":0.045,
-            "starting_margin":0.05,
-            "section":[
-                "1",
-                "2",
-                "3",
-                "4",
-                "5",
-                "10",
-                "15",
-                "20"
-            ],
-            "is_lowest_risk":0,
-            "created_at":"2021-03-17T08:21:12.000Z",
-            "updated_at":"2021-03-17T08:21:12.000Z",
-            "max_leverage":20
-        },
+        ...
         {
             "id":10,
             "symbol":"BTCUSD",
@@ -2226,10 +2059,10 @@ print(client.Wallet.Wallet_getRiskLimit().result())
 }
 ```
 
-t(:wallet_para_getRisk)
+t(:account_para_getRisk)
 
 <aside class="notice">
-t(:wallet_aside_getRisk)
+t(:account_aside_getRisk)
 </aside>
 
 <p class="fake_header">t(:httprequest)</p>
@@ -2281,7 +2114,7 @@ curl https://api.bybit.com/v2/private/position/risk-limit \
 ```
 
 <aside class="notice">
-t(:wallet_aside_getRisk)
+t(:account_aside_getRisk)
 </aside>
 
 <p class="fake_header">t(:httprequest)</p>

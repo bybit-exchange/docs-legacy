@@ -75,8 +75,3 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-
-
-
-### t(:getrisklimit)
-<a href="/docs/inverse#t-getrisklimit">t(:shared_endpoint_desc)</a>
