@@ -2219,7 +2219,6 @@ function copyStringToClipboard (endpoint) {
         <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">period</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">start_at</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1577836800</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">volume</span><span class="dl">"</span><span class="p">:</span> <span class="mf">1451.59</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">open</span><span class="dl">"</span><span class="p">:</span> <span class="mi">7700</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">high</span><span class="dl">"</span><span class="p">:</span> <span class="mi">999999</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">low</span><span class="dl">"</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
@@ -2230,7 +2229,6 @@ function copyStringToClipboard (endpoint) {
         <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">period</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">start_at</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1577836800</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">volume</span><span class="dl">"</span><span class="p">:</span> <span class="mf">1451.59</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">open</span><span class="dl">"</span><span class="p">:</span> <span class="mi">7700</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">high</span><span class="dl">"</span><span class="p">:</span> <span class="mi">999999</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">low</span><span class="dl">"</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
@@ -2306,11 +2304,6 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">start_at</td>
 <td style="text-align: left">integer</td>
 <td>开始时间戳（秒）</td>
-</tr>
-<tr>
-<td style="text-align: left">volume</td>
-<td style="text-align: left">number</td>
-<td>交易量</td>
 </tr>
 <tr>
 <td style="text-align: left">open</td>
@@ -6182,7 +6175,7 @@ GET
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/public/linear/risk-limit?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">LinearPositions</span><span class="p">.</span><span class="n">LinearPositions_getRiskLimit</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">LinearWallet</span><span class="p">.</span><span class="n">LinearWallet_getRiskLimit</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
 </code></pre></div>
 <blockquote>
 <p>响应示例</p>
@@ -6214,174 +6207,7 @@ GET
             <span class="dl">"</span><span class="s2">updated_at</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2021-03-17T08:20:53.000Z</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">max_leverage</span><span class="dl">"</span><span class="p">:</span><span class="mi">100</span>
         <span class="p">},</span>
-        <span class="p">{</span>
-            <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">limit</span><span class="dl">"</span><span class="p">:</span><span class="mi">2000000</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">maintain_margin</span><span class="dl">"</span><span class="p">:</span><span class="mf">0.01</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">starting_margin</span><span class="dl">"</span><span class="p">:</span><span class="mf">0.015</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">section</span><span class="dl">"</span><span class="p">:[</span>
-                <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">2</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">3</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">5</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">10</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">25</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">50</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">66</span><span class="dl">"</span>
-            <span class="p">],</span>
-            <span class="dl">"</span><span class="s2">is_lowest_risk</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">created_at</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2021-03-17T08:21:12.000Z</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">updated_at</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2021-03-17T08:21:12.000Z</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">max_leverage</span><span class="dl">"</span><span class="p">:</span><span class="mf">66.66</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-            <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">limit</span><span class="dl">"</span><span class="p">:</span><span class="mi">3000000</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">maintain_margin</span><span class="dl">"</span><span class="p">:</span><span class="mf">0.015</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">starting_margin</span><span class="dl">"</span><span class="p">:</span><span class="mf">0.02</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">section</span><span class="dl">"</span><span class="p">:[</span>
-                <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">2</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">3</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">5</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">10</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">25</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">33</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">50</span><span class="dl">"</span>
-            <span class="p">],</span>
-            <span class="dl">"</span><span class="s2">is_lowest_risk</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">created_at</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2021-03-17T08:21:12.000Z</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">updated_at</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2021-03-17T08:21:12.000Z</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">max_leverage</span><span class="dl">"</span><span class="p">:</span><span class="mi">50</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-            <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">limit</span><span class="dl">"</span><span class="p">:</span><span class="mi">4000000</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">maintain_margin</span><span class="dl">"</span><span class="p">:</span><span class="mf">0.02</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">starting_margin</span><span class="dl">"</span><span class="p">:</span><span class="mf">0.025</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">section</span><span class="dl">"</span><span class="p">:[</span>
-                <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">2</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">3</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">5</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">10</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">25</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">33</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">40</span><span class="dl">"</span>
-            <span class="p">],</span>
-            <span class="dl">"</span><span class="s2">is_lowest_risk</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">created_at</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2021-03-17T08:21:12.000Z</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">updated_at</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2021-03-17T08:21:12.000Z</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">max_leverage</span><span class="dl">"</span><span class="p">:</span><span class="mi">40</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-            <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">limit</span><span class="dl">"</span><span class="p">:</span><span class="mi">5000000</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">maintain_margin</span><span class="dl">"</span><span class="p">:</span><span class="mf">0.025</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">starting_margin</span><span class="dl">"</span><span class="p">:</span><span class="mf">0.03</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">section</span><span class="dl">"</span><span class="p">:[</span>
-                <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">2</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">3</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">5</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">10</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">15</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">25</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">33</span><span class="dl">"</span>
-            <span class="p">],</span>
-            <span class="dl">"</span><span class="s2">is_lowest_risk</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">created_at</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2021-03-17T08:21:12.000Z</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">updated_at</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2021-03-17T08:21:12.000Z</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">max_leverage</span><span class="dl">"</span><span class="p">:</span><span class="mf">33.33</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-            <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">limit</span><span class="dl">"</span><span class="p">:</span><span class="mi">6000000</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">maintain_margin</span><span class="dl">"</span><span class="p">:</span><span class="mf">0.03</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">starting_margin</span><span class="dl">"</span><span class="p">:</span><span class="mf">0.035</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">section</span><span class="dl">"</span><span class="p">:[</span>
-                <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">2</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">3</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">5</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">10</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">15</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">25</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">28</span><span class="dl">"</span>
-            <span class="p">],</span>
-            <span class="dl">"</span><span class="s2">is_lowest_risk</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">created_at</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2021-03-17T08:21:12.000Z</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">updated_at</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2021-03-17T08:21:12.000Z</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">max_leverage</span><span class="dl">"</span><span class="p">:</span><span class="mf">28.57</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-            <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">limit</span><span class="dl">"</span><span class="p">:</span><span class="mi">7000000</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">maintain_margin</span><span class="dl">"</span><span class="p">:</span><span class="mf">0.035</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">starting_margin</span><span class="dl">"</span><span class="p">:</span><span class="mf">0.04</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">section</span><span class="dl">"</span><span class="p">:[</span>
-                <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">2</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">3</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">5</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">10</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">15</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">20</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">25</span><span class="dl">"</span>
-            <span class="p">],</span>
-            <span class="dl">"</span><span class="s2">is_lowest_risk</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">created_at</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2021-03-17T08:21:12.000Z</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">updated_at</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2021-03-17T08:21:12.000Z</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">max_leverage</span><span class="dl">"</span><span class="p">:</span><span class="mi">25</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-            <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">limit</span><span class="dl">"</span><span class="p">:</span><span class="mi">8000000</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">maintain_margin</span><span class="dl">"</span><span class="p">:</span><span class="mf">0.04</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">starting_margin</span><span class="dl">"</span><span class="p">:</span><span class="mf">0.045</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">section</span><span class="dl">"</span><span class="p">:[</span>
-                <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">2</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">3</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">5</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">10</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">15</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">20</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">22</span><span class="dl">"</span>
-            <span class="p">],</span>
-            <span class="dl">"</span><span class="s2">is_lowest_risk</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">created_at</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2021-03-17T08:21:12.000Z</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">updated_at</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2021-03-17T08:21:12.000Z</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">max_leverage</span><span class="dl">"</span><span class="p">:</span><span class="mf">22.22</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-            <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">limit</span><span class="dl">"</span><span class="p">:</span><span class="mi">9000000</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">maintain_margin</span><span class="dl">"</span><span class="p">:</span><span class="mf">0.045</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">starting_margin</span><span class="dl">"</span><span class="p">:</span><span class="mf">0.05</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">section</span><span class="dl">"</span><span class="p">:[</span>
-                <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">2</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">3</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">4</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">5</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">10</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">15</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">20</span><span class="dl">"</span>
-            <span class="p">],</span>
-            <span class="dl">"</span><span class="s2">is_lowest_risk</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">created_at</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2021-03-17T08:21:12.000Z</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">updated_at</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2021-03-17T08:21:12.000Z</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">max_leverage</span><span class="dl">"</span><span class="p">:</span><span class="mi">20</span>
-        <span class="p">},</span>
+        <span class="p">...</span>
         <span class="p">{</span>
             <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
