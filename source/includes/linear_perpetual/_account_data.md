@@ -1319,6 +1319,9 @@ GET
 |deleverage_indicator |number |t(:row_comment_deleverage_indicator)  |
 |unrealised_pnl |number |t(:row_comment_unrealised_pnl)  |
 |risk_id  |integer |t(:row_comment_riskId) |
+|take_profit |string |t(:row_comment_take_profit)  |
+|stop_loss |string |t(:row_comment_stop_loss)  |
+|trailing_stop |string |t(:row_comment_trailing_stop)  |
 
 
 ### t(:setautoaddmargin)
