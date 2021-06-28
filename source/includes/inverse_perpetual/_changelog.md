@@ -1,5 +1,9 @@
 # t(:changelog)
 
+## 2021-06-28
+- [t(:querysymbol)](#t-querysymbol) [t(:changelog_update)]
+   - t(:restapi_update_20210628_1)
+
 ## 2021-06-18
 - [t(:marginswitch)](#t-marginswitch) [t(:changelog_update)]
     - t(:restapi_update_20210617_1)
