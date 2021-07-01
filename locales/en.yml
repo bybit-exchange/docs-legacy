@@ -1945,7 +1945,7 @@ en:
 
   spotSymbol: Name of the trading pair
   spotId: Trade ID
-  spotQty: Order quantity (<b>refer to quote currency when it's market buy</b>)
+  spotQty: Order quantity (<b>when <code>side</code> is <code>Buy</code>, this is in the quote currency. Otherwise, qty is in the base currency. For example, on BTCUSDT a <code>Buy</code> order is in USDT, otherwise it's in BTC.</b>)
   spotCommission: Trading fee
   spotCommissionAsset: Asset type in which the fee is paid
   spotIsBuyer: True indicates buyer, false indicates seller
