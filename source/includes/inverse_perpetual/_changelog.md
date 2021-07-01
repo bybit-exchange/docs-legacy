@@ -1,5 +1,10 @@
 # t(:changelog)
 
+## 2021-07-01
+### REST API
+- [t(:setleverage)](#t-setleverage) [t(:changelog_update)]
+   - t(:restapi_update_20210701)
+
 ## 2021-06-28
 ### REST API
 - [t(:querysymbol)](#t-querysymbol) [t(:changelog_update)]
