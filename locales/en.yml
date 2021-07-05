@@ -85,7 +85,7 @@ en:
   row_comment_starting_margin: Starting margin
   row_comment_section: Section
   row_comment_is_lowest_risk: |
-    Is lowest risk. 0: Yes; 1: No
+    Is lowest risk. <code>0</code>: No; <code>1</code>: Yes
   row_comment_funding_rate: Funding rate
   row_comment_funding_rate_timestamp: Funding rate timestamp
   row_comment_funding_side: Your position side at the time of settlement
@@ -161,7 +161,7 @@ en:
   row_comemnt_pRTriggerPrice: New conditional order's trigger price or TP/SL order price, also known as stop_px. Do not pass this field if you don't want modify it
   row_comemnt_replace_take_profit: New take_profit price, also known as stop_px. Do not pass this field if you don't want modify it
   row_comemnt_replace_stop_loss: New stop_loss price, also known as stop_px. Do not pass this field if you don't want modify it
-  row_comment_leverage_old: Not Recommand!! Recommand to use buy_leverage and sell_leverage!! Leverage. <code>0</code> means Cross Margin mode - any other value means Isolated Margin mode
+  row_comment_leverage_old: Must be greater than 0 and less than the <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>. If you need to switch to cross margin please see the <a href="#t-marginswitch">Cross/Isolated Margin Switch</a> endpoint
   row_comment_startDate: Start point for result
   row_comment_endDate: End point for result
   row_comment_currency: Currency type
@@ -173,7 +173,7 @@ en:
   row_comment_endTime: End timestamp point for result, in seconds
   row_comment_startTime_ms: Start timestamp point for result, in milliseconds
   row_comment_endTime_ms: End timestamp point for result, in milliseconds
-  row_comment_riskId: Risk ID
+  row_comment_riskId: <a href="#t-getrisklimit">Risk ID</a>
   row_comment_closed_size: The corresponding closing size of the closing order
   row_comment_rate_limit: Limit
   row_comment_path: Path
@@ -518,6 +518,13 @@ en:
     <p>We also provide <code>recv_window</code> (unit in millsecond and defualt value is 5,000) to specify how long an HTTP request is valid. It is also used to prevent replay attacks.</p>
     <p>A smaller <code>recv_window</code> is more secure, but your request may fail if the transmission time is greater than your <code>recv_window</code>.</p>
     <p>Please make sure that your <code>timestamp</code> is in sync with our server time. You can use the <a href=#t-servertime>Server Time</a> endpoint.</p>
+  spot_auth_aside_timestamp: |
+    Please make sure that the timestamp parameter adheres to the following rule: serverTime - recvWindow <= timestamp < serverTime + 1000; serverTime stands for Bybit server time, which can be queried via the <a href="#t-servertime">Server Time</a> endpoint.
+
+  spot_auth_para_recv: |
+    <p>We also provide <code>recvWindow</code> (unit in millsecond and defualt value is 5,000) to specify how long an HTTP request is valid. It is also used to prevent replay attacks.</p>
+    <p>A smaller <code>recvWindow</code> is more secure, but your request may fail if the transmission time is greater than your <code>recvWindow</code>.</p>
+    <p>Please make sure that your <code>timestamp</code> is in sync with our server time. You can use the <a href=#t-servertime>Server Time</a> endpoint.</p>
   ## Constructing the Request
   constructingtherequest: Create A Request
   auth_codequote_construct1a:
@@ -542,6 +549,10 @@ en:
   # Market Data Endpoints
   marketdata: Market Data Endpoints
   market_para_auth: The following market data endpoints do not require authentication.
+  ### Symbols
+  spotGetSymbols: Get Symbols
+
+
   ### Orderbook
   orderbook: Order book
   market_para_orderbook: Get the orderbook.
@@ -714,7 +725,7 @@ en:
   ### Set Leverage
   # see setleverage
   setleverage: Set Leverage
-  account_aside_setleverage: Set <code>leverage</code> to <code>0</code> if you want to trade in <a href="https://help.bybit.com/hc/en-us/articles/360037683633-What-is-Cross-Margin">Cross Margin mode</a>. Note that your position mode will be changed to Isolated Margin mode if you change your leverage from 0 to any other value.
+  account_aside_setleverage: This endpoint only concerns isolated margin. If you want to use cross margin, please use the <a href="#t-marginswitch">Cross/Isolated Margin Switch</a> endpoint.
 
   ## Position
   position: Position
@@ -793,11 +804,11 @@ en:
   wallet_row_comment_orderId: OrderID. If not provided, will return user's trading records
   ## Get Risk Limit
   getrisklimit: Get Risk Limit
-  wallet_para_getRisk: Get risk limit.
-  wallet_aside_getRisk: Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles/360007107454-Risk-Limit-Overview">here</a>.
+  account_para_getRisk: Get risk limit. <b>This endpoint does not require authentication.</b>
+  account_aside_getRisk: Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles/360007107454-Risk-Limit-Overview">here</a>.
   ## Set Risk Limit
   setrisklimit: Set Risk Limit
-  wallet_para_setRisk: Set risk limit.
+  account_para_setRisk: Set risk limit.
 
   # API Data Endpoints
   api: API Data Endpoints
@@ -1515,6 +1526,12 @@ en:
     <li><code>SUSHIUSDT</code> - Maximum quantity of 10000 for opening; Maximum quantity of 10000 for closing</li>
     <li><code>AAVEUSDT</code> - Maximum quantity of 500 for opening; Maximum quantity of 500 for closing</li>
     <li><code>DOGEUSDT</code> - Maximum quantity of 200000 for opening; Maximum quantity of 200000 for closing</li>
+    <li><code>MATICUSDT</code> - Maximum quantity of 70000 for opening; Maximum quantity of 70000 for closing</li>
+    <li><code>EOSUSDT</code> - Maximum quantity of 50000 for opening; Maximum quantity of 50000 for closing</li>
+    <li><code>ETCUSDT</code> - Maximum quantity of 2000 for opening; Maximum quantity of 2000 for closing</li>
+    <li><code>BNBUSDT</code> - Maximum quantity of 1500 for opening; Maximum quantity of 1500 for closing</li>
+    <li><code>FILUSDT</code> - Maximum quantity of 2000 for opening; Maximum quantity of 2000 for closing</li>
+    <li><code>SOLUSDT</code> - Maximum quantity of 3000 for opening; Maximum quantity of 3000 for closing</li>
     <ul>
     </ul>
     </li>
@@ -1686,14 +1703,17 @@ en:
   linear_account_para_addMargin: Add Margin
   linear_account_row_comment_margin: Add/Remove how much margin<span>:</span> Increase 10; decrease -10, supports 4 decimal places
 
+  ## inverse Perpetual
+  account_aside_switchpositionmode: This endpoint is only available in the testnet environment
+
   ### inverse future
   switchpositionmode: Position Mode Switch
   account_para_switchpositionmode: |
     If you are in One-Way Mode, you can only open one position on <code>Buy</code> or <code>Sell</code> side;<br/> If you are in Hedge Mode, you can open both <code>Buy</code> and <code>Sell</code> side positions simultaneously.
   row_comment_positionmode: |
     Position Mode. <code>0</code><span>:</span> One-Way Mode; <code>3</code><span>:</span> Hedge Mode
-  future_row_comment_leverage: Must be greater than 0 and less than the <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>.
-
+  futures_row_comment_leverage: Must be greater than 0 and less than the <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>.
+  inverse_row_comment_leverage: Switch Cross/Isolated; must set leverage value when switching from Cross to Isolated and the value of <code>buy_leverage</code> must be equal to <code>sell_leverage</code>. <b>Parameter not required when switch from isolated margin to cross margin.</b>
   futures_account_para_switchIsolated: Switch Cross/Isolated; must set leverage value when switching from Cross to Isolated
   futures_row_comment_switch_isolated: Cross/Isolated<span>:</span> true is Isolated; false is Cross
 
@@ -1856,7 +1876,10 @@ en:
   restapi_update_20210430: Testnet Add new USDT perpetual symbols<span>:</span> <a href="#symbol-symbol">XRPUSDT、XEMUSDT、SUSHIUSDT、AAVEUSDT</a>
   restapi_update_20210513: Add new USDT perpetual symbols<span>:</span> <a href="#symbol-symbol">XRPUSDT、XEMUSDT、SUSHIUSDT、AAVEUSDT</a>
   restapi_update_20210602: Add new USDT perpetual symbol<span>:</span> <a href="#symbol-symbol">DOGEUSDT</a>
+  restapi_update_20210629: Add new USDT perpetual symbols<span>:</span> <a href="#symbol-symbol">MATICUSDT、EOSUSDT、ETCUSDT、BNBUSDT、FILUSDT、SOLUSDT</a>
   restapi_update_20210527: Add new request parameters <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
+  restapi_update_20210628: Add fields of <code>take_profit</code>, <code>stop_loss</code>, <code>trailing_stop</code> in response
+  restapi_update_20210628_1: Fix values of <code>min_price</code> and <code>tick_size</code> for symbols <code>BCHUSDT</code> and <code>UNIUSDT</code>
 
   ws_update_20210202_0: Add fields <code>reduce_only</code>,<code>close_on_trigger</code>
   ws_update_20210202_1: Add field <code>close_on_trigger</code>
@@ -1888,6 +1911,11 @@ en:
   restapi_update_20210517: Add：<code>futures/private/position/risk-limit</code>
   restapi_update_20210520: ETH Inverse Futures released
   restapi_update_20210527: New add spot open-api document
+  restapi_update_20210617: New add get symbols API. Parameter name for order_link_id updated to orderLinkId
+  restapi_update_20210617_1: <code>is_isolated</code> illustrates if position is Isolated Margin or Cross Margin
+  restapi_update_20210617_2: Deprecate to use <code>auto_add_margin</code> to determine if position is Isolated Margin or Cross Margin
+  restapi_update_20210617_3: Not recommend to use <a href="#t-setleverage">Set Leverage</a> endpoint switch Isolated Margin or Cross Margin
+  restapi_update_20210618_1: After June 24, 2021 do not use <code>leverage</code> to determine if position is Isolated Margin or Cross Margin. <code>leverage</code> must be greater than 0 and less than the <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>.
 
   markpricekline: Query Mark Price Kline
   linear_query_mark_price_kline: Query mark price kline (like <a href="#t-querykline">Query Kline</a> but for <a href="https://help.bybit.com/hc/en-us/articles/360039261074-What-is-Dual-Price-mechanism-">mark price</a>).
@@ -1942,10 +1970,20 @@ en:
   spotOrderCreate: Create Spot Order
   spotAccountId: Account ID
   spotOrderLinkId: User-generated order ID
+  spot_Alias: Alias
+  spotBaseCurrency: Base currency
+  spotQuoteCurrency: Quote currency
+  spotBasePrecision: Decimal precision (base currency)
+  spotQuotePrecision: Decimal precision (quote currency)
+  spotMinTradeQuantity: Min. order qty
+  spotMinTradeAmount: Min. order value
+  spotMinPricePrecision: Min. number of decimal places
+  spotCategory:  Category
 
   spotSymbol: Name of the trading pair
   spotId: Trade ID
-  spotQty: Order quantity (<b>for market orders: when <code>side</code> is <code>Buy</code>, this is in the quote currency. Otherwise, qty is in the base currency. For example, on BTCUSDT a <code>Buy</code> order is in USDT, otherwise it's in BTC.</b> For limit orders, the qty is always in the base currency.)
+  spotQty: |
+    Order quantity (<b>for market orders: when <code>side</code> is <code>Buy</code>, this is in the quote currency. Otherwise, qty is in the base currency. For example, on BTCUSDT a <code>Buy</code> order is in USDT, otherwise it's in BTC.</b> For limit orders, the qty is always in the base currency.)
   spotCommission: Trading fee
   spotCommissionAsset: Asset type in which the fee is paid
   spotIsBuyer: True indicates buyer, false indicates seller
