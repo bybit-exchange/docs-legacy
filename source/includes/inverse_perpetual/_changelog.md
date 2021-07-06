@@ -1,9 +1,12 @@
 # t(:changelog)
 
-## 2021-07-01
-### REST API
+## 2021-07-08
+### REST API IN TESTNET ENVIRONMENT
 - [t(:setleverage)](#t-setleverage) [t(:changelog_update)]
    - t(:restapi_update_20210701)
+ - [t(:marginswitch)](#t-marginswitch) [t(:changelog_update)]
+   - t(:restapi_update_20210701)
+   
 
 ## 2021-06-28
 ### REST API
