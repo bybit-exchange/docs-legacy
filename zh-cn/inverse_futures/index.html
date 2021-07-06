@@ -856,7 +856,7 @@
                     <a href="#t-risklimit" class="toc-h2 toc-link" data-title="风险限额">风险限额</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#t-getrisklimit" class="toc-h3 toc-link" data-title="查询风险限表">查询风险限表</a>
+                            <a href="#t-getrisklimit" class="toc-h3 toc-link" data-title="查询风险限额表">查询风险限额表</a>
                           </li>
                           <li>
                             <a href="#t-setrisklimit" class="toc-h3 toc-link" data-title="设置风险限额">设置风险限额</a>
@@ -1134,7 +1134,7 @@ clipboard.on('error', function(e) {
 <li><a href="#t-placeactive">创建活动委托单</a> [更新]
 
 <ul>
-<li>新增现货open-api文档</li>
+<li>请求参数增加 <code>tp_trigger_by</code>, <code>sl_trigger_by</code></li>
 <li>返回参数增加 <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code></li>
 </ul></li>
 <li><a href="#t-myposition">获取持仓（实时）</a> [更新]
@@ -1195,7 +1195,7 @@ clipboard.on('error', function(e) {
 <li><a href="#t-placeactive">创建活动委托单</a> [更新]
 
 <ul>
-<li>新增现货open-api文档</li>
+<li>请求参数增加 <code>tp_trigger_by</code>, <code>sl_trigger_by</code></li>
 <li>返回参数增加 <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code></li>
 </ul></li>
 <li><a href="#t-myposition">获取持仓（实时）</a> [更新]
@@ -4725,13 +4725,13 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">buy_leverage</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">number</td>
-<td>translation missing: zh-cn.future_row_comment_leverage</td>
+<td><code>杠杆大于0，小于风险限额对应的杠杆</code></td>
 </tr>
 <tr>
 <td style="text-align: left">sell_leverage</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">number</td>
-<td>translation missing: zh-cn.future_row_comment_leverage</td>
+<td><code>杠杆大于0，小于风险限额对应的杠杆</code></td>
 </tr>
 </tbody></table>
 
@@ -5377,7 +5377,7 @@ function copyStringToClipboard (endpoint) {
 <td>创建时间</td>
 </tr>
 </tbody></table>
-<h2 id='t-risklimit'>风险限额</h2><h3 id='t-getrisklimit'>查询风险限表</h3>
+<h2 id='t-risklimit'>风险限额</h2><h3 id='t-getrisklimit'>查询风险限额表</h3>
 <p><a href="/docs/inverse#t-getrisklimit">请点击查看接口描述。</a></p>
 <h3 id='t-setrisklimit'>设置风险限额</h3>
 <blockquote>

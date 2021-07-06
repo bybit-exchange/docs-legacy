@@ -1170,7 +1170,7 @@
                     <a href="#t-risklimit" class="toc-h2 toc-link" data-title="风险限额">风险限额</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#t-getrisklimit" class="toc-h3 toc-link" data-title="查询风险限表">查询风险限表</a>
+                            <a href="#t-getrisklimit" class="toc-h3 toc-link" data-title="查询风险限额表">查询风险限额表</a>
                           </li>
                           <li>
                             <a href="#t-setrisklimit" class="toc-h3 toc-link" data-title="设置风险限额">设置风险限额</a>
@@ -1515,7 +1515,7 @@ clipboard.on('error', function(e) {
 <li><a href="#t-placeactive">创建活动委托单</a> [更新]
 
 <ul>
-<li>新增现货open-api文档</li>
+<li>请求参数增加 <code>tp_trigger_by</code>, <code>sl_trigger_by</code></li>
 <li>返回参数增加 <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code></li>
 </ul></li>
 <li><a href="#t-myposition">获取持仓（实时）</a> [更新]
@@ -1576,7 +1576,7 @@ clipboard.on('error', function(e) {
 <li><a href="#t-placeactive">创建活动委托单</a> [更新]
 
 <ul>
-<li>新增现货open-api文档</li>
+<li>请求参数增加 <code>tp_trigger_by</code>, <code>sl_trigger_by</code></li>
 <li>返回参数增加 <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code></li>
 </ul></li>
 <li><a href="#t-myposition">获取持仓（实时）</a> [更新]
@@ -1628,7 +1628,7 @@ clipboard.on('error', function(e) {
 <h2 id='2021-05-11'>2021-05-11</h2><h3 id='rest-api-2'>REST API</h3>
 <ul>
 <li><a href="#t-setrisklimit">设置风险限额</a> [新增]</li>
-<li><a href="#t-getrisklimit">查询风险限表</a> [新增]</li>
+<li><a href="#t-getrisklimit">查询风险限额表</a> [新增]</li>
 </ul>
 <h2 id='2021-05-11-2'>2021-05-11</h2><h3 id='rest-api-in-testnet-environment-2'>REST API IN TESTNET ENVIRONMENT</h3>
 <ul>
@@ -1659,7 +1659,7 @@ clipboard.on('error', function(e) {
 </ul>
 <h2 id='2021-03-24'>2021-03-24</h2>
 <ul>
-<li><a href="#t-getrisklimit">查询风险限表</a> [更新]
+<li><a href="#t-getrisklimit">查询风险限额表</a> [更新]
 
 <ul>
 <li>查询风险限额新增返回字段最大杠杆<code>max_leverage</code></li>
@@ -2136,7 +2136,7 @@ clipboard.on('error', function(e) {
 <h2 id='2019-12-27'>2019-12-27</h2><h3 id='rest-api-35'>REST API</h3>
 <ul>
 <li><a href="#t-setrisklimit">设置风险限额</a> [新增]</li>
-<li><a href="#t-getrisklimit">查询风险限表</a> [新增]</li>
+<li><a href="#t-getrisklimit">查询风险限额表</a> [新增]</li>
 </ul>
 <h2 id='2019-12-18'>2019-12-18</h2><h3 id='rest-api-36'>REST API</h3>
 <ul>
@@ -7959,7 +7959,7 @@ GET
 <td>全仓/逐仓切换，从全仓切换至逐仓时需要传杠杆并且<code>buy_leverage</code>和<code>sell_leverage</code>必须传入相同参数；<b>目前逐仓切全仓设置杠杆无效</b>。</td>
 </tr>
 </tbody></table>
-<h2 id='t-risklimit'>风险限额</h2><h3 id='t-getrisklimit'>查询风险限表</h3>
+<h2 id='t-risklimit'>风险限额</h2><h3 id='t-getrisklimit'>查询风险限额表</h3>
 <blockquote>
 <p>请求示例</p>
 </blockquote>
