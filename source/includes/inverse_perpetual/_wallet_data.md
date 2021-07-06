@@ -170,8 +170,8 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|start_date |false |string |t(:row_comment_startDate) |
-|end_date |false |string |t(:row_comment_endDate) |
+|<a href="#date-start_date-end_date">start_date</a> |false |string |t(:row_comment_startDate) |
+|<a href="#date-start_date-end_date">end_date</a> |false |string |t(:row_comment_endDate) |
 |<a href="#currency-currency-coin">currency</a> |false |string |t(:row_comment_currency) |
 |<a href="#currency-currency-coin">coin</a> |false |string |t(:row_comment_coin) |
 |<a href="#wallet-fund-type-wallet_fund_type">wallet_fund_type</a> |false |string |t(:row_comment_walletFundType) |
@@ -251,8 +251,8 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|start_date |false |string |t(:row_comment_startDate) |
-|end_date |false |string |t(:row_comment_endDate) |
+|<a href="#date-start_date-end_date">start_date</a> |false |string |t(:row_comment_startDate) |
+|<a href="#date-start_date-end_date">end_date</a> |false |string |t(:row_comment_endDate) |
 |<a href="#currency-currency-coin">coin</a> |false |string |t(:row_comment_currency) |
 |<a href="#withdraw-status-status">status</a> |false |string |t(:enum_withdraw_status_link) |
 |page |false |integer |t(:row_comment_page) |

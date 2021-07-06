@@ -157,3 +157,6 @@ t(:tp_sl_mode)
 * `D` t(:interval_D)
 * `W` t(:interval_W)
 * `M` t(:interval_M)
+
+## Date (`start_date`/`end_date`)
+t(:date)
