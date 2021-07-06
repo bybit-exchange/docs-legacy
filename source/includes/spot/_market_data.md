@@ -294,7 +294,7 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |symbol|true|string|t(:spotSymbol)|
-| interval | true | string | t(:spot_kline_interval)|
+| <a href="#kline-interval-interval">interval</a> | true | string | t(:spot_kline_interval)|
 | limit | false | integer | t(:spot_trades_limit) |
 | startTime | false | number | t(:spot_orders_start_time) |
 | endTime | false | number | t(:spot_orders_end_time) |
@@ -312,7 +312,7 @@ GET
 |volume| float | t(:spotVolume) |
 |endTime| float | t(:spot_orders_end_time) |
 |trades| integer | t(:spotTrades) |
-|takerBaseVolume| float | t(:spotTakerBaseVolume) | 
+|takerBaseVolume| float | t(:spotTakerBaseVolume) |
 |takerQuoteVolume| float | t(:spotTakerQuoteVolume) |
 
 ### t(:spotTicker)

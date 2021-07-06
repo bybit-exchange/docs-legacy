@@ -18,7 +18,7 @@ t(:ENUMs_para)
 * `MARKET`
 * `LIMIT_MAKER`
 
-t(:trading_symbol_comment) 
+t(:trading_symbol_comment)
 
 ## Currency (`currency`/`coin`)
 * `BTC`
@@ -47,3 +47,18 @@ t(:price)
 * `ImmediateOrCancel` t(:immediateOrCancel)
 * `FillOrKill` t(:fillOrKill)
 * `PostOnly` t(:postOnly)
+
+## Kline interval (`interval`)
+* `1m` t(:interval_1)
+* `3m` t(:interval_3)
+* `5m` t(:interval_5)
+* `15m` t(:interval_15)
+* `30m` t(:interval_30)
+* `1h` t(:interval_60)
+* `2h` t(:interval_120)
+* `4h` t(:interval_240)
+* `6h` t(:interval_360)
+* `12h` t(:interval_720)
+* `d` t(:interval_D)
+* `w` t(:interval_W)
+* `m` t(:interval_M)

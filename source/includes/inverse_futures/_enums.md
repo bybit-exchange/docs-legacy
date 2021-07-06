@@ -11,7 +11,7 @@ t(:ENUMs_para)
 * `BTCUSDU21`  // U: t(:third_quarter);     21: 2021
 * `BTCUSDZ21`  // Z: t(:fourth_quarter);    21: 2021
 
-t(:trading_symbol_comment) 
+t(:trading_symbol_comment)
 
 ## Currency (`currency`/`coin`)
 * `BTC`
@@ -142,4 +142,19 @@ t(:tick_direction)
 t(:tp_sl_mode)
 
 * `Full` t(:Full)
-* `Partial` t(:Partial) 
+* `Partial` t(:Partial)
+
+## Kline interval (`interval`)
+* `1` t(:interval_1)
+* `3` t(:interval_3)
+* `5` t(:interval_5)
+* `15` t(:interval_15)
+* `30` t(:interval_30)
+* `60` t(:interval_60)
+* `120` t(:interval_120)
+* `240` t(:interval_240)
+* `360` t(:interval_360)
+* `720` t(:interval_720)
+* `D` t(:interval_D)
+* `W` t(:interval_W)
+* `M` t(:interval_M)

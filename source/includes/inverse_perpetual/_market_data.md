@@ -122,7 +122,7 @@ GET
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
-|interval |<b>true</b> |string |t(:row_comment_interval) |
+|<a href="#kline-interval-interval">interval</a> |<b>true</b> |string |t(:row_comment_interval) |
 |from |<b>true</b> |integer |t(:row_comment_from_timestamp) |
 |limit |false |integer |t(:row_comment_limit_200) |
 
@@ -596,7 +596,7 @@ GET
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |<b>true</b> |string |t(:row_comment_symbol) |
-|interval |<b>true</b> |string |t(:row_comment_interval) |
+|<a href="#kline-interval-interval">interval</a> |<b>true</b> |string |t(:row_comment_interval) |
 |from |<b>true</b> |integer |t(:row_comment_from_timestamp) |
 |limit |false |integer |t(:linear_kline_row_comment_limit_200) |
 
@@ -657,7 +657,7 @@ GET
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
-|interval |true |string |t(:row_comment_interval) |
+|<a href="#kline-interval-interval">interval</a> |true |string |t(:row_comment_interval) |
 |from |true |integer |t(:row_comment_from_timestamp) |
 |limit |false |integer |t(:linear_kline_row_comment_limit_200) |
 
@@ -719,7 +719,7 @@ GET
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
-|interval |true |string |t(:row_comment_interval) |
+|<a href="#kline-interval-interval">interval</a> |true |string |t(:row_comment_interval) |
 |from |true |integer |t(:row_comment_from_timestamp) |
 |limit |false |integer |t(:linear_kline_row_comment_limit_200) |
 
