@@ -17,7 +17,7 @@
     - t(:restapi_update_20200826_1)
     - t(:restapi_update_20200826_3)
 - [t(:placeactive)](#t-placeactive) [t(:changelog_update)]
-    - t(:restapi_update_20210527)
+    - t(:restapi_update_20210527_1)
     - t(:restapi_update_20200826_3)
 - [t(:myposition)](#t-myposition) [t(:changelog_update)]
     - t(:restapi_update_20200826_2)
@@ -46,7 +46,7 @@
     - t(:restapi_update_20200826_1)
     - t(:restapi_update_20200826_3)
 - [t(:placeactive)](#t-placeactive) [t(:changelog_update)]
-    - t(:restapi_update_20210527)
+    - t(:restapi_update_20210527_1)
     - t(:restapi_update_20200826_3)
 - [t(:myposition)](#t-myposition) [t(:changelog_update)]
     - t(:restapi_update_20200826_2)
