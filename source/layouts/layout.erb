@@ -166,6 +166,13 @@ under the License.
         text-align: left;
       }
 
+      /* Highlights the currently selected dropdown link */
+      .dropdown-content-selected {
+        display: block;
+        /*color: #696e83;*/
+        background-color: #626262;
+      }
+
       /* Add a grey background color to dropdown links on hover */
       .dropdown-content a:hover {
         background-color: #5b5b5b;
@@ -236,20 +243,40 @@ under the License.
       </button>
       <div class="dropdown-content">
         <% if page_classes.end_with?("inverse_index") %>
-          <a href="/docs/inverse">Mainnet</a>
-          <a href="/docs/testnet/inverse">Testnet</a>
+          <% if page_classes.include?("testnet") %>
+            <a href="/docs/inverse">Mainnet</a>
+            <span class="dropdown-content-selected"><a href="/docs/testnet/inverse">Testnet</a></span>
+          <% else %>
+            <span class="dropdown-content-selected"><a href="/docs/inverse">Mainnet</a></span>
+            <a href="/docs/testnet/inverse">Testnet</a>
+          <% end %>
         <% end %>
         <% if page_classes.end_with?("linear_index") %>
-          <a href="/docs/linear">Mainnet</a>
-          <a href="/docs/testnet/linear">Testnet</a>
+          <% if page_classes.include?("testnet") %>
+            <a href="/docs/linear">Mainnet</a>
+            <span class="dropdown-content-selected"><a href="/docs/testnet/linear">Testnet</a></span>
+          <% else %>
+            <span class="dropdown-content-selected"><a href="/docs/linear">Mainnet</a></span>
+            <a href="/docs/testnet/linear">Testnet</a>
+          <% end %>
         <% end %>
         <% if page_classes.end_with?("inverse_futures_index") %>
-          <a href="/docs/inverse_futures">Mainnet</a>
-          <a href="/docs/testnet/inverse_futures">Testnet</a>
+          <% if page_classes.include?("testnet") %>
+            <a href="/docs/inverse_futures">Mainnet</a>
+            <span class="dropdown-content-selected"><a href="/docs/testnet/inverse_futures">Testnet</a></span>
+          <% else %>
+            <span class="dropdown-content-selected"><a href="/docs/inverse_futures">Mainnet</a></span>
+            <a href="/docs/testnet/inverse_futures">Testnet</a>
+          <% end %>
         <% end %>
         <% if page_classes.end_with?("spot_index") %>
-          <a href="/docs/spot">Mainnet</a>
-          <a href="/docs/testnet/spot">Testnet</a>
+          <% if page_classes.include?("testnet") %>
+            <a href="/docs/spot">Mainnet</a>
+            <span class="dropdown-content-selected"><a href="/docs/testnet/spot">Testnet</a></span>
+          <% else %>
+            <span class="dropdown-content-selected"><a href="/docs/spot">Mainnet</a></span>
+            <a href="/docs/testnet/spot">Testnet</a>
+          <% end %>
         <% end %>
       </div>
     </div>
