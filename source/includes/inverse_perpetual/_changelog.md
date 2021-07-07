@@ -1,5 +1,10 @@
 # t(:changelog)
 
+## 2021-06-28
+### REST API
+- [t(:querysymbol)](#t-querysymbol) [t(:changelog_update)]
+   - t(:restapi_update_20210628_1)
+
 ## 2021-06-18
 ### REST API
 - [t(:marginswitch)](#t-marginswitch) [t(:changelog_update)]
@@ -14,7 +19,7 @@
     - t(:restapi_update_20200826_1)
     - t(:restapi_update_20200826_3)
 - [t(:placeactive)](#t-placeactive) [t(:changelog_update)]
-    - t(:restapi_update_20210527)
+    - t(:restapi_update_20210527_1)
     - t(:restapi_update_20200826_3)
 - [t(:myposition)](#t-myposition) [t(:changelog_update)]
     - t(:restapi_update_20200826_2)

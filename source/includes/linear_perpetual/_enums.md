@@ -20,6 +20,12 @@ t(:ENUMs_para)
 * `SUSHIUSDT`
 * `AAVEUSDT`
 * `DOGEUSDT`
+* `MATICUSDT`
+* `EOSUSDT`
+* `ETCUSDT`
+* `BNBUSDT`
+* `FILUSDT`
+* `SOLUSDT`
 
 ## Currency (`currency`/`coin`)
 * `USDT`

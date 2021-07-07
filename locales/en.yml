@@ -85,7 +85,7 @@ en:
   row_comment_starting_margin: Starting margin
   row_comment_section: Section
   row_comment_is_lowest_risk: |
-    Is lowest risk. 0: Yes; 1: No
+    Is lowest risk. <code>0</code>: No; <code>1</code>: Yes
   row_comment_funding_rate: Funding rate
   row_comment_funding_rate_timestamp: Funding rate timestamp
   row_comment_funding_side: Your position side at the time of settlement
@@ -804,11 +804,11 @@ en:
   wallet_row_comment_orderId: OrderID. If not provided, will return user's trading records
   ## Get Risk Limit
   getrisklimit: Get Risk Limit
-  wallet_para_getRisk: Get risk limit.
-  wallet_aside_getRisk: Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles/360007107454-Risk-Limit-Overview">here</a>.
+  account_para_getRisk: Get risk limit. <b>This endpoint does not require authentication.</b>
+  account_aside_getRisk: Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles/360007107454-Risk-Limit-Overview">here</a>.
   ## Set Risk Limit
   setrisklimit: Set Risk Limit
-  wallet_para_setRisk: Set risk limit.
+  account_para_setRisk: Set risk limit.
 
   # API Data Endpoints
   api: API Data Endpoints
@@ -1053,7 +1053,7 @@ en:
         <span id="testnet_address">Public Topics2: wss://stream-testnet.bybit.com/spot/quote/ws/v2</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
         <br/>
-        <span id="testnet_address_2">Private Topics: wss://stream-testnet.bybit.com/spot/ws/</span>
+        <span id="testnet_address_2">Private Topics: wss://stream-testnet.bybit.com/spot/ws</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
       </li>
     </p>
@@ -1065,7 +1065,7 @@ en:
         <span id="mainnet_address">Public Topics2: wss://stream.bybit.com/spot/quote/ws/v2</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
         <br/>
-        <span id="mainnet_address_2">Private Topics: wss://stream.bybit.com/spot/ws/</span>
+        <span id="mainnet_address_2">Private Topics: wss://stream.bybit.com/spot/ws</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
       </li>
     </p>
@@ -1526,6 +1526,12 @@ en:
     <li><code>SUSHIUSDT</code> - Maximum quantity of 10000 for opening; Maximum quantity of 10000 for closing</li>
     <li><code>AAVEUSDT</code> - Maximum quantity of 500 for opening; Maximum quantity of 500 for closing</li>
     <li><code>DOGEUSDT</code> - Maximum quantity of 200000 for opening; Maximum quantity of 200000 for closing</li>
+    <li><code>MATICUSDT</code> - Maximum quantity of 70000 for opening; Maximum quantity of 70000 for closing</li>
+    <li><code>EOSUSDT</code> - Maximum quantity of 50000 for opening; Maximum quantity of 50000 for closing</li>
+    <li><code>ETCUSDT</code> - Maximum quantity of 2000 for opening; Maximum quantity of 2000 for closing</li>
+    <li><code>BNBUSDT</code> - Maximum quantity of 1500 for opening; Maximum quantity of 1500 for closing</li>
+    <li><code>FILUSDT</code> - Maximum quantity of 2000 for opening; Maximum quantity of 2000 for closing</li>
+    <li><code>SOLUSDT</code> - Maximum quantity of 3000 for opening; Maximum quantity of 3000 for closing</li>
     <ul>
     </ul>
     </li>
@@ -1870,7 +1876,10 @@ en:
   restapi_update_20210430: Testnet Add new USDT perpetual symbols<span>:</span> <a href="#symbol-symbol">XRPUSDT、XEMUSDT、SUSHIUSDT、AAVEUSDT</a>
   restapi_update_20210513: Add new USDT perpetual symbols<span>:</span> <a href="#symbol-symbol">XRPUSDT、XEMUSDT、SUSHIUSDT、AAVEUSDT</a>
   restapi_update_20210602: Add new USDT perpetual symbol<span>:</span> <a href="#symbol-symbol">DOGEUSDT</a>
-  restapi_update_20210527: Add new request parameters <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
+  restapi_update_20210629: Add new USDT perpetual symbols<span>:</span> <a href="#symbol-symbol">MATICUSDT、EOSUSDT、ETCUSDT、BNBUSDT、FILUSDT、SOLUSDT</a>
+  restapi_update_20210527_1: Add new request parameters <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
+  restapi_update_20210628: Add fields of <code>take_profit</code>, <code>stop_loss</code>, <code>trailing_stop</code> in response
+  restapi_update_20210628_1: Fix values of <code>min_price</code> and <code>tick_size</code> for symbols <code>BCHUSDT</code> and <code>UNIUSDT</code>
 
   ws_update_20210202_0: Add fields <code>reduce_only</code>,<code>close_on_trigger</code>
   ws_update_20210202_1: Add field <code>close_on_trigger</code>
@@ -1973,7 +1982,8 @@ en:
 
   spotSymbol: Name of the trading pair
   spotId: Trade ID
-  spotQty: Order quantity
+  spotQty: |
+    Order quantity (<b>for market orders: when <code>side</code> is <code>Buy</code>, this is in the quote currency. Otherwise, qty is in the base currency. For example, on BTCUSDT a <code>Buy</code> order is in USDT, otherwise it's in BTC.</b> For limit orders, the qty is always in the base currency.)
   spotCommission: Trading fee
   spotCommissionAsset: Asset type in which the fee is paid
   spotIsBuyer: True indicates buyer, false indicates seller
@@ -2003,7 +2013,7 @@ en:
   spotOrderId: Order ID
   spotFees: Fees incurred for this order.
   spotOriQty: Order quantity
-  spotExecQty: Filled quantity
+  spotExecQty: Please ignore
   spotAvgPrice: Average filled price
   spotStopPrice: Stop price
   spotType: Order type, possible values are LIMIT and MARKET

@@ -1611,8 +1611,8 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
-|buy_leverage |<b>true</b> |number |t(:future_row_comment_leverage) |
-|sell_leverage |<b>true</b> |number |t(:future_row_comment_leverage) |
+|buy_leverage |<b>true</b> |number |t(:futures_row_comment_leverage) |
+|sell_leverage |<b>true</b> |number |t(:futures_row_comment_leverage) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -1962,6 +1962,10 @@ GET
 |created_at |number |t(:row_comment_created_at)  |
 
 
+## t(:risklimit)
+### t(:getrisklimit)
+<a href="/docs/inverse#t-getrisklimit">t(:shared_endpoint_desc)</a>
+
 ### t(:setrisklimit)
 > t(:codequote_curlExample)
 
@@ -1988,7 +1992,7 @@ curl https://api.bybit.com/futures/private/position/risk-limit \
 ```
 
 <aside class="notice">
-t(:wallet_aside_getRisk)
+t(:account_aside_getRisk)
 </aside>
 
 <p class="fake_header">t(:httprequest)</p>

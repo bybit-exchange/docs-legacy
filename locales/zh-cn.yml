@@ -774,11 +774,11 @@ zh-cn:
   wallet_row_comment_orderId: 订单号，如果没有填写订单号，将返回用户交易记录
   ## Get Risk Limit
   getrisklimit: 查询风险限额表
-  wallet_para_getRisk: 查询风险限额表。
-  wallet_aside_getRisk: 关于风险限额，点击<a href="https://help.bybit.com/hc/en-us/articles/360007107454-Risk-Limit-Overview">这里</a>了解更多。
+  account_para_getRisk: 查询风险限额表。
+  account_aside_getRisk: 关于风险限额，点击<a href="https://help.bybit.com/hc/en-us/articles/360007107454-Risk-Limit-Overview">这里</a>了解更多。
   ## Set Risk Limit
   setrisklimit: 设置风险限额
-  wallet_para_setRisk: 设置风险限额。
+  account_para_setRisk: 设置风险限额。
 
   # API Data Endpoints
   api: 通用数据接口
@@ -1024,7 +1024,7 @@ zh-cn:
         <span id="testnet_address">公共Topics2: wss://stream-testnet.bybit.com/spot/quote/ws/v2</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
         <br/>
-        <span id="testnet_address_2">私有Topics: wss://stream-testnet.bybit.com/spot/ws/</span>
+        <span id="testnet_address_2">私有Topics: wss://stream-testnet.bybit.com/spot/ws</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
       </li>
     </p>
@@ -1036,7 +1036,7 @@ zh-cn:
         <span id="mainnet_address">公共Topics2: wss://stream.bybit.com/spot/quote/ws/v2</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
         <br/>
-        <span id="mainnet_address_2">私有Topics: wss://stream.bybit.com/spot/ws/</span>
+        <span id="mainnet_address_2">私有Topics: wss://stream.bybit.com/spot/ws</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
       </li>
     </p>
@@ -1479,6 +1479,12 @@ zh-cn:
     <li>SUSHIUSDT 开仓最大值 10000，平仓最大值 10000</li>
     <li>AAVEUSDT 开仓最大值 500，平仓最大值 500</li>
     <li>DOGEUSDT 开仓最大值 200000，平仓最大值 200000</li>
+    <li>MATICUSDT 开仓最大值 70000，平仓最大值 70000</li>
+    <li>EOSUSDT 开仓最大值 50000，平仓最大值 50000</li>
+    <li>ETCUSDT 开仓最大值 2000，平仓最大值 2000</li>
+    <li>BNBUSDT 开仓最大值 1500，平仓最大值 1500</li>
+    <li>FILUSDT 开仓最大值 2000，平仓最大值 2000</li>
+    <li>SOLUSDT 开仓最大值 3000，平仓最大值 3000</li>
     <ul>
     </ul>
     </li>
@@ -1655,7 +1661,6 @@ zh-cn:
   inverse_row_comment_leverage: 全仓/逐仓切换，从全仓切换至逐仓时需要传杠杆并且<code>buy_leverage</code>和<code>sell_leverage</code>必须传入相同参数；<b>目前逐仓切全仓设置杠杆无效</b>。
   futures_account_para_switchIsolated: 全仓/逐仓切换，从全仓切换至逐仓时需要传杠杆
   futures_row_comment_switch_isolated: 全仓/逐仓, true是逐仓，false是全仓
-  getrisklimit: 查询风险限表
 
   ### 正向websocket
   linear_websocket_para_endpoint: |
@@ -1795,11 +1800,15 @@ zh-cn:
   restapi_update_20210430: Testnet网络，USDT合约上线新交易对：<a href="#symbol-symbol">XRPUSDT、XEMUSDT、SUSHIUSDT、AAVEUSDT</a>
   restapi_update_20210513: USDT合约上线新交易对：<a href="#symbol-symbol">XRPUSDT、XEMUSDT、SUSHIUSDT、AAVEUSDT</a>
   restapi_update_20210602: USDT合约上线新交易对：<a href="#symbol-symbol">DOGEUSDT</a>
-  restapi_update_20210527: 请求参数增加 <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
+  restapi_update_20210629: USDT合约上线新交易对：<a href="#symbol-symbol">MATICUSDT、EOSUSDT、ETCUSDT、BNBUSDT、FILUSDT、SOLUSDT</a>
+  restapi_update_20210527_1: 请求参数增加 <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
   restapi_update_20210617_1: 以参数<code>is_isolated</code>来判断全逐仓，true是逐仓，false是全仓。
   restapi_update_20210617_2: 废弃使用<code>auto_add_margin</code>来判断全逐仓。
   restapi_update_20210617_3: 不推荐使用 <a href="#t-setleverage">Set Leverage</a>接口切换全逐仓
   restapi_update_20210618_1: 2021年6月24日起，停止使用<code>leverage</code>切换全逐仓,必须大于0且小于最大可设置杠杆 <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>.
+  restapi_update_20210628: 返回结果中增加<code>take_profit, stop_loss, trailing_stop</code>三个新字段。
+  restapi_update_20210628_1: 修复<code>BCHUSDT</code> and <code>UNIUSDT</code>字段<code>min_price,tick_size</code>值不对的问题
+
 
   ws_update_20210202_0: 新增字段<code>reduce_only</code>和<code>close_on_trigger</code>
   ws_update_20210202_1: 新增字段<code>close_on_trigger</code>
@@ -1896,7 +1905,8 @@ zh-cn:
   spotCategory: symbol 所在分区:1主类别
 
   spotId: 交易ID
-  spotQty: 交易数量
+  spotQty: |
+    交易数量(<b>市价买单即<code>type=Market</code>且<code>side=Buy</code>时qty指的是quote currency；比如BTCUSDT的qty指的是USDT的qty, 而非市价买单时qty指向都是BTC</b>)
   spotTransactTime: 交易时间戳
   spotCommission: 交易手续费
   spotCommissionAsset: 交易手续费币种
@@ -1923,7 +1933,7 @@ zh-cn:
   spotFees: 订单的手续费
   spotOriQty: 订单数量
   spotFeeTokenId: 手续费类型（Token名称）
-  spotExecQty: 订单已执行数量
+  spotExecQty: 请忽略
   spotAvgPrice: 订单已成交的平均价格
   spotType: 订单类型。可能出现的值只能为:LIMIT(限价)和MARKET（市价）
   spotStatus: 订单状态。可能出现的值为：NEW(新订单，无成交)、PARTIALLY_FILLED（部分成交）、FILLED（全部成交）、CANCELED（已取消）和REJECTED（订单被拒绝）.

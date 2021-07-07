@@ -1988,6 +1988,106 @@ POST
 
 
 
+## t(:risklimit)
+### t(:getrisklimit)
+> t(:codequote_curlExample)
+
+```console
+curl "https://api.bybit.com/v2/public/risk-limit/list?symbol=BTCUSD"
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.Wallet.Wallet_getRiskLimit().result())
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code":0,
+    "ret_msg":"OK",
+    "ext_code":"",
+    "ext_info":"",
+    "result":[
+        {
+            "id":1,
+            "symbol":"BTCUSD",
+            "limit":1000000,
+            "maintain_margin":0.005,
+            "starting_margin":0.01,
+            "section":[
+                "1",
+                "2",
+                "3",
+                "5",
+                "10",
+                "25",
+                "50",
+                "100"
+            ],
+            "is_lowest_risk":1,
+            "created_at":"2021-03-17T08:20:53.000Z",
+            "updated_at":"2021-03-17T08:20:53.000Z",
+            "max_leverage":100
+        },
+        ...
+        {
+            "id":10,
+            "symbol":"BTCUSD",
+            "limit":10000000,
+            "maintain_margin":0.05,
+            "starting_margin":0.055,
+            "section":[
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "10",
+                "15",
+                "18"
+            ],
+            "is_lowest_risk":0,
+            "created_at":"2021-03-17T08:21:12.000Z",
+            "updated_at":"2021-03-17T08:21:12.000Z",
+            "max_leverage":18.18
+        }
+    ],
+    "time_now":"1616052270.701108"
+}
+```
+
+t(:account_para_getRisk)
+
+<aside class="notice">
+t(:account_aside_getRisk)
+</aside>
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=oawrlList>/v2/public/risk-limit/list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawrlList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|t(:row_parameter_symbol) |<b>false</b> |string |t(:row_comment_symbol) |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|id |number |t(:row_comment_riskId)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_symbol)  |
+|limit |number |t(:row_comment_risk_limit)    |
+|maintain_margin |number |t(:row_comment_maintain_margin)  |
+|starting_margin |number |t(:row_comment_starting_margin)  |
+|section |string |t(:row_comment_section)  |
+|is_lowest_risk |number |t(:row_comment_is_lowest_risk)    |
+|created_at |string |t(:row_comment_created_at)  |
+|updated_at |string |t(:row_comment_updated_at)  |
+|max_leverage |string |t(:row_comment_max_leverage)  |
 ### t(:setrisklimit)
 > t(:codequote_curlExample)
 
@@ -2014,7 +2114,7 @@ curl https://api.bybit.com/v2/private/position/risk-limit \
 ```
 
 <aside class="notice">
-t(:wallet_aside_getRisk)
+t(:account_aside_getRisk)
 </aside>
 
 <p class="fake_header">t(:httprequest)</p>
