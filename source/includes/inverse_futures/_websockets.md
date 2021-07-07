@@ -562,7 +562,7 @@ t(:websocket_aside_instrumentInfo2)
 |:----- |:-----|----- |
 |symbol|string |t(:row_comment_symbol)  |
 |last_price_e4 |integer |t(:row_comment_resp_last_price_e4)  |
-|last_tick_direction |string |t(:enum_tick_direction)  |
+|row_parameter_tick_direction |string |t(:row_comment_position_tick_direction)  |
 |prev_price_24h_e4 |integer |t(:row_comment_resp_prev_price_24h_e4)  |
 |price_24h_pcnt_e6 |integer |t(:row_comment_resp_price_24h_pcnt_e4)  |
 |high_price_24h_e4 |integer |t(:row_comment_resp_high_price_24h_e4)  |
