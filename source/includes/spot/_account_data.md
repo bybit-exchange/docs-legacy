@@ -254,7 +254,6 @@ DELETE
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|accountId|false|long|t(:spotAccountId)|
 |symbol|true|string|t(:spotSymbol)|
 |side|false|string|t(:spotSide)|
 
