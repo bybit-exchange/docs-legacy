@@ -49,7 +49,7 @@ Host: api-testnet.bybit.com
 ```http
 POST /spot/v1/order HTTP/1.1
 Host: api-testnet.bybit.com
-Content-Type: multipart/form-data
+Content-Type: application/x-www-form-unlencoded
 
 api_key:q1ksyOX2T0G2SkK8nu
 qty:100
