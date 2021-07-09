@@ -28,7 +28,7 @@ curl https://api.bybit.com/spot/v1/order \
         "accountId": "1",
         "symbol": "ETHUSDT",
         "symbolName": "ETHUSDT",
-        "clientOrderId": "162073788655749",
+        "orderLinkId": "162073788655749",
         "orderId": "889208273689997824",
         "transactTime": "1620737886573",
         "price": "20000",
@@ -72,8 +72,6 @@ POST
 |transactTime|int|t(:spotTransactTime)|
 |price|float|t(:spotPrice)|
 |origQty|float|t(:spotOriQty)|
-|executedQty|float|t(:spotExecQty)|
-|avgPrice|float|t(:spotAvgPrice)|
 |type|string|t(:spotType)|
 |side|string|t(:spotSide)|
 |status|string|t(:spotStatus)|
@@ -101,7 +99,7 @@ POST
         "exchangeId": "301",
         "symbol": "ETHUSDT",
         "symbolName": "ETHUSDT",
-        "clientOrderId": "162081160171552",
+        "orderLinkId": "162081160171552",
         "orderId": "889826641228952064",
         "price": "20000",
         "origQty": "10",
@@ -132,8 +130,8 @@ GET
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|orderId|OPTIONAL|string|t(:spotOrderID)|
-|orderLinkId|OPTIONAL|string|t(:tOrderClientOrdID)|
+|orderId|false|string|t(:spotOrderID)|
+|orderLinkId|false|string|t(:tOrderClientOrdID)|
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -182,7 +180,7 @@ GET
     "result": {
         "accountId": "10054",
         "symbol": "ETHUSDT",
-        "clientOrderId": "162081160171552",
+        "orderLinkId": "162081160171552",
         "orderId": "889826641228952064",
         "transactTime": "1620811601728",
         "price": "20000",
@@ -236,12 +234,12 @@ DELETE
 
 ```javascript
 {
-    “ret_code”: 0,
-    “ret_msg”: “”,
-    “ext_code”: null,
-    “ext_info”: null,
-    “result”: {
-        “success”: true
+    "ret_code": 0,
+    "ret_msg": "",
+    "ext_code": null,
+    "ext_info": null,
+    "result": {
+        "success": true
     }
 }
 ```
@@ -257,7 +255,7 @@ DELETE
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |accountId|false|long|t(:spotAccountId)|
-|symbol|false|string|t(:spotSymbol)|
+|symbol|true|string|t(:spotSymbol)|
 |side|false|string|t(:spotSide)|
 
 
@@ -284,7 +282,7 @@ DELETE
             "exchangeId": "301",
             "symbol": "ETHUSDT",
             "symbolName": "ETHUSDT",
-            "clientOrderId": "162080709527252",
+            "orderLinkId": "162080709527252",
             "orderId": "889788838461927936",
             "price": "20000",
             "origQty": "10",
@@ -306,7 +304,7 @@ DELETE
             "exchangeId": "301",
             "symbol": "ETHUSDT",
             "symbolName": "ETHUSDT",
-            "clientOrderId": "162063873503148",
+            "orderLinkId": "162063873503148",
             "orderId": "888376530389004800",
             "price": "20000",
             "origQty": "10",
@@ -391,7 +389,7 @@ GET
             "exchangeId": "301",
             "symbol": "ETHUSDT",
             "symbolName": "ETHUSDT",
-            "clientOrderId": "1620615771764",
+            "orderLinkId": "1620615771764",
             "orderId": "888183901021893120",
             "price": "5000",
             "origQty": "1",

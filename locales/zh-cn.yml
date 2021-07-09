@@ -794,42 +794,8 @@ zh-cn:
   ratelimits: 频率限制
   ### IP Rate Limit
   ipratelimits: IP频率限制
-  ip_rate_para_understanding: |
-    <p> Bybit会基于请求IP做频率限制，针对不同的请求方法有以下规则：</p>
-    <ul>
-    <li>
-      <code>GET</code>方法:
-      <ul>
-        <li>每秒不超过70个请求</li>
-        <li>连续2分钟内每秒不超过50个请求</li>
-      </ul>
-    </li>
-    <li>
-      <code>POST</code>方法:
-      <ul>
-        <li>每秒不超过50个请求</li>
-        <li>连续2分钟内每秒不超过20个请求</li>
-      </ul>
-    </li>
-    </ul>
   spot_ip_rate_para_understanding: |
-       <p> Bybit会基于请求IP做频率限制，针对不同的请求方法有以下规则：</p>
-       <ul>
-       <li>
-         <code>GET</code>方法:
-         <ul>
-           <li>每秒不超过70个请求</li>
-           <li>连续2分钟内每秒不超过50个请求</li>
-         </ul>
-       </li>
-       <li>
-         <code>POST</code>方法:
-         <ul>
-           <li>每秒不超过50个请求</li>
-           <li>连续2分钟内每秒不超过20个请求</li>
-         </ul>
-       </li>
-       </ul>
+       <p> Bybit会基于请求IP做频率限制，每秒不超过200次请求</p>
 
   ### Account rate limit
   understandingratelimits: 账户频率限制
@@ -837,7 +803,7 @@ zh-cn:
   rate_para_understanding: |
     Bybit基于<b>每分钟</b>的滚动时间窗口来做频率限制，并且是按<b>账户</b>（uid）和交易对（symbol）来做划分限制，每次请求API响应中都会包含如下字段：
   spot_rate_para_understanding: |
-    Bybit基于<b>每分钟</b>的滚动时间窗口来做频率限制，并且是按<b>账户</b>（uid）和交易对（symbol）来做划分限制，每次请求API响应中都会包含如下字段：
+    现货鉴权接口（即需要签名的接口）的限频规则是每秒不超过20次
   rate_text_limitStatus_understanding: 该接口当前时间窗口剩余可用请求数
   rate_text_limit_understanding: 该接口当前频率限制上限
   rate_text_limitReset: 如果您已超过该接口当前窗口频率限制，该字段表示下个可用时间窗口的时间戳（毫秒），即什么时候可以恢复访问；如果您未超过该接口当前窗口频率限制，该字段表示返回的是当前服务器时间（毫秒).
@@ -849,7 +815,7 @@ zh-cn:
   ### Order Limits
   orderlimits: 下单限制
   rate_para_limits: |
-    <p>每种合约可以持有的订单数量上限：</p>
+    <p>每个交易对可以持有的订单数量上限：</p>
     <ul>
     <li>活动单: 500</li>
     <li>条件单: 10</li>
@@ -1083,6 +1049,7 @@ zh-cn:
   websocketresponse: 订阅结果
   websocket_codequote_response: 订阅推送
   websocket_para_response: 每个topic订阅请求都会有对应的响应，您可以根据返回结果判断是否订阅成功。
+  spot_websocket_para_response: 订阅成功后会立即返回订阅的消息结果，您可以根据返回结果判断是否订阅成功
   ## Public Topics
   publictopics: 公共 Topics
   publictopics_v2: 公共 Topics V2
@@ -1172,6 +1139,7 @@ zh-cn:
   ## Order type (`order_type`)
   limit:  "限价单"
   market: "市价单"
+  limit_maker: "做市单"
   ## Quantity (`qty`)
   quantity:
     <ul>
@@ -1925,6 +1893,9 @@ zh-cn:
   spotQuantity: 最佳买价数量
   spotBidQuantity: 最佳买价数量
   spotAskQuantity: 最佳卖价数量
+  spotKlineTimeRemark: 如果startTime和endTime没有发送，只有最新的K线会被返回 
+  spotTicker24hrRemark: 如果symbol没有被发送，所有symbol的数据都会被返回
+  spotTickerPriceRemark: 如果symbol没有被发送，所有symbol的价格都会被返回
   spotSide: 订单方向, BUY(买入做多)/SELL(卖出做空)
   spotOrderType: 订单类型, LIMIT/MARKET/LIMIT_MAKER
   spotTimeInForce: 订单时间指令（Time in Force）。可能出现的值为：GTC（Good Till Canceled，一直有效），FOK（Fill or Kill，全部成交或者取消），IOC（Immediate or Cancel，立即成交或者取消）
@@ -1942,7 +1913,7 @@ zh-cn:
   cancel_spot_order: 撤销订单
   batch_cancel_spot_order: 批量撤销订单
   spot_order_list: 订单列表
-  spot_order_list_limit: 默认500；最大1000
+  spot_order_list_limit: 最大500
   spot_orders_start_time: 第一条返回的时间戳(毫秒)
   spot_orders_end_time: 最后一条返回的时间戳(毫秒)
   spot_history_orders: 历史订单
@@ -1961,14 +1932,14 @@ zh-cn:
   spot_fee: 手续费
   spot_fee_symbol: 手续费币种
   spot_locked: 冻结余额
-  spot_depth_limit: 默认40，最大40
+  spot_depth_limit: 默认100
   spot_depth_time: 当前时间
   spot_depth_bids: bid的价格和数量信息，最优bid价格由上到下排列
   spot_depth_asks: ask的价格和数量信息，最优ask价格由上到下排列
   mergedOrderBook: 合并订单簿
   spot_trades: 最近成交
   spot_OrderPrice: 价格
-  spot_trades_limit: 默认500， 最大1000
+  spot_trades_limit: 默认1000， 最大1000
   spot_is_buyer_maker: true为买单， false为卖单
   spot_trade_time: 当前Unix时间戳，毫秒(ms)
   spot_klines: K线
@@ -1986,10 +1957,10 @@ zh-cn:
   spotHigh: 最高价
   spotLow: 最低价
   spotClose: 收盘价
-  spotVolume: 合约交易金额
-  spotTrades: 交易数量（张数）
+  spotVolume: 交易金额
+  spotTrades: 交易数量
   spotTakerBaseVolume: 买方购买金额
-  spotTakerQuoteVolume: 买方购买数量（张数）
+  spotTakerQuoteVolume: 买方购买数量
   spot_ticket_id: ticket id
   spot_match_order_id: 撮合订单id
   spot_account_id: 账户id
@@ -2015,7 +1986,7 @@ zh-cn:
   spot_low: 最低价
   spot_open: 开盘价
   spot_volume: 成交量
-  spot_quota_volume: 成交额
+  spot_quote_volume: 成交金额
   spot_version: 版本号
   spot_buy: 买一价、数量
   spot_sell: 卖一价、数量
@@ -2050,7 +2021,7 @@ zh-cn:
   spot_websocket_trade_desc_v1: |
     <p>逐笔交易推送每一笔成交的信息。成交，或者说交易的定义是仅有一个吃单者与一个挂单者相互交易。</p>
     <p>在成功连接到服务器后，服务器首先会推送一条最近的60条成交。在这条推送之后，每条推送都是实时的成交。</p>
-    <p>变量“v”可以理解成一个交易ID。这个变量是全局递增的并且独特的。例如：假设过去5秒有3笔交易发生，分别是ETHUSDT、BTCUSDT、BHTBTC。它们的“v”会为连续的值（112，113，114）。</p>
+    <p>变量“v”可以理解成一个交易ID。这个变量是全局递增的并且独特的。例如：假设过去5秒有3笔交易发生，分别是ETHUSDT、BTCUSDT、BHTBTC。</p>
 
   spot_websocket_ticker_v1: Symbol的Ticker
   spot_websocket_ticker_desc_v1: 按Symbol逐秒刷新的24小时完整ticker信息。

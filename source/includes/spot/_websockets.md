@@ -90,8 +90,6 @@ ws.send('{"symbol":"BTCUSDT","topic":"trade","event":"sub","params":{"binary":fa
 ws.send('{"symbol":"BTCUSDT,ETHUSDT","topic":"trade","event":"sub","params":{"binary":false}}');
 ```
 
-### t(:intervals)
-t(:websocket_para_intervals)
 
 ## t(:websocketresponse)
 > t(:websocket_codequote_response)
@@ -100,17 +98,16 @@ t(:websocket_para_intervals)
 {
   "topic":"trade",
   "event":"sub",
+  "symbol":"BTCUSDT",
   "params":{
-    "symbol":"BTCUSDT",
-    "binary":"false",
-    "symbolName":"BTCUSDT"
-    },
+    "binary":"false"
+  },
   "code":"0",
   "msg":"Success"
 }
 ```
 
-t(:websocket_para_response)
+t(:spot_websocket_para_response)
 
 ## t(:publictopics)
 ### t(:spot_websocket_trade_v1)
@@ -120,8 +117,8 @@ t(:websocket_para_response)
 {
   "topic": "trade",
   "event": "sub",
+  "symbol": "BTCUSDT",
   "params": {
-    "symbol": "$symbol",
     "binary": false // Whether data returned is in binary format
   }
 }
@@ -135,18 +132,22 @@ t(:websocket_para_response)
 
 ```javascript
 {
-  "topic": "trade",
-  "params": {
-    "symbol": "BTCUSDT",
-    "binary": "false"
-  },
-  "data": {
-    "v": "564265886622695424",
-    "t": 1582001735462,
-    "p": "9787.5",
-    "q": "0.195009",
-    "m": true // true=买，false=卖
-  }
+    "symbol":"BTCUSDT",
+    "symbolName":"BTCUSDT",
+    "topic":"trade",
+    "params":{
+        "realtimeInterval":"24h",
+        "binary":"false"
+    },
+    "data":[
+        {
+            "v":"929681067596857345",
+            "t":1625562619577,
+            "p":"34924.15",
+            "q":"0.00027",
+            "m":true
+        }
+    ]
 }
 ```
 

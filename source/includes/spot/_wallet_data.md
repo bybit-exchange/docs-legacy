@@ -21,12 +21,12 @@ t(:wallet_para)
     "result": {
         "balances": [
             {
-                "asset": "USDT",
-                "assetId": "USDT",
-                "assetName": "USDT",
-                "total": "82273228.72794932",
-                "free": "13513278.72794932",
-                "locked": "68759950"
+                "coin": "USDT",
+                "coinId": "USDT",
+                "coinName": "USDT",
+                "total": "10",
+                "free": "10",
+                "locked": "0"
             }
         ]
     }
