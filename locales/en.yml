@@ -162,7 +162,8 @@ en:
   row_comemnt_replace_take_profit: New take_profit price, also known as stop_px. Do not pass this field if you don't want modify it
   row_comemnt_replace_stop_loss: New stop_loss price, also known as stop_px. Do not pass this field if you don't want modify it
   row_comment_leverage_old: Must be greater than 0 and less than the <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>. If you need to switch to cross margin please see the <a href="#t-marginswitch">Cross/Isolated Margin Switch</a> endpoint
-  row_comment_leverage_only: Must be setting <code>true</code>
+  row_comment_leverage_only: This field is compatible logic。
+    <br>If this field is set to <code>false</code>,when<code>leverage </code>equal to<code>0</code>it will be switched to cross margin,when<code>leverage</code>more than<code>0</code>it will be switched to isolated margin, At this time,the leverage cannot be set in cross margin.<br>If this field is set to<code>true</code>that means setting leverage in current mode，<code>leverage</code>must more than<code>0</code>,and you can use setting leverage function in cross margin。</br>We suggest that<code>leverage</code>setting<code>true</code>
   row_comment_startDate: Start point for result
   row_comment_endDate: End point for result
   row_comment_currency: Currency type
@@ -1881,7 +1882,9 @@ en:
   restapi_update_20210527_1: Add new request parameters <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
   restapi_update_20210628: Add fields of <code>take_profit</code>, <code>stop_loss</code>, <code>trailing_stop</code> in response
   restapi_update_20210628_1: Fix values of <code>min_price</code> and <code>tick_size</code> for symbols <code>BCHUSDT</code> and <code>UNIUSDT</code>
-  restapi_update_20210701: Add field <code>leverage_only</code>
+  restapi_update_20210701: Add field <code>leverage_only</code>,This field is compatible logic。
+    <br>If this field is set to <code>false</code>,when<code>leverage </code>equal to<code>0</code>it will be switched to cross margin,when<code>leverage</code>more than<code>0</code>it will be switched to isolated margin, At this time,the leverage cannot be set in cross margin.<br>If this field is set to<code>true</code>that means setting leverage in current mode，<code>leverage</code>must more than<code>0</code>,and you can use setting leverage function in cross margin。</br>We suggest that<code>leverage</code>setting<code>true</code>
+  restapi_update_20210708_1: Update field<code>buy_leverage</code><code>sell_leverage</code>
   restapi_update_20210706: Support setting <code>buy_leverage</code>,<code>sell_leverage</code> when switch from isolated margin to cross margin
 
   ws_update_20210202_0: Add fields <code>reduce_only</code>,<code>close_on_trigger</code>
