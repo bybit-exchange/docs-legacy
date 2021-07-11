@@ -115,6 +115,74 @@ under the License.
         padding: 0 20px;
         color: #F0B90B;
       }
+
+      /* Environment dropdown list */
+      /* The dropdown container */
+      .dropdown {
+        float: left;
+        overflow: hidden;
+      }
+
+      /* Dropdown button */
+      .dropdown .dropbtn {
+        background-color: inherit;
+        display: inline-block;
+        color: #B0B8DB;
+        font-size: 16px;
+        text-decoration: none;
+        line-height: 53px;
+        padding: 0 60px;
+        border: none;
+        background: none;
+      }
+
+      /* Add a red background color to navbar links on hover */
+      a:hover, .dropdown:hover .dropbtn {
+        background-color: inherit;
+      }
+
+      /* Dropdown content (hidden by default) */
+      .dropdown-content {
+        color: #B0B8DB;
+        background: #333;
+        font-size: 16px;
+        text-decoration: none;
+        line-height: 53px;
+        padding: 0;
+        display: none;
+        position: relative;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 0;
+      }
+
+      /* Links inside the dropdown */
+      .dropdown-content a {
+        color: #B0B8DB;
+        font-size: 16px;
+        text-decoration: none;
+        line-height: 53px;
+        padding: 0 20px;
+        display: block;
+        text-align: left;
+      }
+
+      /* Highlights the currently selected dropdown link */
+      .dropdown-content-selected {
+        display: block;
+        /*color: #696e83;*/
+        background-color: #626262;
+      }
+
+      /* Add a grey background color to dropdown links on hover */
+      .dropdown-content a:hover {
+        background-color: #5b5b5b;
+      }
+
+      /* Show the dropdown menu on hover */
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
     <style media="screen">
       <%= Rouge::Themes::MonokaiSublimeSlate.render(:scope => '.highlight') %>
     <style media="print">
@@ -167,6 +235,52 @@ under the License.
 <% else %>
   <li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/spot"><%=t(:spot)%></a></li>
 <% end %>
+
+  <li>
+    <div class="dropdown">
+      <button class="dropbtn">Environment
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <% if page_classes.end_with?("inverse_index") %>
+          <% if page_classes.include?("testnet") %>
+            <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/inverse>Mainnet</a>
+            <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/inverse>Testnet</a></span>
+          <% else %>
+            <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/inverse>Mainnet</a></span>
+            <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/inverse>Testnet</a>
+          <% end %>
+        <% end %>
+        <% if page_classes.end_with?("linear_index") %>
+          <% if page_classes.include?("testnet") %>
+            <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/linear>Mainnet</a>
+            <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/linear>Testnet</a></span>
+          <% else %>
+            <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/linear>Mainnet</a></span>
+            <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/linear>Testnet</a>
+          <% end %>
+        <% end %>
+        <% if page_classes.end_with?("inverse_futures_index") %>
+          <% if page_classes.include?("testnet") %>
+            <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/inverse_futures>Mainnet</a>
+            <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/inverse_futures>Testnet</a></span>
+          <% else %>
+            <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/inverse_futures>Mainnet</a></span>
+            <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/inverse_futures>Testnet</a>
+          <% end %>
+        <% end %>
+        <% if page_classes.end_with?("spot_index") %>
+          <% if page_classes.include?("testnet") %>
+            <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/spot>Mainnet</a>
+            <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/spot>Testnet</a></span>
+          <% else %>
+            <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/spot>Mainnet</a></span>
+            <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/spot>Testnet</a>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </li>
   </ul>
   </div>
   <a class="international" id="international" href="javascript:void(0);"><%=t(:international)%></a>
