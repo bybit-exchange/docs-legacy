@@ -1202,22 +1202,22 @@ en:
   limit:  ""
   market: ""
   ## Quantity (`qty`)
-  quantity:
+  quantity: |
     <ul>
-    <li>Max.quantity:1 million (<code>1000000</code>)</li>
-    <li>Must be a postive integer
+    <li>The maximum qty for an order (<code>max_trading_qty</code>) can be queried with the <a href="#t-querysymbol">Query Symbol endpoint</a>.</li>
+    <li>Must be a positive integer
+    <li>Must conform to the symbol's <code>qty_step</code>. For example, for the inverse perpetual BTCUSD market:</li>
     <ul>
     <li><code>40</code> - allowed</li>
     <li><code>30.5</code> - not allowed</li>
     </ul>
-    </li>
     </ul>
   ## Price (`price`)
   price: |
     <ul>
     <li>Active order<ul>
     <li>Must be an integral multiple of <code>tick_size</code><ul>
-    <li>Information about current trading pair (e.g. tick size) can be queried with the <a href="#t-querysymbol">Query Symbol endpoint</a>.</li>
+    <li>Information about current trading pair (e.g. <code>tick_size</code>) can be queried with the <a href="#t-querysymbol">Query Symbol endpoint</a>.</li>
     <li>Modulo (<code>%</code>) can be used to calculate whether the price will be accepted:<pre class="center-column">
     IF price % tick_size = 0
         // send request
@@ -1226,7 +1226,7 @@ en:
     </pre></li>
     </ul>
     </li>
-    <li>Must be less than 1 million (<code>1000000</code>)</li>
+    <li>Must be less than the symbol's <code>max_price</code></li>
     <li>If the user has no open position, the order price must be higher than 10% of the last traded price<ul>
     <li>For example, if the last traded price (last price) is <code>10314</code>, the min. order price will be <code>1031.5</code>.</li>
     <li>Pseudocode (assuming the price is a multiple of 0.5):<pre class="center-column">
