@@ -1,7 +1,7 @@
 # t(:introduction)
 
-##### t(:spot_intro_para)
+##### t(:intro_para)
 
 
 ### t(:resources)
-t(:spot_intro_para_resources)
+t(:intro_para_resources)
