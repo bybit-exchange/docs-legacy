@@ -73,6 +73,8 @@ GET
 | minTradeQuantity | string |t(:spotMinTradeQuantity)|
 | minTradeAmount | string |t(:spotMinTradeAmount)|
 | minPricePrecision | string |t(:spotMinPricePrecision)|
+| maxTradeQuantity | string |t(:spotmaxTradeQuantity)|
+| maxTradeAmount | string |t(:spotmaxTradeAmount)|
 | category | int  |t(:spotCategory)|
 
 
@@ -466,7 +468,9 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |symbol|false|string|t(:spotSymbol)|
-
+<aside class="notice">
+t(:spotBookTickerRemark)
+</aside>
 
 <p class="fake_header">t(:responseparameters)</p>
 

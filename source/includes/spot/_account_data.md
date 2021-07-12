@@ -204,8 +204,8 @@ DELETE
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|orderId|false|string|t(:spotOrderID)|
-|orderLinkId|false|string|t(:tOrderClientOrdID)|
+|orderId|OPTIONAL|string|t(:spotOrderID)|
+|orderLinkId|OPTIONAL|string|t(:tOrderClientOrdID)|
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -417,7 +417,6 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|orderType|false|string|t(:spotOrderType)|
 |symbol|false|string|t(:spotSymbol)|
 |orderId|false|string|t(:spotOrderID)|
 |limit|false|integer|t(:spot_order_list_limit)|

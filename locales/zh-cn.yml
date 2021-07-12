@@ -1776,7 +1776,7 @@ zh-cn:
   restapi_update_20210618_1: 2021年6月24日起，停止使用<code>leverage</code>切换全逐仓,必须大于0且小于最大可设置杠杆 <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>.
   restapi_update_20210628: 返回结果中增加<code>take_profit, stop_loss, trailing_stop</code>三个新字段。
   restapi_update_20210628_1: 修复<code>BCHUSDT</code> and <code>UNIUSDT</code>字段<code>min_price,tick_size</code>值不对的问题
-
+  restapi_update_20210712: 优化部分接口出参入参
 
   ws_update_20210202_0: 新增字段<code>reduce_only</code>和<code>close_on_trigger</code>
   ws_update_20210202_1: 新增字段<code>close_on_trigger</code>
@@ -1870,6 +1870,8 @@ zh-cn:
   spotMinTradeQuantity: 最小订单数量
   spotMinTradeAmount: 最小订单额
   spotMinPricePrecision: 最小价格精度
+  spotmaxTradeQuantity: 最大成交量
+  spotmaxTradeAmount: 最大成交额
   spotCategory: symbol 所在分区:1主类别
 
   spotId: 交易ID
@@ -1896,6 +1898,7 @@ zh-cn:
   spotKlineTimeRemark: 如果startTime和endTime没有发送，只有最新的K线会被返回 
   spotTicker24hrRemark: 如果symbol没有被发送，所有symbol的数据都会被返回
   spotTickerPriceRemark: 如果symbol没有被发送，所有symbol的价格都会被返回
+  spotBookTickerRemark: 如果symbol没有被发送，所有symbol的最佳订单簿价格都会被返回。
   spotSide: 订单方向, BUY(买入做多)/SELL(卖出做空)
   spotOrderType: 订单类型, LIMIT/MARKET/LIMIT_MAKER
   spotTimeInForce: 订单时间指令（Time in Force）。可能出现的值为：GTC（Good Till Canceled，一直有效），FOK（Fill or Kill，全部成交或者取消），IOC（Immediate or Cancel，立即成交或者取消）
@@ -1913,7 +1916,7 @@ zh-cn:
   cancel_spot_order: 撤销订单
   batch_cancel_spot_order: 批量撤销订单
   spot_order_list: 订单列表
-  spot_order_list_limit: 最大500
+  spot_order_list_limit: 默认500，最大500
   spot_orders_start_time: 第一条返回的时间戳(毫秒)
   spot_orders_end_time: 最后一条返回的时间戳(毫秒)
   spot_history_orders: 历史订单

@@ -471,7 +471,7 @@ t(:spot_websocket_orderbook_delta_desc_v1)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"topic":"depth","event":"sub","params":{"binary":false,"symbol":"$symbol"}}');
+ws.send('{"topic":"depth","event":"sub","symbol":"$symbol","params":{"binary":false}}');
 ```
 
 ```python
@@ -483,8 +483,8 @@ ws.send('{"topic":"depth","event":"sub","params":{"binary":false,"symbol":"$symb
 ```javascript
 {
   "topic": "depth",
+  "symbol": "BTCUSDT",
   "params": {
-    "symbol": "BTCUSDT",
     "binary": "false"
   },
   "data": {
