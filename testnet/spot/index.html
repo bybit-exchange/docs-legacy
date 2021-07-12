@@ -645,7 +645,7 @@
     <li><a href="/docs/inverse">Inverse Perpetual</a></li>
     <li><a href="/docs/linear">USDT Perpetual</a></li>
     <li><a href="/docs/inverse_futures">Inverse Futures</a></li>
-  <li><a href="/docs/spot" class="selected">Spot(testnet)</a></li>
+  <li><a href="/docs/spot" class="selected">Spot</a></li>
 
   <li>
     <div class="dropdown">
@@ -684,7 +684,7 @@
             <a href="#t-introduction" class="toc-h1 toc-link" data-title="Group And Resources">Group And Resources</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#t-spot_intro_para" class="toc-h2 toc-link" data-title=""></a>
+                    <a href="#t-intro_para" class="toc-h2 toc-link" data-title=""></a>
                   </li>
                   <li>
                     <a href="#t-resources" class="toc-h2 toc-link" data-title="Group And Bybit API Resources">Group And Bybit API Resources</a>
@@ -955,10 +955,8 @@ clipboard.on('error', function(e) {
     console.log(e);
 });
 </script>
-<h1 id='t-introduction'>Group And Resources</h1><h5 id='t-spot_intro_para'><p> <a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common error codes.</p> <p> For further assistanc or feedback, please join Bybit's <a href="https://t.me/Bybitapi">API discussion group</a> on Telegram. Our fellow developers are happy to chat!</p></h5><h3 id='t-resources'>Group And Bybit API Resources</h3>
-<p><ul class="bybit-community"> <li><img src="../../images/favicon-4f296779.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong></a> - <strong>Learn more about spot trading here!</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/docs/issues"><strong>Bybit API Documentation</strong></a> - <strong>Report any issues here!</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/api-connectors/"><strong>Bybit's api-connectors</strong></a> - <strong>Learn more about Bybit's API SDK here!</strong>
-<li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/api-connectors/"><strong>Bybit's api-connectors</strong></a> - <strong>Learn more about Bybit's API SDK here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>Our English-speaking support team is here to help!</strong>
-<li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>Our Chinese-speaking support team is here to help!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>Subscribe to our announcement channel to stay in the know! </strong> <li><img src="../../images/email_icon-e7dd7b20.png" height="14", width="14"> <a href="mailto:IT@bybit.com"><strong>IT@bybit.com</strong></a> - <strong>Contact our IT support via email for further assistance!</strong> </ul></p>
+<h1 id='t-introduction'>Group And Resources</h1><h5 id='t-intro_para'><p> <a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their respective expected outputs, and common errors.</p> <p> For further assistanc or feedback, please join <a href="https://t.me/Bybitapi">API Telegram chat</a>! API discussion group on Telegram. Our fellow developers are happy to chat!</p></h5><h3 id='t-resources'>Group And Bybit API Resources</h3>
+<p><ul class="bybit-community"> <li><img src="../../images/favicon-4f296779.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/docs/issues"><strong>Bybit API Documentation</strong></a> - <strong>report issues here!</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/api-connectors/"><strong>Bybit's api-connectors</strong></a> - <strong>find a repo of prebuilt libraries here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong> - <strong>get English help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API! </strong> <li><img src="../../images/email_icon-e7dd7b20.png" height="14", width="14"> <a href="mailto:IT@bybit.com"><strong>IT@bybit.com</strong></a> - <strong>official IT support email!</strong> </ul></p>
 <h1 id='t-changelog'>Changelog</h1><h2 id='2021-07-12'>2021-07-12</h2><h3 id='rest-api'>REST API</h3>
 <ul>
 <li>Optimize the input and output parameters of some interfaces</li>
@@ -2285,13 +2283,13 @@ If symbol is not specified, the best order price from all symbols will be return
 </thead><tbody>
 <tr>
 <td style="text-align: left">orderId</td>
-<td style="text-align: left">OPTIONAL</td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>Order ID</td>
 </tr>
 <tr>
 <td style="text-align: left">orderLinkId</td>
-<td style="text-align: left">OPTIONAL</td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>User-generated order ID</td>
 </tr>
@@ -2468,7 +2466,7 @@ If symbol is not specified, the best order price from all symbols will be return
 <td style="text-align: left">limit</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">integer</td>
-<td>default value is 500, max 500</td>
+<td>Default value is 500, max 500</td>
 </tr>
 </tbody></table>
 
@@ -2648,7 +2646,7 @@ If symbol is not specified, the best order price from all symbols will be return
 <td style="text-align: left">limit</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">integer</td>
-<td>default value is 500, max 500</td>
+<td>Default value is 500, max 500</td>
 </tr>
 </tbody></table>
 
@@ -2812,7 +2810,7 @@ If symbol is not specified, the best order price from all symbols will be return
 <td style="text-align: left">limit</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">integer</td>
-<td>default value is 500, max 500</td>
+<td>Default value is 500, max 500</td>
 </tr>
 <tr>
 <td style="text-align: left">fromId</td>
