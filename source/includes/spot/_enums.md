@@ -11,6 +11,7 @@ t(:ENUMs_para)
 * `IOC: Immediate or Cancel`
 
 ## Symbol (`symbol`)
+t(:trading_symbol_comment) 
 
 
 ## Type (`type`)
@@ -18,7 +19,6 @@ t(:ENUMs_para)
 * `MARKET`
 * `LIMIT_MAKER`
 
-t(:trading_symbol_comment) 
 
 ## Currency (`currency`/`coin`)
 * `BTC`
@@ -27,14 +27,18 @@ t(:trading_symbol_comment)
 * `XRP`
 * `USDT`
 
-## Contract Status(`status`)
-* `Trading`
-* `Settling`
-* `Closed`
+## Order Status(`status`)
+* `NEW`
+* `PARTIALLY_FILLED`
+* `FILLED`
+* `CANCELED`
+* `PENDING_CANCEL`
+* `REJECTED`
 
 ## Order type (`order_type`)
-* `Limit` t(:limit)
-* `Market` t(:market)
+* `LIMIT` t(:limit)
+* `MARKET` t(:market)
+* `LIMIT_MAKER` t(:limit_maker)
 
 ## Quantity (`qty`)
 t(:quantity)
@@ -43,7 +47,6 @@ t(:quantity)
 t(:price)
 
 ## Time in force (`time_in_force`)
-* `GoodTillCancel` t(:goodTillCancel)
-* `ImmediateOrCancel` t(:immediateOrCancel)
-* `FillOrKill` t(:fillOrKill)
-* `PostOnly` t(:postOnly)
+* `GTC` t(:goodTillCancel)
+* `IOC` t(:immediateOrCancel)
+* `FOK` t(:fillOrKill)
