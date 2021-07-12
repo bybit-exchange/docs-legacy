@@ -160,6 +160,8 @@ zh-cn:
   row_comemnt_replace_take_profit: 修改后的止盈价格。如果不修改这个字段，请不要传这个参数。
   row_comemnt_replace_stop_loss: 修改后的止损价格。如果不修改这个字段，请不要传这个参数。
   row_comment_leverage_old: leverage必须大于0且小于最大可设置杠杆 <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>,如果你想切换全逐仓，请使用 <a href="#t-marginswitch">全仓/逐仓切换</a>
+  row_comment_leverage_only: 该字段表明一个兼容逻辑。
+          <br>若该字段为<code>false</code>,当<code>leverage </code>等于<code>0</code>时将会切换至全仓,当<code>leverage</code>大于<code>0</code>将切换至逐仓，此时无法在全仓下设置杠杆;<br>若该字段为<code>true</code>则表示在当前仓位模式下切换杠杆，此时<code>leverage</code>需要大于<code>0</code>,并可以使用全仓切换杠杆功能。</br>我们建议用户<code>leverage</code>设置为<code>true</code>
   row_comment_startDate: 起始时间点
   row_comment_endDate: 结束时间点
   row_comment_currency: 币种类型
@@ -700,7 +702,7 @@ zh-cn:
   setleverage: 修改杠杆
   account_para_setleverage: |
     <p>修改杠杆。</p>
-  account_aside_setleverage: 该接口仅涉及逐仓。如果你想使用全仓，请使用<a href="#t-marginswitch">全仓/逐仓切换</a>
+  account_aside_setleverage: 该接口仅用于切换杠杆。如果你想使用全逐仓切换，请使用<a href="#t-marginswitch">全仓/逐仓切换</a>
   ## Position
   position: 持仓
   ### My Position V2 (real-time)
@@ -1626,7 +1628,7 @@ zh-cn:
   account_para_switchpositionmode: 单仓模式下，只能在单方向下持仓<br/>双仓模式下，可以同时在两个方向持仓。
   row_comment_positionmode: 仓位模式<span>:</span> 0 - 单仓模式  3 - 双仓模式
   futures_row_comment_leverage: <code>杠杆大于0，小于风险限额对应的杠杆</code>
-  inverse_row_comment_leverage: 全仓/逐仓切换，从全仓切换至逐仓时需要传杠杆并且<code>buy_leverage</code>和<code>sell_leverage</code>必须传入相同参数；<b>目前逐仓切全仓设置杠杆无效</b>。
+  inverse_row_comment_leverage: 全仓/逐仓切换，从全仓切换至逐仓时需要传杠杆并且<code>buy_leverage</code>和<code>sell_leverage</code>必须传入相同参数；
   futures_account_para_switchIsolated: 全仓/逐仓切换，从全仓切换至逐仓时需要传杠杆
   futures_row_comment_switch_isolated: 全仓/逐仓, true是逐仓，false是全仓
 
@@ -1776,6 +1778,10 @@ zh-cn:
   restapi_update_20210618_1: 2021年6月24日起，停止使用<code>leverage</code>切换全逐仓,必须大于0且小于最大可设置杠杆 <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>.
   restapi_update_20210628: 返回结果中增加<code>take_profit, stop_loss, trailing_stop</code>三个新字段。
   restapi_update_20210628_1: 修复<code>BCHUSDT</code> and <code>UNIUSDT</code>字段<code>min_price,tick_size</code>值不对的问题
+  restapi_update_20210701: 新增字段<code>leverage_only</code>该字段表明一个兼容逻辑。
+    <br>若该字段为<code>false</code>,当<code>leverage </code>等于<code>0</code>时将会切换至全仓,当<code>leverage</code>大于<code>0</code>将切换至逐仓，此时无法在全仓下设置杠杆;<br>若该字段为<code>true</code>则表示在当前仓位模式下切换杠杆，此时<code>leverage</code>需要大于<code>0</code>,并可以使用全仓切换杠杆功能。</br>我们建议用户<code>leverage</code>设置为<code>true</code>
+  restapi_update_20210708_1: 更新字段<code>buy_leverage</code><code>sell_leverage</code>
+  restapi_update_20210706: 支持逐仓切全仓设置杠杆<code>buy_leverage</code>,<code>sell_leverage</code>
   restapi_update_20210712: 优化部分接口出参入参
 
   ws_update_20210202_0: 新增字段<code>reduce_only</code>和<code>close_on_trigger</code>
