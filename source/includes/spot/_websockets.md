@@ -386,7 +386,7 @@ ws.send('{"symbol":"BTCUSDT","topic":"mergedDepth","event":"sub","params":{"bina
 "baseAsset":"BTC",
 "baseAssetPrecision":"0.000001",
 "quoteAsset":"USDT",
-"quotePrecision":"0.01", 
+"quotePrecision":"0.01",
 "icebergAllowed":false
 }
 ```
@@ -471,7 +471,7 @@ t(:spot_websocket_orderbook_delta_desc_v1)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"topic":"depth","event":"sub","symbol":"$symbol","params":{"binary":false}}');
+ws.send('{"topic":"depth","event":"sub","params":{"binary":false,"symbol":"BTCUSDT"}}');
 ```
 
 ```python
@@ -539,7 +539,7 @@ t(:spot_websocket_orderbook_desc_v2)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"topic":"kline","event":"sub","params":{"binary":false,"symbol":"$symbol"}}');
+ws.send('{"topic":"kline","event":"sub","params":{"binary":false,"symbol":"BTCUSDT"}}');
 ```
 
 ```python
@@ -563,7 +563,7 @@ ws.send('{"topic":"kline","event":"sub","params":{"binary":false,"symbol":"$symb
     "h": "9801.4",
     "l": "9798.91",
     "o": "9799.4",
-    "v": "15.917433" 
+    "v": "15.917433"
   }
 }
 ```
@@ -588,7 +588,7 @@ t(:spot_websocket_kline_desc_v2)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"topic":"trade","event":"sub","params":{"binary":false,"symbol":"$symbol"}}');
+ws.send('{"topic":"trade","event":"sub","params":{"binary":false,"symbol":"BTCUSDT"}}');
 ```
 
 ```python
@@ -630,7 +630,7 @@ t(:spot_websocket_trade_v2)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"topic":"bookTicker","event":"sub","params":{"binary":false,"symbol":"$symbol"}}');
+ws.send('{"topic":"bookTicker","event":"sub","params":{"binary":false,"symbol":"BTCUSDT"}}');
 ```
 
 ```python
@@ -675,7 +675,7 @@ t(:spot_websocket_ticker_desc_v2)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"topic":"realtimes","event":"sub","params":{"binary":false,"symbol":"$symbol"}}');
+ws.send('{"topic":"realtimes","event":"sub","params":{"binary":false,"symbol":"BTCUSDT"}}');
 ```
 
 ```python
