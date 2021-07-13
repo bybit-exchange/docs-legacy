@@ -3553,7 +3553,7 @@ function copyStringToClipboard (endpoint) {
 <span class="dl">"</span><span class="s2">baseAsset</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
 <span class="dl">"</span><span class="s2">baseAssetPrecision</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.000001</span><span class="dl">"</span><span class="p">,</span>
 <span class="dl">"</span><span class="s2">quoteAsset</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
-<span class="dl">"</span><span class="s2">quotePrecision</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span> 
+<span class="dl">"</span><span class="s2">quotePrecision</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span>
 <span class="dl">"</span><span class="s2">icebergAllowed</span><span class="dl">"</span><span class="p">:</span><span class="kc">false</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -3699,7 +3699,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>请求订阅</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"topic":"depth","event":"sub","symbol":"$symbol","params":{"binary":false}}</span><span class="dl">'</span><span class="p">);</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"topic":"depth","event":"sub","params":{"binary":false,"symbol":"BTCUSDT"}}</span><span class="dl">'</span><span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
 </code></pre></div>
 <blockquote>
@@ -3811,7 +3811,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>请求订阅</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"topic":"kline","event":"sub","params":{"binary":false,"symbol":"$symbol"}}</span><span class="dl">'</span><span class="p">);</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"topic":"kline","event":"sub","params":{"binary":false,"symbol":"BTCUSDT"}}</span><span class="dl">'</span><span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
 </code></pre></div>
 <blockquote>
@@ -3831,7 +3831,7 @@ function copyStringToClipboard (endpoint) {
     <span class="dl">"</span><span class="s2">h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">9801.4</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">l</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">9798.91</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">o</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">9799.4</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">v</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">15.917433</span><span class="dl">"</span> 
+    <span class="dl">"</span><span class="s2">v</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">15.917433</span><span class="dl">"</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -3919,7 +3919,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>请求订阅</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"topic":"trade","event":"sub","params":{"binary":false,"symbol":"$symbol"}}</span><span class="dl">'</span><span class="p">);</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"topic":"trade","event":"sub","params":{"binary":false,"symbol":"BTCUSDT"}}</span><span class="dl">'</span><span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
 </code></pre></div>
 <blockquote>
@@ -3986,7 +3986,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>请求订阅</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"topic":"bookTicker","event":"sub","params":{"binary":false,"symbol":"$symbol"}}</span><span class="dl">'</span><span class="p">);</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"topic":"bookTicker","event":"sub","params":{"binary":false,"symbol":"BTCUSDT"}}</span><span class="dl">'</span><span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
 </code></pre></div>
 <blockquote>
@@ -4059,7 +4059,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>请求订阅</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"topic":"realtimes","event":"sub","params":{"binary":false,"symbol":"$symbol"}}</span><span class="dl">'</span><span class="p">);</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"topic":"realtimes","event":"sub","params":{"binary":false,"symbol":"BTCUSDT"}}</span><span class="dl">'</span><span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
 </code></pre></div>
 <blockquote>
