@@ -492,18 +492,20 @@ t(:websocket_aside_instrumentInfo2)
 |price_1h_pcnt_e6 |integer |t(:row_comment_resp_price_1h_pcnt_e6)  |
 |mark_price_e4 |integer |t(:row_comment_resp_mark_price_e4)  |
 |index_price_e4 |integer |t(:row_comment_resp_index_price_e4)  |
-|open_interest |integer |t(:row_comment_resp_open_interest). t(:row_comment_slow_update)  |
-|open_value_e8 |integer |t(:row_comment_resp_open_value_e8). t(:row_comment_slow_update)  |
+|open_interest_e8|integer |t(:row_comment_resp_open_interest_e8). t(:row_comment_slow_update)  |
 |total_turnover_e8 |integer |t(:row_comment_resp_total_turnover_e8)  |
 |turnover_24h_e8 |integer |t(:row_comment_resp_turnover_24h_e8)  |
-|total_volume |integer |t(:row_comment_resp_total_volume)  |
-|volume_24h |integer |t(:row_comment_resp_volume_24h)  |
+|total_volume_e8 |integer |t(:row_comment_resp_total_volume_e8)  |
+|volume_24h_e8 |integer |t(:row_comment_resp_volume_24h_e8)  |
+|funding_rate_e6 |integer |t(:row_comment_resp_funding_rate_e6)  |
 |predicted_funding_rate_e6 |integer |t(:row_comment_resp_predicted_funding_rate_e6)  |
 |cross_seq |integer |t(:row_comment_cross_seq)  |
 |created_at |string |t(:row_comment_created_at)  |
 |updated_at |string |t(:row_comment_updated_at)  |
 |next_funding_time |string |t(:row_comment_resp_next_funding_time)  |
 |countdown_hour |number |t(:row_comment_resp_countdown_hour)  |
+|bid1_price_e4 |integer|t(:row_comment_bid1_price_e4)  |
+|ask1_price_e4 |integer|t(:row_comment_ask1_price_e4)  |
 
 
 ### t(:websocketkline)
