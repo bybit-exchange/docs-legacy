@@ -293,8 +293,10 @@ ws.send('{"symbol":"BTCUSDT","topic":"depth","event":"sub","params":{"binary":fa
 ```javascript
 {
   "symbol": "BTCUSDT",
+  "symbolName": "BTCUSDT",
   "topic": "depth",
   "data": [{
+    "e": 301,
     "s": "BTCUSDT",
     "t": 1565600357643,
     "v": "112801745_18",
@@ -320,9 +322,12 @@ ws.send('{"symbol":"BTCUSDT","topic":"depth","event":"sub","params":{"binary":fa
       ["11377.01", "0.0167"],
       ["11377.12", "1.5"],
       ["11377.61", "0.3"]
-    ]
+    ],
+    "o": 0
   }],
-  "f": true
+  "f": true,
+  "sendTime": 1626253839401,
+  "shared": false
 }
 ```
 
@@ -331,12 +336,14 @@ t(:spot_websocket_orderbook_desc_v1)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:----- |----- |
+| e | number | t(:spotExchangeId) |
 | t | number | t(:spot_timestamp) |
 | s | string | t(:spot_symbol) |
 | v | string | t(:spot_version) |
 | b | string | t(:spot_buy) |
 | a | string | t(:spot_sell) |
 | f | boolean | t(:spot_first) |
+| o | number | t(:spotIgnore) |
 
 ### t(:spot_websocket_orderbook_merge_v1)
 > t(:codequote_subscribe)
@@ -441,8 +448,10 @@ ws.send('{"symbol":"BTCUSDT","topic":"diffDepth","event":"sub","params":{"binary
 ```javascript
 {
   "symbol": "BTCUSDT",
-  "topic": "depth",
+  "symbolName": "BTCUSDT",
+  "topic": "diffDepth",
   "data": [{
+    "e": 301,
     "s": "BTCUSDT",
     "t": 1565600357643,
     "v": "112801745_18",
@@ -468,9 +477,12 @@ ws.send('{"symbol":"BTCUSDT","topic":"diffDepth","event":"sub","params":{"binary
       ["11377.01", "0.0167"],
       ["11377.12", "1.5"],
       ["11377.61", "0.3"]
-    ]
+    ],
+    "o": 0
   }],
-  "f": true//是否为第一个返回
+  "f": true,//是否为第一个返回
+  "sendTime": 1626253839401,
+  "shared": false
 }
 ```
 
@@ -480,12 +492,14 @@ t(:spot_websocket_orderbook_delta_desc_v1)
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
+| e | number | t(:spotExchangeId) |
 | t | number | t(:spot_timestamp) |
 | s | string | t(:spot_symbol) |
 | v | string | t(:spot_version) |
 | b | string | t(:spot_buy) |
 | a | string | t(:spot_sell) |
 | f | boolean | t(:spot_first) |
+| o | number | t(:spotIgnore) |
 
 ## t(:publictopics_v2)
 ### t(:spot_websocket_orderbook_v2)
