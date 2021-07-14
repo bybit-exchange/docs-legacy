@@ -223,6 +223,14 @@ DELETE
 |orderLinkId|string|t(:tOrderClientOrdID)
 |symbol|string|t(:spotSymbol)|
 |status|string|t(:spotStatus)|
+|accountId|long|t(:spotAccountId)|
+|transactTime|long|t(:spotTransactTime)|
+|price|float|t(:spotOPrice)|
+|origQty|float|t(:spotOriQty)|
+|executedQty|float|t(:spotExecQty)|
+|timeInForce|string|t(:spotTimeInForce)|
+|type|string|t(:spotOrderType)|
+|side|string|t(:spotSide)|
 
 
 
