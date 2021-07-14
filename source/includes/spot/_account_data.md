@@ -57,7 +57,7 @@ POST
 |t(:row_parameter_side)|<b>true</b>|string|t(:spotSide)|
 |t(:row_parameter_type)|<b>true</b>|string|t(:spotOrderType)|
 |t(:row_parameter_timeInForce)|false|string|t(:spotTimeInForce)|
-|price|false|number|t(:spotOPrice)|
+|price|false|number|t(:spotPostOrderPrice)|
 |orderLinkId|false|string|t(:tOrderClientOrdID)|
 
 
