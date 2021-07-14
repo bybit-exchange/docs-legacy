@@ -257,6 +257,9 @@ DELETE
 |symbol|true|string|t(:spotSymbol)|
 |side|false|string|t(:spotSide)|
 
+<aside class="notice">
+t(:spotOrderBatchCancelRemark)
+</aside>
 
 ### t(:spot_order_list)
 > t(:codequote_curlExample)
