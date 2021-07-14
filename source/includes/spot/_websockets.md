@@ -607,7 +607,8 @@ ws.send('{"topic":"trade","event":"sub","params":{"binary":false,"symbol":"BTCUS
   "topic": "trade",
   "params": {
     "symbol": "BTCUSDT",
-    "binary": "false"
+    "binary": "false",
+    "symbolName": "BTCUSDT"
   },
   "data": {
     "v": "564265886622695424",
@@ -626,6 +627,7 @@ t(:spot_websocket_trade_v2)
 |:----- |:-----|----- |
 | symbol | string | t(:spot_symbol) |
 | binary | string | t(:spot_binary) |
+| symbolName | string | t(:spot_symbol) |
 | t | number | t(:spot_timestamp) |
 | p | string | t(:spot_price) |
 | q | string | t(:spot_quantity)|
