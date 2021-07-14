@@ -559,11 +559,13 @@ ws.send('{"topic":"kline","event":"sub","params":{"binary":false,"symbol":"BTCUS
   "params": {
     "symbol": "BTCUSDT",
     "binary": "false",
-    "klineType": "1m"
+    "klineType": "1m",
+    "symbolName": "BTCUSDT"
   },
   "data": {
     "t": 1582001880000,
     "s": "BTCUSDT",
+    "sn": "BTCUSDT",
     "c": "9799.4",
     "h": "9801.4",
     "l": "9798.91",
@@ -581,8 +583,10 @@ t(:spot_websocket_kline_desc_v2)
 | symbol | string | t(:spot_symbol) |
 | binary | string | t(:spot_binary) |
 | klineType | string | t(:spot_kline_type) |
+| symbolName | string | t(:spot_symbol) |
 | t | number | t(:spot_timestamp_kline) |
 | s | string | t(:spot_symbol) |
+| sn | string | t(:spot_symbol) |
 | c | string | t(:spot_close)|
 | h | string | t(:spot_high)|
 | l | string | t(:spot_low)|
