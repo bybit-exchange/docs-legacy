@@ -230,18 +230,26 @@ ws.send('{"symbol":"BTCUSDT","topic":"kline_" + $间隔,"event":"sub","params":{
 ```javascript
 {
   "symbol": "BTCUSDT",
+  "symbolName": "BTCUSDT",
   "topic": "kline",
-  "params": {"klineType": "15m"},
+  "params": {
+    "realtimeInterval": "24h",
+    "klineType": "15m",
+    "binary": "false"
+  },
   "data": [{
     "t": 1565595900000,
     "s": "BTCUSDT",
+    "sn": "BTCUSDT",
     "c": "11436.14",
     "h": "11437",
     "l": "11381.89",
     "o": "11381.89",
     "v": "16.3306"
   }],
-  "f": true
+  "f": true,
+  "sendTime": 1626252389284,
+  "shared": false
 }
 ```
 
@@ -252,6 +260,7 @@ t(:spot_websocket_kline_desc_v1)
 |:----- |:-----|----- |
 | t | number | t(:spot_timestamp_kline) |
 | s | string | t(:spot_symbol) |
+| sn | string | t(:spot_symbol) |
 | c | string | t(:spot_close)|
 | h | string | t(:spot_high)|
 | l | string | t(:spot_low)|
