@@ -519,7 +519,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|true|string|t(:spotSymbol)|
+|symbol|false|string|t(:spotSymbol)|
 |limit|false|integer|t(:spot_order_list_limit)|
 |fromId|false|integer|t(:spot_from_id)|
 |toId|false|integer|t(:spot_to_id)|
