@@ -539,3 +539,18 @@ GET
 |time|long|t(:spotTime)|
 |isBuyer|float|t(:spotIsBuyer)|
 |isMaker|float|t(:spotIsMaker)|
+|symbolName|string|t(:spotSymbolName)|
+|matchOrderId|long|t(:spot_match_order_id)|
+|fee|object|t(:spot_fee)|
+|feeTokenId|string|t(:spotFeeTokenId)|
+|feeAmount|float|t(:spot_fee)|
+|makerRebate|float|t(:spotMakerRebate)|
+
+
+<p class="fake_header">fee object</p>
+
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|feeTokenId|long|t(:spotFeeTokenId)|
+|feeTokenName|string|t(:spotFeeTokenName)|
+|fee|float|t(:spot_fee)|
