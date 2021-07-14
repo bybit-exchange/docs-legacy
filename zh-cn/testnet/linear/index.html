@@ -7647,14 +7647,9 @@ B用户：
 <td>指数价格 * 10^4</td>
 </tr>
 <tr>
-<td style="text-align: left">open_interest</td>
+<td style="text-align: left">open_interest_e8</td>
 <td style="text-align: left">integer</td>
-<td>未平仓合约数量. 不是实时更新，最慢更新时间是一分钟</td>
-</tr>
-<tr>
-<td style="text-align: left">open_value_e8</td>
-<td style="text-align: left">integer</td>
-<td>未平仓价值 * 10^8. 不是实时更新，最慢更新时间是一分钟</td>
+<td>未平仓合约数量* 10^8. 不是实时更新，最慢更新时间是一分钟</td>
 </tr>
 <tr>
 <td style="text-align: left">total_turnover_e8</td>
@@ -7667,14 +7662,19 @@ B用户：
 <td>24小时营业额 * 10^8</td>
 </tr>
 <tr>
-<td style="text-align: left">total_volume</td>
+<td style="text-align: left">total_volume_e8</td>
 <td style="text-align: left">integer</td>
-<td>总交易量</td>
+<td>总交易量 * 10^8</td>
 </tr>
 <tr>
-<td style="text-align: left">volume_24h</td>
+<td style="text-align: left">volume_24h_e8</td>
 <td style="text-align: left">integer</td>
-<td>最近 24 小时成交量</td>
+<td>Trading volume in the last 24 hours * 10^8</td>
+</tr>
+<tr>
+<td style="text-align: left">funding_rate_e6</td>
+<td style="text-align: left">integer</td>
+<td>预测资金费率 * 10^6</td>
 </tr>
 <tr>
 <td style="text-align: left">predicted_funding_rate_e6</td>
@@ -7705,6 +7705,16 @@ B用户：
 <td style="text-align: left">countdown_hour</td>
 <td style="text-align: left">number</td>
 <td>结算资金费用剩余时间</td>
+</tr>
+<tr>
+<td style="text-align: left">bid1_price_e4</td>
+<td style="text-align: left">integer</td>
+<td>最佳买单价格 * 10^4</td>
+</tr>
+<tr>
+<td style="text-align: left">ask1_price_e4</td>
+<td style="text-align: left">integer</td>
+<td>最佳卖单价格 * 10^4</td>
 </tr>
 </tbody></table>
 <h3 id='t-websocketkline'>K线</h3>
