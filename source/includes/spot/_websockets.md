@@ -822,7 +822,8 @@ t(:spot_websocket_user_account_desc)
   "q": "1.00000000",             
   "p": "0.10264410",             
   "X": "NEW",                    
-  "i": 4293153,                  
+  "i": 4293153,     
+  "M": "0",             
   "l": "0.00000000",             
   "z": "0.00000000",             
   "L": "0.00000000",             
@@ -832,7 +833,10 @@ t(:spot_websocket_user_account_desc)
   "w": true,                     
   "m": false,                    
   "O": 1499405658657,            
-  "Z": "0.00000000"              
+  "Z": "0.00000000",
+  "A": "0",
+  "C": false,
+  "v": "0"              
 }
 ```
 t(:spot_websocket_user_order_desc)
@@ -852,6 +856,7 @@ t(:spot_websocket_user_order_desc)
 | p | string | t(:spot_price) |
 | X | string | t(:spot_order_status) |
 | i | string | t(:spot_order_id) |
+| M | string | t(:) |
 | l | string | t(:spot_recent_qty) |
 | z | string | t(:spot_cumulative_qty) |
 | L | string | t(:spot_recent_price) |
@@ -861,6 +866,9 @@ t(:spot_websocket_user_order_desc)
 | a | string | t(:spot_asset) |
 | O | string | t(:spot_order_create_timestamp) |
 | Z | string | t(:spot_cumulative_trade) |
+| A | string | t(:spotIgnore) |
+| C | boolean | t(:spotIgnore) |
+| v | string | t(:spotIgnore) |
 
 
 ### t(:spot_websocket_ticket_info)
