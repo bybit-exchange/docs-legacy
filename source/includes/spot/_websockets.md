@@ -183,18 +183,24 @@ ws.send('{"symbol":"BTCUSDT","topic":"realtimes","event":"sub","params":{"binary
 ```javascript
 {
   "symbol": "BTCUSDT",
+  "symbolName": "BTCUSDT",
   "topic": "realtimes",
   "data": [{
     "t": "1565592599015",
-    "s": "ETHUSDT",
+    "s": "BTCUSDT",
+    "sn": "BTCUSDT",
     "c": "12750.63",
     "h": "12800.96",
     "l": "12740.78",
     "o": "12780.23",
     "v": "73013.575",
     "qv": "15726612.498168",
+    "m": "-0.0401",
+    "e": 301
     }],
-  "f": false
+  "f": false,
+  "sendTime": 1626252046034,
+  "shared": false
 }
 ```
 
@@ -205,12 +211,15 @@ t(:spot_websocket_ticker_desc_v1)
 |:----- |:-----|----- |
 | t | number | t(:spot_timestamp) |
 | s | string | t(:spot_symbol) |
+| sn | string | t(:spot_symbol) |
 | c | string | t(:spot_close)|
 | h | string | t(:spot_high)|
 | l | string | t(:spot_low)|
 | o | string | t(:spot_open)|
 | v | string | t(:spot_volume)|
 | qv | string | t(:spot_quota_volume)|
+| m | string | t(:spot_gains)|
+| e | number | t(:spotExchangeId)|
 | f | boolean | t(:spot_first) |
 
 
