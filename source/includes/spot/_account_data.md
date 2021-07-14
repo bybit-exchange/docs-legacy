@@ -160,6 +160,7 @@ t(:spotGetOrderRemark)
 |type|string|t(:spotType)|
 |side|string|t(:spotSide)|
 |stopPrice|float|t(:spotStopPrice)|
+|icebergQty|float|t(:spotIcebergQty)|
 |time|long|t(:spotTime)|
 |updateTime|long|t(:spotUpdateTime)|
 |isWorking|boolean|t(:spotIsWorking)|
@@ -324,6 +325,7 @@ t(:spotOrderBatchCancelRemark)
             "type": "LIMIT",
             "side": "BUY",
             "stopPrice": "0.0",
+            "icebergQty": "0.0",
             "time": "1620638735044",
             "updateTime": "1620638735062",
             "isWorking": true
@@ -366,6 +368,7 @@ GET
 |type|string|t(:spotType)|
 |side|string|t(:spotSide)|
 |stopPrice|float|t(:spotStopPrice)|
+|icebergQty|float|t(:spotIcebergQty)|
 |time|long|t(:spotTime)|
 |updateTime|long|t(:spotUpdateTime)|
 |isWorking|boolean|t(:spotIsWorking)|
