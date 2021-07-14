@@ -486,9 +486,10 @@ ws.send('{"topic":"depth","event":"sub","params":{"binary":false,"symbol":"BTCUS
 ```javascript
 {
   "topic": "depth",
-  "symbol": "BTCUSDT",
   "params": {
-    "binary": "false"
+    "symbol": "BTCUSDT",
+    "binary": "false",
+    "symbolName": "BTCUSDT"
   },
   "data": {
     "s": "BTCUSDT",
@@ -531,6 +532,7 @@ t(:spot_websocket_orderbook_desc_v2)
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 | symbol | string | t(:spot_symbol) |
+| symbolName | string | t(:spot_symbol) |
 | binary | string | t(:spot_binary) |
 | t | number | t(:spot_timestamp) |
 | s | string | t(:spot_symbol) |
