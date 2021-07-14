@@ -491,17 +491,27 @@ GET
     "ext_code": null,
     "ext_info": null,
     "result": [
-        {
-          "symbol": "ETHBTC",
-          "id": 28457,
-          "orderId": 100234,
-          "price": "4.00000100",
-          "qty": "12.00000000",
-          "commission": "10.10000000",
-          "commissionAsset": "ETH",
-          "time": 1499865549590,
-          "isBuyer": true,
-          "isMaker": false
+       {
+            "id": "931975237315196160",
+            "symbol": "BTCUSDT",
+            "symbolName": "BTCUSDT",
+            "orderId": "931975236946097408",
+            "matchOrderId": "931975113180558592",
+            "price": "20000.00001",
+            "qty": "0.01",
+            "commission": "0.02000000001",
+            "commissionAsset": "USDT",
+            "time": "1625836105890",
+            "isBuyer": false,
+            "isMaker": false,
+            "fee": {
+                "feeTokenId": "USDT",
+                "feeTokenName": "USDT",
+                "fee": "0.02000000001"
+            },
+            "feeTokenId": "USDT",
+            "feeAmount": "0.02000000001",
+            "makerRebate": "0"
        }
     ]
 }
