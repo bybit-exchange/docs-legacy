@@ -856,7 +856,7 @@ t(:spot_websocket_user_order_desc)
 | p | string | t(:spot_price) |
 | X | string | t(:spot_order_status) |
 | i | string | t(:spot_order_id) |
-| M | string | t(:) |
+| M | string | t(:spotIgnore) |
 | l | string | t(:spot_recent_qty) |
 | z | string | t(:spot_cumulative_qty) |
 | L | string | t(:spot_recent_price) |
