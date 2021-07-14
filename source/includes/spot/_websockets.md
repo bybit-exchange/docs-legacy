@@ -651,7 +651,8 @@ ws.send('{"topic":"bookTicker","event":"sub","params":{"binary":false,"symbol":"
   "topic": "bookTicker",
   "params": {
     "symbol": "BTCUSDT",
-    "binary": "false"
+    "binary": "false",
+    "symbolName": "BTCUSDT"
   },
   "data": {
     "symbol": "BTCUSDT",
@@ -671,6 +672,7 @@ t(:spot_websocket_ticker_desc_v2)
 |:----- |:-----|----- |
 | symbol | string | t(:spot_symbol) |
 | binary | string | t(:spot_binary) |
+| symbolName | string | t(:spot_symbol) |
 | bidPrice | string | t(:spot_buy_price) |
 | bidQty | string | t(:spot_buy_qty) |
 | askPrice | string | t(:spot_sell_price)|
@@ -696,7 +698,8 @@ ws.send('{"topic":"realtimes","event":"sub","params":{"binary":false,"symbol":"B
   "topic": "realtimes",
   "params": {
     "symbol": "BTCUSDT",
-    "binary": "false"
+    "binary": "false",
+    "symbolName": "BTCUSDT"
   },
   "data": {
     "t": 1582001616500,
@@ -719,6 +722,7 @@ t(:spot_websocket_symbol_ticker_desc_v2)
 |:----- |:-----|----- |
 | symbol | string | t(:spot_symbol) |
 | binary | string | t(:spot_binary) |
+| symbolName | string | t(:spot_symbol) |
 | t | number | t(:spot_timestamp_kline) |
 | s | string | t(:spot_symbol) |
 | c | string | t(:spot_close)|
