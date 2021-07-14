@@ -271,10 +271,7 @@ DELETE
 |:----- |:-------|:-----|----- |
 |symbol|true|string|t(:spotSymbol)|
 |side|false|string|t(:spotSide)|
-
-<aside class="notice">
-t(:spotOrderBatchCancelRemark)
-</aside>
+|orderTypes|fasle|string|t(:spotOrderTypes)|
 
 <p class="fake_header">t(:responseparameters)</p>
 
