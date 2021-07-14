@@ -30,6 +30,8 @@ t(:market_para_auth)
             "minTradeQuantity": "0.0001",
             "minTradeAmount": "10",
             "minPricePrecision": "0.01",
+            "maxTradeQuantity": "2",
+            "maxTradeAmount": "200",
             "category": 1
         },
         {
@@ -42,6 +44,8 @@ t(:market_para_auth)
             "minTradeQuantity": "0.0001",
             "minTradeAmount": "10",
             "minPricePrecision": "0.01",
+            "maxTradeQuantity": "2",
+            "maxTradeAmount": "200",
             "category": 1
         }
     ]
