@@ -147,7 +147,10 @@ t(:spot_websocket_para_response)
             "q":"0.00027",
             "m":true
         }
-    ]
+    ],
+    "f": true,
+    "sendTime": 1626249138535,
+    "shared": false
 }
 ```
 
