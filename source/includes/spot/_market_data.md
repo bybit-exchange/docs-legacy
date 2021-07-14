@@ -486,3 +486,4 @@ t(:spotBookTickerRemark)
 | bidQty | float | t(:spotBidQuantity)|
 | askPrice| float | t(:spot_best_ask_price)|
 | askQty | float |t(:spotAskQuantity)|
+| time | long |t(:row_response_comment_nill_time)|
