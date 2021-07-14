@@ -76,6 +76,9 @@ POST
 |side|string|t(:spotSide)|
 |status|string|t(:spotStatus)|
 |timeInForce|string|t(:spotTimeInForce)|
+|accountId|long|t(:spotAccountId)|
+|symbolName|string|t(:spotSymbolName)|
+|executedQty|string|t(:spotExecQty)|
 
 ### t(:spot_get_order)
 > t(:codequote_curlExample)
