@@ -25,7 +25,7 @@ t(:wallet_para)
                 "coinId": "USDT",
                 "coinName": "USDT",
                 "total": "10",
-                "free": "10",
+                "fee": "10",
                 "locked": "0"
             }
         ]
