@@ -1878,10 +1878,6 @@ curl https://api.bybit.com/v2/private/position/switch-mode \
 
 t(:account_para_switchpositionmode)
 
-<aside class="notice">
-t(:account_aside_switchpositionmode)
-</aside>
-
 <p class="fake_header">t(:httprequest)</p>
 POST
 <code><span id=ulSwitchMode>/v2/private/position/switch-mode</span></code>
