@@ -295,6 +295,10 @@ ws.send('{"symbol":"BTCUSDT","topic":"depth","event":"sub","params":{"binary":fa
   "symbol": "BTCUSDT",
   "symbolName": "BTCUSDT",
   "topic": "depth",
+  "params": {
+    "realtimeInterval": "24h",
+    "binary": "false"
+  },
   "data": [{
     "e": 301,
     "s": "BTCUSDT",
@@ -450,6 +454,10 @@ ws.send('{"symbol":"BTCUSDT","topic":"diffDepth","event":"sub","params":{"binary
   "symbol": "BTCUSDT",
   "symbolName": "BTCUSDT",
   "topic": "diffDepth",
+  "params": {
+    "realtimeInterval": "24h",
+    "binary": "false"
+  },
   "data": [{
     "e": 301,
     "s": "BTCUSDT",
