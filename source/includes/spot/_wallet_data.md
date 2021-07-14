@@ -39,9 +39,12 @@ GET
 <code><span id=vpOrder>/spot/v1/account</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-
-
 <p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|balances|object|t(:spot_balances)|
+
+<p class="fake_header">balances object</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |coin| string | t(:spot_token)|
