@@ -162,6 +162,10 @@ en:
   row_comemnt_replace_take_profit: New take_profit price, also known as stop_px. Do not pass this field if you don't want modify it
   row_comemnt_replace_stop_loss: New stop_loss price, also known as stop_px. Do not pass this field if you don't want modify it
   row_comment_leverage_old: Must be greater than 0 and less than the <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>. If you need to switch to cross margin please see the <a href="#t-marginswitch">Cross/Isolated Margin Switch</a> endpoint
+  row_comment_leverage_only: Use this parameter to set leverage while in cross margin mode.
+    <br>If this field is set to <code>false</code>, when <code>leverage</code> is equal to <code>0</code> the position will use cross margin; when <code>leverage</code> is greater than <code>0</code> the position will use isolated margin.
+    <br>If this field is set to <code>true</code>, you can set leverage in cross margin with <code>leverage</code>. <code>leverage</code> must be greater than <code>0</code>.
+    <br>Use the <a href="#t-marginswitch">Cross/Isolated Margin Switch</a> endpoint to switch cross/isolated without modifying the cross level of leverage.
   row_comment_startDate: Start point for result
   row_comment_endDate: End point for result
   row_comment_currency: Currency type
@@ -843,30 +847,14 @@ en:
     </li>
     </ul>
   spot_ip_rate_para_understanding: |
-        <p>Bybit has different IP rate limits for <code>GET</code> and <code>POST</code> method<span>:</span></p>
-        <ul>
-        <li>
-          <code>GET</code>method:
-          <ul>
-            <li>No more than 70 requests per second</li>
-            <li>No more than 50 requests per second for 2 consecutive minutes</li>
-          </ul>
-        </li>
-        <li>
-          <code>POST</code>method:
-          <ul>
-            <li>No more than 70 requests per second</li>
-            <li>No more than 20 requests per second for 2 consecutive minutes</li>
-          </ul>
-        </li>
-        </ul>
+        <p>Bybit has rate limits based on IP which is 200 per second</p>
   ### Account rate limit
   understandingratelimits: Understanding Your Request Rate Limit
   spot_understandingratelimits: Rate Limits for Requests
   rate_para_understanding: |
     Bybit makes frequency limits based on <b>the rolling time window per minute and UID, and each symbol is independent</b>. Every request to the API returns the fields shown in the code panel:
   spot_rate_para_understanding: |
-    Bybit sets rate limits based on <b>the rolling time window per minute and UID, and each trading pair is independent</b>. API request returns the fields shown below:
+    For all endpoints that need authentication, the rate limit is 20 per second
   rate_text_limitStatus_understanding: your remaining requests for current endpoint
   rate_text_limit_understanding: your current limit for current endpoint
   rate_text_limitReset: the timestamp indicating when your request limit resets if you have exceeded your rate_limit. Otherwise, this is just the current timestamp.
@@ -1112,6 +1100,7 @@ en:
   websocketresponse: Understanding Subscription Response
   websocket_codequote_response: Subscription Response
   websocket_para_response: Each subscription will have a response. You can determine whether the subscription is successful based on the response.
+  spot_websocket_para_response: Once you subscribe successfully, you'd receive result information. You can determine whether the subscription is successful based on the response.
   ## Public Topics
   publictopics: Public Topics
   publictopics_v2: Public Topics V2
@@ -1713,7 +1702,7 @@ en:
   row_comment_positionmode: |
     Position Mode. <code>0</code><span>:</span> One-Way Mode; <code>3</code><span>:</span> Hedge Mode
   futures_row_comment_leverage: Must be greater than 0 and less than the <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>.
-  inverse_row_comment_leverage: Switch Cross/Isolated; must set leverage value when switching from Cross to Isolated and the value of <code>buy_leverage</code> must be equal to <code>sell_leverage</code>. <b>Parameter not required when switch from isolated margin to cross margin.</b>
+  inverse_row_comment_leverage: Switch Cross/Isolated; must set leverage value when switching from Cross to Isolated and the value of <code>buy_leverage</code> must be equal to <code>sell_leverage</code>.
   futures_account_para_switchIsolated: Switch Cross/Isolated; must set leverage value when switching from Cross to Isolated
   futures_row_comment_switch_isolated: Cross/Isolated<span>:</span> true is Isolated; false is Cross
 
@@ -1877,9 +1866,16 @@ en:
   restapi_update_20210513: Add new USDT perpetual symbols<span>:</span> <a href="#symbol-symbol">XRPUSDT、XEMUSDT、SUSHIUSDT、AAVEUSDT</a>
   restapi_update_20210602: Add new USDT perpetual symbol<span>:</span> <a href="#symbol-symbol">DOGEUSDT</a>
   restapi_update_20210629: Add new USDT perpetual symbols<span>:</span> <a href="#symbol-symbol">MATICUSDT、EOSUSDT、ETCUSDT、BNBUSDT、FILUSDT、SOLUSDT</a>
-  restapi_update_20210527: Add new request parameters <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
+  restapi_update_20210527_1: Add new request parameters <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
   restapi_update_20210628: Add fields of <code>take_profit</code>, <code>stop_loss</code>, <code>trailing_stop</code> in response
   restapi_update_20210628_1: Fix values of <code>min_price</code> and <code>tick_size</code> for symbols <code>BCHUSDT</code> and <code>UNIUSDT</code>
+  restapi_update_20210701: Add parameter <code>leverage_only</code>
+    <br>Use this parameter to set leverage while in cross margin mode.
+    <br>If this field is set to <code>false</code>, when <code>leverage</code> is equal to <code>0</code> the position will use cross margin; when <code>leverage</code> is greater than <code>0</code> the position will use isolated margin.
+    <br>If this field is set to <code>true</code>, you can set leverage in cross margin with <code>leverage</code>. <code>leverage</code> must be greater than <code>0</code>.
+    <br>Use the <a href="#t-marginswitch">Cross/Isolated Margin Switch</a> endpoint to switch cross/isolated without modifying the cross level of leverage.
+  restapi_update_20210708_1: Update <code>buy_leverage</code> and <code>sell_leverage</code> parameters to be always required
+  restapi_update_20210706: Support setting <code>buy_leverage</code>, <code>sell_leverage</code> when switch from isolated margin to cross margin
 
   ws_update_20210202_0: Add fields <code>reduce_only</code>,<code>close_on_trigger</code>
   ws_update_20210202_1: Add field <code>close_on_trigger</code>
@@ -1916,6 +1912,7 @@ en:
   restapi_update_20210617_2: Deprecate to use <code>auto_add_margin</code> to determine if position is Isolated Margin or Cross Margin
   restapi_update_20210617_3: Not recommend to use <a href="#t-setleverage">Set Leverage</a> endpoint switch Isolated Margin or Cross Margin
   restapi_update_20210618_1: After June 24, 2021 do not use <code>leverage</code> to determine if position is Isolated Margin or Cross Margin. <code>leverage</code> must be greater than 0 and less than the <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>.
+  restapi_update_20210712: Optimize the input and output parameters of some interfaces
 
   markpricekline: Query Mark Price Kline
   linear_query_mark_price_kline: Query mark price kline (like <a href="#t-querykline">Query Kline</a> but for <a href="https://help.bybit.com/hc/en-us/articles/360039261074-What-is-Dual-Price-mechanism-">mark price</a>).
@@ -1966,7 +1963,7 @@ en:
   replace_by_new_topic: please replace with
 
   #spot
-  spot: Spot(testnet)
+  spot: Spot
   spotOrderCreate: Create Spot Order
   spotAccountId: Account ID
   spotOrderLinkId: User-generated order ID
@@ -1978,11 +1975,14 @@ en:
   spotMinTradeQuantity: Min. order qty
   spotMinTradeAmount: Min. order value
   spotMinPricePrecision: Min. number of decimal places
+  spotmaxTradeQuantity: Max. order qty
+  spotmaxTradeAmount: Max. order value
   spotCategory:  Category
 
   spotSymbol: Name of the trading pair
   spotId: Trade ID
-  spotQty: Order quantity
+  spotQty: |
+    Order quantity (<b>for market orders: when <code>side</code> is <code>Buy</code>, this is in the quote currency. Otherwise, qty is in the base currency. For example, on BTCUSDT a <code>Buy</code> order is in USDT, otherwise it's in BTC.</b> For limit orders, the qty is always in the base currency.)
   spotCommission: Trading fee
   spotCommissionAsset: Asset type in which the fee is paid
   spotIsBuyer: True indicates buyer, false indicates seller
@@ -2000,6 +2000,10 @@ en:
   spotQuantity: Order quantity (for market buy order, quantity = amount)
   spotBidQuantity: Bid quantity
   spotAskQuantity: Ask quantity
+  spotKlineTimeRemark: If startTime and endTime are not specified, only the latest candles will be sent
+  spotTicker24hrRemark: If symbol is not specified, the data from all symbols will be returned
+  spotTickerPriceRemark: If symbol is not specified, the price from all symbols will be returned
+  spotBookTickerRemark: If symbol is not specified, the best order price from all symbols will be returned
   spotTransactTime: Timestamp
   spotCummulativeQuoteQty: Total order quantity
   spotSide: Order direction, possible values include Buy and Sell
@@ -2012,7 +2016,7 @@ en:
   spotOrderId: Order ID
   spotFees: Fees incurred for this order.
   spotOriQty: Order quantity
-  spotExecQty: Filled quantity
+  spotExecQty: Please ignore
   spotAvgPrice: Average filled price
   spotStopPrice: Stop price
   spotType: Order type, possible values are LIMIT and MARKET
@@ -2026,7 +2030,7 @@ en:
   spot_time: Timestamp
   spot_message: Success or not (true/false)
   spot_sMessage: True indicates buy order, false indicates sell order
-  spot_order_list_limit: Default value is 500, max 1,000
+  spot_order_list_limit: Default value is 500, max 500
   spot_orders_start_time: Start time, unit in milliesecond
   spot_orders_end_time: End time, unit in milliesecond
   spot_history_orders: Past Orders
@@ -2037,13 +2041,13 @@ en:
   spot_token: Asset
   spot_fee: Trading fee
   spot_locked: Reserved for orders
-  spot_depth_limit: Default value is 40, max 40
+  spot_depth_limit: Default value is 100
   spot_depth_time:  Current time, unit in millisecond
   spot_depth_bids: Bid price and quantity, with best bid prices ranked  from top to bottom
   spot_depth_asks: Ask price and quantity, with best ask prices ranked from top to bottom
   mergedOrderBook: Merged Order Book
   spot_trades: Recent trades
-  spot_trades_limit: Default value is 500, max 10,000
+  spot_trades_limit: Default value is 1000, max 10,000
   spot_is_buyer_maker: True indicates buy order, false indicates sell order
   spot_trade_time: Current timestamp, unit in millisecond
   spot_klines: Candlestick Chart
@@ -2092,7 +2096,7 @@ en:
   spot_low: Low price
   spot_open: Open price
   spot_volume: Trading volume
-  spot_quota_volume: Turnover
+  spot_quote_volume: Trading quote volume
   spot_version: Version
   spot_buy: Best bid price，quantity
   spot_sell: Best ask price，quantity
@@ -2118,13 +2122,13 @@ en:
   spot_cumulative_qty: Total filled quantity
   spot_recent_price: Last traded price
   spot_fee_symbol: Asset type in which fee is paid
-  spot_m: Is maker
+  spot_m: true if the order type is LIMIT_MAKER
   spot_gains: Change
   spot_websocket_trade_v1: Trade Streams
   spot_websocket_trade_desc_v1: |
     <p>Trade Streams push raw data for each trade, which has a unique buyer and seller.</p>
     <p>After successful handshake and server connection, the server will return the last 60 trades. After this payload, the rest will be real-time trades.</p>
-    <p>Variable "v" acts as a trade ID, and this variable is shared across different assets. Each ID, however, is unique. Suppose three trades of ETHSUDT, BTCUSDT, and BHTBTC Contracts happened in the last five seconds, then version (which is "v") will be consecutive: 112, 113, 114.</p>
+    <p>Variable "v" acts as a trade ID, and this variable is shared across different assets.</p>
 
   spot_websocket_ticker_v1: Trading Pair Stream
   spot_websocket_ticker_desc_v1: The 24-hr statistics of a trading pair refreshed every second.

@@ -6,18 +6,17 @@ t(:account_para)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/futures/private/order/create \
+curl https://api.bybit.com/v2/private/order/create \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","side"="Buy","symbol"="BTCUSDM21","order_type":"Market","qty":10,"time_in_force":"GoodTillCancel","timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","side"="Buy","symbol"="BTCUSD","order_type":"Market","qty":10,"time_in_force":"GoodTillCancel","timestamp":{timestamp},"sign":"{sign}"}'
 
 ```
 
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.FuturesOrder.FuturesOrder_new(side="Buy",symbol="BTCUSDM21",order_type="Market",qty=1,time_in_force="GoodTillCancel").result())
+print(client.Order.Order_new(side="Buy",symbol="BTCUSD",order_type="Market",qty=1,time_in_force="GoodTillCancel").result())
 ```
-
 
 > t(:codequote_responseExample)
 
@@ -30,7 +29,7 @@ print(client.FuturesOrder.FuturesOrder_new(side="Buy",symbol="BTCUSDM21",order_t
     "result": {
         "user_id": 1,
         "order_id": "335fd977-e5a5-4781-b6d0-c772d5bfb95b",
-        "symbol": "BTCUSDM21",
+        "symbol": "BTCUSD",
         "side": "Buy",
         "order_type": "Limit",
         "price": 8800,
@@ -59,26 +58,25 @@ t(:account_para_placeActive)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/futures/private/order/create</span></code>
+<code><span id=vpoCreate>/v2/private/order/create</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|position_idx |<b>true</b>|integer |t(:row_comment_position_idx)  |
 |t(:row_parameter_side) |<b>true</b> |string |t(:row_comment_side)    |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)   |
 |t(:row_parameter_order_type) |<b>true</b> |string |t(:row_comment_activeOrderType)   |
 |t(:row_parameter_quantity) |<b>true</b> |integer |t(:row_comment_qty) |
 |t(:row_parameter_price) |false |number |t(:row_comment_resp_price) |
 |t(:row_parameter_time_in_force) |<b>true</b> |string |t(:row_comment_timeInForce) |
-|reduce_only |false |bool |t(:row_comment_reduceOnly) |
-|close_on_trigger |false |bool |t(:row_comment_closeOnTrigger)
-|order_link_id |false |string |t(:row_comment_orderLinkId) |
 |take_profit |false |number |t(:row_comment_takeProfit) |
 |stop_loss |false |number |t(:row_comment_stopLoss) |
 |t(:row_parameter_tp_trigger_by) |false |string |t(:account_row_comment_tp_trigger_by) |
 |t(:row_parameter_sl_trigger_by) |false |string |t(:account_row_comment_sl_trigger_by) |
+|reduce_only |false |bool |t(:row_comment_reduceOnly) |
+|close_on_trigger |false |bool |t(:row_comment_closeOnTrigger)
+|order_link_id |false |string |t(:row_comment_orderLinkId) |
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -112,13 +110,13 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/futures/private/order/list?api_key={api_key}&timestamp={timestamp}&sign={sign}&symbol=BTCUSDM21"
+curl "https://api.bybit.com/v2/private/order/list?api_key={api_key}&timestamp={timestamp}&sign={sign}&symbol=BTCUSD"
 ```
 
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.FuturesOrder.FuturesOrder_getOrders(symbol="BTCUSDM21",order_status="New").result())
+print(client.Order.Order_getOrders(symbol="BTCUSD",order_status="New").result())
 ```
 
 > t(:codequote_responseExample)
@@ -133,9 +131,8 @@ print(client.FuturesOrder.FuturesOrder_getOrders(symbol="BTCUSDM21",order_status
         "data": [
             {
                 "user_id": 160861,
-                "position_idx": 0,
                 "order_status": "Cancelled",
-                "symbol": "BTCUSDM21",
+                "symbol": "BTCUSD",
                 "side": "Buy",
                 "order_type": "Market",
                 "price": "9800",
@@ -166,7 +163,7 @@ t(:account_para_getActive)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpoList>/futures/private/order/list</span></code>
+<code><span id=vpoList>/v2/private/order/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -183,7 +180,6 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |data > user_id |integer |t(:row_comment_userID) |
-|data > position_idx |integer |t(:row_comment_position_idx)  |
 |data > symbol |string |t(:row_comment_symbol) |
 |data > side |string |t(:row_comment_side) |
 |data > order_type |string |t(:row_comment_order_type) |
@@ -211,15 +207,15 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/futures/private/order/cancel \
+curl https://api.bybit.com/v2/private/order/cancel \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSDM21","order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","symbol":"BTCUSD","order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.FuturesOrder.FuturesOrder_cancel(symbol="BTCUSDM21", order_id="").result())
+print(client.Order.Order_cancel(symbol="BTCUSD", order_id="").result())
 ```
 
 > t(:codequote_responseExample)
@@ -233,7 +229,7 @@ print(client.FuturesOrder.FuturesOrder_cancel(symbol="BTCUSDM21", order_id="").r
     "result": {
         "user_id": 1,
         "order_id": "3bd1844f-f3c0-4e10-8c25-10fea03763f6",
-        "symbol": "BTCUSDM21",
+        "symbol": "BTCUSD",
         "side": "Buy",
         "order_type": "Limit",
         "price": 8800,
@@ -262,7 +258,7 @@ t(:account_para_cancelActive)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCancel>/futures/private/order/cancel</span></code>
+<code><span id=vpoCancel>/v2/private/order/cancel</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancel"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -296,20 +292,24 @@ POST
 |order_link_id |string |t(:row_response_comment_orderLinkId)  |
 |created_at |string |t(:row_comment_created_at)  |
 |updated_at |string |t(:row_comment_updated_at)  |
+|take_profit |number |t(:row_comment_take_profit)  |
+|stop_loss |number |t(:row_comment_stop_loss)  |
+|t(:row_parameter_tp_trigger_by) |string |t(:account_row_comment_tp_trigger_by) |
+|t(:row_parameter_sl_trigger_by) |string |t(:account_row_comment_sl_trigger_by) |
 
 ### t(:cancelallactive)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/futures/private/order/cancelAll \
+curl https://api.bybit.com/v2/private/order/cancelAll \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSDM21","timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","symbol":"BTCUSD","timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.FuturesOrder.FuturesOrder_cancelAll(symbol="BTCUSDM21").result())
+print(client.Order.Order_cancelAll(symbol="BTCUSD").result())
 ```
 
 > t(:codequote_responseExample)
@@ -324,7 +324,7 @@ print(client.FuturesOrder.FuturesOrder_cancelAll(symbol="BTCUSDM21").result())
         {
             "clOrdID": "89a38056-80f1-45b2-89d3-4d8e3a203a79",  
             "user_id": 1,                                  
-            "symbol": "BTCUSDM21",                                
+            "symbol": "BTCUSD",                                
             "side": "Buy",                                      
             "order_type": "Limit",                              
             "price": "7693.5",                                  
@@ -356,7 +356,7 @@ t(:account_aside_cancelAllActive)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCancelAll>/futures/private/order/cancelAll</span></code>
+<code><span id=vpoCancelAll>/v2/private/order/cancelAll</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancelAll"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -390,15 +390,15 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/futures/private/order/replace \
+curl https://api.bybit.com/v2/private/order/replace \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSDM21","order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","symbol":"BTCUSD","order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.FuturesOrder.FuturesOrder_replace(symbol="BTCUSDM21", order_id="69bd5b88-fa2e-4c33-a489-1860f595191d", p_r_qty="2").result())
+print(client.Order.Order_replace(symbol="BTCUSD", order_id="").result())
 ```
 
 > t(:codequote_responseExample)
@@ -426,7 +426,7 @@ t(:account_aside_replaceActive)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoReplace>/futures/private/order/replace</span></code>
+<code><span id=vpoReplace>/v2/private/order/replace</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoReplace"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -452,13 +452,13 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/futures/private/order?api_key={api_key}&symbol=BTCUSDM21&timestamp={timestamp}order_id={order_id}&sign={sign}"
+curl "https://api.bybit.com/v2/private/order?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}order_id={order_id}&sign={sign}"
 ```
 
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.FuturesOrder.FuturesOrder_query(symbol="BTCUSDM21", order_id="").result())
+print(client.Order.Order_query(symbol="BTCUSD", order_id="").result())
 ```
 
 > t(:codequote_responseExample)
@@ -471,8 +471,7 @@ print(client.FuturesOrder.FuturesOrder_query(symbol="BTCUSDM21", order_id="").re
     "ext_info": "",
     "result": {
         "user_id": 106958,
-        "position_idx":0,
-        "symbol": "BTCUSDM21",
+        "symbol": "BTCUSD",
         "side": "Buy",
         "order_type": "Limit",
         "price": "11756.5",
@@ -512,8 +511,7 @@ print(client.FuturesOrder.FuturesOrder_query(symbol="BTCUSDM21", order_id="").re
     "result": [
         {
             "user_id": 100228,
-            "position_idx":0,
-            "symbol": "BTCUSDM21",
+            "symbol": "BTCUSD",
             "side": "Sell",
             "order_type": "Limit",
             "price": "17740",
@@ -540,8 +538,7 @@ print(client.FuturesOrder.FuturesOrder_query(symbol="BTCUSDM21", order_id="").re
         ...
         {
             "user_id": 100228,
-            "position_idx":0,
-            "symbol": "BTCUSDM21",
+            "symbol": "BTCUSD",
             "side": "Sell",
             "order_type": "Limit",
             "price": "17740",
@@ -577,7 +574,7 @@ t(:account_para_queryActive)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpOrder>/futures/private/order</span></code>
+<code><span id=vpOrder>/v2/private/order</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -592,7 +589,6 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |user_id |number |t(:row_comment_userID)  |
-|position_idx |integer |t(:row_comment_position_idx)  |
 |symbol|string |t(:row_comment_symbol)    |
 |side |string |t(:row_comment_side)  |
 |order_type |string |t(:row_comment_order_type)  |
@@ -614,23 +610,25 @@ GET
 |order_id |string |t(:row_comment_order_id)  |
 |take_profit |number |t(:row_comment_take_profit)  |
 |stop_loss |number |t(:row_comment_stop_loss)  |
-|t(:row_parameter_tp_trigger_by) |string |t(:account_row_comment_tp_trigger_by) |
-|t(:row_parameter_sl_trigger_by) |string |t(:account_row_comment_sl_trigger_by) |
+|t(:row_parameter_tp_trigger_by) |string |t(:account_row_comment_tp_trigger_by)  |
+|t(:row_parameter_sl_trigger_by) |string |t(:account_row_comment_sl_trigger_by)  |
+
 
 ## t(:conditionalorders)
 ### t(:placecond)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/futures/private/stop-order/create \
+curl https://api.bybit.com/v2/private/stop-order/create \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","order_type":"Limit","side":"Buy","symbol":"BTCUSDM21","qty":1,"price":8100,"base_price":8300,"stop_px":8150,"time_in_force":"GoodTillCancel","order_link_id":"cus_order_id_1","timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","order_type":"Limit","side":"Buy","symbol":"BTCUSD","qty":1,"price":8100,"base_price":8300,"stop_px":8150,"time_in_force":"GoodTillCancel","order_link_id":"cus_order_id_1","timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.FuturesConditional.FuturesConditional_new(order_type="Limit",side="Buy",symbol="BTCUSDM21",qty="1",price="0.2569",base_price="15700",stop_px="0.2119",time_in_force="GoodTillCancel").result())
+print(client.Conditional.Conditional_new(order_type="Limit",side="Buy",symbol="XRPUSD",qty="1",price="0.2569",base_price="15700",stop_px="0.2119",time_in_force="GoodTillCancel").result())
+
 ```
 
 > t(:codequote_responseExample)
@@ -643,7 +641,7 @@ print(client.FuturesConditional.FuturesConditional_new(order_type="Limit",side="
     "ext_info":"",
     "result":{
         "user_id":160880,
-        "symbol":"BTCUSDM21",
+        "symbol":"BTCUSD",
         "side":"Buy",
         "order_type":"Limit",
         "price":"9003",
@@ -670,13 +668,12 @@ t(:account_aside_placeCond)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpsoCreate>/futures/private/stop-order/create</span></code>
+<code><span id=vpsoCreate>/v2/private/stop-order/create</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpsoCreate"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|position_idx |<b>true</b>|integer |t(:row_comment_position_idx)  |
 |t(:row_parameter_side) |<b>true</b> |string |t(:row_comment_side)    |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
 |t(:row_parameter_order_type) |<b>true</b> |string |t(:row_comment_stopOrderType) |
@@ -688,10 +685,10 @@ POST
 |t(:row_parameter_trigger_price) | false | string | t(:row_comment_triggerBy)|
 |close_on_trigger |false |bool |t(:row_comment_closeOnTrigger)
 |order_link_id |false |string |t(:row_comment_orderLinkId) |
-|take_profit |false |number |t(:row_comment_takeProfit) |
-|stop_loss |false |number |t(:row_comment_stopLoss) |
-|t(:row_parameter_tp_trigger_by) |false |string |t(:account_row_comment_tp_trigger_by) |
-|t(:row_parameter_sl_trigger_by) |false |string |t(:account_row_comment_sl_trigger_by) |
+|take_profit |false |number |t(:row_comment_take_profit)  |
+|stop_loss |false |number |t(:row_comment_stop_loss)  |
+|t(:row_parameter_tp_trigger_by) |false |string |t(:account_row_comment_tp_trigger_by)  |
+|t(:row_parameter_sl_trigger_by) |false |string |t(:account_row_comment_sl_trigger_by)  |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -711,8 +708,8 @@ POST
 |stop_order_id |string |t(:row_comment_stopOrderId) |
 |created_at |string |t(:row_comment_created_at)  |
 |order_link_id |string |t(:row_response_comment_orderLinkId)  |
-|take_profit |false |number |t(:row_comment_take_profit)  |
-|stop_loss |false |number |t(:row_comment_stop_loss)  |
+|take_profit |number |t(:row_comment_take_profit)  |
+|stop_loss |number |t(:row_comment_stop_loss)  |
 |t(:row_parameter_tp_trigger_by) |string |t(:account_row_comment_tp_trigger_by)  |
 |t(:row_parameter_sl_trigger_by) |string |t(:account_row_comment_sl_trigger_by)  |
 
@@ -721,13 +718,13 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/futures/private/stop-order/list?api_key={api_key}&timestamp={timestamp}&sign={sign}"
+curl "https://api.bybit.com/v2/private/stop-order/list?api_key={api_key}&timestamp={timestamp}&sign={sign}"
 ```
 
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.FuturesConditional.FuturesConditional_getOrders(symbol="BTCUSDM21",stop_order_status="Untriggered").result())
+print(client.Conditional.Conditional_getOrders(symbol="BTCUSD",stop_order_status="Untriggered").result())
 ```
 
 > t(:codequote_responseExample)
@@ -742,7 +739,6 @@ print(client.FuturesConditional.FuturesConditional_getOrders(symbol="BTCUSDM21",
         "data": [
             {
                 "user_id": 160861,
-                "position_idx": 0,
                 "stop_order_status": "Active",
                 "symbol": "ETHUSD",
                 "side": "Buy",
@@ -772,7 +768,7 @@ t(:account_para_getCond)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpsoList>/futures/private/stop-order/list</span></code>
+<code><span id=vpsoList>/v2/private/stop-order/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpsoList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -788,7 +784,6 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |data > user_id |integer |t(:row_comment_userID)  |
-|data > position_idx |integer |t(:row_comment_position_idx)  |
 |data > t(:row_parameter_stop_order)|string |t(:row_comment_stopOrderStatus)    |
 |data > t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
 |data > t(:row_parameter_side) |string |t(:row_comment_side)  |
@@ -797,7 +792,7 @@ GET
 |data > t(:row_parameter_quantity) |number |t(:row_response_comment_qty)  |
 |data > t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
 |data > stop_order_type |string |t(:row_comment_stopOrderType)  |
-|data > t(:row_parameter_trigger_price) |string |t(:row_comment_triggerBy)  |
+|data > t(:row_parameter_trigger_price) |string |t(:row_response_comment_triggerBy)  |
 |data > base_price |number |t(:row_response_comment_basePrice)  |
 |data > order_link_id |string |t(:row_response_comment_orderLinkId)  |
 |data > created_at |string |t(:row_comment_created_at)  |
@@ -806,8 +801,8 @@ GET
 |data > stop_order_id |string |t(:row_comment_stopOrderId) |
 |data > take_profit |number |t(:row_comment_take_profit)  |
 |data > stop_loss |number |t(:row_comment_stop_loss)  |
-|data > t(:row_parameter_tp_trigger_by) |string |t(:account_row_comment_tp_trigger_by) |
-|data > t(:row_parameter_sl_trigger_by) |string |t(:account_row_comment_sl_trigger_by) |
+|data > tp_trigger_by |string |t(:account_row_comment_tp_trigger_by) |
+|data > sl_trigger_by |string |t(:account_row_comment_sl_trigger_by) |
 |cursor |string |t(:row_comment_resp_cursor) |
 
 
@@ -815,15 +810,15 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/futures/private/stop-order/cancel \
+curl https://api.bybit.com/v2/private/stop-order/cancel \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSDM21","stop_order_id":"xxx","timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","symbol":"BTCUSD","stop_order_id":"xxx","timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.FuturesConditional.FuturesConditional_cancel(symbol="BTCUSDM21", stop_order_id="").result())
+print(client.Conditional.Conditional_cancel(symbol="BTCUSD", stop_order_id="").result())
 ```
 
 > t(:codequote_responseExample)
@@ -848,7 +843,7 @@ t(:account_para_cancelCond)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpsoCancel>/futures/private/stop-order/cancel</span></code>
+<code><span id=vpsoCancel>/v2/private/stop-order/cancel</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpsoCancel"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -867,15 +862,15 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/futures/private/stop-order/cancelAll \
+curl https://api.bybit.com/v2/private/stop-order/cancelAll \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSDM21","timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","symbol":"BTCUSD","timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.FuturesConditional.FuturesConditional_cancelAll(symbol="BTCUSDM21").result())
+print(client.Conditional.Conditional_cancelAll(symbol="BTCUSD").result())
 ```
 
 > t(:codequote_responseExample)
@@ -890,7 +885,7 @@ print(client.FuturesConditional.FuturesConditional_cancelAll(symbol="BTCUSDM21")
         {
             "clOrdID": "dea89649-9492-459d-a8c4-c298b87b3d26",
             "user_id": 1,
-            "symbol": "BTCUSDM21",
+            "symbol": "BTCUSD",
             "side": "Sell",
             "order_type": "Limit",
             "price": "999999",
@@ -913,7 +908,7 @@ print(client.FuturesConditional.FuturesConditional_cancelAll(symbol="BTCUSDM21")
         {
             "clOrdID": "a85cd1c0-a9a4-49d3-a1bd-bab5ebe946d5",
             "user_id": 1,
-            "symbol": "BTCUSDM21",
+            "symbol": "BTCUSD",
             "side": "Buy",
             "order_type": "Limit",
             "price": "8000",
@@ -949,7 +944,7 @@ t(:account_aside_cancelAllCond)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpsoCancelAll>/futures/private/stop-order/cancelAll</span></code>
+<code><span id=vpsoCancelAll>/v2/private/stop-order/cancelAll</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpsoCancelAll"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -987,15 +982,15 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/futures/private/stop-order/replace \
+curl https://api.bybit.com/v2/private/stop-order/replace \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSDM21","stop_order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","symbol":"BTCUSD","stop_order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.FuturesConditional.FuturesConditional_replace(symbol="BTCUSDM21", stop_order_id="69bd5b88-fa2e-4c33-a489-1860f595191d",p_r_qty="2").result())
+print(client.Conditional.Conditional_replace(symbol="BTCUSD", stop_order_id="", p_r_trigger_price="16003").result())
 
 ```
 
@@ -1026,7 +1021,7 @@ t(:account_aside_replaceCond)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpsoReplace>/futures/private/stop-order/replace</span></code>
+<code><span id=vpsoReplace>/v2/private/stop-order/replace</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpsoReplace"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -1054,12 +1049,12 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/futures/private/stop-order?api_key={api_key}&symbol=BTCUSDM21&timestamp={timestamp}order_id={order_id}&sign={sign}"
+curl "https://api.bybit.com/v2/private/stop-order?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}order_id={order_id}&sign={sign}"
 ```
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.FuturesConditional.FuturesConditional_query(symbol="BTCUSDM21", stop_order_id="", p_r_trigger_price="16003").result())
+print(client.Conditional.Conditional_query(symbol="BTCUSD", stop_order_id="", p_r_trigger_price="16003").result())
 
 ```
 
@@ -1073,8 +1068,7 @@ print(client.FuturesConditional.FuturesConditional_query(symbol="BTCUSDM21", sto
     "ext_info": "",
     "result": {
         "user_id": 1,
-        "position_idx": 0,
-        "symbol": "BTCUSDM21",
+        "symbol": "BTCUSD",
         "side": "Buy",
         "order_type": "Limit",
         "price": "8000",
@@ -1108,7 +1102,6 @@ print(client.FuturesConditional.FuturesConditional_query(symbol="BTCUSDM21", sto
     "result": [
         {
             "user_id": 100328,
-            "position_idx": 0,
             "symbol": "EOSUSD",
             "side": "Sell",
             "order_type": "Limit",
@@ -1135,7 +1128,6 @@ print(client.FuturesConditional.FuturesConditional_query(symbol="BTCUSDM21", sto
         ...
         {
             "user_id": 100328,
-            "position_idx": 0,
             "symbol": "EOSUSD",
             "side": "Sell",
             "order_type": "Limit",
@@ -1174,7 +1166,7 @@ t(:account_para_queryConditionalNote)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpStopOrder>/futures/private/stop-order</span></code>
+<code><span id=vpStopOrder>/v2/private/stop-order</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpStopOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -1188,7 +1180,6 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |user_id |number |t(:row_comment_userID)  |
-|position_idx |integer |t(:row_comment_position_idx)  |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 |t(:row_parameter_order_type) |string |t(:row_comment_orderType)  |
@@ -1209,7 +1200,7 @@ GET
 |order_id |string |t(:row_comment_order_id)  |
 |base_price |string |t(:row_response_comment_basePrice)  |
 |stop_px |string |t(:linear_row_comment_stopPx)  |
-|t(:row_parameter_trigger_price) |string |t(:row_comment_triggerBy)  |
+|t(:row_parameter_trigger_price) |string |t(:row_response_comment_triggerBy)  |
 |take_profit |number |t(:row_comment_take_profit)  |
 |stop_loss |number |t(:row_comment_stop_loss)  |
 |t(:row_parameter_tp_trigger_by) |string |t(:account_row_comment_tp_trigger_by)  |
@@ -1221,13 +1212,13 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/futures/private/position/list?api_key={api_key}&symbol=BTCUSDM21&timestamp={timestamp}&sign={sign}"
+curl "https://api.bybit.com/v2/private/position/list?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}&sign={sign}"
 ```
 
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.FuturesPositions.FuturesPositions_myPosition(symbol="BTCUSDM21").result())
+print(client.Positions.Positions_myPosition(symbol="BTCUSD").result())
 ```
 
 > t(:codequote_responseExample)
@@ -1238,89 +1229,132 @@ print(client.FuturesPositions.FuturesPositions_myPosition(symbol="BTCUSDM21").re
     "ret_msg": "OK",
     "ext_code": "",
     "ext_info": "",
+    "result": {
+        "id": 27913,
+        "user_id": 1,
+        "risk_id": 1,
+        "symbol": "BTCUSD",
+        "side": "Buy",
+        "size": 5,
+        "position_value": "0.0006947",
+        "entry_price": "7197.35137469",
+        "is_isolated":true,
+        "auto_add_margin": 0,
+        "leverage": "1",  //t(:resp_field_leverage)
+        "effective_leverage": "1", // t(:resp_field_effective_leverage)
+        "position_margin": "0.0006947",
+        "liq_price": "3608",
+        "bust_price": "3599",
+        "occ_closing_fee": "0.00000105",
+        "occ_funding_fee": "0",
+        "take_profit": "0",
+        "stop_loss": "0",
+        "trailing_stop": "0",
+        "position_status": "Normal",
+        "deleverage_indicator": 4,
+        "oc_calc_data": "{\"blq\":2,\"blv\":\"0.0002941\",\"slq\":0,\"bmp\":6800.408,\"smp\":0,\"fq\":-5,\"fc\":-0.00029477,\"bv2c\":1.00225,\"sv2c\":1.0007575}",
+        "order_margin": "0.00029477",
+        "wallet_balance": "0.03000227",
+        "realised_pnl": "-0.00000126",
+        "unrealised_pnl": 0,
+        "cum_realised_pnl": "-0.00001306",
+        "cross_seq": 444081383,
+        "position_seq": 287141589,
+        "created_at": "2019-10-19T17:04:55Z",
+        "updated_at": "2019-12-27T20:25:45.158767Z"
+    },
+    "time_now": "1577480599.097287",
+    "rate_limit_status": 119,
+    "rate_limit_reset_ms": 1580885703683,
+    "rate_limit": 120
+}
+
+//t(:resp_field_position_list)
+{
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "ext_info": "",
     "result": [
         {
-            "data": {
+            "is_valid": true, //t(:resp_field_position_list_valid)
+            "data": { //t(:resp_field_position_list_data)
                 "id": 0,
-                "position_idx": 1,
-                "mode": 3,
-                "user_id": 103669,
-                "risk_id": 61,
-                "symbol": "BTCUSDM21",
+                "user_id": 118921,
+                "risk_id": 1,
+                "symbol": "BTCUSD",
                 "side": "Buy",
-                "size": 200000,
-                "position_value": "3.62934747",
-                "entry_price": "55106.32466392",
-                "is_isolated": true,
-                "auto_add_margin": 0,
-                "leverage": "10",
-                "effective_leverage": "0",
-                "position_margin": "0.36592896",
-                "liq_price": "50325.5",
-                "bust_price": "50097",
-                "occ_closing_fee": "0.0029942",
-                "occ_funding_fee": "0",
-                "take_profit": "0",
-                "stop_loss": "0",
-                "trailing_stop": "0",
-                "position_status": "Normal",
-                "deleverage_indicator": 4,
-                "oc_calc_data": "{\"blq\":0,\"slq\":0,\"bmp\":0,\"smp\":0,\"fq\":-200000,\"bv2c\":0.101575,\"sv2c\":0.101425}",
-                "order_margin": "0",
-                "wallet_balance": "9.95270565",
-                "realised_pnl": "-0.00272207",
-                "unrealised_pnl": 0,
-                "cum_realised_pnl": "-0.00272207",
-                "cross_seq": 2392689554,
-                "position_seq": 0,
-                "created_at": "2021-03-11T08:11:17.747178448Z",
-                "updated_at": "2021-03-11T08:24:18.923067183Z"
-            },
-            "is_valid": true
-        },
-        {
-            "data": {
-                "id": 0,
-                "position_idx": 0,
-                "mode": 0,
-                "user_id": 103669,
-                "risk_id": 71,
-                "symbol": "BTCUSDM21",
-                "side": "Buy",
-                "size": 2,
-                "position_value": "0.00003644",
-                "entry_price": "54884.74204171",
+                "size": 10,
+                "position_value": "0.00076448",
+                "entry_price": "13080.78694014",
                 "is_isolated": false,
                 "auto_add_margin": 1,
                 "leverage": "100",
-                "effective_leverage": "0",
-                "position_margin": "0.0000004",
-                "liq_price": "0.5",
-                "bust_price": "0.5",
-                "occ_closing_fee": "0.003",
+                "effective_leverage": "0.01",
+                "position_margin": "0.40111704",
+                "liq_price": "25",
+                "bust_price": "25",
+                "occ_closing_fee": "0.0003",
                 "occ_funding_fee": "0",
                 "take_profit": "0",
                 "stop_loss": "0",
                 "trailing_stop": "0",
                 "position_status": "Normal",
-                "deleverage_indicator": 3,
-                "oc_calc_data": "{\"blq\":0,\"slq\":0,\"bmp\":0,\"smp\":0,\"fq\":-2,\"bv2c\":0.0115075,\"sv2c\":0.0114925}",
+                "deleverage_indicator": 1,
+                "oc_calc_data": "{\"blq\":0,\"slq\":0,\"bmp\":0,\"smp\":0,\"fq\":-10,\"bv2c\":0.0115075,\"sv2c\":0.0114925}",
                 "order_margin": "0",
-                "wallet_balance": "9.95270565",
+                "wallet_balance": "0.40141704",
+                "realised_pnl": "-0.00000008",
+                "unrealised_pnl": 0.00003797,
+                "cum_realised_pnl": "-0.090626",
+                "cross_seq": 764786721,
+                "position_seq": 581513847,
+                "created_at": "2020-08-10T07:04:32Z",
+                "updated_at": "2020-11-02T00:00:11.943371457Z"
+            }
+        },
+        ...
+        {
+            "is_valid": true, //t(:resp_field_position_list_valid)
+            "data": { //t(:resp_field_position_list_data)
+                "id": 0,
+                "user_id": 118921,
+                "risk_id": 35,
+                "symbol": "XRPUSD",
+                "side": "None",
+                "size": 0,
+                "position_value": "0",
+                "entry_price": "0",
+                "is_isolated": false,
+                "auto_add_margin": 1,
+                "leverage": "16.67",
+                "effective_leverage": "16.67",
+                "position_margin": "0",
+                "liq_price": "0",
+                "bust_price": "0",
+                "occ_closing_fee": "0",
+                "occ_funding_fee": "0",
+                "take_profit": "0",
+                "stop_loss": "0",
+                "trailing_stop": "0",
+                "position_status": "Normal",
+                "deleverage_indicator": 0,
+                "oc_calc_data": "{\"blq\":0,\"slq\":0,\"bmp\":0,\"smp\":0,\"bv2c\":0.06153301,\"sv2c\":0.06144302}",
+                "order_margin": "0",
+                "wallet_balance": "0",
                 "realised_pnl": "0",
                 "unrealised_pnl": 0,
-                "cum_realised_pnl": "-0.00000002",
-                "cross_seq": 2360303954,
-                "position_seq": 0,
-                "created_at": "2021-02-24T05:56:07.964274148Z",
-                "updated_at": "2021-03-11T08:52:06.772110817Z"
-            },
-            "is_valid": true
+                "cum_realised_pnl": "0",
+                "cross_seq": -1,
+                "position_seq": 352149441,
+                "created_at": "2020-08-10T07:04:32Z",
+                "updated_at": "2020-08-22T08:06:32Z"
+            }
         }
     ],
-    "time_now": "1615452727.664848",
-    "rate_limit_status": 119,
-    "rate_limit_reset_ms": 1615452727660,
+    "time_now": "1604302124.031104",
+    "rate_limit_status": 118,
+    "rate_limit_reset_ms": 1604302124020,
     "rate_limit": 120
 }
 ```
@@ -1329,7 +1363,7 @@ t(:account_para_myPosition)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=pList>/futures/private/position/list</span></code>
+<code><span id=pList>/v2/private/position/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -1341,8 +1375,6 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |id |number |t(:row_comment_position_id)  |
-|position_idx |integer |t(:row_comment_position_idx)  |
-|mode |number |t(:row_comment_position_mode)  |
 |user_id |number |t(:row_comment_userID)  |
 |risk_id |number |t(:row_comment_riskId)  |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
@@ -1376,19 +1408,20 @@ GET
 |updated_at |string |t(:row_comment_updated_at)  |
 |t(:row_parameter_tp_sl_mode) |string |t(:linear_resp_tp_sl_mode)  |
 
+
 ### t(:changemargin)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/futures/private/position/change-position-margin \
+curl https://api.bybit.com/v2/private/position/change-position-margin \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSDM21",margin:"10","timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","symbol":"BTCUSD",margin:"10","timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.FuturesPositions.FuturesPositions_changeMargin(symbol="BTCUSDM21", margin="10").result())
+print(client.Positions.Positions_changeMargin(symbol="BTCUSD", margin="10").result())
 ```
 
 > t(:codequote_responseExample)
@@ -1415,14 +1448,13 @@ t(:account_aside_changeMargin)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=pChangePositionMarginNew>/futures/private/position/change-position-margin</span></code>
+<code><span id=pChangePositionMarginNew>/v2/private/position/change-position-margin</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pChangePositionMarginNew"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
-|position_idx |<b>true</b>|integer |t(:row_comment_position_idx)  |
 |margin |<b>true</b> |string |t(:row_comment_margin)  |
 
 
@@ -1437,15 +1469,15 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/futures/private/position/trading-stop \
+curl https://api.bybit.com/v2/private/position/trading-stop \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSDM21","stop_loss":7000,"timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","symbol":"BTCUSD","stop_loss":7000,"timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.FuturesPositions.FuturesPositions_tradingStop(symbol="BTCUSDM21",take_profit="0", stop_loss="9110", trailing_stop="0", new_trailing_active="0").result())
+print(client.Positions.Positions_tradingStop(symbol="BTCUSD",stop_loss="7000").result())
 ```
 
 > t(:codequote_responseExample)
@@ -1458,7 +1490,7 @@ print(client.FuturesPositions.FuturesPositions_tradingStop(symbol="BTCUSDM21",ta
     "result": {
         "id": 27913,
         "user_id": 1,
-        "symbol": "BTCUSDM21",
+        "symbol": "BTCUSD",
         "side": "Buy",
         "size": 5,
         "position_value": 0.0006947,
@@ -1509,23 +1541,21 @@ t(:account_aside_tradingStop)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=oapTradingStopNew>/futures/private/position/trading-stop</span></code>
+<code><span id=oapTradingStopNew>/v2/private/position/trading-stop</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oapTradingStopNew"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
-|position_idx |<b>true</b>|integer |t(:row_comment_position_idx)  |
 |take_profit |false |number |t(:account_row_comment_takeProfit) |
 |stop_loss |false |number |t(:account_row_comment_stopLoss) |
 |trailing_stop |false |number |t(:account_row_comment_trailingStop) |
 |t(:row_parameter_tp_trigger_by) | false | string | t(:account_row_comment_tp_trigger_by)
-|t(:row_parameter_sl_trigger_by) | false | string | t(:account_row_comment_tp_trigger_by)
+|t(:row_parameter_sl_trigger_by) | false | string | t(:account_row_comment_sl_trigger_by)
 |new_trailing_active |false |number |t(:account_row_comment_trailingStop_active) |
 |sl_size |false |number |t(:row_comment_sl_size) |
 |tp_size |false |number |t(:row_comment_tp_size) |
-
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -1569,15 +1599,15 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/futures/private/position/leverage/save \
+curl https://api.bybit.com/v2/private/position/leverage/save \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSDM21","buy_leverage":14,"sell_leverage":14,"timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","symbol":"BTCUSD","buy_leverage":14,"sell_leverage":14,"timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.FuturesPositions.FuturesPositions_saveLeverage(symbol="BTCUSDM21", buy_leverage="14",sell_leverage="14").result())
+print(client.Positions.Positions_saveLeverage(symbol="BTCUSD", leverage="14").result())
 ```
 
 > t(:codequote_responseExample)
@@ -1604,177 +1634,36 @@ t(:account_aside_setleverage)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=ulSaveNew>/futures/private/position/leverage/save</span></code>
+<code><span id=ulSaveNew>/v2/private/position/leverage/save</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ulSaveNew"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
+|leverage |<b>true</b> |number |t(:row_comment_leverage_old) |
+|leverage_only |<b>false</b> |bool |t(:row_comment_leverage_only) |
+<!--
 |buy_leverage |<b>true</b> |number |t(:futures_row_comment_leverage) |
 |sell_leverage |<b>true</b> |number |t(:futures_row_comment_leverage) |
+-->
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |result |number |t(:row_comment_leverage_result)  |
 
-
-### t(:switchpositionmode)
-> t(:codequote_curlExample)
-
-```console
-curl https://api.bybit.com/futures/private/position/switch-mode \
--H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSDM21","mode":0,"timestamp":{timestamp},"sign":"{sign}"}'
-```
-
-```python
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.FuturesPositions.FuturesPositions_switchPositionMode(symbol="BTCUSDM21",mode=0).result())
-```
-
-> t(:codequote_responseExample)
-
-```javascript
-{
-    "ret_code": 0,
-    "ret_msg": "ok",
-    "ext_code": "",
-    "result": null,
-    "ext_info": null,
-    "time_now": "1577477968.175013",
-    "rate_limit_status": 74,
-    "rate_limit_reset_ms": 1577477968183,
-    "rate_limit": 75
-}
-```
-
-t(:account_para_switchpositionmode)
-
-<p class="fake_header">t(:httprequest)</p>
-POST
-<code><span id=ulSwitchMode>/futures/private/position/switch-mode</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ulSwitchMode"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
-|mode |<b>true</b> |int |t(:row_comment_positionmode) |
-
-
-
-
-### t(:switchmode)
-> t(:codequote_responseExample)
-
-```javascript
-{
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
-    "ext_info": "",
-    "result": {
-        "tp_sl_mode": "Partial"
-    },
-    "time_now": "1598266294.610276",
-    "rate_limit_status": 72,
-    "rate_limit_reset_ms": 1598266294607,
-    "rate_limit": 75
-}
-
-```
-
-t(:linear_private_switchmode)
-
-<aside class="notice">
-t(:switchmode_aside)
-</aside>
-
-<p class="fake_header">t(:httprequest)</p>
-POST
-<code><span id=fptSwitchMode>/futures/private/tpsl/switch-mode</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#fptSwitchMode"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
-|t(:row_parameter_tp_sl_mode) |<b>true</b> |string |t(:linear_resp_tp_sl_mode)  |
-
-
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|t(:row_parameter_tp_sl_mode) |string |t(:linear_resp_tp_sl_mode)  |
-
-
-
-
-### t(:marginswitch)
-> t(:codequote_curlExample)
-
-```console
-curl https://api.bybit.com/futures/private/position/switch-isolated \
--H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSDM21", "is_isolated":true,"buy_leverage":10,"sell_leverage":20, "timestamp":{timestamp},"sign":"{sign}"}'
-```
-
-```python
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.FuturesPositions.FuturesPositions_switchIsolated(symbol="BTCUSDM21",is_isolated=True, buy_leverage="1", sell_leverage="1").result())
-```
-
-> t(:codequote_responseExample)
-
-```javascript
-{
-    "ret_code": 0,
-    "ret_msg": "ok",
-    "ext_code": "",
-    "result": null,
-    "ext_info": null,
-    "time_now": "1577477968.175013",
-    "rate_limit_status": 74,
-    "rate_limit_reset_ms": 1577477968183,
-    "rate_limit": 75
-}
-```
-
-t(:futures_account_para_switchIsolated)
-
-<p class="fake_header">t(:httprequest)</p>
-POST
-<code><span id=ulSwitchMode>/futures/private/position/switch-isolated</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ulSwitchMode"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
-|is_isolated |<b>true</b> |bool |t(:futures_row_comment_switch_isolated)  |
-|buy_leverage |<b>true</b> |number |t(:futures_row_comment_leverage)  |
-|sell_leverage |<b>true</b> |number |t(:futures_row_comment_leverage)  |
-
-
-
-
-
 ### t(:usertraderecords)
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/futures/private/execution/list?api_key={api_key}&symbol=BTCUSDM21&timestamp={timestamp}&sign={sign}"
+curl "https://api.bybit.com/v2/private/execution/list?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}&sign={sign}"
 ```
 
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.FuturesExecution.FuturesExecution_getTrades(symbol="BTCUSDM21").result())
+print(client.Execution.Execution_getTrades(symbol="BTCUSD").result())
 ```
 
 > t(:codequote_responseExample)
@@ -1808,7 +1697,7 @@ print(client.FuturesExecution.FuturesExecution_getTrades(symbol="BTCUSDM21").res
                 "order_qty": 1,
                 "order_type": "Market", //t(:enum_order_type_link)
                 "side": "Buy", //t(:enum_side_link)
-                "symbol": "BTCUSDM21", //t(:enum_symbol_link)
+                "symbol": "BTCUSD", //t(:enum_symbol_link)
                 "user_id": 1,
                 "trade_time_ms": 1577480599000
             }
@@ -1829,7 +1718,7 @@ t(:wallet_aside_tradeRecords)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpeList>/futures/private/execution/list</span></code>
+<code><span id=vpeList>/v2/private/execution/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpeList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -1872,13 +1761,13 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/futures/private/trade/closed-pnl/list?api_key={api_key}&symbol=BTCUSDM21&timestamp={timestamp}&sign={sign}"
+curl "https://api.bybit.com/v2/private/trade/closed-pnl/list?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}&sign={sign}"
 ```
 
 ```python
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.FuturesPositions.FuturesPositions_closePnlRecords(symbol="BTCUSDM21").result())
+print(client.Positions.Positions_closePnlRecords(symbol="BTCUSD").result())
 ```
 
 > t(:codequote_responseExample)
@@ -1895,7 +1784,7 @@ print(client.FuturesPositions.FuturesPositions_closePnlRecords(symbol="BTCUSDM21
             {
                 "id": 9982,
                 "user_id": 160320,
-                "symbol": "BTCUSDM21",
+                "symbol": "BTCUSD",
                 "order_id": "e976ac13-10e7-4883-a7ba-13b0e93659f1",
                 "side": "Sell",
                 "qty": 226,
@@ -1925,7 +1814,7 @@ t(:linear_private_closed_pnl_records)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=pltcList>/futures/private/trade/closed-pnl/list</span></code>
+<code><span id=pltcList>/v2/private/trade/closed-pnl/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pltcList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -1961,18 +1850,252 @@ GET
 |leverage |number |t(:resp_field_leverage)  |
 |created_at |number |t(:row_comment_created_at)  |
 
+### t(:switchpositionmode)
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/v2/private/position/switch-mode \
+-H "Content-Type: application/json" \
+-d '{"api_key":"{api_key}","symbol":"BTCUSD","mode":0,"timestamp":{timestamp},"sign":"{sign}"}'
+```
+
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "ok",
+    "ext_code": "",
+    "result": null,
+    "ext_info": null,
+    "time_now": "1577477968.175013",
+    "rate_limit_status": 74,
+    "rate_limit_reset_ms": 1577477968183,
+    "rate_limit": 75
+}
+```
+
+t(:account_para_switchpositionmode)
+
+<aside class="notice">
+t(:account_aside_switchpositionmode)
+</aside>
+
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=ulSwitchMode>/v2/private/position/switch-mode</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ulSwitchMode"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
+|mode |<b>true</b> |int |t(:row_comment_positionmode) |
+
+
+### t(:switchmode)
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "ext_info": "",
+    "result": {
+        "tp_sl_mode": "Partial"
+    },
+    "time_now": "1598266294.610276",
+    "rate_limit_status": 72,
+    "rate_limit_reset_ms": 1598266294607,
+    "rate_limit": 75
+}
+
+```
+
+t(:linear_private_switchmode)
+
+<aside class="notice">
+t(:switchmode_aside)
+</aside>
+
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=vptSwitchMode>/v2/private/tpsl/switch-mode</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vptSwitchMode"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
+|t(:row_parameter_tp_sl_mode) |<b>true</b> |string |t(:linear_resp_tp_sl_mode)  |
+
+
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|t(:row_parameter_tp_sl_mode) |string |t(:linear_resp_tp_sl_mode)  |
+
+
+
+
+
+
+
+
+
+### t(:marginswitch)
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/v2/private/position/switch-isolated \
+-H "Content-Type: application/json" \
+-d '{"api_key":"{api_key}","symbol":"BTCUSD", "is_isolated":true,"buy_leverage":10,"sell_leverage":20, "timestamp":{timestamp},"sign":"{sign}"}'
+```
+
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "ok",
+    "ext_code": "",
+    "result": null,
+    "ext_info": null,
+    "time_now": "1577477968.175013",
+    "rate_limit_status": 74,
+    "rate_limit_reset_ms": 1577477968183,
+    "rate_limit": 75
+}
+```
+
+t(:futures_account_para_switchIsolated)
+
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=ulSwitchIsolated>/v2/private/position/switch-isolated</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ulSwitchIsolated"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
+|is_isolated |<b>true</b> |bool |t(:futures_row_comment_switch_isolated)  |
+|buy_leverage |<b>true</b> |number |t(:inverse_row_comment_leverage)  |
+|sell_leverage |<b>true</b> |number |t(:inverse_row_comment_leverage)  |
+
+
 
 ## t(:risklimit)
 ### t(:getrisklimit)
-<a href="/docs/inverse#t-getrisklimit">t(:shared_endpoint_desc)</a>
+> t(:codequote_curlExample)
 
+```console
+curl "https://api.bybit.com/v2/public/risk-limit/list?symbol=BTCUSD"
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.Wallet.Wallet_getRiskLimit().result())
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code":0,
+    "ret_msg":"OK",
+    "ext_code":"",
+    "ext_info":"",
+    "result":[
+        {
+            "id":1,
+            "symbol":"BTCUSD",
+            "limit":1000000,
+            "maintain_margin":0.005,
+            "starting_margin":0.01,
+            "section":[
+                "1",
+                "2",
+                "3",
+                "5",
+                "10",
+                "25",
+                "50",
+                "100"
+            ],
+            "is_lowest_risk":1,
+            "created_at":"2021-03-17T08:20:53.000Z",
+            "updated_at":"2021-03-17T08:20:53.000Z",
+            "max_leverage":100
+        },
+        ...
+        {
+            "id":10,
+            "symbol":"BTCUSD",
+            "limit":10000000,
+            "maintain_margin":0.05,
+            "starting_margin":0.055,
+            "section":[
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "10",
+                "15",
+                "18"
+            ],
+            "is_lowest_risk":0,
+            "created_at":"2021-03-17T08:21:12.000Z",
+            "updated_at":"2021-03-17T08:21:12.000Z",
+            "max_leverage":18.18
+        }
+    ],
+    "time_now":"1616052270.701108"
+}
+```
+
+t(:account_para_getRisk)
+
+<aside class="notice">
+t(:account_aside_getRisk)
+</aside>
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=oawrlList>/v2/public/risk-limit/list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawrlList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|t(:row_parameter_symbol) |<b>false</b> |string |t(:row_comment_symbol) |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|id |number |t(:row_comment_riskId)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_symbol)  |
+|limit |number |t(:row_comment_risk_limit)    |
+|maintain_margin |number |t(:row_comment_maintain_margin)  |
+|starting_margin |number |t(:row_comment_starting_margin)  |
+|section |string |t(:row_comment_section)  |
+|is_lowest_risk |number |t(:row_comment_is_lowest_risk)    |
+|created_at |string |t(:row_comment_created_at)  |
+|updated_at |string |t(:row_comment_updated_at)  |
+|max_leverage |string |t(:row_comment_max_leverage)  |
 ### t(:setrisklimit)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/futures/private/position/risk-limit \
+curl https://api.bybit.com/v2/private/position/risk-limit \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSDM21","risk_id":2,"timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","symbol":"BTCUSD","risk_id":2,"timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
 > t(:codequote_responseExample)
@@ -1997,7 +2120,7 @@ t(:account_aside_getRisk)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=oawrlList>futures/private/position/risk-limit</span></code>
+<code><span id=oawrlList>/v2/private/position/risk-limit</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawrlList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -2005,12 +2128,300 @@ POST
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
 |risk_id |<b>true</b> |integer |t(:row_comment_riskId) |
-|position_idx |<b>false</b>|integer |t(:row_comment_position_idx)  |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |risk_id |number |t(:row_comment_riskId)  |
 
+
+## t(:funding)
+### t(:fundingRate)
+> t(:codequote_curlExample)
+
+```console
+curl "https://api.bybit.com/v2/public/funding/prev-funding-rate?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}&sign={sign}"
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.Funding.Funding_prevRate(symbol="BTCUSD").result())
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "ok",
+    "ext_code": "",
+    "result": {
+        "symbol": "BTCUSD",
+        "funding_rate": "0.00010000",
+        "funding_rate_timestamp": 1577433600
+    },
+    "ext_info": null,
+    "time_now": "1577445586.446797",
+    "rate_limit_status": 119,
+    "rate_limit_reset_ms": 1577445586454,
+    "rate_limit": 120
+}
+```
+
+t(:market_para_fundingRate)
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=oafPrevFundingRateNew>/v2/public/funding/prev-funding-rate</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oafPrevFundingRateNew"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|t(:row_parameter_symbol) |string |t(:row_comment_symbol)    |
+|funding_rate |string |t(:row_comment_funding_rate)  |
+|funding_rate_timestamp |number |t(:row_comment_funding_rate_timestamp)  |
+
+### t(:mylastfundingfee)
+> t(:codequote_curlExample)
+
+```console
+curl "https://api.bybit.com/v2/private/funding/prev-funding?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}&sign={sign}"
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.Funding.Funding_myLastFee(symbol="BTCUSD").result())
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "ok",
+    "ext_code": "",
+    "result": {
+        "symbol": "BTCUSD",
+        "side": "Buy",  // Your position side at the time of settlement
+        "size": 1,      // Your position size at the time of settlement
+        "funding_rate": 0.0001,  // Funding rate for settlement. When the funding rate is positive, longs pay shorts. When it is negative, shorts pay longs.
+        "exec_fee": 0.00000002,  // Funding fee.
+        "exec_timestamp": 1575907200  // The time of funding settlement occurred, UTC timestamp
+    },
+    "ext_info": null,
+    "time_now": "1577446900.717204",
+    "rate_limit_status": 119,
+    "rate_limit_reset_ms": 1577446900724,
+    "rate_limit": 120
+}
+```
+
+t(:account_para_myLastFunding)
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=oafPrevFundingNew>/v2/private/funding/prev-funding</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oafPrevFundingNew"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|t(:row_parameter_symbol) |string |t(:row_comment_symbol)    |
+|t(:row_parameter_side) |string |t(:row_comment_funding_side)  |
+|size |number |t(:row_comment_funding_position_size)  |
+|funding_rate |number |t(:row_comment_funding_rate)  |
+|exec_fee |number |t(:row_comment_exec_fee)  |
+|exec_timestamp |number |t(:row_comment_exec_timestamp)  |
+
+
+### t(:predictedfunding)
+> t(:codequote_curlExample)
+
+```console
+curl "https://api.bybit.com/v2/private/funding/predicted-funding?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}&sign={sign}"
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.Funding.Funding_predicted(symbol="BTCUSD").result())
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "ok",
+    "ext_code": "",
+    "result": {
+        "predicted_funding_rate": 0.0001,
+        "predicted_funding_fee": 0
+    },
+    "ext_info": null,
+    "time_now": "1577447415.583259",
+    "rate_limit_status": 118,
+    "rate_limit_reset_ms": 1577447415590,
+    "rate_limit": 120
+}
+```
+t(:account_para_predictedFunding)
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=oafPredictedFundingNew>/v2/private/funding/predicted-funding</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oafPredictedFundingNew"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|predicted_funding_rate |number |t(:row_comment_predicted_funding_rate)    |
+|predicted_funding_fee |number |t(:row_comment_predicted_funding_fee)  |
+
 ## t(:key)
-<a href="/docs/inverse#t-key">t(:shared_endpoint_desc)</a>
+> t(:codequote_curlExample)
+
+```console
+curl "https://api.bybit.com/v2/private/account/api-key?api_key={api_key}&timestamp={timestamp}&sign={sign}"
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.APIkey.APIkey_info().result())
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "ok",
+    "ext_code": "",
+    "result": [
+        {
+            "api_key": "7GkMBBLTbGRfa0Nuh1",
+            "type": "personal",
+            "user_id": 1,
+            "inviter_id": 3,
+            "ips": [
+                "*"
+            ],
+            "note": "scalping_bot",
+            "permissions": [
+                "Order",
+                "Position"
+            ],
+            "created_at": "2019-10-28T13:22:39.000Z",
+            "expired_at": "2020-01-28T13:22:39.000Z",
+            "read_only": false
+        }
+    ],
+    "ext_info": null,
+    "time_now": "1577445138.790150",
+    "rate_limit_status": 99,
+    "rate_limit_reset_ms": 1577445138812,
+    "rate_limit": 100
+}
+```
+
+t(:account_para_key)
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=oaApiKeyNew>/v2/private/account/api-key</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oaApiKeyNew"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|api_key |string |t(:row_comment_api_key)    |
+|type |string |t(:row_comment_type)  |
+|user_id |number |t(:row_comment_position_user_id)  |
+|inviter_id |number |t(:row_comment_position_inviter_id)  |
+|ips |string |t(:row_comment_position_ips)  |
+|note |string |t(:row_comment_note)  |
+|permissions |string |t(:row_comment_permissions)  |
+|created_at |string |t(:row_comment_created_at)  |
+|expired_at |string |t(:row_comment_expired_at)  |
+|read_only |bool |t(:row_comment_read_only)  |
+
+## t(:lcp)
+> t(:codequote_curlExample)
+
+```console
+curl "https://api.bybit.com/v2/private/account/lcp?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}&sign={sign}"
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "ok",
+    "ext_code": "",
+    "result": [
+        "lcp_list": [
+        {
+            "date": "2020-04-27",
+            "self_ratio": 0,
+            "platform_ratio": 0,
+            "score": 0.1459
+        },
+        {
+            "date": "2020-04-26",
+            "self_ratio": 0,
+            "platform_ratio": 0,
+            "score": 0.1459
+        }
+        ]
+    ],
+    "ext_info": null,
+    "time_now": "1577445138.790150",
+    "rate_limit_status": 99,
+    "rate_limit_reset_ms": 1577445138812,
+    "rate_limit": 100
+}
+```
+
+t(:account_para_lcp)
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=oaApiLcp>/v2/private/account/lcp</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oaApiLcp"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|date |string |t(:row_comment_lcp_date)    |
+|self_ratio |number |t(:row_comment_lcp_self_ratio)  |
+|platform_ratio |number |t(:row_comment_lcp_platform_ratio)  |
+|score |number |t(:row_comment_lcp_score)  |

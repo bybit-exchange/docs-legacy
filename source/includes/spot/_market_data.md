@@ -15,34 +15,34 @@ t(:market_para_auth)
 
 ```javascript
 {
-    “ret_code”: 0,
-    “ret_msg”: “”,
-    “ext_code”: null,
-    “ext_info”: null,
-    “result”: [
+    "ret_code": 0,
+    "ret_msg": "",
+    "ext_code": null,
+    "ext_info": null,
+    "result": [
         {
-            “name”: “BTCUSDT”,
-            “alias”: “BTCUSDT”,
-            “baseCurrency”: “BTC”,
-            “quoteCurrency”: “USDT”,
-            “basePrecision”: “0.000001",
-            “quotePrecision”: “0.01",
-            “minTradeQuantity”: “0.0001",
-            “minTradeAmount”: “10",
-            “minPricePrecision”: “0.01",
-            “category”: 1
+            "name": "BTCUSDT",
+            "alias": "BTCUSDT",
+            "baseCurrency": "BTC",
+            "quoteCurrency": "USDT",
+            "basePrecision": "0.000001",
+            "quotePrecision": "0.01",
+            "minTradeQuantity": "0.0001",
+            "minTradeAmount": "10",
+            "minPricePrecision": "0.01",
+            "category": 1
         },
         {
-            “name”: “ETHUSDT”,
-            “alias”: “ETHUSDT”,
-            “baseCurrency”: “ETH”,
-            “quoteCurrency”: “USDT”,
-            “basePrecision”: “0.0001”,
-            “quotePrecision”: “0.01”,
-            “minTradeQuantity”: “0.0001”,
-            “minTradeAmount”: “10”,
-            “minPricePrecision”: “0.01”,
-            “category”: 1
+            "name": "ETHUSDT",
+            "alias": "ETHUSDT",
+            "baseCurrency": "ETH",
+            "quoteCurrency": "USDT",
+            "basePrecision": "0.0001",
+            "quotePrecision": "0.01",
+            "minTradeQuantity": "0.0001",
+            "minTradeAmount": "10",
+            "minPricePrecision": "0.01",
+            "category": 1
         }
     ]
 }
@@ -73,6 +73,8 @@ GET
 | minTradeQuantity | string |t(:spotMinTradeQuantity)|
 | minTradeAmount | string |t(:spotMinTradeAmount)|
 | minPricePrecision | string |t(:spotMinPricePrecision)|
+| maxTradeQuantity | string |t(:spotmaxTradeQuantity)|
+| maxTradeAmount | string |t(:spotmaxTradeAmount)|
 | category | int  |t(:spotCategory)|
 
 
@@ -314,6 +316,9 @@ GET
 |trades| integer | t(:spotTrades) |
 |takerBaseVolume| float | t(:spotTakerBaseVolume) | 
 |takerQuoteVolume| float | t(:spotTakerQuoteVolume) |
+<aside class="notice">
+t(:spotKlineTimeRemark)
+</aside>
 
 ### t(:spotTicker)
 > t(:codequote_curlExample)
@@ -373,6 +378,11 @@ GET
 |highPrice|float|t(:spot_high_price)|
 |lowPrice|float|t(:spot_low_price)|
 |volume|float|t(:spot_volume)|
+|quoteVolume|float|t(:spot_quote_volume)|
+
+<aside class="notice">
+t(:spotTicker24hrRemark)
+</aside>
 
 ### t(:spotSymbolPrice)
 > t(:codequote_curlExample)
@@ -415,6 +425,9 @@ GET
 |:----- |:-----|----- |
 | symbol | string | t(:spotSymbol) |
 | price | float | t(:spotPrice) |
+<aside class="notice">
+t(:spotTickerPriceRemark)
+</aside>
 
 ### t(:spotBestTicker)
 > t(:codequote_curlExample)
@@ -447,7 +460,7 @@ GET
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpOrder>/spot/quote/v1/ticker/book-ticker</span></code>
+<code><span id=vpOrder>/spot/quote/v1/ticker/book_ticker</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -455,7 +468,9 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |symbol|false|string|t(:spotSymbol)|
-
+<aside class="notice">
+t(:spotBookTickerRemark)
+</aside>
 
 <p class="fake_header">t(:responseparameters)</p>
 
