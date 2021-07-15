@@ -147,7 +147,10 @@ t(:spot_websocket_para_response)
             "q":"0.00027",
             "m":true
         }
-    ]
+    ],
+    "f": true,
+    "sendTime": 1626249138535,
+    "shared": false
 }
 ```
 
@@ -180,18 +183,24 @@ ws.send('{"symbol":"BTCUSDT","topic":"realtimes","event":"sub","params":{"binary
 ```javascript
 {
   "symbol": "BTCUSDT",
+  "symbolName": "BTCUSDT",
   "topic": "realtimes",
   "data": [{
     "t": "1565592599015",
-    "s": "ETHUSDT",
+    "s": "BTCUSDT",
+    "sn": "BTCUSDT",
     "c": "12750.63",
     "h": "12800.96",
     "l": "12740.78",
     "o": "12780.23",
     "v": "73013.575",
     "qv": "15726612.498168",
+    "m": "-0.0401",
+    "e": 301
     }],
-  "f": false
+  "f": false,
+  "sendTime": 1626252046034,
+  "shared": false
 }
 ```
 
@@ -202,12 +211,15 @@ t(:spot_websocket_ticker_desc_v1)
 |:----- |:-----|----- |
 | t | number | t(:spot_timestamp) |
 | s | string | t(:spot_symbol) |
+| sn | string | t(:spot_symbol) |
 | c | string | t(:spot_close)|
 | h | string | t(:spot_high)|
 | l | string | t(:spot_low)|
 | o | string | t(:spot_open)|
 | v | string | t(:spot_volume)|
 | qv | string | t(:spot_quota_volume)|
+| m | string | t(:spot_gains)|
+| e | number | t(:spotExchangeId)|
 | f | boolean | t(:spot_first) |
 
 
@@ -227,18 +239,26 @@ ws.send('{"symbol":"BTCUSDT","topic":"kline_" + $间隔,"event":"sub","params":{
 ```javascript
 {
   "symbol": "BTCUSDT",
+  "symbolName": "BTCUSDT",
   "topic": "kline",
-  "params": {"klineType": "15m"},
+  "params": {
+    "realtimeInterval": "24h",
+    "klineType": "15m",
+    "binary": "false"
+  },
   "data": [{
     "t": 1565595900000,
     "s": "BTCUSDT",
+    "sn": "BTCUSDT",
     "c": "11436.14",
     "h": "11437",
     "l": "11381.89",
     "o": "11381.89",
     "v": "16.3306"
   }],
-  "f": true
+  "f": true,
+  "sendTime": 1626252389284,
+  "shared": false
 }
 ```
 
@@ -249,6 +269,7 @@ t(:spot_websocket_kline_desc_v1)
 |:----- |:-----|----- |
 | t | number | t(:spot_timestamp_kline) |
 | s | string | t(:spot_symbol) |
+| sn | string | t(:spot_symbol) |
 | c | string | t(:spot_close)|
 | h | string | t(:spot_high)|
 | l | string | t(:spot_low)|
@@ -272,8 +293,14 @@ ws.send('{"symbol":"BTCUSDT","topic":"depth","event":"sub","params":{"binary":fa
 ```javascript
 {
   "symbol": "BTCUSDT",
+  "symbolName": "BTCUSDT",
   "topic": "depth",
+  "params": {
+    "realtimeInterval": "24h",
+    "binary": "false"
+  },
   "data": [{
+    "e": 301,
     "s": "BTCUSDT",
     "t": 1565600357643,
     "v": "112801745_18",
@@ -299,9 +326,12 @@ ws.send('{"symbol":"BTCUSDT","topic":"depth","event":"sub","params":{"binary":fa
       ["11377.01", "0.0167"],
       ["11377.12", "1.5"],
       ["11377.61", "0.3"]
-    ]
+    ],
+    "o": 0
   }],
-  "f": true
+  "f": true,
+  "sendTime": 1626253839401,
+  "shared": false
 }
 ```
 
@@ -310,12 +340,14 @@ t(:spot_websocket_orderbook_desc_v1)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:----- |----- |
+| e | number | t(:spotExchangeId) |
 | t | number | t(:spot_timestamp) |
 | s | string | t(:spot_symbol) |
 | v | string | t(:spot_version) |
 | b | string | t(:spot_buy) |
 | a | string | t(:spot_sell) |
 | f | boolean | t(:spot_first) |
+| o | number | t(:spotIgnore) |
 
 ### t(:spot_websocket_orderbook_merge_v1)
 > t(:codequote_subscribe)
@@ -420,8 +452,14 @@ ws.send('{"symbol":"BTCUSDT","topic":"diffDepth","event":"sub","params":{"binary
 ```javascript
 {
   "symbol": "BTCUSDT",
-  "topic": "depth",
+  "symbolName": "BTCUSDT",
+  "topic": "diffDepth",
+  "params": {
+    "realtimeInterval": "24h",
+    "binary": "false"
+  },
   "data": [{
+    "e": 301,
     "s": "BTCUSDT",
     "t": 1565600357643,
     "v": "112801745_18",
@@ -447,9 +485,12 @@ ws.send('{"symbol":"BTCUSDT","topic":"diffDepth","event":"sub","params":{"binary
       ["11377.01", "0.0167"],
       ["11377.12", "1.5"],
       ["11377.61", "0.3"]
-    ]
+    ],
+    "o": 0
   }],
-  "f": true//是否为第一个返回
+  "f": true,//是否为第一个返回
+  "sendTime": 1626253839401,
+  "shared": false
 }
 ```
 
@@ -459,12 +500,14 @@ t(:spot_websocket_orderbook_delta_desc_v1)
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
+| e | number | t(:spotExchangeId) |
 | t | number | t(:spot_timestamp) |
 | s | string | t(:spot_symbol) |
 | v | string | t(:spot_version) |
 | b | string | t(:spot_buy) |
 | a | string | t(:spot_sell) |
 | f | boolean | t(:spot_first) |
+| o | number | t(:spotIgnore) |
 
 ## t(:publictopics_v2)
 ### t(:spot_websocket_orderbook_v2)
@@ -483,9 +526,10 @@ ws.send('{"topic":"depth","event":"sub","params":{"binary":false,"symbol":"BTCUS
 ```javascript
 {
   "topic": "depth",
-  "symbol": "BTCUSDT",
   "params": {
-    "binary": "false"
+    "symbol": "BTCUSDT",
+    "binary": "false",
+    "symbolName": "BTCUSDT"
   },
   "data": {
     "s": "BTCUSDT",
@@ -528,6 +572,7 @@ t(:spot_websocket_orderbook_desc_v2)
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 | symbol | string | t(:spot_symbol) |
+| symbolName | string | t(:spot_symbol) |
 | binary | string | t(:spot_binary) |
 | t | number | t(:spot_timestamp) |
 | s | string | t(:spot_symbol) |
@@ -554,11 +599,13 @@ ws.send('{"topic":"kline","event":"sub","params":{"binary":false,"symbol":"BTCUS
   "params": {
     "symbol": "BTCUSDT",
     "binary": "false",
-    "klineType": "1m"
+    "klineType": "1m",
+    "symbolName": "BTCUSDT"
   },
   "data": {
     "t": 1582001880000,
     "s": "BTCUSDT",
+    "sn": "BTCUSDT",
     "c": "9799.4",
     "h": "9801.4",
     "l": "9798.91",
@@ -576,8 +623,10 @@ t(:spot_websocket_kline_desc_v2)
 | symbol | string | t(:spot_symbol) |
 | binary | string | t(:spot_binary) |
 | klineType | string | t(:spot_kline_type) |
+| symbolName | string | t(:spot_symbol) |
 | t | number | t(:spot_timestamp_kline) |
 | s | string | t(:spot_symbol) |
+| sn | string | t(:spot_symbol) |
 | c | string | t(:spot_close)|
 | h | string | t(:spot_high)|
 | l | string | t(:spot_low)|
@@ -602,7 +651,8 @@ ws.send('{"topic":"trade","event":"sub","params":{"binary":false,"symbol":"BTCUS
   "topic": "trade",
   "params": {
     "symbol": "BTCUSDT",
-    "binary": "false"
+    "binary": "false",
+    "symbolName": "BTCUSDT"
   },
   "data": {
     "v": "564265886622695424",
@@ -621,6 +671,7 @@ t(:spot_websocket_trade_v2)
 |:----- |:-----|----- |
 | symbol | string | t(:spot_symbol) |
 | binary | string | t(:spot_binary) |
+| symbolName | string | t(:spot_symbol) |
 | t | number | t(:spot_timestamp) |
 | p | string | t(:spot_price) |
 | q | string | t(:spot_quantity)|
@@ -644,7 +695,8 @@ ws.send('{"topic":"bookTicker","event":"sub","params":{"binary":false,"symbol":"
   "topic": "bookTicker",
   "params": {
     "symbol": "BTCUSDT",
-    "binary": "false"
+    "binary": "false",
+    "symbolName": "BTCUSDT"
   },
   "data": {
     "symbol": "BTCUSDT",
@@ -664,6 +716,7 @@ t(:spot_websocket_ticker_desc_v2)
 |:----- |:-----|----- |
 | symbol | string | t(:spot_symbol) |
 | binary | string | t(:spot_binary) |
+| symbolName | string | t(:spot_symbol) |
 | bidPrice | string | t(:spot_buy_price) |
 | bidQty | string | t(:spot_buy_qty) |
 | askPrice | string | t(:spot_sell_price)|
@@ -689,7 +742,8 @@ ws.send('{"topic":"realtimes","event":"sub","params":{"binary":false,"symbol":"B
   "topic": "realtimes",
   "params": {
     "symbol": "BTCUSDT",
-    "binary": "false"
+    "binary": "false",
+    "symbolName": "BTCUSDT"
   },
   "data": {
     "t": 1582001616500,
@@ -712,6 +766,7 @@ t(:spot_websocket_symbol_ticker_desc_v2)
 |:----- |:-----|----- |
 | symbol | string | t(:spot_symbol) |
 | binary | string | t(:spot_binary) |
+| symbolName | string | t(:spot_symbol) |
 | t | number | t(:spot_timestamp_kline) |
 | s | string | t(:spot_symbol) |
 | c | string | t(:spot_close)|
@@ -775,7 +830,8 @@ t(:spot_websocket_user_account_desc)
   "q": "1.00000000",             
   "p": "0.10264410",             
   "X": "NEW",                    
-  "i": 4293153,                  
+  "i": 4293153,     
+  "M": "0",             
   "l": "0.00000000",             
   "z": "0.00000000",             
   "L": "0.00000000",             
@@ -785,7 +841,10 @@ t(:spot_websocket_user_account_desc)
   "w": true,                     
   "m": false,                    
   "O": 1499405658657,            
-  "Z": "0.00000000"              
+  "Z": "0.00000000",
+  "A": "0",
+  "C": false,
+  "v": "0"              
 }
 ```
 t(:spot_websocket_user_order_desc)
@@ -805,6 +864,7 @@ t(:spot_websocket_user_order_desc)
 | p | string | t(:spot_price) |
 | X | string | t(:spot_order_status) |
 | i | string | t(:spot_order_id) |
+| M | string | t(:spotIgnore) |
 | l | string | t(:spot_recent_qty) |
 | z | string | t(:spot_cumulative_qty) |
 | L | string | t(:spot_recent_price) |
@@ -814,6 +874,9 @@ t(:spot_websocket_user_order_desc)
 | a | string | t(:spot_asset) |
 | O | string | t(:spot_order_create_timestamp) |
 | Z | string | t(:spot_cumulative_trade) |
+| A | string | t(:spotIgnore) |
+| C | boolean | t(:spotIgnore) |
+| v | string | t(:spotIgnore) |
 
 
 ### t(:spot_websocket_ticket_info)

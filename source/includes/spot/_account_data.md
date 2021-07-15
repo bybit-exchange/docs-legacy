@@ -57,7 +57,7 @@ POST
 |t(:row_parameter_side)|<b>true</b>|string|t(:spotSide)|
 |t(:row_parameter_type)|<b>true</b>|string|t(:spotOrderType)|
 |t(:row_parameter_timeInForce)|false|string|t(:spotTimeInForce)|
-|price|false|number|t(:spotOPrice)|
+|price|false|number|t(:spotPostOrderPrice)|
 |orderLinkId|false|string|t(:tOrderClientOrdID)|
 
 
@@ -76,6 +76,9 @@ POST
 |side|string|t(:spotSide)|
 |status|string|t(:spotStatus)|
 |timeInForce|string|t(:spotTimeInForce)|
+|accountId|long|t(:spotAccountId)|
+|symbolName|string|t(:spotSymbolName)|
+|executedQty|string|t(:spotExecQty)|
 
 ### t(:spot_get_order)
 > t(:codequote_curlExample)
@@ -133,6 +136,9 @@ GET
 |orderId|false|string|t(:spotOrderID)|
 |orderLinkId|false|string|t(:tOrderClientOrdID)|
 
+<aside class="notice">
+t(:spotGetOrderRemark)
+</aside>
 
 <p class="fake_header">t(:responseparameters)</p>
 
@@ -154,6 +160,7 @@ GET
 |type|string|t(:spotType)|
 |side|string|t(:spotSide)|
 |stopPrice|float|t(:spotStopPrice)|
+|icebergQty|float|t(:spotIcebergQty)|
 |time|long|t(:spotTime)|
 |updateTime|long|t(:spotUpdateTime)|
 |isWorking|boolean|t(:spotIsWorking)|
@@ -216,6 +223,14 @@ DELETE
 |orderLinkId|string|t(:tOrderClientOrdID)
 |symbol|string|t(:spotSymbol)|
 |status|string|t(:spotStatus)|
+|accountId|long|t(:spotAccountId)|
+|transactTime|long|t(:spotTransactTime)|
+|price|float|t(:spotOPrice)|
+|origQty|float|t(:spotOriQty)|
+|executedQty|float|t(:spotExecQty)|
+|timeInForce|string|t(:spotTimeInForce)|
+|type|string|t(:spotOrderType)|
+|side|string|t(:spotSide)|
 
 
 
@@ -254,9 +269,15 @@ DELETE
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|true|string|t(:spotSymbol)|
+|symbol|false|string|t(:spotSymbol)|
 |side|false|string|t(:spotSide)|
+|orderTypes|fasle|string|t(:spotOrderTypes)|
 
+<p class="fake_header">t(:responseparameters)</p>
+
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|success|boolean|t(:spot_message)|
 
 ### t(:spot_order_list)
 > t(:codequote_curlExample)
@@ -315,6 +336,7 @@ DELETE
             "type": "LIMIT",
             "side": "BUY",
             "stopPrice": "0.0",
+            "icebergQty": "0.0",
             "time": "1620638735044",
             "updateTime": "1620638735062",
             "isWorking": true
@@ -357,6 +379,7 @@ GET
 |type|string|t(:spotType)|
 |side|string|t(:spotSide)|
 |stopPrice|float|t(:spotStopPrice)|
+|icebergQty|float|t(:spotIcebergQty)|
 |time|long|t(:spotTime)|
 |updateTime|long|t(:spotUpdateTime)|
 |isWorking|boolean|t(:spotIsWorking)|
@@ -400,6 +423,7 @@ GET
             "type": "LIMIT",
             "side": "BUY",
             "stopPrice": "0.0",
+            "icebergQty": "0.0",
             "time": "1620615771836",
             "updateTime": "1620617056334",
             "isWorking": true
@@ -441,6 +465,7 @@ GET
 |type|string|t(:spotType)|
 |side|string|t(:spotSide)|
 |stopPrice|float|t(:spotStopPrice)|
+|icebergQty|float|t(:spotIcebergQty)|
 |time|long|t(:spotTime)|
 |updateTime|long|t(:spotUpdateTime)|
 |isWorking|boolean|t(:spotIsWorking)|
@@ -466,17 +491,27 @@ GET
     "ext_code": null,
     "ext_info": null,
     "result": [
-        {
-          "symbol": "ETHBTC",
-          "id": 28457,
-          "orderId": 100234,
-          "price": "4.00000100",
-          "qty": "12.00000000",
-          "commission": "10.10000000",
-          "commissionAsset": "ETH",
-          "time": 1499865549590,
-          "isBuyer": true,
-          "isMaker": false
+       {
+            "id": "931975237315196160",
+            "symbol": "BTCUSDT",
+            "symbolName": "BTCUSDT",
+            "orderId": "931975236946097408",
+            "matchOrderId": "931975113180558592",
+            "price": "20000.00001",
+            "qty": "0.01",
+            "commission": "0.02000000001",
+            "commissionAsset": "USDT",
+            "time": "1625836105890",
+            "isBuyer": false,
+            "isMaker": false,
+            "fee": {
+                "feeTokenId": "USDT",
+                "feeTokenName": "USDT",
+                "fee": "0.02000000001"
+            },
+            "feeTokenId": "USDT",
+            "feeAmount": "0.02000000001",
+            "makerRebate": "0"
        }
     ]
 }
@@ -491,7 +526,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|true|string|t(:spotSymbol)|
+|symbol|false|string|t(:spotSymbol)|
 |limit|false|integer|t(:spot_order_list_limit)|
 |fromId|false|integer|t(:spot_from_id)|
 |toId|false|integer|t(:spot_to_id)|
@@ -511,3 +546,18 @@ GET
 |time|long|t(:spotTime)|
 |isBuyer|float|t(:spotIsBuyer)|
 |isMaker|float|t(:spotIsMaker)|
+|symbolName|string|t(:spotSymbolName)|
+|matchOrderId|long|t(:spot_match_order_id)|
+|fee|object|t(:spot_fee)|
+|feeTokenId|string|t(:spotFeeTokenId)|
+|feeAmount|float|t(:spot_fee)|
+|makerRebate|float|t(:spotMakerRebate)|
+
+
+<p class="fake_header">fee object</p>
+
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|feeTokenId|long|t(:spotFeeTokenId)|
+|feeTokenName|string|t(:spotFeeTokenName)|
+|fee|float|t(:spot_fee)|

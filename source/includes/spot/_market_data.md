@@ -30,6 +30,8 @@ t(:market_para_auth)
             "minTradeQuantity": "0.0001",
             "minTradeAmount": "10",
             "minPricePrecision": "0.01",
+            "maxTradeQuantity": "2",
+            "maxTradeAmount": "200",
             "category": 1
         },
         {
@@ -42,6 +44,8 @@ t(:market_para_auth)
             "minTradeQuantity": "0.0001",
             "minTradeAmount": "10",
             "minPricePrecision": "0.01",
+            "maxTradeQuantity": "2",
+            "maxTradeAmount": "200",
             "category": 1
         }
     ]
@@ -312,7 +316,8 @@ GET
 |low| float | t(:spotLow) |
 |close| float | t(:spotClose) |
 |volume| float | t(:spotVolume) |
-|endTime| float | t(:spot_orders_end_time) |
+|endTime| long | t(:spot_orders_end_time) |
+|quoteAssetVolume| float | t(:spotQuoteAssetVolume) |
 |trades| integer | t(:spotTrades) |
 |takerBaseVolume| float | t(:spotTakerBaseVolume) | 
 |takerQuoteVolume| float | t(:spotTakerQuoteVolume) |
@@ -481,3 +486,4 @@ t(:spotBookTickerRemark)
 | bidQty | float | t(:spotBidQuantity)|
 | askPrice| float | t(:spot_best_ask_price)|
 | askQty | float |t(:spotAskQuantity)|
+| time | long |t(:row_response_comment_nill_time)|

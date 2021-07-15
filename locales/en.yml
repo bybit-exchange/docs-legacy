@@ -1972,6 +1972,7 @@ en:
   spot: Spot
   spotOrderCreate: Create Spot Order
   spotAccountId: Account ID
+  spotExchangeId: Exchange ID
   spotOrderLinkId: User-generated order ID
   spot_Alias: Alias
   spotBaseCurrency: Base currency
@@ -1993,11 +1994,16 @@ en:
   spotCommissionAsset: Asset type in which the fee is paid
   spotIsBuyer: True indicates buyer, false indicates seller
   spotIsMaker: True indicates maker, false indicates taker
+  spotSymbolName: Symbol name
+  spotIcebergQty: Please ignore
+  spotGetOrderRemark: At least one must be entered in the orderId field and the ordersLinkId field
   spot_kline_interval: Chart interval. Possible values are 1m, 5m, 15m, 30m, 1h, 1d, 1W, 1M (m=minute, h=hour, d=day, w=week, M=month)
   spotTime: Order creation time
-  spotFeeTokenId: Fee token name.
+  spotFeeTokenId: Fee Token ID
+  spotFeeTokenName: Fee token name
   spotFee: Fee of the trade.
   spotIsWorking: Working or not (true/false)
+  spot_balances: Account balances
   spotTradeId: The ID for the trade
   spotUpdateTime: Last time order was updated
   spotLeverage: Leverage of the order.
@@ -2017,12 +2023,14 @@ en:
   spotTimeInForce: Time in force, possible values include GTC (Good Till Canceled), FOK (Fill or Kill) and IOC (Immediate or Cancel)
   spotPrice:  Last traded price
   spotOPrice: Order price
+  spotPostOrderPrice: Order price. When the type field is MARKET, the price field is optional. When the type field is LIMIT or LIMIT_MAKER, the price field is required
   spot_OrderPrice: Order price
   spotOrderID: Order ID
   spotOrderId: Order ID
   spotFees: Fees incurred for this order.
   spotOriQty: Order quantity
   spotExecQty: Please ignore
+  spotIgnore: Please ignore
   spotAvgPrice: Average filled price
   spotStopPrice: Stop price
   spotType: Order type, possible values are LIMIT and MARKET
@@ -2081,6 +2089,9 @@ en:
   spot_match_order_id: Order ID
   spot_account_id: Account ID
   spot_match_account_id: Account ID
+  spotQuoteAssetVolume: Quote asset volume
+  spotMakerRebate: Marker rebate
+  spotOrderTypes: Optional order types, LIMIT/LIMIT_MAKER, use comma splicing to indicate multiple types. Default LIMIT.
 
   row_parameter_type: <a href="#type-type">type</a>
   row_parameter_timeInForce: <a href="#timeinforce-timeinforce">timeInForce</a>

@@ -1869,9 +1869,10 @@ zh-cn:
   # spot
   spot: 现货
   spotOPrice: 订单价格
+  spotPostOrderPrice: 订单价格。type字段为MARKET时，price字段为非必须。type字段为LIMIT或LIMIT_MAKER时，price字段为必须
   spotOrderCreate: 创建订单
   spotAccountId: 账户ID
-  spotExchangeId: 币对交易ID
+  spotExchangeId: 交易所ID
   spotSymbol: 币对名称
   spot_Alias: 币对别名
   spotBaseCurrency: base币种
@@ -1884,6 +1885,7 @@ zh-cn:
   spotmaxTradeQuantity: 最大成交量
   spotmaxTradeAmount: 最大成交额
   spotCategory: symbol 所在分区:1主类别
+  spotQuoteAssetVolume: 行情资产数量
 
   spotId: 交易ID
   spotQty: |
@@ -1894,7 +1896,8 @@ zh-cn:
   spotIsBuyer: true= Buyer false= Seller
   spotIsMaker: true=Maker false=Taker
   spotSymbolName: 现货币对名称
-  spotIcebergQty: 最小允许数量
+  spotIcebergQty: 请忽略
+  spotGetOrderRemark: orderId和ordersLinkId至少要输入一个。
   spotCummulativeQuoteQty: 对于某些历史数据 `cummulativeQuoteQty` 可能会 < 0, 这说明数据当前不可用。
   spotStopPrice: 停止价
   spot_kline_interval: K线图区间。可识别发送的值为：1m, 5m, 15m, 30m, 1h, 1d, 1W, 1M (m=分钟, h=小时, d=天, w=星期, M=月)
@@ -1917,8 +1920,11 @@ zh-cn:
   spotOrderID: 订单ID
   spotFees: 订单的手续费
   spotOriQty: 订单数量
-  spotFeeTokenId: 手续费类型（Token名称）
+  spotFeeTokenId: 手续费 Token ID
+  spotFeeTokenName: 手续费 Token 名称
   spotExecQty: 请忽略
+  spotIgnore: 请忽略
+  spot_balances: 账户余额
   spotAvgPrice: 订单已成交的平均价格
   spotType: 订单类型。可能出现的值只能为:LIMIT(限价)和MARKET（市价）
   spotStatus: 订单状态。可能出现的值为：NEW(新订单，无成交)、PARTIALLY_FILLED（部分成交）、FILLED（全部成交）、CANCELED（已取消）和REJECTED（订单被拒绝）.
@@ -1975,6 +1981,7 @@ zh-cn:
   spotTrades: 交易数量
   spotTakerBaseVolume: 买方购买金额
   spotTakerQuoteVolume: 买方购买数量
+  spotOrderTypes: 可选订单类型, LIMIT/LIMIT_MAKER，可用英文逗号拼接表示多个类型。不传默认为LIMIT。
   spot_ticket_id: ticket id
   spot_match_order_id: 撮合订单id
   spot_account_id: 账户id
@@ -2030,6 +2037,7 @@ zh-cn:
   spot_m: 当order type为LIMIT_MAKER时为true
   spot_u: is maker
   spot_w: is maker
+  spotMakerRebate: Maker折扣
   spot_gains: 涨幅
   spot_websocket_trade_v1: 逐笔交易
   spot_websocket_trade_desc_v1: |
