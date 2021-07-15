@@ -6801,20 +6801,20 @@ GET
 </thead><tbody>
 </tbody></table>
 <h1 id='t-ratelimits'>频率限制</h1><h3 id='t-ipratelimits'>IP频率限制</h3>
-<p><p>Bybit has different IP frequency limits for <code>GET</code> and <code>POST</code> method<span>:</span></p>
+<p><p> Bybit会基于请求IP做频率限制，针对不同的请求方法有以下规则：</p>
 <ul>
 <li>
-  <code>GET</code>method:
+  <code>GET</code>方法:
   <ul>
-    <li>70 requests per second</li>
-    <li>50 requests per second continuously for 2 minutes</li>
+    <li>连续2分钟内每秒不超过50个请求</li>
+    <li>连续5秒内每秒不超过70个请求</li>
   </ul>
 </li>
 <li>
-  <code>POST</code>method:
+  <code>POST</code>方法:
   <ul>
-    <li>50 requests per second</li>
-    <li>20 requests per second continuously for 2 minutes</li>
+    <li>连续2分钟内每秒不超过20个请求</li>
+    <li>连续5秒内每秒不超过50个请求</li>
   </ul>
 </li>
 </ul>

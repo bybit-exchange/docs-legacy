@@ -7906,10 +7906,6 @@ One order may have multiple trade records.
 <p>If you are in One-Way Mode, you can only open one position on <code>Buy</code> or <code>Sell</code> side;<br/> If you are in Hedge Mode, you can open both <code>Buy</code> and <code>Sell</code> side positions simultaneously.
 </p>
 
-<aside class="notice">
-This endpoint is only available in the testnet environment
-</aside>
-
 <p class="fake_header">HTTP Request</p>
 
 <p>POST
@@ -9486,15 +9482,15 @@ The difference between data returned by this endpoint and data of type <code>Wit
 <li>
   <code>GET</code>method:
   <ul>
-    <li>70 requests per second</li>
     <li>50 requests per second continuously for 2 minutes</li>
+    <li>70 requests per second continuously for 5 seconds</li>
   </ul>
 </li>
 <li>
   <code>POST</code>method:
   <ul>
-    <li>50 requests per second</li>
     <li>20 requests per second continuously for 2 minutes</li>
+    <li>50 requests per second continuously for 5 seconds</li>
   </ul>
 </li>
 </ul>

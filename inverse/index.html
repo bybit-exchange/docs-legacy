@@ -1241,9 +1241,6 @@
                             <a href="#t-closedprofitandloss" class="toc-h3 toc-link" data-title="Closed Profit and Loss">Closed Profit and Loss</a>
                           </li>
                           <li>
-                            <a href="#t-switchpositionmode" class="toc-h3 toc-link" data-title="Position Mode Switch">Position Mode Switch</a>
-                          </li>
-                          <li>
                             <a href="#t-switchmode" class="toc-h3 toc-link" data-title="Full/Partial Position SL/TP Switch">Full/Partial Position SL/TP Switch</a>
                           </li>
                           <li>
@@ -7853,66 +7850,6 @@ One order may have multiple trade records.
 <td>Creation time</td>
 </tr>
 </tbody></table>
-<h3 id='t-switchpositionmode'>Position Mode Switch</h3>
-<blockquote>
-<p>Request Example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/private/position/switch-mode \
--H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSD","mode":0,"timestamp":{timestamp},"sign":"{sign}"}'
-</span></code></pre></div>
-<blockquote>
-<p>Response Example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1577477968.175013</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">74</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1577477968183</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">75</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>If you are in One-Way Mode, you can only open one position on <code>Buy</code> or <code>Sell</code> side;<br/> If you are in Hedge Mode, you can open both <code>Buy</code> and <code>Sell</code> side positions simultaneously.
-</p>
-
-<aside class="notice">
-This endpoint is only available in the testnet environment
-</aside>
-
-<p class="fake_header">HTTP Request</p>
-
-<p>POST
-<code><span id=ulSwitchMode>/v2/private/position/switch-mode</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ulSwitchMode"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
-
-<p class="fake_header">Request Parameters</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Required</th>
-<th style="text-align: left">Type</th>
-<th>Comment</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">string</td>
-<td>Symbol</td>
-</tr>
-<tr>
-<td style="text-align: left">mode</td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">int</td>
-<td>Position Mode. <code>0</code><span>:</span> One-Way Mode; <code>3</code><span>:</span> Hedge Mode
-</td>
-</tr>
-</tbody></table>
 <h3 id='t-switchmode'>Full/Partial Position SL/TP Switch</h3>
 <blockquote>
 <p>Response Example</p>
@@ -9459,15 +9396,15 @@ The difference between data returned by this endpoint and data of type <code>Wit
 <li>
   <code>GET</code>method:
   <ul>
-    <li>70 requests per second</li>
     <li>50 requests per second continuously for 2 minutes</li>
+    <li>70 requests per second continuously for 5 seconds</li>
   </ul>
 </li>
 <li>
   <code>POST</code>method:
   <ul>
-    <li>50 requests per second</li>
     <li>20 requests per second continuously for 2 minutes</li>
+    <li>50 requests per second continuously for 5 seconds</li>
   </ul>
 </li>
 </ul>

@@ -1239,9 +1239,6 @@
                             <a href="#t-closedprofitandloss" class="toc-h3 toc-link" data-title="平仓盈亏">平仓盈亏</a>
                           </li>
                           <li>
-                            <a href="#t-switchpositionmode" class="toc-h3 toc-link" data-title="切换仓位模式">切换仓位模式</a>
-                          </li>
-                          <li>
                             <a href="#t-switchmode" class="toc-h3 toc-link" data-title="切换止盈止损模式">切换止盈止损模式</a>
                           </li>
                           <li>
@@ -7787,64 +7784,6 @@ GET
 <td>创建时间</td>
 </tr>
 </tbody></table>
-<h3 id='t-switchpositionmode'>切换仓位模式</h3>
-<blockquote>
-<p>请求示例</p>
-</blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/private/position/switch-mode \
--H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSD","mode":0,"timestamp":{timestamp},"sign":"{sign}"}'
-</span></code></pre></div>
-<blockquote>
-<p>响应示例</p>
-</blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1577477968.175013</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">74</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1577477968183</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">75</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>单仓模式下，只能在单方向下持仓<br/>双仓模式下，可以同时在两个方向持仓。</p>
-
-<aside class="notice">
-仅在Testnet环境可用
-</aside>
-
-<p class="fake_header">HTTP 请求</p>
-
-<p>POST
-<code><span id=ulSwitchMode>/v2/private/position/switch-mode</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ulSwitchMode"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
-
-<p class="fake_header">请求参数</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">参数</th>
-<th style="text-align: left">是否必须</th>
-<th style="text-align: left">类型</th>
-<th>说明</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">string</td>
-<td>合约类型</td>
-</tr>
-<tr>
-<td style="text-align: left">mode</td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">int</td>
-<td>仓位模式<span>:</span> 0 - 单仓模式  3 - 双仓模式</td>
-</tr>
-</tbody></table>
 <h3 id='t-switchmode'>切换止盈止损模式</h3>
 <blockquote>
 <p>响应示例</p>
@@ -9380,20 +9319,20 @@ GET
 </thead><tbody>
 </tbody></table>
 <h1 id='t-ratelimits'>频率限制</h1><h3 id='t-ipratelimits'>IP频率限制</h3>
-<p><p>Bybit has different IP frequency limits for <code>GET</code> and <code>POST</code> method<span>:</span></p>
+<p><p> Bybit会基于请求IP做频率限制，针对不同的请求方法有以下规则：</p>
 <ul>
 <li>
-  <code>GET</code>method:
+  <code>GET</code>方法:
   <ul>
-    <li>70 requests per second</li>
-    <li>50 requests per second continuously for 2 minutes</li>
+    <li>连续2分钟内每秒不超过50个请求</li>
+    <li>连续5秒内每秒不超过70个请求</li>
   </ul>
 </li>
 <li>
-  <code>POST</code>method:
+  <code>POST</code>方法:
   <ul>
-    <li>50 requests per second</li>
-    <li>20 requests per second continuously for 2 minutes</li>
+    <li>连续2分钟内每秒不超过20个请求</li>
+    <li>连续5秒内每秒不超过50个请求</li>
   </ul>
 </li>
 </ul>
