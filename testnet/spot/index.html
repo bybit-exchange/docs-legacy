@@ -1123,6 +1123,8 @@ function copyStringToClipboard (endpoint) {
             <span class="dl">"</span><span class="s2">minTradeQuantity</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0001</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">minTradeAmount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">minPricePrecision</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">maxTradeQuantity</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">maxTradeAmount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">200</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
         <span class="p">},</span>
         <span class="p">{</span>
@@ -1135,6 +1137,8 @@ function copyStringToClipboard (endpoint) {
             <span class="dl">"</span><span class="s2">minTradeQuantity</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0001</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">minTradeAmount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">minPricePrecision</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">maxTradeQuantity</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">maxTradeAmount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">200</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
         <span class="p">}</span>
     <span class="p">]</span>
@@ -1612,8 +1616,13 @@ function copyStringToClipboard (endpoint) {
 </tr>
 <tr>
 <td style="text-align: left">endTime</td>
-<td style="text-align: left">float</td>
+<td style="text-align: left">long</td>
 <td>End time, unit in milliesecond</td>
+</tr>
+<tr>
+<td style="text-align: left">quoteAssetVolume</td>
+<td style="text-align: left">float</td>
+<td>Quote asset volume</td>
 </tr>
 <tr>
 <td style="text-align: left">trades</td>
@@ -1902,6 +1911,11 @@ If symbol is not specified, the best order price from all symbols will be return
 <td style="text-align: left">float</td>
 <td>Ask quantity</td>
 </tr>
+<tr>
+<td style="text-align: left">time</td>
+<td style="text-align: left">long</td>
+<td>Millisecond timestamp</td>
+</tr>
 </tbody></table>
 <h1 id='t-accountdata'>Account Data Endpoints</h1>
 <p>The following account data endpoints require authentication.</p>
@@ -1991,7 +2005,7 @@ If symbol is not specified, the best order price from all symbols will be return
 <td style="text-align: left">price</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">number</td>
-<td>Order price</td>
+<td>Order price. When the type field is MARKET, the price field is optional. When the type field is LIMIT or LIMIT_MAKER, the price field is required</td>
 </tr>
 <tr>
 <td style="text-align: left">orderLinkId</td>
@@ -2059,6 +2073,21 @@ If symbol is not specified, the best order price from all symbols will be return
 <td style="text-align: left">timeInForce</td>
 <td style="text-align: left">string</td>
 <td>Time in force, possible values include GTC (Good Till Canceled), FOK (Fill or Kill) and IOC (Immediate or Cancel)</td>
+</tr>
+<tr>
+<td style="text-align: left">accountId</td>
+<td style="text-align: left">long</td>
+<td>Account ID</td>
+</tr>
+<tr>
+<td style="text-align: left">symbolName</td>
+<td style="text-align: left">string</td>
+<td>Symbol name</td>
+</tr>
+<tr>
+<td style="text-align: left">executedQty</td>
+<td style="text-align: left">string</td>
+<td>Please ignore</td>
 </tr>
 </tbody></table>
 <h3 id='t-spot_get_order'>Query Spot Order</h3>
@@ -2129,6 +2158,10 @@ If symbol is not specified, the best order price from all symbols will be return
 <td>User-generated order ID</td>
 </tr>
 </tbody></table>
+
+<aside class="notice">
+At least one must be entered in the orderId field and the ordersLinkId field
+</aside>
 
 <p class="fake_header">Response Parameters</p>
 
@@ -2218,6 +2251,11 @@ If symbol is not specified, the best order price from all symbols will be return
 <td style="text-align: left">stopPrice</td>
 <td style="text-align: left">float</td>
 <td>Stop price</td>
+</tr>
+<tr>
+<td style="text-align: left">icebergQty</td>
+<td style="text-align: left">float</td>
+<td>Please ignore</td>
 </tr>
 <tr>
 <td style="text-align: left">time</td>
@@ -2324,6 +2362,46 @@ If symbol is not specified, the best order price from all symbols will be return
 <td style="text-align: left">string</td>
 <td>Order status, possible values include NEW, PARTIALLY_FILLED, FILLED, CANCELED, and REJECTED</td>
 </tr>
+<tr>
+<td style="text-align: left">accountId</td>
+<td style="text-align: left">long</td>
+<td>Account ID</td>
+</tr>
+<tr>
+<td style="text-align: left">transactTime</td>
+<td style="text-align: left">long</td>
+<td>Timestamp</td>
+</tr>
+<tr>
+<td style="text-align: left">price</td>
+<td style="text-align: left">float</td>
+<td>Order price</td>
+</tr>
+<tr>
+<td style="text-align: left">origQty</td>
+<td style="text-align: left">float</td>
+<td>Order quantity</td>
+</tr>
+<tr>
+<td style="text-align: left">executedQty</td>
+<td style="text-align: left">float</td>
+<td>Please ignore</td>
+</tr>
+<tr>
+<td style="text-align: left">timeInForce</td>
+<td style="text-align: left">string</td>
+<td>Time in force, possible values include GTC (Good Till Canceled), FOK (Fill or Kill) and IOC (Immediate or Cancel)</td>
+</tr>
+<tr>
+<td style="text-align: left">type</td>
+<td style="text-align: left">string</td>
+<td>Order type, possible values include LIMIT/MARKET/LIMIT_MAKER</td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">string</td>
+<td>Order direction, possible values include Buy and Sell</td>
+</tr>
 </tbody></table>
 <h3 id='t-batch_cancel_spot_order'>Batch Cancel Spot Order</h3>
 <blockquote>
@@ -2363,7 +2441,7 @@ If symbol is not specified, the best order price from all symbols will be return
 </thead><tbody>
 <tr>
 <td style="text-align: left">symbol</td>
-<td style="text-align: left">true</td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>Name of the trading pair</td>
 </tr>
@@ -2372,6 +2450,28 @@ If symbol is not specified, the best order price from all symbols will be return
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>Order direction, possible values include Buy and Sell</td>
+</tr>
+<tr>
+<td style="text-align: left">orderTypes</td>
+<td style="text-align: left">fasle</td>
+<td style="text-align: left">string</td>
+<td>Optional order types, LIMIT/LIMIT_MAKER, use comma splicing to indicate multiple types. Default LIMIT.</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">success</td>
+<td style="text-align: left">boolean</td>
+<td>Success or not (true/false)</td>
 </tr>
 </tbody></table>
 <h3 id='t-spot_order_list'>Order List</h3>
@@ -2427,6 +2527,7 @@ If symbol is not specified, the best order price from all symbols will be return
             <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LIMIT</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BUY</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">stopPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">icebergQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1620638735044</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">updateTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1620638735062</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">isWorking</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span>
@@ -2560,6 +2661,11 @@ If symbol is not specified, the best order price from all symbols will be return
 <td>Stop price</td>
 </tr>
 <tr>
+<td style="text-align: left">icebergQty</td>
+<td style="text-align: left">float</td>
+<td>Please ignore</td>
+</tr>
+<tr>
 <td style="text-align: left">time</td>
 <td style="text-align: left">long</td>
 <td>Order creation time</td>
@@ -2607,6 +2713,7 @@ If symbol is not specified, the best order price from all symbols will be return
             <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LIMIT</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BUY</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">stopPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">icebergQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1620615771836</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">updateTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1620617056334</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">isWorking</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span>
@@ -2740,6 +2847,11 @@ If symbol is not specified, the best order price from all symbols will be return
 <td>Stop price</td>
 </tr>
 <tr>
+<td style="text-align: left">icebergQty</td>
+<td style="text-align: left">float</td>
+<td>Please ignore</td>
+</tr>
+<tr>
 <td style="text-align: left">time</td>
 <td style="text-align: left">long</td>
 <td>Order creation time</td>
@@ -2769,17 +2881,27 @@ If symbol is not specified, the best order price from all symbols will be return
     <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-          <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ETHBTC</span><span class="dl">"</span><span class="p">,</span>
-          <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">28457</span><span class="p">,</span>
-          <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="mi">100234</span><span class="p">,</span>
-          <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">4.00000100</span><span class="dl">"</span><span class="p">,</span>
-          <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">12.00000000</span><span class="dl">"</span><span class="p">,</span>
-          <span class="dl">"</span><span class="s2">commission</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10.10000000</span><span class="dl">"</span><span class="p">,</span>
-          <span class="dl">"</span><span class="s2">commissionAsset</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ETH</span><span class="dl">"</span><span class="p">,</span>
-          <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1499865549590</span><span class="p">,</span>
-          <span class="dl">"</span><span class="s2">isBuyer</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-          <span class="dl">"</span><span class="s2">isMaker</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
+       <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">931975237315196160</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">symbolName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">931975236946097408</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">matchOrderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">931975113180558592</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">20000.00001</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">commission</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.02000000001</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">commissionAsset</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1625836105890</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">isBuyer</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">isMaker</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">fee</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">feeTokenId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">feeTokenName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">fee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.02000000001</span><span class="dl">"</span>
+            <span class="p">},</span>
+            <span class="dl">"</span><span class="s2">feeTokenId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">feeAmount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.02000000001</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">makerRebate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>
        <span class="p">}</span>
     <span class="p">]</span>
 <span class="p">}</span>
@@ -2802,7 +2924,7 @@ If symbol is not specified, the best order price from all symbols will be return
 </thead><tbody>
 <tr>
 <td style="text-align: left">symbol</td>
-<td style="text-align: left">true</td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>Name of the trading pair</td>
 </tr>
@@ -2886,6 +3008,62 @@ If symbol is not specified, the best order price from all symbols will be return
 <td style="text-align: left">float</td>
 <td>True indicates maker, false indicates taker</td>
 </tr>
+<tr>
+<td style="text-align: left">symbolName</td>
+<td style="text-align: left">string</td>
+<td>Symbol name</td>
+</tr>
+<tr>
+<td style="text-align: left">matchOrderId</td>
+<td style="text-align: left">long</td>
+<td>Order ID</td>
+</tr>
+<tr>
+<td style="text-align: left">fee</td>
+<td style="text-align: left">object</td>
+<td>Trading fee</td>
+</tr>
+<tr>
+<td style="text-align: left">feeTokenId</td>
+<td style="text-align: left">string</td>
+<td>Fee Token ID</td>
+</tr>
+<tr>
+<td style="text-align: left">feeAmount</td>
+<td style="text-align: left">float</td>
+<td>Trading fee</td>
+</tr>
+<tr>
+<td style="text-align: left">makerRebate</td>
+<td style="text-align: left">float</td>
+<td>Marker rebate</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">fee object</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">feeTokenId</td>
+<td style="text-align: left">long</td>
+<td>Fee Token ID</td>
+</tr>
+<tr>
+<td style="text-align: left">feeTokenName</td>
+<td style="text-align: left">string</td>
+<td>Fee token name</td>
+</tr>
+<tr>
+<td style="text-align: left">fee</td>
+<td style="text-align: left">float</td>
+<td>Trading fee</td>
+</tr>
 </tbody></table>
 <h1 id='t-wallet'>Wallet Data Endpoints</h1>
 <p>The following wallet data endpoints require authentication.</p>
@@ -2909,7 +3087,7 @@ If symbol is not specified, the best order price from all symbols will be return
                 <span class="dl">"</span><span class="s2">coinId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">coinName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">total</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">free</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">fee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">locked</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>
             <span class="p">}</span>
         <span class="p">]</span>
@@ -2923,6 +3101,22 @@ If symbol is not specified, the best order price from all symbols will be return
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">balances</td>
+<td style="text-align: left">object</td>
+<td>Account balances</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">balances object</p>
 
 <table><thead>
 <tr>
@@ -3167,7 +3361,10 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
             <span class="dl">"</span><span class="s2">q</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.00027</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">m</span><span class="dl">"</span><span class="p">:</span><span class="kc">true</span>
         <span class="p">}</span>
-    <span class="p">]</span>
+    <span class="p">],</span>
+    <span class="dl">"</span><span class="s2">f</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">sendTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1626249138535</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">shared</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
 <span class="p">}</span>
 </code></pre></div>
 <p><p>Trade Streams push raw data for each trade, which has a unique buyer and seller.</p>
@@ -3222,18 +3419,24 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">symbolName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">realtimes</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">[{</span>
     <span class="dl">"</span><span class="s2">t</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1565592599015</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ETHUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">sn</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">c</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">12750.63</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">12800.96</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">l</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">12740.78</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">o</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">12780.23</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">v</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">73013.575</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">qv</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">15726612.498168</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">m</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-0.0401</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">e</span><span class="dl">"</span><span class="p">:</span> <span class="mi">301</span>
     <span class="p">}],</span>
-  <span class="dl">"</span><span class="s2">f</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
+  <span class="dl">"</span><span class="s2">f</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">sendTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1626252046034</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">shared</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>The 24-hr statistics of a trading pair refreshed every second.</p>
@@ -3254,6 +3457,11 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 </tr>
 <tr>
 <td style="text-align: left">s</td>
+<td style="text-align: left">string</td>
+<td>Trading pair</td>
+</tr>
+<tr>
+<td style="text-align: left">sn</td>
 <td style="text-align: left">string</td>
 <td>Trading pair</td>
 </tr>
@@ -3288,6 +3496,16 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <td>translation missing: en.spot_quota_volume</td>
 </tr>
 <tr>
+<td style="text-align: left">m</td>
+<td style="text-align: left">string</td>
+<td>Change</td>
+</tr>
+<tr>
+<td style="text-align: left">e</td>
+<td style="text-align: left">number</td>
+<td>Exchange ID</td>
+</tr>
+<tr>
 <td style="text-align: left">f</td>
 <td style="text-align: left">boolean</td>
 <td>First time or not (true/false)</td>
@@ -3305,18 +3523,26 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">symbolName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">kline</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span><span class="dl">"</span><span class="s2">klineType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">15m</span><span class="dl">"</span><span class="p">},</span>
+  <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">realtimeInterval</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">24h</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">klineType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">15m</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">false</span><span class="dl">"</span>
+  <span class="p">},</span>
   <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">[{</span>
     <span class="dl">"</span><span class="s2">t</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1565595900000</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">sn</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">c</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">11436.14</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">11437</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">l</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">11381.89</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">o</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">11381.89</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">v</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">16.3306</span><span class="dl">"</span>
   <span class="p">}],</span>
-  <span class="dl">"</span><span class="s2">f</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span>
+  <span class="dl">"</span><span class="s2">f</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">sendTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1626252389284</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">shared</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
 <span class="p">}</span>
 </code></pre></div>
 <p><p>Candlestick Streams push data of the requested candlestick chart every second.</p>
@@ -3354,6 +3580,11 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 </tr>
 <tr>
 <td style="text-align: left">s</td>
+<td style="text-align: left">string</td>
+<td>Trading pair</td>
+</tr>
+<tr>
+<td style="text-align: left">sn</td>
 <td style="text-align: left">string</td>
 <td>Trading pair</td>
 </tr>
@@ -3400,8 +3631,14 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">symbolName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">depth</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">realtimeInterval</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">24h</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">false</span><span class="dl">"</span>
+  <span class="p">},</span>
   <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">[{</span>
+    <span class="dl">"</span><span class="s2">e</span><span class="dl">"</span><span class="p">:</span> <span class="mi">301</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">t</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1565600357643</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">v</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">112801745_18</span><span class="dl">"</span><span class="p">,</span>
@@ -3427,9 +3664,12 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
       <span class="p">[</span><span class="dl">"</span><span class="s2">11377.01</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">0.0167</span><span class="dl">"</span><span class="p">],</span>
       <span class="p">[</span><span class="dl">"</span><span class="s2">11377.12</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">1.5</span><span class="dl">"</span><span class="p">],</span>
       <span class="p">[</span><span class="dl">"</span><span class="s2">11377.61</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">0.3</span><span class="dl">"</span><span class="p">]</span>
-    <span class="p">]</span>
+    <span class="p">],</span>
+    <span class="dl">"</span><span class="s2">o</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span>
   <span class="p">}],</span>
-  <span class="dl">"</span><span class="s2">f</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span>
+  <span class="dl">"</span><span class="s2">f</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">sendTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1626253839401</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">shared</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
 <span class="p">}</span>
 </code></pre></div>
 <p><p>Market depth data for a trading pair: </p>
@@ -3457,6 +3697,11 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <th>Comment</th>
 </tr>
 </thead><tbody>
+<tr>
+<td style="text-align: left">e</td>
+<td style="text-align: left">number</td>
+<td>Exchange ID</td>
+</tr>
 <tr>
 <td style="text-align: left">t</td>
 <td style="text-align: left">number</td>
@@ -3486,6 +3731,11 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <td style="text-align: left">f</td>
 <td style="text-align: left">boolean</td>
 <td>First time or not (true/false)</td>
+</tr>
+<tr>
+<td style="text-align: left">o</td>
+<td style="text-align: left">number</td>
+<td>Please ignore</td>
 </tr>
 </tbody></table>
 <h3 id='t-spot_websocket_orderbook_merge_v1'>Orderbook Stream(Merge Depth)</h3>
@@ -3611,8 +3861,14 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">depth</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">symbolName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">diffDepth</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">realtimeInterval</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">24h</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">false</span><span class="dl">"</span>
+  <span class="p">},</span>
   <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">[{</span>
+    <span class="dl">"</span><span class="s2">e</span><span class="dl">"</span><span class="p">:</span> <span class="mi">301</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">t</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1565600357643</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">v</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">112801745_18</span><span class="dl">"</span><span class="p">,</span>
@@ -3638,9 +3894,12 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
       <span class="p">[</span><span class="dl">"</span><span class="s2">11377.01</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">0.0167</span><span class="dl">"</span><span class="p">],</span>
       <span class="p">[</span><span class="dl">"</span><span class="s2">11377.12</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">1.5</span><span class="dl">"</span><span class="p">],</span>
       <span class="p">[</span><span class="dl">"</span><span class="s2">11377.61</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">0.3</span><span class="dl">"</span><span class="p">]</span>
-    <span class="p">]</span>
+    <span class="p">],</span>
+    <span class="dl">"</span><span class="s2">o</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span>
   <span class="p">}],</span>
-  <span class="dl">"</span><span class="s2">f</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="c1">//是否为第一个返回</span>
+  <span class="dl">"</span><span class="s2">f</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span><span class="c1">//是否为第一个返回</span>
+  <span class="dl">"</span><span class="s2">sendTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1626253839401</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">shared</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
 <span class="p">}</span>
 </code></pre></div>
 <p><p>Changes (if any) in the bid–ask spread of the order book will be pushed every second.</p>
@@ -3664,6 +3923,11 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <th>Comment</th>
 </tr>
 </thead><tbody>
+<tr>
+<td style="text-align: left">e</td>
+<td style="text-align: left">number</td>
+<td>Exchange ID</td>
+</tr>
 <tr>
 <td style="text-align: left">t</td>
 <td style="text-align: left">number</td>
@@ -3694,6 +3958,11 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <td style="text-align: left">boolean</td>
 <td>First time or not (true/false)</td>
 </tr>
+<tr>
+<td style="text-align: left">o</td>
+<td style="text-align: left">number</td>
+<td>Please ignore</td>
+</tr>
 </tbody></table>
 <h2 id='t-publictopics_v2'>Public Topics V2</h2><h3 id='t-spot_websocket_orderbook_v2'>Order Book Streams (Full Depth)</h3>
 <blockquote>
@@ -3707,9 +3976,10 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">depth</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">false</span><span class="dl">"</span>
+    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">false</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">symbolName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span>
   <span class="p">},</span>
   <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
@@ -3762,6 +4032,11 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <td>Trading pair</td>
 </tr>
 <tr>
+<td style="text-align: left">symbolName</td>
+<td style="text-align: left">string</td>
+<td>Trading pair</td>
+</tr>
+<tr>
 <td style="text-align: left">binary</td>
 <td style="text-align: left">string</td>
 <td>Compressed or not. True indicates yes, false indicates no (default）</td>
@@ -3807,11 +4082,13 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
   <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">false</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">klineType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1m</span><span class="dl">"</span>
+    <span class="dl">"</span><span class="s2">klineType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1m</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">symbolName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span>
   <span class="p">},</span>
   <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">"</span><span class="s2">t</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1582001880000</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">sn</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">c</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">9799.4</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">9801.4</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">l</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">9798.91</span><span class="dl">"</span><span class="p">,</span>
@@ -3864,12 +4141,22 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <td>Interval</td>
 </tr>
 <tr>
+<td style="text-align: left">symbolName</td>
+<td style="text-align: left">string</td>
+<td>Trading pair</td>
+</tr>
+<tr>
 <td style="text-align: left">t</td>
 <td style="text-align: left">number</td>
 <td>Chart start time</td>
 </tr>
 <tr>
 <td style="text-align: left">s</td>
+<td style="text-align: left">string</td>
+<td>Trading pair</td>
+</tr>
+<tr>
+<td style="text-align: left">sn</td>
 <td style="text-align: left">string</td>
 <td>Trading pair</td>
 </tr>
@@ -3913,7 +4200,8 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
   <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">trade</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">false</span><span class="dl">"</span>
+    <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">false</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">symbolName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span>
   <span class="p">},</span>
   <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">"</span><span class="s2">v</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">564265886622695424</span><span class="dl">"</span><span class="p">,</span>
@@ -3944,6 +4232,11 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <td style="text-align: left">binary</td>
 <td style="text-align: left">string</td>
 <td>Compressed or not. True indicates yes, false indicates no (default）</td>
+</tr>
+<tr>
+<td style="text-align: left">symbolName</td>
+<td style="text-align: left">string</td>
+<td>Trading pair</td>
 </tr>
 <tr>
 <td style="text-align: left">t</td>
@@ -3980,7 +4273,8 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
   <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">bookTicker</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">false</span><span class="dl">"</span>
+    <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">false</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">symbolName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span>
   <span class="p">},</span>
   <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
@@ -4012,6 +4306,11 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <td style="text-align: left">binary</td>
 <td style="text-align: left">string</td>
 <td>Compressed or not. True indicates yes, false indicates no (default）</td>
+</tr>
+<tr>
+<td style="text-align: left">symbolName</td>
+<td style="text-align: left">string</td>
+<td>Trading pair</td>
 </tr>
 <tr>
 <td style="text-align: left">bidPrice</td>
@@ -4053,7 +4352,8 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
   <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">realtimes</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">false</span><span class="dl">"</span>
+    <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">false</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">symbolName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span>
   <span class="p">},</span>
   <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">"</span><span class="s2">t</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1582001616500</span><span class="p">,</span>
@@ -4088,6 +4388,11 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <td style="text-align: left">binary</td>
 <td style="text-align: left">string</td>
 <td>Compressed or not. True indicates yes, false indicates no (default）</td>
+</tr>
+<tr>
+<td style="text-align: left">symbolName</td>
+<td style="text-align: left">string</td>
+<td>Trading pair</td>
 </tr>
 <tr>
 <td style="text-align: left">t</td>
@@ -4226,7 +4531,8 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
   <span class="dl">"</span><span class="s2">q</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1.00000000</span><span class="dl">"</span><span class="p">,</span>             
   <span class="dl">"</span><span class="s2">p</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.10264410</span><span class="dl">"</span><span class="p">,</span>             
   <span class="dl">"</span><span class="s2">X</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">NEW</span><span class="dl">"</span><span class="p">,</span>                    
-  <span class="dl">"</span><span class="s2">i</span><span class="dl">"</span><span class="p">:</span> <span class="mi">4293153</span><span class="p">,</span>                  
+  <span class="dl">"</span><span class="s2">i</span><span class="dl">"</span><span class="p">:</span> <span class="mi">4293153</span><span class="p">,</span>     
+  <span class="dl">"</span><span class="s2">M</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>             
   <span class="dl">"</span><span class="s2">l</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>             
   <span class="dl">"</span><span class="s2">z</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>             
   <span class="dl">"</span><span class="s2">L</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>             
@@ -4236,7 +4542,10 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
   <span class="dl">"</span><span class="s2">w</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>                     
   <span class="dl">"</span><span class="s2">m</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>                    
   <span class="dl">"</span><span class="s2">O</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1499405658657</span><span class="p">,</span>            
-  <span class="dl">"</span><span class="s2">Z</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span>              
+  <span class="dl">"</span><span class="s2">Z</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">A</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">C</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">v</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>              
 <span class="p">}</span>
 </code></pre></div>
 <p>Orders are updated with the executionReport event. Z divided by z equals the average filled price.</p>
@@ -4306,6 +4615,11 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <td>Order ID</td>
 </tr>
 <tr>
+<td style="text-align: left">M</td>
+<td style="text-align: left">string</td>
+<td>Please ignore</td>
+</tr>
+<tr>
 <td style="text-align: left">l</td>
 <td style="text-align: left">string</td>
 <td>Last filled quantity</td>
@@ -4349,6 +4663,21 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <td style="text-align: left">Z</td>
 <td style="text-align: left">string</td>
 <td>Total filled value</td>
+</tr>
+<tr>
+<td style="text-align: left">A</td>
+<td style="text-align: left">string</td>
+<td>Please ignore</td>
+</tr>
+<tr>
+<td style="text-align: left">C</td>
+<td style="text-align: left">boolean</td>
+<td>Please ignore</td>
+</tr>
+<tr>
+<td style="text-align: left">v</td>
+<td style="text-align: left">string</td>
+<td>Please ignore</td>
 </tr>
 </tbody></table>
 <h3 id='t-spot_websocket_ticket_info'>TicketInfo</h3>

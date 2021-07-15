@@ -645,7 +645,7 @@
     <li><a href="/docs/zh-cn/inverse">反向永续</a></li>
     <li><a href="/docs/zh-cn/linear">USDT永续</a></li>
     <li><a href="/docs/zh-cn/inverse_futures">反向交割</a></li>
-  <li><a href="/docs/zh-cn/spot" class="selected">现货(testnet)</a></li>
+  <li><a href="/docs/zh-cn/spot" class="selected">现货</a></li>
 
   <li>
     <div class="dropdown">
@@ -1121,6 +1121,8 @@ function copyStringToClipboard (endpoint) {
             <span class="dl">"</span><span class="s2">minTradeQuantity</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0001</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">minTradeAmount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">minPricePrecision</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">maxTradeQuantity</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">maxTradeAmount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">200</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
         <span class="p">},</span>
         <span class="p">{</span>
@@ -1133,6 +1135,8 @@ function copyStringToClipboard (endpoint) {
             <span class="dl">"</span><span class="s2">minTradeQuantity</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0001</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">minTradeAmount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">minPricePrecision</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">maxTradeQuantity</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">maxTradeAmount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">200</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
         <span class="p">}</span>
     <span class="p">]</span>
@@ -1610,8 +1614,13 @@ function copyStringToClipboard (endpoint) {
 </tr>
 <tr>
 <td style="text-align: left">endTime</td>
-<td style="text-align: left">float</td>
+<td style="text-align: left">long</td>
 <td>最后一条返回的时间戳(毫秒)</td>
+</tr>
+<tr>
+<td style="text-align: left">quoteAssetVolume</td>
+<td style="text-align: left">float</td>
+<td>行情资产数量</td>
 </tr>
 <tr>
 <td style="text-align: left">trades</td>
@@ -1900,6 +1909,11 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">float</td>
 <td>最佳卖价数量</td>
 </tr>
+<tr>
+<td style="text-align: left">time</td>
+<td style="text-align: left">long</td>
+<td>毫秒时间戳</td>
+</tr>
 </tbody></table>
 <h1 id='t-accountdata'>账户/交易接口</h1>
 <p>以下账户/交易接口都需要鉴权.</p>
@@ -1989,7 +2003,7 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">price</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">number</td>
-<td>订单价格</td>
+<td>订单价格。type字段为MARKET时，price字段为非必须。type字段为LIMIT或LIMIT_MAKER时，price字段为必须</td>
 </tr>
 <tr>
 <td style="text-align: left">orderLinkId</td>
@@ -2057,6 +2071,21 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">timeInForce</td>
 <td style="text-align: left">string</td>
 <td>订单时间指令（Time in Force）。可能出现的值为：GTC（Good Till Canceled，一直有效），FOK（Fill or Kill，全部成交或者取消），IOC（Immediate or Cancel，立即成交或者取消）</td>
+</tr>
+<tr>
+<td style="text-align: left">accountId</td>
+<td style="text-align: left">long</td>
+<td>账户ID</td>
+</tr>
+<tr>
+<td style="text-align: left">symbolName</td>
+<td style="text-align: left">string</td>
+<td>现货币对名称</td>
+</tr>
+<tr>
+<td style="text-align: left">executedQty</td>
+<td style="text-align: left">string</td>
+<td>请忽略</td>
 </tr>
 </tbody></table>
 <h3 id='t-spot_get_order'>查询订单</h3>
@@ -2127,6 +2156,10 @@ function copyStringToClipboard (endpoint) {
 <td>特殊订单ID，用户自己生成</td>
 </tr>
 </tbody></table>
+
+<aside class="notice">
+orderId和ordersLinkId至少要输入一个。
+</aside>
 
 <p class="fake_header">返回参数</p>
 
@@ -2216,6 +2249,11 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">stopPrice</td>
 <td style="text-align: left">float</td>
 <td>停止价</td>
+</tr>
+<tr>
+<td style="text-align: left">icebergQty</td>
+<td style="text-align: left">float</td>
+<td>请忽略</td>
 </tr>
 <tr>
 <td style="text-align: left">time</td>
@@ -2322,6 +2360,46 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">string</td>
 <td>订单状态。可能出现的值为：NEW(新订单，无成交)、PARTIALLY_FILLED（部分成交）、FILLED（全部成交）、CANCELED（已取消）和REJECTED（订单被拒绝）.</td>
 </tr>
+<tr>
+<td style="text-align: left">accountId</td>
+<td style="text-align: left">long</td>
+<td>账户ID</td>
+</tr>
+<tr>
+<td style="text-align: left">transactTime</td>
+<td style="text-align: left">long</td>
+<td>交易时间戳</td>
+</tr>
+<tr>
+<td style="text-align: left">price</td>
+<td style="text-align: left">float</td>
+<td>订单价格</td>
+</tr>
+<tr>
+<td style="text-align: left">origQty</td>
+<td style="text-align: left">float</td>
+<td>订单数量</td>
+</tr>
+<tr>
+<td style="text-align: left">executedQty</td>
+<td style="text-align: left">float</td>
+<td>请忽略</td>
+</tr>
+<tr>
+<td style="text-align: left">timeInForce</td>
+<td style="text-align: left">string</td>
+<td>订单时间指令（Time in Force）。可能出现的值为：GTC（Good Till Canceled，一直有效），FOK（Fill or Kill，全部成交或者取消），IOC（Immediate or Cancel，立即成交或者取消）</td>
+</tr>
+<tr>
+<td style="text-align: left">type</td>
+<td style="text-align: left">string</td>
+<td>订单类型, LIMIT/MARKET/LIMIT_MAKER</td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">string</td>
+<td>订单方向, BUY(买入做多)/SELL(卖出做空)</td>
+</tr>
 </tbody></table>
 <h3 id='t-batch_cancel_spot_order'>批量撤销订单</h3>
 <blockquote>
@@ -2361,7 +2439,7 @@ function copyStringToClipboard (endpoint) {
 </thead><tbody>
 <tr>
 <td style="text-align: left">symbol</td>
-<td style="text-align: left">true</td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>币对名称</td>
 </tr>
@@ -2370,6 +2448,28 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>订单方向, BUY(买入做多)/SELL(卖出做空)</td>
+</tr>
+<tr>
+<td style="text-align: left">orderTypes</td>
+<td style="text-align: left">fasle</td>
+<td style="text-align: left">string</td>
+<td>可选订单类型, LIMIT/LIMIT_MAKER，可用英文逗号拼接表示多个类型。不传默认为LIMIT。</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">返回参数</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">参数</th>
+<th style="text-align: left">类型</th>
+<th>说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">success</td>
+<td style="text-align: left">boolean</td>
+<td>是否成功</td>
 </tr>
 </tbody></table>
 <h3 id='t-spot_order_list'>订单列表</h3>
@@ -2425,6 +2525,7 @@ function copyStringToClipboard (endpoint) {
             <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LIMIT</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BUY</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">stopPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">icebergQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1620638735044</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">updateTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1620638735062</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">isWorking</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span>
@@ -2558,6 +2659,11 @@ function copyStringToClipboard (endpoint) {
 <td>停止价</td>
 </tr>
 <tr>
+<td style="text-align: left">icebergQty</td>
+<td style="text-align: left">float</td>
+<td>请忽略</td>
+</tr>
+<tr>
 <td style="text-align: left">time</td>
 <td style="text-align: left">long</td>
 <td>订单生成时的时间戳</td>
@@ -2605,6 +2711,7 @@ function copyStringToClipboard (endpoint) {
             <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LIMIT</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BUY</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">stopPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">icebergQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1620615771836</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">updateTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1620617056334</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">isWorking</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span>
@@ -2738,6 +2845,11 @@ function copyStringToClipboard (endpoint) {
 <td>停止价</td>
 </tr>
 <tr>
+<td style="text-align: left">icebergQty</td>
+<td style="text-align: left">float</td>
+<td>请忽略</td>
+</tr>
+<tr>
 <td style="text-align: left">time</td>
 <td style="text-align: left">long</td>
 <td>订单生成时的时间戳</td>
@@ -2767,17 +2879,27 @@ function copyStringToClipboard (endpoint) {
     <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-          <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ETHBTC</span><span class="dl">"</span><span class="p">,</span>
-          <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">28457</span><span class="p">,</span>
-          <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="mi">100234</span><span class="p">,</span>
-          <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">4.00000100</span><span class="dl">"</span><span class="p">,</span>
-          <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">12.00000000</span><span class="dl">"</span><span class="p">,</span>
-          <span class="dl">"</span><span class="s2">commission</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10.10000000</span><span class="dl">"</span><span class="p">,</span>
-          <span class="dl">"</span><span class="s2">commissionAsset</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ETH</span><span class="dl">"</span><span class="p">,</span>
-          <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1499865549590</span><span class="p">,</span>
-          <span class="dl">"</span><span class="s2">isBuyer</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-          <span class="dl">"</span><span class="s2">isMaker</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
+       <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">931975237315196160</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">symbolName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">931975236946097408</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">matchOrderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">931975113180558592</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">20000.00001</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">commission</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.02000000001</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">commissionAsset</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1625836105890</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">isBuyer</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">isMaker</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">fee</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">feeTokenId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">feeTokenName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">fee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.02000000001</span><span class="dl">"</span>
+            <span class="p">},</span>
+            <span class="dl">"</span><span class="s2">feeTokenId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">feeAmount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.02000000001</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">makerRebate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>
        <span class="p">}</span>
     <span class="p">]</span>
 <span class="p">}</span>
@@ -2800,7 +2922,7 @@ function copyStringToClipboard (endpoint) {
 </thead><tbody>
 <tr>
 <td style="text-align: left">symbol</td>
-<td style="text-align: left">true</td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>币对名称</td>
 </tr>
@@ -2884,6 +3006,62 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">float</td>
 <td>true=Maker false=Taker</td>
 </tr>
+<tr>
+<td style="text-align: left">symbolName</td>
+<td style="text-align: left">string</td>
+<td>现货币对名称</td>
+</tr>
+<tr>
+<td style="text-align: left">matchOrderId</td>
+<td style="text-align: left">long</td>
+<td>撮合订单id</td>
+</tr>
+<tr>
+<td style="text-align: left">fee</td>
+<td style="text-align: left">object</td>
+<td>手续费</td>
+</tr>
+<tr>
+<td style="text-align: left">feeTokenId</td>
+<td style="text-align: left">string</td>
+<td>手续费 Token ID</td>
+</tr>
+<tr>
+<td style="text-align: left">feeAmount</td>
+<td style="text-align: left">float</td>
+<td>手续费</td>
+</tr>
+<tr>
+<td style="text-align: left">makerRebate</td>
+<td style="text-align: left">float</td>
+<td>Maker折扣</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">fee object</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">参数</th>
+<th style="text-align: left">类型</th>
+<th>说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">feeTokenId</td>
+<td style="text-align: left">long</td>
+<td>手续费 Token ID</td>
+</tr>
+<tr>
+<td style="text-align: left">feeTokenName</td>
+<td style="text-align: left">string</td>
+<td>手续费 Token 名称</td>
+</tr>
+<tr>
+<td style="text-align: left">fee</td>
+<td style="text-align: left">float</td>
+<td>手续费</td>
+</tr>
 </tbody></table>
 <h1 id='t-wallet'>钱包接口</h1>
 <p>钱包相关接口需要认证。</p>
@@ -2907,7 +3085,7 @@ function copyStringToClipboard (endpoint) {
                 <span class="dl">"</span><span class="s2">coinId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">coinName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">total</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">free</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">fee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">locked</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>
             <span class="p">}</span>
         <span class="p">]</span>
@@ -2921,6 +3099,22 @@ function copyStringToClipboard (endpoint) {
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">返回参数</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">参数</th>
+<th style="text-align: left">类型</th>
+<th>说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">balances</td>
+<td style="text-align: left">object</td>
+<td>账户余额</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">balances object</p>
 
 <table><thead>
 <tr>
@@ -3166,7 +3360,10 @@ function copyStringToClipboard (endpoint) {
             <span class="dl">"</span><span class="s2">q</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.00027</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">m</span><span class="dl">"</span><span class="p">:</span><span class="kc">true</span>
         <span class="p">}</span>
-    <span class="p">]</span>
+    <span class="p">],</span>
+    <span class="dl">"</span><span class="s2">f</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">sendTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1626249138535</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">shared</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
 <span class="p">}</span>
 </code></pre></div>
 <p><p>逐笔交易推送每一笔成交的信息。成交，或者说交易的定义是仅有一个吃单者与一个挂单者相互交易。</p>
@@ -3221,18 +3418,24 @@ function copyStringToClipboard (endpoint) {
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">symbolName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">realtimes</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">[{</span>
     <span class="dl">"</span><span class="s2">t</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1565592599015</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ETHUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">sn</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">c</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">12750.63</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">12800.96</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">l</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">12740.78</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">o</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">12780.23</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">v</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">73013.575</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">qv</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">15726612.498168</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">m</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-0.0401</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">e</span><span class="dl">"</span><span class="p">:</span> <span class="mi">301</span>
     <span class="p">}],</span>
-  <span class="dl">"</span><span class="s2">f</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
+  <span class="dl">"</span><span class="s2">f</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">sendTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1626252046034</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">shared</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>按Symbol逐秒刷新的24小时完整ticker信息。</p>
@@ -3253,6 +3456,11 @@ function copyStringToClipboard (endpoint) {
 </tr>
 <tr>
 <td style="text-align: left">s</td>
+<td style="text-align: left">string</td>
+<td>币对</td>
+</tr>
+<tr>
+<td style="text-align: left">sn</td>
 <td style="text-align: left">string</td>
 <td>币对</td>
 </tr>
@@ -3287,6 +3495,16 @@ function copyStringToClipboard (endpoint) {
 <td>translation missing: zh-cn.spot_quota_volume</td>
 </tr>
 <tr>
+<td style="text-align: left">m</td>
+<td style="text-align: left">string</td>
+<td>涨幅</td>
+</tr>
+<tr>
+<td style="text-align: left">e</td>
+<td style="text-align: left">number</td>
+<td>交易所ID</td>
+</tr>
+<tr>
 <td style="text-align: left">f</td>
 <td style="text-align: left">boolean</td>
 <td>是否首次返回</td>
@@ -3304,18 +3522,26 @@ function copyStringToClipboard (endpoint) {
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">symbolName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">kline</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span><span class="dl">"</span><span class="s2">klineType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">15m</span><span class="dl">"</span><span class="p">},</span>
+  <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">realtimeInterval</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">24h</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">klineType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">15m</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">false</span><span class="dl">"</span>
+  <span class="p">},</span>
   <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">[{</span>
     <span class="dl">"</span><span class="s2">t</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1565595900000</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">sn</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">c</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">11436.14</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">11437</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">l</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">11381.89</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">o</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">11381.89</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">v</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">16.3306</span><span class="dl">"</span>
   <span class="p">}],</span>
-  <span class="dl">"</span><span class="s2">f</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span>
+  <span class="dl">"</span><span class="s2">f</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">sendTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1626252389284</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">shared</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
 <span class="p">}</span>
 </code></pre></div>
 <p><p>K线stream逐秒推送所请求的K线种类(最新一根K线)的更新</p>
@@ -3354,6 +3580,11 @@ function copyStringToClipboard (endpoint) {
 </tr>
 <tr>
 <td style="text-align: left">s</td>
+<td style="text-align: left">string</td>
+<td>币对</td>
+</tr>
+<tr>
+<td style="text-align: left">sn</td>
 <td style="text-align: left">string</td>
 <td>币对</td>
 </tr>
@@ -3400,8 +3631,14 @@ function copyStringToClipboard (endpoint) {
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">symbolName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">depth</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">realtimeInterval</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">24h</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">false</span><span class="dl">"</span>
+  <span class="p">},</span>
   <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">[{</span>
+    <span class="dl">"</span><span class="s2">e</span><span class="dl">"</span><span class="p">:</span> <span class="mi">301</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">t</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1565600357643</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">v</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">112801745_18</span><span class="dl">"</span><span class="p">,</span>
@@ -3427,9 +3664,12 @@ function copyStringToClipboard (endpoint) {
       <span class="p">[</span><span class="dl">"</span><span class="s2">11377.01</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">0.0167</span><span class="dl">"</span><span class="p">],</span>
       <span class="p">[</span><span class="dl">"</span><span class="s2">11377.12</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">1.5</span><span class="dl">"</span><span class="p">],</span>
       <span class="p">[</span><span class="dl">"</span><span class="s2">11377.61</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">0.3</span><span class="dl">"</span><span class="p">]</span>
-    <span class="p">]</span>
+    <span class="p">],</span>
+    <span class="dl">"</span><span class="s2">o</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span>
   <span class="p">}],</span>
-  <span class="dl">"</span><span class="s2">f</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span>
+  <span class="dl">"</span><span class="s2">f</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">sendTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1626253839401</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">shared</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
 <span class="p">}</span>
 </code></pre></div>
 <p><p>这里是订单簿快照推送的详细信息：</p>
@@ -3457,6 +3697,11 @@ function copyStringToClipboard (endpoint) {
 <th>说明</th>
 </tr>
 </thead><tbody>
+<tr>
+<td style="text-align: left">e</td>
+<td style="text-align: left">number</td>
+<td>交易所ID</td>
+</tr>
 <tr>
 <td style="text-align: left">t</td>
 <td style="text-align: left">number</td>
@@ -3486,6 +3731,11 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">f</td>
 <td style="text-align: left">boolean</td>
 <td>是否首次返回</td>
+</tr>
+<tr>
+<td style="text-align: left">o</td>
+<td style="text-align: left">number</td>
+<td>请忽略</td>
 </tr>
 </tbody></table>
 <h3 id='t-spot_websocket_orderbook_merge_v1'>订单簿(合并深度)</h3>
@@ -3611,8 +3861,14 @@ function copyStringToClipboard (endpoint) {
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">depth</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">symbolName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">diffDepth</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">realtimeInterval</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">24h</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">false</span><span class="dl">"</span>
+  <span class="p">},</span>
   <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">[{</span>
+    <span class="dl">"</span><span class="s2">e</span><span class="dl">"</span><span class="p">:</span> <span class="mi">301</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">t</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1565600357643</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">v</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">112801745_18</span><span class="dl">"</span><span class="p">,</span>
@@ -3638,9 +3894,12 @@ function copyStringToClipboard (endpoint) {
       <span class="p">[</span><span class="dl">"</span><span class="s2">11377.01</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">0.0167</span><span class="dl">"</span><span class="p">],</span>
       <span class="p">[</span><span class="dl">"</span><span class="s2">11377.12</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">1.5</span><span class="dl">"</span><span class="p">],</span>
       <span class="p">[</span><span class="dl">"</span><span class="s2">11377.61</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">0.3</span><span class="dl">"</span><span class="p">]</span>
-    <span class="p">]</span>
+    <span class="p">],</span>
+    <span class="dl">"</span><span class="s2">o</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span>
   <span class="p">}],</span>
-  <span class="dl">"</span><span class="s2">f</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="c1">//是否为第一个返回</span>
+  <span class="dl">"</span><span class="s2">f</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span><span class="c1">//是否为第一个返回</span>
+  <span class="dl">"</span><span class="s2">sendTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1626253839401</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">shared</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
 <span class="p">}</span>
 </code></pre></div>
 <p><p>每秒推送订单簿的变化部分（如果有）。</p>
@@ -3664,6 +3923,11 @@ function copyStringToClipboard (endpoint) {
 <th>说明</th>
 </tr>
 </thead><tbody>
+<tr>
+<td style="text-align: left">e</td>
+<td style="text-align: left">number</td>
+<td>交易所ID</td>
+</tr>
 <tr>
 <td style="text-align: left">t</td>
 <td style="text-align: left">number</td>
@@ -3694,6 +3958,11 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">boolean</td>
 <td>是否首次返回</td>
 </tr>
+<tr>
+<td style="text-align: left">o</td>
+<td style="text-align: left">number</td>
+<td>请忽略</td>
+</tr>
 </tbody></table>
 <h2 id='t-publictopics_v2'>公共 Topics V2</h2><h3 id='t-spot_websocket_orderbook_v2'>订单簿(全量深度)</h3>
 <blockquote>
@@ -3707,9 +3976,10 @@ function copyStringToClipboard (endpoint) {
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">depth</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">false</span><span class="dl">"</span>
+    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">false</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">symbolName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span>
   <span class="p">},</span>
   <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
@@ -3777,6 +4047,11 @@ function copyStringToClipboard (endpoint) {
 <td>币对</td>
 </tr>
 <tr>
+<td style="text-align: left">symbolName</td>
+<td style="text-align: left">string</td>
+<td>币对</td>
+</tr>
+<tr>
 <td style="text-align: left">binary</td>
 <td style="text-align: left">string</td>
 <td>是否压缩 true压缩, false未压缩（默认）</td>
@@ -3822,11 +4097,13 @@ function copyStringToClipboard (endpoint) {
   <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">false</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">klineType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1m</span><span class="dl">"</span>
+    <span class="dl">"</span><span class="s2">klineType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1m</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">symbolName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span>
   <span class="p">},</span>
   <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">"</span><span class="s2">t</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1582001880000</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">sn</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">c</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">9799.4</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">9801.4</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">l</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">9798.91</span><span class="dl">"</span><span class="p">,</span>
@@ -3880,12 +4157,22 @@ function copyStringToClipboard (endpoint) {
 <td>k线间隔</td>
 </tr>
 <tr>
+<td style="text-align: left">symbolName</td>
+<td style="text-align: left">string</td>
+<td>币对</td>
+</tr>
+<tr>
 <td style="text-align: left">t</td>
 <td style="text-align: left">number</td>
 <td>k线开始时间</td>
 </tr>
 <tr>
 <td style="text-align: left">s</td>
+<td style="text-align: left">string</td>
+<td>币对</td>
+</tr>
+<tr>
+<td style="text-align: left">sn</td>
 <td style="text-align: left">string</td>
 <td>币对</td>
 </tr>
@@ -3929,7 +4216,8 @@ function copyStringToClipboard (endpoint) {
   <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">trade</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">false</span><span class="dl">"</span>
+    <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">false</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">symbolName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span>
   <span class="p">},</span>
   <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">"</span><span class="s2">v</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">564265886622695424</span><span class="dl">"</span><span class="p">,</span>
@@ -3960,6 +4248,11 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">binary</td>
 <td style="text-align: left">string</td>
 <td>是否压缩 true压缩, false未压缩（默认）</td>
+</tr>
+<tr>
+<td style="text-align: left">symbolName</td>
+<td style="text-align: left">string</td>
+<td>币对</td>
 </tr>
 <tr>
 <td style="text-align: left">t</td>
@@ -3996,7 +4289,8 @@ function copyStringToClipboard (endpoint) {
   <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">bookTicker</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">false</span><span class="dl">"</span>
+    <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">false</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">symbolName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span>
   <span class="p">},</span>
   <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
@@ -4028,6 +4322,11 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">binary</td>
 <td style="text-align: left">string</td>
 <td>是否压缩 true压缩, false未压缩（默认）</td>
+</tr>
+<tr>
+<td style="text-align: left">symbolName</td>
+<td style="text-align: left">string</td>
+<td>币对</td>
 </tr>
 <tr>
 <td style="text-align: left">bidPrice</td>
@@ -4069,7 +4368,8 @@ function copyStringToClipboard (endpoint) {
   <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">realtimes</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">false</span><span class="dl">"</span>
+    <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">false</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">symbolName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span>
   <span class="p">},</span>
   <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">"</span><span class="s2">t</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1582001616500</span><span class="p">,</span>
@@ -4104,6 +4404,11 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">binary</td>
 <td style="text-align: left">string</td>
 <td>是否压缩 true压缩, false未压缩（默认）</td>
+</tr>
+<tr>
+<td style="text-align: left">symbolName</td>
+<td style="text-align: left">string</td>
+<td>币对</td>
 </tr>
 <tr>
 <td style="text-align: left">t</td>
@@ -4242,7 +4547,8 @@ function copyStringToClipboard (endpoint) {
   <span class="dl">"</span><span class="s2">q</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1.00000000</span><span class="dl">"</span><span class="p">,</span>             
   <span class="dl">"</span><span class="s2">p</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.10264410</span><span class="dl">"</span><span class="p">,</span>             
   <span class="dl">"</span><span class="s2">X</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">NEW</span><span class="dl">"</span><span class="p">,</span>                    
-  <span class="dl">"</span><span class="s2">i</span><span class="dl">"</span><span class="p">:</span> <span class="mi">4293153</span><span class="p">,</span>                  
+  <span class="dl">"</span><span class="s2">i</span><span class="dl">"</span><span class="p">:</span> <span class="mi">4293153</span><span class="p">,</span>     
+  <span class="dl">"</span><span class="s2">M</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>             
   <span class="dl">"</span><span class="s2">l</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>             
   <span class="dl">"</span><span class="s2">z</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>             
   <span class="dl">"</span><span class="s2">L</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>             
@@ -4252,7 +4558,10 @@ function copyStringToClipboard (endpoint) {
   <span class="dl">"</span><span class="s2">w</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>                     
   <span class="dl">"</span><span class="s2">m</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>                    
   <span class="dl">"</span><span class="s2">O</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1499405658657</span><span class="p">,</span>            
-  <span class="dl">"</span><span class="s2">Z</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span>              
+  <span class="dl">"</span><span class="s2">Z</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">A</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">C</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">v</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>              
 <span class="p">}</span>
 </code></pre></div>
 <p>订单通过executionReport事件进行更新。详细说明信息请查看这里。通过将Z除以z可以找到平均价格。</p>
@@ -4322,6 +4631,11 @@ function copyStringToClipboard (endpoint) {
 <td>订单id</td>
 </tr>
 <tr>
+<td style="text-align: left">M</td>
+<td style="text-align: left">string</td>
+<td>请忽略</td>
+</tr>
+<tr>
 <td style="text-align: left">l</td>
 <td style="text-align: left">string</td>
 <td>最近成交数量</td>
@@ -4365,6 +4679,21 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">Z</td>
 <td style="text-align: left">string</td>
 <td>累计成交数额</td>
+</tr>
+<tr>
+<td style="text-align: left">A</td>
+<td style="text-align: left">string</td>
+<td>请忽略</td>
+</tr>
+<tr>
+<td style="text-align: left">C</td>
+<td style="text-align: left">boolean</td>
+<td>请忽略</td>
+</tr>
+<tr>
+<td style="text-align: left">v</td>
+<td style="text-align: left">string</td>
+<td>请忽略</td>
 </tr>
 </tbody></table>
 <h3 id='t-spot_websocket_ticket_info'>TicketInfo</h3>
