@@ -134,7 +134,7 @@ t(:websocket_para_filters1)
 > t(:websocket_codequote_unsubfilters)
 
 ```javascript
-// Unsubscribing to the trade data for ETHUSDT
+// Unsubscribing from the trade data for ETHUSDT
 ws.send('{"op":"unsubscribe","args":["trade.ETHUSDT"]}')
 ```
 
