@@ -58,8 +58,8 @@ en:
   row_comment_position_seq: Position sequence
   row_comment_cum_commission: Accumulated commission
   row_comment_trailing_active: Trailing stop active price
-  row_comment_sl_trigger_by: Stoploss trigger price type
-  row_comment_tp_trigger_by: Takeprofit trigger price type
+  row_comment_sl_trigger_by: Stop loss trigger price type
+  row_comment_tp_trigger_by: Take profit trigger price type
   row_comment_leverage_result: User leverage
   row_comment_BTCUSD_leverage: BTCUSD leverage
   row_comment_EOSUSD_leverage: EOSUSD leverage
@@ -340,7 +340,7 @@ en:
   enum_contract_type_link: <a href="#contract-type-contract_type">Contract Type Enum</a>
   enum_order_type_link: <a href="#order-type-order_type">Order Type Enum</a>
   enum_exec_type_link: <a href="#exec-type-exec_type">Exec Type Enum</a>
-  enum_Liquidity_type_link: <a href="#liquidity-type-last_liquidity_ind">Liquidity Enum</a>, only valid while <code>exec_type</code> is <code>Trade、AdlTrade、BustTrade</code>
+  enum_Liquidity_type_link: <a href="#liquidity-type-last_liquidity_ind">Liquidity Enum</a>, only valid while <code>exec_type</code> is <code>Trade, AdlTrade, BustTrade</code>
   enum_stop_order_status_link: <a href="#stop-order-status-stop_order_status">Stop Order Status</a>
   stop_order_trigger_price: If <code>stop_order_type</code> is <code>TrailingProfit</code>, this field is the trailing stop active price.
   errorcode_meaning: Meaning
@@ -368,10 +368,10 @@ en:
   introduction: Group And Resources
   intro_para:
     <p> <a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their respective expected outputs, and common errors.</p>
-    <p> For further assistanc or feedback, please join <a href="https://t.me/Bybitapi">API Telegram chat</a>! API discussion group on Telegram. Our fellow developers are happy to chat!</p>
+    <p> For further assistance or feedback, please join <a href="https://t.me/Bybitapi">API Telegram chat</a>! API discussion group on Telegram. Our fellow developers are happy to chat!</p>
   spot_intro_para:
     <p> <a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common error codes.</p>
-    <p> For further assistanc or feedback, please join Bybit's <a href="https://t.me/Bybitapi">API discussion group</a> on Telegram. Our fellow developers are happy to chat!</p>
+    <p> For further assistance or feedback, please join Bybit's <a href="https://t.me/Bybitapi">API discussion group</a> on Telegram. Our fellow developers are happy to chat!</p>
 
   resources: Group And Bybit API Resources
   spot_resources: API Resources and Support Channels
@@ -421,7 +421,7 @@ en:
   position_20200316: Add field <code>effective_leverage</code> in response
   bugfix1_20200316: Fix value of field <code>equity</code> of <code>USDT</code>
   ## 2020-02-26
-  update_20200226: Remove <code>trailing_stop</code> field from paramters of place order endpoint. Currently, this field is useless.
+  update_20200226: Remove <code>trailing_stop</code> field from parameters of place order endpoint. Currently, this field is useless.
   ## 2020-02-10
   replaceActive1_20200210: Add <code>order_id</code> in response
   replaceCond1_20200210: Add <code>stop_order_id</code> in response
@@ -523,14 +523,14 @@ en:
   auth_aside_timestamp: |
     Please make sure that the timestamp parameter adheres to the following rule: server_time - recv_window <= timestamp < server_time + 1000; server_time stands for Bybit server time, which can be queried via the <a href="#t-servertime">Server Time</a> endpoint.
   auth_para_recv: |
-    <p>We also provide <code>recv_window</code> (unit in millsecond and defualt value is 5,000) to specify how long an HTTP request is valid. It is also used to prevent replay attacks.</p>
+    <p>We also provide <code>recv_window</code> (unit in millisecond and default value is 5,000) to specify how long an HTTP request is valid. It is also used to prevent replay attacks.</p>
     <p>A smaller <code>recv_window</code> is more secure, but your request may fail if the transmission time is greater than your <code>recv_window</code>.</p>
     <p>Please make sure that your <code>timestamp</code> is in sync with our server time. You can use the <a href=#t-servertime>Server Time</a> endpoint.</p>
   spot_auth_aside_timestamp: |
     Please make sure that the timestamp parameter adheres to the following rule: serverTime - recvWindow <= timestamp < serverTime + 1000; serverTime stands for Bybit server time, which can be queried via the <a href="#t-servertime">Server Time</a> endpoint.
 
   spot_auth_para_recv: |
-    <p>We also provide <code>recvWindow</code> (unit in millsecond and defualt value is 5,000) to specify how long an HTTP request is valid. It is also used to prevent replay attacks.</p>
+    <p>We also provide <code>recvWindow</code> (unit in millisecond and default value is 5,000) to specify how long an HTTP request is valid. It is also used to prevent replay attacks.</p>
     <p>A smaller <code>recvWindow</code> is more secure, but your request may fail if the transmission time is greater than your <code>recvWindow</code>.</p>
     <p>Please make sure that your <code>timestamp</code> is in sync with our server time. You can use the <a href=#t-servertime>Server Time</a> endpoint.</p>
   ## Constructing the Request
@@ -565,7 +565,7 @@ en:
   orderbook: Order book
   market_para_orderbook: Get the orderbook.
   market_aside_orderbook: The response is in the snapshot format.
-  ### Query Klne
+  ### Query Kline
   querykline: Query Kline
   market_para_querykline: Get kline.
   ### Query Index Price Kline
@@ -623,7 +623,7 @@ en:
   activeorders: Active Orders
   account_para_placeActive: |
     <p>Market price active order: A traditional market price order which will be filled at the best available price. <code>price</code> is not required for this type of order.
-    <b>To protect market order from excessive slippage, Bybit converts a market order into a limit order with a spread. A market buy order is converted into a limit order at a higher than best ask price; a market sell order is covnerted into a limit order at a lower than best bid price.
+    <b>To protect market order from excessive slippage, Bybit converts a market order into a limit order with a spread. A market buy order is converted into a limit order at a higher than best ask price; a market sell order is converted into a limit order at a lower than best bid price.
        The converted limit price and executed price are both available in trade history.</b>.</p>
     <p>Limit price active order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
     <p><b>Take profit/Stop loss: You may only set a TP/SL conditional order upon opening the position. Once you hold a position, any new active order requests which contain TP/SL data will be accepted but the TP/SL data will be ignored. <code>tp_trigger_by</code>/<code>sl_trigger_by</code> default to LastPrice. Passing values to the <code>take_profit</code> or <code>stop_loss</code> parameters in this endpoint will create conditional orders managed by the system, which will be be automatically cancelled if the position is closed.</b></p>
@@ -906,7 +906,7 @@ en:
   rate_para_ratio: |
     <ul>
     <li><code>Order Fill Ratio (OFR)</code>: <code>Orders Filled</code> to <code>Orders Submitted to Bybit</code> to Bybit.</li>
-    <li><code>Orders Submitted to Bybit</code>: any order submitted  to Bybit.</li>
+    <li><code>Orders Submitted to Bybit</code>: any order submitted to Bybit.</li>
     <li><code>Orders Filled</code>: any order that has been filled (regardless of filled quantity).</li>
     <li><code>OFR = (number of orders filled / number of orders submitted to Bybit)</code></li>
     </ul>
@@ -1175,7 +1175,7 @@ en:
 
   # ENUMs Definitions
   enums: Enums Definitions
-  ENUMs_para: The following lists enumerator names for the request and resonse parameters of each endpoint.
+  ENUMs_para: The following lists enumerator names for the request and response parameters of each endpoint.
   ## Wallet fund type (`wallet_fund_type`)
   deposit:      ""
   withdraw:     ""
@@ -1233,7 +1233,7 @@ en:
     </ul>
     </li>
     <li>If the user has an open position, the order price must be better than the liquidation price.<ul>
-    <li>For example, if the liquidation price of a long position is <code>5176.5</code> , the min. order price will be <code>5177</code>. For short position, the order price must be less than the liquidation price.</li>
+    <li>For example, if the liquidation price of a long position is <code>5176.5</code>, the min. order price will be <code>5177</code>. For short position, the order price must be less than the liquidation price.</li>
     </ul>
     </li>
     </ul>
@@ -1364,7 +1364,7 @@ en:
   err_1016: Service not available.
 
 
-  err_10000: An unknown error occured while processing the request
+  err_10000: An unknown error occurred while processing the request
   err_10001: Error - request failed processed. Please try again.
   err_10002: Request not authorized - an API key is required and should be included in all requests.
   err_10003: Too many requests - please use WebSocket for live updates. Current limit is %s requests per minute.
@@ -1374,7 +1374,7 @@ en:
   err_10007: Response timeout from backend server. Delivery and request status unknown.
   err_10010: request ip mismatch
   err_10014: Trading pairs not supported.
-  err_10015: Too many new orders. Please lower request frequency .
+  err_10015: Too many new orders. Please lower request frequency.
   err_10016: Service not available.
   err_10017: request path not found or request method is invalid
   err_10018: exceed ip rate limit
@@ -1415,7 +1415,7 @@ en:
   err_11041: Duplicate clientOrderId.
   err_11042: Order has been canceled.
   err_11043: Order not found.
-  err_11044: Order being cancaled. Operation not supported.
+  err_11044: Order being cancelled. Operation not supported.
   err_11045: Order cannot be canceled.
   err_11046: Order creation timeout.
   err_11047: Order cancellation timeout.
@@ -1495,8 +1495,8 @@ en:
   err_30063: reduce-only rule not satisfied
   err_30067: insufficient available balance
   err_30068: exit value must be positive
-  err_30074: can't create the stop order, because you expect the order will be triggered when the <code>LastPrice</code>(or <code>IndexPrice</code>、 <code>MarkPrice</code>, determined by <code>trigger_by</code>) is raising to <code>stop_px</code>, but the <code>LastPrice</code>(or <code>IndexPrice</code>、 <code>MarkPrice</code>) is already equal to or greater than <code>stop_px</code>, please adjust <code>base_price</code> or <code>stop_px</code>
-  err_30075: can't create the stop order, because you expect the order will be triggered when the <code>LastPrice</code>(or <code>IndexPrice</code>、 <code>MarkPrice</code>, determined by <code>trigger_by</code>) is falling to <code>stop_px</code>, but the <code>LastPrice</code>(or <code>IndexPrice</code>、 <code>MarkPrice</code>) is already equal to or less than <code>stop_px</code>, please adjust <code>base_price</code> or <code>stop_px</code>
+  err_30074: can't create the stop order, because you expect the order will be triggered when the <code>LastPrice</code>(or <code>IndexPrice</code>,  <code>MarkPrice</code>, determined by <code>trigger_by</code>) is raising to <code>stop_px</code>, but the <code>LastPrice</code>(or <code>IndexPrice</code>,  <code>MarkPrice</code>) is already equal to or greater than <code>stop_px</code>, please adjust <code>base_price</code> or <code>stop_px</code>
+  err_30075: can't create the stop order, because you expect the order will be triggered when the <code>LastPrice</code>(or <code>IndexPrice</code>,  <code>MarkPrice</code>, determined by <code>trigger_by</code>) is falling to <code>stop_px</code>, but the <code>LastPrice</code>(or <code>IndexPrice</code>,  <code>MarkPrice</code>) is already equal to or less than <code>stop_px</code>, please adjust <code>base_price</code> or <code>stop_px</code>
   err_33004: apikey already expired
   err_34026: the limit is no change
   err_35014: over order limit
@@ -1624,8 +1624,8 @@ en:
   err_130041: AvailableBalanceE8 less than 0
   err_130049: available balance not enough
   err_130050: Any adjustments made will trigger liq
-  err_130051: cannot set leverage ,due to risk limit,
-  err_130052: cannot set leverage , below the lower limit
+  err_130051: cannot set leverage, due to risk limit
+  err_130052: cannot set leverage, below the lower limit
   err_130056: the position is in cross_margin
   err_130057: the position size is 0
   err_130058: can not set margin less than minPositionCost
@@ -1672,8 +1672,8 @@ en:
   err_130145: Close order side is large than position's leaving qty
   err_130149: Order creation successful but SL/TP setting failed
   err_130150: Please try again later.
-  err_130151: At least one take profit order in the mode,Cannot be switched
-  err_130152: At least one stop loss order in the mode,Cannot be switched
+  err_130151: At least one take profit order in the mode, Cannot be switched
+  err_130152: At least one stop loss order in the mode, Cannot be switched
   err_130153: Switching failed. Please cancel the current SL/TP setting
   err_130154: Switching failed. Please cancel the SL/TP setting of active orders
   err_130155: Insufficient quantity required to set TP/SL
@@ -1797,7 +1797,7 @@ en:
   restapi_update_20200417_4: Update support millisecond <code>start_time</code>
   restapi_update_20200417_5: Abandon response field <code>trade_time</code>
   restapi_update_20200418_1: Fix permission denied issue of below endpoints under <code>readonly</code> model<span>:</span>
-  restapi_update_20200418_2: Add new fields in reponse, like <code>exec_price</code>,<code>exec_value</code>
+  restapi_update_20200418_2: Add new fields in response, like <code>exec_price</code>,<code>exec_value</code>
   restapi_update_20200427_1: Return symbol <code>BTCUSDT</code> by default
   restapi_update_20200429_1: Add new request parameter <code>order</code>
   restapi_update_20200429_2: Fix bug of always returning Zero for <code>inviter_id</code> under certain conditions
@@ -1826,12 +1826,12 @@ en:
   restapi_update_20201012_1: Fix issue where not returning stop orders of <code>Deactivated</code> status
   restapi_update_20201012_2: Fix issue where returning wrong <code>cum_exec_fee</code> for filled orders
   restapi_update_20201021_1: Fix bug of <code>given_cash</code> and <code>service_cash</code> are always Zero when coin is <code>USDT</code>
-  restapi_update_20201021_2: Add new USDT perpetual symbols<span>:</span> <a href="#symbol-symbol">ETHUSDT、LINKUSDT、LTCUSDT、XTZUSDT</a>
+  restapi_update_20201021_2: Add new USDT perpetual symbols<span>:</span> <a href="#symbol-symbol">ETHUSDT, LINKUSDT, LTCUSDT, XTZUSDT</a>
   restapi_update_20201021_3: Support setting tp/sl by different trigger price types
   restapi_update_20201026_1: Add field <code>is_isolated</code> in response
   restapi_update_20201102_1: Request parameter <code>symbol</code> is optional now; If symbol is not passed, return positions of all symbols
   restapi_update_20201111_1: The following REST API will be upgraded. The abandoned endpoints will be deprecated on December 10, 2020. Effective immediately, the rate limit will be reduced by half before being completely removed from service on December 17, 2020.
-  restapi_update_20201111_2: The abandoned endpoints will be deprecated on November 30 ,2020
+  restapi_update_20201111_2: The abandoned endpoints will be deprecated on November 30, 2020
   restapi_update_20201112_1: <code>order_status</code> query orders with specific statuses by passing each <code>order_status</code> split with ','.
   restapi_update_20201112_2: <code>stop_order_status</code> query orders with specific statuses by passing each <code>stop_order_status</code> split with ','.
   restapi_update_20201116_1: Add field <code>is_isolated</code> and <code>auto_add_margin</code> in response
@@ -1881,14 +1881,14 @@ en:
   restapi_update_20210301: Change url prefix from <code>future</code> to <code>futures</code>
   restapi_update_20210304: Fix the bug that the filtering function doesn't work for parameter <code>wallet_fund_type</code>
   restapi_update_20210311: Fix sequence of response data
-  restapi_update_20210318_1: Add new USDT perpetual symbols<span>:</span> <a href="#symbol-symbol">ADAUSDT、DOTUSDT、UNIUSDT</a>
+  restapi_update_20210318_1: Add new USDT perpetual symbols<span>:</span> <a href="#symbol-symbol">ADAUSDT, DOTUSDT, UNIUSDT</a>
   restapi_update_20210318_2: Query risk limit return field added maximum leverage <code>max_leverage</code>
   restapi_update_20210322: Fix the bug that the filtering function doesn't work for parameter <code>start_date</code> and <code>end_date</code>
   restapi_update_20210324: Query risk limit return field added maximum leverage <code>max_leverage</code>
-  restapi_update_20210430: Testnet Add new USDT perpetual symbols<span>:</span> <a href="#symbol-symbol">XRPUSDT、XEMUSDT、SUSHIUSDT、AAVEUSDT</a>
-  restapi_update_20210513: Add new USDT perpetual symbols<span>:</span> <a href="#symbol-symbol">XRPUSDT、XEMUSDT、SUSHIUSDT、AAVEUSDT</a>
+  restapi_update_20210430: Testnet Add new USDT perpetual symbols<span>:</span> <a href="#symbol-symbol">XRPUSDT, XEMUSDT, SUSHIUSDT, AAVEUSDT</a>
+  restapi_update_20210513: Add new USDT perpetual symbols<span>:</span> <a href="#symbol-symbol">XRPUSDT, XEMUSDT, SUSHIUSDT, AAVEUSDT</a>
   restapi_update_20210602: Add new USDT perpetual symbol<span>:</span> <a href="#symbol-symbol">DOGEUSDT</a>
-  restapi_update_20210629: Add new USDT perpetual symbols<span>:</span> <a href="#symbol-symbol">MATICUSDT、EOSUSDT、ETCUSDT、BNBUSDT、FILUSDT、SOLUSDT</a>
+  restapi_update_20210629: Add new USDT perpetual symbols<span>:</span> <a href="#symbol-symbol">MATICUSDT, EOSUSDT, ETCUSDT, BNBUSDT, FILUSDT, SOLUSDT</a>
   restapi_update_20210527_1: Add new request parameters <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
   restapi_update_20210628: Add fields of <code>take_profit</code>, <code>stop_loss</code>, <code>trailing_stop</code> in response
   restapi_update_20210628_1: Fix values of <code>min_price</code> and <code>tick_size</code> for symbols <code>BCHUSDT</code> and <code>UNIUSDT</code>
@@ -1913,7 +1913,7 @@ en:
   restapi_update_20210407: Fix value of <code>price</code> of <a href="#t-query_liqrecords">Liquidated Orders</a> from <code>liq_price</code> to <code>bust_price</code>, you can find more about liquidation <a href="https://help.bybit.com/hc/en-us/articles/360039261474-Liquidation-process-Inverse-Contract-">here</a>
   restapi_update_20210414_1: Add <code>position_idx</code> for <a href="#t-getcond">Get Conditional Order</a>,<a href="#t-querycond">Query Conditional Order (real-time)</a>,<a href="#t-getactive">Get Active Order</a>,<a href="#t-queryactive">Query Active Order (real-time)</a>
   restapi_update_20210414_2: Fix data of position list when request without request parameter <code>symbol</code> if the position is under both side mode
-  restapi_update_20210415: Fix value of <code>used_margin、order_margin、position_margin、occ_closing_fee、unrealised_pnl</code> of <a href="#t-balance">Get Wallet Balance</a> endpoint not contains Inverse Futures positions
+  restapi_update_20210415: Fix value of <code>used_margin, order_margin, position_margin, occ_closing_fee, unrealised_pnl</code> of <a href="#t-balance">Get Wallet Balance</a> endpoint not contains Inverse Futures positions
   restapi_update_20210422: Deprecated Fields of self_ratio and platform_ratio, it is returned as 0 currently
   restapi_update_20210507: Add fields <code>buy_leverage</code>,<code>sell_leverage</code>. <code>leverage</code> not recommand to use
   restapi_update_2021050701: Add：<code>v2/private/position/switch-mode</code>
@@ -2062,8 +2062,8 @@ en:
   spot_message: Success or not (true/false)
   spot_sMessage: True indicates buy order, false indicates sell order
   spot_order_list_limit: Default value is 500, max 500
-  spot_orders_start_time: Start time, unit in milliesecond
-  spot_orders_end_time: End time, unit in milliesecond
+  spot_orders_start_time: Start time, unit in millisecond
+  spot_orders_end_time: End time, unit in millisecond
   spot_history_orders: Past Orders
   spot_my_trades: Trade History
   spot_from_id:  Query begins with the trade ID
@@ -2074,7 +2074,7 @@ en:
   spot_locked: Reserved for orders
   spot_depth_limit: Default value is 100
   spot_depth_time:  Current time, unit in millisecond
-  spot_depth_bids: Bid price and quantity, with best bid prices ranked  from top to bottom
+  spot_depth_bids: Bid price and quantity, with best bid prices ranked from top to bottom
   spot_depth_asks: Ask price and quantity, with best ask prices ranked from top to bottom
   mergedOrderBook: Merged Order Book
   spot_trades: Recent trades
@@ -2106,7 +2106,7 @@ en:
   spotClose: Close price
   spotVolume: Trading volume
   spotTrades: Number of trades
-  spotTakerBaseVolume: Taker buy  volume in base asset
+  spotTakerBaseVolume: Taker buy volume in base asset
   spotTakerQuoteVolume: Taker buy volume in quote asset
   spot_ticket_id: Ticket ID
   spot_match_order_id: Order ID
@@ -2124,7 +2124,7 @@ en:
   spot_symbol: Trading pair
   spot_quantity: Quantity
   spot_side: True indicates buy order, false indicates sell order
-  spot_order_type: Order type. Possible values are LIMIT,MARKET, and LIMIT_MAKER
+  spot_order_type: Order type. Possible values are LIMIT, MARKET, and LIMIT_MAKER
   spot_order_client_id: User-generated order ID
   spot_order_status: Order status, possible values include NEW, PARTIALLY_FILLED, FILLED, CANCELED, and REJECTED
   spot_first: First time or not (true/false)
@@ -2197,7 +2197,7 @@ en:
   spot_websocket_orderbook_desc_v1: |
     <p>Market depth data for a trading pair: </p>
     <ul>
-      <li>Snapchat frequency: every 300 milleseconds (if the bid-ask spread of the order book changes).</li>
+      <li>Snapchat frequency: every 300 milliseconds (if the bid-ask spread of the order book changes).</li>
       <li>Snapshot depth: 300 each for asks and bids.</li>
       <li>Events trigger order book version change：
         <ul>
@@ -2269,12 +2269,12 @@ en:
   spot_websocket_trade_desc_v2: |
     <p>The Trade Streams push raw trade information; each trade has a unique buyer and seller.</p>
     <p>After successful handshake and connected to server, the server will return the latest 60 trades. After this payload, the following will be real-time trades.</p>
-    <p>Variable "v" acts as an tradeId. This variable is shared across different symbols; however, each ID is unique. For example, suppose in the last 5 seconds 3 trades happened in ETHSUDT, BTCUSDT, and BHTBTC. Their version (which is "v") will be consecutive: 112, 113, 114.</p>
+    <p>Variable "v" acts as an tradeId. This variable is shared across different symbols; however, each ID is unique. For example, suppose in the last 5 seconds 3 trades happened in ETHUSDT, BTCUSDT, and BHTBTC. Their version (which is "v") will be consecutive: 112, 113, 114.</p>
 
   spot_websocket_orderbook_v2: Order Book Streams (Full Depth)
   spot_websocket_orderbook_desc_v2: <p> Market depth data for a trading pair:</p>
     <ul>
-      <li>Snapchat frequency:every 300 milleseconds (if the bid-ask spread of the order book changes).</li>
+      <li>Snapchat frequency:every 300 milliseconds (if the bid-ask spread of the order book changes).</li>
       <li>Snapshot depth:300 each for asks and bids.</li>
       <li>Events trigger order book version change：
         <ul>
