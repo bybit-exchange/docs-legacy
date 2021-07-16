@@ -4,29 +4,53 @@
 
 > t(:websocket_codequote_auth1)
 
-```javascript
-var api_key = "";
-var secret = "";
-// A UNIX timestamp after which the request become invalid. This is to prevent replay attacks.
-// unit:millisecond
-var expires = time.now()+1000;
+```python
+# based on: https://github.com/verata-veritatis/pybit/blob/master/pybit/__init__.py
 
-// Signature
-var signature = hex(HMAC_SHA256(secret, 'GET/realtime' + expires));
+import hmac
+import json
+import time
+import websocket
 
-// Parameters string
-var param = "api_key={api_key}&expires={expires}&signature={signature}";
+api_key = ""
+api_secret = ""
 
-// Establishing connection
-var ws = new WebSocket("wsurl?param");
+# Generate expires.
+expires = int((time.time() + 1) * 1000)
+
+# Generate signature.
+signature = str(hmac.new(
+    bytes(api_secret, "utf-8"),
+    bytes(f"GET/realtime{expires}", "utf-8"), digestmod="sha256"
+).hexdigest())
+
+param = "api_key={api_key}&expires={expires}&signature={signature}".format(
+    api_key=api_key,
+    expires=expires,
+    signature=signature
+)
+
+ws = websocket.WebSocketApp(
+    url="wsurl",
+    ...
+)
 ```
 
 > t(:websocket_codequote_auth2)
 
-```javascript
-var ws = new WebSocket("wsurl")
-// Signature is the same for both methods of authentication
-ws.send('{"op":"auth","args":["{api_key}","{expires}","{signature}"]}');
+```python
+ws = websocket.WebSocketApp(
+    url="wsurl",
+    ...
+)
+
+# Authenticate with API.
+ws.send(
+    json.dumps({
+        "op": "auth",
+        "args": [api_key, expires, signature]
+    })
+)
 ```
 
 
