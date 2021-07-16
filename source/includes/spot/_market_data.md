@@ -126,7 +126,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|true|string|t(:spotSymbol)|
+|symbol|<b>true</b>|string|t(:spotSymbol)|
 |limit| false | integer | t(:spot_depth_limit)
 
 
@@ -182,7 +182,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|true|string|t(:spotSymbol)|
+|symbol|<b>true</b>|string|t(:spotSymbol)|
 |limit| false | integer | t(:spot_depth_limit)
 
 
@@ -242,7 +242,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|true|string|t(:spotSymbol)|
+|symbol|<b>true</b>|string|t(:spotSymbol)|
 |limit| false | integer | t(:spot_trades_limit)
 
 
@@ -299,8 +299,8 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|true|string|t(:spotSymbol)|
-| <a href="#kline-interval-interval">interval</a> | true | string | t(:spot_kline_interval)|
+|symbol|<b>true</b>|string|t(:spotSymbol)|
+| <a href="#kline-interval-interval">interval</a> |<b>true</b> | string | t(:spot_kline_interval)|
 | limit | false | integer | t(:spot_trades_limit) |
 | startTime | false | number | t(:spot_orders_start_time) |
 | endTime | false | number | t(:spot_orders_end_time) |
