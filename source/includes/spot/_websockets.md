@@ -390,36 +390,24 @@ ws.send('{"symbol":"BTCUSDT","topic":"mergedDepth","event":"sub","params":{"bina
           ["4982","0.5"],
           ["100000","0.94"]
         ],
+    "a": [
+          ["12001","1"],
+          ["12000","0.8"],
+          ["10000","1"],
+          ["4988","0.5"],
+          ["4987","0.8"],
+          ["4986","1"],
+          ["4985","0.9"],
+          ["4984","1.1"],
+          ["4983","1.3"],
+          ["4982","0.5"],
+          ["100000","0.94"]
+    ],
     "o":0
     }],
     "f":false,
     "sendTime":1622541360301,
     "shared":false
-}
-
-
-{
-"filters":[
-    {"minPrice":"0.01",
-     "maxPrice":"100000.00000000",
-     "tickSize":"0.01",
-     "filterType":"PRICE_FILTER"},
-    {"minQty":"0.00005",
-     "maxQty":"100000.00000000",
-     "stepSize":"0.000001",
-     "filterType":"LOT_SIZE"},
-    {"minNotional":"1",
-     "filterType":"MIN_NOTIONAL"
-     }],
-"exchangeId":"301",
-"symbol":"BTCUSDT",
-"symbolName":"BTCUSDT",
-"status":"TRADING",
-"baseAsset":"BTC",
-"baseAssetPrecision":"0.000001",
-"quoteAsset":"USDT",
-"quotePrecision":"0.01",
-"icebergAllowed":false
 }
 ```
 
@@ -864,19 +852,20 @@ t(:spot_websocket_user_order_desc)
 | p | string | t(:spot_price) |
 | X | string | t(:spot_order_status) |
 | i | string | t(:spot_order_id) |
-| M | string | t(:spotIgnore) |
+| M | string | t(:spot_match_order_id) |
 | l | string | t(:spot_recent_qty) |
 | z | string | t(:spot_cumulative_qty) |
 | L | string | t(:spot_recent_price) |
 | n | string | t(:spot_fee) |
 | N | string | t(:spot_fee_symbol) |
-| m | string | t(:spot_m) |
-| a | string | t(:spot_asset) |
+| u | boolean | t(:spot_is_normal) |
+| w | boolean | t(:spot_is_working) |
+| m | boolean | t(:sopt_is_maker) |
 | O | string | t(:spot_order_create_timestamp) |
 | Z | string | t(:spot_cumulative_trade) |
-| A | string | t(:spotIgnore) |
-| C | boolean | t(:spotIgnore) |
-| v | string | t(:spotIgnore) |
+| A | string | t(:spot_match_account_id) |
+| C | boolean | t(:spot_is_close) |
+| v | string | t(:spot_leverage) |
 
 
 ### t(:spot_websocket_ticket_info)
@@ -908,7 +897,7 @@ t(:spot_websocket_user_order_desc)
 | q | string | t(:spot_quantity) |
 | t | string | t(:spot_timestamp) |
 | p | string | t(:spot_price) |
-| T | boolean | t(:spot_ticket_id) |
+| T | string | t(:spot_ticket_id) |
 | o | string | t(:spot_order_id) |
 | c | string | t(:spot_order_client_id) |
 | O | string | t(:spot_match_order_id) |
