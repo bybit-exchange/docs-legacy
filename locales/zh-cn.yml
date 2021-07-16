@@ -224,6 +224,7 @@ zh-cn:
   row_comment_resp_index_price: 指数价格
   row_comment_resp_index_price_e4 : 指数价格 * 10^4
   row_comment_resp_open_interest: 未平仓合约数量
+  row_comment_resp_open_interest_e8: 未平仓合约数量* 10^8
   row_comment_slow_update: 不是实时更新，最慢更新时间是一分钟
   row_comment_resp_open_value: 未平仓价值
   row_comment_resp_open_value_e8: 未平仓价值 * 10^8
@@ -232,13 +233,17 @@ zh-cn:
   row_comment_resp_turnover_24h: 24小时营业额
   row_comment_resp_turnover_24h_e8: 24小时营业额 * 10^8
   row_comment_resp_total_volume: 总交易量
+  row_comment_resp_total_volume_e8: 总交易量 * 10^8
   row_comment_resp_volume_24h: 最近 24 小时成交量
   row_comment_resp_funding_rate: 资金费率
   row_comment_resp_funding_rate_e6: 资金费率 * 10^6
   row_comment_resp_predicted_funding_rate: 预测资金费率
+  row_comment_resp_funding_rate_e6: 预测资金费率 * 10^6
   row_comment_resp_predicted_funding_rate_e6: 预测资金费率 * 10^6
   row_comment_resp_next_funding_time: 下次结算资金费用时间
   row_comment_resp_countdown_hour: 结算资金费用剩余时间
+  row_comment_bid1_price_e4: 最佳买单价格 * 10^4
+  row_comment_ask1_price_e4: 最佳卖单价格 * 10^4
   row_comment_resp_delivery_fee_rate: 交割费率，仅交割合约有效
   row_comment_resp_predicted_delivery_price: 预期交割价，仅交割合约有效
   row_comment_resp_delivery_time: 交割时间，仅交割合约有效
@@ -802,36 +807,20 @@ zh-cn:
     <li>
       <code>GET</code>方法:
       <ul>
-        <li>每秒不超过70个请求</li>
         <li>连续2分钟内每秒不超过50个请求</li>
+        <li>连续5秒内每秒不超过70个请求</li>
       </ul>
     </li>
     <li>
       <code>POST</code>方法:
       <ul>
-        <li>每秒不超过50个请求</li>
         <li>连续2分钟内每秒不超过20个请求</li>
+        <li>连续5秒内每秒不超过50个请求</li>
       </ul>
     </li>
     </ul>
   spot_ip_rate_para_understanding: |
-       <p> Bybit会基于请求IP做频率限制，针对不同的请求方法有以下规则：</p>
-       <ul>
-       <li>
-         <code>GET</code>方法:
-         <ul>
-           <li>每秒不超过70个请求</li>
-           <li>连续2分钟内每秒不超过50个请求</li>
-         </ul>
-       </li>
-       <li>
-         <code>POST</code>方法:
-         <ul>
-           <li>每秒不超过50个请求</li>
-           <li>连续2分钟内每秒不超过20个请求</li>
-         </ul>
-       </li>
-       </ul>
+       <p> Bybit会基于请求IP做频率限制，每秒不超过200次请求</p>
 
   ### Account rate limit
   understandingratelimits: 账户频率限制
@@ -839,7 +828,7 @@ zh-cn:
   rate_para_understanding: |
     Bybit基于<b>每分钟</b>的滚动时间窗口来做频率限制，并且是按<b>账户</b>（uid）和交易对（symbol）来做划分限制，每次请求API响应中都会包含如下字段：
   spot_rate_para_understanding: |
-    Bybit基于<b>每分钟</b>的滚动时间窗口来做频率限制，并且是按<b>账户</b>（uid）和交易对（symbol）来做划分限制，每次请求API响应中都会包含如下字段：
+    现货鉴权接口（即需要签名的接口）的限频规则是每秒不超过20次
   rate_text_limitStatus_understanding: 该接口当前时间窗口剩余可用请求数
   rate_text_limit_understanding: 该接口当前频率限制上限
   rate_text_limitReset: 如果您已超过该接口当前窗口频率限制，该字段表示下个可用时间窗口的时间戳（毫秒），即什么时候可以恢复访问；如果您未超过该接口当前窗口频率限制，该字段表示返回的是当前服务器时间（毫秒).
@@ -851,7 +840,7 @@ zh-cn:
   ### Order Limits
   orderlimits: 下单限制
   rate_para_limits: |
-    <p>每种合约可以持有的订单数量上限：</p>
+    <p>每个交易对可以持有的订单数量上限：</p>
     <ul>
     <li>活动单: 500</li>
     <li>条件单: 10</li>
@@ -1085,6 +1074,7 @@ zh-cn:
   websocketresponse: 订阅结果
   websocket_codequote_response: 订阅推送
   websocket_para_response: 每个topic订阅请求都会有对应的响应，您可以根据返回结果判断是否订阅成功。
+  spot_websocket_para_response: 订阅成功后会立即返回订阅的消息结果，您可以根据返回结果判断是否订阅成功
   ## Public Topics
   publictopics: 公共 Topics
   publictopics_v2: 公共 Topics V2
@@ -1174,6 +1164,7 @@ zh-cn:
   ## Order type (`order_type`)
   limit:  "限价单"
   market: "市价单"
+  limit_maker: "做市单"
   ## Quantity (`qty`)
   quantity:
     <ul>
@@ -1814,7 +1805,7 @@ zh-cn:
     <br>若该字段为<code>false</code>,当<code>leverage </code>等于<code>0</code>时将会切换至全仓,当<code>leverage</code>大于<code>0</code>将切换至逐仓，此时无法在全仓下设置杠杆;<br>若该字段为<code>true</code>则表示在当前仓位模式下切换杠杆，此时<code>leverage</code>需要大于<code>0</code>,并可以使用全仓切换杠杆功能。</br>我们建议用户<code>leverage</code>设置为<code>true</code>
   restapi_update_20210708_1: 更新字段<code>buy_leverage</code><code>sell_leverage</code>
   restapi_update_20210706: 支持逐仓切全仓设置杠杆<code>buy_leverage</code>,<code>sell_leverage</code>
-
+  restapi_update_20210712: 优化部分接口出参入参
 
   ws_update_20210202_0: 新增字段<code>reduce_only</code>和<code>close_on_trigger</code>
   ws_update_20210202_1: 新增字段<code>close_on_trigger</code>
@@ -1894,11 +1885,12 @@ zh-cn:
 
 
   # spot
-  spot: 现货(testnet)
+  spot: 现货
   spotOPrice: 订单价格
+  spotPostOrderPrice: 订单价格。type字段为MARKET时，price字段为非必须。type字段为LIMIT或LIMIT_MAKER时，price字段为必须
   spotOrderCreate: 创建订单
   spotAccountId: 账户ID
-  spotExchangeId: 币对交易ID
+  spotExchangeId: 交易所ID
   spotSymbol: 币对名称
   spot_Alias: 币对别名
   spotBaseCurrency: base币种
@@ -1908,7 +1900,10 @@ zh-cn:
   spotMinTradeQuantity: 最小订单数量
   spotMinTradeAmount: 最小订单额
   spotMinPricePrecision: 最小价格精度
+  spotmaxTradeQuantity: 最大成交量
+  spotmaxTradeAmount: 最大成交额
   spotCategory: symbol 所在分区:1主类别
+  spotQuoteAssetVolume: 行情资产数量
 
   spotId: 交易ID
   spotQty: |
@@ -1919,7 +1914,8 @@ zh-cn:
   spotIsBuyer: true= Buyer false= Seller
   spotIsMaker: true=Maker false=Taker
   spotSymbolName: 现货币对名称
-  spotIcebergQty: 最小允许数量
+  spotIcebergQty: 请忽略
+  spotGetOrderRemark: orderId和ordersLinkId至少要输入一个。
   spotCummulativeQuoteQty: 对于某些历史数据 `cummulativeQuoteQty` 可能会 < 0, 这说明数据当前不可用。
   spotStopPrice: 停止价
   spot_kline_interval: K线图区间。可识别发送的值为：1m, 5m, 15m, 30m, 1h, 1d, 1W, 1M (m=分钟, h=小时, d=天, w=星期, M=月)
@@ -1931,6 +1927,10 @@ zh-cn:
   spotQuantity: 最佳买价数量
   spotBidQuantity: 最佳买价数量
   spotAskQuantity: 最佳卖价数量
+  spotKlineTimeRemark: 如果startTime和endTime没有发送，只有最新的K线会被返回 
+  spotTicker24hrRemark: 如果symbol没有被发送，所有symbol的数据都会被返回
+  spotTickerPriceRemark: 如果symbol没有被发送，所有symbol的价格都会被返回
+  spotBookTickerRemark: 如果symbol没有被发送，所有symbol的最佳订单簿价格都会被返回。
   spotSide: 订单方向, BUY(买入做多)/SELL(卖出做空)
   spotOrderType: 订单类型, LIMIT/MARKET/LIMIT_MAKER
   spotTimeInForce: 订单时间指令（Time in Force）。可能出现的值为：GTC（Good Till Canceled，一直有效），FOK（Fill or Kill，全部成交或者取消），IOC（Immediate or Cancel，立即成交或者取消）
@@ -1938,8 +1938,11 @@ zh-cn:
   spotOrderID: 订单ID
   spotFees: 订单的手续费
   spotOriQty: 订单数量
-  spotFeeTokenId: 手续费类型（Token名称）
+  spotFeeTokenId: 手续费 Token ID
+  spotFeeTokenName: 手续费 Token 名称
   spotExecQty: 请忽略
+  spotIgnore: 请忽略
+  spot_balances: 账户余额
   spotAvgPrice: 订单已成交的平均价格
   spotType: 订单类型。可能出现的值只能为:LIMIT(限价)和MARKET（市价）
   spotStatus: 订单状态。可能出现的值为：NEW(新订单，无成交)、PARTIALLY_FILLED（部分成交）、FILLED（全部成交）、CANCELED（已取消）和REJECTED（订单被拒绝）.
@@ -1948,7 +1951,7 @@ zh-cn:
   cancel_spot_order: 撤销订单
   batch_cancel_spot_order: 批量撤销订单
   spot_order_list: 订单列表
-  spot_order_list_limit: 默认500；最大1000
+  spot_order_list_limit: 默认500，最大500
   spot_orders_start_time: 第一条返回的时间戳(毫秒)
   spot_orders_end_time: 最后一条返回的时间戳(毫秒)
   spot_history_orders: 历史订单
@@ -1967,15 +1970,21 @@ zh-cn:
   spot_fee: 手续费
   spot_fee_symbol: 手续费币种
   spot_locked: 冻结余额
-  spot_depth_limit: 默认40，最大40
+  spot_depth_limit: 默认100
   spot_depth_time: 当前时间
   spot_depth_bids: bid的价格和数量信息，最优bid价格由上到下排列
   spot_depth_asks: ask的价格和数量信息，最优ask价格由上到下排列
   mergedOrderBook: 合并订单簿
   spot_trades: 最近成交
   spot_OrderPrice: 价格
-  spot_trades_limit: 默认500， 最大1000
+  spot_trades_limit: 默认1000， 最大1000
   spot_is_buyer_maker: true为买单， false为卖单
+  sopt_is_maker: 是否是maker
+  spot_leverage: 杠杆
+  spot_is_normal: 是否是普通单
+  spot_is_working: 是否在处理
+  spot_is_close: 是否关闭
+  spot_match_account_id: 撮合账户ID
   spot_trade_time: 当前Unix时间戳，毫秒(ms)
   spot_klines: K线
   spotTicker: 24小时ticker价格变化数据
@@ -1992,10 +2001,11 @@ zh-cn:
   spotHigh: 最高价
   spotLow: 最低价
   spotClose: 收盘价
-  spotVolume: 合约交易金额
-  spotTrades: 交易数量（张数）
+  spotVolume: 交易金额
+  spotTrades: 交易数量
   spotTakerBaseVolume: 买方购买金额
-  spotTakerQuoteVolume: 买方购买数量（张数）
+  spotTakerQuoteVolume: 买方购买数量
+  spotOrderTypes: 可选订单类型, LIMIT/LIMIT_MAKER，可用英文逗号拼接表示多个类型。不传默认为LIMIT。
   spot_ticket_id: ticket id
   spot_match_order_id: 撮合订单id
   spot_account_id: 账户id
@@ -2021,7 +2031,7 @@ zh-cn:
   spot_low: 最低价
   spot_open: 开盘价
   spot_volume: 成交量
-  spot_quota_volume: 成交额
+  spot_quote_volume: 成交金额
   spot_version: 版本号
   spot_buy: 买一价、数量
   spot_sell: 卖一价、数量
@@ -2048,15 +2058,16 @@ zh-cn:
   spot_recent_price: 最近成交价格
   spot_free: 手续费
   spot_free_symbol: 手续费币种
-  spot_m: is maker
+  spot_m: 当order type为LIMIT_MAKER时为true
   spot_u: is maker
   spot_w: is maker
+  spotMakerRebate: Maker折扣
   spot_gains: 涨幅
   spot_websocket_trade_v1: 逐笔交易
   spot_websocket_trade_desc_v1: |
     <p>逐笔交易推送每一笔成交的信息。成交，或者说交易的定义是仅有一个吃单者与一个挂单者相互交易。</p>
     <p>在成功连接到服务器后，服务器首先会推送一条最近的60条成交。在这条推送之后，每条推送都是实时的成交。</p>
-    <p>变量“v”可以理解成一个交易ID。这个变量是全局递增的并且独特的。例如：假设过去5秒有3笔交易发生，分别是ETHUSDT、BTCUSDT、BHTBTC。它们的“v”会为连续的值（112，113，114）。</p>
+    <p>变量“v”可以理解成一个交易ID。这个变量是全局递增的并且独特的。</p>
 
   spot_websocket_ticker_v1: Symbol的Ticker
   spot_websocket_ticker_desc_v1: 按Symbol逐秒刷新的24小时完整ticker信息。

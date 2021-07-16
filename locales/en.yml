@@ -228,20 +228,26 @@ en:
   row_comment_resp_index_price: Index_price
   row_comment_resp_index_price_e4: Index_price * 10^4
   row_comment_resp_open_interest: Open interest
+  row_comment_resp_open_interest_e8: Open interest * 10^8
   row_comment_resp_open_value: Open position value
   row_comment_resp_open_value_e8: Open position value * 10^8
   row_comment_resp_total_turnover: Total turnover
-  row_comment_resp_total_turnover_e8: Total turnover  * 10^8
+  row_comment_resp_total_turnover_e8: Total turnover * 10^8
   row_comment_resp_turnover_24h: Turnover for 24H
   row_comment_resp_turnover_24h_e8: Turnover for 24H * 10^8
   row_comment_resp_total_volume: Total volume
+  row_comment_resp_total_volume_e8: Total volume * 10^8
   row_comment_resp_volume_24h: Trading volume in the last 24 hours
+  row_comment_resp_volume_24h_e8: Trading volume in the last 24 hours * 10^8
   row_comment_resp_funding_rate: Funding rate
   row_comment_resp_funding_rate_e6: Funding rate * 10^8
   row_comment_resp_predicted_funding_rate: Predicted funding rate
-  row_comment_resp_predicted_funding_rate_e6: Predicted funding rate *10^6
+  row_comment_resp_funding_rate_e6: Funding rate * 10^6
+  row_comment_resp_predicted_funding_rate_e6: Predicted funding rate * 10^6
   row_comment_resp_next_funding_time: Next settlement time of capital cost
   row_comment_resp_countdown_hour: Countdown of settlement capital cost
+  row_comment_bid1_price_e4: Best bid price * 10^4
+  row_comment_ask1_price_e4: Best ask price * 10^4
   row_comment_resp_delivery_fee_rate: Delivery fee rate of Futures contract
   row_comment_resp_predicted_delivery_price: Predicted delivery price of Futures contract
   row_comment_resp_delivery_time: Delivery time of Futures contract
@@ -832,43 +838,27 @@ en:
     <li>
       <code>GET</code>method:
       <ul>
-        <li>70 requests per second</li>
         <li>50 requests per second continuously for 2 minutes</li>
+        <li>70 requests per second continuously for 5 seconds</li>
       </ul>
     </li>
     <li>
       <code>POST</code>method:
       <ul>
-        <li>50 requests per second</li>
         <li>20 requests per second continuously for 2 minutes</li>
+        <li>50 requests per second continuously for 5 seconds</li>
       </ul>
     </li>
     </ul>
   spot_ip_rate_para_understanding: |
-        <p>Bybit has different IP rate limits for <code>GET</code> and <code>POST</code> method<span>:</span></p>
-        <ul>
-        <li>
-          <code>GET</code>method:
-          <ul>
-            <li>No more than 70 requests per second</li>
-            <li>No more than 50 requests per second for 2 consecutive minutes</li>
-          </ul>
-        </li>
-        <li>
-          <code>POST</code>method:
-          <ul>
-            <li>No more than 70 requests per second</li>
-            <li>No more than 20 requests per second for 2 consecutive minutes</li>
-          </ul>
-        </li>
-        </ul>
+        <p>Bybit has rate limits based on IP which is 200 per second</p>
   ### Account rate limit
   understandingratelimits: Understanding Your Request Rate Limit
   spot_understandingratelimits: Rate Limits for Requests
   rate_para_understanding: |
     Bybit makes frequency limits based on <b>the rolling time window per minute and UID, and each symbol is independent</b>. Every request to the API returns the fields shown in the code panel:
   spot_rate_para_understanding: |
-    Bybit sets rate limits based on <b>the rolling time window per minute and UID, and each trading pair is independent</b>. API request returns the fields shown below:
+    For all endpoints that need authentication, the rate limit is 20 per second
   rate_text_limitStatus_understanding: your remaining requests for current endpoint
   rate_text_limit_understanding: your current limit for current endpoint
   rate_text_limitReset: the timestamp indicating when your request limit resets if you have exceeded your rate_limit. Otherwise, this is just the current timestamp.
@@ -1115,6 +1105,7 @@ en:
   websocketresponse: Understanding Subscription Response
   websocket_codequote_response: Subscription Response
   websocket_para_response: Each subscription will have a response. You can determine whether the subscription is successful based on the response.
+  spot_websocket_para_response: Once you subscribe successfully, you'd receive result information. You can determine whether the subscription is successful based on the response.
   ## Public Topics
   publictopics: Public Topics
   publictopics_v2: Public Topics V2
@@ -1727,9 +1718,6 @@ en:
   linear_account_para_addMargin: Add Margin
   linear_account_row_comment_margin: Add/Remove how much margin<span>:</span> Increase 10; decrease -10, supports 4 decimal places
 
-  ## inverse Perpetual
-  account_aside_switchpositionmode: This endpoint is only available in the testnet environment
-
   ### inverse future
   switchpositionmode: Position Mode Switch
   account_para_switchpositionmode: |
@@ -1947,6 +1935,7 @@ en:
   restapi_update_20210617_2: Deprecate to use <code>auto_add_margin</code> to determine if position is Isolated Margin or Cross Margin
   restapi_update_20210617_3: Not recommend to use <a href="#t-setleverage">Set Leverage</a> endpoint switch Isolated Margin or Cross Margin
   restapi_update_20210618_1: After June 24, 2021 do not use <code>leverage</code> to determine if position is Isolated Margin or Cross Margin. <code>leverage</code> must be greater than 0 and less than the <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>.
+  restapi_update_20210712: Optimize the input and output parameters of some interfaces
 
   markpricekline: Query Mark Price Kline
   linear_query_mark_price_kline: Query mark price kline (like <a href="#t-querykline">Query Kline</a> but for <a href="https://help.bybit.com/hc/en-us/articles/360039261074-What-is-Dual-Price-mechanism-">mark price</a>).
@@ -1997,9 +1986,10 @@ en:
   replace_by_new_topic: please replace with
 
   #spot
-  spot: Spot(testnet)
+  spot: Spot
   spotOrderCreate: Create Spot Order
   spotAccountId: Account ID
+  spotExchangeId: Exchange ID
   spotOrderLinkId: User-generated order ID
   spot_Alias: Alias
   spotBaseCurrency: Base currency
@@ -2009,6 +1999,8 @@ en:
   spotMinTradeQuantity: Min. order qty
   spotMinTradeAmount: Min. order value
   spotMinPricePrecision: Min. number of decimal places
+  spotmaxTradeQuantity: Max. order qty
+  spotmaxTradeAmount: Max. order value
   spotCategory:  Category
 
   spotSymbol: Name of the trading pair
@@ -2019,11 +2011,16 @@ en:
   spotCommissionAsset: Asset type in which the fee is paid
   spotIsBuyer: True indicates buyer, false indicates seller
   spotIsMaker: True indicates maker, false indicates taker
+  spotSymbolName: Symbol name
+  spotIcebergQty: Please ignore
+  spotGetOrderRemark: At least one must be entered in the orderId field and the ordersLinkId field
   spot_kline_interval: Chart interval
   spotTime: Order creation time
-  spotFeeTokenId: Fee token name.
+  spotFeeTokenId: Fee Token ID
+  spotFeeTokenName: Fee token name
   spotFee: Fee of the trade.
   spotIsWorking: Working or not (true/false)
+  spot_balances: Account balances
   spotTradeId: The ID for the trade
   spotUpdateTime: Last time order was updated
   spotLeverage: Leverage of the order.
@@ -2032,6 +2029,10 @@ en:
   spotQuantity: Order quantity (for market buy order, quantity = amount)
   spotBidQuantity: Bid quantity
   spotAskQuantity: Ask quantity
+  spotKlineTimeRemark: If startTime and endTime are not specified, only the latest candles will be sent
+  spotTicker24hrRemark: If symbol is not specified, the data from all symbols will be returned
+  spotTickerPriceRemark: If symbol is not specified, the price from all symbols will be returned
+  spotBookTickerRemark: If symbol is not specified, the best order price from all symbols will be returned
   spotTransactTime: Timestamp
   spotCummulativeQuoteQty: Total order quantity
   spotSide: Order direction, possible values include Buy and Sell
@@ -2039,12 +2040,14 @@ en:
   spotTimeInForce: Time in force, possible values include GTC (Good Till Canceled), FOK (Fill or Kill) and IOC (Immediate or Cancel)
   spotPrice:  Last traded price
   spotOPrice: Order price
+  spotPostOrderPrice: Order price. When the type field is MARKET, the price field is optional. When the type field is LIMIT or LIMIT_MAKER, the price field is required
   spot_OrderPrice: Order price
   spotOrderID: Order ID
   spotOrderId: Order ID
   spotFees: Fees incurred for this order.
   spotOriQty: Order quantity
   spotExecQty: Please ignore
+  spotIgnore: Please ignore
   spotAvgPrice: Average filled price
   spotStopPrice: Stop price
   spotType: Order type, possible values are LIMIT and MARKET
@@ -2058,7 +2061,7 @@ en:
   spot_time: Timestamp
   spot_message: Success or not (true/false)
   spot_sMessage: True indicates buy order, false indicates sell order
-  spot_order_list_limit: Default value is 500, max 1,000
+  spot_order_list_limit: Default value is 500, max 500
   spot_orders_start_time: Start time, unit in milliesecond
   spot_orders_end_time: End time, unit in milliesecond
   spot_history_orders: Past Orders
@@ -2069,14 +2072,20 @@ en:
   spot_token: Asset
   spot_fee: Trading fee
   spot_locked: Reserved for orders
-  spot_depth_limit: Default value is 40, max 40
+  spot_depth_limit: Default value is 100
   spot_depth_time:  Current time, unit in millisecond
   spot_depth_bids: Bid price and quantity, with best bid prices ranked  from top to bottom
   spot_depth_asks: Ask price and quantity, with best ask prices ranked from top to bottom
   mergedOrderBook: Merged Order Book
   spot_trades: Recent trades
-  spot_trades_limit: Default value is 500, max 10,000
+  spot_trades_limit: Default value is 1000, max 10,000
   spot_is_buyer_maker: True indicates buy order, false indicates sell order
+  sopt_is_maker: Is maker
+  spot_leverage: leverage
+  spot_is_close: Is close
+  spot_is_normal: Is normal
+  spot_is_working: Is working
+  spot_match_account_id: Match account ID
   spot_trade_time: Current timestamp, unit in millisecond
   spot_klines: Candlestick Chart
   spotTicker: 24-Hour Change
@@ -2103,6 +2112,9 @@ en:
   spot_match_order_id: Order ID
   spot_account_id: Account ID
   spot_match_account_id: Account ID
+  spotQuoteAssetVolume: Quote asset volume
+  spotMakerRebate: Marker rebate
+  spotOrderTypes: Optional order types, LIMIT/LIMIT_MAKER, use comma splicing to indicate multiple types. Default LIMIT.
 
   row_parameter_type: <a href="#type-type">type</a>
   row_parameter_timeInForce: <a href="#timeinforce-timeinforce">timeInForce</a>
@@ -2124,7 +2136,7 @@ en:
   spot_low: Low price
   spot_open: Open price
   spot_volume: Trading volume
-  spot_quota_volume: Turnover
+  spot_quote_volume: Trading quote volume
   spot_version: Version
   spot_buy: Best bid price，quantity
   spot_sell: Best ask price，quantity
@@ -2150,13 +2162,13 @@ en:
   spot_cumulative_qty: Total filled quantity
   spot_recent_price: Last traded price
   spot_fee_symbol: Asset type in which fee is paid
-  spot_m: Is maker
+  spot_m: true if the order type is LIMIT_MAKER
   spot_gains: Change
   spot_websocket_trade_v1: Trade Streams
   spot_websocket_trade_desc_v1: |
     <p>Trade Streams push raw data for each trade, which has a unique buyer and seller.</p>
     <p>After successful handshake and server connection, the server will return the last 60 trades. After this payload, the rest will be real-time trades.</p>
-    <p>Variable "v" acts as a trade ID, and this variable is shared across different assets. Each ID, however, is unique. Suppose three trades of ETHSUDT, BTCUSDT, and BHTBTC Contracts happened in the last five seconds, then version (which is "v") will be consecutive: 112, 113, 114.</p>
+    <p>Variable "v" acts as a trade ID, and this variable is shared across different assets.</p>
 
   spot_websocket_ticker_v1: Trading Pair Stream
   spot_websocket_ticker_desc_v1: The 24-hr statistics of a trading pair refreshed every second.

@@ -399,40 +399,38 @@ while True:
 
 ```javascript
 {
-    "topic": "instrument_info.100ms.BTCUSDT",
-    "type": "snapshot",
-    "data": {
-        "id": 1,
-        "symbol": "BTCUSDT",                           //instrument name
-        "last_price_e4": 81165000,                    //the latest price
-        "last_tick_direction": "ZeroPlusTick",        //the direction of last tick:PlusTick,ZeroPlusTick,MinusTick,ZeroMinusTick
-        "prev_price_24h_e4": 81585000,                //the price of prev 24h
-        "price_24h_pcnt_e6": -5148,                   //the current last price percentage change from prev 24h price
-        "high_price_24h_e4": 82900000,                //the highest price of prev 24h
-        "low_price_24h_e4": 79655000,                 //the lowest price of prev 24h
-        "bid1_price_e4":400025000,                    //best bid price
-        "ask1_price_e4":475450000,                    //best ask price
-        "prev_price_1h_e4": 81395000,                 //the price of prev 1h
-        "price_1h_pcnt_e6": -2825,                    //the current last price percentage change from prev 1h price
-        "mark_price_e4": 81178500,                    //mark price
-        "index_price_e4": 81172800,                   //index price
-        "open_interest": 154418471,                   //open interest quantity - Attention, the update is not immediate - slowest update is 1 minute
-        "open_value_e8": 1997561103030,               //open value quantity - Attention, the update is not immediate - the slowest update is 1 minute
-        "total_turnover_e8": 2029370141961401,        //total turnover
-        "turnover_24h_e8": 9072939873591,             //24h turnover
-        "total_volume": 175654418740,                 //total volume
-        "volume_24h": 735865248,                      //24h volume
-        "funding_rate_e6": 100,                       //funding rate
-        "predicted_funding_rate_e6": 100,             //predicted funding rate
-        "cross_seq": 1053192577,                      //sequence
-        "created_at": "2018-11-14T16:33:26Z",         
-        "updated_at": "2020-01-12T18:25:16Z",         
-        "next_funding_time": "2020-01-13T00:00:00Z",  //next funding time
-                                                      //the rest time to settle funding fee
-        "countdown_hour": 6                           //the remaining time to settle the funding fee
-    },
-    "cross_seq": 1053192634,
-    "timestamp_e6": 1578853524091081                  //the timestamp when this information was produced
+  "topic": "instrument_info.100ms.BTCUSDT",
+  "type": "snapshot",
+  "data": {
+    "id": 1,
+    "symbol": "BTCUSDT",
+    "last_price_e4": "322955000",
+    "last_tick_direction": "ZeroPlusTick",
+    "prev_price_24h_e4": "331960000",
+    "price_24h_pcnt_e6": "-27126",
+    "high_price_24h_e4": "333120000",
+    "low_price_24h_e4": "315940000",
+    "prev_price_1h_e4": "319490000",
+    "price_1h_pcnt_e6": "10845",
+    "mark_price_e4": "323133000",
+    "index_price_e4": "323106800",
+    "open_interest_e8": "1430451600000",
+    "total_turnover_e8": "5297934997553700000",
+    "turnover_24h_e8": "243143978993099700",
+    "total_volume_e8": "1184936057899924",
+    "volume_24h_e8": "7511238100000",
+    "funding_rate_e6": "100",
+    "predicted_funding_rate_e6": "-15",
+    "cross_seq": "6501157651",
+    "created_at": "1970-01-01T00:00:00.000Z",
+    "updated_at": "2021-07-14T09:32:10.000Z",
+    "next_funding_time": "2021-07-14T16:00:00Z",
+    "count_down_hour": "7",
+    "bid1_price_e4": "322950000",
+    "ask1_price_e4": "322955000"
+  },
+  "cross_seq": "6501157734",
+  "timestamp_e6": "1626255131908287"
 }
 ```
 
@@ -440,29 +438,29 @@ while True:
 
 ```javascript
 {
-    "topic": "instrument_info.100ms.BTCUSDT",
-    "type": "delta",
-    "data": {
-        "delete": [],
-        "update": [
-            {
-                "id": 1,
-                "symbol": "BTCUSDT",
-                "prev_price_24h_e4": 81565000,
-                "price_24h_pcnt_e6": -4904,
-                "open_value_e8": 2000479681106,
-                "total_turnover_e8": 2029370495672976,
-                "turnover_24h_e8": 9066215468687,
-                "volume_24h": 735316391,
-                "cross_seq": 1053192657,
-                "created_at": "2018-11-14T16:33:26Z",
-                "updated_at": "2020-01-12T18:25:25Z"
-            }
-        ],
-        "insert": []
-    },
-    "cross_seq": 1053192657,
-    "timestamp_e6": 1578853525691123
+  "topic": "instrument_info.100ms.BTCUSDT",
+  "type": "delta",
+  "data": {
+    "update": [
+      {
+        "id": 1,
+        "symbol": "BTCUSDT",
+        "last_price_e4": "322950000",
+        "price_24h_pcnt_e6": "-27141",
+        "price_1h_pcnt_e6": "10829",
+        "index_price_e4": "323100000",
+        "total_turnover_e8": "5297935000783200000",
+        "turnover_24h_e8": "243143982222599700",
+        "total_volume_e8": "1184936057999924",
+        "volume_24h_e8": "7511238200000",
+        "cross_seq": "6501157735",
+        "created_at": "1970-01-01T00:00:00.000Z",
+        "updated_at": "2021-07-14T09:32:12.000Z"
+      }
+    ]
+  },
+  "cross_seq": "6501157736",
+  "timestamp_e6": "1626255132104671"
 }
 ```
 
@@ -492,18 +490,20 @@ t(:websocket_aside_instrumentInfo2)
 |price_1h_pcnt_e6 |integer |t(:row_comment_resp_price_1h_pcnt_e6)  |
 |mark_price_e4 |integer |t(:row_comment_resp_mark_price_e4)  |
 |index_price_e4 |integer |t(:row_comment_resp_index_price_e4)  |
-|open_interest |integer |t(:row_comment_resp_open_interest). t(:row_comment_slow_update)  |
-|open_value_e8 |integer |t(:row_comment_resp_open_value_e8). t(:row_comment_slow_update)  |
+|open_interest_e8|integer |t(:row_comment_resp_open_interest_e8). t(:row_comment_slow_update)  |
 |total_turnover_e8 |integer |t(:row_comment_resp_total_turnover_e8)  |
 |turnover_24h_e8 |integer |t(:row_comment_resp_turnover_24h_e8)  |
-|total_volume |integer |t(:row_comment_resp_total_volume)  |
-|volume_24h |integer |t(:row_comment_resp_volume_24h)  |
+|total_volume_e8 |integer |t(:row_comment_resp_total_volume_e8)  |
+|volume_24h_e8 |integer |t(:row_comment_resp_volume_24h_e8)  |
+|funding_rate_e6 |integer |t(:row_comment_resp_funding_rate_e6)  |
 |predicted_funding_rate_e6 |integer |t(:row_comment_resp_predicted_funding_rate_e6)  |
 |cross_seq |integer |t(:row_comment_cross_seq)  |
 |created_at |string |t(:row_comment_created_at)  |
 |updated_at |string |t(:row_comment_updated_at)  |
 |next_funding_time |string |t(:row_comment_resp_next_funding_time)  |
 |countdown_hour |number |t(:row_comment_resp_countdown_hour)  |
+|bid1_price_e4 |integer|t(:row_comment_bid1_price_e4)  |
+|ask1_price_e4 |integer|t(:row_comment_ask1_price_e4)  |
 
 
 ### t(:websocketkline)
