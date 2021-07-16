@@ -189,7 +189,7 @@ GET
 |tx_id |string |t(:row_comment_tx_id)  |
 |address |string |t(:row_comment_address)  |
 |wallet_balance |string |t(:row_comment_wallet_balance)  |
-|exec_timestamp |string |t(:row_comment_exec_timestamp)  |
+|exec_time |string |t(:row_comment_exec_timestamp)  |
 |cross_seq |number |t(:row_comment_cross_seq)  |
 
 
