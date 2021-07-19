@@ -2097,7 +2097,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/v2/public/funding/prev-funding-rate?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}&sign={sign}"
+curl "https://api.bybit.com/v2/public/funding/prev-funding-rate?symbol=BTCUSD"
 ```
 
 ```python
