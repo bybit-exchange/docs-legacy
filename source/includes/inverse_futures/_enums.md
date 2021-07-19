@@ -138,7 +138,7 @@ t(:tick_direction)
 * `MinusTick` t(:minusTick)
 * `ZeroMinusTick` t(:zeroMinusTick)
 
-## TpSl Mode type (`tp_sl_mode`)
+## TP/SL mode (`tp_sl_mode`)
 t(:tp_sl_mode)
 
 * `Full` t(:Full)
