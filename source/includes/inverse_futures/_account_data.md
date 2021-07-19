@@ -1749,8 +1749,8 @@ t(:futures_account_para_switchIsolated)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=ulSwitchMode>/futures/private/position/switch-isolated</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ulSwitchMode"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=fppSwitchIsolated>/futures/private/position/switch-isolated</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#fppSwitchIsolated"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
