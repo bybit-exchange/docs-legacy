@@ -183,6 +183,7 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |symbol|true|string|t(:spotSymbol)|
+|scale|false|int|t(:spotOrderBookMergedScale)|
 |limit| false | integer | t(:spot_depth_limit)
 
 
