@@ -944,7 +944,7 @@ print(client.FuturesConditional.FuturesConditional_cancelAll(symbol="BTCUSDM21")
 t(:account_para_cancelAllCond)
 
 <aside class="notice">
-t(:account_aside_cancelAllCond)
+t(:account_aside_cancelAllActive)
 </aside>
 
 <p class="fake_header">t(:httprequest)</p>
