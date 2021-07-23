@@ -848,7 +848,7 @@ ws.send('{"op": "subscribe", "args": ["stop_order"]}')
 |qty |number |t(:row_response_comment_qty)  |
 |t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
 |t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
-|stop_order_type |string |t(:row_comment_stopOrderType)  |
+|t(:row_parameter_stop_order_type) |string |t(:row_comment_stopOrderType)  |
 |trigger_by | string |t(:row_comment_triggerBy) |
 |trigger_price | string | t(:stop_order_trigger_price)|
 |reduce_only | bool | t(:row_comment_reduceOnly)|

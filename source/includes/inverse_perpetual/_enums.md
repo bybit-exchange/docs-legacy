@@ -160,3 +160,9 @@ t(:tp_sl_mode)
 
 ## Date (`start_date`/`end_date`)
 t(:date)
+
+## Stop order type (`stop_order_type`)
+* `TakeProfit`
+* `StopLoss`
+* `TrailingStop`
+* `Stop`

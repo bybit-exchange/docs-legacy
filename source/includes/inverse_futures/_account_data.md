@@ -796,7 +796,7 @@ GET
 |data > t(:row_parameter_price) |number |t(:row_response_comment_price)  |
 |data > t(:row_parameter_quantity) |number |t(:row_response_comment_qty)  |
 |data > t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
-|data > stop_order_type |string |t(:row_comment_stopOrderType)  |
+|data > t(:row_parameter_stop_order_type) |string |t(:row_comment_stopOrderType)  |
 |data > t(:row_parameter_trigger_price) |string |t(:row_comment_triggerBy)  |
 |data > base_price |number |t(:row_response_comment_basePrice)  |
 |data > order_link_id |string |t(:row_response_comment_orderLinkId)  |
@@ -977,7 +977,7 @@ POST
 |updated_at |string |t(:row_comment_updated_at)  |
 |cross_status |string |t(:row_comment_cross_status)  |
 |cross_seq |number |t(:row_comment_cross_seq)  |
-|stop_order_type |string |t(:row_comment_stopOrderType)  |
+|t(:row_parameter_stop_order_type) |string |t(:row_comment_stopOrderType)  |
 |t(:row_parameter_trigger_price) |string |t(:row_comment_triggerBy)  |
 |base_price |number |t(:row_response_comment_basePrice)  |
 |expected_direction |string |t(:row_comment_expected_direction)  |

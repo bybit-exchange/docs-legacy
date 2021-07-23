@@ -167,3 +167,9 @@ t(:tp_sl_mode)
 * `D` t(:interval_D)
 * `W` t(:interval_W)
 * `M` t(:interval_M)
+
+## Stop order type (`stop_order_type`)
+* `TakeProfit`
+* `StopLoss`
+* `TrailingStop`
+* `Stop`
