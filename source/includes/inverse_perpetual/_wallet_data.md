@@ -174,7 +174,7 @@ GET
 |<a href="#date-start_date-end_date">end_date</a> |false |string |t(:row_comment_endDate) |
 |<a href="#currency-currency-coin">currency</a> |false |string |t(:row_comment_currency) |
 |<a href="#currency-currency-coin">coin</a> |false |string |t(:row_comment_coin) |
-|<a href="#wallet-fund-type-wallet_fund_type">wallet_fund_type</a> |false |string |t(:row_comment_walletFundType) |
+|<a href="#wallet-fund-type-wallet_fund_type-type">wallet_fund_type</a> |false |string |t(:row_comment_walletFundType) |
 |page |false |integer |t(:row_comment_page) |
 |limit |false |integer |t(:row_comment_limit) |
 

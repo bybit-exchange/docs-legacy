@@ -40,7 +40,7 @@ t(:ENUMs_para)
 * `Settling`
 * `Closed`
 
-## Wallet fund type (`wallet_fund_type`)
+## Wallet fund type (`wallet_fund_type` / `type`)
 * `Deposit` t(:deposit)
 * `Withdraw` t(:withdraw)
 * `RealisedPNL` t(:realisedpnl)
