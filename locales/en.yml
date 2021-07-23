@@ -644,7 +644,7 @@ en:
     Please note that only orders that are unfilled or partially filled can be modified by the replace-order API.
   ### Query Active Order (real-time)
   queryactive: Query Active Order (real-time)
-  account_para_queryActive: Query real-time active order information. If only <code>order_id</code> or <code>order_link_id</code> are passed, a single order will be returned; otherwise, <b>returns up to 500 unfilled orders</b>.
+  account_para_queryActive: Query real-time active order information. If only <code>order_id</code> or <code>order_link_id</code> are passed, a single order will be returned; otherwise, <b>returns up to <a href="#t-orderlimits">500</a> unfilled orders</b>.
 
   a_getrisklimit: Get risk limit
   a_setrisklimit: Set Risk Limit
@@ -702,8 +702,8 @@ en:
     Please note that you can only modify untriggered conditional orders.
   ### Query Conditional Order (real-time)
   querycond: Query Conditional Order (real-time)
-  account_para_queryConditional: Query real-time stop order information. When passing the parameter <code>order_id</code> or <code>order_link_id</code>, a single order data will be returned; otherwise, <b>returns up to 50 unfilled orders</b>.
-  account_para_queryConditionalNote: <b>When a stop order is triggered, it becomes an active order within the system. This endpoint returns <code>order_id</code> which is equal to <code>stop_order_id</code> request parameter.</b>
+  account_para_queryConditional: Query real-time stop order information. When passing the parameter <code>order_id</code> or <code>order_link_id</code>, a single order data will be returned; otherwise, <b>returns up to <a href="#t-orderlimits">10</a> unfilled orders</b>.
+  account_para_queryConditionalNote: <b>When a stop order is triggered, it becomes an active order within the system. This endpoint returns an <code>order_id</code> which is equal to the <code>stop_order_id</code> request parameter.</b>
 
   ## Leverage
   leverage: Leverage
@@ -856,12 +856,12 @@ en:
   ### Order Limits
   orderlimits: Order Limits
   rate_para_limits: |
-    <p>Max. number of active orders supported under each trading pair:</p>
+    <p>Max. number of unfilled orders supported under each trading pair:</p>
     <ul>
     <li>Active orders: 500</li>
     <li>Conditional orders: 10</li>
     </ul>
-    <p>If you have reached the order limit, creating a new order will be successful, but the oldest existing order will be cancelled.</p>
+    <p>If you have reached the 500 active order limit, creating a new order will be successful, but the oldest existing order will be cancelled. However, if you have reached the 10 conditional order limit, creating a new order will result in an error, maintaining the existing 10 orders.</p>
   ### How to Raise Your API Limit
   raisemylimit: How to Increase API Limits
   rate_para_raise: |
