@@ -1275,6 +1275,7 @@ print(client.FuturesPositions.FuturesPositions_myPosition(symbol="BTCUSDM21").re
                 "position_seq": 0,
                 "created_at": "2021-03-11T08:11:17.747178448Z",
                 "updated_at": "2021-03-11T08:24:18.923067183Z"
+                "tp_sl_mode": "Full"
             },
             "is_valid": true
         },
@@ -1314,6 +1315,7 @@ print(client.FuturesPositions.FuturesPositions_myPosition(symbol="BTCUSDM21").re
                 "position_seq": 0,
                 "created_at": "2021-02-24T05:56:07.964274148Z",
                 "updated_at": "2021-03-11T08:52:06.772110817Z"
+                "tp_sl_mode": "Full"
             },
             "is_valid": true
         }

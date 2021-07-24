@@ -1135,6 +1135,9 @@ print(client.LinearPositions.LinearPositions_myPosition(symbol="BTCUSDT").result
                "unrealised_pnl": 0,
                "deleverage_indicator": 0,
                "risk_id": 0,
+               "stop_loss": 0,
+               "take_profit": 0,
+               "trailing_stop": 0
            },
            {
                "user_id":100004,
@@ -1157,6 +1160,9 @@ print(client.LinearPositions.LinearPositions_myPosition(symbol="BTCUSDT").result
                "unrealised_pnl": 0,
                "deleverage_indicator": 0,
                "risk_id": 0,
+               "stop_loss": 0,
+               "take_profit": 0,
+               "trailing_stop": 0
            }
     ],
     "time_now": "1577480599.097287",
@@ -1195,6 +1201,9 @@ print(client.LinearPositions.LinearPositions_myPosition(symbol="BTCUSDT").result
                 "unrealised_pnl": 0,
                 "deleverage_indicator": 0,
                 "risk_id": 0,
+                "stop_loss": 0,
+                "take_profit": 0,
+                "trailing_stop": 0
             }
         },
         {
@@ -1220,6 +1229,9 @@ print(client.LinearPositions.LinearPositions_myPosition(symbol="BTCUSDT").result
                 "unrealised_pnl": 0,
                 "deleverage_indicator": 0,
                 "risk_id": 0,
+                "stop_loss": 0,
+                "take_profit": 0,
+                "trailing_stop": 0
             }
         },
         ...
@@ -1246,6 +1258,9 @@ print(client.LinearPositions.LinearPositions_myPosition(symbol="BTCUSDT").result
                 "unrealised_pnl": 0,
                 "deleverage_indicator": 0,
                 "risk_id": 0,
+                "stop_loss": 0,
+                "take_profit": 0,
+                "trailing_stop": 0
             }
         },
         {
@@ -1271,6 +1286,9 @@ print(client.LinearPositions.LinearPositions_myPosition(symbol="BTCUSDT").result
                 "unrealised_pnl": 0,
                 "deleverage_indicator": 0,
                 "risk_id": 0,
+                "stop_loss": 0,
+                "take_profit": 0,
+                "trailing_stop": 0
             }
         }
     ],
