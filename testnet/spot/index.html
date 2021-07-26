@@ -925,6 +925,9 @@
                   <li>
                     <a href="#time-in-force-time_in_force" class="toc-h2 toc-link" data-title="Time in force (time_in_force)">Time in force (<code>time_in_force</code>)</a>
                   </li>
+                  <li>
+                    <a href="#kline-interval-interval" class="toc-h2 toc-link" data-title="Kline interval (interval)">Kline interval (<code>interval</code>)</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -955,8 +958,8 @@ clipboard.on('error', function(e) {
     console.log(e);
 });
 </script>
-<h1 id='t-introduction'>Group And Resources</h1><h5 id='t-intro_para'><p> <a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their respective expected outputs, and common errors.</p> <p> For further assistanc or feedback, please join <a href="https://t.me/Bybitapi">API Telegram chat</a>! API discussion group on Telegram. Our fellow developers are happy to chat!</p></h5><h3 id='t-resources'>Group And Bybit API Resources</h3>
-<p><ul class="bybit-community"> <li><img src="../../images/favicon-4f296779.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/docs/issues"><strong>Bybit API Documentation</strong></a> - <strong>report issues here!</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/api-connectors/"><strong>Bybit's api-connectors</strong></a> - <strong>find a repo of prebuilt libraries here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong> - <strong>get English help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API! </strong> <li><img src="../../images/email_icon-e7dd7b20.png" height="14", width="14"> <a href="mailto:IT@bybit.com"><strong>IT@bybit.com</strong></a> - <strong>official IT support email!</strong> </ul></p>
+<h1 id='t-introduction'>Group And Resources</h1><h5 id='t-intro_para'><p><a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common errors.</p> <p>For further assistance or feedback, please join the <a href="https://t.me/BybitAPI">API Telegram chat</a>! API discussion group on Telegram.</p></h5><h3 id='t-resources'>Group And Bybit API Resources</h3>
+<p><ul class="bybit-community"> <li><img src="../../images/help_favicon-06f791dd.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> </ul></p>
 <h1 id='t-changelog'>Changelog</h1><h2 id='2021-07-12'>2021-07-12</h2><h3 id='rest-api'>REST API</h3>
 <ul>
 <li>Optimize the input and output parameters of some interfaces</li>
@@ -1006,7 +1009,7 @@ REST Base Endpoint:
 </ul>
 </p>
 
-<p><p>We also provide <code>recvWindow</code> (unit in millsecond and defualt value is 5,000) to specify how long an HTTP request is valid. It is also used to prevent replay attacks.</p>
+<p><p>We also provide <code>recvWindow</code> (unit in millisecond and default value is 5,000) to specify how long an HTTP request is valid. It is also used to prevent replay attacks.</p>
 <p>A smaller <code>recvWindow</code> is more secure, but your request may fail if the transmission time is greater than your <code>recvWindow</code>.</p>
 <p>Please make sure that your <code>timestamp</code> is in sync with our server time. You can use the <a href=#t-servertime>Server Time</a> endpoint.</p>
 </p>
@@ -1280,7 +1283,7 @@ function copyStringToClipboard (endpoint) {
 </thead><tbody>
 <tr>
 <td style="text-align: left">symbol</td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Name of the trading pair</td>
 </tr>
@@ -1309,7 +1312,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">bids</td>
 <td style="text-align: left">string</td>
-<td>Bid price and quantity, with best bid prices ranked  from top to bottom</td>
+<td>Bid price and quantity, with best bid prices ranked from top to bottom</td>
 </tr>
 <tr>
 <td style="text-align: left">asks</td>
@@ -1365,9 +1368,15 @@ function copyStringToClipboard (endpoint) {
 </thead><tbody>
 <tr>
 <td style="text-align: left">symbol</td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Name of the trading pair</td>
+</tr>
+<tr>
+<td style="text-align: left">scale</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">int</td>
+<td>Precision of the merged orderbook, 1 means 1 digit</td>
 </tr>
 <tr>
 <td style="text-align: left">limit</td>
@@ -1394,7 +1403,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">bids</td>
 <td style="text-align: left">string</td>
-<td>Bid price and quantity, with best bid prices ranked  from top to bottom</td>
+<td>Bid price and quantity, with best bid prices ranked from top to bottom</td>
 </tr>
 <tr>
 <td style="text-align: left">asks</td>
@@ -1455,7 +1464,7 @@ function copyStringToClipboard (endpoint) {
 </thead><tbody>
 <tr>
 <td style="text-align: left">symbol</td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Name of the trading pair</td>
 </tr>
@@ -1545,15 +1554,15 @@ function copyStringToClipboard (endpoint) {
 </thead><tbody>
 <tr>
 <td style="text-align: left">symbol</td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Name of the trading pair</td>
 </tr>
 <tr>
-<td style="text-align: left">interval</td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><a href="#kline-interval-interval">interval</a></td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Chart interval. Possible values are 1m, 5m, 15m, 30m, 1h, 1d, 1W, 1M (m=minute, h=hour, d=day, w=week, M=month)</td>
+<td>Chart interval</td>
 </tr>
 <tr>
 <td style="text-align: left">limit</td>
@@ -1565,13 +1574,13 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">startTime</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">number</td>
-<td>Start time, unit in milliesecond</td>
+<td>Start time, unit in millisecond</td>
 </tr>
 <tr>
 <td style="text-align: left">endTime</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">number</td>
-<td>End time, unit in milliesecond</td>
+<td>End time, unit in millisecond</td>
 </tr>
 </tbody></table>
 
@@ -1587,7 +1596,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">startTime</td>
 <td style="text-align: left">long</td>
-<td>Start time, unit in milliesecond</td>
+<td>Start time, unit in millisecond</td>
 </tr>
 <tr>
 <td style="text-align: left">open</td>
@@ -1617,7 +1626,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">endTime</td>
 <td style="text-align: left">long</td>
-<td>End time, unit in milliesecond</td>
+<td>End time, unit in millisecond</td>
 </tr>
 <tr>
 <td style="text-align: left">quoteAssetVolume</td>
@@ -1632,7 +1641,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">takerBaseVolume</td>
 <td style="text-align: left">float</td>
-<td>Taker buy  volume in base asset</td>
+<td>Taker buy volume in base asset</td>
 </tr>
 <tr>
 <td style="text-align: left">takerQuoteVolume</td>
@@ -3210,28 +3219,52 @@ At least one must be entered in the orderId field and the ordersLinkId field
 <p>First method: Apply for authentication when establishing a connection.
 </p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">api_key</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">secret</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
-<span class="c1">// A UNIX timestamp after which the request become invalid. This is to prevent replay attacks.</span>
-<span class="c1">// unit:millisecond</span>
-<span class="kd">var</span> <span class="nx">expires</span> <span class="o">=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span><span class="o">+</span><span class="mi">1000</span><span class="p">;</span>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="c1"># based on: https://github.com/verata-veritatis/pybit/blob/master/pybit/__init__.py
+</span>
+<span class="kn">import</span> <span class="nn">hmac</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">websocket</span>
 
-<span class="c1">// Signature</span>
-<span class="kd">var</span> <span class="nx">signature</span> <span class="o">=</span> <span class="nx">hex</span><span class="p">(</span><span class="nx">HMAC_SHA256</span><span class="p">(</span><span class="nx">secret</span><span class="p">,</span> <span class="dl">'</span><span class="s1">GET/realtime</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">expires</span><span class="p">));</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="s">""</span>
+<span class="n">api_secret</span> <span class="o">=</span> <span class="s">""</span>
 
-<span class="c1">// Parameters string</span>
-<span class="kd">var</span> <span class="nx">param</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">api_key={api_key}&amp;expires={expires}&amp;signature={signature}</span><span class="dl">"</span><span class="p">;</span>
+<span class="c1"># Generate expires.
+</span><span class="n">expires</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span>
 
-<span class="c1">// Establishing connection</span>
-<span class="kd">var</span> <span class="nx">ws</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WebSocket</span><span class="p">(</span><span class="dl">"</span><span class="s2">wsurl?param</span><span class="dl">"</span><span class="p">);</span>
+<span class="c1"># Generate signature.
+</span><span class="n">signature</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">hmac</span><span class="p">.</span><span class="n">new</span><span class="p">(</span>
+    <span class="nb">bytes</span><span class="p">(</span><span class="n">api_secret</span><span class="p">,</span> <span class="s">"utf-8"</span><span class="p">),</span>
+    <span class="nb">bytes</span><span class="p">(</span><span class="sa">f</span><span class="s">"GET/realtime</span><span class="si">{</span><span class="n">expires</span><span class="si">}</span><span class="s">"</span><span class="p">,</span> <span class="s">"utf-8"</span><span class="p">),</span> <span class="n">digestmod</span><span class="o">=</span><span class="s">"sha256"</span>
+<span class="p">).</span><span class="n">hexdigest</span><span class="p">())</span>
+
+<span class="n">param</span> <span class="o">=</span> <span class="s">"api_key={api_key}&amp;expires={expires}&amp;signature={signature}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">,</span>
+    <span class="n">expires</span><span class="o">=</span><span class="n">expires</span><span class="p">,</span>
+    <span class="n">signature</span><span class="o">=</span><span class="n">signature</span>
+<span class="p">)</span>
+
+<span class="n">ws</span> <span class="o">=</span> <span class="n">websocket</span><span class="p">.</span><span class="n">WebSocketApp</span><span class="p">(</span>
+    <span class="n">url</span><span class="o">=</span><span class="s">"wsurl"</span><span class="p">,</span>
+    <span class="p">...</span>
+<span class="p">)</span>
 </code></pre></div>
 <blockquote>
 <p>Second method: Apply for authentication after establishing a connection through auth request.
 </p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">ws</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WebSocket</span><span class="p">(</span><span class="dl">"</span><span class="s2">wsurl</span><span class="dl">"</span><span class="p">)</span>
-<span class="c1">// Signature is the same for both methods of authentication</span>
-<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"auth","args":["{api_key}","{expires}","{signature}"]}</span><span class="dl">'</span><span class="p">);</span>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="n">ws</span> <span class="o">=</span> <span class="n">websocket</span><span class="p">.</span><span class="n">WebSocketApp</span><span class="p">(</span>
+    <span class="n">url</span><span class="o">=</span><span class="s">"wsurl"</span><span class="p">,</span>
+    <span class="p">...</span>
+<span class="p">)</span>
+
+<span class="c1"># Authenticate with API.
+</span><span class="n">ws</span><span class="p">.</span><span class="n">send</span><span class="p">(</span>
+    <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span>
+        <span class="s">"op"</span><span class="p">:</span> <span class="s">"auth"</span><span class="p">,</span>
+        <span class="s">"args"</span><span class="p">:</span> <span class="p">[</span><span class="n">api_key</span><span class="p">,</span> <span class="n">expires</span><span class="p">,</span> <span class="n">signature</span><span class="p">]</span>
+    <span class="p">})</span>
+<span class="p">)</span>
 </code></pre></div>
 <p>Base endpoints:
 <ul>
@@ -3674,7 +3707,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 </code></pre></div>
 <p><p>Market depth data for a trading pair: </p>
 <ul>
-  <li>Snapchat frequency: every 300 milleseconds (if the bid-ask spread of the order book changes).</li>
+  <li>Snapchat frequency: every 300 milliseconds (if the bid-ask spread of the order book changes).</li>
   <li>Snapshot depth: 300 each for asks and bids.</li>
   <li>Events trigger order book version change：
     <ul>
@@ -4003,7 +4036,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><p> Market depth data for a trading pair:</p> <ul> <li>Snapchat frequency:every 300 milleseconds (if the bid-ask spread of the order book changes).</li> <li>Snapshot depth:300 each for asks and bids.</li> <li>Events trigger order book version change： <ul> <li>order enters order book</li> <li>order leaves order book</li> <li>order quantity changed</li> <li>order completed</li> </ul> </li> </ul></p>
+<p><p> Market depth data for a trading pair:</p> <ul> <li>Snapchat frequency:every 300 milliseconds (if the bid-ask spread of the order book changes).</li> <li>Snapshot depth:300 each for asks and bids.</li> <li>Events trigger order book version change： <ul> <li>order enters order book</li> <li>order leaves order book</li> <li>order quantity changed</li> <li>order completed</li> </ul> </li> </ul></p>
 
 <p class="fake_header">Response Parameters</p>
 
@@ -4575,7 +4608,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <tr>
 <td style="text-align: left">o</td>
 <td style="text-align: left">string</td>
-<td>Order type. Possible values are LIMIT,MARKET, and LIMIT_MAKER</td>
+<td>Order type. Possible values are LIMIT, MARKET, and LIMIT_MAKER</td>
 </tr>
 <tr>
 <td style="text-align: left">f</td>
@@ -4762,7 +4795,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 </tr>
 </tbody></table>
 <h1 id='t-enums'>Enums Definitions</h1>
-<p>The following lists enumerator names for the request and resonse parameters of each endpoint.</p>
+<p>The following lists enumerator names for the request and response parameters of each endpoint.</p>
 <h2 id='side-side'>Side (<code>side</code>)</h2>
 <ul>
 <li><code>Buy</code></li>
@@ -4775,7 +4808,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <li><code>IOC: Immediate or Cancel</code></li>
 </ul>
 <h2 id='symbol-symbol'>Symbol (<code>symbol</code>)</h2>
-<p>Trading_symbol_comment <a href="#t-querysymbol">Query Symbol</a> endpoint </p>
+<p>Trading_symbol_comment <a href="#t-querysymbol">Query Symbol</a> endpoint</p>
 <h2 id='type-type'>Type (<code>type</code>)</h2>
 <ul>
 <li><code>LIMIT</code></li>
@@ -4806,12 +4839,21 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <li><code>LIMIT_MAKER</code> translation missing: en.limit_maker</li>
 </ul>
 <h2 id='quantity-qty'>Quantity (<code>qty</code>)</h2>
-<p><ul> <li>Max.quantity:1 million (<code>1000000</code>)</li> <li>Must be a postive integer <ul> <li><code>40</code> - allowed</li> <li><code>30.5</code> - not allowed</li> </ul> </li> </ul></p>
+<p><ul>
+<li>The maximum qty for an order (<code>max_trading_qty</code>) can be queried with the <a href="#t-querysymbol">Query Symbol endpoint</a>.</li>
+<li>Must be a positive integer
+<li>Must conform to the symbol's <code>qty_step</code>. For example, for the inverse perpetual BTCUSD market:</li>
+<ul>
+<li><code>40</code> - allowed</li>
+<li><code>30.5</code> - not allowed</li>
+</ul>
+</ul>
+</p>
 <h2 id='price-price'>Price (<code>price</code>)</h2>
 <p><ul>
 <li>Active order<ul>
 <li>Must be an integral multiple of <code>tick_size</code><ul>
-<li>Information about current trading pair (e.g. tick size) can be queried with the <a href="#t-querysymbol">Query Symbol endpoint</a>.</li>
+<li>Information about current trading pair (e.g. <code>tick_size</code>) can be queried with the <a href="#t-querysymbol">Query Symbol endpoint</a>.</li>
 <li>Modulo (<code>%</code>) can be used to calculate whether the price will be accepted:<pre class="center-column">
 IF price % tick_size = 0
     // send request
@@ -4820,7 +4862,7 @@ ELSE
 </pre></li>
 </ul>
 </li>
-<li>Must be less than 1 million (<code>1000000</code>)</li>
+<li>Must be less than the symbol's <code>max_price</code></li>
 <li>If the user has no open position, the order price must be higher than 10% of the last traded price<ul>
 <li>For example, if the last traded price (last price) is <code>10314</code>, the min. order price will be <code>1031.5</code>.</li>
 <li>Pseudocode (assuming the price is a multiple of 0.5):<pre class="center-column">
@@ -4832,7 +4874,7 @@ ELSE
 </ul>
 </li>
 <li>If the user has an open position, the order price must be better than the liquidation price.<ul>
-<li>For example, if the liquidation price of a long position is <code>5176.5</code> , the min. order price will be <code>5177</code>. For short position, the order price must be less than the liquidation price.</li>
+<li>For example, if the liquidation price of a long position is <code>5176.5</code>, the min. order price will be <code>5177</code>. For short position, the order price must be less than the liquidation price.</li>
 </ul>
 </li>
 </ul>
@@ -4848,6 +4890,22 @@ ELSE
 <li><code>GTC</code> </li>
 <li><code>IOC</code> </li>
 <li><code>FOK</code> </li>
+</ul>
+<h2 id='kline-interval-interval'>Kline interval (<code>interval</code>)</h2>
+<ul>
+<li><code>1m</code> - 1 minute</li>
+<li><code>3m</code> - 3 minutes</li>
+<li><code>5m</code> - 5 minutes</li>
+<li><code>15m</code> - 15 minutes</li>
+<li><code>30m</code> - 30 minutes</li>
+<li><code>1h</code> - 1 hour</li>
+<li><code>2h</code> - 2 hours</li>
+<li><code>4h</code> - 4 hours</li>
+<li><code>6h</code> - 6 hours</li>
+<li><code>12h</code> - 12 hours</li>
+<li><code>d</code> - 1 day</li>
+<li><code>w</code> - 1 week</li>
+<li><code>m</code> - 1 month</li>
 </ul>
 <h1 id='t-spot_errors'>Error Codes</h1>
 <p>Bybit API uses the following HTTP and error codes <span>:</span></p>
@@ -4880,7 +4938,7 @@ ELSE
 </thead><tbody>
 <tr>
 <td>1000</td>
-<td>An unknown error occured while processing the request</td>
+<td>An unknown error occurred while processing the request</td>
 </tr>
 <tr>
 <td>1001</td>
@@ -5064,7 +5122,7 @@ ELSE
 </tr>
 <tr>
 <td>1144</td>
-<td>Order being cancaled. Operation not supported.</td>
+<td>Order being cancelled. Operation not supported.</td>
 </tr>
 <tr>
 <td>1145</td>

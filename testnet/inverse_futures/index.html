@@ -922,7 +922,7 @@
                             <a href="#t-switchpositionmode" class="toc-h3 toc-link" data-title="Position Mode Switch">Position Mode Switch</a>
                           </li>
                           <li>
-                            <a href="#t-switchmode" class="toc-h3 toc-link" data-title="Full/Partial Position SL/TP Switch">Full/Partial Position SL/TP Switch</a>
+                            <a href="#t-switchmode" class="toc-h3 toc-link" data-title="Full/Partial Position TP/SL Switch">Full/Partial Position TP/SL Switch</a>
                           </li>
                           <li>
                             <a href="#t-marginswitch" class="toc-h3 toc-link" data-title="Cross/Isolated Margin Switch">Cross/Isolated Margin Switch</a>
@@ -1124,7 +1124,7 @@
                     <a href="#contract-status-status" class="toc-h2 toc-link" data-title="Contract Status(status)">Contract Status(<code>status</code>)</a>
                   </li>
                   <li>
-                    <a href="#wallet-fund-type-wallet_fund_type" class="toc-h2 toc-link" data-title="Wallet fund type (wallet_fund_type)">Wallet fund type (<code>wallet_fund_type</code>)</a>
+                    <a href="#wallet-fund-type-wallet_fund_type-type" class="toc-h2 toc-link" data-title="Wallet fund type (wallet_fund_type / type)">Wallet fund type (<code>wallet_fund_type</code> / <code>type</code>)</a>
                   </li>
                   <li>
                     <a href="#withdraw-status-status" class="toc-h2 toc-link" data-title="Withdraw status (status)">Withdraw status (<code>status</code>)</a>
@@ -1169,7 +1169,13 @@
                     <a href="#tick-direction-type-tick_direction" class="toc-h2 toc-link" data-title="Tick direction type (tick_direction)">Tick direction type (<code>tick_direction</code>)</a>
                   </li>
                   <li>
-                    <a href="#tpsl-mode-type-tp_sl_mode" class="toc-h2 toc-link" data-title="TpSl Mode type (tp_sl_mode)">TpSl Mode type (<code>tp_sl_mode</code>)</a>
+                    <a href="#tp-sl-mode-tp_sl_mode" class="toc-h2 toc-link" data-title="TP/SL mode (tp_sl_mode)">TP/SL mode (<code>tp_sl_mode</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#kline-interval-interval" class="toc-h2 toc-link" data-title="Kline interval (interval)">Kline interval (<code>interval</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#stop-order-type-stop_order_type" class="toc-h2 toc-link" data-title="Stop order type (stop_order_type)">Stop order type (<code>stop_order_type</code>)</a>
                   </li>
               </ul>
           </li>
@@ -1202,12 +1208,12 @@ clipboard.on('error', function(e) {
 });
 </script>
 <h1 id='t-introduction'>Group And Resources</h1>
-<p><p> <a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their respective expected outputs, and common errors.</p> <p> For further assistanc or feedback, please join <a href="https://t.me/Bybitapi">API Telegram chat</a>! API discussion group on Telegram. Our fellow developers are happy to chat!</p></p>
+<p><p><a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common errors.</p> <p>For further assistance or feedback, please join the <a href="https://t.me/BybitAPI">API Telegram chat</a>! API discussion group on Telegram.</p></p>
 <h3 id='t-resources'>Group And Bybit API Resources</h3>
-<p><ul class="bybit-community"> <li><img src="../../images/favicon-4f296779.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/docs/issues"><strong>Bybit API Documentation</strong></a> - <strong>report issues here!</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/api-connectors/"><strong>Bybit's api-connectors</strong></a> - <strong>find a repo of prebuilt libraries here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong> - <strong>get English help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API! </strong> <li><img src="../../images/email_icon-e7dd7b20.png" height="14", width="14"> <a href="mailto:IT@bybit.com"><strong>IT@bybit.com</strong></a> - <strong>official IT support email!</strong> </ul></p>
+<p><ul class="bybit-community"> <li><img src="../../images/help_favicon-06f791dd.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> </ul></p>
 <h1 id='t-changelog'>Changelog</h1><h2 id='2021-06-03'>2021-06-03</h2><h3 id='rest-api'>REST API</h3>
 <ul>
-<li><a href="#t-switchmode">Full/Partial Position SL/TP Switch</a> [new]</li>
+<li><a href="#t-switchmode">Full/Partial Position TP/SL Switch</a> [new]</li>
 <li><a href="#t-placecond">Place Conditional Order</a> [update]
 
 <ul>
@@ -1301,7 +1307,7 @@ clipboard.on('error', function(e) {
 </ul>
 <h2 id='2021-04-15'>2021-04-15</h2><h3 id='rest-api-7'>REST API</h3>
 <ul>
-<li>Fix value of <code>used_margin、order_margin、position_margin、occ_closing_fee、unrealised_pnl</code> of <a href="#t-balance">Get Wallet Balance</a> endpoint not contains Inverse Futures positions</li>
+<li>Fix value of <code>used_margin, order_margin, position_margin, occ_closing_fee, unrealised_pnl</code> of <a href="#t-balance">Get Wallet Balance</a> endpoint not contains Inverse Futures positions</li>
 </ul>
 <h2 id='2021-04-14'>2021-04-14</h2><h3 id='rest-api-8'>REST API</h3>
 <ul>
@@ -1369,7 +1375,7 @@ REST Base Endpoint:
 </ul>
 </p>
 
-<p><p>We also provide <code>recv_window</code> (unit in millsecond and defualt value is 5,000) to specify how long an HTTP request is valid. It is also used to prevent replay attacks.</p>
+<p><p>We also provide <code>recv_window</code> (unit in millisecond and default value is 5,000) to specify how long an HTTP request is valid. It is also used to prevent replay attacks.</p>
 <p>A smaller <code>recv_window</code> is more secure, but your request may fail if the transmission time is greater than your <code>recv_window</code>.</p>
 <p>Please make sure that your <code>timestamp</code> is in sync with our server time. You can use the <a href=#t-servertime>Server Time</a> endpoint.</p>
 </p>
@@ -1532,7 +1538,7 @@ function copyStringToClipboard (endpoint) {
 <span class="p">}</span>
 </code></pre></div>
 <p><p>Market price active order: A traditional market price order which will be filled at the best available price. <code>price</code> is not required for this type of order.
-<b>To protect market order from excessive slippage, Bybit converts a market order into a limit order with a spread. A market buy order is converted into a limit order at a higher than best ask price; a market sell order is covnerted into a limit order at a lower than best bid price.
+<b>To protect market order from excessive slippage, Bybit converts a market order into a limit order with a spread. A market buy order is converted into a limit order at a higher than best ask price; a market sell order is converted into a limit order at a lower than best bid price.
    The converted limit price and executed price are both available in trade history.</b>.</p>
 <p>Limit price active order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
 <p><b>Take profit/Stop loss: You may only set a TP/SL conditional order upon opening the position. Once you hold a position, any new active order requests which contain TP/SL data will be accepted but the TP/SL data will be ignored. <code>tp_trigger_by</code>/<code>sl_trigger_by</code> default to LastPrice. Passing values to the <code>take_profit</code> or <code>stop_loss</code> parameters in this endpoint will create conditional orders managed by the system, which will be be automatically cancelled if the position is closed.</b></p>
@@ -1635,14 +1641,14 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>take profit trigger price type, default<span>:</span> <code>LastPrice</code>
+<td>Take profit trigger price type, default<span>:</span> <code>LastPrice</code>
 </td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
+<td>Stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
 </td>
 </tr>
 </tbody></table>
@@ -1764,13 +1770,13 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
 <td style="text-align: left">string</td>
-<td>take profit trigger price type, default<span>:</span> <code>LastPrice</code>
+<td>Take profit trigger price type, default<span>:</span> <code>LastPrice</code>
 </td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
 <td style="text-align: left">string</td>
-<td>stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
+<td>Stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
 </td>
 </tr>
 </tbody></table>
@@ -1989,13 +1995,13 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">data &gt; <a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
 <td style="text-align: left">string</td>
-<td>take profit trigger price type, default<span>:</span> <code>LastPrice</code>
+<td>Take profit trigger price type, default<span>:</span> <code>LastPrice</code>
 </td>
 </tr>
 <tr>
 <td style="text-align: left">data &gt; <a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
 <td style="text-align: left">string</td>
-<td>stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
+<td>Stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
 </td>
 </tr>
 <tr>
@@ -2245,7 +2251,7 @@ function copyStringToClipboard (endpoint) {
 </p>
 
 <aside class="notice">
-This endpoint's <code>rate_limit</code> will decrease by 10 per request
+This endpoint's <code>rate_limit</code> will decrease by 10 per request; ie, one request to this endpoint consumes 10 from the <a href="#t-perendpoint">limit allowed per minute</a>.
 </aside>
 
 <p class="fake_header">HTTP Request</p>
@@ -2439,7 +2445,7 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <tr>
 <td style="text-align: left">p_r_qty</td>
 <td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
+<td style="text-align: left">integer</td>
 <td>New order quantity. Do not pass this field if you don't want modify it</td>
 </tr>
 <tr>
@@ -2464,14 +2470,14 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>take profit trigger price type, default<span>:</span> <code>LastPrice</code>
+<td>Take profit trigger price type, default<span>:</span> <code>LastPrice</code>
 </td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
+<td>Stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
 </td>
 </tr>
 </tbody></table>
@@ -2613,7 +2619,7 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <span class="p">}</span>
 
 </code></pre></div>
-<p>Query real-time active order information. If only <code>order_id</code> or <code>order_link_id</code> are passed, a single order will be returned; otherwise, <b>returns up to 500 unfilled orders</b>.</p>
+<p>Query real-time active order information. If only <code>order_id</code> or <code>order_link_id</code> are passed, a single order will be returned; otherwise, <b>returns up to <a href="#t-orderlimits">500</a> unfilled orders</b>.</p>
 
 <p class="fake_header">HTTP Request</p>
 
@@ -2779,13 +2785,13 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <tr>
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
 <td style="text-align: left">string</td>
-<td>take profit trigger price type, default<span>:</span> <code>LastPrice</code>
+<td>Take profit trigger price type, default<span>:</span> <code>LastPrice</code>
 </td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
 <td style="text-align: left">string</td>
-<td>stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
+<td>Stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
 </td>
 </tr>
 </tbody></table>
@@ -2892,7 +2898,7 @@ Take profit/Stop loss is not supported in placing conditional orders. One can on
 <td style="text-align: left"><a href="#price-price">price</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Execution price for conditional order. Required if you make limit price order</td>
+<td>Execution price for conditional order. <b>Required</b> if you make limit price order</td>
 </tr>
 <tr>
 <td style="text-align: left">base_price</td>
@@ -2946,14 +2952,14 @@ Take profit/Stop loss is not supported in placing conditional orders. One can on
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>take profit trigger price type, default<span>:</span> <code>LastPrice</code>
+<td>Take profit trigger price type, default<span>:</span> <code>LastPrice</code>
 </td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
+<td>Stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
 </td>
 </tr>
 </tbody></table>
@@ -3055,13 +3061,13 @@ Take profit/Stop loss is not supported in placing conditional orders. One can on
 <tr>
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
 <td style="text-align: left">string</td>
-<td>take profit trigger price type, default<span>:</span> <code>LastPrice</code>
+<td>Take profit trigger price type, default<span>:</span> <code>LastPrice</code>
 </td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
 <td style="text-align: left">string</td>
-<td>stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
+<td>Stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
 </td>
 </tr>
 </tbody></table>
@@ -3218,7 +3224,7 @@ Take profit/Stop loss is not supported in placing conditional orders. One can on
 <td>Time in force</td>
 </tr>
 <tr>
-<td style="text-align: left">data &gt; stop_order_type</td>
+<td style="text-align: left">data &gt; <a href="#stop-order-type-stop_order_type">stop_order_type</a></td>
 <td style="text-align: left">string</td>
 <td>Conditional order type</td>
 </tr>
@@ -3270,13 +3276,13 @@ Take profit/Stop loss is not supported in placing conditional orders. One can on
 <tr>
 <td style="text-align: left">data &gt; <a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
 <td style="text-align: left">string</td>
-<td>take profit trigger price type, default<span>:</span> <code>LastPrice</code>
+<td>Take profit trigger price type, default<span>:</span> <code>LastPrice</code>
 </td>
 </tr>
 <tr>
 <td style="text-align: left">data &gt; <a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
 <td style="text-align: left">string</td>
-<td>stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
+<td>Stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
 </td>
 </tr>
 <tr>
@@ -3443,7 +3449,7 @@ Take profit/Stop loss is not supported in placing conditional orders. One can on
 <p>Cancel all untriggered conditional orders.</p>
 
 <aside class="notice">
-This endpoint's <code>rate_limit</code> will decrease by 10 per request
+This endpoint's <code>rate_limit</code> will decrease by 10 per request; ie, one request to this endpoint consumes 10 from the <a href="#t-perendpoint">limit allowed per minute</a>.
 </aside>
 
 <p class="fake_header">HTTP Request</p>
@@ -3565,7 +3571,7 @@ This endpoint's <code>rate_limit</code> will decrease by 10 per request
 <td>Cross sequence (internal value)</td>
 </tr>
 <tr>
-<td style="text-align: left">stop_order_type</td>
+<td style="text-align: left"><a href="#stop-order-type-stop_order_type">stop_order_type</a></td>
 <td style="text-align: left">string</td>
 <td>Conditional order type</td>
 </tr>
@@ -3689,14 +3695,14 @@ Please note that you can only modify untriggered conditional orders.
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>take profit trigger price type, default<span>:</span> <code>LastPrice</code>
+<td>Take profit trigger price type, default<span>:</span> <code>LastPrice</code>
 </td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
+<td>Stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
 </td>
 </tr>
 </tbody></table>
@@ -3830,10 +3836,10 @@ Please note that you can only modify untriggered conditional orders.
     <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">600</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Query real-time stop order information. When passing the parameter <code>order_id</code> or <code>order_link_id</code>, a single order data will be returned; otherwise, <b>returns up to 50 unfilled orders</b>.</p>
+<p>Query real-time stop order information. When passing the parameter <code>order_id</code> or <code>order_link_id</code>, a single order data will be returned; otherwise, <b>returns up to <a href="#t-orderlimits">10</a> unfilled orders</b>.</p>
 
 <aside class="notice">
-<b>When a stop order is triggered, it becomes an active order within the system. This endpoint returns <code>order_id</code> which is equal to <code>stop_order_id</code> request parameter.</b>
+<b>When a stop order is triggered, it becomes an active order within the system. This endpoint returns an <code>order_id</code> which is equal to the <code>stop_order_id</code> request parameter.</b>
 </aside>
 
 <p class="fake_header">HTTP Request</p>
@@ -4010,13 +4016,13 @@ Please note that you can only modify untriggered conditional orders.
 <tr>
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
 <td style="text-align: left">string</td>
-<td>take profit trigger price type, default<span>:</span> <code>LastPrice</code>
+<td>Take profit trigger price type, default<span>:</span> <code>LastPrice</code>
 </td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
 <td style="text-align: left">string</td>
-<td>stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
+<td>Stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
 </td>
 </tr>
 </tbody></table>
@@ -4074,6 +4080,7 @@ Please note that you can only modify untriggered conditional orders.
                 <span class="dl">"</span><span class="s2">position_seq</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">created_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2021-03-11T08:11:17.747178448Z</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">updated_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2021-03-11T08:24:18.923067183Z</span><span class="dl">"</span>
+                <span class="dl">"</span><span class="s2">tp_sl_mode</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Full</span><span class="dl">"</span>
             <span class="p">},</span>
             <span class="dl">"</span><span class="s2">is_valid</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span>
         <span class="p">},</span>
@@ -4113,6 +4120,7 @@ Please note that you can only modify untriggered conditional orders.
                 <span class="dl">"</span><span class="s2">position_seq</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">created_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2021-02-24T05:56:07.964274148Z</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">updated_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2021-03-11T08:52:06.772110817Z</span><span class="dl">"</span>
+                <span class="dl">"</span><span class="s2">tp_sl_mode</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Full</span><span class="dl">"</span>
             <span class="p">},</span>
             <span class="dl">"</span><span class="s2">is_valid</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span>
         <span class="p">}</span>
@@ -4333,7 +4341,7 @@ Please note that you can only modify untriggered conditional orders.
 <td>Update time</td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="#tpsl-mode-type-tp_sl_mode">tp_sl_mode</a></td>
+<td style="text-align: left"><a href="#tp-sl-mode-tp_sl_mode">tp_sl_mode</a></td>
 <td style="text-align: left">string</td>
 <td>Stop loss and take profit mode</td>
 </tr>
@@ -4542,14 +4550,14 @@ Passing these parameters will create conditional orders controlled by the system
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>take profit trigger price type, default<span>:</span> <code>LastPrice</code>
+<td>Take profit trigger price type, default<span>:</span> <code>LastPrice</code>
 </td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>take profit trigger price type, default<span>:</span> <code>LastPrice</code>
+<td>Take profit trigger price type, default<span>:</span> <code>LastPrice</code>
 </td>
 </tr>
 <tr>
@@ -4742,7 +4750,7 @@ Passing these parameters will create conditional orders controlled by the system
 <tr>
 <td style="text-align: left">ext_fields&gt;sl_trigger_by</td>
 <td style="text-align: left">string</td>
-<td>Stoploss trigger price type</td>
+<td>Stop loss trigger price type</td>
 </tr>
 </tbody></table>
 <h3 id='t-setleverage'>Set Leverage</h3>
@@ -4887,7 +4895,7 @@ This endpoint only concerns isolated margin. If you want to use cross margin, pl
 </td>
 </tr>
 </tbody></table>
-<h3 id='t-switchmode'>Full/Partial Position SL/TP Switch</h3>
+<h3 id='t-switchmode'>Full/Partial Position TP/SL Switch</h3>
 <blockquote>
 <p>Response Example</p>
 </blockquote>
@@ -4909,7 +4917,7 @@ This endpoint only concerns isolated margin. If you want to use cross margin, pl
 <p>Switch mode between Full or Partial</p>
 
 <aside class="notice">
-When set to Partial, SL/TP orders may have a quantity less than the position size. This is set with the <a href="#t-tradingstop">Trading-Stop endpoint</a>.
+When set to Partial, TP/SL orders may have a quantity less than the position size. This is set with the <a href="#t-tradingstop">Trading-Stop endpoint</a>.
 </aside>
 
 <p class="fake_header">HTTP Request</p>
@@ -4935,7 +4943,7 @@ When set to Partial, SL/TP orders may have a quantity less than the position siz
 <td>Symbol</td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="#tpsl-mode-type-tp_sl_mode">tp_sl_mode</a></td>
+<td style="text-align: left"><a href="#tp-sl-mode-tp_sl_mode">tp_sl_mode</a></td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Stop loss and take profit mode</td>
@@ -4952,7 +4960,7 @@ When set to Partial, SL/TP orders may have a quantity less than the position siz
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left"><a href="#tpsl-mode-type-tp_sl_mode">tp_sl_mode</a></td>
+<td style="text-align: left"><a href="#tp-sl-mode-tp_sl_mode">tp_sl_mode</a></td>
 <td style="text-align: left">string</td>
 <td>Stop loss and take profit mode</td>
 </tr>
@@ -4988,8 +4996,8 @@ When set to Partial, SL/TP orders may have a quantity less than the position siz
 <p class="fake_header">HTTP Request</p>
 
 <p>POST
-<code><span id=ulSwitchMode>/futures/private/position/switch-isolated</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ulSwitchMode"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<code><span id=fppSwitchIsolated>/futures/private/position/switch-isolated</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#fppSwitchIsolated"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
 
@@ -5057,7 +5065,7 @@ When set to Partial, SL/TP orders may have a quantity less than the position siz
                 <span class="dl">"</span><span class="s2">exec_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Trade</span><span class="dl">"</span><span class="p">,</span> <span class="c1">//<a href="#exec-type-exec_type">Exec Type Enum</a></span>
                 <span class="dl">"</span><span class="s2">exec_value</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00012227</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">fee_rate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00075</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">last_liquidity_ind</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">RemovedLiquidity</span><span class="dl">"</span><span class="p">,</span> <span class="c1">//<a href="#liquidity-type-last_liquidity_ind">Liquidity Enum</a>, only valid while <code>exec_type</code> is <code>Trade、AdlTrade、BustTrade</code></span>
+                <span class="dl">"</span><span class="s2">last_liquidity_ind</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">RemovedLiquidity</span><span class="dl">"</span><span class="p">,</span> <span class="c1">//<a href="#liquidity-type-last_liquidity_ind">Liquidity Enum</a>, only valid while <code>exec_type</code> is <code>Trade, AdlTrade, BustTrade</code></span>
                 <span class="dl">"</span><span class="s2">leaves_qty</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">nth_fill</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">order_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">7ad50cb1-9ad0-4f74-804b-d82a516e1029</span><span class="dl">"</span><span class="p">,</span>
@@ -5134,7 +5142,7 @@ One order may have multiple trade records.
 <td style="text-align: left"><a href="#order-order">order</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Sort orders by creation date</td>
+<td>Sort orders by creation date. Defaults to <code>desc</code></td>
 </tr>
 </tbody></table>
 
@@ -5195,7 +5203,7 @@ One order may have multiple trade records.
 <tr>
 <td style="text-align: left">last_liquidity_ind</td>
 <td style="text-align: left">string</td>
-<td><a href="#liquidity-type-last_liquidity_ind">Liquidity Enum</a>, only valid while <code>exec_type</code> is <code>Trade、AdlTrade、BustTrade</code></td>
+<td><a href="#liquidity-type-last_liquidity_ind">Liquidity Enum</a>, only valid while <code>exec_type</code> is <code>Trade, AdlTrade, BustTrade</code></td>
 </tr>
 <tr>
 <td style="text-align: left">leaves_qty</td>
@@ -5389,7 +5397,7 @@ One order may have multiple trade records.
 <tr>
 <td style="text-align: left"><a href="#side-side">side</a></td>
 <td style="text-align: left">string</td>
-<td>Side</td>
+<td>Side of the closing order</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#quantity-qty">qty</a></td>
@@ -5444,7 +5452,7 @@ One order may have multiple trade records.
 <tr>
 <td style="text-align: left">fill_count</td>
 <td style="text-align: left">number</td>
-<td>Number of transactions</td>
+<td>The number of fills in a single order</td>
 </tr>
 <tr>
 <td style="text-align: left">leverage</td>
@@ -5559,7 +5567,7 @@ Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/v2/public/time
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Common</span><span class="p">.</span><span class="n">Common_get</span><span class="p">().</span><span class="n">result</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Common</span><span class="p">.</span><span class="n">Common_getTime</span><span class="p">().</span><span class="n">result</span><span class="p">())</span>
 </code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -5678,64 +5686,54 @@ Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles
   <tr>
     <td rowspan="10">100/min</td>  
   </tr>
-  <tr><td>futures/private/order/cancel       </td><td>1 / request</td></tr>
-  <tr><td>futures/private/stop-order/create  </td><td>1 / request</td></tr>
-  <tr><td>futures/private/stop-order/cancel  </td><td>1 / request</td></tr>
-  <tr><td>futures/private/order/replace      </td><td>1 / request</td></tr>
-  <tr><td>futures/private/stop-order/replace </td><td>1 / request</td></tr>
-  <tr><td>futures/private/order/create     </td><td>1 / request</td></tr>
-  <tr><td>futures/private/order/cancel     </td><td>1 / request</td></tr>
-  <tr><td>futures/private/order/cancelAll  </td><td>10 / request</td></tr>
-  <tr><td>futures/private/stop-order/cancelAll </td><td>10 / request</td></tr>
+  <tr><td>/futures/private/order/cancel       </td><td>1 / request</td></tr>
+  <tr><td>/futures/private/stop-order/create  </td><td>1 / request</td></tr>
+  <tr><td>/futures/private/stop-order/cancel  </td><td>1 / request</td></tr>
+  <tr><td>/futures/private/order/replace      </td><td>1 / request</td></tr>
+  <tr><td>/futures/private/stop-order/replace </td><td>1 / request</td></tr>
+  <tr><td>/futures/private/order/create     </td><td>1 / request</td></tr>
+  <tr><td>/futures/private/order/cancel     </td><td>1 / request</td></tr>
+  <tr><td>/futures/private/order/cancelAll  </td><td>10 / request</td></tr>
+  <tr><td>/futures/private/stop-order/cancelAll </td><td>10 / request</td></tr>
   <tr>
-    <td rowspan="3">600/min</td>
-    <td>futures/private/order/list </td>
+    <td rowspan="4">600/min</td>
+    <td>/futures/private/order/list </td>
     <td>1 / request</td>
   </tr>
-  <tr><td>futures/private/stop-order/list </td><td>1 / request</td></tr>
-  <tr><td>futures/private/order </td><td>1 / request</td></tr>
+  <tr><td>/futures/private/stop-order/list </td><td>1 / request</td></tr>
+  <tr><td>/futures/private/order </td><td>1 / request</td></tr>
+  <tr><td>/futures/private/stop-order </td><td>1 / request</td></tr>
   <tr>
     <td>120/min</td>
-    <td>futures/private/execution/list</td>
+    <td>/futures/private/execution/list</td>
     <td>1 / request</td>
   </tr>
   <tr>
     <td rowspan="6">75/min</td>
-    <td>futures/private/position/leverage/save </td>
+    <td>/futures/private/position/leverage/save </td>
     <td>1 / request</td>
   </tr>
-  <tr><td>futures/private/position/change-position-margin</td><td>1 / request</td></tr>
-  <tr><td>futures/private/position/trading-stop</td><td>1 / request</td></tr>
-  <tr><td>futures/private/position/switch-mode</td><td>1 / request</td></tr>
-  <tr><td>futures/private/position/switch-isolated</td><td>1 / request</td></tr>
-  <tr><td>futures/private/tpsl/switch-mode</td><td>1 / request</td></tr>
-  <tr>
-    <td rowspan="3">120/min</td> 
-  </tr>
-  <tr><td>futures/private/position/list</td><td>1 / request</td></tr>
-    <tr><td>v2/private/wallet/balance</td><td>1 / request</td></tr>
+  <tr><td>/futures/private/position/change-position-margin</td><td>1 / request</td></tr>
+  <tr><td>/futures/private/position/trading-stop</td><td>1 / request</td></tr>
+  <tr><td>/futures/private/position/switch-mode</td><td>1 / request</td></tr>
+  <tr><td>/futures/private/position/switch-isolated</td><td>1 / request</td></tr>
+  <tr><td>/futures/private/tpsl/switch-mode</td><td>1 / request</td></tr>
   <tr>
     <td rowspan="3">120/min</td>
-    <tr><td>v2/private/wallet/fund/records</td>
-    <td>1 / request</td>
   </tr>
-<tr><td>v2/private/wallet/withdraw/list</td><td>1 / request</td></tr>
-<tr>
-    <td rowspan="2">600/min</td>
-    <tr><td>v2/private/account/api-key</td>
-    <td>1 / request</td>
-  </tr>
+  <tr><td>/futures/private/position/list</td><td>1 / request</td></tr>
 </table>
 <h3 id='t-orderlimits'>Order Limits</h3>
-<p><p>Max. number of active orders supported under each trading pair:</p>
+<p><p>Max. number of unfilled orders supported under each trading pair:</p>
 <ul>
 <li>Active orders: 500</li>
 <li>Conditional orders: 10</li>
 </ul>
+<p>If you have reached the 500 active order limit, creating a new order will be successful, but the oldest existing order will be cancelled. However, if you have reached the 10 conditional order limit, creating a new order will result in an error, maintaining the existing 10 orders.</p>
 </p>
 <h3 id='t-raisemylimit'>How to Increase API Limits</h3>
 <p><ul>
-<li>Please refer to <a href="#t-raisemylimit">Understanding Bybit&#39;s Liquidity System</a> regarding how our system automatically allocates rate limits for users who place over 2,000 orders per day.</li>
+<li>Please refer to <a href="#t-liquidity">Understanding Bybit&#39;s Liquidity System</a> regarding how our system automatically allocates rate limits for users who place over 2,000 orders per day.</li>
 <li>Please email <a href="mailto:api@bybit.com">api@bybit.com</a> with the following information. We will reply within 1-4 working days:</li>
   <ol>
     <li>Your name and your company details</li>
@@ -5756,7 +5754,7 @@ Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles
 <h5 id='t-ofrratio'>Order Fill Ratio (OFR)</h5>
 <p><ul>
 <li><code>Order Fill Ratio (OFR)</code>: <code>Orders Filled</code> to <code>Orders Submitted to Bybit</code> to Bybit.</li>
-<li><code>Orders Submitted to Bybit</code>: any order submitted  to Bybit.</li>
+<li><code>Orders Submitted to Bybit</code>: any order submitted to Bybit.</li>
 <li><code>Orders Filled</code>: any order that has been filled (regardless of filled quantity).</li>
 <li><code>OFR = (number of orders filled / number of orders submitted to Bybit)</code></li>
 </ul>
@@ -5871,28 +5869,52 @@ Prior notice will be given via the website if we update this mechanism.
 <p>First method: Apply for authentication when establishing a connection.
 </p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">api_key</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">secret</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
-<span class="c1">// A UNIX timestamp after which the request become invalid. This is to prevent replay attacks.</span>
-<span class="c1">// unit:millisecond</span>
-<span class="kd">var</span> <span class="nx">expires</span> <span class="o">=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span><span class="o">+</span><span class="mi">1000</span><span class="p">;</span>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="c1"># based on: https://github.com/verata-veritatis/pybit/blob/master/pybit/__init__.py
+</span>
+<span class="kn">import</span> <span class="nn">hmac</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">websocket</span>
 
-<span class="c1">// Signature</span>
-<span class="kd">var</span> <span class="nx">signature</span> <span class="o">=</span> <span class="nx">hex</span><span class="p">(</span><span class="nx">HMAC_SHA256</span><span class="p">(</span><span class="nx">secret</span><span class="p">,</span> <span class="dl">'</span><span class="s1">GET/realtime</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">expires</span><span class="p">));</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="s">""</span>
+<span class="n">api_secret</span> <span class="o">=</span> <span class="s">""</span>
 
-<span class="c1">// Parameters string</span>
-<span class="kd">var</span> <span class="nx">param</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">api_key={api_key}&amp;expires={expires}&amp;signature={signature}</span><span class="dl">"</span><span class="p">;</span>
+<span class="c1"># Generate expires.
+</span><span class="n">expires</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span>
 
-<span class="c1">// Establishing connection</span>
-<span class="kd">var</span> <span class="nx">ws</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WebSocket</span><span class="p">(</span><span class="dl">"</span><span class="s2">wsurl?param</span><span class="dl">"</span><span class="p">);</span>
+<span class="c1"># Generate signature.
+</span><span class="n">signature</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">hmac</span><span class="p">.</span><span class="n">new</span><span class="p">(</span>
+    <span class="nb">bytes</span><span class="p">(</span><span class="n">api_secret</span><span class="p">,</span> <span class="s">"utf-8"</span><span class="p">),</span>
+    <span class="nb">bytes</span><span class="p">(</span><span class="sa">f</span><span class="s">"GET/realtime</span><span class="si">{</span><span class="n">expires</span><span class="si">}</span><span class="s">"</span><span class="p">,</span> <span class="s">"utf-8"</span><span class="p">),</span> <span class="n">digestmod</span><span class="o">=</span><span class="s">"sha256"</span>
+<span class="p">).</span><span class="n">hexdigest</span><span class="p">())</span>
+
+<span class="n">param</span> <span class="o">=</span> <span class="s">"api_key={api_key}&amp;expires={expires}&amp;signature={signature}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">,</span>
+    <span class="n">expires</span><span class="o">=</span><span class="n">expires</span><span class="p">,</span>
+    <span class="n">signature</span><span class="o">=</span><span class="n">signature</span>
+<span class="p">)</span>
+
+<span class="n">ws</span> <span class="o">=</span> <span class="n">websocket</span><span class="p">.</span><span class="n">WebSocketApp</span><span class="p">(</span>
+    <span class="n">url</span><span class="o">=</span><span class="s">"wsurl"</span><span class="p">,</span>
+    <span class="p">...</span>
+<span class="p">)</span>
 </code></pre></div>
 <blockquote>
 <p>Second method: Apply for authentication after establishing a connection through auth request.
 </p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">ws</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WebSocket</span><span class="p">(</span><span class="dl">"</span><span class="s2">wsurl</span><span class="dl">"</span><span class="p">)</span>
-<span class="c1">// Signature is the same for both methods of authentication</span>
-<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"auth","args":["{api_key}","{expires}","{signature}"]}</span><span class="dl">'</span><span class="p">);</span>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="n">ws</span> <span class="o">=</span> <span class="n">websocket</span><span class="p">.</span><span class="n">WebSocketApp</span><span class="p">(</span>
+    <span class="n">url</span><span class="o">=</span><span class="s">"wsurl"</span><span class="p">,</span>
+    <span class="p">...</span>
+<span class="p">)</span>
+
+<span class="c1"># Authenticate with API.
+</span><span class="n">ws</span><span class="p">.</span><span class="n">send</span><span class="p">(</span>
+    <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span>
+        <span class="s">"op"</span><span class="p">:</span> <span class="s">"auth"</span><span class="p">,</span>
+        <span class="s">"args"</span><span class="p">:</span> <span class="p">[</span><span class="n">api_key</span><span class="p">,</span> <span class="n">expires</span><span class="p">,</span> <span class="n">signature</span><span class="p">]</span>
+    <span class="p">})</span>
+<span class="p">)</span>
 </code></pre></div>
 <p>Base endpoints:
 <ul>
@@ -5992,7 +6014,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <blockquote>
 <p>How to unsubscribe with a filter</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Unsubscribing to the trade data for BTCUSDM21</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Unsubscribing from the trade data for BTCUSDM21</span>
 <span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"unsubscribe","args":["trade.BTCUSDM21"]}</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div>
 <p>You can dynamically subscribe and unsubscribe from topics (with or without filters) without websocket disconnection as follows:
@@ -6521,9 +6543,9 @@ Some values use scientific notation. This is indicated by that value's key, whic
 <td>Latest transaction price 10^4</td>
 </tr>
 <tr>
-<td style="text-align: left">last_tick_direction</td>
+<td style="text-align: left">row_parameter_tick_direction</td>
 <td style="text-align: left">string</td>
-<td><a href="#tick-direction-type-tick_direction">Tick Direction</a></td>
+<td>Direction of price change</td>
 </tr>
 <tr>
 <td style="text-align: left">prev_price_24h_e4</td>
@@ -6598,7 +6620,7 @@ Some values use scientific notation. This is indicated by that value's key, whic
 <tr>
 <td style="text-align: left">predicted_funding_rate_e6</td>
 <td style="text-align: left">integer</td>
-<td>Predicted funding rate * 10^6</td>
+<td><a href="https://help.bybit.com/hc/en-us/articles/360039261114-What-is-funding-rate-and-predicted-rate-">Predicted funding rate</a> * 10^6</td>
 </tr>
 <tr>
 <td style="text-align: left">cross_seq</td>
@@ -6869,7 +6891,7 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 <tr>
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
 <td style="text-align: left">string</td>
-<td>take profit trigger price type, default<span>:</span> <code>LastPrice</code>
+<td>Take profit trigger price type, default<span>:</span> <code>LastPrice</code>
 </td>
 </tr>
 <tr>
@@ -6880,7 +6902,7 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 <tr>
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">sl_trigger_by</a></td>
 <td style="text-align: left">string</td>
-<td>stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
+<td>Stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
 </td>
 </tr>
 <tr>
@@ -7333,7 +7355,7 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 <td>Order status</td>
 </tr>
 <tr>
-<td style="text-align: left">stop_order_type</td>
+<td style="text-align: left"><a href="#stop-order-type-stop_order_type">stop_order_type</a></td>
 <td style="text-align: left">string</td>
 <td>Conditional order type</td>
 </tr>
@@ -7361,7 +7383,7 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 <h1 id='t-archivedata'>Archive Data</h1><h3 id='t-historicalmarketdata'>Historical Market Data</h3>
 <p>You can get Bybit's <a href="https://public.bybit.com">historical market data here</a>.</p>
 <h1 id='t-enums'>Enums Definitions</h1>
-<p>The following lists enumerator names for the request and resonse parameters of each endpoint.</p>
+<p>The following lists enumerator names for the request and response parameters of each endpoint.</p>
 <h2 id='side-side'>Side (<code>side</code>)</h2>
 <ul>
 <li><code>Buy</code></li>
@@ -7375,7 +7397,7 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 <li><code>BTCUSDZ21</code>  // Z: Fourth quarter;    21: 2021</li>
 </ul>
 
-<p>Trading_symbol_comment <a href="#t-querysymbol">Query Symbol</a> endpoint </p>
+<p>Trading_symbol_comment <a href="#t-querysymbol">Query Symbol</a> endpoint</p>
 <h2 id='currency-currency-coin'>Currency (<code>currency</code>/<code>coin</code>)</h2>
 <ul>
 <li><code>BTC</code></li>
@@ -7396,7 +7418,7 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 <li><code>Settling</code></li>
 <li><code>Closed</code></li>
 </ul>
-<h2 id='wallet-fund-type-wallet_fund_type'>Wallet fund type (<code>wallet_fund_type</code>)</h2>
+<h2 id='wallet-fund-type-wallet_fund_type-type'>Wallet fund type (<code>wallet_fund_type</code> / <code>type</code>)</h2>
 <ul>
 <li><code>Deposit</code> </li>
 <li><code>Withdraw</code> </li>
@@ -7423,12 +7445,21 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 <li><code>Market</code> </li>
 </ul>
 <h2 id='quantity-qty'>Quantity (<code>qty</code>)</h2>
-<p><ul> <li>Max.quantity:1 million (<code>1000000</code>)</li> <li>Must be a postive integer <ul> <li><code>40</code> - allowed</li> <li><code>30.5</code> - not allowed</li> </ul> </li> </ul></p>
+<p><ul>
+<li>The maximum qty for an order (<code>max_trading_qty</code>) can be queried with the <a href="#t-querysymbol">Query Symbol endpoint</a>.</li>
+<li>Must be a positive integer
+<li>Must conform to the symbol's <code>qty_step</code>. For example, for the inverse perpetual BTCUSD market:</li>
+<ul>
+<li><code>40</code> - allowed</li>
+<li><code>30.5</code> - not allowed</li>
+</ul>
+</ul>
+</p>
 <h2 id='price-price'>Price (<code>price</code>)</h2>
 <p><ul>
 <li>Active order<ul>
 <li>Must be an integral multiple of <code>tick_size</code><ul>
-<li>Information about current trading pair (e.g. tick size) can be queried with the <a href="#t-querysymbol">Query Symbol endpoint</a>.</li>
+<li>Information about current trading pair (e.g. <code>tick_size</code>) can be queried with the <a href="#t-querysymbol">Query Symbol endpoint</a>.</li>
 <li>Modulo (<code>%</code>) can be used to calculate whether the price will be accepted:<pre class="center-column">
 IF price % tick_size = 0
     // send request
@@ -7437,7 +7468,7 @@ ELSE
 </pre></li>
 </ul>
 </li>
-<li>Must be less than 1 million (<code>1000000</code>)</li>
+<li>Must be less than the symbol's <code>max_price</code></li>
 <li>If the user has no open position, the order price must be higher than 10% of the last traded price<ul>
 <li>For example, if the last traded price (last price) is <code>10314</code>, the min. order price will be <code>1031.5</code>.</li>
 <li>Pseudocode (assuming the price is a multiple of 0.5):<pre class="center-column">
@@ -7449,7 +7480,7 @@ ELSE
 </ul>
 </li>
 <li>If the user has an open position, the order price must be better than the liquidation price.<ul>
-<li>For example, if the liquidation price of a long position is <code>5176.5</code> , the min. order price will be <code>5177</code>. For short position, the order price must be less than the liquidation price.</li>
+<li>For example, if the liquidation price of a long position is <code>5176.5</code>, the min. order price will be <code>5177</code>. For short position, the order price must be less than the liquidation price.</li>
 </ul>
 </li>
 </ul>
@@ -7494,7 +7525,7 @@ ELSE
 </ul>
 <h2 id='stop-order-status-stop_order_status'>Stop order status (<code>stop_order_status</code>)</h2>
 <ul>
-<li><code>Active</code> -  order has been triggered and placed successfully</li>
+<li><code>Active</code> - order has been triggered and the new active order has been successfully placed. Is the final state of a successful conditional order</li>
 <li><code>Untriggered</code> - order yet to be triggered</li>
 <li><code>Triggered</code> - order has been triggered by last traded price</li>
 <li><code>Cancelled</code> - order has been canceled successfully</li>
@@ -7545,12 +7576,35 @@ ELSE
 <li><code>MinusTick</code> - price drop</li>
 <li><code>ZeroMinusTick</code> - trade occurs at the same price as the previous trade, which occurred at a price lower than that for the trade preceding it </li>
 </ul>
-<h2 id='tpsl-mode-type-tp_sl_mode'>TpSl Mode type (<code>tp_sl_mode</code>)</h2>
+<h2 id='tp-sl-mode-tp_sl_mode'>TP/SL mode (<code>tp_sl_mode</code>)</h2>
 <p>Take profit/stop loss mode</p>
 
 <ul>
-<li><code>Full</code> - Full stop loss take profit</li>
-<li><code>Partial</code> - Partial stop loss take profit </li>
+<li><code>Full</code> - Full take profit/stop loss mode (a single TP order and a single SL order can be placed, covering the entire position)</li>
+<li><code>Partial</code> - Partial take profit/stop loss mode (multiple TP and SL orders can be placed, covering portions of the position)</li>
+</ul>
+<h2 id='kline-interval-interval'>Kline interval (<code>interval</code>)</h2>
+<ul>
+<li><code>1</code> - 1 minute</li>
+<li><code>3</code> - 3 minutes</li>
+<li><code>5</code> - 5 minutes</li>
+<li><code>15</code> - 15 minutes</li>
+<li><code>30</code> - 30 minutes</li>
+<li><code>60</code> - 1 hour</li>
+<li><code>120</code> - 2 hours</li>
+<li><code>240</code> - 4 hours</li>
+<li><code>360</code> - 6 hours</li>
+<li><code>720</code> - 12 hours</li>
+<li><code>D</code> - 1 day</li>
+<li><code>W</code> - 1 week</li>
+<li><code>M</code> - 1 month</li>
+</ul>
+<h2 id='stop-order-type-stop_order_type'>Stop order type (<code>stop_order_type</code>)</h2>
+<ul>
+<li><code>TakeProfit</code></li>
+<li><code>StopLoss</code></li>
+<li><code>TrailingStop</code></li>
+<li><code>Stop</code></li>
 </ul>
 <h1 id='t-errors'>Errors</h1>
 <p>The Bybit API uses the following HTTP Codes and Error Codes<span>:</span></p>
@@ -7927,11 +7981,11 @@ ELSE
 </tr>
 <tr>
 <td>30074</td>
-<td>can't create the stop order, because you expect the order will be triggered when the <code>LastPrice</code>(or <code>IndexPrice</code>、 <code>MarkPrice</code>, determined by <code>trigger_by</code>) is raising to <code>stop_px</code>, but the <code>LastPrice</code>(or <code>IndexPrice</code>、 <code>MarkPrice</code>) is already equal to or greater than <code>stop_px</code>, please adjust <code>base_price</code> or <code>stop_px</code></td>
+<td>can't create the stop order, because you expect the order will be triggered when the <code>LastPrice</code>(or <code>IndexPrice</code>,  <code>MarkPrice</code>, determined by <code>trigger_by</code>) is raising to <code>stop_px</code>, but the <code>LastPrice</code>(or <code>IndexPrice</code>,  <code>MarkPrice</code>) is already equal to or greater than <code>stop_px</code>, please adjust <code>base_price</code> or <code>stop_px</code></td>
 </tr>
 <tr>
 <td>30075</td>
-<td>can't create the stop order, because you expect the order will be triggered when the <code>LastPrice</code>(or <code>IndexPrice</code>、 <code>MarkPrice</code>, determined by <code>trigger_by</code>) is falling to <code>stop_px</code>, but the <code>LastPrice</code>(or <code>IndexPrice</code>、 <code>MarkPrice</code>) is already equal to or less than <code>stop_px</code>, please adjust <code>base_price</code> or <code>stop_px</code></td>
+<td>can't create the stop order, because you expect the order will be triggered when the <code>LastPrice</code>(or <code>IndexPrice</code>,  <code>MarkPrice</code>, determined by <code>trigger_by</code>) is falling to <code>stop_px</code>, but the <code>LastPrice</code>(or <code>IndexPrice</code>,  <code>MarkPrice</code>) is already equal to or less than <code>stop_px</code>, please adjust <code>base_price</code> or <code>stop_px</code></td>
 </tr>
 <tr>
 <td>33004</td>
