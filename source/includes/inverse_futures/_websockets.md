@@ -4,29 +4,53 @@
 
 > t(:websocket_codequote_auth1)
 
-```javascript
-var api_key = "";
-var secret = "";
-// A UNIX timestamp after which the request become invalid. This is to prevent replay attacks.
-// unit:millisecond
-var expires = time.now()+1000;
+```python
+# based on: https://github.com/verata-veritatis/pybit/blob/master/pybit/__init__.py
 
-// Signature
-var signature = hex(HMAC_SHA256(secret, 'GET/realtime' + expires));
+import hmac
+import json
+import time
+import websocket
 
-// Parameters string
-var param = "api_key={api_key}&expires={expires}&signature={signature}";
+api_key = ""
+api_secret = ""
 
-// Establishing connection
-var ws = new WebSocket("wsurl?param");
+# Generate expires.
+expires = int((time.time() + 1) * 1000)
+
+# Generate signature.
+signature = str(hmac.new(
+    bytes(api_secret, "utf-8"),
+    bytes(f"GET/realtime{expires}", "utf-8"), digestmod="sha256"
+).hexdigest())
+
+param = "api_key={api_key}&expires={expires}&signature={signature}".format(
+    api_key=api_key,
+    expires=expires,
+    signature=signature
+)
+
+ws = websocket.WebSocketApp(
+    url="wsurl",
+    ...
+)
 ```
 
 > t(:websocket_codequote_auth2)
 
-```javascript
-var ws = new WebSocket("wsurl")
-// Signature is the same for both methods of authentication
-ws.send('{"op":"auth","args":["{api_key}","{expires}","{signature}"]}');
+```python
+ws = websocket.WebSocketApp(
+    url="wsurl",
+    ...
+)
+
+# Authenticate with API.
+ws.send(
+    json.dumps({
+        "op": "auth",
+        "args": [api_key, expires, signature]
+    })
+)
 ```
 
 
@@ -118,7 +142,7 @@ t(:websocket_para_filters2)
 > t(:websocket_codequote_unsubfilters)
 
 ```javascript
-// Unsubscribing to the trade data for BTCUSDM21
+// Unsubscribing from the trade data for BTCUSDM21
 ws.send('{"op":"unsubscribe","args":["trade.BTCUSDM21"]}')
 ```
 
@@ -562,7 +586,7 @@ t(:websocket_aside_instrumentInfo2)
 |:----- |:-----|----- |
 |symbol|string |t(:row_comment_symbol)  |
 |last_price_e4 |integer |t(:row_comment_resp_last_price_e4)  |
-|last_tick_direction |string |t(:enum_tick_direction)  |
+|row_parameter_tick_direction |string |t(:row_comment_position_tick_direction)  |
 |prev_price_24h_e4 |integer |t(:row_comment_resp_prev_price_24h_e4)  |
 |price_24h_pcnt_e6 |integer |t(:row_comment_resp_price_24h_pcnt_e4)  |
 |high_price_24h_e4 |integer |t(:row_comment_resp_high_price_24h_e4)  |
@@ -936,7 +960,7 @@ ws.send('{"op": "subscribe", "args": ["stop_order"]}')
 |create_type |string |t(:row_comment_create_type)  |
 |cancel_type |string |t(:row_comment_cancel_type)  |
 |t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
-|stop_order_type |string |t(:row_comment_stopOrderType)  |
+|t(:row_parameter_stop_order_type) |string |t(:row_comment_stopOrderType)  |
 |trigger_by | string |t(:row_comment_triggerBy) |
 |trigger_price | string | t(:stop_order_trigger_price)|
 |close_on_trigger | bool | t(:row_comment_closeOnTrigger)|

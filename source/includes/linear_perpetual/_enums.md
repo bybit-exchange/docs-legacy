@@ -40,7 +40,7 @@ t(:ENUMs_para)
 * `Settling`
 * `Closed`
 
-## Wallet fund type (`wallet_fund_type`)
+## Wallet fund type (`wallet_fund_type` / `type`)
 * `Deposit` t(:deposit)
 * `Withdraw` t(:withdraw)
 * `RealisedPNL` t(:realisedpnl)
@@ -147,8 +147,29 @@ t(:tick_direction)
 * `MinusTick` t(:minusTick)
 * `ZeroMinusTick` t(:zeroMinusTick)
 
-## TpSl Mode type (`tp_sl_mode`)
+## TP/SL mode (`tp_sl_mode`)
 t(:tp_sl_mode)
 
 * `Full` t(:Full)
-* `Partial` t(:Partial) 
+* `Partial` t(:Partial)
+
+## Kline interval (`interval`)
+* `1` t(:interval_1)
+* `3` t(:interval_3)
+* `5` t(:interval_5)
+* `15` t(:interval_15)
+* `30` t(:interval_30)
+* `60` t(:interval_60)
+* `120` t(:interval_120)
+* `240` t(:interval_240)
+* `360` t(:interval_360)
+* `720` t(:interval_720)
+* `D` t(:interval_D)
+* `W` t(:interval_W)
+* `M` t(:interval_M)
+
+## Stop order type (`stop_order_type`)
+* `TakeProfit`
+* `StopLoss`
+* `TrailingStop`
+* `Stop`

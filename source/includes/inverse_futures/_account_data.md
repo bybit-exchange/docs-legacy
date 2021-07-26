@@ -435,7 +435,7 @@ POST
 |order_id |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
 |order_link_id |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol). |
-|p_r_qty |false |string |t(:row_comment_pRQty) |
+|p_r_qty |false |integer |t(:row_comment_pRQty) |
 |p_r_price |false |string |t(:row_comment_pRPrice) |
 |take_profit |false |number |t(:row_comemnt_replace_take_profit)  |
 |stop_loss |false |number |t(:row_comemnt_replace_stop_loss)  |
@@ -796,7 +796,7 @@ GET
 |data > t(:row_parameter_price) |number |t(:row_response_comment_price)  |
 |data > t(:row_parameter_quantity) |number |t(:row_response_comment_qty)  |
 |data > t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
-|data > stop_order_type |string |t(:row_comment_stopOrderType)  |
+|data > t(:row_parameter_stop_order_type) |string |t(:row_comment_stopOrderType)  |
 |data > t(:row_parameter_trigger_price) |string |t(:row_comment_triggerBy)  |
 |data > base_price |number |t(:row_response_comment_basePrice)  |
 |data > order_link_id |string |t(:row_response_comment_orderLinkId)  |
@@ -944,7 +944,7 @@ print(client.FuturesConditional.FuturesConditional_cancelAll(symbol="BTCUSDM21")
 t(:account_para_cancelAllCond)
 
 <aside class="notice">
-t(:account_aside_cancelAllCond)
+t(:account_aside_cancelAllActive)
 </aside>
 
 <p class="fake_header">t(:httprequest)</p>
@@ -977,7 +977,7 @@ POST
 |updated_at |string |t(:row_comment_updated_at)  |
 |cross_status |string |t(:row_comment_cross_status)  |
 |cross_seq |number |t(:row_comment_cross_seq)  |
-|stop_order_type |string |t(:row_comment_stopOrderType)  |
+|t(:row_parameter_stop_order_type) |string |t(:row_comment_stopOrderType)  |
 |t(:row_parameter_trigger_price) |string |t(:row_comment_triggerBy)  |
 |base_price |number |t(:row_response_comment_basePrice)  |
 |expected_direction |string |t(:row_comment_expected_direction)  |
@@ -1275,6 +1275,7 @@ print(client.FuturesPositions.FuturesPositions_myPosition(symbol="BTCUSDM21").re
                 "position_seq": 0,
                 "created_at": "2021-03-11T08:11:17.747178448Z",
                 "updated_at": "2021-03-11T08:24:18.923067183Z"
+                "tp_sl_mode": "Full"
             },
             "is_valid": true
         },
@@ -1314,6 +1315,7 @@ print(client.FuturesPositions.FuturesPositions_myPosition(symbol="BTCUSDM21").re
                 "position_seq": 0,
                 "created_at": "2021-02-24T05:56:07.964274148Z",
                 "updated_at": "2021-03-11T08:52:06.772110817Z"
+                "tp_sl_mode": "Full"
             },
             "is_valid": true
         }
@@ -1749,8 +1751,8 @@ t(:futures_account_para_switchIsolated)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=ulSwitchMode>/futures/private/position/switch-isolated</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ulSwitchMode"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=fppSwitchIsolated>/futures/private/position/switch-isolated</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#fppSwitchIsolated"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -1946,7 +1948,7 @@ GET
 |user_id |number |t(:row_comment_userID)  |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
 |order_id |string |t(:row_comment_order_id) |
-|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|t(:row_parameter_side) |string |t(:row_response_closedPnlSide)  |
 |t(:row_parameter_quantity) |number |t(:row_response_comment_qty)  |
 |order_price |number |t(:row_comment_order_price)  |
 |t(:row_parameter_order_type) |string |t(:row_comment_orderType)  |

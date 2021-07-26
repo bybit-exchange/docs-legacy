@@ -58,8 +58,8 @@ en:
   row_comment_position_seq: Position sequence
   row_comment_cum_commission: Accumulated commission
   row_comment_trailing_active: Trailing stop active price
-  row_comment_sl_trigger_by: Stoploss trigger price type
-  row_comment_tp_trigger_by: Takeprofit trigger price type
+  row_comment_sl_trigger_by: Stop loss trigger price type
+  row_comment_tp_trigger_by: Take profit trigger price type
   row_comment_leverage_result: User leverage
   row_comment_BTCUSD_leverage: BTCUSD leverage
   row_comment_EOSUSD_leverage: EOSUSD leverage
@@ -86,13 +86,13 @@ en:
   row_comment_section: Section
   row_comment_is_lowest_risk: |
     Is lowest risk. <code>0</code>: No; <code>1</code>: Yes
-  row_comment_funding_rate: Funding rate
-  row_comment_funding_rate_timestamp: Funding rate timestamp
+  row_comment_funding_rate: <a href="https://help.bybit.com/hc/en-us/articles/360039261114-What-is-funding-rate-and-predicted-rate-">Funding rate</a>
+  row_comment_funding_rate_timestamp: <a href="https://help.bybit.com/hc/en-us/articles/360039261114-What-is-funding-rate-and-predicted-rate-">Funding rate</a> timestamp
   row_comment_funding_side: Your position side at the time of settlement
   row_comment_funding_position_size: Your position size at the time of settlement
   row_comment_funding_exec_fee: Funding fee
   row_comment_funding_exec_timestamp: Funding fee execution timestamp
-  row_comment_predicted_funding_rate: Predicted funding rate
+  row_comment_predicted_funding_rate: <a href="https://help.bybit.com/hc/en-us/articles/360039261114-What-is-funding-rate-and-predicted-rate-">Predicted funding rate</a>
   row_comment_predicted_funding_fee: Predicted funding fee
   row_comment_api_key: API key
   row_comment_type: Key type
@@ -138,7 +138,7 @@ en:
   row_comment_orderType: Active order type
   row_comment_qty: Order quantity in USD
   row_comment_price: Order price. <b>Required</b> if you make limit price order
-  row_comment_stopOrderPrice: Execution price for conditional order. Required if you make limit price order
+  row_comment_stopOrderPrice: Execution price for conditional order. <b>Required</b> if you make limit price order
   row_comment_basePrice: It will be used to compare with the value of <code>stop_px</code>, to decide whether your conditional order will be triggered by crossing trigger price from upper side or lower side. Mainly used to identify the expected direction of the current conditional order.
   row_comment_stopPx: Trigger price
   row_comment_timeInForce: Time in force
@@ -153,7 +153,7 @@ en:
   row_comment_orderLinkId: Customised order ID, maximum length at 36 characters, and order ID under the same agency has to be unique.
   row_comment_page: Page. By default, gets first page of data
   row_comment_page_max50: Page. By default, gets first page of data. Maximum of 50 pages
-  row_comment_order: Sort orders by creation date
+  row_comment_order: Sort orders by creation date. Defaults to <code>desc</code>
   row_comment_orderId: Your active order ID. The unique order ID returned to you when the corresponding active order was created
   row_comment_stopOrderId: Your conditional order ID. The unique order ID returned to you when the corresponding active order was created
   row_comment_pRQty: New order quantity. Do not pass this field if you don't want modify it
@@ -211,7 +211,6 @@ en:
   row_comment_resp_ask_price: Selling price of the first order
   row_comment_resp_last_price: Latest transaction price
   row_comment_resp_last_price_e4: Latest transaction price 10^4
-  row_comment_resp_last_tick_direction: Price change direction
   row_comment_resp_prev_price_24h: Price of 24 hours ago
   row_comment_resp_prev_price_24h_e4: Price of 24 hours ago * 10^4
   row_comment_resp_price_24h_pcnt: Percentage change of market price relative to 24h
@@ -240,11 +239,11 @@ en:
   row_comment_resp_total_volume_e8: Total volume * 10^8
   row_comment_resp_volume_24h: Trading volume in the last 24 hours
   row_comment_resp_volume_24h_e8: Trading volume in the last 24 hours * 10^8
-  row_comment_resp_funding_rate: Funding rate
-  row_comment_resp_funding_rate_e6: Funding rate * 10^8
-  row_comment_resp_predicted_funding_rate: Predicted funding rate
-  row_comment_resp_funding_rate_e6: Funding rate * 10^6
-  row_comment_resp_predicted_funding_rate_e6: Predicted funding rate * 10^6
+  row_comment_resp_funding_rate: <a href="https://help.bybit.com/hc/en-us/articles/360039261114-What-is-funding-rate-and-predicted-rate-">Funding rate</a>
+  row_comment_resp_funding_rate_e6: <a href="https://help.bybit.com/hc/en-us/articles/360039261114-What-is-funding-rate-and-predicted-rate-">Funding rate</a> * 10^8
+  row_comment_resp_predicted_funding_rate: <a href="https://help.bybit.com/hc/en-us/articles/360039261114-What-is-funding-rate-and-predicted-rate-">Predicted funding rate</a>
+  row_comment_resp_funding_rate_e6: <a href="https://help.bybit.com/hc/en-us/articles/360039261114-What-is-funding-rate-and-predicted-rate-">Funding rate</a> * 10^6
+  row_comment_resp_predicted_funding_rate_e6: <a href="https://help.bybit.com/hc/en-us/articles/360039261114-What-is-funding-rate-and-predicted-rate-">Predicted funding rate</a> * 10^6
   row_comment_resp_next_funding_time: Next settlement time of capital cost
   row_comment_resp_countdown_hour: Countdown of settlement capital cost
   row_comment_bid1_price_e4: Best bid price * 10^4
@@ -266,6 +265,7 @@ en:
   row_response_comment_price: Order price
   row_response_comment_qty: Order quantity in USD
   row_response_comment_basePrice: Market price at placing order
+  row_response_comment_triggerBy: Trigger price type
   row_response_comment_orderLinkId: Customised order ID
   row_response_comment_id: Latest data ID
   row_response_comment_execprice: Execution price
@@ -320,7 +320,7 @@ en:
   row_parameter_sl_trigger_by: <a href="#trigger-price-type-trigger_by">sl_trigger_by</a>
   row_parameter_symbol: <a href="#symbol-symbol">symbol</a>
   row_parameter_side: <a href="#side-side">side</a>
-  row_parameter_tp_sl_mode:  <a href="#tpsl-mode-type-tp_sl_mode">tp_sl_mode</a>
+  row_parameter_tp_sl_mode:  <a href="#tp-sl-mode-tp_sl_mode">tp_sl_mode</a>
   row_parameter_order_type: <a href="#order-type-order_type">order_type</a>
   row_parameter_quantity: <a href="#quantity-qty">qty</a>
   row_parameter_price: <a href="#price-price">price</a>
@@ -332,6 +332,7 @@ en:
   row_parameter_exec_type: <a href="#exec-type-exec_type">exec_type</a>
   row_parameter_last_liquidity_ind: <a href="#liquidity-type-last_liquidity_ind">last_liquidity_ind</a>
   row_parameter_tick_direction: <a href="#tick-direction-type-tick_direction">tick_direction</a>
+  row_parameter_stop_order_type: <a href="#stop-order-type-stop_order_type">stop_order_type</a>
 
 
   enum_withdraw_status_link: <a href="#withdraw-status-status">Withdraw Status Enum</a>
@@ -340,9 +341,8 @@ en:
   enum_symbol_link: <a href="#symbol-symbol">Symbol Enum</a>
   enum_contract_type_link: <a href="#contract-type-contract_type">Contract Type Enum</a>
   enum_order_type_link: <a href="#order-type-order_type">Order Type Enum</a>
-  enum_tick_direction: <a href="#tick-direction-type-tick_direction">Tick Direction</a>
   enum_exec_type_link: <a href="#exec-type-exec_type">Exec Type Enum</a>
-  enum_Liquidity_type_link: <a href="#liquidity-type-last_liquidity_ind">Liquidity Enum</a>, only valid while <code>exec_type</code> is <code>Trade、AdlTrade、BustTrade</code>
+  enum_Liquidity_type_link: <a href="#liquidity-type-last_liquidity_ind">Liquidity Enum</a>, only valid while <code>exec_type</code> is <code>Trade, AdlTrade, BustTrade</code>
   enum_stop_order_status_link: <a href="#stop-order-status-stop_order_status">Stop Order Status</a>
   stop_order_trigger_price: If <code>stop_order_type</code> is <code>TrailingProfit</code>, this field is the trailing stop active price.
   errorcode_meaning: Meaning
@@ -369,37 +369,17 @@ en:
   # introduction in index.html.md
   introduction: Group And Resources
   intro_para:
-    <p> <a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their respective expected outputs, and common errors.</p>
-    <p> For further assistanc or feedback, please join <a href="https://t.me/Bybitapi">API Telegram chat</a>! API discussion group on Telegram. Our fellow developers are happy to chat!</p>
-  spot_intro_para:
-    <p> <a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common error codes.</p>
-    <p> For further assistanc or feedback, please join Bybit's <a href="https://t.me/Bybitapi">API discussion group</a> on Telegram. Our fellow developers are happy to chat!</p>
+    <p><a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common errors.</p>
+    <p>For further assistance or feedback, please join the <a href="https://t.me/BybitAPI">API Telegram chat</a>! API discussion group on Telegram.</p>
 
   resources: Group And Bybit API Resources
   spot_resources: API Resources and Support Channels
   intro_para_resources:
     <ul class="bybit-community">
-    <li><img src="/images/favicon.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong>
-    <li><img src="/images/github_logo_icon.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/docs/issues"><strong>Bybit API Documentation</strong></a> - <strong>report issues here!</strong>
-    <li><img src="/images/github_logo_icon.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/api-connectors/"><strong>Bybit's api-connectors</strong></a> - <strong>find a repo of prebuilt libraries here!</strong>
-    <li><img src="/images/telegram_logo_icon.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong> - <strong>get English help here!</strong>
+    <li><img src="/images/help_favicon.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong>
+    <li><img src="/images/telegram_logo_icon.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong>
     <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong>
-    <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API! </strong>
-    <li><img src="/images/email_icon.png" height="14", width="14"> <a href="mailto:IT@bybit.com"><strong>IT@bybit.com</strong></a> - <strong>official IT support email!</strong>
-    </ul>
-  #spot
-  spot_intro_para_resources:
-    <ul class="bybit-community">
-    <li><img src="/images/favicon.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong></a> - <strong>Learn more about spot trading here!</strong>
-    <li><img src="/images/github_logo_icon.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/docs/issues"><strong>Bybit API Documentation</strong></a> - <strong>Report any issues here!</strong>
-    <li><img src="/images/github_logo_icon.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/api-connectors/"><strong>Bybit's api-connectors</strong></a> - <strong>Learn more about Bybit's API SDK here!</strong>
-
-    <li><img src="/images/github_logo_icon.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/api-connectors/"><strong>Bybit's api-connectors</strong></a> - <strong>Learn more about Bybit's API SDK here!</strong>
-    <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>Our English-speaking support team is here to help!</strong>
-
-    <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>Our Chinese-speaking support team is here to help!</strong>
-    <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>Subscribe to our announcement channel to stay in the know! </strong>
-    <li><img src="/images/email_icon.png" height="14", width="14"> <a href="mailto:IT@bybit.com"><strong>IT@bybit.com</strong></a> - <strong>Contact our IT support via email for further assistance!</strong>
+    <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong>
     </ul>
 
   shared_endpoint_desc: Please see the shared endpoint.
@@ -423,7 +403,7 @@ en:
   position_20200316: Add field <code>effective_leverage</code> in response
   bugfix1_20200316: Fix value of field <code>equity</code> of <code>USDT</code>
   ## 2020-02-26
-  update_20200226: Remove <code>trailing_stop</code> field from paramters of place order endpoint. Currently, this field is useless.
+  update_20200226: Remove <code>trailing_stop</code> field from parameters of place order endpoint. Currently, this field is useless.
   ## 2020-02-10
   replaceActive1_20200210: Add <code>order_id</code> in response
   replaceCond1_20200210: Add <code>stop_order_id</code> in response
@@ -525,14 +505,14 @@ en:
   auth_aside_timestamp: |
     Please make sure that the timestamp parameter adheres to the following rule: server_time - recv_window <= timestamp < server_time + 1000; server_time stands for Bybit server time, which can be queried via the <a href="#t-servertime">Server Time</a> endpoint.
   auth_para_recv: |
-    <p>We also provide <code>recv_window</code> (unit in millsecond and defualt value is 5,000) to specify how long an HTTP request is valid. It is also used to prevent replay attacks.</p>
+    <p>We also provide <code>recv_window</code> (unit in millisecond and default value is 5,000) to specify how long an HTTP request is valid. It is also used to prevent replay attacks.</p>
     <p>A smaller <code>recv_window</code> is more secure, but your request may fail if the transmission time is greater than your <code>recv_window</code>.</p>
     <p>Please make sure that your <code>timestamp</code> is in sync with our server time. You can use the <a href=#t-servertime>Server Time</a> endpoint.</p>
   spot_auth_aside_timestamp: |
     Please make sure that the timestamp parameter adheres to the following rule: serverTime - recvWindow <= timestamp < serverTime + 1000; serverTime stands for Bybit server time, which can be queried via the <a href="#t-servertime">Server Time</a> endpoint.
 
   spot_auth_para_recv: |
-    <p>We also provide <code>recvWindow</code> (unit in millsecond and defualt value is 5,000) to specify how long an HTTP request is valid. It is also used to prevent replay attacks.</p>
+    <p>We also provide <code>recvWindow</code> (unit in millisecond and default value is 5,000) to specify how long an HTTP request is valid. It is also used to prevent replay attacks.</p>
     <p>A smaller <code>recvWindow</code> is more secure, but your request may fail if the transmission time is greater than your <code>recvWindow</code>.</p>
     <p>Please make sure that your <code>timestamp</code> is in sync with our server time. You can use the <a href=#t-servertime>Server Time</a> endpoint.</p>
   ## Constructing the Request
@@ -565,9 +545,9 @@ en:
 
   ### Orderbook
   orderbook: Order book
-  market_para_orderbook: Get the orderbook.
+  market_para_orderbook: Get the orderbook. Each side has a depth of 50.
   market_aside_orderbook: The response is in the snapshot format.
-  ### Query Klne
+  ### Query Kline
   querykline: Query Kline
   market_para_querykline: Get kline.
   ### Query Index Price Kline
@@ -625,7 +605,7 @@ en:
   activeorders: Active Orders
   account_para_placeActive: |
     <p>Market price active order: A traditional market price order which will be filled at the best available price. <code>price</code> is not required for this type of order.
-    <b>To protect market order from excessive slippage, Bybit converts a market order into a limit order with a spread. A market buy order is converted into a limit order at a higher than best ask price; a market sell order is covnerted into a limit order at a lower than best bid price.
+    <b>To protect market order from excessive slippage, Bybit converts a market order into a limit order with a spread. A market buy order is converted into a limit order at a higher than best ask price; a market sell order is converted into a limit order at a lower than best bid price.
        The converted limit price and executed price are both available in trade history.</b>.</p>
     <p>Limit price active order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
     <p><b>Take profit/Stop loss: You may only set a TP/SL conditional order upon opening the position. Once you hold a position, any new active order requests which contain TP/SL data will be accepted but the TP/SL data will be ignored. <code>tp_trigger_by</code>/<code>sl_trigger_by</code> default to LastPrice. Passing values to the <code>take_profit</code> or <code>stop_loss</code> parameters in this endpoint will create conditional orders managed by the system, which will be be automatically cancelled if the position is closed.</b></p>
@@ -653,8 +633,6 @@ en:
   cancelallactive: Cancel All Active Orders
   account_para_cancelAllActive: |
     <p>Cancel all active orders that are unfilled or partially filled. Fully filled orders cannot be cancelled.</p>
-  account_aside_cancelAllActive:
-    This endpoint's <code>rate_limit</code> will decrease by 10 per request
   ### Replace Active Order
   replaceactive: Replace Active Order
   a_replaceactive: Replace Active Order
@@ -666,7 +644,7 @@ en:
     Please note that only orders that are unfilled or partially filled can be modified by the replace-order API.
   ### Query Active Order (real-time)
   queryactive: Query Active Order (real-time)
-  account_para_queryActive: Query real-time active order information. If only <code>order_id</code> or <code>order_link_id</code> are passed, a single order will be returned; otherwise, <b>returns up to 500 unfilled orders</b>.
+  account_para_queryActive: Query real-time active order information. If only <code>order_id</code> or <code>order_link_id</code> are passed, a single order will be returned; otherwise, <b>returns up to <a href="#t-orderlimits">500</a> unfilled orders</b>.
 
   a_getrisklimit: Get risk limit
   a_setrisklimit: Set Risk Limit
@@ -711,8 +689,8 @@ en:
   ### Cancel All Conditional Orders
   cancelallcond: Cancel All Conditional Orders
   account_para_cancelAllCond: Cancel all untriggered conditional orders.
-  account_aside_cancelAllCond:
-    This endpoint's <code>rate_limit</code> will decrease by 10 per request
+  account_aside_cancelAllActive:
+    This endpoint's <code>rate_limit</code> will decrease by 10 per request; ie, one request to this endpoint consumes 10 from the <a href="#t-perendpoint">limit allowed per minute</a>.
   ### Replace Conditional Order
   replacecond: Replace Conditional Order
   a_replacecond: Replace Conditional Order
@@ -724,8 +702,8 @@ en:
     Please note that you can only modify untriggered conditional orders.
   ### Query Conditional Order (real-time)
   querycond: Query Conditional Order (real-time)
-  account_para_queryConditional: Query real-time stop order information. When passing the parameter <code>order_id</code> or <code>order_link_id</code>, a single order data will be returned; otherwise, <b>returns up to 50 unfilled orders</b>.
-  account_para_queryConditionalNote: <b>When a stop order is triggered, it becomes an active order within the system. This endpoint returns <code>order_id</code> which is equal to <code>stop_order_id</code> request parameter.</b>
+  account_para_queryConditional: Query real-time stop order information. When passing the parameter <code>order_id</code> or <code>order_link_id</code>, a single order data will be returned; otherwise, <b>returns up to <a href="#t-orderlimits">10</a> unfilled orders</b>.
+  account_para_queryConditionalNote: <b>When a stop order is triggered, it becomes an active order within the system. This endpoint returns an <code>order_id</code> which is equal to the <code>stop_order_id</code> request parameter.</b>
 
   ## Leverage
   leverage: Leverage
@@ -751,14 +729,19 @@ en:
   account_para_tradingStop: Set take profit, stop loss, and trailing stop for your open position.
   account_para_tradingStop_linear: Set take profit, stop loss, and trailing stop for your open position. If using <a href="#t-switchmode">partial mode</a>, TP/SL/TS orders will not close your entire position.
   account_aside_tradingStop: Passing these parameters will create conditional orders controlled by the system. The system will cancel these orders if the position is closed, and adjust the qty according to the size of the open position.
+  account_row_comment_side: Position side
   account_row_comment_takeProfit: Cannot be less than 0, 0 means cancel TP
   account_row_comment_stopLoss: Cannot be less than 0, 0 means cancel SL
   account_row_comment_tp_trigger_by: |
-    take profit trigger price type, default<span>:</span> <code>LastPrice</code>
+    Take profit trigger price type, default<span>:</span> <code>LastPrice</code>
   account_row_comment_sl_trigger_by: |
-    stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
+    Stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
   account_row_comment_trailingStop: Cannot be less than 0, 0 means cancel TS
   account_row_comment_trailingStop_active: Trailing stop trigger price. Trailing stops are triggered only when the price reaches the specified price. Trailing stops are triggered immediately by default.
+
+  ### Closed Profit and Loss
+  closedprofitandloss: Closed Profit and Loss
+  row_response_closedPnlSide: Side of the closing order
 
   ## Risklimit
   risklimit: Risk Limit
@@ -767,10 +750,10 @@ en:
   funding: Funding
   ### My Last Funding Fee
   mylastfundingfee: My Last Funding Fee
-  account_para_myLastFunding: Funding settlement occurs every 8 hours at 00:00 UTC, 08:00 UTC and 16:00 UTC. The current interval's fund fee settlement is based on the previous interval's fund rate. For example, at 16:00, the settlement is based on the fund rate generated at 8:00. The fund rate generated at 16:00 will be used at 0:00 the next day.
+  account_para_myLastFunding: <a href="https://help.bybit.com/hc/en-us/articles/360039261114-What-is-funding-rate-and-predicted-rate-">Funding settlement occurs</a> every 8 hours at 00:00 UTC, 08:00 UTC and 16:00 UTC. The current interval's fund fee settlement is based on the previous interval's fund rate. For example, at 16:00, the settlement is based on the fund rate generated at 8:00. The fund rate generated at 16:00 will be used at 0:00 the next day.
   ### Predicted Funding Rate and My Funding Fee
   predictedfunding: Predicted Funding Rate and My Funding Fee
-  account_para_predictedFunding: Get predicted funding rate and my funding fee.
+  account_para_predictedFunding: Get <a href="https://help.bybit.com/hc/en-us/articles/360039261114-What-is-funding-rate-and-predicted-rate-">predicted funding rate</a> and my predicted funding fee.
   ## API Key Info
   key: API Key Info
   account_para_key: Get user's API key info.
@@ -874,16 +857,17 @@ en:
   ### Order Limits
   orderlimits: Order Limits
   rate_para_limits: |
-    <p>Max. number of active orders supported under each trading pair:</p>
+    <p>Max. number of unfilled orders supported under each trading pair:</p>
     <ul>
     <li>Active orders: 500</li>
     <li>Conditional orders: 10</li>
     </ul>
+    <p>If you have reached the 500 active order limit, creating a new order will be successful, but the oldest existing order will be cancelled. However, if you have reached the 10 conditional order limit, creating a new order will result in an error, maintaining the existing 10 orders.</p>
   ### How to Raise Your API Limit
   raisemylimit: How to Increase API Limits
   rate_para_raise: |
     <ul>
-    <li>Please refer to <a href="#t-raisemylimit">Understanding Bybit&#39;s Liquidity System</a> regarding how our system automatically allocates rate limits for users who place over 2,000 orders per day.</li>
+    <li>Please refer to <a href="#t-liquidity">Understanding Bybit&#39;s Liquidity System</a> regarding how our system automatically allocates rate limits for users who place over 2,000 orders per day.</li>
     <li>Please email <a href="mailto:api@bybit.com">api@bybit.com</a> with the following information. We will reply within 1-4 working days:</li>
       <ol>
         <li>Your name and your company details</li>
@@ -907,7 +891,7 @@ en:
   rate_para_ratio: |
     <ul>
     <li><code>Order Fill Ratio (OFR)</code>: <code>Orders Filled</code> to <code>Orders Submitted to Bybit</code> to Bybit.</li>
-    <li><code>Orders Submitted to Bybit</code>: any order submitted  to Bybit.</li>
+    <li><code>Orders Submitted to Bybit</code>: any order submitted to Bybit.</li>
     <li><code>Orders Filled</code>: any order that has been filled (regardless of filled quantity).</li>
     <li><code>OFR = (number of orders filled / number of orders submitted to Bybit)</code></li>
     </ul>
@@ -1176,8 +1160,8 @@ en:
 
   # ENUMs Definitions
   enums: Enums Definitions
-  ENUMs_para: The following lists enumerator names for the request and resonse parameters of each endpoint.
-  ## Wallet fund type (`wallet_fund_type`)
+  ENUMs_para: The following lists enumerator names for the request and response parameters of each endpoint.
+  ## Wallet fund type (`wallet_fund_type` / `type`)
   deposit:      ""
   withdraw:     ""
   realisedpnl:  ""
@@ -1198,22 +1182,22 @@ en:
   limit:  ""
   market: ""
   ## Quantity (`qty`)
-  quantity:
+  quantity: |
     <ul>
-    <li>Max.quantity:1 million (<code>1000000</code>)</li>
-    <li>Must be a postive integer
+    <li>The maximum qty for an order (<code>max_trading_qty</code>) can be queried with the <a href="#t-querysymbol">Query Symbol endpoint</a>.</li>
+    <li>Must be a positive integer
+    <li>Must conform to the symbol's <code>qty_step</code>. For example, for the inverse perpetual BTCUSD market:</li>
     <ul>
     <li><code>40</code> - allowed</li>
     <li><code>30.5</code> - not allowed</li>
     </ul>
-    </li>
     </ul>
   ## Price (`price`)
   price: |
     <ul>
     <li>Active order<ul>
     <li>Must be an integral multiple of <code>tick_size</code><ul>
-    <li>Information about current trading pair (e.g. tick size) can be queried with the <a href="#t-querysymbol">Query Symbol endpoint</a>.</li>
+    <li>Information about current trading pair (e.g. <code>tick_size</code>) can be queried with the <a href="#t-querysymbol">Query Symbol endpoint</a>.</li>
     <li>Modulo (<code>%</code>) can be used to calculate whether the price will be accepted:<pre class="center-column">
     IF price % tick_size = 0
         // send request
@@ -1222,7 +1206,7 @@ en:
     </pre></li>
     </ul>
     </li>
-    <li>Must be less than 1 million (<code>1000000</code>)</li>
+    <li>Must be less than the symbol's <code>max_price</code></li>
     <li>If the user has no open position, the order price must be higher than 10% of the last traded price<ul>
     <li>For example, if the last traded price (last price) is <code>10314</code>, the min. order price will be <code>1031.5</code>.</li>
     <li>Pseudocode (assuming the price is a multiple of 0.5):<pre class="center-column">
@@ -1234,7 +1218,7 @@ en:
     </ul>
     </li>
     <li>If the user has an open position, the order price must be better than the liquidation price.<ul>
-    <li>For example, if the liquidation price of a long position is <code>5176.5</code> , the min. order price will be <code>5177</code>. For short position, the order price must be less than the liquidation price.</li>
+    <li>For example, if the liquidation price of a long position is <code>5176.5</code>, the min. order price will be <code>5177</code>. For short position, the order price must be less than the liquidation price.</li>
     </ul>
     </li>
     </ul>
@@ -1270,7 +1254,7 @@ en:
   cancelled1:       ""
   pendingCancel1:   "- matching engine has received the cancelation request but it may not be canceled successfully"
   ## Stop order status (`stop_order_status`)
-  active: "-  order has been triggered and placed successfully"
+  active: "- order has been triggered and the new active order has been successfully placed. Is the final state of a successful conditional order"
   untriggered: "- order yet to be triggered"
   triggered: "- order has been triggered by last traded price"
   cancelled: "- order has been canceled successfully"
@@ -1310,10 +1294,10 @@ en:
   minusTick: "- price drop"
   zeroMinusTick: "- trade occurs at the same price as the previous trade, which occurred at a price lower than that for the trade preceding it "
 
-  ## TpSl Mode type (`tp_sl_mode`)
+  ## TP/SL mode (`tp_sl_mode`)
   tp_sl_mode: "Take profit/stop loss mode"
-  Full: "- Full stop loss take profit"
-  Partial: "- Partial stop loss take profit"
+  Full: "- Full take profit/stop loss mode (a single TP order and a single SL order can be placed, covering the entire position)"
+  Partial: "- Partial take profit/stop loss mode (multiple TP and SL orders can be placed, covering portions of the position)"
 
   Stop: "- Normal stop order"
   TakeProfit: "- Position take profit order"
@@ -1321,6 +1305,27 @@ en:
   TrailingStop: "- Position trailing stop loss order"
   PartialTakeProfit: "- Position partial take profit order"
   PartialStopLoss: "- Position partial take profit order"
+
+  ## Kline interval (`interval`)
+  interval_1: "- 1 minute"
+  interval_3: "- 3 minutes"
+  interval_5: "- 5 minutes"
+  interval_15: "- 15 minutes"
+  interval_30: "- 30 minutes"
+  interval_60: "- 1 hour"
+  interval_120: "- 2 hours"
+  interval_240: "- 4 hours"
+  interval_360: "- 6 hours"
+  interval_720: "- 12 hours"
+  interval_D: "- 1 day"
+  interval_W: "- 1 week"
+  interval_M: "- 1 month"
+
+  ## Date (`start_date`/`end_date`)
+  date: |
+    Follows the format: yyyy-mm-dd
+
+
 
   # Error Code
   errors_intro: The Bybit API uses the following HTTP Codes and Error Codes<span>:</span>
@@ -1344,7 +1349,7 @@ en:
   err_1016: Service not available.
 
 
-  err_10000: An unknown error occured while processing the request
+  err_10000: An unknown error occurred while processing the request
   err_10001: Error - request failed processed. Please try again.
   err_10002: Request not authorized - an API key is required and should be included in all requests.
   err_10003: Too many requests - please use WebSocket for live updates. Current limit is %s requests per minute.
@@ -1354,7 +1359,7 @@ en:
   err_10007: Response timeout from backend server. Delivery and request status unknown.
   err_10010: request ip mismatch
   err_10014: Trading pairs not supported.
-  err_10015: Too many new orders. Please lower request frequency .
+  err_10015: Too many new orders. Please lower request frequency.
   err_10016: Service not available.
   err_10017: request path not found or request method is invalid
   err_10018: exceed ip rate limit
@@ -1395,7 +1400,7 @@ en:
   err_11041: Duplicate clientOrderId.
   err_11042: Order has been canceled.
   err_11043: Order not found.
-  err_11044: Order being cancaled. Operation not supported.
+  err_11044: Order being cancelled. Operation not supported.
   err_11045: Order cannot be canceled.
   err_11046: Order creation timeout.
   err_11047: Order cancellation timeout.
@@ -1475,8 +1480,8 @@ en:
   err_30063: reduce-only rule not satisfied
   err_30067: insufficient available balance
   err_30068: exit value must be positive
-  err_30074: can't create the stop order, because you expect the order will be triggered when the <code>LastPrice</code>(or <code>IndexPrice</code>、 <code>MarkPrice</code>, determined by <code>trigger_by</code>) is raising to <code>stop_px</code>, but the <code>LastPrice</code>(or <code>IndexPrice</code>、 <code>MarkPrice</code>) is already equal to or greater than <code>stop_px</code>, please adjust <code>base_price</code> or <code>stop_px</code>
-  err_30075: can't create the stop order, because you expect the order will be triggered when the <code>LastPrice</code>(or <code>IndexPrice</code>、 <code>MarkPrice</code>, determined by <code>trigger_by</code>) is falling to <code>stop_px</code>, but the <code>LastPrice</code>(or <code>IndexPrice</code>、 <code>MarkPrice</code>) is already equal to or less than <code>stop_px</code>, please adjust <code>base_price</code> or <code>stop_px</code>
+  err_30074: can't create the stop order, because you expect the order will be triggered when the <code>LastPrice</code>(or <code>IndexPrice</code>,  <code>MarkPrice</code>, determined by <code>trigger_by</code>) is raising to <code>stop_px</code>, but the <code>LastPrice</code>(or <code>IndexPrice</code>,  <code>MarkPrice</code>) is already equal to or greater than <code>stop_px</code>, please adjust <code>base_price</code> or <code>stop_px</code>
+  err_30075: can't create the stop order, because you expect the order will be triggered when the <code>LastPrice</code>(or <code>IndexPrice</code>,  <code>MarkPrice</code>, determined by <code>trigger_by</code>) is falling to <code>stop_px</code>, but the <code>LastPrice</code>(or <code>IndexPrice</code>,  <code>MarkPrice</code>) is already equal to or less than <code>stop_px</code>, please adjust <code>base_price</code> or <code>stop_px</code>
   err_33004: apikey already expired
   err_34026: the limit is no change
   err_35014: over order limit
@@ -1604,8 +1609,8 @@ en:
   err_130041: AvailableBalanceE8 less than 0
   err_130049: available balance not enough
   err_130050: Any adjustments made will trigger liq
-  err_130051: cannot set leverage ,due to risk limit,
-  err_130052: cannot set leverage , below the lower limit
+  err_130051: cannot set leverage, due to risk limit
+  err_130052: cannot set leverage, below the lower limit
   err_130056: the position is in cross_margin
   err_130057: the position size is 0
   err_130058: can not set margin less than minPositionCost
@@ -1652,8 +1657,8 @@ en:
   err_130145: Close order side is large than position's leaving qty
   err_130149: Order creation successful but SL/TP setting failed
   err_130150: Please try again later.
-  err_130151: At least one take profit order in the mode,Cannot be switched
-  err_130152: At least one stop loss order in the mode,Cannot be switched
+  err_130151: At least one take profit order in the mode, Cannot be switched
+  err_130152: At least one stop loss order in the mode, Cannot be switched
   err_130153: Switching failed. Please cancel the current SL/TP setting
   err_130154: Switching failed. Please cancel the SL/TP setting of active orders
   err_130155: Insufficient quantity required to set TP/SL
@@ -1761,9 +1766,8 @@ en:
   linear_order_fix_order_type___20200403: Fix value of <code>order_type</code> in response
   linear_exec_type: Execution type
   exec_type_pnl: Execution type (cannot be <code>Funding</code>)
-  closedprofitandloss: Closed Profit and Loss
-  switchmode: Full/Partial Position SL/TP Switch
-  switchmode_aside: When set to Partial, SL/TP orders may have a quantity less than the position size. This is set with the <a href="#t-tradingstop">Trading-Stop endpoint</a>.
+  switchmode: Full/Partial Position TP/SL Switch
+  switchmode_aside: When set to Partial, TP/SL orders may have a quantity less than the position size. This is set with the <a href="#t-tradingstop">Trading-Stop endpoint</a>.
   addmargin: Add/Reduce Margin
   restapi_update_20200414: Updated <code>BTCUSDT</code> contract information
   linear_private_trade_records: Get user's trading records. The results are ordered in descending order (the first item is the latest).
@@ -1777,7 +1781,7 @@ en:
   restapi_update_20200417_4: Update support millisecond <code>start_time</code>
   restapi_update_20200417_5: Abandon response field <code>trade_time</code>
   restapi_update_20200418_1: Fix permission denied issue of below endpoints under <code>readonly</code> model<span>:</span>
-  restapi_update_20200418_2: Add new fields in reponse, like <code>exec_price</code>,<code>exec_value</code>
+  restapi_update_20200418_2: Add new fields in response, like <code>exec_price</code>,<code>exec_value</code>
   restapi_update_20200427_1: Return symbol <code>BTCUSDT</code> by default
   restapi_update_20200429_1: Add new request parameter <code>order</code>
   restapi_update_20200429_2: Fix bug of always returning Zero for <code>inviter_id</code> under certain conditions
@@ -1806,12 +1810,12 @@ en:
   restapi_update_20201012_1: Fix issue where not returning stop orders of <code>Deactivated</code> status
   restapi_update_20201012_2: Fix issue where returning wrong <code>cum_exec_fee</code> for filled orders
   restapi_update_20201021_1: Fix bug of <code>given_cash</code> and <code>service_cash</code> are always Zero when coin is <code>USDT</code>
-  restapi_update_20201021_2: Add new USDT perpetual symbols<span>:</span> <a href="#symbol-symbol">ETHUSDT、LINKUSDT、LTCUSDT、XTZUSDT</a>
+  restapi_update_20201021_2: Add new USDT perpetual symbols<span>:</span> <a href="#symbol-symbol">ETHUSDT, LINKUSDT, LTCUSDT, XTZUSDT</a>
   restapi_update_20201021_3: Support setting tp/sl by different trigger price types
   restapi_update_20201026_1: Add field <code>is_isolated</code> in response
   restapi_update_20201102_1: Request parameter <code>symbol</code> is optional now; If symbol is not passed, return positions of all symbols
   restapi_update_20201111_1: The following REST API will be upgraded. The abandoned endpoints will be deprecated on December 10, 2020. Effective immediately, the rate limit will be reduced by half before being completely removed from service on December 17, 2020.
-  restapi_update_20201111_2: The abandoned endpoints will be deprecated on November 30 ,2020
+  restapi_update_20201111_2: The abandoned endpoints will be deprecated on November 30, 2020
   restapi_update_20201112_1: <code>order_status</code> query orders with specific statuses by passing each <code>order_status</code> split with ','.
   restapi_update_20201112_2: <code>stop_order_status</code> query orders with specific statuses by passing each <code>stop_order_status</code> split with ','.
   restapi_update_20201116_1: Add field <code>is_isolated</code> and <code>auto_add_margin</code> in response
@@ -1861,14 +1865,14 @@ en:
   restapi_update_20210301: Change url prefix from <code>future</code> to <code>futures</code>
   restapi_update_20210304: Fix the bug that the filtering function doesn't work for parameter <code>wallet_fund_type</code>
   restapi_update_20210311: Fix sequence of response data
-  restapi_update_20210318_1: Add new USDT perpetual symbols<span>:</span> <a href="#symbol-symbol">ADAUSDT、DOTUSDT、UNIUSDT</a>
+  restapi_update_20210318_1: Add new USDT perpetual symbols<span>:</span> <a href="#symbol-symbol">ADAUSDT, DOTUSDT, UNIUSDT</a>
   restapi_update_20210318_2: Query risk limit return field added maximum leverage <code>max_leverage</code>
   restapi_update_20210322: Fix the bug that the filtering function doesn't work for parameter <code>start_date</code> and <code>end_date</code>
   restapi_update_20210324: Query risk limit return field added maximum leverage <code>max_leverage</code>
-  restapi_update_20210430: Testnet Add new USDT perpetual symbols<span>:</span> <a href="#symbol-symbol">XRPUSDT、XEMUSDT、SUSHIUSDT、AAVEUSDT</a>
-  restapi_update_20210513: Add new USDT perpetual symbols<span>:</span> <a href="#symbol-symbol">XRPUSDT、XEMUSDT、SUSHIUSDT、AAVEUSDT</a>
+  restapi_update_20210430: Testnet Add new USDT perpetual symbols<span>:</span> <a href="#symbol-symbol">XRPUSDT, XEMUSDT, SUSHIUSDT, AAVEUSDT</a>
+  restapi_update_20210513: Add new USDT perpetual symbols<span>:</span> <a href="#symbol-symbol">XRPUSDT, XEMUSDT, SUSHIUSDT, AAVEUSDT</a>
   restapi_update_20210602: Add new USDT perpetual symbol<span>:</span> <a href="#symbol-symbol">DOGEUSDT</a>
-  restapi_update_20210629: Add new USDT perpetual symbols<span>:</span> <a href="#symbol-symbol">MATICUSDT、EOSUSDT、ETCUSDT、BNBUSDT、FILUSDT、SOLUSDT</a>
+  restapi_update_20210629: Add new USDT perpetual symbols<span>:</span> <a href="#symbol-symbol">MATICUSDT, EOSUSDT, ETCUSDT, BNBUSDT, FILUSDT, SOLUSDT</a>
   restapi_update_20210527_1: Add new request parameters <code>tp_trigger_by</code>, <code>sl_trigger_by</code>
   restapi_update_20210628: Add fields of <code>take_profit</code>, <code>stop_loss</code>, <code>trailing_stop</code> in response
   restapi_update_20210628_1: Fix values of <code>min_price</code> and <code>tick_size</code> for symbols <code>BCHUSDT</code> and <code>UNIUSDT</code>
@@ -1893,7 +1897,7 @@ en:
   restapi_update_20210407: Fix value of <code>price</code> of <a href="#t-query_liqrecords">Liquidated Orders</a> from <code>liq_price</code> to <code>bust_price</code>, you can find more about liquidation <a href="https://help.bybit.com/hc/en-us/articles/360039261474-Liquidation-process-Inverse-Contract-">here</a>
   restapi_update_20210414_1: Add <code>position_idx</code> for <a href="#t-getcond">Get Conditional Order</a>,<a href="#t-querycond">Query Conditional Order (real-time)</a>,<a href="#t-getactive">Get Active Order</a>,<a href="#t-queryactive">Query Active Order (real-time)</a>
   restapi_update_20210414_2: Fix data of position list when request without request parameter <code>symbol</code> if the position is under both side mode
-  restapi_update_20210415: Fix value of <code>used_margin、order_margin、position_margin、occ_closing_fee、unrealised_pnl</code> of <a href="#t-balance">Get Wallet Balance</a> endpoint not contains Inverse Futures positions
+  restapi_update_20210415: Fix value of <code>used_margin, order_margin, position_margin, occ_closing_fee, unrealised_pnl</code> of <a href="#t-balance">Get Wallet Balance</a> endpoint not contains Inverse Futures positions
   restapi_update_20210422: Deprecated Fields of self_ratio and platform_ratio, it is returned as 0 currently
   restapi_update_20210507: Add fields <code>buy_leverage</code>,<code>sell_leverage</code>. <code>leverage</code> not recommand to use
   restapi_update_2021050701: Add：<code>v2/private/position/switch-mode</code>
@@ -1940,11 +1944,11 @@ en:
   linear_resp_field_cum_exit_value: Cumulative trading value of position closing orders
   linear_resp_field_avg_exit_price: Average exit price
   linear_resp_field_closed_pnl: Closed Profit and Loss
-  linear_resp_field_fill_count: Number of transactions
+  linear_resp_field_fill_count: The number of fills in a single order
   linear_row_comment_recent_trading_records_limit: Number of results. Default 500; max 1000
 
-  inverse_query_index_price_kline: Index price kline. Tracks BTC spot prices, with a frequency of every second (learn more <a href="https://www.bybit.com/app/contracts">here</a>.
-  inverse_query_premium_indices_kline: Premium index kline. Tracks the premium / discount of BTC perpetual contracts relative to the mark price per minute (learn more <a href="https://www.bybit.com/app/contracts">here</a>.
+  inverse_query_index_price_kline: Index price kline. Tracks BTC spot prices, with a frequency of every second (learn more <a href="https://www.bybit.com/app/contracts">here</a>).
+  inverse_query_premium_indices_kline: Premium index kline. Tracks the premium / discount of BTC perpetual contracts relative to the mark price per minute (learn more <a href="https://www.bybit.com/app/contracts">here</a>).
 
   linear_testnet_only: testnet only
 
@@ -1994,7 +1998,7 @@ en:
   spotSymbolName: Symbol name
   spotIcebergQty: Please ignore
   spotGetOrderRemark: At least one must be entered in the orderId field and the ordersLinkId field
-  spot_kline_interval: Chart interval. Possible values are 1m, 5m, 15m, 30m, 1h, 1d, 1W, 1M (m=minute, h=hour, d=day, w=week, M=month)
+  spot_kline_interval: Chart interval
   spotTime: Order creation time
   spotFeeTokenId: Fee Token ID
   spotFeeTokenName: Fee token name
@@ -2042,8 +2046,8 @@ en:
   spot_message: Success or not (true/false)
   spot_sMessage: True indicates buy order, false indicates sell order
   spot_order_list_limit: Default value is 500, max 500
-  spot_orders_start_time: Start time, unit in milliesecond
-  spot_orders_end_time: End time, unit in milliesecond
+  spot_orders_start_time: Start time, unit in millisecond
+  spot_orders_end_time: End time, unit in millisecond
   spot_history_orders: Past Orders
   spot_my_trades: Trade History
   spot_from_id:  Query begins with the trade ID
@@ -2055,7 +2059,7 @@ en:
   spot_depth_limit: Default value is 100
   spotOrderBookMergedScale: Precision of the merged orderbook, 1 means 1 digit
   spot_depth_time:  Current time, unit in millisecond
-  spot_depth_bids: Bid price and quantity, with best bid prices ranked  from top to bottom
+  spot_depth_bids: Bid price and quantity, with best bid prices ranked from top to bottom
   spot_depth_asks: Ask price and quantity, with best ask prices ranked from top to bottom
   mergedOrderBook: Merged Order Book
   spot_trades: Recent trades
@@ -2087,7 +2091,7 @@ en:
   spotClose: Close price
   spotVolume: Trading volume
   spotTrades: Number of trades
-  spotTakerBaseVolume: Taker buy  volume in base asset
+  spotTakerBaseVolume: Taker buy volume in base asset
   spotTakerQuoteVolume: Taker buy volume in quote asset
   spot_ticket_id: Ticket ID
   spot_match_order_id: Order ID
@@ -2105,7 +2109,7 @@ en:
   spot_symbol: Trading pair
   spot_quantity: Quantity
   spot_side: True indicates buy order, false indicates sell order
-  spot_order_type: Order type. Possible values are LIMIT,MARKET, and LIMIT_MAKER
+  spot_order_type: Order type. Possible values are LIMIT, MARKET, and LIMIT_MAKER
   spot_order_client_id: User-generated order ID
   spot_order_status: Order status, possible values include NEW, PARTIALLY_FILLED, FILLED, CANCELED, and REJECTED
   spot_first: First time or not (true/false)
@@ -2178,7 +2182,7 @@ en:
   spot_websocket_orderbook_desc_v1: |
     <p>Market depth data for a trading pair: </p>
     <ul>
-      <li>Snapshot frequency: every 300 milleseconds (if the bid-ask spread of the order book changes).</li>
+      <li>Snapchat frequency: every 300 milliseconds (if the bid-ask spread of the order book changes).</li>
       <li>Snapshot depth: 300 each for asks and bids.</li>
       <li>Events trigger order book version change：
         <ul>
@@ -2250,13 +2254,13 @@ en:
   spot_websocket_trade_desc_v2: |
     <p>The Trade Streams push raw trade information; each trade has a unique buyer and seller.</p>
     <p>After successful handshake and connected to server, the server will return the latest 60 trades. After this payload, the following will be real-time trades.</p>
-    <p>Variable "v" acts as an tradeId. This variable is shared across different symbols; however, each ID is unique. For example, suppose in the last 5 seconds 3 trades happened in ETHSUDT, BTCUSDT, and BHTBTC. Their version (which is "v") will be consecutive: 112, 113, 114.</p>
+    <p>Variable "v" acts as an tradeId. This variable is shared across different symbols; however, each ID is unique. For example, suppose in the last 5 seconds 3 trades happened in ETHUSDT, BTCUSDT, and BHTBTC. Their version (which is "v") will be consecutive: 112, 113, 114.</p>
 
   spot_websocket_orderbook_v2: Order Book Streams (Full Depth)
   spot_websocket_orderbook_desc_v2: <p> Market depth data for a trading pair:</p>
     <ul>
-      <li>Snapshot frequency:every 250 milleseconds (if the bid-ask spread of the order book changes).</li>
-      <li>Snapshot depth:40 each for asks and bids.</li>
+      <li>Snapchat frequency:every 300 milliseconds (if the bid-ask spread of the order book changes).</li>
+      <li>Snapshot depth:300 each for asks and bids.</li>
       <li>Events trigger order book version change：
         <ul>
           <li>order enters order book</li>

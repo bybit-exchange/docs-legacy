@@ -276,7 +276,7 @@ GET
 |t(:row_parameter_price) |number |t(:row_response_comment_price)  |
 |t(:row_parameter_quantity) |number |t(:row_response_comment_qty)  |
 |t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
-|stop_order_type |string |t(:row_comment_stopOrderType)  |
+|t(:row_parameter_stop_order_type) |string |t(:row_comment_stopOrderType)  |
 |t(:row_parameter_trigger_price) |string |t(:row_comment_triggerBy)  |
 |base_price |number |t(:row_response_comment_basePrice)  |
 |order_link_id |string |t(:row_response_comment_orderLinkId)  |
@@ -476,7 +476,7 @@ POST
 |t(:row_parameter_price) |number |t(:row_response_comment_price)  |
 |t(:row_parameter_quantity) |number |t(:row_response_comment_qty)  |
 |t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
-|stop_order_type |string |t(:row_comment_stopOrderType)  |
+|t(:row_parameter_stop_order_type) |string |t(:row_comment_stopOrderType)  |
 |t(:row_parameter_trigger_price) |string |t(:row_comment_triggerBy)  |
 |base_price |number |t(:row_response_comment_basePrice)  |
 |order_link_id |string |t(:row_response_comment_orderLinkId)  |

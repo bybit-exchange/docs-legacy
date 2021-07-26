@@ -122,7 +122,7 @@ GET
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
-|interval |<b>true</b> |string |t(:row_comment_interval) |
+|<a href="#kline-interval-interval">interval</a> |<b>true</b> |string |t(:row_comment_interval) |
 |from |<b>true</b> |integer |t(:row_comment_from_timestamp) |
 |limit |false |integer |t(:row_comment_limit_200) |
 
@@ -244,7 +244,7 @@ GET
 | bid_price |string |t(:row_comment_resp_bid_price) |
 | ask_price |string |t(:row_comment_resp_ask_price) |
 | last_price |string |t(:row_comment_resp_last_price) |
-| last_tick_direction |string |t(:enum_tick_direction) |
+|row_parameter_tick_direction |string |t(:row_comment_position_tick_direction) |
 | prev_price_24h |string |t(:row_comment_resp_prev_price_24h) |
 | price_24h_pcnt |string |t(:row_comment_resp_price_24h_pcnt) |
 | high_price_24h |string |t(:row_comment_resp_high_price_24h) |
@@ -596,7 +596,7 @@ GET
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#symbol-symbol">symbol</a> |<b>true</b> |string |t(:row_comment_symbol) |
-|interval |<b>true</b> |string |t(:row_comment_interval) |
+|<a href="#kline-interval-interval">interval</a> |<b>true</b> |string |t(:row_comment_interval) |
 |from |<b>true</b> |integer |t(:row_comment_from_timestamp) |
 |limit |false |integer |t(:linear_kline_row_comment_limit_200) |
 
@@ -656,9 +656,9 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
-|interval |true |string |t(:row_comment_interval) |
-|from |true |integer |t(:row_comment_from_timestamp) |
+|<a href="#symbol-symbol">symbol</a> |<b>true</b> |string |t(:row_comment_symbol) |
+|<a href="#kline-interval-interval">interval</a> |<b>true</b> |string |t(:row_comment_interval) |
+|from |<b>true</b> |integer |t(:row_comment_from_timestamp) |
 |limit |false |integer |t(:linear_kline_row_comment_limit_200) |
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -718,9 +718,9 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#symbol-symbol">symbol</a> |true |string |t(:row_comment_symbol) |
-|interval |true |string |t(:row_comment_interval) |
-|from |true |integer |t(:row_comment_from_timestamp) |
+|<a href="#symbol-symbol">symbol</a> |<b>true</b> |string |t(:row_comment_symbol) |
+|<a href="#kline-interval-interval">interval</a> |<b>true</b> |string |t(:row_comment_interval) |
+|from |<b>true</b> |integer |t(:row_comment_from_timestamp) |
 |limit |false |integer |t(:linear_kline_row_comment_limit_200) |
 
 <p class="fake_header">t(:responseparameters)</p>

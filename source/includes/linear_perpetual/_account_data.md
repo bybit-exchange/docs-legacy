@@ -73,13 +73,13 @@ POST
 |t(:row_parameter_quantity) |<b>true</b> |number |t(:linear_row_comment_qty) |
 |t(:row_parameter_price) |false |number |t(:row_comment_price) |
 |t(:row_parameter_time_in_force) |<b>true</b> |string |t(:row_comment_timeInForce) |
+|close_on_trigger |<b>true</b> |bool |t(:linear_row_comment_closeOnTrigger)
+|order_link_id |false |string |t(:row_comment_orderLinkId) |
 |take_profit |false |number |t(:row_comment_takeProfit) |
 |stop_loss |false |number |t(:row_comment_stopLoss) |
 |t(:row_parameter_tp_trigger_by) |false |string |t(:account_row_comment_tp_trigger_by) |
 |t(:row_parameter_sl_trigger_by) |false |string |t(:account_row_comment_sl_trigger_by) |
 |reduce_only |<b>true</b> |bool |t(:linear_row_comment_reduceOnly) |
-|close_on_trigger |<b>true</b> |bool |t(:linear_row_comment_closeOnTrigger)
-|order_link_id |false |string |t(:row_comment_orderLinkId) |
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -368,7 +368,7 @@ POST
 |order_id |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
 |order_link_id |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
-|p_r_qty |false |string |t(:row_comment_pRQty) |
+|p_r_qty |false |integer |t(:row_comment_pRQty) |
 |p_r_price |false |number |t(:row_comment_pRPrice) |
 |take_profit |false |number |t(:row_comemnt_replace_take_profit)  |
 |stop_loss |false |number |t(:row_comemnt_replace_stop_loss)  |
@@ -621,8 +621,8 @@ POST
 |t(:row_parameter_time_in_force) |<b>true</b> |string |t(:row_comment_timeInForce) |
 |t(:row_parameter_trigger_price) | false | string | t(:row_comment_triggerBy)|
 |close_on_trigger |<b>true</b> |bool |t(:row_comment_closeOnTrigger)
-|order_link_id |false |string |t(:row_comment_orderLinkId) |
 |reduce_only |<b>true</b> |bool |t(:linear_row_comment_reduceOnly) |
+|order_link_id |false |string |t(:row_comment_orderLinkId) |
 |take_profit |false |number |t(:row_comment_takeProfit) |
 |stop_loss |false |number |t(:row_comment_stopLoss) |
 |t(:row_parameter_tp_trigger_by) |false |string |t(:account_row_comment_tp_trigger_by) |
@@ -865,7 +865,7 @@ print(client.LinearConditional.LinearConditional_cancelAll(symbol="BTCUSDT").res
 t(:account_para_cancelAllCond)
 
 <aside class="notice">
-t(:account_aside_cancelAllCond)
+t(:account_aside_cancelAllActive)
 </aside>
 
 <p class="fake_header">t(:httprequest)</p>
@@ -931,7 +931,7 @@ POST
 |stop_order_id |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
 |order_link_id |false |string | t(:misc_row_comment_orderLinkIdNotStopOrderId)|
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
-|p_r_qty |false |string |t(:row_comment_pRQty) |
+|p_r_qty |false |integer |t(:row_comment_pRQty) |
 |p_r_price |false |number |t(:row_comment_pRPrice) |
 |p_r_trigger_price |false |number |t(:row_comemnt_pRTriggerPrice) |
 |take_profit |false |number |t(:row_comemnt_replace_take_profit)  |
@@ -1135,6 +1135,9 @@ print(client.LinearPositions.LinearPositions_myPosition(symbol="BTCUSDT").result
                "unrealised_pnl": 0,
                "deleverage_indicator": 0,
                "risk_id": 0,
+               "stop_loss": 0,
+               "take_profit": 0,
+               "trailing_stop": 0
            },
            {
                "user_id":100004,
@@ -1157,6 +1160,9 @@ print(client.LinearPositions.LinearPositions_myPosition(symbol="BTCUSDT").result
                "unrealised_pnl": 0,
                "deleverage_indicator": 0,
                "risk_id": 0,
+               "stop_loss": 0,
+               "take_profit": 0,
+               "trailing_stop": 0
            }
     ],
     "time_now": "1577480599.097287",
@@ -1195,6 +1201,9 @@ print(client.LinearPositions.LinearPositions_myPosition(symbol="BTCUSDT").result
                 "unrealised_pnl": 0,
                 "deleverage_indicator": 0,
                 "risk_id": 0,
+                "stop_loss": 0,
+                "take_profit": 0,
+                "trailing_stop": 0
             }
         },
         {
@@ -1220,6 +1229,9 @@ print(client.LinearPositions.LinearPositions_myPosition(symbol="BTCUSDT").result
                 "unrealised_pnl": 0,
                 "deleverage_indicator": 0,
                 "risk_id": 0,
+                "stop_loss": 0,
+                "take_profit": 0,
+                "trailing_stop": 0
             }
         },
         ...
@@ -1246,6 +1258,9 @@ print(client.LinearPositions.LinearPositions_myPosition(symbol="BTCUSDT").result
                 "unrealised_pnl": 0,
                 "deleverage_indicator": 0,
                 "risk_id": 0,
+                "stop_loss": 0,
+                "take_profit": 0,
+                "trailing_stop": 0
             }
         },
         {
@@ -1271,6 +1286,9 @@ print(client.LinearPositions.LinearPositions_myPosition(symbol="BTCUSDT").result
                 "unrealised_pnl": 0,
                 "deleverage_indicator": 0,
                 "risk_id": 0,
+                "stop_loss": 0,
+                "take_profit": 0,
+                "trailing_stop": 0
             }
         }
     ],
@@ -1649,7 +1667,7 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
-|t(:row_parameter_side) |<b>true</b> |string |t(:row_comment_side)    |
+|t(:row_parameter_side) |<b>true</b> |string |t(:account_row_comment_side)    |
 |take_profit |false |number |t(:account_row_comment_takeProfit) |
 |stop_loss |false |number |t(:account_row_comment_stopLoss) |
 |trailing_stop |false |number |t(:account_row_comment_trailingStop) |
@@ -1839,7 +1857,7 @@ GET
 |user_id |number |t(:row_comment_userID)  |
 |t(:row_parameter_symbol) |string |t(:row_comment_symbol)    |
 |order_id |string |t(:row_comment_order_id)  |
-|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|t(:row_parameter_side) |string |t(:row_response_closedPnlSide)  |
 |t(:row_parameter_quantity) |number |t(:row_comment_order_qty)  |
 |order_price |number |t(:row_comment_order_price)  |
 |t(:row_parameter_order_type) |string |t(:row_comment_order_type)  |
@@ -2003,9 +2021,9 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |true |string |t(:row_comment_symbol) |
-|t(:row_parameter_side) |true |string |t(:row_comment_side)    |
-|risk_id |true |integer |t(:row_comment_riskId) |
+|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
+|t(:row_parameter_side) |<b>true</b> |string |t(:row_comment_side)    |
+|risk_id |<b>true</b> |integer |t(:row_comment_riskId) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|

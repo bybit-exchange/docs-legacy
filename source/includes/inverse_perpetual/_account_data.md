@@ -8,7 +8,7 @@ t(:account_para)
 ```console
 curl https://api.bybit.com/v2/private/order/create \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","side"="Buy","symbol"="BTCUSD","order_type":"Market","qty":10,"time_in_force":"GoodTillCancel","timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","side":"Buy","symbol":"BTCUSD","order_type":"Market","qty":10,"time_in_force":"GoodTillCancel","timestamp":{timestamp},"sign":"{sign}"}'
 
 ```
 
@@ -70,13 +70,13 @@ POST
 |t(:row_parameter_quantity) |<b>true</b> |integer |t(:row_comment_qty) |
 |t(:row_parameter_price) |false |number |t(:row_comment_resp_price) |
 |t(:row_parameter_time_in_force) |<b>true</b> |string |t(:row_comment_timeInForce) |
+|close_on_trigger |false |bool |t(:row_comment_closeOnTrigger)
+|order_link_id |false |string |t(:row_comment_orderLinkId) |
 |take_profit |false |number |t(:row_comment_takeProfit) |
 |stop_loss |false |number |t(:row_comment_stopLoss) |
 |t(:row_parameter_tp_trigger_by) |false |string |t(:account_row_comment_tp_trigger_by) |
 |t(:row_parameter_sl_trigger_by) |false |string |t(:account_row_comment_sl_trigger_by) |
 |reduce_only |false |bool |t(:row_comment_reduceOnly) |
-|close_on_trigger |false |bool |t(:row_comment_closeOnTrigger)
-|order_link_id |false |string |t(:row_comment_orderLinkId) |
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -435,7 +435,7 @@ POST
 |order_id |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
 |order_link_id |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol). |
-|p_r_qty |false |string |t(:row_comment_pRQty) |
+|p_r_qty |false |integer |t(:row_comment_pRQty) |
 |p_r_price |false |string |t(:row_comment_pRPrice) |
 |take_profit |false |number |t(:row_comemnt_replace_take_profit)  |
 |stop_loss |false |number |t(:row_comemnt_replace_stop_loss)  |
@@ -791,7 +791,7 @@ GET
 |data > t(:row_parameter_price) |number |t(:row_response_comment_price)  |
 |data > t(:row_parameter_quantity) |number |t(:row_response_comment_qty)  |
 |data > t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
-|data > stop_order_type |string |t(:row_comment_stopOrderType)  |
+|data > t(:row_parameter_stop_order_type) |string |t(:row_comment_stopOrderType)  |
 |data > t(:row_parameter_trigger_price) |string |t(:row_response_comment_triggerBy)  |
 |data > base_price |number |t(:row_response_comment_basePrice)  |
 |data > order_link_id |string |t(:row_response_comment_orderLinkId)  |
@@ -939,7 +939,7 @@ print(client.Conditional.Conditional_cancelAll(symbol="BTCUSD").result())
 t(:account_para_cancelAllCond)
 
 <aside class="notice">
-t(:account_aside_cancelAllCond)
+t(:account_aside_cancelAllActive)
 </aside>
 
 <p class="fake_header">t(:httprequest)</p>
@@ -972,7 +972,7 @@ POST
 |updated_at |string |t(:row_comment_updated_at)  |
 |cross_status |string |t(:row_comment_cross_status)  |
 |cross_seq |number |t(:row_comment_cross_seq)  |
-|stop_order_type |string |t(:row_comment_stopOrderType)  |
+|t(:row_parameter_stop_order_type) |string |t(:row_comment_stopOrderType)  |
 |t(:row_parameter_trigger_price) |string |t(:row_comment_triggerBy)  |
 |base_price |number |t(:row_response_comment_basePrice)  |
 |expected_direction |string |t(:row_comment_expected_direction)  |
@@ -1262,6 +1262,7 @@ print(client.Positions.Positions_myPosition(symbol="BTCUSD").result())
         "position_seq": 287141589,
         "created_at": "2019-10-19T17:04:55Z",
         "updated_at": "2019-12-27T20:25:45.158767Z"
+        "tp_sl_mode": "Partial"
     },
     "time_now": "1577480599.097287",
     "rate_limit_status": 119,
@@ -1280,6 +1281,8 @@ print(client.Positions.Positions_myPosition(symbol="BTCUSD").result())
             "is_valid": true, //t(:resp_field_position_list_valid)
             "data": { //t(:resp_field_position_list_data)
                 "id": 0,
+                "position_idx": 0,
+                "mode": 0,
                 "user_id": 118921,
                 "risk_id": 1,
                 "symbol": "BTCUSD",
@@ -1311,6 +1314,7 @@ print(client.Positions.Positions_myPosition(symbol="BTCUSD").result())
                 "position_seq": 581513847,
                 "created_at": "2020-08-10T07:04:32Z",
                 "updated_at": "2020-11-02T00:00:11.943371457Z"
+                "tp_sl_mode": "Partial"
             }
         },
         ...
@@ -1318,6 +1322,8 @@ print(client.Positions.Positions_myPosition(symbol="BTCUSD").result())
             "is_valid": true, //t(:resp_field_position_list_valid)
             "data": { //t(:resp_field_position_list_data)
                 "id": 0,
+                "position_idx": 0,
+                "mode": 0,
                 "user_id": 118921,
                 "risk_id": 35,
                 "symbol": "XRPUSD",
@@ -1349,6 +1355,7 @@ print(client.Positions.Positions_myPosition(symbol="BTCUSD").result())
                 "position_seq": 352149441,
                 "created_at": "2020-08-10T07:04:32Z",
                 "updated_at": "2020-08-22T08:06:32Z"
+                "tp_sl_mode": "Partial"
             }
         }
     ],
@@ -1375,6 +1382,8 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |id |number |t(:row_comment_position_id)  |
+|position_idx |integer |t(:row_comment_position_idx)  |
+|mode |number |t(:row_comment_position_mode)  |
 |user_id |number |t(:row_comment_userID)  |
 |risk_id |number |t(:row_comment_riskId)  |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
@@ -1834,7 +1843,7 @@ GET
 |user_id |number |t(:row_comment_userID)  |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
 |order_id |string |t(:row_comment_order_id) |
-|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|t(:row_parameter_side) |string |t(:row_response_closedPnlSide)  |
 |t(:row_parameter_quantity) |number |t(:row_response_comment_qty)  |
 |order_price |number |t(:row_comment_order_price)  |
 |t(:row_parameter_order_type) |string |t(:row_comment_orderType)  |
@@ -2097,7 +2106,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/v2/public/funding/prev-funding-rate?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}&sign={sign}"
+curl "https://api.bybit.com/v2/public/funding/prev-funding-rate?symbol=BTCUSD"
 ```
 
 ```python
