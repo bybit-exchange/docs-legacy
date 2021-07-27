@@ -229,7 +229,7 @@ DELETE
 |origQty|float|t(:spotOriQty)|
 |executedQty|float|t(:spotExecQty)|
 |timeInForce|string|t(:spotTimeInForce)|
-|type|string|t(:spotOrderType)|
+|t(:row_parameter_type)|string|t(:spotOrderType)|
 |side|string|t(:spotSide)|
 
 
@@ -271,7 +271,7 @@ DELETE
 |:----- |:-------|:-----|----- |
 |symbol|false|string|t(:spotSymbol)|
 |side|false|string|t(:spotSide)|
-|orderTypes|fasle|string|t(:spotOrderTypes)|
+|<a href="#order-type-type-ordertypes">orderTypes</a>|false|string|t(:batchcancel_spotOrderTypes)|
 
 <p class="fake_header">t(:responseparameters)</p>
 

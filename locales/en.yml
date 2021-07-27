@@ -2025,7 +2025,7 @@ en:
   spotTransactTime: Timestamp
   spotCummulativeQuoteQty: Total order quantity
   spotSide: Order direction, possible values include Buy and Sell
-  spotOrderType: Order type, possible values include LIMIT/MARKET/LIMIT_MAKER
+  spotOrderType: Order type
   spotTimeInForce: Time in force, possible values include GTC (Good Till Canceled), FOK (Fill or Kill) and IOC (Immediate or Cancel)
   spotPrice:  Last traded price
   spotOPrice: Order price
@@ -2104,9 +2104,10 @@ en:
   spot_match_account_id: Account ID
   spotQuoteAssetVolume: Quote asset volume
   spotMakerRebate: Marker rebate
-  spotOrderTypes: Optional order types, LIMIT/LIMIT_MAKER, use comma splicing to indicate multiple types. Default LIMIT.
+  batchcancel_spotOrderTypes: |
+    Order type. Use commas to cancel orders with multiple order types, eg <code>LIMIT,LIMIT_MAKER</code>. Default: <code>LIMIT</code>
 
-  row_parameter_type: <a href="#type-type">type</a>
+  row_parameter_type: <a href="#order-type-type-ordertypes">type</a>
   row_parameter_timeInForce: <a href="#timeinforce-timeinforce">timeInForce</a>
 
   #spot_ws_v1

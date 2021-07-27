@@ -14,7 +14,7 @@ t(:ENUMs_para)
 t(:trading_symbol_comment)
 
 
-## Type (`type`)
+## Order type (`type`/`orderTypes`)
 * `LIMIT`
 * `MARKET`
 * `LIMIT_MAKER`
@@ -34,11 +34,6 @@ t(:trading_symbol_comment)
 * `CANCELED`
 * `PENDING_CANCEL`
 * `REJECTED`
-
-## Order type (`order_type`)
-* `LIMIT` t(:limit)
-* `MARKET` t(:market)
-* `LIMIT_MAKER` t(:limit_maker)
 
 ## Quantity (`qty`)
 t(:quantity)

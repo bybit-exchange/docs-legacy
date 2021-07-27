@@ -870,7 +870,7 @@ t(:spot_websocket_user_order_desc)
 | s | string | t(:spot_symbol) |
 | c | string | t(:spot_order_client_id) |
 | S | string | t(:spot_side) |
-| o | string | t(:spot_order_type) |
+| <a href="#order-type-type-ordertypes">o</a> | string | t(:spot_order_type) |
 | f | string | t(:spot_time_in_force) |
 | q | string | t(:spot_quantity) |
 | p | string | t(:spot_price) |
