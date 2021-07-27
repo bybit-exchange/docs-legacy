@@ -262,8 +262,8 @@ DELETE
 
 <p class="fake_header">t(:httprequest)</p>
 DELETE
-<code><span id=vpoCancel>/spot/order/batch-cancel</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancel"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=soBatchCancel>/spot/order/batch-cancel</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#soBatchCancel"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
@@ -520,8 +520,8 @@ GET
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpOrder>/spot/v1/myTrades</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=svMyTrades>/spot/v1/myTrades</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svMyTrades"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
