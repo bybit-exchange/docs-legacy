@@ -6,8 +6,8 @@ t(:account_para)
 
 ```console
 curl https://api.bybit.com/spot/v1/order \
--H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","side"="Buy","symbol"="ETHUSDT","order_type":"Market","qty":10,"time_in_force":"GoodTillCancel","timestamp":{timestamp},"sign":"{sign}"}'
+-H "Content-Type: application/x-www-form-unlencoded" \
+-d 'api_key={api_key}&side=Buy&symbol=ETHUSDT&orderType=MARKET&qty=10&timeInForce=GTC&timestamp={timestamp}&sign={signature}'
 
 ```
 
@@ -53,7 +53,7 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol)|<b>true</b>|string|t(:spotSymbol)|
-|qty|<b>true</b>|number|t(:spotQty)|
+|qty|<b>true</b>|number|t(:spotQtyPlaceOrder)|
 |t(:row_parameter_side)|<b>true</b>|string|t(:spotSide)|
 |t(:row_parameter_type)|<b>true</b>|string|t(:spotOrderType)|
 |t(:row_parameter_timeInForce)|false|string|t(:spotTimeInForce)|

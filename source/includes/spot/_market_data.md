@@ -252,7 +252,7 @@ GET
 |:----- |:-----|----- |
 | price | float | t(:spot_OrderPrice) |
 | time | long | t(:spot_trade_time) |
-| qty | float | t(:spotQuantity) |
+| qty | float | t(:spotQty) |
 | isBuyerMaker | bool | t(:spot_is_buyer_maker) |
 
 
