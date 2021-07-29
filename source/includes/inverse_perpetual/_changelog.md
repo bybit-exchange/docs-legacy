@@ -2,7 +2,7 @@
 
 
 ## 2021-07-29
-### REST API IN TESTNET ENVIRONMENT
+### REST API
 - [t(:setleverage)](#t-setleverage) [t(:changelog_update)]
    - t(:restapi_update_20210701)
 - [t(:marginswitch)](#t-marginswitch) [t(:changelog_update)]
