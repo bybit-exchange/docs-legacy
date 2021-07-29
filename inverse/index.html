@@ -692,6 +692,14 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#2021-07-29" class="toc-h2 toc-link" data-title="2021-07-29">2021-07-29</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-in-testnet-environment" class="toc-h3 toc-link" data-title="REST API IN TESTNET ENVIRONMENT">REST API IN TESTNET ENVIRONMENT</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
                     <a href="#2021-06-28" class="toc-h2 toc-link" data-title="2021-06-28">2021-06-28</a>
                       <ul class="toc-list-h3">
                           <li>
@@ -1569,7 +1577,20 @@ clipboard.on('error', function(e) {
 <p><p><a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common errors.</p> <p>For further assistance or feedback, please join the <a href="https://t.me/BybitAPI">API Telegram chat</a>! API discussion group on Telegram.</p></p>
 <h3 id='t-resources'>Group And Bybit API Resources</h3>
 <p><ul class="bybit-community"> <li><img src="../images/help_favicon-06f791dd.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> </ul></p>
-<h1 id='t-changelog'>Changelog</h1><h2 id='2021-06-28'>2021-06-28</h2><h3 id='rest-api'>REST API</h3>
+<h1 id='t-changelog'>Changelog</h1><h2 id='2021-07-29'>2021-07-29</h2><h3 id='rest-api-in-testnet-environment'>REST API IN TESTNET ENVIRONMENT</h3>
+<ul>
+<li><a href="#t-setleverage">Set Leverage</a> [update]
+
+<ul>
+<li>Add parameter <code>leverage_only</code> <br>Use this parameter to set leverage while in cross margin mode. <br>If this field is set to <code>false</code>, when <code>leverage</code> is equal to <code>0</code> the position will use cross margin; when <code>leverage</code> is greater than <code>0</code> the position will use isolated margin. <br>If this field is set to <code>true</code>, you can set leverage in cross margin with <code>leverage</code>. <code>leverage</code> must be greater than <code>0</code>. <br>Use the <a href="#t-marginswitch">Cross/Isolated Margin Switch</a> endpoint to switch cross/isolated without modifying the cross level of leverage.</li>
+</ul></li>
+<li><a href="#t-marginswitch">Cross/Isolated Margin Switch</a> [update]
+
+<ul>
+<li>Update <code>buy_leverage</code> and <code>sell_leverage</code> parameters to be always required</li>
+</ul></li>
+</ul>
+<h2 id='2021-06-28'>2021-06-28</h2><h3 id='rest-api'>REST API</h3>
 <ul>
 <li><a href="#t-querysymbol">Query Symbol</a> [update]
 
@@ -7417,6 +7438,12 @@ This endpoint only concerns isolated margin. If you want to use cross margin, pl
 <td style="text-align: left">number</td>
 <td>Must be greater than 0 and less than the <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>. If you need to switch to cross margin please see the <a href="#t-marginswitch">Cross/Isolated Margin Switch</a> endpoint</td>
 </tr>
+<tr>
+<td style="text-align: left">leverage_only</td>
+<td style="text-align: left"><b>false</b></td>
+<td style="text-align: left">bool</td>
+<td>Use this parameter to set leverage while in cross margin mode. <br>If this field is set to <code>false</code>, when <code>leverage</code> is equal to <code>0</code> the position will use cross margin; when <code>leverage</code> is greater than <code>0</code> the position will use isolated margin. <br>If this field is set to <code>true</code>, you can set leverage in cross margin with <code>leverage</code>. <code>leverage</code> must be greater than <code>0</code>. <br>Use the <a href="#t-marginswitch">Cross/Isolated Margin Switch</a> endpoint to switch cross/isolated without modifying the cross level of leverage.</td>
+</tr>
 </tbody></table>
 
 <!--
@@ -7997,13 +8024,13 @@ When set to Partial, TP/SL orders may have a quantity less than the position siz
 <td style="text-align: left">buy_leverage</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">number</td>
-<td>Switch Cross/Isolated; must set leverage value when switching from Cross to Isolated and the value of <code>buy_leverage</code> must be equal to <code>sell_leverage</code>.</td>
+<td>Switch Cross/Isolated; The value of <code>buy_leverage</code> must be equal to <code>sell_leverage</code>.</td>
 </tr>
 <tr>
 <td style="text-align: left">sell_leverage</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">number</td>
-<td>Switch Cross/Isolated; must set leverage value when switching from Cross to Isolated and the value of <code>buy_leverage</code> must be equal to <code>sell_leverage</code>.</td>
+<td>Switch Cross/Isolated; The value of <code>buy_leverage</code> must be equal to <code>sell_leverage</code>.</td>
 </tr>
 </tbody></table>
 <h2 id='t-risklimit'>Risk Limit</h2><h3 id='t-getrisklimit'>Get Risk Limit</h3>
