@@ -12,6 +12,8 @@ import json
 import time
 import websocket
 
+ws_url = "wss://stream.bybit.com/realtime"
+
 api_key = ""
 api_secret = ""
 
@@ -30,8 +32,10 @@ param = "api_key={api_key}&expires={expires}&signature={signature}".format(
     signature=signature
 )
 
+url = ws_url + "?" + param
+
 ws = websocket.WebSocketApp(
-    url="wsurl",
+    url=url,
     ...
 )
 ```
@@ -40,7 +44,7 @@ ws = websocket.WebSocketApp(
 
 ```python
 ws = websocket.WebSocketApp(
-    url="wsurl",
+    url=url,
     ...
 )
 

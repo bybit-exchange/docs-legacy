@@ -1,8 +1,6 @@
 # t(:websocket)
 ## t(:websocketauthentication)
-> t(:websocket_codequote_auth)
-
-> t(:websocket_codequote_auth1)
+> t(:websocket_codequote_auth_spot)
 
 ```python
 # based on: https://github.com/verata-veritatis/pybit/blob/master/pybit/__init__.py
@@ -24,23 +22,8 @@ signature = str(hmac.new(
     bytes(f"GET/realtime{expires}", "utf-8"), digestmod="sha256"
 ).hexdigest())
 
-param = "api_key={api_key}&expires={expires}&signature={signature}".format(
-    api_key=api_key,
-    expires=expires,
-    signature=signature
-)
-
 ws = websocket.WebSocketApp(
-    url="wsurl",
-    ...
-)
-```
-
-> t(:websocket_codequote_auth2)
-
-```python
-ws = websocket.WebSocketApp(
-    url="wsurl",
+    url=url,
     ...
 )
 
