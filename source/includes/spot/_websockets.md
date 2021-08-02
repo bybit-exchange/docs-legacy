@@ -871,10 +871,10 @@ t(:spot_websocket_user_order_desc)
 | c | string | t(:spot_order_client_id) |
 | S | string | t(:spot_side) |
 | <a href="#order-type-type-ordertypes">o</a> | string | t(:spot_order_type) |
-| f | string | t(:spot_time_in_force) |
+| <a href="#timeinforce-timeinforce">f</a> | string | t(:row_comment_timeInForce) |
 | q | string | t(:spot_quantity) |
 | p | string | t(:spot_price) |
-| X | string | t(:spot_order_status) |
+| <a href="#order-status-status">X</a> | string | t(:spotStatus) |
 | i | string | t(:spot_order_id) |
 | M | string | t(:spot_match_order_id) |
 | l | string | t(:spot_recent_qty) |

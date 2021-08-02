@@ -6,9 +6,9 @@ t(:ENUMs_para)
 * `Sell`
 
 ## TimeInForce (`timeInForce`)
-* `GTC: Good Till Canceled`
-* `FOK: Fill or Kill`
-* `IOC: Immediate or Cancel`
+* `GTC` - Good Till Canceled
+* `FOK` - Fill or Kill
+* `IOC` - Immediate or Cancel
 
 ## Symbol (`symbol`)
 t(:trading_symbol_comment)
@@ -27,12 +27,13 @@ t(:trading_symbol_comment)
 * `XRP`
 * `USDT`
 
-## Order Status(`status`)
+## Order status (`status`)
 * `NEW`
 * `PARTIALLY_FILLED`
 * `FILLED`
 * `CANCELED`
 * `PENDING_CANCEL`
+* `PENDING_NEW`
 * `REJECTED`
 
 ## Quantity (`qty`)

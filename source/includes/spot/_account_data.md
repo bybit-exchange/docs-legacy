@@ -56,7 +56,7 @@ POST
 |qty|<b>true</b>|number|t(:spotQtyPlaceOrder)|
 |t(:row_parameter_side)|<b>true</b>|string|t(:spotSide)|
 |t(:row_parameter_type)|<b>true</b>|string|t(:spotOrderType)|
-|t(:row_parameter_timeInForce)|false|string|t(:spotTimeInForce)|
+|t(:row_parameter_timeInForce)|false|string|t(:row_comment_timeInForce)|
 |price|false|number|t(:spotPostOrderPrice)|
 |orderLinkId|false|string|t(:tOrderClientOrdID)|
 
@@ -74,8 +74,8 @@ POST
 |origQty|float|t(:spotOriQty)|
 |type|string|t(:spotType)|
 |side|string|t(:spotSide)|
-|status|string|t(:spotStatus)|
-|timeInForce|string|t(:spotTimeInForce)|
+|t(:spot_row_parameter_orderStatus)|string|t(:spotStatus)|
+|t(:row_parameter_timeInForce)|string|t(:row_comment_timeInForce)|
 |accountId|long|t(:spotAccountId)|
 |symbolName|string|t(:spotSymbolName)|
 |executedQty|string|t(:spotExecQty)|
@@ -155,8 +155,8 @@ t(:spotGetOrderRemark)
 |executedQty|float|t(:spotExecQty)|
 |cummulativeQuoteQty|float|t(:spotCummulativeQuoteQty)|
 |avgPrice|float|t(:spotAvgPrice)|
-|status|string|t(:spotStatus)|
-|timeInForce|string|t(:spotTimeInForce)|
+|t(:spot_row_parameter_orderStatus)|string|t(:spotStatus)|
+|t(:row_parameter_timeInForce)|string|t(:row_comment_timeInForce)|
 |type|string|t(:spotType)|
 |side|string|t(:spotSide)|
 |stopPrice|float|t(:spotStopPrice)|
@@ -222,13 +222,13 @@ DELETE
 |orderId|integer|t(:spotOrderID)|
 |orderLinkId|string|t(:tOrderClientOrdID)
 |symbol|string|t(:spotSymbol)|
-|status|string|t(:spotStatus)|
+|t(:spot_row_parameter_orderStatus)|string|t(:spotStatus)|
 |accountId|long|t(:spotAccountId)|
 |transactTime|long|t(:spotTransactTime)|
 |price|float|t(:spotOPrice)|
 |origQty|float|t(:spotOriQty)|
 |executedQty|float|t(:spotExecQty)|
-|timeInForce|string|t(:spotTimeInForce)|
+|t(:row_parameter_timeInForce)|string|t(:row_comment_timeInForce)|
 |t(:row_parameter_type)|string|t(:spotOrderType)|
 |side|string|t(:spotSide)|
 
@@ -374,8 +374,8 @@ GET
 |executedQty|float|t(:spotExecQty)|
 |cummulativeQuoteQty|float|t(:spotCummulativeQuoteQty)|
 |avgPrice|float|t(:spotAvgPrice)|
-|status|string|t(:spotStatus)|
-|timeInForce|string|t(:spotTimeInForce)|
+|t(:spot_row_parameter_orderStatus)|string|t(:spotStatus)|
+|t(:row_parameter_timeInForce)|string|t(:row_comment_timeInForce)|
 |type|string|t(:spotType)|
 |side|string|t(:spotSide)|
 |stopPrice|float|t(:spotStopPrice)|
@@ -460,8 +460,8 @@ GET
 |executedQty|float|t(:spotExecQty)|
 |cummulativeQuoteQty|float|t(:spotCummulativeQuoteQty)|
 |avgPrice|float|t(:spotAvgPrice)|
-|status|string|t(:spotStatus)|
-|timeInForce|string|t(:spotTimeInForce)|
+|t(:spot_row_parameter_orderStatus)|string|t(:spotStatus)|
+|t(:row_parameter_timeInForce)|string|t(:row_comment_timeInForce)|
 |type|string|t(:spotType)|
 |side|string|t(:spotSide)|
 |stopPrice|float|t(:spotStopPrice)|

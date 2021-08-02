@@ -141,7 +141,7 @@ en:
   row_comment_stopOrderPrice: Execution price for conditional order. <b>Required</b> if you make limit price order
   row_comment_basePrice: It will be used to compare with the value of <code>stop_px</code>, to decide whether your conditional order will be triggered by crossing trigger price from upper side or lower side. Mainly used to identify the expected direction of the current conditional order.
   row_comment_stopPx: Trigger price
-  row_comment_timeInForce: Time in force
+  row_comment_timeInForce: <a href="https://help.bybit.com/hc/en-us/articles/360039749233-What-Are-Time-In-Force-TIF-GTC-IOC-FOK-">Time in force</a>
   row_comment_triggerBy: Trigger price type. Default <code>LastPrice</code>
   row_comment_tp_size: Take profit quantity (when in <a href="#t-switchmode">partial mode</a>)
   row_comment_sl_size: Stop loss quantity (when in <a href="#t-switchmode">partial mode</a>)
@@ -333,6 +333,11 @@ en:
   row_parameter_last_liquidity_ind: <a href="#liquidity-type-last_liquidity_ind">last_liquidity_ind</a>
   row_parameter_tick_direction: <a href="#tick-direction-type-tick_direction">tick_direction</a>
   row_parameter_stop_order_type: <a href="#stop-order-type-stop_order_type">stop_order_type</a>
+
+  # Spot enum parameter table links
+  row_parameter_type: <a href="#order-type-type-ordertypes">type</a>
+  row_parameter_timeInForce: <a href="#timeinforce-timeinforce">timeInForce</a>
+  spot_row_parameter_orderStatus: <a href="#order-status-status">status</a>
 
 
   enum_withdraw_status_link: <a href="#withdraw-status-status">Withdraw Status Enum</a>
@@ -2024,9 +2029,8 @@ en:
   spotBookTickerRemark: If symbol is not specified, the best order price from all symbols will be returned
   spotTransactTime: Timestamp
   spotCummulativeQuoteQty: Total order quantity
-  spotSide: Order direction, possible values include Buy and Sell
+  spotSide: Order direction
   spotOrderType: Order type
-  spotTimeInForce: Time in force, possible values include GTC (Good Till Canceled), FOK (Fill or Kill) and IOC (Immediate or Cancel)
   spotPrice:  Last traded price
   spotOPrice: Order price
   spotPostOrderPrice: Order price. When the type field is MARKET, the price field is optional. When the type field is LIMIT or LIMIT_MAKER, the price field is required
@@ -2040,7 +2044,7 @@ en:
   spotAvgPrice: Average filled price
   spotStopPrice: Stop price
   spotType: Order type, possible values are LIMIT and MARKET
-  spotStatus: Order status, possible values include NEW, PARTIALLY_FILLED, FILLED, CANCELED, and REJECTED
+  spotStatus: Order status
   tOrderClientOrdID: User-generated order ID
   spot_get_order: Query Spot Order
   cancel_spot_order: Cancel Spot Order
@@ -2107,9 +2111,6 @@ en:
   batchcancel_spotOrderTypes: |
     Order type. Use commas to cancel orders with multiple order types, eg <code>LIMIT,LIMIT_MAKER</code>. Default: <code>LIMIT</code>
 
-  row_parameter_type: <a href="#order-type-type-ordertypes">type</a>
-  row_parameter_timeInForce: <a href="#timeinforce-timeinforce">timeInForce</a>
-
   #spot_ws_v1
   spot_price: Price
   spot_symbol: Trading pair
@@ -2117,11 +2118,9 @@ en:
   spot_side: True indicates buy order, false indicates sell order
   spot_order_type: Order type. Possible values are LIMIT, MARKET, and LIMIT_MAKER
   spot_order_client_id: User-generated order ID
-  spot_order_status: Order status, possible values include NEW, PARTIALLY_FILLED, FILLED, CANCELED, and REJECTED
   spot_first: First time or not (true/false)
   spot_timestamp: Timestamp
   spot_timestamp_kline: Chart start time
-  spot_time_in_force: Time in force, possible values include GTC (Good Till Canceled), FOK (Fill or Kill) and IOC (Immediate or Cancel)
   spot_close: Close price
   spot_high: High price
   spot_low: Low price
