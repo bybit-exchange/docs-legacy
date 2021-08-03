@@ -2164,25 +2164,10 @@ en:
 
   spot_websocket_ticker_v1: Trading Pair Stream
   spot_websocket_ticker_desc_v1: The 24-hr statistics of a trading pair refreshed every second.
-  spot_websocket_kline_v1: Candlestick Chart Streams
+  spot_websocket_kline_v1: Kline
   spot_websocket_kline_desc_v1: |
-    <p>Candlestick Streams push data of the requested candlestick chart every second.</p>
-    <p>m -> minutes; h -> hours; d -> days; w -> weeks; M -> months</p>
-      <ul>
-      <li>1m</li>
-      <li>3m</li>
-      <li>5m</li>
-      <li>15m</li>
-      <li>30m</li>
-      <li>1h</li>
-      <li>2h</li>
-      <li>4h</li>
-      <li>6h</li>
-      <li>12h</li>
-      <li>1d</li>
-      <li>1w</li>
-      <li>1M</li>
-      </ul>
+    <p>Kline data pushed at a frequency of every second.</p>
+    <p>To subscribe to different intervals, alter append your desired interval to the topic name. For 1 minute klines, set the topic as <code>kline_1m</code>, for 1 hour klines use <code>kline_1h</code>, etc. Available intervals are listed <a href="#kline-interval-interval">here</a>.</p>
 
   spot_broker_info: brokerinfo return
   spot_websocket_orderbook_v1: Order Book Streams (Full Depth)
@@ -2237,25 +2222,10 @@ en:
   spot_websocket_ticker_v2: Order Book for Trading Pair
   spot_websocket_ticker_desc_v2: Best bid price and best ask price
 
-  spot_websocket_kline_v2: Candlestick Chart Streams
+  spot_websocket_kline_v2: Kline
   spot_websocket_kline_desc_v2: |
-    <p>Candlestick Streams push data of the requested candlestick chart every second.</p>
-    <p>m -> minutes; h -> hours; d -> days; w -> weeks; M -> months</p>
-      <ul>
-      <li>1m</li>
-      <li>3m</li>
-      <li>5m</li>
-      <li>15m</li>
-      <li>30m</li>
-      <li>1h</li>
-      <li>2h</li>
-      <li>4h</li>
-      <li>6h</li>
-      <li>12h</li>
-      <li>1d</li>
-      <li>1w</li>
-      <li>1M</li>
-      </ul>
+    <p>Kline data pushed at a frequency of every second.</p>
+    <p>The topic name is <code>kline</code>. To subscribe to different intervals, pass your desired interval with the <code>klineType</code> parameter. Available intervals are listed <a href="#kline-interval-interval">here</a>.</p>
 
   spot_websocket_trade_v2: Trade Streams
   spot_websocket_trade_desc_v2: |

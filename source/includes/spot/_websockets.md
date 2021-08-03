@@ -234,7 +234,7 @@ t(:spot_websocket_ticker_desc_v1)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"symbol":"BTCUSDT","topic":"kline_" + $间隔,"event":"sub","params":{"binary":false}}');
+ws.send('{"symbol":"BTCUSDT","topic":"kline_1m","event":"sub","params":{"binary":false}}');
 ```
 
 ```python
