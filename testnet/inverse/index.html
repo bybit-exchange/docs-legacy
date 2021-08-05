@@ -7399,7 +7399,7 @@ Passing these parameters will create conditional orders controlled by the system
 <p>Set Leverage</p>
 
 <aside class="notice">
-This endpoint only concerns isolated margin. If you want to use cross margin, please use the <a href="#t-marginswitch">Cross/Isolated Margin Switch</a> endpoint.
+You can modify your isolated or cross leverage with this endpoint, but if you want to switch between cross/isolated, please use the <a href="#t-marginswitch">Cross/Isolated Margin Switch</a> endpoint.
 </aside>
 
 <p class="fake_header">HTTP Request</p>
@@ -8072,13 +8072,13 @@ When set to Partial, TP/SL orders may have a quantity less than the position siz
 <td style="text-align: left">buy_leverage</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">number</td>
-<td>Switch Cross/Isolated; The value of <code>buy_leverage</code> must be equal to <code>sell_leverage</code>.</td>
+<td>When switching from cross to isolated, the value of <code>buy_leverage</code> must be equal to <code>sell_leverage</code>.</td>
 </tr>
 <tr>
 <td style="text-align: left">sell_leverage</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">number</td>
-<td>Switch Cross/Isolated; The value of <code>buy_leverage</code> must be equal to <code>sell_leverage</code>.</td>
+<td>When switching from cross to isolated, the value of <code>buy_leverage</code> must be equal to <code>sell_leverage</code>.</td>
 </tr>
 </tbody></table>
 <h2 id='t-risklimit'>Risk Limit</h2><h3 id='t-getrisklimit'>Get Risk Limit</h3>
