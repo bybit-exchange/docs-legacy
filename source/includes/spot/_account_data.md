@@ -269,7 +269,7 @@ DELETE
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|false|string|t(:spotSymbol)|
+|symbol|true|string|t(:spotSymbol)|
 |side|false|string|t(:spotSide)|
 |orderTypes|fasle|string|t(:spotOrderTypes)|
 
