@@ -72,7 +72,7 @@ POST
 |transactTime|int|t(:spotTransactTime)|
 |price|float|t(:spotPrice)|
 |origQty|float|t(:spotOriQty)|
-|type|string|t(:spotType)|
+|<a href="#order-type-type-ordertypes">type</a>|string|t(:spotType)|
 |side|string|t(:spotSide)|
 |t(:spot_row_parameter_orderStatus)|string|t(:spotStatus)|
 |t(:row_parameter_timeInForce)|string|t(:row_comment_timeInForce)|
@@ -157,7 +157,7 @@ t(:spotGetOrderRemark)
 |avgPrice|float|t(:spotAvgPrice)|
 |t(:spot_row_parameter_orderStatus)|string|t(:spotStatus)|
 |t(:row_parameter_timeInForce)|string|t(:row_comment_timeInForce)|
-|type|string|t(:spotType)|
+|<a href="#order-type-type-ordertypes">type</a>|string|t(:spotType)|
 |side|string|t(:spotSide)|
 |stopPrice|float|t(:spotStopPrice)|
 |icebergQty|float|t(:spotIcebergQty)|
@@ -376,7 +376,7 @@ GET
 |avgPrice|float|t(:spotAvgPrice)|
 |t(:spot_row_parameter_orderStatus)|string|t(:spotStatus)|
 |t(:row_parameter_timeInForce)|string|t(:row_comment_timeInForce)|
-|type|string|t(:spotType)|
+|<a href="#order-type-type-ordertypes">type</a>|string|t(:spotType)|
 |side|string|t(:spotSide)|
 |stopPrice|float|t(:spotStopPrice)|
 |icebergQty|float|t(:spotIcebergQty)|
@@ -462,7 +462,7 @@ GET
 |avgPrice|float|t(:spotAvgPrice)|
 |t(:spot_row_parameter_orderStatus)|string|t(:spotStatus)|
 |t(:row_parameter_timeInForce)|string|t(:row_comment_timeInForce)|
-|type|string|t(:spotType)|
+|<a href="#order-type-type-ordertypes">type</a>|string|t(:spotType)|
 |side|string|t(:spotSide)|
 |stopPrice|float|t(:spotStopPrice)|
 |icebergQty|float|t(:spotIcebergQty)|
