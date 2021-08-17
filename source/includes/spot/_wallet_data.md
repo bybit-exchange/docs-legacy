@@ -25,7 +25,7 @@ t(:wallet_para)
                 "coinId": "USDT",
                 "coinName": "USDT",
                 "total": "10",
-                "fee": "10",
+                "free": "10",
                 "locked": "0"
             }
         ]
@@ -51,5 +51,5 @@ GET
 |coinId| string | t(:spot_token)|
 |coinName| string | t(:spot_token)|
 |total| string | t(:spot_total)|
-|fee| float| t(:spot_fees)|
+|free| float| t(:spot_account_free)|
 |locked| float | t(:spot_locked)

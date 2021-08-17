@@ -2056,7 +2056,10 @@ en:
   tOrderClientOrdID: User-generated order ID
   spot_get_order: Query Spot Order
   cancel_spot_order: Cancel Spot Order
+  fast_cancel_spot_order: Fast Cancel Spot Order
   batch_cancel_spot_order: Batch Cancel Spot Order
+  batch_fast_cancel_spot_order: Batch fast Cancel Spot Order
+  batch_cancel_spot_order_by_orderIds: Batch Cancel Spot Order by order IDs
   spot_order_list: Order List
   spot_transactId: Transaction ID
   spot_time: Timestamp
@@ -2105,6 +2108,7 @@ en:
   spotLow: Low price
   spot_total: Total equity
   spot_fees: Trading fee
+  spot_account_free: Available balance
   spotClose: Close price
   spotVolume: Trading volume
   spotTrades: Number of trades
@@ -2118,6 +2122,10 @@ en:
   spotMakerRebate: Marker rebate
   batchcancel_spotOrderTypes: |
     Order type. Use commas to cancel orders with multiple order types, eg <code>LIMIT,LIMIT_MAKER</code>. Default: <code>LIMIT</code>
+  spotCancelOrderIds: order ID, use comma splicing to indicate multiple orderIds, no more than 100 ids.
+
+  spotFastCancelTips: The actual result of the cancellation request needs to be checked by order status or match result endpoints after submitting the request.
+
 
   #spot_ws_v1
   spot_price: Price
@@ -2254,8 +2262,7 @@ en:
   spot_websocket_orderbook_desc_v2: |
     <p>Market depth data for a trading pair: </p>
     <ul>
-      <li>Snapshot frequency: every 300 milliseconds (if the bid-ask spread of the order book changes).</li>
-      <li>Snapshot depth: 300 each for asks and bids.</li>
+      <li>Snapshot depth: 40 each for asks and bids.</li>
       <li>Events trigger order book version change:
         <ul>
           <li>order enters order book</li>
