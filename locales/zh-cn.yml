@@ -1950,7 +1950,10 @@ zh-cn:
   tOrderClientOrdID: 特殊订单ID，用户自己生成
   spot_get_order: 查询订单
   cancel_spot_order: 撤销订单
+  fast_cancel_spot_order: 快速撤销订单
   batch_cancel_spot_order: 批量撤销订单
+  batch_fast_cancel_spot_order: 批量快速撤销订单
+  batch_cancel_spot_order_by_orderIds: 根据订单号批量撤销订单
   spot_order_list: 订单列表
   spot_order_list_limit: 默认500，最大500
   spot_orders_start_time: 第一条返回的时间戳(毫秒)
@@ -2009,10 +2012,13 @@ zh-cn:
   spotTakerBaseVolume: 买方购买金额
   spotTakerQuoteVolume: 买方购买数量
   spotOrderTypes: 可选订单类型, LIMIT/LIMIT_MAKER，可用英文逗号拼接表示多个类型。不传默认为LIMIT。
+  spotCancelOrderIds: 订单号, 可用英文逗号拼接表示多个订单, 不超过100个。
   spot_ticket_id: ticket id
   spot_match_order_id: 撮合订单id
   spot_account_id: 账户id
   spot_match_account_id: 撮合账户id
+
+  spotFastCancelTips: 此接口只提交取消请求，实际取消结果需要通过订单状态，撮合状态等接口来确认。
 
   row_parameter_type: <a href="#type-type">type</a>
   row_parameter_timeInForce: <a href="#timeinforce-timeinforce">timeInForce</a>

@@ -2040,7 +2040,10 @@ en:
   tOrderClientOrdID: User-generated order ID
   spot_get_order: Query Spot Order
   cancel_spot_order: Cancel Spot Order
+  fast_cancel_spot_order: Fast Cancel Spot Order
   batch_cancel_spot_order: Batch Cancel Spot Order
+  batch_fast_cancel_spot_order: Batch fast Cancel Spot Order
+  batch_cancel_spot_order_by_orderIds: Batch Cancel Spot Order by order IDs
   spot_order_list: Order List
   spot_transactId: Transaction ID
   spot_time: Timestamp
@@ -2102,6 +2105,9 @@ en:
   spotQuoteAssetVolume: Quote asset volume
   spotMakerRebate: Marker rebate
   spotOrderTypes: Optional order types, LIMIT/LIMIT_MAKER, use comma splicing to indicate multiple types. Default LIMIT.
+  spotCancelOrderIds: order ID, use comma splicing to indicate multiple orderIds, no more than 100 ids.
+
+  spotFastCancelTips: The actual result of the cancellation request needs to be checked by order status or match result endpoints after submitting the request.
 
   row_parameter_type: <a href="#type-type">type</a>
   row_parameter_timeInForce: <a href="#timeinforce-timeinforce">timeInForce</a>
