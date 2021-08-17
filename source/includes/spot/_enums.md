@@ -6,15 +6,15 @@ t(:ENUMs_para)
 * `Sell`
 
 ## TimeInForce (`timeInForce`)
-* `GTC: Good Till Canceled`
-* `FOK: Fill or Kill`
-* `IOC: Immediate or Cancel`
+* `GTC` - Good Till Canceled
+* `FOK` - Fill or Kill
+* `IOC` - Immediate or Cancel
 
 ## Symbol (`symbol`)
 t(:trading_symbol_comment)
 
 
-## Type (`type`)
+## Order type (`type`/`orderTypes`)
 * `LIMIT`
 * `MARKET`
 * `LIMIT_MAKER`
@@ -27,18 +27,14 @@ t(:trading_symbol_comment)
 * `XRP`
 * `USDT`
 
-## Order Status(`status`)
+## Order status (`status`)
 * `NEW`
 * `PARTIALLY_FILLED`
 * `FILLED`
 * `CANCELED`
 * `PENDING_CANCEL`
+* `PENDING_NEW`
 * `REJECTED`
-
-## Order type (`order_type`)
-* `LIMIT` t(:limit)
-* `MARKET` t(:market)
-* `LIMIT_MAKER` t(:limit_maker)
 
 ## Quantity (`qty`)
 t(:quantity)
@@ -62,6 +58,6 @@ t(:price)
 * `4h` t(:interval_240)
 * `6h` t(:interval_360)
 * `12h` t(:interval_720)
-* `d` t(:interval_D)
-* `w` t(:interval_W)
-* `m` t(:interval_M)
+* `1d` t(:interval_D)
+* `1w` t(:interval_W)
+* `1M` t(:interval_M)

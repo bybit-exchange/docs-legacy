@@ -56,7 +56,7 @@ POST
 |qty|<b>true</b>|number|t(:spotQtyPlaceOrder)|
 |t(:row_parameter_side)|<b>true</b>|string|t(:spotSide)|
 |t(:row_parameter_type)|<b>true</b>|string|t(:spotOrderType)|
-|t(:row_parameter_timeInForce)|false|string|t(:spotTimeInForce)|
+|t(:row_parameter_timeInForce)|false|string|t(:row_comment_timeInForce)|
 |price|false|number|t(:spotPostOrderPrice)|
 |orderLinkId|false|string|t(:tOrderClientOrdID)|
 
@@ -72,10 +72,10 @@ POST
 |transactTime|int|t(:spotTransactTime)|
 |price|float|t(:spotPrice)|
 |origQty|float|t(:spotOriQty)|
-|type|string|t(:spotType)|
+|<a href="#order-type-type-ordertypes">type</a>|string|t(:spotType)|
 |side|string|t(:spotSide)|
-|status|string|t(:spotStatus)|
-|timeInForce|string|t(:spotTimeInForce)|
+|t(:spot_row_parameter_orderStatus)|string|t(:spotStatus)|
+|t(:row_parameter_timeInForce)|string|t(:row_comment_timeInForce)|
 |accountId|long|t(:spotAccountId)|
 |symbolName|string|t(:spotSymbolName)|
 |executedQty|string|t(:spotExecQty)|
@@ -155,9 +155,9 @@ t(:spotGetOrderRemark)
 |executedQty|float|t(:spotExecQty)|
 |cummulativeQuoteQty|float|t(:spotCummulativeQuoteQty)|
 |avgPrice|float|t(:spotAvgPrice)|
-|status|string|t(:spotStatus)|
-|timeInForce|string|t(:spotTimeInForce)|
-|type|string|t(:spotType)|
+|t(:spot_row_parameter_orderStatus)|string|t(:spotStatus)|
+|t(:row_parameter_timeInForce)|string|t(:row_comment_timeInForce)|
+|<a href="#order-type-type-ordertypes">type</a>|string|t(:spotType)|
 |side|string|t(:spotSide)|
 |stopPrice|float|t(:spotStopPrice)|
 |icebergQty|float|t(:spotIcebergQty)|
@@ -222,14 +222,14 @@ DELETE
 |orderId|integer|t(:spotOrderID)|
 |orderLinkId|string|t(:tOrderClientOrdID)
 |symbol|string|t(:spotSymbol)|
-|status|string|t(:spotStatus)|
+|t(:spot_row_parameter_orderStatus)|string|t(:spotStatus)|
 |accountId|long|t(:spotAccountId)|
 |transactTime|long|t(:spotTransactTime)|
 |price|float|t(:spotOPrice)|
 |origQty|float|t(:spotOriQty)|
 |executedQty|float|t(:spotExecQty)|
-|timeInForce|string|t(:spotTimeInForce)|
-|type|string|t(:spotOrderType)|
+|t(:row_parameter_timeInForce)|string|t(:row_comment_timeInForce)|
+|t(:row_parameter_type)|string|t(:spotOrderType)|
 |side|string|t(:spotSide)|
 
 
@@ -333,8 +333,8 @@ DELETE
 
 <p class="fake_header">t(:httprequest)</p>
 DELETE
-<code><span id=vpoCancel>/spot/order/batch-cancel</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancel"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=soBatchCancel>/spot/order/batch-cancel</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#soBatchCancel"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
@@ -342,7 +342,7 @@ DELETE
 |:----- |:-------|:-----|----- |
 |symbol|true|string|t(:spotSymbol)|
 |side|false|string|t(:spotSide)|
-|orderTypes|fasle|string|t(:spotOrderTypes)|
+|<a href="#order-type-type-ordertypes">orderTypes</a>|false|string|t(:batchcancel_spotOrderTypes)|
 
 <p class="fake_header">t(:responseparameters)</p>
 
@@ -498,9 +498,9 @@ GET
 |executedQty|float|t(:spotExecQty)|
 |cummulativeQuoteQty|float|t(:spotCummulativeQuoteQty)|
 |avgPrice|float|t(:spotAvgPrice)|
-|status|string|t(:spotStatus)|
-|timeInForce|string|t(:spotTimeInForce)|
-|type|string|t(:spotType)|
+|t(:spot_row_parameter_orderStatus)|string|t(:spotStatus)|
+|t(:row_parameter_timeInForce)|string|t(:row_comment_timeInForce)|
+|<a href="#order-type-type-ordertypes">type</a>|string|t(:spotType)|
 |side|string|t(:spotSide)|
 |stopPrice|float|t(:spotStopPrice)|
 |icebergQty|float|t(:spotIcebergQty)|
@@ -584,9 +584,9 @@ GET
 |executedQty|float|t(:spotExecQty)|
 |cummulativeQuoteQty|float|t(:spotCummulativeQuoteQty)|
 |avgPrice|float|t(:spotAvgPrice)|
-|status|string|t(:spotStatus)|
-|timeInForce|string|t(:spotTimeInForce)|
-|type|string|t(:spotType)|
+|t(:spot_row_parameter_orderStatus)|string|t(:spotStatus)|
+|t(:row_parameter_timeInForce)|string|t(:row_comment_timeInForce)|
+|<a href="#order-type-type-ordertypes">type</a>|string|t(:spotType)|
 |side|string|t(:spotSide)|
 |stopPrice|float|t(:spotStopPrice)|
 |icebergQty|float|t(:spotIcebergQty)|
@@ -644,8 +644,8 @@ GET
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpOrder>/spot/v1/myTrades</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=svMyTrades>/spot/v1/myTrades</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svMyTrades"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|

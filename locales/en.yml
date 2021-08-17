@@ -141,7 +141,7 @@ en:
   row_comment_stopOrderPrice: Execution price for conditional order. <b>Required</b> if you make limit price order
   row_comment_basePrice: It will be used to compare with the value of <code>stop_px</code>, to decide whether your conditional order will be triggered by crossing trigger price from upper side or lower side. Mainly used to identify the expected direction of the current conditional order.
   row_comment_stopPx: Trigger price
-  row_comment_timeInForce: Time in force
+  row_comment_timeInForce: <a href="https://help.bybit.com/hc/en-us/articles/360039749233-What-Are-Time-In-Force-TIF-GTC-IOC-FOK-">Time in force</a>
   row_comment_triggerBy: Trigger price type. Default <code>LastPrice</code>
   row_comment_tp_size: Take profit quantity (when in <a href="#t-switchmode">partial mode</a>)
   row_comment_sl_size: Stop loss quantity (when in <a href="#t-switchmode">partial mode</a>)
@@ -333,6 +333,11 @@ en:
   row_parameter_last_liquidity_ind: <a href="#liquidity-type-last_liquidity_ind">last_liquidity_ind</a>
   row_parameter_tick_direction: <a href="#tick-direction-type-tick_direction">tick_direction</a>
   row_parameter_stop_order_type: <a href="#stop-order-type-stop_order_type">stop_order_type</a>
+
+  # Spot enum parameter table links
+  row_parameter_type: <a href="#order-type-type-ordertypes">type</a>
+  row_parameter_timeInForce: <a href="#timeinforce-timeinforce">timeInForce</a>
+  spot_row_parameter_orderStatus: <a href="#order-status-status">status</a>
 
 
   enum_withdraw_status_link: <a href="#withdraw-status-status">Withdraw Status Enum</a>
@@ -1000,17 +1005,16 @@ en:
     First method: Apply for authentication when establishing a connection.
   websocket_codequote_auth2: |
     Second method: Apply for authentication after establishing a connection through auth request.
+  websocket_codequote_auth_spot: |
+    Apply for authentication when establishing a connection.
   websocket_para_endpoint: |
     Base endpoints:
     <ul>
-    <p>
       <li>Testnet:
         <span id="testnet_address">wss://stream-testnet.bybit.com/realtime</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
       </li>
-    </p>
-    <p>
-      <li>Mainnet (both endpoints are available):<br/>
+      <li>Mainnet (both endpoints are available):
         <ul>
         <li><span id="mainnet_address">wss://stream.bybit.com/realtime</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button></li>
@@ -1018,35 +1022,42 @@ en:
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button></li>
         </ul>
       </li>
-    </p>
     </ul>
   spot_websocket_para_endpoint: |
     Base endpoints:
     <ul>
-    <p>
       <li>Testnet:
-        <span id="testnet_address">Public Topics: wss://stream-testnet.bybit.com/spot/quote/ws/v1</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-        <br/>
-        <span id="testnet_address">Public Topics2: wss://stream-testnet.bybit.com/spot/quote/ws/v2</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-        <br/>
-        <span id="testnet_address_2">Private Topics: wss://stream-testnet.bybit.com/spot/ws</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <ul>
+          <li>
+            Public Topics: <span id="testnet_address">wss://stream-testnet.bybit.com/spot/quote/ws/v1</span>
+            <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+          </li>
+          <li>
+            Public Topics v2: <span id="testnet_address_2">wss://stream-testnet.bybit.com/spot/quote/ws/v2</span>
+            <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+          </li>
+          <li>
+            Private Topics: <span id="testnet_address_3">wss://stream-testnet.bybit.com/spot/ws</span>
+            <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address_3"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+          </li>
+        </ul>
       </li>
-    </p>
-    <p>
-      <li>Mainnet (please choose one based on your network status):<br/>
-        <span id="mainnet_address">Public Topics: wss://stream.bybit.com/spot/quote/ws/v1</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-        <br/>
-        <span id="mainnet_address">Public Topics2: wss://stream.bybit.com/spot/quote/ws/v2</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-        <br/>
-        <span id="mainnet_address_2">Private Topics: wss://stream.bybit.com/spot/ws</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+      <li>Mainnet:
+        <ul>
+          <li>
+            Public Topics: <span id="mainnet_address">wss://stream.bybit.com/spot/quote/ws/v1</span>
+            <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+          </li>
+          <li>
+            Public Topics v2: <span id="mainnet_address_2">wss://stream.bybit.com/spot/quote/ws/v2</span>
+            <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+          </li>
+          <li>
+            Private Topics: <span id="mainnet_address_3">wss://stream.bybit.com/spot/ws</span>
+            <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address_3"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+          </li>
+        </ul>
       </li>
-    </p>
     </ul>
   websocket_aside_auth: <b>Public</b> topics do not require authentication. The following section applies to <b>private</b> topics only.
   websocket_para_methods: There are two methods of authentication, as shown in the code panel to the right.
@@ -1900,18 +1911,24 @@ en:
   restapi_update_20210415: Fix value of <code>used_margin, order_margin, position_margin, occ_closing_fee, unrealised_pnl</code> of <a href="#t-balance">Get Wallet Balance</a> endpoint not contains Inverse Futures positions
   restapi_update_20210422: Deprecated Fields of self_ratio and platform_ratio, it is returned as 0 currently
   restapi_update_20210507: Add fields <code>buy_leverage</code>,<code>sell_leverage</code>. <code>leverage</code> not recommand to use
-  restapi_update_2021050701: Add：<code>v2/private/position/switch-mode</code>
-  restapi_update_2021050702: Add：<code>v2/private/position/switch-isolated</code>
+  restapi_update_2021050701: |
+    Add: <code>v2/private/position/switch-mode</code>
+  restapi_update_2021050702: |
+    Add: <code>v2/private/position/switch-isolated</code>
   restapi_update_2021050703: Add fields <code>buy_leverage</code>,<code>sell_leverage</code>.
   restapi_update_2021050704: <code>leverage</code> - <b>Not Recommand</b>
-  restapi_update_20210511: Add：<code>v2/private/position/risk-limit</code>
-  restapi_update_2021051101: Add：<code>v2/public/risk-limit/list</code>
+  restapi_update_20210511: |
+    Add: <code>v2/private/position/risk-limit</code>
+  restapi_update_2021051101: |
+    Add: <code>v2/public/risk-limit/list</code>
   restapi_update_2021050705: <a href="#t-setleverage">Set Leverage</a> Deprecated Field<code>position_idx</code>
   restapi_update_2021050706: <a href="#t-marginswitch">Cross/Isolated Margin Switch</a> Deprecated Field<code>position_idx</code>
   restapi_update_2021051201: <a href="#t-setleverage">Set Leverage</a> Deprecated Field<code>position_idx</code>
   restapi_update_2021051202: <a href="#t-marginswitch">Cross/Isolated Margin Switch</a> Deprecated Field<code>position_idx</code>
-  restapi_update_2021051203: Add：<code>futures/private/position/risk-limit</code>
-  restapi_update_20210517: Add：<code>futures/private/position/risk-limit</code>
+  restapi_update_2021051203: |
+    Add: <code>futures/private/position/risk-limit</code>
+  restapi_update_20210517: |
+    Add: <code>futures/private/position/risk-limit</code>
   restapi_update_20210520: ETH Inverse Futures released
   restapi_update_20210527: New add spot open-api document
   restapi_update_20210617: New add get symbols API. Parameter name for order_link_id updated to orderLinkId
@@ -2020,9 +2037,8 @@ en:
   spotBookTickerRemark: If symbol is not specified, the best order price from all symbols will be returned
   spotTransactTime: Timestamp
   spotCummulativeQuoteQty: Total order quantity
-  spotSide: Order direction, possible values include Buy and Sell
-  spotOrderType: Order type, possible values include LIMIT/MARKET/LIMIT_MAKER
-  spotTimeInForce: Time in force, possible values include GTC (Good Till Canceled), FOK (Fill or Kill) and IOC (Immediate or Cancel)
+  spotSide: Order direction
+  spotOrderType: Order type
   spotPrice:  Last traded price
   spotOPrice: Order price
   spotPostOrderPrice: Order price. When the type field is MARKET, the price field is optional. When the type field is LIMIT or LIMIT_MAKER, the price field is required
@@ -2035,8 +2051,8 @@ en:
   spotIgnore: Please ignore
   spotAvgPrice: Average filled price
   spotStopPrice: Stop price
-  spotType: Order type, possible values are LIMIT and MARKET
-  spotStatus: Order status, possible values include NEW, PARTIALLY_FILLED, FILLED, CANCELED, and REJECTED
+  spotType: Order type
+  spotStatus: Order status
   tOrderClientOrdID: User-generated order ID
   spot_get_order: Query Spot Order
   cancel_spot_order: Cancel Spot Order
@@ -2104,26 +2120,21 @@ en:
   spot_match_account_id: Account ID
   spotQuoteAssetVolume: Quote asset volume
   spotMakerRebate: Marker rebate
-  spotOrderTypes: Optional order types, LIMIT/LIMIT_MAKER, use comma splicing to indicate multiple types. Default LIMIT.
+  batchcancel_spotOrderTypes: |
+    Order type. Use commas to cancel orders with multiple order types, eg <code>LIMIT,LIMIT_MAKER</code>. Default: <code>LIMIT</code>
   spotCancelOrderIds: order ID, use comma splicing to indicate multiple orderIds, no more than 100 ids.
 
   spotFastCancelTips: The actual result of the cancellation request needs to be checked by order status or match result endpoints after submitting the request.
 
-  row_parameter_type: <a href="#type-type">type</a>
-  row_parameter_timeInForce: <a href="#timeinforce-timeinforce">timeInForce</a>
 
   #spot_ws_v1
   spot_price: Price
   spot_symbol: Trading pair
   spot_quantity: Quantity
   spot_side: True indicates buy order, false indicates sell order
-  spot_order_type: Order type. Possible values are LIMIT, MARKET, and LIMIT_MAKER
   spot_order_client_id: User-generated order ID
-  spot_order_status: Order status, possible values include NEW, PARTIALLY_FILLED, FILLED, CANCELED, and REJECTED
-  spot_first: First time or not (true/false)
+  spot_first: First message for this topic since subscription
   spot_timestamp: Timestamp
-  spot_timestamp_kline: Chart start time
-  spot_time_in_force: Time in force, possible values include GTC (Good Till Canceled), FOK (Fill or Kill) and IOC (Immediate or Cancel)
   spot_close: Close price
   spot_high: High price
   spot_low: Low price
@@ -2131,18 +2142,20 @@ en:
   spot_volume: Trading volume
   spot_quote_volume: Trading quote volume
   spot_version: Version
-  spot_buy: Best bid price，quantity
-  spot_sell: Best ask price，quantity
-  spot_binary: Compressed or not. True indicates yes, false indicates no (default）
+  spot_buy: Best bid price, quantity
+  spot_sell: Best ask price, quantity
+  spot_buys: Bid prices & quantities in descending order (best price first)
+  spot_sells: Ask prices & quantities in ascending order (best price first)
+  spot_binary: Compressed or not. Defaults to <code>false</code>
   spot_kline_type: Interval
   spot_buy_price: Best bid price
   spot_buy_qty: Bid quantity
   spot_sell_price: Best ask price
   spot_sell_qty: Ask quantity
-  spot_binance_change: Wallet balance change
+  spot_balance_change: Wallet balance change
   spot_asset: Name of the trading pair
   spot_available_qty: Available balance
-  spot_frezen_qty: Reserved for orders
+  spot_frozen_qty: Reserved for orders
   spot_event_type: Event type
   spot_allow_trade: Allow trade
   spot_allow_withdraw: Allow withdraw
@@ -2157,56 +2170,46 @@ en:
   spot_fee_symbol: Asset type in which fee is paid
   spot_m: true if the order type is LIMIT_MAKER
   spot_gains: Change
-  spot_websocket_trade_v1: Trade Streams
-  spot_websocket_trade_desc_v1: |
-    <p>Trade Streams push raw data for each trade, which has a unique buyer and seller.</p>
-    <p>After successful handshake and server connection, the server will return the last 60 trades. After this payload, the rest will be real-time trades.</p>
-    <p>Variable "v" acts as a trade ID, and this variable is shared across different assets.</p>
 
-  spot_websocket_ticker_v1: Trading Pair Stream
-  spot_websocket_ticker_desc_v1: The 24-hr statistics of a trading pair refreshed every second.
-  spot_websocket_kline_v1: Candlestick Chart Streams
+
+  spot_public_websocket_frequency_300: Pushes data at a frequency of <b>300ms</b>.
+  spot_public_websocket_frequency_250: Pushes data at a frequency of <b>250ms</b>.
+  spot_public_websocket_frequency_realtime: Pushes data in <b>realtime</b>.
+
+
+  spot_websocket_trade_desc_v1: |
+    <p>This topic pushes raw data for each trade.</p>
+    <p>After a successful subscription message, the first data message (as indicated by <code>"f": true</code>) consists of the last 60 trades. After this payload (<code>"f": false</code>), messages are pushed at frequency of 300ms.</p>
+    <p>Variable <code>v</code> is a trade ID which is unique across the platform.</p>
+
+  websocketrealtimes: realtimes
+  spot_websocket_ticker_desc_v1: |
+    The 24-hr statistics of a trading pair.
+  websocketkline: kline
   spot_websocket_kline_desc_v1: |
-    <p>Candlestick Streams push data of the requested candlestick chart every second.</p>
-    <p>m -> minutes; h -> hours; d -> days; w -> weeks; M -> months</p>
-      <ul>
-      <li>1m</li>
-      <li>3m</li>
-      <li>5m</li>
-      <li>15m</li>
-      <li>30m</li>
-      <li>1h</li>
-      <li>2h</li>
-      <li>4h</li>
-      <li>6h</li>
-      <li>12h</li>
-      <li>1d</li>
-      <li>1w</li>
-      <li>1M</li>
-      </ul>
+    <p>Kline data.</p>
+    <p>To subscribe to different intervals, alter append your desired interval to the topic name. For 1 minute klines, set the topic as <code>kline_1m</code>, for 1 hour klines use <code>kline_1h</code>, etc. Available intervals are listed <a href="#kline-interval-interval">here</a>.</p>
 
   spot_broker_info: brokerinfo return
-  spot_websocket_orderbook_v1: Order Book Streams (Full Depth)
+  websocketdepth: depth
   spot_websocket_orderbook_desc_v1: |
-    <p>Market depth data for a trading pair: </p>
+    <p>This topic pushes all order book data.</p>
     <ul>
-      <li>Snapshot frequency: every 300 milliseconds (if the bid-ask spread of the order book changes).</li>
-      <li>Snapshot depth: 300 each for asks and bids.</li>
-      <li>Events trigger order book version change：
+      <li>Snapshot depth: 300 per side.</li>
+      <li>Events which trigger a message push to this topic:
         <ul>
-          <li>order enters order book</li>
-          <li>order leaves order book</li>
-          <li>order quantity changes</li>
-          <li>order filled</li>
+          <li>Order enters order book</li>
+          <li>Order leaves order book</li>
+          <li>Order quantity changes</li>
+          <li>Order filled</li>
         </ul>
       </li>
     </ul>
-    <p>Order Book Streams (Full Depth) pushes all data, and the frequency is relatively low. For higher frequency streams, please subscribe to merged depth. Please note that mergedDepth pushes fewer data.</p>
 
-  spot_websocket_orderbook_merge_v1: Orderbook Stream(Merge Depth)
-  spot_websocket_orderbook_merge_desc_v1: dumpScale must be specified for this endpoint. It cannot be larger than the selected order book grouping price interval, which can be queried via brokerInfo.
+  websocketmergeddepth: mergedDepth
+  spot_websocket_orderbook_merge_desc_v1: <code>dumpScale</code> must be specified for this endpoint. It refers to the number of decimal places
 
-  spot_websocket_orderbook_delta_v1: Orderbook Stream(Delta Depth)
+  websocketdiffdepth: diffDepth
   spot_websocket_orderbook_delta_desc_v1: |
     <p>Changes (if any) in the bid–ask spread of the order book will be pushed every second.</p>
     <p>In Order Book Streams (Float Depth), the quantity returned may not be equal to the actual bid-ask quantity corresponding to the price. If the quantity=0, it indicates that the price has already changed. If the quantity>0, it refers to the updated bid-ask quantity corresponding to the price.</p>
@@ -2227,57 +2230,49 @@ en:
     <p>ws.send('{"symbol":"BTCUSDT,ETHUSDT","topic":"trade","event":"sub","params":{"binary":false}}');</p>
 
   #user
-  spot_websocket_user_account: Account Update
-  spot_websocket_user_account_desc: Account is updated with the outboundAccountInfo event.
-  spot_websocket_user_order: Order Updates
-  spot_websocket_user_order_desc: Orders are updated with the executionReport event. Z divided by z equals the average filled price.
-  spot_websocket_ticket_info: TicketInfo
+  spot_private_topics_auth_sub: Sending the <a href="#t-websocketauthentication">authentication message</a> automatically subscribes you to all 3 private topics.
+
+  outboundAccountInfo: outboundAccountInfo
+  outboundAccountInfo_desc: Pushes data about your account.
+
+  executionReport: executionReport
+  executionReport_desc: Pushes data about your orders. <code>Z</code> divided by <code>z</code> equals the average filled price.
+
+  ticketInfo: ticketInfo
+  ticketInfo_para: |
+    Pushes data about your trades (fills). When an order is filled, you will receive two messages: one from <code>ticketInfo</code>, and one from <code>executionReport</code>
 
   #spot_ws_v2
 
-  spot_websocket_ticker_v2: Order Book for Trading Pair
+  websocketv2bookticker: bookTicker
   spot_websocket_ticker_desc_v2: Best bid price and best ask price
 
-  spot_websocket_kline_v2: Candlestick Chart Streams
+  websocketv2kline: kline
   spot_websocket_kline_desc_v2: |
-    <p>Candlestick Streams push data of the requested candlestick chart every second.</p>
-    <p>m -> minutes; h -> hours; d -> days; w -> weeks; M -> months</p>
-      <ul>
-      <li>1m</li>
-      <li>3m</li>
-      <li>5m</li>
-      <li>15m</li>
-      <li>30m</li>
-      <li>1h</li>
-      <li>2h</li>
-      <li>4h</li>
-      <li>6h</li>
-      <li>12h</li>
-      <li>1d</li>
-      <li>1w</li>
-      <li>1M</li>
-      </ul>
+    <p>Kline data pushed at a frequency of every second.</p>
+    <p>The topic name is <code>kline</code>. To subscribe to different intervals, pass your desired interval with the <code>klineType</code> parameter. Available intervals are listed <a href="#kline-interval-interval">here</a>.</p>
 
-  spot_websocket_trade_v2: Trade Streams
+  websocketv2trade: trade
   spot_websocket_trade_desc_v2: |
     <p>The Trade Streams push raw trade information; each trade has a unique buyer and seller.</p>
     <p>After successful handshake and connected to server, the server will return the latest 60 trades. After this payload, the following will be real-time trades.</p>
     <p>Variable "v" acts as an tradeId. This variable is shared across different symbols; however, each ID is unique. For example, suppose in the last 5 seconds 3 trades happened in ETHUSDT, BTCUSDT, and BHTBTC. Their version (which is "v") will be consecutive: 112, 113, 114.</p>
 
-  spot_websocket_orderbook_v2: Order Book Streams (Full Depth)
-  spot_websocket_orderbook_desc_v2: <p> Market depth data for a trading pair:</p>
+  websocketv2depth: depth
+  spot_websocket_orderbook_desc_v2: |
+    <p>Market depth data for a trading pair: </p>
     <ul>
-      <li>Snapshot frequency:every 250 milliseconds (if the bid-ask spread of the order book changes).</li>
-      <li>Snapshot depth:40 each for asks and bids.</li>
-      <li>Events trigger order book version change：
+      <li>Snapshot depth: 40 each for asks and bids.</li>
+      <li>Events trigger order book version change:
         <ul>
           <li>order enters order book</li>
           <li>order leaves order book</li>
-          <li>order quantity changed</li>
-          <li>order completed</li>
+          <li>order quantity changes</li>
+          <li>order filled</li>
         </ul>
       </li>
     </ul>
 
-  spot_websocket_symbol_ticker_v2: Trading Pair Streams
-  spot_websocket_symbol_ticker_desc_v2: ''
+  websocketv2realtimes: realtimes
+  spot_websocket_symbol_ticker_desc_v2: |
+    The 24-hr statistics of a trading pair pushed at a frequency of ???

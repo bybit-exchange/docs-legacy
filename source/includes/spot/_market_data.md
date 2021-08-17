@@ -55,8 +55,8 @@ t(:market_para_auth)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpOrder>/spot/v1/symbols</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=svSymbols>/spot/v1/symbols</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svSymbols"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
@@ -120,8 +120,8 @@ GET
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpOrder>/spot/quote/v1/depth</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=sqvDepth>/spot/quote/v1/depth</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvDepth"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -176,8 +176,8 @@ GET
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpOrder>/spot/quote/v1/depth/merged</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=sqvdMerged>/spot/quote/v1/depth/merged</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -237,8 +237,8 @@ GET
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpOrder>/spot/quote/v1/trades</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=sqvTrades>/spot/quote/v1/trades</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvTrades"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -294,8 +294,8 @@ GET
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpOrder>/spot/quote/v1/kline</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=sqvKline>/spot/quote/v1/kline</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvKline"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -361,8 +361,8 @@ t(:spotKlineTimeRemark)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpOrder>/spot/quote/v1/ticker/24hr</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=sqvt24hr>/spot/quote/v1/ticker/24hr</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvt24hr"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
@@ -417,8 +417,8 @@ t(:spotTicker24hrRemark)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpOrder>/spot/quote/v1/ticker/price</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=sqvtPrice>/spot/quote/v1/ticker/price</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvtPrice"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -466,8 +466,8 @@ t(:spotTickerPriceRemark)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpOrder>/spot/quote/v1/ticker/book_ticker</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=sqvtBook_ticker>/spot/quote/v1/ticker/book_ticker</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvtBook_ticker"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
