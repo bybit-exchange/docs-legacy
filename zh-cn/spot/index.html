@@ -639,7 +639,7 @@
   <header class="top-nav">
   <div class="top-menu">
   <a href="https://bybit-exchange.github.io/docs/spot" class="logo-link" target="_self">
-    <img src="../../images/logo-85698b60.svg" class="logo" alt="" />
+    <img src="../../images/logo-aed6448d.svg" class="logo" alt="" />
   </a>
   <ul class="con">
     <li><a href="/docs/zh-cn/inverse">反向永续</a></li>
@@ -773,7 +773,13 @@
                     <a href="#t-cancel_spot_order" class="toc-h2 toc-link" data-title="撤销订单">撤销订单</a>
                   </li>
                   <li>
+                    <a href="#t-fast_cancel_spot_order" class="toc-h2 toc-link" data-title="快速撤销订单">快速撤销订单</a>
+                  </li>
+                  <li>
                     <a href="#t-batch_cancel_spot_order" class="toc-h2 toc-link" data-title="批量撤销订单">批量撤销订单</a>
+                  </li>
+                  <li>
+                    <a href="#t-batch_fast_cancel_spot_order" class="toc-h2 toc-link" data-title="批量快速撤销订单">批量快速撤销订单</a>
                   </li>
                   <li>
                     <a href="#t-spot_order_list" class="toc-h2 toc-link" data-title="订单列表">订单列表</a>
@@ -837,22 +843,22 @@
                     <a href="#t-publictopics" class="toc-h2 toc-link" data-title="公共 Topics">公共 Topics</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#t-spot_websocket_trade_v1" class="toc-h3 toc-link" data-title="逐笔交易">逐笔交易</a>
+                            <a href="#t-websockettrade" class="toc-h3 toc-link" data-title="平台成交">平台成交</a>
                           </li>
                           <li>
-                            <a href="#t-spot_websocket_ticker_v1" class="toc-h3 toc-link" data-title="Symbol的Ticker">Symbol的Ticker</a>
+                            <a href="#t-websocketrealtimes" class="toc-h3 toc-link" data-title="realtimes">realtimes</a>
                           </li>
                           <li>
-                            <a href="#t-spot_websocket_kline_v1" class="toc-h3 toc-link" data-title="K线/蜡烛图">K线/蜡烛图</a>
+                            <a href="#t-websocketkline" class="toc-h3 toc-link" data-title="K线">K线</a>
                           </li>
                           <li>
-                            <a href="#t-spot_websocket_orderbook_v1" class="toc-h3 toc-link" data-title="订单簿(全量深度)">订单簿(全量深度)</a>
+                            <a href="#t-websocketdepth" class="toc-h3 toc-link" data-title="depth">depth</a>
                           </li>
                           <li>
-                            <a href="#t-spot_websocket_orderbook_merge_v1" class="toc-h3 toc-link" data-title="订单簿(合并深度)">订单簿(合并深度)</a>
+                            <a href="#t-websocketmergeddepth" class="toc-h3 toc-link" data-title="mergedDepth">mergedDepth</a>
                           </li>
                           <li>
-                            <a href="#t-spot_websocket_orderbook_delta_v1" class="toc-h3 toc-link" data-title="订单簿(增量深度)">订单簿(增量深度)</a>
+                            <a href="#t-websocketdiffdepth" class="toc-h3 toc-link" data-title="diffDepth">diffDepth</a>
                           </li>
                       </ul>
                   </li>
@@ -860,19 +866,19 @@
                     <a href="#t-publictopics_v2" class="toc-h2 toc-link" data-title="公共 Topics V2">公共 Topics V2</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#t-spot_websocket_orderbook_v2" class="toc-h3 toc-link" data-title="订单簿(全量深度)">订单簿(全量深度)</a>
+                            <a href="#t-websocketv2depth" class="toc-h3 toc-link" data-title="depth">depth</a>
                           </li>
                           <li>
-                            <a href="#t-spot_websocket_kline_v2" class="toc-h3 toc-link" data-title="K线/蜡烛图">K线/蜡烛图</a>
+                            <a href="#t-websocketv2kline" class="toc-h3 toc-link" data-title="kline">kline</a>
                           </li>
                           <li>
-                            <a href="#t-spot_websocket_trade_v2" class="toc-h3 toc-link" data-title="逐笔交易">逐笔交易</a>
+                            <a href="#t-websocketv2trade" class="toc-h3 toc-link" data-title="trade">trade</a>
                           </li>
                           <li>
-                            <a href="#t-spot_websocket_ticker_v2" class="toc-h3 toc-link" data-title="订单簿的Ticker">订单簿的Ticker</a>
+                            <a href="#t-websocketv2bookticker" class="toc-h3 toc-link" data-title="bookTicker">bookTicker</a>
                           </li>
                           <li>
-                            <a href="#t-spot_websocket_symbol_ticker_v2" class="toc-h3 toc-link" data-title="symbol的Ticker">symbol的Ticker</a>
+                            <a href="#t-websocketv2realtimes" class="toc-h3 toc-link" data-title="realtimes">realtimes</a>
                           </li>
                       </ul>
                   </li>
@@ -880,13 +886,13 @@
                     <a href="#t-privatetopics" class="toc-h2 toc-link" data-title="私有 Topics">私有 Topics</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#t-spot_websocket_user_account" class="toc-h3 toc-link" data-title="账户变更">账户变更</a>
+                            <a href="#t-outboundaccountinfo" class="toc-h3 toc-link" data-title="outboundAccountInfo">outboundAccountInfo</a>
                           </li>
                           <li>
-                            <a href="#t-spot_websocket_user_order" class="toc-h3 toc-link" data-title="订单更新">订单更新</a>
+                            <a href="#t-executionreport" class="toc-h3 toc-link" data-title="executionReport">executionReport</a>
                           </li>
                           <li>
-                            <a href="#t-spot_websocket_ticket_info" class="toc-h3 toc-link" data-title="TicketInfo">TicketInfo</a>
+                            <a href="#t-ticketinfo" class="toc-h3 toc-link" data-title="ticketInfo">ticketInfo</a>
                           </li>
                       </ul>
                   </li>
@@ -905,16 +911,13 @@
                     <a href="#symbol-symbol" class="toc-h2 toc-link" data-title="Symbol (symbol)">Symbol (<code>symbol</code>)</a>
                   </li>
                   <li>
-                    <a href="#type-type" class="toc-h2 toc-link" data-title="Type (type)">Type (<code>type</code>)</a>
+                    <a href="#order-type-type-ordertypes" class="toc-h2 toc-link" data-title="Order type (type/orderTypes)">Order type (<code>type</code>/<code>orderTypes</code>)</a>
                   </li>
                   <li>
                     <a href="#currency-currency-coin" class="toc-h2 toc-link" data-title="Currency (currency/coin)">Currency (<code>currency</code>/<code>coin</code>)</a>
                   </li>
                   <li>
-                    <a href="#order-status-status" class="toc-h2 toc-link" data-title="Order Status(status)">Order Status(<code>status</code>)</a>
-                  </li>
-                  <li>
-                    <a href="#order-type-order_type" class="toc-h2 toc-link" data-title="Order type (order_type)">Order type (<code>order_type</code>)</a>
+                    <a href="#order-status-status" class="toc-h2 toc-link" data-title="Order status (status)">Order status (<code>status</code>)</a>
                   </li>
                   <li>
                     <a href="#quantity-qty" class="toc-h2 toc-link" data-title="Quantity (qty)">Quantity (<code>qty</code>)</a>
@@ -1148,8 +1151,8 @@ function copyStringToClipboard (endpoint) {
 <p class="fake_header">HTTP 请求</p>
 
 <p>GET
-<code><span id=vpOrder>/spot/v1/symbols</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<code><span id=svSymbols>/spot/v1/symbols</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svSymbols"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">请求参数</p>
 
@@ -1266,8 +1269,8 @@ function copyStringToClipboard (endpoint) {
 <p class="fake_header">HTTP 请求</p>
 
 <p>GET
-<code><span id=vpOrder>/spot/quote/v1/depth</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<code><span id=sqvDepth>/spot/quote/v1/depth</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvDepth"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">请求参数</p>
 
@@ -1351,8 +1354,8 @@ function copyStringToClipboard (endpoint) {
 <p class="fake_header">HTTP 请求</p>
 
 <p>GET
-<code><span id=vpOrder>/spot/quote/v1/depth/merged</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<code><span id=sqvdMerged>/spot/quote/v1/depth/merged</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">请求参数</p>
 
@@ -1447,8 +1450,8 @@ function copyStringToClipboard (endpoint) {
 <p class="fake_header">HTTP 请求</p>
 
 <p>GET
-<code><span id=vpOrder>/spot/quote/v1/trades</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<code><span id=sqvTrades>/spot/quote/v1/trades</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvTrades"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">请求参数</p>
 
@@ -1537,8 +1540,8 @@ function copyStringToClipboard (endpoint) {
 <p class="fake_header">HTTP 请求</p>
 
 <p>GET
-<code><span id=vpOrder>/spot/quote/v1/kline</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<code><span id=sqvKline>/spot/quote/v1/kline</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvKline"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">请求参数</p>
 
@@ -1681,8 +1684,8 @@ function copyStringToClipboard (endpoint) {
 <p class="fake_header">HTTP 请求</p>
 
 <p>GET
-<code><span id=vpOrder>/spot/quote/v1/ticker/24hr</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<code><span id=sqvt24hr>/spot/quote/v1/ticker/24hr</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvt24hr"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">请求参数</p>
 
@@ -1788,8 +1791,8 @@ function copyStringToClipboard (endpoint) {
 <p class="fake_header">HTTP 请求</p>
 
 <p>GET
-<code><span id=vpOrder>/spot/quote/v1/ticker/price</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<code><span id=sqvtPrice>/spot/quote/v1/ticker/price</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvtPrice"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">请求参数</p>
 
@@ -1859,8 +1862,8 @@ function copyStringToClipboard (endpoint) {
 <p class="fake_header">HTTP 请求</p>
 
 <p>GET
-<code><span id=vpOrder>/spot/quote/v1/ticker/book_ticker</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<code><span id=sqvtBook_ticker>/spot/quote/v1/ticker/book_ticker</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvtBook_ticker"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">请求参数</p>
 
@@ -2006,7 +2009,7 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left"><a href="#timeinforce-timeinforce">timeInForce</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>订单时间指令（Time in Force）。可能出现的值为：GTC（Good Till Canceled，一直有效），FOK（Fill or Kill，全部成交或者取消），IOC（Immediate or Cancel，立即成交或者取消）</td>
+<td>执行策略</td>
 </tr>
 <tr>
 <td style="text-align: left">price</td>
@@ -2062,7 +2065,7 @@ function copyStringToClipboard (endpoint) {
 <td>订单数量</td>
 </tr>
 <tr>
-<td style="text-align: left">type</td>
+<td style="text-align: left"><a href="#order-type-type-ordertypes">type</a></td>
 <td style="text-align: left">string</td>
 <td>订单类型。可能出现的值只能为:LIMIT(限价)和MARKET（市价）</td>
 </tr>
@@ -2072,14 +2075,14 @@ function copyStringToClipboard (endpoint) {
 <td>订单方向, BUY(买入做多)/SELL(卖出做空)</td>
 </tr>
 <tr>
-<td style="text-align: left">status</td>
+<td style="text-align: left"><a href="#order-status-status">status</a></td>
 <td style="text-align: left">string</td>
 <td>订单状态。可能出现的值为：NEW(新订单，无成交)、PARTIALLY_FILLED（部分成交）、FILLED（全部成交）、CANCELED（已取消）和REJECTED（订单被拒绝）.</td>
 </tr>
 <tr>
-<td style="text-align: left">timeInForce</td>
+<td style="text-align: left"><a href="#timeinforce-timeinforce">timeInForce</a></td>
 <td style="text-align: left">string</td>
-<td>订单时间指令（Time in Force）。可能出现的值为：GTC（Good Till Canceled，一直有效），FOK（Fill or Kill，全部成交或者取消），IOC（Immediate or Cancel，立即成交或者取消）</td>
+<td>执行策略</td>
 </tr>
 <tr>
 <td style="text-align: left">accountId</td>
@@ -2235,17 +2238,17 @@ orderId和ordersLinkId至少要输入一个。
 <td>订单已成交的平均价格</td>
 </tr>
 <tr>
-<td style="text-align: left">status</td>
+<td style="text-align: left"><a href="#order-status-status">status</a></td>
 <td style="text-align: left">string</td>
 <td>订单状态。可能出现的值为：NEW(新订单，无成交)、PARTIALLY_FILLED（部分成交）、FILLED（全部成交）、CANCELED（已取消）和REJECTED（订单被拒绝）.</td>
 </tr>
 <tr>
-<td style="text-align: left">timeInForce</td>
+<td style="text-align: left"><a href="#timeinforce-timeinforce">timeInForce</a></td>
 <td style="text-align: left">string</td>
-<td>订单时间指令（Time in Force）。可能出现的值为：GTC（Good Till Canceled，一直有效），FOK（Fill or Kill，全部成交或者取消），IOC（Immediate or Cancel，立即成交或者取消）</td>
+<td>执行策略</td>
 </tr>
 <tr>
-<td style="text-align: left">type</td>
+<td style="text-align: left"><a href="#order-type-type-ordertypes">type</a></td>
 <td style="text-align: left">string</td>
 <td>订单类型。可能出现的值只能为:LIMIT(限价)和MARKET（市价）</td>
 </tr>
@@ -2365,6 +2368,140 @@ orderId和ordersLinkId至少要输入一个。
 <td>币对名称</td>
 </tr>
 <tr>
+<td style="text-align: left"><a href="#order-status-status">status</a></td>
+<td style="text-align: left">string</td>
+<td>订单状态。可能出现的值为：NEW(新订单，无成交)、PARTIALLY_FILLED（部分成交）、FILLED（全部成交）、CANCELED（已取消）和REJECTED（订单被拒绝）.</td>
+</tr>
+<tr>
+<td style="text-align: left">accountId</td>
+<td style="text-align: left">long</td>
+<td>账户ID</td>
+</tr>
+<tr>
+<td style="text-align: left">transactTime</td>
+<td style="text-align: left">long</td>
+<td>交易时间戳</td>
+</tr>
+<tr>
+<td style="text-align: left">price</td>
+<td style="text-align: left">float</td>
+<td>订单价格</td>
+</tr>
+<tr>
+<td style="text-align: left">origQty</td>
+<td style="text-align: left">float</td>
+<td>订单数量</td>
+</tr>
+<tr>
+<td style="text-align: left">executedQty</td>
+<td style="text-align: left">float</td>
+<td>请忽略</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#timeinforce-timeinforce">timeInForce</a></td>
+<td style="text-align: left">string</td>
+<td>执行策略</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#type-type">type</a></td>
+<td style="text-align: left">string</td>
+<td>订单类型, LIMIT/MARKET/LIMIT_MAKER</td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">string</td>
+<td>订单方向, BUY(买入做多)/SELL(卖出做空)</td>
+</tr>
+</tbody></table>
+<h3 id='t-fast_cancel_spot_order'>快速撤销订单</h3>
+<blockquote>
+<p>请求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+</code></pre></div>
+<blockquote>
+<p>响应示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">accountId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10054</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ETHUSDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">162081160171552</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">889826641228952064</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">transactTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1620811601728</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">20000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">origQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">executedQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">CANCELED</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GTC</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LIMIT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BUY</span><span class="dl">"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<aside class="notice">
+此接口只提交取消请求，实际取消结果需要通过订单状态，撮合状态等接口来确认。
+</aside>
+
+<p class="fake_header">HTTP 请求</p>
+
+<p>DELETE
+<code><span id=vpoCancel>/spot/v1/order/fast</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancel"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">请求参数</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">参数</th>
+<th style="text-align: left">是否必须</th>
+<th style="text-align: left">类型</th>
+<th>说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>订单ID</td>
+</tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>特殊订单ID，用户自己生成</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">返回参数</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">参数</th>
+<th style="text-align: left">类型</th>
+<th>说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">integer</td>
+<td>订单ID</td>
+</tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">string</td>
+<td>特殊订单ID，用户自己生成</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>币对名称</td>
+</tr>
+<tr>
 <td style="text-align: left">status</td>
 <td style="text-align: left">string</td>
 <td>订单状态。可能出现的值为：NEW(新订单，无成交)、PARTIALLY_FILLED（部分成交）、FILLED（全部成交）、CANCELED（已取消）和REJECTED（订单被拒绝）.</td>
@@ -2433,7 +2570,83 @@ orderId和ordersLinkId至少要输入一个。
 <p class="fake_header">HTTP 请求</p>
 
 <p>DELETE
-<code><span id=vpoCancel>/spot/order/batch-cancel</span></code>
+<code><span id=soBatchCancel>/spot/order/batch-cancel</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#soBatchCancel"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">请求参数</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">参数</th>
+<th style="text-align: left">是否必须</th>
+<th style="text-align: left">类型</th>
+<th>说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>币对名称</td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>订单方向, BUY(买入做多)/SELL(卖出做空)</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#order-type-type-ordertypes">orderTypes</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Order type. Use commas to cancel orders with multiple order types, eg <code>LIMIT,LIMIT_MAKER</code>. Default: <code>LIMIT</code>
+</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">返回参数</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">参数</th>
+<th style="text-align: left">类型</th>
+<th>说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">success</td>
+<td style="text-align: left">boolean</td>
+<td>是否成功</td>
+</tr>
+</tbody></table>
+<h3 id='t-batch_fast_cancel_spot_order'>批量快速撤销订单</h3>
+<blockquote>
+<p>请求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+</code></pre></div>
+<blockquote>
+<p>响应示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<aside class="notice">
+此接口只提交取消请求，实际取消结果需要通过订单状态，撮合状态等接口来确认。
+</aside>
+
+<p class="fake_header">HTTP 请求</p>
+
+<p>DELETE
+<code><span id=vpoCancel>/spot/order/batch-fast-cancel</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancel"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">请求参数</p>
@@ -2643,17 +2856,17 @@ orderId和ordersLinkId至少要输入一个。
 <td>订单已成交的平均价格</td>
 </tr>
 <tr>
-<td style="text-align: left">status</td>
+<td style="text-align: left"><a href="#order-status-status">status</a></td>
 <td style="text-align: left">string</td>
 <td>订单状态。可能出现的值为：NEW(新订单，无成交)、PARTIALLY_FILLED（部分成交）、FILLED（全部成交）、CANCELED（已取消）和REJECTED（订单被拒绝）.</td>
 </tr>
 <tr>
-<td style="text-align: left">timeInForce</td>
+<td style="text-align: left"><a href="#timeinforce-timeinforce">timeInForce</a></td>
 <td style="text-align: left">string</td>
-<td>订单时间指令（Time in Force）。可能出现的值为：GTC（Good Till Canceled，一直有效），FOK（Fill or Kill，全部成交或者取消），IOC（Immediate or Cancel，立即成交或者取消）</td>
+<td>执行策略</td>
 </tr>
 <tr>
-<td style="text-align: left">type</td>
+<td style="text-align: left"><a href="#order-type-type-ordertypes">type</a></td>
 <td style="text-align: left">string</td>
 <td>订单类型。可能出现的值只能为:LIMIT(限价)和MARKET（市价）</td>
 </tr>
@@ -2829,17 +3042,17 @@ orderId和ordersLinkId至少要输入一个。
 <td>订单已成交的平均价格</td>
 </tr>
 <tr>
-<td style="text-align: left">status</td>
+<td style="text-align: left"><a href="#order-status-status">status</a></td>
 <td style="text-align: left">string</td>
 <td>订单状态。可能出现的值为：NEW(新订单，无成交)、PARTIALLY_FILLED（部分成交）、FILLED（全部成交）、CANCELED（已取消）和REJECTED（订单被拒绝）.</td>
 </tr>
 <tr>
-<td style="text-align: left">timeInForce</td>
+<td style="text-align: left"><a href="#timeinforce-timeinforce">timeInForce</a></td>
 <td style="text-align: left">string</td>
-<td>订单时间指令（Time in Force）。可能出现的值为：GTC（Good Till Canceled，一直有效），FOK（Fill or Kill，全部成交或者取消），IOC（Immediate or Cancel，立即成交或者取消）</td>
+<td>执行策略</td>
 </tr>
 <tr>
-<td style="text-align: left">type</td>
+<td style="text-align: left"><a href="#order-type-type-ordertypes">type</a></td>
 <td style="text-align: left">string</td>
 <td>订单类型。可能出现的值只能为:LIMIT(限价)和MARKET（市价）</td>
 </tr>
@@ -2916,8 +3129,8 @@ orderId和ordersLinkId至少要输入一个。
 <p class="fake_header">HTTP 请求</p>
 
 <p>GET
-<code><span id=vpOrder>/spot/v1/myTrades</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<code><span id=svMyTrades>/spot/v1/myTrades</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svMyTrades"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">请求参数</p>
 
@@ -3103,8 +3316,8 @@ orderId和ordersLinkId至少要输入一个。
 <p class="fake_header">HTTP 请求</p>
 
 <p>GET
-<code><span id=vpOrder>/spot/v1/account</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<code><span id=svAccount>/spot/v1/account</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svAccount"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">返回参数</p>
 
@@ -3210,10 +3423,7 @@ orderId和ordersLinkId至少要输入一个。
 </p>
 <h1 id='t-websocket'>WebSocket接口</h1><h2 id='t-websocketauthentication'>鉴权/认证</h2>
 <blockquote>
-<p>认证方式:
-</p>
-
-<p>方法1: 建立连接时附带验证信息.
+<p>Apply for authentication when establishing a connection.
 </p>
 </blockquote>
 <div class="highlight"><pre class="highlight python tab-python"><code><span class="c1"># based on: https://github.com/verata-veritatis/pybit/blob/master/pybit/__init__.py
@@ -3235,23 +3445,8 @@ orderId和ordersLinkId至少要输入一个。
     <span class="nb">bytes</span><span class="p">(</span><span class="sa">f</span><span class="s">"GET/realtime</span><span class="si">{</span><span class="n">expires</span><span class="si">}</span><span class="s">"</span><span class="p">,</span> <span class="s">"utf-8"</span><span class="p">),</span> <span class="n">digestmod</span><span class="o">=</span><span class="s">"sha256"</span>
 <span class="p">).</span><span class="n">hexdigest</span><span class="p">())</span>
 
-<span class="n">param</span> <span class="o">=</span> <span class="s">"api_key={api_key}&amp;expires={expires}&amp;signature={signature}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span>
-    <span class="n">api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">,</span>
-    <span class="n">expires</span><span class="o">=</span><span class="n">expires</span><span class="p">,</span>
-    <span class="n">signature</span><span class="o">=</span><span class="n">signature</span>
-<span class="p">)</span>
-
 <span class="n">ws</span> <span class="o">=</span> <span class="n">websocket</span><span class="p">.</span><span class="n">WebSocketApp</span><span class="p">(</span>
-    <span class="n">url</span><span class="o">=</span><span class="s">"wsurl"</span><span class="p">,</span>
-    <span class="p">...</span>
-<span class="p">)</span>
-</code></pre></div>
-<blockquote>
-<p>方法2: 建立连接后发送auth请求验证.
-</p>
-</blockquote>
-<div class="highlight"><pre class="highlight python tab-python"><code><span class="n">ws</span> <span class="o">=</span> <span class="n">websocket</span><span class="p">.</span><span class="n">WebSocketApp</span><span class="p">(</span>
-    <span class="n">url</span><span class="o">=</span><span class="s">"wsurl"</span><span class="p">,</span>
+    <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span>
     <span class="p">...</span>
 <span class="p">)</span>
 
@@ -3315,7 +3510,7 @@ orderId和ordersLinkId至少要输入一个。
 <blockquote>
 <p>响应示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span><span class="dl">"</span><span class="s2">pong</span><span class="dl">"</span><span class="p">:</span><span class="mi">1622536662988</span><span class="p">}</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span><span class="dl">"</span><span class="s2">pong</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1535975085152</span><span class="p">}</span>
 </code></pre></div>
 <aside class="warning">
 由于网络或者程序不稳定,我们强烈建议您使用 <code>ping</code> 心跳包来维持连接. 心跳包建议每30秒发送一次.
@@ -3359,22 +3554,21 @@ orderId和ordersLinkId至少要输入一个。
 <span class="p">}</span>
 </code></pre></div>
 <p>订阅成功后会立即返回订阅的消息结果，您可以根据返回结果判断是否订阅成功</p>
-<h2 id='t-publictopics'>公共 Topics</h2><h3 id='t-spot_websocket_trade_v1'>逐笔交易</h3>
+<h2 id='t-publictopics'>公共 Topics</h2><h3 id='t-websockettrade'>平台成交</h3>
 <blockquote>
 <p>请求订阅</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">trade</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">event</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">sub</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span> <span class="c1">// Whether data returned is in binary format</span>
-  <span class="p">}</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">trade</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">event</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">sub</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
 </code></pre></div>
 <blockquote>
-<p>快照推送示例 - 连接建立成功后首次推送</p>
+<p>响应示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
     <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
@@ -3403,6 +3597,8 @@ orderId和ordersLinkId至少要输入一个。
 <p>变量“v”可以理解成一个交易ID。这个变量是全局递增的并且独特的。</p>
 </p>
 
+<p>Pushes data at a frequency of <b>300ms</b>.</p>
+
 <p class="fake_header">返回参数</p>
 
 <table><thead>
@@ -3413,40 +3609,51 @@ orderId和ordersLinkId至少要输入一个。
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">v</td>
+<td style="text-align: left">data &gt; v</td>
 <td style="text-align: left">string</td>
 <td>交易ID</td>
 </tr>
 <tr>
-<td style="text-align: left">t</td>
+<td style="text-align: left">data &gt; t</td>
 <td style="text-align: left">string</td>
 <td>时间</td>
 </tr>
 <tr>
-<td style="text-align: left">p</td>
+<td style="text-align: left">data &gt; p</td>
 <td style="text-align: left">string</td>
 <td>价格</td>
 </tr>
 <tr>
-<td style="text-align: left">q</td>
+<td style="text-align: left">data &gt; q</td>
 <td style="text-align: left">boolean</td>
 <td>数量</td>
 </tr>
 <tr>
-<td style="text-align: left">m</td>
+<td style="text-align: left">data &gt; m</td>
 <td style="text-align: left">boolean</td>
 <td>是否成功</td>
 </tr>
+<tr>
+<td style="text-align: left">f</td>
+<td style="text-align: left">boolean</td>
+<td>是否首次返回</td>
+</tr>
 </tbody></table>
-<h3 id='t-spot_websocket_ticker_v1'>Symbol的Ticker</h3>
+<h3 id='t-websocketrealtimes'>realtimes</h3>
 <blockquote>
 <p>请求订阅</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"symbol":"BTCUSDT","topic":"realtimes","event":"sub","params":{"binary":false}}</span><span class="dl">'</span><span class="p">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">realtimes</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">event</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">sub</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 <blockquote>
-<p>快照推送示例 - 连接建立成功后首次推送</p>
+<p>响应示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
@@ -3472,6 +3679,8 @@ orderId和ordersLinkId至少要输入一个。
 </code></pre></div>
 <p>按Symbol逐秒刷新的24小时完整ticker信息。</p>
 
+<p>Pushes data at a frequency of <b>300ms</b>.</p>
+
 <p class="fake_header">返回参数</p>
 
 <table><thead>
@@ -3482,57 +3691,57 @@ orderId和ordersLinkId至少要输入一个。
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">t</td>
+<td style="text-align: left">data &gt; t</td>
 <td style="text-align: left">number</td>
 <td>时间戳</td>
 </tr>
 <tr>
-<td style="text-align: left">s</td>
+<td style="text-align: left">data &gt; s</td>
 <td style="text-align: left">string</td>
 <td>币对</td>
 </tr>
 <tr>
-<td style="text-align: left">sn</td>
+<td style="text-align: left">data &gt; sn</td>
 <td style="text-align: left">string</td>
 <td>币对</td>
 </tr>
 <tr>
-<td style="text-align: left">c</td>
+<td style="text-align: left">data &gt; c</td>
 <td style="text-align: left">string</td>
 <td>收盘价</td>
 </tr>
 <tr>
-<td style="text-align: left">h</td>
+<td style="text-align: left">data &gt; h</td>
 <td style="text-align: left">string</td>
 <td>最高价</td>
 </tr>
 <tr>
-<td style="text-align: left">l</td>
+<td style="text-align: left">data &gt; l</td>
 <td style="text-align: left">string</td>
 <td>最低价</td>
 </tr>
 <tr>
-<td style="text-align: left">o</td>
+<td style="text-align: left">data &gt; o</td>
 <td style="text-align: left">string</td>
 <td>开盘价</td>
 </tr>
 <tr>
-<td style="text-align: left">v</td>
+<td style="text-align: left">data &gt; v</td>
 <td style="text-align: left">string</td>
 <td>成交量</td>
 </tr>
 <tr>
-<td style="text-align: left">qv</td>
+<td style="text-align: left">data &gt; qv</td>
 <td style="text-align: left">string</td>
-<td>translation missing: zh-cn.spot_quota_volume</td>
+<td>成交金额</td>
 </tr>
 <tr>
-<td style="text-align: left">m</td>
+<td style="text-align: left">data &gt; m</td>
 <td style="text-align: left">string</td>
 <td>涨幅</td>
 </tr>
 <tr>
-<td style="text-align: left">e</td>
+<td style="text-align: left">data &gt; e</td>
 <td style="text-align: left">number</td>
 <td>交易所ID</td>
 </tr>
@@ -3542,15 +3751,21 @@ orderId和ordersLinkId至少要输入一个。
 <td>是否首次返回</td>
 </tr>
 </tbody></table>
-<h3 id='t-spot_websocket_kline_v1'>K线/蜡烛图</h3>
+<h3 id='t-websocketkline'>K线</h3>
 <blockquote>
 <p>请求订阅</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"symbol":"BTCUSDT","topic":"kline_" + $间隔,"event":"sub","params":{"binary":false}}</span><span class="dl">'</span><span class="p">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">kline_1m</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">event</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">sub</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 <blockquote>
-<p>快照推送示例 - 连接建立成功后首次推送</p>
+<p>响应示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
@@ -3596,6 +3811,8 @@ orderId和ordersLinkId至少要输入一个。
   </ul>
 </p>
 
+<p>Pushes data at a frequency of <b>300ms</b>.</p>
+
 <p class="fake_header">返回参数</p>
 
 <table><thead>
@@ -3608,7 +3825,7 @@ orderId和ordersLinkId至少要输入一个。
 <tr>
 <td style="text-align: left">t</td>
 <td style="text-align: left">number</td>
-<td>k线开始时间</td>
+<td>开始时间</td>
 </tr>
 <tr>
 <td style="text-align: left">s</td>
@@ -3651,15 +3868,21 @@ orderId和ordersLinkId至少要输入一个。
 <td>是否首次返回</td>
 </tr>
 </tbody></table>
-<h3 id='t-spot_websocket_orderbook_v1'>订单簿(全量深度)</h3>
+<h3 id='t-websocketdepth'>depth</h3>
 <blockquote>
 <p>请求订阅</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"symbol":"BTCUSDT","topic":"depth","event":"sub","params":{"binary":false}}</span><span class="dl">'</span><span class="p">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">depth</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">event</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">sub</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 <blockquote>
-<p>快照推送示例 - 连接建立成功后首次推送</p>
+<p>响应示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
@@ -3674,7 +3897,7 @@ orderId和ordersLinkId至少要输入一个。
     <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">t</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1565600357643</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">v</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">112801745_18</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">b</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span> <span class="c1">//Bids</span>
+    <span class="dl">"</span><span class="s2">b</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
       <span class="p">[</span><span class="dl">"</span><span class="s2">11371.49</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">0.0014</span><span class="dl">"</span><span class="p">],</span>
       <span class="p">[</span><span class="dl">"</span><span class="s2">11371.12</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">0.2</span><span class="dl">"</span><span class="p">],</span>
       <span class="p">[</span><span class="dl">"</span><span class="s2">11369.97</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">0.3523</span><span class="dl">"</span><span class="p">],</span>
@@ -3685,7 +3908,8 @@ orderId和ordersLinkId至少要输入一个。
       <span class="p">[</span><span class="dl">"</span><span class="s2">11369.17</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">0.3</span><span class="dl">"</span><span class="p">],</span>
       <span class="p">[</span><span class="dl">"</span><span class="s2">11369.16</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">0.2</span><span class="dl">"</span><span class="p">],</span>
       <span class="p">[</span><span class="dl">"</span><span class="s2">11369.04</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">1.3203</span><span class="dl">"</span><span class="p">],</span>
-    <span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="c1">//Asks</span>
+    <span class="p">]</span>
+    <span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
       <span class="p">[</span><span class="dl">"</span><span class="s2">11375.41</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">0.0053</span><span class="dl">"</span><span class="p">],</span>
       <span class="p">[</span><span class="dl">"</span><span class="s2">11375.42</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">0.0043</span><span class="dl">"</span><span class="p">],</span>
       <span class="p">[</span><span class="dl">"</span><span class="s2">11375.48</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">0.0052</span><span class="dl">"</span><span class="p">],</span>
@@ -3720,6 +3944,8 @@ orderId和ordersLinkId至少要输入一个。
 <p>这个订阅会推送全量深度信息，因此数据量大。如果想要推送评率更快，请订阅合并深度。</p>
 </p>
 
+<p>Pushes data at a frequency of <b>300ms</b>.</p>
+
 <p class="fake_header">返回参数</p>
 
 <table><thead>
@@ -3751,13 +3977,13 @@ orderId和ordersLinkId至少要输入一个。
 </tr>
 <tr>
 <td style="text-align: left">b</td>
-<td style="text-align: left">string</td>
-<td>买一价、数量</td>
+<td style="text-align: left">array</td>
+<td>Bid prices & quantities in descending order (best price first)</td>
 </tr>
 <tr>
 <td style="text-align: left">a</td>
-<td style="text-align: left">string</td>
-<td>卖一价、数量</td>
+<td style="text-align: left">array</td>
+<td>Ask prices & quantities in ascending order (best price first)</td>
 </tr>
 <tr>
 <td style="text-align: left">f</td>
@@ -3770,15 +3996,22 @@ orderId和ordersLinkId至少要输入一个。
 <td>请忽略</td>
 </tr>
 </tbody></table>
-<h3 id='t-spot_websocket_orderbook_merge_v1'>订单簿(合并深度)</h3>
+<h3 id='t-websocketmergeddepth'>mergedDepth</h3>
 <blockquote>
 <p>请求订阅</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"symbol":"BTCUSDT","topic":"mergedDepth","event":"sub","params":{"binary":false,"dumpScale":1}}</span><span class="dl">'</span><span class="p">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">mergedDepth</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">event</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">sub</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">dumpScale</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 <blockquote>
-<p>brokerinfo数据返回</p>
+<p>响应示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">ETHUSDT</span><span class="dl">"</span><span class="p">,</span>
@@ -3829,6 +4062,8 @@ orderId和ordersLinkId至少要输入一个。
 </code></pre></div>
 <p>这个订阅必须传dumpScale（合并精度）这个参数。dumpScale不能大于ticker的精度。你可以在brokerInfo这个端点查询ticker的精度信息。</p>
 
+<p>Pushes data at a frequency of <b>300ms</b>.</p>
+
 <p class="fake_header">返回参数</p>
 
 <table><thead>
@@ -3855,13 +4090,13 @@ orderId和ordersLinkId至少要输入一个。
 </tr>
 <tr>
 <td style="text-align: left">b</td>
-<td style="text-align: left">string</td>
-<td>买一价、数量</td>
+<td style="text-align: left">array</td>
+<td>Bid prices & quantities in descending order (best price first)</td>
 </tr>
 <tr>
 <td style="text-align: left">a</td>
-<td style="text-align: left">string</td>
-<td>卖一价、数量</td>
+<td style="text-align: left">array</td>
+<td>Ask prices & quantities in ascending order (best price first)</td>
 </tr>
 <tr>
 <td style="text-align: left">f</td>
@@ -3869,15 +4104,21 @@ orderId和ordersLinkId至少要输入一个。
 <td>是否首次返回</td>
 </tr>
 </tbody></table>
-<h3 id='t-spot_websocket_orderbook_delta_v1'>订单簿(增量深度)</h3>
+<h3 id='t-websocketdiffdepth'>diffDepth</h3>
 <blockquote>
 <p>请求订阅</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"symbol":"BTCUSDT","topic":"diffDepth","event":"sub","params":{"binary":false}}</span><span class="dl">'</span><span class="p">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">diffDepth</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">event</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">sub</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 <blockquote>
-<p>快照推送示例 - 连接建立成功后首次推送</p>
+<p>响应示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
@@ -3892,7 +4133,7 @@ orderId和ordersLinkId至少要输入一个。
     <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">t</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1565600357643</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">v</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">112801745_18</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">b</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span> <span class="c1">//Bids</span>
+    <span class="dl">"</span><span class="s2">b</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
       <span class="p">[</span><span class="dl">"</span><span class="s2">11371.49</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">0.0014</span><span class="dl">"</span><span class="p">],</span>
       <span class="p">[</span><span class="dl">"</span><span class="s2">11371.12</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">0.2</span><span class="dl">"</span><span class="p">],</span>
       <span class="p">[</span><span class="dl">"</span><span class="s2">11369.97</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">0.3523</span><span class="dl">"</span><span class="p">],</span>
@@ -3903,7 +4144,7 @@ orderId和ordersLinkId至少要输入一个。
       <span class="p">[</span><span class="dl">"</span><span class="s2">11369.17</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">0.3</span><span class="dl">"</span><span class="p">],</span>
       <span class="p">[</span><span class="dl">"</span><span class="s2">11369.16</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">0.2</span><span class="dl">"</span><span class="p">],</span>
       <span class="p">[</span><span class="dl">"</span><span class="s2">11369.04</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">1.3203</span><span class="dl">"</span><span class="p">],</span>
-    <span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="c1">//Asks</span>
+    <span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
       <span class="p">[</span><span class="dl">"</span><span class="s2">11375.41</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">0.0053</span><span class="dl">"</span><span class="p">],</span>
       <span class="p">[</span><span class="dl">"</span><span class="s2">11375.42</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">0.0043</span><span class="dl">"</span><span class="p">],</span>
       <span class="p">[</span><span class="dl">"</span><span class="s2">11375.48</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">0.0052</span><span class="dl">"</span><span class="p">],</span>
@@ -3917,7 +4158,7 @@ orderId和ordersLinkId至少要输入一个。
     <span class="p">],</span>
     <span class="dl">"</span><span class="s2">o</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span>
   <span class="p">}],</span>
-  <span class="dl">"</span><span class="s2">f</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span><span class="c1">//是否为第一个返回</span>
+  <span class="dl">"</span><span class="s2">f</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">sendTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1626253839401</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">shared</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
 <span class="p">}</span>
@@ -3933,6 +4174,8 @@ orderId和ordersLinkId至少要输入一个。
 <p>&nbsp;&nbsp;> ["0.00181860", "0"]</p>
 <p>这说明这个价格对应的数量已经消失，将会在客户端中删除。</p>
 </p>
+
+<p>Pushes data at a frequency of <b>300ms</b>.</p>
 
 <p class="fake_header">返回参数</p>
 
@@ -3965,13 +4208,13 @@ orderId和ordersLinkId至少要输入一个。
 </tr>
 <tr>
 <td style="text-align: left">b</td>
-<td style="text-align: left">string</td>
-<td>买一价、数量</td>
+<td style="text-align: left">array</td>
+<td>Bid prices & quantities in descending order (best price first)</td>
 </tr>
 <tr>
 <td style="text-align: left">a</td>
-<td style="text-align: left">string</td>
-<td>卖一价、数量</td>
+<td style="text-align: left">array</td>
+<td>Ask prices & quantities in ascending order (best price first)</td>
 </tr>
 <tr>
 <td style="text-align: left">f</td>
@@ -3984,12 +4227,18 @@ orderId和ordersLinkId至少要输入一个。
 <td>请忽略</td>
 </tr>
 </tbody></table>
-<h2 id='t-publictopics_v2'>公共 Topics V2</h2><h3 id='t-spot_websocket_orderbook_v2'>订单簿(全量深度)</h3>
+<h2 id='t-publictopics_v2'>公共 Topics V2</h2><h3 id='t-websocketv2depth'>depth</h3>
 <blockquote>
 <p>请求订阅</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"topic":"depth","event":"sub","params":{"binary":false,"symbol":"BTCUSDT"}}</span><span class="dl">'</span><span class="p">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">depth</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">event</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">sub</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 <blockquote>
 <p>快照推送示例 - 连接建立成功后首次推送</p>
@@ -4007,8 +4256,8 @@ orderId和ordersLinkId至少要输入一个。
     <span class="dl">"</span><span class="s2">v</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">13850022_2</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">b</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
       <span class="p">[</span>
-        <span class="dl">"</span><span class="s2">9780.79</span><span class="dl">"</span><span class="p">,</span> <span class="c1">//价格</span>
-        <span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span> <span class="c1">//数量</span>
+        <span class="dl">"</span><span class="s2">9780.79</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span>
       <span class="p">],</span>
       <span class="p">[</span>
         <span class="dl">"</span><span class="s2">9780.5</span><span class="dl">"</span><span class="p">,</span>
@@ -4020,8 +4269,8 @@ orderId和ordersLinkId至少要输入一个。
       <span class="p">],</span> <span class="p">...</span>
     <span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
       <span class="p">[</span>
-        <span class="dl">"</span><span class="s2">9781.21</span><span class="dl">"</span><span class="p">,</span> <span class="c1">//价格</span>
-        <span class="dl">"</span><span class="s2">0.042842</span><span class="dl">"</span> <span class="c1">//数量</span>
+        <span class="dl">"</span><span class="s2">9781.21</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">0.042842</span><span class="dl">"</span>
       <span class="p">],</span>
       <span class="p">[</span>
         <span class="dl">"</span><span class="s2">9782</span><span class="dl">"</span><span class="p">,</span>
@@ -4051,6 +4300,8 @@ orderId和ordersLinkId至少要输入一个。
 </ul>
 <p>这个订阅会推送全量深度信息，因此数据量大。如果想要推送评率更快，请订阅合并深度。</p>
 </p>
+
+<p>Pushes data at a frequency of <b>250ms</b>.</p>
 
 <p class="fake_header">返回参数</p>
 
@@ -4102,15 +4353,22 @@ orderId和ordersLinkId至少要输入一个。
 <td>卖一价、数量</td>
 </tr>
 </tbody></table>
-<h3 id='t-spot_websocket_kline_v2'>K线/蜡烛图</h3>
+<h3 id='t-websocketv2kline'>kline</h3>
 <blockquote>
 <p>请求订阅</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"topic":"kline","event":"sub","params":{"binary":false,"symbol":"BTCUSDT"}}</span><span class="dl">'</span><span class="p">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">kline</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">event</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">sub</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">klineType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1m</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 <blockquote>
-<p>快照推送示例 - 连接建立成功后首次推送</p>
+<p>响应示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">kline</span><span class="dl">"</span><span class="p">,</span>
@@ -4152,6 +4410,8 @@ orderId和ordersLinkId至少要输入一个。
   </ul>
 </p>
 
+<p>Pushes data at a frequency of <b>250ms</b>.</p>
+
 <p class="fake_header">返回参数</p>
 
 <table><thead>
@@ -4184,7 +4444,7 @@ orderId和ordersLinkId至少要输入一个。
 <tr>
 <td style="text-align: left">t</td>
 <td style="text-align: left">number</td>
-<td>k线开始时间</td>
+<td>开始时间</td>
 </tr>
 <tr>
 <td style="text-align: left">s</td>
@@ -4222,15 +4482,21 @@ orderId和ordersLinkId至少要输入一个。
 <td>成交量</td>
 </tr>
 </tbody></table>
-<h3 id='t-spot_websocket_trade_v2'>逐笔交易</h3>
+<h3 id='t-websocketv2trade'>trade</h3>
 <blockquote>
 <p>请求订阅</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"topic":"trade","event":"sub","params":{"binary":false,"symbol":"BTCUSDT"}}</span><span class="dl">'</span><span class="p">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">trade</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">event</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">sub</span><span class="dl">"</span>
+<span class="p">}</span>
 </code></pre></div>
 <blockquote>
-<p>快照推送示例 - 连接建立成功后首次推送</p>
+<p>响应示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">trade</span><span class="dl">"</span><span class="p">,</span>
@@ -4244,11 +4510,16 @@ orderId和ordersLinkId至少要输入一个。
     <span class="dl">"</span><span class="s2">t</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1582001735462</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">p</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">9787.5</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">q</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.195009</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">m</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span> <span class="c1">// true=买，false=卖</span>
+    <span class="dl">"</span><span class="s2">m</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>逐笔交易</p>
+<p><p>逐笔交易推送每一笔成交的信息。成交，或者说交易的定义是仅有一个吃单者与一个挂单者相互交易。</p>
+<p>在成功连接到服务器后，服务器首先会推送一条最近的60条成交。在这条推送之后，每条推送都是实时的成交。</p>
+<p>变量“v”可以理解成一个交易ID。这个变量是全局递增的并且独特的。例如：假设过去5秒有3笔交易发生，分别是ETHUSDT、BTCUSDT、BHTBTC。它们的“v”会为连续的值（112，113，114）。</p>
+</p>
+
+<p>Pushes data at a frequency of <b>250ms</b>.</p>
 
 <p class="fake_header">返回参数</p>
 
@@ -4295,15 +4566,21 @@ orderId和ordersLinkId至少要输入一个。
 <td>true买, false卖</td>
 </tr>
 </tbody></table>
-<h3 id='t-spot_websocket_ticker_v2'>订单簿的Ticker</h3>
+<h3 id='t-websocketv2bookticker'>bookTicker</h3>
 <blockquote>
 <p>请求订阅</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"topic":"bookTicker","event":"sub","params":{"binary":false,"symbol":"BTCUSDT"}}</span><span class="dl">'</span><span class="p">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">bookTicker</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">event</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">sub</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 <blockquote>
-<p>快照推送示例 - 连接建立成功后首次推送</p>
+<p>响应示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">bookTicker</span><span class="dl">"</span><span class="p">,</span>
@@ -4323,6 +4600,8 @@ orderId和ordersLinkId至少要输入一个。
 <span class="p">}</span>
 </code></pre></div>
 <p>最优买一卖一价</p>
+
+<p>Pushes data at a frequency of <b>250ms</b>.</p>
 
 <p class="fake_header">返回参数</p>
 
@@ -4374,15 +4653,21 @@ orderId和ordersLinkId至少要输入一个。
 <td>时间戳</td>
 </tr>
 </tbody></table>
-<h3 id='t-spot_websocket_symbol_ticker_v2'>symbol的Ticker</h3>
+<h3 id='t-websocketv2realtimes'>realtimes</h3>
 <blockquote>
 <p>请求订阅</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"topic":"realtimes","event":"sub","params":{"binary":false,"symbol":"BTCUSDT"}}</span><span class="dl">'</span><span class="p">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">realtimes</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">event</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">sub</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 <blockquote>
-<p>快照推送示例 - 连接建立成功后首次推送</p>
+<p>响应示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">realtimes</span><span class="dl">"</span><span class="p">,</span>
@@ -4405,6 +4690,8 @@ orderId和ordersLinkId至少要输入一个。
 <span class="p">}</span>
 </code></pre></div>
 <p></p>
+
+<p>Pushes data at a frequency of <b>250ms</b>.</p>
 
 <p class="fake_header">返回参数</p>
 
@@ -4433,7 +4720,7 @@ orderId和ordersLinkId至少要输入一个。
 <tr>
 <td style="text-align: left">t</td>
 <td style="text-align: left">number</td>
-<td>k线开始时间</td>
+<td>时间戳</td>
 </tr>
 <tr>
 <td style="text-align: left">s</td>
@@ -4468,7 +4755,7 @@ orderId和ordersLinkId至少要输入一个。
 <tr>
 <td style="text-align: left">qv</td>
 <td style="text-align: left">string</td>
-<td>translation missing: zh-cn.spot_quota_volume</td>
+<td>成交金额</td>
 </tr>
 <tr>
 <td style="text-align: left">m</td>
@@ -4476,8 +4763,12 @@ orderId和ordersLinkId至少要输入一个。
 <td>涨幅</td>
 </tr>
 </tbody></table>
-<h2 id='t-privatetopics'>私有 Topics</h2><h3 id='t-spot_websocket_user_account'>账户变更</h3>
+<h2 id='t-privatetopics'>私有 Topics</h2>
+<p>Sending the <a href="#t-websocketauthentication">authentication message</a> automatically subscribes you to all 3 private topics.</p>
+<h3 id='t-outboundaccountinfo'>outboundAccountInfo</h3>
 <blockquote>
+<p>Sending the <a href="#t-websocketauthentication">authentication message</a> automatically subscribes you to all 3 private topics.</p>
+
 <p>响应示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
@@ -4495,7 +4786,9 @@ orderId和ordersLinkId至少要输入一个。
   <span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>使用 outboundAccountInfo event进行账户更新。</p>
+<p>Pushes data about your account.</p>
+
+<p>Pushes data in <b>realtime</b>.</p>
 
 <p class="fake_header">返回参数</p>
 
@@ -4534,7 +4827,7 @@ orderId和ordersLinkId至少要输入一个。
 <tr>
 <td style="text-align: left">B</td>
 <td style="text-align: left">string</td>
-<td>余额变化</td>
+<td>Wallet balance change</td>
 </tr>
 <tr>
 <td style="text-align: left">a</td>
@@ -4549,11 +4842,13 @@ orderId和ordersLinkId至少要输入一个。
 <tr>
 <td style="text-align: left">l</td>
 <td style="text-align: left">string</td>
-<td>冻结数量</td>
+<td>Reserved for orders</td>
 </tr>
 </tbody></table>
-<h3 id='t-spot_websocket_user_order'>订单更新</h3>
+<h3 id='t-executionreport'>executionReport</h3>
 <blockquote>
+<p>Sending the <a href="#t-websocketauthentication">authentication message</a> automatically subscribes you to all 3 private topics.</p>
+
 <p>响应示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
@@ -4584,7 +4879,9 @@ orderId和ordersLinkId至少要输入一个。
   <span class="dl">"</span><span class="s2">v</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>              
 <span class="p">}</span>
 </code></pre></div>
-<p>订单通过executionReport事件进行更新。详细说明信息请查看这里。通过将Z除以z可以找到平均价格。</p>
+<p>Pushes data about your orders. <code>Z</code> divided by <code>z</code> equals the average filled price.</p>
+
+<p>Pushes data in <b>realtime</b>.</p>
 
 <p class="fake_header">返回参数</p>
 
@@ -4621,14 +4918,14 @@ orderId和ordersLinkId至少要输入一个。
 <td>true买, false卖</td>
 </tr>
 <tr>
-<td style="text-align: left">o</td>
+<td style="text-align: left"><a href="#order-type-type-ordertypes">o</a></td>
 <td style="text-align: left">string</td>
-<td>订单类型, LIMIT/MARKET/LIMIT_MAKER/MARKET OF QUOTE</td>
+<td>订单类型。可能出现的值只能为:LIMIT(限价)和MARKET（市价）</td>
 </tr>
 <tr>
-<td style="text-align: left">f</td>
+<td style="text-align: left"><a href="#timeinforce-timeinforce">f</a></td>
 <td style="text-align: left">string</td>
-<td>订单时间指令（Time in Force）。可能出现的值为：GTC（Good Till Canceled，一直有效），FOK（Fill or Kill，全部成交或者取消），IOC（Immediate or Cancel，立即成交或者取消）</td>
+<td>执行策略</td>
 </tr>
 <tr>
 <td style="text-align: left">q</td>
@@ -4641,9 +4938,9 @@ orderId和ordersLinkId至少要输入一个。
 <td>价格</td>
 </tr>
 <tr>
-<td style="text-align: left">X</td>
+<td style="text-align: left"><a href="#order-status-status">X</a></td>
 <td style="text-align: left">string</td>
-<td>订单状态 NEW - 新订单、暂无成交，PARTIALLY_FILLED - 部分成交，FILLED - 完全成交，CANCELED - 已取消，PENDING_CANCEL - 等待取消，REJECTED - 被拒绝</td>
+<td>订单状态。可能出现的值为：NEW(新订单，无成交)、PARTIALLY_FILLED（部分成交）、FILLED（全部成交）、CANCELED（已取消）和REJECTED（订单被拒绝）.</td>
 </tr>
 <tr>
 <td style="text-align: left">i</td>
@@ -4721,8 +5018,10 @@ orderId和ordersLinkId至少要输入一个。
 <td>杠杆</td>
 </tr>
 </tbody></table>
-<h3 id='t-spot_websocket_ticket_info'>TicketInfo</h3>
+<h3 id='t-ticketinfo'>ticketInfo</h3>
 <blockquote>
+<p>Sending the <a href="#t-websocketauthentication">authentication message</a> automatically subscribes you to all 3 private topics.</p>
+
 <p>响应示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
@@ -4739,6 +5038,11 @@ orderId和ordersLinkId至少要输入一个。
   <span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">10043</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">A</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">10024</span><span class="dl">"</span><span class="p">}</span>
 </code></pre></div>
+<p>Pushes data about your trades (fills). When an order is filled, you will receive two messages: one from <code>ticketInfo</code>, and one from <code>executionReport</code>
+</p>
+
+<p>Pushes data in <b>realtime</b>.</p>
+
 <p class="fake_header">返回参数</p>
 
 <table><thead>
@@ -4818,13 +5122,13 @@ orderId和ordersLinkId至少要输入一个。
 </ul>
 <h2 id='timeinforce-timeinforce'>TimeInForce (<code>timeInForce</code>)</h2>
 <ul>
-<li><code>GTC: Good Till Canceled</code></li>
-<li><code>FOK: Fill or Kill</code></li>
-<li><code>IOC: Immediate or Cancel</code></li>
+<li><code>GTC</code> - Good Till Canceled</li>
+<li><code>FOK</code> - Fill or Kill</li>
+<li><code>IOC</code> - Immediate or Cancel</li>
 </ul>
 <h2 id='symbol-symbol'>Symbol (<code>symbol</code>)</h2>
 <p>您可以根据<a href="#t-querysymbol">Query Symbol</a>接口获取所有交易中的symbol</p>
-<h2 id='type-type'>Type (<code>type</code>)</h2>
+<h2 id='order-type-type-ordertypes'>Order type (<code>type</code>/<code>orderTypes</code>)</h2>
 <ul>
 <li><code>LIMIT</code></li>
 <li><code>MARKET</code></li>
@@ -4838,20 +5142,15 @@ orderId和ordersLinkId至少要输入一个。
 <li><code>XRP</code></li>
 <li><code>USDT</code></li>
 </ul>
-<h2 id='order-status-status'>Order Status(<code>status</code>)</h2>
+<h2 id='order-status-status'>Order status (<code>status</code>)</h2>
 <ul>
 <li><code>NEW</code></li>
 <li><code>PARTIALLY_FILLED</code></li>
 <li><code>FILLED</code></li>
 <li><code>CANCELED</code></li>
 <li><code>PENDING_CANCEL</code></li>
+<li><code>PENDING_NEW</code></li>
 <li><code>REJECTED</code></li>
-</ul>
-<h2 id='order-type-order_type'>Order type (<code>order_type</code>)</h2>
-<ul>
-<li><code>LIMIT</code> 限价单</li>
-<li><code>MARKET</code> 市价单</li>
-<li><code>LIMIT_MAKER</code> 做市单</li>
 </ul>
 <h2 id='quantity-qty'>Quantity (<code>qty</code>)</h2>
 <p><ul> <li>最大值1百万 (<code>1000000</code>)</li> <li>必须是正整数： <ul> <li><code>40</code> - 合法</li> <li><code>30.5</code> - 非法</li> </ul> </li> </ul></p>
@@ -4903,9 +5202,9 @@ ELSE
 <li><code>4h</code> - 4 hours</li>
 <li><code>6h</code> - 6 hours</li>
 <li><code>12h</code> - 12 hours</li>
-<li><code>d</code> - 1 day</li>
-<li><code>w</code> - 1 week</li>
-<li><code>m</code> - 1 month</li>
+<li><code>1d</code> - 1 day</li>
+<li><code>1w</code> - 1 week</li>
+<li><code>1M</code> - 1 month</li>
 </ul>
 <h1 id='t-spot_errors'>错误码</h1>
 <p>Bybit使用以下HTTP Code和错误码：</p>

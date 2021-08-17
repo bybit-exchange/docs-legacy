@@ -639,7 +639,7 @@
   <header class="top-nav">
   <div class="top-menu">
   <a href="https://bybit-exchange.github.io/docs/spot" class="logo-link" target="_self">
-    <img src="../images/logo-85698b60.svg" class="logo" alt="" />
+    <img src="../images/logo-aed6448d.svg" class="logo" alt="" />
   </a>
   <ul class="con">
     <li><a href="/docs/inverse">Inverse Perpetual</a></li>
@@ -773,7 +773,13 @@
                     <a href="#t-cancel_spot_order" class="toc-h2 toc-link" data-title="Cancel Spot Order">Cancel Spot Order</a>
                   </li>
                   <li>
+                    <a href="#t-fast_cancel_spot_order" class="toc-h2 toc-link" data-title="Fast Cancel Spot Order">Fast Cancel Spot Order</a>
+                  </li>
+                  <li>
                     <a href="#t-batch_cancel_spot_order" class="toc-h2 toc-link" data-title="Batch Cancel Spot Order">Batch Cancel Spot Order</a>
+                  </li>
+                  <li>
+                    <a href="#t-batch_fast_cancel_spot_order" class="toc-h2 toc-link" data-title="Batch fast Cancel Spot Order">Batch fast Cancel Spot Order</a>
                   </li>
                   <li>
                     <a href="#t-spot_order_list" class="toc-h2 toc-link" data-title="Order List">Order List</a>
@@ -837,22 +843,22 @@
                     <a href="#t-publictopics" class="toc-h2 toc-link" data-title="Public Topics">Public Topics</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#t-spot_websocket_trade_v1" class="toc-h3 toc-link" data-title="Trade Streams">Trade Streams</a>
+                            <a href="#t-websockettrade" class="toc-h3 toc-link" data-title="trade">trade</a>
                           </li>
                           <li>
-                            <a href="#t-spot_websocket_ticker_v1" class="toc-h3 toc-link" data-title="Trading Pair Stream">Trading Pair Stream</a>
+                            <a href="#t-websocketrealtimes" class="toc-h3 toc-link" data-title="realtimes">realtimes</a>
                           </li>
                           <li>
-                            <a href="#t-spot_websocket_kline_v1" class="toc-h3 toc-link" data-title="Candlestick Chart Streams">Candlestick Chart Streams</a>
+                            <a href="#t-websocketkline" class="toc-h3 toc-link" data-title="kline">kline</a>
                           </li>
                           <li>
-                            <a href="#t-spot_websocket_orderbook_v1" class="toc-h3 toc-link" data-title="Order Book Streams (Full Depth)">Order Book Streams (Full Depth)</a>
+                            <a href="#t-websocketdepth" class="toc-h3 toc-link" data-title="depth">depth</a>
                           </li>
                           <li>
-                            <a href="#t-spot_websocket_orderbook_merge_v1" class="toc-h3 toc-link" data-title="Orderbook Stream(Merge Depth)">Orderbook Stream(Merge Depth)</a>
+                            <a href="#t-websocketmergeddepth" class="toc-h3 toc-link" data-title="mergedDepth">mergedDepth</a>
                           </li>
                           <li>
-                            <a href="#t-spot_websocket_orderbook_delta_v1" class="toc-h3 toc-link" data-title="Orderbook Stream(Delta Depth)">Orderbook Stream(Delta Depth)</a>
+                            <a href="#t-websocketdiffdepth" class="toc-h3 toc-link" data-title="diffDepth">diffDepth</a>
                           </li>
                       </ul>
                   </li>
@@ -860,19 +866,19 @@
                     <a href="#t-publictopics_v2" class="toc-h2 toc-link" data-title="Public Topics V2">Public Topics V2</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#t-spot_websocket_orderbook_v2" class="toc-h3 toc-link" data-title="Order Book Streams (Full Depth)">Order Book Streams (Full Depth)</a>
+                            <a href="#t-websocketv2depth" class="toc-h3 toc-link" data-title="depth">depth</a>
                           </li>
                           <li>
-                            <a href="#t-spot_websocket_kline_v2" class="toc-h3 toc-link" data-title="Candlestick Chart Streams">Candlestick Chart Streams</a>
+                            <a href="#t-websocketv2kline" class="toc-h3 toc-link" data-title="kline">kline</a>
                           </li>
                           <li>
-                            <a href="#t-spot_websocket_trade_v2" class="toc-h3 toc-link" data-title="Trade Streams">Trade Streams</a>
+                            <a href="#t-websocketv2trade" class="toc-h3 toc-link" data-title="trade">trade</a>
                           </li>
                           <li>
-                            <a href="#t-spot_websocket_ticker_v2" class="toc-h3 toc-link" data-title="Order Book for Trading Pair">Order Book for Trading Pair</a>
+                            <a href="#t-websocketv2bookticker" class="toc-h3 toc-link" data-title="bookTicker">bookTicker</a>
                           </li>
                           <li>
-                            <a href="#t-spot_websocket_symbol_ticker_v2" class="toc-h3 toc-link" data-title="Trading Pair Streams">Trading Pair Streams</a>
+                            <a href="#t-websocketv2realtimes" class="toc-h3 toc-link" data-title="realtimes">realtimes</a>
                           </li>
                       </ul>
                   </li>
@@ -880,13 +886,13 @@
                     <a href="#t-privatetopics" class="toc-h2 toc-link" data-title="Private Topics">Private Topics</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#t-spot_websocket_user_account" class="toc-h3 toc-link" data-title="Account Update">Account Update</a>
+                            <a href="#t-outboundaccountinfo" class="toc-h3 toc-link" data-title="outboundAccountInfo">outboundAccountInfo</a>
                           </li>
                           <li>
-                            <a href="#t-spot_websocket_user_order" class="toc-h3 toc-link" data-title="Order Updates">Order Updates</a>
+                            <a href="#t-executionreport" class="toc-h3 toc-link" data-title="executionReport">executionReport</a>
                           </li>
                           <li>
-                            <a href="#t-spot_websocket_ticket_info" class="toc-h3 toc-link" data-title="TicketInfo">TicketInfo</a>
+                            <a href="#t-ticketinfo" class="toc-h3 toc-link" data-title="ticketInfo">ticketInfo</a>
                           </li>
                       </ul>
                   </li>
@@ -905,16 +911,13 @@
                     <a href="#symbol-symbol" class="toc-h2 toc-link" data-title="Symbol (symbol)">Symbol (<code>symbol</code>)</a>
                   </li>
                   <li>
-                    <a href="#type-type" class="toc-h2 toc-link" data-title="Type (type)">Type (<code>type</code>)</a>
+                    <a href="#order-type-type-ordertypes" class="toc-h2 toc-link" data-title="Order type (type/orderTypes)">Order type (<code>type</code>/<code>orderTypes</code>)</a>
                   </li>
                   <li>
                     <a href="#currency-currency-coin" class="toc-h2 toc-link" data-title="Currency (currency/coin)">Currency (<code>currency</code>/<code>coin</code>)</a>
                   </li>
                   <li>
-                    <a href="#order-status-status" class="toc-h2 toc-link" data-title="Order Status(status)">Order Status(<code>status</code>)</a>
-                  </li>
-                  <li>
-                    <a href="#order-type-order_type" class="toc-h2 toc-link" data-title="Order type (order_type)">Order type (<code>order_type</code>)</a>
+                    <a href="#order-status-status" class="toc-h2 toc-link" data-title="Order status (status)">Order status (<code>status</code>)</a>
                   </li>
                   <li>
                     <a href="#quantity-qty" class="toc-h2 toc-link" data-title="Quantity (qty)">Quantity (<code>qty</code>)</a>
@@ -1150,8 +1153,8 @@ function copyStringToClipboard (endpoint) {
 <p class="fake_header">HTTP Request</p>
 
 <p>GET
-<code><span id=vpOrder>/spot/v1/symbols</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<code><span id=svSymbols>/spot/v1/symbols</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svSymbols"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
 
@@ -1268,8 +1271,8 @@ function copyStringToClipboard (endpoint) {
 <p class="fake_header">HTTP Request</p>
 
 <p>GET
-<code><span id=vpOrder>/spot/quote/v1/depth</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<code><span id=sqvDepth>/spot/quote/v1/depth</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvDepth"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
 
@@ -1353,8 +1356,8 @@ function copyStringToClipboard (endpoint) {
 <p class="fake_header">HTTP Request</p>
 
 <p>GET
-<code><span id=vpOrder>/spot/quote/v1/depth/merged</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<code><span id=sqvdMerged>/spot/quote/v1/depth/merged</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
 
@@ -1449,8 +1452,8 @@ function copyStringToClipboard (endpoint) {
 <p class="fake_header">HTTP Request</p>
 
 <p>GET
-<code><span id=vpOrder>/spot/quote/v1/trades</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<code><span id=sqvTrades>/spot/quote/v1/trades</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvTrades"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
 
@@ -1539,8 +1542,8 @@ function copyStringToClipboard (endpoint) {
 <p class="fake_header">HTTP Request</p>
 
 <p>GET
-<code><span id=vpOrder>/spot/quote/v1/kline</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<code><span id=sqvKline>/spot/quote/v1/kline</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvKline"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
 
@@ -1683,8 +1686,8 @@ If startTime and endTime are not specified, only the latest candles will be sent
 <p class="fake_header">HTTP Request</p>
 
 <p>GET
-<code><span id=vpOrder>/spot/quote/v1/ticker/24hr</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<code><span id=sqvt24hr>/spot/quote/v1/ticker/24hr</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvt24hr"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
 
@@ -1790,8 +1793,8 @@ If symbol is not specified, the data from all symbols will be returned
 <p class="fake_header">HTTP Request</p>
 
 <p>GET
-<code><span id=vpOrder>/spot/quote/v1/ticker/price</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<code><span id=sqvtPrice>/spot/quote/v1/ticker/price</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvtPrice"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
 
@@ -1861,8 +1864,8 @@ If symbol is not specified, the price from all symbols will be returned
 <p class="fake_header">HTTP Request</p>
 
 <p>GET
-<code><span id=vpOrder>/spot/quote/v1/ticker/book_ticker</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<code><span id=sqvtBook_ticker>/spot/quote/v1/ticker/book_ticker</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvtBook_ticker"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
 
@@ -1996,19 +1999,19 @@ If symbol is not specified, the best order price from all symbols will be return
 <td style="text-align: left"><a href="#side-side">side</a></td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Order direction, possible values include Buy and Sell</td>
+<td>Order direction</td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="#type-type">type</a></td>
+<td style="text-align: left"><a href="#order-type-type-ordertypes">type</a></td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Order type, possible values include LIMIT/MARKET/LIMIT_MAKER</td>
+<td>Order type</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#timeinforce-timeinforce">timeInForce</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Time in force, possible values include GTC (Good Till Canceled), FOK (Fill or Kill) and IOC (Immediate or Cancel)</td>
+<td><a href="https://help.bybit.com/hc/en-us/articles/360039749233-What-Are-Time-In-Force-TIF-GTC-IOC-FOK-">Time in force</a></td>
 </tr>
 <tr>
 <td style="text-align: left">price</td>
@@ -2064,24 +2067,24 @@ If symbol is not specified, the best order price from all symbols will be return
 <td>Order quantity</td>
 </tr>
 <tr>
-<td style="text-align: left">type</td>
+<td style="text-align: left"><a href="#order-type-type-ordertypes">type</a></td>
 <td style="text-align: left">string</td>
-<td>Order type, possible values are LIMIT and MARKET</td>
+<td>Order type</td>
 </tr>
 <tr>
 <td style="text-align: left">side</td>
 <td style="text-align: left">string</td>
-<td>Order direction, possible values include Buy and Sell</td>
+<td>Order direction</td>
 </tr>
 <tr>
-<td style="text-align: left">status</td>
+<td style="text-align: left"><a href="#order-status-status">status</a></td>
 <td style="text-align: left">string</td>
-<td>Order status, possible values include NEW, PARTIALLY_FILLED, FILLED, CANCELED, and REJECTED</td>
+<td>Order status</td>
 </tr>
 <tr>
-<td style="text-align: left">timeInForce</td>
+<td style="text-align: left"><a href="#timeinforce-timeinforce">timeInForce</a></td>
 <td style="text-align: left">string</td>
-<td>Time in force, possible values include GTC (Good Till Canceled), FOK (Fill or Kill) and IOC (Immediate or Cancel)</td>
+<td><a href="https://help.bybit.com/hc/en-us/articles/360039749233-What-Are-Time-In-Force-TIF-GTC-IOC-FOK-">Time in force</a></td>
 </tr>
 <tr>
 <td style="text-align: left">accountId</td>
@@ -2237,24 +2240,24 @@ At least one must be entered in the orderId field and the ordersLinkId field
 <td>Average filled price</td>
 </tr>
 <tr>
-<td style="text-align: left">status</td>
+<td style="text-align: left"><a href="#order-status-status">status</a></td>
 <td style="text-align: left">string</td>
-<td>Order status, possible values include NEW, PARTIALLY_FILLED, FILLED, CANCELED, and REJECTED</td>
+<td>Order status</td>
 </tr>
 <tr>
-<td style="text-align: left">timeInForce</td>
+<td style="text-align: left"><a href="#timeinforce-timeinforce">timeInForce</a></td>
 <td style="text-align: left">string</td>
-<td>Time in force, possible values include GTC (Good Till Canceled), FOK (Fill or Kill) and IOC (Immediate or Cancel)</td>
+<td><a href="https://help.bybit.com/hc/en-us/articles/360039749233-What-Are-Time-In-Force-TIF-GTC-IOC-FOK-">Time in force</a></td>
 </tr>
 <tr>
-<td style="text-align: left">type</td>
+<td style="text-align: left"><a href="#order-type-type-ordertypes">type</a></td>
 <td style="text-align: left">string</td>
-<td>Order type, possible values are LIMIT and MARKET</td>
+<td>Order type</td>
 </tr>
 <tr>
 <td style="text-align: left">side</td>
 <td style="text-align: left">string</td>
-<td>Order direction, possible values include Buy and Sell</td>
+<td>Order direction</td>
 </tr>
 <tr>
 <td style="text-align: left">stopPrice</td>
@@ -2367,9 +2370,143 @@ At least one must be entered in the orderId field and the ordersLinkId field
 <td>Name of the trading pair</td>
 </tr>
 <tr>
+<td style="text-align: left"><a href="#order-status-status">status</a></td>
+<td style="text-align: left">string</td>
+<td>Order status</td>
+</tr>
+<tr>
+<td style="text-align: left">accountId</td>
+<td style="text-align: left">long</td>
+<td>Account ID</td>
+</tr>
+<tr>
+<td style="text-align: left">transactTime</td>
+<td style="text-align: left">long</td>
+<td>Timestamp</td>
+</tr>
+<tr>
+<td style="text-align: left">price</td>
+<td style="text-align: left">float</td>
+<td>Order price</td>
+</tr>
+<tr>
+<td style="text-align: left">origQty</td>
+<td style="text-align: left">float</td>
+<td>Order quantity</td>
+</tr>
+<tr>
+<td style="text-align: left">executedQty</td>
+<td style="text-align: left">float</td>
+<td>Please ignore</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#timeinforce-timeinforce">timeInForce</a></td>
+<td style="text-align: left">string</td>
+<td><a href="https://help.bybit.com/hc/en-us/articles/360039749233-What-Are-Time-In-Force-TIF-GTC-IOC-FOK-">Time in force</a></td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#order-type-type-ordertypes">type</a></td>
+<td style="text-align: left">string</td>
+<td>Order type</td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">string</td>
+<td>Order direction</td>
+</tr>
+</tbody></table>
+<h3 id='t-fast_cancel_spot_order'>Fast Cancel Spot Order</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+</code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">accountId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10054</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ETHUSDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">162081160171552</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">889826641228952064</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">transactTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1620811601728</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">20000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">origQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">executedQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">CANCELED</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GTC</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LIMIT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BUY</span><span class="dl">"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<aside class="notice">
+The actual result of the cancellation request needs to be checked by order status or match result endpoints after submitting the request.
+</aside>
+
+<p class="fake_header">HTTP Request</p>
+
+<p>DELETE
+<code><span id=vpoCancel>/spot/v1/order/fast</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancel"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Order ID</td>
+</tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>User-generated order ID</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">integer</td>
+<td>Order ID</td>
+</tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">string</td>
+<td>User-generated order ID</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>Name of the trading pair</td>
+</tr>
+<tr>
 <td style="text-align: left">status</td>
 <td style="text-align: left">string</td>
-<td>Order status, possible values include NEW, PARTIALLY_FILLED, FILLED, CANCELED, and REJECTED</td>
+<td>Order status</td>
 </tr>
 <tr>
 <td style="text-align: left">accountId</td>
@@ -2399,17 +2536,17 @@ At least one must be entered in the orderId field and the ordersLinkId field
 <tr>
 <td style="text-align: left">timeInForce</td>
 <td style="text-align: left">string</td>
-<td>Time in force, possible values include GTC (Good Till Canceled), FOK (Fill or Kill) and IOC (Immediate or Cancel)</td>
+<td>translation missing: en.spotTimeInForce</td>
 </tr>
 <tr>
 <td style="text-align: left">type</td>
 <td style="text-align: left">string</td>
-<td>Order type, possible values include LIMIT/MARKET/LIMIT_MAKER</td>
+<td>Order type</td>
 </tr>
 <tr>
 <td style="text-align: left">side</td>
 <td style="text-align: left">string</td>
-<td>Order direction, possible values include Buy and Sell</td>
+<td>Order direction</td>
 </tr>
 </tbody></table>
 <h3 id='t-batch_cancel_spot_order'>Batch Cancel Spot Order</h3>
@@ -2435,7 +2572,83 @@ At least one must be entered in the orderId field and the ordersLinkId field
 <p class="fake_header">HTTP Request</p>
 
 <p>DELETE
-<code><span id=vpoCancel>/spot/order/batch-cancel</span></code>
+<code><span id=soBatchCancel>/spot/order/batch-cancel</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#soBatchCancel"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>Name of the trading pair</td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Order direction</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#order-type-type-ordertypes">orderTypes</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Order type. Use commas to cancel orders with multiple order types, eg <code>LIMIT,LIMIT_MAKER</code>. Default: <code>LIMIT</code>
+</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">success</td>
+<td style="text-align: left">boolean</td>
+<td>Success or not (true/false)</td>
+</tr>
+</tbody></table>
+<h3 id='t-batch_fast_cancel_spot_order'>Batch fast Cancel Spot Order</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+</code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<aside class="notice">
+The actual result of the cancellation request needs to be checked by order status or match result endpoints after submitting the request.
+</aside>
+
+<p class="fake_header">HTTP Request</p>
+
+<p>DELETE
+<code><span id=vpoCancel>/spot/order/batch-fast-cancel</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancel"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
@@ -2458,13 +2671,13 @@ At least one must be entered in the orderId field and the ordersLinkId field
 <td style="text-align: left">side</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Order direction, possible values include Buy and Sell</td>
+<td>Order direction</td>
 </tr>
 <tr>
 <td style="text-align: left">orderTypes</td>
 <td style="text-align: left">fasle</td>
 <td style="text-align: left">string</td>
-<td>Optional order types, LIMIT/LIMIT_MAKER, use comma splicing to indicate multiple types. Default LIMIT.</td>
+<td>translation missing: en.spotOrderTypes</td>
 </tr>
 </tbody></table>
 
@@ -2645,24 +2858,24 @@ At least one must be entered in the orderId field and the ordersLinkId field
 <td>Average filled price</td>
 </tr>
 <tr>
-<td style="text-align: left">status</td>
+<td style="text-align: left"><a href="#order-status-status">status</a></td>
 <td style="text-align: left">string</td>
-<td>Order status, possible values include NEW, PARTIALLY_FILLED, FILLED, CANCELED, and REJECTED</td>
+<td>Order status</td>
 </tr>
 <tr>
-<td style="text-align: left">timeInForce</td>
+<td style="text-align: left"><a href="#timeinforce-timeinforce">timeInForce</a></td>
 <td style="text-align: left">string</td>
-<td>Time in force, possible values include GTC (Good Till Canceled), FOK (Fill or Kill) and IOC (Immediate or Cancel)</td>
+<td><a href="https://help.bybit.com/hc/en-us/articles/360039749233-What-Are-Time-In-Force-TIF-GTC-IOC-FOK-">Time in force</a></td>
 </tr>
 <tr>
-<td style="text-align: left">type</td>
+<td style="text-align: left"><a href="#order-type-type-ordertypes">type</a></td>
 <td style="text-align: left">string</td>
-<td>Order type, possible values are LIMIT and MARKET</td>
+<td>Order type</td>
 </tr>
 <tr>
 <td style="text-align: left">side</td>
 <td style="text-align: left">string</td>
-<td>Order direction, possible values include Buy and Sell</td>
+<td>Order direction</td>
 </tr>
 <tr>
 <td style="text-align: left">stopPrice</td>
@@ -2831,24 +3044,24 @@ At least one must be entered in the orderId field and the ordersLinkId field
 <td>Average filled price</td>
 </tr>
 <tr>
-<td style="text-align: left">status</td>
+<td style="text-align: left"><a href="#order-status-status">status</a></td>
 <td style="text-align: left">string</td>
-<td>Order status, possible values include NEW, PARTIALLY_FILLED, FILLED, CANCELED, and REJECTED</td>
+<td>Order status</td>
 </tr>
 <tr>
-<td style="text-align: left">timeInForce</td>
+<td style="text-align: left"><a href="#timeinforce-timeinforce">timeInForce</a></td>
 <td style="text-align: left">string</td>
-<td>Time in force, possible values include GTC (Good Till Canceled), FOK (Fill or Kill) and IOC (Immediate or Cancel)</td>
+<td><a href="https://help.bybit.com/hc/en-us/articles/360039749233-What-Are-Time-In-Force-TIF-GTC-IOC-FOK-">Time in force</a></td>
 </tr>
 <tr>
-<td style="text-align: left">type</td>
+<td style="text-align: left"><a href="#order-type-type-ordertypes">type</a></td>
 <td style="text-align: left">string</td>
-<td>Order type, possible values are LIMIT and MARKET</td>
+<td>Order type</td>
 </tr>
 <tr>
 <td style="text-align: left">side</td>
 <td style="text-align: left">string</td>
-<td>Order direction, possible values include Buy and Sell</td>
+<td>Order direction</td>
 </tr>
 <tr>
 <td style="text-align: left">stopPrice</td>
@@ -2918,8 +3131,8 @@ At least one must be entered in the orderId field and the ordersLinkId field
 <p class="fake_header">HTTP Request</p>
 
 <p>GET
-<code><span id=vpOrder>/spot/v1/myTrades</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<code><span id=svMyTrades>/spot/v1/myTrades</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svMyTrades"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
 
@@ -3105,8 +3318,8 @@ At least one must be entered in the orderId field and the ordersLinkId field
 <p class="fake_header">HTTP Request</p>
 
 <p>GET
-<code><span id=vpOrder>/spot/v1/account</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<code><span id=svAccount>/spot/v1/account</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svAccount"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">Response Parameters</p>
 
@@ -3212,10 +3425,7 @@ At least one must be entered in the orderId field and the ordersLinkId field
 </p>
 <h1 id='t-websocket'>WebSocket Data</h1><h2 id='t-websocketauthentication'>Authentication</h2>
 <blockquote>
-<p>Authentication methods:
-</p>
-
-<p>First method: Apply for authentication when establishing a connection.
+<p>Apply for authentication when establishing a connection.
 </p>
 </blockquote>
 <div class="highlight"><pre class="highlight python tab-python"><code><span class="c1"># based on: https://github.com/verata-veritatis/pybit/blob/master/pybit/__init__.py
@@ -3237,23 +3447,8 @@ At least one must be entered in the orderId field and the ordersLinkId field
     <span class="nb">bytes</span><span class="p">(</span><span class="sa">f</span><span class="s">"GET/realtime</span><span class="si">{</span><span class="n">expires</span><span class="si">}</span><span class="s">"</span><span class="p">,</span> <span class="s">"utf-8"</span><span class="p">),</span> <span class="n">digestmod</span><span class="o">=</span><span class="s">"sha256"</span>
 <span class="p">).</span><span class="n">hexdigest</span><span class="p">())</span>
 
-<span class="n">param</span> <span class="o">=</span> <span class="s">"api_key={api_key}&amp;expires={expires}&amp;signature={signature}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span>
-    <span class="n">api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">,</span>
-    <span class="n">expires</span><span class="o">=</span><span class="n">expires</span><span class="p">,</span>
-    <span class="n">signature</span><span class="o">=</span><span class="n">signature</span>
-<span class="p">)</span>
-
 <span class="n">ws</span> <span class="o">=</span> <span class="n">websocket</span><span class="p">.</span><span class="n">WebSocketApp</span><span class="p">(</span>
-    <span class="n">url</span><span class="o">=</span><span class="s">"wsurl"</span><span class="p">,</span>
-    <span class="p">...</span>
-<span class="p">)</span>
-</code></pre></div>
-<blockquote>
-<p>Second method: Apply for authentication after establishing a connection through auth request.
-</p>
-</blockquote>
-<div class="highlight"><pre class="highlight python tab-python"><code><span class="n">ws</span> <span class="o">=</span> <span class="n">websocket</span><span class="p">.</span><span class="n">WebSocketApp</span><span class="p">(</span>
-    <span class="n">url</span><span class="o">=</span><span class="s">"wsurl"</span><span class="p">,</span>
+    <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span>
     <span class="p">...</span>
 <span class="p">)</span>
 
@@ -3267,30 +3462,38 @@ At least one must be entered in the orderId field and the ordersLinkId field
 </code></pre></div>
 <p>Base endpoints:
 <ul>
-<p>
   <li>Testnet:
-    <span id="testnet_address">Public Topics: wss://stream-testnet.bybit.com/spot/quote/ws/v1</span>
-    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
-    <br/>
-    <span id="testnet_address">Public Topics2: wss://stream-testnet.bybit.com/spot/quote/ws/v2</span>
-    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
-    <br/>
-    <span id="testnet_address_2">Private Topics: wss://stream-testnet.bybit.com/spot/ws</span>
-    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address_2"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+    <ul>
+      <li>
+        Public Topics: <span id="testnet_address">wss://stream-testnet.bybit.com/spot/quote/ws/v1</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+      </li>
+      <li>
+        Public Topics v2: <span id="testnet_address_2">wss://stream-testnet.bybit.com/spot/quote/ws/v2</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address_2"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+      </li>
+      <li>
+        Private Topics: <span id="testnet_address_3">wss://stream-testnet.bybit.com/spot/ws</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address_3"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+      </li>
+    </ul>
   </li>
-</p>
-<p>
-  <li>Mainnet (please choose one based on your network status):<br/>
-    <span id="mainnet_address">Public Topics: wss://stream.bybit.com/spot/quote/ws/v1</span>
-    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
-    <br/>
-    <span id="mainnet_address">Public Topics2: wss://stream.bybit.com/spot/quote/ws/v2</span>
-    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
-    <br/>
-    <span id="mainnet_address_2">Private Topics: wss://stream.bybit.com/spot/ws</span>
-    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address_2"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+  <li>Mainnet:
+    <ul>
+      <li>
+        Public Topics: <span id="mainnet_address">wss://stream.bybit.com/spot/quote/ws/v1</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+      </li>
+      <li>
+        Public Topics v2: <span id="mainnet_address_2">wss://stream.bybit.com/spot/quote/ws/v2</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address_2"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+      </li>
+      <li>
+        Private Topics: <span id="mainnet_address_3">wss://stream.bybit.com/spot/ws</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address_3"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+      </li>
+    </ul>
   </li>
-</p>
 </ul>
 </p>
 
@@ -3316,7 +3519,7 @@ Due to network complexity, your may get disconnected at any time. Please follow 
 <blockquote>
 <p>Response Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span><span class="dl">"</span><span class="s2">pong</span><span class="dl">"</span><span class="p">:</span><span class="mi">1622536662988</span><span class="p">}</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span><span class="dl">"</span><span class="s2">pong</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1535975085152</span><span class="p">}</span>
 </code></pre></div>
 <aside class="warning">
 To avoid networks or program issues, we recommend that you send the <code>ping</code> heartbeat packet every 30 seconds to maintain the WebSocket connection.
@@ -3360,22 +3563,21 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <span class="p">}</span>
 </code></pre></div>
 <p>Once you subscribe successfully, you'd receive result information. You can determine whether the subscription is successful based on the response.</p>
-<h2 id='t-publictopics'>Public Topics</h2><h3 id='t-spot_websocket_trade_v1'>Trade Streams</h3>
+<h2 id='t-publictopics'>Public Topics</h2><h3 id='t-websockettrade'>trade</h3>
 <blockquote>
 <p>How to Subscribe</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">trade</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">event</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">sub</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span> <span class="c1">// Whether data returned is in binary format</span>
-  <span class="p">}</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">trade</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">event</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">sub</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
 </code></pre></div>
 <blockquote>
-<p>Snapshot Response Example - format of the first response</p>
+<p>Response Example - format of all responses</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
     <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
@@ -3399,10 +3601,12 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
     <span class="dl">"</span><span class="s2">shared</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><p>Trade Streams push raw data for each trade, which has a unique buyer and seller.</p>
-<p>After successful handshake and server connection, the server will return the last 60 trades. After this payload, the rest will be real-time trades.</p>
-<p>Variable "v" acts as a trade ID, and this variable is shared across different assets.</p>
+<p><p>This topic pushes raw data for each trade.</p>
+<p>After a successful subscription message, the first data message (as indicated by <code>"f": true</code>) consists of the last 60 trades. After this payload (<code>"f": false</code>), messages are pushed at frequency of 300ms.</p>
+<p>Variable <code>v</code> is a trade ID which is unique across the platform.</p>
 </p>
+
+<p>Pushes data at a frequency of <b>300ms</b>.</p>
 
 <p class="fake_header">Response Parameters</p>
 
@@ -3414,40 +3618,51 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">v</td>
+<td style="text-align: left">data &gt; v</td>
 <td style="text-align: left">string</td>
 <td>Transaction ID</td>
 </tr>
 <tr>
-<td style="text-align: left">t</td>
+<td style="text-align: left">data &gt; t</td>
 <td style="text-align: left">string</td>
 <td>Timestamp</td>
 </tr>
 <tr>
-<td style="text-align: left">p</td>
+<td style="text-align: left">data &gt; p</td>
 <td style="text-align: left">string</td>
 <td>Price</td>
 </tr>
 <tr>
-<td style="text-align: left">q</td>
+<td style="text-align: left">data &gt; q</td>
 <td style="text-align: left">boolean</td>
 <td>Quantity</td>
 </tr>
 <tr>
-<td style="text-align: left">m</td>
+<td style="text-align: left">data &gt; m</td>
 <td style="text-align: left">boolean</td>
 <td>True indicates buy order, false indicates sell order</td>
 </tr>
+<tr>
+<td style="text-align: left">f</td>
+<td style="text-align: left">boolean</td>
+<td>First message for this topic since subscription</td>
+</tr>
 </tbody></table>
-<h3 id='t-spot_websocket_ticker_v1'>Trading Pair Stream</h3>
+<h3 id='t-websocketrealtimes'>realtimes</h3>
 <blockquote>
 <p>How to Subscribe</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"symbol":"BTCUSDT","topic":"realtimes","event":"sub","params":{"binary":false}}</span><span class="dl">'</span><span class="p">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">realtimes</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">event</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">sub</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 <blockquote>
-<p>Snapshot Response Example - format of the first response</p>
+<p>Response Example - format of all responses</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
@@ -3471,7 +3686,10 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
   <span class="dl">"</span><span class="s2">shared</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>The 24-hr statistics of a trading pair refreshed every second.</p>
+<p>The 24-hr statistics of a trading pair.
+</p>
+
+<p>Pushes data at a frequency of <b>300ms</b>.</p>
 
 <p class="fake_header">Response Parameters</p>
 
@@ -3483,75 +3701,81 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">t</td>
+<td style="text-align: left">data &gt; t</td>
 <td style="text-align: left">number</td>
 <td>Timestamp</td>
 </tr>
 <tr>
-<td style="text-align: left">s</td>
+<td style="text-align: left">data &gt; s</td>
 <td style="text-align: left">string</td>
 <td>Trading pair</td>
 </tr>
 <tr>
-<td style="text-align: left">sn</td>
+<td style="text-align: left">data &gt; sn</td>
 <td style="text-align: left">string</td>
 <td>Trading pair</td>
 </tr>
 <tr>
-<td style="text-align: left">c</td>
+<td style="text-align: left">data &gt; c</td>
 <td style="text-align: left">string</td>
 <td>Close price</td>
 </tr>
 <tr>
-<td style="text-align: left">h</td>
+<td style="text-align: left">data &gt; h</td>
 <td style="text-align: left">string</td>
 <td>High price</td>
 </tr>
 <tr>
-<td style="text-align: left">l</td>
+<td style="text-align: left">data &gt; l</td>
 <td style="text-align: left">string</td>
 <td>Low price</td>
 </tr>
 <tr>
-<td style="text-align: left">o</td>
+<td style="text-align: left">data &gt; o</td>
 <td style="text-align: left">string</td>
 <td>Open price</td>
 </tr>
 <tr>
-<td style="text-align: left">v</td>
+<td style="text-align: left">data &gt; v</td>
 <td style="text-align: left">string</td>
 <td>Trading volume</td>
 </tr>
 <tr>
-<td style="text-align: left">qv</td>
+<td style="text-align: left">data &gt; qv</td>
 <td style="text-align: left">string</td>
-<td>translation missing: en.spot_quota_volume</td>
+<td>Trading quote volume</td>
 </tr>
 <tr>
-<td style="text-align: left">m</td>
+<td style="text-align: left">data &gt; m</td>
 <td style="text-align: left">string</td>
 <td>Change</td>
 </tr>
 <tr>
-<td style="text-align: left">e</td>
+<td style="text-align: left">data &gt; e</td>
 <td style="text-align: left">number</td>
 <td>Exchange ID</td>
 </tr>
 <tr>
 <td style="text-align: left">f</td>
 <td style="text-align: left">boolean</td>
-<td>First time or not (true/false)</td>
+<td>First message for this topic since subscription</td>
 </tr>
 </tbody></table>
-<h3 id='t-spot_websocket_kline_v1'>Candlestick Chart Streams</h3>
+<h3 id='t-websocketkline'>kline</h3>
 <blockquote>
 <p>How to Subscribe</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"symbol":"BTCUSDT","topic":"kline_" + $间隔,"event":"sub","params":{"binary":false}}</span><span class="dl">'</span><span class="p">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">kline_1m</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">event</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">sub</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 <blockquote>
-<p>Snapshot Response Example - format of the first response</p>
+<p>Response Example - format of all responses</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
@@ -3577,24 +3801,11 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
   <span class="dl">"</span><span class="s2">shared</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><p>Candlestick Streams push data of the requested candlestick chart every second.</p>
-<p>m -> minutes; h -> hours; d -> days; w -> weeks; M -> months</p>
-  <ul>
-  <li>1m</li>
-  <li>3m</li>
-  <li>5m</li>
-  <li>15m</li>
-  <li>30m</li>
-  <li>1h</li>
-  <li>2h</li>
-  <li>4h</li>
-  <li>6h</li>
-  <li>12h</li>
-  <li>1d</li>
-  <li>1w</li>
-  <li>1M</li>
-  </ul>
+<p><p>Kline data.</p>
+<p>To subscribe to different intervals, alter append your desired interval to the topic name. For 1 minute klines, set the topic as <code>kline_1m</code>, for 1 hour klines use <code>kline_1h</code>, etc. Available intervals are listed <a href="#kline-interval-interval">here</a>.</p>
 </p>
+
+<p>Pushes data at a frequency of <b>300ms</b>.</p>
 
 <p class="fake_header">Response Parameters</p>
 
@@ -3608,7 +3819,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <tr>
 <td style="text-align: left">t</td>
 <td style="text-align: left">number</td>
-<td>Chart start time</td>
+<td>Starting time</td>
 </tr>
 <tr>
 <td style="text-align: left">s</td>
@@ -3648,18 +3859,24 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <tr>
 <td style="text-align: left">f</td>
 <td style="text-align: left">boolean</td>
-<td>First time or not (true/false)</td>
+<td>First message for this topic since subscription</td>
 </tr>
 </tbody></table>
-<h3 id='t-spot_websocket_orderbook_v1'>Order Book Streams (Full Depth)</h3>
+<h3 id='t-websocketdepth'>depth</h3>
 <blockquote>
 <p>How to Subscribe</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"symbol":"BTCUSDT","topic":"depth","event":"sub","params":{"binary":false}}</span><span class="dl">'</span><span class="p">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">depth</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">event</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">sub</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 <blockquote>
-<p>Snapshot Response Example - format of the first response</p>
+<p>Response Example - format of all responses</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
@@ -3674,7 +3891,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
     <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">t</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1565600357643</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">v</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">112801745_18</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">b</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span> <span class="c1">//Bids</span>
+    <span class="dl">"</span><span class="s2">b</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
       <span class="p">[</span><span class="dl">"</span><span class="s2">11371.49</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">0.0014</span><span class="dl">"</span><span class="p">],</span>
       <span class="p">[</span><span class="dl">"</span><span class="s2">11371.12</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">0.2</span><span class="dl">"</span><span class="p">],</span>
       <span class="p">[</span><span class="dl">"</span><span class="s2">11369.97</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">0.3523</span><span class="dl">"</span><span class="p">],</span>
@@ -3685,7 +3902,8 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
       <span class="p">[</span><span class="dl">"</span><span class="s2">11369.17</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">0.3</span><span class="dl">"</span><span class="p">],</span>
       <span class="p">[</span><span class="dl">"</span><span class="s2">11369.16</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">0.2</span><span class="dl">"</span><span class="p">],</span>
       <span class="p">[</span><span class="dl">"</span><span class="s2">11369.04</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">1.3203</span><span class="dl">"</span><span class="p">],</span>
-    <span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="c1">//Asks</span>
+    <span class="p">]</span>
+    <span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
       <span class="p">[</span><span class="dl">"</span><span class="s2">11375.41</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">0.0053</span><span class="dl">"</span><span class="p">],</span>
       <span class="p">[</span><span class="dl">"</span><span class="s2">11375.42</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">0.0043</span><span class="dl">"</span><span class="p">],</span>
       <span class="p">[</span><span class="dl">"</span><span class="s2">11375.48</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">0.0052</span><span class="dl">"</span><span class="p">],</span>
@@ -3704,21 +3922,21 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
   <span class="dl">"</span><span class="s2">shared</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><p>Market depth data for a trading pair: </p>
+<p><p>This topic pushes all order book data.</p>
 <ul>
-  <li>Snapshot frequency: every 300 milliseconds (if the bid-ask spread of the order book changes).</li>
-  <li>Snapshot depth: 300 each for asks and bids.</li>
-  <li>Events trigger order book version change：
+  <li>Snapshot depth: 300 per side.</li>
+  <li>Events which trigger a message push to this topic:
     <ul>
-      <li>order enters order book</li>
-      <li>order leaves order book</li>
-      <li>order quantity changes</li>
-      <li>order filled</li>
+      <li>Order enters order book</li>
+      <li>Order leaves order book</li>
+      <li>Order quantity changes</li>
+      <li>Order filled</li>
     </ul>
   </li>
 </ul>
-<p>Order Book Streams (Full Depth) pushes all data, and the frequency is relatively low. For higher frequency streams, please subscribe to merged depth. Please note that mergedDepth pushes fewer data.</p>
 </p>
+
+<p>Pushes data at a frequency of <b>300ms</b>.</p>
 
 <p class="fake_header">Response Parameters</p>
 
@@ -3751,18 +3969,18 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 </tr>
 <tr>
 <td style="text-align: left">b</td>
-<td style="text-align: left">string</td>
-<td>Best bid price，quantity</td>
+<td style="text-align: left">array</td>
+<td>Bid prices & quantities in descending order (best price first)</td>
 </tr>
 <tr>
 <td style="text-align: left">a</td>
-<td style="text-align: left">string</td>
-<td>Best ask price，quantity</td>
+<td style="text-align: left">array</td>
+<td>Ask prices & quantities in ascending order (best price first)</td>
 </tr>
 <tr>
 <td style="text-align: left">f</td>
 <td style="text-align: left">boolean</td>
-<td>First time or not (true/false)</td>
+<td>First message for this topic since subscription</td>
 </tr>
 <tr>
 <td style="text-align: left">o</td>
@@ -3770,15 +3988,22 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <td>Please ignore</td>
 </tr>
 </tbody></table>
-<h3 id='t-spot_websocket_orderbook_merge_v1'>Orderbook Stream(Merge Depth)</h3>
+<h3 id='t-websocketmergeddepth'>mergedDepth</h3>
 <blockquote>
 <p>How to Subscribe</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"symbol":"BTCUSDT","topic":"mergedDepth","event":"sub","params":{"binary":false,"dumpScale":1}}</span><span class="dl">'</span><span class="p">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">mergedDepth</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">event</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">sub</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">dumpScale</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 <blockquote>
-<p>brokerinfo return</p>
+<p>Response Example - format of all responses</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">ETHUSDT</span><span class="dl">"</span><span class="p">,</span>
@@ -3827,7 +4052,9 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
     <span class="dl">"</span><span class="s2">shared</span><span class="dl">"</span><span class="p">:</span><span class="kc">false</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>dumpScale must be specified for this endpoint. It cannot be larger than the selected order book grouping price interval, which can be queried via brokerInfo.</p>
+<p><code>dumpScale</code> must be specified for this endpoint. It refers to the number of decimal places</p>
+
+<p>Pushes data at a frequency of <b>300ms</b>.</p>
 
 <p class="fake_header">Response Parameters</p>
 
@@ -3855,29 +4082,35 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 </tr>
 <tr>
 <td style="text-align: left">b</td>
-<td style="text-align: left">string</td>
-<td>Best bid price，quantity</td>
+<td style="text-align: left">array</td>
+<td>Bid prices & quantities in descending order (best price first)</td>
 </tr>
 <tr>
 <td style="text-align: left">a</td>
-<td style="text-align: left">string</td>
-<td>Best ask price，quantity</td>
+<td style="text-align: left">array</td>
+<td>Ask prices & quantities in ascending order (best price first)</td>
 </tr>
 <tr>
 <td style="text-align: left">f</td>
 <td style="text-align: left">boolean</td>
-<td>First time or not (true/false)</td>
+<td>First message for this topic since subscription</td>
 </tr>
 </tbody></table>
-<h3 id='t-spot_websocket_orderbook_delta_v1'>Orderbook Stream(Delta Depth)</h3>
+<h3 id='t-websocketdiffdepth'>diffDepth</h3>
 <blockquote>
 <p>How to Subscribe</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"symbol":"BTCUSDT","topic":"diffDepth","event":"sub","params":{"binary":false}}</span><span class="dl">'</span><span class="p">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">diffDepth</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">event</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">sub</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 <blockquote>
-<p>Snapshot Response Example - format of the first response</p>
+<p>Response Example - format of all responses</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
@@ -3892,7 +4125,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
     <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">t</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1565600357643</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">v</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">112801745_18</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">b</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span> <span class="c1">//Bids</span>
+    <span class="dl">"</span><span class="s2">b</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
       <span class="p">[</span><span class="dl">"</span><span class="s2">11371.49</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">0.0014</span><span class="dl">"</span><span class="p">],</span>
       <span class="p">[</span><span class="dl">"</span><span class="s2">11371.12</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">0.2</span><span class="dl">"</span><span class="p">],</span>
       <span class="p">[</span><span class="dl">"</span><span class="s2">11369.97</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">0.3523</span><span class="dl">"</span><span class="p">],</span>
@@ -3903,7 +4136,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
       <span class="p">[</span><span class="dl">"</span><span class="s2">11369.17</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">0.3</span><span class="dl">"</span><span class="p">],</span>
       <span class="p">[</span><span class="dl">"</span><span class="s2">11369.16</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">0.2</span><span class="dl">"</span><span class="p">],</span>
       <span class="p">[</span><span class="dl">"</span><span class="s2">11369.04</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">1.3203</span><span class="dl">"</span><span class="p">],</span>
-    <span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="c1">//Asks</span>
+    <span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
       <span class="p">[</span><span class="dl">"</span><span class="s2">11375.41</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">0.0053</span><span class="dl">"</span><span class="p">],</span>
       <span class="p">[</span><span class="dl">"</span><span class="s2">11375.42</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">0.0043</span><span class="dl">"</span><span class="p">],</span>
       <span class="p">[</span><span class="dl">"</span><span class="s2">11375.48</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">0.0052</span><span class="dl">"</span><span class="p">],</span>
@@ -3917,7 +4150,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
     <span class="p">],</span>
     <span class="dl">"</span><span class="s2">o</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span>
   <span class="p">}],</span>
-  <span class="dl">"</span><span class="s2">f</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span><span class="c1">//是否为第一个返回</span>
+  <span class="dl">"</span><span class="s2">f</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">sendTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1626253839401</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">shared</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
 <span class="p">}</span>
@@ -3933,6 +4166,8 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <p>&nbsp;&nbsp;> ["0.00181860", "0"]</p>
 <p>This means that the price has already changed.</p>
 </p>
+
+<p>Pushes data at a frequency of <b>300ms</b>.</p>
 
 <p class="fake_header">Response Parameters</p>
 
@@ -3965,18 +4200,18 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 </tr>
 <tr>
 <td style="text-align: left">b</td>
-<td style="text-align: left">string</td>
-<td>Best bid price，quantity</td>
+<td style="text-align: left">array</td>
+<td>Bid prices & quantities in descending order (best price first)</td>
 </tr>
 <tr>
 <td style="text-align: left">a</td>
-<td style="text-align: left">string</td>
-<td>Best ask price，quantity</td>
+<td style="text-align: left">array</td>
+<td>Ask prices & quantities in ascending order (best price first)</td>
 </tr>
 <tr>
 <td style="text-align: left">f</td>
 <td style="text-align: left">boolean</td>
-<td>First time or not (true/false)</td>
+<td>First message for this topic since subscription</td>
 </tr>
 <tr>
 <td style="text-align: left">o</td>
@@ -3984,12 +4219,18 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <td>Please ignore</td>
 </tr>
 </tbody></table>
-<h2 id='t-publictopics_v2'>Public Topics V2</h2><h3 id='t-spot_websocket_orderbook_v2'>Order Book Streams (Full Depth)</h3>
+<h2 id='t-publictopics_v2'>Public Topics V2</h2><h3 id='t-websocketv2depth'>depth</h3>
 <blockquote>
 <p>How to Subscribe</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"topic":"depth","event":"sub","params":{"binary":false,"symbol":"BTCUSDT"}}</span><span class="dl">'</span><span class="p">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">depth</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">event</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">sub</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 <blockquote>
 <p>Snapshot Response Example - format of the first response</p>
@@ -4007,8 +4248,8 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
     <span class="dl">"</span><span class="s2">v</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">13850022_2</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">b</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
       <span class="p">[</span>
-        <span class="dl">"</span><span class="s2">9780.79</span><span class="dl">"</span><span class="p">,</span> <span class="c1">//价格</span>
-        <span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span> <span class="c1">//数量</span>
+        <span class="dl">"</span><span class="s2">9780.79</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span>
       <span class="p">],</span>
       <span class="p">[</span>
         <span class="dl">"</span><span class="s2">9780.5</span><span class="dl">"</span><span class="p">,</span>
@@ -4020,8 +4261,8 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
       <span class="p">],</span> <span class="p">...</span>
     <span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
       <span class="p">[</span>
-        <span class="dl">"</span><span class="s2">9781.21</span><span class="dl">"</span><span class="p">,</span> <span class="c1">//价格</span>
-        <span class="dl">"</span><span class="s2">0.042842</span><span class="dl">"</span> <span class="c1">//数量</span>
+        <span class="dl">"</span><span class="s2">9781.21</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">0.042842</span><span class="dl">"</span>
       <span class="p">],</span>
       <span class="p">[</span>
         <span class="dl">"</span><span class="s2">9782</span><span class="dl">"</span><span class="p">,</span>
@@ -4035,7 +4276,21 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><p> Market depth data for a trading pair:</p> <ul> <li>Snapshot frequency:every 250 milliseconds (if the bid-ask spread of the order book changes).</li> <li>Snapshot depth:40 each for asks and bids.</li> <li>Events trigger order book version change： <ul> <li>order enters order book</li> <li>order leaves order book</li> <li>order quantity changed</li> <li>order completed</li> </ul> </li> </ul></p>
+<p><p>Market depth data for a trading pair: </p>
+<ul>
+  <li>Snapshot depth: 40 each for asks and bids.</li>
+  <li>Events trigger order book version change:
+    <ul>
+      <li>order enters order book</li>
+      <li>order leaves order book</li>
+      <li>order quantity changes</li>
+      <li>order filled</li>
+    </ul>
+  </li>
+</ul>
+</p>
+
+<p>Pushes data at a frequency of <b>250ms</b>.</p>
 
 <p class="fake_header">Response Parameters</p>
 
@@ -4059,7 +4314,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <tr>
 <td style="text-align: left">binary</td>
 <td style="text-align: left">string</td>
-<td>Compressed or not. True indicates yes, false indicates no (default）</td>
+<td>Compressed or not. Defaults to <code>false</code></td>
 </tr>
 <tr>
 <td style="text-align: left">t</td>
@@ -4079,23 +4334,30 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <tr>
 <td style="text-align: left">b</td>
 <td style="text-align: left">string</td>
-<td>Best bid price，quantity</td>
+<td>Best bid price, quantity</td>
 </tr>
 <tr>
 <td style="text-align: left">a</td>
 <td style="text-align: left">string</td>
-<td>Best ask price，quantity</td>
+<td>Best ask price, quantity</td>
 </tr>
 </tbody></table>
-<h3 id='t-spot_websocket_kline_v2'>Candlestick Chart Streams</h3>
+<h3 id='t-websocketv2kline'>kline</h3>
 <blockquote>
 <p>How to Subscribe</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"topic":"kline","event":"sub","params":{"binary":false,"symbol":"BTCUSDT"}}</span><span class="dl">'</span><span class="p">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">kline</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">event</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">sub</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">klineType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1m</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 <blockquote>
-<p>Snapshot Response Example - format of the first response</p>
+<p>Response Example - format of all responses</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">kline</span><span class="dl">"</span><span class="p">,</span>
@@ -4117,24 +4379,11 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><p>Candlestick Streams push data of the requested candlestick chart every second.</p>
-<p>m -> minutes; h -> hours; d -> days; w -> weeks; M -> months</p>
-  <ul>
-  <li>1m</li>
-  <li>3m</li>
-  <li>5m</li>
-  <li>15m</li>
-  <li>30m</li>
-  <li>1h</li>
-  <li>2h</li>
-  <li>4h</li>
-  <li>6h</li>
-  <li>12h</li>
-  <li>1d</li>
-  <li>1w</li>
-  <li>1M</li>
-  </ul>
+<p><p>Kline data pushed at a frequency of every second.</p>
+<p>The topic name is <code>kline</code>. To subscribe to different intervals, pass your desired interval with the <code>klineType</code> parameter. Available intervals are listed <a href="#kline-interval-interval">here</a>.</p>
 </p>
+
+<p>Pushes data at a frequency of <b>250ms</b>.</p>
 
 <p class="fake_header">Response Parameters</p>
 
@@ -4153,7 +4402,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <tr>
 <td style="text-align: left">binary</td>
 <td style="text-align: left">string</td>
-<td>Compressed or not. True indicates yes, false indicates no (default）</td>
+<td>Compressed or not. Defaults to <code>false</code></td>
 </tr>
 <tr>
 <td style="text-align: left">klineType</td>
@@ -4168,7 +4417,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <tr>
 <td style="text-align: left">t</td>
 <td style="text-align: left">number</td>
-<td>Chart start time</td>
+<td>Starting time</td>
 </tr>
 <tr>
 <td style="text-align: left">s</td>
@@ -4206,15 +4455,21 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <td>Trading volume</td>
 </tr>
 </tbody></table>
-<h3 id='t-spot_websocket_trade_v2'>Trade Streams</h3>
+<h3 id='t-websocketv2trade'>trade</h3>
 <blockquote>
 <p>How to Subscribe</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"topic":"trade","event":"sub","params":{"binary":false,"symbol":"BTCUSDT"}}</span><span class="dl">'</span><span class="p">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">trade</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">event</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">sub</span><span class="dl">"</span>
+<span class="p">}</span>
 </code></pre></div>
 <blockquote>
-<p>Snapshot Response Example - format of the first response</p>
+<p>Response Example - format of all responses</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">trade</span><span class="dl">"</span><span class="p">,</span>
@@ -4228,11 +4483,16 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
     <span class="dl">"</span><span class="s2">t</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1582001735462</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">p</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">9787.5</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">q</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.195009</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">m</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span> <span class="c1">// true=买，false=卖</span>
+    <span class="dl">"</span><span class="s2">m</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Trade Streams</p>
+<p><p>The Trade Streams push raw trade information; each trade has a unique buyer and seller.</p>
+<p>After successful handshake and connected to server, the server will return the latest 60 trades. After this payload, the following will be real-time trades.</p>
+<p>Variable "v" acts as an tradeId. This variable is shared across different symbols; however, each ID is unique. For example, suppose in the last 5 seconds 3 trades happened in ETHUSDT, BTCUSDT, and BHTBTC. Their version (which is "v") will be consecutive: 112, 113, 114.</p>
+</p>
+
+<p>Pushes data at a frequency of <b>250ms</b>.</p>
 
 <p class="fake_header">Response Parameters</p>
 
@@ -4251,7 +4511,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <tr>
 <td style="text-align: left">binary</td>
 <td style="text-align: left">string</td>
-<td>Compressed or not. True indicates yes, false indicates no (default）</td>
+<td>Compressed or not. Defaults to <code>false</code></td>
 </tr>
 <tr>
 <td style="text-align: left">symbolName</td>
@@ -4279,15 +4539,21 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <td>True indicates buy order, false indicates sell order</td>
 </tr>
 </tbody></table>
-<h3 id='t-spot_websocket_ticker_v2'>Order Book for Trading Pair</h3>
+<h3 id='t-websocketv2bookticker'>bookTicker</h3>
 <blockquote>
 <p>How to Subscribe</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"topic":"bookTicker","event":"sub","params":{"binary":false,"symbol":"BTCUSDT"}}</span><span class="dl">'</span><span class="p">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">bookTicker</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">event</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">sub</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 <blockquote>
-<p>Snapshot Response Example - format of the first response</p>
+<p>Response Example - format of all responses</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">bookTicker</span><span class="dl">"</span><span class="p">,</span>
@@ -4308,6 +4574,8 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 </code></pre></div>
 <p>Best bid price and best ask price</p>
 
+<p>Pushes data at a frequency of <b>250ms</b>.</p>
+
 <p class="fake_header">Response Parameters</p>
 
 <table><thead>
@@ -4325,7 +4593,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <tr>
 <td style="text-align: left">binary</td>
 <td style="text-align: left">string</td>
-<td>Compressed or not. True indicates yes, false indicates no (default）</td>
+<td>Compressed or not. Defaults to <code>false</code></td>
 </tr>
 <tr>
 <td style="text-align: left">symbolName</td>
@@ -4358,15 +4626,21 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <td>Timestamp</td>
 </tr>
 </tbody></table>
-<h3 id='t-spot_websocket_symbol_ticker_v2'>Trading Pair Streams</h3>
+<h3 id='t-websocketv2realtimes'>realtimes</h3>
 <blockquote>
 <p>How to Subscribe</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"topic":"realtimes","event":"sub","params":{"binary":false,"symbol":"BTCUSDT"}}</span><span class="dl">'</span><span class="p">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">realtimes</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">event</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">sub</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">binary</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 <blockquote>
-<p>Snapshot Response Example - format of the first response</p>
+<p>Response Example - format of all responses</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">realtimes</span><span class="dl">"</span><span class="p">,</span>
@@ -4388,7 +4662,10 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p></p>
+<p>The 24-hr statistics of a trading pair pushed at a frequency of ???
+</p>
+
+<p>Pushes data at a frequency of <b>250ms</b>.</p>
 
 <p class="fake_header">Response Parameters</p>
 
@@ -4407,7 +4684,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <tr>
 <td style="text-align: left">binary</td>
 <td style="text-align: left">string</td>
-<td>Compressed or not. True indicates yes, false indicates no (default）</td>
+<td>Compressed or not. Defaults to <code>false</code></td>
 </tr>
 <tr>
 <td style="text-align: left">symbolName</td>
@@ -4417,7 +4694,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <tr>
 <td style="text-align: left">t</td>
 <td style="text-align: left">number</td>
-<td>Chart start time</td>
+<td>Timestamp</td>
 </tr>
 <tr>
 <td style="text-align: left">s</td>
@@ -4452,7 +4729,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <tr>
 <td style="text-align: left">qv</td>
 <td style="text-align: left">string</td>
-<td>translation missing: en.spot_quota_volume</td>
+<td>Trading quote volume</td>
 </tr>
 <tr>
 <td style="text-align: left">m</td>
@@ -4460,8 +4737,12 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <td>Change</td>
 </tr>
 </tbody></table>
-<h2 id='t-privatetopics'>Private Topics</h2><h3 id='t-spot_websocket_user_account'>Account Update</h3>
+<h2 id='t-privatetopics'>Private Topics</h2>
+<p>Sending the <a href="#t-websocketauthentication">authentication message</a> automatically subscribes you to all 3 private topics.</p>
+<h3 id='t-outboundaccountinfo'>outboundAccountInfo</h3>
 <blockquote>
+<p>Sending the <a href="#t-websocketauthentication">authentication message</a> automatically subscribes you to all 3 private topics.</p>
+
 <p>Response Example - format of all responses</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
@@ -4479,7 +4760,9 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
   <span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Account is updated with the outboundAccountInfo event.</p>
+<p>Pushes data about your account.</p>
+
+<p>Pushes data in <b>realtime</b>.</p>
 
 <p class="fake_header">Response Parameters</p>
 
@@ -4536,8 +4819,10 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <td>Reserved for orders</td>
 </tr>
 </tbody></table>
-<h3 id='t-spot_websocket_user_order'>Order Updates</h3>
+<h3 id='t-executionreport'>executionReport</h3>
 <blockquote>
+<p>Sending the <a href="#t-websocketauthentication">authentication message</a> automatically subscribes you to all 3 private topics.</p>
+
 <p>Response Example - format of all responses</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
@@ -4568,7 +4853,9 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
   <span class="dl">"</span><span class="s2">v</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>              
 <span class="p">}</span>
 </code></pre></div>
-<p>Orders are updated with the executionReport event. Z divided by z equals the average filled price.</p>
+<p>Pushes data about your orders. <code>Z</code> divided by <code>z</code> equals the average filled price.</p>
+
+<p>Pushes data in <b>realtime</b>.</p>
 
 <p class="fake_header">Response Parameters</p>
 
@@ -4605,14 +4892,14 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <td>True indicates buy order, false indicates sell order</td>
 </tr>
 <tr>
-<td style="text-align: left">o</td>
+<td style="text-align: left"><a href="#order-type-type-ordertypes">o</a></td>
 <td style="text-align: left">string</td>
-<td>Order type. Possible values are LIMIT, MARKET, and LIMIT_MAKER</td>
+<td>Order type</td>
 </tr>
 <tr>
-<td style="text-align: left">f</td>
+<td style="text-align: left"><a href="#timeinforce-timeinforce">f</a></td>
 <td style="text-align: left">string</td>
-<td>Time in force, possible values include GTC (Good Till Canceled), FOK (Fill or Kill) and IOC (Immediate or Cancel)</td>
+<td><a href="https://help.bybit.com/hc/en-us/articles/360039749233-What-Are-Time-In-Force-TIF-GTC-IOC-FOK-">Time in force</a></td>
 </tr>
 <tr>
 <td style="text-align: left">q</td>
@@ -4625,9 +4912,9 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <td>Price</td>
 </tr>
 <tr>
-<td style="text-align: left">X</td>
+<td style="text-align: left"><a href="#order-status-status">X</a></td>
 <td style="text-align: left">string</td>
-<td>Order status, possible values include NEW, PARTIALLY_FILLED, FILLED, CANCELED, and REJECTED</td>
+<td>Order status</td>
 </tr>
 <tr>
 <td style="text-align: left">i</td>
@@ -4705,8 +4992,10 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <td>leverage</td>
 </tr>
 </tbody></table>
-<h3 id='t-spot_websocket_ticket_info'>TicketInfo</h3>
+<h3 id='t-ticketinfo'>ticketInfo</h3>
 <blockquote>
+<p>Sending the <a href="#t-websocketauthentication">authentication message</a> automatically subscribes you to all 3 private topics.</p>
+
 <p>Response Example - format of all responses</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
@@ -4723,6 +5012,11 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
   <span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">10043</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">A</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">10024</span><span class="dl">"</span><span class="p">}</span>
 </code></pre></div>
+<p>Pushes data about your trades (fills). When an order is filled, you will receive two messages: one from <code>ticketInfo</code>, and one from <code>executionReport</code>
+</p>
+
+<p>Pushes data in <b>realtime</b>.</p>
+
 <p class="fake_header">Response Parameters</p>
 
 <table><thead>
@@ -4802,13 +5096,13 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 </ul>
 <h2 id='timeinforce-timeinforce'>TimeInForce (<code>timeInForce</code>)</h2>
 <ul>
-<li><code>GTC: Good Till Canceled</code></li>
-<li><code>FOK: Fill or Kill</code></li>
-<li><code>IOC: Immediate or Cancel</code></li>
+<li><code>GTC</code> - Good Till Canceled</li>
+<li><code>FOK</code> - Fill or Kill</li>
+<li><code>IOC</code> - Immediate or Cancel</li>
 </ul>
 <h2 id='symbol-symbol'>Symbol (<code>symbol</code>)</h2>
 <p>Trading_symbol_comment <a href="#t-querysymbol">Query Symbol</a> endpoint</p>
-<h2 id='type-type'>Type (<code>type</code>)</h2>
+<h2 id='order-type-type-ordertypes'>Order type (<code>type</code>/<code>orderTypes</code>)</h2>
 <ul>
 <li><code>LIMIT</code></li>
 <li><code>MARKET</code></li>
@@ -4822,20 +5116,15 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <li><code>XRP</code></li>
 <li><code>USDT</code></li>
 </ul>
-<h2 id='order-status-status'>Order Status(<code>status</code>)</h2>
+<h2 id='order-status-status'>Order status (<code>status</code>)</h2>
 <ul>
 <li><code>NEW</code></li>
 <li><code>PARTIALLY_FILLED</code></li>
 <li><code>FILLED</code></li>
 <li><code>CANCELED</code></li>
 <li><code>PENDING_CANCEL</code></li>
+<li><code>PENDING_NEW</code></li>
 <li><code>REJECTED</code></li>
-</ul>
-<h2 id='order-type-order_type'>Order type (<code>order_type</code>)</h2>
-<ul>
-<li><code>LIMIT</code> </li>
-<li><code>MARKET</code> </li>
-<li><code>LIMIT_MAKER</code> translation missing: en.limit_maker</li>
 </ul>
 <h2 id='quantity-qty'>Quantity (<code>qty</code>)</h2>
 <p><ul>
@@ -4902,9 +5191,9 @@ ELSE
 <li><code>4h</code> - 4 hours</li>
 <li><code>6h</code> - 6 hours</li>
 <li><code>12h</code> - 12 hours</li>
-<li><code>d</code> - 1 day</li>
-<li><code>w</code> - 1 week</li>
-<li><code>m</code> - 1 month</li>
+<li><code>1d</code> - 1 day</li>
+<li><code>1w</code> - 1 week</li>
+<li><code>1M</code> - 1 month</li>
 </ul>
 <h1 id='t-spot_errors'>Error Codes</h1>
 <p>Bybit API uses the following HTTP and error codes <span>:</span></p>

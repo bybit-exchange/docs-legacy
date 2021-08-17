@@ -639,7 +639,7 @@
   <header class="top-nav">
   <div class="top-menu">
   <a href="https://bybit-exchange.github.io/docs/inverse" class="logo-link" target="_self">
-    <img src="../../images/logo-85698b60.svg" class="logo" alt="" />
+    <img src="../../images/logo-aed6448d.svg" class="logo" alt="" />
   </a>
   <ul class="con">
     <li><a href="/docs/zh-cn/inverse">反向永续</a></li>
@@ -7068,6 +7068,8 @@ B用户：
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">websocket</span>
 
+<span class="n">ws_url</span> <span class="o">=</span> <span class="s">"wss://stream.bybit.com/realtime"</span>
+
 <span class="n">api_key</span> <span class="o">=</span> <span class="s">""</span>
 <span class="n">api_secret</span> <span class="o">=</span> <span class="s">""</span>
 
@@ -7086,8 +7088,10 @@ B用户：
     <span class="n">signature</span><span class="o">=</span><span class="n">signature</span>
 <span class="p">)</span>
 
+<span class="n">url</span> <span class="o">=</span> <span class="n">ws_url</span> <span class="o">+</span> <span class="s">"?"</span> <span class="o">+</span> <span class="n">param</span>
+
 <span class="n">ws</span> <span class="o">=</span> <span class="n">websocket</span><span class="p">.</span><span class="n">WebSocketApp</span><span class="p">(</span>
-    <span class="n">url</span><span class="o">=</span><span class="s">"wsurl"</span><span class="p">,</span>
+    <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span>
     <span class="p">...</span>
 <span class="p">)</span>
 </code></pre></div>
@@ -7096,7 +7100,7 @@ B用户：
 </p>
 </blockquote>
 <div class="highlight"><pre class="highlight python tab-python"><code><span class="n">ws</span> <span class="o">=</span> <span class="n">websocket</span><span class="p">.</span><span class="n">WebSocketApp</span><span class="p">(</span>
-    <span class="n">url</span><span class="o">=</span><span class="s">"wsurl"</span><span class="p">,</span>
+    <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span>
     <span class="p">...</span>
 <span class="p">)</span>
 
