@@ -234,6 +234,77 @@ DELETE
 
 
 
+### t(:fast_cancel_spot_order)
+> t(:codequote_curlExample)
+
+```console
+```
+
+```python
+
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "",
+    "ext_code": null,
+    "ext_info": null,
+    "result": {
+        "accountId": "10054",
+        "symbol": "ETHUSDT",
+        "orderLinkId": "162081160171552",
+        "orderId": "889826641228952064",
+        "transactTime": "1620811601728",
+        "price": "20000",
+        "origQty": "10",
+        "executedQty": "0",
+        "status": "CANCELED",
+        "timeInForce": "GTC",
+        "type": "LIMIT",
+        "side": "BUY"
+    }
+}
+```
+
+
+<aside class="notice">
+t(:spotFastCancelTips)
+</aside>
+
+<p class="fake_header">t(:httprequest)</p>
+DELETE
+<code><span id=vpoCancel>/spot/v1/order/fast</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancel"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|orderId|false|string|t(:spotOrderID)|
+|orderLinkId|false|string|t(:tOrderClientOrdID)|
+
+
+<p class="fake_header">t(:responseparameters)</p>
+
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|orderId|integer|t(:spotOrderID)|
+|orderLinkId|string|t(:tOrderClientOrdID)
+|symbol|string|t(:spotSymbol)|
+|status|string|t(:spotStatus)|
+|accountId|long|t(:spotAccountId)|
+|transactTime|long|t(:spotTransactTime)|
+|price|float|t(:spotOPrice)|
+|origQty|float|t(:spotOriQty)|
+|executedQty|float|t(:spotExecQty)|
+|timeInForce|string|t(:spotTimeInForce)|
+|type|string|t(:spotOrderType)|
+|side|string|t(:spotSide)|
+
+
 ### t(:batch_cancel_spot_order)
 > t(:codequote_curlExample)
 
@@ -278,6 +349,59 @@ DELETE
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |success|boolean|t(:spot_message)|
+
+
+
+### t(:batch_fast_cancel_spot_order)
+> t(:codequote_curlExample)
+
+```console
+
+```
+
+```python
+
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "",
+    "ext_code": null,
+    "ext_info": null,
+    "result": {
+        "success": true
+    }
+}
+```
+
+<aside class="notice">
+t(:spotFastCancelTips)
+</aside>
+
+
+<p class="fake_header">t(:httprequest)</p>
+DELETE
+<code><span id=vpoCancel>/spot/order/batch-fast-cancel</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancel"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|symbol|true|string|t(:spotSymbol)|
+|side|false|string|t(:spotSide)|
+|orderTypes|fasle|string|t(:spotOrderTypes)|
+
+<p class="fake_header">t(:responseparameters)</p>
+
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|success|boolean|t(:spot_message)|
+
+
 
 ### t(:spot_order_list)
 > t(:codequote_curlExample)
