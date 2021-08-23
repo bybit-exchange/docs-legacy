@@ -3416,7 +3416,23 @@ orderId和ordersLinkId至少要输入一个。
 </thead><tbody>
 </tbody></table>
 <h1 id='t-ratelimits'>频率限制</h1><h3 id='t-ipratelimits'>IP频率限制</h3>
-<p><p> Bybit会基于请求IP做频率限制，每秒不超过200次请求</p>
+<p><p> Bybit会基于请求IP做频率限制，针对不同的请求方法有以下规则：</p>
+<ul>
+<li>
+  <code>GET</code>方法:
+  <ul>
+    <li>连续2分钟内每秒不超过50个请求</li>
+    <li>连续5秒内每秒不超过70个请求</li>
+  </ul>
+</li>
+<li>
+  <code>POST</code>方法:
+  <ul>
+    <li>连续2分钟内每秒不超过20个请求</li>
+    <li>连续5秒内每秒不超过50个请求</li>
+  </ul>
+</li>
+</ul>
 </p>
 <h3 id='t-spot_understandingratelimits'>账户频率限制</h3>
 <p>现货鉴权接口（即需要签名的接口）的限频规则是每秒不超过20次
