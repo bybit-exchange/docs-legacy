@@ -512,10 +512,10 @@ en:
   faq_float_precision: Why are values returned to too many decimal places? (float precision issue)
   faq_float_precision_para: |
     <ul>
-      <li>Some values are returned to too many decimal places due to a float precision problem - the extra decimals are meaningless.</li>
-      <li>This issue will be fixed in the next complete version of the API.</li>
-      <li>For now, we recommend rounding the received value to the correct decimal place.</li>
-      <li>Search "float precision" in the Telegram Bybit API Discussion group to learn more.</li>
+      <li>For example, you received <code>11.969999</code> but you expected <code>11.97</code>.
+      <li>Some values are returned to too many decimal places, or a fraction too high or low, due to a float precision problem.</li>
+      <li>For now, we recommend rounding the received value to the correct decimal place. This can be done with reference to the <a href="#t-querysymbol">Query Symbol</a> endpoint.</li>
+      <li>This issue will be fixed in the next major version of the API; unfortunately, it is not fixable in the short-term.</li>
     </ul>
 
 
