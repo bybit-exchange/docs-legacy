@@ -21,4 +21,7 @@ t(:faq_testnet_funds_para)
 t(:faq_closed_pnl_price_para)
 
 ## t(:faq_float_precision)
-t(:faq_float_precision_para)
+t(:faq_server_location_para)
+
+## t(:faq_float_precision_para)
+t(:faq_server_location_para)
