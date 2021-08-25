@@ -1,10 +1,24 @@
 # t(:enums)
 t(:ENUMs_para)
 
-## AccountType (`type`/`accountType`)
-* `AccountType_CONTRACT` (`期货账户`)
-* `AccountType_SPOT`     (`现货账户`)
-* `AccountType_INVESMENT`(`理财账户`)
+## Side (`side`)
+* `Buy`
+* `Sell`
+
+## TimeInForce (`timeInForce`)
+* `GTC` - Good Till Canceled
+* `FOK` - Fill or Kill
+* `IOC` - Immediate or Cancel
+
+## Symbol (`symbol`)
+t(:trading_symbol_comment)
+
+
+## Order type (`type`/`orderTypes`)
+* `LIMIT`
+* `MARKET`
+* `LIMIT_MAKER`
+
 
 ## Currency (`currency`/`coin`)
 * `BTC`
@@ -12,36 +26,38 @@ t(:ENUMs_para)
 * `EOS`
 * `XRP`
 * `USDT`
-* `DOT`
-* `DOGE`
-* `LTC`
-* `XLM`
-* `USD`
 
-## OperatorType
-* `SYSTEM`
-* `USER`
-* `ADMIN`
-* `AFFILIATE_USER`
+## Order status (`status`)
+* `NEW`
+* `PARTIALLY_FILLED`
+* `FILLED`
+* `CANCELED`
+* `PENDING_CANCEL`
+* `PENDING_NEW`
+* `REJECTED`
 
-## TransactionType (`业务场景`)
-* `DEPOSIT` (`扫链入金`)
-* `BALANCEADJJUST` (`内部加减钱`)
-* `INTER_TRANSFER` (`账号内划转`)
-* `WITHDRAW` (`出金`)
-* `SUBMEMBER_TRANSFER` (`母子划转`)
-* `RECONILIATION_DEPOSIT` (`法币入金`)
-* `SUBMEMBER_TRANSFER` (`母子划转`)
-* `EXTERNAL_TRANSFER` (`跨账号划转`)
+## Quantity (`qty`)
+t(:quantity)
 
-## AccountTransferRecordStatus (`账户内部划转过程状态`)
-* `INIT` (`划转前初始化状态`)
-* `WITHDRAW_SUCCESS` (`出金成功`)
-* `SUCCESS` (`划转完成`)
-* `TERMINATED` (`业务终止`)
-* `FAILED` (`划转异常，需人工处理`)
+## Price (`price`)
+t(:price)
 
-## TransferType
-* `UNKNOWN`
-* `IN` (`转入`)
-* `OUT`(`转出`)
+## Time in force (`time_in_force`)
+* `GTC` t(:goodTillCancel)
+* `IOC` t(:immediateOrCancel)
+* `FOK` t(:fillOrKill)
+
+## Kline interval (`interval`)
+* `1m` t(:interval_1)
+* `3m` t(:interval_3)
+* `5m` t(:interval_5)
+* `15m` t(:interval_15)
+* `30m` t(:interval_30)
+* `1h` t(:interval_60)
+* `2h` t(:interval_120)
+* `4h` t(:interval_240)
+* `6h` t(:interval_360)
+* `12h` t(:interval_720)
+* `1d` t(:interval_D)
+* `1w` t(:interval_W)
+* `1M` t(:interval_M)
