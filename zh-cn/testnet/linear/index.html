@@ -975,6 +975,35 @@
               </ul>
           </li>
           <li>
+            <a href="#t-faq" class="toc-h1 toc-link" data-title="FAQ">FAQ</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-faq_reduce_only" class="toc-h2 toc-link" data-title="reduce_only and close_on_trigger - what's the difference?"><code>reduce_only</code> and <code>close_on_trigger</code> - what's the difference?</a>
+                  </li>
+                  <li>
+                    <a href="#t-faq_website_orders" class="toc-h2 toc-link" data-title="Why aren't all my orders showing on the website?">Why aren't all my orders showing on the website?</a>
+                  </li>
+                  <li>
+                    <a href="#t-faq_calculating_order_size" class="toc-h2 toc-link" data-title="Calculating order size based on available wallet balance">Calculating order size based on available wallet balance</a>
+                  </li>
+                  <li>
+                    <a href="#t-faq_exchange_assets" class="toc-h2 toc-link" data-title="Can I exchange assets with the API?">Can I exchange assets with the API?</a>
+                  </li>
+                  <li>
+                    <a href="#t-faq_server_location" class="toc-h2 toc-link" data-title="Where are Bybit's servers located?">Where are Bybit's servers located?</a>
+                  </li>
+                  <li>
+                    <a href="#t-faq_testnet_funds" class="toc-h2 toc-link" data-title="How do I get funds for testnet?">How do I get funds for testnet?</a>
+                  </li>
+                  <li>
+                    <a href="#t-faq_closed_pnl_price" class="toc-h2 toc-link" data-title="Why are my Closed PNL prices inaccurate?">Why are my Closed PNL prices inaccurate?</a>
+                  </li>
+                  <li>
+                    <a href="#t-faq_float_precision" class="toc-h2 toc-link" data-title="Why are values returned to too many decimal places? (float precision issue)">Why are values returned to too many decimal places? (float precision issue)</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#t-authentication" class="toc-h1 toc-link" data-title="鉴权/认证">鉴权/认证</a>
               <ul class="toc-list-h2">
                   <li>
@@ -1854,6 +1883,66 @@ clipboard.on('error', function(e) {
 <li><a href="#t-websocketorder">活动单</a> [新增]</li>
 <li><a href="#t-websocketstoporder">条件单</a> [新增]</li>
 </ul>
+<h1 id='t-faq'>FAQ</h1><h2 id='t-faq_reduce_only'><code>reduce_only</code> and <code>close_on_trigger</code> - what's the difference?</h2>
+<p><ul>
+  <li><a href="https://help.bybit.com/hc/en-us/articles/360039260574-What-is-a-reduce-only-order-"><code>reduce_only</code></a> ensures the order may only reduce the size of your position at the point of execution.</li>
+  <li><a href="https://help.bybit.com/hc/en-us/articles/360039260534-What-is-a-close-on-trigger-Order--"><code>close_on_trigger</code></a> ensures the order executes to (fully or partially) close/reduce your position,</li>
+  <ul>
+    <li>Avoids a potential insufficient margin error by cancelling other open orders (if required.)</li>
+    <li>Linear (USDT) markets - Used to indicate whether an order is opening or closing a position.</li>
+  </ul>
+  <li>It is possible to use both options (<code>reduce_only</code> and <code>close_on_trigger</code>) simultaneously.</li>
+</ul>
+</p>
+<h2 id='t-faq_website_orders'>Why aren't all my orders showing on the website?</h2>
+<p><ul>
+  <li>Users who have bots which place large numbers of laddered orders will be restricted by the frontend interface, which only shows a maximum of 50 orders on-screen.</li>
+  <li>Don't worry, your orders are still in the system and can be queried by the API, but the frontend cannot show more than 50.</li>
+</ul>
+</p>
+<h2 id='t-faq_calculating_order_size'>Calculating order size based on available wallet balance</h2>
+<p><ul>
+  <li><code>price * available_balance * leverage * perc * (1 - (0.00075 * 2))</code></li>
+  <li>Unfortunately this is not a perfectly accurate formula; the real calculation is complex and may be published in the docs at a later date.</li>
+  <ul>
+    <li><code>price</code> - last price (or your entry price) - can be found with the <a href="#t-latestsymbolinfo">Latest Symbol Info endpoint</a>.</li>
+    <li><code>available_balance</code> - can be found with the <a href="#t-myposition">My Position endpoint</a>.</li>
+    <li><code>leverage</code> - up to the respective maximum leverage for the market and your risk limit (eg 2, 10, 50).</li>
+    <li><code>perc</code> - 0.1 for 10%, 0.25 for 25%, etc.</li>
+    <li><code>1 - (0.00075 * 2)</code> - used to calculate the maximum order cost (always assumes entry &amp; exit orders use taker fee regardless actual fee).</li>
+  </ul>
+</ul>
+</p>
+<h2 id='t-faq_exchange_assets'>Can I exchange assets with the API?</h2>
+<p><ul>
+  <li>There is no endpoint to exchange assets. This can only be done on the <a href="https://testnet.bybit.com/app/assets/assets-exchange">website</a>.</li>
+  <li>However, it is possible to access your <a href="#t-assetexchangerecords">Asset Exchange Records</a> with the API.</li>
+</ul>
+</p>
+<h2 id='t-faq_server_location'>Where are Bybit's servers located?</h2>
+<p>AWS Singapore, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-availability-zones">Availability Zone ID</a> apse1-az3.
+</p>
+<h2 id='t-faq_testnet_funds'>How do I get funds for testnet?</h2>
+<p>To get testnet funds, please contact the website's customer support using the yellow support button <a href="https://testnet.bybit.com">shown in the bottom-right corner</a>.
+</p>
+<h2 id='t-faq_closed_pnl_price'>Why are my Closed PNL prices inaccurate?</h2>
+<p><ul>
+  <li>The <code>entry_price</code> and <code>exit_price</code> returned by Closed PNL endpoints are not the actual execution prices of the orders.
+  <li>It is based on the total costs of the order
+  <ul>
+    <li>(whether or not the position was only opened/closed by one order executed at one price - it is more complicated if multiple orders opened/closed a position.)</li>
+  </ul>
+  <li>For instance, the <code>entry_price</code> and <code>exit_price</code> reported by this endpoint are influenced by the fee paid/received on the orders.</li>
+</ul>
+</p>
+<h2 id='t-faq_float_precision'>Why are values returned to too many decimal places? (float precision issue)</h2>
+<p><ul>
+  <li>For example, you received <code>11.969999</code> but you expected <code>11.97</code>.
+  <li>Some values are returned to too many decimal places, or a fraction too high or low, due to a float precision problem.</li>
+  <li>For now, we recommend rounding the received value to the correct decimal place. This can be done with reference to the <a href="#t-querysymbol">Query Symbol</a> endpoint.</li>
+  <li>This issue will be fixed in the next major version of the API; unfortunately, it is not fixable in the short-term.</li>
+</ul>
+</p>
 <h1 id='t-authentication'>鉴权/认证</h1>
 <aside class="notice">
 请先生成<a href="https://testnet.bybit.com/app/user/api-management"><b>测试网</b></a> 或 <a href="https://www.bybit.com/app/user/api-management"<b>主网</b></a>API KEY。
