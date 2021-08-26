@@ -39,6 +39,13 @@ t(:ENUMs_para)
 * `Prize` t(:prize)
 * `ExchangeOrderWithdraw` t(:exchangeOrderWithdraw)
 * `ExchangeOrderDeposit` t(:exchangeOrderDeposit)
+* `ReturnServiceCash` t(:returnServiceCash)
+* `Insurance` t(:insurance)
+* `SubMember` t(:subMember)
+* `Coupon` t(:coupon)
+* `AccountTransfer` t(:accountTransfer)
+* `CashBack` t(:cashBack)
+
 
 ## Withdraw status (`status`)
 * `ToBeConfirmed` t(:toBeConfirmed)

@@ -1,5 +1,10 @@
 # t(:changelog)   
 
+## 2021-08-23
+### REST API
+
+- [t(:walletrecords)](#t-walletrecords) [t(:changelog_update)]
+  - t(:restapi_update_20210823)
 
 ## 2021-07-29
 ### REST API
