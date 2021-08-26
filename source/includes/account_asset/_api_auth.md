@@ -4,7 +4,7 @@ t(:auth_aside_key)
 </aside>
 
 <aside class="notice">
-t(:account_asset_auth_aside_env)
+t(:auth_aside_env)
 </aside>
 
 t(:auth_para_privatepublic)
@@ -13,10 +13,10 @@ t(:auth_para_privatepublic)
 
 t(:auth_para_params)
 
-t(:account_asset_auth_para_recv)
+t(:auth_para_recv)
 
 <aside class="warning">
-t(:account_asset_auth_aside_timestamp)
+t(:auth_aside_timestamp)
 </aside>
 
 ## t(:constructingtherequest)
@@ -65,7 +65,7 @@ sign:b452640c21a2c9eaec30d24a9bce1a9660d1fb9d07ccc0d623a2a4fca0940095
 t(:auth_para_construct3)
 
 <aside class="notice">
-t(:account_asset_auth_aside_signature)
+t(:auth_aside_signature)
 </aside>
 
 <!--

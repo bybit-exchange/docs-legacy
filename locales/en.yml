@@ -1456,8 +1456,8 @@ en:
   account_asset_err_90007: QuerySubMemberTransferError
   account_asset_err_90008: QueryTransferIDRedisError
   account_asset_err_90009: TransferIDExist
-  account_asset_err_900010: AccountTypeError
-  account_asset_err_900011: GetSubMemberRelationError
+  account_asset_err_90010: AccountTypeError
+  account_asset_err_90011: GetSubMemberRelationError
 
   #spot error
   err_1001: Request failed to be processed. Please try again.
@@ -2050,6 +2050,7 @@ en:
   restapi_update_20210712: Optimize the input and output parameters of some interfaces
   restapi_update_20210823: |
     Add additional enums for <code><a href="#wallet-fund-type-wallet_fund_type-type">wallet_fund_type</a></code>: <code>ReturnServiceCash</code>, <code>Insurance</code>, <code>SubMember</code> <code>Coupon</code>, <code>AccountTransfer</code>, <code>CashBack</code>
+  restapi_update_20210826: Spot Transfer API released!
   markpricekline: Query Mark Price Kline
   linear_query_mark_price_kline: Query mark price kline (like <a href="#t-querykline">Query Kline</a> but for <a href="https://help.bybit.com/hc/en-us/articles/360039261074-What-is-Dual-Price-mechanism-">mark price</a>).
   linear_resp_field_last_exec_price: Last execution price
@@ -2389,3 +2390,41 @@ en:
   websocketv2realtimes: realtimes
   spot_websocket_symbol_ticker_desc_v2: |
     The 24-hr statistics of a trading pair pushed at a frequency of ???
+
+  # Transfer API Data Endpoints
+  transfer_api: Transfer API Data Endpoints
+  transfer_para: The following API data endpoints require authentication.
+  transfer_action: Transfer
+  trigger_transfer_action: Trigger transfer action
+  transfer_api_notice:
+    <p>Please note that the <code>transfer_id</code> field in the input <code>request</code> data of this interface is UUID, globally unique.</p>
+    <p>Please note that this interface supports <code>Futures Account</code>, <code>Spot Account</code>, <code>Investment Account</code>.</p>
+    <p>The transfer-in and transfer-out account types cannot be the same.</p>
+  subMember_transfer_api_notice:
+    <p>Please note that the <code>transfer_id</code> field in the input <code>request</code> data of this interface is UUID, globally unique.</p>
+    <p>This interface can only be used to transfer between parent and child accounts.</p>
+    <p>A sub-account can only be attributed to a parent account.</p>
+  row_comment_transfer_id: UUID
+  row_comment_accounttype: account type
+
+  subMember_transfer_action: SubMemberTransfer
+  subMember_trigger_transfer_action: Trigger Child-mother transfer action
+  row_comment_to_subUserId: sub-account
+  row_comment_transfertype: transfer_in or transfer_out
+
+  query_transfer_list: QueryTransferList
+  row_comment_transferstatus: transfer status
+  row_comment_to_startTime: transfer startTime
+  row_comment_to_endTime: transfer endTime
+  row_comment_pageaction: turn page
+  row_comment_to_limit: Number of records
+  row_comment_to_cursor: cursor
+  row_comment_to_timestamp: timestamp
+
+  query_subMember_transfer_list: QuerySubMemberTransferList
+  query_subMember_id_list: QuerySubMemberIdList
+  in: ""
+  out: ""
+  accountType_spot: ""
+  accountType_contract: ""
+  accountType_investment: ""

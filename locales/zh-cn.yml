@@ -1316,8 +1316,8 @@ zh-cn:
   account_asset_err_90007: 查询子账户划转错误
   account_asset_err_90008: 查询划转ID错误
   account_asset_err_90009: 划转ID已存在
-  account_asset_err_900010: 转入账户类型不能作为转出账户类型
-  account_asset_err_900011: 获取子账户列表失败
+  account_asset_err_90010: 转入账户类型不能作为转出账户类型
+  account_asset_err_90011: 获取子账户列表失败
 
   err_10000: 处理请求时发生未知错误
   err_10001: 内部错误; 无法处理您的请求。 请再试一次.
@@ -1839,6 +1839,7 @@ zh-cn:
   restapi_update_20210708_1: 更新字段<code>buy_leverage</code><code>sell_leverage</code>
   restapi_update_20210706: 支持逐仓切全仓设置杠杆<code>buy_leverage</code>,<code>sell_leverage</code>
   restapi_update_20210712: 优化部分接口出参入参
+  restapi_update_20210826: 现货划转API发布
 
   ws_update_20210202_0: 新增字段<code>reduce_only</code>和<code>close_on_trigger</code>
   ws_update_20210202_1: 新增字段<code>close_on_trigger</code>
@@ -2241,5 +2242,40 @@ zh-cn:
   spot_websocket_symbol_ticker_v2: symbol的Ticker
   spot_websocket_symbol_ticker_desc_v2: ''
 
-  #account_asset
-  transfer_api: 划转相关接口
+  # Transfer API Data Endpoints
+  transfer_api: 现货划转相关接口
+  transfer_para: 以下现货划转相关接口都需要鉴权.
+  transfer_action: 划转
+  trigger_transfer_action: 触发划转动作
+  transfer_api_notice:
+    <p>请注意该接口入参<code>请求</code>数据中的<code>transfer_id</code>字段为<code>UUID</code>全局唯一。</p>
+    <p>请注意该接口支持<code>期货账户</code>、<code>现货账户</code>、<code>理财账户</code>。</p>
+    <p>转入和转出账户类型不能相同。</p>
+  subMember_transfer_api_notice:
+    <p>请注意该接口入参<code>请求</code>数据中的<code>transfer_id</code>字段为<code>UUID</code>全局唯一。</p>
+    <p>该接口只能用于母子账号之间的划转。</p>
+    <p>一个子账号只会归属给一个母账号。</p>
+  row_comment_transfer_id: UUID,全局唯一
+  row_comment_accounttype: 账户类型
+
+  subMember_transfer_action: 子母划转
+  subMember_trigger_transfer_action: 触发子母划转动作
+  row_comment_to_subUserId: 子账户
+  row_comment_transfertype: 转入转出类型
+
+  query_transfer_list: 查询划转记录列表
+  row_comment_transferstatus: 划转状态
+  row_comment_to_startTime: 划转开始时间
+  row_comment_to_endTime: 划转结束时间
+  row_comment_pageaction: 翻页
+  row_comment_to_limit: 记录条数
+  row_comment_to_cursor: 游标
+  row_comment_to_timestamp: 时间戳
+
+  query_subMember_transfer_list: 查询子母划转记录列表
+  query_subMember_id_list: 查询子账号列表
+  in: 转入
+  out: 转出
+  accountType_spot: 现货账户
+  accountType_contract: 期货账户
+  accountType_investment: 理财账户
