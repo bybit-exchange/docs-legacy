@@ -406,6 +406,58 @@ DELETE
 
 
 
+### t(:batch_cancel_spot_order_by_orderIds)
+> t(:codequote_curlExample)
+
+```console
+
+```
+
+```python
+
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "",
+    "ext_code": null,
+    "ext_info": null,
+    "result": {
+        [{"orderId": "889208273689997824",
+          "code": "1139"
+        }]
+    }
+}
+```
+
+<aside class="notice">
+t(:spotFastCancelTips)
+</aside>
+
+<p class="fake_header">t(:httprequest)</p>
+DELETE
+<code><span id=vpoCancel>/spot/order/batch-cancel-by-ids</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancel"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|orderIds|true|string|t(:spotCancelOrderIds)|
+
+<p class="fake_header">t(:responseparameters)</p>
+
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|orderId|integer|t(:spotOrderID)|
+|code|integer|t(:spot_errors)|
+
+
+
+
 ### t(:spot_order_list)
 > t(:codequote_curlExample)
 
