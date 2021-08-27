@@ -1359,9 +1359,11 @@ zh-cn:
   err_11045: 该订单类型不支持撤销
   err_11046: 订单生成超时
   err_11047: 订单撤销超时
-  err_20010: NEW_ORDER_REJECTED
-  err_20011: CANCEL_REJECTED
-  err_20013: Order不存在
+  err_11090: 撤销订单已完成
+  err_11091: 无法撤单, 稍后再试
+  err_20010: 新增订单被拒绝
+  err_20011: 撤销订单被拒绝
+  err_20013: 订单不存在
   err_20014: API-key格式无效
   err_20015: 无效的API密钥，IP或操作权限。.
   err_20016: 找不到该交易对的交易窗口。 尝试改为24小时自动报价。
@@ -1947,6 +1949,7 @@ zh-cn:
   spotTimeInForce: 订单时间指令（Time in Force）。可能出现的值为：GTC（Good Till Canceled，一直有效），FOK（Fill or Kill，全部成交或者取消），IOC（Immediate or Cancel，立即成交或者取消）
   spotPrice: 订单价格，对于LIMIT 订单必需发送
   spotOrderID: 订单ID
+  spotOrderId: 订单ID
   spotFees: 订单的手续费
   spotOriQty: 订单数量
   spotFeeTokenId: 手续费 Token ID
@@ -2082,6 +2085,8 @@ zh-cn:
   spot_u: is maker
   spot_w: is maker
   spotMakerRebate: Maker折扣
+  batchcancel_spotOrderTypes: |
+    订单类型. 多个订单类型使用英文逗号分隔, 例如 <code>LIMIT,LIMIT_MAKER</code>. 默认值: <code>LIMIT</code>
   spot_gains: 涨幅
   spot_websocket_trade_v1: 逐笔交易
   spot_websocket_trade_desc_v1: |
