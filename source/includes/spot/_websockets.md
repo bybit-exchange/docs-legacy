@@ -842,20 +842,22 @@ t(:spot_private_topics_auth_sub)
 > t(:codequote_responseExampleFormatAll)
 
 ```javascript
-{
-  "e": "outboundAccountInfo",   
-  "E": 1499405658849,           
-  "T": true,                   
-  "W": true,                    
-  "D": true,                    
-  "B": [                        
+[
     {
-      "a": "LTC",               
-      "f": "17366.18538083",    
-      "l": "0.00000000"         
+        "e":"outboundAccountInfo",
+        "E":"1629969654753",
+        "T":True,
+        "W":True,
+        "D":True,
+        "B":[
+            {
+                "a":"BTC",
+                "f":"10000000097.1982823144",
+                "l":"0"
+            }
+        ]
     }
-  ]
-}
+]
 ```
 
 t(:outboundAccountInfo_desc)
@@ -867,11 +869,11 @@ t(:spot_public_websocket_frequency_realtime)
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 | e | string | t(:spot_event_type) |
-| E | member | t(:spot_timestamp) |
+| E | string | t(:spot_timestamp) |
 | T | boolean | t(:spot_allow_trade) |
 | W | boolean | t(:spot_allow_withdraw) |
 | D | boolean | t(:spot_allow_deposit)|
-| B | string | t(:spot_balance_change) |
+| B | list | t(:spot_balance_change) |
 | a | string | t(:spot_asset) |
 | f | string | t(:spot_available_qty) |
 | l | string | t(:spot_frozen_qty) |
@@ -882,33 +884,35 @@ t(:spot_public_websocket_frequency_realtime)
 > t(:codequote_responseExampleFormatAll)
 
 ```javascript
-{
-  "e": "executionReport",      
-  "E": 1499405658658,            
-  "s": "ETHBTC",                 
-  "c": 1000087761,               
-  "S": "BUY",                    
-  "o": "LIMIT",                  
-  "f": "GTC",                    
-  "q": "1.00000000",             
-  "p": "0.10264410",             
-  "X": "NEW",                    
-  "i": 4293153,     
-  "M": "0",             
-  "l": "0.00000000",             
-  "z": "0.00000000",             
-  "L": "0.00000000",             
-  "n": "0",                      
-  "N": null,                     
-  "u": true,                     
-  "w": true,                     
-  "m": false,                    
-  "O": 1499405658657,            
-  "Z": "0.00000000",
-  "A": "0",
-  "C": false,
-  "v": "0"              
-}
+[
+  {
+    "e": "executionReport",      
+    "E": "1499405658658",            
+    "s": "ETHBTC",                 
+    "c": "1000087761",               
+    "S": "BUY",                    
+    "o": "LIMIT",                  
+    "f": "GTC",                    
+    "q": "1.00000000",             
+    "p": "0.10264410",             
+    "X": "NEW",                    
+    "i": "4293153",     
+    "M": "0",             
+    "l": "0.00000000",             
+    "z": "0.00000000",             
+    "L": "0.00000000",             
+    "n": "0",                      
+    "N": "BTC",                     
+    "u": true,                     
+    "w": true,                     
+    "m": false,                    
+    "O": "1499405658657",            
+    "Z": "473.199",
+    "A": "0",
+    "C": false,
+    "v": "0"              
+  }
+]
 ```
 t(:executionReport_desc)
 
@@ -919,10 +923,10 @@ t(:spot_public_websocket_frequency_realtime)
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 | e | string | t(:spot_event_type) |
-| E | member | t(:spot_event_timestamp) |
+| E | string | t(:spot_event_timestamp) |
 | s | string | t(:spot_symbol) |
 | c | string | t(:spot_order_client_id) |
-| S | string | t(:spot_side) |
+| S | string | t(:spot_side_private) |
 | <a href="#order-type-type-ordertypes">o</a> | string | t(:spotType) |
 | <a href="#timeinforce-timeinforce">f</a> | string | t(:row_comment_timeInForce) |
 | q | string | t(:spot_quantity) |
@@ -951,19 +955,22 @@ t(:spot_public_websocket_frequency_realtime)
 > t(:codequote_responseExampleFormatAll)
 
 ```javascript
-{
-  "e":"ticketInfo",
-  "E":"1621912542359",
-  "s":"BTCUSDT",
-  "q":"0.001639",
-  "t":"1621912542314",
-  "p":"61000.0",
-  "T":"899062000267837441",
-  "o":"899048013515737344",
-  "c":"1621910874883",
-  "O":"899062000118679808",
-  "a":"10043",
-  "A":"10024"}
+[
+  {
+    "e":"ticketInfo",
+    "E":"1621912542359",
+    "s":"BTCUSDT",
+    "q":"0.001639",
+    "t":"1621912542314",
+    "p":"61000.0",
+    "T":"899062000267837441",
+    "o":"899048013515737344",
+    "c":"1621910874883",
+    "O":"899062000118679808",
+    "a":"10043",
+    "A":"10024"
+  }
+]
 ```
 
 t(:ticketInfo_para)
@@ -975,7 +982,7 @@ t(:spot_public_websocket_frequency_realtime)
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 | e | string | t(:spot_event_type) |
-| E | member | t(:spot_event_timestamp) |
+| E | string | t(:spot_event_timestamp) |
 | s | string | t(:spot_symbol) |
 | q | string | t(:spot_quantity) |
 | t | string | t(:spot_timestamp) |
