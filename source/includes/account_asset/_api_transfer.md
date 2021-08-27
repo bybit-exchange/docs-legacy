@@ -56,11 +56,11 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|transferId |true |string |t(:row_comment_transfer_id) |
+|transfer_id |true |string |t(:row_comment_transfer_id) |
 |<a href="#currency-currency-coin">coin</a> |true |string |t(:row_comment_currency) |
 |amount |true |string |t(:row_comment_to_amount) |
-|<a href="#accounttype-type-accounttype">fromAccountType</a> |true |string |t(:row_comment_accounttype) |
-|<a href="#accounttype-type-accounttype">toAccountType</a> |true |string |t(:row_comment_accounttype) |
+|<a href="#accounttype-type-accounttype">from_account_type</a> |true |string |t(:row_comment_accounttype) |
+|<a href="#accounttype-type-accounttype">to_account_type</a> |true |string |t(:row_comment_accounttype) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -125,10 +125,10 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|transferId |true |string |t(:row_comment_transfer_id) |
+|transfer_id |true |string |t(:row_comment_transfer_id) |
 |<a href="#currency-currency-coin">coin</a> |true |string |t(:row_comment_currency) |
 |amount |true |string |t(:row_comment_to_amount) |
-|subUserId |true |string |t(:row_comment_to_subUserId) |
+|sub_user_id |true |string |t(:row_comment_to_subUserId) |
 |<a href="#transfertype">type</a> |true |string |t(:row_comment_transfertype) |
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -205,11 +205,11 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|transferId |false |string |t(:row_comment_transfer_id) |
+|transfer_id |false |string |t(:row_comment_transfer_id) |
 |<a href="#currency-currency-coin">coin</a> |false |string |t(:row_comment_currency) |
 |<a href="#transferstatus">status</a> |false |string |t(:row_comment_transferstatus) |
-|startTime |false |integer |t(:row_comment_to_startTime) |
-|endTime |false |integer |t(:row_comment_to_endTime) |
+|start_time |false |integer |t(:row_comment_startTime_ms) |
+|end_time |false |integer |t(:row_comment_endTime_ms) |
 |<a href="#pageaction-turn-page">direction</a> |false |string |t(:row_comment_pageaction) |
 |limit |false |integer |t(:row_comment_to_limit) |
 |cursor |false |string |t(:row_comment_to_cursor)|
@@ -310,11 +310,11 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|transferId |false |string |t(:row_comment_transfer_id) |
+|transfer_id |false |string |t(:row_comment_transfer_id) |
 |<a href="#currency-currency-coin">coin</a> |false |string |t(:row_comment_currency) |
 |<a href="#transferstatus">status</a> |false |string |t(:row_comment_transferstatus) |
-|startTime |false |integer |t(:row_comment_to_startTime) |
-|endTime |false |integer |t(:row_comment_to_endTime) |
+|start_time |false |integer |t(:row_comment_startTime_ms) |
+|end_time |false |integer |t(:row_comment_endTime_ms) |
 |<a href="#pageaction-turn-page">direction</a> |false |string |t(:row_comment_pageaction) |
 |limit |false |integer |t(:row_comment_to_limit) |
 |cursor |false |string |t(:row_comment_to_cursor)|
@@ -370,7 +370,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/su
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=oawwListNew>/asset/v1/private/sub-member/transfer/list</span></code>
+<code><span id=oawwListNew>/asset/v1/private/sub-member/member-ids</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawwListNew"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
