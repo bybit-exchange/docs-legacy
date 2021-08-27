@@ -100,6 +100,7 @@ zh-cn:
   row_comment_margin_result: 仓位保证金
   row_comment_order_type: 交易记录类型
   row_comment_activeOrderType: 委托单价格类型
+  row_comment_orderFilter: 条件单或是活动单
   row_comment_stopOrderType: 委托单价格类型
   row_comment_stopOrderStatus: 条件单状态
   row_comment_orderStatus: 订单状态
@@ -259,6 +260,7 @@ zh-cn:
   row_comment_limit_500_1000: 返回数据最大1000条. 默认返回500条
   row_comment_buy_ratio: 多仓人数占比
   row_comment_sell_ratio: 空仓人数占比
+  row_comment_r_trigger_price: 修改触发价格
   request_disable: 此接口不再推荐使用!
 
 
@@ -320,6 +322,10 @@ zh-cn:
   row_parameter_sl_trigger_by: <a href="#trigger-price-type-trigger_by">sl_trigger_by</a>
   row_parameter_symbol: <a href="#symbol-symbol">symbol</a>
   row_parameter_side: <a href="#side-side">side</a>
+  row_parameter_order_filter: <a href="#order-filter-order_filter">order_filter</a>
+  row_parameter_qty: <a href="#qty">qty</a>
+  row_comment_quantity: 委托数量
+  row_comment_order_ids: 取消委托订单ID集合
   row_parameter_tp_sl_mode: <a href="#tp-sl-mode-tp_sl_mode">tp_sl_mode</a>
   row_parameter_order_type: <a href="#order-type-order_type">order_type</a>
   row_parameter_quantity: <a href="#quantity-qty">qty</a>
@@ -601,6 +607,30 @@ zh-cn:
   account_para: 以下账户/交易接口都需要鉴权.
   ## Active Orders
   activeorders: 活动单
+  ## Stop Orders or Orders
+  orders: 订单
+  ### place Order V3
+  placeorder: 创建委托订单
+  ### Get Order
+  getorderlist: 查询委托
+  ### Cancel Order V3
+  cancelorder: 撤销委托单
+  ### Cancel batch Orders
+  cancelbatch: 批量撤销委托单
+  ### Cancel All Orders
+  cancelall: 撤销所有委托单
+  ### Replace Order V3
+  replaceorder: 修改订单信息
+  ### Query Active Order (real-time)
+  queryactiveorder: 实时查询委托
+  ### Update
+  update: OpenAPI V3的改动
+  ### update01
+  update01: 活动单条件单合并，正反向永续共用统一API
+  ### update02
+  update02: 更加标准统一的返回参数
+  ### update03
+
   ### Place Active Order V2
   placeactive: 创建活动委托单
   account_para_placeActive: |
@@ -1165,6 +1195,9 @@ zh-cn:
   limit:  "限价单"
   market: "市价单"
   limit_maker: "做市单"
+  ## Order Filter(`order_filter`)
+  Order:      "活动单"
+  StopOrder:  "条件单"
   ## Quantity (`qty`)
   quantity:
     <ul>
@@ -1876,6 +1909,8 @@ zh-cn:
   fourth_quarter: 四季度
   trading_symbol_comment: 您可以根据<a href="#t-querysymbol">Query Symbol</a>接口获取所有交易中的symbol
 
+  # Openapi V3
+  openapi_v3: OpenAPI v3接口
 
   # abandoned endpoints
   a_getleverage: 用户杠杆
