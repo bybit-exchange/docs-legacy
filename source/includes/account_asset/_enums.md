@@ -1,7 +1,7 @@
 # t(:enums)
 t(:ENUMs_para)
 
-## AccountType (`type`/`accountType`)
+## Account Type (`fromAccountType`/`toAccountType`)
 * `AccountType_CONTRACT`  t(:accountType_contract)
 * `AccountType_SPOT`      t(:accountType_spot)
 * `AccountType_INVESTMENT` t(:accountType_investment)
@@ -36,5 +36,3 @@ t(:ENUMs_para)
 ## PageAction (`turn page`)
 * `Prev`
 * `Next`
-
-

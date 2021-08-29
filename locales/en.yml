@@ -2400,8 +2400,8 @@ en:
   # Transfer API Data Endpoints
   transfer_api: Transfer API Data Endpoints
   transfer_para: The following API data endpoints require authentication.
-  transfer_action: Transfer
-  trigger_transfer_action: Trigger transfer action
+  transfer: Create Internal Transfer
+  trigger_transfer: Trigger transfer action
   transfer_api_notice:
     <p>Please note that the <code>transfer_id</code> field in the input <code>request</code> data of this interface is UUID, globally unique.</p>
     <p>Please note that this interface supports <code>Futures Account</code>, <code>Spot Account</code>, <code>Investment Account</code>.</p>
@@ -2410,25 +2410,24 @@ en:
     <p>Please note that the <code>transfer_id</code> field in the input <code>request</code> data of this interface is UUID, globally unique.</p>
     <p>This interface can only be used to transfer between parent and child accounts.</p>
     <p>A sub-account can only be attributed to a parent account.</p>
-  row_comment_transfer_id: UUID
+  row_comment_transfer_id: UUID, which is unique across the platform
   row_comment_accounttype: account type
 
-  subMember_transfer_action: SubMemberTransfer
-  subMember_trigger_transfer_action: Trigger Child-mother transfer action
+  subMember_transfer: Create Subaccount Transfer
+  subMember_trigger_transfer: Trigger parent-child transfer action
   row_comment_to_subUserId: sub-account
   row_comment_transfertype: transfer_in or transfer_out
 
-  query_transfer_list: QueryTransferList
+  query_transfer_list: Query Transfer List
   row_comment_transferstatus: transfer status
   row_comment_pageaction: turn page
   row_comment_to_limit: Number of records
-  row_comment_to_cursor: cursor
   row_comment_to_timestamp: timestamp
 
-  query_subMember_transfer_list: QuerySubMemberTransferList
+  query_subMember_transfer_list: Query Subaccount Transfer List
   query_subMember_id_list: QuerySubMemberIdList
   in: ""
   out: ""
   accountType_spot: ""
   accountType_contract: ""
-  accountType_investment: ""
+  accountType_investment: "ByFi Account"
