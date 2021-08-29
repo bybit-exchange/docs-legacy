@@ -902,17 +902,18 @@ en:
   ### IP Rate Limit
   ipratelimits: IP Rate Limit
   ip_rate_para_understanding: |
+    <p>The IP limits are shared across all futures and spot markets.</p>
     <p>Bybit has different IP frequency limits for <code>GET</code> and <code>POST</code> method<span>:</span></p>
     <ul>
     <li>
-      <code>GET</code>method:
+      <code>GET</code> method:
       <ul>
         <li>50 requests per second continuously for 2 minutes</li>
         <li>70 requests per second continuously for 5 seconds</li>
       </ul>
     </li>
     <li>
-      <code>POST</code>method:
+      <code>POST</code> method:
       <ul>
         <li>20 requests per second continuously for 2 minutes</li>
         <li>50 requests per second continuously for 5 seconds</li>
@@ -928,12 +929,6 @@ en:
     Bybit makes frequency limits based on <b>the rolling time window per minute and UID, and each symbol is independent</b>. Every request to the API returns the fields shown in the code panel:
   spot_rate_para_understanding: |
     For all endpoints that need authentication, the rate limit is 20 per second
-  account_asset_rate_para_understanding:
-    <p> /asset/v1/private/transfer     20times/minute </p>
-    <p> /asset/v1/private/sub-member/transfer   20times/minute </p>
-    <p> /asset/v1/private/transfer/list   60times/minute </p>
-    <p> /asset/v1/private/sub-member/transfer/list   60times/minute </p>
-    <p> /asset/v1/private/sub-member/member-ids   60times/minute </p>
   rate_text_limitStatus_understanding: your remaining requests for current endpoint
   rate_text_limit_understanding: your current limit for current endpoint
   rate_text_limitReset: the timestamp indicating when your request limit resets if you have exceeded your rate_limit. Otherwise, this is just the current timestamp.
@@ -944,6 +939,7 @@ en:
 
   ### Rate Limits For All Endpoints
   perendpoint: Rate Limits For All Private Endpoints
+  perendpointtransfer: Rate Limits For All Transfer Endpoints
   ### Order Limits
   orderlimits: Order Limits
   rate_para_limits: |
@@ -2398,36 +2394,32 @@ en:
     The 24-hr statistics of a trading pair pushed at a frequency of ???
 
   # Transfer API Data Endpoints
-  transfer_api: Transfer API Data Endpoints
+  transfer_api: Transfer Data Endpoints
   transfer_para: The following API data endpoints require authentication.
   transfer: Create Internal Transfer
-  trigger_transfer: Trigger transfer action
-  transfer_api_notice:
-    <p>Please note that the <code>transfer_id</code> field in the input <code>request</code> data of this interface is UUID, globally unique.</p>
-    <p>Please note that this interface supports <code>Futures Account</code>, <code>Spot Account</code>, <code>Investment Account</code>.</p>
-    <p>The transfer-in and transfer-out account types cannot be the same.</p>
-  subMember_transfer_api_notice:
-    <p>Please note that the <code>transfer_id</code> field in the input <code>request</code> data of this interface is UUID, globally unique.</p>
-    <p>This interface can only be used to transfer between parent and child accounts.</p>
-    <p>A sub-account can only be attributed to a parent account.</p>
+  trigger_transfer: Transfers funds between the different sections of an individuals account (<i>not</i> between subaccounts). For example, between the spot and derivatives accounts.
+  transfer_api_notice: |
+    Please note that this interface supports Futures Account, Spot Account, Investment Account.
+    The <code>transfer_in</code> and <code>transfer_out</code> account types cannot be the same.
   row_comment_transfer_id: UUID, which is unique across the platform
-  row_comment_accounttype: account type
+  row_comment_accounttype: Account type
 
-  subMember_transfer: Create Subaccount Transfer
-  subMember_trigger_transfer: Trigger parent-child transfer action
-  row_comment_to_subUserId: sub-account
-  row_comment_transfertype: transfer_in or transfer_out
+  createsubaccounttransfer_api_notice: |
+    A subaccount can only be attributed to a parent account.
+  createsubaccounttransfer: Create Subaccount Transfer
+  subMember_trigger_transfer: Transfers funds between the parent and child (sub) accounts.
+  row_comment_to_subUserId: Subaccount
+  row_comment_transfertype: Determines the direction of transfer
 
-  query_transfer_list: Query Transfer List
-  row_comment_transferstatus: transfer status
-  row_comment_pageaction: turn page
+  querytransferlist: Query Transfer List
+  row_comment_transferstatus: Transfer status
+  row_comment_pageaction: Turn page
   row_comment_to_limit: Number of records
   row_comment_to_timestamp: timestamp
 
-  query_subMember_transfer_list: Query Subaccount Transfer List
-  query_subMember_id_list: QuerySubMemberIdList
+  querysubaccounttransferlist: Query Subaccount Transfer List
   in: ""
   out: ""
   accountType_spot: ""
   accountType_contract: ""
-  accountType_investment: "ByFi Account"
+  accountType_investment: "- ByFi Account"

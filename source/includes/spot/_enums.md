@@ -27,6 +27,15 @@ t(:trading_symbol_comment)
 * `XRP`
 * `USDT`
 
+The transfer API also includes:
+
+* `DOT`
+* `DOGE`
+* `LTC`
+* `XLM`
+* `USD`
+
+
 ## Order status (`status`)
 * `NEW`
 * `PARTIALLY_FILLED`
@@ -61,3 +70,27 @@ t(:price)
 * `1d` t(:interval_D)
 * `1w` t(:interval_W)
 * `1M` t(:interval_M)
+
+## Account type (`fromAccountType`/`toAccountType`)
+* `AccountType_CONTRACT`  t(:accountType_contract)
+* `AccountType_SPOT`      t(:accountType_spot)
+* `AccountType_INVESTMENT` t(:accountType_investment)
+
+## Operator type
+* `SYSTEM`
+* `USER`
+* `ADMIN`
+* `AFFILIATE_USER`
+
+## Transfer type (<code>type</code>)
+* `IN` t(:in)
+* `OUT` t(:out)
+
+## Transfer status (<code>status</code>)
+* `SUCCESS`
+* `PENDING`
+* `FAILED`
+
+## Page Direction (`direction`)
+* `Prev`
+* `Next`

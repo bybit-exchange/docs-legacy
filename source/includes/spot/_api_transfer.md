@@ -56,8 +56,8 @@ POST
 |transfer_id |true |string |t(:row_comment_transfer_id) |
 |<a href="#currency-currency-coin">coin</a> |true |string |t(:row_comment_currency) |
 |amount |true |string |t(:row_comment_to_amount) |
-|<a href="#accounttype-type-accounttype">fromAccountType</a> |true |string |t(:row_comment_accounttype) |
-|<a href="#accounttype-type-accounttype">toAccountType</a> |true |string |t(:row_comment_accounttype) |
+|<a href="#account-type-fromaccounttype-toaccounttype">fromAccountType</a> |true |string |t(:row_comment_accounttype) |
+|<a href="#account-type-fromaccounttype-toaccounttype">toAccountType</a> |true |string |t(:row_comment_accounttype) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -68,7 +68,7 @@ POST
 
 
 
-### t(:subMember_transfer)
+### t(:createsubaccounttransfer)
 > t(:codequote_curlExample)
 
 ```console
@@ -108,7 +108,7 @@ curl --location --request POST 'https://api-testnet.bybit.com/asset/v1/private/s
 t(:subMember_trigger_transfer)
 
 <aside class="notice">
-t(:subMember_transfer_api_notice)
+t(:createsubaccounttransfer_api_notice)
 </aside>
 
 <p class="fake_header">t(:httprequest)</p>
@@ -123,7 +123,7 @@ POST
 |<a href="#currency-currency-coin">coin</a> |true |string |t(:row_comment_currency) |
 |amount |true |string |t(:row_comment_to_amount) |
 |sub_user_id |true |string |t(:row_comment_to_subUserId) |
-|<a href="#transfertype">type</a> |true |string |t(:row_comment_transfertype) |
+|<a href="#transfer-type-type">type</a> |true |string |t(:row_comment_transfertype) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -133,7 +133,7 @@ POST
 
 
 
-### t(:query_transfer_list)
+### t(:querytransferlist)
 > t(:codequote_curlExample)
 
 ```console
@@ -198,10 +198,10 @@ GET
 |:----- |:-------|:-----|----- |
 |transfer_id |false |string |t(:row_comment_transfer_id) |
 |<a href="#currency-currency-coin">coin</a> |false |string |t(:row_comment_currency) |
-|<a href="#transferstatus">status</a> |false |string |t(:row_comment_transferstatus) |
+|<a href="#transfer-status-status">status</a> |false |string |t(:row_comment_transferstatus) |
 |start_time |false |integer |t(:row_comment_startTime_ms) |
 |end_time |false |integer |t(:row_comment_endTime_ms) |
-|<a href="#pageaction-turn-page">direction</a> |false |string |t(:row_comment_pageaction) |
+|<a href="#page-direction-direction">direction</a> |false |string |t(:row_comment_pageaction) |
 |limit |false |integer |t(:row_comment_to_limit) |
 |cursor |false |string |t(:row_comment_cursor)|
 
@@ -211,10 +211,10 @@ GET
 |transfer_id |string |t(:row_comment_transfer_id) |
 |<a href="#currency-currency-coin">coin</a> |string |t(:row_comment_currency) |
 |amount |string |t(:row_comment_to_amount) |
-|<a href="#accounttype-type-accounttype">from_account_type</a> |string |t(:row_comment_accounttype) |
-|<a href="#accounttype-type-accounttype">to_account_type</a> |string |t(:row_comment_accounttype) |
+|<a href="#account-type-fromaccounttype-toaccounttype">from_account_type</a> |string |t(:row_comment_accounttype) |
+|<a href="#account-type-fromaccounttype-toaccounttype">to_account_type</a> |string |t(:row_comment_accounttype) |
 |timestamp |integer |t(:row_comment_to_timestamp) |
-|<a href="#transferstatus">status</a> |string |t(:row_comment_transferstatus) |
+|<a href="#transfer-status-status">status</a> |string |t(:row_comment_transferstatus) |
 |cursor |string |t(:row_comment_cursor)|
 
 
@@ -222,7 +222,7 @@ GET
 
 
 
-### t(:query_subMember_transfer_list)
+### t(:querysubaccounttransferlist)
 > t(:codequote_curlExample)
 
 ```console
@@ -300,10 +300,10 @@ GET
 |:----- |:-------|:-----|----- |
 |transfer_id |false |string |t(:row_comment_transfer_id) |
 |<a href="#currency-currency-coin">coin</a> |false |string |t(:row_comment_currency) |
-|<a href="#transferstatus">status</a> |false |string |t(:row_comment_transferstatus) |
+|<a href="#transfer-status-status">status</a> |false |string |t(:row_comment_transferstatus) |
 |start_time |false |integer |t(:row_comment_startTime_ms) |
 |end_time |false |integer |t(:row_comment_endTime_ms) |
-|<a href="#pageaction-turn-page">direction</a> |false |string |t(:row_comment_pageaction) |
+|<a href="#page-direction-direction">direction</a> |false |string |t(:row_comment_pageaction) |
 |limit |false |integer |t(:row_comment_to_limit) |
 |cursor |false |string |t(:row_comment_cursor)|
 
@@ -316,57 +316,6 @@ GET
 |user_id |integer |t(:row_comment_to_subUserId) |
 |sub_user_id |integer|t(:row_comment_to_subUserId) |
 |timestamp |integer |t(:row_comment_to_timestamp) |
-|<a href="#transferstatus">status</a> |string |t(:row_comment_transferstatus) |
-|<a href="#transfertype">type</a> |string |t(:row_comment_transfertype) |
+|<a href="#transfer-status-status">status</a> |string |t(:row_comment_transferstatus) |
+|<a href="#transfer-type-type">type</a> |string |t(:row_comment_transfertype) |
 |cursor |string |t(:row_comment_cursor)|
-
-
-
-
-
-
-### t(:query_subMember_id_list)
-> t(:codequote_curlExample)
-
-```console
-curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/sub-member/member-ids'
-```
-
-```python
-```
-
-> t(:codequote_responseExample)
-
-```javascript
-{
-  "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
-    "result": {
-    "sub_user_id": [
-      251711
-    ]
-  },
-  "ext_info": null,
-    "time_now": 1629979703311,
-    "rate_limit_status": 59,
-    "rate_limit_reset_ms": 1629979703311,
-    "rate_limit": 1
-}
-```
-
-
-<p class="fake_header">t(:httprequest)</p>
-GET
-<code><span id=avpstl>/asset/v1/private/sub-member/transfer/list</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawwListNew"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|sub_user_id |integer|t(:row_comment_to_subUserId) |
