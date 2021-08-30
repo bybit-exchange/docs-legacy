@@ -40,7 +40,7 @@ t(:auth_para_construct2)
 > t(:auth_codequote_construct2)
 
 ```http
-GET /spot/v1/order?api_key=q1ksyOX2T0G2SkK8nu&qty=100&recvWindow=999999999&side=BUY&symbol=BTCUSDT&timestamp=1623208423972&type=MARKET&sign=b452640c21a2c9eaec30d24a9bce1a9660d1fb9d07ccc0d623a2a4fca0940095 HTTP/1.1
+GET /spot/v1/order?api_key=q1ksyOX2T0G2SkK8nu&qty=100&recvWindow=10000&side=BUY&symbol=BTCUSDT&timestamp=1623208423972&type=MARKET&sign=b452640c21a2c9eaec30d24a9bce1a9660d1fb9d07ccc0d623a2a4fca0940095 HTTP/1.1
 Host: api-testnet.bybit.com
 ```
 
@@ -53,7 +53,7 @@ Content-Type: application/x-www-form-unlencoded
 
 api_key:q1ksyOX2T0G2SkK8nu
 qty:100
-recvWindow:999999999
+recvWindow:10000
 side:BUY
 symbol:BTCUSDT
 timestamp:1623208423972

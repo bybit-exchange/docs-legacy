@@ -4,6 +4,7 @@ zh-cn:
   international: English
   inverse_perpetual: 反向永续
   linear_perpetual: USDT永续
+  account_asset: 账户资产
   search: 搜索
   comment_abandoned: <b>已废弃!!</b>
   httprequest: HTTP 请求
@@ -829,6 +830,12 @@ zh-cn:
     Bybit基于<b>每分钟</b>的滚动时间窗口来做频率限制，并且是按<b>账户</b>（uid）和交易对（symbol）来做划分限制，每次请求API响应中都会包含如下字段：
   spot_rate_para_understanding: |
     现货鉴权接口（即需要签名的接口）的限频规则是每秒不超过20次
+  account_asset_rate_para_understanding:
+    <p> /asset/v1/private/transfer     20次/每分钟 </p>
+    <p> /asset/v1/private/sub-member/transfer   20/每分钟 </p>
+    <p> /asset/v1/private/transfer/list    60/每分钟 </p>
+    <p> /asset/v1/private/sub-member/transfer/list   60/每分钟 </p>
+    <p> /asset/v1/private/sub-member/member-ids   60/每分钟 </p>
   rate_text_limitStatus_understanding: 该接口当前时间窗口剩余可用请求数
   rate_text_limit_understanding: 该接口当前频率限制上限
   rate_text_limitReset: 如果您已超过该接口当前窗口频率限制，该字段表示下个可用时间窗口的时间戳（毫秒），即什么时候可以恢复访问；如果您未超过该接口当前窗口频率限制，该字段表示返回的是当前服务器时间（毫秒).
@@ -1140,6 +1147,7 @@ zh-cn:
   # Error Definitions
   errors: 错误码
   spot_errors: 错误码
+  account_asset_errors: 错误码
 
   # ENUMs Definitions
   enums: 枚举定义
@@ -1286,6 +1294,7 @@ zh-cn:
   # Error Code
   errors_intro: Bybit使用以下HTTP Code和错误码：
   spot_errors_intro: Bybit使用以下HTTP Code和错误码：
+  account_asset_errors_intro: Bybit使用以下HTTP Code和错误码：
 
   http_200: 请求有效
   http_403: 拒绝访问
@@ -1294,6 +1303,27 @@ zh-cn:
   spot_http_200: 请求有效
   spot_http_403: 拒绝访问
   spot_http_404: 访问路径不存在
+  # account_asset
+  account_asset_http_200: 请求有效
+  account_asset_http_403: 拒绝访问
+  account_asset_http_404: 访问路径不存在
+  account_asset_err_0:    成功
+  account_asset_err_10001: 参数错误
+  account_asset_err_10016: 服务不可用
+  account_asset_err_38000: 处理中
+  account_asset_err_38001: 可用余额不足
+  account_asset_err_38002: 无法划转
+  account_asset_err_90001: 划转金额少于0
+  account_asset_err_90002: 划转金额精度大于8
+  account_asset_err_90003: 转账错误，请联系客服
+  account_asset_err_90004: 账户没发现
+  account_asset_err_90005: 查询余额错误
+  account_asset_err_90006: 查询划转错误
+  account_asset_err_90007: 查询子账户划转错误
+  account_asset_err_90008: 查询划转ID错误
+  account_asset_err_90009: 划转ID已存在
+  account_asset_err_90010: 转入账户类型不能作为转出账户类型
+  account_asset_err_90011: 获取子账户列表失败
 
   err_10000: 处理请求时发生未知错误
   err_10001: 内部错误; 无法处理您的请求。 请再试一次.
@@ -1815,6 +1845,7 @@ zh-cn:
   restapi_update_20210708_1: 更新字段<code>buy_leverage</code><code>sell_leverage</code>
   restapi_update_20210706: 支持逐仓切全仓设置杠杆<code>buy_leverage</code>,<code>sell_leverage</code>
   restapi_update_20210712: 优化部分接口出参入参
+  restapi_update_20210826: 现货划转API发布
 
   ws_update_20210202_0: 新增字段<code>reduce_only</code>和<code>close_on_trigger</code>
   ws_update_20210202_1: 新增字段<code>close_on_trigger</code>
@@ -2216,3 +2247,38 @@ zh-cn:
 
   spot_websocket_symbol_ticker_v2: symbol的Ticker
   spot_websocket_symbol_ticker_desc_v2: ''
+
+  # Transfer API Data Endpoints
+  transfer_api: 现货划转相关接口
+  transfer_para: 以下现货划转相关接口都需要鉴权.
+  transfer: 划转
+  trigger_transfer: 触发划转动作
+  transfer_api_notice:
+    <p>请注意该接口入参<code>请求</code>数据中的<code>transfer_id</code>字段为<code>UUID</code>全局唯一。</p>
+    <p>请注意该接口支持<code>期货账户</code>、<code>现货账户</code>、<code>理财账户</code>。</p>
+    <p>转入和转出账户类型不能相同。</p>
+  createsubaccounttransfer_api_notice:
+    <p>请注意该接口入参<code>请求</code>数据中的<code>transfer_id</code>字段为<code>UUID</code>全局唯一。</p>
+    <p>该接口只能用于母子账号之间的划转。</p>
+    <p>一个子账号只会归属给一个母账号。</p>
+  row_comment_transfer_id: UUID,全局唯一
+  row_comment_accounttype: 账户类型
+
+  createsubaccounttransfer: 子母划转
+  subMember_trigger_transfer: 触发子母划转动作
+  row_comment_to_subUserId: 子账户
+  row_comment_transfertype: 转入转出类型
+
+  querytransferlist: 查询划转记录列表
+  row_comment_transferstatus: 划转状态
+  row_comment_pageaction: 翻页
+  row_comment_to_limit: 记录条数
+  row_comment_to_timestamp: 时间戳
+
+  querysubaccounttransferlist: 查询子母划转记录列表
+  query_subMember_id_list: 查询子账号列表
+  in: 转入
+  out: 转出
+  accountType_spot: 现货账户
+  accountType_contract: 期货账户
+  accountType_investment: 理财账户

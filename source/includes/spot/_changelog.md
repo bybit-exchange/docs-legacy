@@ -1,5 +1,9 @@
 # t(:changelog)
 
+## 2021-08-26
+### REST API
+- t(:restapi_update_20210826)
+
 ## 2021-07-12
 ### REST API
 - t(:restapi_update_20210712)

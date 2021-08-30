@@ -4,6 +4,7 @@ en:
   international: 简体中文
   inverse_perpetual: Inverse Perpetual
   linear_perpetual: USDT Perpetual
+  account_asset: Account Asset
   search: Search
   comment_abandoned: <b>Abandoned!!</b>
   httprequest: HTTP Request
@@ -901,17 +902,18 @@ en:
   ### IP Rate Limit
   ipratelimits: IP Rate Limit
   ip_rate_para_understanding: |
+    <p>The IP limits are shared across all futures and spot markets.</p>
     <p>Bybit has different IP frequency limits for <code>GET</code> and <code>POST</code> method<span>:</span></p>
     <ul>
     <li>
-      <code>GET</code>method:
+      <code>GET</code> method:
       <ul>
         <li>50 requests per second continuously for 2 minutes</li>
         <li>70 requests per second continuously for 5 seconds</li>
       </ul>
     </li>
     <li>
-      <code>POST</code>method:
+      <code>POST</code> method:
       <ul>
         <li>20 requests per second continuously for 2 minutes</li>
         <li>50 requests per second continuously for 5 seconds</li>
@@ -937,6 +939,7 @@ en:
 
   ### Rate Limits For All Endpoints
   perendpoint: Rate Limits For All Private Endpoints
+  perendpointtransfer: Rate Limits For All Transfer Endpoints
   ### Order Limits
   orderlimits: Order Limits
   rate_para_limits: |
@@ -1244,6 +1247,7 @@ en:
 
   # Error Definitions
   errors: Errors
+  account_asset_errors: Transfer Error Codes
   #spot
   spot_errors: Error Codes
 
@@ -1425,6 +1429,7 @@ en:
   # Error Code
   errors_intro: The Bybit API uses the following HTTP Codes and Error Codes<span>:</span>
   spot_errors_intro: Bybit API uses the following HTTP and error codes <span>:</span>
+  account_asset_errors_intro: Bybit API uses the following HTTP and error codes <span>:</span>
 
   http_200: Request is valid -- Your request is valid
   http_403: Access denied -- You request too many times
@@ -1433,6 +1438,28 @@ en:
   spot_http_200: Request is valid
   spot_http_403: Access denied
   spot_http_404: Request path not found
+
+  # account_asset
+  account_asset_http_200: Request is valid
+  account_asset_http_403: Access denied
+  account_asset_http_404: Request path not found
+  account_asset_err_0:    SUCCESS
+  account_asset_err_10001: ParamErr
+  account_asset_err_10016: SvcErr
+  account_asset_err_38000: Processing
+  account_asset_err_38001: AvailableBalanceRunningLow
+  account_asset_err_38002: CannotBeTransfer
+  account_asset_err_90001: TransferAmountLessThanZero
+  account_asset_err_90002: TransferAmountScaleMore
+  account_asset_err_90003: TransferLTVCheckError
+  account_asset_err_90004: AccountNotFound
+  account_asset_err_90005: AccountNotFound
+  account_asset_err_90006: QueryTransferError
+  account_asset_err_90007: QuerySubMemberTransferError
+  account_asset_err_90008: QueryTransferIDRedisError
+  account_asset_err_90009: TransferIDExist
+  account_asset_err_90010: AccountTypeError
+  account_asset_err_90011: GetSubMemberRelationError
 
   #spot error
   err_1001: Request failed to be processed. Please try again.
@@ -2025,6 +2052,7 @@ en:
   restapi_update_20210712: Optimize the input and output parameters of some interfaces
   restapi_update_20210823: |
     Add additional enums for <code><a href="#wallet-fund-type-wallet_fund_type-type">wallet_fund_type</a></code>: <code>ReturnServiceCash</code>, <code>Insurance</code>, <code>SubMember</code> <code>Coupon</code>, <code>AccountTransfer</code>, <code>CashBack</code>
+  restapi_update_20210826: Spot Transfer API released!
   markpricekline: Query Mark Price Kline
   linear_query_mark_price_kline: Query mark price kline (like <a href="#t-querykline">Query Kline</a> but for <a href="https://help.bybit.com/hc/en-us/articles/360039261074-What-is-Dual-Price-mechanism-">mark price</a>).
   linear_resp_field_last_exec_price: Last execution price
@@ -2364,3 +2392,34 @@ en:
   websocketv2realtimes: realtimes
   spot_websocket_symbol_ticker_desc_v2: |
     The 24-hr statistics of a trading pair pushed at a frequency of ???
+
+  # Transfer API Data Endpoints
+  transfer_api: Transfer Data Endpoints
+  transfer_para: The following API data endpoints require authentication.
+  transfer: Create Internal Transfer
+  trigger_transfer: Transfers funds between the different sections of an individuals account (<i>not</i> between subaccounts). For example, between the spot and derivatives accounts.
+  transfer_api_notice: |
+    Please note that this interface supports Futures Account, Spot Account, Investment Account.
+    The <code>transfer_in</code> and <code>transfer_out</code> account types cannot be the same.
+  row_comment_transfer_id: UUID, which is unique across the platform
+  row_comment_accounttype: Account type
+
+  createsubaccounttransfer_api_notice: |
+    A subaccount can only be attributed to a parent account.
+  createsubaccounttransfer: Create Subaccount Transfer
+  subMember_trigger_transfer: Transfers funds between the parent and child (sub) accounts.
+  row_comment_to_subUserId: Subaccount
+  row_comment_transfertype: Determines the direction of transfer
+
+  querytransferlist: Query Transfer List
+  row_comment_transferstatus: Transfer status
+  row_comment_pageaction: Turn page
+  row_comment_to_limit: Number of records
+  row_comment_to_timestamp: timestamp
+
+  querysubaccounttransferlist: Query Subaccount Transfer List
+  in: ""
+  out: ""
+  accountType_spot: ""
+  accountType_contract: ""
+  accountType_investment: "- ByFi Account"
