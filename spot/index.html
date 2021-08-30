@@ -695,7 +695,7 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#2021-07-12" class="toc-h2 toc-link" data-title="2021-07-12">2021-07-12</a>
+                    <a href="#2021-08-26" class="toc-h2 toc-link" data-title="2021-08-26">2021-08-26</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#rest-api" class="toc-h3 toc-link" data-title="REST API">REST API</a>
@@ -703,7 +703,7 @@
                       </ul>
                   </li>
                   <li>
-                    <a href="#2021-06-17" class="toc-h2 toc-link" data-title="2021-06-17">2021-06-17</a>
+                    <a href="#2021-07-12" class="toc-h2 toc-link" data-title="2021-07-12">2021-07-12</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#rest-api-2" class="toc-h3 toc-link" data-title="REST API">REST API</a>
@@ -711,10 +711,18 @@
                       </ul>
                   </li>
                   <li>
-                    <a href="#2021-05-27" class="toc-h2 toc-link" data-title="2021-05-27">2021-05-27</a>
+                    <a href="#2021-06-17" class="toc-h2 toc-link" data-title="2021-06-17">2021-06-17</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#rest-api-3" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2021-05-27" class="toc-h2 toc-link" data-title="2021-05-27">2021-05-27</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-4" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                       </ul>
                   </li>
@@ -801,6 +809,23 @@
               </ul>
           </li>
           <li>
+            <a href="#t-transfer_api" class="toc-h1 toc-link" data-title="Transfer Data Endpoints">Transfer Data Endpoints</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-transfer" class="toc-h2 toc-link" data-title="Create Internal Transfer">Create Internal Transfer</a>
+                  </li>
+                  <li>
+                    <a href="#t-createsubaccounttransfer" class="toc-h2 toc-link" data-title="Create Subaccount Transfer">Create Subaccount Transfer</a>
+                  </li>
+                  <li>
+                    <a href="#t-querytransferlist" class="toc-h2 toc-link" data-title="Query Transfer List">Query Transfer List</a>
+                  </li>
+                  <li>
+                    <a href="#t-querysubaccounttransferlist" class="toc-h2 toc-link" data-title="Query Subaccount Transfer List">Query Subaccount Transfer List</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#t-api" class="toc-h1 toc-link" data-title="API Data Endpoints">API Data Endpoints</a>
               <ul class="toc-list-h2">
                   <li>
@@ -816,6 +841,9 @@
                   </li>
                   <li>
                     <a href="#t-spot_understandingratelimits" class="toc-h2 toc-link" data-title="Rate Limits for Requests">Rate Limits for Requests</a>
+                  </li>
+                  <li>
+                    <a href="#t-perendpointtransfer" class="toc-h2 toc-link" data-title="Rate Limits For All Transfer Endpoints">Rate Limits For All Transfer Endpoints</a>
                   </li>
               </ul>
           </li>
@@ -931,10 +959,30 @@
                   <li>
                     <a href="#kline-interval-interval" class="toc-h2 toc-link" data-title="Kline interval (interval)">Kline interval (<code>interval</code>)</a>
                   </li>
+                  <li>
+                    <a href="#account-type-fromaccounttype-toaccounttype" class="toc-h2 toc-link" data-title="Account type (fromAccountType/toAccountType)">Account type (<code>fromAccountType</code>/<code>toAccountType</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#operator-type" class="toc-h2 toc-link" data-title="Operator type">Operator type</a>
+                  </li>
+                  <li>
+                    <a href="#transfer-type-type" class="toc-h2 toc-link" data-title="Transfer type (type)">Transfer type (<code>type</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#transfer-status-status" class="toc-h2 toc-link" data-title="Transfer status (status)">Transfer status (<code>status</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#page-direction-direction" class="toc-h2 toc-link" data-title="Page Direction (direction)">Page Direction (<code>direction</code>)</a>
+                  </li>
               </ul>
           </li>
           <li>
             <a href="#t-spot_errors" class="toc-h1 toc-link" data-title="Error Codes">Error Codes</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-account_asset_errors" class="toc-h2 toc-link" data-title="Transfer Error Codes">Transfer Error Codes</a>
+                  </li>
+              </ul>
           </li>
       </ul>
         <ul class="toc-footer">
@@ -963,15 +1011,19 @@ clipboard.on('error', function(e) {
 </script>
 <h1 id='t-introduction'>Group And Resources</h1><h5 id='t-intro_para'><p><a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common errors.</p> <p>For further assistance or feedback, please join the <a href="https://t.me/BybitAPI">API Telegram chat</a>! API discussion group on Telegram.</p></h5><h3 id='t-resources'>Group And Bybit API Resources</h3>
 <p><ul class="bybit-community"> <li><img src="../images/help_favicon-06f791dd.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> </ul></p>
-<h1 id='t-changelog'>Changelog</h1><h2 id='2021-07-12'>2021-07-12</h2><h3 id='rest-api'>REST API</h3>
+<h1 id='t-changelog'>Changelog</h1><h2 id='2021-08-26'>2021-08-26</h2><h3 id='rest-api'>REST API</h3>
+<ul>
+<li>Spot Transfer API released!</li>
+</ul>
+<h2 id='2021-07-12'>2021-07-12</h2><h3 id='rest-api-2'>REST API</h3>
 <ul>
 <li>Optimize the input and output parameters of some interfaces</li>
 </ul>
-<h2 id='2021-06-17'>2021-06-17</h2><h3 id='rest-api-2'>REST API</h3>
+<h2 id='2021-06-17'>2021-06-17</h2><h3 id='rest-api-3'>REST API</h3>
 <ul>
 <li>New add get symbols API. Parameter name for order_link_id updated to orderLinkId</li>
 </ul>
-<h2 id='2021-05-27'>2021-05-27</h2><h3 id='rest-api-3'>REST API</h3>
+<h2 id='2021-05-27'>2021-05-27</h2><h3 id='rest-api-4'>REST API</h3>
 <ul>
 <li>New add spot open-api document</li>
 </ul>
@@ -1045,7 +1097,7 @@ Please make sure that the timestamp parameter adheres to the following rule: ser
 <p>Different requests need different message formats. Message format for <b>GET</b> requests:
 </p>
 </blockquote>
-<div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/spot/v1/order?api_key=q1ksyOX2T0G2SkK8nu&amp;qty=100&amp;recvWindow=999999999&amp;side=BUY&amp;symbol=BTCUSDT&amp;timestamp=1623208423972&amp;type=MARKET&amp;sign=b452640c21a2c9eaec30d24a9bce1a9660d1fb9d07ccc0d623a2a4fca0940095</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/spot/v1/order?api_key=q1ksyOX2T0G2SkK8nu&amp;qty=100&amp;recvWindow=10000&amp;side=BUY&amp;symbol=BTCUSDT&amp;timestamp=1623208423972&amp;type=MARKET&amp;sign=b452640c21a2c9eaec30d24a9bce1a9660d1fb9d07ccc0d623a2a4fca0940095</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api-testnet.bybit.com</span>
 </code></pre></div>
 <blockquote>
@@ -1058,7 +1110,7 @@ Please make sure that the timestamp parameter adheres to the following rule: ser
 
 api_key:q1ksyOX2T0G2SkK8nu
 qty:100
-recvWindow:999999999
+recvWindow:10000
 side:BUY
 symbol:BTCUSDT
 timestamp:1623208423972
@@ -2569,6 +2621,10 @@ The actual result of the cancellation request needs to be checked by order statu
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
+<aside class="notice">
+The actual result of the cancellation request needs to be checked by order status or match result endpoints after submitting the request.
+</aside>
+
 <p class="fake_header">HTTP Request</p>
 
 <p>DELETE
@@ -2601,7 +2657,7 @@ The actual result of the cancellation request needs to be checked by order statu
 <td style="text-align: left"><a href="#order-type-type-ordertypes">orderTypes</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Order type. Use commas to cancel orders with multiple order types, eg <code>LIMIT,LIMIT_MAKER</code>. Default: <code>LIMIT</code>
+<td>Order type. Use comma splicing to indicate multiple order types, eg <code>LIMIT,LIMIT_MAKER</code>. Default: <code>LIMIT</code>
 </td>
 </tr>
 </tbody></table>
@@ -2677,7 +2733,8 @@ The actual result of the cancellation request needs to be checked by order statu
 <td style="text-align: left">orderTypes</td>
 <td style="text-align: left">fasle</td>
 <td style="text-align: left">string</td>
-<td>translation missing: en.spotOrderTypes</td>
+<td>Order type. Use comma splicing to indicate multiple order types, eg <code>LIMIT,LIMIT_MAKER</code>. Default: <code>LIMIT</code>
+</td>
 </tr>
 </tbody></table>
 
@@ -3377,6 +3434,573 @@ The actual result of the cancellation request needs to be checked by order statu
 <td>Reserved for orders</td>
 </tr>
 </tbody></table>
+<h1 id='t-transfer_api'>Transfer Data Endpoints</h1>
+<p>The following API data endpoints require authentication.</p>
+<h3 id='t-transfer'>Create Internal Transfer</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/asset/v1/private/transfer' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "fromAccountType": "SPOT",
+    "toAccountType": "CONTRACT",
+    "amount": "0.1",
+    "coin": "BTC",
+    "transferId": "b668ce35-db92-4db4-9f81-0b5da57d4df6",
+    "api_key": "YtcjswsO9WjAmQVUx7",
+    "sign": "{{sign}}",
+    "timestamp": "{{timestamp}}",
+    "recv_window": "{{recvWindow}}"
+}'
+</span></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">transfer_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">b668ce35-db92-4db4-9f81-0b5da57d4df6</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1629951080227</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">17</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1629951080227</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">3</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Transfers funds between the different sections of an individuals account (<i>not</i> between subaccounts). For example, between the spot and derivatives accounts.</p>
+
+<aside class="notice">
+Please note that this interface supports Futures Account, Spot Account, Investment Account.
+The <code>transfer_in</code> and <code>transfer_out</code> account types cannot be the same.
+
+</aside>
+
+<p class="fake_header">HTTP Request</p>
+
+<p>POST
+<code><span id=avpt>/asset/v1/private/transfer</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#avpt"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">transfer_id</td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>UUID, which is unique across the platform</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>Currency type</td>
+</tr>
+<tr>
+<td style="text-align: left">amount</td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>Exchange to amount</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#account-type-fromaccounttype-toaccounttype">fromAccountType</a></td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>Account type</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#account-type-fromaccounttype-toaccounttype">toAccountType</a></td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>Account type</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">transfer_id</td>
+<td style="text-align: left">string</td>
+<td>UUID, which is unique across the platform</td>
+</tr>
+</tbody></table>
+<h3 id='t-createsubaccounttransfer'>Create Subaccount Transfer</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/asset/v1/private/sub-member/transfer' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "transferId": "5f95de18-b10f-43be-9746-7b95c4a37d97",
+    "amount": "0.1",
+    "coin": "BTC",
+    "subUserId":"251711",
+    "type": "IN",
+    "api_key": "YtcjswsO9WjAmQVUx7",
+    "sign": "{{sign}}",
+    "timestamp": "{{timestamp}}",
+    "recv_window": "{{recvWindow}}"
+}'
+</span></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">transfer_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5f95de18-b10f-43be-9746-7b95c4a37d97</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1629966770894</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1629966770894</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Transfers funds between the parent and child (sub) accounts.</p>
+
+<aside class="notice">
+A subaccount can only be attributed to a parent account.
+
+</aside>
+
+<p class="fake_header">HTTP Request</p>
+
+<p>POST
+<code><span id=avpst>/asset/v1/private/sub-member/transfer</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#avpst"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">transfer_id</td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>UUID, which is unique across the platform</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>Currency type</td>
+</tr>
+<tr>
+<td style="text-align: left">amount</td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>Exchange to amount</td>
+</tr>
+<tr>
+<td style="text-align: left">sub_user_id</td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>Subaccount</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#transfer-type-type">type</a></td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>Determines the direction of transfer</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">transfer_id</td>
+<td style="text-align: left">string</td>
+<td>UUID, which is unique across the platform</td>
+</tr>
+</tbody></table>
+<h3 id='t-querytransferlist'>Query Transfer List</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/transfer/list'
+</span></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">transfer_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">selfTransfer_c5ae452d-43e8-47e6-aa7c-d2bab57c0958</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">from_account_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">CONTRACT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">to_account_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SPOT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1629965054</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCESS</span><span class="dl">"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">transfer_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">selfTransfer_9a183347-152d-4bdc-990d-8b20284385f9</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">from_account_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SPOT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">to_account_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">CONTRACT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1629963043</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCESS</span><span class="dl">"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">transfer_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">selfTransfer_5f9bfd6e-1718-4a16-814e-1d1bff4b01eb</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">20</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">from_account_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SPOT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">to_account_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">CONTRACT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1629874294</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCESS</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="dl">"</span><span class="s2">cursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">eyJtaW5JRCI6Nzg5NTcsIm1heElEIjo3OTM2NH0=</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1629971474462</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">59</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1629971474462</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=avptl>/asset/v1/private/transfer/list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#avptl"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">transfer_id</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>UUID, which is unique across the platform</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Currency type</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#transfer-status-status">status</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Transfer status</td>
+</tr>
+<tr>
+<td style="text-align: left">start_time</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>Start timestamp point for result, in milliseconds</td>
+</tr>
+<tr>
+<td style="text-align: left">end_time</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>End timestamp point for result, in milliseconds</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#page-direction-direction">direction</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Turn page</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>Number of records</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Page turning mark. Use return <code>cursor</code>. Sign using origin data, in request please use urlencode</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">transfer_id</td>
+<td style="text-align: left">string</td>
+<td>UUID, which is unique across the platform</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left">string</td>
+<td>Currency type</td>
+</tr>
+<tr>
+<td style="text-align: left">amount</td>
+<td style="text-align: left">string</td>
+<td>Exchange to amount</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#account-type-fromaccounttype-toaccounttype">from_account_type</a></td>
+<td style="text-align: left">string</td>
+<td>Account type</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#account-type-fromaccounttype-toaccounttype">to_account_type</a></td>
+<td style="text-align: left">string</td>
+<td>Account type</td>
+</tr>
+<tr>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left">integer</td>
+<td>timestamp</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#transfer-status-status">status</a></td>
+<td style="text-align: left">string</td>
+<td>Transfer status</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">string</td>
+<td>Page turning mark. Use return <code>cursor</code>. Sign using origin data, in request please use urlencode</td>
+</tr>
+</tbody></table>
+<h3 id='t-querysubaccounttransferlist'>Query Subaccount Transfer List</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/sub-member/transfer/list'
+</span></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">transfer_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5f95de18-b10f-43ba-9756-0b95c4a37d07</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">229988</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">sub_user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">251711</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1629968375</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCESS</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">IN</span><span class="dl">"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">transfer_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5f95de18-b10f-43be-9756-0b95c4a37d07</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">229988</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">sub_user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">251711</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1629968351</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCESS</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">IN</span><span class="dl">"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">transfer_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5f95de18-b10f-43be-9746-0b95c4a37d07</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">229988</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">sub_user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">251711</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1629967817</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCESS</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">IN</span><span class="dl">"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">transfer_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5f95de18-b10f-43be-9746-7b95c4a37d97</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">229988</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">sub_user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">251711</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1629966772</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCESS</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">IN</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="dl">"</span><span class="s2">cursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">eyJtaW5JRCI6NzkzNzgsIm1heElEIjo3OTQwMH0=</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1629978073116</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">59</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1629978073116</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=avpstl>/asset/v1/private/sub-member/transfer/list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#avpstl"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">transfer_id</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>UUID, which is unique across the platform</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Currency type</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#transfer-status-status">status</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Transfer status</td>
+</tr>
+<tr>
+<td style="text-align: left">start_time</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>Start timestamp point for result, in milliseconds</td>
+</tr>
+<tr>
+<td style="text-align: left">end_time</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>End timestamp point for result, in milliseconds</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#page-direction-direction">direction</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Turn page</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>Number of records</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Page turning mark. Use return <code>cursor</code>. Sign using origin data, in request please use urlencode</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">transfer_id</td>
+<td style="text-align: left">string</td>
+<td>UUID, which is unique across the platform</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left">string</td>
+<td>Currency type</td>
+</tr>
+<tr>
+<td style="text-align: left">amount</td>
+<td style="text-align: left">string</td>
+<td>Exchange to amount</td>
+</tr>
+<tr>
+<td style="text-align: left">user_id</td>
+<td style="text-align: left">integer</td>
+<td>Subaccount</td>
+</tr>
+<tr>
+<td style="text-align: left">sub_user_id</td>
+<td style="text-align: left">integer</td>
+<td>Subaccount</td>
+</tr>
+<tr>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left">integer</td>
+<td>timestamp</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#transfer-status-status">status</a></td>
+<td style="text-align: left">string</td>
+<td>Transfer status</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#transfer-type-type">type</a></td>
+<td style="text-align: left">string</td>
+<td>Determines the direction of transfer</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">string</td>
+<td>Page turning mark. Use return <code>cursor</code>. Sign using origin data, in request please use urlencode</td>
+</tr>
+</tbody></table>
 <h1 id='t-api'>API Data Endpoints</h1>
 <p>The following API data endpoints do not require authentication.</p>
 <h3 id='t-servertime'>Server Time</h3>
@@ -3418,17 +4042,18 @@ The actual result of the cancellation request needs to be checked by order statu
 </thead><tbody>
 </tbody></table>
 <h1 id='t-ratelimits'>API Rate Limits</h1><h3 id='t-ipratelimits'>IP Rate Limit</h3>
-<p><p>Bybit has different IP frequency limits for <code>GET</code> and <code>POST</code> method<span>:</span></p>
+<p><p>The IP limits are shared across all futures and spot markets.</p>
+<p>Bybit has different IP frequency limits for <code>GET</code> and <code>POST</code> method<span>:</span></p>
 <ul>
 <li>
-  <code>GET</code>method:
+  <code>GET</code> method:
   <ul>
     <li>50 requests per second continuously for 2 minutes</li>
     <li>70 requests per second continuously for 5 seconds</li>
   </ul>
 </li>
 <li>
-  <code>POST</code>method:
+  <code>POST</code> method:
   <ul>
     <li>20 requests per second continuously for 2 minutes</li>
     <li>50 requests per second continuously for 5 seconds</li>
@@ -3439,6 +4064,36 @@ The actual result of the cancellation request needs to be checked by order statu
 <h3 id='t-spot_understandingratelimits'>Rate Limits for Requests</h3>
 <p>For all endpoints that need authentication, the rate limit is 20 per second
 </p>
+<h3 id='t-perendpointtransfer'>Rate Limits For All Transfer Endpoints</h3>
+<table class="custom_table">
+    <tr>
+        <th>Limit</th>
+        <th>Path</th>
+        <th>Consume</th>
+    </tr>
+    <tr>
+        <td rowspan="2">20/min</td>
+        <td>/asset/v1/private/transfer </td>
+        <td>1 / request</td>
+    </tr>
+    <tr>
+        <td>/asset/v1/private/sub-member/transfer </td>
+        <td>1 / request</td>
+    </tr>
+    <tr>
+        <td rowspan="3">60/min</td>
+        <td>/asset/v1/private/sub-member/member-ids </td>
+        <td>1 / request</td>
+    </tr>
+    <tr>
+        <td>/asset/v1/private/transfer/list </td>
+        <td>1 / request</td>
+    </tr>
+    <tr>
+        <td>/asset/v1/private/sub-member/transfer/list </td>
+        <td>1 / request</td>
+    </tr>
+</table>
 <h1 id='t-websocket'>WebSocket Data</h1><h2 id='t-websocketauthentication'>Authentication</h2>
 <blockquote>
 <p>Apply for authentication when establishing a connection.
@@ -4761,20 +5416,22 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 
 <p>Response Example - format of all responses</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">e</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">outboundAccountInfo</span><span class="dl">"</span><span class="p">,</span>   
-  <span class="dl">"</span><span class="s2">E</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1499405658849</span><span class="p">,</span>           
-  <span class="dl">"</span><span class="s2">T</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>                   
-  <span class="dl">"</span><span class="s2">W</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>                    
-  <span class="dl">"</span><span class="s2">D</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>                    
-  <span class="dl">"</span><span class="s2">B</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>                        
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">[</span>
     <span class="p">{</span>
-      <span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LTC</span><span class="dl">"</span><span class="p">,</span>               
-      <span class="dl">"</span><span class="s2">f</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">17366.18538083</span><span class="dl">"</span><span class="p">,</span>    
-      <span class="dl">"</span><span class="s2">l</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span>         
+        <span class="dl">"</span><span class="s2">e</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">outboundAccountInfo</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">E</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1629969654753</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">T</span><span class="dl">"</span><span class="p">:</span><span class="nx">True</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">W</span><span class="dl">"</span><span class="p">:</span><span class="nx">True</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">D</span><span class="dl">"</span><span class="p">:</span><span class="nx">True</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">B</span><span class="dl">"</span><span class="p">:[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">f</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">10000000097.1982823144</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">l</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
     <span class="p">}</span>
-  <span class="p">]</span>
-<span class="p">}</span>
+<span class="p">]</span>
 </code></pre></div>
 <p>Pushes data about your account.</p>
 
@@ -4796,7 +5453,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 </tr>
 <tr>
 <td style="text-align: left">E</td>
-<td style="text-align: left">member</td>
+<td style="text-align: left">string</td>
 <td>Timestamp</td>
 </tr>
 <tr>
@@ -4816,7 +5473,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 </tr>
 <tr>
 <td style="text-align: left">B</td>
-<td style="text-align: left">string</td>
+<td style="text-align: left">list</td>
 <td>Wallet balance change</td>
 </tr>
 <tr>
@@ -4841,33 +5498,35 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 
 <p>Response Example - format of all responses</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">e</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">executionReport</span><span class="dl">"</span><span class="p">,</span>      
-  <span class="dl">"</span><span class="s2">E</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1499405658658</span><span class="p">,</span>            
-  <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ETHBTC</span><span class="dl">"</span><span class="p">,</span>                 
-  <span class="dl">"</span><span class="s2">c</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1000087761</span><span class="p">,</span>               
-  <span class="dl">"</span><span class="s2">S</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BUY</span><span class="dl">"</span><span class="p">,</span>                    
-  <span class="dl">"</span><span class="s2">o</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LIMIT</span><span class="dl">"</span><span class="p">,</span>                  
-  <span class="dl">"</span><span class="s2">f</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GTC</span><span class="dl">"</span><span class="p">,</span>                    
-  <span class="dl">"</span><span class="s2">q</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1.00000000</span><span class="dl">"</span><span class="p">,</span>             
-  <span class="dl">"</span><span class="s2">p</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.10264410</span><span class="dl">"</span><span class="p">,</span>             
-  <span class="dl">"</span><span class="s2">X</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">NEW</span><span class="dl">"</span><span class="p">,</span>                    
-  <span class="dl">"</span><span class="s2">i</span><span class="dl">"</span><span class="p">:</span> <span class="mi">4293153</span><span class="p">,</span>     
-  <span class="dl">"</span><span class="s2">M</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>             
-  <span class="dl">"</span><span class="s2">l</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>             
-  <span class="dl">"</span><span class="s2">z</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>             
-  <span class="dl">"</span><span class="s2">L</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>             
-  <span class="dl">"</span><span class="s2">n</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>                      
-  <span class="dl">"</span><span class="s2">N</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>                     
-  <span class="dl">"</span><span class="s2">u</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>                     
-  <span class="dl">"</span><span class="s2">w</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>                     
-  <span class="dl">"</span><span class="s2">m</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>                    
-  <span class="dl">"</span><span class="s2">O</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1499405658657</span><span class="p">,</span>            
-  <span class="dl">"</span><span class="s2">Z</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">A</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">C</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">v</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>              
-<span class="p">}</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">[</span>
+  <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">e</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">executionReport</span><span class="dl">"</span><span class="p">,</span>      
+    <span class="dl">"</span><span class="s2">E</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1499405658658</span><span class="dl">"</span><span class="p">,</span>            
+    <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ETHBTC</span><span class="dl">"</span><span class="p">,</span>                 
+    <span class="dl">"</span><span class="s2">c</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1000087761</span><span class="dl">"</span><span class="p">,</span>               
+    <span class="dl">"</span><span class="s2">S</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BUY</span><span class="dl">"</span><span class="p">,</span>                    
+    <span class="dl">"</span><span class="s2">o</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LIMIT</span><span class="dl">"</span><span class="p">,</span>                  
+    <span class="dl">"</span><span class="s2">f</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GTC</span><span class="dl">"</span><span class="p">,</span>                    
+    <span class="dl">"</span><span class="s2">q</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1.00000000</span><span class="dl">"</span><span class="p">,</span>             
+    <span class="dl">"</span><span class="s2">p</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.10264410</span><span class="dl">"</span><span class="p">,</span>             
+    <span class="dl">"</span><span class="s2">X</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">NEW</span><span class="dl">"</span><span class="p">,</span>                    
+    <span class="dl">"</span><span class="s2">i</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">4293153</span><span class="dl">"</span><span class="p">,</span>     
+    <span class="dl">"</span><span class="s2">M</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>             
+    <span class="dl">"</span><span class="s2">l</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>             
+    <span class="dl">"</span><span class="s2">z</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>             
+    <span class="dl">"</span><span class="s2">L</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>             
+    <span class="dl">"</span><span class="s2">n</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>                      
+    <span class="dl">"</span><span class="s2">N</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>                     
+    <span class="dl">"</span><span class="s2">u</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>                     
+    <span class="dl">"</span><span class="s2">w</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>                     
+    <span class="dl">"</span><span class="s2">m</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>                    
+    <span class="dl">"</span><span class="s2">O</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1499405658657</span><span class="dl">"</span><span class="p">,</span>            
+    <span class="dl">"</span><span class="s2">Z</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">473.199</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">A</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">C</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">v</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>              
+  <span class="p">}</span>
+<span class="p">]</span>
 </code></pre></div>
 <p>Pushes data about your orders. <code>Z</code> divided by <code>z</code> equals the average filled price.</p>
 
@@ -4889,7 +5548,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 </tr>
 <tr>
 <td style="text-align: left">E</td>
-<td style="text-align: left">member</td>
+<td style="text-align: left">string</td>
 <td>Event time</td>
 </tr>
 <tr>
@@ -4905,7 +5564,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <tr>
 <td style="text-align: left">S</td>
 <td style="text-align: left">string</td>
-<td>True indicates buy order, false indicates sell order</td>
+<td>BUY indicates buy order, SELL indicates sell order</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#order-type-type-ordertypes">o</a></td>
@@ -5014,19 +5673,22 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 
 <p>Response Example - format of all responses</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">e</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">ticketInfo</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">E</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1621912542359</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">q</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.001639</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">t</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1621912542314</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">p</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">61000.0</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">T</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">899062000267837441</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">o</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">899048013515737344</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">c</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1621910874883</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">O</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">899062000118679808</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">10043</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">A</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">10024</span><span class="dl">"</span><span class="p">}</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">[</span>
+  <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">e</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">ticketInfo</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">E</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1621912542359</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">q</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.001639</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">t</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1621912542314</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">p</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">61000.0</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">T</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">899062000267837441</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">o</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">899048013515737344</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">c</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1621910874883</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">O</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">899062000118679808</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">10043</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">A</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">10024</span><span class="dl">"</span>
+  <span class="p">}</span>
+<span class="p">]</span>
 </code></pre></div>
 <p>Pushes data about your trades (fills). When an order is filled, you will receive two messages: one from <code>ticketInfo</code>, and one from <code>executionReport</code>
 </p>
@@ -5049,7 +5711,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 </tr>
 <tr>
 <td style="text-align: left">E</td>
-<td style="text-align: left">member</td>
+<td style="text-align: left">string</td>
 <td>Event time</td>
 </tr>
 <tr>
@@ -5132,6 +5794,16 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <li><code>XRP</code></li>
 <li><code>USDT</code></li>
 </ul>
+
+<p>The transfer API also includes:</p>
+
+<ul>
+<li><code>DOT</code></li>
+<li><code>DOGE</code></li>
+<li><code>LTC</code></li>
+<li><code>XLM</code></li>
+<li><code>USD</code></li>
+</ul>
 <h2 id='order-status-status'>Order status (<code>status</code>)</h2>
 <ul>
 <li><code>NEW</code></li>
@@ -5210,6 +5882,35 @@ ELSE
 <li><code>1d</code> - 1 day</li>
 <li><code>1w</code> - 1 week</li>
 <li><code>1M</code> - 1 month</li>
+</ul>
+<h2 id='account-type-fromaccounttype-toaccounttype'>Account type (<code>fromAccountType</code>/<code>toAccountType</code>)</h2>
+<ul>
+<li><code>AccountType_CONTRACT</code>  </li>
+<li><code>AccountType_SPOT</code>      </li>
+<li><code>AccountType_INVESTMENT</code> - ByFi Account</li>
+</ul>
+<h2 id='operator-type'>Operator type</h2>
+<ul>
+<li><code>SYSTEM</code></li>
+<li><code>USER</code></li>
+<li><code>ADMIN</code></li>
+<li><code>AFFILIATE_USER</code></li>
+</ul>
+<h2 id='transfer-type-type'>Transfer type (<code>type</code>)</h2>
+<ul>
+<li><code>IN</code> </li>
+<li><code>OUT</code> </li>
+</ul>
+<h2 id='transfer-status-status'>Transfer status (<code>status</code>)</h2>
+<ul>
+<li><code>SUCCESS</code></li>
+<li><code>PENDING</code></li>
+<li><code>FAILED</code></li>
+</ul>
+<h2 id='page-direction-direction'>Page Direction (<code>direction</code>)</h2>
+<ul>
+<li><code>Prev</code></li>
+<li><code>Next</code></li>
 </ul>
 <h1 id='t-spot_errors'>Error Codes</h1>
 <p>Bybit API uses the following HTTP and error codes <span>:</span></p>
@@ -5441,6 +6142,14 @@ ELSE
 <td>Order cancellation timeout.</td>
 </tr>
 <tr>
+<td>1190</td>
+<td>Cancel order has been finished.</td>
+</tr>
+<tr>
+<td>1191</td>
+<td>Can not cancel order, please try again later.</td>
+</tr>
+<tr>
 <td>2010</td>
 <td>New order rejected.</td>
 </tr>
@@ -5463,6 +6172,104 @@ ELSE
 <tr>
 <td>2016</td>
 <td>Trading window not open yet for current pair.</td>
+</tr>
+</tbody></table>
+<h2 id='t-account_asset_errors'>Transfer Error Codes</h2>
+<p>Bybit API uses the following HTTP and error codes <span>:</span></p>
+
+<table><thead>
+<tr>
+<th>HTTP Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Request is valid</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Access denied</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Request path not found</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>0</td>
+<td>SUCCESS</td>
+</tr>
+<tr>
+<td>10001</td>
+<td>ParamErr</td>
+</tr>
+<tr>
+<td>10016</td>
+<td>SvcErr</td>
+</tr>
+<tr>
+<td>38000</td>
+<td>Processing</td>
+</tr>
+<tr>
+<td>38001</td>
+<td>AvailableBalanceRunningLow</td>
+</tr>
+<tr>
+<td>38002</td>
+<td>CannotBeTransfer</td>
+</tr>
+<tr>
+<td>90001</td>
+<td>TransferAmountLessThanZero</td>
+</tr>
+<tr>
+<td>90002</td>
+<td>TransferAmountScaleMore</td>
+</tr>
+<tr>
+<td>90003</td>
+<td>TransferLTVCheckError</td>
+</tr>
+<tr>
+<td>90004</td>
+<td>AccountNotFound</td>
+</tr>
+<tr>
+<td>90005</td>
+<td>AccountNotFound</td>
+</tr>
+<tr>
+<td>90006</td>
+<td>QueryTransferError</td>
+</tr>
+<tr>
+<td>90007</td>
+<td>QuerySubMemberTransferError</td>
+</tr>
+<tr>
+<td>90008</td>
+<td>QueryTransferIDRedisError</td>
+</tr>
+<tr>
+<td>90009</td>
+<td>TransferIDExist</td>
+</tr>
+<tr>
+<td>90010</td>
+<td>AccountTypeError</td>
+</tr>
+<tr>
+<td>90011</td>
+<td>GetSubMemberRelationError</td>
 </tr>
 </tbody></table>
 

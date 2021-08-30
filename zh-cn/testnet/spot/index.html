@@ -695,7 +695,7 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="更新日志">更新日志</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#2021-07-12" class="toc-h2 toc-link" data-title="2021-07-12">2021-07-12</a>
+                    <a href="#2021-08-26" class="toc-h2 toc-link" data-title="2021-08-26">2021-08-26</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#rest-api" class="toc-h3 toc-link" data-title="REST API">REST API</a>
@@ -703,7 +703,7 @@
                       </ul>
                   </li>
                   <li>
-                    <a href="#2021-06-17" class="toc-h2 toc-link" data-title="2021-06-17">2021-06-17</a>
+                    <a href="#2021-07-12" class="toc-h2 toc-link" data-title="2021-07-12">2021-07-12</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#rest-api-2" class="toc-h3 toc-link" data-title="REST API">REST API</a>
@@ -711,10 +711,18 @@
                       </ul>
                   </li>
                   <li>
-                    <a href="#2021-05-27" class="toc-h2 toc-link" data-title="2021-05-27">2021-05-27</a>
+                    <a href="#2021-06-17" class="toc-h2 toc-link" data-title="2021-06-17">2021-06-17</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#rest-api-3" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2021-05-27" class="toc-h2 toc-link" data-title="2021-05-27">2021-05-27</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-4" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                       </ul>
                   </li>
@@ -816,6 +824,9 @@
                   </li>
                   <li>
                     <a href="#t-spot_understandingratelimits" class="toc-h2 toc-link" data-title="账户频率限制">账户频率限制</a>
+                  </li>
+                  <li>
+                    <a href="#t-perendpointtransfer" class="toc-h2 toc-link" data-title="Rate Limits For All Transfer Endpoints">Rate Limits For All Transfer Endpoints</a>
                   </li>
               </ul>
           </li>
@@ -931,10 +942,30 @@
                   <li>
                     <a href="#kline-interval-interval" class="toc-h2 toc-link" data-title="Kline interval (interval)">Kline interval (<code>interval</code>)</a>
                   </li>
+                  <li>
+                    <a href="#account-type-fromaccounttype-toaccounttype" class="toc-h2 toc-link" data-title="Account type (fromAccountType/toAccountType)">Account type (<code>fromAccountType</code>/<code>toAccountType</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#operator-type" class="toc-h2 toc-link" data-title="Operator type">Operator type</a>
+                  </li>
+                  <li>
+                    <a href="#transfer-type-type" class="toc-h2 toc-link" data-title="Transfer type (type)">Transfer type (<code>type</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#transfer-status-status" class="toc-h2 toc-link" data-title="Transfer status (status)">Transfer status (<code>status</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#page-direction-direction" class="toc-h2 toc-link" data-title="Page Direction (direction)">Page Direction (<code>direction</code>)</a>
+                  </li>
               </ul>
           </li>
           <li>
             <a href="#t-spot_errors" class="toc-h1 toc-link" data-title="错误码">错误码</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-account_asset_errors" class="toc-h2 toc-link" data-title="错误码">错误码</a>
+                  </li>
+              </ul>
           </li>
       </ul>
         <ul class="toc-footer">
@@ -963,15 +994,19 @@ clipboard.on('error', function(e) {
 </script>
 <h1 id='t-introduction'>中文社区和参考资料</h1><h5 id='t-intro_para'><p>欢迎使用 <a href="https://www.bybit.com/">Bybit</a> APIs 和 Websocket官方文档！</p> <p>如果您在使用API的过程中遇到问题需要帮助，请加入我们的 <a href="https://t.me/Bybitapi">官方Telegram API讨论群</a>！</p></h5><h3 id='t-resources'>中文社区和参考资料</h3>
 <p><ul class="bybit-community"> <li><img src="../../../images/favicon-4f296779.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/zh-cn"><strong>帮助中心</strong></a> - <strong>在这里了解合约交易</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/docs/issues"><strong>Bybit API docs</strong></a> - <strong>在这里提bug</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/api-connectors/"><strong>Bybit's api-connectors</strong></a> - <strong>官方API SDK</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文讨论群</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文讨论群</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong> <li><img src="/images/email_icon.png" height="14", width="14"> <a href="mailto:IT@bybit.com"><strong>IT@bybit.com</strong></a> - <strong>官方技术支持邮箱!</strong> </ul></p>
-<h1 id='t-changelog'>更新日志</h1><h2 id='2021-07-12'>2021-07-12</h2><h3 id='rest-api'>REST API</h3>
+<h1 id='t-changelog'>更新日志</h1><h2 id='2021-08-26'>2021-08-26</h2><h3 id='rest-api'>REST API</h3>
+<ul>
+<li>现货划转API发布</li>
+</ul>
+<h2 id='2021-07-12'>2021-07-12</h2><h3 id='rest-api-2'>REST API</h3>
 <ul>
 <li>优化部分接口出参入参</li>
 </ul>
-<h2 id='2021-06-17'>2021-06-17</h2><h3 id='rest-api-2'>REST API</h3>
+<h2 id='2021-06-17'>2021-06-17</h2><h3 id='rest-api-3'>REST API</h3>
 <ul>
 <li>新增获取交易币对接口，修改接口参数order_link_id为orderLinkId</li>
 </ul>
-<h2 id='2021-05-27'>2021-05-27</h2><h3 id='rest-api-3'>REST API</h3>
+<h2 id='2021-05-27'>2021-05-27</h2><h3 id='rest-api-4'>REST API</h3>
 <ul>
 <li>新增现货open-api文档</li>
 </ul>
@@ -1043,7 +1078,7 @@ REST接口根URL:
 <p><b>GET</b>请求格式（查询账号余额）:
 </p>
 </blockquote>
-<div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/spot/v1/order?api_key=q1ksyOX2T0G2SkK8nu&amp;qty=100&amp;recvWindow=999999999&amp;side=BUY&amp;symbol=BTCUSDT&amp;timestamp=1623208423972&amp;type=MARKET&amp;sign=b452640c21a2c9eaec30d24a9bce1a9660d1fb9d07ccc0d623a2a4fca0940095</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/spot/v1/order?api_key=q1ksyOX2T0G2SkK8nu&amp;qty=100&amp;recvWindow=10000&amp;side=BUY&amp;symbol=BTCUSDT&amp;timestamp=1623208423972&amp;type=MARKET&amp;sign=b452640c21a2c9eaec30d24a9bce1a9660d1fb9d07ccc0d623a2a4fca0940095</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api-testnet.bybit.com</span>
 </code></pre></div>
 <blockquote>
@@ -1056,7 +1091,7 @@ REST接口根URL:
 
 api_key:q1ksyOX2T0G2SkK8nu
 qty:100
-recvWindow:999999999
+recvWindow:10000
 side:BUY
 symbol:BTCUSDT
 timestamp:1623208423972
@@ -2067,7 +2102,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left"><a href="#order-type-type-ordertypes">type</a></td>
 <td style="text-align: left">string</td>
-<td>订单类型。可能出现的值只能为:LIMIT(限价)和MARKET（市价）</td>
+<td>订单类型。可能出现的值只能为:LIMIT(限价)、MARKET_OF_QUOTE（市价买）、MARKET_OF_BASE（市价卖）</td>
 </tr>
 <tr>
 <td style="text-align: left">side</td>
@@ -2190,7 +2225,7 @@ orderId和ordersLinkId至少要输入一个。
 <tr>
 <td style="text-align: left">exchangeId</td>
 <td style="text-align: left">long</td>
-<td>Order ID</td>
+<td>订单ID</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -2210,7 +2245,7 @@ orderId和ordersLinkId至少要输入一个。
 <tr>
 <td style="text-align: left">orderId</td>
 <td style="text-align: left">long</td>
-<td>Order ID</td>
+<td>订单ID</td>
 </tr>
 <tr>
 <td style="text-align: left">price</td>
@@ -2250,7 +2285,7 @@ orderId和ordersLinkId至少要输入一个。
 <tr>
 <td style="text-align: left"><a href="#order-type-type-ordertypes">type</a></td>
 <td style="text-align: left">string</td>
-<td>订单类型。可能出现的值只能为:LIMIT(限价)和MARKET（市价）</td>
+<td>订单类型。可能出现的值只能为:LIMIT(限价)、MARKET_OF_QUOTE（市价买）、MARKET_OF_BASE（市价卖）</td>
 </tr>
 <tr>
 <td style="text-align: left">side</td>
@@ -2567,6 +2602,10 @@ orderId和ordersLinkId至少要输入一个。
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
+<aside class="notice">
+此接口只提交取消请求，实际取消结果需要通过订单状态，撮合状态等接口来确认。
+</aside>
+
 <p class="fake_header">HTTP 请求</p>
 
 <p>DELETE
@@ -2599,7 +2638,7 @@ orderId和ordersLinkId至少要输入一个。
 <td style="text-align: left"><a href="#order-type-type-ordertypes">orderTypes</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Order type. Use commas to cancel orders with multiple order types, eg <code>LIMIT,LIMIT_MAKER</code>. Default: <code>LIMIT</code>
+<td>订单类型. 多个订单类型使用英文逗号分隔, 例如 <code>LIMIT,LIMIT_MAKER</code>. 默认值: <code>LIMIT</code>
 </td>
 </tr>
 </tbody></table>
@@ -2675,7 +2714,8 @@ orderId和ordersLinkId至少要输入一个。
 <td style="text-align: left">orderTypes</td>
 <td style="text-align: left">fasle</td>
 <td style="text-align: left">string</td>
-<td>可选订单类型, LIMIT/LIMIT_MAKER，可用英文逗号拼接表示多个类型。不传默认为LIMIT。</td>
+<td>订单类型. 多个订单类型使用英文逗号分隔, 例如 <code>LIMIT,LIMIT_MAKER</code>. 默认值: <code>LIMIT</code>
+</td>
 </tr>
 </tbody></table>
 
@@ -2828,7 +2868,7 @@ orderId和ordersLinkId至少要输入一个。
 <tr>
 <td style="text-align: left">orderId</td>
 <td style="text-align: left">long</td>
-<td>Order ID</td>
+<td>订单ID</td>
 </tr>
 <tr>
 <td style="text-align: left">price</td>
@@ -2868,7 +2908,7 @@ orderId和ordersLinkId至少要输入一个。
 <tr>
 <td style="text-align: left"><a href="#order-type-type-ordertypes">type</a></td>
 <td style="text-align: left">string</td>
-<td>订单类型。可能出现的值只能为:LIMIT(限价)和MARKET（市价）</td>
+<td>订单类型。可能出现的值只能为:LIMIT(限价)、MARKET_OF_QUOTE（市价买）、MARKET_OF_BASE（市价卖）</td>
 </tr>
 <tr>
 <td style="text-align: left">side</td>
@@ -3014,7 +3054,7 @@ orderId和ordersLinkId至少要输入一个。
 <tr>
 <td style="text-align: left">orderId</td>
 <td style="text-align: left">long</td>
-<td>Order ID</td>
+<td>订单ID</td>
 </tr>
 <tr>
 <td style="text-align: left">price</td>
@@ -3054,7 +3094,7 @@ orderId和ordersLinkId至少要输入一个。
 <tr>
 <td style="text-align: left"><a href="#order-type-type-ordertypes">type</a></td>
 <td style="text-align: left">string</td>
-<td>订单类型。可能出现的值只能为:LIMIT(限价)和MARKET（市价）</td>
+<td>订单类型。可能出现的值只能为:LIMIT(限价)、MARKET_OF_QUOTE（市价买）、MARKET_OF_BASE（市价卖）</td>
 </tr>
 <tr>
 <td style="text-align: left">side</td>
@@ -3437,6 +3477,36 @@ orderId和ordersLinkId至少要输入一个。
 <h3 id='t-spot_understandingratelimits'>账户频率限制</h3>
 <p>现货鉴权接口（即需要签名的接口）的限频规则是每秒不超过20次
 </p>
+<h3 id='t-perendpointtransfer'>Rate Limits For All Transfer Endpoints</h3>
+<table class="custom_table">
+    <tr>
+        <th>频率限制</th>
+        <th>请求路径</th>
+        <th>消耗</th>
+    </tr>
+    <tr>
+        <td rowspan="2">20/min</td>
+        <td>/asset/v1/private/transfer </td>
+        <td>1 / request</td>
+    </tr>
+    <tr>
+        <td>/asset/v1/private/sub-member/transfer </td>
+        <td>1 / request</td>
+    </tr>
+    <tr>
+        <td rowspan="3">60/min</td>
+        <td>/asset/v1/private/sub-member/member-ids </td>
+        <td>1 / request</td>
+    </tr>
+    <tr>
+        <td>/asset/v1/private/transfer/list </td>
+        <td>1 / request</td>
+    </tr>
+    <tr>
+        <td>/asset/v1/private/sub-member/transfer/list </td>
+        <td>1 / request</td>
+    </tr>
+</table>
 <h1 id='t-websocket'>WebSocket接口</h1><h2 id='t-websocketauthentication'>鉴权/认证</h2>
 <blockquote>
 <p>Apply for authentication when establishing a connection.
@@ -4787,20 +4857,22 @@ orderId和ordersLinkId至少要输入一个。
 
 <p>响应示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">e</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">outboundAccountInfo</span><span class="dl">"</span><span class="p">,</span>   
-  <span class="dl">"</span><span class="s2">E</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1499405658849</span><span class="p">,</span>           
-  <span class="dl">"</span><span class="s2">T</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>                   
-  <span class="dl">"</span><span class="s2">W</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>                    
-  <span class="dl">"</span><span class="s2">D</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>                    
-  <span class="dl">"</span><span class="s2">B</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>                        
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">[</span>
     <span class="p">{</span>
-      <span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LTC</span><span class="dl">"</span><span class="p">,</span>               
-      <span class="dl">"</span><span class="s2">f</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">17366.18538083</span><span class="dl">"</span><span class="p">,</span>    
-      <span class="dl">"</span><span class="s2">l</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span>         
+        <span class="dl">"</span><span class="s2">e</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">outboundAccountInfo</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">E</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1629969654753</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">T</span><span class="dl">"</span><span class="p">:</span><span class="nx">True</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">W</span><span class="dl">"</span><span class="p">:</span><span class="nx">True</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">D</span><span class="dl">"</span><span class="p">:</span><span class="nx">True</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">B</span><span class="dl">"</span><span class="p">:[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">f</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">10000000097.1982823144</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">l</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
     <span class="p">}</span>
-  <span class="p">]</span>
-<span class="p">}</span>
+<span class="p">]</span>
 </code></pre></div>
 <p>Pushes data about your account.</p>
 
@@ -4822,7 +4894,7 @@ orderId和ordersLinkId至少要输入一个。
 </tr>
 <tr>
 <td style="text-align: left">E</td>
-<td style="text-align: left">member</td>
+<td style="text-align: left">string</td>
 <td>时间戳</td>
 </tr>
 <tr>
@@ -4842,7 +4914,7 @@ orderId和ordersLinkId至少要输入一个。
 </tr>
 <tr>
 <td style="text-align: left">B</td>
-<td style="text-align: left">string</td>
+<td style="text-align: left">list</td>
 <td>Wallet balance change</td>
 </tr>
 <tr>
@@ -4867,33 +4939,35 @@ orderId和ordersLinkId至少要输入一个。
 
 <p>响应示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">e</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">executionReport</span><span class="dl">"</span><span class="p">,</span>      
-  <span class="dl">"</span><span class="s2">E</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1499405658658</span><span class="p">,</span>            
-  <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ETHBTC</span><span class="dl">"</span><span class="p">,</span>                 
-  <span class="dl">"</span><span class="s2">c</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1000087761</span><span class="p">,</span>               
-  <span class="dl">"</span><span class="s2">S</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BUY</span><span class="dl">"</span><span class="p">,</span>                    
-  <span class="dl">"</span><span class="s2">o</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LIMIT</span><span class="dl">"</span><span class="p">,</span>                  
-  <span class="dl">"</span><span class="s2">f</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GTC</span><span class="dl">"</span><span class="p">,</span>                    
-  <span class="dl">"</span><span class="s2">q</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1.00000000</span><span class="dl">"</span><span class="p">,</span>             
-  <span class="dl">"</span><span class="s2">p</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.10264410</span><span class="dl">"</span><span class="p">,</span>             
-  <span class="dl">"</span><span class="s2">X</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">NEW</span><span class="dl">"</span><span class="p">,</span>                    
-  <span class="dl">"</span><span class="s2">i</span><span class="dl">"</span><span class="p">:</span> <span class="mi">4293153</span><span class="p">,</span>     
-  <span class="dl">"</span><span class="s2">M</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>             
-  <span class="dl">"</span><span class="s2">l</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>             
-  <span class="dl">"</span><span class="s2">z</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>             
-  <span class="dl">"</span><span class="s2">L</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>             
-  <span class="dl">"</span><span class="s2">n</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>                      
-  <span class="dl">"</span><span class="s2">N</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>                     
-  <span class="dl">"</span><span class="s2">u</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>                     
-  <span class="dl">"</span><span class="s2">w</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>                     
-  <span class="dl">"</span><span class="s2">m</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>                    
-  <span class="dl">"</span><span class="s2">O</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1499405658657</span><span class="p">,</span>            
-  <span class="dl">"</span><span class="s2">Z</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">A</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">C</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">v</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>              
-<span class="p">}</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">[</span>
+  <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">e</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">executionReport</span><span class="dl">"</span><span class="p">,</span>      
+    <span class="dl">"</span><span class="s2">E</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1499405658658</span><span class="dl">"</span><span class="p">,</span>            
+    <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ETHBTC</span><span class="dl">"</span><span class="p">,</span>                 
+    <span class="dl">"</span><span class="s2">c</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1000087761</span><span class="dl">"</span><span class="p">,</span>               
+    <span class="dl">"</span><span class="s2">S</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BUY</span><span class="dl">"</span><span class="p">,</span>                    
+    <span class="dl">"</span><span class="s2">o</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LIMIT</span><span class="dl">"</span><span class="p">,</span>                  
+    <span class="dl">"</span><span class="s2">f</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GTC</span><span class="dl">"</span><span class="p">,</span>                    
+    <span class="dl">"</span><span class="s2">q</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1.00000000</span><span class="dl">"</span><span class="p">,</span>             
+    <span class="dl">"</span><span class="s2">p</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.10264410</span><span class="dl">"</span><span class="p">,</span>             
+    <span class="dl">"</span><span class="s2">X</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">NEW</span><span class="dl">"</span><span class="p">,</span>                    
+    <span class="dl">"</span><span class="s2">i</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">4293153</span><span class="dl">"</span><span class="p">,</span>     
+    <span class="dl">"</span><span class="s2">M</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>             
+    <span class="dl">"</span><span class="s2">l</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>             
+    <span class="dl">"</span><span class="s2">z</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>             
+    <span class="dl">"</span><span class="s2">L</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>             
+    <span class="dl">"</span><span class="s2">n</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>                      
+    <span class="dl">"</span><span class="s2">N</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>                     
+    <span class="dl">"</span><span class="s2">u</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>                     
+    <span class="dl">"</span><span class="s2">w</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>                     
+    <span class="dl">"</span><span class="s2">m</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>                    
+    <span class="dl">"</span><span class="s2">O</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1499405658657</span><span class="dl">"</span><span class="p">,</span>            
+    <span class="dl">"</span><span class="s2">Z</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">473.199</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">A</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">C</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">v</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>              
+  <span class="p">}</span>
+<span class="p">]</span>
 </code></pre></div>
 <p>Pushes data about your orders. <code>Z</code> divided by <code>z</code> equals the average filled price.</p>
 
@@ -4915,7 +4989,7 @@ orderId和ordersLinkId至少要输入一个。
 </tr>
 <tr>
 <td style="text-align: left">E</td>
-<td style="text-align: left">member</td>
+<td style="text-align: left">string</td>
 <td>事件时间</td>
 </tr>
 <tr>
@@ -4931,12 +5005,12 @@ orderId和ordersLinkId至少要输入一个。
 <tr>
 <td style="text-align: left">S</td>
 <td style="text-align: left">string</td>
-<td>true买, false卖</td>
+<td>BUY买，SELL卖</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#order-type-type-ordertypes">o</a></td>
 <td style="text-align: left">string</td>
-<td>订单类型。可能出现的值只能为:LIMIT(限价)和MARKET（市价）</td>
+<td>订单类型。可能出现的值只能为:LIMIT(限价)、MARKET_OF_QUOTE（市价买）、MARKET_OF_BASE（市价卖）</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#timeinforce-timeinforce">f</a></td>
@@ -5040,19 +5114,22 @@ orderId和ordersLinkId至少要输入一个。
 
 <p>响应示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">e</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">ticketInfo</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">E</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1621912542359</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">q</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.001639</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">t</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1621912542314</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">p</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">61000.0</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">T</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">899062000267837441</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">o</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">899048013515737344</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">c</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1621910874883</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">O</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">899062000118679808</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">10043</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">A</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">10024</span><span class="dl">"</span><span class="p">}</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">[</span>
+  <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">e</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">ticketInfo</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">E</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1621912542359</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">q</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.001639</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">t</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1621912542314</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">p</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">61000.0</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">T</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">899062000267837441</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">o</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">899048013515737344</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">c</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1621910874883</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">O</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">899062000118679808</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">10043</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">A</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">10024</span><span class="dl">"</span>
+  <span class="p">}</span>
+<span class="p">]</span>
 </code></pre></div>
 <p>Pushes data about your trades (fills). When an order is filled, you will receive two messages: one from <code>ticketInfo</code>, and one from <code>executionReport</code>
 </p>
@@ -5075,7 +5152,7 @@ orderId和ordersLinkId至少要输入一个。
 </tr>
 <tr>
 <td style="text-align: left">E</td>
-<td style="text-align: left">member</td>
+<td style="text-align: left">string</td>
 <td>事件时间</td>
 </tr>
 <tr>
@@ -5158,6 +5235,16 @@ orderId和ordersLinkId至少要输入一个。
 <li><code>XRP</code></li>
 <li><code>USDT</code></li>
 </ul>
+
+<p>The transfer API also includes:</p>
+
+<ul>
+<li><code>DOT</code></li>
+<li><code>DOGE</code></li>
+<li><code>LTC</code></li>
+<li><code>XLM</code></li>
+<li><code>USD</code></li>
+</ul>
 <h2 id='order-status-status'>Order status (<code>status</code>)</h2>
 <ul>
 <li><code>NEW</code></li>
@@ -5221,6 +5308,35 @@ ELSE
 <li><code>1d</code> - 1 day</li>
 <li><code>1w</code> - 1 week</li>
 <li><code>1M</code> - 1 month</li>
+</ul>
+<h2 id='account-type-fromaccounttype-toaccounttype'>Account type (<code>fromAccountType</code>/<code>toAccountType</code>)</h2>
+<ul>
+<li><code>AccountType_CONTRACT</code>  期货账户</li>
+<li><code>AccountType_SPOT</code>      现货账户</li>
+<li><code>AccountType_INVESTMENT</code> 理财账户</li>
+</ul>
+<h2 id='operator-type'>Operator type</h2>
+<ul>
+<li><code>SYSTEM</code></li>
+<li><code>USER</code></li>
+<li><code>ADMIN</code></li>
+<li><code>AFFILIATE_USER</code></li>
+</ul>
+<h2 id='transfer-type-type'>Transfer type (<code>type</code>)</h2>
+<ul>
+<li><code>IN</code> 转入</li>
+<li><code>OUT</code> 转出</li>
+</ul>
+<h2 id='transfer-status-status'>Transfer status (<code>status</code>)</h2>
+<ul>
+<li><code>SUCCESS</code></li>
+<li><code>PENDING</code></li>
+<li><code>FAILED</code></li>
+</ul>
+<h2 id='page-direction-direction'>Page Direction (<code>direction</code>)</h2>
+<ul>
+<li><code>Prev</code></li>
+<li><code>Next</code></li>
 </ul>
 <h1 id='t-spot_errors'>错误码</h1>
 <p>Bybit使用以下HTTP Code和错误码：</p>
@@ -5452,16 +5568,24 @@ ELSE
 <td>订单撤销超时</td>
 </tr>
 <tr>
+<td>1190</td>
+<td>撤销订单已完成</td>
+</tr>
+<tr>
+<td>1191</td>
+<td>无法撤单, 稍后再试</td>
+</tr>
+<tr>
 <td>2010</td>
-<td>NEW_ORDER_REJECTED</td>
+<td>新增订单被拒绝</td>
 </tr>
 <tr>
 <td>2011</td>
-<td>CANCEL_REJECTED</td>
+<td>撤销订单被拒绝</td>
 </tr>
 <tr>
 <td>2013</td>
-<td>Order不存在</td>
+<td>订单不存在</td>
 </tr>
 <tr>
 <td>2014</td>
@@ -5474,6 +5598,104 @@ ELSE
 <tr>
 <td>2016</td>
 <td>找不到该交易对的交易窗口。 尝试改为24小时自动报价。</td>
+</tr>
+</tbody></table>
+<h2 id='t-account_asset_errors'>错误码</h2>
+<p>Bybit使用以下HTTP Code和错误码：</p>
+
+<table><thead>
+<tr>
+<th>HTTP Code</th>
+<th>含义</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>请求有效</td>
+</tr>
+<tr>
+<td>403</td>
+<td>拒绝访问</td>
+</tr>
+<tr>
+<td>404</td>
+<td>访问路径不存在</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>含义</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>0</td>
+<td>成功</td>
+</tr>
+<tr>
+<td>10001</td>
+<td>参数错误</td>
+</tr>
+<tr>
+<td>10016</td>
+<td>服务不可用</td>
+</tr>
+<tr>
+<td>38000</td>
+<td>处理中</td>
+</tr>
+<tr>
+<td>38001</td>
+<td>可用余额不足</td>
+</tr>
+<tr>
+<td>38002</td>
+<td>无法划转</td>
+</tr>
+<tr>
+<td>90001</td>
+<td>划转金额少于0</td>
+</tr>
+<tr>
+<td>90002</td>
+<td>划转金额精度大于8</td>
+</tr>
+<tr>
+<td>90003</td>
+<td>转账错误，请联系客服</td>
+</tr>
+<tr>
+<td>90004</td>
+<td>账户没发现</td>
+</tr>
+<tr>
+<td>90005</td>
+<td>查询余额错误</td>
+</tr>
+<tr>
+<td>90006</td>
+<td>查询划转错误</td>
+</tr>
+<tr>
+<td>90007</td>
+<td>查询子账户划转错误</td>
+</tr>
+<tr>
+<td>90008</td>
+<td>查询划转ID错误</td>
+</tr>
+<tr>
+<td>90009</td>
+<td>划转ID已存在</td>
+</tr>
+<tr>
+<td>90010</td>
+<td>转入账户类型不能作为转出账户类型</td>
+</tr>
+<tr>
+<td>90011</td>
+<td>获取子账户列表失败</td>
 </tr>
 </tbody></table>
 
