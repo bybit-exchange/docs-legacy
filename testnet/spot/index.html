@@ -646,6 +646,7 @@
     <li><a href="/docs/linear">USDT Perpetual</a></li>
     <li><a href="/docs/inverse_futures">Inverse Futures</a></li>
   <li><a href="/docs/spot" class="selected">Spot</a></li>
+  <li><a href="/docs/account_asset">Account Asset</a></li>
 
   <li>
     <div class="dropdown">
@@ -826,7 +827,7 @@
                     <a href="#t-spot_understandingratelimits" class="toc-h2 toc-link" data-title="Rate Limits for Requests">Rate Limits for Requests</a>
                   </li>
                   <li>
-                    <a href="#t-perendpointtransfer" class="toc-h2 toc-link" data-title="Rate Limits For All Transfer Endpoints">Rate Limits For All Transfer Endpoints</a>
+                    <a href="#t-perendpointtransfer" class="toc-h2 toc-link" data-title="Rate Limits For Spot Transfer Endpoints">Rate Limits For Spot Transfer Endpoints</a>
                   </li>
               </ul>
           </li>
@@ -3480,7 +3481,7 @@ The actual result of the cancellation request needs to be checked by order statu
 <h3 id='t-spot_understandingratelimits'>Rate Limits for Requests</h3>
 <p>For all endpoints that need authentication, the rate limit is 20 per second
 </p>
-<h3 id='t-perendpointtransfer'>Rate Limits For All Transfer Endpoints</h3>
+<h3 id='t-perendpointtransfer'>Rate Limits For Spot Transfer Endpoints</h3>
 <table class="custom_table">
     <tr>
         <th>Limit</th>
@@ -5714,6 +5715,8 @@ ELSE
             window.location=currentUrl.replace(/\/((?:testnet\/)?inverse)/,"/zh-cn/$1");
         } else if(currentUrl.indexOf("spot") > -1) {
           window.location=currentUrl.replace(/\/((?:testnet\/)?spot)/,"/zh-cn/$1");
+        }else if{currentUrl.indexOf("account_asset") > -1) {
+          window.location=currentUrl.replace(/\/((?:testnet\/)?account_asset)/,"/zh-cn/$1");
         } else {
           window.location=currentUrl.replace(/\/((?:testnet\/)?linear)/,"/zh-cn/$1");
         }

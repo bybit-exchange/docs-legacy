@@ -1,0 +1,1862 @@
+
+<!doctype html>
+<html>
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158616893-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-158616893-1');
+    </script>
+
+    <link href="../images/favicon-4f296779.ico" rel="icon" type="image/ico" />
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Bybit API Docs</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .nn {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .nl {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .ni {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .bp {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .vg {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .vi {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .w {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+      header.top-nav {
+        position:fixed;
+        display:flex;
+        flex:1;
+        width:100%;
+        z-index:100;
+        background: #333;
+        padding: 0 26px;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+        align-items: center;
+      }
+      div.top-menu{
+        display:flex;
+        flex: 1;
+      }
+      a.logo-link{
+        line-height: 50px;
+      }
+      img.logo {
+        width: 161px;
+        height: 40px;
+        vertical-align: middle;
+      }
+      .con {
+          display: flex;
+          top: 0;
+          height: 55px;
+          margin: 0 0 0 62px;
+          padding: 0;
+          list-style: none;
+          text-align: center;
+      }
+
+      .con li{
+          text-align: center;
+          line-height: 55px;
+          border:0 solid #000;
+          -webkit-box-sizing: border-box;
+                  box-sizing: border-box;
+      }
+
+      .con a {
+        display: inline-block;
+        color: #B0B8DB;
+        font-size: 16px;
+        text-decoration: none;
+        line-height: 53px;
+        padding: 0 20px;
+      }
+
+      .con a.selected {
+        border-bottom: 2px solid transparent;
+        border-color: #FFB11A;
+        color: #fff;
+      }
+
+      a.international{
+        display: block;
+        height: 27px;
+        line-height: 27px;
+        text-align: center;
+        color: #fff;
+        text-decoration: none;
+        border: 1px solid #383F66;
+        padding: 0 20px;
+        color: #F0B90B;
+      }
+
+      /* Environment dropdown list */
+      /* The dropdown container */
+      .dropdown {
+        float: left;
+        overflow: hidden;
+      }
+
+      /* Dropdown button */
+      .dropdown .dropbtn {
+        background-color: inherit;
+        display: inline-block;
+        color: #B0B8DB;
+        font-size: 16px;
+        text-decoration: none;
+        line-height: 53px;
+        padding: 0 60px;
+        border: none;
+        background: none;
+      }
+
+      /* Add a red background color to navbar links on hover */
+      a:hover, .dropdown:hover .dropbtn {
+        background-color: inherit;
+      }
+
+      /* Dropdown content (hidden by default) */
+      .dropdown-content {
+        color: #B0B8DB;
+        background: #333;
+        font-size: 16px;
+        text-decoration: none;
+        line-height: 53px;
+        padding: 0;
+        display: none;
+        position: relative;
+        -webkit-box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 0;
+      }
+
+      /* Links inside the dropdown */
+      .dropdown-content a {
+        color: #B0B8DB;
+        font-size: 16px;
+        text-decoration: none;
+        line-height: 53px;
+        padding: 0 20px;
+        display: block;
+        text-align: left;
+      }
+
+      /* Highlights the currently selected dropdown link */
+      .dropdown-content-selected {
+        display: block;
+        /*color: #696e83;*/
+        background-color: #626262;
+      }
+
+      /* Add a grey background color to dropdown links on hover */
+      .dropdown-content a:hover {
+        background-color: #5b5b5b;
+      }
+
+      /* Show the dropdown menu on hover */
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="../stylesheets/screen-6a7bc757.css" rel="stylesheet" media="screen" />
+    <link href="../stylesheets/print-41ffbffc.css" rel="stylesheet" media="print" />
+      <script src="../javascripts/all-159fd355.js"></script>
+
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
+  </head>
+  <header class="top-nav">
+  <div class="top-menu">
+  <a href="https://bybit-exchange.github.io/docs/account_asset" class="logo-link" target="_self">
+    <img src="../images/logo-aed6448d.svg" class="logo" alt="" />
+  </a>
+  <ul class="con">
+    <li><a href="/docs/inverse">Inverse Perpetual</a></li>
+    <li><a href="/docs/linear">USDT Perpetual</a></li>
+    <li><a href="/docs/inverse_futures">Inverse Futures</a></li>
+  <li><a href="/docs/spot">Spot</a></li>
+  <li><a href="/docs/account_asset" class="selected">Account Asset</a></li>
+
+  <li>
+    <div class="dropdown">
+      <button class="dropbtn">Environment
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+                    <span class="dropdown-content-selected"><a href=/docs/account_asset>Mainnet</a></span>
+                    <a href=/docs/testnet/account_asset>Testnet</a>
+      </div>
+    </div>
+  </li>
+  </ul>
+  </div>
+  <a class="international" id="international" href="javascript:void(0);">简体中文</a>
+  </header>
+
+  <body class="account_asset account_asset_index" data-languages="[&quot;console&quot;,&quot;python&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../images/navbar-cad8cdcb.png" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+        <div class="lang-selector">
+              <a href="#" data-language-name="console">console</a>
+              <a href="#" data-language-name="python">python</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#t-introduction" class="toc-h1 toc-link" data-title="Group And Resources">Group And Resources</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-resources" class="toc-h2 toc-link" data-title="Group And Bybit API Resources">Group And Bybit API Resources</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#t-changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#2021-08-26" class="toc-h2 toc-link" data-title="2021-08-26">2021-08-26</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#t-authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-authenticationparameters" class="toc-h2 toc-link" data-title="Parameters for Authenticated Endpoints">Parameters for Authenticated Endpoints</a>
+                  </li>
+                  <li>
+                    <a href="#t-constructingtherequest" class="toc-h2 toc-link" data-title="Create A Request">Create A Request</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#t-transfer_api" class="toc-h1 toc-link" data-title="Transfer Data Endpoints">Transfer Data Endpoints</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-transfer" class="toc-h2 toc-link" data-title="Create Internal Transfer">Create Internal Transfer</a>
+                  </li>
+                  <li>
+                    <a href="#t-createsubaccounttransfer" class="toc-h2 toc-link" data-title="Create Subaccount Transfer">Create Subaccount Transfer</a>
+                  </li>
+                  <li>
+                    <a href="#t-querytransferlist" class="toc-h2 toc-link" data-title="Query Transfer List">Query Transfer List</a>
+                  </li>
+                  <li>
+                    <a href="#t-querysubaccounttransferlist" class="toc-h2 toc-link" data-title="Query Subaccount Transfer List">Query Subaccount Transfer List</a>
+                  </li>
+                  <li>
+                    <a href="#t-querysubmemberidlist" class="toc-h2 toc-link" data-title="Query Subaccount list">Query Subaccount list</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#t-api" class="toc-h1 toc-link" data-title="API Data Endpoints">API Data Endpoints</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-servertime" class="toc-h2 toc-link" data-title="Server Time">Server Time</a>
+                  </li>
+                  <li>
+                    <a href="#t-announcement" class="toc-h2 toc-link" data-title="Announcement">Announcement</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#t-ratelimits" class="toc-h1 toc-link" data-title="API Rate Limits">API Rate Limits</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-perendpointtransfer" class="toc-h2 toc-link" data-title="Rate Limits For Spot Transfer Endpoints">Rate Limits For Spot Transfer Endpoints</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#t-enums" class="toc-h1 toc-link" data-title="Enums Definitions">Enums Definitions</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#accounttype-type-accounttype" class="toc-h2 toc-link" data-title="AccountType (type/accountType)">AccountType (<code>type</code>/<code>accountType</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#currency-currency-coin" class="toc-h2 toc-link" data-title="Currency (currency/coin)">Currency (<code>currency</code>/<code>coin</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#operatortype" class="toc-h2 toc-link" data-title="OperatorType">OperatorType</a>
+                  </li>
+                  <li>
+                    <a href="#transfertype" class="toc-h2 toc-link" data-title="TransferType">TransferType</a>
+                  </li>
+                  <li>
+                    <a href="#transferstatus" class="toc-h2 toc-link" data-title="TransferStatus">TransferStatus</a>
+                  </li>
+                  <li>
+                    <a href="#pageaction-turn-page" class="toc-h2 toc-link" data-title="PageAction (turn page)">PageAction (<code>turn page</code>)</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#t-account_asset_errors" class="toc-h1 toc-link" data-title="Transfer Error Codes">Transfer Error Codes</a>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <!---
+Clipboard script
+-->
+
+<script src="../dist/clipboard.min-f99f064d.js"></script>
+
+<script>
+var clipboard = new ClipboardJS('.clipboard_button');
+
+clipboard.on('success', function(e) {
+    console.log(e);
+});
+
+clipboard.on('error', function(e) {
+    console.log(e);
+});
+</script>
+<h1 id='t-introduction'>Group And Resources</h1>
+<p><p><a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common errors.</p> <p>For further assistance or feedback, please join the <a href="https://t.me/BybitAPI">API Telegram chat</a>! API discussion group on Telegram.</p></p>
+<h3 id='t-resources'>Group And Bybit API Resources</h3>
+<p><ul class="bybit-community"> <li><img src="../images/help_favicon-06f791dd.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> </ul></p>
+<h1 id='t-changelog'>Changelog</h1><h2 id='2021-08-26'>2021-08-26</h2><h3 id='rest-api'>REST API</h3>
+<ul>
+<li>Spot Transfer API released!</li>
+</ul>
+<h1 id='t-authentication'>Authentication</h1>
+<aside class="notice">
+Please visit Bybit's <a href="https://testnet.bybit.com/app/user/api-management"> <b>testnet</b></a> or <a href="https://www.bybit.com/app/user/api-management"> <b>mainnet</b></a> to generate an API key
+</aside>
+
+<aside class="notice">
+REST Base Endpoint:
+ <ul>
+  <p>
+    <li>Testnet:<br/>
+      <span id="testnet">https://api-testnet.bybit.com</span>
+      <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+    </li>
+  </p>
+  <p>
+    <li>Mainnet(both endpoints are available):<br/>
+      <span id="mainnet_1">https://api.bybit.com</span>
+      <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_1"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+      <br/>
+      <span id="mainnet_2">https://api.bytick.com</span>
+      <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_2"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+    </li>
+  </p>
+ </ul>
+
+</aside>
+
+<p><p>All requests made to private endpoints must be authenticated. Requests made to public endpoints do not require additional authentication.</p></p>
+<h2 id='t-authenticationparameters'>Parameters for Authenticated Endpoints</h2>
+<p>The following parameters must be used for authentication:
+<ul>
+  <li><b>api_key</b></li>
+  <li><b>timestamp</b> - UTC timestamp in <b>milliseconds</b></li>
+  <li><b>sign</b> - a signature derived from the request's parameters</li>
+</ul>
+</p>
+
+<p><p>We also provide <code>recv_window</code> (unit in millisecond and default value is 5,000) to specify how long an HTTP request is valid. It is also used to prevent replay attacks.</p>
+<p>A smaller <code>recv_window</code> is more secure, but your request may fail if the transmission time is greater than your <code>recv_window</code>.</p>
+<p>Please make sure that your <code>timestamp</code> is in sync with our server time. You can use the <a href=#t-servertime>Server Time</a> endpoint.</p>
+</p>
+
+<aside class="warning">
+Please make sure that the timestamp parameter adheres to the following rule: server_time - recv_window <= timestamp < server_time + 1000; server_time stands for Bybit server time, which can be queried via the <a href="#t-servertime">Server Time</a> endpoint.
+
+</aside>
+<h2 id='t-constructingtherequest'>Create A Request</h2>
+<blockquote>
+<p>An example for adjusting leverage</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="n">param_str</span> <span class="o">=</span> <span class="s">"api_key=B2Rou0PLPpGqcU0Vu2&amp;leverage=100&amp;symbol=BTCUSDH21&amp;timestamp=1542434791747"</span>
+
+<span class="c1"># api_key=B2Rou0PLPpGqcU0Vu2&amp;
+# leverage=100&amp;
+# symbol=BTCUSDH21&amp;
+# timestamp=1542434791747
+</span></code></pre></div>
+<blockquote>
+<p>Note how the parameters are ordered in <b>alphabetical</b> order, with api_key first followed by leverage, then symbol, then timestamp.</p>
+</blockquote>
+
+<p><p>1. Concatenate all the public parameters in the <a href="https://en.wikipedia.org/wiki/Query_string">query string</a> format. The parameters must be ordered in <b>alphabetical</b> order. This will be used to generate the <code>sign</code>.</p>
+<div></div></p>
+
+<p><p>2. Use the HMAC_SHA256 algorithm to sign the query string in step 1, and convert it to a hex string to obtain the sign parameter.</p></p>
+
+<blockquote>
+<p>Different requests need different message formats. Message format for <b>GET</b> requests:
+</p>
+</blockquote>
+<div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/account_asset/v1/order?api_key=q1ksyOX2T0G2SkK8nu&amp;qty=100&amp;recvWindow=999999999&amp;side=BUY&amp;symbol=BTCUSDT&amp;timestamp=1623208423972&amp;type=MARKET&amp;sign=b452640c21a2c9eaec30d24a9bce1a9660d1fb9d07ccc0d623a2a4fca0940095</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api-testnet.bybit.com</span>
+</code></pre></div>
+<blockquote>
+<p>Message format for <b>POST</b> requests:
+</p>
+</blockquote>
+<div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/account_asset/v1/order</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api-testnet.bybit.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-unlencoded</span>
+
+api_key:q1ksyOX2T0G2SkK8nu
+qty:100
+recvWindow:999999999
+side:BUY
+symbol:BTCUSDT
+timestamp:1623208423972
+type:MARKET
+sign:b452640c21a2c9eaec30d24a9bce1a9660d1fb9d07ccc0d623a2a4fca0940095
+
+</code></pre></div>
+<p><p>3. Append the sign parameter to the end of the parameters string, and send the HTTP request. Note that the message format for GET and POST requests is different. Please refer to the examples.</p></p>
+
+<aside class="notice">
+Example signature algorithms can be found <a href="https://github.com/bybit-exchange/api-connectors/tree/master/encryption_example">here</a>.
+</aside>
+
+<!--
+### Examples of the Signature Algorithm
+
+* [C#](https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/example/Encryption.cs)
+* [Python](https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/example/Encryption.py)
+* [C++](https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/example/Encryption.cpp)
+* [Go](https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/example/Encryption.go)
+* [PHP](https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/example/Encryption.php)
+-->
+
+<script>
+function copyStringToClipboard (endpoint) {
+  var str = document.getElementById(endpoint).innerText;
+  // remove whitespace
+  var str = str.replace(/ /g,"");
+  // Create new element
+  var el = document.createElementranslation missing: en.textarea;
+  // Set value (string to be copied)
+  el.value = str;
+  // Set non-editable to avoid focus and move outside of view
+  el.setAttribute("readonly", "");
+  el.style = {position: "absolute", left: "-9999px"};
+  document.body.appendChild(el);
+  // Select text inside element
+  el.select();
+  // Copy text to clipboard
+  document.execCommand("copy");
+  // Remove temporary element
+  document.body.removeChild(el);
+}
+</script>
+<h1 id='t-transfer_api'>Transfer Data Endpoints</h1>
+<p>The following API data endpoints require authentication.</p>
+<h3 id='t-transfer'>Create Internal Transfer</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/asset/v1/private/transfer' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "from_account_type": "SPOT",
+    "to_account_type": "CONTRACT",
+    "amount": "0.1",
+    "coin": "BTC",
+    "transfer_id": "b668ce35-db92-4db4-9f81-0b5da57d4df6",
+    "api_key": "YtcjswsO9WjAmQVUx7",
+    "sign": "{{sign}}",
+    "timestamp": "{{timestamp}}",
+    "recv_window": "{{recvWindow}}"
+}'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">transfer_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">b668ce35-db92-4db4-9f81-0b5da57d4df6</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1629951080227</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">17</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1629951080227</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">3</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Transfers funds between the different sections of an individuals account (<i>not</i> between subaccounts). For example, between the spot and derivatives accounts.</p>
+
+<aside class="notice">
+Please note that this interface supports Futures Account, Spot Account, Investment Account.
+The <code>transfer_in</code> and <code>transfer_out</code> account types cannot be the same.
+
+</aside>
+
+<p class="fake_header">HTTP Request</p>
+
+<p>POST
+<code><span id=oawwListNew>/asset/v1/private/transfer</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawwListNew"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">transfer_id</td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>UUID, which is unique across the platform</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>Currency type</td>
+</tr>
+<tr>
+<td style="text-align: left">amount</td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>Exchange to amount</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#accounttype-type-accounttype">from_account_type</a></td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>Account type</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#accounttype-type-accounttype">to_account_type</a></td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>Account type</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">transfer_id</td>
+<td style="text-align: left">string</td>
+<td>UUID, which is unique across the platform</td>
+</tr>
+</tbody></table>
+<h3 id='t-createsubaccounttransfer'>Create Subaccount Transfer</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/asset/v1/private/sub-member/transfer' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "transfer_id": "5f95de18-b10f-43be-9746-7b95c4a37d97",
+    "amount": "0.1",
+    "coin": "BTC",
+    "sub_user_id":"251711",
+    "type": "IN",
+    "api_key": "YtcjswsO9WjAmQVUx7",
+    "sign": "{{sign}}",
+    "timestamp": "{{timestamp}}",
+    "recv_window": "{{recvWindow}}"
+}'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">transfer_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5f95de18-b10f-43be-9746-7b95c4a37d97</span><span class="dl">"</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1629966770894</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1629966770894</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Transfers funds between the parent and child (sub) accounts.</p>
+
+<aside class="notice">
+A subaccount can only be attributed to a parent account.
+
+</aside>
+
+<p class="fake_header">HTTP Request</p>
+
+<p>POST
+<code><span id=oawwListNew>/asset/v1/private/sub-member/transfer</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawwListNew"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">transfer_id</td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>UUID, which is unique across the platform</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>Currency type</td>
+</tr>
+<tr>
+<td style="text-align: left">amount</td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>Exchange to amount</td>
+</tr>
+<tr>
+<td style="text-align: left">sub_user_id</td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>Subaccount</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#transfertype">type</a></td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>Determines the direction of transfer</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">transfer_id</td>
+<td style="text-align: left">string</td>
+<td>UUID, which is unique across the platform</td>
+</tr>
+</tbody></table>
+<h3 id='t-querytransferlist'>Query Transfer List</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/transfer/list'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">transfer_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">selfTransfer_c5ae452d-43e8-47e6-aa7c-d2bab57c0958</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">from_account_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">CONTRACT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">to_account_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SPOT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1629965054</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCESS</span><span class="dl">"</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">transfer_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">selfTransfer_9a183347-152d-4bdc-990d-8b20284385f9</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">from_account_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SPOT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">to_account_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">CONTRACT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1629963043</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCESS</span><span class="dl">"</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">transfer_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">selfTransfer_5f9bfd6e-1718-4a16-814e-1d1bff4b01eb</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">20</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">from_account_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SPOT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">to_account_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">CONTRACT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1629874294</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCESS</span><span class="dl">"</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+      <span class="dl">"</span><span class="s2">cursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">eyJtaW5JRCI6Nzg5NTcsIm1heElEIjo3OTM2NH0=</span><span class="dl">"</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1629971474462</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">59</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1629971474462</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=oawwListNew>/asset/v1/private/transfer/list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawwListNew"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">transfer_id</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>UUID, which is unique across the platform</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Currency type</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#transferstatus">status</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Transfer status</td>
+</tr>
+<tr>
+<td style="text-align: left">start_time</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>Start timestamp point for result, in milliseconds</td>
+</tr>
+<tr>
+<td style="text-align: left">end_time</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>End timestamp point for result, in milliseconds</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#pageaction-turn-page">direction</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Turn page</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>Number of records</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>translation missing: en.row_comment_to_cursor</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">transfer_id</td>
+<td style="text-align: left">string</td>
+<td>UUID, which is unique across the platform</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left">string</td>
+<td>Currency type</td>
+</tr>
+<tr>
+<td style="text-align: left">amount</td>
+<td style="text-align: left">string</td>
+<td>Exchange to amount</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#accounttype-type-accounttype">from_account_type</a></td>
+<td style="text-align: left">string</td>
+<td>Account type</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#accounttype-type-accounttype">to_account_type</a></td>
+<td style="text-align: left">string</td>
+<td>Account type</td>
+</tr>
+<tr>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left">integer</td>
+<td>timestamp</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#transferstatus">status</a></td>
+<td style="text-align: left">string</td>
+<td>Transfer status</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">string</td>
+<td>translation missing: en.row_comment_to_cursor</td>
+</tr>
+</tbody></table>
+<h3 id='t-querysubaccounttransferlist'>Query Subaccount Transfer List</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/sub-member/transfer/list'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">transfer_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5f95de18-b10f-43ba-9756-0b95c4a37d07</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">229988</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">sub_user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">251711</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1629968375</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCESS</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">IN</span><span class="dl">"</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">transfer_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5f95de18-b10f-43be-9756-0b95c4a37d07</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">229988</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">sub_user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">251711</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1629968351</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCESS</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">IN</span><span class="dl">"</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">transfer_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5f95de18-b10f-43be-9746-0b95c4a37d07</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">229988</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">sub_user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">251711</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1629967817</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCESS</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">IN</span><span class="dl">"</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">transfer_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5f95de18-b10f-43be-9746-7b95c4a37d97</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">229988</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">sub_user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">251711</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1629966772</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCESS</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">IN</span><span class="dl">"</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+      <span class="dl">"</span><span class="s2">cursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">eyJtaW5JRCI6NzkzNzgsIm1heElEIjo3OTQwMH0=</span><span class="dl">"</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1629978073116</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">59</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1629978073116</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=oawwListNew>/asset/v1/private/sub-member/transfer/list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawwListNew"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">transfer_id</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>UUID, which is unique across the platform</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Currency type</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#transferstatus">status</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Transfer status</td>
+</tr>
+<tr>
+<td style="text-align: left">start_time</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>Start timestamp point for result, in milliseconds</td>
+</tr>
+<tr>
+<td style="text-align: left">end_time</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>End timestamp point for result, in milliseconds</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#pageaction-turn-page">direction</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Turn page</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>Number of records</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>translation missing: en.row_comment_to_cursor</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">transfer_id</td>
+<td style="text-align: left">string</td>
+<td>UUID, which is unique across the platform</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left">string</td>
+<td>Currency type</td>
+</tr>
+<tr>
+<td style="text-align: left">amount</td>
+<td style="text-align: left">string</td>
+<td>Exchange to amount</td>
+</tr>
+<tr>
+<td style="text-align: left">user_id</td>
+<td style="text-align: left">integer</td>
+<td>Subaccount</td>
+</tr>
+<tr>
+<td style="text-align: left">sub_user_id</td>
+<td style="text-align: left">integer</td>
+<td>Subaccount</td>
+</tr>
+<tr>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left">integer</td>
+<td>timestamp</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#transferstatus">status</a></td>
+<td style="text-align: left">string</td>
+<td>Transfer status</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#transfertype">type</a></td>
+<td style="text-align: left">string</td>
+<td>Determines the direction of transfer</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">string</td>
+<td>translation missing: en.row_comment_to_cursor</td>
+</tr>
+</tbody></table>
+<h3 id='t-querysubmemberidlist'>Query Subaccount list</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/sub-member/member-ids'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">sub_user_id</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+      <span class="mi">251711</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1629979703311</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">59</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1629979703311</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=oawwListNew>/asset/v1/private/sub-member/member-ids</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawwListNew"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">sub_user_id</td>
+<td style="text-align: left">integer</td>
+<td>Subaccount</td>
+</tr>
+</tbody></table>
+<h1 id='t-api'>API Data Endpoints</h1>
+<p>The following API data endpoints do not require authentication.</p>
+<h3 id='t-servertime'>Server Time</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/v2/public/time
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Common</span><span class="p">.</span><span class="n">Common_getTime</span><span class="p">().</span><span class="n">result</span><span class="p">())</span>
+</code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1577444332.192859</span><span class="dl">"</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Get Bybit server time.</p>
+
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=vpTime>/v2/public/time</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpTime"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+<h3 id='t-announcement'>Announcement</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/public/announcement
+</span></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">title</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2019-12-02 RELEASE</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">link</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/CHANGELOG.md</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">summary</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">&lt;p&gt;New `cancel all` endpoint is here now!&lt;/p&gt;&lt;p&gt;Additionally, we strongly recommend that you use the new released place and cancel active V2 endpoints, which are more stable and efficient.The old ones are deprecated (although still working for the time be</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">created_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2019-12-02T11:33:42Z</span><span class="dl">"</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1577444818.227082</span><span class="dl">"</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Get Bybit OpenAPI announcements in the last 30 days in reverse order.</p>
+
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=vpAnnouncement>/v2/public/announcement</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpAnnouncement"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+<h1 id='t-ratelimits'>API Rate Limits</h1><h3 id='t-perendpointtransfer'>Rate Limits For Spot Transfer Endpoints</h3>
+<table class="custom_table">
+    <tr>
+        <th>Limit</th>
+        <th>Path</th>
+        <th>Consume</th>
+    </tr>
+    <tr>
+        <td rowspan="2">20/min</td>
+        <td>/asset/v1/private/transfer </td>
+        <td>1 / request</td>
+    </tr>
+    <tr>
+        <td>/asset/v1/private/sub-member/transfer </td>
+        <td>1 / request</td>
+    </tr>
+    <tr>
+        <td rowspan="3">60/min</td>
+        <td>/asset/v1/private/sub-member/member-ids </td>
+        <td>1 / request</td>
+    </tr>
+    <tr>
+        <td>/asset/v1/private/transfer/list </td>
+        <td>1 / request</td>
+    </tr>
+    <tr>
+        <td>/asset/v1/private/sub-member/transfer/list </td>
+        <td>1 / request</td>
+    </tr>
+</table>
+<h1 id='t-enums'>Enums Definitions</h1>
+<p>The following lists enumerator names for the request and response parameters of each endpoint.</p>
+<h2 id='accounttype-type-accounttype'>AccountType (<code>type</code>/<code>accountType</code>)</h2>
+<ul>
+<li><code>AccountType_CONTRACT</code>  </li>
+<li><code>AccountType_SPOT</code>      </li>
+<li><code>AccountType_INVESTMENT</code> - ByFi Account</li>
+</ul>
+<h2 id='currency-currency-coin'>Currency (<code>currency</code>/<code>coin</code>)</h2>
+<ul>
+<li><code>BTC</code></li>
+<li><code>ETH</code></li>
+<li><code>EOS</code></li>
+<li><code>XRP</code></li>
+<li><code>USDT</code></li>
+<li><code>DOT</code></li>
+<li><code>DOGE</code></li>
+<li><code>LTC</code></li>
+<li><code>XLM</code></li>
+<li><code>USD</code></li>
+</ul>
+<h2 id='operatortype'>OperatorType</h2>
+<ul>
+<li><code>SYSTEM</code></li>
+<li><code>USER</code></li>
+<li><code>ADMIN</code></li>
+<li><code>AFFILIATE_USER</code></li>
+</ul>
+<h2 id='transfertype'>TransferType</h2>
+<ul>
+<li><code>IN</code> </li>
+<li><code>OUT</code> </li>
+</ul>
+<h2 id='transferstatus'>TransferStatus</h2>
+<ul>
+<li><code>SUCCESS</code></li>
+<li><code>PENDING</code></li>
+<li><code>FAILED</code></li>
+</ul>
+<h2 id='pageaction-turn-page'>PageAction (<code>turn page</code>)</h2>
+<ul>
+<li><code>Prev</code></li>
+<li><code>Next</code></li>
+</ul>
+<h1 id='t-account_asset_errors'>Transfer Error Codes</h1>
+<p>Bybit API uses the following HTTP and error codes <span>:</span></p>
+
+<table><thead>
+<tr>
+<th>HTTP Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Request is valid</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Access denied</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Request path not found</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>0</td>
+<td>SUCCESS</td>
+</tr>
+<tr>
+<td>10001</td>
+<td>ParamErr</td>
+</tr>
+<tr>
+<td>10016</td>
+<td>SvcErr</td>
+</tr>
+<tr>
+<td>38000</td>
+<td>Processing</td>
+</tr>
+<tr>
+<td>38001</td>
+<td>AvailableBalanceRunningLow</td>
+</tr>
+<tr>
+<td>38002</td>
+<td>CannotBeTransfer</td>
+</tr>
+<tr>
+<td>90001</td>
+<td>TransferAmountLessThanZero</td>
+</tr>
+<tr>
+<td>90002</td>
+<td>TransferAmountScaleMore</td>
+</tr>
+<tr>
+<td>90003</td>
+<td>TransferLTVCheckError</td>
+</tr>
+<tr>
+<td>90004</td>
+<td>AccountNotFound</td>
+</tr>
+<tr>
+<td>90005</td>
+<td>AccountNotFound</td>
+</tr>
+<tr>
+<td>90006</td>
+<td>QueryTransferError</td>
+</tr>
+<tr>
+<td>90007</td>
+<td>QuerySubMemberTransferError</td>
+</tr>
+<tr>
+<td>90008</td>
+<td>QueryTransferIDRedisError</td>
+</tr>
+<tr>
+<td>90009</td>
+<td>TransferIDExist</td>
+</tr>
+<tr>
+<td>90010</td>
+<td>AccountTypeError</td>
+</tr>
+<tr>
+<td>90011</td>
+<td>GetSubMemberRelationError</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="console">console</a>
+                <a href="#" data-language-name="python">python</a>
+          </div>
+      </div>
+    </div>
+  </body>
+
+<script>
+    $(".con a").click(function(){
+      $(".con a").removeClass("selected");
+      $(this).addClass("selected")
+    });
+    $("#international").click(function(){
+      $this = $(this);
+      var currentUrl = window.location.href;
+      if ($this.text() == 'English') {
+        window.location=currentUrl.replace(/\/zh-cn/,"");
+      } else {
+        if (currentUrl.indexOf("inverse") > -1) {
+            window.location=currentUrl.replace(/\/((?:testnet\/)?inverse)/,"/zh-cn/$1");
+        } else if(currentUrl.indexOf("spot") > -1) {
+          window.location=currentUrl.replace(/\/((?:testnet\/)?spot)/,"/zh-cn/$1");
+        }else if{currentUrl.indexOf("account_asset") > -1) {
+          window.location=currentUrl.replace(/\/((?:testnet\/)?account_asset)/,"/zh-cn/$1");
+        } else {
+          window.location=currentUrl.replace(/\/((?:testnet\/)?linear)/,"/zh-cn/$1");
+        }
+
+      }
+    });
+</script>
+
+</html>
