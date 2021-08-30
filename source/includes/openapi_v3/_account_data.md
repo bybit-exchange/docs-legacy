@@ -66,7 +66,7 @@ POST
 |t(:row_parameter_qty) |<b>true</b> |string |t(:row_comment_quantity) |
 |t(:row_parameter_price) |false |string |t(:row_comment_resp_price) |
 |base_price |false |string | t(:row_comment_basePrice) |
-|trigger_price |false |string | t(:) |
+|trigger_price |false |string | t(:row_comment_v3_trigger_price) |
 |t(:row_parameter_time_in_force) |<b>true</b> |string |t(:row_comment_timeInForce) |
 |close_on_trigger |false |bool |t(:row_comment_closeOnTrigger)
 |order_link_id |false |string |t(:row_comment_orderLinkId) |
@@ -173,7 +173,6 @@ GET
 |data > t(:row_parameter_sl_trigger_by) |string |t(:account_row_comment_sl_trigger_by) |
 |cursor |string |t(:row_comment_resp_cursor) |
 
-
 ### t(:cancelorder)
 > t(:codequote_curlExample)
 
@@ -223,8 +222,6 @@ POST
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |order_id |string |t(:account_row_comment_orderId) |
-
-
 
 ## t(:cancelbatch)
 > t(:codequote_curlExample)
