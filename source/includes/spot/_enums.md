@@ -71,26 +71,3 @@ t(:price)
 * `1w` t(:interval_W)
 * `1M` t(:interval_M)
 
-## Account type (`fromAccountType`/`toAccountType`)
-* `AccountType_CONTRACT`  t(:accountType_contract)
-* `AccountType_SPOT`      t(:accountType_spot)
-* `AccountType_INVESTMENT` t(:accountType_investment)
-
-## Operator type
-* `SYSTEM`
-* `USER`
-* `ADMIN`
-* `AFFILIATE_USER`
-
-## Transfer type (<code>type</code>)
-* `IN` t(:in)
-* `OUT` t(:out)
-
-## Transfer status (<code>status</code>)
-* `SUCCESS`
-* `PENDING`
-* `FAILED`
-
-## Page Direction (`direction`)
-* `Prev`
-* `Next`
