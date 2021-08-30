@@ -830,12 +830,6 @@ zh-cn:
     Bybit基于<b>每分钟</b>的滚动时间窗口来做频率限制，并且是按<b>账户</b>（uid）和交易对（symbol）来做划分限制，每次请求API响应中都会包含如下字段：
   spot_rate_para_understanding: |
     现货鉴权接口（即需要签名的接口）的限频规则是每秒不超过20次
-  account_asset_rate_para_understanding:
-    <p> /asset/v1/private/transfer     20次/每分钟 </p>
-    <p> /asset/v1/private/sub-member/transfer   20/每分钟 </p>
-    <p> /asset/v1/private/transfer/list    60/每分钟 </p>
-    <p> /asset/v1/private/sub-member/transfer/list   60/每分钟 </p>
-    <p> /asset/v1/private/sub-member/member-ids   60/每分钟 </p>
   rate_text_limitStatus_understanding: 该接口当前时间窗口剩余可用请求数
   rate_text_limit_understanding: 该接口当前频率限制上限
   rate_text_limitReset: 如果您已超过该接口当前窗口频率限制，该字段表示下个可用时间窗口的时间戳（毫秒），即什么时候可以恢复访问；如果您未超过该接口当前窗口频率限制，该字段表示返回的是当前服务器时间（毫秒).
@@ -844,6 +838,7 @@ zh-cn:
   spot_rate_text_limitReset: 如果您已超过该接口当前窗口频率限制，该字段表示下个可用时间窗口的时间戳（毫秒），即什么时候可以恢复访问；如果您未超过该接口当前窗口频率限制，该字段表示返回的是当前服务器时间（毫秒).
   ### Rate Limits For All Endpoints
   perendpoint: 接口频率限制表
+  perendpointtransfer: 现货划转接口的频率限制
   ### Order Limits
   orderlimits: 下单限制
   rate_para_limits: |
@@ -2276,7 +2271,7 @@ zh-cn:
   row_comment_to_timestamp: 时间戳
 
   querysubaccounttransferlist: 查询子母划转记录列表
-  query_subMember_id_list: 查询子账号列表
+  querysubMemberidlist: 查询子账号列表
   in: 转入
   out: 转出
   accountType_spot: 现货账户
