@@ -52,11 +52,11 @@ Host: api-testnet.bybit.com
 Content-Type: application/json
 
 {
-    "fromAccountType": "SPOT",
-    "toAccountType": "CONTRACT",
+    "from_account_type": "SPOT",
+    "to_account_type": "CONTRACT",
     "amount": "0.01",
     "coin": "USDT",
-    "transferId": "11ff9b44-2d5d-4293-913d-4597c9ad2170",
+    "transfer_id": "11ff9b44-2d5d-4293-913d-4597c9ad2170",
     "sign": "{{signature}}",
     "timestamp": "{{timestamp}}",
     "api_key": "{{bybit-api-key}}",
