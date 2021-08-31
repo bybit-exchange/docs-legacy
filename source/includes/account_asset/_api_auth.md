@@ -40,63 +40,25 @@ t(:auth_para_construct2)
 > t(:auth_codequote_construct2)
 
 ```http
-GET /account_asset/v1/order?api_key=q1ksyOX2T0G2SkK8nu&qty=100&recvWindow=999999999&side=BUY&symbol=BTCUSDT&timestamp=1623208423972&type=MARKET&sign=b452640c21a2c9eaec30d24a9bce1a9660d1fb9d07ccc0d623a2a4fca0940095 HTTP/1.1
+GET /asset/v1/private/transfer/list?api_key=q1ksyOX2T0G2SkK8nu&recvWindow=5000&timestamp=1623208423972&sign=b452640c21a2c9eaec30d24a9bce1a9660d1fb9d07ccc0d623a2a4fca0940095 HTTP/1.1
 Host: api-testnet.bybit.com
 ```
 
 > t(:auth_codequote_construct3)
 
 ```http
-POST /account_asset/v1/order HTTP/1.1
+POST /asset/v1/private/transfer HTTP/1.1
 Host: api-testnet.bybit.com
-Content-Type: application/x-www-form-unlencoded
+Content-Type: application/json
 
-api_key:q1ksyOX2T0G2SkK8nu
-qty:100
-recvWindow:999999999
-side:BUY
-symbol:BTCUSDT
-timestamp:1623208423972
-type:MARKET
-sign:b452640c21a2c9eaec30d24a9bce1a9660d1fb9d07ccc0d623a2a4fca0940095
-
-```
-
-t(:auth_para_construct3)
-
-<aside class="notice">
-t(:auth_aside_signature)
-</aside>
-
-<!--
-### Examples of the Signature Algorithm
-
-* [C#](https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/example/Encryption.cs)
-* [Python](https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/example/Encryption.py)
-* [C++](https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/example/Encryption.cpp)
-* [Go](https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/example/Encryption.go)
-* [PHP](https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/example/Encryption.php)
--->
-
-
-<script>
-function copyStringToClipboard (endpoint) {
-  var str = document.getElementById(endpoint).innerText;
-  // remove whitespace
-  var str = str.replace(/ /g,"");
-  // Create new element
-  var el = document.createElement("textarea");
-  // Set value (string to be copied)
-  el.value = str;
-  // Set non-editable to avoid focus and move outside of view
-  el.setAttribute("readonly", "");
-  el.style = {position: "absolute", left: "-9999px"};
-  document.body.appendChild(el);
-  // Select text inside element
-  el.select();
-  // Copy text to clipboard
-  document.execCommand("copy");
-  // Remove temporary element
-  document.body.removeChild(el);
+{
+    "from_account_type": "SPOT",
+    "to_account_type": "CONTRACT",
+    "amount": "0.01",
+    "coin": "USDT",
+    "transfer_id": "11ff9b44-2d5d-4293-913d-4597c9ad2170",
+    "sign": "{{signature}}",
+    "timestamp": "{{timestamp}}",
+    "api_key": "{{bybit-api-key}}",
+    "recv_window": "50000"
 }
-</script>
