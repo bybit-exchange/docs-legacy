@@ -809,7 +809,7 @@ clipboard.on('error', function(e) {
 <p><ul class="bybit-community"> <li><img src="../images/help_favicon-06f791dd.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> </ul></p>
 <h1 id='t-changelog'>Changelog</h1><h2 id='2021-08-26'>2021-08-26</h2><h3 id='rest-api'>REST API</h3>
 <ul>
-<li>Spot Transfer API released!</li>
+<li>Asset Transfer API released!</li>
 </ul>
 <h1 id='t-authentication'>Authentication</h1>
 <aside class="notice">
@@ -881,65 +881,29 @@ Please make sure that the timestamp parameter adheres to the following rule: ser
 <p>Different requests need different message formats. Message format for <b>GET</b> requests:
 </p>
 </blockquote>
-<div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/account_asset/v1/order?api_key=q1ksyOX2T0G2SkK8nu&amp;qty=100&amp;recvWindow=999999999&amp;side=BUY&amp;symbol=BTCUSDT&amp;timestamp=1623208423972&amp;type=MARKET&amp;sign=b452640c21a2c9eaec30d24a9bce1a9660d1fb9d07ccc0d623a2a4fca0940095</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/asset/v1/private/transfer/list?api_key=q1ksyOX2T0G2SkK8nu&amp;recvWindow=5000&amp;timestamp=1623208423972&amp;sign=b452640c21a2c9eaec30d24a9bce1a9660d1fb9d07ccc0d623a2a4fca0940095</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api-testnet.bybit.com</span>
 </code></pre></div>
 <blockquote>
 <p>Message format for <b>POST</b> requests:
 </p>
 </blockquote>
-<div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/account_asset/v1/order</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/asset/v1/private/transfer</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api-testnet.bybit.com</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-unlencoded</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
-api_key:q1ksyOX2T0G2SkK8nu
-qty:100
-recvWindow:999999999
-side:BUY
-symbol:BTCUSDT
-timestamp:1623208423972
-type:MARKET
-sign:b452640c21a2c9eaec30d24a9bce1a9660d1fb9d07ccc0d623a2a4fca0940095
-
-</code></pre></div>
-<p><p>3. Append the sign parameter to the end of the parameters string, and send the HTTP request. Note that the message format for GET and POST requests is different. Please refer to the examples.</p></p>
-
-<aside class="notice">
-Example signature algorithms can be found <a href="https://github.com/bybit-exchange/api-connectors/tree/master/encryption_example">here</a>.
-</aside>
-
-<!--
-### Examples of the Signature Algorithm
-
-* [C#](https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/example/Encryption.cs)
-* [Python](https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/example/Encryption.py)
-* [C++](https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/example/Encryption.cpp)
-* [Go](https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/example/Encryption.go)
-* [PHP](https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/example/Encryption.php)
--->
-
-<script>
-function copyStringToClipboard (endpoint) {
-  var str = document.getElementById(endpoint).innerText;
-  // remove whitespace
-  var str = str.replace(/ /g,"");
-  // Create new element
-  var el = document.createElementranslation missing: en.textarea;
-  // Set value (string to be copied)
-  el.value = str;
-  // Set non-editable to avoid focus and move outside of view
-  el.setAttribute("readonly", "");
-  el.style = {position: "absolute", left: "-9999px"};
-  document.body.appendChild(el);
-  // Select text inside element
-  el.select();
-  // Copy text to clipboard
-  document.execCommand("copy");
-  // Remove temporary element
-  document.body.removeChild(el);
-}
-</script>
-<h1 id='t-transfer_api'>Transfer Data Endpoints</h1>
+<span class="p">{</span><span class="w">
+    </span><span class="nl">"from_account_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SPOT"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"to_account_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONTRACT"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.01"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"coin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"transfer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11ff9b44-2d5d-4293-913d-4597c9ad2170"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"sign"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{{signature}}"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{{timestamp}}"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{{bybit-api-key}}"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"recv_window"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50000"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h1 id='t-transfer_api'>Transfer Data Endpoints</h1>
 <p>The following API data endpoints require authentication.</p>
 <h3 id='t-transfer'>Create Internal Transfer</h3>
 <blockquote>
@@ -1849,7 +1813,7 @@ A subaccount can only be attributed to a parent account.
             window.location=currentUrl.replace(/\/((?:testnet\/)?inverse)/,"/zh-cn/$1");
         } else if(currentUrl.indexOf("spot") > -1) {
           window.location=currentUrl.replace(/\/((?:testnet\/)?spot)/,"/zh-cn/$1");
-        }else if{currentUrl.indexOf("account_asset") > -1) {
+        }else if(currentUrl.indexOf("account_asset") > -1) {
           window.location=currentUrl.replace(/\/((?:testnet\/)?account_asset)/,"/zh-cn/$1");
         } else {
           window.location=currentUrl.replace(/\/((?:testnet\/)?linear)/,"/zh-cn/$1");
