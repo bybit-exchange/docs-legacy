@@ -818,9 +818,6 @@
                   <li>
                     <a href="#t-spot_understandingratelimits" class="toc-h2 toc-link" data-title="Rate Limits for Requests">Rate Limits for Requests</a>
                   </li>
-                  <li>
-                    <a href="#t-perendpointtransfer" class="toc-h2 toc-link" data-title="Rate Limits For Spot Transfer Endpoints">Rate Limits For Spot Transfer Endpoints</a>
-                  </li>
               </ul>
           </li>
           <li>
@@ -935,30 +932,10 @@
                   <li>
                     <a href="#kline-interval-interval" class="toc-h2 toc-link" data-title="Kline interval (interval)">Kline interval (<code>interval</code>)</a>
                   </li>
-                  <li>
-                    <a href="#account-type-fromaccounttype-toaccounttype" class="toc-h2 toc-link" data-title="Account type (fromAccountType/toAccountType)">Account type (<code>fromAccountType</code>/<code>toAccountType</code>)</a>
-                  </li>
-                  <li>
-                    <a href="#operator-type" class="toc-h2 toc-link" data-title="Operator type">Operator type</a>
-                  </li>
-                  <li>
-                    <a href="#transfer-type-type" class="toc-h2 toc-link" data-title="Transfer type (type)">Transfer type (<code>type</code>)</a>
-                  </li>
-                  <li>
-                    <a href="#transfer-status-status" class="toc-h2 toc-link" data-title="Transfer status (status)">Transfer status (<code>status</code>)</a>
-                  </li>
-                  <li>
-                    <a href="#page-direction-direction" class="toc-h2 toc-link" data-title="Page Direction (direction)">Page Direction (<code>direction</code>)</a>
-                  </li>
               </ul>
           </li>
           <li>
             <a href="#t-spot_errors" class="toc-h1 toc-link" data-title="Error Codes">Error Codes</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#t-account_asset_errors" class="toc-h2 toc-link" data-title="Transfer Error Codes">Transfer Error Codes</a>
-                  </li>
-              </ul>
           </li>
       </ul>
         <ul class="toc-footer">
@@ -3469,36 +3446,6 @@ The actual result of the cancellation request needs to be checked by order statu
 <h3 id='t-spot_understandingratelimits'>Rate Limits for Requests</h3>
 <p>For all endpoints that need authentication, the rate limit is 20 per second
 </p>
-<h3 id='t-perendpointtransfer'>Rate Limits For Spot Transfer Endpoints</h3>
-<table class="custom_table">
-    <tr>
-        <th>Limit</th>
-        <th>Path</th>
-        <th>Consume</th>
-    </tr>
-    <tr>
-        <td rowspan="2">20/min</td>
-        <td>/asset/v1/private/transfer </td>
-        <td>1 / request</td>
-    </tr>
-    <tr>
-        <td>/asset/v1/private/sub-member/transfer </td>
-        <td>1 / request</td>
-    </tr>
-    <tr>
-        <td rowspan="3">60/min</td>
-        <td>/asset/v1/private/sub-member/member-ids </td>
-        <td>1 / request</td>
-    </tr>
-    <tr>
-        <td>/asset/v1/private/transfer/list </td>
-        <td>1 / request</td>
-    </tr>
-    <tr>
-        <td>/asset/v1/private/sub-member/transfer/list </td>
-        <td>1 / request</td>
-    </tr>
-</table>
 <h1 id='t-websocket'>WebSocket Data</h1><h2 id='t-websocketauthentication'>Authentication</h2>
 <blockquote>
 <p>Apply for authentication when establishing a connection.
@@ -5288,35 +5235,6 @@ ELSE
 <li><code>1w</code> - 1 week</li>
 <li><code>1M</code> - 1 month</li>
 </ul>
-<h2 id='account-type-fromaccounttype-toaccounttype'>Account type (<code>fromAccountType</code>/<code>toAccountType</code>)</h2>
-<ul>
-<li><code>AccountType_CONTRACT</code>  </li>
-<li><code>AccountType_SPOT</code>      </li>
-<li><code>AccountType_INVESTMENT</code> - ByFi Account</li>
-</ul>
-<h2 id='operator-type'>Operator type</h2>
-<ul>
-<li><code>SYSTEM</code></li>
-<li><code>USER</code></li>
-<li><code>ADMIN</code></li>
-<li><code>AFFILIATE_USER</code></li>
-</ul>
-<h2 id='transfer-type-type'>Transfer type (<code>type</code>)</h2>
-<ul>
-<li><code>IN</code> </li>
-<li><code>OUT</code> </li>
-</ul>
-<h2 id='transfer-status-status'>Transfer status (<code>status</code>)</h2>
-<ul>
-<li><code>SUCCESS</code></li>
-<li><code>PENDING</code></li>
-<li><code>FAILED</code></li>
-</ul>
-<h2 id='page-direction-direction'>Page Direction (<code>direction</code>)</h2>
-<ul>
-<li><code>Prev</code></li>
-<li><code>Next</code></li>
-</ul>
 <h1 id='t-spot_errors'>Error Codes</h1>
 <p>Bybit API uses the following HTTP and error codes <span>:</span></p>
 
@@ -5577,104 +5495,6 @@ ELSE
 <tr>
 <td>2016</td>
 <td>Trading window not open yet for current pair.</td>
-</tr>
-</tbody></table>
-<h2 id='t-account_asset_errors'>Transfer Error Codes</h2>
-<p>Bybit API uses the following HTTP and error codes <span>:</span></p>
-
-<table><thead>
-<tr>
-<th>HTTP Code</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>200</td>
-<td>Request is valid</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Access denied</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Request path not found</td>
-</tr>
-</tbody></table>
-
-<table><thead>
-<tr>
-<th>Error Code</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>0</td>
-<td>SUCCESS</td>
-</tr>
-<tr>
-<td>10001</td>
-<td>ParamErr</td>
-</tr>
-<tr>
-<td>10016</td>
-<td>SvcErr</td>
-</tr>
-<tr>
-<td>38000</td>
-<td>Processing</td>
-</tr>
-<tr>
-<td>38001</td>
-<td>AvailableBalanceRunningLow</td>
-</tr>
-<tr>
-<td>38002</td>
-<td>CannotBeTransfer</td>
-</tr>
-<tr>
-<td>90001</td>
-<td>TransferAmountLessThanZero</td>
-</tr>
-<tr>
-<td>90002</td>
-<td>TransferAmountScaleMore</td>
-</tr>
-<tr>
-<td>90003</td>
-<td>TransferLTVCheckError</td>
-</tr>
-<tr>
-<td>90004</td>
-<td>AccountNotFound</td>
-</tr>
-<tr>
-<td>90005</td>
-<td>AccountNotFound</td>
-</tr>
-<tr>
-<td>90006</td>
-<td>QueryTransferError</td>
-</tr>
-<tr>
-<td>90007</td>
-<td>QuerySubMemberTransferError</td>
-</tr>
-<tr>
-<td>90008</td>
-<td>QueryTransferIDRedisError</td>
-</tr>
-<tr>
-<td>90009</td>
-<td>TransferIDExist</td>
-</tr>
-<tr>
-<td>90010</td>
-<td>AccountTypeError</td>
-</tr>
-<tr>
-<td>90011</td>
-<td>GetSubMemberRelationError</td>
 </tr>
 </tbody></table>
 
