@@ -141,7 +141,7 @@ zh-cn:
   row_comment_stopOrderPrice: 条件委托执行价格。如果条件委托是限价单，则price为必传字段
   row_comment_basePrice: 当前市价。用于和stop_px值进行比较，确定当前条件委托是看空到<code>stop_px</code>时触发还是看多到stop_px触发。主要是用来标识当前条件单预期的方向
   row_comment_stopPx: 触发价格
-  row_comment_timeInForce: 执行策略
+  row_comment_timeInForce: <a href="https://help.bybit.com/hc/zh-cn/articles/360039749233-%E4%BB%80%E4%B9%88%E6%98%AF%E8%AE%A2%E5%8D%95%E6%89%A7%E8%A1%8C%E7%AD%96%E7%95%A5-TIF-GTC-FOK-IOC-">执行策略</a>
   row_comment_triggerBy: 触发价格类型. 默认为最新市价
   row_comment_tp_size: 在部分止盈止损模式下，止盈合约数量
   row_comment_sl_size: 在部分止盈止损模式下，止损合约数量
@@ -987,6 +987,8 @@ zh-cn:
     方法1: 建立连接时附带验证信息.
   websocket_codequote_auth2: |
     方法2: 建立连接后发送auth请求验证.
+  websocket_codequote_auth_spot: |
+    建立连接后发送auth请求验证
   websocket_para_endpoint: |
     Websocket服务器地址:
     <ul>
@@ -1053,6 +1055,7 @@ zh-cn:
   subscribe: 订阅方式
   ### Understanding Websocket Filters
   websocketfilters: Websocket订阅方式
+  websocketunfilters: Websocket取消订阅方式
   websocket_codequote_filters1: 直接订阅
   websocket_codequote_filters2: 通过分隔符来订阅多个topic
   websocket_codequote_filters_linear: 订阅多个topic
@@ -2059,7 +2062,6 @@ zh-cn:
 
   spotFastCancelTips: 此接口只提交取消请求，实际取消结果需要通过订单状态，撮合状态等接口来确认。
 
-  row_parameter_type: <a href="#type-type">type</a>
   row_parameter_timeInForce: <a href="#timeinforce-timeinforce">timeInForce</a>
 
   #spot_ws_v1
@@ -2124,24 +2126,8 @@ zh-cn:
   spot_websocket_ticker_desc_v1: 按Symbol逐秒刷新的24小时完整ticker信息。
   spot_websocket_kline_v1: K线/蜡烛图
   spot_websocket_kline_desc_v1: |
-    <p>K线stream逐秒推送所请求的K线种类(最新一根K线)的更新</p>
-    <p>订阅Kline需要提供间隔参数，最短为分钟线，最长为月线。支持以下间隔:</p>
-    <p>m -> 分钟; h -> 小时; d -> 天; w -> 周; M -> 月</p>
-      <ul>
-      <li>1m</li>
-      <li>3m</li>
-      <li>5m</li>
-      <li>15m</li>
-      <li>30m</li>
-      <li>1h</li>
-      <li>2h</li>
-      <li>4h</li>
-      <li>6h</li>
-      <li>12h</li>
-      <li>1d</li>
-      <li>1w</li>
-      <li>1M</li>
-      </ul>
+    <p>K线数据.</p>
+    <p>订阅不同的Kline时间间隔; 一分钟K线<code>kline_1m</code>, 一小时K线<code>kline_1h</code> etc.  可选的时间间隔请点击<a href="#kline-interval-interval">这里</a>.</p>
 
   spot_broker_info: brokerinfo数据返回
   spot_websocket_orderbook_v1: 订单簿(全量深度)
@@ -2181,8 +2167,11 @@ zh-cn:
   spot_websocket_subscribe_desc: |
     <p>建立连接后, 可以通过发送JSON请求来订阅topic. 请求格式如下:</p>
     <p>ws.send('{"symbol":"BTCUSDT","topic":"trade","event":"sub","params":{"binary":false}}');</p>
-    <p>支持多币种，用','隔开</p>
+    <p>支持多币种，用','隔开(V2 不适用)</p>
     <p>ws.send('{"symbol":"BTCUSDT,ETHUSDT","topic":"trade","event":"sub","params":{"binary":false}}');</p>
+  spot_websocket_unsubscribe_desc: |
+    <p>订阅成功后，可以通过发送JSON请求来取消订阅. 请求格式如下:</p>
+    <p>ws.send('{"symbol":"BTCUSDT","topic":"trade","event":"cancel","params":{"binary":false}}');</p>
 
   #用户
   spot_websocket_user_account: 账户变更
@@ -2190,6 +2179,10 @@ zh-cn:
   spot_websocket_user_order: 订单更新
   spot_websocket_user_order_desc: 订单通过executionReport事件进行更新。详细说明信息请查看这里。通过将Z除以z可以找到平均价格。
   spot_websocket_ticket_info: TicketInfo
+  outboundAccountInfo_desc: 账户信息推送
+  executionReport_desc: 订单信息推送. Z/z 等于成交均价
+  ticketInfo_para: 成交信息推送
+  spot_public_websocket_frequency_realtime: 实时推送
 
   #spot_ws_v2
   spot_websocket_ticker_v2: 订单簿的Ticker

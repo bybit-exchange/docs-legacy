@@ -96,7 +96,9 @@ ws.send('{"symbol":"BTCUSDT","topic":"trade","event":"sub","params":{"binary":fa
 // Example: Subscribing to the trade data for BTCUSDT and ETHUSDT
 ws.send('{"symbol":"BTCUSDT,ETHUSDT","topic":"trade","event":"sub","params":{"binary":false}}');
 ```
+### t(:websocketunfilters)
 
+t(:spot_websocket_unsubscribe_desc)
 
 ## t(:websocketresponse)
 > t(:websocket_codequote_response)
@@ -165,11 +167,11 @@ t(:spot_public_websocket_frequency_300)
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| data > v | string | t(:spot_transactId) |
-| data > t | string | t(:spot_time) |
-| data > p | string | t(:spot_price)|
-| data > q | boolean | t(:spot_quantity) |
-| data > m | boolean | t(:spot_sMessage) |
+| v | string | t(:spot_transactId) |
+| t | string | t(:spot_time) |
+| p | string | t(:spot_price)|
+| q | boolean | t(:spot_quantity) |
+| m | boolean | t(:spot_sMessage) |
 | f | boolean | t(:spot_first) |
 
 
@@ -220,17 +222,17 @@ t(:spot_public_websocket_frequency_300)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| data > t | number | t(:spot_timestamp) |
-| data > s | string | t(:spot_symbol) |
-| data > sn | string | t(:spot_symbol) |
-| data > c | string | t(:spot_close)|
-| data > h | string | t(:spot_high)|
-| data > l | string | t(:spot_low)|
-| data > o | string | t(:spot_open)|
-| data > v | string | t(:spot_volume)|
-| data > qv | string | t(:spot_quote_volume)|
-| data > m | string | t(:spot_gains)|
-| data > e | number | t(:spotExchangeId)|
+| t | number | t(:spot_timestamp) |
+| s | string | t(:spot_symbol) |
+| sn | string | t(:spot_symbol) |
+| c | string | t(:spot_close)|
+| h | string | t(:spot_high)|
+| l | string | t(:spot_low)|
+| o | string | t(:spot_open)|
+| v | string | t(:spot_volume)|
+| qv | string | t(:spot_quote_volume)|
+| m | string | t(:spot_gains)|
+| e | number | t(:spotExchangeId)|
 | f | boolean | t(:spot_first) |
 
 
@@ -714,6 +716,7 @@ t(:spot_public_websocket_frequency_250)
 | symbol | string | t(:spot_symbol) |
 | binary | string | t(:spot_binary) |
 | symbolName | string | t(:spot_symbol) |
+| v | string | t(:spot_transactId) |
 | t | number | t(:spot_timestamp) |
 | p | string | t(:spot_price) |
 | q | string | t(:spot_quantity)|
@@ -987,7 +990,7 @@ t(:spot_public_websocket_frequency_realtime)
 | q | string | t(:spot_quantity) |
 | t | string | t(:spot_timestamp) |
 | p | string | t(:spot_price) |
-| T | string | t(:spot_ticket_id) |
+| T | string | t(:spot_transactId) |
 | o | string | t(:spot_order_id) |
 | c | string | t(:spot_order_client_id) |
 | O | string | t(:spot_match_order_id) |
