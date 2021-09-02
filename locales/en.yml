@@ -1158,6 +1158,7 @@ en:
   subscribe: How to Subscribe to Topics
   ### Understanding Websocket Filters
   websocketfilters: Understanding Websocket Filters
+  websocketunfilters: Understanding Websocket Filters unsubscription
   websocket_codequote_filters1: How to subscribe with a filter
   websocket_codequote_filters2: How to subscribe with multiple filters
   websocket_codequote_filters3: How to subscribe without filters
@@ -2342,8 +2343,11 @@ en:
   spot_websocket_subscribe_desc: |
     <p>After establishing the connection, you can subscribe to a new topic by sending a JSON request. The request formats are as follows:</p>
     <p>ws.send('{"symbol":"BTCUSDT","topic":"trade","event":"sub","params":{"binary":false}}');</p>
-    <p> Multiple assets supported, separated by ','.</p>
+    <p> Multiple assets supported, separated by ',' (Not applicable for V2).</p>
     <p>ws.send('{"symbol":"BTCUSDT,ETHUSDT","topic":"trade","event":"sub","params":{"binary":false}}');</p>
+  spot_websocket_unsubscribe_desc: |
+    <p>After successful subscription, you can unsubscribe by sending a JSON request. The request formats are as follows:</p>
+    <p>ws.send('{"symbol":"BTCUSDT","topic":"trade","event":"cancel","params":{"binary":false}}');</p>
 
   #user
   spot_private_topics_auth_sub: Sending the <a href="#t-websocketauthentication">authentication message</a> automatically subscribes you to all 3 private topics.
