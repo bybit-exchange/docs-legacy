@@ -514,17 +514,26 @@ while True:
         "settle_fee_rate_e8":0,
         "contract_status":"Trading",
         "system_subsidy_e8":0,
+        "last_price":500340000,
         "last_price_e4":500340000,
         "last_tick_direction":"MinusTick",
+        "bid1_price":400025000,
         "bid1_price_e4":400025000,
+        "ask1_price":475450000,
         "ask1_price_e4":475450000,
+        "prev_price_24h":467820000,
         "prev_price_24h_e4":467820000,
         "price_24h_pcnt_e6":90205,
+        "high_price_24h":573420000,
         "high_price_24h_e4":573420000,
+        "low_price_24h":510020000,
         "low_price_24h_e4":510020000,
+        "prev_price_1h":543920000,
         "prev_price_1h_e4":543920000,
         "price_1h_pcnt_e6":-62325,
+        "mark_price":507019537,
         "mark_price_e4":507019537,
+        "index_price":579821900,
         "index_price_e4":579821900,
         "open_interest":0,
         "open_value_e8":0,
@@ -535,6 +544,7 @@ while True:
         "fair_basis_e8":-793519000000,
         "fair_basis_rate_e8":-13685564,
         "basis_in_year_e8":-412313782,
+        "expect_price":0,
         "expect_price_e4":0,
         "cross_seq":8761176,
         "created_at_e9":0,
@@ -558,6 +568,7 @@ while True:
                 "id": 1,
                 "symbol": "BTCUSDH21",
                 "prev_price_24h_e4": 81565000,
+                "prev_price_24h": 81565000,
                 "price_24h_pcnt_e6": -4904,
                 "open_value_e8": 2000479681106,
                 "total_turnover_e8": 2029370495672976,
@@ -599,6 +610,13 @@ t(:websocket_aside_instrumentInfo2)
 |price_1h_pcnt_e6 |integer |t(:row_comment_resp_price_1h_pcnt_e6)  |
 |mark_price_e4 |integer |t(:row_comment_resp_mark_price_e4)  |
 |index_price_e4 |integer |t(:row_comment_resp_index_price_e4)  |
+|last_price |integer |t(:row_comment_resp_last_price)  |
+|prev_price_24h |integer |t(:row_comment_resp_prev_price_24h)  |
+|high_price_24h |integer |t(:row_comment_resp_high_price_24h)  |
+|low_price_24h |integer |t(:row_comment_resp_low_price_24h)  |
+|prev_price_1h |integer |t(:row_comment_resp_prev_price_1h)  |
+|mark_price |integer |t(:row_comment_resp_mark_price)  |
+|index_price |integer |t(:row_comment_resp_index_price)  |
 |open_interest |integer |t(:row_comment_resp_open_interest). t(:row_comment_slow_update)  |
 |open_value_e8 |integer |t(:row_comment_resp_open_value_e8). t(:row_comment_slow_update)  |
 |total_turnover_e8 |integer |t(:row_comment_resp_total_turnover_e8)  |

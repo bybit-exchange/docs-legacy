@@ -587,6 +587,13 @@ t(:websocket_aside_instrumentInfo2)
 |price_1h_pcnt_e6 |integer |t(:row_comment_resp_price_1h_pcnt_e6)  |
 |mark_price_e4 |integer |t(:row_comment_resp_mark_price_e4)  |
 |index_price_e4 |integer |t(:row_comment_resp_index_price_e4)  |
+|last_price |integer |t(:row_comment_resp_last_price)  |
+|prev_price_24h |integer |t(:row_comment_resp_prev_price_24h)  |
+|high_price_24h |integer |t(:row_comment_resp_high_price_24h)  |
+|low_price_24h |integer |t(:row_comment_resp_low_price_24h)  |
+|prev_price_1h |integer |t(:row_comment_resp_prev_price_1h)  |
+|mark_price |integer |t(:row_comment_resp_mark_price)  |
+|index_price |integer |t(:row_comment_resp_index_price)  |
 |open_interest |integer |t(:row_comment_resp_open_interest). t(:row_comment_slow_update)  |
 |open_value_e8 |integer |t(:row_comment_resp_open_value_e8). t(:row_comment_slow_update)  |
 |total_turnover_e8 |integer |t(:row_comment_resp_total_turnover_e8)  |
