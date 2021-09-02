@@ -496,7 +496,7 @@ while True:
 
 ```javascript
 {
-    "topic":"instrument_info.100ms.BTCUSDH21",
+    "topic":"instrument_info.100ms.BTCUSD",
     "type":"snapshot",
      "data": {
          "id": 1,
@@ -578,7 +578,7 @@ t(:websocket_aside_instrumentInfo2)
 |:----- |:-----|----- |
 |symbol|string |t(:row_comment_symbol)  |
 |last_price_e4 |integer |t(:row_comment_resp_last_price_e4)  |
-|row_parameter_tick_direction |string |t(:row_comment_position_tick_direction)  |
+|t(:row_parameter_tick_direction) |string |t(:row_comment_position_tick_direction)  |
 |prev_price_24h_e4 |integer |t(:row_comment_resp_prev_price_24h_e4)  |
 |price_24h_pcnt_e6 |integer |t(:row_comment_resp_price_24h_pcnt_e4)  |
 |high_price_24h_e4 |integer |t(:row_comment_resp_high_price_24h_e4)  |

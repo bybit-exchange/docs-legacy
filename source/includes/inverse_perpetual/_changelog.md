@@ -1,9 +1,9 @@
 # t(:changelog)   
 
 ## 2021-09-02
-### REST API
+### Websocket API
 - [t(:websocketinstrumentInfo)](#t-websocketinstrumentinfo) [t(:changelog_update)]
-  - t(:restapi_update_20210902)
+  t(:restapi_update_20210902)
 
 ## 2021-08-23
 ### REST API
