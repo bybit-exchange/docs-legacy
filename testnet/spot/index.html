@@ -835,6 +835,9 @@
                           <li>
                             <a href="#t-websocketfilters" class="toc-h3 toc-link" data-title="Understanding Websocket Filters">Understanding Websocket Filters</a>
                           </li>
+                          <li>
+                            <a href="#t-websocketunfilters" class="toc-h3 toc-link" data-title="Understanding Websocket Filters unsubscription">Understanding Websocket Filters unsubscription</a>
+                          </li>
                       </ul>
                   </li>
                   <li>
@@ -3559,7 +3562,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 
 <p><p>After establishing the connection, you can subscribe to a new topic by sending a JSON request. The request formats are as follows:</p>
 <p>ws.send('{"symbol":"BTCUSDT","topic":"trade","event":"sub","params":{"binary":false}}');</p>
-<p> Multiple assets supported, separated by ','.</p>
+<p> Multiple assets supported, separated by ',' (Not applicable for V2).</p>
 <p>ws.send('{"symbol":"BTCUSDT,ETHUSDT","topic":"trade","event":"sub","params":{"binary":false}}');</p>
 </p>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Subscribing to the trade data for BTCUSDT</span>
@@ -3570,7 +3573,11 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Example: Subscribing to the trade data for BTCUSDT and ETHUSDT</span>
 <span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"symbol":"BTCUSDT,ETHUSDT","topic":"trade","event":"sub","params":{"binary":false}}</span><span class="dl">'</span><span class="p">);</span>
-</code></pre></div><h2 id='t-websocketresponse'>Understanding Subscription Response</h2>
+</code></pre></div><h3 id='t-websocketunfilters'>Understanding Websocket Filters unsubscription</h3>
+<p><p>After successful subscription, you can unsubscribe by sending a JSON request. The request formats are as follows:</p>
+<p>ws.send('{"symbol":"BTCUSDT","topic":"trade","event":"cancel","params":{"binary":false}}');</p>
+</p>
+<h2 id='t-websocketresponse'>Understanding Subscription Response</h2>
 <blockquote>
 <p>Subscription Response</p>
 </blockquote>
@@ -3641,27 +3648,27 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">data &gt; v</td>
+<td style="text-align: left">v</td>
 <td style="text-align: left">string</td>
 <td>Transaction ID</td>
 </tr>
 <tr>
-<td style="text-align: left">data &gt; t</td>
+<td style="text-align: left">t</td>
 <td style="text-align: left">string</td>
 <td>Timestamp</td>
 </tr>
 <tr>
-<td style="text-align: left">data &gt; p</td>
+<td style="text-align: left">p</td>
 <td style="text-align: left">string</td>
 <td>Price</td>
 </tr>
 <tr>
-<td style="text-align: left">data &gt; q</td>
+<td style="text-align: left">q</td>
 <td style="text-align: left">boolean</td>
 <td>Quantity</td>
 </tr>
 <tr>
-<td style="text-align: left">data &gt; m</td>
+<td style="text-align: left">m</td>
 <td style="text-align: left">boolean</td>
 <td>True indicates buy order, false indicates sell order</td>
 </tr>
@@ -3724,57 +3731,57 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">data &gt; t</td>
+<td style="text-align: left">t</td>
 <td style="text-align: left">number</td>
 <td>Timestamp</td>
 </tr>
 <tr>
-<td style="text-align: left">data &gt; s</td>
+<td style="text-align: left">s</td>
 <td style="text-align: left">string</td>
 <td>Trading pair</td>
 </tr>
 <tr>
-<td style="text-align: left">data &gt; sn</td>
+<td style="text-align: left">sn</td>
 <td style="text-align: left">string</td>
 <td>Trading pair</td>
 </tr>
 <tr>
-<td style="text-align: left">data &gt; c</td>
+<td style="text-align: left">c</td>
 <td style="text-align: left">string</td>
 <td>Close price</td>
 </tr>
 <tr>
-<td style="text-align: left">data &gt; h</td>
+<td style="text-align: left">h</td>
 <td style="text-align: left">string</td>
 <td>High price</td>
 </tr>
 <tr>
-<td style="text-align: left">data &gt; l</td>
+<td style="text-align: left">l</td>
 <td style="text-align: left">string</td>
 <td>Low price</td>
 </tr>
 <tr>
-<td style="text-align: left">data &gt; o</td>
+<td style="text-align: left">o</td>
 <td style="text-align: left">string</td>
 <td>Open price</td>
 </tr>
 <tr>
-<td style="text-align: left">data &gt; v</td>
+<td style="text-align: left">v</td>
 <td style="text-align: left">string</td>
 <td>Trading volume</td>
 </tr>
 <tr>
-<td style="text-align: left">data &gt; qv</td>
+<td style="text-align: left">qv</td>
 <td style="text-align: left">string</td>
 <td>Trading quote volume</td>
 </tr>
 <tr>
-<td style="text-align: left">data &gt; m</td>
+<td style="text-align: left">m</td>
 <td style="text-align: left">string</td>
 <td>Change</td>
 </tr>
 <tr>
-<td style="text-align: left">data &gt; e</td>
+<td style="text-align: left">e</td>
 <td style="text-align: left">number</td>
 <td>Exchange ID</td>
 </tr>
@@ -4542,6 +4549,11 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <td>Trading pair</td>
 </tr>
 <tr>
+<td style="text-align: left">v</td>
+<td style="text-align: left">string</td>
+<td>Transaction ID</td>
+</tr>
+<tr>
 <td style="text-align: left">t</td>
 <td style="text-align: left">number</td>
 <td>Timestamp</td>
@@ -5089,7 +5101,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <tr>
 <td style="text-align: left">T</td>
 <td style="text-align: left">string</td>
-<td>Ticket ID</td>
+<td>Transaction ID</td>
 </tr>
 <tr>
 <td style="text-align: left">o</td>
