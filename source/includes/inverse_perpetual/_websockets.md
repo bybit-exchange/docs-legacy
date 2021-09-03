@@ -496,23 +496,32 @@ while True:
 
 ```javascript
 {
-    "topic":"instrument_info.100ms.BTCUSDH21",
+    "topic":"instrument_info.100ms.BTCUSD",
     "type":"snapshot",
      "data": {
-         "id": 1,
+   "id": 1,
          "symbol": "BTCUSD",                           //instrument name
          "last_price_e4": 81165000,                    //the latest price
+         "last_price": "81165000",  
          "bid1_price_e4":400025000,                    // best bid price
+         "bid1_price":"400025000",
          "ask1_price_e4":475450000,                    // best ask price
+         "ask1_price":"475450000",
          "last_tick_direction": "ZeroPlusTick",        //the direction of last tick:PlusTick,ZeroPlusTick,MinusTick,ZeroMinusTick
          "prev_price_24h_e4": 81585000,                //the price of prev 24h
+         "prev_price_24h": "81585000", 
          "price_24h_pcnt_e6": -5148,                   //the current last price percentage change from prev 24h price
          "high_price_24h_e4": 82900000,                //the highest price of prev 24h
+         "high_price_24h": "82900000",
          "low_price_24h_e4": 79655000,                 //the lowest price of prev 24h
+         "low_price_24h": "79655000",
          "prev_price_1h_e4": 81395000,                 //the price of prev 1h
+         "prev_price_1h": "81395000", 
          "price_1h_pcnt_e6": -2825,                    //the current last price percentage change from prev 1h price
          "mark_price_e4": 81178500,                    //mark price
+         "mark_price": "81178500", 
          "index_price_e4": 81172800,                   //index price
+         "index_price": "81172800",
          "open_interest": 154418471,                   //open interest quantity - Attention, the update is not immediate - slowest update is 1 minute
          "open_value_e8": 1997561103030,               //open value quantity - Attention, the update is not immediate - the slowest update is 1 minute
          "total_turnover_e8": 2029370141961401,        //total turnover
@@ -526,8 +535,7 @@ while True:
          "updated_at": "2020-01-12T18:25:16Z",         
          "next_funding_time": "2020-01-13T00:00:00Z",  //next funding time
                                                        //the rest time to settle funding fee
-         "countdown_hour": 6                           //the remaining time to settle the funding fee
-     },
+         "countdown_hour": 6                           //the remaining time to settle the funding fee     },
     "cross_seq":9267002,
     "timestamp_e6":1615794861826248
 }
@@ -546,6 +554,7 @@ while True:
                 "id": 1,
                 "symbol": "BTCUSD",
                 "prev_price_24h_e4": 81565000,
+                "prev_price_24h": "81565000",
                 "price_24h_pcnt_e6": -4904,
                 "open_value_e8": 2000479681106,
                 "total_turnover_e8": 2029370495672976,
@@ -578,7 +587,7 @@ t(:websocket_aside_instrumentInfo2)
 |:----- |:-----|----- |
 |symbol|string |t(:row_comment_symbol)  |
 |last_price_e4 |integer |t(:row_comment_resp_last_price_e4)  |
-|row_parameter_tick_direction |string |t(:row_comment_position_tick_direction)  |
+|t(:row_parameter_tick_direction) |string |t(:row_comment_position_tick_direction)  |
 |prev_price_24h_e4 |integer |t(:row_comment_resp_prev_price_24h_e4)  |
 |price_24h_pcnt_e6 |integer |t(:row_comment_resp_price_24h_pcnt_e4)  |
 |high_price_24h_e4 |integer |t(:row_comment_resp_high_price_24h_e4)  |
@@ -587,6 +596,13 @@ t(:websocket_aside_instrumentInfo2)
 |price_1h_pcnt_e6 |integer |t(:row_comment_resp_price_1h_pcnt_e6)  |
 |mark_price_e4 |integer |t(:row_comment_resp_mark_price_e4)  |
 |index_price_e4 |integer |t(:row_comment_resp_index_price_e4)  |
+|last_price |integer |t(:row_comment_resp_last_price)  |
+|prev_price_24h |integer |t(:row_comment_resp_prev_price_24h)  |
+|high_price_24h |integer |t(:row_comment_resp_high_price_24h)  |
+|low_price_24h |integer |t(:row_comment_resp_low_price_24h)  |
+|prev_price_1h |integer |t(:row_comment_resp_prev_price_1h)  |
+|mark_price |integer |t(:row_comment_resp_mark_price)  |
+|index_price |integer |t(:row_comment_resp_index_price)  |
 |open_interest |integer |t(:row_comment_resp_open_interest). t(:row_comment_slow_update)  |
 |open_value_e8 |integer |t(:row_comment_resp_open_value_e8). t(:row_comment_slow_update)  |
 |total_turnover_e8 |integer |t(:row_comment_resp_total_turnover_e8)  |

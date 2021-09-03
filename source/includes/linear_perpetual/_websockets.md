@@ -430,32 +430,42 @@ while True:
   "topic": "instrument_info.100ms.BTCUSDT",
   "type": "snapshot",
   "data": {
-    "id": 1,
-    "symbol": "BTCUSDT",
-    "last_price_e4": "322955000",
-    "last_tick_direction": "ZeroPlusTick",
-    "prev_price_24h_e4": "331960000",
-    "price_24h_pcnt_e6": "-27126",
-    "high_price_24h_e4": "333120000",
-    "low_price_24h_e4": "315940000",
-    "prev_price_1h_e4": "319490000",
-    "price_1h_pcnt_e6": "10845",
-    "mark_price_e4": "323133000",
-    "index_price_e4": "323106800",
-    "open_interest_e8": "1430451600000",
-    "total_turnover_e8": "5297934997553700000",
-    "turnover_24h_e8": "243143978993099700",
-    "total_volume_e8": "1184936057899924",
-    "volume_24h_e8": "7511238100000",
-    "funding_rate_e6": "100",
-    "predicted_funding_rate_e6": "-15",
-    "cross_seq": "6501157651",
-    "created_at": "1970-01-01T00:00:00.000Z",
-    "updated_at": "2021-07-14T09:32:10.000Z",
-    "next_funding_time": "2021-07-14T16:00:00Z",
-    "count_down_hour": "7",
-    "bid1_price_e4": "322950000",
-    "ask1_price_e4": "322955000"
+   "id": 1,
+       "symbol": "BTCUSDT",
+       "last_price_e4": "322955000",
+       "last_price": "322955000",
+       "last_tick_direction": "ZeroPlusTick",
+       "prev_price_24h_e4": "331960000",
+       "prev_price_24h": "331960000",
+       "price_24h_pcnt_e6": "-27126",
+       "high_price_24h_e4": "333120000",
+       "high_price_24h": "333120000",
+       "low_price_24h_e4": "315940000",
+       "low_price_24h": "315940000",
+       "prev_price_1h_e4": "319490000",
+       "prev_price_1h": "319490000",
+       "price_1h_pcnt_e6": "10845",
+       "mark_price_e4": "323133000",
+       "mark_price": "323133000",
+       "index_price_e4": "323106800",
+       "index_price": "323106800",
+       "open_interest_e8": "1430451600000",
+       "total_turnover_e8": "5297934997553700000",
+       "turnover_24h_e8": "243143978993099700",
+       "total_volume_e8": "1184936057899924",
+       "volume_24h_e8": "7511238100000",
+       "funding_rate_e6": "100",
+       "predicted_funding_rate_e6": "-15",
+       "cross_seq": "6501157651",
+       "created_at": "1970-01-01T00:00:00.000Z",
+       "updated_at": "2021-07-14T09:32:10.000Z",
+       "next_funding_time": "2021-07-14T16:00:00Z",
+       "count_down_hour": "7",
+       "bid1_price_e4": "322950000",
+       "ask1_price_e4": "322955000"
+       "bid1_price": "322950000",
+       "ask1_price_e4": "322955000",
+       "ask1_price": "322955000",
   },
   "cross_seq": "6501157734",
   "timestamp_e6": "1626255131908287"
@@ -474,9 +484,11 @@ while True:
         "id": 1,
         "symbol": "BTCUSDT",
         "last_price_e4": "322950000",
+        "last_price": "322950000",
         "price_24h_pcnt_e6": "-27141",
         "price_1h_pcnt_e6": "10829",
         "index_price_e4": "323100000",
+        "index_price": "323100000",
         "total_turnover_e8": "5297935000783200000",
         "turnover_24h_e8": "243143982222599700",
         "total_volume_e8": "1184936057999924",
@@ -509,7 +521,7 @@ t(:websocket_aside_instrumentInfo2)
 |:----- |:-----|----- |
 |symbol|string |t(:row_comment_symbol)    |
 |last_price_e4 |integer |t(:row_comment_resp_last_price_e4)  |
-|row_parameter_tick_direction |string |t(:row_comment_position_tick_direction)  |
+|t(:row_parameter_tick_direction) |string |t(:row_comment_position_tick_direction)  |
 |prev_price_24h_e4 |integer |t(:row_comment_resp_prev_price_24h_e4)  |
 |price_24h_pcnt_e6 |integer |t(:row_comment_resp_price_24h_pcnt_e4)  |
 |high_price_24h_e4 |integer |t(:row_comment_resp_high_price_24h_e4)  |
@@ -518,6 +530,13 @@ t(:websocket_aside_instrumentInfo2)
 |price_1h_pcnt_e6 |integer |t(:row_comment_resp_price_1h_pcnt_e6)  |
 |mark_price_e4 |integer |t(:row_comment_resp_mark_price_e4)  |
 |index_price_e4 |integer |t(:row_comment_resp_index_price_e4)  |
+|last_price |integer |t(:row_comment_resp_last_price)  |
+|prev_price_24h |integer |t(:row_comment_resp_prev_price_24h)  |
+|high_price_24h |integer |t(:row_comment_resp_high_price_24h)  |
+|low_price_24h |integer |t(:row_comment_resp_low_price_24h)  |
+|prev_price_1h |integer |t(:row_comment_resp_prev_price_1h)  |
+|mark_price |integer |t(:row_comment_resp_mark_price)  |
+|index_price |integer |t(:row_comment_resp_index_price)  |
 |open_interest_e8|integer |t(:row_comment_resp_open_interest_e8). t(:row_comment_slow_update)  |
 |total_turnover_e8 |integer |t(:row_comment_resp_total_turnover_e8)  |
 |turnover_24h_e8 |integer |t(:row_comment_resp_turnover_24h_e8)  |
@@ -532,7 +551,8 @@ t(:websocket_aside_instrumentInfo2)
 |countdown_hour |number |t(:row_comment_resp_countdown_hour)  |
 |bid1_price_e4 |integer|t(:row_comment_bid1_price_e4)  |
 |ask1_price_e4 |integer|t(:row_comment_ask1_price_e4)  |
-
+|bid1_price |integer|t(:row_comment_bid1_price)  |
+|ask1_price |integer|t(:row_comment_ask1_price)  |
 
 ### t(:websocketkline)
 > t(:codequote_subscribe)

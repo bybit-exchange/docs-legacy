@@ -206,24 +206,24 @@ zh-cn:
   row_comment_resp_bid_price: 第一笔挂单买入价
   row_comment_resp_ask_price: 第一笔挂单卖出价
   row_comment_resp_last_price: 最新成交价
-  row_comment_resp_last_price_e4: 最新成交价 * 10^4
+  row_comment_resp_last_price_e4: （已废弃）最新成交价 * 10^4
   row_comment_resp_last_tick_direction: 价格变化方向
   row_comment_resp_prev_price_24h: 24小时前的整点市价
-  row_comment_resp_prev_price_24h_e4: 24小时前的整点市价 * 10^4
+  row_comment_resp_prev_price_24h_e4: （已废弃）24小时前的整点市价 * 10^4
   row_comment_resp_price_24h_pcnt: 市价相对24h变化百分比
   row_comment_resp_price_24h_pcnt_e4: 市价相对24h变化百分比 * 10^4
   row_comment_resp_high_price_24h: 最近 24 小时最高价
-  row_comment_resp_high_price_24h_e4: 最近 24 小时最高价 * 10^4
+  row_comment_resp_high_price_24h_e4: （已废弃）最近 24 小时最高价 * 10^4
   row_comment_resp_low_price_24h: 最近 24 小时最低价
-  row_comment_resp_low_price_24h_e4: 最近 24 小时最低价 * 10^4
+  row_comment_resp_low_price_24h_e4: （已废弃）最近 24 小时最低价 * 10^4
   row_comment_resp_prev_price_1h: 1小时前的整点市价
-  row_comment_resp_prev_price_1h_e4: 1小时前的整点市价 * 10^4
+  row_comment_resp_prev_price_1h_e4: （已废弃）1小时前的整点市价 * 10^4
   row_comment_resp_price_1h_pcnt: 市价相对1小时前变化百分比
   row_comment_resp_price_1h_pcnt_e6: 市价相对1小时前变化百分比 * 10^6
   row_comment_resp_mark_price: 标记价格
-  row_comment_resp_mark_price_e4: 标记价格 * 10^4
+  row_comment_resp_mark_price_e4: （已废弃）标记价格 * 10^4
   row_comment_resp_index_price: 指数价格
-  row_comment_resp_index_price_e4 : 指数价格 * 10^4
+  row_comment_resp_index_price_e4 : （已废弃）指数价格 * 10^4
   row_comment_resp_open_interest: 未平仓合约数量
   row_comment_resp_open_interest_e8: 未平仓合约数量* 10^8
   row_comment_slow_update: 不是实时更新，最慢更新时间是一分钟
@@ -243,8 +243,10 @@ zh-cn:
   row_comment_resp_predicted_funding_rate_e6: 预测资金费率 * 10^6
   row_comment_resp_next_funding_time: 下次结算资金费用时间
   row_comment_resp_countdown_hour: 结算资金费用剩余时间
-  row_comment_bid1_price_e4: 最佳买单价格 * 10^4
-  row_comment_ask1_price_e4: 最佳卖单价格 * 10^4
+  row_comment_bid1_price_e4: (已废弃)最佳买单价格 * 10^4
+  row_comment_ask1_price_e4: (已废弃)最佳卖单价格 * 10^4
+  row_comment_bid1_price: 最佳买单价格
+  row_comment_ask1_price: 最佳卖单价格
   row_comment_resp_delivery_fee_rate: 交割费率，仅交割合约有效
   row_comment_resp_predicted_delivery_price: 预期交割价，仅交割合约有效
   row_comment_resp_delivery_time: 交割时间，仅交割合约有效
@@ -1877,7 +1879,16 @@ zh-cn:
   restapi_update_20210823: 增加<a href="#wallet-fund-type-wallet_fund_type-type">资金记录类型描述</a>：
     <br>返还手续费赠金,保险账户划转,母子账号划转
     <br>生息券,账户划转,返现
-
+  restapi_update_20210902: |
+    <ul>
+    <li>废弃 <code>prev_price_24h_e4</code>, 推荐使用 <code>prev_price_24h</code>
+    <li>废弃 <code>high_price_24h_e4</code>, 推荐使用 <code>high_price_24h</code>
+    <li>废弃 <code>low_price_24h_e4</code>, 推荐使用 <code>low_price_24h</code>
+    <li>废弃 <code>prev_price_1h_e4</code>, 推荐使用 <code>prev_price_1h</code>
+    <li>废弃 <code>mark_price_e4</code>, 推荐使用 <code>mark_price</code>
+    <li>废弃 <code>index_price_e4</code>, 推荐使用 <code>index_price</code>
+    <li>废弃 <code>last_price_e4</code>, 推荐使用 <code>last_price</code>
+    </ul>
   markpricekline: 标记价格K线
   linear_query_mark_price_kline: 查询标记价格K线
   linear_resp_field_last_exec_price: 最近成交价格

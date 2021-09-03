@@ -211,23 +211,23 @@ en:
   row_comment_resp_bid_price: Purchase price of the first order
   row_comment_resp_ask_price: Selling price of the first order
   row_comment_resp_last_price: Latest transaction price
-  row_comment_resp_last_price_e4: Latest transaction price 10^4
+  row_comment_resp_last_price_e4: (Deprecated) Latest transaction price 10^4
   row_comment_resp_prev_price_24h: Price of 24 hours ago
-  row_comment_resp_prev_price_24h_e4: Price of 24 hours ago * 10^4
+  row_comment_resp_prev_price_24h_e4: (Deprecated) Price of 24 hours ago * 10^4
   row_comment_resp_price_24h_pcnt: Percentage change of market price relative to 24h
   row_comment_resp_price_24h_pcnt_e4: Percentage change of market price relative to 24h * 10^4
   row_comment_resp_high_price_24h: The highest price in the last 24 hours
-  row_comment_resp_high_price_24h_e4: The highest price in the last 24 hours * 10^4
+  row_comment_resp_high_price_24h_e4: (Deprecated) The highest price in the last 24 hours * 10^4
   row_comment_resp_low_price_24h: Lowest price in the last 24 hours
-  row_comment_resp_low_price_24h_e4: Lowest price in the last 24 hours * 10^4
+  row_comment_resp_low_price_24h_e4: (Deprecated) Lowest price in the last 24 hours * 10^4
   row_comment_resp_prev_price_1h: Hourly market price an hour ago
-  row_comment_resp_prev_price_1h_e4: Hourly market price an hour ago * 10^4
+  row_comment_resp_prev_price_1h_e4: (Deprecated) Hourly market price an hour ago * 10^4
   row_comment_resp_price_1h_pcnt: Percentage change of market price relative to 1 hour ago
   row_comment_resp_price_1h_pcnt_e6: Percentage change of market price relative to 1 hour ago * 10^6
   row_comment_resp_mark_price: Mark price
-  row_comment_resp_mark_price_e4: Mark price * 10^4
+  row_comment_resp_mark_price_e4: (Deprecated) Mark price * 10^4
   row_comment_resp_index_price: Index_price
-  row_comment_resp_index_price_e4: Index_price * 10^4
+  row_comment_resp_index_price_e4: (Deprecated) Index_price * 10^4
   row_comment_resp_open_interest: Open interest
   row_comment_resp_open_interest_e8: Open interest * 10^8
   row_comment_resp_open_value: Open position value
@@ -247,8 +247,10 @@ en:
   row_comment_resp_predicted_funding_rate_e6: <a href="https://help.bybit.com/hc/en-us/articles/360039261114-What-is-funding-rate-and-predicted-rate-">Predicted funding rate</a> * 10^6
   row_comment_resp_next_funding_time: Next settlement time of capital cost
   row_comment_resp_countdown_hour: Countdown of settlement capital cost
-  row_comment_bid1_price_e4: Best bid price * 10^4
-  row_comment_ask1_price_e4: Best ask price * 10^4
+  row_comment_bid1_price_e4: (Deprecated) Best bid price * 10^4
+  row_comment_ask1_price_e4: (Deprecated) Best ask price * 10^4
+  row_comment_bid1_price: Best bid price
+  row_comment_ask1_price: Best ask price
   row_comment_resp_delivery_fee_rate: Delivery fee rate of Futures contract
   row_comment_resp_predicted_delivery_price: Predicted delivery price of Futures contract
   row_comment_resp_delivery_time: Delivery time of Futures contract
@@ -2008,6 +2010,18 @@ en:
     <br>Use the <a href="#t-marginswitch">Cross/Isolated Margin Switch</a> endpoint to switch cross/isolated without modifying the cross level of leverage.
   restapi_update_20210708_1: Update <code>buy_leverage</code> and <code>sell_leverage</code> parameters to be always required
   restapi_update_20210706: Support setting <code>buy_leverage</code>, <code>sell_leverage</code> when switch from isolated margin to cross margin
+  restapi_update_20210902: |
+    <ul>
+    <li>Deprecate <code>prev_price_24h_e4</code> in favour of <code>prev_price_24h</code>
+    <li>Deprecate <code>high_price_24h_e4</code> in favour of <code>high_price_24h</code>
+    <li>Deprecate <code>low_price_24h_e4</code> in favour of <code>low_price_24h</code>
+    <li>Deprecate <code>prev_price_1h_e4</code> in favour of <code>prev_price_1h</code>
+    <li>Deprecate <code>mark_price_e4</code> in favour of <code>mark_price</code>
+    <li>Deprecate <code>index_price_e4</code> in favour of <code>index_price</code>
+    <li>Deprecate <code>last_price_e4</code> in favour of <code>last_price</code>
+    </ul>
+
+
 
   ws_update_20210202_0: Add fields <code>reduce_only</code>,<code>close_on_trigger</code>
   ws_update_20210202_1: Add field <code>close_on_trigger</code>
