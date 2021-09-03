@@ -944,7 +944,7 @@ t(:spot_public_websocket_frequency_realtime)
 | N | string | t(:spot_fee_symbol) |
 | u | boolean | t(:spot_is_normal) |
 | w | boolean | t(:spot_is_working) |
-| m | boolean | t(:sopt_is_maker) |
+| m | boolean | t(:spot_is_limit_maker) |
 | O | string | t(:spot_order_create_timestamp) |
 | Z | string | t(:spot_cumulative_trade) |
 | A | string | t(:spot_match_account_id) |
