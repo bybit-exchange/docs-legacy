@@ -693,6 +693,14 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="更新日志">更新日志</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#2021-09-03" class="toc-h2 toc-link" data-title="2021-09-03">2021-09-03</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#websocket-api" class="toc-h3 toc-link" data-title="Websocket API">Websocket API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
                     <a href="#2021-06-29" class="toc-h2 toc-link" data-title="2021-06-29">2021-06-29</a>
                       <ul class="toc-list-h3">
                           <li>
@@ -760,7 +768,7 @@
                     <a href="#2021-02-02" class="toc-h2 toc-link" data-title="2021-02-02">2021-02-02</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#websocket-api" class="toc-h3 toc-link" data-title="Websocket API">Websocket API</a>
+                            <a href="#websocket-api-2" class="toc-h3 toc-link" data-title="Websocket API">Websocket API</a>
                           </li>
                       </ul>
                   </li>
@@ -838,7 +846,7 @@
                                     <a href="#rest-api-17" class="toc-h4 toc-link" data-title="REST API">REST API</a>
                                   </li>
                                   <li>
-                                    <a href="#websocket-api-2" class="toc-h4 toc-link" data-title="Websocket API">Websocket API</a>
+                                    <a href="#websocket-api-3" class="toc-h4 toc-link" data-title="Websocket API">Websocket API</a>
                                   </li>
                               </ul>
                           </li>
@@ -897,7 +905,7 @@
                                     <a href="#rest-api-24" class="toc-h4 toc-link" data-title="REST API">REST API</a>
                                   </li>
                                   <li>
-                                    <a href="#websocket-api-3" class="toc-h4 toc-link" data-title="Websocket API">Websocket API</a>
+                                    <a href="#websocket-api-4" class="toc-h4 toc-link" data-title="Websocket API">Websocket API</a>
                                   </li>
                               </ul>
                           </li>
@@ -956,7 +964,7 @@
                                     <a href="#rest-api-31" class="toc-h4 toc-link" data-title="REST API">REST API</a>
                                   </li>
                                   <li>
-                                    <a href="#websocket-api-4" class="toc-h4 toc-link" data-title="Websocket API">Websocket API</a>
+                                    <a href="#websocket-api-5" class="toc-h4 toc-link" data-title="Websocket API">Websocket API</a>
                                   </li>
                               </ul>
                           </li>
@@ -967,7 +975,7 @@
                                     <a href="#rest-api-32" class="toc-h4 toc-link" data-title="REST API">REST API</a>
                                   </li>
                                   <li>
-                                    <a href="#websocket-api-5" class="toc-h4 toc-link" data-title="Websocket API">Websocket API</a>
+                                    <a href="#websocket-api-6" class="toc-h4 toc-link" data-title="Websocket API">Websocket API</a>
                                   </li>
                               </ul>
                           </li>
@@ -1432,7 +1440,21 @@ clipboard.on('error', function(e) {
 <p><p>欢迎使用 <a href="https://www.bybit.com/">Bybit</a> APIs 和 Websocket官方文档！</p> <p>如果您在使用API的过程中遇到问题需要帮助，请加入我们的 <a href="https://t.me/Bybitapi">官方Telegram API讨论群</a>！</p></p>
 <h3 id='t-resources'>中文社区和参考资料</h3>
 <p><ul class="bybit-community"> <li><img src="../../images/favicon-4f296779.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/zh-cn"><strong>帮助中心</strong></a> - <strong>在这里了解合约交易</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/docs/issues"><strong>Bybit API docs</strong></a> - <strong>在这里提bug</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/api-connectors/"><strong>Bybit's api-connectors</strong></a> - <strong>官方API SDK</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文讨论群</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文讨论群</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong> <li><img src="/images/email_icon.png" height="14", width="14"> <a href="mailto:IT@bybit.com"><strong>IT@bybit.com</strong></a> - <strong>官方技术支持邮箱!</strong> </ul></p>
-<h1 id='t-changelog'>更新日志</h1><h2 id='2021-06-29'>2021-06-29</h2><h3 id='rest-api'>REST API</h3>
+<h1 id='t-changelog'>更新日志</h1><h2 id='2021-09-03'>2021-09-03</h2><h3 id='websocket-api'>Websocket API</h3>
+<ul>
+<li><a href="#t-websocketinstrumentinfo">行情</a> [更新]
+<ul>
+<li>废弃 <code>prev_price_24h_e4</code>, 推荐使用 <code>prev_price_24h</code>
+<li>废弃 <code>high_price_24h_e4</code>, 推荐使用 <code>high_price_24h</code>
+<li>废弃 <code>low_price_24h_e4</code>, 推荐使用 <code>low_price_24h</code>
+<li>废弃 <code>prev_price_1h_e4</code>, 推荐使用 <code>prev_price_1h</code>
+<li>废弃 <code>mark_price_e4</code>, 推荐使用 <code>mark_price</code>
+<li>废弃 <code>index_price_e4</code>, 推荐使用 <code>index_price</code>
+<li>废弃 <code>last_price_e4</code>, 推荐使用 <code>last_price</code>
+</ul>
+</li>
+</ul>
+<h2 id='2021-06-29'>2021-06-29</h2><h3 id='rest-api'>REST API</h3>
 <ul>
 <li>USDT合约上线新交易对：<a href="#symbol-symbol">MATICUSDT、EOSUSDT、ETCUSDT、BNBUSDT、FILUSDT、SOLUSDT</a> [更新]</li>
 </ul>
@@ -1473,7 +1495,7 @@ clipboard.on('error', function(e) {
 <li>查询风险限额新增返回字段最大杠杆<code>max_leverage</code></li>
 </ul></li>
 </ul>
-<h2 id='2021-02-02'>2021-02-02</h2><h3 id='websocket-api'>Websocket API</h3>
+<h2 id='2021-02-02'>2021-02-02</h2><h3 id='websocket-api-2'>Websocket API</h3>
 <ul>
 <li>Topic <a href="#t-websocketorder">order</a> [更新]
 
@@ -1656,7 +1678,7 @@ clipboard.on('error', function(e) {
 <li>返回参数增加 <code>take_profit</code>, <code>stop_loss</code>, <code>tp_trigger_by</code>, <code>sl_trigger_by</code></li>
 </ul></li>
 </ul>
-<h4 id='websocket-api-2'>Websocket API</h4>
+<h4 id='websocket-api-3'>Websocket API</h4>
 <ul>
 <li><a href="#t-websocket">新增Websocket域名</a> [更新]</li>
 </ul>
@@ -1746,7 +1768,7 @@ clipboard.on('error', function(e) {
 <li>修复某些情况下<code>inviter_id</code>总是为0的bug</li>
 </ul></li>
 </ul>
-<h4 id='websocket-api-3'>Websocket API</h4>
+<h4 id='websocket-api-4'>Websocket API</h4>
 <ul>
 <li><a href="#t-websocketkline">K线</a> [新增]</li>
 </ul>
@@ -1858,7 +1880,7 @@ clipboard.on('error', function(e) {
 <li><code>order_status</code> 参数不再支持多条件查询。</li>
 </ul></li>
 </ul>
-<h4 id='websocket-api-4'>Websocket API</h4>
+<h4 id='websocket-api-5'>Websocket API</h4>
 <ul>
 <li><a href="#t-websocketwallet">钱包</a> [新增]</li>
 <li><a href="#t-websockettrade">平台成交</a> [新增]</li>
@@ -1874,7 +1896,7 @@ clipboard.on('error', function(e) {
 <li><a href="#t-activeorders">创建活动委托单</a> [新增]</li>
 <li><a href="#t-position">获取持仓（实时）</a> [新增]</li>
 </ul>
-<h4 id='websocket-api-5'>Websocket API</h4>
+<h4 id='websocket-api-6'>Websocket API</h4>
 <ul>
 <li><a href="#t-websocketorderbook25">orderBook25档</a> [新增]</li>
 <li><a href="#t-websocketorderbook200">orderBook200档</a> [新增]</li>
@@ -7654,32 +7676,42 @@ B用户：
   <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">instrument_info.100ms.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">snapshot</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">last_price_e4</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">322955000</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">last_tick_direction</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ZeroPlusTick</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">prev_price_24h_e4</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">331960000</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">price_24h_pcnt_e6</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-27126</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">high_price_24h_e4</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">333120000</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">low_price_24h_e4</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">315940000</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">prev_price_1h_e4</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">319490000</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">price_1h_pcnt_e6</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10845</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">mark_price_e4</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">323133000</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">index_price_e4</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">323106800</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">open_interest_e8</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1430451600000</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">total_turnover_e8</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5297934997553700000</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">turnover_24h_e8</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">243143978993099700</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">total_volume_e8</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1184936057899924</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">volume_24h_e8</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">7511238100000</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">funding_rate_e6</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">100</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">predicted_funding_rate_e6</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-15</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">cross_seq</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">6501157651</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">created_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1970-01-01T00:00:00.000Z</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">updated_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2021-07-14T09:32:10.000Z</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">next_funding_time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2021-07-14T16:00:00Z</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">count_down_hour</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">7</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">bid1_price_e4</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">322950000</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ask1_price_e4</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">322955000</span><span class="dl">"</span>
+   <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+       <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+       <span class="dl">"</span><span class="s2">last_price_e4</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">322955000</span><span class="dl">"</span><span class="p">,</span>
+       <span class="dl">"</span><span class="s2">last_price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">322955000</span><span class="dl">"</span><span class="p">,</span>
+       <span class="dl">"</span><span class="s2">last_tick_direction</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ZeroPlusTick</span><span class="dl">"</span><span class="p">,</span>
+       <span class="dl">"</span><span class="s2">prev_price_24h_e4</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">331960000</span><span class="dl">"</span><span class="p">,</span>
+       <span class="dl">"</span><span class="s2">prev_price_24h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">331960000</span><span class="dl">"</span><span class="p">,</span>
+       <span class="dl">"</span><span class="s2">price_24h_pcnt_e6</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-27126</span><span class="dl">"</span><span class="p">,</span>
+       <span class="dl">"</span><span class="s2">high_price_24h_e4</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">333120000</span><span class="dl">"</span><span class="p">,</span>
+       <span class="dl">"</span><span class="s2">high_price_24h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">333120000</span><span class="dl">"</span><span class="p">,</span>
+       <span class="dl">"</span><span class="s2">low_price_24h_e4</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">315940000</span><span class="dl">"</span><span class="p">,</span>
+       <span class="dl">"</span><span class="s2">low_price_24h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">315940000</span><span class="dl">"</span><span class="p">,</span>
+       <span class="dl">"</span><span class="s2">prev_price_1h_e4</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">319490000</span><span class="dl">"</span><span class="p">,</span>
+       <span class="dl">"</span><span class="s2">prev_price_1h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">319490000</span><span class="dl">"</span><span class="p">,</span>
+       <span class="dl">"</span><span class="s2">price_1h_pcnt_e6</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10845</span><span class="dl">"</span><span class="p">,</span>
+       <span class="dl">"</span><span class="s2">mark_price_e4</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">323133000</span><span class="dl">"</span><span class="p">,</span>
+       <span class="dl">"</span><span class="s2">mark_price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">323133000</span><span class="dl">"</span><span class="p">,</span>
+       <span class="dl">"</span><span class="s2">index_price_e4</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">323106800</span><span class="dl">"</span><span class="p">,</span>
+       <span class="dl">"</span><span class="s2">index_price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">323106800</span><span class="dl">"</span><span class="p">,</span>
+       <span class="dl">"</span><span class="s2">open_interest_e8</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1430451600000</span><span class="dl">"</span><span class="p">,</span>
+       <span class="dl">"</span><span class="s2">total_turnover_e8</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5297934997553700000</span><span class="dl">"</span><span class="p">,</span>
+       <span class="dl">"</span><span class="s2">turnover_24h_e8</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">243143978993099700</span><span class="dl">"</span><span class="p">,</span>
+       <span class="dl">"</span><span class="s2">total_volume_e8</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1184936057899924</span><span class="dl">"</span><span class="p">,</span>
+       <span class="dl">"</span><span class="s2">volume_24h_e8</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">7511238100000</span><span class="dl">"</span><span class="p">,</span>
+       <span class="dl">"</span><span class="s2">funding_rate_e6</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">100</span><span class="dl">"</span><span class="p">,</span>
+       <span class="dl">"</span><span class="s2">predicted_funding_rate_e6</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-15</span><span class="dl">"</span><span class="p">,</span>
+       <span class="dl">"</span><span class="s2">cross_seq</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">6501157651</span><span class="dl">"</span><span class="p">,</span>
+       <span class="dl">"</span><span class="s2">created_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1970-01-01T00:00:00.000Z</span><span class="dl">"</span><span class="p">,</span>
+       <span class="dl">"</span><span class="s2">updated_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2021-07-14T09:32:10.000Z</span><span class="dl">"</span><span class="p">,</span>
+       <span class="dl">"</span><span class="s2">next_funding_time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2021-07-14T16:00:00Z</span><span class="dl">"</span><span class="p">,</span>
+       <span class="dl">"</span><span class="s2">count_down_hour</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">7</span><span class="dl">"</span><span class="p">,</span>
+       <span class="dl">"</span><span class="s2">bid1_price_e4</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">322950000</span><span class="dl">"</span><span class="p">,</span>
+       <span class="dl">"</span><span class="s2">ask1_price_e4</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">322955000</span><span class="dl">"</span>
+       <span class="dl">"</span><span class="s2">bid1_price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">322950000</span><span class="dl">"</span><span class="p">,</span>
+       <span class="dl">"</span><span class="s2">ask1_price_e4</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">322955000</span><span class="dl">"</span><span class="p">,</span>
+       <span class="dl">"</span><span class="s2">ask1_price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">322955000</span><span class="dl">"</span><span class="p">,</span>
   <span class="p">},</span>
   <span class="dl">"</span><span class="s2">cross_seq</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">6501157734</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">timestamp_e6</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1626255131908287</span><span class="dl">"</span>
@@ -7697,9 +7729,11 @@ B用户：
         <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">last_price_e4</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">322950000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">last_price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">322950000</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">price_24h_pcnt_e6</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-27141</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">price_1h_pcnt_e6</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10829</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">index_price_e4</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">323100000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">index_price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">323100000</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">total_turnover_e8</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5297935000783200000</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">turnover_24h_e8</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">243143982222599700</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">total_volume_e8</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1184936057999924</span><span class="dl">"</span><span class="p">,</span>
@@ -7744,17 +7778,17 @@ B用户：
 <tr>
 <td style="text-align: left">last_price_e4</td>
 <td style="text-align: left">integer</td>
-<td>最新成交价 * 10^4</td>
+<td>（已废弃）最新成交价 * 10^4</td>
 </tr>
 <tr>
-<td style="text-align: left">row_parameter_tick_direction</td>
+<td style="text-align: left"><a href="#tick-direction-type-tick_direction">tick_direction</a></td>
 <td style="text-align: left">string</td>
 <td>价格变化方向</td>
 </tr>
 <tr>
 <td style="text-align: left">prev_price_24h_e4</td>
 <td style="text-align: left">integer</td>
-<td>24小时前的整点市价 * 10^4</td>
+<td>（已废弃）24小时前的整点市价 * 10^4</td>
 </tr>
 <tr>
 <td style="text-align: left">price_24h_pcnt_e6</td>
@@ -7764,17 +7798,17 @@ B用户：
 <tr>
 <td style="text-align: left">high_price_24h_e4</td>
 <td style="text-align: left">integer</td>
-<td>最近 24 小时最高价 * 10^4</td>
+<td>（已废弃）最近 24 小时最高价 * 10^4</td>
 </tr>
 <tr>
 <td style="text-align: left">low_price_24h_e4</td>
 <td style="text-align: left">integer</td>
-<td>最近 24 小时最低价 * 10^4</td>
+<td>（已废弃）最近 24 小时最低价 * 10^4</td>
 </tr>
 <tr>
 <td style="text-align: left">prev_price_1h_e4</td>
 <td style="text-align: left">integer</td>
-<td>1小时前的整点市价 * 10^4</td>
+<td>（已废弃）1小时前的整点市价 * 10^4</td>
 </tr>
 <tr>
 <td style="text-align: left">price_1h_pcnt_e6</td>
@@ -7784,12 +7818,47 @@ B用户：
 <tr>
 <td style="text-align: left">mark_price_e4</td>
 <td style="text-align: left">integer</td>
-<td>标记价格 * 10^4</td>
+<td>（已废弃）标记价格 * 10^4</td>
 </tr>
 <tr>
 <td style="text-align: left">index_price_e4</td>
 <td style="text-align: left">integer</td>
-<td>指数价格 * 10^4</td>
+<td>（已废弃）指数价格 * 10^4</td>
+</tr>
+<tr>
+<td style="text-align: left">last_price</td>
+<td style="text-align: left">integer</td>
+<td>最新成交价</td>
+</tr>
+<tr>
+<td style="text-align: left">prev_price_24h</td>
+<td style="text-align: left">integer</td>
+<td>24小时前的整点市价</td>
+</tr>
+<tr>
+<td style="text-align: left">high_price_24h</td>
+<td style="text-align: left">integer</td>
+<td>最近 24 小时最高价</td>
+</tr>
+<tr>
+<td style="text-align: left">low_price_24h</td>
+<td style="text-align: left">integer</td>
+<td>最近 24 小时最低价</td>
+</tr>
+<tr>
+<td style="text-align: left">prev_price_1h</td>
+<td style="text-align: left">integer</td>
+<td>1小时前的整点市价</td>
+</tr>
+<tr>
+<td style="text-align: left">mark_price</td>
+<td style="text-align: left">integer</td>
+<td>标记价格</td>
+</tr>
+<tr>
+<td style="text-align: left">index_price</td>
+<td style="text-align: left">integer</td>
+<td>指数价格</td>
 </tr>
 <tr>
 <td style="text-align: left">open_interest_e8</td>
@@ -7854,12 +7923,22 @@ B用户：
 <tr>
 <td style="text-align: left">bid1_price_e4</td>
 <td style="text-align: left">integer</td>
-<td>最佳买单价格 * 10^4</td>
+<td>(已废弃)最佳买单价格 * 10^4</td>
 </tr>
 <tr>
 <td style="text-align: left">ask1_price_e4</td>
 <td style="text-align: left">integer</td>
-<td>最佳卖单价格 * 10^4</td>
+<td>(已废弃)最佳卖单价格 * 10^4</td>
+</tr>
+<tr>
+<td style="text-align: left">bid1_price</td>
+<td style="text-align: left">integer</td>
+<td>最佳买单价格</td>
+</tr>
+<tr>
+<td style="text-align: left">ask1_price</td>
+<td style="text-align: left">integer</td>
+<td>最佳卖单价格</td>
 </tr>
 </tbody></table>
 <h3 id='t-websocketkline'>K线</h3>

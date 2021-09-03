@@ -693,6 +693,14 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="更新日志">更新日志</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#2021-09-03" class="toc-h2 toc-link" data-title="2021-09-03">2021-09-03</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#websocket-api" class="toc-h3 toc-link" data-title="Websocket API">Websocket API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
                     <a href="#2021-06-03" class="toc-h2 toc-link" data-title="2021-06-03">2021-06-03</a>
                       <ul class="toc-list-h3">
                           <li>
@@ -787,7 +795,7 @@
                             <a href="#rest-api-12" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                           <li>
-                            <a href="#websocket-api" class="toc-h3 toc-link" data-title="Websocket API">Websocket API</a>
+                            <a href="#websocket-api-2" class="toc-h3 toc-link" data-title="Websocket API">Websocket API</a>
                           </li>
                       </ul>
                   </li>
@@ -1241,7 +1249,21 @@ clipboard.on('error', function(e) {
 <p><p>欢迎使用 <a href="https://www.bybit.com/">Bybit</a> APIs 和 Websocket官方文档！</p> <p>如果您在使用API的过程中遇到问题需要帮助，请加入我们的 <a href="https://t.me/Bybitapi">官方Telegram API讨论群</a>！</p></p>
 <h3 id='t-resources'>中文社区和参考资料</h3>
 <p><ul class="bybit-community"> <li><img src="../../images/favicon-4f296779.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/zh-cn"><strong>帮助中心</strong></a> - <strong>在这里了解合约交易</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/docs/issues"><strong>Bybit API docs</strong></a> - <strong>在这里提bug</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/api-connectors/"><strong>Bybit's api-connectors</strong></a> - <strong>官方API SDK</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文讨论群</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文讨论群</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong> <li><img src="/images/email_icon.png" height="14", width="14"> <a href="mailto:IT@bybit.com"><strong>IT@bybit.com</strong></a> - <strong>官方技术支持邮箱!</strong> </ul></p>
-<h1 id='t-changelog'>更新日志</h1><h2 id='2021-06-03'>2021-06-03</h2><h3 id='rest-api'>REST API</h3>
+<h1 id='t-changelog'>更新日志</h1><h2 id='2021-09-03'>2021-09-03</h2><h3 id='websocket-api'>Websocket API</h3>
+<ul>
+<li><a href="#t-websocketinstrumentinfo">行情</a> [更新]
+<ul>
+<li>废弃 <code>prev_price_24h_e4</code>, 推荐使用 <code>prev_price_24h</code>
+<li>废弃 <code>high_price_24h_e4</code>, 推荐使用 <code>high_price_24h</code>
+<li>废弃 <code>low_price_24h_e4</code>, 推荐使用 <code>low_price_24h</code>
+<li>废弃 <code>prev_price_1h_e4</code>, 推荐使用 <code>prev_price_1h</code>
+<li>废弃 <code>mark_price_e4</code>, 推荐使用 <code>mark_price</code>
+<li>废弃 <code>index_price_e4</code>, 推荐使用 <code>index_price</code>
+<li>废弃 <code>last_price_e4</code>, 推荐使用 <code>last_price</code>
+</ul>
+</li>
+</ul>
+<h2 id='2021-06-03'>2021-06-03</h2><h3 id='rest-api'>REST API</h3>
 <ul>
 <li><a href="#t-switchmode">切换止盈止损模式</a> [新增]</li>
 <li><a href="#t-placecond">创建条件委托单</a> [更新]
@@ -1349,7 +1371,7 @@ clipboard.on('error', function(e) {
 <ul>
 <li>反向交割合约API发布</li>
 </ul>
-<h3 id='websocket-api'>Websocket API</h3>
+<h3 id='websocket-api-2'>Websocket API</h3>
 <ul>
 <li>websocket支持交割合约</li>
 </ul>
@@ -6488,17 +6510,26 @@ B用户：
         <span class="dl">"</span><span class="s2">settle_fee_rate_e8</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">contract_status</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Trading</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">system_subsidy_e8</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">last_price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">500340000</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">last_price_e4</span><span class="dl">"</span><span class="p">:</span><span class="mi">500340000</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">last_tick_direction</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">MinusTick</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">bid1_price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">400025000</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">bid1_price_e4</span><span class="dl">"</span><span class="p">:</span><span class="mi">400025000</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">ask1_price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">475450000</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">ask1_price_e4</span><span class="dl">"</span><span class="p">:</span><span class="mi">475450000</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">prev_price_24h</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">467820000</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">prev_price_24h_e4</span><span class="dl">"</span><span class="p">:</span><span class="mi">467820000</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">price_24h_pcnt_e6</span><span class="dl">"</span><span class="p">:</span><span class="mi">90205</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">high_price_24h</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">573420000</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">high_price_24h_e4</span><span class="dl">"</span><span class="p">:</span><span class="mi">573420000</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">low_price_24h</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">510020000</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">low_price_24h_e4</span><span class="dl">"</span><span class="p">:</span><span class="mi">510020000</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">prev_price_1h</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">543920000</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">prev_price_1h_e4</span><span class="dl">"</span><span class="p">:</span><span class="mi">543920000</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">price_1h_pcnt_e6</span><span class="dl">"</span><span class="p">:</span><span class="o">-</span><span class="mi">62325</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">mark_price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">507019537</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">mark_price_e4</span><span class="dl">"</span><span class="p">:</span><span class="mi">507019537</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">index_price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">579821900</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">index_price_e4</span><span class="dl">"</span><span class="p">:</span><span class="mi">579821900</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">open_interest</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">open_value_e8</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
@@ -6509,6 +6540,7 @@ B用户：
         <span class="dl">"</span><span class="s2">fair_basis_e8</span><span class="dl">"</span><span class="p">:</span><span class="o">-</span><span class="mi">793519000000</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">fair_basis_rate_e8</span><span class="dl">"</span><span class="p">:</span><span class="o">-</span><span class="mi">13685564</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">basis_in_year_e8</span><span class="dl">"</span><span class="p">:</span><span class="o">-</span><span class="mi">412313782</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">expect_price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">expect_price_e4</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">cross_seq</span><span class="dl">"</span><span class="p">:</span><span class="mi">8761176</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">created_at_e9</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
@@ -6531,6 +6563,7 @@ B用户：
                 <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDH21</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">prev_price_24h_e4</span><span class="dl">"</span><span class="p">:</span> <span class="mi">81565000</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">prev_price_24h</span><span class="dl">"</span><span class="p">:</span> <span class="mi">81565000</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">price_24h_pcnt_e6</span><span class="dl">"</span><span class="p">:</span> <span class="o">-</span><span class="mi">4904</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">open_value_e8</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2000479681106</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">total_turnover_e8</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2029370495672976</span><span class="p">,</span>
@@ -6577,17 +6610,17 @@ B用户：
 <tr>
 <td style="text-align: left">last_price_e4</td>
 <td style="text-align: left">integer</td>
-<td>最新成交价 * 10^4</td>
+<td>（已废弃）最新成交价 * 10^4</td>
 </tr>
 <tr>
-<td style="text-align: left">row_parameter_tick_direction</td>
+<td style="text-align: left"><a href="#tick-direction-type-tick_direction">tick_direction</a></td>
 <td style="text-align: left">string</td>
 <td>价格变化方向</td>
 </tr>
 <tr>
 <td style="text-align: left">prev_price_24h_e4</td>
 <td style="text-align: left">integer</td>
-<td>24小时前的整点市价 * 10^4</td>
+<td>（已废弃）24小时前的整点市价 * 10^4</td>
 </tr>
 <tr>
 <td style="text-align: left">price_24h_pcnt_e6</td>
@@ -6597,17 +6630,17 @@ B用户：
 <tr>
 <td style="text-align: left">high_price_24h_e4</td>
 <td style="text-align: left">integer</td>
-<td>最近 24 小时最高价 * 10^4</td>
+<td>（已废弃）最近 24 小时最高价 * 10^4</td>
 </tr>
 <tr>
 <td style="text-align: left">low_price_24h_e4</td>
 <td style="text-align: left">integer</td>
-<td>最近 24 小时最低价 * 10^4</td>
+<td>（已废弃）最近 24 小时最低价 * 10^4</td>
 </tr>
 <tr>
 <td style="text-align: left">prev_price_1h_e4</td>
 <td style="text-align: left">integer</td>
-<td>1小时前的整点市价 * 10^4</td>
+<td>（已废弃）1小时前的整点市价 * 10^4</td>
 </tr>
 <tr>
 <td style="text-align: left">price_1h_pcnt_e6</td>
@@ -6617,12 +6650,47 @@ B用户：
 <tr>
 <td style="text-align: left">mark_price_e4</td>
 <td style="text-align: left">integer</td>
-<td>标记价格 * 10^4</td>
+<td>（已废弃）标记价格 * 10^4</td>
 </tr>
 <tr>
 <td style="text-align: left">index_price_e4</td>
 <td style="text-align: left">integer</td>
-<td>指数价格 * 10^4</td>
+<td>（已废弃）指数价格 * 10^4</td>
+</tr>
+<tr>
+<td style="text-align: left">last_price</td>
+<td style="text-align: left">integer</td>
+<td>最新成交价</td>
+</tr>
+<tr>
+<td style="text-align: left">prev_price_24h</td>
+<td style="text-align: left">integer</td>
+<td>24小时前的整点市价</td>
+</tr>
+<tr>
+<td style="text-align: left">high_price_24h</td>
+<td style="text-align: left">integer</td>
+<td>最近 24 小时最高价</td>
+</tr>
+<tr>
+<td style="text-align: left">low_price_24h</td>
+<td style="text-align: left">integer</td>
+<td>最近 24 小时最低价</td>
+</tr>
+<tr>
+<td style="text-align: left">prev_price_1h</td>
+<td style="text-align: left">integer</td>
+<td>1小时前的整点市价</td>
+</tr>
+<tr>
+<td style="text-align: left">mark_price</td>
+<td style="text-align: left">integer</td>
+<td>标记价格</td>
+</tr>
+<tr>
+<td style="text-align: left">index_price</td>
+<td style="text-align: left">integer</td>
+<td>指数价格</td>
 </tr>
 <tr>
 <td style="text-align: left">open_interest</td>

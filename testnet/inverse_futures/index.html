@@ -693,6 +693,14 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#2021-09-03" class="toc-h2 toc-link" data-title="2021-09-03">2021-09-03</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#websocket-api" class="toc-h3 toc-link" data-title="Websocket API">Websocket API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
                     <a href="#2021-06-03" class="toc-h2 toc-link" data-title="2021-06-03">2021-06-03</a>
                       <ul class="toc-list-h3">
                           <li>
@@ -787,7 +795,7 @@
                             <a href="#rest-api-12" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                           <li>
-                            <a href="#websocket-api" class="toc-h3 toc-link" data-title="Websocket API">Websocket API</a>
+                            <a href="#websocket-api-2" class="toc-h3 toc-link" data-title="Websocket API">Websocket API</a>
                           </li>
                       </ul>
                   </li>
@@ -1241,7 +1249,21 @@ clipboard.on('error', function(e) {
 <p><p><a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common errors.</p> <p>For further assistance or feedback, please join the <a href="https://t.me/BybitAPI">API Telegram chat</a>! API discussion group on Telegram.</p></p>
 <h3 id='t-resources'>Group And Bybit API Resources</h3>
 <p><ul class="bybit-community"> <li><img src="../../images/help_favicon-06f791dd.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> </ul></p>
-<h1 id='t-changelog'>Changelog</h1><h2 id='2021-06-03'>2021-06-03</h2><h3 id='rest-api'>REST API</h3>
+<h1 id='t-changelog'>Changelog</h1><h2 id='2021-09-03'>2021-09-03</h2><h3 id='websocket-api'>Websocket API</h3>
+<ul>
+<li><a href="#t-websocketinstrumentinfo">instrument_info</a> [update]
+<ul>
+<li>Deprecate <code>prev_price_24h_e4</code> in favour of <code>prev_price_24h</code>
+<li>Deprecate <code>high_price_24h_e4</code> in favour of <code>high_price_24h</code>
+<li>Deprecate <code>low_price_24h_e4</code> in favour of <code>low_price_24h</code>
+<li>Deprecate <code>prev_price_1h_e4</code> in favour of <code>prev_price_1h</code>
+<li>Deprecate <code>mark_price_e4</code> in favour of <code>mark_price</code>
+<li>Deprecate <code>index_price_e4</code> in favour of <code>index_price</code>
+<li>Deprecate <code>last_price_e4</code> in favour of <code>last_price</code>
+</ul>
+</li>
+</ul>
+<h2 id='2021-06-03'>2021-06-03</h2><h3 id='rest-api'>REST API</h3>
 <ul>
 <li><a href="#t-switchmode">Full/Partial Position TP/SL Switch</a> [new]</li>
 <li><a href="#t-placecond">Place Conditional Order</a> [update]
@@ -1360,7 +1382,7 @@ clipboard.on('error', function(e) {
 <ul>
 <li>Inverse Futures API released!</li>
 </ul>
-<h3 id='websocket-api'>Websocket API</h3>
+<h3 id='websocket-api-2'>Websocket API</h3>
 <ul>
 <li>Add websocket support to inverse future</li>
 </ul>
@@ -6543,17 +6565,26 @@ The <code>wallet_balance</code> is in Satoshis, with one Satoshi being 100 milli
         <span class="dl">"</span><span class="s2">settle_fee_rate_e8</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">contract_status</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Trading</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">system_subsidy_e8</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">last_price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">500340000</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">last_price_e4</span><span class="dl">"</span><span class="p">:</span><span class="mi">500340000</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">last_tick_direction</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">MinusTick</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">bid1_price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">400025000</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">bid1_price_e4</span><span class="dl">"</span><span class="p">:</span><span class="mi">400025000</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">ask1_price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">475450000</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">ask1_price_e4</span><span class="dl">"</span><span class="p">:</span><span class="mi">475450000</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">prev_price_24h</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">467820000</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">prev_price_24h_e4</span><span class="dl">"</span><span class="p">:</span><span class="mi">467820000</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">price_24h_pcnt_e6</span><span class="dl">"</span><span class="p">:</span><span class="mi">90205</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">high_price_24h</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">573420000</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">high_price_24h_e4</span><span class="dl">"</span><span class="p">:</span><span class="mi">573420000</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">low_price_24h</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">510020000</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">low_price_24h_e4</span><span class="dl">"</span><span class="p">:</span><span class="mi">510020000</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">prev_price_1h</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">543920000</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">prev_price_1h_e4</span><span class="dl">"</span><span class="p">:</span><span class="mi">543920000</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">price_1h_pcnt_e6</span><span class="dl">"</span><span class="p">:</span><span class="o">-</span><span class="mi">62325</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">mark_price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">507019537</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">mark_price_e4</span><span class="dl">"</span><span class="p">:</span><span class="mi">507019537</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">index_price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">579821900</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">index_price_e4</span><span class="dl">"</span><span class="p">:</span><span class="mi">579821900</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">open_interest</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">open_value_e8</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
@@ -6564,6 +6595,7 @@ The <code>wallet_balance</code> is in Satoshis, with one Satoshi being 100 milli
         <span class="dl">"</span><span class="s2">fair_basis_e8</span><span class="dl">"</span><span class="p">:</span><span class="o">-</span><span class="mi">793519000000</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">fair_basis_rate_e8</span><span class="dl">"</span><span class="p">:</span><span class="o">-</span><span class="mi">13685564</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">basis_in_year_e8</span><span class="dl">"</span><span class="p">:</span><span class="o">-</span><span class="mi">412313782</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">expect_price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">expect_price_e4</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">cross_seq</span><span class="dl">"</span><span class="p">:</span><span class="mi">8761176</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">created_at_e9</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
@@ -6586,6 +6618,7 @@ The <code>wallet_balance</code> is in Satoshis, with one Satoshi being 100 milli
                 <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDH21</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">prev_price_24h_e4</span><span class="dl">"</span><span class="p">:</span> <span class="mi">81565000</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">prev_price_24h</span><span class="dl">"</span><span class="p">:</span> <span class="mi">81565000</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">price_24h_pcnt_e6</span><span class="dl">"</span><span class="p">:</span> <span class="o">-</span><span class="mi">4904</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">open_value_e8</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2000479681106</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">total_turnover_e8</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2029370495672976</span><span class="p">,</span>
@@ -6631,17 +6664,17 @@ Some values use scientific notation. This is indicated by that value's key, whic
 <tr>
 <td style="text-align: left">last_price_e4</td>
 <td style="text-align: left">integer</td>
-<td>Latest transaction price 10^4</td>
+<td>(Deprecated) Latest transaction price 10^4</td>
 </tr>
 <tr>
-<td style="text-align: left">row_parameter_tick_direction</td>
+<td style="text-align: left"><a href="#tick-direction-type-tick_direction">tick_direction</a></td>
 <td style="text-align: left">string</td>
 <td>Direction of price change</td>
 </tr>
 <tr>
 <td style="text-align: left">prev_price_24h_e4</td>
 <td style="text-align: left">integer</td>
-<td>Price of 24 hours ago * 10^4</td>
+<td>(Deprecated) Price of 24 hours ago * 10^4</td>
 </tr>
 <tr>
 <td style="text-align: left">price_24h_pcnt_e6</td>
@@ -6651,17 +6684,17 @@ Some values use scientific notation. This is indicated by that value's key, whic
 <tr>
 <td style="text-align: left">high_price_24h_e4</td>
 <td style="text-align: left">integer</td>
-<td>The highest price in the last 24 hours * 10^4</td>
+<td>(Deprecated) The highest price in the last 24 hours * 10^4</td>
 </tr>
 <tr>
 <td style="text-align: left">low_price_24h_e4</td>
 <td style="text-align: left">integer</td>
-<td>Lowest price in the last 24 hours * 10^4</td>
+<td>(Deprecated) Lowest price in the last 24 hours * 10^4</td>
 </tr>
 <tr>
 <td style="text-align: left">prev_price_1h_e4</td>
 <td style="text-align: left">integer</td>
-<td>Hourly market price an hour ago * 10^4</td>
+<td>(Deprecated) Hourly market price an hour ago * 10^4</td>
 </tr>
 <tr>
 <td style="text-align: left">price_1h_pcnt_e6</td>
@@ -6671,12 +6704,47 @@ Some values use scientific notation. This is indicated by that value's key, whic
 <tr>
 <td style="text-align: left">mark_price_e4</td>
 <td style="text-align: left">integer</td>
-<td>Mark price * 10^4</td>
+<td>(Deprecated) Mark price * 10^4</td>
 </tr>
 <tr>
 <td style="text-align: left">index_price_e4</td>
 <td style="text-align: left">integer</td>
-<td>Index_price * 10^4</td>
+<td>(Deprecated) Index_price * 10^4</td>
+</tr>
+<tr>
+<td style="text-align: left">last_price</td>
+<td style="text-align: left">integer</td>
+<td>Latest transaction price</td>
+</tr>
+<tr>
+<td style="text-align: left">prev_price_24h</td>
+<td style="text-align: left">integer</td>
+<td>Price of 24 hours ago</td>
+</tr>
+<tr>
+<td style="text-align: left">high_price_24h</td>
+<td style="text-align: left">integer</td>
+<td>The highest price in the last 24 hours</td>
+</tr>
+<tr>
+<td style="text-align: left">low_price_24h</td>
+<td style="text-align: left">integer</td>
+<td>Lowest price in the last 24 hours</td>
+</tr>
+<tr>
+<td style="text-align: left">prev_price_1h</td>
+<td style="text-align: left">integer</td>
+<td>Hourly market price an hour ago</td>
+</tr>
+<tr>
+<td style="text-align: left">mark_price</td>
+<td style="text-align: left">integer</td>
+<td>Mark price</td>
+</tr>
+<tr>
+<td style="text-align: left">index_price</td>
+<td style="text-align: left">integer</td>
+<td>Index_price</td>
 </tr>
 <tr>
 <td style="text-align: left">open_interest</td>
