@@ -499,7 +499,7 @@ while True:
     "topic":"instrument_info.100ms.BTCUSD",
     "type":"snapshot",
      "data": {
-   "id": 1,
+         "id": 1,
          "symbol": "BTCUSD",                           //instrument name
          "last_price_e4": 81165000,                    //the latest price
          "last_price": "81165000",  
