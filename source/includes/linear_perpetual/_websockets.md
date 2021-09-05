@@ -430,7 +430,7 @@ while True:
   "topic": "instrument_info.100ms.BTCUSDT",
   "type": "snapshot",
   "data": {
-   "id": 1,
+       "id": 1,
        "symbol": "BTCUSDT",
        "last_price_e4": "322955000",
        "last_price": "322955000",
