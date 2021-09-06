@@ -289,6 +289,7 @@ DELETE
 |:----- |:-------|:-----|----- |
 |orderId|false|string|t(:spotOrderID)|
 |orderLinkId|false|string|t(:tOrderClientOrdID)|
+|symbolId|true|string|t(:spotSymbol)|
 
 <aside class="notice">
 t(:spotGetOrderRemark)
