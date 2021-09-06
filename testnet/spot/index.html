@@ -783,6 +783,9 @@
                     <a href="#t-batch_fast_cancel_spot_order" class="toc-h2 toc-link" data-title="Batch fast Cancel Spot Order">Batch fast Cancel Spot Order</a>
                   </li>
                   <li>
+                    <a href="#t-batch_cancel_spot_order_by_orderids" class="toc-h2 toc-link" data-title="Batch Cancel Spot Order by order IDs">Batch Cancel Spot Order by order IDs</a>
+                  </li>
+                  <li>
                     <a href="#t-spot_order_list" class="toc-h2 toc-link" data-title="Order List">Order List</a>
                   </li>
                   <li>
@@ -2349,6 +2352,10 @@ At least one must be entered in the orderId field and the ordersLinkId field
 </tr>
 </tbody></table>
 
+<aside class="notice">
+At least one must be entered in the orderId field and the ordersLinkId field
+</aside>
+
 <p class="fake_header">Response Parameters</p>
 
 <table><thead>
@@ -2481,7 +2488,17 @@ The actual result of the cancellation request needs to be checked by order statu
 <td style="text-align: left">string</td>
 <td>User-generated order ID</td>
 </tr>
+<tr>
+<td style="text-align: left">symbolId</td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>Name of the trading pair</td>
+</tr>
 </tbody></table>
+
+<aside class="notice">
+At least one must be entered in the orderId field and the ordersLinkId field
+</aside>
 
 <p class="fake_header">Response Parameters</p>
 
@@ -2703,6 +2720,76 @@ The actual result of the cancellation request needs to be checked by order statu
 <td style="text-align: left">success</td>
 <td style="text-align: left">boolean</td>
 <td>Success or not (true/false)</td>
+</tr>
+</tbody></table>
+<h3 id='t-batch_cancel_spot_order_by_orderids'>Batch Cancel Spot Order by order IDs</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+</code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="p">[{</span><span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">889208273689997824</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1139</span><span class="dl">"</span>
+        <span class="p">}]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<aside class="notice">
+The actual result of the cancellation request needs to be checked by order status or match result endpoints after submitting the request.
+</aside>
+
+<p class="fake_header">HTTP Request</p>
+
+<p>DELETE
+<code><span id=vpoCancel>/spot/order/batch-cancel-by-ids</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancel"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderIds</td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>order ID, use comma splicing to indicate multiple orderIds, no more than 100 ids.</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">integer</td>
+<td>Order ID</td>
+</tr>
+<tr>
+<td style="text-align: left">code</td>
+<td style="text-align: left">integer</td>
+<td>Error Codes</td>
 </tr>
 </tbody></table>
 <h3 id='t-spot_order_list'>Order List</h3>

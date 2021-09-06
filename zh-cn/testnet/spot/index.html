@@ -783,6 +783,9 @@
                     <a href="#t-batch_fast_cancel_spot_order" class="toc-h2 toc-link" data-title="批量快速撤销订单">批量快速撤销订单</a>
                   </li>
                   <li>
+                    <a href="#t-batch_cancel_spot_order_by_orderids" class="toc-h2 toc-link" data-title="根据订单号批量撤销订单">根据订单号批量撤销订单</a>
+                  </li>
+                  <li>
                     <a href="#t-spot_order_list" class="toc-h2 toc-link" data-title="订单列表">订单列表</a>
                   </li>
                   <li>
@@ -2347,6 +2350,10 @@ orderId和ordersLinkId至少要输入一个。
 </tr>
 </tbody></table>
 
+<aside class="notice">
+orderId和ordersLinkId至少要输入一个。
+</aside>
+
 <p class="fake_header">返回参数</p>
 
 <table><thead>
@@ -2479,7 +2486,17 @@ orderId和ordersLinkId至少要输入一个。
 <td style="text-align: left">string</td>
 <td>特殊订单ID，用户自己生成</td>
 </tr>
+<tr>
+<td style="text-align: left">symbolId</td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>币对名称</td>
+</tr>
 </tbody></table>
+
+<aside class="notice">
+orderId和ordersLinkId至少要输入一个。
+</aside>
 
 <p class="fake_header">返回参数</p>
 
@@ -2701,6 +2718,76 @@ orderId和ordersLinkId至少要输入一个。
 <td style="text-align: left">success</td>
 <td style="text-align: left">boolean</td>
 <td>是否成功</td>
+</tr>
+</tbody></table>
+<h3 id='t-batch_cancel_spot_order_by_orderids'>根据订单号批量撤销订单</h3>
+<blockquote>
+<p>请求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+</code></pre></div>
+<blockquote>
+<p>响应示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="p">[{</span><span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">889208273689997824</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1139</span><span class="dl">"</span>
+        <span class="p">}]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<aside class="notice">
+此接口只提交取消请求，实际取消结果需要通过订单状态，撮合状态等接口来确认。
+</aside>
+
+<p class="fake_header">HTTP 请求</p>
+
+<p>DELETE
+<code><span id=vpoCancel>/spot/order/batch-cancel-by-ids</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancel"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">请求参数</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">参数</th>
+<th style="text-align: left">是否必须</th>
+<th style="text-align: left">类型</th>
+<th>说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderIds</td>
+<td style="text-align: left">true</td>
+<td style="text-align: left">string</td>
+<td>订单号, 可用英文逗号拼接表示多个订单, 不超过100个。</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">返回参数</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">参数</th>
+<th style="text-align: left">类型</th>
+<th>说明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">integer</td>
+<td>订单ID</td>
+</tr>
+<tr>
+<td style="text-align: left">code</td>
+<td style="text-align: left">integer</td>
+<td>错误码</td>
 </tr>
 </tbody></table>
 <h3 id='t-spot_order_list'>订单列表</h3>
