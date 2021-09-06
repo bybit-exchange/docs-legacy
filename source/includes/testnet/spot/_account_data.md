@@ -214,6 +214,10 @@ DELETE
 |orderId|false|string|t(:spotOrderID)|
 |orderLinkId|false|string|t(:tOrderClientOrdID)|
 
+<aside class="notice">
+t(:spotGetOrderRemark)
+</aside>
+
 
 <p class="fake_header">t(:responseparameters)</p>
 
@@ -285,6 +289,10 @@ DELETE
 |:----- |:-------|:-----|----- |
 |orderId|false|string|t(:spotOrderID)|
 |orderLinkId|false|string|t(:tOrderClientOrdID)|
+
+<aside class="notice">
+t(:spotGetOrderRemark)
+</aside>
 
 
 <p class="fake_header">t(:responseparameters)</p>
