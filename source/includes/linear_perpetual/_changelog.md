@@ -1,5 +1,10 @@
 # t(:changelog)
 
+## 2021-09-07
+### REST API
+- [t(:closedprofitandloss)](#t-closedprofitandloss) [t(:changelog_update)]
+  t(:restapi_update_20210907)
+
 ## 2021-09-03
 ### Websocket API
 - [t(:websocketinstrumentInfo)](#t-websocketinstrumentinfo) [t(:changelog_update)]
