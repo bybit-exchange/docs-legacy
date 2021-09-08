@@ -161,7 +161,7 @@ t(:spot_websocket_para_response)
 
 t(:spot_websocket_trade_desc_v1)
 
-t(:spot_public_websocket_frequency_300)
+t(:spot_public_websocket_frequency_300_delay_400)
 
 <p class="fake_header">t(:responseparameters)</p>
 
@@ -217,7 +217,7 @@ t(:spot_public_websocket_frequency_300)
 
 t(:spot_websocket_ticker_desc_v1)
 
-t(:spot_public_websocket_frequency_300)
+t(:spot_public_websocket_frequency_300_delay_400)
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -280,7 +280,7 @@ t(:spot_public_websocket_frequency_300)
 
 t(:spot_websocket_kline_desc_v1)
 
-t(:spot_public_websocket_frequency_300)
+t(:spot_public_websocket_frequency_300_delay_400)
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -359,7 +359,7 @@ t(:spot_public_websocket_frequency_300)
 
 t(:spot_websocket_orderbook_desc_v1)
 
-t(:spot_public_websocket_frequency_300)
+t(:spot_public_websocket_frequency_300_delay_650)
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -442,7 +442,7 @@ t(:spot_public_websocket_frequency_300)
 
 t(:spot_websocket_orderbook_merge_desc_v1)
 
-t(:spot_public_websocket_frequency_300)
+t(:spot_public_websocket_frequency_300_delay_650)
 
 <p class="fake_header">t(:responseparameters)</p>
 
@@ -519,7 +519,7 @@ t(:spot_public_websocket_frequency_300)
 
 t(:spot_websocket_orderbook_delta_desc_v1)
 
-t(:spot_public_websocket_frequency_300)
+t(:spot_public_websocket_frequency_300_delay_650)
 
 <p class="fake_header">t(:responseparameters)</p>
 
@@ -595,7 +595,7 @@ t(:spot_public_websocket_frequency_300)
 ```
 t(:spot_websocket_orderbook_desc_v2)
 
-t(:spot_public_websocket_frequency_250)
+t(:spot_public_websocket_frequency_250_delay_300)
 
 <p class="fake_header">t(:responseparameters)</p>
 
@@ -651,7 +651,7 @@ t(:spot_public_websocket_frequency_250)
 ```
 t(:spot_websocket_kline_desc_v2)
 
-t(:spot_public_websocket_frequency_250)
+t(:spot_public_websocket_frequency_near_realtime)
 
 <p class="fake_header">t(:responseparameters)</p>
 
@@ -707,7 +707,7 @@ t(:spot_public_websocket_frequency_250)
 
 t(:spot_websocket_trade_desc_v2)
 
-t(:spot_public_websocket_frequency_250)
+t(:spot_public_websocket_frequency_near_realtime)
 
 <p class="fake_header">t(:responseparameters)</p>
 
@@ -759,7 +759,7 @@ t(:spot_public_websocket_frequency_250)
 ```
 t(:spot_websocket_ticker_desc_v2)
 
-t(:spot_public_websocket_frequency_250)
+t(:spot_public_websocket_frequency_250_delay_300)
 
 <p class="fake_header">t(:responseparameters)</p>
 
@@ -815,7 +815,7 @@ t(:spot_public_websocket_frequency_250)
 ```
 t(:spot_websocket_symbol_ticker_desc_v2)
 
-t(:spot_public_websocket_frequency_250)
+t(:spot_public_websocket_frequency_near_realtime)
 
 <p class="fake_header">t(:responseparameters)</p>
 
