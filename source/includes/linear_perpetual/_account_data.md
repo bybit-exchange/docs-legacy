@@ -176,7 +176,7 @@ GET
 |order_link_id |false |string |t(:row_comment_orderLinkId) |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
 |order |false |string |t(:row_comment_order)  |
-|page |false |integer |t(:row_comment_page) |
+|page |false |integer |t(:row_comment_page_max50) |
 |limit |false |integer |t(:row_comment_limit) |
 |t(:row_parameter_order_status) |false |string |t(:linear_account_row_comment_orderStatus) |
 
