@@ -1459,7 +1459,7 @@ clipboard.on('error', function(e) {
 <h1 id='t-changelog'>Changelog</h1><h2 id='2021-09-10'>2021-09-10</h2><h3 id='rest-api'>REST API</h3>
 <ul>
 <li><a href="#t-usertraderecords">User Trade Records</a> [update]
-This update limits<code>start_time</code> and <code>end_time</code> within seven days from current date. If you want to learn more information, please foward to customer service to download data.</li>
+<ul><li>Limit <code>start_time</code> and <code>end_time</code> to be within seven days of the current date. For earlier records, please contact customer support.</li></ul></li>
 </ul>
 <h2 id='2021-09-07'>2021-09-07</h2><h3 id='rest-api-2'>REST API</h3>
 <ul>
@@ -6171,14 +6171,14 @@ One order may have multiple trade records.
 <tr>
 <td style="text-align: left">start_time</td>
 <td style="text-align: left">false</td>
-<td style="text-align: left">int</td>
-<td>Start timestamp point for result, in milliseconds. Limit Start timestamp within seven days from current date.</td>
+<td style="text-align: left">integer</td>
+<td>Start timestamp point for result, in milliseconds. Timestamp must be within seven days of the current date. For earlier records, please contact customer support</td>
 </tr>
 <tr>
 <td style="text-align: left">end_time</td>
 <td style="text-align: left">false</td>
-<td style="text-align: left">int</td>
-<td>End timestamp point for result, in milliseconds. Limit Start timestamp within seven days from current date.</td>
+<td style="text-align: left">integer</td>
+<td>End timestamp point for result, in milliseconds. Timestamp must be within seven days of the current date. For earlier records, please contact customer support</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#exec-type-exec_type">exec_type</a></td>
@@ -7010,7 +7010,7 @@ Set risk limit.
 </thead><tbody>
 </tbody></table>
 <h1 id='t-ratelimits'>API Rate Limits</h1><h3 id='t-ipratelimits'>IP Rate Limit</h3>
-<p><p>The IP limits are shared across all futures and spot markets.</p>
+<p><p>The IP limits are shared across all endpoints: futures, spot, and account asset. However, the mainent and testnet IP limits are separate.</p>
 <p>Bybit has different IP frequency limits for <code>GET</code> and <code>POST</code> method<span>:</span></p>
 <ul>
 <li>
@@ -7068,7 +7068,7 @@ Set risk limit.
   <tr><td>/private/linear/position/set-auto-add-margin </td><td>1 / request</td></tr>
   <tr><td>/private/linear/position/trading-stop </td><td>1 / request</td></tr>
   <tr><td>/private/linear/position/add-margin </td><td>1 / request</td></tr>
-    
+
   <tr>
     <td rowspan="3">120/min</td>
     <td>/private/linear/position/list  </td>
@@ -7076,7 +7076,7 @@ Set risk limit.
   </tr>
   <tr><td>/private/linear/trade/closed-pnl/list </td><td>1 / request</td></tr>
   <tr><td>/private/linear/trade/execution/list </td><td>1 / request</td></tr>
-    
+
   <tr>
     <td rowspan="4">600/min</td>
     <td>/private/linear/order/list </td>
@@ -7085,7 +7085,7 @@ Set risk limit.
   <tr><td>/private/linear/order/search </td><td>1 / request</td></tr>
   <tr><td>/private/linear/stop-order/list </td><td>1 / request</td></tr>
   <tr><td>/private/linear/stop-order/search </td><td>1 / request</td></tr>
-  
+
   <tr>
     <td rowspan="2">120/min</td>
     <td>/private/linear/funding/prev-funding  </td>

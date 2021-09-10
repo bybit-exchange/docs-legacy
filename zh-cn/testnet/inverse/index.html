@@ -3382,13 +3382,13 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">start_time</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">integer</td>
-<td>开始时间戳（毫秒) 限定在当前时间的七天内，如果想了解时间范围更长的信息，请咨询客服下载数据。</td>
+<td>开始时间戳（毫秒)</td>
 </tr>
 <tr>
 <td style="text-align: left">end_time</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">integer</td>
-<td>结束时间戳（毫秒） 限定在当前时间的七天内, 如果想了解时间范围更长的信息，请咨询客服下载数据。</td>
+<td>结束时间戳（毫秒</td>
 </tr>
 </tbody></table>
 
@@ -7572,7 +7572,7 @@ GET
 <td style="text-align: left">start_time</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">int</td>
-<td>开始时间戳（毫秒) 限定在当前时间的七天内，如果想了解时间范围更长的信息，请咨询客服下载数据。</td>
+<td>开始时间戳（毫秒)</td>
 </tr>
 <tr>
 <td style="text-align: left">page</td>
@@ -9502,20 +9502,21 @@ GET
 </thead><tbody>
 </tbody></table>
 <h1 id='t-ratelimits'>频率限制</h1><h3 id='t-ipratelimits'>IP频率限制</h3>
-<p><p> Bybit会基于请求IP做频率限制，针对不同的请求方法有以下规则：</p>
+<p><p>The IP limits are shared across all endpoints: futures, spot, and account asset.</p>
+<p>Bybit has different IP frequency limits for <code>GET</code> and <code>POST</code> method<span>:</span></p>
 <ul>
 <li>
-  <code>GET</code>方法:
+  <code>GET</code> method:
   <ul>
-    <li>连续2分钟内每秒不超过50个请求</li>
-    <li>连续5秒内每秒不超过70个请求</li>
+    <li>12 requests per second continuously for 2 minutes</li>
+    <li>18 requests per second continuously for 5 seconds</li>
   </ul>
 </li>
 <li>
-  <code>POST</code>方法:
+  <code>POST</code> method:
   <ul>
-    <li>连续2分钟内每秒不超过20个请求</li>
-    <li>连续5秒内每秒不超过50个请求</li>
+    <li>10 requests per second continuously for 2 minutes</li>
+    <li>15 requests per second continuously for 5 seconds</li>
   </ul>
 </li>
 </ul>

@@ -748,7 +748,10 @@
             <a href="#t-ratelimits" class="toc-h1 toc-link" data-title="API Rate Limits">API Rate Limits</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#t-perendpointtransfer" class="toc-h2 toc-link" data-title="Rate Limits For Spot Transfer Endpoints">Rate Limits For Spot Transfer Endpoints</a>
+                    <a href="#t-ipratelimits" class="toc-h2 toc-link" data-title="IP Rate Limit">IP Rate Limit</a>
+                  </li>
+                  <li>
+                    <a href="#t-perendpointtransfer" class="toc-h2 toc-link" data-title="Rate Limits For Transfer Endpoints">Rate Limits For Transfer Endpoints</a>
                   </li>
               </ul>
           </li>
@@ -1206,13 +1209,13 @@ A subaccount can only be attributed to a parent account.
 <td style="text-align: left">start_time</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">integer</td>
-<td>Start timestamp point for result, in milliseconds. Limit Start timestamp within seven days from current date.</td>
+<td>Start timestamp point for result, in milliseconds</td>
 </tr>
 <tr>
 <td style="text-align: left">end_time</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">integer</td>
-<td>End timestamp point for result, in milliseconds. Limit Start timestamp within seven days from current date.</td>
+<td>End timestamp point for result, in milliseconds</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#pageaction-turn-page">direction</a></td>
@@ -1387,13 +1390,13 @@ A subaccount can only be attributed to a parent account.
 <td style="text-align: left">start_time</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">integer</td>
-<td>Start timestamp point for result, in milliseconds. Limit Start timestamp within seven days from current date.</td>
+<td>Start timestamp point for result, in milliseconds</td>
 </tr>
 <tr>
 <td style="text-align: left">end_time</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">integer</td>
-<td>End timestamp point for result, in milliseconds. Limit Start timestamp within seven days from current date.</td>
+<td>End timestamp point for result, in milliseconds</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#pageaction-turn-page">direction</a></td>
@@ -1615,7 +1618,27 @@ A subaccount can only be attributed to a parent account.
 </tr>
 </thead><tbody>
 </tbody></table>
-<h1 id='t-ratelimits'>API Rate Limits</h1><h3 id='t-perendpointtransfer'>Rate Limits For Spot Transfer Endpoints</h3>
+<h1 id='t-ratelimits'>API Rate Limits</h1><h3 id='t-ipratelimits'>IP Rate Limit</h3>
+<p><p>The IP limits are shared across all endpoints: futures, spot, and account asset.</p>
+<p>Bybit has different IP frequency limits for <code>GET</code> and <code>POST</code> method<span>:</span></p>
+<ul>
+<li>
+  <code>GET</code> method:
+  <ul>
+    <li>12 requests per second continuously for 2 minutes</li>
+    <li>18 requests per second continuously for 5 seconds</li>
+  </ul>
+</li>
+<li>
+  <code>POST</code> method:
+  <ul>
+    <li>10 requests per second continuously for 2 minutes</li>
+    <li>15 requests per second continuously for 5 seconds</li>
+  </ul>
+</li>
+</ul>
+</p>
+<h3 id='t-perendpointtransfer'>Rate Limits For Transfer Endpoints</h3>
 <table class="custom_table">
     <tr>
         <th>Limit</th>

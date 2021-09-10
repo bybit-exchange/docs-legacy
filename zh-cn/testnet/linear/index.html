@@ -1459,7 +1459,7 @@ clipboard.on('error', function(e) {
 <h1 id='t-changelog'>更新日志</h1><h2 id='2021-09-10'>2021-09-10</h2><h3 id='rest-api'>REST API</h3>
 <ul>
 <li><a href="#t-usertraderecords">用户成交记录</a> [更新]
-本次更新<code>start_time</code>开始时间需要限定在七天内, <code>end_time</code>结束时间也需要限定在七天内，如果需要更长时间范围的数据请联系客服下载。</li>
+<ul><li>本次更新<code>start_time</code>开始时间需要限定在七天内, <code>end_time</code>结束时间也需要限定在七天内，如果需要更长时间范围的数据请联系客服下载。</li></ul></li>
 </ul>
 <h2 id='2021-09-07'>2021-09-07</h2><h3 id='rest-api-2'>REST API</h3>
 <ul>
@@ -6130,13 +6130,13 @@ GET
 <tr>
 <td style="text-align: left">start_time</td>
 <td style="text-align: left">false</td>
-<td style="text-align: left">int</td>
+<td style="text-align: left">integer</td>
 <td>开始时间戳（毫秒) 限定在当前时间的七天内，如果想了解时间范围更长的信息，请咨询客服下载数据。</td>
 </tr>
 <tr>
 <td style="text-align: left">end_time</td>
 <td style="text-align: left">false</td>
-<td style="text-align: left">int</td>
+<td style="text-align: left">integer</td>
 <td>结束时间戳（毫秒） 限定在当前时间的七天内, 如果想了解时间范围更长的信息，请咨询客服下载数据。</td>
 </tr>
 <tr>
@@ -6968,20 +6968,21 @@ GET
 </thead><tbody>
 </tbody></table>
 <h1 id='t-ratelimits'>频率限制</h1><h3 id='t-ipratelimits'>IP频率限制</h3>
-<p><p> Bybit会基于请求IP做频率限制，针对不同的请求方法有以下规则：</p>
+<p><p>The IP limits are shared across all endpoints: futures, spot, and account asset.</p>
+<p>Bybit has different IP frequency limits for <code>GET</code> and <code>POST</code> method<span>:</span></p>
 <ul>
 <li>
-  <code>GET</code>方法:
+  <code>GET</code> method:
   <ul>
-    <li>连续2分钟内每秒不超过50个请求</li>
-    <li>连续5秒内每秒不超过70个请求</li>
+    <li>12 requests per second continuously for 2 minutes</li>
+    <li>18 requests per second continuously for 5 seconds</li>
   </ul>
 </li>
 <li>
-  <code>POST</code>方法:
+  <code>POST</code> method:
   <ul>
-    <li>连续2分钟内每秒不超过20个请求</li>
-    <li>连续5秒内每秒不超过50个请求</li>
+    <li>10 requests per second continuously for 2 minutes</li>
+    <li>15 requests per second continuously for 5 seconds</li>
   </ul>
 </li>
 </ul>
@@ -7025,7 +7026,7 @@ GET
   <tr><td>/private/linear/position/set-auto-add-margin </td><td>1 / request</td></tr>
   <tr><td>/private/linear/position/trading-stop </td><td>1 / request</td></tr>
   <tr><td>/private/linear/position/add-margin </td><td>1 / request</td></tr>
-    
+
   <tr>
     <td rowspan="3">120/min</td>
     <td>/private/linear/position/list  </td>
@@ -7033,7 +7034,7 @@ GET
   </tr>
   <tr><td>/private/linear/trade/closed-pnl/list </td><td>1 / request</td></tr>
   <tr><td>/private/linear/trade/execution/list </td><td>1 / request</td></tr>
-    
+
   <tr>
     <td rowspan="4">600/min</td>
     <td>/private/linear/order/list </td>
@@ -7042,7 +7043,7 @@ GET
   <tr><td>/private/linear/order/search </td><td>1 / request</td></tr>
   <tr><td>/private/linear/stop-order/list </td><td>1 / request</td></tr>
   <tr><td>/private/linear/stop-order/search </td><td>1 / request</td></tr>
-  
+
   <tr>
     <td rowspan="2">120/min</td>
     <td>/private/linear/funding/prev-funding  </td>

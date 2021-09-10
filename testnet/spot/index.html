@@ -3514,27 +3514,27 @@ The actual result of the cancellation request needs to be checked by order statu
 </thead><tbody>
 </tbody></table>
 <h1 id='t-ratelimits'>API Rate Limits</h1><h3 id='t-ipratelimits'>IP Rate Limit</h3>
-<p><p>The IP limits are shared across all futures and spot markets.</p>
+<p><p>The IP limits are shared across all endpoints: futures, spot, and account asset.</p>
 <p>Bybit has different IP frequency limits for <code>GET</code> and <code>POST</code> method<span>:</span></p>
 <ul>
 <li>
   <code>GET</code> method:
   <ul>
-    <li>50 requests per second continuously for 2 minutes</li>
-    <li>70 requests per second continuously for 5 seconds</li>
+    <li>12 requests per second continuously for 2 minutes</li>
+    <li>18 requests per second continuously for 5 seconds</li>
   </ul>
 </li>
 <li>
   <code>POST</code> method:
   <ul>
-    <li>20 requests per second continuously for 2 minutes</li>
-    <li>50 requests per second continuously for 5 seconds</li>
+    <li>10 requests per second continuously for 2 minutes</li>
+    <li>15 requests per second continuously for 5 seconds</li>
   </ul>
 </li>
 </ul>
 </p>
 <h3 id='t-spot_understandingratelimits'>Rate Limits for Requests</h3>
-<p>For all endpoints that need authentication, the rate limit is 20 per second
+<p>For all endpoints that need authentication, the rate limit is 20 per second.
 </p>
 <h1 id='t-websocket'>WebSocket Data</h1><h2 id='t-websocketauthentication'>Authentication</h2>
 <blockquote>
