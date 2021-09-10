@@ -1,5 +1,3 @@
-# t(:ratelimits)
-
 ### t(:perendpointtransfer)
 <table class="custom_table">
     <tr>
