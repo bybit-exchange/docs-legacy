@@ -176,8 +176,8 @@ en:
   row_comment_withdrawStatus: Withdraw status
   row_comment_startTime: Start timestamp point for result, in seconds
   row_comment_endTime: End timestamp point for result, in seconds
-  row_comment_startTime_ms: Start timestamp point for result, in milliseconds
-  row_comment_endTime_ms: End timestamp point for result, in milliseconds
+  row_comment_startTime_ms: Start timestamp point for result, in milliseconds. Limit Start timestamp within seven days from current date.
+  row_comment_endTime_ms: End timestamp point for result, in milliseconds. Limit Start timestamp within seven days from current date.
   row_comment_riskId: <a href="#t-getrisklimit">Risk ID</a>
   row_comment_closed_size: The corresponding closing size of the closing order
   row_comment_rate_limit: Limit
@@ -2029,6 +2029,8 @@ en:
   ws_update_20210202_2: Add fields <code>reduce_only</code>,<code>close_on_trigger</code>
   ws_update_20210225: Add websocket support to inverse future
 
+  restapi_update_20210910:
+   This update limits<code>start_time</code> and <code>end_time</code> within seven days from current date. If you want to learn more information, please foward to customer service to download data.
   restapi_update_20210312: Fix value of <code>exec_type,last_liquidity_ind</code> for <a href="#t-usertraderecords">User Trade Record</a> endpoint
   restapi_update_20210315: Prior to December 31, 2020, order price of a market order was returned as the last traded price as of the moment of order placement. On and after December 31, 2020, order price of a market order is returned as a revised limit price. For more information, please refer to  <a href="#t-activeorders">description of market order</a>.
   restapi_update_20210402: Add comment of errcode 10016,10018,30074,30075
