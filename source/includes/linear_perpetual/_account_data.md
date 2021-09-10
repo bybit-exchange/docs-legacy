@@ -1749,8 +1749,8 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
-|start_time |false |int |t(:row_comment_startTime_ms) |
-|end_time |false |int |t(:row_comment_endTime_ms) |
+|start_time |false |integer |t(:row_comment_startTime_ms_week) |
+|end_time |false |integer |t(:row_comment_endTime_ms_week) |
 |t(:row_parameter_exec_type) |false |string |t(:linear_exec_type) |
 |page |false |integer |t(:row_comment_page) |
 |limit |false |integer |t(:linear_row_comment_limit_50_200) |
