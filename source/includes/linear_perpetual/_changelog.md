@@ -1,5 +1,10 @@
 # t(:changelog)
 
+## 2021-09-10
+### REST API
+- [t(:usertraderecords)](#t-usertraderecords) [t(:changelog_update)]
+   t(:restapi_update_20210910)
+
 ## 2021-09-07
 ### REST API
 - [t(:closedprofitandloss)](#t-closedprofitandloss) [t(:changelog_update)]
