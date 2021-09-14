@@ -509,17 +509,17 @@ while True:
          "ask1_price":"475450000",
          "last_tick_direction": "ZeroPlusTick",        //the direction of last tick:PlusTick,ZeroPlusTick,MinusTick,ZeroMinusTick
          "prev_price_24h_e4": 81585000,                //the price of prev 24h
-         "prev_price_24h": "81585000", 
+         "prev_price_24h": "81585000",
          "price_24h_pcnt_e6": -5148,                   //the current last price percentage change from prev 24h price
          "high_price_24h_e4": 82900000,                //the highest price of prev 24h
          "high_price_24h": "82900000",
          "low_price_24h_e4": 79655000,                 //the lowest price of prev 24h
          "low_price_24h": "79655000",
          "prev_price_1h_e4": 81395000,                 //the price of prev 1h
-         "prev_price_1h": "81395000", 
+         "prev_price_1h": "81395000",
          "price_1h_pcnt_e6": -2825,                    //the current last price percentage change from prev 1h price
          "mark_price_e4": 81178500,                    //mark price
-         "mark_price": "81178500", 
+         "mark_price": "81178500",
          "index_price_e4": 81172800,                   //index price
          "index_price": "81172800",
          "open_interest": 154418471,                   //open interest quantity - Attention, the update is not immediate - slowest update is 1 minute
@@ -648,9 +648,6 @@ ws.send('{"op":"subscribe","args":["klineV2.1.BTCUSD"]}')
 
 t(:websocket_para_klineV2)
 
-<aside class="notice">
-t(:websocket_aside_klineV2)
-</aside>
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -667,6 +664,39 @@ t(:websocket_aside_klineV2)
 |cross_seq|integer |t(:row_comment_cross_seq)    |
 |timestamp|integer |t(:row_comment_endTime)    |
 
+
+
+### t(:websocketliquidation)
+> t(:codequote_subscribe)
+
+```javascript
+ws.send('{"op":"subscribe","args":["liquidation"]}')
+```
+
+> t(:codequote_responseExampleFormatAll)
+
+```javascript
+{
+    "topic":"liquidation.ETHUSD",
+    "data": {
+        "symbol":"ETHUSD",
+        "side":"Sell",
+        "price":"3384.15",
+        "qty":"3655",
+        "time":1631608881954
+    }
+}
+```
+t(:websocket_query_liqrecords)
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
+|t(:row_parameter_side)|string |t(:row_response_liq_record_side)    |
+|price|string |t(:row_comment_bust_price)    |
+|t(:row_parameter_quantity)|string |t(:row_response_comment_execqty)    |
+|time|number |t(:row_response_comment_nill_time)    |
 
 
 ## t(:privatetopics)
