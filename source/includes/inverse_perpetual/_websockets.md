@@ -648,9 +648,6 @@ ws.send('{"op":"subscribe","args":["klineV2.1.BTCUSD"]}')
 
 t(:websocket_para_klineV2)
 
-<aside class="notice">
-t(:websocket_aside_klineV2)
-</aside>
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -667,6 +664,39 @@ t(:websocket_aside_klineV2)
 |cross_seq|integer |t(:row_comment_cross_seq)    |
 |timestamp|integer |t(:row_comment_endTime)    |
 
+
+
+### t(:liquidation)
+> t(:codequote_subscribe)
+
+```javascript
+ws.send('{"op":"subscribe","args":["liquidation"]}')
+```
+
+> t(:codequote_responseExampleFormatAll)
+
+```javascript
+{
+    "topic":"liquidation.ETHUSD",
+    "data": {
+        "symbol":"ETHUSD",
+        "side":"Sell",
+        "price":"3384.15",
+        "qty":"3655",
+        "time":1631608881954
+    }
+}
+```
+t(:websocket_query_liqrecords)
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|symbol|string |t(:row_comment_symbol)    |
+|side|string |t(:row_response_liq_record_side)    |
+|price|string |t(:row_response_comment_execprice)    |
+|qty|string |t(:row_response_comment_execqty)    |
+|time|number |t(:row_response_comment_nill_time)    |
 
 
 ## t(:privatetopics)

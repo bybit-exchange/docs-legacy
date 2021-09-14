@@ -1253,6 +1253,10 @@ en:
     If <code>confirm</code> is <code>True</code>, the data is the final tick for the interval. Otherwise, it is a snapshot.
   websocketkline: kline
 
+  ## liquidation
+  liquidation: liquidation
+  websocket_query_liqrecords: Retrieve the liquidated orders
+
   ## Private Topics
   privatetopics: Private Topics
   ### position
@@ -2053,6 +2057,7 @@ en:
 
   restapi_update_20210910:
    <ul><li>Limit <code>start_time</code> and <code>end_time</code> to be within seven days of the current date. For earlier records, please contact customer support.</li></ul>
+  restapi_update_20210914: The Inverse Perpetual of Liquidation Websocket API is released. This shift helps ensure a fair trading environment, and prevents liquidation orders from being front-run by traders with advanced market info queried via the Liquidated Orders API. Please make adjustments accordingly before Sept. 24, 2021, to ensure a smooth trading experience. Thank you for your continued support!
   restapi_update_20210312: Fix value of <code>exec_type,last_liquidity_ind</code> for <a href="#t-usertraderecords">User Trade Record</a> endpoint
   restapi_update_20210315: Prior to December 31, 2020, order price of a market order was returned as the last traded price as of the moment of order placement. On and after December 31, 2020, order price of a market order is returned as a revised limit price. For more information, please refer to  <a href="#t-activeorders">description of market order</a>.
   restapi_update_20210402: Add comment of errcode 10016,10018,30074,30075
