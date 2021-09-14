@@ -2,7 +2,8 @@
 ## 2021-09-14
 ### Websocket API
 - [t(:liquidation)](#t-liquidation) [t(:changelog_new)]
-  t(:restapi_update_20210914)
+  - t(:restapi_update_2021091401)
+  - t(:restapi_update_2021091402)
 
 ## 2021-09-03
 ### Websocket API
