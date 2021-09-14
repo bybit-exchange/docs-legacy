@@ -5,7 +5,7 @@
   - t(:restapi_update_2021091402)
 
 ### REST API
-- [t(:query_liqrecords)](#t-query_liqrecords)] [t(:changelog_delete)]
+- [t(:query_liqrecords)](#t-query_liqrecords) [t(:changelog_delete)]
   - t(:restapi_update_2021091401)
 
 ## 2021-09-03
