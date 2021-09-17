@@ -612,19 +612,19 @@ t(:websocket_aside_klineV2)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op":"subscribe","args":["liquidation"]}')
+ws.send('{"op":"subscribe","args":["liquidation.XRPUSDT"]}')
 ```
 
 > t(:codequote_responseExampleFormatAll)
 
 ```javascript
 {
-    "topic":"liquidation.BTCUSDT",
+    "topic":"liquidation.XRPUSDT",
     "data": {
-        "symbol":"BTCUSDT",
+        "symbol":"XRPUSDT",
         "side":"Sell",
         "price":"3384.15",
-        "qty":"3655",
+        "qty":"0.057",
         "time":1631608881954
     }
 }
