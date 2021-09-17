@@ -608,13 +608,37 @@ t(:websocket_aside_klineV2)
 |timestamp|integer |t(:row_comment_endTime)    |
 
 
+### t(:websocketliquidation)
+> t(:codequote_subscribe)
 
+```javascript
+ws.send('{"op":"subscribe","args":["liquidation"]}')
+```
 
+> t(:codequote_responseExampleFormatAll)
 
+```javascript
+{
+    "topic":"liquidation.BTCUSDT",
+    "data": {
+        "symbol":"BTCUSDT",
+        "side":"Sell",
+        "price":"3384.15",
+        "qty":"3655",
+        "time":1631608881954
+    }
+}
+```
+t(:websocket_query_liqrecords)
 
-
-
-
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
+|t(:row_parameter_side)|string |t(:row_response_liq_record_side)    |
+|price|string |t(:row_comment_bust_price)    |
+|t(:row_parameter_quantity)|string |t(:row_response_comment_liq_execqty)    |
+|time|number |t(:row_response_comment_nill_time)    |
 
 
 
