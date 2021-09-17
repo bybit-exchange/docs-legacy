@@ -226,10 +226,54 @@ POST
 ## t(:cancelbatch)
 > t(:codequote_curlExample)
 ```console
-curl https://api.bybit.com/contract/v3/private/order/cancelAll \
+curl https://api.bybit.com/contract/v3/private/order/cancel-batch \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","timestamp":{timestamp},"sign":"{sign}"}'
 ```
+
+```javascript
+{
+    "ret_code": 0,      
+    "ret_msg": "OK",    
+    "ext_code": "",     
+    "ext_info": "",
+    "result": {
+            "order_ids": {
+                 "89a38056-80f1-45b2-89d3-4d8e3a203a79",
+                 "20a3wdcs-786d-wrb2-8ef3-dwefe3a204daf"
+             },  
+        },
+    "time_now": "1575110339.105675",
+    "rate_limit_status": 98,
+    "rate_limit_reset_ms": 1580885703683,
+    "rate_limit": 100
+}
+```
+
+t(:account_para_cancelBatchActive)
+
+<aside class="notice">
+t(:account_aside_cancelAllActive)
+</aside>
+
+
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=vpoCancelAll>contract/v3/private/order/cancel-batch</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancelAll"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|t(:row_parameter_symbol) |<b>true</b> |string | t(:row_comment_symbol) |
+|t(:row_parameter_order_ids) |<b>true</b>|[]string |t(:row_comment_order_ids)   |
+|t(:row_parameter_order_filter) |false|string |t(:row_comment_orderFilter)   |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|order_ids |string |t(:row_comment_order_ids)  |
+|order_link_ids |string |t(:row_comment_order_ids)  |
 
 
 
@@ -237,7 +281,7 @@ curl https://api.bybit.com/contract/v3/private/order/cancelAll \
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/contract/v3/private/order/cancelAll \
+curl https://api.bybit.com/contract/v3/private/order/cancel-all \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","timestamp":{timestamp},"sign":"{sign}"}'
 ```
@@ -271,7 +315,7 @@ t(:account_aside_cancelAllActive)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCancelAll>contract/v3/private/order/cancelAll</span></code>
+<code><span id=vpoCancelAll>contract/v3/private/order/cancel-all</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancelAll"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -347,7 +391,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/contract/v3/private/active-orders?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}order_id={order_id}&sign={sign}"
+curl "https://api.bybit.com/contract/v3/private/order/active-orders?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}order_id={order_id}&sign={sign}"
 ```
 
 
@@ -362,13 +406,16 @@ curl "https://api.bybit.com/contract/v3/private/active-orders?api_key={api_key}&
     "ext_code": "",
     "ext_info": "",
     "result": [
-        {
+        "list": {
             "user_id": 100228,
             "symbol": "BTCUSD",
             "side": "Sell",
             "order_type": "Limit",
+            "take_profit":"12131",
+            "stop_loss":"23231"
             "price": "17740",
             "qty": "10",
+            "order_status": "new",
             "time_in_force": "GoodTillCancel",
             "order_status": "New",
             "last_exec_time": "1608193181.827761",
@@ -377,10 +424,18 @@ curl "https://api.bybit.com/contract/v3/private/active-orders?api_key={api_key}&
             "cum_exec_qty": "0",
             "cum_exec_value": "0.00008505",
             "cum_exec_fee": "-0.00000002",
-            "reject_reason": "EC_NoError",
             "cancel_type": "UNKNOWN",
             "order_link_id": "",
-            "created_at": "2020-12-17T08:19:41.827637283Z",
+            "trailing_stop": "",
+            "trigger_price": "",
+            "trigger_by": "",
+            "last_exec_price": "",
+            "base_price": "",
+            "order_type": "Limit",
+            "reduce_only": false,
+            "close_on_trigger": false,
+            "order_filter": "Order"
+            "created_time": "2020-12-17T08:19:41.827637283Z",
             "updated_at": "2020-12-17T08:19:41.827761Z",
             "order_id": "d570d931-771e-4911-a24e-cdeddedb5b0e"
         },
@@ -419,7 +474,7 @@ t(:account_para_queryActive)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpOrder>/contract/v3/private/active-orders</span></code>
+<code><span id=vpOrder>/contract/v3/private/order/active-orders</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -428,12 +483,15 @@ GET
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
 |order_id |false |string | t(:row_comment_order_id)|
 |order_link_id |false |string |t(:row_comment_order_link_id) |
+|t(:row_parameter_order_filter) |false|string |t(:row_comment_orderFilter)   |
 
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|user_id |number |t(:row_comment_userID)  |
+|order_id|string |t(:row_comment_orderId)  |
+|position_idx|integer |t(:row_comment_position_idx) |
+
 |symbol|string |t(:row_comment_symbol)    |
 |side |string |t(:row_comment_side)  |
 |order_type |string |t(:row_comment_order_type)  |
@@ -446,7 +504,6 @@ GET
 |cum_exec_qty |string |t(:linear_resp_field_cum_exec_qty)  |
 |cum_exec_value |string |t(:linear_resp_field_cum_exec_value)  |
 |cum_exec_fee |order_link_id |string |t(:linear_resp_field_cum_exec_fee)  |
-|reject_reason |string |t(:row_comment_reject_reason)  |
 |cancel_type |string |t(:row_comment_cancel_type)  |
 |order_link_id |string |t(:row_response_comment_orderLinkId)  |
 |created_at |string |t(:row_comment_created_at)  |
@@ -621,7 +678,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/contract/v3/private/position/change-position-margin \
+curl https://api.bybit.com/contract/v3/private/position/set-margin \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD",margin:"10","timestamp":{timestamp},"sign":"{sign}"}'
 ```
