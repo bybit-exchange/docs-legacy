@@ -75,7 +75,6 @@ zh-cn:
   row_comment_nth_fill: 该笔流水对应了撮合响应包里的第几笔成交
   row_comment_user_id: 用户ID
   row_comment_order_id: 订单ID
-  row_comment_order_link_id: 用户自定义订单ID
   row_comment_order_price: 订单价格
   row_comment_order_qty: 订单数量
   row_comment_trade_time: 交易时间
@@ -153,7 +152,6 @@ zh-cn:
   row_comment_orderLinkId: 机构自定义订单ID, 最大长度36位，且同一机构下自定义ID不可重复
   row_comment_page: 页码.默认取第一页
   row_comment_page_max50: 页码.默认取第一页,最大50
-  row_comment_orderId: 活动订单号ID。当成功创建了活动订单后返回的唯一的订单号ID。
   row_comment_stopOrderId: 条件委托订单ID。
   row_comment_pRQty: 修改后的订单数量。如果是未完全成交订单，则表示修改剩余未成交的部分。如果不修改这个字段，请不要传这个参数。
   row_comment_pRPrice: 修改后的订单价格。如果不修改这个字段，请不要传这个参数。
@@ -667,14 +665,16 @@ zh-cn:
     <p>自定义条件单ID: 您可以自定义活动委托订单ID，我们会为您关联到系统的订单ID，并把系统的唯一订单ID在活动委托创建成功后一并返回给您，您可以使用该订单ID去取消活动委托，同时要求您传递的自定义订单ID最大长度不超过36个字段且唯一。</p>
   account_aside_placeCond:
     请注意:只允许最多创建10个条件委托单
-  account_aside_placeCond_linear:
-    <p>请注意:只允许最多创建10个条件委托单</p>
-  account_aside_placeActive_linear_warn:
-    <p>请注意:<p>
-    <p><code>ret_code</code>=0 和 <code>ext_code</code>="" 表示下单成功<p>
-    <p><code>ret_code</code>=0 和 <code>ext_code</code>!=""表示下单成功，但是部分参数设置失败<p>
-    <p><code>ret_code</code>!=0 表示下单失败<p>
-    <p><code>ext_code</code> 详情参阅 <a href="#t-errors">Errors</a></p>
+  account_aside_placeCond_linear: |
+    请注意:只允许最多创建10个条件委托单
+  account_aside_placeActive_linear_warn: |
+    请注意:
+    <ul>
+      <li><code>ret_code</code>=0 和 <code>ext_code</code>="" 表示下单成功</li>
+      <li><code>ret_code</code>=0 和 <code>ext_code</code>!=""表示下单成功，但是部分参数设置失败</li>
+      <li><code>ret_code</code>!=0 表示下单失败</li>
+      <li><code>ext_code</code> 详情参阅 <a href="#t-errors">Errors</a></li>
+    </ul>
 
   ### Get Conditional Order
   getcond: 查询条件委托
@@ -1482,9 +1482,6 @@ zh-cn:
   misc_row_comment_orderLinkIdNotStopOrderId: 机构ID。如果未填stop_order_id则为<b>必填</b>字段。
   misc_row_comment_orderIdNotOrderLinkId: 订单ID。如果未填order_link_id则为<b>必填</b>字段。
   misc_row_comment_symbolNotOrderId: 交易对 <b>必填</b>
-
-  misc_row_comment_orderLinkIdOrOrderId: 机构ID。
-  misc_row_comment_orderIdOrOrderLinkId: 订单ID。
 
   # fix problem of nested common subheadings
   httprequest1: HTTP 请求

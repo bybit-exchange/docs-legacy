@@ -76,7 +76,6 @@ en:
   row_comment_nth_fill: The sequence of the transaction in this cross sequence data package
   row_comment_user_id: User ID
   row_comment_order_id: Order ID
-  row_comment_order_link_id: Order link ID
   row_comment_order_price: Order price
   row_comment_order_qty: Order qty
   row_comment_trade_time: Transaction timestamp
@@ -151,12 +150,11 @@ en:
   row_comment_trailingStop: Trailing stop
   row_comment_reduceOnly: <a href="https://help.bybit.com/hc/en-us/articles/360039260574-What-is-a-reduce-only-order-"> What is a reduce-only order?</a> True means your position can only reduce in size if this order is triggered
   row_comment_closeOnTrigger: <a href="https://help.bybit.com/hc/en-us/articles/360039260534-What-is-a-close-on-trigger-Order-">  What is a close on trigger order?</a> For a closing order. It can only reduce your position, not increase it. If the account has insufficient available balance when the closing order is triggered, then other active orders of similar contracts will be cancelled or reduced. It can be used to ensure your stop loss reduces your position regardless of current available margin.
-  row_comment_orderLinkId: Customised order ID, maximum length at 36 characters, and order ID under the same agency has to be unique.
+  row_comment_orderLinkId: Unique user-set order ID. Maximum length of 36 characters
   row_comment_page: Page. By default, gets first page of data
   row_comment_page_max50: Page. By default, gets first page of data. Maximum of 50 pages
   row_comment_order: Sort orders by creation date. Defaults to <code>desc</code>
-  row_comment_orderId: Your active order ID. The unique order ID returned to you when the corresponding active order was created
-  row_comment_stopOrderId: Your conditional order ID. The unique order ID returned to you when the corresponding active order was created
+  row_comment_stopOrderId: Conditional order ID. Once triggered, the conditional order creates an active order with the same ID (<code>order_id</code>)
   row_comment_pRQty: New order quantity. Do not pass this field if you don't want modify it
   row_comment_pRPrice: New order price. Do not pass this field if you don't want modify it
   row_comemnt_pRTriggerPrice: New conditional order's trigger price or TP/SL order price, also known as stop_px. Do not pass this field if you don't want modify it
@@ -316,7 +314,7 @@ en:
   row_comment_tx_id: Transaction hash ID
   row_comment_address: Address
   row_comment_submited_at: Submit time
-  row_response_liq_record_side: Liquidated order's side
+  row_response_liq_record_side: Liquidated position's side
   row_comment_max_leverage: Max leverage
   request_disable: This endpoint is no longer recommended!
 
@@ -701,7 +699,7 @@ en:
     <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell. All USD markets have a contract size of 1 USD. See more</p>
     <p>Order price: If it is a conditional order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the price_filter field in the <a href="#t-querysymbol">Query Symbols</a> endpoint. This must modulo by 0.5 (20 and 21.5 are accepted, but 16.1 or 16.15 are not).</p>
     <p>Custom order ID: You may customise order IDs for active orders. We will link it to the system order ID, and return the unique system order ID to you after the active order is created successfully. You may use this order ID or your custom order ID to cancel your active order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
-    <p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSD instrument and 280 active orders on the ETHUSD instrument. And order with parameter <code>reduce_only</code> or <code>closeOnTrigger</code> is unlimited.</b></p>
+    <p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSD instrument and 280 active orders on the ETHUSD instrument.</b></p>
   ### Get Active Order
   getactive: Get Active Order
   a_getactive: Get Active Order
@@ -753,16 +751,17 @@ en:
 
   account_aside_placeCond:
     Take profit/Stop loss is not supported in placing conditional orders. One can only use these 2 functions when placing active orders. Moreover, each account can hold up to 10 conditional orders yet to be filled entirely simultaneously.
-  account_aside_placeCond_linear:
-    <p>Each account can hold up to 10 conditional orders yet to be filled entirely simultaneously.</p>
+  account_aside_placeCond_linear: |
+    Each account can hold up to 10 conditional orders yet to be filled entirely simultaneously.
 
-  account_aside_placeActive_linear_warn:
-    <p>For response:<p>
-    <p><code>ret_code</code>=0 and <code>ext_code</code>="" means create order success.<p>
-    <p><code>ret_code</code>=0 and <code>ext_code</code>!="" means create order success but partial parameter setting fail.<p>
-    <p><code>ret_code</code>!=0 means create order fail<p>
-    <p><code>ext_code</code> means please refer to <a href="#t-errors">Errors</a></p>
-
+  account_aside_placeActive_linear_warn: |
+    Please note:
+    <ul>
+      <li><code>ret_code</code>=0 and <code>ext_code</code>="" means create order success</li>
+      <li><code>ret_code</code>=0 and <code>ext_code</code>!="" means create order success but some parameters were not set correctly</li>
+      <li><code>ret_code</code>!=0 means create order fail</li>
+      <li><code>ext_code</code> means please refer to <a href="#t-errors">Errors</a></li>
+    </ul>
 
   ### Get Conditional Order
   getcond: Get Conditional Order
@@ -1540,6 +1539,7 @@ en:
   err_11027: Query intervals too large.
   err_11028: Invalid parameter combination.
   err_11030: Invalid parameter sent.
+  err_11030: Insufficient balance
   err_11032: Order price exceeded upper limit.
   err_11033: Order price exceeded lower limit.
   err_11034: Order price has too many decimals.
@@ -1643,13 +1643,10 @@ en:
 
 
   # Misc.
-  misc_row_comment_orderLinkIdNotOrderId: Agency customized order ID. <b>Required</b> if not passing order_id
-  misc_row_comment_orderLinkIdNotStopOrderId: Agency customized order ID. <b>Required</b> if not passing stop_order_id
-  misc_row_comment_orderIdNotOrderLinkId: Order ID. <b>Required</b> if not passing order_link_id
+  misc_row_comment_orderLinkIdNotOrderId: Unique user-set order ID. <b>Required</b> if not passing <code>order_id</code>
+  misc_row_comment_orderLinkIdNotStopOrderId: Unique user-set order ID. <b>Required</b> if not passing <code>stop_order_id</code>
+  misc_row_comment_orderIdNotOrderLinkId: Order ID. <b>Required</b> if not passing <code>order_link_id</code>
   misc_row_comment_symbolNotOrderId: Contract type. <b>Required</b>
-
-  misc_row_comment_orderLinkIdOrOrderId: Agency customized order ID.
-  misc_row_comment_orderIdOrOrderLinkId: Order ID.
 
   default: Default
   # fix problem of nested common subheadings
@@ -1835,10 +1832,10 @@ en:
     <p>Market price active order: A traditional market price order which will be filled at the best available price. <code>price</code> is not required for this type of order.</p>
     <p>Limit price active order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
     <p><b>Take profit/Stop loss: You may only set a TP/SL conditional order upon opening the position. Once you hold a position, any new active order requests which contain TP/SL data will be accepted but TP/SL data will be ignored. <code>tp_trigger_by</code>/<code>sl_trigger_by</code> default to LastPrice. Passing values to the <code>take_profit</code> or <code>stop_loss</code> parameters in this endpoint will create conditional orders managed by the system, which will be be automatically cancelled if the position is closed.</b></p>
-    <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell. For the minimum unit of qty increase or decrease, please refer to the <code>lot_size_filter</code> field in the <a href="#t-querysymbol">Query Symbols endpoint</a> endpoints</p>
+    <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell. For the minimum unit of qty increase or decrease, please refer to the <code>lot_size_filter</code> field in the <a href="#t-querysymbol">Query Symbols</a> endpoint.</p>
     <p>Order price: If it is a stop order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the <code>price_filter</code> field in the <a href="#t-querysymbol">Query Symbols</a> endpoint.</p>
     <p>Custom order ID: You may customise order IDs for active orders. We will link it to the system order ID, and return the unique system order ID to you after the active order is created successfully. You may use this order ID or your custom order ID to cancel your active order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
-    <p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSDT instrument and 280 active orders on the ETHUSDT instrument. And order with parameter <code>reduce_only</code> or <code>close_on_trigger</code> is unlimited.</b></p>
+    <p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSDT instrument and 280 active orders on the ETHUSDT instrument.</b></p>
   linear_row_comment_basePrice: It will be used to compare with the value of <code>stop_px</code>, to decide whether your conditional order will be triggered by crossing trigger price from upper side or lower side. Mainly used to identify the expected direction of the current conditional order.
   linear_row_comment_stopPx: Trigger price
 
