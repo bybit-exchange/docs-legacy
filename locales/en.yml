@@ -2357,7 +2357,7 @@ en:
   spot_websocket_orderbook_desc_v1: |
     <p>This topic pushes all order book data.</p>
     <ul>
-      <li>Snapshot depth: 300 per side.</li>
+      <li>Snapshot depth: 200 per side.</li>
       <li>Events which trigger a message push to this topic:
         <ul>
           <li>Order enters order book</li>
@@ -2373,7 +2373,7 @@ en:
 
   websocketdiffdepth: diffDepth
   spot_websocket_orderbook_delta_desc_v1: |
-    <p>Changes (if any) in the bid–ask spread of the order book will be pushed every second.</p>
+    <p>Changes (if any) in the bid–ask spread of the order book will be pushed every second. The first message pushes a depth of 200 per side. The following messages act as delta messages, which represent updates to the order book relative to the last response.</p>
     <p>In Order Book Streams (Float Depth), the quantity returned may not be equal to the actual bid-ask quantity corresponding to the price. If the quantity=0, it indicates that the price has already changed. If the quantity>0, it refers to the updated bid-ask quantity corresponding to the price.</p>
     <p>Assume the response includes the following:</p>
     <p>&nbsp;&nbsp;> ["0.00181860", "155.92000000"]// price, quantity</p>
