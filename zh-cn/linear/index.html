@@ -3110,7 +3110,14 @@ GET
 </p>
 
 <aside class="warning">
-<p>请注意:<p> <p><code>ret_code</code>=0 和 <code>ext_code</code>="" 表示下单成功<p> <p><code>ret_code</code>=0 和 <code>ext_code</code>!=""表示下单成功，但是部分参数设置失败<p> <p><code>ret_code</code>!=0 表示下单失败<p> <p><code>ext_code</code> 详情参阅 <a href="#t-errors">Errors</a></p>
+请注意:
+<ul>
+  <li><code>ret_code</code>=0 和 <code>ext_code</code>="" 表示下单成功</li>
+  <li><code>ret_code</code>=0 和 <code>ext_code</code>!=""表示下单成功，但是部分参数设置失败</li>
+  <li><code>ret_code</code>!=0 表示下单失败</li>
+  <li><code>ext_code</code> 详情参阅 <a href="#t-errors">Errors</a></li>
+</ul>
+
 </aside>
 
 <p class="fake_header">HTTP 请求</p>
@@ -3172,6 +3179,12 @@ GET
 <td><a href="https://help.bybit.com/hc/zh-cn/articles/360039260534-%E4%BB%80%E4%B9%88%E6%98%AF%E8%A7%A6%E5%8F%91%E5%90%8E%E5%B9%B3%E4%BB%93-"> 什么是 close on trigger order?</a>只会减少您的仓位而不会增加您的仓位。如果当平仓委托被触发时，账户上的余额不足，那么该合约的其他委托将被取消或者降低委托数量。使用此选项可以确保您的止损单被用于减仓而非加仓。</td>
 </tr>
 <tr>
+<td style="text-align: left">reduce_only</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">bool</td>
+<td><a href="https://help.bybit.com/hc/zh-cn/articles/360039260574-%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%AA%E5%87%8F%E4%BB%93-"> 什么是 reduce-only order?</a>,true-平仓 false-开仓,ture时止盈止损设置不生效</td>
+</tr>
+<tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
@@ -3201,12 +3214,6 @@ GET
 <td style="text-align: left">string</td>
 <td>止损激活价格类型，默认为<code>LastPrice</code></td>
 </tr>
-<tr>
-<td style="text-align: left">reduce_only</td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">bool</td>
-<td><a href="https://help.bybit.com/hc/zh-cn/articles/360039260574-%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%AA%E5%87%8F%E4%BB%93-"> 什么是 reduce-only order?</a>,true-平仓 false-开仓,ture时止盈止损设置不生效</td>
-</tr>
 </tbody></table>
 
 <p class="fake_header">返回参数</p>
@@ -3221,7 +3228,7 @@ GET
 <tr>
 <td style="text-align: left">order_id</td>
 <td style="text-align: left">string</td>
-<td>活动订单号ID。当成功创建了活动订单后返回的唯一的订单号ID。</td>
+<td>订单ID</td>
 </tr>
 <tr>
 <td style="text-align: left">user_id</td>
@@ -3968,13 +3975,13 @@ GET
 <td style="text-align: left">order_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>订单ID。</td>
+<td>订单ID。如果未填order_link_id则为<b>必填</b>字段。</td>
 </tr>
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>机构ID。</td>
+<td>机构ID。如果未填order_id则为<b>必填</b>字段。</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
@@ -3996,7 +4003,7 @@ GET
 <tr>
 <td style="text-align: left">order_id</td>
 <td style="text-align: left">string</td>
-<td>活动订单号ID。当成功创建了活动订单后返回的唯一的订单号ID。</td>
+<td>订单ID</td>
 </tr>
 <tr>
 <td style="text-align: left">user_id</td>
@@ -4160,11 +4167,19 @@ GET
 </p>
 
 <aside class="notice">
-<p>请注意:只允许最多创建10个条件委托单</p>
+请注意:只允许最多创建10个条件委托单
+
 </aside>
 
 <aside class="warning">
-<p>请注意:<p> <p><code>ret_code</code>=0 和 <code>ext_code</code>="" 表示下单成功<p> <p><code>ret_code</code>=0 和 <code>ext_code</code>!=""表示下单成功，但是部分参数设置失败<p> <p><code>ret_code</code>!=0 表示下单失败<p> <p><code>ext_code</code> 详情参阅 <a href="#t-errors">Errors</a></p>
+请注意:
+<ul>
+  <li><code>ret_code</code>=0 和 <code>ext_code</code>="" 表示下单成功</li>
+  <li><code>ret_code</code>=0 和 <code>ext_code</code>!=""表示下单成功，但是部分参数设置失败</li>
+  <li><code>ret_code</code>!=0 表示下单失败</li>
+  <li><code>ext_code</code> 详情参阅 <a href="#t-errors">Errors</a></li>
+</ul>
+
 </aside>
 
 <p class="fake_header">HTTP 请求</p>
@@ -5044,13 +5059,13 @@ GET
 <td style="text-align: left">stop_order_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>订单ID。</td>
+<td>订单ID。如果未填order_link_id则为<b>必填</b>字段。</td>
 </tr>
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>机构ID。</td>
+<td>机构ID。如果未填order_id则为<b>必填</b>字段。</td>
 </tr>
 </tbody></table>
 
@@ -6195,7 +6210,7 @@ GET
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">string</td>
-<td>用户自定义订单ID</td>
+<td>机构自定义订单ID</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#side-side">side</a></td>
@@ -8373,7 +8388,7 @@ B用户：
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">string</td>
-<td>用户自定义订单ID</td>
+<td>机构自定义订单ID</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#price-price">price</a></td>
@@ -8472,7 +8487,7 @@ B用户：
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">string</td>
-<td>用户自定义订单ID</td>
+<td>机构自定义订单ID</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
@@ -8601,7 +8616,7 @@ B用户：
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">string</td>
-<td>用户自定义订单ID</td>
+<td>机构自定义订单ID</td>
 </tr>
 <tr>
 <td style="text-align: left">user_id</td>

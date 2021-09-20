@@ -3443,7 +3443,7 @@ The response is in the snapshot format.
 <tr>
 <td style="text-align: left"><a href="#side-side">side</a></td>
 <td style="text-align: left">string</td>
-<td>Liquidated order's side</td>
+<td>Liquidated position's side</td>
 </tr>
 <tr>
 <td style="text-align: left">time</td>
@@ -4260,7 +4260,7 @@ GET
 <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell. All USD markets have a contract size of 1 USD. See more</p>
 <p>Order price: If it is a conditional order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the price_filter field in the <a href="#t-querysymbol">Query Symbols</a> endpoint. This must modulo by 0.5 (20 and 21.5 are accepted, but 16.1 or 16.15 are not).</p>
 <p>Custom order ID: You may customise order IDs for active orders. We will link it to the system order ID, and return the unique system order ID to you after the active order is created successfully. You may use this order ID or your custom order ID to cancel your active order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
-<p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSD instrument and 280 active orders on the ETHUSD instrument. And order with parameter <code>reduce_only</code> or <code>closeOnTrigger</code> is unlimited.</b></p>
+<p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSD instrument and 280 active orders on the ETHUSD instrument.</b></p>
 </p>
 
 <p class="fake_header">HTTP Request</p>
@@ -4325,7 +4325,7 @@ GET
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Customised order ID, maximum length at 36 characters, and order ID under the same agency has to be unique.</td>
+<td>Unique user-set order ID. Maximum length of 36 characters</td>
 </tr>
 <tr>
 <td style="text-align: left">take_profit</td>
@@ -4378,7 +4378,7 @@ GET
 <tr>
 <td style="text-align: left">order_id</td>
 <td style="text-align: left">string</td>
-<td>Your active order ID. The unique order ID returned to you when the corresponding active order was created</td>
+<td>Order ID</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -4787,13 +4787,13 @@ GET
 <td style="text-align: left">order_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Order ID. <b>Required</b> if not passing order_link_id</td>
+<td>Order ID. <b>Required</b> if not passing <code>order_link_id</code></td>
 </tr>
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Agency customized order ID. <b>Required</b> if not passing order_id</td>
+<td>Unique user-set order ID. <b>Required</b> if not passing <code>order_id</code></td>
 </tr>
 </tbody></table>
 
@@ -5151,13 +5151,13 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <td style="text-align: left">order_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Order ID. <b>Required</b> if not passing order_link_id</td>
+<td>Order ID. <b>Required</b> if not passing <code>order_link_id</code></td>
 </tr>
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Agency customized order ID. <b>Required</b> if not passing order_id</td>
+<td>Unique user-set order ID. <b>Required</b> if not passing <code>order_id</code></td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
@@ -5373,7 +5373,7 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Order link ID</td>
+<td>Customised order ID</td>
 </tr>
 </tbody></table>
 
@@ -5642,7 +5642,7 @@ Take profit/Stop loss is not supported in placing conditional orders. One can on
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Customised order ID, maximum length at 36 characters, and order ID under the same agency has to be unique.</td>
+<td>Unique user-set order ID. Maximum length of 36 characters</td>
 </tr>
 <tr>
 <td style="text-align: left">take_profit</td>
@@ -5744,7 +5744,7 @@ Take profit/Stop loss is not supported in placing conditional orders. One can on
 <tr>
 <td style="text-align: left">stop_order_id</td>
 <td style="text-align: left">string</td>
-<td>Your conditional order ID. The unique order ID returned to you when the corresponding active order was created</td>
+<td>Conditional order ID. Once triggered, the conditional order creates an active order with the same ID (<code>order_id</code>)</td>
 </tr>
 <tr>
 <td style="text-align: left">created_at</td>
@@ -5962,7 +5962,7 @@ Take profit/Stop loss is not supported in placing conditional orders. One can on
 <tr>
 <td style="text-align: left">data &gt; stop_order_id</td>
 <td style="text-align: left">string</td>
-<td>Your conditional order ID. The unique order ID returned to you when the corresponding active order was created</td>
+<td>Conditional order ID. Once triggered, the conditional order creates an active order with the same ID (<code>order_id</code>)</td>
 </tr>
 <tr>
 <td style="text-align: left">data &gt; take_profit</td>
@@ -6049,13 +6049,13 @@ Take profit/Stop loss is not supported in placing conditional orders. One can on
 <td style="text-align: left">stop_order_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Order ID. <b>Required</b> if not passing order_link_id</td>
+<td>Order ID. <b>Required</b> if not passing <code>order_link_id</code></td>
 </tr>
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Agency customized order ID. <b>Required</b> if not passing stop_order_id</td>
+<td>Unique user-set order ID. <b>Required</b> if not passing <code>stop_order_id</code></td>
 </tr>
 </tbody></table>
 
@@ -6071,7 +6071,7 @@ Take profit/Stop loss is not supported in placing conditional orders. One can on
 <tr>
 <td style="text-align: left">stop_order_id</td>
 <td style="text-align: left">string</td>
-<td>Your conditional order ID. The unique order ID returned to you when the corresponding active order was created</td>
+<td>Conditional order ID. Once triggered, the conditional order creates an active order with the same ID (<code>order_id</code>)</td>
 </tr>
 </tbody></table>
 <h3 id='t-cancelallcond'>Cancel All Conditional Orders</h3>
@@ -6348,13 +6348,13 @@ Please note that you can only modify untriggered conditional orders.
 <td style="text-align: left">stop_order_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Order ID. <b>Required</b> if not passing order_link_id</td>
+<td>Order ID. <b>Required</b> if not passing <code>order_link_id</code></td>
 </tr>
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Agency customized order ID. <b>Required</b> if not passing stop_order_id</td>
+<td>Unique user-set order ID. <b>Required</b> if not passing <code>stop_order_id</code></td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
@@ -6420,7 +6420,7 @@ Please note that you can only modify untriggered conditional orders.
 <tr>
 <td style="text-align: left">stop_order_id</td>
 <td style="text-align: left">string</td>
-<td>Your conditional order ID. The unique order ID returned to you when the corresponding active order was created</td>
+<td>Conditional order ID. Once triggered, the conditional order creates an active order with the same ID (<code>order_id</code>)</td>
 </tr>
 </tbody></table>
 <h3 id='t-querycond'>Query Conditional Order (real-time)</h3>
@@ -6572,7 +6572,7 @@ Please note that you can only modify untriggered conditional orders.
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Order link ID</td>
+<td>Customised order ID</td>
 </tr>
 </tbody></table>
 
@@ -7740,7 +7740,7 @@ One order may have multiple trade records.
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">string</td>
-<td>Order link ID</td>
+<td>Customised order ID</td>
 </tr>
 <tr>
 <td style="text-align: left">order_price</td>
@@ -10770,7 +10770,7 @@ Some values use scientific notation. This is indicated by that value's key, whic
 <tr>
 <td style="text-align: left"><a href="#side-side">side</a></td>
 <td style="text-align: left">string</td>
-<td>Liquidated order's side</td>
+<td>Liquidated position's side</td>
 </tr>
 <tr>
 <td style="text-align: left">price</td>
@@ -11070,7 +11070,7 @@ Some values use scientific notation. This is indicated by that value's key, whic
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">string</td>
-<td>Order link ID</td>
+<td>Customised order ID</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#price-price">price</a></td>
@@ -11178,7 +11178,7 @@ Some values use scientific notation. This is indicated by that value's key, whic
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">string</td>
-<td>Order link ID</td>
+<td>Customised order ID</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
@@ -11337,7 +11337,7 @@ Some values use scientific notation. This is indicated by that value's key, whic
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">string</td>
-<td>Order link ID</td>
+<td>Customised order ID</td>
 </tr>
 <tr>
 <td style="text-align: left">user_id</td>
@@ -12215,7 +12215,7 @@ ELSE
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Customised order ID, maximum length at 36 characters, and order ID under the same agency has to be unique.</td>
+<td>Unique user-set order ID. Maximum length of 36 characters</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
@@ -12376,7 +12376,7 @@ ELSE
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">string</td>
-<td>Customised order ID, maximum length at 36 characters, and order ID under the same agency has to be unique.</td>
+<td>Unique user-set order ID. Maximum length of 36 characters</td>
 </tr>
 <tr>
 <td style="text-align: left">created_at</td>
@@ -12476,13 +12476,13 @@ ELSE
 <td style="text-align: left">stop_order_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Your conditional order ID. The unique order ID returned to you when the corresponding active order was created</td>
+<td>Conditional order ID. Once triggered, the conditional order creates an active order with the same ID (<code>order_id</code>)</td>
 </tr>
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Customised order ID, maximum length at 36 characters, and order ID under the same agency has to be unique.</td>
+<td>Unique user-set order ID. Maximum length of 36 characters</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
@@ -12603,7 +12603,7 @@ ELSE
 <tr>
 <td style="text-align: left">stop_order_id</td>
 <td style="text-align: left">string</td>
-<td>Your conditional order ID. The unique order ID returned to you when the corresponding active order was created</td>
+<td>Conditional order ID. Once triggered, the conditional order creates an active order with the same ID (<code>order_id</code>)</td>
 </tr>
 </tbody></table>
 <h3 id='t-a_placecond'>Place Conditional Order</h3>
@@ -12755,7 +12755,7 @@ Take profit/Stop loss is not supported in placing conditional orders. One can on
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Customised order ID, maximum length at 36 characters, and order ID under the same agency has to be unique.</td>
+<td>Unique user-set order ID. Maximum length of 36 characters</td>
 </tr>
 </tbody></table>
 
@@ -12891,7 +12891,7 @@ Take profit/Stop loss is not supported in placing conditional orders. One can on
 <tr>
 <td style="text-align: left">stop_order_id</td>
 <td style="text-align: left">string</td>
-<td>Your conditional order ID. The unique order ID returned to you when the corresponding active order was created</td>
+<td>Conditional order ID. Once triggered, the conditional order creates an active order with the same ID (<code>order_id</code>)</td>
 </tr>
 </tbody></table>
 <h3 id='t-a_cancelcond'>Cancel Conditional Order</h3>
@@ -12966,13 +12966,13 @@ Take profit/Stop loss is not supported in placing conditional orders. One can on
 <td style="text-align: left">stop_order_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Order ID. <b>Required</b> if not passing order_link_id</td>
+<td>Order ID. <b>Required</b> if not passing <code>order_link_id</code></td>
 </tr>
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Agency customized order ID. <b>Required</b> if not passing stop_order_id</td>
+<td>Unique user-set order ID. <b>Required</b> if not passing <code>stop_order_id</code></td>
 </tr>
 </tbody></table>
 
@@ -13063,7 +13063,7 @@ Take profit/Stop loss is not supported in placing conditional orders. One can on
 <tr>
 <td style="text-align: left">stop_order_id</td>
 <td style="text-align: left">string</td>
-<td>Your conditional order ID. The unique order ID returned to you when the corresponding active order was created</td>
+<td>Conditional order ID. Once triggered, the conditional order creates an active order with the same ID (<code>order_id</code>)</td>
 </tr>
 </tbody></table>
 <h3 id='t-a_replacecond'>Replace Conditional Order</h3>
@@ -13121,19 +13121,19 @@ Please note that you can only modify untriggered conditional orders.
 <td style="text-align: left">stop_order_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Your conditional order ID. The unique order ID returned to you when the corresponding active order was created</td>
+<td>Conditional order ID. Once triggered, the conditional order creates an active order with the same ID (<code>order_id</code>)</td>
 </tr>
 <tr>
 <td style="text-align: left">order_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td><b>Abandoned!!</b> Your conditional order ID. The unique order ID returned to you when the corresponding active order was created</td>
+<td><b>Abandoned!!</b> Conditional order ID. Once triggered, the conditional order creates an active order with the same ID (<code>order_id</code>)</td>
 </tr>
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Customised order ID, maximum length at 36 characters, and order ID under the same agency has to be unique.</td>
+<td>Unique user-set order ID. Maximum length of 36 characters</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
@@ -13173,7 +13173,7 @@ Please note that you can only modify untriggered conditional orders.
 <tr>
 <td style="text-align: left">stop_order_id</td>
 <td style="text-align: left">string</td>
-<td>Your conditional order ID. The unique order ID returned to you when the corresponding active order was created</td>
+<td>Conditional order ID. Once triggered, the conditional order creates an active order with the same ID (<code>order_id</code>)</td>
 </tr>
 </tbody></table>
 <h3 id='t-a_replaceactive'>Replace Active Order</h3>
@@ -13231,13 +13231,13 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <td style="text-align: left">order_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Your active order ID. The unique order ID returned to you when the corresponding active order was created</td>
+<td>Order ID</td>
 </tr>
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Customised order ID, maximum length at 36 characters, and order ID under the same agency has to be unique.</td>
+<td>Unique user-set order ID. Maximum length of 36 characters</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
