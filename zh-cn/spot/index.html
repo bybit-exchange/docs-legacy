@@ -4263,7 +4263,7 @@ orderId和ordersLinkId至少要输入一个。
   <span class="dl">"</span><span class="s2">shared</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><p>每秒推送订单簿的变化部分（如果有）。</p>
+<p><p>每秒推送订单簿的变化部分（如果有）。第一次推送的是全量的订单簿，接下来推送增量部分。</p>
 <p>在增量深度信息中，数量不一定等于对应价格的数量。如果数量=0，这说明在上一条推送中的这个价格已经没有了。如果数量>0，这时的数量为更新后的这个价格所对应的数量。</p>
 <p>假设我们收到的返回数据中有这样一条：</p>
 <p>&nbsp;&nbsp;> ["0.00181860", "155.92000000"] // 价格，数量</p>
