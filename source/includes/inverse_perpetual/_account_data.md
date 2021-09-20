@@ -83,7 +83,7 @@ POST
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 | user_id |number |t(:row_comment_userID) |
-| order_id |string |t(:row_comment_orderId) |
+| order_id |string |t(:row_comment_order_id) |
 |symbol|string |t(:row_comment_symbol)    |
 |side |string |t(:row_comment_side)  |
 |order_type |string |t(:row_comment_order_type)  |
@@ -582,7 +582,7 @@ GET
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
 |order_id |false |string | t(:row_comment_order_id)|
-|order_link_id |false |string |t(:row_comment_order_link_id) |
+|order_link_id |false |string |t(:row_response_comment_orderLinkId) |
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -1173,8 +1173,8 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
-|stop_order_id |false |string | t(:row_comment_order_id)|
-|order_link_id |false |string |t(:row_comment_order_link_id) |
+|stop_order_id |false |string | t(:row_comment_stopOrderId)|
+|order_link_id |false |string |t(:row_response_comment_orderLinkId) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -1756,7 +1756,7 @@ GET
 |leaves_qty |number |t(:row_comment_leaves_qty)  |
 |nth_fill |number |t(:row_comment_nth_fill)  |
 |order_id |string |t(:row_comment_order_id)  |
-|order_link_id |string |t(:row_comment_order_link_id)  |
+|order_link_id |string |t(:row_response_comment_orderLinkId)  |
 |order_price |string |t(:row_comment_order_price)  |
 |order_qty |string |t(:row_comment_order_qty)  |
 |t(:row_parameter_order_type) |string |t(:enum_order_type_link)  |

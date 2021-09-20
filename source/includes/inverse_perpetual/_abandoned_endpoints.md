@@ -594,7 +594,7 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|order_id |false |string |t(:row_comment_orderId) |
+|order_id |false |string |t(:row_comment_order_id) |
 |order_link_id |false |string |t(:row_comment_orderLinkId) |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol). |
 |p_r_qty |false |int |t(:row_comment_pRQty) |
