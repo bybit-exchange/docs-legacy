@@ -543,8 +543,6 @@ zh-cn:
   # Market Data Endpoints
   marketdata: 行情接口
   market_para_auth: 以下市场行情数据接口不需要验权.
-  ### Symbols
-  spotGetSymbols: 获取币对
 
 
 
@@ -830,7 +828,6 @@ zh-cn:
 
   ### Account rate limit
   understandingratelimits: 账户频率限制
-  spot_understandingratelimits: 账户频率限制
   rate_para_understanding: |
     Bybit基于<b>每分钟</b>的滚动时间窗口来做频率限制，并且是按<b>账户</b>（uid）和交易对（symbol）来做划分限制，每次请求API响应中都会包含如下字段：
   spot_rate_para_understanding: |
@@ -1149,8 +1146,6 @@ zh-cn:
 
   # Error Definitions
   errors: 错误码
-  spot_errors: 错误码
-  account_asset_errors: 错误码
 
   # ENUMs Definitions
   enums: 枚举定义
@@ -1296,8 +1291,6 @@ zh-cn:
 
   # Error Code
   errors_intro: Bybit使用以下HTTP Code和错误码：
-  spot_errors_intro: Bybit使用以下HTTP Code和错误码：
-  account_asset_errors_intro: Bybit使用以下HTTP Code和错误码：
 
   http_200: 请求有效
   http_403: 拒绝访问
@@ -1949,7 +1942,6 @@ zh-cn:
   spot: 现货
   spotOPrice: 订单价格
   spotPostOrderPrice: 订单价格。type字段为MARKET时，price字段为非必须。type字段为LIMIT或LIMIT_MAKER时，price字段为必须
-  spotOrderCreate: 创建订单
   spotAccountId: 账户ID
   spotExchangeId: 交易所ID
   spotSymbol: 币对名称
@@ -1995,7 +1987,6 @@ zh-cn:
   spotBookTickerRemark: 如果symbol没有被发送，所有symbol的最佳订单簿价格都会被返回。
   spotSide: 订单方向, BUY(买入做多)/SELL(卖出做空)
   spotOrderType: 订单类型, LIMIT/MARKET/LIMIT_MAKER
-  spotTimeInForce: 订单时间指令（Time in Force）。可能出现的值为：GTC（Good Till Canceled，一直有效），FOK（Fill or Kill，全部成交或者取消），IOC（Immediate or Cancel，立即成交或者取消）
   spotPrice: 订单价格，对于LIMIT 订单必需发送
   spotOrderID: 订单ID
   spotOrderId: 订单ID
@@ -2010,26 +2001,24 @@ zh-cn:
   spotType: 订单类型。可能出现的值只能为:LIMIT(限价)、MARKET_OF_QUOTE（市价买）、MARKET_OF_BASE（市价卖）
   spotStatus: 订单状态。可能出现的值为：NEW(新订单，无成交)、PARTIALLY_FILLED（部分成交）、FILLED（全部成交）、CANCELED（已取消）和REJECTED（订单被拒绝）.
   tOrderClientOrdID: 特殊订单ID，用户自己生成
-  spot_get_order: 查询订单
-  cancel_spot_order: 撤销订单
-  fast_cancel_spot_order: 快速撤销订单
-  batch_cancel_spot_order: 批量撤销订单
-  batch_fast_cancel_spot_order: 批量快速撤销订单
-  batch_cancel_spot_order_by_orderIds: 根据订单号批量撤销订单
-  spot_order_list: 订单列表
+  fastcancelactiveorder: 快速撤销订单
+  batchcancelactiveorder: 批量撤销订单
+  batchfastcancelactiveorder: 批量快速撤销订单
+  batchcancelactiveorderbyids: 根据订单号批量撤销订单
+  openorders: 订单列表
   spot_order_list_limit: 默认500，最大500
   spot_orders_start_time: 第一条返回的时间戳(毫秒)
   spot_orders_end_time: 最后一条返回的时间戳(毫秒)
-  spot_history_orders: 历史订单
+  orderhistory: 历史订单
   spotLeverage: 订单杠杆
   spotMarginLocked: 该订单锁定的保证金。这包括实际需要的保证金外加开仓和平仓所需的费用
   spotPriceType: 价格类型（INPUT、OPPONENT、QUEUE、OVER、MARKET）
   spotFeeToken: 手续费计价类型
   spotFee: 实际手续费
-  spot_my_trades: 交易记录
+  tradehistory: 交易记录
   spot_from_id: 从此tradeId 开始查询
   spot_to_id: 以此tradeId为终点
-  spot_balance: 账号余额
+  balance: 账号余额
   spot_token: 币种
   spot_total: 总额
   spot_fees: 手续费
@@ -2043,7 +2032,6 @@ zh-cn:
   spot_depth_bids: bid的价格和数量信息，最优bid价格由上到下排列
   spot_depth_asks: ask的价格和数量信息，最优ask价格由上到下排列
   mergedOrderBook: 合并订单簿
-  spot_trades: 最近成交
   spot_OrderPrice: 价格
   spot_trades_limit: 默认1000， 最大1000
   spot_is_buyer_maker: true为买单， false为卖单
@@ -2054,16 +2042,14 @@ zh-cn:
   spot_is_close: 是否关闭
   spot_match_account_id: 撮合账户ID
   spot_trade_time: 当前Unix时间戳，毫秒(ms)
-  spot_klines: K线
-  spotTicker: 24小时ticker价格变化数据
   spot_best_bid_price: 最佳买价
   spot_best_ask_price: 最佳卖价
   spot_last_price: 最新成交价
   spot_open_price: 开盘价
   spot_high_price: 最高价
   spot_low_price: 最低价
-  spotSymbolPrice: Symbol最新价
-  spotBestTicker: 最佳买卖价
+  lasttradedprice: Symbol最新价
+  bestbidask: 最佳买卖价
   spotRealtimeInterval: 时间间隔
   spotOpen: 开盘价
   spotHigh: 最高价
@@ -2264,7 +2250,7 @@ zh-cn:
   # Transfer API Data Endpoints
   transfer_api: 现货划转相关接口
   transfer_para: 以下现货划转相关接口都需要鉴权.
-  transfer: 划转
+  createinternaltransfer: 划转
   trigger_transfer: 触发划转动作
   transfer_api_notice:
     <p>请注意该接口入参<code>请求</code>数据中的<code>transfer_id</code>字段为<code>UUID</code>全局唯一。</p>
@@ -2289,7 +2275,7 @@ zh-cn:
   row_comment_to_timestamp: 时间戳
 
   querysubaccounttransferlist: 查询子母划转记录列表
-  querysubMemberidlist: 查询子账号列表
+  querysubaccountlist: 查询子账号列表
   in: 转入
   out: 转出
   accountType_spot: 现货账户
