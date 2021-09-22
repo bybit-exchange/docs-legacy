@@ -1,6 +1,6 @@
-# t(:spot_errors)
+# t(:errors)
 
-t(:spot_errors_intro)
+t(:errors_intro)
 
 
 HTTP Code | t(:errorcode_meaning)

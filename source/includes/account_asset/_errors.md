@@ -1,6 +1,6 @@
-# t(:account_asset_errors)
+# t(:errors)
 
-t(:account_asset_errors_intro)
+t(:errors_intro)
 
 
 HTTP Code | t(:errorcode_meaning)

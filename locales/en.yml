@@ -626,12 +626,10 @@ en:
   # Market Data Endpoints
   marketdata: Market Data Endpoints
   market_para_auth: The following market data endpoints do not require authentication.
-  ### Symbols
-  spotGetSymbols: Get Symbols
 
 
   ### Orderbook
-  orderbook: Order book
+  orderbook: Order Book
   market_para_orderbook: Get the orderbook. Each side has a depth of 50.
   market_aside_orderbook: The response is in the snapshot format.
   ### Query Kline
@@ -948,7 +946,6 @@ en:
         <p>Bybit has rate limits based on IP which is 200 per second</p>
   ### Account rate limit
   understandingratelimits: Understanding Your Request Rate Limit
-  spot_understandingratelimits: Rate Limits for Requests
   rate_para_understanding: |
     Bybit makes frequency limits based on <b>the rolling time window per minute and UID, and each symbol is independent</b>. Every request to the API returns the fields shown in the code panel:
   spot_rate_para_understanding: |
@@ -1276,9 +1273,6 @@ en:
 
   # Error Definitions
   errors: Errors
-  account_asset_errors: Transfer Error Codes
-  #spot
-  spot_errors: Error Codes
 
   # ENUMs Definitions
   enums: Enums Definitions
@@ -1456,9 +1450,7 @@ en:
 
 
   # Error Code
-  errors_intro: The Bybit API uses the following HTTP Codes and Error Codes<span>:</span>
-  spot_errors_intro: Bybit API uses the following HTTP and error codes <span>:</span>
-  account_asset_errors_intro: Bybit API uses the following HTTP and error codes <span>:</span>
+  errors_intro: The Bybit API uses the following HTTP codes and error codes<span>:</span>
 
   http_200: Request is valid -- Your request is valid
   http_403: Access denied -- You request too many times
@@ -1539,7 +1531,7 @@ en:
   err_11027: Query intervals too large.
   err_11028: Invalid parameter combination.
   err_11030: Invalid parameter sent.
-  err_11030: Insufficient balance
+  err_11031: Insufficient balance
   err_11032: Order price exceeded upper limit.
   err_11033: Order price exceeded lower limit.
   err_11034: Order price has too many decimals.
@@ -2147,7 +2139,6 @@ en:
 
   #spot
   spot: Spot
-  spotOrderCreate: Create Spot Order
   spotAccountId: Account ID
   spotExchangeId: Exchange ID
   spotOrderLinkId: User-generated order ID
@@ -2213,13 +2204,11 @@ en:
   spotType: Order type
   spotStatus: Order status
   tOrderClientOrdID: User-generated order ID
-  spot_get_order: Query Spot Order
-  cancel_spot_order: Cancel Spot Order
-  fast_cancel_spot_order: Fast Cancel Spot Order
-  batch_cancel_spot_order: Batch Cancel Spot Order
-  batch_fast_cancel_spot_order: Batch fast Cancel Spot Order
-  batch_cancel_spot_order_by_orderIds: Batch Cancel Spot Order by order IDs
-  spot_order_list: Order List
+  fastcancelactiveorder: Fast Cancel Active Order
+  batchcancelactiveorder: Batch Cancel Active Order
+  batchfastcancelactiveorder: Batch Fast Cancel Active Order
+  batchcancelactiveorderbyids: Batch Cancel Active Order By IDs
+  openorders: Open Orders
   spot_transactId: Transaction ID
   spot_time: Timestamp
   spot_message: Success or not (true/false)
@@ -2227,11 +2216,10 @@ en:
   spot_order_list_limit: Default value is 500, max 500
   spot_orders_start_time: Start time, unit in millisecond
   spot_orders_end_time: End time, unit in millisecond
-  spot_history_orders: Past Orders
-  spot_my_trades: Trade History
+  orderhistory: Order History
+  tradehistory: Trade History
   spot_from_id:  Query begins with the trade ID
   spot_to_id: Query ends with the trade ID
-  spot_balance: Spot Wallet Balance
   spot_token: Asset
   spot_fee: Trading fee
   spot_locked: Reserved for orders
@@ -2241,7 +2229,6 @@ en:
   spot_depth_bids: Bid price and quantity, with best bid prices ranked from top to bottom
   spot_depth_asks: Ask price and quantity, with best ask prices ranked from top to bottom
   mergedOrderBook: Merged Order Book
-  spot_trades: Recent trades
   spot_trades_limit: Default value is 1000, max 10,000
   spot_is_buyer_maker: True indicates buy order, false indicates sell order
   spot_is_limit_maker: Is LIMIT_MAKER
@@ -2251,16 +2238,14 @@ en:
   spot_is_working: Is working
   spot_match_account_id: Match account ID
   spot_trade_time: Current timestamp, unit in millisecond
-  spot_klines: Candlestick Chart
-  spotTicker: 24-Hour Change
   spot_best_bid_price: Best bid price
   spot_best_ask_price: Best ask price
   spot_last_price: Last traded price
   spot_open_price: Open price
   spot_high_price: High price
   spot_low_price: Low price
-  spotSymbolPrice: Last Traded Price
-  spotBestTicker: Best Bid/Ask Price
+  lasttradedprice: Last Traded Price
+  bestbidask: Best Bid/Ask Price
   spotRealtimeInterval: time interval
   spotOpen: Open price
   spotHigh: High price

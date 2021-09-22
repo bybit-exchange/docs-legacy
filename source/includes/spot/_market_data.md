@@ -2,7 +2,7 @@
 t(:market_para_auth)
 
 
-### t(:spotGetSymbols)
+### t(:querysymbol)
 > t(:codequote_curlExample)
 
 ```console
@@ -194,7 +194,7 @@ GET
 | bids | string | t(:spot_depth_bids) |
 | asks | string | t(:spot_depth_asks) |
 
-### t(:spot_trades)
+### t(:publictradingrecords)
 > t(:codequote_curlExample)
 
 ```console
@@ -256,7 +256,7 @@ GET
 | isBuyerMaker | bool | t(:spot_is_buyer_maker) |
 
 
-### t(:spot_klines)
+### t(:querykline)
 > t(:codequote_curlExample)
 
 ```console
@@ -326,7 +326,7 @@ GET
 t(:spotKlineTimeRemark)
 </aside>
 
-### t(:spotTicker)
+### t(:latestsymbolinfo)
 > t(:codequote_curlExample)
 
 ```console
@@ -390,7 +390,7 @@ GET
 t(:spotTicker24hrRemark)
 </aside>
 
-### t(:spotSymbolPrice)
+### t(:lasttradedprice)
 > t(:codequote_curlExample)
 
 ```console
@@ -435,7 +435,7 @@ GET
 t(:spotTickerPriceRemark)
 </aside>
 
-### t(:spotBestTicker)
+### t(:bestbidask)
 > t(:codequote_curlExample)
 
 ```console

@@ -1,7 +1,7 @@
 # t(:wallet)
 t(:wallet_para)
 
-## t(:spot_balance)
+## t(:balance)
 > t(:codequote_curlExample)
 
 ```console

@@ -1,7 +1,7 @@
 # t(:accountdata)
 t(:account_para)
 
-### t(:spotOrderCreate)
+### t(:placeactive)
 > t(:codequote_curlExample)
 
 ```console
@@ -80,7 +80,7 @@ POST
 |symbolName|string|t(:spotSymbolName)|
 |executedQty|string|t(:spotExecQty)|
 
-### t(:spot_get_order)
+### t(:getactive)
 > t(:codequote_curlExample)
 
 ```console
@@ -122,7 +122,7 @@ POST
 }
 ```
 
-t(:spot_get_order)
+t(:getactive)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
@@ -166,7 +166,7 @@ t(:spotGetOrderRemark)
 |isWorking|boolean|t(:spotIsWorking)|
 
 
-### t(:cancel_spot_order)
+### t(:cancelactive)
 > t(:codequote_curlExample)
 
 ```console
@@ -238,7 +238,7 @@ t(:spotGetOrderRemark)
 
 
 
-### t(:fast_cancel_spot_order)
+### t(:fastcancelactiveorder)
 > t(:codequote_curlExample)
 
 ```console
@@ -309,12 +309,12 @@ t(:spotGetOrderRemark)
 |price|float|t(:spotOPrice)|
 |origQty|float|t(:spotOriQty)|
 |executedQty|float|t(:spotExecQty)|
-|timeInForce|string|t(:spotTimeInForce)|
+|timeInForce|string|t(:row_comment_timeInForce)|
 |type|string|t(:spotOrderType)|
 |side|string|t(:spotSide)|
 
 
-### t(:batch_cancel_spot_order)
+### t(:batchcancelactiveorder)
 > t(:codequote_curlExample)
 
 ```console
@@ -364,7 +364,7 @@ DELETE
 
 
 
-### t(:batch_fast_cancel_spot_order)
+### t(:batchfastcancelactiveorder)
 > t(:codequote_curlExample)
 
 ```console
@@ -415,7 +415,7 @@ DELETE
 
 
 
-### t(:batch_cancel_spot_order_by_orderIds)
+### t(:batchcancelactiveorderbyids)
 > t(:codequote_curlExample)
 
 ```console
@@ -462,12 +462,12 @@ DELETE
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |orderId|integer|t(:spotOrderID)|
-|code|integer|t(:spot_errors)|
+|code|integer|t(:errors)|
 
 
 
 
-### t(:spot_order_list)
+### t(:openorders)
 > t(:codequote_curlExample)
 
 ```console
@@ -575,7 +575,7 @@ GET
 
 
 
-### t(:spot_history_orders)
+### t(:orderhistory)
 > t(:codequote_curlExample)
 
 ```console
@@ -661,7 +661,7 @@ GET
 
 
 
-### t(:spot_my_trades)
+### t(:tradehistory)
 > t(:codequote_curlExample)
 
 ```console
