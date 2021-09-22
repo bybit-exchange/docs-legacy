@@ -717,7 +717,7 @@
             <a href="#t-transfer_api" class="toc-h1 toc-link" data-title="现货划转相关接口">现货划转相关接口</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#t-transfer" class="toc-h2 toc-link" data-title="划转">划转</a>
+                    <a href="#t-createinternaltransfer" class="toc-h2 toc-link" data-title="划转">划转</a>
                   </li>
                   <li>
                     <a href="#t-createsubaccounttransfer" class="toc-h2 toc-link" data-title="子母划转">子母划转</a>
@@ -729,7 +729,7 @@
                     <a href="#t-querysubaccounttransferlist" class="toc-h2 toc-link" data-title="查询子母划转记录列表">查询子母划转记录列表</a>
                   </li>
                   <li>
-                    <a href="#t-querysubmemberidlist" class="toc-h2 toc-link" data-title="查询子账号列表">查询子账号列表</a>
+                    <a href="#t-querysubaccountlist" class="toc-h2 toc-link" data-title="查询子账号列表">查询子账号列表</a>
                   </li>
               </ul>
           </li>
@@ -759,27 +759,27 @@
             <a href="#t-enums" class="toc-h1 toc-link" data-title="枚举定义">枚举定义</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#accounttype-type-accounttype" class="toc-h2 toc-link" data-title="AccountType (type/accountType)">AccountType (<code>type</code>/<code>accountType</code>)</a>
+                    <a href="#account-type-from_account_type-to_account_type" class="toc-h2 toc-link" data-title="Account type (from_account_type/to_account_type)">Account type (<code>from_account_type</code>/<code>to_account_type</code>)</a>
                   </li>
                   <li>
                     <a href="#currency-currency-coin" class="toc-h2 toc-link" data-title="Currency (currency/coin)">Currency (<code>currency</code>/<code>coin</code>)</a>
                   </li>
                   <li>
-                    <a href="#operatortype" class="toc-h2 toc-link" data-title="OperatorType">OperatorType</a>
+                    <a href="#operator-type" class="toc-h2 toc-link" data-title="Operator type">Operator type</a>
                   </li>
                   <li>
-                    <a href="#transfertype" class="toc-h2 toc-link" data-title="TransferType">TransferType</a>
+                    <a href="#transfer-type-type" class="toc-h2 toc-link" data-title="Transfer type (type)">Transfer type (<code>type</code>)</a>
                   </li>
                   <li>
-                    <a href="#transferstatus" class="toc-h2 toc-link" data-title="TransferStatus">TransferStatus</a>
+                    <a href="#transfer-status-status" class="toc-h2 toc-link" data-title="Transfer status (status)">Transfer status (<code>status</code>)</a>
                   </li>
                   <li>
-                    <a href="#pageaction-turn-page" class="toc-h2 toc-link" data-title="PageAction (turn page)">PageAction (<code>turn page</code>)</a>
+                    <a href="#page-direction-direction" class="toc-h2 toc-link" data-title="Page direction (direction)">Page direction (<code>direction</code>)</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#t-account_asset_errors" class="toc-h1 toc-link" data-title="错误码">错误码</a>
+            <a href="#t-errors" class="toc-h1 toc-link" data-title="错误码">错误码</a>
           </li>
       </ul>
         <ul class="toc-footer">
@@ -906,7 +906,7 @@ REST接口根URL:
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h1 id='t-transfer_api'>现货划转相关接口</h1>
 <p>以下现货划转相关接口都需要鉴权.</p>
-<h3 id='t-transfer'>划转</h3>
+<h3 id='t-createinternaltransfer'>划转</h3>
 <blockquote>
 <p>请求示例</p>
 </blockquote>
@@ -923,7 +923,7 @@ REST接口根URL:
     "timestamp": "{{timestamp}}",
     "recv_window": "{{recvWindow}}"
 }'
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
+</span></code></pre></div>
 <blockquote>
 <p>响应示例</p>
 </blockquote>
@@ -950,8 +950,8 @@ REST接口根URL:
 <p class="fake_header">HTTP 请求</p>
 
 <p>POST
-<code><span id=oawwListNew>/asset/v1/private/transfer</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawwListNew"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<code><span id=avpt>/asset/v1/private/transfer</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#avpt"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">请求参数</p>
 
@@ -982,13 +982,13 @@ REST接口根URL:
 <td>兑入数量</td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="#accounttype-type-accounttype">from_account_type</a></td>
+<td style="text-align: left"><a href="#account-type-from_account_type-to_account_type">from_account_type</a></td>
 <td style="text-align: left">true</td>
 <td style="text-align: left">string</td>
 <td>账户类型</td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="#accounttype-type-accounttype">to_account_type</a></td>
+<td style="text-align: left"><a href="#account-type-from_account_type-to_account_type">to_account_type</a></td>
 <td style="text-align: left">true</td>
 <td style="text-align: left">string</td>
 <td>账户类型</td>
@@ -1027,18 +1027,18 @@ REST接口根URL:
     "timestamp": "{{timestamp}}",
     "recv_window": "{{recvWindow}}"
 }'
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
+</span></code></pre></div>
 <blockquote>
 <p>响应示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">"</span><span class="s2">transfer_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5f95de18-b10f-43be-9746-7b95c4a37d97</span><span class="dl">"</span>
-  <span class="p">},</span>
-  <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">transfer_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5f95de18-b10f-43be-9746-7b95c4a37d97</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1629966770894</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1629966770894</span><span class="p">,</span>
@@ -1054,8 +1054,8 @@ REST接口根URL:
 <p class="fake_header">HTTP 请求</p>
 
 <p>POST
-<code><span id=oawwListNew>/asset/v1/private/sub-member/transfer</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawwListNew"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<code><span id=avpst>/asset/v1/private/sub-member/transfer</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#avpst"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">请求参数</p>
 
@@ -1092,7 +1092,7 @@ REST接口根URL:
 <td>子账户</td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="#transfertype">type</a></td>
+<td style="text-align: left"><a href="#transfer-type-type">type</a></td>
 <td style="text-align: left">true</td>
 <td style="text-align: left">string</td>
 <td>转入转出类型</td>
@@ -1119,47 +1119,47 @@ REST接口根URL:
 <p>请求示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/transfer/list'
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
+</span></code></pre></div>
 <blockquote>
 <p>响应示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
-      <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">transfer_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">selfTransfer_c5ae452d-43e8-47e6-aa7c-d2bab57c0958</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">from_account_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">CONTRACT</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">to_account_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SPOT</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1629965054</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCESS</span><span class="dl">"</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">transfer_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">selfTransfer_9a183347-152d-4bdc-990d-8b20284385f9</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">from_account_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SPOT</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">to_account_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">CONTRACT</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1629963043</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCESS</span><span class="dl">"</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">transfer_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">selfTransfer_5f9bfd6e-1718-4a16-814e-1d1bff4b01eb</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">20</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">from_account_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SPOT</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">to_account_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">CONTRACT</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1629874294</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCESS</span><span class="dl">"</span>
-      <span class="p">}</span>
-    <span class="p">],</span>
-      <span class="dl">"</span><span class="s2">cursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">eyJtaW5JRCI6Nzg5NTcsIm1heElEIjo3OTM2NH0=</span><span class="dl">"</span>
-  <span class="p">},</span>
-  <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">transfer_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">selfTransfer_c5ae452d-43e8-47e6-aa7c-d2bab57c0958</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">from_account_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">CONTRACT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">to_account_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SPOT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1629965054</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCESS</span><span class="dl">"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">transfer_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">selfTransfer_9a183347-152d-4bdc-990d-8b20284385f9</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">from_account_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SPOT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">to_account_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">CONTRACT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1629963043</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCESS</span><span class="dl">"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">transfer_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">selfTransfer_5f9bfd6e-1718-4a16-814e-1d1bff4b01eb</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">20</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">from_account_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SPOT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">to_account_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">CONTRACT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1629874294</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCESS</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="dl">"</span><span class="s2">cursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">eyJtaW5JRCI6Nzg5NTcsIm1heElEIjo3OTM2NH0=</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1629971474462</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">59</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1629971474462</span><span class="p">,</span>
@@ -1169,8 +1169,8 @@ REST接口根URL:
 <p class="fake_header">HTTP 请求</p>
 
 <p>GET
-<code><span id=oawwListNew>/asset/v1/private/transfer/list</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawwListNew"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<code><span id=avptl>/asset/v1/private/transfer/list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#avptl"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">请求参数</p>
 
@@ -1195,7 +1195,7 @@ REST接口根URL:
 <td>币种类型</td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="#transferstatus">status</a></td>
+<td style="text-align: left"><a href="#transfer-status-status">status</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>划转状态</td>
@@ -1213,7 +1213,7 @@ REST接口根URL:
 <td>结束时间戳（毫秒</td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="#pageaction-turn-page">direction</a></td>
+<td style="text-align: left"><a href="#page-direction-direction">direction</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>翻页</td>
@@ -1228,7 +1228,7 @@ REST接口根URL:
 <td style="text-align: left">cursor</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>translation missing: zh-cn.row_comment_to_cursor</td>
+<td>翻页标记,请使用返回的cursor,签名时使用返回的原始数据，发送request时请进行urlencode</td>
 </tr>
 </tbody></table>
 
@@ -1272,14 +1272,14 @@ REST接口根URL:
 <td>时间戳</td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="#transferstatus">status</a></td>
+<td style="text-align: left"><a href="#transfer-status-status">status</a></td>
 <td style="text-align: left">string</td>
 <td>划转状态</td>
 </tr>
 <tr>
 <td style="text-align: left">cursor</td>
 <td style="text-align: left">string</td>
-<td>translation missing: zh-cn.row_comment_to_cursor</td>
+<td>翻页标记,请使用返回的cursor,签名时使用返回的原始数据，发送request时请进行urlencode</td>
 </tr>
 </tbody></table>
 <h3 id='t-querysubaccounttransferlist'>查询子母划转记录列表</h3>
@@ -1287,60 +1287,60 @@ REST接口根URL:
 <p>请求示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/sub-member/transfer/list'
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
+</span></code></pre></div>
 <blockquote>
 <p>响应示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
-      <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">transfer_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5f95de18-b10f-43ba-9756-0b95c4a37d07</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">229988</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">sub_user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">251711</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1629968375</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCESS</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">IN</span><span class="dl">"</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">transfer_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5f95de18-b10f-43be-9756-0b95c4a37d07</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">229988</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">sub_user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">251711</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1629968351</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCESS</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">IN</span><span class="dl">"</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">transfer_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5f95de18-b10f-43be-9746-0b95c4a37d07</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">229988</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">sub_user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">251711</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1629967817</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCESS</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">IN</span><span class="dl">"</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">transfer_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5f95de18-b10f-43be-9746-7b95c4a37d97</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">229988</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">sub_user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">251711</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1629966772</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCESS</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">IN</span><span class="dl">"</span>
-      <span class="p">}</span>
-    <span class="p">],</span>
-      <span class="dl">"</span><span class="s2">cursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">eyJtaW5JRCI6NzkzNzgsIm1heElEIjo3OTQwMH0=</span><span class="dl">"</span>
-  <span class="p">},</span>
-  <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">transfer_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5f95de18-b10f-43ba-9756-0b95c4a37d07</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">229988</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">sub_user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">251711</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1629968375</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCESS</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">IN</span><span class="dl">"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">transfer_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5f95de18-b10f-43be-9756-0b95c4a37d07</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">229988</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">sub_user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">251711</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1629968351</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCESS</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">IN</span><span class="dl">"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">transfer_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5f95de18-b10f-43be-9746-0b95c4a37d07</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">229988</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">sub_user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">251711</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1629967817</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCESS</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">IN</span><span class="dl">"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">transfer_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5f95de18-b10f-43be-9746-7b95c4a37d97</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">229988</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">sub_user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">251711</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1629966772</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCESS</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">IN</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="dl">"</span><span class="s2">cursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">eyJtaW5JRCI6NzkzNzgsIm1heElEIjo3OTQwMH0=</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1629978073116</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">59</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1629978073116</span><span class="p">,</span>
@@ -1350,8 +1350,8 @@ REST接口根URL:
 <p class="fake_header">HTTP 请求</p>
 
 <p>GET
-<code><span id=oawwListNew>/asset/v1/private/sub-member/transfer/list</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawwListNew"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<code><span id=avpstl>/asset/v1/private/sub-member/transfer/list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#avpstl"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">请求参数</p>
 
@@ -1376,7 +1376,7 @@ REST接口根URL:
 <td>币种类型</td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="#transferstatus">status</a></td>
+<td style="text-align: left"><a href="#transfer-status-status">status</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>划转状态</td>
@@ -1394,7 +1394,7 @@ REST接口根URL:
 <td>结束时间戳（毫秒</td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="#pageaction-turn-page">direction</a></td>
+<td style="text-align: left"><a href="#page-direction-direction">direction</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>翻页</td>
@@ -1409,7 +1409,7 @@ REST接口根URL:
 <td style="text-align: left">cursor</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>translation missing: zh-cn.row_comment_to_cursor</td>
+<td>翻页标记,请使用返回的cursor,签名时使用返回的原始数据，发送request时请进行urlencode</td>
 </tr>
 </tbody></table>
 
@@ -1453,22 +1453,22 @@ REST接口根URL:
 <td>时间戳</td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="#transferstatus">status</a></td>
+<td style="text-align: left"><a href="#transfer-status-status">status</a></td>
 <td style="text-align: left">string</td>
 <td>划转状态</td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="#transfertype">type</a></td>
+<td style="text-align: left"><a href="#transfer-type-type">type</a></td>
 <td style="text-align: left">string</td>
 <td>转入转出类型</td>
 </tr>
 <tr>
 <td style="text-align: left">cursor</td>
 <td style="text-align: left">string</td>
-<td>translation missing: zh-cn.row_comment_to_cursor</td>
+<td>翻页标记,请使用返回的cursor,签名时使用返回的原始数据，发送request时请进行urlencode</td>
 </tr>
 </tbody></table>
-<h3 id='t-querysubmemberidlist'>查询子账号列表</h3>
+<h3 id='t-querysubaccountlist'>查询子账号列表</h3>
 <blockquote>
 <p>请求示例</p>
 </blockquote>
@@ -1478,15 +1478,15 @@ REST接口根URL:
 <p>响应示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">"</span><span class="s2">sub_user_id</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
-      <span class="mi">251711</span>
-    <span class="p">]</span>
-  <span class="p">},</span>
-  <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">sub_user_id</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="mi">251711</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1629979703311</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">59</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1629979703311</span><span class="p">,</span>
@@ -1665,11 +1665,11 @@ REST接口根URL:
 </table>
 <h1 id='t-enums'>枚举定义</h1>
 <p>以下是各个接口请求参数或返回结果中定义的枚举。</p>
-<h2 id='accounttype-type-accounttype'>AccountType (<code>type</code>/<code>accountType</code>)</h2>
+<h2 id='account-type-from_account_type-to_account_type'>Account type (<code>from_account_type</code>/<code>to_account_type</code>)</h2>
 <ul>
-<li><code>AccountType_CONTRACT</code>  期货账户</li>
-<li><code>AccountType_SPOT</code>      现货账户</li>
-<li><code>AccountType_INVESTMENT</code> 理财账户</li>
+<li><code>CONTRACT</code>  期货账户</li>
+<li><code>SPOT</code>      现货账户</li>
+<li><code>INVESTMENT</code> 理财账户</li>
 </ul>
 <h2 id='currency-currency-coin'>Currency (<code>currency</code>/<code>coin</code>)</h2>
 <ul>
@@ -1684,30 +1684,30 @@ REST接口根URL:
 <li><code>XLM</code></li>
 <li><code>USD</code></li>
 </ul>
-<h2 id='operatortype'>OperatorType</h2>
+<h2 id='operator-type'>Operator type</h2>
 <ul>
 <li><code>SYSTEM</code></li>
 <li><code>USER</code></li>
 <li><code>ADMIN</code></li>
 <li><code>AFFILIATE_USER</code></li>
 </ul>
-<h2 id='transfertype'>TransferType</h2>
+<h2 id='transfer-type-type'>Transfer type (<code>type</code>)</h2>
 <ul>
 <li><code>IN</code> 转入</li>
 <li><code>OUT</code> 转出</li>
 </ul>
-<h2 id='transferstatus'>TransferStatus</h2>
+<h2 id='transfer-status-status'>Transfer status (<code>status</code>)</h2>
 <ul>
 <li><code>SUCCESS</code></li>
 <li><code>PENDING</code></li>
 <li><code>FAILED</code></li>
 </ul>
-<h2 id='pageaction-turn-page'>PageAction (<code>turn page</code>)</h2>
+<h2 id='page-direction-direction'>Page direction (<code>direction</code>)</h2>
 <ul>
 <li><code>Prev</code></li>
 <li><code>Next</code></li>
 </ul>
-<h1 id='t-account_asset_errors'>错误码</h1>
+<h1 id='t-errors'>错误码</h1>
 <p>Bybit使用以下HTTP Code和错误码：</p>
 
 <table><thead>
