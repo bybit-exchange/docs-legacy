@@ -1181,9 +1181,6 @@
                     <a href="#t-querysymbol" class="toc-h2 toc-link" data-title="Query Symbol">Query Symbol</a>
                   </li>
                   <li>
-                    <a href="#t-query_liqrecords" class="toc-h2 toc-link" data-title="Liquidated Orders">Liquidated Orders</a>
-                  </li>
-                  <li>
                     <a href="#t-markpricekline" class="toc-h2 toc-link" data-title="Query Mark Price Kline">Query Mark Price Kline</a>
                   </li>
                   <li>
@@ -1562,6 +1559,9 @@
           <li>
             <a href="#t-abandonedendpoints" class="toc-h1 toc-link" data-title="Abandoned Endpoints">Abandoned Endpoints</a>
               <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-query_liqrecords" class="toc-h2 toc-link" data-title="Liquidated Orders">Liquidated Orders</a>
+                  </li>
                   <li>
                     <a href="#t-a_getleverage" class="toc-h2 toc-link" data-title="User Leverage">User Leverage</a>
                   </li>
@@ -3338,127 +3338,6 @@ The response is in the snapshot format.
 <td style="text-align: left">lot_size_filter &gt; qty_step</td>
 <td style="text-align: left">number</td>
 <td>Qty step</td>
-</tr>
-</tbody></table>
-<h3 id='t-query_liqrecords'>Liquidated Orders</h3>
-<blockquote>
-<p>Request Example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/public/liq-records?symbol=BTCUSD
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
-<span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Market</span><span class="p">.</span><span class="n">Market_liqRecords</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
-</code></pre></div>
-<blockquote>
-<p>Response Example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
-        <span class="p">{</span>
-            <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="mi">2369683</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span><span class="mi">155</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span><span class="mi">1590030126798</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSD</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span><span class="mi">9444</span>
-        <span class="p">}</span>
-    <span class="p">],</span>
-    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1590068362.493540</span><span class="dl">"</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>Retrieve the liquidated orders, The query range is the last seven days of data.</p>
-
-<p class="fake_header">HTTP Request</p>
-
-<p>GET
-<code><span id=vpkLiq>/v2/public/liq-records</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpkLiq"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
-
-<p class="fake_header">Request Parameters</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">parameter</th>
-<th style="text-align: left">Required</th>
-<th style="text-align: left">Type</th>
-<th>Comment</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">string</td>
-<td>Symbol</td>
-</tr>
-<tr>
-<td style="text-align: left">from</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">integer</td>
-<td>From ID. Default: return latest data
-</td>
-</tr>
-<tr>
-<td style="text-align: left">limit</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">integer</td>
-<td>Limit for data size, max size is 1000. Default size is 500</td>
-</tr>
-<tr>
-<td style="text-align: left">start_time</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">integer</td>
-<td>Start timestamp point for result, in milliseconds</td>
-</tr>
-<tr>
-<td style="text-align: left">end_time</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">integer</td>
-<td>End timestamp point for result, in milliseconds</td>
-</tr>
-</tbody></table>
-
-<p class="fake_header">Response Parameters</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Type</th>
-<th>Comment</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">id</td>
-<td style="text-align: left">number</td>
-<td>Latest data ID</td>
-</tr>
-<tr>
-<td style="text-align: left"><a href="#quantity-qty">qty</a></td>
-<td style="text-align: left">number</td>
-<td>Order quantity in USD</td>
-</tr>
-<tr>
-<td style="text-align: left"><a href="#side-side">side</a></td>
-<td style="text-align: left">string</td>
-<td>Liquidated position's side</td>
-</tr>
-<tr>
-<td style="text-align: left">time</td>
-<td style="text-align: left">number</td>
-<td>Millisecond timestamp</td>
-</tr>
-<tr>
-<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left">string</td>
-<td>Symbol</td>
-</tr>
-<tr>
-<td style="text-align: left">price</td>
-<td style="text-align: left">number</td>
-<td>Execution price</td>
 </tr>
 </tbody></table>
 <h3 id='t-markpricekline'>Query Mark Price Kline</h3>
@@ -12038,7 +11917,128 @@ ELSE
 <td>the limit is no change</td>
 </tr>
 </tbody></table>
-<h1 id='t-abandonedendpoints'>Abandoned Endpoints</h1><h3 id='t-a_getleverage'>User Leverage</h3>
+<h1 id='t-abandonedendpoints'>Abandoned Endpoints</h1><h3 id='t-query_liqrecords'>Liquidated Orders</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/public/liq-records?symbol=BTCUSD
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Market</span><span class="p">.</span><span class="n">Market_liqRecords</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
+</code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
+        <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="mi">2369683</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span><span class="mi">155</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span><span class="mi">1590030126798</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSD</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span><span class="mi">9444</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1590068362.493540</span><span class="dl">"</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Retrieve the liquidated orders, The query range is the last seven days of data.</p>
+
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=vpkLiq>/v2/public/liq-records</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpkLiq"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Symbol</td>
+</tr>
+<tr>
+<td style="text-align: left">from</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>From ID. Default: return latest data
+</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>Limit for data size, max size is 1000. Default size is 500</td>
+</tr>
+<tr>
+<td style="text-align: left">start_time</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>Start timestamp point for result, in milliseconds</td>
+</tr>
+<tr>
+<td style="text-align: left">end_time</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>End timestamp point for result, in milliseconds</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: left">number</td>
+<td>Latest data ID</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#quantity-qty">qty</a></td>
+<td style="text-align: left">number</td>
+<td>Order quantity in USD</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#side-side">side</a></td>
+<td style="text-align: left">string</td>
+<td>Liquidated position's side</td>
+</tr>
+<tr>
+<td style="text-align: left">time</td>
+<td style="text-align: left">number</td>
+<td>Millisecond timestamp</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
+<td style="text-align: left">string</td>
+<td>Symbol</td>
+</tr>
+<tr>
+<td style="text-align: left">price</td>
+<td style="text-align: left">number</td>
+<td>Execution price</td>
+</tr>
+</tbody></table>
+<h3 id='t-a_getleverage'>User Leverage</h3>
 <blockquote>
 <p>Request Example</p>
 </blockquote>
