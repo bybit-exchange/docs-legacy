@@ -1,5 +1,70 @@
 # t(:abandonedendpoints)
 
+### t(:query_liqrecords)
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/v2/public/liq-records?symbol=BTCUSD
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.Market.Market_liqRecords(symbol="BTCUSD").result())
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code":0,
+    "ret_msg":"OK",
+    "ext_code":"",
+    "ext_info":"",
+    "result":[
+        {
+            "id":2369683,
+            "qty":155,
+            "side":"Buy",
+            "time":1590030126798,
+            "symbol":"BTCUSD",
+            "price":9444
+        }
+    ],
+    "time_now":"1590068362.493540"
+}
+```
+t(:market_para_query_liqrecords)
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=vpkLiq>/v2/public/liq-records</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpkLiq"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
+|from |false |integer |t(:row_comment_from) |
+|limit |false |integer |t(:row_comment_limit_liq) |
+|start_time |false |integer |t(:row_comment_startTime_ms) |
+|end_time |false |integer |t(:row_comment_endTime_ms) |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|id |number |t(:row_response_comment_id)  |
+|t(:row_parameter_quantity) |number |t(:row_response_comment_execqty)  |
+|t(:row_parameter_side) |string |t(:row_response_liq_record_side)  |
+|time |number |t(:row_response_comment_nill_time)  |
+|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
+|price |number |t(:row_response_comment_execprice)  |
+
+
+
+
+
+
 ### t(:a_getleverage)
 > t(:codequote_curlExample)
 
