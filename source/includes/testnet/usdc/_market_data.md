@@ -207,7 +207,7 @@ t(:usdc_tick_desc)
 | theta | string | t(:theta) |
 
 
-### 平台历史交易数据
+### t(:platFormOrderHistory)
 > t(:codequote_curlExample)
 
 ```console
@@ -260,8 +260,7 @@ POST
 | time | number | t(:time) |
 
 
-### 查询合约信息
-
+### t(:querySymbolInfo)
 
 > t(:codequote_curlExample)
 
@@ -340,7 +339,7 @@ POST
 
 
 
-### 标记价格K线
+### t(:markKLine)
 
 > t(:codequote_curlExample)
 
@@ -398,7 +397,7 @@ POST
 
 
 
-### 查询指数价格K线
+### t(:indexKLine)
 > t(:codequote_curlExample)
 
 ```console
@@ -456,7 +455,7 @@ POST
 
 
 
-### 查询溢价K线数据
+### t(:premiumKLine)
 > t(:codequote_curlExample)
 
 ```console
@@ -512,7 +511,7 @@ POST
 | close | string | t(:close) |
 
 
-### 未平合约持仓数量
+### t(:queryOpenInterest)
 
 > t(:codequote_curlExample)
 
@@ -558,7 +557,7 @@ POST
 | openInterest | string | t(:marketopeninterest) |
 
 
-### 主动成交大额订单
+### t(:bigDealOrder)
 > t(:codequote_curlExample)
 
 ```console
@@ -604,7 +603,7 @@ POST
 
 
 
-### 用户多空持仓比率
+### t(:accountRatio)
 > t(:codequote_curlExample)
 
 ```console
@@ -651,7 +650,7 @@ POST
 
 
 
-### 查询交割价格
+### t(:queryDeliveryPrice)
 > t(:codequote_curlExample)
 
 ```console
@@ -699,7 +698,7 @@ POST
 
 
 
-### 查询结算价格
+### t(:querySettlePrice)
 > t(:codequote_curlExample)
 
 ```console
