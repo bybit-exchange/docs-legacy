@@ -241,6 +241,12 @@ under the License.
   <li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/account_asset"><%=t(:account_asset)%></a></li>
 <% end %>
 
+<% if page_classes.end_with?("usdc_index") %>
+  <li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/usdc" class="selected"><%=t(:usdc)%></a></li>
+<% else %>
+  <li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/usdc"><%=t(:usdc)%></a></li>
+<% end %>
+
   <li>
     <div class="dropdown">
       <button class="dropbtn">Environment
@@ -292,6 +298,16 @@ under the License.
                     <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/account_asset>Testnet</a>
                   <% end %>
                 <% end %>
+
+        <% if page_classes.end_with?("usdc_index") %>
+          <% if page_classes.include?("testnet") %>
+            <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/usdc>Mainnet</a>
+            <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/usdc>Testnet</a></span>
+          <% else %>
+            <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/usdc>Mainnet</a></span>
+            <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/usdc>Testnet</a>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </li>
