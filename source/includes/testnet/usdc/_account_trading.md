@@ -298,7 +298,7 @@ POST
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|orderRequest|<b>true</b>|list|t(:usdcList)|
+|replaceOrderRequest|<b>true</b>|list|t(:usdcList)|
 
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -418,7 +418,7 @@ POST
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|orderRequest|<b>true</b>|list|t(:usdcList)|
+|cancelRequest|<b>true</b>|list|t(:usdcList)|
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |

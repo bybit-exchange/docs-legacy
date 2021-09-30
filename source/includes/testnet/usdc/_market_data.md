@@ -52,7 +52,7 @@ t(:usdc_order_book_path)
 | side | string | t(:usdcOrderBookSide)|
 
 
-### 查询K线数据
+### t(:querykline)
 
 > t(:codequote_curlExample)
 
