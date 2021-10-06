@@ -22,6 +22,9 @@ t(:auth_aside_timestamp)
 ## t(:constructingtherequest)
 > t(:auth_codequote_construct1a)
 
+```console
+param_str = "api_key=B2Rou0PLPpGqcU0Vu2&leverage=100&symbol=BTCUSD&timestamp=1542434791747"
+```
 ```python
 param_str = "api_key=B2Rou0PLPpGqcU0Vu2&leverage=100&symbol=BTCUSD&timestamp=1542434791747"
 
