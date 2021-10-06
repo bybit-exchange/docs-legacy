@@ -6,7 +6,7 @@ t(:account_para)
 
 ```console
 curl https://api.bybit.com/spot/v1/order \
--H "Content-Type: application/x-www-form-unlencoded" \
+-H "Content-Type: application/x-www-form-urlencoded" \
 -d 'api_key={api_key}&side=Buy&symbol=ETHUSDT&type=MARKET&qty=10&timeInForce=GTC&timestamp={timestamp}&sign={signature}'
 
 ```
