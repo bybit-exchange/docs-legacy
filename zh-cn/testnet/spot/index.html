@@ -1030,7 +1030,8 @@ REST接口根URL:
 <blockquote>
 <p>拼接參數示例（以查詢賬號余額接口為例）：</p>
 </blockquote>
-<div class="highlight"><pre class="highlight python tab-python"><code><span class="n">param_str</span> <span class="o">=</span> <span class="s">"api_key=B2Rou0PLPpGqcU0Vu2&amp;leverage=100&amp;symbol=BTCUSDH21&amp;timestamp=1542434791747"</span>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">param_str = "api_key=B2Rou0PLPpGqcU0Vu2&amp;timestamp=1542434791747"
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">param_str</span> <span class="o">=</span> <span class="s">"api_key=B2Rou0PLPpGqcU0Vu2&amp;timestamp=1542434791747"</span>
 
 <span class="c1"># api_key=B2Rou0PLPpGqcU0Vu2&amp;
 # leverage=100&amp;
@@ -1050,7 +1051,7 @@ REST接口根URL:
 <p><b>GET</b>請求格式（查詢賬號余額）:
 </p>
 </blockquote>
-<div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/spot/v1/order?api_key=q1ksyOX2T0G2SkK8nu&amp;qty=100&amp;recvWindow=10000&amp;side=BUY&amp;symbol=BTCUSDT&amp;timestamp=1623208423972&amp;type=MARKET&amp;sign=b452640c21a2c9eaec30d24a9bce1a9660d1fb9d07ccc0d623a2a4fca0940095</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/spot/v1/order?api_key=q1ksyOX2T0G2SkK8nu&amp;recvWindow=10000&amp;timestamp=1623208423972&amp;sign=b452640c21a2c9eaec30d24a9bce1a9660d1fb9d07ccc0d623a2a4fca0940095</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api-testnet.bybit.com</span>
 </code></pre></div>
 <blockquote>
@@ -1059,7 +1060,7 @@ REST接口根URL:
 </blockquote>
 <div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/spot/v1/order</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api-testnet.bybit.com</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-unlencoded</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
 
 api_key:q1ksyOX2T0G2SkK8nu
 qty:100
@@ -1941,8 +1942,8 @@ function copyStringToClipboard (endpoint) {
 <p>請求示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/spot/v1/order \
--H "Content-Type: application/x-www-form-unlencoded" \
--d 'api_key={api_key}&amp;side=Buy&amp;symbol=ETHUSDT&amp;orderType=MARKET&amp;qty=10&amp;timeInForce=GTC&amp;timestamp={timestamp}&amp;sign={signature}'
+-H "Content-Type: application/x-www-form-urlencoded" \
+-d 'api_key={api_key}&amp;side=Buy&amp;symbol=ETHUSDT&amp;type=MARKET&amp;qty=10&amp;timeInForce=GTC&amp;timestamp={timestamp}&amp;sign={signature}'
 
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
 </code></pre></div>
