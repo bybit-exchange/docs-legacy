@@ -72,7 +72,6 @@ POST
 |sessionAvgPrice|string|t(:sessionAvgPrice)|
 |markPrice|string|t(:markPrice)|
 |positionPnl|string|t(:positionPnl)|
-|roi|string|t(:roi)|
 |sessionUpl|string|t(:sessionUpl)|
 |sessionRpl|string|t(:sessionRpl)|
 |im|string|t(:usdcMm)|
@@ -93,7 +92,6 @@ POST
 |orderMargin|string|t(:orderMargin)|
 |unrealisedPnl|string|t(:unrealisedPnl)|
 |cumRealisedPnl|string|t(:cumRealisedPnl)|
-|cumCommission|string|t(:cumCommission)|
 
 
 ## t(:setTakeProfitAndStopLoss) 
