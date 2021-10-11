@@ -2736,11 +2736,12 @@ orderId和ordersLinkId至少要輸入一個。
     <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="p">[{</span><span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">889208273689997824</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">889208273689997824</span><span class="dl">"</span><span class="p">,</span>
           <span class="dl">"</span><span class="s2">code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1139</span><span class="dl">"</span>
-        <span class="p">}]</span>
-    <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
 <aside class="notice">
@@ -3794,7 +3795,7 @@ orderId和ordersLinkId至少要輸入一個。
   <span class="dl">"</span><span class="s2">shared</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>按Symbol逐秒刷新的24小時完整ticker信息。</p>
+<p>按Symbol刷新的24小時完整ticker信息。</p>
 
 <p><b>300ms</b>推送一次，最大延遲<b>400ms</b>。</p>
 
@@ -4264,7 +4265,7 @@ orderId和ordersLinkId至少要輸入一個。
   <span class="dl">"</span><span class="s2">shared</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><p>每秒推送訂單簿的變化部分（如果有）。第一次推送的是全量的訂單簿，接下來推送增量部分。</p>
+<p><p>推送訂單簿的變化部分（如果有）。第一次推送的是全量的訂單簿，接下來推送增量部分。</p>
 <p>在增量深度信息中，數量不一定等於對應價格的數量。如果數量=0，這說明在上一條推送中的這個價格已經沒有了。如果數量>0，這時的數量為更新後的這個價格所對應的數量。</p>
 <p>假設我們收到的返回數據中有這樣一條：</p>
 <p>&nbsp;&nbsp;> ["0.00181860", "155.92000000"] // 價格，數量</p>
