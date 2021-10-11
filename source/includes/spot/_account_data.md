@@ -434,11 +434,12 @@ DELETE
     "ret_msg": "",
     "ext_code": null,
     "ext_info": null,
-    "result": {
-        [{"orderId": "889208273689997824",
+    "result": [
+        {
+          "orderId": "889208273689997824",
           "code": "1139"
-        }]
-    }
+        }
+    ]
 }
 ```
 

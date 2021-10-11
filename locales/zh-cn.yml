@@ -2134,7 +2134,7 @@ zh-cn:
     <p>變量「v」可以理解成一個交易ID。這個變量是全局遞增的並且獨特的。</p>
 
   spot_websocket_ticker_v1: Symbol的Ticker
-  spot_websocket_ticker_desc_v1: 按Symbol逐秒刷新的24小時完整ticker信息。
+  spot_websocket_ticker_desc_v1: 按Symbol刷新的24小時完整ticker信息。
   spot_websocket_kline_v1: K線/蠟燭圖
   spot_websocket_kline_desc_v1: |
     <p>K線數據.</p>
@@ -2163,7 +2163,7 @@ zh-cn:
 
   spot_websocket_orderbook_delta_v1: 訂單簿(增量深度)
   spot_websocket_orderbook_delta_desc_v1: |
-    <p>每秒推送訂單簿的變化部分（如果有）。第一次推送的是全量的訂單簿，接下來推送增量部分。</p>
+    <p>推送訂單簿的變化部分（如果有）。第一次推送的是全量的訂單簿，接下來推送增量部分。</p>
     <p>在增量深度信息中，數量不一定等於對應價格的數量。如果數量=0，這說明在上一條推送中的這個價格已經沒有了。如果數量>0，這時的數量為更新後的這個價格所對應的數量。</p>
     <p>假設我們收到的返回數據中有這樣一條：</p>
     <p>&nbsp;&nbsp;> ["0.00181860", "155.92000000"] // 價格，數量</p>
