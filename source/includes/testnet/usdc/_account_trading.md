@@ -465,7 +465,8 @@ POST
 POST
 <code><span id=vpoCreate>/usdc/openapi/private/v1/cancel-all/{category}</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
-
+|:----- |:-------|:-----|----- |
+|outRequestId|false|string|t(:optionOutRequestId)|
 
 t(:cancelAllResponse)
 
