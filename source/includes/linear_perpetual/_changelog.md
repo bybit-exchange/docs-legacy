@@ -1,7 +1,6 @@
 # t(:changelog)
 ## 2021-10-12
 ### REST API
-- t(:restapi_update_20211012)
 - [t(:querysymbol)](#t-querysymbol) [t(:changelog_update)]
     - t(:restapi_update_2021101201)
 

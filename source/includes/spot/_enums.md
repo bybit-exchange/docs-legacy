@@ -11,6 +11,10 @@ t(:ENUMs_para)
 * `IOC` - Immediate or Cancel
 
 ## Symbol (`symbol`)
+* `BTCUSDT`
+* `ETHUSDT`
+* ...
+
 t(:trading_symbol_comment)
 
 
@@ -70,4 +74,3 @@ t(:price)
 * `1d` t(:interval_D)
 * `1w` t(:interval_W)
 * `1M` t(:interval_M)
-

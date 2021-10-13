@@ -12,6 +12,8 @@ t(:ENUMs_para)
 * `XRPUSD`
 * `DOTUSD`
 
+t(:trading_symbol_comment)
+
 ## Currency (`currency`/`coin`)
 * `BTC`
 * `ETH`

@@ -8,36 +8,9 @@ t(:ENUMs_para)
 ## Symbol (`symbol`)
 * `BTCUSDT`
 * `ETHUSDT`
-* `LTCUSDT`
-* `LINKUSDT`
-* `XTZUSDT`
-* `BCHUSDT`
-* `ADAUSDT`
-* `DOTUSDT`
-* `UNIUSDT`
-* `XRPUSDT`
-* `XEMUSDT`
-* `SUSHIUSDT`
-* `AAVEUSDT`
-* `DOGEUSDT`
-* `MATICUSDT`
-* `EOSUSDT`
-* `ETCUSDT`
-* `BNBUSDT`
-* `FILUSDT`
-* `SOLUSDT`
-* `OMGUSDT`
-* `KSMUSDT`
-* `FTTUSDT`
-* `CHZUSDT`
-* `DASHUSDT`
-* `IOSTUSDT`
-* `BITUSDT`
-* `ATOMUSDT`
-* `LUNAUSDT`
-* `DYDXUSDT`
-* `NEARUSDT`
-* `SRMUSDT`
+* ...
+
+t(:trading_symbol_comment)
 
 ## Currency (`currency`/`coin`)
 * `USDT`
