@@ -10,12 +10,14 @@ t(:ENUMs_para)
 * `ETHUSD`
 * `EOSUSD`
 * `XRPUSD`
+* `DOTUSD`
 
 ## Currency (`currency`/`coin`)
 * `BTC`
 * `ETH`
 * `EOS`
 * `XRP`
+* `DOT`
 * `USDT`
 
 ## Contract Type(`contract_type`)

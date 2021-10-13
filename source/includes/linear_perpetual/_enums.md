@@ -26,6 +26,18 @@ t(:ENUMs_para)
 * `BNBUSDT`
 * `FILUSDT`
 * `SOLUSDT`
+* `OMGUSDT`
+* `KSMUSDT`
+* `FTTUSDT`
+* `CHZUSDT`
+* `DASHUSDT`
+* `IOSTUSDT`
+* `BITUSDT`
+* `ATOMUSDT`
+* `LUNAUSDT`
+* `DYDXUSDT`
+* `NEARUSDT`
+* `SRMUSDT`
 
 ## Currency (`currency`/`coin`)
 * `USDT`

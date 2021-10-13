@@ -1,4 +1,10 @@
 # t(:changelog)
+## 2021-10-12
+### REST API
+- t(:restapi_update_20211012)
+- [t(:querysymbol)](#t-querysymbol) [t(:changelog_update)]
+    - t(:restapi_update_2021101201)
+
 ## 2021-09-17
 ### Websocket API
 - [t(:websocketliquidation)](#t-websocketliquidation) [t(:changelog_new)]
