@@ -810,7 +810,7 @@ zh-cn:
   ### IP Rate Limit
   ipratelimits: IP頻率限製
   ip_rate_para_understanding: |
-    <p> Bybit會基於請求IP做頻率限製，針對不同的請求方法有以下規則：</p>
+    <p> Bybit會基於請求IP做頻率限製，針對不同的請求方法有以下規則(現貨的IP用量是獨立計算的)：</p>
     <ul>
     <li>
       <code>GET</code>方法:
@@ -835,7 +835,7 @@ zh-cn:
   rate_para_understanding: |
     Bybit基於<b>每分鐘</b>的滾動時間窗口來做頻率限製，並且是按<b>賬戶</b>（uid）和交易對（symbol）來做劃分限製，每次請求API響應中都會包含如下字段：
   spot_rate_para_understanding: |
-    現貨鑒權接口（即需要簽名的接口）的限頻規則是每秒不超過20次
+    現貨鑒權接口（即需要簽名的接口）的限頻規則是每秒每個接口不超過20次
   rate_text_limitStatus_understanding: 該接口當前時間窗口剩余可用請求數
   rate_text_limit_understanding: 該接口當前頻率限製上限
   rate_text_limitReset: 如果您已超過該接口當前窗口頻率限製，該字段表示下個可用時間窗口的時間戳（毫秒），即什麽時候可以恢復訪問；如果您未超過該接口當前窗口頻率限製，該字段表示返回的是當前服務器時間（毫秒).
