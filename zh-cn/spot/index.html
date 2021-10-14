@@ -3514,7 +3514,7 @@ orderId和ordersLinkId至少要輸入一個。
 </thead><tbody>
 </tbody></table>
 <h1 id='t-ratelimits'>頻率限製</h1><h3 id='t-ipratelimits'>IP頻率限製</h3>
-<p><p> Bybit會基於請求IP做頻率限製，針對不同的請求方法有以下規則：</p>
+<p><p> Bybit會基於請求IP做頻率限製，針對不同的請求方法有以下規則(現貨的IP用量是獨立計算的)：</p>
 <ul>
 <li>
   <code>GET</code>方法:
@@ -3533,7 +3533,7 @@ orderId和ordersLinkId至少要輸入一個。
 </ul>
 </p>
 <h3 id='t-perendpoint'>接口頻率限製表</h3>
-<p>現貨鑒權接口（即需要簽名的接口）的限頻規則是每秒不超過20次
+<p>現貨鑒權接口（即需要簽名的接口）的限頻規則是每秒每個接口不超過20次
 </p>
 <h1 id='t-websocket'>WebSocket接口</h1><h2 id='t-websocketauthentication'>鑒權/認證</h2>
 <blockquote>
