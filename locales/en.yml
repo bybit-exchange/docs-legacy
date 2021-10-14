@@ -908,7 +908,7 @@ en:
   ### IP Rate Limit
   ipratelimits: IP Rate Limit
   ip_rate_para_understanding: |
-    <p>The IP limits are shared across all endpoints: futures, spot, and account asset. However, the mainent and testnet IP limits are separate.</p>
+    <p>The IP limits are shared across all endpoints: futures and account asset but SPOT is separate from them. Mainnet and testnet IP limits are separate.</p>
     <p>Bybit has different IP frequency limits for <code>GET</code> and <code>POST</code> method<span>:</span></p>
     <ul>
     <li>
@@ -953,7 +953,7 @@ en:
   rate_para_understanding: |
     Bybit makes frequency limits based on <b>the rolling time window per minute and UID, and each symbol is independent</b>. Every request to the API returns the fields shown in the code panel:
   spot_rate_para_understanding: |
-    For all endpoints that need authentication, the rate limit is 20 per second.
+    For all endpoints that need authentication, the rate limit is 20 per second for each endpoint.
   rate_text_limitStatus_understanding: your remaining requests for current endpoint
   rate_text_limit_understanding: your current limit for current endpoint
   rate_text_limitReset: the timestamp indicating when your request limit resets if you have exceeded your rate_limit. Otherwise, this is just the current timestamp.
