@@ -75,6 +75,8 @@ ws.send(JSON.stringify({"ping": 1535975085052}));
 t(:websocket_aside_heartbeat)
 </aside>
 
+t(:websocket_aside_heartbeat_option)
+
 <!-- 连接数限制
 ## t(:websocketlimit)
 t(:websocket_para_limit)
@@ -89,7 +91,6 @@ t(:usdc_websocket_subscribe_desc)
 
 ```javascript
 // Subscribing to the trade data for BTCUSDT
-ws.send('{"symbol":"BTCUSDT","topic":"trade","event":"sub","params":{"binary":false}}');
 ```
 
 ### t(:websocketunfilters)
@@ -100,16 +101,7 @@ t(:usdc_websocket_unsubscribe_desc)
 > t(:websocket_codequote_response)
 
 ```javascript
-{
-  "topic":"trade",
-  "event":"sub",
-  "symbol":"BTCUSDT",
-  "params":{
-    "binary":"false"
-  },
-  "code":"0",
-  "msg":"Success"
-}
+
 ```
 
 t(:spot_websocket_para_response)

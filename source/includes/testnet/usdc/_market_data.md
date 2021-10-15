@@ -6,6 +6,10 @@ t(:market_para_auth)
 > t(:codequote_curlExample)
 
 ```console
+curl https://api.bybit.com/option/usdc/openapi/public/v1/order-book \
+-H "Content-Type: application/json" \
+-d '{"symbol": "BTC-22OCT21-45000-C"}'
+
 ```
 
 ```python
@@ -15,22 +19,27 @@ t(:market_para_auth)
 
 ```javascript
 {
-    "retCode": 0,
-    "retMsg": "",
-    "result": [
-        {
-            "price": "100.01",
-            "size": "1.1",
-            "side": "ask"
-        }
-    ]
+  "retCode":0,
+    "retMsg":"SUCCESS",
+    "result":[
+    {
+      "price":"9.40065408",
+      "size":"155196.7296",
+      "side":"BID"
+    },
+    {
+      "price":"9.13032704",
+      "size":"40493.4592",
+      "side":"ASK"
+    }
+  ]
 }
 ```
 t(:usdc_order_book_desc)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=svSymbols>/usdc/openapi/public/order-book/v1/{category}</span></code>
+<code><span id=svSymbols>/{category}/usdc/openapi/public/v1/order-book/</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svSymbols"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 t(:usdc_order_book_path)
@@ -57,6 +66,9 @@ t(:usdc_order_book_path)
 > t(:codequote_curlExample)
 
 ```console
+curl https://api.bybit.com/v2/private/order/create \
+-H "Content-Type: application/json" \
+-d '{"symbol":"BTCUSD","interval":1,"from":1581231260}'
 ```
 
 ```python
@@ -88,7 +100,7 @@ t(:usdc_order_book_path)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=sqvdMerged>/usdc/openapi/public/kline/v1/{category}</span></code>
+<code><span id=sqvdMerged>/perp/usdc/openapi/public/v1/kline/</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -119,6 +131,9 @@ POST
 > t(:codequote_curlExample)
 
 ```console
+curl https://api.bybit.com/option/usdc/openapi/public/v1/tick \
+-H "Content-Type: application/json" \
+-D '{"symbol": "BTC-22OCT21-45000-C"}'
 ```
 
 ```python
@@ -128,44 +143,41 @@ POST
 
 ```javascript
 {
-    "retCode": 0,
-    "retMsg": "",
-    "result": [
-        {
-            "symbol": "100.01",
-            "bid": "1.1",
-            "bidIv": "1.1",
-            "bidSize": "1.1",
-            "ask": "1.1",
-            "askIv": "1.1",
-            "askSize": "1.1",
-            "lastPrice": "1.1",
-            "openInterest": "1.1",
-            "indexPrice": "1.1",
-            "markPrice": "1.1",
-            "markPriceIv": "1.1",
-            "change24h": "1.1",
-            "high24h": "1.1",
-            "low24h": "1.1",
-            "volume24h": "1.1",
-            "turnover24h": "1.1",
-            "totalVolume": "1.1",
-            "totalTurnover": "1.1",
-            "predictedDeliveryPrice": "1.1",
-            "underlyingPrice": "1.1",
-            "delta": "1.1",
-            "gamma": "1.1",
-            "vega": "1.1",
-            "theta": "1.1",
-            "side": "ask"
-        }
-    ]
+  "retCode":0,
+    "retMsg":"SUCCESS",
+    "result":{
+    "symbol":"BTC-22OCT21-45000-C",
+      "bid":"9.40065408",
+      "bidIv":"0.0000",
+      "bidSize":"155196.7296",
+      "ask":"12.03032704",
+      "askIv":"0.0000",
+      "askSize":"144786.7184",
+      "lastPrice":"12.03032704",
+      "openInterest":"56.3",
+      "indexPrice":"57513.73000000",
+      "markPrice":"12996.21947583",
+      "markPriceIv":"1.1613",
+      "change24h":"-0.99849621",
+      "high24h":"8000.00000000",
+      "low24h":"2.02000000",
+      "volume24h":"11459759.9440",
+      "turnover24h":"89748414.25099826",
+      "totalVolume":"11459760",
+      "totalTurnover":"89748415",
+      "predictedDeliveryPrice":"57540.52549555",
+      "underlyingPrice":"57708.12000000",
+      "delta":"0.93742138",
+      "gamma":"0.00001242",
+      "vega":"10.51152247",
+      "theta":"-76.37969432"
+  }
 }
 ```
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=sqvdMerged>/usdc/usdc/openapi/public/v1/tick/{category}</span></code>
+<code><span id=sqvdMerged>/{category}/usdc/openapi/public/v1/tick</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 t(:usdc_tick_desc)
@@ -211,6 +223,10 @@ t(:usdc_tick_desc)
 > t(:codequote_curlExample)
 
 ```console
+curl https://api.bybit.com/perp/usdc/openapi/public/v1/order-history \
+-H "Content-Type: application/json" \
+-d '{"symbol":"BTCUSD","category":"perp"}'
+
 ```
 
 ```python
@@ -237,7 +253,7 @@ t(:usdc_tick_desc)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=sqvdMerged>/usdc/openapi/public/v1/order-history</span></code>
+<code><span id=sqvdMerged>/option/usdc/openapi/public/v1/order-history</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -265,6 +281,10 @@ POST
 > t(:codequote_curlExample)
 
 ```console
+curl https://api.bybit.com/perp/usdc/openapi/public/v1/symbols \
+-H "Content-Type: application/json" \
+-d '{"symbol":"BTCUSD","category":"perp"}'
+
 ```
 
 ```python
@@ -301,7 +321,7 @@ t(:usdcSymbolInfo)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=sqvdMerged>/usdc/openapi/v1/symbols</span></code>
+<code><span id=sqvdMerged>/option/usdc/openapi/public/v1/symbols</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -344,6 +364,10 @@ POST
 > t(:codequote_curlExample)
 
 ```console
+curl https://api.bybit.com//perp/usdc/openapi/public/v1/mark-kline \
+-H "Content-Type: application/json" \
+-d '{"symbol":"BTCUSD","period":"1"}'
+
 ```
 
 ```python
@@ -371,7 +395,7 @@ POST
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=sqvdMerged>/usdc/openapi/public/v1/mark-kline</span></code>
+<code><span id=sqvdMerged>/perp/usdc/openapi/public/v1/mark-kline</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -401,6 +425,9 @@ POST
 > t(:codequote_curlExample)
 
 ```console
+curl https://api.bybit.com//perp/usdc/openapi/public/v1/index-kline \
+-H "Content-Type: application/json" \
+-d '{"symbol":"BTCUSD","period":"1"}'
 ```
 
 ```python
@@ -428,7 +455,7 @@ POST
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=sqvdMerged>/usdc/openapi/public/v1/index-kline/</span></code>
+<code><span id=sqvdMerged>/perp/usdc/openapi/public/v1/index-kline</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -459,6 +486,9 @@ POST
 > t(:codequote_curlExample)
 
 ```console
+curl https://api.bybit.com//perp/usdc/openapi/public/v1/premium-kline \
+-H "Content-Type: application/json" \
+-d '{"symbol":"BTCUSD","period":"1"}'
 ```
 
 ```python
@@ -486,7 +516,7 @@ POST
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=sqvdMerged>/usdc/openapi/public/v1/premium-kline</span></code>
+<code><span id=sqvdMerged>/perp/usdc/openapi/public/v1/premium-kline</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -516,6 +546,9 @@ POST
 > t(:codequote_curlExample)
 
 ```console
+curl https://api.bybit.com/perp/usdc/openapi/public/v1/open-interest \
+-H "Content-Type: application/json" \
+-d '{"symbol":"BTCUSD","period":"1"}'
 ```
 
 ```python
@@ -539,7 +572,7 @@ POST
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=sqvdMerged>/usdc/openapi/public/v1/open-interest</span></code>
+<code><span id=sqvdMerged>/{category}/usdc/openapi/public/v1/open-interest</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -561,6 +594,11 @@ POST
 > t(:codequote_curlExample)
 
 ```console
+
+curl https://api.bybit.com/perp/usdc/openapi/public/v1/big-deal \
+-H "Content-Type: application/json" \
+-d '{"symbol":"BTCUSD"}'
+
 ```
 
 ```python
@@ -584,7 +622,7 @@ POST
 ```
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=sqvdMerged>/usdc/openapi/public/v1/big-deal/</span></code>
+<code><span id=sqvdMerged>/perp/usdc/openapi/public/v1/big-deal/</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -607,6 +645,9 @@ POST
 > t(:codequote_curlExample)
 
 ```console
+curl https://api.bybit.com/perp/usdc/openapi/public/v1/account-ratio \
+-H "Content-Type: application/json" \
+-d '{"symbol":"BTCUSD","period":"5min"}'
 ```
 
 ```python
@@ -620,17 +661,17 @@ POST
     "retMsg": "",
     "result": [
         {
-            "symbol": "100.01",
+            "symbol": "BTCUSD",
             "buyRatio": "0.6",
             "sellRatio": "0.4",
-            "timestamp": 1000000001
+            "timestamp": 1597658700
         }
     ]
 }
 ```
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=sqvdMerged>/usdc/openapi/public/v1/account-ratio</span></code>
+<code><span id=sqvdMerged>/perp/usdc/openapi/public/v1/account-ratio</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -654,6 +695,9 @@ POST
 > t(:codequote_curlExample)
 
 ```console
+curl https://api.bybit.com/option/usdc/openapi/public/v1/delivery-price \
+-H "Content-Type: application/json" \
+-d '{"symbol":"BTC-22OCT21-45000-C"}'
 ```
 
 ```python
@@ -667,9 +711,9 @@ POST
     "retMsg": "",
     "result": [
         {
-            "symbol": "100.01",
+            "symbol": "BTC-22OCT21-45000-C",
             "deliveryPrice": "100.01",
-            "deliveryTime": 1000001,
+            "deliveryTime": 1597659000,
             "cursor": ""
         }
     ]
@@ -677,7 +721,7 @@ POST
 ```
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=sqvdMerged>/usdc/openapi/public/v1/delivery-price</span></code>
+<code><span id=sqvdMerged>option/usdc/openapi/public/v1/delivery-price</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -702,6 +746,10 @@ POST
 > t(:codequote_curlExample)
 
 ```console
+curl https://api.bybit.com/option/usdc/openapi/public/v1/session-avg-price \
+-H "Content-Type: application/json" \
+-d '{"symbol":"BTCUSD"}'
+
 ```
 
 ```python
@@ -725,7 +773,7 @@ POST
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=sqvdMerged>/usdc/openapi/public/v1/session-avg-price</span></code>
+<code><span id=sqvdMerged>{category}/usdc/openapi/public/v1/session-avg-price</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>

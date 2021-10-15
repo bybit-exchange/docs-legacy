@@ -7,7 +7,9 @@
 > t(:codequote_curlExample)
 
 ```console
-
+curl https://api.bybit.com/perp/usdc/openapi/private/v1/risk-limit/list \
+-H "Content-Type: application/json" \
+-d '{"symbol":"BTCUSD"}'
 ```
 
 ```python
@@ -24,7 +26,7 @@
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/usdc/openapi/private/v1/risk-limit/list</span></code>
+<code><span id=vpoCreate>/perp/usdc/openapi/private/v1/risk-limit/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -51,10 +53,12 @@ POST
 ## t(:setRiskLimits) 
 
 
-
 > t(:codequote_curlExample)
 
 ```console
+curl https://api.bybit.com/usdc/openapi/private/v1/risk-limit \
+-H "Content-Type: application/json" \
+-d '{"symbol":"BTCUSD","risk_id":2}'
 
 ```
 
@@ -78,7 +82,7 @@ POST
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/usdc/openapi/private/v1/risk-limit</span></code>
+<code><span id=vpoCreate>/perp/usdc/openapi/private/v1/risk-limit</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>

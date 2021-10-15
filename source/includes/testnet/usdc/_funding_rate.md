@@ -4,6 +4,9 @@
 > t(:codequote_curlExample)
 
 ```console
+curl https://api.bybit.com//perp/usdc/openapi/private/v1/prev-funding-rate \
+-H "Content-Type: application/json" \
+-d '{"symbol":"BTCUSD"}'
 ```
 
 ```python
@@ -21,23 +24,8 @@
     "extInfo": null,
     "result": {
         "symbol": "ETHUSDT",
-        "orderType": "ETHUSDT",
-        "side": "ETHUSDT",
-        "orderPrice": "ETHUSDT",
-        "orderLinkId": "162073788655749",
-        "iv": "100",
-        "placeMode": "1620737886573",
-        "placeType": "1620737886573",
-        "timeInForce": "1620737886573",
-        "outRequestId": "1620737886573",
-        "reduceOnly": "1620737886573",
-        "orderPrice": "20000",
-        "orderQty": "10",
-        "executedQty": "0",
-        "status": "NEW",
-        "timeInForce": "GTC",
-        "orderType": "LIMIT",
-        "side": "Buy"
+        "fundingRate": "0.00075",
+        "fundingRateTimestamp": "1577433600"
     }
 }
 ```
@@ -45,7 +33,7 @@
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/usdc/openapi/private/v1/prev-funding-rate</span></code>
+<code><span id=vpoCreate>/perp/usdc/openapi/private/v1/prev-funding-rate</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -69,6 +57,9 @@ POST
 > t(:codequote_curlExample)
 
 ```console
+curl https://api.bybit.com//perp/usdc/openapi/private/v1/prev-funding \
+-H "Content-Type: application/json" \
+-d '{"symbol":"BTCUSD"}'
 ```
 
 ```python
@@ -85,7 +76,13 @@ POST
     "extCode": null,
     "extInfo": null,
     "result": {
-        "":
+        "symbol":"BTCUSD",
+        "side":"Buy",
+        "size":"1",
+        "fundingRate":"0.0001",
+        "execFee":"0.00000002",
+        "execTimestamp":1575907200
+      
     }
 }
 ```
@@ -93,7 +90,7 @@ POST
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/usdc/openapi/private/v1/prev-funding</span></code>
+<code><span id=vpoCreate>/perp/usdc/openapi/private/v1/prev-funding</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -121,9 +118,10 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/spot/v1/order \
--H "Content-Type: application/x-www-form-unlencoded" \
--d 'api_key={api_key}&side=Buy&symbol=ETHUSDT&orderType=MARKET&qty=10&timeInForce=GTC&timestamp={timestamp}&sign={signature}'
+
+curl https://api.bybit.com//perp/usdc/openapi/private/v1/predicted-funding \
+-H "Content-Type: application/json" \
+-d '{"symbol":"BTCUSD"}'
 
 ```
 
@@ -142,13 +140,15 @@ curl https://api.bybit.com/spot/v1/order \
     "extInfo": null,
     "result": {
         
+        "predictedFundingRate":"0.0001",
+      "predictedFundingFee":"0"
     }
 ```
 
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/usdc/openapi/private/v1/funding/predicted-funding</span></code>
+<code><span id=vpoCreate>/perp/usdc/openapi/private/v1/funding/predicted-funding</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>

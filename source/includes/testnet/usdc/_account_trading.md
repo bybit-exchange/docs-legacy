@@ -5,13 +5,10 @@ t(:account_para)
 > t(:codequote_curlExample)
 
 ```console
-
+curl https://api.bybit.com/option//usdc/openapi/private/v1/place-order \
+-H "Content-Type: application/json" \
+-D '{"outRequestId":"021f276a-0a5f-4f35-9859-5f32353ce0ad","symbol":"BTC-26NOV21-58000-P","orderType":"Limit","side":"Buy","orderQty":"1","orderPrice":"1","timeInForce":"GoodTillCancel","placeMode":1,"placeType":1}'
 ```
-
-```python
-
-```
-
 
 > t(:codequote_responseExample)
 
@@ -23,23 +20,18 @@ t(:account_para)
     "extInfo": null,
     "result": {
         "symbol": "ETHUSDT",
-        "orderType": "ETHUSDT",
-        "side": "ETHUSDT",
-        "orderPrice": "ETHUSDT",
+        "orderType": "Limit",
+        "side": "Buy",
+        "orderPrice": "1",
         "orderLinkId": "162073788655749",
         "iv": "100",
-        "placeMode": "1620737886573",
-        "placeType": "1620737886573",
-        "timeInForce": "1620737886573",
+        "placeMode": 1,
+        "placeType": 1,
+        "timeInForce": "PostOnly",
         "outRequestId": "1620737886573",
-        "reduceOnly": "1620737886573",
+        "reduceOnly": true,
         "orderPrice": "20000",
-        "orderQty": "10",
-        "executedQty": "0",
-        "status": "NEW",
-        "timeInForce": "GTC",
-        "orderType": "LIMIT",
-        "side": "Buy"
+        "orderQty": "10"
     }
 }
 ```
@@ -47,7 +39,7 @@ t(:placeOrderInfo)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/usdc/openapi/private/v1/place-order/{category}</span></code>
+<code><span id=vpoCreate>/{category}/usdc/openapi/private/v1/place-order</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -94,6 +86,10 @@ POST
 支持用户批量下单，一次请求里最多包含4条记录。
 
 ```console
+curl https://api.bybit.com/option/usdc/openapi/private/v1/batch-place-order \
+-H "Content-Type: application/json" \
+-D '{"orderRequest":[{"outRequestId":"4c77b34a-9093-4bca-9cad-727cd6efed7e","symbol":"Hello","orderType":"Limit","side":"Buy","orderQty":"1","orderPrice":"1","timeInForce":"GoodTillCancel","placeMode":1,"placeType":1}]}'
+
 
 ```
 
@@ -136,7 +132,7 @@ POST
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/usdc/openapi/private/v1/batch-place-order/{category}</span></code>
+<code><span id=vpoCreate>/{category}/usdc/openapi/private/v1/batch-place-order</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -187,6 +183,10 @@ POST
 
 
 ```console
+curl https://api.bybit.com/option/usdc/openapi/private/v1/replace-order \
+-H "Content-Type: application/json" \
+-D '{"outRequestId":"89befe89-0869-405a-a07c-2599324d009d","symbol":"BTC-26NOV21-58000-P","orderId":"be6c87be-da18-4876-9a64-6b7ccc859071","orderQty":"1","orderPrice":"1"}'
+
 
 ```
 
@@ -218,7 +218,7 @@ t(:replaceInfo)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/usdc/openapi/private/v1/replace-order/{category}</span></code>
+<code><span id=vpoCreate>/{category}/usdc/openapi/private/v1/replace-order</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -254,6 +254,10 @@ POST
 
 
 ```console
+curl https://api.bybit.com/option/usdc/openapi/private/v1/batch-replace-order \
+-H "Content-Type: application/json" \
+-D '{"replaceOrderRequest":[{"outRequestId":"89befe89-0869-405a-a07c-2599324d009d","symbol":"BTC-26NOV21-58000-P","orderId":"be6c87be-da18-4876-9a64-6b7ccc859071","orderQty":"1","orderPrice":"1"}]}'
+
 
 ```
 
@@ -291,7 +295,7 @@ POST
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/usdc/openapi/private/v1/batch-replace-order/{category}</span></code>
+<code><span id=vpoCreate>/{category}/usdc/openapi/private/v1/batch-replace-order</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -332,6 +336,9 @@ POST
 
 
 ```console
+curl https://api.bybit.com/option/usdc/openapi/private/v1/cancel-order \
+-H "Content-Type: application/json" \
+-D '{"outRequestId":"01f90031-4697-4b1f-affe-eb0032c58212","symbol":"BTC-26NOV21-58000-P","orderId":"ec6d8081-8950-491b-bf43-22ddb09df0fc"}'
 
 ```
 
@@ -357,7 +364,7 @@ POST
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/usdc/openapi/private/v1/cancel-order/{category}</span></code>
+<code><span id=vpoCreate>/{category}/usdc/openapi/private/v1/cancel-order</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -383,9 +390,11 @@ POST
 
 ### t(:usdcBatchCancelOrders)
 
-
-
 ```console
+curl https://api.bybit.com/option/usdc/openapi/private/v1/cancel-order \
+-H "Content-Type: application/json" \
+-D '{"cancelRequest":[{"outRequestId":"0d3a1844-a7ba-4a95-9e2a-47843112f412","symbol":"BTC-26NOV21-58000-P","orderId":"1a69653f-c3c7-40b4-a492-17316a2086a2"}]}'
+
 
 ```
 
@@ -411,7 +420,7 @@ POST
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/usdc/openapi/private/v1/batch-cancel-order/{category}</span></code>
+<code><span id=vpoCreate>{category}/usdc/openapi/private/v1/batch-cancel-order</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -441,6 +450,10 @@ POST
 
 
 ```console
+curl https://api.bybit.com/option/usdc/openapi/private/v1/cancel-order \
+-H "Content-Type: application/json" \
+-D '{"outRequestId":"cdde8186-fda8-457d-9451-5b83b7780ad4"}'
+
 
 ```
 
@@ -463,10 +476,15 @@ POST
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/usdc/openapi/private/v1/cancel-all/{category}</span></code>
+<code><span id=vpoCreate>{category}/usdc/openapi/private/v1/cancel-all</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|outRequestId|false|string|t(:optionOutRequestId)|
+|outRequestId|<b>true</b>|string|t(:optionOutRequestId)|
+
 
 t(:cancelAllResponse)
 
@@ -505,7 +523,7 @@ t(:cancelAllResponse)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/usdc/openapi/private/v1/query-open-orders</span></code>
+<code><span id=vpoCreate>/option/usdc/openapi/private/v1/query-open-orders</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -591,7 +609,7 @@ POST
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/usdc/openapi/private/v1/query-order-history</span></code>
+<code><span id=vpoCreate>/option/usdc/openapi/private/v1/query-order-history</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>

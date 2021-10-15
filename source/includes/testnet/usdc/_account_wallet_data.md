@@ -47,7 +47,7 @@ t(:wallet_para)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/usdc/openapi/private/v1/query-transaction-log</span></code>
+<code><span id=vpoCreate>/option/usdc/openapi/private/v1/query-transaction-log</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -123,7 +123,7 @@ POST
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/usdc/openapi/private/v1/query-account-info</span></code>
+<code><span id=vpoCreate>/option/usdc/openapi/private/v1/query-account-info</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 
@@ -183,7 +183,7 @@ POST
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/usdc/openapi/private/v1/query-asset-info</span></code>
+<code><span id=vpoCreate>/option/usdc/openapi/private/v1/query-asset-info</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -230,7 +230,7 @@ POST
     "extInfo": null,
     "result": [
         {
-          "marginMode": "ETHUSDT"
+          "marginMode": "Regular margin"
         }
     ]
 }
@@ -239,7 +239,7 @@ POST
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/usdc/openapi/private/v1/set-margin-mode</span></code>
+<code><span id=vpoCreate>/option/usdc/openapi/private/v1/set-margin-mode</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -257,7 +257,48 @@ POST
 
 
 ### t(:queryMarginMode)
-coming on soon
 
+> t(:codequote_curlExample)
+
+```console
+```
+
+```python
+
+```
+
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "retCode": 0,
+    "retMsg": "",
+    "extCode": null,
+    "extInfo": null,
+    "result": [
+        {
+          "marginMode": "Regular margin"
+        }
+    ]
+}
+```
+
+
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=vpoCreate>/option/usdc/openapi/private/v1/query-margin-info</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+
+<p class="fake_header">t(:responseparameters)</p>
+
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|marginMode|string|t(:usdcMarginMode)|
 
 

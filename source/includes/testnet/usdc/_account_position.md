@@ -46,7 +46,7 @@
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/usdc/openapi/private/v1/query-position</span></code>
+<code><span id=vpoCreate>/option/usdc/openapi/private/v1/query-position</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -99,9 +99,16 @@ POST
 
 ```console
 
+url https://api.bybit.com/v2/private/position/trading-stop \
+-H "Content-Type: application/json" \
+-d '{"symbol":"BTCUSD","stop_loss":7000}'
+
 ```
 
 ```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.Positions.Positions_tradingStop(symbol="BTCUSD",stop_loss="7000").result())
 
 ```
 
@@ -141,7 +148,7 @@ POST
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/usdc/openapi/private/v1/trading-stop</span></code>
+<code><span id=vpoCreate>/perp/usdc/openapi/private/v1/trading-stop</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -209,10 +216,13 @@ POST
 }
 ```
 
+<aside class="notice">
+t(:switchmode_aside)
+</aside>
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/usdc/openapi/private/v1/tpsl/switch-mode</span></code>
+<code><span id=vpoCreate>/perp/usdc/openapi/private/v1/tpsl/switch-mode</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -235,9 +245,16 @@ POST
 
 ```console
 
+curl https://api.bybit.com/perp/usdc/openapi/private/v1/leverage/save \
+-H "Content-Type: application/json" \
+-d '{"symbol":"BTCUSD","buy_leverage":14,"sell_leverage":14}'
+
 ```
 
 ```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.Positions.Positions_saveLeverage(symbol="BTCUSD", leverage="14").result())
 
 ```
 
@@ -259,7 +276,7 @@ POST
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/usdc/openapi/private/v1/leverage/save</span></code>
+<code><span id=vpoCreate>/perp/usdc/openapi/private/v1/leverage/save</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -281,6 +298,97 @@ POST
 > t(:codequote_curlExample)
 
 ```console
+
+curl https://api.bybit.com//perp/usdc/openapi/private/v1/closed-pnl/list \
+-H "Content-Type: application/json" \
+-d '{"symbol":"BTCUSD"}'
+```
+
+```python
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.Positions.Positions_closePnlRecords(symbol="BTCUSD").result())
+
+```
+
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "retCode": 0,
+    "retMsg": "",
+    "extCode": null,
+    "extInfo": null,
+    "result": {
+        "orderId": "ETHUSDT",
+        "symbol": "ETHUSDT",
+        "side": "ETHUSDT",
+        "orderType": "ETHUSDT",
+        "orderPrice": "ETHUSDT",
+        "orderQty": "ETHUSDT",
+        "execType": "162073788655749",
+        "closedSize": "162073788655749",
+        "cumEntryValue": "100",
+        "cumExitValue": "1620737886573",
+        "avgEntryPrice": "1620737886573",
+        "avgExitPrice": "1620737886573",
+        "closedPnl": "1620737886573",
+        "fillCount": "1620737886573",
+        "leverage": "20000",
+        "createdAt": "10"
+    }
+}
+```
+
+
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=vpoCreate>/perp/usdc/openapi/private/v1/closed-pnl/list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|symbol|<b>true</b>|string|t(:usdcSymbol)|
+|startTime|false|number|t(:startTime)|
+|endTime|false|number|t(:endTime)|
+|execType|false|string|t(:execType)|
+|direction|false|string|t(:direction)|
+|limit|false|number|t(:usdcMax50Min20)|
+|cursor|false|string|t(:cursor)|
+
+
+<p class="fake_header">t(:responseparameters)</p>
+
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|orderId|string|t(:usdcOrderId)|
+|symbol|string|t(:usdcSymbol)|
+|side|string|t(:side)|
+|orderQty|string|t(:usdcOrderQty)|
+|orderPrice|string|t(:usdcOrderPrice)|
+|orderType|string|t(:usdcOrderType)|
+|execType|string|t(:execType)|
+|closedSize|string|t(:closedSize)|
+|cumEntryValue|string|t(:cumEntryValue)|
+|cumExitValue|string|t(:cumExitValue)|
+|avgEntryPrice|string|t(:avgEntryPrice)|
+|avgExitPrice|string|t(:avgExitPrice)|
+|closedPnl|string|t(:closedPnl)|
+|fillCount|string|t(:fillCount)|
+|leverage|string|t(:leverage)|
+|createdAt|number|t(:createdAt)|
+
+
+## t(:queryDeliveryLog)
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/option/usdc/openapi/private/v1/query-delivery-list \
+-H "Content-Type: application/json" \
+-d '{"symbol":"BTC-22OCT21-45000-C"}'
 ```
 
 ```python
@@ -320,7 +428,7 @@ POST
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/usdc/openapi/private/v1/closed-pnl/list</span></code>
+<code><span id=vpoCreate>/option/usdc/openapi/private/v1/query-delivery-list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -328,9 +436,7 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |symbol|<b>true</b>|string|t(:usdcSymbol)|
-|startTime|false|number|t(:startTime)|
-|endTime|false|number|t(:endTime)|
-|execType|false|string|t(:execType)|
+|expDate|false|string|t(:usdcExpDateRepsonse)|
 |direction|false|string|t(:direction)|
 |limit|false|number|t(:usdcMax50Min20)|
 |cursor|false|string|t(:cursor)|
@@ -340,22 +446,17 @@ POST
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|orderId|string|t(:usdcOrderId)|
+|deliveryTime|number|t(:usdcDeliveryTime)|
 |symbol|string|t(:usdcSymbol)|
 |side|string|t(:side)|
-|orderQty|string|t(:usdcOrderQty)|
-|orderPrice|string|t(:usdcOrderPrice)|
-|orderType|string|t(:usdcOrderType)|
-|execType|string|t(:execType)|
-|closedSize|string|t(:closedSize)|
-|cumEntryValue|string|t(:cumEntryValue)|
-|cumExitValue|string|t(:cumExitValue)|
-|avgEntryPrice|string|t(:avgEntryPrice)|
-|avgExitPrice|string|t(:avgExitPrice)|
-|closedPnl|string|t(:closedPnl)|
-|fillCount|string|t(:fillCount)|
-|leverage|string|t(:leverage)|
-|createdAt|number|t(:createdAt)|
+|position|string|t(:usdcPosition)|
+|deliveryPrice|string|t(:usdcDeliveryPrice)|
+|strike|string|t(:usdcStrike)|
+|fee|string|t(:fee)|
+|deliveryRpl|string|t(:usdcDeliveryRpl)|
+
+
+
 
 
 ## t(:querySettleLogs) 
@@ -363,6 +464,9 @@ POST
 > t(:codequote_curlExample)
 
 ```console
+curl https://api.bybit.com/option/usdc/openapi/private/v1/session-settlement \
+-H "Content-Type: application/json" \
+-d '{"symbol":"BTC-22OCT21-45000-C"}'
 
 ```
 
@@ -403,7 +507,7 @@ POST
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/usdc/openapi/private/v1/session-settlement</span></code>
+<code><span id=vpoCreate>/option/usdc/openapi/private/v1/session-settlement</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -435,6 +539,9 @@ POST
 > t(:codequote_curlExample)
 
 ```console
+curl https://api.bybit.com/option/usdc/openapi/private/v1/query-position-exp-date \
+-H "Content-Type: application/json" \
+-d '{"expDate":"20211010"}'
 
 ```
 
@@ -453,12 +560,12 @@ POST
     "extInfo": null,
     "result": {
         "expDate": 20211111,
-        "pnl": "ETHUSDT",
-        "totalRpl": "162073788655749",
+        "pnl": "100.1",
+        "totalRpl": "100.1",
         "sessionUpl": "100",
-        "sessionRpl": "1620737886573",
-        "im": "1620737886573",
-        "mm": "1620737886573"
+        "sessionRpl": "100.1",
+        "im": "100.1",
+        "mm": "100.1"
     }
 }
 ```
@@ -466,7 +573,7 @@ POST
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/usdc/openapi/private/v1/position/exp-date</span></code>
+<code><span id=vpoCreate>/option/usdc/openapi/private/v1/query-position-exp-date</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
