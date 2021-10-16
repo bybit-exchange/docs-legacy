@@ -39,7 +39,7 @@ t(:usdc_order_book_desc)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=svSymbols>/{category}/usdc/openapi/public/v1/order-book/</span></code>
+<code><span id=svSymbols>/{category}/usdc/openapi/public/v1/order-book</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svSymbols"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 t(:usdc_order_book_path)
