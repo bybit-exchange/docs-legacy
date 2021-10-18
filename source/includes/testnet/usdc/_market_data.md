@@ -66,7 +66,7 @@ t(:usdc_order_book_path)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/v2/private/order/create \
+curl https://api.bybit.com/perpetual/usdc/openapi/public/v1/kline \
 -H "Content-Type: application/json" \
 -d '{"symbol":"BTCUSD","interval":1,"from":1581231260}'
 ```
@@ -100,7 +100,7 @@ curl https://api.bybit.com/v2/private/order/create \
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=sqvdMerged>/perp/usdc/openapi/public/v1/kline/</span></code>
+<code><span id=sqvdMerged>/perpetual/usdc/openapi/public/v1/kline</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -219,13 +219,73 @@ t(:usdc_tick_desc)
 | theta | string | t(:theta) |
 
 
+### t(:platFormOrderLatest500) 
+
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/option/usdc/openapi/public/v1/order-latest \
+-H "Content-Type: application/json" \
+-d '{"symbol":"BTCUSD","category":"perpetual"}'
+
+```
+
+```python
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "retCode": 0,
+    "retMsg": "",
+    "result": [
+        {
+            "id": "100.01",
+            "symbol": "BTC-26NOV21-80000-C",
+            "orderPrice": "100.01",
+            "orderQty": "1.1",
+            "side": "Buy",
+            "time": 10131231231,
+        }
+    ]
+}
+```
+
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=sqvdMerged>/option/usdc/openapi/public/v1/order-latest</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|category|<b>true</b>|string|t(:usdcCategory)|
+|symbol|<b>true</b>|string|t(:usdcSymbol)|
+|optionType|false|string|t(:usdcOptionType)|
+|limit|false|string|t(:usdcLimitMax500)|
+
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| id | number | t(:id) |
+| symbol | string | t(:usdcSymbol) |
+| orderPrice | string | t(:usdcOrderPrice) |
+| orderQty | string | t(:usdcOrderQty) |
+| side | string | t(:side) |
+| time | number | t(:time) |
+
+
+
+
 ### t(:platFormOrderHistory)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/perp/usdc/openapi/public/v1/order-history \
+curl https://api.bybit.com/option/usdc/openapi/public/v1/order-history \
 -H "Content-Type: application/json" \
--d '{"symbol":"BTCUSD","category":"perp"}'
+-d '{"symbol":"BTCUSD","category":"perpetual"}'
 
 ```
 
@@ -281,9 +341,9 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/perp/usdc/openapi/public/v1/symbols \
+curl https://api.bybit.com/option/usdc/openapi/public/v1/symbols \
 -H "Content-Type: application/json" \
--d '{"symbol":"BTCUSD","category":"perp"}'
+-d '{"symbol":"BTCUSD","category":"perpetual"}'
 
 ```
 
@@ -364,7 +424,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com//perp/usdc/openapi/public/v1/mark-kline \
+curl https://api.bybit.com/perpetual/usdc/openapi/public/v1/mark-kline \
 -H "Content-Type: application/json" \
 -d '{"symbol":"BTCUSD","period":"1"}'
 
@@ -395,7 +455,7 @@ curl https://api.bybit.com//perp/usdc/openapi/public/v1/mark-kline \
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=sqvdMerged>/perp/usdc/openapi/public/v1/mark-kline</span></code>
+<code><span id=sqvdMerged>/perpetual/usdc/openapi/public/v1/mark-kline</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -425,7 +485,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com//perp/usdc/openapi/public/v1/index-kline \
+curl https://api.bybit.com/perpetual/usdc/openapi/public/v1/index-kline \
 -H "Content-Type: application/json" \
 -d '{"symbol":"BTCUSD","period":"1"}'
 ```
@@ -455,7 +515,7 @@ curl https://api.bybit.com//perp/usdc/openapi/public/v1/index-kline \
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=sqvdMerged>/perp/usdc/openapi/public/v1/index-kline</span></code>
+<code><span id=sqvdMerged>/perpetual/usdc/openapi/public/v1/index-kline</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -486,7 +546,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com//perp/usdc/openapi/public/v1/premium-kline \
+curl https://api.bybit.com/perpetual/usdc/openapi/public/v1/premium-kline \
 -H "Content-Type: application/json" \
 -d '{"symbol":"BTCUSD","period":"1"}'
 ```
@@ -516,7 +576,7 @@ curl https://api.bybit.com//perp/usdc/openapi/public/v1/premium-kline \
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=sqvdMerged>/perp/usdc/openapi/public/v1/premium-kline</span></code>
+<code><span id=sqvdMerged>/perpetual/usdc/openapi/public/v1/premium-kline</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -546,7 +606,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/perp/usdc/openapi/public/v1/open-interest \
+curl https://api.bybit.com/perpetual/usdc/openapi/public/v1/open-interest \
 -H "Content-Type: application/json" \
 -d '{"symbol":"BTCUSD","period":"1"}'
 ```
@@ -595,7 +655,7 @@ POST
 
 ```console
 
-curl https://api.bybit.com/perp/usdc/openapi/public/v1/big-deal \
+curl https://api.bybit.com/perpetual/usdc/openapi/public/v1/big-deal \
 -H "Content-Type: application/json" \
 -d '{"symbol":"BTCUSD"}'
 
@@ -622,7 +682,7 @@ curl https://api.bybit.com/perp/usdc/openapi/public/v1/big-deal \
 ```
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=sqvdMerged>/perp/usdc/openapi/public/v1/big-deal/</span></code>
+<code><span id=sqvdMerged>/perpetual/usdc/openapi/public/v1/big-deal</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -645,7 +705,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/perp/usdc/openapi/public/v1/account-ratio \
+curl https://api.bybit.com/perpetual/usdc/openapi/public/v1/account-ratio \
 -H "Content-Type: application/json" \
 -d '{"symbol":"BTCUSD","period":"5min"}'
 ```
@@ -671,7 +731,7 @@ curl https://api.bybit.com/perp/usdc/openapi/public/v1/account-ratio \
 ```
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=sqvdMerged>/perp/usdc/openapi/public/v1/account-ratio</span></code>
+<code><span id=sqvdMerged>/{category}/usdc/openapi/public/v1/account-ratio</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
