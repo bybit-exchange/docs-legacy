@@ -493,6 +493,9 @@ t(:cancelAllResponse)
 
 
 ```console
+curl https://api.bybit.com//option/usdc/openapi/private/v1/query-active-orders \
+-H "Content-Type: application/json" \
+-D '{"category":"option"}'
 
 ```
 
@@ -523,7 +526,7 @@ t(:cancelAllResponse)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/option/usdc/openapi/private/v1/query-open-orders</span></code>
+<code><span id=vpoCreate>/option/usdc/openapi/private/v1/query-active-orders</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -578,6 +581,10 @@ POST
 
 
 ```console
+
+curl https://api.bybit.com/option/usdc/openapi/private/v1/query-order-history \
+-H "Content-Type: application/json" \
+-D '{"category":"option"}'
 
 ```
 
