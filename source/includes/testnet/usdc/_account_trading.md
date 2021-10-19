@@ -508,18 +508,43 @@ curl https://api.bybit.com//option/usdc/openapi/private/v1/query-active-orders \
 
 ```javascript
 {
-    "retCode": 0,
-    "retMsg": "",
-    "extCode": null,
-    "extInfo": null,
-    "result": {
-        "outRequestId": "out1111111",
-        "symbol": "ETHUSDT",
-        "orderId": "123",
-        "orderLinkId": "162073788655749",
-        "orderPrice": "100.1",
-        "orderQty": "10"
-    }
+  "retCode":0,
+    "retMsg":"成功",
+    "result":{
+    "resultTotalSize":1,
+      "cursor":"e3d0eff2-7567-4ca1-af1c-9eb9a39ac119%3A1634291502127%2C0b9c9c0c-4098-4d30-a266-6aa87dc26f7f%3A1634285036815",
+      "dataList":[
+      {
+        "orderId":"e3d0eff2-7567-4ca1-af1c-9eb9a39ac119",
+        "orderLinkId":"",
+        "createdAt":"1634291502127",
+        "symbol":"BTC-16OCT21-21000-P",
+        "orderType":"Limit",
+        "side":"Buy",
+        "orderQty":"2.10",
+        "orderPrice":"30.0",
+        "iv":"852.00%",
+        "timeInForce":"GoodTillCancel",
+        "leavesQty":"0.10",
+        "leavesValue":"3.0000",
+        "cumExecQty":"2.00",
+        "cumExecValue":"60.0000",
+        "cumExecFee":"6.0000",
+        "im":"69.3000",
+        "orderStatus":"PartiallyFilled",
+        "takeProfit":"",
+        "stopLoss":"",
+        "tpTriggerBy":"",
+        "slTriggerBy":"",
+        "lastExecPrice":"",
+        "basePrice":"",
+        "triggerPrice":"",
+        "triggerBy":"",
+        "reduceOnly":0,
+        "closeOnTrigger":""
+      }
+    ]
+  }
 }
 ```
 
@@ -544,6 +569,12 @@ POST
 
 
 <p class="fake_header">t(:responseparameters)</p>
+
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|resultTotalSize|number|t(:resultTotalSize)|
+|cursor|string|t(:cursor)|
+|dataList|list|t(:dataList)|
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
@@ -597,19 +628,43 @@ curl https://api.bybit.com/option/usdc/openapi/private/v1/query-order-history \
 
 ```javascript
 {
-    "retCode": 0,
-    "retMsg": "",
-    "extCode": null,
-    "extInfo": null,
-    "result": 
-        [{
-        "outRequestId": "out1111111",
-        "symbol": "ETHUSDT",
-        "orderId": "123",
-        "orderLinkId": "162073788655749",
-        "orderPrice": "100.1",
-        "orderQty": "10"
-    }]
+  "retCode":0,
+    "retMsg":"成功",
+    "result":{
+    "resultTotalSize":1,
+      "cursor":"5e42be7e-c92f-4388-91fc-30ec1f321e32%3A1634286322771%2C6ad08ad0-14d8-43a6-9a38-6a01d7d7c833%3A1634285916577",
+      "dataList":[
+      {
+        "orderId":"5e42be7e-c92f-4388-91fc-30ec1f321e32",
+        "orderLinkId":"",
+        "createdAt":"1634286322771",
+        "updatedAt":"1634286322771",
+        "symbol":"BTC-22OCT21-30000-C",
+        "orderType":"Limit",
+        "side":"Sell",
+        "orderQty":"0.30",
+        "orderPrice":"39000.0",
+        "iv":"958.70%",
+        "timeInForce":"GoodTillCancel",
+        "leavesQty":"0.00",
+        "cumExecQty":"0.30",
+        "cumExecFee":"4.4338",
+        "im":"0.0000",
+        "cashFlow":"11700.0000",
+        "realisedPnl":"0.0000",
+        "orderStatus":"Filled",
+        "closeOnTrigger":"",
+        "reduceOnly":0,
+        "takeProfit":"",
+        "stopLoss":"",
+        "tpTriggerBy":"",
+        "slTriggerBy":"",
+        "basePrice":"",
+        "triggerPrice":"",
+        "triggerBy":""
+      }
+    ]
+  }
 }
 ```
 
@@ -635,6 +690,12 @@ POST
 
 
 <p class="fake_header">t(:responseparameters)</p>
+
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|resultTotalSize|number|t(:resultTotalSize)|
+|cursor|string|t(:cursor)|
+|dataList|list|t(:dataList)|
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |

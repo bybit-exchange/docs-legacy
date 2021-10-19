@@ -6,7 +6,9 @@ t(:wallet_para)
 > t(:codequote_curlExample)
 
 ```console
-
+curl https://api.bybit.com/option/usdc/openapi/private/v1/query-transaction-log \
+-H "Content-Type: application/json" \
+-D '{"startTime":"1633687786728","endTime":"1633797786728","category":"perpetual","type":"Settlement"}'
 ```
 
 ```python
@@ -18,29 +20,33 @@ t(:wallet_para)
 
 ```javascript
 {
-    "retCode": 0,
-    "retMsg": "",
-    "extCode": null,
-    "extInfo": null,
-    "result": {
-        "transactionTime": 111111,
-        "orderType": "Limit",
-        "type": "",
-        "side": "Buy",
-        "orderPrice": "1.1",
-        "orderQty": "10",
-        "size": "1o",
-        "tradePrice": "100.1",
-        "funding": "100",
-        "fee": "100",
-        "cashFlow": "100",
-        "change": "100",
-        "cashBalance": "100",
-         "feeRate": "0.075",
-        "tradeId": "1fd26147-247d-4433-9845-a236981c3689",
-        "orderId": "1fd26147-247d-4433-9845-a236981c3689",
-        "orderLinkId": "1fd26147-247d-4433-9845-a236981c3689"
-    }
+  "retCode":0,
+    "retMsg":"成功",
+    "result":{
+    "resultTotalSize":1,
+      "cursor":"ccc62b1a-e1a0-42b6-86b5-3570e22cfbdf%3A1634284800789%2Cb09397d8-4da1-4d32-b70f-c59efd381f66%3A1634284800769",
+      "dataList":[
+      {
+        "transactionTime":"1634284800789",
+        "symbol":"BTC-15OCT21-30000-P",
+        "type":"DELIVERY",
+        "side":"Buy",
+        "tradePrice":"59306.9",
+        "funding":"0.0000",
+        "qty":"0.20",
+        "size":"0.00",
+        "fee":"0.0000",
+        "cashFlow":"0.0000",
+        "change":"0.0000",
+        "cashBalance":"100690.9019",
+        "feeRate":"0.0000%",
+        "orderId":"",
+        "orderLinkId":"",
+        "tradeId":"",
+        "info":""
+      }
+    ]
+  }
 }
 ```
 
@@ -63,6 +69,12 @@ POST
 
 
 <p class="fake_header">t(:responseparameters)</p>
+
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|resultTotalSize|number|t(:resultTotalSize)|
+|cursor|string|t(:cursor)|
+|dataList|list|t(:dataList)|
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
@@ -90,6 +102,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
+curl https://api.bybit.com/option/usdc/openapi/private/v1/query-account-info \
 
 ```
 
@@ -147,10 +160,9 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-
-```
-
-```python
+curl https://api.bybit.com/option/usdc/openapi/private/v1/query-asset-info \
+-H "Content-Type: application/json" \
+-D '{"baseCoin":"BTC"}'
 
 ```
 
@@ -159,24 +171,25 @@ POST
 
 ```javascript
 {
-    "retCode": 0,
-    "retMsg": "",
-    "extCode": null,
-    "extInfo": null,
-    "result": [
-        {
-          "baseCoin": "ETHUSDT",
-          "totalDelta": "ETHUSDT",
-          "totalGamma": "ETHUSDT",
-          "totalVega": "ETHUSDT",
-          "totalTheta": "162073788655749",
-          "im": "100",
-          "mm": "1620737886573",
-          "totalRpl": "1620737886573",
-          "sessionUpl": "1620737886573",
-          "sessionRpl": "1620737886573"
-        }
+  "retCode":0,
+    "retMsg":"成功",
+    "result":{
+    "resultTotalSize":1,
+      "dataList":[
+      {
+        "baseCoin":"BTC",
+        "totalDelta":"-0.1093",
+        "totalGamma":"0.00000",
+        "totalVega":"1.8799",
+        "totalTheta":"-19.2038",
+        "totalRPL":"-3773.8879",
+        "sessionUPL":"-16.0781",
+        "sessionRPL":"-13.0000",
+        "assetIM":"28940.8205",
+        "assetMM":"14997.4532"
+      }
     ]
+  }
 }
 ```
 
@@ -193,6 +206,11 @@ POST
 |baseCoin|false|string|t(:usdcBaseCoin)|
 
 <p class="fake_header">t(:responseparameters)</p>
+
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|resultTotalSize|int|t(:resultTotalSize)|
+|dataList|list|t(:totalDelta)
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
@@ -213,6 +231,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
+
 ```
 
 ```python
@@ -261,6 +280,9 @@ POST
 > t(:codequote_curlExample)
 
 ```console
+
+curl https://api.bybit.com/option/usdc/openapi/private/v1/query-margin-info \
+
 ```
 
 ```python
@@ -272,15 +294,11 @@ POST
 
 ```javascript
 {
-    "retCode": 0,
-    "retMsg": "",
-    "extCode": null,
-    "extInfo": null,
-    "result": [
-        {
-          "marginMode": "Regular margin"
-        }
-    ]
+  "retCode":0,
+    "retMsg":"成功",
+    "result":{
+    "marginMode":"REGULAR_MARGIN"
+  }
 }
 ```
 
