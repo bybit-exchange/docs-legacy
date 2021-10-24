@@ -106,7 +106,7 @@ t(:usdc_websocket_unsubscribe_desc)
 
 t(:spot_websocket_para_response)
 
-## 公有推送
+## t(:publicTopic)
 ### orderBook
 
 > t(:codequote_subscribe)
@@ -139,7 +139,7 @@ t(:usdc_websocket_para_orderbook)
 
 
 
-### Bybit平台最近成交数据
+### t(:bybitTradeHistory)
 > t(:codequote_subscribe)
 
 ```javascript
@@ -159,7 +159,6 @@ t(:usdc_websocket_para_orderbook)
 
 t(:usdc_current_24_total)
 
-
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
@@ -171,7 +170,7 @@ t(:usdc_current_24_total)
 
 
 
-### 保险基金数据
+### t(:insuranceFund)
 > t(:codequote_subscribe)
 
 ```javascript
@@ -198,7 +197,8 @@ t(:usdc_current_24_total)
 | walletBalance |string |t(:walletBalance) |
 
 
-### 合约的最新行情数据
+### 
+### t(:latestSymbolInfo)
 > t(:codequote_subscribe)
 
 ```javascript
@@ -246,7 +246,7 @@ t(:usdc_current_24_total)
 | theta |string |t(:theta) |
 
 
-### K线
+### KLine
 > t(:codequote_subscribe)
 
 ```javascript
@@ -277,13 +277,13 @@ t(:usdc_current_24_total)
 | volume |string |t(:usdcvolume) |
 | turnover |string |t(:usdcturnover) |
 | confirm |string |t(:usdcconfirm) |
-| crossSeq |string |t(:crossSeq) |
+| crossSeq |string |crossSeq |
 | timestamp |string |t(:timestamp) |
 
 
 
-## 私有推送
-### 用户持仓信息
+## Private Topic
+### t(:userPositionsInfo)
 > t(:codequote_subscribe)
 
 ```javascript
@@ -339,7 +339,7 @@ t(:usdc_current_24_total)
 | cumCommission |string |t(:cumCommission) |
 
 
-### 用户成交记录
+### t(:userFilledHistory)
 > t(:codequote_subscribe)
 
 ```javascript
@@ -372,7 +372,7 @@ t(:usdc_current_24_total)
 | execValue |string |t(:execValue) |
 | lastLiquidityInd |string |t(:lastLiquidityInd) |
 
-### 用户订单信息
+### t(:userOrderHistory)
 
 > t(:codequote_subscribe)
 
@@ -420,9 +420,7 @@ t(:usdc_current_24_total)
 
 
 
-
-### 用户条件单信息
-
+### t(:userConditionalOrders)
 
 > t(:codequote_subscribe)
 
@@ -464,7 +462,7 @@ t(:usdc_current_24_total)
 
 
 
-### 用户希腊字母信息
+### t(:userGreeks)
 
 > t(:codequote_subscribe)
 

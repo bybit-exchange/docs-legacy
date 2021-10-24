@@ -83,7 +83,8 @@ POST
 |side|string|t(:side)|
 
 ### t(:usdcBatchOrders)
-支持用户批量下单，一次请求里最多包含4条记录。
+
+t(:usdcBatchOrdersDesc)
 
 ```console
 curl https://api.bybit.com/option/usdc/openapi/private/v1/batch-place-order \
@@ -132,7 +133,7 @@ curl https://api.bybit.com/option/usdc/openapi/private/v1/batch-place-order \
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/{category}/usdc/openapi/private/v1/batch-place-order</span></code>
+<code><span id=vpoCreate>/option/usdc/openapi/private/v1/batch-place-order</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -295,7 +296,7 @@ curl https://api.bybit.com/option/usdc/openapi/private/v1/batch-replace-order \
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/{category}/usdc/openapi/private/v1/batch-replace-order</span></code>
+<code><span id=vpoCreate>/option/usdc/openapi/private/v1/batch-replace-order</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -420,7 +421,7 @@ curl https://api.bybit.com/option/usdc/openapi/private/v1/cancel-order \
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>{category}/usdc/openapi/private/v1/batch-cancel-order</span></code>
+<code><span id=vpoCreate>/option/usdc/openapi/private/v1/batch-cancel-order</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -484,10 +485,11 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |outRequestId|<b>true</b>|string|t(:optionOutRequestId)|
+|symbol|false|string|t(:usdcSymbol)|
 
-
+<p>
 t(:cancelAllResponse)
-
+</p>
 
 ### t(:usdcQryUnOrPartFilled)
 

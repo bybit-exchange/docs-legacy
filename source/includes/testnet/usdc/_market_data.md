@@ -99,7 +99,7 @@ POST
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| volume | string | 交易量 |
+| volume | string | t(:usdcVolume) |
 | symbol | string | t(:usdcSymbol) |
 | open | string | t(:usdcOpen) |
 | openTime | number | t(:usdcOpenTime) |
@@ -163,9 +163,6 @@ curl https://api.bybit.com/option/usdc/openapi/public/v1/tick \
 POST
 <code><span id=sqvdMerged>/{category}/usdc/openapi/public/v1/tick</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-t(:usdc_tick_desc)
-
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
