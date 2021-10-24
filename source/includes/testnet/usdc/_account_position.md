@@ -171,7 +171,7 @@ print(client.Positions.Positions_tradingStop(symbol="BTCUSD",stop_loss="7000").r
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/perp/usdc/openapi/private/v1/trading-stop</span></code>
+<code><span id=vpoCreate>/perpetual/usdc/openapi/private/v1/trading-stop</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -245,7 +245,7 @@ t(:switchmode_aside)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/perp/usdc/openapi/private/v1/tpsl/switch-mode</span></code>
+<code><span id=vpoCreate>/perpetual/usdc/openapi/private/v1/tpsl/switch-mode</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -268,7 +268,7 @@ POST
 
 ```console
 
-curl https://api.bybit.com/perp/usdc/openapi/private/v1/leverage/save \
+curl https://api.bybit.com/perpetual/usdc/openapi/private/v1/leverage/save \
 -H "Content-Type: application/json" \
 -d '{"symbol":"BTCUSD","buy_leverage":14,"sell_leverage":14}'
 
@@ -299,7 +299,7 @@ print(client.Positions.Positions_saveLeverage(symbol="BTCUSD", leverage="14").re
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/perp/usdc/openapi/private/v1/leverage/save</span></code>
+<code><span id=vpoCreate>/perpetual/usdc/openapi/private/v1/leverage/save</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -322,7 +322,7 @@ POST
 
 ```console
 
-curl https://api.bybit.com//perp/usdc/openapi/private/v1/closed-pnl/list \
+curl https://api.bybit.com//perpetual/usdc/openapi/private/v1/closed-pnl/list \
 -H "Content-Type: application/json" \
 -d '{"symbol":"BTCUSD"}'
 ```
@@ -367,7 +367,7 @@ print(client.Positions.Positions_closePnlRecords(symbol="BTCUSD").result())
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/perp/usdc/openapi/private/v1/closed-pnl/list</span></code>
+<code><span id=vpoCreate>/perpetual/usdc/openapi/private/v1/closed-pnl/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>

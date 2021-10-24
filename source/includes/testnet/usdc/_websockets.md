@@ -437,9 +437,6 @@ t(:usdc_current_24_total)
 ```javascript
 ```
 
-[comment]: <> (t&#40;:websocket_para_orderbook200&#41;)
-
-
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
