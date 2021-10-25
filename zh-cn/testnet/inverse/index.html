@@ -2306,13 +2306,9 @@ clipboard.on('error', function(e) {
 </ul>
 <h1 id='t-faq'>FAQ</h1><h2 id='t-faq_reduce_only'><code>reduce_only</code> and <code>close_on_trigger</code> - what's the difference?</h2>
 <p><ul>
-  <li><a href="https://help.bybit.com/hc/en-us/articles/360039260574-What-is-a-reduce-only-order-"><code>reduce_only</code></a> ensures the order may only reduce the size of your position at the point of execution.</li>
-  <li><a href="https://help.bybit.com/hc/en-us/articles/360039260534-What-is-a-close-on-trigger-Order--"><code>close_on_trigger</code></a> ensures the order executes to (fully or partially) close/reduce your position,</li>
-  <ul>
-    <li>Avoids a potential insufficient margin error by cancelling other open orders (if required.)</li>
-    <li>Linear (USDT) markets - Used to indicate whether an order is opening or closing a position.</li>
-  </ul>
-  <li>It is possible to use both options (<code>reduce_only</code> and <code>close_on_trigger</code>) simultaneously.</li>
+<li>To close your position, specify <b><code>reduce_only</code> to <code>true</code></b>. <code>close_on_trigger</code> is not strictly applicable here, but you can also set it to <code>true</code> if it's required.</li>
+<li><code>reduce_only</code> is the one that really matters for closing position, and we will improve the interface in the future.</li>
+<li>Be careful when you specify <code>close_on_trigger</code> to <code>true</code> as it could cause conflict when <code>reduce_only</code> is <code>false</code>.</li>
 </ul>
 </p>
 <h2 id='t-faq_website_orders'>Why aren't all my orders showing on the website?</h2>
