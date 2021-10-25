@@ -97,7 +97,7 @@ POST
 |positionPnl|string|t(:positionPnl)|
 |sessionUpl|string|t(:sessionUpl)|
 |sessionRpl|string|t(:sessionRpl)|
-|im|string|t(:usdcMm)|
+|im|string|t(:usdcIm)|
 |createdAt|string|t(:createdAt)|
 |updatedAt|string|t(:updatedAt)|
 |tpSlMode|string|t(:tpSlMode)|
@@ -189,30 +189,6 @@ POST
 |tpSize|string|string|t(:tpSize)|
 
 
-<p class="fake_header">t(:responseparameters)</p>
-
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|id|string|t(:usdcId)|
-|userId|string|t(:userId)|
-|symbol|string|t(:usdcSymbol)|
-|side|string|t(:side)|
-|size|string|t(:usdcSize)
-|positionValue|string|t(:positionValue)
-|entryPrice|string|t(:entryPrice)
-|leverage|string|t(:leverage)|
-|positionMargin|string|t(:positionMargin)|
-|occClosingFee|string|t(:occClosingFee)|
-|occFundingFee|string|t(:occFundingFee)|
-|takeProfit|string|t(:takeProfit)|
-|stopLoss|string|t(:stopLoss)|
-|trailingStop|string|t(:trailingStop)|
-|positionStatus|string|t(:positionStatus)|
-|orderMargin|string|t(:orderMargin)|
-|walletBalance|string|t(:walletBalance)|
-|cumRealisedPnl|string|t(:cumRealisedPnl)|
-|cumCommission|string|t(:cumCommission)|
-
 ## t(:changeTakeProfitAndStopLoss) 
 > t(:codequote_curlExample)
 
@@ -245,7 +221,7 @@ t(:switchmode_aside)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/perp/usdc/openapi/private/v1/tpsl/switch-mode</span></code>
+<code><span id=vpoCreate>/perpetual/usdc/openapi/private/v1/tpsl/switch-mode</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -268,7 +244,7 @@ POST
 
 ```console
 
-curl https://api.bybit.com/perp/usdc/openapi/private/v1/leverage/save \
+curl https://api.bybit.com/perpetual/usdc/openapi/private/v1/leverage/save \
 -H "Content-Type: application/json" \
 -d '{"symbol":"BTCUSD","buy_leverage":14,"sell_leverage":14}'
 
@@ -299,7 +275,7 @@ print(client.Positions.Positions_saveLeverage(symbol="BTCUSD", leverage="14").re
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/perp/usdc/openapi/private/v1/leverage/save</span></code>
+<code><span id=vpoCreate>/perpetual/usdc/openapi/private/v1/leverage/save</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -322,7 +298,7 @@ POST
 
 ```console
 
-curl https://api.bybit.com//perp/usdc/openapi/private/v1/closed-pnl/list \
+curl https://api.bybit.com//perpetual/usdc/openapi/private/v1/closed-pnl/list \
 -H "Content-Type: application/json" \
 -d '{"symbol":"BTCUSD"}'
 ```
@@ -367,7 +343,7 @@ print(client.Positions.Positions_closePnlRecords(symbol="BTCUSD").result())
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/perp/usdc/openapi/private/v1/closed-pnl/list</span></code>
+<code><span id=vpoCreate>/perpetual/usdc/openapi/private/v1/closed-pnl/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>

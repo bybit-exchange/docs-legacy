@@ -4,7 +4,7 @@
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com//perp/usdc/openapi/private/v1/prev-funding-rate \
+curl https://api.bybit.com//perpetual/usdc/openapi/private/v1/prev-funding-rate \
 -H "Content-Type: application/json" \
 -d '{"symbol":"BTCUSD"}'
 ```
@@ -33,7 +33,7 @@ curl https://api.bybit.com//perp/usdc/openapi/private/v1/prev-funding-rate \
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/perp/usdc/openapi/private/v1/prev-funding-rate</span></code>
+<code><span id=vpoCreate>/perpetual/usdc/openapi/private/v1/prev-funding-rate</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -57,7 +57,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com//perp/usdc/openapi/private/v1/prev-funding \
+curl https://api.bybit.com//perpetual/usdc/openapi/private/v1/prev-funding \
 -H "Content-Type: application/json" \
 -d '{"symbol":"BTCUSD"}'
 ```
@@ -90,7 +90,7 @@ curl https://api.bybit.com//perp/usdc/openapi/private/v1/prev-funding \
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/perp/usdc/openapi/private/v1/prev-funding</span></code>
+<code><span id=vpoCreate>/perpetual/usdc/openapi/private/v1/prev-funding</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -119,7 +119,7 @@ POST
 
 ```console
 
-curl https://api.bybit.com//perp/usdc/openapi/private/v1/predicted-funding \
+curl https://api.bybit.com//perpetual/usdc/openapi/private/v1/predicted-funding \
 -H "Content-Type: application/json" \
 -d '{"symbol":"BTCUSD"}'
 
@@ -148,7 +148,7 @@ curl https://api.bybit.com//perp/usdc/openapi/private/v1/predicted-funding \
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/perp/usdc/openapi/private/v1/funding/predicted-funding</span></code>
+<code><span id=vpoCreate>/perpetual/usdc/openapi/private/v1/funding/predicted-funding</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
