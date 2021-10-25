@@ -244,7 +244,7 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |symbol|<b>true</b>|string|t(:spotSymbol)|
-|limit| false | integer | t(:spot_trades_limit)
+|limit| false | integer | t(:spot_trades_limit_2)
 
 
 <p class="fake_header">t(:responseparameters)</p>
