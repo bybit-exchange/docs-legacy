@@ -210,7 +210,7 @@ POST
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |resultTotalSize|int|t(:resultTotalSize)|
-|dataList|list|t(:totalDelta)
+|dataList|list| t(:dataList)|
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
