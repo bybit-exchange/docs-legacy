@@ -4,4 +4,4 @@
 
 
 ### t(:resources)
-t(:intro_para_resources)
+t(:spot_intro_para_resources)

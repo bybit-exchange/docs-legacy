@@ -2,7 +2,7 @@
 t(:market_para_auth)
 
 
-### t(:querysymbol)
+### t(:spot_querysymbol)
 > t(:codequote_curlExample)
 
 ```console
@@ -326,7 +326,7 @@ GET
 t(:spotKlineTimeRemark)
 </aside>
 
-### t(:latestsymbolinfo)
+### t(:spot_latestsymbolinfo)
 > t(:codequote_curlExample)
 
 ```console
