@@ -736,7 +736,7 @@
             <a href="#t-marketdata" class="toc-h1 toc-link" data-title="Market Data Endpoints">Market Data Endpoints</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#t-querysymbol" class="toc-h2 toc-link" data-title="Query Symbol">Query Symbol</a>
+                    <a href="#t-spot_querysymbol" class="toc-h2 toc-link" data-title="Query Symbol">Query Symbol</a>
                   </li>
                   <li>
                     <a href="#t-orderbook" class="toc-h2 toc-link" data-title="Order Book">Order Book</a>
@@ -751,7 +751,7 @@
                     <a href="#t-querykline" class="toc-h2 toc-link" data-title="Query Kline">Query Kline</a>
                   </li>
                   <li>
-                    <a href="#t-latestsymbolinfo" class="toc-h2 toc-link" data-title="Latest Information for Symbol">Latest Information for Symbol</a>
+                    <a href="#t-spot_latestsymbolinfo" class="toc-h2 toc-link" data-title="Latest Information for Symbol">Latest Information for Symbol</a>
                   </li>
                   <li>
                     <a href="#t-lasttradedprice" class="toc-h2 toc-link" data-title="Last Traded Price">Last Traded Price</a>
@@ -969,7 +969,7 @@ clipboard.on('error', function(e) {
 });
 </script>
 <h1 id='t-introduction'>Group And Resources</h1><h5 id='t-intro_para'><p><a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common errors.</p> <p>For further assistance or feedback, please join the <a href="https://t.me/BybitAPI">API Telegram chat</a>! API discussion group on Telegram.</p></h5><h3 id='t-resources'>Group And Bybit API Resources</h3>
-<p><ul class="bybit-community"> <li><img src="../../images/help_favicon-06f791dd.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> </ul></p>
+<p>translation missing: en.spot_intro_para_resources</p>
 <h1 id='t-changelog'>Changelog</h1><h2 id='2021-07-12'>2021-07-12</h2><h3 id='rest-api'>REST API</h3>
 <ul>
 <li>Optimize the input and output parameters of some interfaces</li>
@@ -1113,7 +1113,7 @@ function copyStringToClipboard (endpoint) {
 </script>
 <h1 id='t-marketdata'>Market Data Endpoints</h1>
 <p>The following market data endpoints do not require authentication.</p>
-<h3 id='t-querysymbol'>Query Symbol</h3>
+<h3 id='t-spot_querysymbol'>Query Symbol</h3>
 <blockquote>
 <p>Request Example</p>
 </blockquote>
@@ -1483,7 +1483,7 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">limit</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">integer</td>
-<td>Default value is 500, max 1000</td>
+<td>Default value is 60, max 60</td>
 </tr>
 </tbody></table>
 
@@ -1664,7 +1664,7 @@ function copyStringToClipboard (endpoint) {
 <aside class="notice">
 If startTime and endTime are not specified, only the latest candles will be sent
 </aside>
-<h3 id='t-latestsymbolinfo'>Latest Information for Symbol</h3>
+<h3 id='t-spot_latestsymbolinfo'>Latest Information for Symbol</h3>
 <blockquote>
 <p>Request Example</p>
 </blockquote>
