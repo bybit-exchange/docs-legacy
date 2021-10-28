@@ -58,7 +58,7 @@ POST
 |t(:row_parameter_type)|<b>true</b>|string|t(:spotOrderType)|
 |t(:row_parameter_timeInForce)|false|string|t(:row_comment_timeInForce)|
 |price|false|number|t(:spotPostOrderPrice)|
-|orderLinkId|false|string|t(:tOrderClientOrdID)|
+|orderLinkId|false|string|t(:spotOrderLinkId)|
 
 
 
@@ -66,8 +66,8 @@ POST
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|orderId|integer|t(:spotOrderID)|
-|orderLinkId|string|t(:tOrderClientOrdID)
+|orderId|integer|t(:spotOrderId)|
+|orderLinkId|string|t(:spotOrderLinkId)
 |symbol|string|t(:spotSymbol)|
 |transactTime|int|t(:spotTransactTime)|
 |price|float|t(:spotPrice)|
@@ -133,8 +133,8 @@ GET
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|orderId|false|string|t(:spotOrderID)|
-|orderLinkId|false|string|t(:tOrderClientOrdID)|
+|orderId|false|string|t(:spotOrderId)|
+|orderLinkId|false|string|t(:spotOrderLinkId)|
 
 <aside class="notice">
 t(:spotGetOrderRemark)
@@ -211,8 +211,8 @@ DELETE
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|orderId|false|string|t(:spotOrderID)|
-|orderLinkId|false|string|t(:tOrderClientOrdID)|
+|orderId|false|string|t(:spotOrderId)|
+|orderLinkId|false|string|t(:spotOrderLinkId)|
 
 <aside class="notice">
 t(:spotGetOrderRemark)
@@ -223,8 +223,8 @@ t(:spotGetOrderRemark)
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|orderId|integer|t(:spotOrderID)|
-|orderLinkId|string|t(:tOrderClientOrdID)
+|orderId|integer|t(:spotOrderId)|
+|orderLinkId|string|t(:spotOrderLinkId)
 |symbol|string|t(:spotSymbol)|
 |t(:spot_row_parameter_orderStatus)|string|t(:spotStatus)|
 |accountId|long|t(:spotAccountId)|
@@ -287,8 +287,8 @@ DELETE
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|orderId|false|string|t(:spotOrderID)|
-|orderLinkId|false|string|t(:tOrderClientOrdID)|
+|orderId|false|string|t(:spotOrderId)|
+|orderLinkId|false|string|t(:spotOrderLinkId)|
 |symbolId|true|string|t(:spotSymbol)|
 
 <aside class="notice">
@@ -300,8 +300,8 @@ t(:spotGetOrderRemark)
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|orderId|integer|t(:spotOrderID)|
-|orderLinkId|string|t(:tOrderClientOrdID)
+|orderId|integer|t(:spotOrderId)|
+|orderLinkId|string|t(:spotOrderLinkId)
 |symbol|string|t(:spotSymbol)|
 |status|string|t(:spotStatus)|
 |accountId|long|t(:spotAccountId)|
@@ -462,7 +462,7 @@ DELETE
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|orderId|integer|t(:spotOrderID)|
+|orderId|integer|t(:spotOrderId)|
 |code|integer|t(:errors)|
 
 
@@ -544,7 +544,7 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |symbol|false|string|t(:spotSymbol)|
-|orderId|false|string|t(:spotOrderID)|
+|orderId|false|string|t(:spotOrderId4Pagination)|
 |limit|false|integer|t(:spot_order_list_limit)|
 
 
@@ -553,7 +553,7 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |accountId|long |t(:spotAccountId)|
-|exchangeId|long|t(:spotOrderID)|
+|exchangeId|long|t(:spotOrderId)|
 |symbol|string|t(:spotSymbol)|
 |symbolName|string|t(:spotSymbol)|
 |orderLinkId|string|t(:spotOrderLinkId)|
@@ -631,7 +631,7 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |symbol|false|string|t(:spotSymbol)|
-|orderId|false|string|t(:spotOrderID)|
+|orderId|false|string|t(:spotOrderId4Pagination)|
 |limit|false|integer|t(:spot_order_list_limit)|
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -639,7 +639,7 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |accountId|long |t(:spotAccountId)|
-|exchangeId|long|t(:spotOrderID)|
+|exchangeId|long|t(:spotOrderId)|
 |symbol|string|t(:spotSymbol)|
 |symbolName|string|t(:spotSymbol)|
 |orderLinkId|string|t(:spotOrderLinkId)|
@@ -727,7 +727,7 @@ GET
 |:----- |:-----|----- |
 |symbol|string|t(:spotSymbol)|
 |id| int |t(:spotId)|
-|orderId|integer|t(:spotOrderID)|
+|orderId|integer|t(:spotOrderId)|
 |price|float|t(:spotPrice)|
 |qty|float|t(:spotQty)|
 |commission|float|t(:spotCommission)|
