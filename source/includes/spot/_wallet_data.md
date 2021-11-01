@@ -7,7 +7,12 @@ t(:wallet_para)
 ```console
 ```
 
-```python
+```python--pybit
+from pybit import HTTP
+session = HTTP("https://api-testnet.bybit.com",
+               api_key="", api_secret="",
+               spot=True)
+print(session.get_wallet_balance())
 ```
 
 > t(:codequote_responseExample)

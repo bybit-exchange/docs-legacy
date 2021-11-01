@@ -11,10 +11,21 @@ t(:market_para_auth)
 curl https://api.bybit.com/public/linear/kline?symbol=BTCUSDT&interval=1&limit=2&from=1581231260
 ```
 
-```python
+```python--old
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
 print(client.LinearKline.LinearKline_get(symbol="BTCUSDT", interval="m", **{'from':1581231260}).result())
+```
+
+```python--pybit
+from pybit import HTTP
+session = HTTP("https://api-testnet.bybit.com")
+print(session.query_kline(
+    symbol="BTCUSDT",
+    interval=1,
+    limit=2,
+    from_time=1581231260
+))
 ```
 
 > t(:codequote_responseExample)
@@ -90,10 +101,19 @@ GET
 curl https://api.bybit.com/public/linear/recent-trading-records?symbol=BTCUSDT&limit=500
 ```
 
-```python
+```python--old
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
 print(client.LinearMarket.LinearMarket_trading().result())
+```
+
+```python--pybit
+from pybit import HTTP
+session = HTTP("https://api-testnet.bybit.com")
+print(session.public_trading_records(
+    symbol="BTCUSDT",
+    limit=500
+))
 ```
 
 > t(:codequote_responseExample)
@@ -160,10 +180,18 @@ GET
 curl https://api.bybit.com/public/linear/funding/prev-funding-rate?symbol=BTCUSDT
 ```
 
-```python
+```python--old
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
 print(client.LinearFunding.LinearFunding_prevRate(symbol="BTCUSDT").result())
+```
+
+```python--pybit
+from pybit import HTTP
+session = HTTP("https://api-testnet.bybit.com")
+print(session.get_the_last_funding_rate(
+    symbol="BTCUSDT"
+))
 ```
 
 > t(:codequote_responseExample)
@@ -220,7 +248,7 @@ GET
 curl https://api.bybit.com/public/linear/mark-price-kline?symbol=BTCUSDT&interval=1&limit=2&from=1581231260
 ```
 
-```python
+```python--old
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
 print(client.LinearKline.LinearKline_markPrice(symbol="BTCUSDT", interval="m", limit=10, **{'from':1}).result())
@@ -292,7 +320,7 @@ GET
 curl "https://api.bybit.com/public/linear/index-price-kline?symbol=BTCUSDT&interval=1&limit=2&from=1581231260"
 ```
 
-```python
+```python--old
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
 print(client.LinearKline.LinearKline_indexPrice().result())
@@ -353,10 +381,21 @@ GET
 curl "https://api.bybit.com/public/linear/premium-index-kline?symbol=BTCUSDT&interval=1&limit=2&from=1581231260"
 ```
 
-```python
+```python--old
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
 print(client.LinearKline.LinearKline_premiumIndexPrice().result())
+```
+
+```python--pybit
+from pybit import HTTP
+session = HTTP("https://api-testnet.bybit.com")
+print(session.query_premium_index_kline(
+    symbol="BTCUSD",
+    interval=1,
+    limit=2,
+    from_time=1581231260
+))
 ```
 
 > t(:codequote_responseExample)

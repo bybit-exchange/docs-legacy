@@ -2,7 +2,7 @@
 ## t(:websocketauthentication)
 > t(:websocket_codequote_auth_spot)
 
-```python
+```python--pybit
 # based on: https://github.com/verata-veritatis/pybit/blob/master/pybit/__init__.py
 
 import hmac
@@ -81,9 +81,8 @@ t(:websocket_para_limit)
 
 ## t(:subscribe)
 ### t(:websocketfilters)
-> t(:websocket_codequote_filters1)
 
-t(:spot_websocket_subscribe_desc)
+> t(:websocket_codequote_filters1)
 
 ```javascript
 // Subscribing to the trade data for BTCUSDT
@@ -96,6 +95,9 @@ ws.send('{"symbol":"BTCUSDT","topic":"trade","event":"sub","params":{"binary":fa
 // Example: Subscribing to the trade data for BTCUSDT and ETHUSDT
 ws.send('{"symbol":"BTCUSDT,ETHUSDT","topic":"trade","event":"sub","params":{"binary":false}}');
 ```
+
+t(:spot_websocket_subscribe_desc)
+
 ### t(:websocketunfilters)
 
 t(:spot_websocket_unsubscribe_desc)
@@ -131,6 +133,29 @@ t(:spot_websocket_para_response)
         "binary": false
     }
 }
+```
+
+```python--pybit
+from pybit import WebSocket
+subs = [
+    """{
+        "topic": "trade",
+        "event": "sub",
+        "symbol": "BTCUSDT",
+        "params": {
+            "binary": false
+        }
+    }"""
+]
+ws = WebSocket(
+    "wss://stream.bybit.com/spot/quote/ws/v1",
+    subscriptions=subs
+)
+while True:
+    data = ws.fetch(subs[0])
+    if data:
+        print(data)
+
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -187,6 +212,28 @@ t(:spot_public_websocket_frequency_300_delay_400)
         "binary": false
     }
 }
+```
+
+```python--pybit
+from pybit import WebSocket
+subs = [
+    """{
+        "topic": "realtimes",
+        "event": "sub",
+        "symbol": "BTCUSDT",
+        "params": {
+            "binary": false
+        }
+    }"""
+]
+ws = WebSocket(
+    "wss://stream.bybit.com/spot/quote/ws/v1",
+    subscriptions=subs
+)
+while True:
+    data = ws.fetch(subs[0])
+    if data:
+        print(data)
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -250,6 +297,28 @@ t(:spot_public_websocket_frequency_300_delay_400)
 }
 ```
 
+```python--pybit
+from pybit import WebSocket
+subs = [
+    """{
+        "topic": "kline_1m",
+        "event": "sub",
+        "symbol": "BTCUSDT",
+        "params": {
+            "binary": false
+        }
+    }"""
+]
+ws = WebSocket(
+    "wss://stream.bybit.com/spot/quote/ws/v1",
+    subscriptions=subs
+)
+while True:
+    data = ws.fetch(subs[0])
+    if data:
+        print(data)
+```
+
 > t(:codequote_responseExampleFormatAll)
 
 ```javascript
@@ -307,6 +376,28 @@ t(:spot_public_websocket_frequency_300_delay_400)
         "binary": false
     }
 }
+```
+
+```python--pybit
+from pybit import WebSocket
+subs = [
+    """{
+        "topic": "depth",
+        "event": "sub",
+        "symbol": "BTCUSDT",
+        "params": {
+            "binary": false
+        }
+    }"""
+]
+ws = WebSocket(
+    "wss://stream.bybit.com/spot/quote/ws/v1",
+    subscriptions=subs
+)
+while True:
+    data = ws.fetch(subs[0])
+    if data:
+        print(data)
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -388,6 +479,28 @@ t(:spot_public_websocket_frequency_300_delay_650)
 }
 ```
 
+```python--pybit
+from pybit import WebSocket
+subs = [
+    """{
+        "topic": "mergedDepth",
+        "event": "sub",
+        "symbol": "BTCUSDT",
+        "params": {
+            "binary": false,
+            "dumpScale": 1
+        }
+    }"""
+]
+ws = WebSocket(
+    "wss://stream.bybit.com/spot/quote/ws/v1",
+    subscriptions=subs
+)
+while True:
+    data = ws.fetch(subs[0])
+    if data:
+        print(data)
+```
 
 > t(:codequote_responseExampleFormatAll)
 
@@ -469,6 +582,27 @@ t(:spot_public_websocket_frequency_300_delay_650)
 }
 ```
 
+```python--pybit
+from pybit import WebSocket
+subs = [
+    """{
+        "topic": "diffDepth",
+        "event": "sub",
+        "symbol": "BTCUSDT",
+        "params": {
+            "binary": false
+        }
+    }"""
+]
+ws = WebSocket(
+    "wss://stream.bybit.com/spot/quote/ws/v1",
+    subscriptions=subs
+)
+while True:
+    data = ws.fetch(subs[0])
+    if data:
+        print(data)
+```
 
 > t(:codequote_responseExampleFormatAll)
 
@@ -549,6 +683,28 @@ t(:spot_public_websocket_frequency_300_delay_650)
 }
 ```
 
+```python--pybit
+from pybit import WebSocket
+subs = [
+    """{
+        "topic": "depth",
+        "event": "sub",
+        "params": {
+            "symbol": "BTCUSDT",
+            "binary": false
+        }
+    }"""
+]
+ws = WebSocket(
+    "wss://stream.bybit.com/spot/quote/ws/v2",
+    subscriptions=subs
+)
+while True:
+    data = ws.fetch(subs[0])
+    if data:
+        print(data)
+```
+
 > t(:codequote_snapshot)
 
 ```javascript
@@ -625,6 +781,28 @@ t(:spot_public_websocket_frequency_250_delay_300)
 }
 ```
 
+```python--pybit
+from pybit import WebSocket
+subs = [
+    """{
+        "topic": "kline",
+        "event": "sub",
+        "params": {
+            "symbol": "BTCUSDT",
+            "klineType": "1m",
+            "binary": false
+        }
+    }"""
+]
+ws = WebSocket(
+    "wss://stream.bybit.com/spot/quote/ws/v2",
+    subscriptions=subs
+)
+while True:
+    data = ws.fetch(subs[0])
+    if data:
+        print(data)
+```
 
 > t(:codequote_responseExampleFormatAll)
 
@@ -684,6 +862,27 @@ t(:spot_public_websocket_frequency_near_realtime)
 }
 ```
 
+```python--pybit
+from pybit import WebSocket
+subs = [
+    """{
+        "topic": "trade",
+        "params": {
+            "symbol": "BTCUSDT",
+            "binary": false
+        },
+        "event": "sub"
+    }"""
+]
+ws = WebSocket(
+    "wss://stream.bybit.com/spot/quote/ws/v2",
+    subscriptions=subs
+)
+while True:
+    data = ws.fetch(subs[0])
+    if data:
+        print(data)
+```
 
 > t(:codequote_responseExampleFormatAll)
 
@@ -736,6 +935,27 @@ t(:spot_public_websocket_frequency_near_realtime)
 }
 ```
 
+```python--pybit
+from pybit import WebSocket
+subs = [
+    """{
+        "topic": "bookTicker",
+        "event": "sub",
+        "params": {
+            "symbol": "BTCUSDT",
+            "binary": false
+        }
+    }"""
+]
+ws = WebSocket(
+    "wss://stream.bybit.com/spot/quote/ws/v2",
+    subscriptions=subs
+)
+while True:
+    data = ws.fetch(subs[0])
+    if data:
+        print(data)
+```
 
 > t(:codequote_responseExampleFormatAll)
 
@@ -789,6 +1009,27 @@ t(:spot_public_websocket_frequency_250_delay_300)
 }
 ```
 
+```python--pybit
+from pybit import WebSocket
+subs = [
+    """{
+        "topic": "realtimes",
+        "event": "sub",
+        "params": {
+            "symbol": "BTCUSDT",
+            "binary": false
+        }
+    }"""
+]
+ws = WebSocket(
+    "wss://stream.bybit.com/spot/quote/ws/v2",
+    subscriptions=subs
+)
+while True:
+    data = ws.fetch(subs[0])
+    if data:
+        print(data)
+```
 
 > t(:codequote_responseExampleFormatAll)
 
@@ -842,6 +1083,18 @@ t(:spot_private_topics_auth_sub)
 ### t(:outboundAccountInfo)
 > t(:spot_private_topics_auth_sub)
 
+```python--pybit
+from pybit import WebSocket
+ws = WebSocket(
+    "wss://stream.bybit.com/spot/quote/ws/v2",
+    api_key="", api_secret=""
+)
+while True:
+    data = ws.fetch("outboundAccountInfo")
+    if data:
+        print(data)
+```
+
 > t(:codequote_responseExampleFormatAll)
 
 ```javascript
@@ -883,6 +1136,18 @@ t(:spot_public_websocket_frequency_realtime)
 
 ### t(:executionReport)
 > t(:spot_private_topics_auth_sub)
+
+```python--pybit
+from pybit import WebSocket
+ws = WebSocket(
+    "wss://stream.bybit.com/spot/quote/ws/v2",
+    api_key="", api_secret=""
+)
+while True:
+    data = ws.fetch("executionReport")
+    if data:
+        print(data)
+```
 
 > t(:codequote_responseExampleFormatAll)
 
@@ -954,6 +1219,18 @@ t(:spot_public_websocket_frequency_realtime)
 
 ### t(:ticketInfo)
 > t(:spot_private_topics_auth_sub)
+
+```python--pybit
+from pybit import WebSocket
+ws = WebSocket(
+    "wss://stream.bybit.com/spot/quote/ws/v2",
+    api_key="", api_secret=""
+)
+while True:
+    data = ws.fetch("ticketInfo")
+    if data:
+        print(data)
+```
 
 > t(:codequote_responseExampleFormatAll)
 
