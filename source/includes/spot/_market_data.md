@@ -8,7 +8,11 @@ t(:market_para_auth)
 ```console
 ```
 
-```python
+```python--pybit
+from pybit import HTTP
+session = HTTP("https://api-testnet.bybit.com",
+               spot=True)
+print(session.query_symbol())
 ```
 
 > t(:codequote_responseExample)
@@ -88,7 +92,11 @@ GET
 ```console
 ```
 
-```python
+```python--pybit
+from pybit import HTTP
+session = HTTP("https://api-testnet.bybit.com",
+               spot=True)
+print(session.orderbook(symbol="BTCUSDT"))
 ```
 
 > t(:codequote_responseExample)
@@ -144,7 +152,11 @@ GET
 ```console
 ```
 
-```python
+```python--pybit
+from pybit import HTTP
+session = HTTP("https://api-testnet.bybit.com",
+               spot=True)
+print(session.merged_orderbook(symbol="BTCUSDT"))
 ```
 
 > t(:codequote_responseExample)
@@ -200,7 +212,11 @@ GET
 ```console
 ```
 
-```python
+```python--pybit
+from pybit import HTTP
+session = HTTP("https://api-testnet.bybit.com",
+               spot=True)
+print(session.public_trading_records(symbol="BTCUSDT"))
 ```
 
 > t(:codequote_responseExample)
@@ -262,7 +278,14 @@ GET
 ```console
 ```
 
-```python
+```python--pybit
+from pybit import HTTP
+session = HTTP("https://api-testnet.bybit.com",
+               spot=True)
+print(session.query_kline(
+    symbol="BTCUSDT",
+    interval="1m"
+))
 ```
 
 > t(:codequote_responseExample)
@@ -332,7 +355,13 @@ t(:spotKlineTimeRemark)
 ```console
 ```
 
-```python
+```python--pybit
+from pybit import HTTP
+session = HTTP("https://api-testnet.bybit.com",
+               spot=True)
+print(session.latest_information_for_symbol(
+    symbol="BTCUSDT"
+))
 ```
 
 > t(:codequote_responseExample)
@@ -343,7 +372,7 @@ t(:spotKlineTimeRemark)
     "ret_msg": null,
     "result": {
         "time": 1620918180046,
-        "symbol": "ETHUSDT",
+        "symbol": "BTCUSDT",
         "bestBidPrice": "50005.12",
         "bestAskPrice": "50008",
         "volume": "26.7308",
@@ -396,7 +425,13 @@ t(:spotTicker24hrRemark)
 ```console
 ```
 
-```python
+```python--pybit
+from pybit import HTTP
+session = HTTP("https://api-testnet.bybit.com",
+               spot=True)
+print(session.last_traded_price(
+    symbol="BTCUSDT"
+))
 ```
 
 > t(:codequote_responseExample)
@@ -406,7 +441,7 @@ t(:spotTicker24hrRemark)
     "ret_code": 0,
     "ret_msg": null,
     "result": {
-        "symbol": "ETHUSDT",
+        "symbol": "BTCUSDT",
         "price": "50008"
     },
     "ext_code": null,
@@ -441,7 +476,13 @@ t(:spotTickerPriceRemark)
 ```console
 ```
 
-```python
+```python--pybit
+from pybit import HTTP
+session = HTTP("https://api-testnet.bybit.com",
+               spot=True)
+print(session.best_bid_ask_price(
+    symbol="BTCUSDT"
+))
 ```
 
 > t(:codequote_responseExample)
@@ -451,7 +492,7 @@ t(:spotTickerPriceRemark)
     "ret_code": 0,
     "ret_msg": null,
     "result": {
-        "symbol": "ETHUSDT",
+        "symbol": "BTCUSDT",
         "bidPrice": "50005.12",
         "bidQty": "394",
         "askPrice": "50008",

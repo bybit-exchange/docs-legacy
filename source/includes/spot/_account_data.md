@@ -8,13 +8,21 @@ t(:account_para)
 curl https://api.bybit.com/spot/v1/order \
 -H "Content-Type: application/x-www-form-urlencoded" \
 -d 'api_key={api_key}&side=Buy&symbol=ETHUSDT&type=MARKET&qty=10&timeInForce=GTC&timestamp={timestamp}&sign={signature}'
-
 ```
 
-```python
-
+```python--pybit
+from pybit import HTTP
+session = HTTP("https://api-testnet.bybit.com",
+               api_key="", api_secret="",
+               spot=True)
+print(session.place_active_order(
+    symbol="ETHUSDT",
+    side="Buy",
+    type="MARKET",
+    qty=10,
+    timeInForce="GTC"
+))
 ```
-
 
 > t(:codequote_responseExample)
 
@@ -86,7 +94,14 @@ POST
 ```console
 ```
 
-```python
+```python--pybit
+from pybit import HTTP
+session = HTTP("https://api-testnet.bybit.com",
+               api_key="", api_secret="",
+               spot=True)
+print(session.get_active_order(
+    orderId="889826641228952064"
+))
 ```
 
 > t(:codequote_responseExample)
@@ -172,8 +187,14 @@ t(:spotGetOrderRemark)
 ```console
 ```
 
-```python
-
+```python--pybit
+from pybit import HTTP
+session = HTTP("https://api-testnet.bybit.com",
+               api_key="", api_secret="",
+               spot=True)
+print(session.cancel_active_order(
+    orderId="889826641228952064"
+))
 ```
 
 > t(:codequote_responseExample)
@@ -244,8 +265,15 @@ t(:spotGetOrderRemark)
 ```console
 ```
 
-```python
-
+```python--pybit
+from pybit import HTTP
+session = HTTP("https://api-testnet.bybit.com",
+               api_key="", api_secret="",
+               spot=True)
+print(session.fast_cancel_active_order(
+    symbolId="ETHUSDT",
+    orderId="889826641228952064"
+))
 ```
 
 > t(:codequote_responseExample)
@@ -321,8 +349,15 @@ t(:spotGetOrderRemark)
 
 ```
 
-```python
-
+```python--pybit
+from pybit import HTTP
+session = HTTP("https://api-testnet.bybit.com",
+               api_key="", api_secret="",
+               spot=True)
+print(session.batch_cancel_active_order(
+    symbol="ETHUSDT",
+    orderTypes="LIMIT,LIMIT_MAKER"
+))
 ```
 
 > t(:codequote_responseExample)
@@ -371,8 +406,15 @@ DELETE
 
 ```
 
-```python
-
+```python--pybit
+from pybit import HTTP
+session = HTTP("https://api-testnet.bybit.com",
+               api_key="", api_secret="",
+               spot=True)
+print(session.batch_fast_cancel_active_order(
+    symbol="ETHUSDT",
+    orderTypes="LIMIT,LIMIT_MAKER"
+))
 ```
 
 > t(:codequote_responseExample)
@@ -422,8 +464,14 @@ DELETE
 
 ```
 
-```python
-
+```python--pybit
+from pybit import HTTP
+session = HTTP("https://api-testnet.bybit.com",
+               api_key="", api_secret="",
+               spot=True)
+print(session.batch_cancel_active_order_by_ids(
+    orderIds="889208273689997824,889826641228952064"
+))
 ```
 
 > t(:codequote_responseExample)
@@ -474,7 +522,14 @@ DELETE
 ```console
 ```
 
-```python
+```python--pybit
+from pybit import HTTP
+session = HTTP("https://api-testnet.bybit.com",
+               api_key="", api_secret="",
+               spot=True)
+print(session.query_active_order(
+    symbol="ETHUSDT"
+))
 ```
 
 > t(:codequote_responseExample)
@@ -583,7 +638,14 @@ GET
 
 ```
 
-```python
+```python--pybit
+from pybit import HTTP
+session = HTTP("https://api-testnet.bybit.com",
+               api_key="", api_secret="",
+               spot=True)
+print(session.query_active_order(
+    symbol="ETHUSDT"
+))
 ```
 
 > t(:codequote_responseExample)
@@ -668,7 +730,14 @@ GET
 ```console
 ```
 
-```python
+```python--pybit
+from pybit import HTTP
+session = HTTP("https://api-testnet.bybit.com",
+               api_key="", api_secret="",
+               spot=True)
+print(session.user_trade_records(
+    symbol="BTCUSDT"
+))
 ```
 
 > t(:codequote_responseExample)

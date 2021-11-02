@@ -4,7 +4,7 @@
 
 > t(:websocket_codequote_auth1)
 
-```python
+```python--pybit
 # based on: https://github.com/verata-veritatis/pybit/blob/master/pybit/__init__.py
 
 import hmac
@@ -42,7 +42,7 @@ ws = websocket.WebSocketApp(
 
 > t(:websocket_codequote_auth2)
 
-```python
+```python--pybit
 ws = websocket.WebSocketApp(
     url=url,
     ...
@@ -176,13 +176,28 @@ t(:websocket_para_response)
 ws.send('{"op": "subscribe", "args": ["orderBookL2_25.BTCUSDT"]}');
 ```
 
-```python
+```python--old
 from BybitWebsocket import BybitWebsocket
 ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime_public",
                     api_key=None, api_secret=None)
 ws.subscribe_orderBookL2(symbol="BTCUSDT")
 while True:
     data = ws.get_data("orderBookL2_25.BTCUSDT")
+    if data:
+        print(data)
+```
+
+```python--pybit
+from pybit import WebSocket
+subs = [
+    "orderBookL2_25.BTCUSDT"
+]
+ws = WebSocket(
+    "wss://stream-testnet.bybit.com/realtime_public",
+    subscriptions=subs
+)
+while True:
+    data = ws.fetch(subs[0])
     if data:
         print(data)
 ```
@@ -282,6 +297,21 @@ t(:websocket_para_orderbook252)
 ws.send('{"op": "subscribe", "args": ["orderBook_200.100ms.BTCUSDT"]}');
 ```
 
+```python--pybit
+from pybit import WebSocket
+subs = [
+    "orderBook_200.100ms.BTCUSDT"
+]
+ws = WebSocket(
+    "wss://stream-testnet.bybit.com/realtime_public",
+    subscriptions=subs
+)
+while True:
+    data = ws.fetch(subs[0])
+    if data:
+        print(data)
+```
+
 > t(:codequote_snapshot)
 
 ```javascript
@@ -370,6 +400,21 @@ t(:websocket_para_orderbook200)
 ws.send('{"op": "subscribe", "args": ["trade.BTCUSDT"]}')
 ```
 
+```python--pybit
+from pybit import WebSocket
+subs = [
+    "trade.BTCUSDT"
+]
+ws = WebSocket(
+    "wss://stream-testnet.bybit.com/realtime_public",
+    subscriptions=subs
+)
+while True:
+    data = ws.fetch(subs[0])
+    if data:
+        print(data)
+```
+
 > t(:codequote_responseExampleFormatAll)
 
 ```javascript
@@ -412,13 +457,28 @@ t(:websocket_para_trade)
 ws.send('{"op": "subscribe", "args": ["instrument_info.100ms.BTCUSDT"]}')
 ```
 
-```python
+```python--old
 from BybitWebsocket import BybitWebsocket
 ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime_public",
                     api_key=None, api_secret=None)
 ws.subscribe_instrument_info("BTCUSDT")
 while True:
     data = ws.get_data("instrument_info.100ms.BTCUSDT")
+    if data:
+        print(data)
+```
+
+```python--pybit
+from pybit import WebSocket
+subs = [
+    "instrument_info.100ms.BTCUSDT"
+]
+ws = WebSocket(
+    "wss://stream-testnet.bybit.com/realtime_public",
+    subscriptions=subs
+)
+while True:
+    data = ws.fetch(subs[0])
     if data:
         print(data)
 ```
@@ -561,6 +621,21 @@ t(:websocket_aside_instrumentInfo2)
 ws.send('{"op":"subscribe","args":["candle.1.BTCUSDT"]}')
 ```
 
+```python--pybit
+from pybit import WebSocket
+subs = [
+    "candle.1.BTCUSDT"
+]
+ws = WebSocket(
+    "wss://stream-testnet.bybit.com/realtime_public",
+    subscriptions=subs
+)
+while True:
+    data = ws.fetch(subs[0])
+    if data:
+        print(data)
+```
+
 > t(:codequote_responseExampleFormatAll)
 
 ```javascript
@@ -615,6 +690,21 @@ t(:websocket_aside_klineV2)
 ws.send('{"op":"subscribe","args":["liquidation.XRPUSDT"]}')
 ```
 
+```python--pybit
+from pybit import WebSocket
+subs = [
+    "liquidation.XRPUSDT"
+]
+ws = WebSocket(
+    "wss://stream-testnet.bybit.com/realtime_public",
+    subscriptions=subs
+)
+while True:
+    data = ws.fetch(subs[0])
+    if data:
+        print(data)
+```
+
 > t(:codequote_responseExampleFormatAll)
 
 ```javascript
@@ -650,6 +740,22 @@ t(:websocket_query_liqrecords)
 
 ```javascript
 ws.send('{"op": "subscribe", "args": ["position"]}')
+```
+
+```python--pybit
+from pybit import WebSocket
+subs = [
+    "position"
+]
+ws = WebSocket(
+    "wss://stream-testnet.bybit.com/realtime_private",
+    subscriptions=subs,
+    api_key="", api_secret=""
+)
+while True:
+    data = ws.fetch(subs[0])
+    if data:
+        print(data)
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -718,13 +824,29 @@ t(:account_para_myPosition)
 ws.send('{"op": "subscribe", "args": ["execution"]}')
 ```
 
-```python
+```python--old
 from BybitWebsocket import BybitWebsocket
 ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime_private",
                     api_key=api_key, api_secret=api_secret)
 ws.subscribe_execution()
 while True:
     data = ws.get_data("execution")
+    if data:
+        print(data)
+```
+
+```python--pybit
+from pybit import WebSocket
+subs = [
+    "execution"
+]
+ws = WebSocket(
+    "wss://stream-testnet.bybit.com/realtime_private",
+    subscriptions=subs,
+    api_key="", api_secret=""
+)
+while True:
+    data = ws.fetch(subs[0])
     if data:
         print(data)
 ```
@@ -779,13 +901,29 @@ t(:wallet_para_tradeRecords)
 ws.send('{"op": "subscribe", "args": ["order"]}')
 ```
 
-```python
+```python--old
 from BybitWebsocket import BybitWebsocket
 ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime_private",
                     api_key=api_key, api_secret=api_secret)
 ws.subscribe_order()
 while True:
     data = ws.get_data("order")
+    if data:
+        print(data)
+```
+
+```python--pybit
+from pybit import WebSocket
+subs = [
+    "order"
+]
+ws = WebSocket(
+    "wss://stream-testnet.bybit.com/realtime_private",
+    subscriptions=subs,
+    api_key="", api_secret=""
+)
+while True:
+    data = ws.fetch(subs[0])
     if data:
         print(data)
 ```
@@ -854,6 +992,22 @@ while True:
 ws.send('{"op": "subscribe", "args": ["stop_order"]}')
 ```
 
+```python--pybit
+from pybit import WebSocket
+subs = [
+    "stop_order"
+]
+ws = WebSocket(
+    "wss://stream-testnet.bybit.com/realtime_private",
+    subscriptions=subs,
+    api_key="", api_secret=""
+)
+while True:
+    data = ws.fetch(subs[0])
+    if data:
+        print(data)
+```
+
 > t(:codequote_responseExampleFormatAll)
 
 ```javascript
@@ -910,6 +1064,22 @@ ws.send('{"op": "subscribe", "args": ["stop_order"]}')
 
 ```javascript
 ws.send('{"op": "subscribe", "args": ["wallet"]}')
+```
+
+```python--pybit
+from pybit import WebSocket
+subs = [
+    "wallet"
+]
+ws = WebSocket(
+    "wss://stream-testnet.bybit.com/realtime_private",
+    subscriptions=subs,
+    api_key="", api_secret=""
+)
+while True:
+    data = ws.fetch(subs[0])
+    if data:
+        print(data)
 ```
 
 > t(:codequote_responseExampleFormatAll)

@@ -8,6 +8,13 @@ t(:api_para)
 curl https://api.bybit.com/spot/v1/time
 ```
 
+```python--pybit
+from pybit import HTTP
+session = HTTP("https://api-testnet.bybit.com",
+               spot=True)
+print(session.server_time())
+```
+
 > t(:codequote_responseExample)
 
 ```javascript

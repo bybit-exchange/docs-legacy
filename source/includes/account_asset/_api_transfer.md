@@ -21,6 +21,20 @@ curl --location --request POST 'https://api-testnet.bybit.com/asset/v1/private/t
 }'
 ```
 
+```python--pybit
+from pybit import HTTP
+from uuid import uuid4
+session = HTTP("https://api-testnet.bybit.com",
+               api_key="", api_secret="")
+print(session.create_internal_transfer(
+    transfer_id=str(uuid4()),
+    coin="BTC",
+    amount="0.1",
+    from_account_type="SPOT",
+    to_account_type="CONTRACT"
+))
+```
+
 > t(:codequote_responseExample)
 
 ```javascript
@@ -78,13 +92,27 @@ curl --location --request POST 'https://api-testnet.bybit.com/asset/v1/private/s
     "transfer_id": "5f95de18-b10f-43be-9746-7b95c4a37d97",
     "amount": "0.1",
     "coin": "BTC",
-    "sub_user_id":"251711",
+    "sub_user_id": 251711,
     "type": "IN",
     "api_key": "YtcjswsO9WjAmQVUx7",
     "sign": "{{sign}}",
     "timestamp": "{{timestamp}}",
     "recv_window": "{{recvWindow}}"
 }'
+```
+
+```python--pybit
+from pybit import HTTP
+from uuid import uuid4
+session = HTTP("https://api-testnet.bybit.com",
+               api_key="", api_secret="")
+print(session.create_subaccount_transfer(
+    transfer_id=str(uuid4()),
+    coin="BTC",
+    amount="0.1",
+    sub_user_id=251711,
+    type="IN"
+))
 ```
 
 > t(:codequote_responseExample)
@@ -138,6 +166,14 @@ POST
 
 ```console
 curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/transfer/list'
+```
+
+```python--pybit
+from pybit import HTTP
+from uuid import uuid4
+session = HTTP("https://api-testnet.bybit.com",
+               api_key="", api_secret="")
+print(session.query_transfer_list())
 ```
 
 > t(:codequote_responseExample)
@@ -227,6 +263,14 @@ GET
 
 ```console
 curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/sub-member/transfer/list'
+```
+
+```python--pybit
+from pybit import HTTP
+from uuid import uuid4
+session = HTTP("https://api-testnet.bybit.com",
+               api_key="", api_secret="")
+print(session.query_subaccount_transfer_list())
 ```
 
 > t(:codequote_responseExample)
@@ -332,7 +376,12 @@ GET
 curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/sub-member/member-ids'
 ```
 
-```python
+```python--pybit
+from pybit import HTTP
+from uuid import uuid4
+session = HTTP("https://api-testnet.bybit.com",
+               api_key="", api_secret="")
+print(session.query_subaccount_list())
 ```
 
 > t(:codequote_responseExample)
