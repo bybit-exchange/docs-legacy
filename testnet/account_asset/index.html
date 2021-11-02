@@ -664,7 +664,7 @@
   <a class="international" id="international" href="javascript:void(0);">繁體中文</a>
   </header>
 
-  <body class="testnet testnet_account_asset testnet_account_asset_index" data-languages="[&quot;console&quot;,&quot;python&quot;]">
+  <body class="testnet testnet_account_asset testnet_account_asset_index" data-languages="[&quot;console&quot;,&quot;python--pybit&quot;,&quot;python--old&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -674,7 +674,8 @@
     <div class="toc-wrapper">
         <div class="lang-selector">
               <a href="#" data-language-name="console">console</a>
-              <a href="#" data-language-name="python">python</a>
+              <a href="#" data-language-name="python--pybit">python</a>
+              <a href="#" data-language-name="python--old">old_python</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -925,7 +926,18 @@ Please make sure that the timestamp parameter adheres to the following rule: ser
     "timestamp": "{{timestamp}}",
     "recv_window": "{{recvWindow}}"
 }'
-</span></code></pre></div>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="kn">from</span> <span class="nn">uuid</span> <span class="kn">import</span> <span class="n">uuid4</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
+               <span class="n">api_key</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">create_internal_transfer</span><span class="p">(</span>
+    <span class="n">transfer_id</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">uuid4</span><span class="p">()),</span>
+    <span class="n">coin</span><span class="o">=</span><span class="s">"BTC"</span><span class="p">,</span>
+    <span class="n">amount</span><span class="o">=</span><span class="s">"0.1"</span><span class="p">,</span>
+    <span class="n">from_account_type</span><span class="o">=</span><span class="s">"SPOT"</span><span class="p">,</span>
+    <span class="n">to_account_type</span><span class="o">=</span><span class="s">"CONTRACT"</span>
+<span class="p">))</span>
+</code></pre></div>
 <blockquote>
 <p>Response Example</p>
 </blockquote>
@@ -1024,14 +1036,25 @@ The <code>transfer_in</code> and <code>transfer_out</code> account types cannot 
     "transfer_id": "5f95de18-b10f-43be-9746-7b95c4a37d97",
     "amount": "0.1",
     "coin": "BTC",
-    "sub_user_id":"251711",
+    "sub_user_id": 251711,
     "type": "IN",
     "api_key": "YtcjswsO9WjAmQVUx7",
     "sign": "{{sign}}",
     "timestamp": "{{timestamp}}",
     "recv_window": "{{recvWindow}}"
 }'
-</span></code></pre></div>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="kn">from</span> <span class="nn">uuid</span> <span class="kn">import</span> <span class="n">uuid4</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
+               <span class="n">api_key</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">create_subaccount_transfer</span><span class="p">(</span>
+    <span class="n">transfer_id</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">uuid4</span><span class="p">()),</span>
+    <span class="n">coin</span><span class="o">=</span><span class="s">"BTC"</span><span class="p">,</span>
+    <span class="n">amount</span><span class="o">=</span><span class="s">"0.1"</span><span class="p">,</span>
+    <span class="n">sub_user_id</span><span class="o">=</span><span class="mi">251711</span><span class="p">,</span>
+    <span class="nb">type</span><span class="o">=</span><span class="s">"IN"</span>
+<span class="p">))</span>
+</code></pre></div>
 <blockquote>
 <p>Response Example</p>
 </blockquote>
@@ -1124,7 +1147,12 @@ A subaccount can only be attributed to a parent account.
 <p>Request Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/transfer/list'
-</span></code></pre></div>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="kn">from</span> <span class="nn">uuid</span> <span class="kn">import</span> <span class="n">uuid4</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
+               <span class="n">api_key</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">query_transfer_list</span><span class="p">())</span>
+</code></pre></div>
 <blockquote>
 <p>Response Example</p>
 </blockquote>
@@ -1292,7 +1320,12 @@ A subaccount can only be attributed to a parent account.
 <p>Request Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/sub-member/transfer/list'
-</span></code></pre></div>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="kn">from</span> <span class="nn">uuid</span> <span class="kn">import</span> <span class="n">uuid4</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
+               <span class="n">api_key</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">query_subaccount_transfer_list</span><span class="p">())</span>
+</code></pre></div>
 <blockquote>
 <p>Response Example</p>
 </blockquote>
@@ -1478,7 +1511,12 @@ A subaccount can only be attributed to a parent account.
 <p>Request Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/sub-member/member-ids'
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="kn">from</span> <span class="nn">uuid</span> <span class="kn">import</span> <span class="n">uuid4</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
+               <span class="n">api_key</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">query_subaccount_list</span><span class="p">())</span>
+</code></pre></div>
 <blockquote>
 <p>Response Example</p>
 </blockquote>
@@ -1538,9 +1576,12 @@ A subaccount can only be attributed to a parent account.
 <p>Request Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/v2/public/time
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Common</span><span class="p">.</span><span class="n">Common_getTime</span><span class="p">().</span><span class="n">result</span><span class="p">())</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">server_time</span><span class="p">())</span>  
 </code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -1815,7 +1856,8 @@ A subaccount can only be attributed to a parent account.
       <div class="dark-box">
           <div class="lang-selector">
                 <a href="#" data-language-name="console">console</a>
-                <a href="#" data-language-name="python">python</a>
+                <a href="#" data-language-name="python--pybit">python</a>
+                <a href="#" data-language-name="python--old">old_python</a>
           </div>
       </div>
     </div>

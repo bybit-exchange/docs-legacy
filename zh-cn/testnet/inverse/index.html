@@ -664,7 +664,7 @@
   <a class="international" id="international" href="javascript:void(0);">English</a>
   </header>
 
-  <body class="zh-cn zh-cn_testnet zh-cn_testnet_inverse zh-cn_testnet_inverse_index" data-languages="[&quot;console&quot;,&quot;python&quot;]">
+  <body class="zh-cn zh-cn_testnet zh-cn_testnet_inverse zh-cn_testnet_inverse_index" data-languages="[&quot;console&quot;,&quot;python--pybit&quot;,&quot;python--old&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -674,7 +674,8 @@
     <div class="toc-wrapper">
         <div class="lang-selector">
               <a href="#" data-language-name="console">console</a>
-              <a href="#" data-language-name="python">python</a>
+              <a href="#" data-language-name="python--pybit">python</a>
+              <a href="#" data-language-name="python--old">old_python</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="搜索">
@@ -1274,9 +1275,6 @@
                             <a href="#t-closedprofitandloss" class="toc-h3 toc-link" data-title="平倉盈虧">平倉盈虧</a>
                           </li>
                           <li>
-                            <a href="#t-switchpositionmode" class="toc-h3 toc-link" data-title="切換倉位模式">切換倉位模式</a>
-                          </li>
-                          <li>
                             <a href="#t-switchmode" class="toc-h3 toc-link" data-title="切換止盈止損模式">切換止盈止損模式</a>
                           </li>
                           <li>
@@ -1314,6 +1312,9 @@
                   </li>
                   <li>
                     <a href="#t-lcp" class="toc-h2 toc-link" data-title="流動性貢獻分">流動性貢獻分</a>
+                  </li>
+                  <li>
+                    <a href="#t-switchpositionmode" class="toc-h2 toc-link" data-title="切換倉位模式">切換倉位模式</a>
                   </li>
               </ul>
           </li>
@@ -2492,9 +2493,12 @@ function copyStringToClipboard (endpoint) {
 <p>請求示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/public/orderBook/L2?symbol=BTCUSD
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Market</span><span class="p">.</span><span class="n">Market_orderbook</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">orderbook</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">))</span>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -2586,9 +2590,16 @@ function copyStringToClipboard (endpoint) {
 <p>請求示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/public/kline/list?symbol=BTCUSD&amp;interval=1&amp;limit=2&amp;from=1581231260
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Kline</span><span class="p">.</span><span class="n">Kline_get</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="s">"m"</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s">'from'</span><span class="p">:</span><span class="mi">1581231260</span><span class="p">}).</span><span class="n">result</span><span class="p">())</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">query_kline</span><span class="p">(</span>
+    <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span>
+    <span class="n">interval</span><span class="o">=</span><span class="s">"m"</span><span class="p">,</span>
+    <span class="n">from_time</span><span class="o">=</span><span class="mi">1581231260</span>
+<span class="p">))</span>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -2726,9 +2737,14 @@ function copyStringToClipboard (endpoint) {
 <p>請求示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/public/tickers
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Market</span><span class="p">.</span><span class="n">Market_symbolInfo</span><span class="p">().</span><span class="n">result</span><span class="p">())</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">latest_information_for_symbol</span><span class="p">(</span>
+    <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span>
+<span class="p">))</span>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -2970,9 +2986,14 @@ function copyStringToClipboard (endpoint) {
 <p>請求示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/public/trading-records?symbol=BTCUSD
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Market</span><span class="p">.</span><span class="n">Market_tradingRecords</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">public_trading_records</span><span class="p">(</span>
+    <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span>
+<span class="p">))</span>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -3079,9 +3100,12 @@ function copyStringToClipboard (endpoint) {
 <p>請求示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/public/symbols
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Symbol</span><span class="p">.</span><span class="n">Symbol_get</span><span class="p">().</span><span class="n">result</span><span class="p">())</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">query_symbol</span><span class="p">())</span>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -3316,9 +3340,17 @@ function copyStringToClipboard (endpoint) {
 <p>請求示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/public/mark-price-kline?symbol=BTCUSD&amp;interval=1&amp;limit=2&amp;from=1581231260"
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Kline</span><span class="p">.</span><span class="n">Kline_markPrice</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="s">"30"</span><span class="p">,</span><span class="n">limit</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s">'from'</span><span class="p">:</span><span class="mi">1600544880</span><span class="p">}).</span><span class="n">result</span><span class="p">())</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">query_mark_price_kline</span><span class="p">(</span>
+    <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span>
+    <span class="n">interval</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+    <span class="n">limit</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+    <span class="n">from_time</span><span class="o">=</span><span class="mi">1600544880</span>
+<span class="p">))</span>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -3438,9 +3470,17 @@ function copyStringToClipboard (endpoint) {
 <p>請求示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/public/index-price-kline?symbol=BTCUSD&amp;interval=1&amp;limit=2&amp;from=1581231260"
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Kline</span><span class="p">.</span><span class="n">Kline_indexPrice</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="s">"1"</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s">'from'</span><span class="p">:</span><span class="mi">1615067084</span><span class="p">}).</span><span class="n">result</span><span class="p">())</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">query_index_price_kline</span><span class="p">(</span>
+    <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span>
+    <span class="n">interval</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+    <span class="n">limit</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+    <span class="n">from_time</span><span class="o">=</span><span class="mi">1600544880</span>
+<span class="p">))</span>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -3558,9 +3598,17 @@ function copyStringToClipboard (endpoint) {
 <p>請求示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/public/premium-index-kline?symbol=BTCUSD&amp;interval=1&amp;limit=2&amp;from=1581231260"
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Kline</span><span class="p">.</span><span class="n">Kline_premiumIndexPrice</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="s">"1"</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s">'from'</span><span class="p">:</span><span class="mi">1615067084</span><span class="p">}).</span><span class="n">result</span><span class="p">())</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">query_premium_index_kline</span><span class="p">(</span>
+    <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span>
+    <span class="n">interval</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+    <span class="n">limit</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+    <span class="n">from_time</span><span class="o">=</span><span class="mi">1600544880</span>
+<span class="p">))</span>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -3678,9 +3726,16 @@ function copyStringToClipboard (endpoint) {
 <p>請求示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/public/open-interest?symbol=BTCUSD&amp;period=5min
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Market</span><span class="p">.</span><span class="n">Market_openInterest</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="s">"5min"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">open_interest</span><span class="p">(</span>
+    <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span>
+    <span class="n">limit</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">period</span><span class="o">=</span><span class="s">"5min"</span>
+<span class="p">))</span>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -3773,9 +3828,15 @@ function copyStringToClipboard (endpoint) {
 <p>請求示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/public/big-deal?symbol=BTCUSD
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Market</span><span class="p">.</span><span class="n">Market_bigDeal</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">2</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">latest_big_deal</span><span class="p">(</span>
+    <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span>
+    <span class="n">limit</span><span class="o">=</span><span class="mi">2</span>
+<span class="p">))</span>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -3869,9 +3930,16 @@ function copyStringToClipboard (endpoint) {
 <p>請求示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/public/account-ratio?symbol=BTCUSD&amp;period=5min
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Market</span><span class="p">.</span><span class="n">Market_accountRatio</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="s">"5min"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">long_short_ratio</span><span class="p">(</span>
+    <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span>
+    <span class="n">limit</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">period</span><span class="o">=</span><span class="s">"5min"</span>
+<span class="p">))</span>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -4059,11 +4127,21 @@ GET
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/private/order/create \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","side"="Buy","symbol"="BTCUSD","order_type":"Market","qty":10,"time_in_force":"GoodTillCancel","timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","side":"Buy","symbol":"BTCUSD","order_type":"Market","qty":10,"time_in_force":"GoodTillCancel","timestamp":{timestamp},"sign":"{sign}"}'
 
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Order</span><span class="p">.</span><span class="n">Order_new</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="s">"Buy"</span><span class="p">,</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span><span class="n">order_type</span><span class="o">=</span><span class="s">"Market"</span><span class="p">,</span><span class="n">qty</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">time_in_force</span><span class="o">=</span><span class="s">"GoodTillCancel"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
+               <span class="n">api_key</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">place_active_order</span><span class="p">(</span>
+    <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span>
+    <span class="n">side</span><span class="o">=</span><span class="s">"Buy"</span><span class="p">,</span>
+    <span class="n">order_type</span><span class="o">=</span><span class="s">"Market"</span><span class="p">,</span>
+    <span class="n">qty</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">time_in_force</span><span class="o">=</span><span class="s">"GoodTillCancel"</span>
+<span class="p">))</span>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -4336,9 +4414,16 @@ GET
 <p>請求示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/private/order/list?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}&amp;symbol=BTCUSD"
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Order</span><span class="p">.</span><span class="n">Order_getOrders</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span><span class="n">order_status</span><span class="o">=</span><span class="s">"New"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
+               <span class="n">api_key</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">get_active_order</span><span class="p">(</span>
+    <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span>
+    <span class="n">order_status</span><span class="o">=</span><span class="s">"New"</span>
+<span class="p">))</span>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -4558,9 +4643,16 @@ GET
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/private/order/cancel \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Order</span><span class="p">.</span><span class="n">Order_cancel</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span> <span class="n">order_id</span><span class="o">=</span><span class="s">""</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
+               <span class="n">api_key</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">cancel_active_order</span><span class="p">(</span>
+    <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span>
+    <span class="n">order_id</span><span class="o">=</span><span class="s">"3bd1844f-f3c0-4e10-8c25-10fea03763f6"</span>
+<span class="p">))</span>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -4769,9 +4861,15 @@ GET
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/private/order/cancelAll \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","timestamp":{timestamp},"sign":"{sign}"}'
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Order</span><span class="p">.</span><span class="n">Order_cancelAll</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
+               <span class="n">api_key</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">cancel_all_active_orders</span><span class="p">(</span>
+    <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span>
+<span class="p">))</span>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -4941,9 +5039,16 @@ GET
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/private/order/replace \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Order</span><span class="p">.</span><span class="n">Order_replace</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span> <span class="n">order_id</span><span class="o">=</span><span class="s">""</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
+               <span class="n">api_key</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">replace_active_order</span><span class="p">(</span>
+    <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span>
+    <span class="n">order_id</span><span class="o">=</span><span class="s">"efa44157-c355-4a98-b6d6-1d846a936b93"</span>
+<span class="p">))</span>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -5060,9 +5165,16 @@ GET
 <p>請求示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/private/order?api_key={api_key}&amp;symbol=BTCUSD&amp;timestamp={timestamp}order_id={order_id}&amp;sign={sign}"
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Order</span><span class="p">.</span><span class="n">Order_query</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span> <span class="n">order_id</span><span class="o">=</span><span class="s">""</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
+               <span class="n">api_key</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">query_active_order</span><span class="p">(</span>
+    <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span>
+    <span class="n">order_id</span><span class="o">=</span><span class="s">"e66b101a-ef3f-4647-83b5-28e0f38dcae0"</span>
+<span class="p">))</span>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -5348,10 +5460,22 @@ GET
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/private/stop-order/create \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","order_type":"Limit","side":"Buy","symbol":"BTCUSD","qty":1,"price":8100,"base_price":8300,"stop_px":8150,"time_in_force":"GoodTillCancel","order_link_id":"cus_order_id_1","timestamp":{timestamp},"sign":"{sign}"}'
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Conditional</span><span class="p">.</span><span class="n">Conditional_new</span><span class="p">(</span><span class="n">order_type</span><span class="o">=</span><span class="s">"Limit"</span><span class="p">,</span><span class="n">side</span><span class="o">=</span><span class="s">"Buy"</span><span class="p">,</span><span class="n">symbol</span><span class="o">=</span><span class="s">"XRPUSD"</span><span class="p">,</span><span class="n">qty</span><span class="o">=</span><span class="s">"1"</span><span class="p">,</span><span class="n">price</span><span class="o">=</span><span class="s">"0.2569"</span><span class="p">,</span><span class="n">base_price</span><span class="o">=</span><span class="s">"15700"</span><span class="p">,</span><span class="n">stop_px</span><span class="o">=</span><span class="s">"0.2119"</span><span class="p">,</span><span class="n">time_in_force</span><span class="o">=</span><span class="s">"GoodTillCancel"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
-
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
+               <span class="n">api_key</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">place_conditional_order</span><span class="p">(</span>
+    <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span>
+    <span class="n">order_type</span><span class="o">=</span><span class="s">"Limit"</span><span class="p">,</span>
+    <span class="n">side</span><span class="o">=</span><span class="s">"Buy"</span><span class="p">,</span>
+    <span class="n">qty</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">price</span><span class="o">=</span><span class="mi">54100</span><span class="p">,</span>
+    <span class="n">base_price</span><span class="o">=</span><span class="mi">54192</span><span class="p">,</span>
+    <span class="n">stop_px</span><span class="o">=</span><span class="mi">54150</span><span class="p">,</span>
+    <span class="n">time_in_force</span><span class="o">=</span><span class="s">"GoodTillCancel"</span>
+<span class="p">))</span>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -5612,9 +5736,16 @@ GET
 <p>請求示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/private/stop-order/list?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}"
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Conditional</span><span class="p">.</span><span class="n">Conditional_getOrders</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span><span class="n">stop_order_status</span><span class="o">=</span><span class="s">"Untriggered"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
+               <span class="n">api_key</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">get_conditional_order</span><span class="p">(</span>
+    <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span>
+    <span class="n">stop_order_status</span><span class="o">=</span><span class="s">"Untriggered"</span>
+<span class="p">))</span>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -5680,7 +5811,7 @@ GET
 <td style="text-align: left"><a href="#stop-order-status-stop_order_status">stop_order_status</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>指定訂單狀態查詢訂單列表。不傳該參數則默認查詢<code>Untriggered</code>,<code>Active</code>,<code>Deactivated</code>這三種狀態的訂單列表。該參數支持多狀態查詢，狀態之間用英文逗號分割。</td>
+<td>指定訂單狀態查詢訂單列表。不傳該參數則默認查詢所有狀態訂單</td>
 </tr>
 <tr>
 <td style="text-align: left">direction</td>
@@ -5824,9 +5955,16 @@ GET
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/private/stop-order/cancel \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","stop_order_id":"xxx","timestamp":{timestamp},"sign":"{sign}"}'
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Conditional</span><span class="p">.</span><span class="n">Conditional_cancel</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span> <span class="n">stop_order_id</span><span class="o">=</span><span class="s">""</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
+               <span class="n">api_key</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">cancel_conditional_order</span><span class="p">(</span>
+    <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span>
+    <span class="n">stop_order_id</span><span class="o">=</span><span class="s">"c1025629-e85b-4c26-b4f3-76e86ad9f8cb"</span>
+<span class="p">))</span>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -5906,9 +6044,15 @@ GET
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/private/stop-order/cancelAll \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","timestamp":{timestamp},"sign":"{sign}"}'
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Conditional</span><span class="p">.</span><span class="n">Conditional_cancelAll</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
+               <span class="n">api_key</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">cancel_all_conditional_orders</span><span class="p">(</span>
+    <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span>
+<span class="p">))</span>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -6124,10 +6268,17 @@ GET
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/private/stop-order/replace \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","stop_order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Conditional</span><span class="p">.</span><span class="n">Conditional_replace</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span> <span class="n">stop_order_id</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">p_r_trigger_price</span><span class="o">=</span><span class="s">"16003"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
-
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
+               <span class="n">api_key</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">replace_conditional_order</span><span class="p">(</span>
+    <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span>
+    <span class="n">stop_order_id</span><span class="o">=</span><span class="s">"378a1bbc-a93a-4e75-87f4-502ea754ba36"</span><span class="p">,</span>
+    <span class="n">p_r_trigger_price</span><span class="o">=</span><span class="mi">16003</span>
+<span class="p">))</span>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -6251,10 +6402,16 @@ GET
 <p>請求示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/private/stop-order?api_key={api_key}&amp;symbol=BTCUSD&amp;timestamp={timestamp}order_id={order_id}&amp;sign={sign}"
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Conditional</span><span class="p">.</span><span class="n">Conditional_query</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span> <span class="n">stop_order_id</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">p_r_trigger_price</span><span class="o">=</span><span class="s">"16003"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
-
+<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Conditional</span><span class="p">.</span><span class="n">Conditional_query</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span> <span class="n">stop_order_id</span><span class="o">=</span><span class="s">""</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
+               <span class="n">api_key</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">query_conditional_order</span><span class="p">(</span>
+    <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span>
+    <span class="n">stop_order_id</span><span class="o">=</span><span class="s">"378a1bbc-a93a-4e75-87f4-502ea754ba36"</span>
+<span class="p">))</span>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -6388,7 +6545,7 @@ GET
 <td style="text-align: left">stop_order_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>訂單ID</td>
+<td>條件委托訂單ID。</td>
 </tr>
 <tr>
 <td style="text-align: left">order_link_id</td>
@@ -6543,9 +6700,15 @@ GET
 <p>請求示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/private/position/list?api_key={api_key}&amp;symbol=BTCUSD&amp;timestamp={timestamp}&amp;sign={sign}"
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Positions</span><span class="p">.</span><span class="n">Positions_myPosition</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
+               <span class="n">api_key</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">my_position</span><span class="p">(</span>
+    <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span>
+<span class="p">))</span>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -6588,6 +6751,7 @@ GET
         <span class="dl">"</span><span class="s2">position_seq</span><span class="dl">"</span><span class="p">:</span> <span class="mi">287141589</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">created_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2019-10-19T17:04:55Z</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">updated_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2019-12-27T20:25:45.158767Z</span><span class="dl">"</span>
+        <span class="dl">"</span><span class="s2">tp_sl_mode</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Partial</span><span class="dl">"</span>
     <span class="p">},</span>
     <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1577480599.097287</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">119</span><span class="p">,</span>
@@ -6606,6 +6770,8 @@ GET
             <span class="dl">"</span><span class="s2">is_valid</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">//表示當前data對應的symbol數據是否可用</span>
             <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span> <span class="c1">//只有在<code>is_valid</code>為<b>true</b>時，<code>data</code>才可用，否則請不要使用data</span>
                 <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">position_idx</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">mode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">118921</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">risk_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSD</span><span class="dl">"</span><span class="p">,</span>
@@ -6637,6 +6803,7 @@ GET
                 <span class="dl">"</span><span class="s2">position_seq</span><span class="dl">"</span><span class="p">:</span> <span class="mi">581513847</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">created_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2020-08-10T07:04:32Z</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">updated_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2020-11-02T00:00:11.943371457Z</span><span class="dl">"</span>
+                <span class="dl">"</span><span class="s2">tp_sl_mode</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Partial</span><span class="dl">"</span>
             <span class="p">}</span>
         <span class="p">},</span>
         <span class="p">...</span>
@@ -6644,6 +6811,8 @@ GET
             <span class="dl">"</span><span class="s2">is_valid</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">//表示當前data對應的symbol數據是否可用</span>
             <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span> <span class="c1">//只有在<code>is_valid</code>為<b>true</b>時，<code>data</code>才可用，否則請不要使用data</span>
                 <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">position_idx</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">mode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">118921</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">risk_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">35</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">XRPUSD</span><span class="dl">"</span><span class="p">,</span>
@@ -6675,6 +6844,7 @@ GET
                 <span class="dl">"</span><span class="s2">position_seq</span><span class="dl">"</span><span class="p">:</span> <span class="mi">352149441</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">created_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2020-08-10T07:04:32Z</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">updated_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2020-08-22T08:06:32Z</span><span class="dl">"</span>
+                <span class="dl">"</span><span class="s2">tp_sl_mode</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Partial</span><span class="dl">"</span>
             <span class="p">}</span>
         <span class="p">}</span>
     <span class="p">],</span>
@@ -6723,6 +6893,16 @@ GET
 <td style="text-align: left">id</td>
 <td style="text-align: left">number</td>
 <td>倉位ID</td>
+</tr>
+<tr>
+<td style="text-align: left">position_idx</td>
+<td style="text-align: left">integer</td>
+<td>Position idx, 用於在不同倉位模式下標識倉位：<br/>0-單向持倉 <br/>1-雙向持倉Buy<br/> 2-雙向持倉Sell</td>
+</tr>
+<tr>
+<td style="text-align: left">mode</td>
+<td style="text-align: left">number</td>
+<td>倉位模式</td>
 </tr>
 <tr>
 <td style="text-align: left">user_id</td>
@@ -6892,9 +7072,16 @@ GET
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/private/position/change-position-margin \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD",margin:"10","timestamp":{timestamp},"sign":"{sign}"}'
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Positions</span><span class="p">.</span><span class="n">Positions_changeMargin</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span> <span class="n">margin</span><span class="o">=</span><span class="s">"10"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
+               <span class="n">api_key</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">change_margin</span><span class="p">(</span>
+    <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span>
+    <span class="n">margin</span><span class="o">=</span><span class="mf">0.00001</span>
+<span class="p">))</span>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -6903,7 +7090,7 @@ GET
     <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="mf">9.996</span><span class="nx">e</span><span class="o">-</span><span class="mi">05</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="mf">0.00000997</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1577480720.003444</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">74</span><span class="p">,</span>
@@ -6969,9 +7156,16 @@ GET
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/private/position/trading-stop \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","stop_loss":7000,"timestamp":{timestamp},"sign":"{sign}"}'
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Positions</span><span class="p">.</span><span class="n">Positions_tradingStop</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span><span class="n">stop_loss</span><span class="o">=</span><span class="s">"7000"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
+               <span class="n">api_key</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">set_trading_stop</span><span class="p">(</span>
+    <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span>
+    <span class="n">stop_loss</span><span class="o">=</span><span class="mi">7000</span>
+<span class="p">))</span>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -7280,9 +7474,16 @@ GET
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/private/position/leverage/save \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","buy_leverage":14,"sell_leverage":14,"timestamp":{timestamp},"sign":"{sign}"}'
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Positions</span><span class="p">.</span><span class="n">Positions_saveLeverage</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span> <span class="n">leverage</span><span class="o">=</span><span class="s">"14"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
+               <span class="n">api_key</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">set_leverage</span><span class="p">(</span>
+    <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span>
+    <span class="n">leverage</span><span class="o">=</span><span class="mi">2</span>
+<span class="p">))</span>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -7335,7 +7536,7 @@ GET
 </tr>
 <tr>
 <td style="text-align: left">leverage_only</td>
-<td style="text-align: left"><b>false</b></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">bool</td>
 <td>該字段表明一個兼容邏輯。 <br>若該字段為<code>false</code>,當<code>leverage </code>等於<code>0</code>時將會切換至全倉,當<code>leverage</code>大於<code>0</code>將切換至逐倉，此時無法在全倉下設置杠桿;<br>若該字段為<code>true</code>則表示在當前倉位模式下切換杠桿，此時<code>leverage</code>需要大於<code>0</code>,並可以使用全倉切換杠桿功能。</br>我們建議用戶<code>leverage</code>設置為<code>true</code></td>
 </tr>
@@ -7366,9 +7567,15 @@ GET
 <p>請求示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/private/execution/list?api_key={api_key}&amp;symbol=BTCUSD&amp;timestamp={timestamp}&amp;sign={sign}"
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Execution</span><span class="p">.</span><span class="n">Execution_getTrades</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
+               <span class="n">api_key</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">user_trade_records</span><span class="p">(</span>
+    <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span>
+<span class="p">))</span>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -7593,9 +7800,15 @@ GET
 <p>請求示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/private/trade/closed-pnl/list?api_key={api_key}&amp;symbol=BTCUSD&amp;timestamp={timestamp}&amp;sign={sign}"
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Positions</span><span class="p">.</span><span class="n">Positions_closePnlRecords</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
+               <span class="n">api_key</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">closed_profit_and_loss</span><span class="p">(</span>
+    <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span>
+<span class="p">))</span>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -7792,61 +8005,18 @@ GET
 <td>創建時間</td>
 </tr>
 </tbody></table>
-<h3 id='t-switchpositionmode'>切換倉位模式</h3>
+<h3 id='t-switchmode'>切換止盈止損模式</h3>
 <blockquote>
 <p>請求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/private/position/switch-mode \
--H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSD","mode":0,"timestamp":{timestamp},"sign":"{sign}"}'
-</span></code></pre></div>
-<blockquote>
-<p>響應示例</p>
-</blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1577477968.175013</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">74</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1577477968183</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">75</span>
-<span class="p">}</span>
+<div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
+               <span class="n">api_key</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">full_partial_position_tp_sl_switch</span><span class="p">(</span>
+    <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span>
+    <span class="n">tp_sl_mode</span><span class="o">=</span><span class="s">"Partial"</span>
+<span class="p">))</span>
 </code></pre></div>
-<p>單倉模式下，只能在單方向下持倉<br/>雙倉模式下，可以同時在兩個方向持倉。</p>
-
-<p class="fake_header">HTTP 請求</p>
-
-<p>POST
-<code><span id=ulSwitchMode>/v2/private/position/switch-mode</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ulSwitchMode"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
-
-<p class="fake_header">請求參數</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">參數</th>
-<th style="text-align: left">是否必須</th>
-<th style="text-align: left">類型</th>
-<th>說明</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">string</td>
-<td>合約類型</td>
-</tr>
-<tr>
-<td style="text-align: left">mode</td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">int</td>
-<td>倉位模式<span>:</span> 0 - 單倉模式  3 - 雙倉模式</td>
-</tr>
-</tbody></table>
-<h3 id='t-switchmode'>切換止盈止損模式</h3>
 <blockquote>
 <p>響應示例</p>
 </blockquote>
@@ -7863,7 +8033,6 @@ GET
     <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1598266294607</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">75</span>
 <span class="p">}</span>
-
 </code></pre></div>
 <p>切換止盈止損模式至全倉或部分</p>
 
@@ -7923,7 +8092,16 @@ GET
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/private/position/switch-isolated \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD", "is_isolated":true,"buy_leverage":10,"sell_leverage":20, "timestamp":{timestamp},"sign":"{sign}"}'
-</span></code></pre></div>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
+               <span class="n">api_key</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">cross_isolated_margin_switch</span><span class="p">(</span>
+    <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span>
+    <span class="n">is_isolated</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+    <span class="n">buy_leverage</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">sell_leverage</span><span class="o">=</span><span class="mi">20</span>
+<span class="p">))</span>
+</code></pre></div>
 <blockquote>
 <p>響應示例</p>
 </blockquote>
@@ -7987,9 +8165,14 @@ GET
 <p>請求示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/public/risk-limit/list?symbol=BTCUSD"
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Wallet</span><span class="p">.</span><span class="n">Wallet_getRiskLimit</span><span class="p">().</span><span class="n">result</span><span class="p">())</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">get_risk_limit</span><span class="p">(</span>
+    <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span>
+<span class="p">))</span>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -8144,7 +8327,14 @@ GET
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/private/position/risk-limit \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","risk_id":2,"timestamp":{timestamp},"sign":"{sign}"}'
-</span></code></pre></div>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
+               <span class="n">api_key</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">set_risk_limit</span><span class="p">(</span>
+    <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span>
+    <span class="n">risk_id</span><span class="o">=</span><span class="mi">2</span>
+<span class="p">))</span>
+</code></pre></div>
 <blockquote>
 <p>響應示例</p>
 </blockquote>
@@ -8213,10 +8403,15 @@ GET
 <blockquote>
 <p>請求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/public/funding/prev-funding-rate?api_key={api_key}&amp;symbol=BTCUSD&amp;timestamp={timestamp}&amp;sign={sign}"
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/public/funding/prev-funding-rate?symbol=BTCUSD"
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Funding</span><span class="p">.</span><span class="n">Funding_prevRate</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">get_the_last_funding_rate</span><span class="p">(</span>
+    <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span>
+<span class="p">))</span>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -8293,9 +8488,14 @@ GET
 <p>請求示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/private/funding/prev-funding?api_key={api_key}&amp;symbol=BTCUSD&amp;timestamp={timestamp}&amp;sign={sign}"
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Funding</span><span class="p">.</span><span class="n">Funding_myLastFee</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">get_the_last_funding_rate</span><span class="p">(</span>
+    <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span>
+<span class="p">))</span>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -8393,9 +8593,15 @@ GET
 <p>請求示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/private/funding/predicted-funding?api_key={api_key}&amp;symbol=BTCUSD&amp;timestamp={timestamp}&amp;sign={sign}"
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Funding</span><span class="p">.</span><span class="n">Funding_predicted</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
+               <span class="n">api_key</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">predicted_funding_rate</span><span class="p">(</span>
+    <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span>
+<span class="p">))</span>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -8466,9 +8672,13 @@ GET
 <p>請求示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/private/account/api-key?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}"
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">APIkey</span><span class="p">.</span><span class="n">APIkey_info</span><span class="p">().</span><span class="n">result</span><span class="p">())</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
+               <span class="n">api_key</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">api_key_info</span><span class="p">())</span>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -8588,7 +8798,13 @@ GET
 <p>請求示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/private/account/lcp?api_key={api_key}&amp;symbol=BTCUSD&amp;timestamp={timestamp}&amp;sign={sign}"
-</span></code></pre></div>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
+               <span class="n">api_key</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">lcp_info</span><span class="p">(</span>
+    <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span>
+<span class="p">))</span>
+</code></pre></div>
 <blockquote>
 <p>響應示例</p>
 </blockquote>
@@ -8675,6 +8891,60 @@ GET
 <td>流動性貢獻分</td>
 </tr>
 </tbody></table>
+<h2 id='t-switchpositionmode'>切換倉位模式</h2>
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/private/position/switch-mode \
+-H "Content-Type: application/json" \
+-d '{"api_key":"{api_key}","symbol":"BTCUSD","mode":0,"timestamp":{timestamp},"sign":"{sign}"}'
+</span></code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1577477968.175013</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">74</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1577477968183</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">75</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>單倉模式下，只能在單方向下持倉<br/>雙倉模式下，可以同時在兩個方向持倉。</p>
+
+<p class="fake_header">HTTP 請求</p>
+
+<p>POST
+<code><span id=ulSwitchMode>/v2/private/position/switch-mode</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ulSwitchMode"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>合約類型</td>
+</tr>
+<tr>
+<td style="text-align: left">mode</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">int</td>
+<td>倉位模式<span>:</span> 0 - 單倉模式  3 - 雙倉模式</td>
+</tr>
+</tbody></table>
 <h1 id='t-wallet'>錢包接口</h1>
 <p>錢包相關接口需要認證。</p>
 <h3 id='t-balance'>賬號余額</h3>
@@ -8682,9 +8952,13 @@ GET
 <p>請求示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/private/wallet/balance?api_key={api_key}&amp;coin=BTC&amp;timestamp={timestamp}&amp;sign={sign}"
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Wallet</span><span class="p">.</span><span class="n">Wallet_getBalance</span><span class="p">(</span><span class="n">coin</span><span class="o">=</span><span class="s">"BTC"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
+               <span class="n">api_key</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">get_wallet_balance</span><span class="p">(</span><span class="n">coin</span><span class="o">=</span><span class="s">"BTC"</span><span class="p">))</span>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -8840,9 +9114,13 @@ GET
 <p>請求示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/private/wallet/fund/records?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}"
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Wallet</span><span class="p">.</span><span class="n">Wallet_getRecords</span><span class="p">().</span><span class="n">result</span><span class="p">())</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
+               <span class="n">api_key</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">wallet_fund_records</span><span class="p">())</span>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -9018,9 +9296,13 @@ GET
 <p>請求示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/private/wallet/withdraw/list?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}"
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Wallet</span><span class="p">.</span><span class="n">Wallet_withdraw</span><span class="p">().</span><span class="n">result</span><span class="p">())</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
+               <span class="n">api_key</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">withdraw_records</span><span class="p">())</span>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -9172,7 +9454,11 @@ GET
 <p>請求示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/private/exchange-order/list?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}"
-</span></code></pre></div>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
+               <span class="n">api_key</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">asset_exchange_records</span><span class="p">())</span>
+</code></pre></div>
 <blockquote>
 <p>響應示例</p>
 </blockquote>
@@ -9300,9 +9586,12 @@ GET
 <p>請求示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/v2/public/time
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Common</span><span class="p">.</span><span class="n">Common_getTime</span><span class="p">().</span><span class="n">result</span><span class="p">())</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">server_time</span><span class="p">())</span>  
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -9624,7 +9913,7 @@ B用戶：
 <p>方法1: 建立連接時附帶驗證信息.
 </p>
 </blockquote>
-<div class="highlight"><pre class="highlight python tab-python"><code><span class="c1"># based on: https://github.com/verata-veritatis/pybit/blob/master/pybit/__init__.py
+<div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="c1"># based on: https://github.com/verata-veritatis/pybit/blob/master/pybit/__init__.py
 </span>
 <span class="kn">import</span> <span class="nn">hmac</span>
 <span class="kn">import</span> <span class="nn">json</span>
@@ -9662,7 +9951,7 @@ B用戶：
 <p>方法2: 建立連接後發送auth請求驗證.
 </p>
 </blockquote>
-<div class="highlight"><pre class="highlight python tab-python"><code><span class="n">ws</span> <span class="o">=</span> <span class="n">websocket</span><span class="p">.</span><span class="n">WebSocketApp</span><span class="p">(</span>
+<div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="n">ws</span> <span class="o">=</span> <span class="n">websocket</span><span class="p">.</span><span class="n">WebSocketApp</span><span class="p">(</span>
     <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span>
     <span class="p">...</span>
 <span class="p">)</span>
@@ -9675,7 +9964,7 @@ B用戶：
     <span class="p">})</span>
 <span class="p">)</span>
 </code></pre></div>
-<p>Websocket服務器地址:
+<p><p>Websocket服務器地址:</p>
 <ul>
 <p>
   <li>測試網:
@@ -9802,12 +10091,24 @@ B用戶：
 <p>請求訂閱</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op": "subscribe", "args": ["orderBookL2_25.BTCUSD"]}</span><span class="dl">'</span><span class="p">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">BybitWebsocket</span> <span class="kn">import</span> <span class="n">BybitWebsocket</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">from</span> <span class="nn">BybitWebsocket</span> <span class="kn">import</span> <span class="n">BybitWebsocket</span>
 <span class="n">ws</span> <span class="o">=</span> <span class="n">BybitWebsocket</span><span class="p">(</span><span class="n">wsURL</span><span class="o">=</span><span class="s">"wss://stream-testnet.bybit.com/realtime"</span><span class="p">,</span>
                     <span class="n">api_key</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
 <span class="n">ws</span><span class="p">.</span><span class="n">subscribe_orderBookL2</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">)</span>
 <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">ws</span><span class="p">.</span><span class="n">get_data</span><span class="p">(</span><span class="s">"orderBookL2_25.BTCUSD"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">data</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">WebSocket</span>
+<span class="n">subs</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s">"orderBookL2_25.BTCUSD"</span>
+<span class="p">]</span>
+<span class="n">ws</span> <span class="o">=</span> <span class="n">WebSocket</span><span class="p">(</span>
+    <span class="s">"wss://stream-testnet.bybit.com/realtime"</span><span class="p">,</span>
+    <span class="n">subscriptions</span><span class="o">=</span><span class="n">subs</span>
+<span class="p">)</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">ws</span><span class="p">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">subs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
     <span class="k">if</span> <span class="n">data</span><span class="p">:</span>
         <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </code></pre></div>
@@ -9921,6 +10222,18 @@ B用戶：
 <p>請求訂閱</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op": "subscribe", "args": ["orderBook_200.100ms.BTCUSD"]}</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">WebSocket</span>
+<span class="n">subs</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s">"orderBook_200.100ms.BTCUSD"</span>
+<span class="p">]</span>
+<span class="n">ws</span> <span class="o">=</span> <span class="n">WebSocket</span><span class="p">(</span>
+    <span class="s">"wss://stream-testnet.bybit.com/realtime"</span><span class="p">,</span>
+    <span class="n">subscriptions</span><span class="o">=</span><span class="n">subs</span>
+<span class="p">)</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">ws</span><span class="p">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">subs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">data</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
 <p>快照推送示例 - 連接建立成功後首次推送</p>
@@ -10027,12 +10340,24 @@ B用戶：
 <p>請求訂閱</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op": "subscribe", "args": ["trade"]}</span><span class="dl">'</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">BybitWebsocket</span> <span class="kn">import</span> <span class="n">BybitWebsocket</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">from</span> <span class="nn">BybitWebsocket</span> <span class="kn">import</span> <span class="n">BybitWebsocket</span>
 <span class="n">ws</span> <span class="o">=</span> <span class="n">BybitWebsocket</span><span class="p">(</span><span class="n">wsURL</span><span class="o">=</span><span class="s">"wss://stream-testnet.bybit.com/realtime"</span><span class="p">,</span>
                     <span class="n">api_key</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
 <span class="n">ws</span><span class="p">.</span><span class="n">subscribe_trade</span><span class="p">()</span>
 <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">ws</span><span class="p">.</span><span class="n">get_data</span><span class="p">(</span><span class="s">"trade.BTCUSD"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">data</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">WebSocket</span>
+<span class="n">subs</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s">"trade"</span>
+<span class="p">]</span>
+<span class="n">ws</span> <span class="o">=</span> <span class="n">WebSocket</span><span class="p">(</span>
+    <span class="s">"wss://stream-testnet.bybit.com/realtime"</span><span class="p">,</span>
+    <span class="n">subscriptions</span><span class="o">=</span><span class="n">subs</span>
+<span class="p">)</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">ws</span><span class="p">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">subs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
     <span class="k">if</span> <span class="n">data</span><span class="p">:</span>
         <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </code></pre></div>
@@ -10118,12 +10443,24 @@ B用戶：
 <p>請求訂閱</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op": "subscribe", "args": ["insurance"]}</span><span class="dl">'</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">BybitWebsocket</span> <span class="kn">import</span> <span class="n">BybitWebsocket</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">from</span> <span class="nn">BybitWebsocket</span> <span class="kn">import</span> <span class="n">BybitWebsocket</span>
 <span class="n">ws</span> <span class="o">=</span> <span class="n">BybitWebsocket</span><span class="p">(</span><span class="n">wsURL</span><span class="o">=</span><span class="s">"wss://stream-testnet.bybit.com/realtime"</span><span class="p">,</span>
                     <span class="n">api_key</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
 <span class="n">ws</span><span class="p">.</span><span class="n">subscribe_insurance</span><span class="p">()</span>
 <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">ws</span><span class="p">.</span><span class="n">get_data</span><span class="p">(</span><span class="s">"insurance.BTC"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">data</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">WebSocket</span>
+<span class="n">subs</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s">"insurance.BTC"</span>
+<span class="p">]</span>
+<span class="n">ws</span> <span class="o">=</span> <span class="n">WebSocket</span><span class="p">(</span>
+    <span class="s">"wss://stream-testnet.bybit.com/realtime"</span><span class="p">,</span>
+    <span class="n">subscriptions</span><span class="o">=</span><span class="n">subs</span>
+<span class="p">)</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">ws</span><span class="p">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">subs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
     <span class="k">if</span> <span class="n">data</span><span class="p">:</span>
         <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </code></pre></div>
@@ -10177,12 +10514,24 @@ B用戶：
 <p>請求訂閱</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op": "subscribe", "args": ["instrument_info.100ms.BTCUSD"]}</span><span class="dl">'</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">BybitWebsocket</span> <span class="kn">import</span> <span class="n">BybitWebsocket</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">from</span> <span class="nn">BybitWebsocket</span> <span class="kn">import</span> <span class="n">BybitWebsocket</span>
 <span class="n">ws</span> <span class="o">=</span> <span class="n">BybitWebsocket</span><span class="p">(</span><span class="n">wsURL</span><span class="o">=</span><span class="s">"wss://stream-testnet.bybit.com/realtime"</span><span class="p">,</span>
                     <span class="n">api_key</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
 <span class="n">ws</span><span class="p">.</span><span class="n">subscribe_instrument_info</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">)</span>
 <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">ws</span><span class="p">.</span><span class="n">get_data</span><span class="p">(</span><span class="s">"instrument_info.100ms.BTCUSD"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">data</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">WebSocket</span>
+<span class="n">subs</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s">"instrument_info.100ms.BTCUSD"</span>
+<span class="p">]</span>
+<span class="n">ws</span> <span class="o">=</span> <span class="n">WebSocket</span><span class="p">(</span>
+    <span class="s">"wss://stream-testnet.bybit.com/realtime"</span><span class="p">,</span>
+    <span class="n">subscriptions</span><span class="o">=</span><span class="n">subs</span>
+<span class="p">)</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">ws</span><span class="p">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">subs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
     <span class="k">if</span> <span class="n">data</span><span class="p">:</span>
         <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </code></pre></div>
@@ -10192,7 +10541,7 @@ B用戶：
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
     <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">instrument_info.100ms.BTCUSD</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">snapshot</span><span class="dl">"</span><span class="p">,</span>
-     <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
          <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
          <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSD</span><span class="dl">"</span><span class="p">,</span>                           <span class="c1">//instrument name</span>
          <span class="dl">"</span><span class="s2">last_price_e4</span><span class="dl">"</span><span class="p">:</span> <span class="mi">81165000</span><span class="p">,</span>                    <span class="c1">//the latest price</span>
@@ -10229,7 +10578,8 @@ B用戶：
          <span class="dl">"</span><span class="s2">updated_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2020-01-12T18:25:16Z</span><span class="dl">"</span><span class="p">,</span>         
          <span class="dl">"</span><span class="s2">next_funding_time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2020-01-13T00:00:00Z</span><span class="dl">"</span><span class="p">,</span>  <span class="c1">//next funding time</span>
                                                        <span class="c1">//the rest time to settle funding fee</span>
-         <span class="dl">"</span><span class="s2">countdown_hour</span><span class="dl">"</span><span class="p">:</span> <span class="mi">6</span>                           <span class="c1">//the remaining time to settle the funding fee     },</span>
+         <span class="dl">"</span><span class="s2">countdown_hour</span><span class="dl">"</span><span class="p">:</span> <span class="mi">6</span>                           <span class="c1">//the remaining time to settle the funding fee</span>
+         <span class="p">},</span>
     <span class="dl">"</span><span class="s2">cross_seq</span><span class="dl">"</span><span class="p">:</span><span class="mi">9267002</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">timestamp_e6</span><span class="dl">"</span><span class="p">:</span><span class="mi">1615794861826248</span>
 <span class="p">}</span>
@@ -10442,6 +10792,18 @@ B用戶：
 <p>請求訂閱</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["klineV2.1.BTCUSD"]}</span><span class="dl">'</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">WebSocket</span>
+<span class="n">subs</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s">"klineV2.1.BTCUSD"</span>
+<span class="p">]</span>
+<span class="n">ws</span> <span class="o">=</span> <span class="n">WebSocket</span><span class="p">(</span>
+    <span class="s">"wss://stream-testnet.bybit.com/realtime"</span><span class="p">,</span>
+    <span class="n">subscriptions</span><span class="o">=</span><span class="n">subs</span>
+<span class="p">)</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">ws</span><span class="p">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">subs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">data</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -10544,6 +10906,18 @@ B用戶：
 <p>請求訂閱</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["liquidation"]}</span><span class="dl">'</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">WebSocket</span>
+<span class="n">subs</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s">"liquidation"</span>
+<span class="p">]</span>
+<span class="n">ws</span> <span class="o">=</span> <span class="n">WebSocket</span><span class="p">(</span>
+    <span class="s">"wss://stream-testnet.bybit.com/realtime"</span><span class="p">,</span>
+    <span class="n">subscriptions</span><span class="o">=</span><span class="n">subs</span>
+<span class="p">)</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">ws</span><span class="p">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">subs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">data</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -10601,12 +10975,25 @@ B用戶：
 <p>請求訂閱</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op": "subscribe", "args": ["position"]}</span><span class="dl">'</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">BybitWebsocket</span> <span class="kn">import</span> <span class="n">BybitWebsocket</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">from</span> <span class="nn">BybitWebsocket</span> <span class="kn">import</span> <span class="n">BybitWebsocket</span>
 <span class="n">ws</span> <span class="o">=</span> <span class="n">BybitWebsocket</span><span class="p">(</span><span class="n">wsURL</span><span class="o">=</span><span class="s">"wss://stream-testnet.bybit.com/realtime"</span><span class="p">,</span>
                     <span class="n">api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="n">api_secret</span><span class="p">)</span>
 <span class="n">ws</span><span class="p">.</span><span class="n">subscribe_position</span><span class="p">()</span>
 <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">ws</span><span class="p">.</span><span class="n">get_data</span><span class="p">(</span><span class="s">"position"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">data</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">WebSocket</span>
+<span class="n">subs</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s">"position"</span>
+<span class="p">]</span>
+<span class="n">ws</span> <span class="o">=</span> <span class="n">WebSocket</span><span class="p">(</span>
+    <span class="s">"wss://stream-testnet.bybit.com/realtime"</span><span class="p">,</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">""</span><span class="p">,</span>
+    <span class="n">subscriptions</span><span class="o">=</span><span class="n">subs</span>
+<span class="p">)</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">ws</span><span class="p">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">subs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
     <span class="k">if</span> <span class="n">data</span><span class="p">:</span>
         <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </code></pre></div>
@@ -10807,12 +11194,25 @@ B用戶：
 <p>請求訂閱</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op": "subscribe", "args": ["execution"]}</span><span class="dl">'</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">BybitWebsocket</span> <span class="kn">import</span> <span class="n">BybitWebsocket</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">from</span> <span class="nn">BybitWebsocket</span> <span class="kn">import</span> <span class="n">BybitWebsocket</span>
 <span class="n">ws</span> <span class="o">=</span> <span class="n">BybitWebsocket</span><span class="p">(</span><span class="n">wsURL</span><span class="o">=</span><span class="s">"wss://stream-testnet.bybit.com/realtime"</span><span class="p">,</span>
                     <span class="n">api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="n">api_secret</span><span class="p">)</span>
 <span class="n">ws</span><span class="p">.</span><span class="n">subscribe_execution</span><span class="p">()</span>
 <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">ws</span><span class="p">.</span><span class="n">get_data</span><span class="p">(</span><span class="s">"execution"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">data</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">WebSocket</span>
+<span class="n">subs</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s">"execution"</span>
+<span class="p">]</span>
+<span class="n">ws</span> <span class="o">=</span> <span class="n">WebSocket</span><span class="p">(</span>
+    <span class="s">"wss://stream-testnet.bybit.com/realtime"</span><span class="p">,</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">""</span><span class="p">,</span>
+    <span class="n">subscriptions</span><span class="o">=</span><span class="n">subs</span>
+<span class="p">)</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">ws</span><span class="p">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">subs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
     <span class="k">if</span> <span class="n">data</span><span class="p">:</span>
         <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </code></pre></div>
@@ -10922,12 +11322,25 @@ B用戶：
 <p>請求訂閱</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op": "subscribe", "args": ["order"]}</span><span class="dl">'</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">BybitWebsocket</span> <span class="kn">import</span> <span class="n">BybitWebsocket</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">from</span> <span class="nn">BybitWebsocket</span> <span class="kn">import</span> <span class="n">BybitWebsocket</span>
 <span class="n">ws</span> <span class="o">=</span> <span class="n">BybitWebsocket</span><span class="p">(</span><span class="n">wsURL</span><span class="o">=</span><span class="s">"wss://stream-testnet.bybit.com/realtime"</span><span class="p">,</span>
                     <span class="n">api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="n">api_secret</span><span class="p">)</span>
 <span class="n">ws</span><span class="p">.</span><span class="n">subscribe_order</span><span class="p">()</span>
 <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">ws</span><span class="p">.</span><span class="n">get_data</span><span class="p">(</span><span class="s">"order"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">data</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">WebSocket</span>
+<span class="n">subs</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s">"order"</span>
+<span class="p">]</span>
+<span class="n">ws</span> <span class="o">=</span> <span class="n">WebSocket</span><span class="p">(</span>
+    <span class="s">"wss://stream-testnet.bybit.com/realtime"</span><span class="p">,</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">""</span><span class="p">,</span>
+    <span class="n">subscriptions</span><span class="o">=</span><span class="n">subs</span>
+<span class="p">)</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">ws</span><span class="p">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">subs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
     <span class="k">if</span> <span class="n">data</span><span class="p">:</span>
         <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </code></pre></div>
@@ -11095,6 +11508,19 @@ B用戶：
 <p>請求訂閱</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op": "subscribe", "args": ["stop_order"]}</span><span class="dl">'</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">WebSocket</span>
+<span class="n">subs</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s">"stop_order"</span>
+<span class="p">]</span>
+<span class="n">ws</span> <span class="o">=</span> <span class="n">WebSocket</span><span class="p">(</span>
+    <span class="s">"wss://stream-testnet.bybit.com/realtime"</span><span class="p">,</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">""</span><span class="p">,</span>
+    <span class="n">subscriptions</span><span class="o">=</span><span class="n">subs</span>
+<span class="p">)</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">ws</span><span class="p">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">subs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">data</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -11836,7 +12262,7 @@ ELSE
 <p>請求示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/public/liq-records?symbol=BTCUSD
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Market</span><span class="p">.</span><span class="n">Market_liqRecords</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
 </code></pre></div>
@@ -11957,7 +12383,7 @@ ELSE
 <p>請求示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/user/leverage?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}"
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Positions</span><span class="p">.</span><span class="n">userLeverage</span><span class="p">())</span>
 </code></pre></div>
@@ -12044,7 +12470,7 @@ ELSE
 <p>請求示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/open-api/order/list?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}&amp;symbol=BTCUSD"
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Order</span><span class="p">.</span><span class="n">Order_getOrders</span><span class="p">().</span><span class="n">result</span><span class="p">())</span>
 </code></pre></div>
@@ -12308,7 +12734,7 @@ ELSE
 <p>請求示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/open-api/stop-order/list?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}"
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Conditional</span><span class="p">.</span><span class="n">Conditional_getOrders</span><span class="p">().</span><span class="n">result</span><span class="p">())</span>
 </code></pre></div>
@@ -12527,7 +12953,7 @@ ELSE
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/open-api/stop-order/create \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","order_type":"Limit","side":"Buy","symbol":"BTCUSD","qty":1,"price":8100,"base_price":8300,"stop_px":8150,"time_in_force":"GoodTillCancel","order_link_id":"cus_order_id_1","timestamp":{timestamp},"sign":"{sign}"}'
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Conditional</span><span class="p">.</span><span class="n">Conditional_new</span><span class="p">(</span><span class="n">order_type</span><span class="o">=</span><span class="s">"Limit"</span><span class="p">,</span><span class="n">side</span><span class="o">=</span><span class="s">"Buy"</span><span class="p">,</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span><span class="n">qty</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">price</span><span class="o">=</span><span class="mi">8100</span><span class="p">,</span><span class="n">base_price</span><span class="o">=</span><span class="mi">8300</span><span class="p">,</span><span class="n">stop_px</span><span class="o">=</span><span class="mi">8150</span><span class="p">,</span><span class="n">time_in_force</span><span class="o">=</span><span class="s">"GoodTillCancel"</span><span class="p">,</span> <span class="n">order_link_id</span><span class="o">=</span><span class="s">"cus_order_id_1"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
 </code></pre></div>
@@ -12815,7 +13241,7 @@ ELSE
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/open-api/stop-order/cancel \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Conditional</span><span class="p">.</span><span class="n">Conditional_cancel</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span> <span class="n">order_id</span><span class="o">=</span><span class="s">""</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
 </code></pre></div>
@@ -12987,7 +13413,7 @@ ELSE
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/open-api/stop-order/replace \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","stop_order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Conditional</span><span class="p">.</span><span class="n">Conditional_replace</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span> <span class="n">stop_order_id</span><span class="o">=</span><span class="s">""</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
 </code></pre></div>
@@ -13097,7 +13523,7 @@ ELSE
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/open-api/order/replace \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Order</span><span class="p">.</span><span class="n">Order_Replace</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span> <span class="n">order_id</span><span class="o">=</span><span class="s">""</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
 </code></pre></div>
@@ -13192,7 +13618,7 @@ ELSE
 <p>請求示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/open-api/wallet/risk-limit/list?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}"
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Wallet</span><span class="p">.</span><span class="n">Wallet_getRiskLimit</span><span class="p">().</span><span class="n">result</span><span class="p">())</span>
 </code></pre></div>
@@ -13358,7 +13784,7 @@ ELSE
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/open-api/wallet/risk-limit \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","risk_id":2,"timestamp":{timestamp},"sign":"{sign}"}'
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Wallet</span><span class="p">.</span><span class="n">Wallet_setRiskLimit</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span> <span class="n">risk_id</span><span class="o">=</span><span class="mi">2</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
 </code></pre></div>
@@ -13676,7 +14102,8 @@ ELSE
       <div class="dark-box">
           <div class="lang-selector">
                 <a href="#" data-language-name="console">console</a>
-                <a href="#" data-language-name="python">python</a>
+                <a href="#" data-language-name="python--pybit">python</a>
+                <a href="#" data-language-name="python--old">old_python</a>
           </div>
       </div>
     </div>
