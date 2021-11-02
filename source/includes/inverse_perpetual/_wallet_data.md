@@ -15,6 +15,13 @@ client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
 print(client.Wallet.Wallet_getBalance(coin="BTC").result())
 ```
 
+```python--pybit
+from pybit import HTTP
+session = HTTP("https://api-testnet.bybit.com",
+               api_key="", api_secret="")
+print(session.get_wallet_balance(coin="BTC"))
+```
+
 > t(:codequote_responseExample)
 
 ```javascript
@@ -105,6 +112,13 @@ curl "https://api.bybit.com/v2/private/wallet/fund/records?api_key={api_key}&tim
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
 print(client.Wallet.Wallet_getRecords().result())
+```
+
+```python--pybit
+from pybit import HTTP
+session = HTTP("https://api-testnet.bybit.com",
+               api_key="", api_secret="")
+print(session.wallet_fund_records())
 ```
 
 > t(:codequote_responseExample)
@@ -206,6 +220,13 @@ client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
 print(client.Wallet.Wallet_withdraw().result())
 ```
 
+```python--pybit
+from pybit import HTTP
+session = HTTP("https://api-testnet.bybit.com",
+               api_key="", api_secret="")
+print(session.withdraw_records())
+```
+
 > t(:codequote_responseExample)
 
 ```javascript
@@ -276,6 +297,13 @@ GET
 
 ```console
 curl "https://api.bybit.com/v2/private/exchange-order/list?api_key={api_key}&timestamp={timestamp}&sign={sign}"
+```
+
+```python--pybit
+from pybit import HTTP
+session = HTTP("https://api-testnet.bybit.com",
+               api_key="", api_secret="")
+print(session.asset_exchange_records())
 ```
 
 > t(:codequote_responseExample)

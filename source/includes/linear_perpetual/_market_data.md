@@ -254,6 +254,18 @@ client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
 print(client.LinearKline.LinearKline_markPrice(symbol="BTCUSDT", interval="m", limit=10, **{'from':1}).result())
 ```
 
+```python--pybit
+from pybit import HTTP
+session = HTTP("https://api-testnet.bybit.com",
+               api_key="", api_secret="")
+print(session.query_mark_price_kline(
+    symbol="BTCUSDT",
+    interval=1,
+    limit=2,
+    from_time=1581231260
+)
+```
+
 > t(:codequote_responseExample)
 
 ```javascript
@@ -324,6 +336,18 @@ curl "https://api.bybit.com/public/linear/index-price-kline?symbol=BTCUSDT&inter
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
 print(client.LinearKline.LinearKline_indexPrice().result())
+```
+
+```python--pybit
+from pybit import HTTP
+session = HTTP("https://api-testnet.bybit.com",
+               api_key="", api_secret="")
+print(session.query_index_price_kline(
+    symbol="BTCUSDT",
+    interval=1,
+    limit=2,
+    from_time=1581231260
+)
 ```
 
 > t(:codequote_responseExample)
