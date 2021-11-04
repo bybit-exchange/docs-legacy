@@ -2372,6 +2372,10 @@ print(session.get_the_last_funding_rate(
 }
 ```
 
+<aside class="notice">
+t(:fundingRate_notice)
+</aside>
+
 t(:market_para_fundingRate)
 
 <p class="fake_header">t(:httprequest)</p>
