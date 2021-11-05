@@ -1086,7 +1086,7 @@ t(:spot_private_topics_auth_sub)
 ```python--pybit
 from pybit import WebSocket
 ws = WebSocket(
-    "wss://stream.bybit.com/spot/quote/ws/v2",
+    "wss://stream.bybit.com/spot/ws",
     api_key="", api_secret=""
 )
 while True:
@@ -1140,7 +1140,7 @@ t(:spot_public_websocket_frequency_realtime)
 ```python--pybit
 from pybit import WebSocket
 ws = WebSocket(
-    "wss://stream.bybit.com/spot/quote/ws/v2",
+    "wss://stream.bybit.com/spot/ws",
     api_key="", api_secret=""
 )
 while True:
@@ -1223,7 +1223,7 @@ t(:spot_public_websocket_frequency_realtime)
 ```python--pybit
 from pybit import WebSocket
 ws = WebSocket(
-    "wss://stream.bybit.com/spot/quote/ws/v2",
+    "wss://stream.bybit.com/spot/ws",
     api_key="", api_secret=""
 )
 while True:

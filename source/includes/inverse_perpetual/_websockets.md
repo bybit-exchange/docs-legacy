@@ -1171,3 +1171,47 @@ while True:
 |trigger_price | string | t(:stop_order_trigger_price)|
 |close_on_trigger | bool | t(:row_comment_closeOnTrigger)|
 |timestamp |string |t(:row_response_comment_time)  |
+
+
+### t(:websocketwallet)
+> t(:codequote_subscribe)
+
+```javascript
+ws.send('{"op": "subscribe", "args": ["wallet"]}')
+```
+
+```python--pybit
+from pybit import WebSocket
+subs = [
+    "wallet"
+]
+ws = WebSocket(
+    "wss://stream-testnet.bybit.com/realtime",
+    api_key="", api_secret="",
+    subscriptions=subs
+)
+while True:
+    data = ws.fetch(subs[0])
+    if data:
+        print(data)
+```
+
+> t(:codequote_responseExampleFormatAll)
+
+```javascript
+{
+    "topic": "wallet",
+    "data": [
+        {
+            "wallet_balance": 1.50175786,
+            "available_balance": 1.50177818
+        }
+    ]
+}
+```
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|wallet_balance |number |t(:row_comment_wallet_balance)  |
+|available_balance |number |t(:row_comment_available_balance)  |

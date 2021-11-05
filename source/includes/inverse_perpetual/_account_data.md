@@ -45,7 +45,7 @@ print(session.place_active_order(
         "order_id": "335fd977-e5a5-4781-b6d0-c772d5bfb95b",
         "symbol": "BTCUSD",
         "side": "Buy",
-        "order_type": "Limit",
+        "order_type": "Market",
         "price": 8800,
         "qty": 1,
         "time_in_force": "GoodTillCancel",
@@ -2371,6 +2371,10 @@ print(session.get_the_last_funding_rate(
     "rate_limit": 120
 }
 ```
+
+<aside class="notice">
+t(:fundingRate_notice)
+</aside>
 
 t(:market_para_fundingRate)
 
