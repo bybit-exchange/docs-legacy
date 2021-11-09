@@ -41,17 +41,6 @@ ws.send(
 
 t(:usdc_websocket_para_endpoint)
 
-<aside class="notice">
-t(:websocket_aside_auth)
-</aside>
-
-
-t(:websocket_para_methods)
-
-<aside class="notice">
-t(:websocket_aside_signature)
-</aside>
-
 <aside class="warning">
 t(:websocket_best_practices)
 </aside>
@@ -107,22 +96,46 @@ t(:usdc_websocket_unsubscribe_desc)
 t(:spot_websocket_para_response)
 
 ## t(:publicTopic)
-### orderBook
+### OrderBook
 
 > t(:codequote_subscribe)
 
 ```javascript
+  ws.send('{"method":"public/subscribe","id":"{1001}","params":{"channels":["orderbook25.BTC-5NOV21-30000-P","orderbook100.BTC-5NOV21-30000-P"]}}');
 ```
 
 > t(:codequote_snapshot)
 
 ```javascript
 
-```
+{
+  "id":"orderbook100.BTC-12NOV21-40000-P-117936-1636454548726",
+  "channel":"orderbook100.BTC-12NOV21-40000-P",
+  "type":"SNAPSHOT",
+  "serialNumber":117936,
+  "publishTime":726621846,
+  "creationTime":1636454548726,
+  "data":{
+  "timestamp":"1636444250",
+    "crossSeq":"117936",
+    "symbol":"BTC-12NOV21-40000-P",
+    "orderBooks":[
+    {
+      "price":"1764.5",
+      "size":"997.99",
+      "side":"Sell"
+    },
+    {
+      "price":"40000.5",
+      "size":"0.01",
+      "side":"Sell"
+    }
+  ]
+}
+}
 
-> t(:codequote_delta)
+  
 
-```javascript
 ```
 
 t(:usdc_websocket_para_orderbook)

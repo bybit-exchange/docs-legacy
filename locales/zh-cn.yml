@@ -2421,31 +2421,20 @@ zh-cn:
   websocket_codequote_auth_usdc: |
     建立連接後發送auth請求驗證
   usdc_websocket_para_endpoint: |
-    Websocket服務器地址:
+    Websocket服務器地址（期權）:
     <ul>
     <p>
       <li>測試網:
-        <span id="testnet_address">公共Topics: wss://stream-testnet.bybit.com/usdc/ws/v1</span>
+        <span id="testnet_address">公共Topics: wss://stream-testnet.bybit.com/trade/option/usdc/public/v1</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
         <br/>
-        <span id="testnet_address">公共Topics2: wss://stream-testnet.bybit.com/usdc/ws/v2</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-        <br/>
-        <span id="testnet_address_2">私有Topics: wss://stream-testnet.bybit.com/usdc/ws</span>
+
+        <span id="testnet_address_2">私有Topics: wss://stream-testnet.bybit.com/trade/option/usdc/private/v1</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
       </li>
     </p>
     <p>
-      <li>主網(請根據您的網絡情況選擇以下任意一個地址使用):<br/>
-        <span id="mainnet_address">公共Topics: wss://stream.bybit.com/usdc/ws/v1</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-        <br/>
-        <span id="mainnet_address">公共Topics2: wss://stream.bybit.com/usdc/ws/</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-        <br/>
-        <span id="mainnet_address_2">私有Topics: wss://stream.bybit.com/usdc/ws</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-      </li>
+
     </p>
     <p>所有private接口都需要認證，public 接口不需要認證.</p>
     </ul>
@@ -2474,9 +2463,13 @@ zh-cn:
 
 
   usdc_websocket_para_orderbook: |
-    <p>獲取檔位範圍：25、200.</p>
+    <p>獲取檔位範圍：25、100、200.</p>
     <p>訂閱成功後, 會立即得到一個當前快照包的推送信息. orderbook數據按訂單價格升序排列, 從最低價格的買單到最高價格的賣單.</p>
     <p>快照包之後，每當orderbook發生變化，websocket都會推送這些變化的增量數據.</p>
+    <p>期權只能订阅25、100檔位</p>
+    <p>topic的格式：orderbook25.{symbol} 或者 orderbook100.{symbol} </p>
+    <p>比如orderbook25.BTC-5NOV21-30000-P 或者 orderbook100.BTC-5NOV21-30000-P</p>
+
   usdc_current_24_total:
     <p>獲取Bybit平台最近24的成交數據</p>
     <p>從用戶訂閱開始，實時推送增量交易歷史，實時 或 每1秒推送一次，時間段中有多少條新增交易記錄就推多少條</p>

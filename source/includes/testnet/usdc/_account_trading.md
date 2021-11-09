@@ -485,7 +485,6 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |outRequestId|<b>true</b>|string|t(:optionOutRequestId)|
-|symbol|false|string|t(:usdcSymbol)|
 
 <p>
 t(:cancelAllResponse)
@@ -495,7 +494,7 @@ t(:cancelAllResponse)
 
 
 ```console
-curl https://api.bybit.com//option/usdc/openapi/private/v1/query-active-orders \
+curl https://api.bybit.com/option/usdc/openapi/private/v1/query-active-orders \
 -H "Content-Type: application/json" \
 -D '{"category":"option"}'
 

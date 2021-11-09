@@ -2601,31 +2601,21 @@ en:
   websocket_codequote_auth_usdc: |
     Send auth request for authentication after establishing a connection.
   usdc_websocket_para_endpoint: |
-    Websocket Server Address:
+    Websocket Server Address（Option）:
     <ul>
     <p>
       <li>Testnet:
-        <span id="testnet_address">Public Topics: wss://stream-testnet.bybit.com/usdc/ws/v1</span>
+        <span id="testnet_address">Public: wss://stream-testnet.bybit.com/trade/option/usdc/public/v1</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
         <br/>
-        <span id="testnet_address">Public Topics2: wss://stream-testnet.bybit.com/usdc/ws/v2</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-        <br/>
-        <span id="testnet_address_2">Private Topics: wss://stream-testnet.bybit.com/usdc/ws</span>
+
+        <span id="testnet_address_2">Private: wss://stream-testnet.bybit.com/option/trade/option/usdc/private/v1</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
       </li>
     </p>
     <p>
-      <li>Mainnet  (both endpoints are available):<br/>
-        <span id="mainnet_address">Public Topics: wss://stream.bybit.com/usdc/ws/v1</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-        <br/>
-        <span id="mainnet_address">Public Topics2: wss://stream.bybit.com/usdc/ws/</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-        <br/>
-        <span id="mainnet_address_2">Private Topics: wss://stream.bybit.com/usdc/ws</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-      </li>
+
+
     </p>
     <p>All requests made to the private API must be authenticated. Requests made to the public API do not require authentication.</p>
     </ul>
@@ -2654,7 +2644,7 @@ en:
 
 
   usdc_websocket_para_orderbook: |
-    <p>Either 25 or 200 orders will be fetched from the bid and ask side of the order book.</p>
+    <p>Either 25 or 100 or 200 orders will be fetched from the bid and ask side of the order book.</p>
     <p>The first response after a successful subscription will be the snapshot response. Following this, any spread changes in the order book will be pushed via the WebSocket API.</p>
   usdc_current_24_total:
     <p>Fetch the transaction data on Bybit in the last 24 hours.</p>
