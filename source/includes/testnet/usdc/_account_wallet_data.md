@@ -97,7 +97,7 @@ POST
 |info|string|t(:usdcInfo)|
 
 
-### t(:accountInfo)
+### t(:usdcAccountInfo)
 
 > t(:codequote_curlExample)
 

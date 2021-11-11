@@ -49,7 +49,7 @@ POST
 |symbol|<b>true</b>|string|t(:usdcSymbol)|
 |orderType|<b>true</b>|string|t(:usdcOrderType)|
 |side|<b>true</b>|string|t(:side)|
-|orderPrice|false|string|t(:usdcOrderPrice)|
+|orderPrice|false|string|t(:usdcPlaceOrderPrice)|
 |orderQty|<b>true</b>|string|t(:usdcOrderQty)|
 |iv|false|string|t(:optionIv)|
 |placeMode|false|string|t(:optionPlaceMode)|
@@ -146,7 +146,7 @@ POST
 |symbol|<b>true</b>|string|t(:usdcSymbol)|
 |orderType|<b>true</b>|string|t(:usdcOrderType)|
 |side|<b>true</b>|string|t(:side)|
-|orderPrice|false|string|t(:usdcOrderPrice)|
+|orderPrice|false|string|t(:usdcPlaceOrderPrice)|
 |orderQty|<b>true</b>|string|t(:usdcOrderQty)|
 |iv|false|string|t(:optionIv)|
 |placeMode|false|string|t(:optionPlaceMode)|
@@ -233,8 +233,8 @@ POST
 |iv|false|string|t(:optionIv)|
 |takeProfit|false|string|t(:takeProfit)|
 |stopLoss|false|string|t(:stopLoss)|
-|tptriggerby|false|string|t(:tptriggerby)|
-|slTriggerBy|false|string|t(:slTriggerBy)|
+|tptriggerby|false|string|t(:usdcTptriggerby)|
+|slTriggerBy|false|string|t(:usdcSlTriggerBy)|
 |orderFilter|false|string|t(:usdcOrderFilter)|
 |triggerPrice|false|string|t(:triggerPrice)|
 
@@ -315,8 +315,8 @@ POST
 |iv|false|string|t(:optionIv)|
 |takeProfit|false|string|t(:takeProfit)|
 |stopLoss|false|string|t(:stopLoss)|
-|tptriggerby|false|string|t(:tptriggerby)|
-|slTriggerBy|false|string|t(:slTriggerBy)|
+|tptriggerby|false|string|t(:usdcTptriggerby)|
+|slTriggerBy|false|string|t(:usdcSlTriggerBy)|
 |orderFilter|false|string|t(:usdcOrderFilter)|
 |triggerPrice|false|string|t(:triggerPrice)|
 
@@ -594,12 +594,12 @@ POST
 |orderStatus|string|t(:orderStatus)|
 |takeProfit|string|t(:takeProfit)|
 |stopLoss|string|t(:stopLoss)|
-|tpTriggerBy|string|t(:tptriggerby)|
-|slTriggerBy|string|t(:slTriggerBy)|
+|tpTriggerBy|string|t(:usdcTptriggerby)|
+|slTriggerBy|string|t(:usdcSlTriggerBy)|
 |lastExecPrice|string|t(:lastExecPrice)|
 |basePrice|string|t(:basePrice)|
 |triggerPrice|string|t(:triggerPrice)|
-|triggerBy|string|t(:triggerBy)|
+|triggerBy|string|t(:usdcTriggerBy)|
 |reduceOnly|string|t(:reduceOnly)|
 |closeOnTrigger|string|t(:closeOnTrigger)|
 |createdAt|number|t(:createdAt)|
@@ -717,12 +717,12 @@ POST
 |orderStatus|string|t(:orderStatus)|
 |takeProfit|string|t(:takeProfit)|
 |stopLoss|string|t(:stopLoss)|
-|tpTriggerBy|string|t(:tptriggerby)|
-|slTriggerBy|string|t(:slTriggerBy)|
+|tpTriggerBy|string|t(:usdcTptriggerby)|
+|slTriggerBy|string|t(:usdcSlTriggerBy)|
 |lastExecPrice|string|t(:lastExecPrice)|
 |basePrice|string|t(:basePrice)|
 |triggerPrice|string|t(:triggerPrice)|
-|triggerBy|string|t(:triggerBy)|
+|triggerBy|string|t(:usdcTriggerBy)|
 |reduceOnly|bool|t(:reduceOnly)|
 |closeOnTrigger|string|t(:closeOnTrigger)|
 |createdAt|number|t(:createdAt)|

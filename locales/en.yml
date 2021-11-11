@@ -2510,10 +2510,12 @@ en:
   id: id
   side: Direction
   usdcOrderPrice: Order price
+  usdcPlaceOrderPrice: Order price.For Perpetual, order price can not be empty. For option, if placeType is 2, the final order price will be calculated by Implied volatility
   usdcOrderQty: Order quantity
   time: Timestamp, unit in milliseconds
   cursor: API pass-through
   usdcBaseCoin: Base currency
+  usdcAccountInfo: Wallet Info
 
   usdcQuoteCoin: Quote currency
   usdcTakerFeeRate: Taker fee rate
@@ -2919,6 +2921,9 @@ en:
     </ul>
     </li>
     </ul>
+  usdcTptriggerby: Price type for take-profit triggering (Perpetual), Default <code>MarkPrice</code>
+  usdcSlTriggerBy: Price type for stop-loss triggering (Perpetual), Default <code>MarkPrice</code>
+  usdcTriggerBy: Trigger price type. Default <code>MarkPrice</code>
 
 
 

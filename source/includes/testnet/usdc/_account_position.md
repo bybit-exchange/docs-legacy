@@ -46,7 +46,6 @@ curl https://api.bybit.com/option/usdc/openapi/private/v1/query-position \
         "trailingStop":"",
         "bustPrice":"",
         "occClosingFee":"",
-        "occFundingFee":"",
         "trakeProfit":"",
         "stopLoss":"",
         "positionStatus":0,
@@ -107,7 +106,6 @@ POST
 |trailingStop|string|t(:trailingStop)|
 |bustPrice|string|t(:bustPrice)|
 |occClosingFee|string|t(:occClosingFee)|
-|occFundingFee|string|t(:occFundingFee)|
 |trakeProfit|string|t(:trakeProfit)|
 |stopLoss|string|t(:stopLoss)|
 |positionStatus|string|t(:positionStatus)|
@@ -158,7 +156,6 @@ print(client.Positions.Positions_tradingStop(symbol="BTCUSD",stop_loss="7000").r
         "occFundingFee": "1000",
         "takeProfit": "",
         "stopLoss": "",
-        "trailingStop": "",
         "positionStatus": "",
         "executedQty": "10",
         "orderMargin": "100",
@@ -181,12 +178,8 @@ POST
 |symbol|<b>true</b>|string|t(:usdcSymbol)|
 |takeProfit|false|string|t(:tradingStopTakeProfit)|
 |stopLoss|false|string|t(:tradingStopLoss)|
-|trailingStop|false|string|t(:tradingTrailingStop)|
-|tpTriggerBy|string|string|t(:tptriggerby)|
-|slTriggerBy|string|string|t(:slTriggerBy)|
-|trailingActive|string|string|t(:trailingActive)|
-|slSize|string|string|t(:slSize)|
-|tpSize|string|string|t(:tpSize)|
+|tpTriggerBy|string|string|t(:usdcTptriggerby)|
+|slTriggerBy|string|string|t(:usdcSlTriggerBy)|
 
 
 ## t(:changeTakeProfitAndStopLoss) 

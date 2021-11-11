@@ -5,10 +5,18 @@ t(:ENUMs_para)
 * `Buy`
 * `Sell`
 
+## PlaceMode (`placeMode`)
+* `1` - basic
+* `2` - advanced
+
+## PlaceType (`placeType`)
+* `1` - price
+* `2` - iv
+
 ## TimeInForce (`timeInForce`)
 * `GTC` - Good Till Canceled
-* `FOK` - Fill or Kill
 * `IOC` - Immediate or Cancel
+* `FOK` - Fill or Kill
 
 ## Symbol (`symbol`)
 t(:usdc_trading_symbol_comment)
@@ -21,19 +29,11 @@ t(:usdc_trading_symbol_comment)
 
 
 ## Currency (`currency`/`coin`)
-* `BTC`
-* `ETH`
-* `EOS`
-* `XRP`
-* `USDT`
+* `USDC`
 
 The transfer API also includes:
 
-* `DOT`
-* `DOGE`
-* `LTC`
-* `XLM`
-* `USD`
+* `USDC`
 
 
 ## Order status (`status`)

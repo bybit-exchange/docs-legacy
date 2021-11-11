@@ -2331,6 +2331,7 @@ zh-cn:
   id: id
   side: 買賣方向
   usdcOrderPrice: 訂單價格
+  usdcPlaceOrderPrice: 訂單價格，如果是期貨業務，價格必傳，如果是期權業務，使用iv下單時，此字段無效，最終以iv反算的價格為訂單價格。
   usdcOrderQty: 訂單數量
   time: 時間戳，到毫秒
   cursor: 透傳數據
@@ -2392,7 +2393,7 @@ zh-cn:
 
   account_wallet: 賬戶/錢包
   transactionLog: 交易日誌
-  accountInfo: 賬戶信息
+  usdcAccountInfo: 錢包信息
   assetInfo: 資產信息
   setMarginMode: 設置保證金模式
   queryMarginMode: 查詢保證金模式
@@ -2485,8 +2486,8 @@ zh-cn:
 
   usdcOrderType: 訂單類型
   optionIv: 期權iv, 小數點後保留叁位小數
-  optionPlaceMode: 期權下單模式，高級或者是基礎模式下單
-  optionPlaceType: 期權下單類型，價格或者iv下單
+  optionPlaceMode: 期權下單模式，高級或者是基礎模式下單,
+  optionPlaceType: 期權下單類型，價格或者iv下單.
   optionOutRequestId: 外部訂單號，用作冪等， 期權場景必填，最大不成超過32位
   orderLinkId: 關聯訂單號，最大不成超過32位
   usdcFutureTakeProfit: 止盈價格,期貨時使用
@@ -2726,7 +2727,7 @@ zh-cn:
     <li><code>40</code> - 合法</li>
     <li><code>40.01</code> - 合法</li>
     <li><code>-30.5</code> - 非法</li>
-    </ul>
+    </ul>optionPlaceMode
     </li>
     </ul>
   usdcQuantity:
