@@ -2486,8 +2486,8 @@ zh-cn:
 
   usdcOrderType: 訂單類型
   optionIv: 期權iv, 小數點後保留叁位小數
-  optionPlaceMode: 期權下單模式，高級或者是基礎模式下單,
-  optionPlaceType: 期權下單類型，價格或者iv下單.
+  optionPlaceMode: 期權下單模式，高級或者是基礎模式下單,期貨不需傳，期權需要。 1：基礎模式下單，2：高級模式下單。如果1，orderQty和orderPrice是必傳字段。如果是2， 參照 placeType.
+  optionPlaceType: 期權下單類型，價格或者iv下單.1：價格下單，2：iv下單。如果是1，則orderQty和orderPrice是必傳字段，為2表示iv和orderQty為必傳字段。
   optionOutRequestId: 外部訂單號，用作冪等， 期權場景必填，最大不成超過32位
   orderLinkId: 關聯訂單號，最大不成超過32位
   usdcFutureTakeProfit: 止盈價格,期貨時使用
@@ -2746,6 +2746,39 @@ zh-cn:
   usdcTptriggerby: 止盈激活價格類型，默認為MarkPrice,期貨時使用
   usdcSlTriggerBy: 止損激活價格類型，默認為MarkPrice,期貨時使用
   usdcTriggerBy: 觸發價格類型，默認為MarkPrice，僅期貨場景使用
+  usdcSettleLogsDesc: 僅期貨場景使用
+  riskLimitDesc:  僅期貨場景使用
+  usdcQty: 數量
+    ## Price (`price`)
+  usdcStopOrderPrice: |
+    <ul>
+    <li>活動單<ul>
+    <li>必須是<code>tickSize</code>的整數倍<ul>
+    <li>當前symbol信息(如<code>tickSize</code>)，可以通過<a href="#t-querysymbol">交易對接口</a>接口獲得。</li>
+    </ul>
+    </li>
+    <li>必須小於一百萬 (<code>1000000</code>)</li>
+    <li>如果用戶沒有未平倉，則價格必須大於市場價格的10%<ul>
+    <li>如, 若當前市場價(market price) 為 10314, 那麽下單價格的最小值為 1031.5。</li>
+    <li>偽代碼(假設價格是0.5的增量):<pre class="center-column">
+    IF price > (marketPrice * 0.1)
+    // 發送訂單
+    ELSE
+    //  不會發送訂單，因為價格將不被系統接受
+    </pre></li>
+    </ul>
+    </li>
+    <li>如果已持有倉位，那麽價格必須高於強平價格<ul>
+    <li>如, 若多倉的強平價格為 5176.5 那麽價格最小為 5177. 在做空的情況下，價格必須低於強平價格。</li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    <li>條件單<ul>
+    <li>必須大於等於 <code>1</code></li>
+    </ul>
+    </li>
+    </ul>
 
 
 

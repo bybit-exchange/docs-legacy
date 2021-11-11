@@ -204,33 +204,6 @@ t(:usdc_current_24_total)
 
 
 
-### t(:insuranceFund)
-> t(:codequote_subscribe)
-
-```javascript
-```
-
-> t(:codequote_snapshot)
-
-```javascript
-
-```
-
-> t(:codequote_delta)
-
-```javascript
-
-```
-
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-| coin |string |t(:usdcCoin) |
-| timestamp |string |t(:timestamp) |
-| walletBalance |string |t(:walletBalance) |
-
-
 ### t(:latestSymbolInfo)
 > t(:codequote_subscribe)
 
@@ -635,7 +608,7 @@ t(:usdcOrderDesc)
 | orderType|string |t(:usdcOrderType) |
 | side |string |t(:side) |
 | qty |string |t(:usdcQty) |
-| price |string |t(:price) |
+| price |string |t(:usdcPrice) |
 | timeInForce |string |t(:row_comment_timeInForce) |
 | createType |string |t(:createType) |
 | cancelType |string |t(:cancelType) |

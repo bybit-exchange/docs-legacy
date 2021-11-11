@@ -69,7 +69,7 @@ POST
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category|<b>true</b>|string|t(:category)|
+|category|<b>true</b>|string|t(:usdcCategory)|
 |symbol|false|string|t(:usdcSymbol)|
 |cursor|false|string|t(:cursor)|
 |direction|false|string|t(:direction)|
@@ -113,124 +113,6 @@ POST
 |orderMargin|string|t(:orderMargin)|
 |unrealisedPnl|string|t(:unrealisedPnl)|
 |cumRealisedPnl|string|t(:cumRealisedPnl)|
-
-
-## t(:setTakeProfitAndStopLoss) 
-> t(:codequote_curlExample)
-
-```console
-
-url https://api.bybit.com/v2/private/position/trading-stop \
--H "Content-Type: application/json" \
--d '{"symbol":"BTCUSD","stop_loss":7000}'
-
-```
-
-```python
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Positions.Positions_tradingStop(symbol="BTCUSD",stop_loss="7000").result())
-
-```
-
-
-> t(:codequote_responseExample)
-
-```javascript
-{
-    "retCode": 0,
-    "retMsg": "",
-    "extCode": null,
-    "extInfo": null,
-    "result": {
-        "id": "1",
-        "userId": "10001",
-        "symbol": "",
-        "side": "Buy",
-        "size": "10"
-        "positionValue": "",
-        "entryPrice": "1000",
-        "leverage": 10,
-        "positionMargin": "1000",
-        "occClosingFee": "1000",
-        "occFundingFee": "1000",
-        "takeProfit": "",
-        "stopLoss": "",
-        "positionStatus": "",
-        "executedQty": "10",
-        "orderMargin": "100",
-        "walletBalance": "100",
-        "cumCommission": "100",
-    }
-}
-```
-
-
-<p class="fake_header">t(:httprequest)</p>
-POST
-<code><span id=vpoCreate>/perpetual/usdc/openapi/private/v1/trading-stop</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|symbol|<b>true</b>|string|t(:usdcSymbol)|
-|takeProfit|false|string|t(:tradingStopTakeProfit)|
-|stopLoss|false|string|t(:tradingStopLoss)|
-|tpTriggerBy|string|string|t(:usdcTptriggerby)|
-|slTriggerBy|string|string|t(:usdcSlTriggerBy)|
-
-
-## t(:changeTakeProfitAndStopLoss) 
-> t(:codequote_curlExample)
-
-```console
-
-```
-
-```python
-
-```
-
-
-> t(:codequote_responseExample)
-
-```javascript
-{
-    "retCode": 0,
-    "retMsg": "",
-    "extCode": null,
-    "extInfo": null,
-    "result": {
-        "tpSlMode": "Partial"
-    }
-}
-```
-
-<aside class="notice">
-t(:switchmode_aside)
-</aside>
-
-<p class="fake_header">t(:httprequest)</p>
-POST
-<code><span id=vpoCreate>/perpetual/usdc/openapi/private/v1/tpsl/switch-mode</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|symbol|<b>true</b>|string|t(:usdcSymbol)|
-|tpSlMode|<b>true</b>|string|t(:tpSlMode)|
-
-
-<p class="fake_header">t(:responseparameters)</p>
-
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|tpSlMode|string|t(:tpSlMode)|
-
 
 ## t(:setPositionLeverage) 
 > t(:codequote_curlExample)
@@ -492,6 +374,7 @@ curl https://api.bybit.com/option/usdc/openapi/private/v1/session-settlement \
 }
 ```
 
+t(:usdcSettleLogsDesc)
 
 <p class="fake_header">t(:httprequest)</p>
 POST

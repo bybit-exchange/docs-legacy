@@ -23,6 +23,7 @@ curl https://api.bybit.com/perpetual/usdc/openapi/private/v1/risk-limit/list \
 
 ```
 
+t(:riskLimitDesc)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
