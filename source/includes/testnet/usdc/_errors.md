@@ -36,7 +36,7 @@ Return Code | t(:errorcode_meaning)
 3100116  |	Order quantity below the lower limit.
 3100117  |	Order qty exceeds the upper limit.
 3100118  |	The min. order size increment is {{key0}}.
-3100119  |	"Order ID cannot be empty.
+3100119  |	Order ID cannot be empty.
 3100122  |	Only modification to implied volatility, order price, or order quantity supported.
 3100123  |	outRequestId cannot be empty.
 3100126  |	Settlement in progress! {{key0}} not available for trades.
