@@ -21,7 +21,7 @@ curl https://api.bybit.com/option/usdc/openapi/private/v1/query-transaction-log 
 ```javascript
 {
   "retCode":0,
-    "retMsg":"成功",
+    "retMsg":"OK",
     "result":{
     "resultTotalSize":1,
       "cursor":"ccc62b1a-e1a0-42b6-86b5-3570e22cfbdf%3A1634284800789%2Cb09397d8-4da1-4d32-b70f-c59efd381f66%3A1634284800769",
@@ -172,7 +172,7 @@ curl https://api.bybit.com/option/usdc/openapi/private/v1/query-asset-info \
 ```javascript
 {
   "retCode":0,
-    "retMsg":"成功",
+    "retMsg":"OK",
     "result":{
     "resultTotalSize":1,
       "dataList":[
@@ -231,6 +231,9 @@ POST
 > t(:codequote_curlExample)
 
 ```console
+curl https://api.bybit.com/option/usdc/openapi/private/v1/set-margin-mode \
+-H "Content-Type: application/json" \
+-D '{"marginMode":"REGULAR_MARGIN"}'
 
 ```
 
@@ -249,7 +252,7 @@ POST
     "extInfo": null,
     "result": [
         {
-          "marginMode": "Regular margin"
+          "marginMode": "REGULAR_MARGIN"
         }
     ]
 }
@@ -295,7 +298,7 @@ curl https://api.bybit.com/option/usdc/openapi/private/v1/query-margin-info \
 ```javascript
 {
   "retCode":0,
-    "retMsg":"成功",
+    "retMsg":"OK",
     "result":{
     "marginMode":"REGULAR_MARGIN"
   }

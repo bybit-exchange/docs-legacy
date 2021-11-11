@@ -20,7 +20,7 @@ curl https://api.bybit.com/option/usdc/openapi/private/v1/query-position \
 ```javascript
 {
   "retCode":0,
-    "retMsg":"成功",
+    "retMsg":"OK",
     "result":{
     "resultTotalSize":1,
       "cursor":"BTC-22OCT21-40000-C%3A1634287448443%2CBTC-22OCT21-40000-C%3A1634287448443",
@@ -96,7 +96,8 @@ POST
 |positionPnl|string|t(:positionPnl)|
 |sessionUpl|string|t(:sessionUpl)|
 |sessionRpl|string|t(:sessionRpl)|
-|im|string|t(:usdcIm)|
+|IM|string|t(:usdcIm)|
+|MM|string|t(:usdcMm)|
 |createdAt|string|t(:createdAt)|
 |updatedAt|string|t(:updatedAt)|
 |tpSlMode|string|t(:tpSlMode)|
@@ -210,7 +211,7 @@ print(client.Positions.Positions_closePnlRecords(symbol="BTCUSD").result())
         "closedPnl": "1620737886573",
         "fillCount": "1620737886573",
         "leverage": "20000",
-        "createdAt": "10"
+        "createdAt": 1634284800789
     }
 }
 ```
@@ -275,7 +276,7 @@ curl https://api.bybit.com/option/usdc/openapi/private/v1/query-delivery-list \
 ```javascript
 {
   "retCode":0,
-    "retMsg":"成功",
+    "retMsg":"OK",
     "result":{
     "resultTotalSize":1,
       "cursor":"ccc62b1a-e1a0-42b6-86b5-3570e22cfbdf%3A1634284800789%2Cb09397d8-4da1-4d32-b70f-c59efd381f66%3A1634284800769",
@@ -356,7 +357,7 @@ curl https://api.bybit.com/option/usdc/openapi/private/v1/session-settlement \
 ```javascript
 {
   "retCode":0,
-    "retMsg":"成功",
+    "retMsg":"OK",
     "result":{
     "resultTotalSize":1,
       "cursor":"",
@@ -432,7 +433,7 @@ curl https://api.bybit.com/option/usdc/openapi/private/v1/query-position-exp-dat
 ```javascript
 {
   "retCode":0,
-    "retMsg":"成功",
+    "retMsg":"OK",
     "result":{
     "resultTotalSize":2,
       "cursor":"22OCT21:0,15OCT21:0",

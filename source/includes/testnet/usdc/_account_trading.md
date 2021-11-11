@@ -253,7 +253,7 @@ POST
 
 
 ```console
-curl https://api.bybit.com/option/usdc/openapi/private/v1/batch-replace-order \
+curl https://api.bybit.com/option/usdc/openapi/private/v1/batch-replace-orders \
 -H "Content-Type: application/json" \
 -D '{"replaceOrderRequest":[{"outRequestId":"89befe89-0869-405a-a07c-2599324d009d","symbol":"BTC-26NOV21-58000-P","orderId":"be6c87be-da18-4876-9a64-6b7ccc859071","orderQty":"1","orderPrice":"1"}]}'
 
@@ -294,7 +294,7 @@ curl https://api.bybit.com/option/usdc/openapi/private/v1/batch-replace-order \
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/option/usdc/openapi/private/v1/batch-replace-order</span></code>
+<code><span id=vpoCreate>/option/usdc/openapi/private/v1/batch-replace-orders</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -508,7 +508,7 @@ curl https://api.bybit.com/option/usdc/openapi/private/v1/query-active-orders \
 ```javascript
 {
   "retCode":0,
-    "retMsg":"成功",
+    "retMsg":"OK",
     "result":{
     "resultTotalSize":1,
       "cursor":"e3d0eff2-7567-4ca1-af1c-9eb9a39ac119%3A1634291502127%2C0b9c9c0c-4098-4d30-a266-6aa87dc26f7f%3A1634285036815",
@@ -628,7 +628,7 @@ curl https://api.bybit.com/option/usdc/openapi/private/v1/query-order-history \
 ```javascript
 {
   "retCode":0,
-    "retMsg":"成功",
+    "retMsg":"OK",
     "result":{
     "resultTotalSize":1,
       "cursor":"5e42be7e-c92f-4388-91fc-30ec1f321e32%3A1634286322771%2C6ad08ad0-14d8-43a6-9a38-6a01d7d7c833%3A1634285916577",
