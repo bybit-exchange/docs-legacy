@@ -50,7 +50,7 @@ t(:websocket_best_practices)
 > t(:websocket_codequote_heartbeat)
 
 ```javascript
-ws.send(JSON.stringify({"ping": 1535975085052}));
+ws.send("ping");
 ```
 
 > t(:codequote_responseExample)
@@ -95,7 +95,7 @@ t(:usdc_websocket_unsubscribe_desc)
 
 t(:spot_websocket_para_response)
 
-## t(:publicTopic)
+## Public Topics
 ### OrderBook
 
 > t(:codequote_subscribe)
@@ -156,19 +156,39 @@ t(:usdc_websocket_para_orderbook)
 > t(:codequote_subscribe)
 
 ```javascript
+  ws.send('{"method":"public/subscribe","id":"{1001}","params":{"channels":["recenttrades.BTC"]}}');
 ```
 
-> t(:codequote_snapshot)
+
+> t(:usdc_trade_codequote_snapshot)
 
 ```javascript
 
+{
+    "id":"recenttrades.BTC-118388-1636510323155",
+    "channel":"recenttrades.BTC",
+    "type":"SNAPSHOT",
+    "serialNumber":118388,
+    "publishTime":155063442,
+    "creationTime":1636510323155,
+    "data":{
+        "coin":"BTC",
+        "trades":[
+            {
+                "symbol":"BTC-31DEC21-36000-P",
+                "execId":"787bf079-b6a5-5bc0-a76d-59dad9036e7b",
+                "price":"371",
+                "size":"0.01",
+                "tradeTime":"1636510323144",
+                "side":"Buy",
+                "crossSeq":"118388"
+            }
+        ]
+    }
+}
+
 ```
 
-> t(:codequote_delta)
-
-```javascript
-
-```
 
 t(:usdc_current_24_total)
 
@@ -180,6 +200,7 @@ t(:usdc_current_24_total)
 | side |string |t(:side) |
 | size |string |t(:row_comment_position_size) |
 | price |string |t(:row_comment_exec_price) |
+
 
 
 
@@ -210,16 +231,52 @@ t(:usdc_current_24_total)
 | walletBalance |string |t(:walletBalance) |
 
 
-### 
 ### t(:latestSymbolInfo)
 > t(:codequote_subscribe)
 
 ```javascript
+ws.send('{"method":"public/subscribe","id":"{1001}","params":{"channels":["instrument_info.BTC-19NOV21-58000-P"]}}');
 ```
 
 > t(:codequote_snapshot)
 
 ```javascript
+
+{
+    "id":"instrument_info.BTC-19NOV21-58000-P-98790-1636511446299",
+    "channel":"instrument_info.BTC-19NOV21-58000-P",
+    "type":"SNAPSHOT",
+    "serialNumber":98790,
+    "publishTime":299440840,
+    "creationTime":1636511446299,
+    "data":{
+        "symbol":"BTC-19NOV21-58000-P",
+        "bidPrice":"421",
+        "askPrice":"465",
+        "bidIv":"0.7785",
+        "askIv":"0.8012",
+        "bidSize":"17",
+        "askSize":"18",
+        "markPrice":"442.51157238",
+        "markPriceIv":"0.7897",
+        "indexPrice":"67102.13",
+        "underlyingPrice":"67407.49",
+        "lastPrice":"0",
+        "delta":"-0.10385629",
+        "gamma":"0.00002132",
+        "theta":"-82.72572574",
+        "vega":"19.33584131",
+        "change24h":"0",
+        "volume24h":"0",
+        "turnover24h":"0",
+        "high24h":"0",
+        "low24h":"0",
+        "totalVolume":"0",
+        "totalTurnover":"0",
+        "openInterest":"0",
+        "predictedDeliveryPrice":"62330.90608575"
+    }
+}
 
 ```
 
@@ -228,6 +285,8 @@ t(:usdc_current_24_total)
 ```javascript
 
 ```
+
+t(:usdcLastestSymbolInfo)
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -295,24 +354,66 @@ t(:usdc_current_24_total)
 
 
 
-## Private Topic
+## Private Topics
 ### t(:userPositionsInfo)
 > t(:codequote_subscribe)
 
 ```javascript
+
+ws.send('{"method":"public/subscribe","id":"{100002}","params":{"channels":["user.option.position"]}}');
+
 ```
 
-> t(:codequote_snapshot)
+> t(:usdc_trade_codequote_snapshot)
 
 ```javascript
 
+{
+    "id":"c2c04b81-1d7a-4662-bab7-cbc8adbde8d2",
+    "channel":"user.option.position",
+    "type":"SNAPSHOT",
+    "serialNumber":1,
+    "publishTime":217924248,
+    "creationTime":1635229560217,
+    "data":{
+        "result":[
+            {
+                "positionIdx":0,
+                "symbol":"BTC-5NOV21-66000-P",
+                "positionStatus":null,
+                "side":"Sell",
+                "action":"OPEN",
+                "positionSize":"-1.0000",
+                "positionAvgPrice":"6100.00000000",
+                "sessionAvgPrice":"5044.04000000",
+                "markPrice":"5044.04",
+                "strikePrice":"",
+                "exerciseDeliveryPrice":"5.51047098",
+                "positionIM":"15850",
+                "positionMM":"7124.04",
+                "fees":"",
+                "pnl":"1055.96",
+                "sessionUPL":"0",
+                "sessionRPL":"",
+                "deliveryRPL":"",
+                "iv":"0.7883",
+                "version":80,
+                "sendTime":1635229560137,
+                "positionTime":1635215719716,
+                "roi":"0.173108196721311475",
+                "crossSeq":null,
+                "pushActionType":0
+            }
+        ],
+        "version":20660,
+        "sendTime":1635229560137
+    }
+}
+
 ```
 
-> t(:codequote_delta)
 
-```javascript
-
-```
+t(:usdcPositionDesc)
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -321,16 +422,14 @@ t(:usdc_current_24_total)
 | symbol |string |t(:usdcSymbol) |
 | side |string |t(:side) |
 | size |string |t(:usdcSize) |
-| entryPrice |string |t(:entryPrice) |
+| positionAvgPrice |string |t(:entryPrice) |
 | sessionAvgPrice |string |t(:sessionAvgPrice) |
 | markPrice |string |t(:markPrice) |
 | positionPnl |string |t(:positionPnl) |
 | roi |string |t(:roi) |
 | sessionUpl |string |t(:sessionUpl) |
-| im |string |t(:im) |
-| mm |string |t(:usdcMm) |
-| createdAt |number |t(:createdAt) |
-| updatedAt |number |t(:updatedAt) |
+| positionIM |string |t(:im) |
+| positionMM |string |t(:usdcMm) |
 | tpSlMode |string |t(:tpSlMode) |
 | positionValue |string |t(:positionValue) |
 | leverage |number |t(:leverage) |
@@ -356,19 +455,53 @@ t(:usdc_current_24_total)
 > t(:codequote_subscribe)
 
 ```javascript
+ws.send('{"method":"public/subscribe","id":"{100002}","params":{"channels":["user.option.tradeHistory"]}}');
 ```
 
-> t(:codequote_snapshot)
+> t(:usdc_trade_codequote_snapshot)
 
 ```javascript
 
+{
+  "id":"f22195c3-d89c-4b93-9bc6-8c65b59cebcb",
+  "channel":"user.option.tradeHistory",
+  "type":"SNAPSHOT",
+  "serialNumber":1,
+  "publishTime":141688047,
+  "creationTime":1635229352141,
+  "data":{
+  "result":[
+    {
+      "orderId":"0d57c2a2-7c6f-4a9d-8820-043b5559db21",
+      "tradeId":"54313b81-ae20-5f45-91e1-a12738f02257",
+      "transId":"20211026658e36b0-62bb-4a03-ad19-c319a2e5dd4a",
+      "symbol":"BTC-26OCT21-38000-P",
+      "side":"Sell",
+      "tradePrice":"311.5",
+      "markPrice":"0.00000001",
+      "indexPrice":"62289.65000000",
+      "underlying":"62298.93000000",
+      "positionAvgPrice":"311.5",
+      "iv":"4.8160",
+      "size":"0.01",
+      "fees":"0.15572413",
+      "tradeTime":1635229351696,
+      "version":null,
+      "sendTime":null,
+      "crossSeq":null
+    }
+  ],
+    "version":34,
+    "sendTime":1635229352127
+}
+}
+
+
+
 ```
 
-> t(:codequote_delta)
 
-```javascript
-
-```
+t(:usdcFilledHistory)
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -377,9 +510,9 @@ t(:usdc_current_24_total)
 | orderId |string |  |
 | orderLinkId |string |t(:orderLinkId) |
 | symbol |string |t(:usdcSymbol) |
-| excPrice |string |t(:excPrice) |
-| execQty |string |t(:execQty) |
-| execFee |string |t(:execFee) |
+| tradePrice |string |t(:excPrice) |
+| size |string |t(:execQty) |
+| fees |string |t(:execFee) |
 | feeRate |string |t(:feeRate) |
 | execType |string |t(:execType) |
 | execValue |string |t(:execValue) |
@@ -390,25 +523,68 @@ t(:usdc_current_24_total)
 > t(:codequote_subscribe)
 
 ```javascript
+ ws.send('{"method":"public/subscribe","id":"{100003}","params":{"channels":["user.option.orderHistory"]}}');
 ```
 
 > t(:codequote_snapshot)
 
 ```javascript
+
+{
+  "id":"a713f832-5dc0-403d-b6b3-60a38a454c2f",
+  "channel":"user.option.order",
+  "type":"SNAPSHOT",
+  "serialNumber":1,
+  "publishTime":764277377,
+  "creationTime":1636525136764,
+  "data":{
+  "result":[
+    {
+      "orderId":"983e84e4-009a-4cfe-8620-f478a812ca5f",
+      "symbol":"BTC-12NOV21-68000-P",
+      "orderStatus":"New",
+      "side":"Buy",
+      "orderPrice":"1752.00000000",
+      "orderAllSize":"0.0100",
+      "orderFilledSize":"0.0000",
+      "orderRemainingSize":"0.0100",
+      "orderAvgPrice":"1752.00000000",
+      "orderIM":"17.68644300",
+      "orderType":"Limit",
+      "orderTime":1636525136718,
+      "reduceOnly":0,
+      "timeInForce":"GoodTillCancel",
+      "fees":"0.00000000",
+      "cashFlow":"",
+      "orderRPL":"",
+      "version":9373,
+      "sendTime":9373,
+      "crossSeq":null,
+      "deliveryTime":1636704000000,
+      "strikePrice":"68000",
+      "symbolType":"P",
+      "postOnly":0,
+      "placeType":"iv",
+      "placeMode":"advanced",
+      "iv":"0.4440",
+      "pushActionType":0
+    }
+  ],
+    "version":61719,
+    "sendTime":1636525136741
+}
+}
+
+
 ```
 
-> t(:codequote_delta)
-
-```javascript
-```
+t(:usdcOrderDesc)
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 | orderId |string |t(:usdcOrderId) |
 | orderLinkId |string |t(:orderLinkId) |
-| createdAt|number |t(:createdAt) |
-| updatedAt|number |t(:updatedAt) |
 | symbol |string |t(:usdcSymbol) |
 | orderType|string |t(:usdcOrderType) |
 | side |string |t(:side) |
@@ -419,7 +595,7 @@ t(:usdc_current_24_total)
 | leavesQty |string |t(:leavesQty) |
 | cumExecQty |string |t(:cumExecQty) |
 | cumExecFee |string |t(:cumExecFee) |
-| im |string |t(:im) |
+| orderIM |string |t(:im) |
 | orderStatus |string |t(:orderStatus) |
 | reduceOnly |number |t(:reduceOnly) |
 | closeOnTrigger |number |t(:closeOnTrigger) |
@@ -477,17 +653,42 @@ t(:usdc_current_24_total)
 > t(:codequote_subscribe)
 
 ```javascript
+ws.send('{"method":"public/subscribe","id":"{100003}","params":{"channels":["user.option.greeks"]}}');
+
 ```
 
 > t(:codequote_snapshot)
 
 ```javascript
+
+{
+    "id":"37f1e862-5eaf-4cb5-a588-b369286cd805",
+    "channel":"user.option.greeks",
+    "type":"SNAPSHOT",
+    "serialNumber":1,
+    "publishTime":136973647,
+    "creationTime":1636528352136,
+    "data":{
+        "result":[
+            {
+                "coin":"BTC",
+                "totalDelta":"-0.029750694800",
+                "totalGamma":"0.000001592300",
+                "totalVega":"1.202332081800",
+                "totalTheta":"-9.525983454600",
+                "version":null,
+                "sendTime":null,
+                "crossSeq":null
+            }
+        ],
+        "version":63672,
+        "sendTime":1636528352096
+    }
+}
+
 ```
 
-> t(:codequote_delta)
-
-```javascript
-```
+t(:udscGeeksDesc)
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|

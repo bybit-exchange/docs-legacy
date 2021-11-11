@@ -11,7 +11,7 @@ t(:ENUMs_para)
 * `IOC` - Immediate or Cancel
 
 ## Symbol (`symbol`)
-t(:trading_symbol_comment)
+t(:usdc_trading_symbol_comment)
 
 
 ## Order type (`type`/`orderTypes`)
@@ -46,10 +46,10 @@ The transfer API also includes:
 * `REJECTED`
 
 ## Quantity (`qty`)
-t(:quantity)
+t(:usdcQuantity)
 
 ## Price (`price`)
-t(:price)
+t(:usdcPriceRule)
 
 ## Time in force (`time_in_force`)
 * `GTC` t(:goodTillCancel)

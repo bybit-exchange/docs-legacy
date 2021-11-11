@@ -2473,6 +2473,9 @@ zh-cn:
   usdc_current_24_total:
     <p>獲取Bybit平台最近24的成交數據</p>
     <p>從用戶訂閱開始，實時推送增量交易歷史，實時 或 每1秒推送一次，時間段中有多少條新增交易記錄就推多少條</p>
+    <p>按照幣種的維度進行訂閱，比如BTC或者ETH</p>
+    <p>topic的格式：</p>
+    <p>期權：recenttrades.{symbol}, 比如：recenttrades.BTC</p>
 
   usdc_order_book_path: 期權業務：category=option, 期貨業務：category=perpetual
   usdc_order_book_desc: 獲取Bybit當前Orderbook信息，買/賣側各25檔.
@@ -2485,7 +2488,7 @@ zh-cn:
   optionPlaceMode: 期權下單模式，高級或者是基礎模式下單
   optionPlaceType: 期權下單類型，價格或者iv下單
   optionOutRequestId: 外部訂單號，用作冪等， 期權場景必填，最大不成超過32位
-  orderLinkId: 策略關聯訂單號，最大不成超過32位
+  orderLinkId: 關聯訂單號，最大不成超過32位
   usdcFutureTakeProfit: 止盈價格,期貨時使用
   usdcFutureStopLoss: 止損價格,期貨時使用
   slTriggerBy: 止損激活價格類型，默認為LastPrice,期貨時使用
@@ -2495,7 +2498,7 @@ zh-cn:
   triggerPrice: 觸發價格。期貨時使用
   triggerBy: 觸發價格類型，默認為LastPrice，僅期貨場景使用
   positionIdx: 期貨時使用 0-One-Way Mode 1-Buy side of both side mode 2-Sell side of both side mode
-  mmp: 是否開啟做市商保護， 默認不開啟。 false： 不開啟  true：開啟
+  mmp: 僅在功能開啟後生效。true表示此訂單為mmp訂單.
   reduceOnly: 只減倉
   closeOnTrigger: 觸發後平倉. 如果下平倉單，請設置為true，避免因為保證金不足而導致下單失敗
   takeProfit: 止盈價格,期貨場景使用
@@ -2679,7 +2682,7 @@ zh-cn:
     <p>客戶端需要定時發送“ping“給Bybit，Bybit服務器返回heartbeat”pong“來顯示客戶端和服務器之間的連接正常。建議至少每30s發送一次。</p>
     <p>如果客戶端沒有正常收到heartbeat的反饋，則需要檢查網絡連接狀態，並重新連接服務器。</p>
     <p>如Bybit服務器，超過3分鐘沒有收到客戶端的“ping”，則服務器會判定客戶端已斷開鏈接（如實際未斷開，此時Bybit服務端也會主動斷開鏈接）。</p>
-    <p>如果服務器判定並斷開鏈接，且客戶處於開啟“斷線保護”的狀態，則客戶所有的Open order也會被自動全部取消。</p>
+    <p>如果服務器判定並斷開鏈接，且客戶處於開啟“斷線保護”的狀態，則客戶所有的Active order也會被自動全部取消。</p>
 
   usdcMethodInfo: 所有接口均為POST接口
   usdc_auth_para_construct1: <p>1. 参数为json格式</p>
@@ -2695,4 +2698,53 @@ zh-cn:
   userOrderHistory: 用戶訂單信息
   userConditionalOrders: 用戶條件單信息
   userGreeks: 用戶希臘字母信息
+  usdcLastestSymbolInfo: |
+    <p>topic的格式:</p>
+    <p>instrument_info.{symbol} , 比如instrument_info.BTC-19NOV21-58000-P</p>
+  usdc_trade_codequote_snapshot: 快照推送示例 - 有成交時推動數據示例
+  usdcPositionDesc: |
+    <p>topic:</p>
+    <p>期權: user.option.position</p>
+    <p>期貨: </p>
+  usdcFilledHistory: |
+    <p>topic:</p>
+    <p>期權: user.option.tradeHistory</p>
+    <p>期貨: </p>
+  usdcOrderDesc: |
+    <p>topic:</p>
+    <p>期權: user.option.orderHistory</p>
+    <p>期貨: </p>
+  udscGeeksDesc: |
+    <p>topic:</p>
+    <p>期權: user.option.greeks</p>
+  usdc_trading_symbol_comment: 您可以根據<a href="#querySymbolInfo">Query Symbol</a>接口獲取所有交易中的symbol
+  usdcPriceRule:
+    <ul>
+    <li>最大值1百萬 (<code>1000000</code>)</li>
+    <li>必須是正數：
+    <ul>
+    <li><code>40</code> - 合法</li>
+    <li><code>40.01</code> - 合法</li>
+    <li><code>-30.5</code> - 非法</li>
+    </ul>
+    </li>
+    </ul>
+  usdcQuantity:
+    <ul>
+    <li>最大值1百萬 (<code>1000000</code>)</li>
+    <li>必須是正數：
+    <ul>
+    <li><code>40</code> - 合法</li>
+    <li><code>40.01</code> - 合法</li>
+    <li><code>-30.5</code> - 非法</li>
+    </ul>
+    </li>
+    </ul>
+
+
+  usdcTptriggerby: 止盈激活價格類型，默認為MarkPrice,期貨時使用
+  usdcSlTriggerBy: 止損激活價格類型，默認為MarkPrice,期貨時使用
+  usdcTriggerBy: 觸發價格類型，默認為MarkPrice，僅期貨場景使用
+
+
 

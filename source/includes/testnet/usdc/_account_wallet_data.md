@@ -102,7 +102,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/option/usdc/openapi/private/v1/query-account-info \
+curl https://api.bybit.com/option/usdc/openapi/private/v1/query-wallet-balance \
 
 ```
 
@@ -136,7 +136,7 @@ curl https://api.bybit.com/option/usdc/openapi/private/v1/query-account-info \
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/option/usdc/openapi/private/v1/query-account-info</span></code>
+<code><span id=vpoCreate>/option/usdc/openapi/private/v1/query-wallet-balance</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 

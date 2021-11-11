@@ -2462,7 +2462,7 @@ en:
 
 
   ###usdc contract
-  usdc: USDCContract
+  usdc: USDC Contract
   usdcList: list
   usdcSymbol: Contract name
   usdcTickerInfo: Latest Symbol Info
@@ -2646,9 +2646,18 @@ en:
   usdc_websocket_para_orderbook: |
     <p>Either 25 or 100 or 200 orders will be fetched from the bid and ask side of the order book.</p>
     <p>The first response after a successful subscription will be the snapshot response. Following this, any spread changes in the order book will be pushed via the WebSocket API.</p>
+    <p>For option, only 25 or 100 orders will be fetched.</p>
+    <p>Topic format:</p>
+    <p>Either orderbook25.{symbol} or orderbook100.{symbol} for Option.</p>
+    <p>Such as orderbook25.BTC-5NOV21-30000-P or orderbook100.BTC-5NOV21-30000-P</p>
   usdc_current_24_total:
     <p>Fetch the transaction data on Bybit in the last 24 hours.</p>
     <p>After a successful subscription, any changes in the transaction data will be pushed in real time or once every second. The number of pushes depends on the number of new transaction records within the time frame.</p>
+    <p>Subscribe according to the dimension of the currency, such as BTC or ETH</p>
+    <p>topic format:</p>
+    <p>Option- recenttrades.{symbol}, such as：recenttrades.BTC</p>
+
+
 
   usdc_order_book_path: Options：category=option, Perpetual：category=perpetual
   usdc_order_book_desc: Query order book info. Each side has a depth of 25 orders.
@@ -2871,6 +2880,45 @@ en:
   userOrderHistory: Order History
   userConditionalOrders: Conditional Orders
   userGreeks: Greeks
+  usdc_trade_codequote_snapshot: Snapshot Response Example - format of response
+  usdcLastestSymbolInfo: |
+    <p>Topic format:</p>
+    <p>instrument_info.{symbol},such as: instrument_info.BTC-19NOV21-58000-P</p>
+  usdcPositionDesc: |
+    <p>topic:</p>
+    <p>Option: user.option.position</p>
+    <p>Perpetual: </p>
+  usdcFilledHistory: |
+    <p>topic:</p>
+    <p>Option: user.option.order</p>
+    <p>Perpetual: </p>
+  udscGeeksDesc: |
+    <p>topic:</p>
+    <p>Option: user.option.greeks</p>
+  usdc_trading_symbol_comment: trading_symbol_comment<a href="#querySymbolInfo">Query Symbol</a> endpoint
+  usdcPriceRule:
+    <ul>
+    <li>Must be less than 1 million (<code>1000000</code>)</li>
+    <li>Must be a positive number：
+    <ul>
+    <li><code>40</code> - allowed</li>
+    <li><code>40.01</code> - allowed</li>
+    <li><code>-30.5</code> - not allowed</li>
+    </ul>
+    </li>
+    </ul>
+  usdcQuantity:
+    <ul>
+    <li>Must be less than 1 million  (<code>1000000</code>)</li>
+    <li>Must be a positive number：
+    <li>Must conform to the symbol's <code>qty_step</code>.</li>
+    <ul>
+    <li><code>40</code> - allowed</li>
+    <li><code>40.01</code> - allowed</li>
+    <li><code>-30.5</code> - not allowed</li>
+    </ul>
+    </li>
+    </ul>
 
 
 

@@ -61,11 +61,10 @@ POST
 |closeOnTrigger|false|bool|t(:closeOnTrigger)|
 |takeProfit|false|string|t(:takeProfit)|
 |stopLoss|false|string|t(:stopLoss)|
-|tptriggerby|false|number|t(:tptriggerby)|
-|slTriggerBy|false|string|t(:slTriggerBy)|
+|tptriggerby|false|number|t(:usdcTptriggerby)|
+|slTriggerBy|false|string|t(:usdcSlTriggerBy)|
 |triggerPrice|false|string|t(:triggerPrice)|
-|triggerBy|false|number|t(:triggerBy)|
-|positionIdx|false|number|t(:positionIdx)|
+|triggerBy|false|number|t(:usdcTriggerBy)|
 |mmp|false|string|t(:mmp)|
 
 
@@ -159,11 +158,10 @@ POST
 |closeOnTrigger|false|bool|t(:closeOnTrigger)|
 |takeProfit|false|number|t(:takeProfit)|
 |stopLoss|false|number|t(:stopLoss)|
-|tptriggerby|false|number|t(:tptriggerby)|
-|slTriggerBy|false|string|t(:slTriggerBy)|
+|tptriggerby|false|number|t(:usdcTptriggerby)|
+|slTriggerBy|false|string|t(:usdcSlTriggerBy)|
 |triggerPrice|false|string|t(:triggerPrice)|
-|triggerBy|false|number|t(:triggerBy)|
-|positionIdx|false|number|t(:positionIdx)|
+|triggerBy|false|number|t(:usdcTriggerBy)|
 |mmp|false|string|t(:mmp)|
 
 
@@ -392,7 +390,7 @@ POST
 ### t(:usdcBatchCancelOrders)
 
 ```console
-curl https://api.bybit.com/option/usdc/openapi/private/v1/cancel-order \
+curl https://api.bybit.com/option/usdc/openapi/private/v1/batch-cancel-orders \
 -H "Content-Type: application/json" \
 -D '{"cancelRequest":[{"outRequestId":"0d3a1844-a7ba-4a95-9e2a-47843112f412","symbol":"BTC-26NOV21-58000-P","orderId":"1a69653f-c3c7-40b4-a492-17316a2086a2"}]}'
 
@@ -421,7 +419,7 @@ curl https://api.bybit.com/option/usdc/openapi/private/v1/cancel-order \
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/option/usdc/openapi/private/v1/batch-cancel-order</span></code>
+<code><span id=vpoCreate>/option/usdc/openapi/private/v1/batch-cancel-orders</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -672,7 +670,7 @@ curl https://api.bybit.com/option/usdc/openapi/private/v1/query-order-history \
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/option/usdc/openapi/public/v1/query-order-history</span></code>
+<code><span id=vpoCreate>/option/usdc/openapi/private/v1/query-order-history</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
