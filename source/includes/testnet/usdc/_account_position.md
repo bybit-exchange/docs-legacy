@@ -120,7 +120,7 @@ POST
 
 ```console
 
-curl https://api.bybit.com/perpetual/usdc/openapi/private/v1/leverage/save \
+curl https://api.bybit.com/perpetual/usdc/openapi/private/v1/position/leverage/save \
 -H "Content-Type: application/json" \
 -d '{"symbol":"BTCUSD","buy_leverage":14,"sell_leverage":14}'
 
@@ -151,7 +151,7 @@ print(client.Positions.Positions_saveLeverage(symbol="BTCUSD", leverage="14").re
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/perpetual/usdc/openapi/private/v1/leverage/save</span></code>
+<code><span id=vpoCreate>/perpetual/usdc/openapi/private/v1/position/leverage/save</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -167,94 +167,6 @@ POST
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |leverage|number|t(:leverage)|
-
-
-## t(:queryClosingProfitAndLoss) 
-> t(:codequote_curlExample)
-
-```console
-
-curl https://api.bybit.com//perpetual/usdc/openapi/private/v1/closed-pnl/list \
--H "Content-Type: application/json" \
--d '{"symbol":"BTCUSD"}'
-```
-
-```python
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Positions.Positions_closePnlRecords(symbol="BTCUSD").result())
-
-```
-
-
-> t(:codequote_responseExample)
-
-```javascript
-{
-    "retCode": 0,
-    "retMsg": "",
-    "extCode": null,
-    "extInfo": null,
-    "result": {
-        "orderId": "ETHUSDT",
-        "symbol": "ETHUSDT",
-        "side": "ETHUSDT",
-        "orderType": "ETHUSDT",
-        "orderPrice": "ETHUSDT",
-        "orderQty": "ETHUSDT",
-        "execType": "162073788655749",
-        "closedSize": "162073788655749",
-        "cumEntryValue": "100",
-        "cumExitValue": "1620737886573",
-        "avgEntryPrice": "1620737886573",
-        "avgExitPrice": "1620737886573",
-        "closedPnl": "1620737886573",
-        "fillCount": "1620737886573",
-        "leverage": "20000",
-        "createdAt": 1634284800789
-    }
-}
-```
-
-
-<p class="fake_header">t(:httprequest)</p>
-POST
-<code><span id=vpoCreate>/perpetual/usdc/openapi/private/v1/closed-pnl/list</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|symbol|<b>true</b>|string|t(:usdcSymbol)|
-|startTime|false|number|t(:startTime)|
-|endTime|false|number|t(:endTime)|
-|execType|false|string|t(:execType)|
-|direction|false|string|t(:direction)|
-|limit|false|number|t(:usdcMax50Min20)|
-|cursor|false|string|t(:cursor)|
-
-
-<p class="fake_header">t(:responseparameters)</p>
-
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|orderId|string|t(:usdcOrderId)|
-|symbol|string|t(:usdcSymbol)|
-|side|string|t(:side)|
-|orderQty|string|t(:usdcOrderQty)|
-|orderPrice|string|t(:usdcOrderPrice)|
-|orderType|string|t(:usdcOrderType)|
-|execType|string|t(:execType)|
-|closedSize|string|t(:closedSize)|
-|cumEntryValue|string|t(:cumEntryValue)|
-|cumExitValue|string|t(:cumExitValue)|
-|avgEntryPrice|string|t(:avgEntryPrice)|
-|avgExitPrice|string|t(:avgExitPrice)|
-|closedPnl|string|t(:closedPnl)|
-|fillCount|string|t(:fillCount)|
-|leverage|string|t(:leverage)|
-|createdAt|number|t(:createdAt)|
 
 
 ## t(:queryDeliveryLog)

@@ -66,9 +66,14 @@ t(:usdc_order_book_path)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/perpetual/usdc/openapi/public/v1/kline \
--H "Content-Type: application/json" \
--d '{"symbol":"BTCUSD","interval":1,"from":1581231260}'
+curl --location --request POST 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/kline/list' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "symbol": "BTCPERP",
+    "period":"1",
+    "limit":"1",
+    "start_time":1
+}'
 ```
 
 ```python
@@ -78,13 +83,31 @@ curl https://api.bybit.com/perpetual/usdc/openapi/public/v1/kline \
 
 ```javascript
 
+{
+  "retCode":0,
+  "retMsg":"",
+  "result":[
+  {
+    "symbol":"BTCPERP",
+    "volume":"0.01",
+    "period":"1",
+    "openTime":"1636358160",
+    "open":"66001.50",
+    "high":"66001.50",
+    "low":"66001.50",
+    "close":"66001.50",
+    "turnover":"1188.02"
+  }
+]
+}
+
 ```
 
 
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=sqvdMerged>/perpetual/usdc/openapi/public/v1/kline</span></code>
+<code><span id=sqvdMerged>/perpetual/usdc/openapi/public/v1/kline/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -288,9 +311,14 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/perpetual/usdc/openapi/public/v1/mark-kline \
+curl https://api.bybit.com/perpetual/usdc/openapi/public/v1/mark-price-kline \
 -H "Content-Type: application/json" \
--d '{"symbol":"BTCUSD","period":"1"}'
+-d '{
+    "symbol": "BTCPERP",
+    "period":"1",
+    "startTime":1,
+    "limit":"1"
+}'
 
 ```
 
@@ -301,11 +329,27 @@ curl https://api.bybit.com/perpetual/usdc/openapi/public/v1/mark-kline \
 
 ```javascript
 
+{
+    "retCode":0,
+    "retMsg":"",
+    "result":[
+        {
+            "symbol":"BTCPERP",
+            "period":"1",
+            "openTime":"1634696220",
+            "open":"63884.11",
+            "high":"63884.11",
+            "low":"63862.49",
+            "close":"63866.63"
+        }
+    ]
+}
+
 ```
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=sqvdMerged>/perpetual/usdc/openapi/public/v1/mark-kline</span></code>
+<code><span id=sqvdMerged>/perpetual/usdc/openapi/public/v1/mark-price-kline</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -335,9 +379,13 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/perpetual/usdc/openapi/public/v1/index-kline \
+curl https://api.bybit.com/perpetual/usdc/openapi/public/v1/index-price-kline \
 -H "Content-Type: application/json" \
--d '{"symbol":"BTCUSD","period":"1"}'
+-d '{
+    "symbol": "BTCPERP",
+    "period":"W",
+    "startTime":1634378400
+}'
 ```
 
 ```python
@@ -346,12 +394,27 @@ curl https://api.bybit.com/perpetual/usdc/openapi/public/v1/index-kline \
 > t(:codequote_responseExample)
 
 ```javascript
+{
+    "retCode":0,
+    "retMsg":"",
+    "result":[
+        {
+            "symbol":"BTCPERP",
+            "period":"W",
+            "openTime":"1635120000",
+            "open":"62033.96",
+            "high":"62058.66",
+            "low":"60005.97",
+            "close":"61359.21"
+        }
+    ]
+}
 
 ```
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=sqvdMerged>/perpetual/usdc/openapi/public/v1/index-kline</span></code>
+<code><span id=sqvdMerged>/perpetual/usdc/openapi/public/v1/index-price-kline</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -382,9 +445,14 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/perpetual/usdc/openapi/public/v1/premium-kline \
+curl https://api.bybit.com/perpetual/usdc/openapi/public/v1/premium-index-kline \
 -H "Content-Type: application/json" \
--d '{"symbol":"BTCUSD","period":"1"}'
+-d '{
+    "symbol": "BTCPERP",
+    "limit": 1,
+    "period":"1",
+    "startTime":1
+}'
 ```
 
 ```python
@@ -394,11 +462,27 @@ curl https://api.bybit.com/perpetual/usdc/openapi/public/v1/premium-kline \
 
 ```javascript
 
+{
+    "retCode":0,
+    "retMsg":"",
+    "result":[
+        {
+            "symbol":"BTCPERP",
+            "period":"1",
+            "openTime":"1635648300",
+            "open":"0.000066",
+            "high":"0.000066",
+            "low":"0.000066",
+            "close":"0.000066"
+        }
+    ]
+}
+
 ```
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=sqvdMerged>/perpetual/usdc/openapi/public/v1/premium-kline</span></code>
+<code><span id=sqvdMerged>/perpetual/usdc/openapi/public/v1/premium-index-kline</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -428,7 +512,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/perpetual/usdc/openapi/public/v1/open-interest \
+curl https://api.bybit.com/perpetual/usdc/openapi/public/v1/open-insterest \
 -H "Content-Type: application/json" \
 -d '{"symbol":"BTCUSD","period":"1"}'
 ```
@@ -440,11 +524,23 @@ curl https://api.bybit.com/perpetual/usdc/openapi/public/v1/open-interest \
 
 ```javascript
 
+{
+    "retCode":0,
+    "retMsg":"",
+    "result":[
+        {
+            "symbol":"BTCUSD",
+            "timestamp":1635648300,
+            "openInterest":"1.1"
+        }
+    ]
+}
+
 ```
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=sqvdMerged>/{category}/usdc/openapi/public/v1/open-interest</span></code>
+<code><span id=sqvdMerged>/{category}/usdc/openapi/public/v1/open-insterest</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -479,6 +575,19 @@ curl https://api.bybit.com/perpetual/usdc/openapi/public/v1/big-deal \
 > t(:codequote_responseExample)
 
 ```javascript
+
+{
+    "retCode":0,
+    "retMsg":"OK",
+    "result":[
+        {
+            "symbol":"BTCUSD",
+            "side":"Sell",
+            "timestamp":1636690065,
+            "value":"697998"
+        }
+    ]
+}
 
 ```
 <p class="fake_header">t(:httprequest)</p>
@@ -517,6 +626,18 @@ curl https://api.bybit.com/perpetual/usdc/openapi/public/v1/account-ratio \
 > t(:codequote_responseExample)
 
 ```javascript
+  {
+  "retCode":0,
+    "retMsg":"OK",
+    "result":[
+      {
+        "symbol":"BTCUSD",
+        "buyRatio":0.5831,
+        "sellRatio":0.4169,
+        "timestamp":1636700400
+      }
+  ]
+}
 
 ```
 <p class="fake_header">t(:httprequest)</p>
@@ -589,55 +710,4 @@ POST
 | deliveryPrice | string | t(:deliveryPrice) |
 | deliveryTime | number | t(:deliveryTime) |
 | cursor | string | t(:cursor) |
-
-
-
-### t(:querySettlePrice)
-> t(:codequote_curlExample)
-
-```console
-curl https://api.bybit.com/option/usdc/openapi/public/v1/session-avg-price \
--H "Content-Type: application/json" \
--d '{"symbol":"BTCUSD"}'
-
-```
-
-```python
-```
-
-> t(:codequote_responseExample)
-
-```javascript
-{
-    "retCode": 0,
-    "retMsg": "",
-    "result": [
-        {
-            "symbol": "100.01",
-            "sessionAvgPrice": "1.1",
-            "settlementTime": 1000000000001
-        }
-    ]
-}
-```
-
-<p class="fake_header">t(:httprequest)</p>
-POST
-<code><span id=sqvdMerged>{category}/usdc/openapi/public/v1/session-avg-price</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|symbol|false|string|t(:usdcSymbol)|
-|direction|false|string|t(:direction)|
-|limit|false|string|t(:usdcDeliveryLimit)|
-|cursor|false|string|t(:cursor)|
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-| symbol | string | t(:usdcSymbol) |
-| sessionAvgPrice | string | t(:sessionAvgPrice) |
-| settlementTime | number | t(:settlementTime) |
 

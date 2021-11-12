@@ -226,57 +226,6 @@ POST
 |sessionRpl|string|t(:sessionRpl)|
 
 
-### t(:setMarginMode)
-
-> t(:codequote_curlExample)
-
-```console
-curl https://api.bybit.com/option/usdc/openapi/private/v1/set-margin-mode \
--H "Content-Type: application/json" \
--D '{"marginMode":"REGULAR_MARGIN"}'
-
-```
-
-```python
-
-```
-
-
-> t(:codequote_responseExample)
-
-```javascript
-{
-    "retCode": 0,
-    "retMsg": "",
-    "extCode": null,
-    "extInfo": null,
-    "result": [
-        {
-          "marginMode": "REGULAR_MARGIN"
-        }
-    ]
-}
-```
-
-
-<p class="fake_header">t(:httprequest)</p>
-POST
-<code><span id=vpoCreate>/option/usdc/openapi/private/v1/set-margin-mode</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|marginMode|<b>true</b>|string|t(:usdcMarginMode)|
-
-<p class="fake_header">t(:responseparameters)</p>
-
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|marginMode|string|t(:usdcMarginMode)|
-
-
 
 ### t(:queryMarginMode)
 

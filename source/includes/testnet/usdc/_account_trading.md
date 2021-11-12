@@ -129,6 +129,7 @@ curl https://api.bybit.com/option/usdc/openapi/private/v1/batch-place-order \
 }
 ```
 
+Option only.
 
 <p class="fake_header">t(:httprequest)</p>
 POST
@@ -291,7 +292,7 @@ curl https://api.bybit.com/option/usdc/openapi/private/v1/batch-replace-orders \
 }
 ```
 
-
+Option only.
 <p class="fake_header">t(:httprequest)</p>
 POST
 <code><span id=vpoCreate>/option/usdc/openapi/private/v1/batch-replace-orders</span></code>
@@ -416,7 +417,7 @@ curl https://api.bybit.com/option/usdc/openapi/private/v1/batch-cancel-orders \
 }
 ```
 
-
+Option only.
 <p class="fake_header">t(:httprequest)</p>
 POST
 <code><span id=vpoCreate>/option/usdc/openapi/private/v1/batch-cancel-orders</span></code>
