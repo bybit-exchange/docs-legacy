@@ -19,7 +19,7 @@ curl https://api.bybit.com/option//usdc/openapi/private/v1/place-order \
     "extCode": null,
     "extInfo": null,
     "result": {
-        "symbol": "ETHUSDT",
+        "symbol": "BTC-26NOV21-58000-P",
         "orderType": "Limit",
         "side": "Buy",
         "orderPrice": "1",
@@ -88,7 +88,7 @@ t(:usdcBatchOrdersDesc)
 ```console
 curl https://api.bybit.com/option/usdc/openapi/private/v1/batch-place-order \
 -H "Content-Type: application/json" \
--D '{"orderRequest":[{"outRequestId":"4c77b34a-9093-4bca-9cad-727cd6efed7e","symbol":"Hello","orderType":"Limit","side":"Buy","orderQty":"1","orderPrice":"1","timeInForce":"GoodTillCancel","placeMode":1,"placeType":1}]}'
+-D '{"orderRequest":[{"outRequestId":"4c77b34a-9093-4bca-9cad-727cd6efed7e","symbol":"BTC-26NOV21-58000-P","orderType":"Limit","side":"Buy","orderQty":"1","orderPrice":"1","timeInForce":"GoodTillCancel","placeMode":1,"placeType":1}]}'
 
 
 ```
@@ -107,24 +107,17 @@ curl https://api.bybit.com/option/usdc/openapi/private/v1/batch-place-order \
     "extCode": null,
     "extInfo": null,
     "result": [{
-        "symbol": "ETHUSDT",
-        "orderType": "ETHUSDT",
-        "side": "ETHUSDT",
-        "orderPrice": "ETHUSDT",
+        "symbol": "BTC-26NOV21-58000-P",
+        "orderType": "Limit",
+        "side": "Buy",
+        "orderPrice": "1",
         "orderLinkId": "162073788655749",
-        "iv": "100",
-        "placeMode": "1620737886573",
-        "placeType": "1620737886573",
-        "timeInForce": "1620737886573",
+        "placeMode": "1",
+        "placeType": "1",
+        "timeInForce": "PostOnly",
         "outRequestId": "1620737886573",
-        "reduceOnly": "1620737886573",
-        "orderPrice": "20000",
-        "orderQty": "10",
-        "executedQty": "0",
-        "status": "NEW",
-        "timeInForce": "GTC",
-        "orderType": "LIMIT",
-        "side": "Buy"
+        "orderPrice": "1",
+        "orderQty": "1",
     }]
 }
 ```
@@ -204,12 +197,9 @@ curl https://api.bybit.com/option/usdc/openapi/private/v1/replace-order \
     "extCode": null,
     "extInfo": null,
     "result": {
-        "outRequestId": "out1111111",
-        "symbol": "ETHUSDT",
-        "orderId": "123",
-        "orderLinkId": "162073788655749",
-        "orderPrice": "100.1",
-        "orderQty": "10"
+        "outRequestId": "89befe89-0869-405a-a07c-2599324d009d",
+        "symbol": "BTC-26NOV21-58000-P",
+        "orderId": "be6c87be-da18-4876-9a64-6b7ccc859071"
     }
 }
 ```
@@ -275,20 +265,10 @@ curl https://api.bybit.com/option/usdc/openapi/private/v1/batch-replace-orders \
     "extCode": null,
     "extInfo": null,
     "result": [{
-        "outRequestId": "out1111111",
-        "symbol": "ETHUSDT",
-        "orderId": "123",
-        "orderLinkId": "162073788655749",
-        "orderPrice": "100.1",
-        "orderQty": "10"
-    },{
-    "outRequestId": "out1111111",
-    "symbol": "ETHUSDT",
-    "orderId": "123",
-    "orderLinkId": "162073788655749",
-    "orderPrice": "100.1",
-    "orderQty": "10"
-  }]
+        "outRequestId": "89befe89-0869-405a-a07c-2599324d009d",
+        "symbol": "BTC-26NOV21-58000-P",
+        "orderId": "be6c87be-da18-4876-9a64-6b7ccc859071"
+    }]
 }
 ```
 
@@ -356,7 +336,7 @@ curl https://api.bybit.com/option/usdc/openapi/private/v1/cancel-order \
     "extCode": null,
     "extInfo": null,
     "result": {
-        "orderId": "123"
+        "orderId": "ec6d8081-8950-491b-bf43-22ddb09df0fc"
     }
 }
 ```
@@ -412,7 +392,7 @@ curl https://api.bybit.com/option/usdc/openapi/private/v1/batch-cancel-orders \
     "extCode": null,
     "extInfo": null,
     "result": [{
-        "orderId": "123"
+        "orderId": "1a69653f-c3c7-40b4-a492-17316a2086a2"
     }]
 }
 ```

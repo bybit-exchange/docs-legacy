@@ -246,7 +246,7 @@ curl https://api.bybit.com/option/usdc/openapi/public/v1/symbols \
     "result": [
         {
             "symbol": "BTC-26NOV21-80000-P",
-            "status": "Filled",
+            "status": "ONLINE",
             "baseCoin": "BTC",
             "quoteCoin": "USD",
             "takerFeeRate": "0.0075",
