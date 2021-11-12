@@ -230,7 +230,7 @@ POST
 ```console
 curl https://api.bybit.com/option/usdc/openapi/public/v1/symbols \
 -H "Content-Type: application/json" \
--d '{"symbol":"BTCUSD","category":"perpetual"}'
+-d '{"symbol":"BTC-26NOV21-80000-P","category":"option"}'
 
 ```
 
@@ -245,7 +245,7 @@ curl https://api.bybit.com/option/usdc/openapi/public/v1/symbols \
     "retMsg": "",
     "result": [
         {
-            "symbol": "BTC-26NOV21-80000-",
+            "symbol": "BTC-26NOV21-80000-P",
             "status": "Filled",
             "baseCoin": "BTC",
             "quoteCoin": "USD",
