@@ -276,7 +276,7 @@ POST
 |:----- |:-------|:-----|----- |
 |category|<b>true</b>|string|t(:usdcCategory)|
 |symbol|false|string|t(:usdcSymbol)|
-|direction|false|string|t(:row_comment_direction)|
+|direction|false|string|t(:direction)|
 |limit|false|string|t(:usdcLimit)|
 |cursor|false|string|t(:cursor)|
 
