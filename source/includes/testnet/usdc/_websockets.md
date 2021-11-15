@@ -333,7 +333,7 @@ t(:usdcLastestSymbolInfo)
 
 ```javascript
 
-ws.send('{"method":"public/subscribe","id":"{100002}","params":{"channels":["user.option.position"]}}');
+ws.send('{"method":"private/subscribe","id":"{100002}","params":{"channels":["user.option.position"]}}');
 
 ```
 
@@ -353,7 +353,6 @@ ws.send('{"method":"public/subscribe","id":"{100002}","params":{"channels":["use
             {
                 "symbol":"BTC-5NOV21-66000-P",
                 "side":"Sell",
-                "action":"OPEN",
                 "positionSize":"-1.0000",
                 "positionAvgPrice":"6100.00000000",
                 "sessionAvgPrice":"5044.04000000",
@@ -362,7 +361,6 @@ ws.send('{"method":"public/subscribe","id":"{100002}","params":{"channels":["use
                 "exerciseDeliveryPrice":"5.51047098",
                 "positionIM":"15850",
                 "positionMM":"7124.04",
-                "fees":"",
                 "pnl":"1055.96",
                 "sessionUPL":"0",
                 "sessionRPL":"",
@@ -396,22 +394,16 @@ t(:usdcPositionDesc)
 | positionAvgPrice |string |t(:entryPrice) |
 | sessionAvgPrice |string |t(:sessionAvgPrice) |
 | markPrice |string |t(:markPrice) |
-| positionPnl |string |t(:positionPnl) |
-| roi |string |t(:roi) |
 | sessionUpl |string |t(:sessionUpl) |
 | positionIM |string |t(:im) |
 | positionMM |string |t(:usdcMm) |
 | tpSlMode |string |t(:tpSlMode) |
 | positionValue |string |t(:positionValue) |
 | leverage |number |t(:leverage) |
-| autoAddMargin |number |t(:usdcautoAddMargin) |
-| positionMargin |string |t(:positionMargin) |
 | liqPrice |string |t(:liqPrice) |
 | trailingStop |number |t(:trailingStop) |
-| isIsolated |number |t(:isIsolated) |
 | bustPrice |string |t(:bustPrice) |
 | occClosingFee |string |t(:occClosingFee) |
-| occFundingFee |string |t(:occFundingFee) |
 | trakeProfit |string |t(:trakeProfit) |
 | stopLoss |string |t(:stopLoss) |
 | positionStatus |string |t(:positionStatus) |
@@ -419,14 +411,13 @@ t(:usdcPositionDesc)
 | orderMargin |string |t(:orderMargin) |
 | unrealisedPnl |string |t(:unrealisedPnl) |
 | cumRealisedPnl |string |t(:cumRealisedPnl) |
-| cumCommission |string |t(:cumCommission) |
 
 
 ### t(:userFilledHistory)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"method":"public/subscribe","id":"{100002}","params":{"channels":["user.option.tradeHistory"]}}');
+ws.send('{"method":"private/subscribe","id":"{100002}","params":{"channels":["user.option.tradeHistory"]}}');
 ```
 
 > t(:usdc_trade_codequote_snapshot)
@@ -494,7 +485,7 @@ t(:usdcFilledHistory)
 > t(:codequote_subscribe)
 
 ```javascript
- ws.send('{"method":"public/subscribe","id":"{100003}","params":{"channels":["user.option.orderHistory"]}}');
+ ws.send('{"method":"private/subscribe","id":"{100003}","params":{"channels":["user.option.orderHistory"]}}');
 ```
 
 > t(:codequote_snapshot)
@@ -559,25 +550,24 @@ t(:usdcOrderDesc)
 | symbol |string |t(:usdcSymbol) |
 | orderType|string |t(:usdcOrderType) |
 | side |string |t(:side) |
-| orderQty |string |t(:usdcOrderQty) |
+| orderAllSize |string |t(:orderAllSize) |
+| orderFilledSize |string |t(:orderFilledSize) |
 | orderPrice |string |t(:usdcOrderPrice) |
 | iv |string |t(:optionIv) |
 | timeInForce |string |t(:row_comment_timeInForce) |
-| leavesQty |string |t(:leavesQty) |
 | cumExecQty |string |t(:cumExecQty) |
 | cumExecFee |string |t(:cumExecFee) |
 | orderIM |string |t(:im) |
 | orderStatus |string |t(:orderStatus) |
 | reduceOnly |number |t(:reduceOnly) |
-| closeOnTrigger |number |t(:closeOnTrigger) |
-| takeProfit |number |t(:takeProfit) |
-| stopLoss |number |t(:stopLoss) |
-| tpTriggerBy |number |t(:tptriggerby) |
-| slTriggerBy |number |t(:slTriggerBy) |
-| basePrice |number |t(:basePrice) |
-| triggerPrice |number |t(:triggerPrice) |
-| triggerBy |number |t(:triggerBy) |
-
+| closeOnTrigger |string |t(:closeOnTrigger) |
+| takeProfit |string |t(:takeProfit) |
+| stopLoss |string |t(:stopLoss) |
+| tpTriggerBy |string |t(:tptriggerby) |
+| slTriggerBy |string |t(:slTriggerBy) |
+| basePrice |string |t(:basePrice) |
+| triggerPrice |string |t(:triggerPrice) |
+| triggerBy |string |t(:triggerBy) |
 
 
 ### t(:userConditionalOrders)
@@ -624,7 +614,7 @@ t(:usdcOrderDesc)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"method":"public/subscribe","id":"{100003}","params":{"channels":["user.option.greeks"]}}');
+ws.send('{"method":"private/subscribe","id":"{100003}","params":{"channels":["user.option.greeks"]}}');
 
 ```
 
@@ -665,8 +655,8 @@ t(:udscGeeksDesc)
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 | baseCoin |string |t(:usdcBaseCoin) |
-| delta |string |t(:delta) |
-| gamma |string |t(:gamma) |
-| vega|string |t(:vega) |
-| theta |string |t(:theta) |
+| totalDelta |string |t(:delta) |
+| totalGamma |string |t(:gamma) |
+| totalVega|string |t(:vega) |
+| totalTheta |string |t(:theta) |
 
