@@ -72,7 +72,7 @@ curl --location --request POST 'https://api-testnet.bybit.com/perpetual/usdc/ope
     "symbol": "BTCPERP",
     "period":"1",
     "limit":"1",
-    "start_time":1
+    "startTime":1
 }'
 ```
 
