@@ -351,9 +351,7 @@ ws.send('{"method":"public/subscribe","id":"{100002}","params":{"channels":["use
     "data":{
         "result":[
             {
-                "positionIdx":0,
                 "symbol":"BTC-5NOV21-66000-P",
-                "positionStatus":null,
                 "side":"Sell",
                 "action":"OPEN",
                 "positionSize":"-1.0000",
@@ -394,7 +392,7 @@ t(:usdcPositionDesc)
 | riskId|number |t(:riskId) |
 | symbol |string |t(:usdcSymbol) |
 | side |string |t(:side) |
-| size |string |t(:usdcSize) |
+| positionSize |string |t(:usdcSize) |
 | positionAvgPrice |string |t(:entryPrice) |
 | sessionAvgPrice |string |t(:sessionAvgPrice) |
 | markPrice |string |t(:markPrice) |
