@@ -12,7 +12,7 @@ HTTP Code | t(:errorcode_meaning)
 
 Return Code | t(:errorcode_meaning)
 ---------- | -------
-0        |  返回成功
+0        |  Success
 10001    |  Error - request failed processed. Please try again.
 10002    |  Request not authorized - an API key is required and should be included in all requests.
 10003    |  Too many requests - please use WebSocket for live updates. Current limit is %s requests per minute.
@@ -57,7 +57,3 @@ Return Code | t(:errorcode_meaning)
 3400015	 |   System error. Please try again later.
 3500001	 |   System error. Please try again later.
 3500040	 |   System error. Please try again later.
-
-
-
-

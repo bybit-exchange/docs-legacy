@@ -2466,7 +2466,7 @@ en:
   usdcList: list
   usdcSymbol: Contract name
   usdcTickerInfo: Latest Symbol Info
-  usdcOrderBookSide: Direction. For Opiton, ASK or BID. For  Perptual Buy or Sell.
+  usdcOrderBookSide: Direction. For Option, ASK or BID. For Perpetual Buy or Sell.
   usdcSize: size
   usdcOrderBook: OrderBook
   usdcPeriod: |
@@ -2603,15 +2603,15 @@ en:
   websocket_codequote_auth_usdc: |
     Send auth request for authentication after establishing a connection.
   usdc_websocket_para_endpoint: |
-    Websocket Server Address（Option）:
+    Websocket Server Address (Option):
     <ul>
     <p>
       <li>Testnet:
-        <span id="testnet_address">Public: wss://stream-testnet.bybit.com/trade/option/usdc/public/v1</span>
+        Public: <span id="testnet_address">wss://stream-testnet.bybit.com/trade/option/usdc/public/v1</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
         <br/>
 
-        <span id="testnet_address_2">Private: wss://stream-testnet.bybit.com/option/trade/option/usdc/private/v1</span>
+        Private: <span id="testnet_address_2">wss://stream-testnet.bybit.com/option/trade/option/usdc/private/v1</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
       </li>
     </p>
@@ -2663,7 +2663,7 @@ en:
 
   usdc_order_book_path: Options：category=option, Perpetual：category=perpetual
   usdc_order_book_desc: Query order book info. Each side has a depth of 25 orders.
-  usdc_tick_desc: (Optins only)
+  usdc_tick_desc: (Options only)
 
 
 
@@ -2673,7 +2673,7 @@ en:
   optionPlaceType: Order type, can be price or implied volatility.Number 1 is price and number 2 is implied volatility. If 1,orderQty and orderPrice can not be empty. If 2, <code>iv</code> and <code>orderQty</code> can not be empty.
   optionOutRequestId: ID used for idempotence with a max. of 32 characters, required for Options
   orderLinkId: Custom ID used for cross-platform strategy remarks; a max. of 32 characters
-  usdcFutureTakeProfit: ake-profit price (Perpetual)
+  usdcFutureTakeProfit: Take-profit price (Perpetual)
   usdcFutureStopLoss: Stop-loss price (Perpetual)
   slTriggerBy: Price type for stop-loss triggering (Perpetual), default value is last traded price
   tptriggerby: Price type for take-profit triggering (Perpetual), default value is last traded price
@@ -2894,6 +2894,10 @@ en:
     <p>topic:</p>
     <p>Option: user.option.order</p>
     <p>Perpetual: </p>
+  usdcOrderDesc: |
+    <p>topic:</p>
+    <p>Options: user.option.orderHistory</p>
+    <p>Futures: </p>
   udscGeeksDesc: |
     <p>topic:</p>
     <p>Option: user.option.greeks</p>
@@ -2967,6 +2971,6 @@ en:
     </ul>
   orderAllSize: size of order.
   orderFilledSize: filled size of order.
-  usdcTradeApi: order API
-
-
+  usdcTradeApi: Order API
+  queryLatest500Trades: Query Last 500 Trades
+  usdcTradeHistory: Trade History

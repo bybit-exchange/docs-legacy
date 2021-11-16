@@ -41,8 +41,8 @@ t(:placeOrderInfo)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/{category}/usdc/openapi/private/v1/place-order</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+<code><span id=uopvPlace>/{category}/usdc/openapi/private/v1/place-order</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvPlace"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
@@ -128,8 +128,8 @@ Option only.
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/option/usdc/openapi/private/v1/batch-place-order</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+<code><span id=uopvBatchPlace>/option/usdc/openapi/private/v1/batch-place-order</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvBatchPlace"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
@@ -211,8 +211,8 @@ t(:replaceInfo)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/{category}/usdc/openapi/private/v1/replace-order</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+<code><span id=uopvReplace>/{category}/usdc/openapi/private/v1/replace-order</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvReplace"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
@@ -277,8 +277,8 @@ curl https://api.bybit.com/option/usdc/openapi/private/v1/batch-replace-orders \
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/option/usdc/openapi/private/v1/batch-replace-orders</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+<code><span id=uopvBatchReplace>/option/usdc/openapi/private/v1/batch-replace-orders</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvBatchReplace"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
@@ -348,8 +348,8 @@ curl https://api.bybit.com/option/usdc/openapi/private/v1/cancel-order \
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/{category}/usdc/openapi/private/v1/cancel-order</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+<code><span id=uopvCancel>/{category}/usdc/openapi/private/v1/cancel-order</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvCancel"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
@@ -405,8 +405,8 @@ curl https://api.bybit.com/option/usdc/openapi/private/v1/batch-cancel-orders \
 Option only.
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/option/usdc/openapi/private/v1/batch-cancel-orders</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+<code><span id=uopvBatchCancel>/option/usdc/openapi/private/v1/batch-cancel-orders</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvBatchCancel"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
@@ -462,8 +462,8 @@ curl https://api.bybit.com/option/usdc/openapi/private/v1/cancel-order \
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/option/usdc/openapi/private/v1/cancel-all</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+<code><span id=uopvCancelAll>/option/usdc/openapi/private/v1/cancel-all</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvCancelAll"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
@@ -539,8 +539,8 @@ curl https://api.bybit.com/option/usdc/openapi/private/v1/query-active-orders \
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/option/usdc/openapi/private/v1/query-active-orders</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+<code><span id=uopvQueryActive>/option/usdc/openapi/private/v1/query-active-orders</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvQueryActive"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
@@ -660,8 +660,8 @@ curl https://api.bybit.com/option/usdc/openapi/private/v1/query-order-history \
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/option/usdc/openapi/private/v1/query-order-history</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+<code><span id=uopvQueryHistory>/option/usdc/openapi/private/v1/query-order-history</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvQueryHistory"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
@@ -769,8 +769,8 @@ curl https://api.bybit.com/option/usdc/openapi/private/v1/execution-list \
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/option/usdc/openapi/private/v1/execution-list</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+<code><span id=uopvExecution>/option/usdc/openapi/private/v1/execution-list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvExecution"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
@@ -865,8 +865,8 @@ curl https://api.bybit.com/option/usdc/openapi/private/v1/query-transaction-log 
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/option/usdc/openapi/private/v1/query-transaction-log</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+<code><span id=uopvQueryTransaction>/option/usdc/openapi/private/v1/query-transaction-log</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvQueryTransaction"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
@@ -949,8 +949,8 @@ curl https://api.bybit.com/option/usdc/openapi/private/v1/query-wallet-balance \
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/option/usdc/openapi/private/v1/query-wallet-balance</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+<code><span id=uopvQueryBalance>/option/usdc/openapi/private/v1/query-wallet-balance</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvQueryBalance"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -1009,8 +1009,8 @@ curl https://api.bybit.com/option/usdc/openapi/private/v1/query-asset-info \
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/option/usdc/openapi/private/v1/query-asset-info</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+<code><span id=uopvAsset>/option/usdc/openapi/private/v1/query-asset-info</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvAsset"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
@@ -1071,8 +1071,8 @@ curl https://api.bybit.com/option/usdc/openapi/private/v1/query-margin-info \
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/option/usdc/openapi/private/v1/query-margin-info</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+<code><span id=uopvMargin>/option/usdc/openapi/private/v1/query-margin-info</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvMargin"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
@@ -1151,8 +1151,8 @@ curl https://api.bybit.com/option/usdc/openapi/private/v1/query-position \
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/option/usdc/openapi/private/v1/query-position</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+<code><span id=uopvPosition>/option/usdc/openapi/private/v1/query-position</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvPosition"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
@@ -1243,8 +1243,8 @@ print(client.Positions.Positions_saveLeverage(symbol="BTCUSD", leverage="14").re
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/perpetual/usdc/openapi/private/v1/position/leverage/save</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+<code><span id=uopvLeverageSave>/perpetual/usdc/openapi/private/v1/position/leverage/save</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvLeverageSave"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
@@ -1304,8 +1304,8 @@ curl https://api.bybit.com/option/usdc/openapi/private/v1/query-delivery-list \
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/option/usdc/openapi/private/v1/query-delivery-list</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+<code><span id=uopvQueryDelivery>/option/usdc/openapi/private/v1/query-delivery-list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvQueryDelivery"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
@@ -1383,8 +1383,8 @@ curl https://api.bybit.com/option/usdc/openapi/private/v1/session-settlement \
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/option/usdc/openapi/private/v1/session-settlement</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+<code><span id=upovSession>/option/usdc/openapi/private/v1/session-settlement</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#upovSession"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
@@ -1418,7 +1418,7 @@ POST
 
 ### t(:queryPositionInfo)
 
-Option only. 
+Option only.
 
 > t(:codequote_curlExample)
 
@@ -1470,8 +1470,8 @@ curl https://api.bybit.com/option/usdc/openapi/private/v1/query-position-exp-dat
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/option/usdc/openapi/private/v1/query-position-exp-date</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+<code><span id=upovPositionExp>/option/usdc/openapi/private/v1/query-position-exp-date</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#upovPositionExp"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
@@ -1528,8 +1528,8 @@ curl https://api.bybit.com/perpetual/usdc/openapi/public/v1/risk-limit/list \
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/perpetual/usdc/openapi/public/v1/risk-limit/list</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+<code><span id=uopv>/perpetual/usdc/openapi/public/v1/risk-limit/list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopv"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
@@ -1584,8 +1584,8 @@ curl https://api.bybit.com/perpetual/usdc/openapi/private/v1/position/set-risk-l
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/perpetual/usdc/openapi/private/v1/position/set-risk-limit</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+<code><span id=uopvSetRisk>/perpetual/usdc/openapi/private/v1/position/set-risk-limit</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvSetRisk"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
@@ -1600,12 +1600,3 @@ POST
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |riskId|number|t(:riskId)|
-
-
-
-
-
-
-
-
-
