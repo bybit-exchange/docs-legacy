@@ -63,6 +63,8 @@ t(:usdc_order_book_path)
 
 ### t(:querykline)
 
+Perpetual only.
+
 > t(:codequote_curlExample)
 
 ```console
@@ -135,6 +137,7 @@ POST
 
 
 ### t(:usdcTickerInfo)
+t(:usdc_order_book_path)
 > t(:codequote_curlExample)
 
 ```console
@@ -224,6 +227,7 @@ POST
 
 
 ### t(:querySymbolInfo)
+t(:usdc_order_book_path)
 
 > t(:codequote_curlExample)
 
@@ -268,7 +272,7 @@ t(:usdcSymbolInfo)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=sqvdMerged>/option/usdc/openapi/public/v1/symbols</span></code>
+<code><span id=sqvdMerged>/{category}/usdc/openapi/public/v1/symbols</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -307,6 +311,7 @@ POST
 
 
 ### t(:markKLine)
+Perpetual only.
 
 > t(:codequote_curlExample)
 
@@ -376,6 +381,7 @@ POST
 
 
 ### t(:indexKLine)
+Perpetual only.
 > t(:codequote_curlExample)
 
 ```console
@@ -442,6 +448,7 @@ POST
 
 
 ### t(:premiumKLine)
+Perpetual only.
 > t(:codequote_curlExample)
 
 ```console
@@ -509,10 +516,11 @@ POST
 
 ### t(:queryOpenInterest)
 
+t(:usdc_order_book_path)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/perpetual/usdc/openapi/public/v1/open-insterest \
+curl https://api.bybit.com/perpetual/usdc/openapi/public/v1/open-interest \
 -H "Content-Type: application/json" \
 -d '{"symbol":"BTCUSD","period":"1"}'
 ```
@@ -540,7 +548,7 @@ curl https://api.bybit.com/perpetual/usdc/openapi/public/v1/open-insterest \
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=sqvdMerged>/{category}/usdc/openapi/public/v1/open-insterest</span></code>
+<code><span id=sqvdMerged>/{category}/usdc/openapi/public/v1/open-interest</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -559,6 +567,7 @@ POST
 
 
 ### t(:bigDealOrder)
+Perpetual only.
 > t(:codequote_curlExample)
 
 ```console
@@ -612,6 +621,8 @@ POST
 
 
 ### t(:accountRatio)
+
+t(:usdc_order_book_path)
 > t(:codequote_curlExample)
 
 ```console
@@ -663,6 +674,9 @@ POST
 
 
 ### t(:queryDeliveryPrice)
+
+Option only.
+
 > t(:codequote_curlExample)
 
 ```console
@@ -692,7 +706,7 @@ curl https://api.bybit.com/option/usdc/openapi/public/v1/delivery-price \
 ```
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=sqvdMerged>option/usdc/openapi/public/v1/delivery-price</span></code>
+<code><span id=sqvdMerged>/option/usdc/openapi/public/v1/delivery-price</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -710,4 +724,75 @@ POST
 | deliveryPrice | string | t(:deliveryPrice) |
 | deliveryTime | number | t(:deliveryTime) |
 | cursor | string | t(:cursor) |
+
+
+
+### t(:queryLastest500Trade)
+
+For both Perpetual and Option
+
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/option/usdc/openapi/public/v1/query-trade-latest \
+-H "Content-Type: application/json" \
+-d '{"category":"option","symbol":"BTC-19NOV21-30000-P","optionType":"PUT","limit":1}'
+```
+
+```python
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+  "retCode":0,
+    "retMsg":"OK",
+    "result":{
+    "resultTotalSize":1,
+      "cursor":"",
+      "dataList":[
+      {
+        "id":"184c3c8b",
+        "symbol":"BTC-19NOV21-30000-P",
+        "orderPrice":"1.00",
+        "orderQty":"0.020",
+        "side":"Buy",
+        "time":"1636704178974"
+      }
+    ]
+  }
+}
+```
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=sqvdMerged>/option/usdc/openapi/public/v1/query-trade-latest</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|category|<b>true</b>|string|t(:category)|
+|symbol|false|string|t(:usdcSymbol)|
+|optionType|false|string|t(:usdcOptionType)|
+|limit|false|string|t(:usdcLimitMax500)|
+
+
+<p class="fake_header">t(:responseparameters)</p>
+
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|resultTotalSize|number|t(:resultTotalSize)|
+|cursor|string|t(:cursor)|
+|dataList|list|t(:dataList)|
+
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|transactionTime|number|t(:transactionTime)|
+|id|string|ID
+|symbol|string|t(:usdcSymbol)|
+|orderPrice|string|t(:usdcOrderPrice)|
+|orderQty|string|t(:usdcOrderQty)|
+|side|string|t(:side)|
+|time|number|t(:time)|
 
