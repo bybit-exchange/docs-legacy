@@ -243,7 +243,7 @@ en:
   row_comment_resp_funding_rate: <a href="https://help.bybit.com/hc/en-us/articles/360039261114-What-is-funding-rate-and-predicted-rate-">Funding rate</a>
   row_comment_resp_funding_rate_e6: <a href="https://help.bybit.com/hc/en-us/articles/360039261114-What-is-funding-rate-and-predicted-rate-">Funding rate</a> * 10^8
   row_comment_resp_predicted_funding_rate: <a href="https://help.bybit.com/hc/en-us/articles/360039261114-What-is-funding-rate-and-predicted-rate-">Predicted funding rate</a>
-  row_comment_resp_funding_rate_e6: <a href="https://help.bybit.com/hc/en-us/articles/360039261114-What-is-funding-rate-and-predicted-rate-">Funding rate</a> * 10^6
+#  row_comment_resp_funding_rate_e6: <a href="https://help.bybit.com/hc/en-us/articles/360039261114-What-is-funding-rate-and-predicted-rate-">Funding rate</a> * 10^6
   row_comment_resp_predicted_funding_rate_e6: <a href="https://help.bybit.com/hc/en-us/articles/360039261114-What-is-funding-rate-and-predicted-rate-">Predicted funding rate</a> * 10^6
   row_comment_resp_next_funding_time: Next settlement time of capital cost
   row_comment_resp_countdown_hour: Countdown of settlement capital cost
@@ -2277,7 +2277,7 @@ en:
   spot_ticket_id: Ticket ID
   spot_match_order_id: Order ID of the opponent
   spot_account_id: Account ID
-  spot_match_account_id: Account ID
+#  spot_match_account_id: Account ID
   spotQuoteAssetVolume: Quote asset volume
   spotMakerRebate: Marker rebate
   batchcancel_spotOrderTypes: |
@@ -2348,7 +2348,7 @@ en:
   websocketrealtimes: realtimes
   spot_websocket_ticker_desc_v1: |
     The 24-hr statistics of a trading pair.
-  websocketkline: kline
+#  websocketkline: kline
   spot_websocket_kline_desc_v1: |
     <p>Kline data.</p>
     <p>To subscribe to different intervals, alter append your desired interval to the topic name. For 1 minute klines, set the topic as <code>kline_1m</code>, for 1 hour klines use <code>kline_1h</code>, etc. Available intervals are listed <a href="#kline-interval-interval">here</a>.</p>
@@ -2474,3 +2474,518 @@ en:
   accountType_spot: ""
   accountType_contract: ""
   accountType_investment: "- ByFi Account"
+
+
+  ###usdc contract
+  usdc: USDC Contract
+  usdcList: list
+  usdcSymbol: Contract name
+  usdcTickerInfo: Latest Symbol Info
+  usdcOrderBookSide: Direction. For Option, ASK or BID. For Perpetual Buy or Sell.
+  usdcSize: size
+  usdcOrderBook: OrderBook
+  usdcPeriod: |
+    <p>Data refresh frequency. Enum: 1 3 5 15 30 60 120 240 360 720 "D" "M" "W"</p>
+
+  usdcStartTime: Start time, unit in seconds
+  usdcLimit: Number of data per page; the max. value is 200, and the default value is 200
+  usdcVolume: Trading volume
+
+  usdcCategory: Type .OPTION or PERPETUAL
+  usdcOptionType: Call or put, required for Options
+  usdcOpen: Open price
+  usdcOpenTime: Start time
+  usdcTurnover: Turnover
+  usdcLow: 24-hour low
+  usdcHigh: 24-hour high
+  usdcClose: 24-hour high
+  usdcPrice: price
+  category: Type .OPTION or PERPETUAL
+  usdcBid: Best bid price
+  usdcBidIv: Implied volatility for best bid
+  usdcBidSize: Bid quantity
+  usdcAsk: Best ask price
+  usdcAskIv: Implied volatility for best ask
+  usdcAskSize: Ask quantity
+  usdcLastPrice: Last traded price
+  usdcOpenInterest: Open interest
+  usdcIndexPrice: Index Price
+  usdcMarkPrice: Mark Price
+  usdcMarkPriceIv: Implied volatility for mark price
+  usdcChange24h: 24-hour change
+  usdcHigh24h: 24-hour high
+  usdcLow24h: 24-hour low
+  usdcVolume24h: 24-hour trading volume
+  usdcTurnover24h: 24-hour turnover
+  usdcTotalVolume: Total trading volume
+
+  usdcTotalTurnover: Total turnover
+  usdcPredictedDeliveryPrice: Est. delivery price
+  usdcUnderlyingPrice: Underlying price
+  id: id
+  side: Direction
+  usdcOrderPrice: Order price
+  usdcPlaceOrderPrice: Order price.For Perpetual, order price can not be empty. For option, if placeType is 2, the final order price will be calculated by Implied volatility
+  usdcOrderQty: Order quantity
+  time: Timestamp, unit in milliseconds
+  cursor: API pass-through
+  usdcBaseCoin: Base currency
+  usdcAccountInfo: Wallet Info
+
+  usdcQuoteCoin: Quote currency
+  usdcTakerFeeRate: Taker fee rate
+  usdcMakerFeeRate: Maker fee rate
+  minLeverage: Min. leverage  (Perpetual only)
+  maxLeverage: Max. leverage (Perpetual only)
+  leverageStep: Modification to leverage  (Perpetual only)
+  minPrice: Min. order price
+  maxPrice: Max. order price
+  tickSize: Tick size
+  minTradingQty: Min. order quantity
+  maxTradingQty: Max. order quantity
+  qtyStep: Min. order quantity increment
+  deliveryFeeRate: Delivery fee rate (Options only)
+  deliveryTime: Delivery time, unit in milliseconds (Options only)
+  timestamp: Timestamp, unit in milliseconds
+  usdcValue: Order value
+
+  buyRatio: Long position ratio
+  sellRatio: Short position ratio
+
+  direction: |
+   <p>prev: prev page, next: next page.</p>
+  deliveryPrice: Delivery price
+  sessionAvgPrice: Settlement price
+  settlementTime: Settlement time, unit in milliseconds
+  usdcDeliveryLimit: Number of data per page; the max. value is 200, and the default value is 50
+
+
+  startTime:  Start time, unit in seconds
+  openTime: Start time
+  open: Open price
+  high: 24-hour high
+  low: 24-hour low
+  close: Close price
+  usdcOpenInterestPeriod: Data refresh frequency. 5min, 15min, 30min, 1h, 4h, 1d
+  usdcOpenInterestLimit: Number of data per page; the max value 200, and the default value is 50
+  usdcBigDealLimit: Number of data returned; the max. value is 100, and the default value is 500
+  usdcAccountRatioLimit: Number of data returned; the max. value is 500, and the default value is 50
+  usdcAccountRatioPeriod: Data refresh frequency. 5min, 15min, 30min, 1h, 4h, 1d
+
+  delta: Delta value
+  gamma: Delta value
+  vega: Vega value
+  theta: Theta value
+
+  usdcPlaceOrder: Place Order
+  usdcBatchOrders: Place Batch Orders
+  usdcReplaceOrder: Modify Order
+  usdcBatchReplaceOrders: Batch Modify Orders
+  usdcCancelOrder: Cancel Order
+  usdcBatchCancelOrders: Batch Cancel Orders
+  usdcCancelAll: Cancel All Active Orders
+  usdcQryUnOrPartFilled: Query Unfilled/Partially Filled Orders
+  usdcQryOrderHistory: Query Order History
+
+  account_wallet: Account API
+  transactionLog: Transaction Log
+  accountInfo: Account Info
+  assetInfo: Asset Info
+  setMarginMode: Set Margin Mode
+  queryMarginMode: Set Margin Mode
+
+  accountPosition: Positions API
+  queryPosition: Query My Positions
+  setTakeProfitAndStopLoss: Set TP/SL
+  changeTakeProfitAndStopLoss: Modify TP/SL
+  setPositionLeverage: Set Leverage
+  queryClosingProfitAndLoss: Query Closed P&L
+  queryDeliveryLogs: Query Delivery History
+  querySettleLogs: Query Settlement History
+  queryPositionInfo: Query Positions Info Upon Expiry
+
+  riskLimit: Risk Limit API
+  queryRiskLimits: Query Risk Limit
+  setRiskLimits: Set Risk Limit
+
+  usdcFundingRate: Funding Rate API
+  queryLastSessionFundingRate: Query Session Funding Rate
+  queryLastSessionFundingInfo: Query Session Funding Fees
+  predictedFundingRateAndFee: Query Est. Funding Rate and Funding Fees
+
+  trans_in_out: Transfer In/Transfer Out
+
+  websocket_codequote_auth_usdc: |
+    Send auth request for authentication after establishing a connection.
+  usdc_websocket_para_endpoint: |
+    Websocket Server Address (Option):
+    <ul>
+    <p>
+      <li>Testnet:
+        Public: <span id="testnet_address">wss://stream-testnet.bybit.com/trade/option/usdc/public/v1</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <br/>
+
+        Private: <span id="testnet_address_2">wss://stream-testnet.bybit.com/option/trade/option/usdc/private/v1</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+      </li>
+    </p>
+    <p>
+
+
+    </p>
+    <p>All requests made to the private API must be authenticated. Requests made to the public API do not require authentication.</p>
+    </ul>
+
+  usdc_rate_para_understanding: |
+    The frequency limit for Options is no more than 20 requests per second.
+  usdc_websocket_subscribe_desc: |
+    <p>Subscribing:</p>
+    <p>ws.send(‘{“method”:“public/subscribe”,“id”:“{uuid}“,”params”:{“channels”:[“topic1",“topic2”]}}‘)</p>
+    <p>or </p>
+    <p>ws.send(‘{“method”:“private/subscribe”,“id”:“{uuid}“,”params”:{“channels”:[“topic1",“topic2”]}}‘)</p>
+    <p>Response:</p>
+    <p>{“id”:“{uuid}“,”code”:0,“data”:{“successChannels”:[“topic1”],“failChannels”:[“topic2”]},“type”:“COMMAND_RESP”}</p>
+  usdc_websocket_unsubscribe_desc: |
+    <p>Remove WebSocket Topic Subscriptions</p>
+    <p>ws.send(‘{“method”:“public/unsubscribe”,“id”:“{uuid}“,”params”:{“channels”:[“topic1",“topic2”]}}‘)  </p>
+    <p>or  </p>
+    <p>ws.send(‘{“method”:“private/unsubscribe”,“id”:“{uuid}“,”params”:{“channels”:[“topic1",“topic2”]}}’) </p>
+    <p>Response: </p>
+    <p>{“id”:“{uuid}“,”code”:0,“data”:{“successChannels”:[“topic1”],“failChannels”:[“topic2”]},“type”:“COMMAND_RESP”}</p>
+
+    <p>Remove All WebSocket Topic Subscriptions</p>
+    <p>{“method”:“public/unSubAll”,“id”:“requestId”}</p>
+    <p>Response:</p>
+    <p> {“id”:“requestId”,“code”:0,“type”:“COMMAND_RESP”}</p>
+
+
+  usdc_websocket_para_orderbook: |
+    <p>Either 25 or 100 or 200 orders will be fetched from the bid and ask side of the order book.</p>
+    <p>The first response after a successful subscription will be the snapshot response. Following this, any spread changes in the order book will be pushed via the WebSocket API.</p>
+    <p>For option, only 25 or 100 orders will be fetched.</p>
+    <p>Topic format:</p>
+    <p>Either orderbook25.{symbol} or orderbook100.{symbol} for Option.</p>
+    <p>Such as orderbook25.BTC-5NOV21-30000-P or orderbook100.BTC-5NOV21-30000-P</p>
+  usdc_current_24_total:
+    <p>Fetch the transaction data on Bybit in the last 24 hours.</p>
+    <p>After a successful subscription, any changes in the transaction data will be pushed in real time or once every second. The number of pushes depends on the number of new transaction records within the time frame.</p>
+    <p>Subscribe according to the dimension of the currency, such as BTC or ETH</p>
+    <p>topic format:</p>
+    <p>Option- recenttrades.{symbol}, such as：recenttrades.BTC</p>
+
+
+
+  usdc_order_book_path: Options：category=option, Perpetual：category=perpetual
+  usdc_order_book_desc: Query order book info. Each side has a depth of 25 orders.
+  usdc_tick_desc: (Options only)
+
+
+
+  usdcOrderType: Order type
+  optionIv: Implied volatility
+  optionPlaceMode: Order mode, can be Advanced or Basic.For Perpetual, can be empty,But for Option, can not be empty.Number 1 is basic and number 2 is advanced.If 1, <code>orderQty</code> and <code>orderPrice</code> can not be empty. If 2, refer to <code>placeType</code>.
+  optionPlaceType: Order type, can be price or implied volatility.Number 1 is price and number 2 is implied volatility. If 1,orderQty and orderPrice can not be empty. If 2, <code>iv</code> and <code>orderQty</code> can not be empty.
+  optionOutRequestId: ID used for idempotence with a max. of 32 characters, required for Options
+  orderLinkId: Custom ID used for cross-platform strategy remarks; a max. of 32 characters
+  usdcFutureTakeProfit: Take-profit price (Perpetual)
+  usdcFutureStopLoss: Stop-loss price (Perpetual)
+  slTriggerBy: Price type for stop-loss triggering (Perpetual), default value is last traded price
+  tptriggerby: Price type for take-profit triggering (Perpetual), default value is last traded price
+
+
+  triggerPrice: Trigger price
+  triggerBy: Trigger price type
+  positionIdx: 0-One-Way Mode, 1-Buy side of both side mode, 2-Sell side of both side mode (Perpetual)
+  mmp: Market maker protection; false not enabled (default) and true means enabled
+  reduceOnly: Reduce-only
+  closeOnTrigger: Close on trigger, please set it to true for a close order
+  takeProfit: Take-profit price (Perpetual)
+  stopLoss: Stop-loss price (Perpetual)
+  usdcOrderId: Order ID
+  uscdOrderType: Order type
+  usdcOrderFilter: Active order or close order, required for Perpetual
+  usdcReplaceOrderId: Order ID, required for Options
+  usdcOrderLinkId: Either orderId or orderLinkId is required (Perpetual)
+  cancelAllResponse: This is used to cancel all active orders . The real-time response indicates whether the request is successful, depending on retCode.
+  usdcSymbolInfo: Query for all if blank.
+  symbolStatus: Status, can be WAITING_ONLINE, ONLINE, DELIVERING, or OFFLINE
+
+  placeOrderInfo: |
+    <p>Place an order using the USDC Derivatives Account. </p>
+    <p>Once an order is placed, a corresponding portion of your wallet balance will be frozen. The amount depends on parameter configuration specified in your order.   </p>
+    <p>The request status can be queried in real time. </p>
+    <p>The response parameters must be queried through a query or a WebSocket response.</p>
+  replaceInfo: For Options, at least one of the three parameters — price, quantity or implied volatility — must be input. For Derivatives, either price or quantity is required.
+  leavesValue: Est. order value of unfilled orders
+  cumExecQty: Total filled quantity
+  cumExecValue: Total order value of filled orders
+  cumExecFee: Total trading fees
+  im: Initial margin
+  orderStatus: Order status
+  lastExecPrice: Filled price
+  basePrice: Market price during order placement
+  createdAt: Creation time
+  cashFlow: Cash flow
+  realisedPnl: Closed P&L
+  updatedAt: Update time
+
+  usdcEndTime: End time, unit in seconds
+  usdcType: Default value is all
+  transactionTime: Timestamp, unit in milliseconds
+
+  uscdSize: Positions
+  tradePrice: Filled price
+  fee: Trading fees
+  usdcChange: Change
+  usdcFunding: Funding fees
+  tradeId: Transaction ID
+  feeRate: Taker or maker fee rate
+  cashBalance: Cash balance
+
+
+  equity: Equity
+  availableBalance: Available balance
+  marginBalance: Margin balance
+  accountIm: Initial margin
+  accountMm: Maintenance margin
+  totalRpl: Total RPL
+  totalSessionUpl: Session UPL
+  totalSessionRpl: Session RPL
+
+  totalDelta: Total delta
+  totalGamma: Total gamma
+  totalVega: Total vega
+  totalTheta: Total theta
+  usdcIm: Initial margin
+  usdcMm: Maintenance margin
+  sessionUpl: Session UPL
+  sessionRpl: Session RPL
+
+  usdcMarginMode: Margin mode
+  usdcInfo: Symbol info of liquidated assets under Portfolio Margin
+
+  usdcPositionLimit: Number of data per page; the max. value is 50, and the default value is 20
+  usdcMax50Min20: Number of data per page; the max. value is 50, and the default value is 20
+  entryPrice: Avg. entry price
+  positionPnl: UPL derived from the avg. entry price
+  roi: ROI
+  tpSlMode: TP/SL settings (Perpetual)
+  positionValue: Position value (Perpetual)
+  liqPrice: Liquidation price (Perpetual)
+  trailingStop: Trailing stop (Perpetual)
+  bustPrice: Bankruptcy price (Perpetual)
+  occClosingFee: Position closing fees (Perpetual)
+  occFundingFee: Est. funding fees (Perpetual)
+  trakeProfit: Take-profit price (Perpetual)
+  positionStatus: Position status; can be normal, liquidating, and auto deleveraging (Perpetual)
+  deleverageIndicator: ADL indicators; can be 1,2,3,4,5 (Perpetual)
+  orderMargin: Pre-occupied order margin
+  unrealisedPnl: unrealised pnl (Perpetual)
+  cumRealisedPnl: Accumulated realised pnl (all-time total) (Perpetual)
+  cumCommission: Commission (Perpetual)
+
+  trailingActive: Trigger price for trailing stop (Perpetual)
+  slSize: Stop-loss order quantity (Perpetual)
+  tpSize: Take-profit order quantity (Perpetual)
+
+  tradingStopTakeProfit: Take-profit price, cannot be less than zero; zero means canceling TP (Perpetual)
+  tradingStopLoss: Stop-loss price, cannot be less than zero; zero means canceling SL (Perpetual)
+  tradingTrailingStop: Trailing stop, cannot be less than zero; zero means canceling TS (Perpetual)
+  userId: UID
+  usdcId: Position ID
+  positionMargin: Position margin
+  walletBalance: Wallet balance
+
+  usdcLeverage: Must be greater than zero and less than the max. leverage allowed
+  endTime: End time, unit in seconds
+  execType: Execution type (cannot be “Funding”)
+  closedSize: Quantity to close
+  cumEntryValue: Position value to close
+  cumExitValue: Position value of the filled close order
+  avgEntryPrice: Avg. entry price
+  avgExitPrice: Avg. exit price
+  closedPnl: Closed P&L
+  fillCount: Filled quantity
+
+  usdcExpDateRepsonse: format：yyyyMMdd
+  expDate: Expiration date. format：yyyyMMdd
+  pnl: P&L
+  maintainMargin: Maintenance margin
+  startingMargin: Initial margin
+  section: Interval
+  isLowestRisk: Whether it’s the lowest risk limit; 0 indicates no and 1 means yes
+  riskId: Risk ID
+  usdcRiskLimit: Risk Limit
+  fundingRateTimestamp: Timestamp
+  usdcPreFundingRate: Session funding rate
+  execFee: Trading fees
+  execTimestamp: Trade time
+  predictedFundingRate: Est. funding rate
+  predictedFundingFee: Est. funding fees
+
+  tradeTime: Timestamp, unit in milliseconds
+  usdcCoin: Asset type
+  bidPrice: Best bid price
+  bidIv: Implied volatility for best bid
+  bidSize: Bid quantity
+  askPrice: Best ask price
+  askIv: Implied volatility for best ask
+  askSize: Ask quantity
+  openInterest: Open interest
+  markPriceIv: Implied volatility for mark price
+  price24Pcnt: 24-hour change
+  highPrice24h: 24-hour high
+  lowPrice24h: 24-hour low
+  volume24h: 24-hour trading volume
+  turnover24h: 24-hour turnover
+  totalVolume: Total trading volume
+  predictedDeliveryPrice: Est. delivery price
+  underlying: Underlying
+
+  usdcStart: Start time, unit in seconds
+  usdcEnd: End time, unit in seconds
+  usdcvolume: 24-hour trading volume
+  usdcturnover: 24-hour turnover
+  usdcconfirm: Confirmed or not
+  usdcautoAddMargin: Whether auto margin replenishment has been enabled
+  isIsolated: True means isolated margin, false means cross margin (Perpetual)
+  execValue: Position value (Perpetual)
+  excPrice: Filled price
+  execQty: Filled quantity
+  lastLiquidityInd: Liquidity (Perpetual)
+  leavesQty: Unfilled quantity
+  createType: Order placement
+  cancelType: Order cancelation
+
+  platFormOrderHistory: platform order history
+  querySymbolInfo: Contract Info
+  markKLine: Mark Price
+  indexKLine: Index Price
+  premiumKLine: Index Premium
+  queryOpenInterest: Open Interest
+  bigDealOrder: Large Orders
+  accountRatio: Long-Short Ratio
+  queryDeliveryPrice: Delivery Price
+  querySettlePrice: Settlement Price
+  queryDeliveryLog: Query Delivery History
+  usdcDeliveryTime: Delivery time
+  usdcPosition: position
+  usdcDeliveryPrice: Delivery price
+  usdcStrike: Strike price
+  usdcDeliveryRpl: Delivery Rpl
+#  platFormOrderLatest500: 平台歷史交易數據（最近500條）
+  usdcLimitMax500: default 500
+
+  websocket_aside_heartbeat_option: |
+    <p>The client needs to periodically send a "ping" to Bybit, and the Bybit server returns a heartbeat "pong" to show that the connection between the client and the server is normal. It is recommended to send at least every 30s.</p>
+    <p>If the client does not receive the heartbeat feedback normally, it needs to check the network connection status and reconnect to the server.</p>
+    <p>If the Bybit server does not receive a "ping" from the client for more than 3 minutes, the server will determine that the client has been disconnected (if it is not disconnected, the Bybit server will also actively disconnect at this time).</p>
+    <p>If the server determines and disconnects the link, and the client is in the state of "disconnection protection", all open orders of the client will be automatically cancelled.</p>
+
+  usdcMethodInfo: All methods are POST methods
+  usdc_auth_para_construct1: <p>1.The parameters are in json format</p>
+  resultTotalSize: length of dataList
+  dataList: Return the result list, refer to the following fields
+  usdcBatchOrdersDesc: Each request supports a max. of four orders. Options only.
+  publicTopic: Public Topic
+  bybitTradeHistory: Trade History on Bybit
+  insuranceFund: Insurance Fund
+  latestSymbolInfo: Latest Symbol Info
+  userPositionsInfo: Query Positions Info
+  userFilledHistory: Filled History
+  userOrderHistory: Order History
+  userConditionalOrders: Conditional Orders
+  userGreeks: Greeks
+  usdc_trade_codequote_snapshot: Snapshot Response Example - format of response
+  usdcLastestSymbolInfo: |
+    <p>Topic format:</p>
+    <p>instrument_info.{symbol},such as: instrument_info.BTC-19NOV21-58000-P</p>
+  usdcPositionDesc: |
+    <p>topic:</p>
+    <p>Option: user.option.position</p>
+    <p>Perpetual: </p>
+  usdcFilledHistory: |
+    <p>topic:</p>
+    <p>Option: user.option.order</p>
+    <p>Perpetual: </p>
+  usdcOrderDesc: |
+    <p>topic:</p>
+    <p>Options: user.option.orderHistory</p>
+    <p>Futures: </p>
+  udscGeeksDesc: |
+    <p>topic:</p>
+    <p>Option: user.option.greeks</p>
+  usdc_trading_symbol_comment: refer to <a href="#querySymbolInfo">Query Symbol</a> endpoint
+  usdcPriceRule:
+    <ul>
+    <li>Must be less than 1 million (<code>1000000</code>)</li>
+    <li>Must be a positive number：
+    <ul>
+    <li><code>40</code> - allowed</li>
+    <li><code>40.01</code> - allowed</li>
+    <li><code>-30.5</code> - not allowed</li>
+    </ul>
+    </li>
+    </ul>
+  usdcQuantity:
+    <ul>
+    <li>Must be less than 1 million  (<code>1000000</code>)</li>
+    <li>Must be a positive number：
+    <li>Must conform to the symbol's <code>qtyStep</code>.</li>
+    <ul>
+    <li><code>40</code> - allowed</li>
+    <li><code>40.01</code> - allowed</li>
+    <li><code>-30.5</code> - not allowed</li>
+    </ul>
+    </li>
+    </ul>
+  usdcTptriggerby: Price type for take-profit triggering (Perpetual), Default <code>MarkPrice</code>
+  usdcSlTriggerBy: Price type for stop-loss triggering (Perpetual), Default <code>MarkPrice</code>
+  usdcTriggerBy: Trigger price type. Default <code>MarkPrice</code>
+  usdcSettleLogsDesc: Only for Perpetual
+  riskLimitDesc: Only for Perpetual
+  usdcQty: order quanty
+
+  usdcStopOrderPrice: |
+    <ul>
+    <li>Active order<ul>
+    <li>Must be an integral multiple of <code>tickSize</code><ul>
+    <li>Information about current trading pair (e.g. <code>tickSize</code>) can be queried with the <a href="#t-querysymbol">Query Symbol endpoint</a>.</li>
+    <li>Modulo (<code>%</code>) can be used to calculate whether the price will be accepted:<pre class="center-column">
+      <ul>
+      <pre>
+      IF price % tick_size = 0
+          // send request
+      ELSE
+          // do not send request as the price will not be accepted by the system
+      </pre>
+      </ul>
+    </li>
+    <li>Must be less than the symbol's <code>max_price</code></li>
+    <li>If the user has no open position, the order price must be higher than 10% of the last traded price<ul>
+    <li>For example, if the last traded price (market price) is <code>10314</code>, the min. order price will be <code>1031.5</code>.</li>
+    <li>Pseudocode (assuming the price is a multiple of 0.5):<pre class="center-column">
+    IF price > (marketPrice * 0.1)
+        // send request
+    ELSE
+        // do not send request as the price will not be accepted by the system
+    </pre></li>
+    </ul>
+    </li>
+    <li>If the user has an open position, the order price must be better than the liquidation price.<ul>
+    <li>For example, if the liquidation price of a long position is <code>5176.5</code>, the min. order price will be <code>5177</code>. For short position, the order price must be less than the liquidation price.</li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    <li>Conditional order<ul>
+    <li>Must be greater than or equal to <code>1</code></li>
+    </ul>
+    </li>
+    </ul>
+  orderAllSize: size of order.
+  orderFilledSize: filled size of order.
+  usdcTradeApi: Order API
+  queryLatest500Trades: Query Last 500 Trades
+  usdcTradeHistory: Trade History
