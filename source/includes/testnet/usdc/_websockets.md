@@ -101,7 +101,7 @@ t(:spot_websocket_para_response)
 > t(:codequote_subscribe)
 
 ```javascript
-  ws.send('{"method":"public/subscribe","id":"{1001}","params":{"channels":["orderbook25.BTC-5NOV21-30000-P","orderbook100.BTC-5NOV21-30000-P"]}}');
+  ws.send('{"method":"public/subscribe","id":"requestId","params":{"channels":["orderbook25.BTC-12NOV21-40000-P"]}}');
 ```
 
 > t(:codequote_snapshot)
