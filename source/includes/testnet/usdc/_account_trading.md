@@ -5,7 +5,7 @@ t(:account_para)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/option//usdc/openapi/private/v1/place-order \
+curl https://api.bybit.com/option/usdc/openapi/private/v1/place-order \
 -H "Content-Type: application/json" \
 -D '{"outRequestId":"021f276a-0a5f-4f35-9859-5f32353ce0ad","symbol":"BTC-26NOV21-58000-P","orderType":"Limit","side":"Buy","orderQty":"1","orderPrice":"1","timeInForce":"GoodTillCancel","placeMode":1,"placeType":1}'
 ```
