@@ -648,6 +648,7 @@
   <li><a href="/docs/zh-cn/spot">現貨</a></li>
   <li><a href="/docs/zh-cn/account_asset">賬戶資產</a></li>
 
+
   <li>
     <div class="dropdown">
       <button class="dropbtn">Environment
@@ -656,6 +657,7 @@
       <div class="dropdown-content">
             <span class="dropdown-content-selected"><a href=/docs/zh-cn/linear>Mainnet</a></span>
             <a href=/docs/zh-cn/testnet/linear>Testnet</a>
+
       </div>
     </div>
   </li>
@@ -1220,7 +1222,7 @@
             <a href="#t-wallet" class="toc-h1 toc-link" data-title="錢包接口">錢包接口</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#t-balance" class="toc-h2 toc-link" data-title="賬號余額">賬號余額</a>
+                    <a href="#t-balance" class="toc-h2 toc-link" data-title="獲取錢包余額">獲取錢包余額</a>
                   </li>
                   <li>
                     <a href="#t-walletrecords" class="toc-h2 toc-link" data-title="資金記錄">資金記錄</a>
@@ -1669,7 +1671,7 @@ clipboard.on('error', function(e) {
 <h3 id='2020-10-21'>2020-10-21</h3><h4 id='rest-api-18'>REST API</h4>
 <ul>
 <li>USDT合約上線新交易對：<a href="#symbol-symbol">ETHUSDT、LINKUSDT、LTCUSDT、XTZUSDT</a> [更新]</li>
-<li><a href="#t-balance">賬號余額</a> [更新]
+<li><a href="#t-balance">獲取錢包余額</a> [更新]
 
 <ul>
 <li>修復<code>usdt</code> <code>given_cash</code>和<code>service_cash</code>總是為0的問題</li>
@@ -1773,7 +1775,7 @@ clipboard.on('error', function(e) {
 -->
 
 <ul>
-<li><a href="#t-balance">賬號余額</a> [更新]
+<li><a href="#t-balance">獲取錢包余額</a> [更新]
 
 <ul>
 <li>更新請求參數 <code>coin</code> 如果不傳參數 返回所有錢包余額</li>
@@ -7142,7 +7144,7 @@ GET
 <p><a href="/docs/inverse#t-lcp">請點擊查看接口描述。</a></p>
 <h1 id='t-wallet'>錢包接口</h1>
 <p>錢包相關接口需要認證。</p>
-<h3 id='t-balance'>賬號余額</h3>
+<h3 id='t-balance'>獲取錢包余額</h3>
 <p><a href="/docs/inverse#t-balance">請點擊查看接口描述。</a></p>
 <h3 id='t-walletrecords'>資金記錄</h3>
 <p><a href="/docs/inverse#t-walletrecords">請點擊查看接口描述。</a></p>
@@ -8235,7 +8237,7 @@ B用戶：
 <tr>
 <td style="text-align: left">funding_rate_e6</td>
 <td style="text-align: left">integer</td>
-<td>預測資金費率 * 10^6</td>
+<td>資金費率 * 10^6</td>
 </tr>
 <tr>
 <td style="text-align: left">predicted_funding_rate_e6</td>
@@ -9817,9 +9819,11 @@ ELSE
           window.location=currentUrl.replace(/\/((?:testnet\/)?spot)/,"/zh-cn/$1");
         }else if(currentUrl.indexOf("account_asset") > -1) {
           window.location=currentUrl.replace(/\/((?:testnet\/)?account_asset)/,"/zh-cn/$1");
-        } else {
+        } else if(currentUrl.indexOf("linear") > -1) {
           window.location=currentUrl.replace(/\/((?:testnet\/)?linear)/,"/zh-cn/$1");
-        }
+        } else{
+          window.location=currentUrl.replace(/\/((?:testnet\/)?usdc)/,"/zh-cn/$1");
+	      }
 
       }
     });

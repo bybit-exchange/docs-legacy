@@ -648,6 +648,7 @@
   <li><a href="/docs/spot">Spot</a></li>
   <li><a href="/docs/account_asset" class="selected">Account Asset</a></li>
 
+
   <li>
     <div class="dropdown">
       <button class="dropbtn">Environment
@@ -656,6 +657,7 @@
       <div class="dropdown-content">
                     <span class="dropdown-content-selected"><a href=/docs/account_asset>Mainnet</a></span>
                     <a href=/docs/testnet/account_asset>Testnet</a>
+
       </div>
     </div>
   </li>
@@ -1880,9 +1882,11 @@ A subaccount can only be attributed to a parent account.
           window.location=currentUrl.replace(/\/((?:testnet\/)?spot)/,"/zh-cn/$1");
         }else if(currentUrl.indexOf("account_asset") > -1) {
           window.location=currentUrl.replace(/\/((?:testnet\/)?account_asset)/,"/zh-cn/$1");
-        } else {
+        } else if(currentUrl.indexOf("linear") > -1) {
           window.location=currentUrl.replace(/\/((?:testnet\/)?linear)/,"/zh-cn/$1");
-        }
+        } else{
+          window.location=currentUrl.replace(/\/((?:testnet\/)?usdc)/,"/zh-cn/$1");
+	      }
 
       }
     });
