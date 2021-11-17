@@ -39,8 +39,8 @@ t(:usdc_order_book_desc)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=svSymbols>/{category}/usdc/openapi/public/v1/order-book</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svSymbols"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=uopvorderBook>/{category}/usdc/openapi/public/v1/order-book</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvorderBook"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 t(:usdc_order_book_path)
 
@@ -516,8 +516,7 @@ POST
 
 ### t(:queryOpenInterest)
 
-Perpetual only.
-
+t(:usdc_order_book_path)
 > t(:codequote_curlExample)
 
 ```console
@@ -549,7 +548,7 @@ curl https://api.bybit.com/perpetual/usdc/openapi/public/v1/open-interest \
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=sqvdMerged>/perpetual/usdc/openapi/public/v1/open-interest</span></code>
+<code><span id=sqvdMerged>/{category}/usdc/openapi/public/v1/open-interest</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -623,8 +622,7 @@ POST
 
 ### t(:accountRatio)
 
-Perpetual only
-
+t(:usdc_order_book_path)
 > t(:codequote_curlExample)
 
 ```console
@@ -655,7 +653,7 @@ curl https://api.bybit.com/perpetual/usdc/openapi/public/v1/account-ratio \
 ```
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=sqvdMerged>/perpetual/usdc/openapi/public/v1/account-ratio</span></code>
+<code><span id=sqvdMerged>/{category}/usdc/openapi/public/v1/account-ratio</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
