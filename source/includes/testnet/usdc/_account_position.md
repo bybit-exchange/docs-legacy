@@ -5,7 +5,7 @@
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/option/usdc/openapi/private/v1/query-position \
+curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-position \
 -H "Content-Type: application/json" \
 -D '{"symbol":"BTC-22OCT21-40000-C","category":"option"}'
 ```
@@ -120,7 +120,7 @@ POST
 
 ```console
 
-curl https://api.bybit.com/perpetual/usdc/openapi/private/v1/position/leverage/save \
+curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/position/leverage/save \
 -H "Content-Type: application/json" \
 -d '{"symbol":"BTCUSD","buy_leverage":14,"sell_leverage":14}'
 
@@ -173,7 +173,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/option/usdc/openapi/private/v1/query-delivery-list \
+curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-delivery-list \
 -H "Content-Type: application/json" \
 -d '{"symbol":"BTC-22OCT21-45000-C"}'
 ```
@@ -253,7 +253,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/option/usdc/openapi/private/v1/session-settlement \
+curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/session-settlement \
 -H "Content-Type: application/json" \
 -d '{"symbol":"BTC-22OCT21-45000-C"}'
 
@@ -329,7 +329,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/option/usdc/openapi/private/v1/query-position-exp-date \
+curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-position-exp-date \
 -H "Content-Type: application/json" \
 -d '{"expDate":"20211010"}'
 

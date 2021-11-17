@@ -41,7 +41,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/v2/public/announcement
+curl https://api-testnet.bybit.com/v2/public/announcement
 ```
 
 > t(:codequote_responseExample)

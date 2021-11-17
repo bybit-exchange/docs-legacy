@@ -8,7 +8,7 @@ t(:market_para_auth)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/public/linear/kline?symbol=BTCUSDT&interval=1&limit=2&from=1581231260
+curl https://api-testnet.bybit.com/public/linear/kline?symbol=BTCUSDT&interval=1&limit=2&from=1581231260
 ```
 
 ```python--old
@@ -98,7 +98,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/public/linear/recent-trading-records?symbol=BTCUSDT&limit=500
+curl https://api-testnet.bybit.com/public/linear/recent-trading-records?symbol=BTCUSDT&limit=500
 ```
 
 ```python--old
@@ -177,7 +177,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/public/linear/funding/prev-funding-rate?symbol=BTCUSDT
+curl https://api-testnet.bybit.com/public/linear/funding/prev-funding-rate?symbol=BTCUSDT
 ```
 
 ```python--old
@@ -245,7 +245,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/public/linear/mark-price-kline?symbol=BTCUSDT&interval=1&limit=2&from=1581231260
+curl https://api-testnet.bybit.com/public/linear/mark-price-kline?symbol=BTCUSDT&interval=1&limit=2&from=1581231260
 ```
 
 ```python--old
@@ -329,7 +329,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/public/linear/index-price-kline?symbol=BTCUSDT&interval=1&limit=2&from=1581231260"
+curl "https://api-testnet.bybit.com/public/linear/index-price-kline?symbol=BTCUSDT&interval=1&limit=2&from=1581231260"
 ```
 
 ```python--old
@@ -402,7 +402,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/public/linear/premium-index-kline?symbol=BTCUSDT&interval=1&limit=2&from=1581231260"
+curl "https://api-testnet.bybit.com/public/linear/premium-index-kline?symbol=BTCUSDT&interval=1&limit=2&from=1581231260"
 ```
 
 ```python--old
@@ -649,7 +649,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/public/linear/symbols
+curl https://api-testnet.bybit.com/public/linear/symbols
 ```
 
 > t(:codequote_responseExample)

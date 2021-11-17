@@ -4,7 +4,7 @@
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/v2/public/liq-records?symbol=BTCUSD
+curl https://api-testnet.bybit.com/v2/public/liq-records?symbol=BTCUSD
 ```
 
 ```python--old
@@ -69,7 +69,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/user/leverage?api_key={api_key}&timestamp={timestamp}&sign={sign}"
+curl "https://api-testnet.bybit.com/user/leverage?api_key={api_key}&timestamp={timestamp}&sign={sign}"
 ```
 
 ```python--old
@@ -131,7 +131,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/open-api/order/list?api_key={api_key}&timestamp={timestamp}&sign={sign}&symbol=BTCUSD"
+curl "https://api-testnet.bybit.com/open-api/order/list?api_key={api_key}&timestamp={timestamp}&sign={sign}&symbol=BTCUSD"
 ```
 
 ```python--old
@@ -246,7 +246,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/open-api/stop-order/list?api_key={api_key}&timestamp={timestamp}&sign={sign}"
+curl "https://api-testnet.bybit.com/open-api/stop-order/list?api_key={api_key}&timestamp={timestamp}&sign={sign}"
 ```
 
 ```python--old
@@ -355,7 +355,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/open-api/stop-order/create \
+curl https://api-testnet.bybit.com/open-api/stop-order/create \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","order_type":"Limit","side":"Buy","symbol":"BTCUSD","qty":1,"price":8100,"base_price":8300,"stop_px":8150,"time_in_force":"GoodTillCancel","order_link_id":"cus_order_id_1","timestamp":{timestamp},"sign":"{sign}"}'
 ```
@@ -472,7 +472,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/open-api/stop-order/cancel \
+curl https://api-testnet.bybit.com/open-api/stop-order/cancel \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
 ```
@@ -556,7 +556,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/open-api/stop-order/replace \
+curl https://api-testnet.bybit.com/open-api/stop-order/replace \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","stop_order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
 ```
@@ -617,7 +617,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/open-api/order/replace \
+curl https://api-testnet.bybit.com/open-api/order/replace \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
 ```
@@ -676,7 +676,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/open-api/wallet/risk-limit/list?api_key={api_key}&timestamp={timestamp}&sign={sign}"
+curl "https://api-testnet.bybit.com/open-api/wallet/risk-limit/list?api_key={api_key}&timestamp={timestamp}&sign={sign}"
 ```
 
 ```python--old
@@ -782,7 +782,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/open-api/wallet/risk-limit \
+curl https://api-testnet.bybit.com/open-api/wallet/risk-limit \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","risk_id":2,"timestamp":{timestamp},"sign":"{sign}"}'
 ```

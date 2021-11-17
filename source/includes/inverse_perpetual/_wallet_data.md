@@ -6,7 +6,7 @@ t(:wallet_para)
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/v2/private/wallet/balance?api_key={api_key}&coin=BTC&timestamp={timestamp}&sign={sign}"
+curl "https://api-testnet.bybit.com/v2/private/wallet/balance?api_key={api_key}&coin=BTC&timestamp={timestamp}&sign={sign}"
 ```
 
 ```python--old
@@ -105,7 +105,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/v2/private/wallet/fund/records?api_key={api_key}&timestamp={timestamp}&sign={sign}"
+curl "https://api-testnet.bybit.com/v2/private/wallet/fund/records?api_key={api_key}&timestamp={timestamp}&sign={sign}"
 ```
 
 ```python--old
@@ -211,7 +211,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/v2/private/wallet/withdraw/list?api_key={api_key}&timestamp={timestamp}&sign={sign}"
+curl "https://api-testnet.bybit.com/v2/private/wallet/withdraw/list?api_key={api_key}&timestamp={timestamp}&sign={sign}"
 ```
 
 ```python--old
@@ -296,7 +296,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/v2/private/exchange-order/list?api_key={api_key}&timestamp={timestamp}&sign={sign}"
+curl "https://api-testnet.bybit.com/v2/private/exchange-order/list?api_key={api_key}&timestamp={timestamp}&sign={sign}"
 ```
 
 ```python--pybit

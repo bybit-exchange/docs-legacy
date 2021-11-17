@@ -4,7 +4,7 @@
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com//perpetual/usdc/openapi/private/v1/prev-funding-rate \
+curl https://api-testnet.bybit.com//perpetual/usdc/openapi/private/v1/prev-funding-rate \
 -H "Content-Type: application/json" \
 -d '{"symbol":"BTCUSD"}'
 ```
@@ -57,7 +57,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com//perpetual/usdc/openapi/private/v1/prev-funding \
+curl https://api-testnet.bybit.com//perpetual/usdc/openapi/private/v1/prev-funding \
 -H "Content-Type: application/json" \
 -d '{"symbol":"BTCUSD"}'
 ```
@@ -119,7 +119,7 @@ POST
 
 ```console
 
-curl https://api.bybit.com//perpetual/usdc/openapi/private/v1/predicted-funding \
+curl https://api-testnet.bybit.com//perpetual/usdc/openapi/private/v1/predicted-funding \
 -H "Content-Type: application/json" \
 -d '{"symbol":"BTCUSD"}'
 
