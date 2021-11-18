@@ -264,7 +264,7 @@
         color: #B0B8DB;
         font-size: 16px;
         text-decoration: none;
-        line-height: 53px;
+        line-height: 23px;
         padding: 0 20px;
       }
 
@@ -1606,7 +1606,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/futures/private/order/create \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/futures/private/order/create \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","position_idx":1,"side":"Buy","symbol":"BTCUSDM21","order_type":"Market","qty":10,"time_in_force":"GoodTillCancel","timestamp":{timestamp},"sign":"{sign}"}'
 
@@ -1907,7 +1907,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/futures/private/order/list?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}&amp;symbol=BTCUSDM21"
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api-testnet.bybit.com/futures/private/order/list?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}&amp;symbol=BTCUSDM21"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">FuturesOrder</span><span class="p">.</span><span class="n">FuturesOrder_getOrders</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDM21"</span><span class="p">,</span><span class="n">order_status</span><span class="o">=</span><span class="s">"New"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
@@ -2143,7 +2143,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/futures/private/order/cancel \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/futures/private/order/cancel \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDM21","order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
@@ -2341,7 +2341,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/futures/private/order/cancelAll \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/futures/private/order/cancelAll \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDM21","timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
@@ -2519,7 +2519,7 @@ This endpoint's <code>rate_limit</code> will decrease by 10 per request; ie, one
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/futures/private/order/replace \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/futures/private/order/replace \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDM21","order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
@@ -2650,7 +2650,7 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/futures/private/order?api_key={api_key}&amp;symbol=BTCUSDM21&amp;timestamp={timestamp}order_id={order_id}&amp;sign={sign}"
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api-testnet.bybit.com/futures/private/order?api_key={api_key}&amp;symbol=BTCUSDM21&amp;timestamp={timestamp}order_id={order_id}&amp;sign={sign}"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">FuturesOrder</span><span class="p">.</span><span class="n">FuturesOrder_query</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDM21"</span><span class="p">,</span> <span class="n">order_id</span><span class="o">=</span><span class="s">""</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
@@ -2955,7 +2955,7 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/futures/private/stop-order/create \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/futures/private/stop-order/create \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","order_type":"Limit","side":"Buy","symbol":"BTCUSDM21","qty":1,"price":8100,"base_price":8300,"stop_px":8150,"time_in_force":"GoodTillCancel","order_link_id":"cus_order_id_1","timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
@@ -3245,7 +3245,7 @@ Take profit/Stop loss is not supported in placing conditional orders. One can on
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/futures/private/stop-order/list?api_key={api_key}&amp;symbol=BTCUSDM21&amp;timestamp={timestamp}&amp;sign={sign}"
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api-testnet.bybit.com/futures/private/stop-order/list?api_key={api_key}&amp;symbol=BTCUSDM21&amp;timestamp={timestamp}&amp;sign={sign}"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">FuturesConditional</span><span class="p">.</span><span class="n">FuturesConditional_getOrders</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDM21"</span><span class="p">,</span><span class="n">stop_order_status</span><span class="o">=</span><span class="s">"Untriggered"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
@@ -3471,7 +3471,7 @@ Take profit/Stop loss is not supported in placing conditional orders. One can on
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/futures/private/stop-order/cancel \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/futures/private/stop-order/cancel \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDM21","stop_order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
@@ -3560,7 +3560,7 @@ Take profit/Stop loss is not supported in placing conditional orders. One can on
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/futures/private/stop-order/cancelAll \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/futures/private/stop-order/cancelAll \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDM21","timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
@@ -3784,7 +3784,7 @@ This endpoint's <code>rate_limit</code> will decrease by 10 per request; ie, one
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/futures/private/stop-order/replace \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/futures/private/stop-order/replace \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDM21","stop_order_id":"p_r_qty":2,"timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
@@ -3923,7 +3923,7 @@ Please note that you can only modify untriggered conditional orders.
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/futures/private/stop-order?api_key={api_key}&amp;symbol=BTCUSDM21&amp;timestamp={timestamp}&amp;sign={sign}"
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api-testnet.bybit.com/futures/private/stop-order?api_key={api_key}&amp;symbol=BTCUSDM21&amp;timestamp={timestamp}&amp;sign={sign}"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">FuturesConditional</span><span class="p">.</span><span class="n">FuturesConditional_query</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDM21"</span><span class="p">,</span> <span class="n">stop_order_id</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">p_r_trigger_price</span><span class="o">=</span><span class="s">"16003"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
@@ -4233,7 +4233,7 @@ Please note that you can only modify untriggered conditional orders.
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/futures/private/position/list?api_key={api_key}&amp;symbol=BTCUSDM21&amp;timestamp={timestamp}&amp;sign={sign}"
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api-testnet.bybit.com/futures/private/position/list?api_key={api_key}&amp;symbol=BTCUSDM21&amp;timestamp={timestamp}&amp;sign={sign}"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">FuturesPositions</span><span class="p">.</span><span class="n">FuturesPositions_myPosition</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDM21"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
@@ -4559,7 +4559,7 @@ Please note that you can only modify untriggered conditional orders.
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/futures/private/position/change-position-margin \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/futures/private/position/change-position-margin \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDM21",margin:10,"timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
@@ -4650,7 +4650,7 @@ You cannot change margin when your position is in Cross Margin mode, and margin 
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/futures/private/position/trading-stop \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/futures/private/position/trading-stop \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDM21","stop_loss":7000,"timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
@@ -4980,7 +4980,7 @@ Passing these parameters will create conditional orders controlled by the system
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/futures/private/position/leverage/save \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/futures/private/position/leverage/save \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDM21","buy_leverage":14,"sell_leverage":14,"timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
@@ -5071,7 +5071,7 @@ You can modify your isolated or cross leverage with this endpoint, but if you wa
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/futures/private/position/switch-mode \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/futures/private/position/switch-mode \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDM21","mode":0,"timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
@@ -5137,7 +5137,7 @@ You can modify your isolated or cross leverage with this endpoint, but if you wa
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/futures/private/tpsl/switch-mode \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/futures/private/tpsl/switch-mode \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDM21","tp_sl_mode":"Partial","timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
@@ -5221,7 +5221,7 @@ When set to Partial, TP/SL orders may have a quantity less than the position siz
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/futures/private/position/switch-isolated \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/futures/private/position/switch-isolated \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDM21", "is_isolated":true,"buy_leverage":10,"sell_leverage":20, "timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
@@ -5299,7 +5299,7 @@ When set to Partial, TP/SL orders may have a quantity less than the position siz
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/futures/private/execution/list?api_key={api_key}&amp;symbol=BTCUSDM21&amp;timestamp={timestamp}&amp;sign={sign}"
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api-testnet.bybit.com/futures/private/execution/list?api_key={api_key}&amp;symbol=BTCUSDM21&amp;timestamp={timestamp}&amp;sign={sign}"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">FuturesExecution</span><span class="p">.</span><span class="n">FuturesExecution_getTrades</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDM21"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
@@ -5532,7 +5532,7 @@ One order may have multiple trade records.
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/futures/private/trade/closed-pnl/list?api_key={api_key}&amp;symbol=BTCUSDM21&amp;timestamp={timestamp}&amp;sign={sign}"
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api-testnet.bybit.com/futures/private/trade/closed-pnl/list?api_key={api_key}&amp;symbol=BTCUSDM21&amp;timestamp={timestamp}&amp;sign={sign}"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">FuturesPositions</span><span class="p">.</span><span class="n">FuturesPositions_closePnlRecords</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDM21"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
@@ -5744,7 +5744,7 @@ One order may have multiple trade records.
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/futures/private/position/risk-limit \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/futures/private/position/risk-limit \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDM21","risk_id":72,"timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
@@ -5887,7 +5887,7 @@ Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/public/announcement
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/v2/public/announcement
 </span></code></pre></div>
 <blockquote>
 <p>Response Example</p>

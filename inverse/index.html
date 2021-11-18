@@ -264,7 +264,7 @@
         color: #B0B8DB;
         font-size: 16px;
         text-decoration: none;
-        line-height: 53px;
+        line-height: 23px;
         padding: 0 20px;
       }
 
@@ -2595,7 +2595,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/public/orderBook/L2?symbol=BTCUSD
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/v2/public/orderBook/L2?symbol=BTCUSD
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Market</span><span class="p">.</span><span class="n">Market_orderbook</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
@@ -2692,7 +2692,7 @@ The response is in the snapshot format.
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/public/kline/list?symbol=BTCUSD&amp;interval=1&amp;limit=2&amp;from=1581231260
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/v2/public/kline/list?symbol=BTCUSD&amp;interval=1&amp;limit=2&amp;from=1581231260
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Kline</span><span class="p">.</span><span class="n">Kline_get</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="s">"m"</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s">'from'</span><span class="p">:</span><span class="mi">1581231260</span><span class="p">}).</span><span class="n">result</span><span class="p">())</span>
@@ -2839,7 +2839,7 @@ The response is in the snapshot format.
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/public/tickers
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/v2/public/tickers
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Market</span><span class="p">.</span><span class="n">Market_symbolInfo</span><span class="p">().</span><span class="n">result</span><span class="p">())</span>
@@ -3088,7 +3088,7 @@ The response is in the snapshot format.
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/public/trading-records?symbol=BTCUSD
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/v2/public/trading-records?symbol=BTCUSD
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Market</span><span class="p">.</span><span class="n">Market_tradingRecords</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
@@ -3202,7 +3202,7 @@ The response is in the snapshot format.
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/public/symbols
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/v2/public/symbols
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Symbol</span><span class="p">.</span><span class="n">Symbol_get</span><span class="p">().</span><span class="n">result</span><span class="p">())</span>
@@ -3442,7 +3442,7 @@ The response is in the snapshot format.
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/public/mark-price-kline?symbol=BTCUSD&amp;interval=1&amp;limit=2&amp;from=1581231260"
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api-testnet.bybit.com/v2/public/mark-price-kline?symbol=BTCUSD&amp;interval=1&amp;limit=2&amp;from=1581231260"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Kline</span><span class="p">.</span><span class="n">Kline_markPrice</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="s">"30"</span><span class="p">,</span><span class="n">limit</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s">'from'</span><span class="p">:</span><span class="mi">1600544880</span><span class="p">}).</span><span class="n">result</span><span class="p">())</span>
@@ -3572,7 +3572,7 @@ The response is in the snapshot format.
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/public/index-price-kline?symbol=BTCUSD&amp;interval=1&amp;limit=2&amp;from=1581231260"
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api-testnet.bybit.com/v2/public/index-price-kline?symbol=BTCUSD&amp;interval=1&amp;limit=2&amp;from=1581231260"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Kline</span><span class="p">.</span><span class="n">Kline_indexPrice</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="s">"1"</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s">'from'</span><span class="p">:</span><span class="mi">1615067084</span><span class="p">}).</span><span class="n">result</span><span class="p">())</span>
@@ -3700,7 +3700,7 @@ The response is in the snapshot format.
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/public/premium-index-kline?symbol=BTCUSD&amp;interval=1&amp;limit=2&amp;from=1581231260"
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api-testnet.bybit.com/v2/public/premium-index-kline?symbol=BTCUSD&amp;interval=1&amp;limit=2&amp;from=1581231260"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Kline</span><span class="p">.</span><span class="n">Kline_premiumIndexPrice</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="s">"1"</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s">'from'</span><span class="p">:</span><span class="mi">1615067084</span><span class="p">}).</span><span class="n">result</span><span class="p">())</span>
@@ -3828,7 +3828,7 @@ The response is in the snapshot format.
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/public/open-interest?symbol=BTCUSD&amp;period=5min
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/v2/public/open-interest?symbol=BTCUSD&amp;period=5min
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Market</span><span class="p">.</span><span class="n">Market_openInterest</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="s">"5min"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
@@ -3930,7 +3930,7 @@ The response is in the snapshot format.
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/public/big-deal?symbol=BTCUSD
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/v2/public/big-deal?symbol=BTCUSD
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Market</span><span class="p">.</span><span class="n">Market_bigDeal</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">2</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
@@ -4034,7 +4034,7 @@ The response is in the snapshot format.
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/public/account-ratio?symbol=BTCUSD&amp;period=5min
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/v2/public/account-ratio?symbol=BTCUSD&amp;period=5min
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Market</span><span class="p">.</span><span class="n">Market_accountRatio</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="s">"5min"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
@@ -4145,7 +4145,7 @@ The response is in the snapshot format.
 > Request Example
 
 ```console
-curl https://api.bybit.com/v2/public/funding-rate?symbol=BTCUSD&limit=100
+curl https://api-testnet.bybit.com/v2/public/funding-rate?symbol=BTCUSD&limit=100
 ```
 ```javascript
 {
@@ -4182,7 +4182,7 @@ GET
 > Request Example
 
 ```console
-curl https://api.bybit.com/v2/public/elite-ratio?symbol=BTCUSD&period=5min
+curl https://api-testnet.bybit.com/v2/public/elite-ratio?symbol=BTCUSD&period=5min
 ```
 
 > Response Example
@@ -4230,7 +4230,7 @@ GET
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/private/order/create \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/v2/private/order/create \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","side":"Buy","symbol":"BTCUSD","order_type":"Market","qty":10,"time_in_force":"GoodTillCancel","timestamp":{timestamp},"sign":"{sign}"}'
 
@@ -4523,7 +4523,7 @@ GET
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/private/order/list?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}&amp;symbol=BTCUSD"
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api-testnet.bybit.com/v2/private/order/list?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}&amp;symbol=BTCUSD"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Order</span><span class="p">.</span><span class="n">Order_getOrders</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span><span class="n">order_status</span><span class="o">=</span><span class="s">"New"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
@@ -4753,7 +4753,7 @@ GET
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/private/order/cancel \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/v2/private/order/cancel \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
@@ -4973,7 +4973,7 @@ GET
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/private/order/cancelAll \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/v2/private/order/cancelAll \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
@@ -5151,7 +5151,7 @@ This endpoint's <code>rate_limit</code> will decrease by 10 per request; ie, one
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/private/order/replace \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/v2/private/order/replace \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
@@ -5282,7 +5282,7 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/private/order?api_key={api_key}&amp;symbol=BTCUSD&amp;timestamp={timestamp}order_id={order_id}&amp;sign={sign}"
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api-testnet.bybit.com/v2/private/order?api_key={api_key}&amp;symbol=BTCUSD&amp;timestamp={timestamp}order_id={order_id}&amp;sign={sign}"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Order</span><span class="p">.</span><span class="n">Order_query</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span> <span class="n">order_id</span><span class="o">=</span><span class="s">""</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
@@ -5578,7 +5578,7 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/private/stop-order/create \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/v2/private/stop-order/create \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","order_type":"Limit","side":"Buy","symbol":"BTCUSD","qty":1,"price":8100,"base_price":8300,"stop_px":8150,"time_in_force":"GoodTillCancel","order_link_id":"cus_order_id_1","timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
@@ -5860,7 +5860,7 @@ Take profit/Stop loss is not supported in placing conditional orders. One can on
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/private/stop-order/list?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}"
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api-testnet.bybit.com/v2/private/stop-order/list?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Conditional</span><span class="p">.</span><span class="n">Conditional_getOrders</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span><span class="n">stop_order_status</span><span class="o">=</span><span class="s">"Untriggered"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
@@ -6080,7 +6080,7 @@ Take profit/Stop loss is not supported in placing conditional orders. One can on
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/private/stop-order/cancel \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/v2/private/stop-order/cancel \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","stop_order_id":"xxx","timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
@@ -6169,7 +6169,7 @@ Take profit/Stop loss is not supported in placing conditional orders. One can on
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/private/stop-order/cancelAll \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/v2/private/stop-order/cancelAll \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
@@ -6393,7 +6393,7 @@ This endpoint's <code>rate_limit</code> will decrease by 10 per request; ie, one
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/private/stop-order/replace \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/v2/private/stop-order/replace \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","stop_order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
@@ -6531,7 +6531,7 @@ Please note that you can only modify untriggered conditional orders.
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/private/stop-order?api_key={api_key}&amp;symbol=BTCUSD&amp;timestamp={timestamp}order_id={order_id}&amp;sign={sign}"
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api-testnet.bybit.com/v2/private/stop-order?api_key={api_key}&amp;symbol=BTCUSD&amp;timestamp={timestamp}order_id={order_id}&amp;sign={sign}"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Conditional</span><span class="p">.</span><span class="n">Conditional_query</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span> <span class="n">stop_order_id</span><span class="o">=</span><span class="s">""</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
@@ -6832,7 +6832,7 @@ Please note that you can only modify untriggered conditional orders.
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/private/position/list?api_key={api_key}&amp;symbol=BTCUSD&amp;timestamp={timestamp}&amp;sign={sign}"
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api-testnet.bybit.com/v2/private/position/list?api_key={api_key}&amp;symbol=BTCUSD&amp;timestamp={timestamp}&amp;sign={sign}"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Positions</span><span class="p">.</span><span class="n">Positions_myPosition</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
@@ -7208,7 +7208,7 @@ Please note that you can only modify untriggered conditional orders.
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/private/position/change-position-margin \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/v2/private/position/change-position-margin \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD",margin:"10","timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
@@ -7292,7 +7292,7 @@ You cannot change margin when your position is in Cross Margin mode, and margin 
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/private/position/trading-stop \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/v2/private/position/trading-stop \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","stop_loss":7000,"timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
@@ -7615,7 +7615,7 @@ Passing these parameters will create conditional orders controlled by the system
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/private/position/leverage/save \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/v2/private/position/leverage/save \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","buy_leverage":14,"sell_leverage":14,"timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
@@ -7710,7 +7710,7 @@ You can modify your isolated or cross leverage with this endpoint, but if you wa
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/private/execution/list?api_key={api_key}&amp;symbol=BTCUSD&amp;timestamp={timestamp}&amp;sign={sign}"
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api-testnet.bybit.com/v2/private/execution/list?api_key={api_key}&amp;symbol=BTCUSD&amp;timestamp={timestamp}&amp;sign={sign}"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Execution</span><span class="p">.</span><span class="n">Execution_getTrades</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
@@ -7943,7 +7943,7 @@ One order may have multiple trade records.
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/private/trade/closed-pnl/list?api_key={api_key}&amp;symbol=BTCUSD&amp;timestamp={timestamp}&amp;sign={sign}"
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api-testnet.bybit.com/v2/private/trade/closed-pnl/list?api_key={api_key}&amp;symbol=BTCUSD&amp;timestamp={timestamp}&amp;sign={sign}"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Positions</span><span class="p">.</span><span class="n">Positions_closePnlRecords</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
@@ -8233,7 +8233,7 @@ When set to Partial, TP/SL orders may have a quantity less than the position siz
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/private/position/switch-isolated \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/v2/private/position/switch-isolated \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD", "is_isolated":true,"buy_leverage":10,"sell_leverage":20, "timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
@@ -8308,7 +8308,7 @@ When set to Partial, TP/SL orders may have a quantity less than the position siz
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/public/risk-limit/list?symbol=BTCUSD"
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api-testnet.bybit.com/v2/public/risk-limit/list?symbol=BTCUSD"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Wallet</span><span class="p">.</span><span class="n">Wallet_getRiskLimit</span><span class="p">().</span><span class="n">result</span><span class="p">())</span>
@@ -8469,7 +8469,7 @@ Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/private/position/risk-limit \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/v2/private/position/risk-limit \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","risk_id":2,"timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
@@ -8548,7 +8548,7 @@ Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/public/funding/prev-funding-rate?symbol=BTCUSD"
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api-testnet.bybit.com/v2/public/funding/prev-funding-rate?symbol=BTCUSD"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Funding</span><span class="p">.</span><span class="n">Funding_prevRate</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
@@ -8636,7 +8636,7 @@ Historical funding rates are not available through the API. However, you can obt
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/private/funding/prev-funding?api_key={api_key}&amp;symbol=BTCUSD&amp;timestamp={timestamp}&amp;sign={sign}"
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api-testnet.bybit.com/v2/private/funding/prev-funding?api_key={api_key}&amp;symbol=BTCUSD&amp;timestamp={timestamp}&amp;sign={sign}"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Funding</span><span class="p">.</span><span class="n">Funding_myLastFee</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
@@ -8738,7 +8738,7 @@ Historical funding rates are not available through the API. However, you can obt
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/private/funding/predicted-funding?api_key={api_key}&amp;symbol=BTCUSD&amp;timestamp={timestamp}&amp;sign={sign}"
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api-testnet.bybit.com/v2/private/funding/predicted-funding?api_key={api_key}&amp;symbol=BTCUSD&amp;timestamp={timestamp}&amp;sign={sign}"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Funding</span><span class="p">.</span><span class="n">Funding_predicted</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
@@ -8817,7 +8817,7 @@ Historical funding rates are not available through the API. However, you can obt
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/private/account/api-key?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}"
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api-testnet.bybit.com/v2/private/account/api-key?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">APIkey</span><span class="p">.</span><span class="n">APIkey_info</span><span class="p">().</span><span class="n">result</span><span class="p">())</span>
@@ -8943,7 +8943,7 @@ Historical funding rates are not available through the API. However, you can obt
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/private/account/lcp?api_key={api_key}&amp;symbol=BTCUSD&amp;timestamp={timestamp}&amp;sign={sign}"
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api-testnet.bybit.com/v2/private/account/lcp?api_key={api_key}&amp;symbol=BTCUSD&amp;timestamp={timestamp}&amp;sign={sign}"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
 <span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
                <span class="n">api_key</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
@@ -9045,7 +9045,7 @@ Historical funding rates are not available through the API. However, you can obt
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/private/wallet/balance?api_key={api_key}&amp;coin=BTC&amp;timestamp={timestamp}&amp;sign={sign}"
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api-testnet.bybit.com/v2/private/wallet/balance?api_key={api_key}&amp;coin=BTC&amp;timestamp={timestamp}&amp;sign={sign}"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Wallet</span><span class="p">.</span><span class="n">Wallet_getBalance</span><span class="p">(</span><span class="n">coin</span><span class="o">=</span><span class="s">"BTC"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
@@ -9208,7 +9208,7 @@ Historical funding rates are not available through the API. However, you can obt
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/private/wallet/fund/records?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}"
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api-testnet.bybit.com/v2/private/wallet/fund/records?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Wallet</span><span class="p">.</span><span class="n">Wallet_getRecords</span><span class="p">().</span><span class="n">result</span><span class="p">())</span>
@@ -9391,7 +9391,7 @@ USDT records will not be returned unless you pass <code>USDT</code> with the <co
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/private/wallet/withdraw/list?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}"
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api-testnet.bybit.com/v2/private/wallet/withdraw/list?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Wallet</span><span class="p">.</span><span class="n">Wallet_withdraw</span><span class="p">().</span><span class="n">result</span><span class="p">())</span>
@@ -9552,7 +9552,7 @@ The difference between data returned by this endpoint and data of type <code>Wit
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/v2/private/exchange-order/list?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}"
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api-testnet.bybit.com/v2/private/exchange-order/list?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
 <span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
                <span class="n">api_key</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
@@ -9728,7 +9728,7 @@ The difference between data returned by this endpoint and data of type <code>Wit
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/public/announcement
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/v2/public/announcement
 </span></code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -12428,7 +12428,7 @@ ELSE
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/public/liq-records?symbol=BTCUSD
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/v2/public/liq-records?symbol=BTCUSD
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Market</span><span class="p">.</span><span class="n">Market_liqRecords</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
@@ -12549,7 +12549,7 @@ ELSE
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/user/leverage?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}"
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api-testnet.bybit.com/user/leverage?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Positions</span><span class="p">.</span><span class="n">userLeverage</span><span class="p">())</span>
@@ -12636,7 +12636,7 @@ ELSE
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/open-api/order/list?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}&amp;symbol=BTCUSD"
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api-testnet.bybit.com/open-api/order/list?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}&amp;symbol=BTCUSD"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Order</span><span class="p">.</span><span class="n">Order_getOrders</span><span class="p">().</span><span class="n">result</span><span class="p">())</span>
@@ -12900,7 +12900,7 @@ ELSE
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/open-api/stop-order/list?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}"
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api-testnet.bybit.com/open-api/stop-order/list?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Conditional</span><span class="p">.</span><span class="n">Conditional_getOrders</span><span class="p">().</span><span class="n">result</span><span class="p">())</span>
@@ -13117,7 +13117,7 @@ ELSE
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/open-api/stop-order/create \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/open-api/stop-order/create \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","order_type":"Limit","side":"Buy","symbol":"BTCUSD","qty":1,"price":8100,"base_price":8300,"stop_px":8150,"time_in_force":"GoodTillCancel","order_link_id":"cus_order_id_1","timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
@@ -13405,7 +13405,7 @@ Take profit/Stop loss is not supported in placing conditional orders. One can on
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/open-api/stop-order/cancel \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/open-api/stop-order/cancel \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
@@ -13577,7 +13577,7 @@ Take profit/Stop loss is not supported in placing conditional orders. One can on
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/open-api/stop-order/replace \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/open-api/stop-order/replace \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","stop_order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
@@ -13687,7 +13687,7 @@ Please note that you can only modify untriggered conditional orders.
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/open-api/order/replace \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/open-api/order/replace \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
@@ -13785,7 +13785,7 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api.bybit.com/open-api/wallet/risk-limit/list?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}"
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api-testnet.bybit.com/open-api/wallet/risk-limit/list?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Wallet</span><span class="p">.</span><span class="n">Wallet_getRiskLimit</span><span class="p">().</span><span class="n">result</span><span class="p">())</span>
@@ -13950,7 +13950,7 @@ Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/open-api/wallet/risk-limit \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/open-api/wallet/risk-limit \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","risk_id":2,"timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
