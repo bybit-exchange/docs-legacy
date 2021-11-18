@@ -79,4 +79,7 @@ t(:usdcPriceRule)
 * `DELIVERY`
 * `LIQUIDATION`
 
+## Margin Mode
+* `REGULAR_MARGIN`
+* `PORTFOLIO_MARGIN`
 
