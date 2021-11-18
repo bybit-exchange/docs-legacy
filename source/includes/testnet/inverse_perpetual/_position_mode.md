@@ -2,7 +2,7 @@
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/v2/private/position/switch-mode \
+curl https://api-testnet.bybit.com/v2/private/position/switch-mode \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","mode":0,"timestamp":{timestamp},"sign":"{sign}"}'
 ```

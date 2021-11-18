@@ -6,7 +6,7 @@ t(:account_para)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/v2/private/order/create \
+curl https://api-testnet.bybit.com/v2/private/order/create \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","side":"Buy","symbol":"BTCUSD","order_type":"Market","qty":10,"time_in_force":"GoodTillCancel","timestamp":{timestamp},"sign":"{sign}"}'
 
@@ -124,7 +124,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/v2/private/order/list?api_key={api_key}&timestamp={timestamp}&sign={sign}&symbol=BTCUSD"
+curl "https://api-testnet.bybit.com/v2/private/order/list?api_key={api_key}&timestamp={timestamp}&sign={sign}&symbol=BTCUSD"
 ```
 
 ```python--old
@@ -231,7 +231,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/v2/private/order/cancel \
+curl https://api-testnet.bybit.com/v2/private/order/cancel \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
 ```
@@ -336,7 +336,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/v2/private/order/cancelAll \
+curl https://api-testnet.bybit.com/v2/private/order/cancelAll \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","timestamp":{timestamp},"sign":"{sign}"}'
 ```
@@ -434,7 +434,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/v2/private/order/replace \
+curl https://api-testnet.bybit.com/v2/private/order/replace \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
 ```
@@ -506,7 +506,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/v2/private/order?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}order_id={order_id}&sign={sign}"
+curl "https://api-testnet.bybit.com/v2/private/order?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}order_id={order_id}&sign={sign}"
 ```
 
 ```python--old
@@ -683,7 +683,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/v2/private/stop-order/create \
+curl https://api-testnet.bybit.com/v2/private/stop-order/create \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","order_type":"Limit","side":"Buy","symbol":"BTCUSD","qty":1,"price":8100,"base_price":8300,"stop_px":8150,"time_in_force":"GoodTillCancel","order_link_id":"cus_order_id_1","timestamp":{timestamp},"sign":"{sign}"}'
 ```
@@ -797,7 +797,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/v2/private/stop-order/list?api_key={api_key}&timestamp={timestamp}&sign={sign}"
+curl "https://api-testnet.bybit.com/v2/private/stop-order/list?api_key={api_key}&timestamp={timestamp}&sign={sign}"
 ```
 
 ```python--old
@@ -899,7 +899,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/v2/private/stop-order/cancel \
+curl https://api-testnet.bybit.com/v2/private/stop-order/cancel \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","stop_order_id":"xxx","timestamp":{timestamp},"sign":"{sign}"}'
 ```
@@ -961,7 +961,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/v2/private/stop-order/cancelAll \
+curl https://api-testnet.bybit.com/v2/private/stop-order/cancelAll \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","timestamp":{timestamp},"sign":"{sign}"}'
 ```
@@ -1090,7 +1090,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/v2/private/stop-order/replace \
+curl https://api-testnet.bybit.com/v2/private/stop-order/replace \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","stop_order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
 ```
@@ -1167,7 +1167,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/v2/private/stop-order?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}order_id={order_id}&sign={sign}"
+curl "https://api-testnet.bybit.com/v2/private/stop-order?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}order_id={order_id}&sign={sign}"
 ```
 ```python--old
 import bybit
@@ -1339,7 +1339,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/v2/private/position/list?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}&sign={sign}"
+curl "https://api-testnet.bybit.com/v2/private/position/list?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}&sign={sign}"
 ```
 
 ```python--old
@@ -1558,7 +1558,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/v2/private/position/change-position-margin \
+curl https://api-testnet.bybit.com/v2/private/position/change-position-margin \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD",margin:"10","timestamp":{timestamp},"sign":"{sign}"}'
 ```
@@ -1624,7 +1624,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/v2/private/position/trading-stop \
+curl https://api-testnet.bybit.com/v2/private/position/trading-stop \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","stop_loss":7000,"timestamp":{timestamp},"sign":"{sign}"}'
 ```
@@ -1764,7 +1764,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/v2/private/position/leverage/save \
+curl https://api-testnet.bybit.com/v2/private/position/leverage/save \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","buy_leverage":14,"sell_leverage":14,"timestamp":{timestamp},"sign":"{sign}"}'
 ```
@@ -1832,7 +1832,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/v2/private/execution/list?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}&sign={sign}"
+curl "https://api-testnet.bybit.com/v2/private/execution/list?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}&sign={sign}"
 ```
 
 ```python--old
@@ -1945,7 +1945,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/v2/private/trade/closed-pnl/list?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}&sign={sign}"
+curl "https://api-testnet.bybit.com/v2/private/trade/closed-pnl/list?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}&sign={sign}"
 ```
 
 ```python--old
@@ -2113,7 +2113,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/v2/private/position/switch-isolated \
+curl https://api-testnet.bybit.com/v2/private/position/switch-isolated \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD", "is_isolated":true,"buy_leverage":10,"sell_leverage":20, "timestamp":{timestamp},"sign":"{sign}"}'
 ```
@@ -2168,7 +2168,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/v2/public/risk-limit/list?symbol=BTCUSD"
+curl "https://api-testnet.bybit.com/v2/public/risk-limit/list?symbol=BTCUSD"
 ```
 
 ```python--old
@@ -2278,7 +2278,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/v2/private/position/risk-limit \
+curl https://api-testnet.bybit.com/v2/private/position/risk-limit \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","risk_id":2,"timestamp":{timestamp},"sign":"{sign}"}'
 ```
@@ -2335,7 +2335,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/v2/public/funding/prev-funding-rate?symbol=BTCUSD"
+curl "https://api-testnet.bybit.com/v2/public/funding/prev-funding-rate?symbol=BTCUSD"
 ```
 
 ```python--old
@@ -2399,7 +2399,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/v2/private/funding/prev-funding?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}&sign={sign}"
+curl "https://api-testnet.bybit.com/v2/private/funding/prev-funding?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}&sign={sign}"
 ```
 
 ```python--old
@@ -2466,7 +2466,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/v2/private/funding/predicted-funding?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}&sign={sign}"
+curl "https://api-testnet.bybit.com/v2/private/funding/predicted-funding?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}&sign={sign}"
 ```
 
 ```python--old
@@ -2524,7 +2524,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/v2/private/account/api-key?api_key={api_key}&timestamp={timestamp}&sign={sign}"
+curl "https://api-testnet.bybit.com/v2/private/account/api-key?api_key={api_key}&timestamp={timestamp}&sign={sign}"
 ```
 
 ```python--old
@@ -2603,7 +2603,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/v2/private/account/lcp?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}&sign={sign}"
+curl "https://api-testnet.bybit.com/v2/private/account/lcp?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}&sign={sign}"
 ```
 
 ```python--pybit

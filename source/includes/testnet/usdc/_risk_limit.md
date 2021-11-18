@@ -7,7 +7,7 @@
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com//perpetual/usdc/openapi/public/v1/risk-limit/list \
+curl https://api-testnet.bybit.com//perpetual/usdc/openapi/public/v1/risk-limit/list \
 -H "Content-Type: application/json" \
 -d '{"symbol":"BTCUSD"}'
 ```
@@ -57,7 +57,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/perpetual/usdc/openapi/private/v1/position/set-risk-limit \
+curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/position/set-risk-limit \
 -H "Content-Type: application/json" \
 -d '{"symbol":"BTCUSD","risk_id":2}'
 

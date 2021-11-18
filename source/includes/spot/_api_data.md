@@ -5,7 +5,7 @@ t(:api_para)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/spot/v1/time
+curl https://api-testnet.bybit.com/spot/v1/time
 ```
 
 ```python--pybit

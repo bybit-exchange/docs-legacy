@@ -6,7 +6,7 @@ t(:wallet_para)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/option/usdc/openapi/private/v1/query-transaction-log \
+curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-transaction-log \
 -H "Content-Type: application/json" \
 -D '{"startTime":"1633687786728","endTime":"1633797786728","category":"perpetual","type":"Settlement"}'
 ```
@@ -102,7 +102,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/option/usdc/openapi/private/v1/query-wallet-balance \
+curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-wallet-balance \
 
 ```
 
@@ -160,7 +160,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/option/usdc/openapi/private/v1/query-asset-info \
+curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-asset-info \
 -H "Content-Type: application/json" \
 -D '{"baseCoin":"BTC"}'
 
@@ -233,7 +233,7 @@ POST
 
 ```console
 
-curl https://api.bybit.com/option/usdc/openapi/private/v1/query-margin-info \
+curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-margin-info \
 
 ```
 

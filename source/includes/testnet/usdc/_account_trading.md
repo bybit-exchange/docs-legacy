@@ -7,7 +7,7 @@ t(:usdc_order_book_path)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/option/usdc/openapi/private/v1/place-order \
+curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/place-order \
 -H "Content-Type: application/json" \
 -D '{"outRequestId":"021f276a-0a5f-4f35-9859-5f32353ce0ad","symbol":"BTC-26NOV21-58000-P","orderType":"Limit","side":"Buy","orderQty":"1","orderPrice":"1","timeInForce":"GoodTillCancel","placeMode":1,"placeType":1}'
 ```
@@ -88,7 +88,7 @@ POST
 t(:usdcBatchOrdersDesc)
 
 ```console
-curl https://api.bybit.com/option/usdc/openapi/private/v1/batch-place-order \
+curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-place-order \
 -H "Content-Type: application/json" \
 -D '{"orderRequest":[{"outRequestId":"4c77b34a-9093-4bca-9cad-727cd6efed7e","symbol":"BTC-26NOV21-58000-P","orderType":"Limit","side":"Buy","orderQty":"1","orderPrice":"1","timeInForce":"GoodTillCancel","placeMode":1,"placeType":1}]}'
 
@@ -179,7 +179,7 @@ t(:usdc_order_book_path)
 
 
 ```console
-curl https://api.bybit.com/option/usdc/openapi/private/v1/replace-order \
+curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/replace-order \
 -H "Content-Type: application/json" \
 -D '{"outRequestId":"89befe89-0869-405a-a07c-2599324d009d","symbol":"BTC-26NOV21-58000-P","orderId":"be6c87be-da18-4876-9a64-6b7ccc859071","orderQty":"1","orderPrice":"1"}'
 
@@ -247,7 +247,7 @@ POST
 Option only.
 
 ```console
-curl https://api.bybit.com/option/usdc/openapi/private/v1/batch-replace-orders \
+curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-replace-orders \
 -H "Content-Type: application/json" \
 -D '{"replaceOrderRequest":[{"outRequestId":"89befe89-0869-405a-a07c-2599324d009d","symbol":"BTC-26NOV21-58000-P","orderId":"be6c87be-da18-4876-9a64-6b7ccc859071","orderQty":"1","orderPrice":"1"}]}'
 
@@ -320,7 +320,7 @@ t(:usdc_order_book_path)
 
 
 ```console
-curl https://api.bybit.com/option/usdc/openapi/private/v1/cancel-order \
+curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/cancel-order \
 -H "Content-Type: application/json" \
 -D '{"outRequestId":"01f90031-4697-4b1f-affe-eb0032c58212","symbol":"BTC-26NOV21-58000-P","orderId":"ec6d8081-8950-491b-bf43-22ddb09df0fc"}'
 
@@ -376,7 +376,7 @@ POST
 
 
 ```console
-curl https://api.bybit.com/option/usdc/openapi/private/v1/batch-cancel-orders \
+curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-cancel-orders \
 -H "Content-Type: application/json" \
 -D '{"cancelRequest":[{"outRequestId":"0d3a1844-a7ba-4a95-9e2a-47843112f412","symbol":"BTC-26NOV21-58000-P","orderId":"1a69653f-c3c7-40b4-a492-17316a2086a2"}]}'
 
@@ -436,7 +436,7 @@ POST
 Option only.
 
 ```console
-curl https://api.bybit.com/option/usdc/openapi/private/v1/cancel-order \
+curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/cancel-order \
 -H "Content-Type: application/json" \
 -D '{"outRequestId":"cdde8186-fda8-457d-9451-5b83b7780ad4"}'
 
@@ -481,7 +481,7 @@ For both Perpetual and Option.
 
 
 ```console
-curl https://api.bybit.com/option/usdc/openapi/private/v1/query-active-orders \
+curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-active-orders \
 -H "Content-Type: application/json" \
 -D '{"category":"option"}'
 
@@ -602,7 +602,7 @@ For both Perpetual and Option.
 
 ```console
 
-curl https://api.bybit.com/option/usdc/openapi/private/v1/query-order-history \
+curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-history \
 -H "Content-Type: application/json" \
 -D '{"category":"option"}'
 
@@ -727,7 +727,7 @@ For both Perpetual and Option.
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/option/usdc/openapi/private/v1/execution-list \
+curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/execution-list \
 -H "Content-Type: application/json" \
 -D '{"startTime":"1633687786728","symbol":"1633797786728","category":"option","type":"Settlement","orderId":"70bc3d92-009c-464b-8399-010b9d4aac2b"}'
 ```
@@ -818,7 +818,7 @@ For both Perpetual and Option.
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/option/usdc/openapi/private/v1/query-transaction-log \
+curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-transaction-log \
 -H "Content-Type: application/json" \
 -D '{"startTime":"1633687786728","endTime":"1633797786728","category":"perpetual","type":"Settlement"}'
 ```
@@ -916,7 +916,7 @@ For USDC Account.
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/option/usdc/openapi/private/v1/query-wallet-balance \
+curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-wallet-balance \
 
 ```
 
@@ -973,7 +973,7 @@ For both Perpetual and Option.
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/option/usdc/openapi/private/v1/query-asset-info \
+curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-asset-info \
 -H "Content-Type: application/json" \
 -D '{"baseCoin":"BTC"}'
 
@@ -1047,7 +1047,7 @@ For USDC ACCOUNT.
 
 ```console
 
-curl https://api.bybit.com/option/usdc/openapi/private/v1/query-margin-info \
+curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-margin-info \
 
 ```
 
@@ -1094,7 +1094,7 @@ For both Perpetual and Option.
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/option/usdc/openapi/private/v1/query-position \
+curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-position \
 -H "Content-Type: application/json" \
 -D '{"symbol":"BTC-22OCT21-40000-C","category":"option"}'
 ```
@@ -1212,7 +1212,7 @@ Perpetual only.
 
 ```console
 
-curl https://api.bybit.com/perpetual/usdc/openapi/private/v1/position/leverage/save \
+curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/position/leverage/save \
 -H "Content-Type: application/json" \
 -d '{"symbol":"BTCUSD","buy_leverage":14,"sell_leverage":14}'
 
@@ -1266,7 +1266,7 @@ Option only.
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/option/usdc/openapi/private/v1/query-delivery-list \
+curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-delivery-list \
 -H "Content-Type: application/json" \
 -d '{"symbol":"BTC-22OCT21-45000-C"}'
 ```
@@ -1346,7 +1346,7 @@ Perpetual only.
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/option/usdc/openapi/private/v1/session-settlement \
+curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/session-settlement \
 -H "Content-Type: application/json" \
 -d '{"symbol":"BTC-22OCT21-45000-C"}'
 
@@ -1423,7 +1423,7 @@ Option only.
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/option/usdc/openapi/private/v1/query-position-exp-date \
+curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-position-exp-date \
 -H "Content-Type: application/json" \
 -d '{"expDate":"20211010"}'
 
@@ -1509,7 +1509,7 @@ Perpetual only.
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/perpetual/usdc/openapi/public/v1/risk-limit/list \
+curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/risk-limit/list \
 -H "Content-Type: application/json" \
 -d '{"symbol":"BTCUSD"}'
 ```
@@ -1558,7 +1558,7 @@ Perpetual only.
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/perpetual/usdc/openapi/private/v1/position/set-risk-limit \
+curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/position/set-risk-limit \
 -H "Content-Type: application/json" \
 -d '{"symbol":"BTCUSD","risk_id":2}'
 

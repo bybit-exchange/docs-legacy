@@ -5,7 +5,7 @@ t(:market_para_auth)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/v2/public/orderBook/L2?symbol=BTCUSD
+curl https://api-testnet.bybit.com/v2/public/orderBook/L2?symbol=BTCUSD
 ```
 
 ```python--old
@@ -75,7 +75,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/v2/public/kline/list?symbol=BTCUSD&interval=1&limit=2&from=1581231260
+curl https://api-testnet.bybit.com/v2/public/kline/list?symbol=BTCUSD&interval=1&limit=2&from=1581231260
 ```
 
 ```python--old
@@ -161,7 +161,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/v2/public/tickers
+curl https://api-testnet.bybit.com/v2/public/tickers
 ```
 
 ```python--old
@@ -295,7 +295,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/v2/public/trading-records?symbol=BTCUSD
+curl https://api-testnet.bybit.com/v2/public/trading-records?symbol=BTCUSD
 ```
 
 ```python--old
@@ -364,7 +364,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/v2/public/symbols
+curl https://api-testnet.bybit.com/v2/public/symbols
 ```
 
 ```python--old
@@ -532,7 +532,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/v2/public/mark-price-kline?symbol=BTCUSD&interval=1&limit=2&from=1581231260"
+curl "https://api-testnet.bybit.com/v2/public/mark-price-kline?symbol=BTCUSD&interval=1&limit=2&from=1581231260"
 ```
 
 ```python--old
@@ -608,7 +608,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/v2/public/index-price-kline?symbol=BTCUSD&interval=1&limit=2&from=1581231260"
+curl "https://api-testnet.bybit.com/v2/public/index-price-kline?symbol=BTCUSD&interval=1&limit=2&from=1581231260"
 ```
 
 ```python--old
@@ -682,7 +682,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api.bybit.com/v2/public/premium-index-kline?symbol=BTCUSD&interval=1&limit=2&from=1581231260"
+curl "https://api-testnet.bybit.com/v2/public/premium-index-kline?symbol=BTCUSD&interval=1&limit=2&from=1581231260"
 ```
 
 ```python--old
@@ -756,7 +756,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/v2/public/open-interest?symbol=BTCUSD&period=5min
+curl https://api-testnet.bybit.com/v2/public/open-interest?symbol=BTCUSD&period=5min
 ```
 
 ```python--old
@@ -825,7 +825,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/v2/public/big-deal?symbol=BTCUSD
+curl https://api-testnet.bybit.com/v2/public/big-deal?symbol=BTCUSD
 ```
 
 ```python--old
@@ -897,7 +897,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/v2/public/account-ratio?symbol=BTCUSD&period=5min
+curl https://api-testnet.bybit.com/v2/public/account-ratio?symbol=BTCUSD&period=5min
 ```
 
 ```python--old
@@ -970,7 +970,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/v2/public/funding-rate?symbol=BTCUSD&limit=100
+curl https://api-testnet.bybit.com/v2/public/funding-rate?symbol=BTCUSD&limit=100
 ```
 ```javascript
 {
@@ -1007,7 +1007,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/v2/public/elite-ratio?symbol=BTCUSD&period=5min
+curl https://api-testnet.bybit.com/v2/public/elite-ratio?symbol=BTCUSD&period=5min
 ```
 
 > t(:codequote_responseExample)

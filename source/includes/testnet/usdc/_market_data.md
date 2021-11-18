@@ -6,7 +6,7 @@ t(:market_para_auth)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/option/usdc/openapi/public/v1/order-book \
+curl https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book \
 -H "Content-Type: application/json" \
 -d '{"symbol": "BTC-22OCT21-45000-C"}'
 
@@ -141,7 +141,7 @@ t(:usdc_order_book_path)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/option/usdc/openapi/public/v1/tick \
+curl https://api-testnet.bybit.com/option/usdc/openapi/public/v1/tick \
 -H "Content-Type: application/json" \
 -D '{"symbol": "BTC-22OCT21-45000-C"}'
 ```
@@ -232,7 +232,7 @@ t(:usdc_order_book_path)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/option/usdc/openapi/public/v1/symbols \
+curl https://api-testnet.bybit.com/option/usdc/openapi/public/v1/symbols \
 -H "Content-Type: application/json" \
 -d '{"symbol":"BTC-26NOV21-80000-P","category":"option"}'
 
@@ -316,7 +316,7 @@ Perpetual only.
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/perpetual/usdc/openapi/public/v1/mark-price-kline \
+curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/mark-price-kline \
 -H "Content-Type: application/json" \
 -d '{
     "symbol": "BTCPERP",
@@ -385,7 +385,7 @@ Perpetual only.
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/perpetual/usdc/openapi/public/v1/index-price-kline \
+curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/index-price-kline \
 -H "Content-Type: application/json" \
 -d '{
     "symbol": "BTCPERP",
@@ -452,7 +452,7 @@ Perpetual only.
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/perpetual/usdc/openapi/public/v1/premium-index-kline \
+curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/premium-index-kline \
 -H "Content-Type: application/json" \
 -d '{
     "symbol": "BTCPERP",
@@ -520,7 +520,7 @@ t(:usdc_order_book_path)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/perpetual/usdc/openapi/public/v1/open-interest \
+curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/open-interest \
 -H "Content-Type: application/json" \
 -d '{"symbol":"BTCUSD","period":"1"}'
 ```
@@ -572,7 +572,7 @@ Perpetual only.
 
 ```console
 
-curl https://api.bybit.com/perpetual/usdc/openapi/public/v1/big-deal \
+curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal \
 -H "Content-Type: application/json" \
 -d '{"symbol":"BTCUSD"}'
 
@@ -626,7 +626,7 @@ t(:usdc_order_book_path)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/perpetual/usdc/openapi/public/v1/account-ratio \
+curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/account-ratio \
 -H "Content-Type: application/json" \
 -d '{"symbol":"BTCUSD","period":"5min"}'
 ```
@@ -680,7 +680,7 @@ Option only.
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/option/usdc/openapi/public/v1/delivery-price \
+curl https://api-testnet.bybit.com/option/usdc/openapi/public/v1/delivery-price \
 -H "Content-Type: application/json" \
 -d '{"symbol":"BTC-22OCT21-45000-C"}'
 ```
@@ -734,7 +734,7 @@ For both Perpetual and Option
 > t(:codequote_curlExample)
 
 ```console
-curl https://api.bybit.com/option/usdc/openapi/public/v1/query-trade-latest \
+curl https://api-testnet.bybit.com/option/usdc/openapi/public/v1/query-trade-latest \
 -H "Content-Type: application/json" \
 -d '{"category":"option","symbol":"BTC-19NOV21-30000-P","optionType":"PUT","limit":1}'
 ```

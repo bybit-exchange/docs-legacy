@@ -329,6 +329,9 @@ GET
 | startTime | false | number | t(:spot_orders_start_time) |
 | endTime | false | number | t(:spot_orders_end_time) |
 
+<aside class="notice">
+t(:spot_kline_latest_records)
+</aside>
 
 <p class="fake_header">t(:responseparameters)</p>
 
