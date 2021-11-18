@@ -872,7 +872,7 @@ POST
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|type|<b>true</b>|string|t(:usdcType)|
+|type|<b>true</b>|string|t(:usdcTransactionType)|
 |startTime|<b>true</b>|string|t(:usdcStartTime)|
 |endTime|<b>true</b>|string|t(:usdcEndTime)|
 |direction|false|string|t(:direction)|

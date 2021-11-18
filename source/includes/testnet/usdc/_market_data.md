@@ -516,7 +516,8 @@ POST
 
 ### t(:queryOpenInterest)
 
-t(:usdc_order_book_path)
+Perpetual only.
+
 > t(:codequote_curlExample)
 
 ```console
@@ -548,7 +549,7 @@ curl https://api.bybit.com/perpetual/usdc/openapi/public/v1/open-interest \
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=sqvdMerged>/{category}/usdc/openapi/public/v1/open-interest</span></code>
+<code><span id=sqvdMerged>/perpetual/usdc/openapi/public/v1/open-interest</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -622,7 +623,9 @@ POST
 
 ### t(:accountRatio)
 
-t(:usdc_order_book_path)
+Perpetual only.
+
+
 > t(:codequote_curlExample)
 
 ```console
@@ -653,7 +656,7 @@ curl https://api.bybit.com/perpetual/usdc/openapi/public/v1/account-ratio \
 ```
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=sqvdMerged>/{category}/usdc/openapi/public/v1/account-ratio</span></code>
+<code><span id=sqvdMerged>/perpetual/usdc/openapi/public/v1/account-ratio</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -727,7 +730,7 @@ POST
 
 
 
-### t(:queryLastest500Trade)
+### t(:queryLatest500Trades)
 
 For both Perpetual and Option
 

@@ -71,3 +71,12 @@ t(:usdcPriceRule)
 * `1w` t(:interval_W)
 * `1M` t(:interval_M)
 
+## Transaction type (`Transaction type`)
+* `TRANSFER_IN`
+* `TRANSFER_OUT`
+* `TRADE`
+* `SETTLEMENT`
+* `DELIVERY`
+* `LIQUIDATION`
+
+
