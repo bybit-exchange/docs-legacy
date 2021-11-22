@@ -1594,6 +1594,62 @@ POST
 |buy_leverage |<b>true</b> |number |t(:linear_row_comment_leverage)  |
 |sell_leverage |<b>true</b> |number |t(:linear_row_comment_leverage)  |
 
+
+### t(:switchpositionmode)
+> t(:codequote_curlExample)
+
+```console
+curl https://api-testnet.bybit.com/private/linear/position/switch-mode \
+-H "Content-Type: application/json" \
+-d '{"api_key":"{api_key}","symbol":"BTCUSDT","mode":0,"timestamp":{timestamp},"sign":"{sign}"}'
+```
+
+```python--old
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.LinearPositions.LinearPositions_switchPositionMode(symbol="BTCUSDT",mode=0).result())
+```
+
+```python--pybit
+from pybit import HTTP
+session = HTTP("https://api-testnet.bybit.com",
+               api_key="", api_secret="")
+print(session.position_mode_switch(
+    symbol="BTCUSDT",
+    mode=0
+))
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "ok",
+    "ext_code": "",
+    "result": null,
+    "ext_info": null,
+    "time_now": "1577477968.175013",
+    "rate_limit_status": 74,
+    "rate_limit_reset_ms": 1577477968183,
+    "rate_limit": 75
+}
+```
+
+t(:account_para_switchpositionmode)
+
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=ulSwitchMode>/private/linear/position/switch-mode</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ulSwitchMode"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
+|mode |<b>true</b> |int |t(:row_comment_positionmode) |
+
+
 ### t(:switchmode)
 > t(:codequote_responseExample)
 
