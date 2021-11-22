@@ -1,4 +1,8 @@
 # t(:changelog)
+## 2021-11-23
+### REST API
+- [t(:switchpositionmode)](#t-switchpositionmode) [t(:changelog_new)]
+
 ## 2021-10-13
 ### REST API
 - [t(:querysymbol)](#t-querysymbol) [t(:changelog_update)]
