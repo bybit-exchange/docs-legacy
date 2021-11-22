@@ -2626,7 +2626,7 @@ en:
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
         <br/>
 
-        Private: <span id="testnet_address_2">wss://stream-testnet.bybit.com/option/trade/option/usdc/private/v1</span>
+        Private: <span id="testnet_address_2">wss://stream-testnet.bybit.com/trade/option/usdc/private/v1</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
       </li>
     </p>
@@ -2662,7 +2662,7 @@ en:
 
   usdc_websocket_para_orderbook: |
     <p>Either 25 or 100 or 200 orders will be fetched from the bid and ask side of the order book.</p>
-    <p>The first response after a successful subscription will be the snapshot response. Following this, any spread changes in the order book will be pushed via the WebSocket API.</p>
+    <p>After a successful subscription, it will always provide the snapshot response.</p>
     <p>For option, only 25 or 100 orders will be fetched.</p>
     <p>Topic format:</p>
     <p>Either orderbook25.{symbol} or orderbook100.{symbol} for Option.</p>
