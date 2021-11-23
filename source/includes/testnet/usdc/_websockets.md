@@ -11,8 +11,6 @@ import threading
 import time
 import json
 
-topic = "order"
-
 def on_message(ws, message):
     print(json.loads(message))
 
@@ -24,8 +22,8 @@ def on_close(ws):
     print("### about to close please don't close ###")
 
 def send_auth(ws):
-    key = 'XXXXXXXXXXXXXXX'
-    secret = 'XXXXXXXXXXXXXXX'
+    key = 'XXXXXXXXXXXXXXXXXXXX'
+    secret = 'XXXXXXXXXXXXXXXXXXXX'
     expires = int((time.time() + 10) * 1000)
     _val = f'GET/realtime{expires}'
     print(_val)
@@ -36,17 +34,9 @@ def send_auth(ws):
     ws.send(json.dumps({"id": "signAuth_request_id", "method": "public/signAuth",
                         "params": {"sign": signature, "apiKey": key, "timestamp": expires}}))
 
-def on_pong(ws, *data):
-    print('pong received')
-
-def on_ping(ws, *data):
-    print('ping received')
-
 def on_open(ws):
     print('opened')
     send_auth(ws)
-    print('send subscription ' + topic)
-    print('opened')
     def pingPer(ws):
         while True:
             ws.send("ping")
@@ -62,8 +52,6 @@ def connWS():
                                 on_message=on_message,
                                 on_error=on_error,
                                 on_close=on_close,
-                                # on_ping = on_ping,
-                                # on_pong = on_pong,
                                 on_open=on_open
                                 )
     ws.run_forever()
