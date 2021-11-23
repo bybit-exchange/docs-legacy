@@ -13,10 +13,11 @@ t(:ENUMs_para)
 * `1` - price
 * `2` - iv
 
-## TimeInForce (`timeInForce`)
-* `GTC` - Good Till Canceled
-* `IOC` - Immediate or Cancel
-* `FOK` - Fill or Kill
+## TimeInForce (`time_in_force`)
+* `GoodTillCancel`
+* `ImmediateOrCancel`
+* `FillOrKill`
+* `PostOnly`
 
 ## Symbol (`symbol`)
 t(:usdc_trading_symbol_comment)
@@ -51,10 +52,6 @@ t(:usdcQuantity)
 ## Price (`price`)
 t(:usdcPriceRule)
 
-## Time in force (`time_in_force`)
-* `GTC` t(:goodTillCancel)
-* `IOC` t(:immediateOrCancel)
-* `FOK` t(:fillOrKill)
 
 ## Kline interval (`interval`)
 * `1m` t(:interval_1)

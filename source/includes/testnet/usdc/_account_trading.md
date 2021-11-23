@@ -56,7 +56,7 @@ POST
 |iv|false|string|t(:optionIv)|
 |placeMode|false|string|t(:optionPlaceMode)|
 |placeType|false|string|t(:optionPlaceType)|
-|timeInForce|false|string|t(:row_parameter_time_in_force)|
+|timeInForce|false|string|t(:usdcTimeInForce)|
 |outRequestId|false|string|t(:optionOutRequestId)|
 |orderLinkId|false|string|t(:orderLinkId)|
 |reduceOnly|false|bool|t(:reduceOnly)|
@@ -147,7 +147,7 @@ POST
 |iv|false|string|t(:optionIv)|
 |placeMode|false|string|t(:optionPlaceMode)|
 |placeType|false|string|t(:optionPlaceType)|
-|timeInForce|false|string|t(:row_parameter_time_in_force)|
+|timeInForce|false|string|t(:usdcTimeInForce)|
 |outRequestId|false|string|t(:optionOutRequestId)|
 |orderLinkId|false|string|t(:orderLinkId)|
 |reduceOnly|false|bool|t(:reduceOnly)|
@@ -574,7 +574,7 @@ POST
 |orderQty|string|t(:usdcOrderQty)|
 |orderPrice|string|t(:usdcOrderPrice)|
 |iv|string|t(:optionIv)|
-|timeInForce|string|t(:row_parameter_time_in_force)|
+|timeInForce|string|t(:usdcTimeInForce)|
 |leavesValue|string|t(:leavesValue)|
 |cumExecQty|string|t(:cumExecQty)|
 |cumExecValue|string|t(:cumExecValue)|
@@ -696,7 +696,7 @@ POST
 |orderQty|string|t(:usdcOrderQty)|
 |orderPrice|string|t(:usdcOrderPrice)|
 |iv|string|t(:optionIv)|
-|timeInForce|string|t(:row_parameter_time_in_force)|
+|timeInForce|string|t(:usdcTimeInForce)|
 |leavesValue|string|t(:leavesValue)|
 |cumExecQty|string|t(:cumExecQty)|
 |cumExecValue|string|t(:cumExecValue)|
