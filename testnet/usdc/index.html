@@ -5950,8 +5950,6 @@ curl https://api-testnet.bybit.com/v2/public/time
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">json</span>
 
-<span class="n">topic</span> <span class="o">=</span> <span class="s">"order"</span>
-
 <span class="k">def</span> <span class="nf">on_message</span><span class="p">(</span><span class="n">ws</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="n">json</span><span class="p">.</span><span class="n">loads</span><span class="p">(</span><span class="n">message</span><span class="p">))</span>
 
@@ -5963,8 +5961,8 @@ curl https://api-testnet.bybit.com/v2/public/time
     <span class="k">print</span><span class="p">(</span><span class="s">"### about to close please don't close ###"</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">send_auth</span><span class="p">(</span><span class="n">ws</span><span class="p">):</span>
-    <span class="n">key</span> <span class="o">=</span> <span class="s">'XXXXXXXXXXXXXXX'</span>
-    <span class="n">secret</span> <span class="o">=</span> <span class="s">'XXXXXXXXXXXXXXX'</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="s">'XXXXXXXXXXXXXXXXXXXX'</span>
+    <span class="n">secret</span> <span class="o">=</span> <span class="s">'XXXXXXXXXXXXXXXXXXXX'</span>
     <span class="n">expires</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span> <span class="o">+</span> <span class="mi">10</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span>
     <span class="n">_val</span> <span class="o">=</span> <span class="sa">f</span><span class="s">'GET/realtime</span><span class="si">{</span><span class="n">expires</span><span class="si">}</span><span class="s">'</span>
     <span class="k">print</span><span class="p">(</span><span class="n">_val</span><span class="p">)</span>
@@ -5975,17 +5973,9 @@ curl https://api-testnet.bybit.com/v2/public/time
     <span class="n">ws</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span><span class="s">"id"</span><span class="p">:</span> <span class="s">"signAuth_request_id"</span><span class="p">,</span> <span class="s">"method"</span><span class="p">:</span> <span class="s">"public/signAuth"</span><span class="p">,</span>
                         <span class="s">"params"</span><span class="p">:</span> <span class="p">{</span><span class="s">"sign"</span><span class="p">:</span> <span class="n">signature</span><span class="p">,</span> <span class="s">"apiKey"</span><span class="p">:</span> <span class="n">key</span><span class="p">,</span> <span class="s">"timestamp"</span><span class="p">:</span> <span class="n">expires</span><span class="p">}}))</span>
 
-<span class="k">def</span> <span class="nf">on_pong</span><span class="p">(</span><span class="n">ws</span><span class="p">,</span> <span class="o">*</span><span class="n">data</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'pong received'</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">on_ping</span><span class="p">(</span><span class="n">ws</span><span class="p">,</span> <span class="o">*</span><span class="n">data</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'ping received'</span><span class="p">)</span>
-
 <span class="k">def</span> <span class="nf">on_open</span><span class="p">(</span><span class="n">ws</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="s">'opened'</span><span class="p">)</span>
     <span class="n">send_auth</span><span class="p">(</span><span class="n">ws</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'send subscription '</span> <span class="o">+</span> <span class="n">topic</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'opened'</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">pingPer</span><span class="p">(</span><span class="n">ws</span><span class="p">):</span>
         <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
             <span class="n">ws</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="s">"ping"</span><span class="p">)</span>
@@ -6001,9 +5991,7 @@ curl https://api-testnet.bybit.com/v2/public/time
                                 <span class="n">on_message</span><span class="o">=</span><span class="n">on_message</span><span class="p">,</span>
                                 <span class="n">on_error</span><span class="o">=</span><span class="n">on_error</span><span class="p">,</span>
                                 <span class="n">on_close</span><span class="o">=</span><span class="n">on_close</span><span class="p">,</span>
-                                <span class="c1"># on_ping = on_ping,
-</span>                                <span class="c1"># on_pong = on_pong,
-</span>                                <span class="n">on_open</span><span class="o">=</span><span class="n">on_open</span>
+                                <span class="n">on_open</span><span class="o">=</span><span class="n">on_open</span>
                                 <span class="p">)</span>
     <span class="n">ws</span><span class="p">.</span><span class="n">run_forever</span><span class="p">()</span>
 
