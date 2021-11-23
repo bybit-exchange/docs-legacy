@@ -932,7 +932,7 @@
                     <a href="#placetype-placetype" class="toc-h2 toc-link" data-title="PlaceType (placeType)">PlaceType (<code>placeType</code>)</a>
                   </li>
                   <li>
-                    <a href="#timeinforce-timeinforce" class="toc-h2 toc-link" data-title="TimeInForce (timeInForce)">TimeInForce (<code>timeInForce</code>)</a>
+                    <a href="#timeinforce-time_in_force" class="toc-h2 toc-link" data-title="TimeInForce (time_in_force)">TimeInForce (<code>time_in_force</code>)</a>
                   </li>
                   <li>
                     <a href="#symbol-symbol" class="toc-h2 toc-link" data-title="Symbol (symbol)">Symbol (<code>symbol</code>)</a>
@@ -951,9 +951,6 @@
                   </li>
                   <li>
                     <a href="#price-price" class="toc-h2 toc-link" data-title="Price (price)">Price (<code>price</code>)</a>
-                  </li>
-                  <li>
-                    <a href="#time-in-force-time_in_force" class="toc-h2 toc-link" data-title="Time in force (time_in_force)">Time in force (<code>time_in_force</code>)</a>
                   </li>
                   <li>
                     <a href="#kline-interval-interval" class="toc-h2 toc-link" data-title="Kline interval (interval)">Kline interval (<code>interval</code>)</a>
@@ -2686,7 +2683,7 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal \
 <td style="text-align: left">timeInForce</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td><a href="#time-in-force-time_in_force">time_in_force</a></td>
+<td>refer to <a href="#timeinforce-time_in_force">timeInForce</a></td>
 </tr>
 <tr>
 <td style="text-align: left">outRequestId</td>
@@ -2919,7 +2916,7 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal \
 <td style="text-align: left">timeInForce</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td><a href="#time-in-force-time_in_force">time_in_force</a></td>
+<td>refer to <a href="#timeinforce-time_in_force">timeInForce</a></td>
 </tr>
 <tr>
 <td style="text-align: left">outRequestId</td>
@@ -3756,7 +3753,7 @@ This is used to cancel all active orders . The real-time response indicates whet
 <tr>
 <td style="text-align: left">timeInForce</td>
 <td style="text-align: left">string</td>
-<td><a href="#time-in-force-time_in_force">time_in_force</a></td>
+<td>refer to <a href="#timeinforce-time_in_force">timeInForce</a></td>
 </tr>
 <tr>
 <td style="text-align: left">leavesValue</td>
@@ -4050,7 +4047,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 <tr>
 <td style="text-align: left">timeInForce</td>
 <td style="text-align: left">string</td>
-<td><a href="#time-in-force-time_in_force">time_in_force</a></td>
+<td>refer to <a href="#timeinforce-time_in_force">timeInForce</a></td>
 </tr>
 <tr>
 <td style="text-align: left">leavesValue</td>
@@ -6864,7 +6861,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <tr>
 <td style="text-align: left">timeInForce</td>
 <td style="text-align: left">string</td>
-<td><a href="https://help.bybit.com/hc/en-us/articles/360039749233-What-Are-Time-In-Force-TIF-GTC-IOC-FOK-">Time in force</a></td>
+<td>refer to <a href="#timeinforce-time_in_force">timeInForce</a></td>
 </tr>
 <tr>
 <td style="text-align: left">cumExecQty</td>
@@ -6992,7 +6989,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <tr>
 <td style="text-align: left">timeInForce</td>
 <td style="text-align: left">string</td>
-<td><a href="https://help.bybit.com/hc/en-us/articles/360039749233-What-Are-Time-In-Force-TIF-GTC-IOC-FOK-">Time in force</a></td>
+<td>refer to <a href="#timeinforce-time_in_force">timeInForce</a></td>
 </tr>
 <tr>
 <td style="text-align: left">createType</td>
@@ -7128,11 +7125,12 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <li><code>1</code> - price</li>
 <li><code>2</code> - iv</li>
 </ul>
-<h2 id='timeinforce-timeinforce'>TimeInForce (<code>timeInForce</code>)</h2>
+<h2 id='timeinforce-time_in_force'>TimeInForce (<code>time_in_force</code>)</h2>
 <ul>
-<li><code>GTC</code> - Good Till Canceled</li>
-<li><code>IOC</code> - Immediate or Cancel</li>
-<li><code>FOK</code> - Fill or Kill</li>
+<li><code>GoodTillCancel</code></li>
+<li><code>ImmediateOrCancel</code></li>
+<li><code>FillOrKill</code></li>
+<li><code>PostOnly</code></li>
 </ul>
 <h2 id='symbol-symbol'>Symbol (<code>symbol</code>)</h2>
 <p>refer to <a href="#querySymbolInfo">Query Symbol</a> endpoint</p>
@@ -7166,12 +7164,6 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <p><ul> <li>Must be less than 1 million  (<code>1000000</code>)</li> <li>Must be a positive number： <li>Must conform to the symbol's <code>qtyStep</code>.</li> <ul> <li><code>40</code> - allowed</li> <li><code>40.01</code> - allowed</li> <li><code>-30.5</code> - not allowed</li> </ul> </li> </ul></p>
 <h2 id='price-price'>Price (<code>price</code>)</h2>
 <p><ul> <li>Must be less than 1 million (<code>1000000</code>)</li> <li>Must be a positive number： <ul> <li><code>40</code> - allowed</li> <li><code>40.01</code> - allowed</li> <li><code>-30.5</code> - not allowed</li> </ul> </li> </ul></p>
-<h2 id='time-in-force-time_in_force'>Time in force (<code>time_in_force</code>)</h2>
-<ul>
-<li><code>GTC</code> </li>
-<li><code>IOC</code> </li>
-<li><code>FOK</code> </li>
-</ul>
 <h2 id='kline-interval-interval'>Kline interval (<code>interval</code>)</h2>
 <ul>
 <li><code>1m</code> - 1 minute</li>
