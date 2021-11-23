@@ -66,7 +66,13 @@ GET
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
+| api_key | false | string | t(:spot_symbol_api_key)|
+| timestamp | false | long | t(:spot_symbol_timestamp)|
+| sign | false | string | t(:spot_symbol_sign)|
 
+<aside class="notice">
+t(:spot_symbol_remark)
+</aside>
 
 <p class="fake_header">t(:responseparameters)</p>
 
