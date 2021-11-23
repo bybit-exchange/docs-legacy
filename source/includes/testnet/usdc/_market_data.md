@@ -187,8 +187,8 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/public/v1/tick \
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=sqvdMerged>/{category}/usdc/openapi/public/v1/tick</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=usdcTick>/{category}/usdc/openapi/public/v1/tick</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcTick"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -272,8 +272,8 @@ t(:usdcSymbolInfo)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=sqvdMerged>/{category}/usdc/openapi/public/v1/symbols</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=usdcSymbols>/{category}/usdc/openapi/public/v1/symbols</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcSymbols"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -354,8 +354,8 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/mark-price-k
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=sqvdMerged>/perpetual/usdc/openapi/public/v1/mark-price-kline</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=usdcMarkPriceKline>/perpetual/usdc/openapi/public/v1/mark-price-kline</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcMarkPriceKline"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -420,8 +420,8 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/index-price-
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=sqvdMerged>/perpetual/usdc/openapi/public/v1/index-price-kline</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=uscIndexPriceKline>/perpetual/usdc/openapi/public/v1/index-price-kline</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uscIndexPriceKline"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -489,8 +489,8 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/premium-inde
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=sqvdMerged>/perpetual/usdc/openapi/public/v1/premium-index-kline</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=usdcPremiumIndexKline>/perpetual/usdc/openapi/public/v1/premium-index-kline</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcPremiumIndexKline"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -549,8 +549,8 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/open-interes
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=sqvdMerged>/perpetual/usdc/openapi/public/v1/open-interest</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=usdcOpenInterest>/perpetual/usdc/openapi/public/v1/open-interest</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcOpenInterest"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -602,8 +602,8 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal \
 ```
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=sqvdMerged>/perpetual/usdc/openapi/public/v1/big-deal</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=usdcBigDeal>/perpetual/usdc/openapi/public/v1/big-deal</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcBigDeal"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -656,8 +656,8 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/account-rati
 ```
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=sqvdMerged>/perpetual/usdc/openapi/public/v1/account-ratio</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=usdcAccountRatio>/perpetual/usdc/openapi/public/v1/account-ratio</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcAccountRatio"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -709,8 +709,8 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/public/v1/delivery-price 
 ```
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=sqvdMerged>/option/usdc/openapi/public/v1/delivery-price</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=usdcDeliveyPrice>/option/usdc/openapi/public/v1/delivery-price</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcDeliveyPrice"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -769,8 +769,8 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/public/v1/query-trade-lat
 ```
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=sqvdMerged>/option/usdc/openapi/public/v1/query-trade-latest</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=usdcTradeLastest>/option/usdc/openapi/public/v1/query-trade-latest</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcTradeLastest"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
