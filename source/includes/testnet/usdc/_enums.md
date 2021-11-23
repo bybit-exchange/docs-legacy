@@ -13,7 +13,7 @@ t(:ENUMs_para)
 * `1` - price
 * `2` - iv
 
-## TimeInForce (`time_in_force`)
+## Time in force (`timeInForce`)
 * `GoodTillCancel`
 * `ImmediateOrCancel`
 * `FillOrKill`
@@ -30,10 +30,6 @@ t(:usdc_trading_symbol_comment)
 
 
 ## Currency (`currency`/`coin`)
-* `USDC`
-
-The transfer API also includes:
-
 * `USDC`
 
 
@@ -79,4 +75,3 @@ t(:usdcPriceRule)
 ## Margin Mode
 * `REGULAR_MARGIN`
 * `PORTFOLIO_MARGIN`
-
