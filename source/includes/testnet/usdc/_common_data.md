@@ -14,13 +14,12 @@ curl https://api-testnet.bybit.com/v2/public/time
 
 ```javascript
 {
-	"retCode": 0,
-	"retMsg": "",
-	"extCode": null,
-	"extInfo": null,
-	"result": {
-		"serverTime": 1625799317787
-	}
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "ext_info": "",
+    "result": {},
+    "time_now": "1637635413.927628"
 }
 ```
 t(:api_para_time)
