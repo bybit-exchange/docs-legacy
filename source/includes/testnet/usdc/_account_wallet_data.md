@@ -185,8 +185,8 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-asset-in
         "totalRPL":"-3773.8879",
         "sessionUPL":"-16.0781",
         "sessionRPL":"-13.0000",
-        "assetIM":"28940.8205",
-        "assetMM":"14997.4532"
+        "im":"28940.8205",
+        "mm":"14997.4532"
       }
     ]
   }
