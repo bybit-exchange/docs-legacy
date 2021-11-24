@@ -2080,9 +2080,9 @@ zh-cn:
   spot_match_order_id: 撮合訂單id
   spot_account_id: 賬戶id
   spot_match_account_id: 撮合賬戶id
-
+#  spotCancelTips：此接口只提交取消請求，實際取消結果需要通過訂單狀態，撮合狀態等接口來確認。(這是個同步結算接口)
+#  spotFastCancelTips: 此接口只提交取消請求，實際取消結果需要通過訂單狀態，撮合狀態等接口來確認。(這是個異步結算接口)
   spotFastCancelTips: 此接口只提交取消請求，實際取消結果需要通過訂單狀態，撮合狀態等接口來確認。
-
   row_parameter_timeInForce: <a href="#timeinforce-timeinforce">timeInForce</a>
 
   #spot_ws_v1
@@ -2480,8 +2480,7 @@ zh-cn:
 
   usdc_websocket_para_orderbook: |
     <p>獲取檔位範圍：25、100、200.</p>
-    <p>訂閱成功後, 會立即得到一個當前快照包的推送信息. orderbook數據按訂單價格升序排列, 從最低價格的買單到最高價格的賣單.</p>
-    <p>快照包之後，每當orderbook發生變化，websocket都會推送這些變化的增量數據.</p>
+    <p>訂閱成功後, 會持續得到一個當前快照包的推送信息. </p>
     <p>期權只能订阅25、100檔位</p>
     <p>topic的格式：orderbook25.{symbol} 或者 orderbook100.{symbol} </p>
     <p>比如orderbook25.BTC-5NOV21-30000-P 或者 orderbook100.BTC-5NOV21-30000-P</p>
@@ -2499,7 +2498,7 @@ zh-cn:
 
 
 
-  usdcOrderType: 訂單類型
+  usdcOrderType: 訂單類型 （期權暫時不支持市價委託）
   optionIv: 期權iv, 小數點後保留叁位小數
   optionPlaceMode: 期權下單模式，高級或者是基礎模式下單,期貨不需傳，期權需要。 1：基礎模式下單，2：高級模式下單。如果1，orderQty和orderPrice是必傳字段。如果是2， 參照 placeType.
   optionPlaceType: 期權下單類型，價格或者iv下單.1：價格下單，2：iv下單。如果是1，則orderQty和orderPrice是必傳字段，為2表示iv和orderQty為必傳字段。
@@ -2512,9 +2511,9 @@ zh-cn:
 
 
   triggerPrice: 觸發價格。期貨時使用
-  triggerBy: 觸發價格類型，默認為LastPrice，僅期貨場景使用
+  triggerBy: 觸發價格類型，默認為LastPrice，僅期貨場景使用 (暫時不支持條件單)
   positionIdx: 期貨時使用 0-One-Way Mode 1-Buy side of both side mode 2-Sell side of both side mode
-  mmp: 僅在功能開啟後生效。true表示此訂單為mmp訂單.
+  mmp: 僅在功能開啟後生效。true表示此訂單為mmp訂單（目前還未上線）
   reduceOnly: 只減倉
   closeOnTrigger: 觸發後平倉. 如果下平倉單，請設置為true，避免因為保證金不足而導致下單失敗
   takeProfit: 止盈價格,期貨場景使用
@@ -2721,15 +2720,12 @@ zh-cn:
   usdcPositionDesc: |
     <p>topic:</p>
     <p>期權: user.option.position</p>
-    <p>期貨: </p>
   usdcFilledHistory: |
     <p>topic:</p>
     <p>期權: user.option.tradeHistory</p>
-    <p>期貨: </p>
   usdcOrderDesc: |
     <p>topic:</p>
     <p>期權: user.option.orderHistory</p>
-    <p>期貨: </p>
   udscGeeksDesc: |
     <p>topic:</p>
     <p>期權: user.option.greeks</p>
@@ -2800,3 +2796,4 @@ zh-cn:
   queryLatest500Trades: 最近500條成交記錄
   usdcTradeHistory: 成交記錄
   usdcTransactionType:  參考 <a href="#transaction-type-transaction-type">Transaction type</a>
+  usdcTimeInForce: 參考 <a href="#timeinforce-time_in_force">timeInForce</a>

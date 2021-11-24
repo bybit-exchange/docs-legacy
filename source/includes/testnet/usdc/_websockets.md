@@ -5,37 +5,59 @@
 > t(:websocket_codequote_auth_usdc)
 
 ```python
-# based on: https://github.com/verata-veritatis/pybit/blob/master/pybit/__init__.py
-
 import hmac
-import json
-import time
 import websocket
+import threading
+import time
+import json
 
-api_key = ""
-api_secret = ""
+def on_message(ws, message):
+    print(json.loads(message))
 
-# Generate expires.
-expires = int((time.time() + 1) * 1000)
+def on_error(ws, error):
+    print('we got error')
+    print(error)
 
-# Generate signature.
-signature = str(hmac.new(
-    bytes(api_secret, "utf-8"),
-    bytes(f"GET/realtime{expires}", "utf-8"), digestmod="sha256"
-).hexdigest())
+def on_close(ws):
+    print("### about to close please don't close ###")
 
-ws = websocket.WebSocketApp(
-    url=url,
-    ...
-)
+def send_auth(ws):
+    key = 'XXXXXXXXXXXXXXXXXXXX'
+    secret = 'XXXXXXXXXXXXXXXXXXXX'
+    expires = int((time.time() + 10) * 1000)
+    _val = f'GET/realtime{expires}'
+    print(_val)
+    signature = str(hmac.new(
+        bytes(secret, 'utf-8'),
+        bytes(_val, 'utf-8'), digestmod='sha256'
+    ).hexdigest())
+    ws.send(json.dumps({"id": "signAuth_request_id", "method": "public/signAuth",
+                        "params": {"sign": signature, "apiKey": key, "timestamp": expires}}))
 
-# Authenticate with API.
-ws.send(
-    json.dumps({
-        "op": "auth",
-        "args": [api_key, expires, signature]
-    })
-)
+def on_open(ws):
+    print('opened')
+    send_auth(ws)
+    def pingPer(ws):
+        while True:
+            ws.send("ping")
+            time.sleep(2)
+    t1 = threading.Thread(target=pingPer, args=(ws,))
+    t1.start()
+    ws.send(json.dumps({"method": "private/subscribe", "id": "{100003}", "params": {
+        "channels": ["user.option.order", "user.option.position", "user.option.tradeHistory",
+                     "user.option.orderHistory"]}}))
+
+def connWS():
+    ws = websocket.WebSocketApp("wss://stream-testnet.bybit.com/trade/option/usdc/private/v1",
+                                on_message=on_message,
+                                on_error=on_error,
+                                on_close=on_close,
+                                on_open=on_open
+                                )
+    ws.run_forever()
+
+if __name__ == "__main__":
+    connWS()
 ```
 
 
@@ -554,7 +576,7 @@ t(:usdcOrderDesc)
 | orderFilledSize |string |t(:orderFilledSize) |
 | orderPrice |string |t(:usdcOrderPrice) |
 | iv |string |t(:optionIv) |
-| timeInForce |string |t(:row_comment_timeInForce) |
+| timeInForce |string |t(:usdcTimeInForce) |
 | cumExecQty |string |t(:cumExecQty) |
 | cumExecFee |string |t(:cumExecFee) |
 | orderIM |string |t(:im) |
@@ -597,7 +619,7 @@ t(:usdcOrderDesc)
 | side |string |t(:side) |
 | qty |string |t(:usdcQty) |
 | price |string |t(:usdcPrice) |
-| timeInForce |string |t(:row_comment_timeInForce) |
+| timeInForce |string |t(:usdcTimeInForce) |
 | createType |string |t(:createType) |
 | cancelType |string |t(:cancelType) |
 | cumExecFee |string |t(:cumExecFee) |

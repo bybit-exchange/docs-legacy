@@ -56,7 +56,7 @@ POST
 |iv|false|string|t(:optionIv)|
 |placeMode|false|string|t(:optionPlaceMode)|
 |placeType|false|string|t(:optionPlaceType)|
-|timeInForce|false|string|t(:row_parameter_time_in_force)|
+|timeInForce|false|string|t(:usdcTimeInForce)|
 |outRequestId|false|string|t(:optionOutRequestId)|
 |orderLinkId|false|string|t(:orderLinkId)|
 |reduceOnly|false|bool|t(:reduceOnly)|
@@ -147,7 +147,7 @@ POST
 |iv|false|string|t(:optionIv)|
 |placeMode|false|string|t(:optionPlaceMode)|
 |placeType|false|string|t(:optionPlaceType)|
-|timeInForce|false|string|t(:row_parameter_time_in_force)|
+|timeInForce|false|string|t(:usdcTimeInForce)|
 |outRequestId|false|string|t(:optionOutRequestId)|
 |orderLinkId|false|string|t(:orderLinkId)|
 |reduceOnly|false|bool|t(:reduceOnly)|
@@ -574,7 +574,7 @@ POST
 |orderQty|string|t(:usdcOrderQty)|
 |orderPrice|string|t(:usdcOrderPrice)|
 |iv|string|t(:optionIv)|
-|timeInForce|string|t(:row_parameter_time_in_force)|
+|timeInForce|string|t(:usdcTimeInForce)|
 |leavesValue|string|t(:leavesValue)|
 |cumExecQty|string|t(:cumExecQty)|
 |cumExecValue|string|t(:cumExecValue)|
@@ -696,7 +696,7 @@ POST
 |orderQty|string|t(:usdcOrderQty)|
 |orderPrice|string|t(:usdcOrderPrice)|
 |iv|string|t(:optionIv)|
-|timeInForce|string|t(:row_parameter_time_in_force)|
+|timeInForce|string|t(:usdcTimeInForce)|
 |leavesValue|string|t(:leavesValue)|
 |cumExecQty|string|t(:cumExecQty)|
 |cumExecValue|string|t(:cumExecValue)|
@@ -937,11 +937,11 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-wallet-b
         "equity": "1",
         "cashBalance": "1",
         "availableBalance": "1",
-        "accountIm": "162073788655749",
-        "accountMm": "100",
-        "totalRpl	": "1620737886573",
-        "totalSessionUpl": "1620737886573",
-        "totalSessionRpl": "1620737886573"
+        "accountIM": "162073788655749",
+        "accountMM": "100",
+        "totalRPL": "1620737886573",
+        "totalSessionUPL": "1620737886573",
+        "totalSessionRPL": "1620737886573"
     }
 }
 ```
@@ -961,11 +961,11 @@ POST
 |cashBalance|string|t(:cashBalance)
 |availableBalance|string|t(:availableBalance)|
 |marginBalance|string|t(:marginBalance)|
-|accountIm|string|t(:accountIm)|
-|accountMm|string|t(:accountMm)|
-|totalRpl|string|t(:totalRpl)|
-|totalSessionUpl|string|t(:totalSessionUpl)|
-|totalSessionRpl|string|t(:totalSessionRpl)|
+|accountIM|string|t(:accountIm)|
+|accountMM|string|t(:accountMm)|
+|totalRPL|string|t(:totalRpl)|
+|totalSessionUPL|string|t(:totalSessionUpl)|
+|totalSessionRPL|string|t(:totalSessionRpl)|
 
 
 ### t(:assetInfo)
@@ -998,8 +998,8 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-asset-in
         "totalRPL":"-3773.8879",
         "sessionUPL":"-16.0781",
         "sessionRPL":"-13.0000",
-        "assetIM":"28940.8205",
-        "assetMM":"14997.4532"
+        "im":"28940.8205",
+        "mm":"14997.4532"
       }
     ]
   }
