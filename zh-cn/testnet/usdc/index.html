@@ -2629,7 +2629,7 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal \
 <td style="text-align: left">orderType</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>訂單類型</td>
+<td>訂單類型 （期權暫時不支持市價委託）</td>
 </tr>
 <tr>
 <td style="text-align: left">side</td>
@@ -2737,7 +2737,7 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal \
 <td style="text-align: left">mmp</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>僅在功能開啟後生效。true表示此訂單為mmp訂單.</td>
+<td>僅在功能開啟後生效。true表示此訂單為mmp訂單（目前還未上線）</td>
 </tr>
 </tbody></table>
 
@@ -2862,7 +2862,7 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal \
 <td style="text-align: left">orderType</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>訂單類型</td>
+<td>訂單類型 （期權暫時不支持市價委託）</td>
 </tr>
 <tr>
 <td style="text-align: left">side</td>
@@ -2970,7 +2970,7 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal \
 <td style="text-align: left">mmp</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>僅在功能開啟後生效。true表示此訂單為mmp訂單.</td>
+<td>僅在功能開啟後生效。true表示此訂單為mmp訂單（目前還未上線）</td>
 </tr>
 </tbody></table>
 
@@ -3715,7 +3715,7 @@ POST
 <tr>
 <td style="text-align: left">orderType</td>
 <td style="text-align: left">string</td>
-<td>訂單類型</td>
+<td>訂單類型 （期權暫時不支持市價委託）</td>
 </tr>
 <tr>
 <td style="text-align: left">side</td>
@@ -4008,7 +4008,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 <tr>
 <td style="text-align: left">orderType</td>
 <td style="text-align: left">string</td>
-<td>訂單類型</td>
+<td>訂單類型 （期權暫時不支持市價委託）</td>
 </tr>
 <tr>
 <td style="text-align: left">side</td>
@@ -4576,11 +4576,11 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
         <span class="dl">"</span><span class="s2">equity</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">cashBalance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">availableBalance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">accountIm</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">162073788655749</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">accountMm</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">100</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">totalRpl   </span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1620737886573</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">totalSessionUpl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1620737886573</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">totalSessionRpl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1620737886573</span><span class="dl">"</span>
+        <span class="dl">"</span><span class="s2">accountIM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">162073788655749</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">accountMM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">100</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">totalRPL</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1620737886573</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">totalSessionUPL</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1620737886573</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">totalSessionRPL</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1620737886573</span><span class="dl">"</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -4620,27 +4620,27 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 <td>保證金餘額</td>
 </tr>
 <tr>
-<td style="text-align: left">accountIm</td>
+<td style="text-align: left">accountIM</td>
 <td style="text-align: left">string</td>
 <td>賬戶初始保證金</td>
 </tr>
 <tr>
-<td style="text-align: left">accountMm</td>
+<td style="text-align: left">accountMM</td>
 <td style="text-align: left">string</td>
 <td>賬戶維持保證金</td>
 </tr>
 <tr>
-<td style="text-align: left">totalRpl</td>
+<td style="text-align: left">totalRPL</td>
 <td style="text-align: left">string</td>
 <td>總損益</td>
 </tr>
 <tr>
-<td style="text-align: left">totalSessionUpl</td>
+<td style="text-align: left">totalSessionUPL</td>
 <td style="text-align: left">string</td>
 <td>未實現損益</td>
 </tr>
 <tr>
-<td style="text-align: left">totalSessionRpl</td>
+<td style="text-align: left">totalSessionRPL</td>
 <td style="text-align: left">string</td>
 <td>已實現損益</td>
 </tr>
@@ -4674,8 +4674,8 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
         <span class="dl">"</span><span class="s2">totalRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">-3773.8879</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">sessionUPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">-16.0781</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">sessionRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">-13.0000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">assetIM</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">28940.8205</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">assetMM</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">14997.4532</span><span class="dl">"</span>
+        <span class="dl">"</span><span class="s2">im</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">28940.8205</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">mm</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">14997.4532</span><span class="dl">"</span>
       <span class="p">}</span>
     <span class="p">]</span>
   <span class="p">}</span>
@@ -6808,7 +6808,7 @@ curl https://api-testnet.bybit.com/v2/public/time
 <tr>
 <td style="text-align: left">orderType</td>
 <td style="text-align: left">string</td>
-<td>訂單類型</td>
+<td>訂單類型 （期權暫時不支持市價委託）</td>
 </tr>
 <tr>
 <td style="text-align: left">side</td>
@@ -6903,7 +6903,7 @@ curl https://api-testnet.bybit.com/v2/public/time
 <tr>
 <td style="text-align: left">triggerBy</td>
 <td style="text-align: left">string</td>
-<td>觸發價格類型，默認為LastPrice，僅期貨場景使用</td>
+<td>觸發價格類型，默認為LastPrice，僅期貨場景使用 (暫時不支持條件單)</td>
 </tr>
 </tbody></table>
 <h3 id='t-userconditionalorders'>用戶條件單信息</h3>
@@ -6946,7 +6946,7 @@ curl https://api-testnet.bybit.com/v2/public/time
 <tr>
 <td style="text-align: left">orderType</td>
 <td style="text-align: left">string</td>
-<td>訂單類型</td>
+<td>訂單類型 （期權暫時不支持市價委託）</td>
 </tr>
 <tr>
 <td style="text-align: left">side</td>
@@ -6991,7 +6991,7 @@ curl https://api-testnet.bybit.com/v2/public/time
 <tr>
 <td style="text-align: left">triggerBy</td>
 <td style="text-align: left">string</td>
-<td>觸發價格類型，默認為LastPrice，僅期貨場景使用</td>
+<td>觸發價格類型，默認為LastPrice，僅期貨場景使用 (暫時不支持條件單)</td>
 </tr>
 <tr>
 <td style="text-align: left">triggerPrice</td>
