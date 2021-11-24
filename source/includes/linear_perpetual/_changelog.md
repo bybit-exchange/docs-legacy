@@ -7,15 +7,15 @@
 - [t(:placecond)](#t-placecond) [t(:changelog_update)]
   - t(:restapi_update_20211206)
 - [t(:setautoaddmargin)](#t-setautoaddmargin) [t(:changelog_update)]
-  - t(:restapi_update_20211206)
+  - t(:restapi_update_20211206_1)
 - [t(:tradingstop)](#t-tradingstop) [t(:changelog_update)]
-  - t(:restapi_update_20211206)
+  - t(:restapi_update_20211206_1)
 - [t(:addmargin)](#t-addmargin) [t(:changelog_update)]
-  - t(:restapi_update_20211206)
+  - t(:restapi_update_20211206_1)
 - [t(:setrisklimit)](#t-setrisklimit) [t(:changelog_update)]
-  - t(:restapi_update_20211206)
+  - t(:restapi_update_20211206_1)
 - [t(:myposition)](#t-myposition) [t(:changelog_update)]
-  - t(:restapi_update_20211206)
+  - t(:restapi_update_20211206_2)
 
 ## 2021-10-13
 ### REST API
