@@ -937,11 +937,11 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-wallet-b
         "equity": "1",
         "cashBalance": "1",
         "availableBalance": "1",
-        "accountIm": "162073788655749",
-        "accountMm": "100",
-        "totalRpl	": "1620737886573",
-        "totalSessionUpl": "1620737886573",
-        "totalSessionRpl": "1620737886573"
+        "accountIM": "162073788655749",
+        "accountMM": "100",
+        "totalRPL": "1620737886573",
+        "totalSessionUPL": "1620737886573",
+        "totalSessionRPL": "1620737886573"
     }
 }
 ```
@@ -961,11 +961,11 @@ POST
 |cashBalance|string|t(:cashBalance)
 |availableBalance|string|t(:availableBalance)|
 |marginBalance|string|t(:marginBalance)|
-|accountIm|string|t(:accountIm)|
-|accountMm|string|t(:accountMm)|
-|totalRpl|string|t(:totalRpl)|
-|totalSessionUpl|string|t(:totalSessionUpl)|
-|totalSessionRpl|string|t(:totalSessionRpl)|
+|accountIM|string|t(:accountIm)|
+|accountMM|string|t(:accountMm)|
+|totalRPL|string|t(:totalRpl)|
+|totalSessionUPL|string|t(:totalSessionUpl)|
+|totalSessionRPL|string|t(:totalSessionRpl)|
 
 
 ### t(:assetInfo)
