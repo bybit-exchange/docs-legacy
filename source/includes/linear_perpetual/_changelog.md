@@ -2,6 +2,20 @@
 ## 2021-11-23
 ### REST API
 - [t(:switchpositionmode)](#t-switchpositionmode) [t(:changelog_new)]
+- [t(:placeactive)](#t-placeactive) [t(:changelog_update)]
+  - t(:restapi_update_20211206)
+- [t(:placecond)](#t-placecond) [t(:changelog_update)]
+  - t(:restapi_update_20211206)
+- [t(:setautoaddmargin)](#t-setautoaddmargin) [t(:changelog_update)]
+  - t(:restapi_update_20211206)
+- [t(:tradingstop)](#t-tradingstop) [t(:changelog_update)]
+  - t(:restapi_update_20211206)
+- [t(:addmargin)](#t-addmargin) [t(:changelog_update)]
+  - t(:restapi_update_20211206)
+- [t(:setrisklimit)](#t-setrisklimit) [t(:changelog_update)]
+  - t(:restapi_update_20211206)
+- [t(:myposition)](#t-myposition) [t(:changelog_update)]
+  - t(:restapi_update_20211206)
 
 ## 2021-10-13
 ### REST API

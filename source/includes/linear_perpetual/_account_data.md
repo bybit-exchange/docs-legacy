@@ -95,6 +95,7 @@ POST
 |stop_loss |false |number |t(:row_comment_stopLoss) |
 |t(:row_parameter_tp_trigger_by) |false |string |t(:account_row_comment_tp_trigger_by) |
 |t(:row_parameter_sl_trigger_by) |false |string |t(:account_row_comment_sl_trigger_by) |
+|position_idx |false |integer |t(:row_comment_position_idx)  |
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -122,6 +123,7 @@ POST
 |stop_loss |number |t(:row_comment_stop_loss)  |
 |t(:row_parameter_tp_trigger_by) |string |t(:account_row_comment_tp_trigger_by)  |
 |t(:row_parameter_sl_trigger_by) |string |t(:account_row_comment_sl_trigger_by)  |
+|position_idx |integer |t(:row_comment_position_idx)  |
 
 ### t(:getactive)
 > t(:codequote_curlExample)
@@ -711,6 +713,7 @@ POST
 |stop_loss |false |number |t(:row_comment_stopLoss) |
 |t(:row_parameter_tp_trigger_by) |false |string |t(:account_row_comment_tp_trigger_by) |
 |t(:row_parameter_sl_trigger_by) |false |string |t(:account_row_comment_sl_trigger_by) |
+|position_idx |false |integer |t(:row_comment_position_idx)  |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -736,6 +739,7 @@ POST
 |t(:row_parameter_trigger_price) |string |t(:row_comment_triggerBy)  |
 |reduce_only |bool |t(:linear_resp_field_reduce_only)  |
 |close_on_trigger |bool |t(:row_response_close_on_trigger)  |
+|position_idx |integer |t(:row_comment_position_idx)  |
 
 ### t(:getcond)
 > t(:codequote_curlExample)
@@ -1477,7 +1481,7 @@ GET
 |take_profit |string |t(:row_comment_take_profit)  |
 |stop_loss |string |t(:row_comment_stop_loss)  |
 |trailing_stop |string |t(:row_comment_trailing_stop)  |
-
+|position_idx |integer |t(:row_comment_position_idx)  |
 
 ### t(:setautoaddmargin)
 > t(:codequote_curlExample)
@@ -1534,6 +1538,7 @@ POST
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
 |t(:row_parameter_side) |<b>true</b> |string |t(:row_comment_side)    |
 |auto_add_margin |<b>true</b> |bool |t(:linear_row_comment_set_auto_margin)  |
+|position_idx |false |integer |t(:row_comment_position_idx)  |
 
 
 ### t(:marginswitch)
@@ -1780,6 +1785,7 @@ POST
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
 |t(:row_parameter_side) |<b>true</b> |string |t(:row_comment_side)    |
 |margin |<b>true</b> |number |t(:linear_account_row_comment_margin) |
+|position_idx |false |integer |t(:row_comment_position_idx)  |
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -1925,6 +1931,7 @@ POST
 |t(:row_parameter_sl_trigger_by) | false | string | t(:account_row_comment_sl_trigger_by)
 |sl_size |false |number |t(:row_comment_sl_size) |
 |tp_size |false |number |t(:row_comment_tp_size) |
+|position_idx |false |integer |t(:row_comment_position_idx)  |
 
 
 ### t(:usertraderecords)
@@ -2312,6 +2319,7 @@ POST
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
 |t(:row_parameter_side) |<b>true</b> |string |t(:row_comment_side)    |
 |risk_id |<b>true</b> |integer |t(:row_comment_riskId) |
+|position_idx |false |integer |t(:row_comment_position_idx)  |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
