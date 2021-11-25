@@ -156,7 +156,7 @@ t(:spot_websocket_para_response)
 }
 }
 
-  
+
 
 ```
 
@@ -576,7 +576,7 @@ t(:usdcOrderDesc)
 | orderFilledSize |string |t(:orderFilledSize) |
 | orderPrice |string |t(:usdcOrderPrice) |
 | iv |string |t(:optionIv) |
-| timeInForce |string |t(:row_comment_timeInForce) |
+|t(:row_parameter_timeInForce) |string |t(:row_comment_timeInForce) |
 | cumExecQty |string |t(:cumExecQty) |
 | cumExecFee |string |t(:cumExecFee) |
 | orderIM |string |t(:im) |
@@ -619,7 +619,7 @@ t(:usdcOrderDesc)
 | side |string |t(:side) |
 | qty |string |t(:usdcQty) |
 | price |string |t(:usdcPrice) |
-| timeInForce |string |t(:row_comment_timeInForce) |
+|t(:row_parameter_timeInForce) |string |t(:row_comment_timeInForce) |
 | createType |string |t(:createType) |
 | cancelType |string |t(:cancelType) |
 | cumExecFee |string |t(:cumExecFee) |
@@ -681,4 +681,3 @@ t(:udscGeeksDesc)
 | totalGamma |string |t(:gamma) |
 | totalVega|string |t(:vega) |
 | totalTheta |string |t(:theta) |
-

@@ -340,7 +340,7 @@ en:
 
   # Spot enum parameter table links
   row_parameter_type: <a href="#order-type-type-ordertypes">type</a>
-  row_parameter_timeInForce: <a href="#timeinforce-timeinforce">timeInForce</a>
+  row_parameter_timeInForce: <a href="#time-in-force-timeinforce">timeInForce</a>
   spot_row_parameter_orderStatus: <a href="#order-status-status">status</a>
 
 
@@ -2215,7 +2215,7 @@ en:
   spotIgnore: Please ignore
   spotAvgPrice: Average filled price
   spotStopPrice: Stop price
-  spotType: Order type
+  spotType: Order type, LIMIT/MARKET_OF_QUOTE/MARKET_OF_BASE
   spotStatus: Order status
   tOrderClientOrdID: User-generated order ID
   fastcancelactiveorder: Fast Cancel Active Order
@@ -2284,9 +2284,9 @@ en:
     Order type. Use comma splicing to indicate multiple order types, eg <code>LIMIT,LIMIT_MAKER</code>. Default: <code>LIMIT</code>
   spotCancelOrderIds: order ID, use comma splicing to indicate multiple orderIds, no more than 100 ids.
 
+#  spotCancelTips: The actual result of the cancellation request needs to be checked by order status or match result endpoints after submitting the request.(It is a synchronous settlement API)
+#  spotFastCancelTips: The actual result of the cancellation request needs to be checked by order status or match result endpoints after submitting the request.(It is an asynchronous settlement API)
   spotFastCancelTips: The actual result of the cancellation request needs to be checked by order status or match result endpoints after submitting the request.
-
-
   #spot_ws_v1
   spot_price: Price
   spot_symbol: Trading pair
@@ -2682,7 +2682,7 @@ en:
 
 
 
-  usdcOrderType: Order type
+  usdcOrderType: Order type (MARKET is not supported currently for Options)
   optionIv: Implied volatility
   optionPlaceMode: Order mode, can be Advanced or Basic.For Perpetual, can be empty,But for Option, can not be empty.Number 1 is basic and number 2 is advanced.If 1, <code>orderQty</code> and <code>orderPrice</code> can not be empty. If 2, refer to <code>placeType</code>.
   optionPlaceType: Order type, can be price or implied volatility.Number 1 is price and number 2 is implied volatility. If 1,orderQty and orderPrice can not be empty. If 2, <code>iv</code> and <code>orderQty</code> can not be empty.
@@ -2695,9 +2695,9 @@ en:
 
 
   triggerPrice: Trigger price
-  triggerBy: Trigger price type
+  triggerBy: Trigger price type (For conditional order, not available yet)
   positionIdx: 0-One-Way Mode, 1-Buy side of both side mode, 2-Sell side of both side mode (Perpetual)
-  mmp: Market maker protection; false not enabled (default) and true means enabled
+  mmp: Market maker protection; false not enabled (default) and true means enabled (not avaiable yet)
   reduceOnly: Reduce-only
   closeOnTrigger: Close on trigger, please set it to true for a close order
   takeProfit: Take-profit price (Perpetual)

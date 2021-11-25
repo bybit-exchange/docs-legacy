@@ -13,10 +13,11 @@ t(:ENUMs_para)
 * `1` - price
 * `2` - iv
 
-## TimeInForce (`timeInForce`)
-* `GTC` - Good Till Canceled
-* `IOC` - Immediate or Cancel
-* `FOK` - Fill or Kill
+## Time in force (`timeInForce`)
+* `GoodTillCancel`
+* `ImmediateOrCancel`
+* `FillOrKill`
+* `PostOnly`
 
 ## Symbol (`symbol`)
 t(:usdc_trading_symbol_comment)
@@ -29,10 +30,6 @@ t(:usdc_trading_symbol_comment)
 
 
 ## Currency (`currency`/`coin`)
-* `USDC`
-
-The transfer API also includes:
-
 * `USDC`
 
 
@@ -51,10 +48,6 @@ t(:usdcQuantity)
 ## Price (`price`)
 t(:usdcPriceRule)
 
-## Time in force (`time_in_force`)
-* `GTC` t(:goodTillCancel)
-* `IOC` t(:immediateOrCancel)
-* `FOK` t(:fillOrKill)
 
 ## Kline interval (`interval`)
 * `1m` t(:interval_1)
@@ -82,4 +75,3 @@ t(:usdcPriceRule)
 ## Margin Mode
 * `REGULAR_MARGIN`
 * `PORTFOLIO_MARGIN`
-
