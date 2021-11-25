@@ -510,7 +510,7 @@ t(:usdcFilledHistory)
  ws.send('{"method":"private/subscribe","id":"{100003}","params":{"channels":["user.option.order"]}}');
 ```
 
-> t(:codequote_snapshot)
+> t(:usdc_trade_codequote_snapshot)
 
 ```javascript
 
@@ -599,7 +599,7 @@ t(:usdcActiveOrder)
  ws.send('{"method":"private/subscribe","id":"{100003}","params":{"channels":["user.option.orderHistory"]}}');
 ```
 
-> t(:codequote_snapshot)
+> t(:usdc_trade_codequote_snapshot)
 
 ```javascript
 
