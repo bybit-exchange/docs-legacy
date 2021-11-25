@@ -502,8 +502,97 @@ t(:usdcFilledHistory)
 | execValue |string |t(:execValue) |
 | lastLiquidityInd |string |t(:lastLiquidityInd) |
 
-### t(:userOrderHistory)
+### t(:activeOrders)
 
+> t(:codequote_subscribe)
+
+```javascript
+ ws.send('{"method":"private/subscribe","id":"{100003}","params":{"channels":["user.option.order"]}}');
+```
+
+> t(:codequote_snapshot)
+
+```javascript
+
+{
+  "id":"f013f9e9-5d6c-4d43-bed4-6858d8a9de1e",
+  "channel":"user.option.order",
+  "type":"SNAPSHOT",
+  "serialNumber":1,
+  "publishTime":470805183,
+  "creationTime":1637828113470,
+  "data":{
+  "result":[
+    {
+      "orderId":"cee50e1d-c36a-46f3-b861-4012f8c2589b",
+      "symbol":"BTC-26NOV21-30000-P",
+      "orderStatus":"New",
+      "side":"Buy",
+      "orderPrice":"3383.50000000",
+      "orderAllSize":"0.0100",
+      "orderFilledSize":"0.0000",
+      "orderRemainingSize":"0.0100",
+      "orderAvgPrice":"3383.50000000",
+      "orderIM":"33.97985865",
+      "orderType":"Limit",
+      "orderTime":1637828113432,
+      "reduceOnly":0,
+      "timeInForce":"GoodTillCancel",
+      "fees":"0.00000000",
+      "cashFlow":"",
+      "orderRPL":"",
+      "version":9719,
+      "sendTime":9719,
+      "crossSeq":null,
+      "deliveryTime":1637913600000,
+      "strikePrice":"30000",
+      "symbolType":"P",
+      "postOnly":0,
+      "placeType":"price",
+      "placeMode":"advanced",
+      "iv":"14.8490",
+      "pushActionType":0
+    }
+  ],
+    "version":240533,
+    "sendTime":1637828113452
+}
+}
+
+
+```
+
+t(:usdcActiveOrder)
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| orderId |string |t(:usdcOrderId) |
+| orderLinkId |string |t(:orderLinkId) |
+| symbol |string |t(:usdcSymbol) |
+| orderType|string |t(:usdcOrderType) |
+| side |string |t(:side) |
+| orderAllSize |string |t(:orderAllSize) |
+| orderFilledSize |string |t(:orderFilledSize) |
+| orderPrice |string |t(:usdcOrderPrice) |
+| iv |string |t(:optionIv) |
+| t(:row_parameter_timeInForce) |string |t(:row_comment_timeInForce) |
+| cumExecQty |string |t(:cumExecQty) |
+| cumExecFee |string |t(:cumExecFee) |
+| orderIM |string |t(:im) |
+| orderStatus |string |t(:orderStatus) |
+| reduceOnly |number |t(:reduceOnly) |
+| closeOnTrigger |string |t(:closeOnTrigger) |
+| takeProfit |string |t(:takeProfit) |
+| stopLoss |string |t(:stopLoss) |
+| tpTriggerBy |string |t(:tptriggerby) |
+| slTriggerBy |string |t(:slTriggerBy) |
+| basePrice |string |t(:basePrice) |
+| triggerPrice |string |t(:triggerPrice) |
+| triggerBy |string |t(:triggerBy) |
+
+
+### t(:userOrderHistory)
 > t(:codequote_subscribe)
 
 ```javascript
