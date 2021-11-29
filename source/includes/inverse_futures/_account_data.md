@@ -1716,8 +1716,8 @@ POST
 |position_seq |number |t(:row_comment_position_seq)  |
 |created_at |string |t(:row_comment_created_at)  |
 |updated_at |string |t(:row_comment_updated_at)  |
-|ext_fields>trailing_active |string |t(:row_comment_trailing_active)  |
-|ext_fields>sl_trigger_by |string |t(:row_comment_sl_trigger_by)  |
+|trailing_active |string |t(:row_comment_trailing_active)  |
+|sl_trigger_by |string |t(:row_comment_sl_trigger_by)  |
 
 
 
