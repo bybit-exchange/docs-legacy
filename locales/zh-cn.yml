@@ -2303,7 +2303,8 @@ zh-cn:
   usdcList: 列表
   usdcSymbol: 合約名稱
   usdcTickerInfo: 合約最新信息
-  usdcOrderBookSide: 買賣方向, 期權ASK or BID， 期貨 Buy or Sell
+  usdcOrderBookSide: 買賣方向, ASK or BID
+  usdcPerpOrderBookSide: 買賣方向, Buy or Sell
   usdcVolume: 交易量
   usdcSize: 倉位
   usdcOrderBook: OrderBook
@@ -2353,17 +2354,17 @@ zh-cn:
   usdcQuoteCoin: 結算幣種
   usdcTakerFeeRate: taker手續費率
   usdcMakerFeeRate: maker手續費率
-  minLeverage: 最小槓桿數， 僅限期貨
-  maxLeverage: 最大槓桿數， 僅限期貨
-  leverageStep: 槓桿增加或減少數量， 僅限期貨
+  minLeverage: 最小槓桿數
+  maxLeverage: 最大槓桿數
+  leverageStep: 槓桿增加或減少數量
   minPrice: 最小委託價格
   maxPrice: 最大委託價格
   tickSize: 價格最小變動單位
   minTradingQty: 最小委託數量
   maxTradingQty: 最大委託數量
   qtyStep: 合約數量最小單位
-  deliveryFeeRate: 交割費率， 僅限期權使用
-  deliveryTime: 交割時間，精確到毫秒， 僅限期權使用
+  deliveryFeeRate: 交割費率
+  deliveryTime: 交割時間，精確到毫秒
   timestamp: 時間戳
   usdcValue: 訂單價值
 
@@ -2477,9 +2478,8 @@ zh-cn:
 
 
   usdc_websocket_para_orderbook: |
-    <p>獲取檔位範圍：25、100、200.</p>
+    <p>獲取檔位範圍：25、100.</p>
     <p>訂閱成功後, 會持續得到一個當前快照包的推送信息. </p>
-    <p>期權只能订阅25、100檔位</p>
     <p>topic的格式：orderbook25.{symbol} 或者 orderbook100.{symbol} </p>
     <p>比如orderbook25.BTC-5NOV21-30000-P 或者 orderbook100.BTC-5NOV21-30000-P</p>
 
@@ -2496,7 +2496,7 @@ zh-cn:
 
 
 
-  usdcOrderType: 訂單類型 （期權暫時不支持市價委託）
+  usdcOrderType: 參考 <a href="#order-type-type-ordertypes">訂單類型</a> （期權暫時不支持市價委託）
   optionIv: 期權iv, 小數點後保留叁位小數
   optionPlaceMode: 期權下單模式，高級或者是基礎模式下單,期貨不需傳，期權需要。 1：基礎模式下單，2：高級模式下單。如果1，orderQty和orderPrice是必傳字段。如果是2， 參照 placeType.
   optionPlaceType: 期權下單類型，價格或者iv下單.1：價格下單，2：iv下單。如果是1，則orderQty和orderPrice是必傳字段，為2表示iv和orderQty為必傳字段。
@@ -2520,7 +2520,7 @@ zh-cn:
   uscdOrderType: 訂單類型
   usdcOrderFilter: 期貨場景時時必填，判斷active order還是stop order
   usdcReplaceOrderId: 期權場景必傳
-  usdcOrderLinkId: 期貨場景，orderId和orderLinkId二者必須傳一個
+  usdcOrderLinkId: orderId和orderLinkId二者必須傳一個
   cancelAllResponse: 取消所有活動單接口，實時返回的是受理成功或者失敗，根據retCode進行判斷
   usdcSymbolInfo: symbol不傳則查詢所有的symbol
   symbolStatus: symbol狀態 WAITING_ONLINE 待上線  ONLINE, 上線  DELIVERING, 交割中    OFFLINE  下線
@@ -2530,13 +2530,13 @@ zh-cn:
     <p>下單時需保證賬戶內有足夠的資金。一旦下單，根據訂單所需資金，您的賬戶資金將在訂單生命週期內凍結相應額度，被凍結的資金額度取決於訂單指定的參數。 </p>
     <p>本接口實時返回請求受理結果。 </p>
     <p>最終執行結果需要通過查詢或者ws推送獲知</p>
-  replaceInfo: 期權場景下，價格、數量、iv至少需要傳一個。期貨場景，價格、數量至少需要傳一個
+  replaceInfo: 價格、數量、iv至少需要傳一個。期貨場景，價格、數量至少需要傳一個
   leavesValue: 剩餘掛單數量對應的預估價值
   cumExecQty: 累計成交數量
   cumExecValue: 累計成交價值
   cumExecFee: 累計成交手續費
   im: 起始保證金
-  orderStatus: 訂單狀態
+  orderStatus: <a href="#order-status-status">訂單狀態</a>
   lastExecPrice: 最近一次成交價
   basePrice: 下單時市價
   createdAt: 創建時間
@@ -2613,7 +2613,7 @@ zh-cn:
 
   usdcLeverage: leverage必須大於0且小於最大可設置槓桿risk limit levarage
   endTime: 結束時間戳（單位秒）
-  execType: 交易類型(不能為"Funding")
+  execType: <a href="#exec-type">交易類型</a>
   closedSize: 平倉委託對應的平倉大小
   cumEntryValue: 被平掉的倉位價值
   cumExitValue: 平倉訂單累計成交價值
@@ -2727,21 +2727,21 @@ zh-cn:
   udscGeeksDesc: |
     <p>topic:</p>
     <p>期權: user.option.greeks</p>
-  usdc_trading_symbol_comment: 您可以根據<a href="#querySymbolInfo">Query Symbol</a>接口獲取所有交易中的symbol
+  usdc_trading_symbol_comment: 您可以根據<a href="#t-querysymbolinfo">Query Symbol</a>接口獲取所有交易中的symbol
   usdcPriceRule:
     <ul>
     <li>最大值1百萬 (<code>1000000</code>)</li>
     <li>必須是正數：
     <ul>
     <li><code>40</code> - 合法</li>
-    <li><code>40.01</code> - 合法</li>
+    <li><code>40.5</code> - 合法</li>
+    <li><code>40.1</code> - 非法</li>
     <li><code>-30.5</code> - 非法</li>
-    </ul>optionPlaceMode
     </li>
     </ul>
   usdcQuantity:
     <ul>
-    <li>最大值1百萬 (<code>1000000</code>)</li>
+    <li>最大值1千 (<code>1000</code>)</li>
     <li>必須是正數：
     <ul>
     <li><code>40</code> - 合法</li>

@@ -6,9 +6,8 @@ t(:market_para_auth)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book \
--H "Content-Type: application/json" \
--d '{"symbol": "BTC-22OCT21-45000-C"}'
+
+curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?symbol=BTC-3DEC21-62000-P'
 
 ```
 
@@ -19,18 +18,23 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book \
 
 ```javascript
 {
-  "retCode":0,
-    "retMsg":"SUCCESS",
-    "result":[
+  "retCode": 0,
+    "retMsg": "SUCCESS",
+    "result": [
     {
-      "price":"9.40065408",
-      "size":"155196.7296",
-      "side":"BID"
+      "price": "5000.00000000",
+      "size": "2.0000",
+      "side": "BID"
     },
     {
-      "price":"9.13032704",
-      "size":"40493.4592",
-      "side":"ASK"
+      "price": "1.50000000",
+      "size": "0.0200",
+      "side": "BID"
+    },
+    {
+      "price": "5900.00000000",
+      "size": "0.9000",
+      "side": "ASK"
     }
   ]
 }
@@ -38,11 +42,10 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book \
 t(:usdc_order_book_desc)
 
 <p class="fake_header">t(:httprequest)</p>
-POST
-<code><span id=uopvorderBook>/{category}/usdc/openapi/public/v1/order-book</span></code>
+GET
+<code><span id=uopvorderBook>/option/usdc/openapi/public/v1/order-book</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvorderBook"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
-t(:usdc_order_book_path)
 
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -61,21 +64,14 @@ t(:usdc_order_book_path)
 | side | string | t(:usdcOrderBookSide)|
 
 
-### t(:querykline)
 
-Perpetual only.
+### t(:querySymbolInfo)
 
 > t(:codequote_curlExample)
 
 ```console
-curl --location --request POST 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/kline/list' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "symbol": "BTCPERP",
-    "period":"1",
-    "limit":"1",
-    "startTime":1
-}'
+curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/symbols?limit=1'
+
 ```
 
 ```python
@@ -84,66 +80,82 @@ curl --location --request POST 'https://api-testnet.bybit.com/perpetual/usdc/ope
 > t(:codequote_responseExample)
 
 ```javascript
-
 {
-  "retCode":0,
-  "retMsg":"",
-  "result":[
-  {
-    "symbol":"BTCPERP",
-    "volume":"0.01",
-    "period":"1",
-    "openTime":"1636358160",
-    "open":"66001.50",
-    "high":"66001.50",
-    "low":"66001.50",
-    "close":"66001.50",
-    "turnover":"1188.02"
+  "retCode": 0,
+    "retMsg": "success",
+    "result": {
+    "resultTotalSize": 1618,
+      "cursor": "0%2C1",
+      "dataList": [
+      {
+        "symbol": "BTC-28JAN22-250000-C",
+        "status": "ONLINE",
+        "baseCoin": "BTC",
+        "quoteCoin": "USD",
+        "settleCoin": "USDC",
+        "takerFee": "0.00025",
+        "makerFee": "0.00025",
+        "minLeverage": "",
+        "maxLeverage": "",
+        "leverageStep": "",
+        "minOrderPrice": "0.5",
+        "maxOrderPrice": "10000000",
+        "minOrderSize": "0.01",
+        "maxOrderSize": "1000",
+        "tickSize": "0.5",
+        "minOrderSizeIncrement": "0.01",
+        "basicDeliveryFeeRate": "0.00015",
+        "deliveryTime": "1643356800000"
+      }
+    ]
   }
-]
 }
-
 ```
-
+t(:usdcSymbolInfo)
 
 
 <p class="fake_header">t(:httprequest)</p>
-POST
-<code><span id=sqvdMerged>/perpetual/usdc/openapi/public/v1/kline/list</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+GET
+<code><span id=usdcSymbols>/option/usdc/openapi/public/v1/symbols</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcSymbols"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|<b>true</b>|string|t(:usdcSymbol)|
-|period|<b>true</b>|string|t(:usdcPeriod)|
-|startTime|<b>true</b>|number|t(:usdcStartTime)|
-|limit| false | number | t(:usdcLimit)
+|symbol|false|string|t(:usdcSymbol)|
+|direction|false|string|t(:direction)|
+|limit|false|string|t(:usdcLimit)|
+|cursor|false|string|t(:cursor)|
+
 
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| volume | string | t(:usdcVolume) |
 | symbol | string | t(:usdcSymbol) |
-| open | string | t(:usdcOpen) |
-| openTime | number | t(:usdcOpenTime) |
-| turnover | string | t(:usdcTurnover) |
-| period | string | t(:usdcPeriod) |
-| low | string | t(:usdcLow) |
-| high | string | t(:usdcHigh) |
-| close | string | t(:usdcClose) |
+| status | string | t(:symbolStatus) |
+| baseCoin | string | t(:usdcBaseCoin) |
+| quoteCoin | string | t(:usdcQuoteCoin) |
+| takerFeeRate | string | t(:usdcTakerFeeRate) |
+| makerFeeRate | string | t(:usdcMakerFeeRate) |
+| minPrice | string | t(:minPrice) |
+| maxPrice | string | t(:maxPrice) |
+| tickSize | string | t(:tickSize) |
+| minTradingQty | string | t(:minTradingQty) |
+| maxTradingQty | string | t(:maxTradingQty) |
+| qtyStep | string | t(:qtyStep) |
+| deliveryFeeRate | string | t(:deliveryFeeRate) |
+| deliveryTime | number | t(:deliveryTime) |
+| cursor | string | t(:cursor) |
+
 
 
 
 ### t(:usdcTickerInfo)
-t(:usdc_order_book_path)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/option/usdc/openapi/public/v1/tick \
--H "Content-Type: application/json" \
--D '{"symbol": "BTC-22OCT21-45000-C"}'
+curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/tick?symbol=BTC-28JAN22-250000-C'
 ```
 
 ```python
@@ -153,41 +165,41 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/public/v1/tick \
 
 ```javascript
 {
-  "retCode":0,
-    "retMsg":"SUCCESS",
-    "result":{
-    "symbol":"BTC-22OCT21-45000-C",
-      "bid":"9.40065408",
-      "bidIv":"0.0000",
-      "bidSize":"155196.7296",
-      "ask":"12.03032704",
-      "askIv":"0.0000",
-      "askSize":"144786.7184",
-      "lastPrice":"12.03032704",
-      "openInterest":"56.3",
-      "indexPrice":"57513.73000000",
-      "markPrice":"12996.21947583",
-      "markPriceIv":"1.1613",
-      "change24h":"-0.99849621",
-      "high24h":"8000.00000000",
-      "low24h":"2.02000000",
-      "volume24h":"11459759.9440",
-      "turnover24h":"89748414.25099826",
-      "totalVolume":"11459760",
-      "totalTurnover":"89748415",
-      "predictedDeliveryPrice":"57540.52549555",
-      "underlyingPrice":"57708.12000000",
-      "delta":"0.93742138",
-      "gamma":"0.00001242",
-      "vega":"10.51152247",
-      "theta":"-76.37969432"
+  "retCode": 0,
+    "retMsg": "SUCCESS",
+    "result": {
+    "symbol": "BTC-28JAN22-250000-C",
+      "bid": "0",
+      "bidIv": "0",
+      "bidSize": "0",
+      "ask": "0",
+      "askIv": "0",
+      "askSize": "0",
+      "lastPrice": "0",
+      "openInterest": "0",
+      "indexPrice": "56171.79000000",
+      "markPrice": "12.72021285",
+      "markPriceIv": "1.1701",
+      "change24h": "0",
+      "high24h": "0",
+      "low24h": "0",
+      "volume24h": "0",
+      "turnover24h": "0",
+      "totalVolume": "0",
+      "totalTurnover": "0",
+      "predictedDeliveryPrice": "0",
+      "underlyingPrice": "57039.61000000",
+      "delta": "0.00184380",
+      "gamma": "0.00000022",
+      "vega": "1.35132531",
+      "theta": "-1.33819821"
   }
 }
 ```
 
 <p class="fake_header">t(:httprequest)</p>
-POST
-<code><span id=usdcTick>/{category}/usdc/openapi/public/v1/tick</span></code>
+GET
+<code><span id=usdcTick>/option/usdc/openapi/public/v1/tick</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcTick"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -226,466 +238,12 @@ POST
 | theta | string | t(:theta) |
 
 
-### t(:querySymbolInfo)
-t(:usdc_order_book_path)
-
-> t(:codequote_curlExample)
-
-```console
-curl https://api-testnet.bybit.com/option/usdc/openapi/public/v1/symbols \
--H "Content-Type: application/json" \
--d '{"symbol":"BTC-26NOV21-80000-P","category":"option"}'
-
-```
-
-```python
-```
-
-> t(:codequote_responseExample)
-
-```javascript
-{
-    "retCode": 0,
-    "retMsg": "",
-    "result": [
-        {
-            "symbol": "BTC-26NOV21-80000-P",
-            "status": "ONLINE",
-            "baseCoin": "BTC",
-            "quoteCoin": "USD",
-            "takerFeeRate": "0.0075",
-            "makerFeeRate": "0.0075",
-            "minLeverage": 1,
-            "maxLeverage": 100,
-            "minPrice": "0.1",
-            "maxPrice": "99999",
-            "qtyStep": "0.1",
-            "deliveryFeeRate": "0.1",
-            "deliveryTime": 1632919052,
-            "cursor": "{'id':111}",
-        }
-    ]
-}
-```
-t(:usdcSymbolInfo)
-
-
-<p class="fake_header">t(:httprequest)</p>
-POST
-<code><span id=usdcSymbols>/{category}/usdc/openapi/public/v1/symbols</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcSymbols"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|category|<b>true</b>|string|t(:usdcCategory)|
-|symbol|false|string|t(:usdcSymbol)|
-|direction|false|string|t(:direction)|
-|limit|false|string|t(:usdcLimit)|
-|cursor|false|string|t(:cursor)|
-
-
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-| symbol | string | t(:usdcSymbol) |
-| status | string | t(:symbolStatus) |
-| baseCoin | string | t(:usdcBaseCoin) |
-| quoteCoin | string | t(:usdcQuoteCoin) |
-| takerFeeRate | string | t(:usdcTakerFeeRate) |
-| makerFeeRate | string | t(:usdcMakerFeeRate) |
-| minLeverage | number | t(:minLeverage) |
-| maxLeverage | number | t(:maxLeverage) |
-| leverageStep | number | t(:leverageStep) |
-| minPrice | string | t(:minPrice) |
-| maxPrice | string | t(:maxPrice) |
-| tickSize | string | t(:tickSize) |
-| minTradingQty | string | t(:minTradingQty) |
-| maxTradingQty | string | t(:maxTradingQty) |
-| qtyStep | string | t(:qtyStep) |
-| deliveryFeeRate | string | t(:deliveryFeeRate) |
-| deliveryTime | number | t(:deliveryTime) |
-| cursor | string | t(:cursor) |
-
-
-
-### t(:markKLine)
-Perpetual only.
-
-> t(:codequote_curlExample)
-
-```console
-curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/mark-price-kline \
--H "Content-Type: application/json" \
--d '{
-    "symbol": "BTCPERP",
-    "period":"1",
-    "startTime":1,
-    "limit":"1"
-}'
-
-```
-
-```python
-```
-
-> t(:codequote_responseExample)
-
-```javascript
-
-{
-    "retCode":0,
-    "retMsg":"",
-    "result":[
-        {
-            "symbol":"BTCPERP",
-            "period":"1",
-            "openTime":"1634696220",
-            "open":"63884.11",
-            "high":"63884.11",
-            "low":"63862.49",
-            "close":"63866.63"
-        }
-    ]
-}
-
-```
-
-<p class="fake_header">t(:httprequest)</p>
-POST
-<code><span id=usdcMarkPriceKline>/perpetual/usdc/openapi/public/v1/mark-price-kline</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcMarkPriceKline"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|symbol|<b>true</b>|string|t(:usdcSymbol)|
-|period|<b>true</b>|string|t(:usdcPeriod)|
-|limit|false|string|t(:usdcLimit)|
-|startTime|<b>true</b>|number|t(:startTime)|
-
-  
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-| symbol | string | t(:usdcSymbol) |
-| period | string | t(:usdcPeriod) |
-| openTime | number | t(:openTime) |
-| open | string | t(:open) |
-| high | string | t(:high) |
-| low | string | t(:low) |
-| close | string | t(:close) |
-
-
-
-### t(:indexKLine)
-Perpetual only.
-> t(:codequote_curlExample)
-
-```console
-curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/index-price-kline \
--H "Content-Type: application/json" \
--d '{
-    "symbol": "BTCPERP",
-    "period":"W",
-    "startTime":1634378400
-}'
-```
-
-```python
-```
-
-> t(:codequote_responseExample)
-
-```javascript
-{
-    "retCode":0,
-    "retMsg":"",
-    "result":[
-        {
-            "symbol":"BTCPERP",
-            "period":"W",
-            "openTime":"1635120000",
-            "open":"62033.96",
-            "high":"62058.66",
-            "low":"60005.97",
-            "close":"61359.21"
-        }
-    ]
-}
-
-```
-
-<p class="fake_header">t(:httprequest)</p>
-POST
-<code><span id=uscIndexPriceKline>/perpetual/usdc/openapi/public/v1/index-price-kline</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uscIndexPriceKline"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|symbol|<b>true</b>|string|t(:usdcSymbol)|
-|period|<b>true</b>|string|t(:usdcPeriod)|
-|limit|false|string|t(:usdcLimit)|
-|startTime|<b>true</b>|number|t(:startTime)|
-
-
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-| symbol | string | t(:usdcSymbol) |
-| period | string | t(:usdcPeriod) |
-| openTime | number | t(:openTime) |
-| open | string | t(:open) |
-| high | string | t(:high) |
-| low | string | t(:low) |
-| close | string | t(:close) |
-
-
-
-
-### t(:premiumKLine)
-Perpetual only.
-> t(:codequote_curlExample)
-
-```console
-curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/premium-index-kline \
--H "Content-Type: application/json" \
--d '{
-    "symbol": "BTCPERP",
-    "limit": 1,
-    "period":"1",
-    "startTime":1
-}'
-```
-
-```python
-```
-
-> t(:codequote_responseExample)
-
-```javascript
-
-{
-    "retCode":0,
-    "retMsg":"",
-    "result":[
-        {
-            "symbol":"BTCPERP",
-            "period":"1",
-            "openTime":"1635648300",
-            "open":"0.000066",
-            "high":"0.000066",
-            "low":"0.000066",
-            "close":"0.000066"
-        }
-    ]
-}
-
-```
-
-<p class="fake_header">t(:httprequest)</p>
-POST
-<code><span id=usdcPremiumIndexKline>/perpetual/usdc/openapi/public/v1/premium-index-kline</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcPremiumIndexKline"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|symbol|<b>true</b>|string|t(:usdcSymbol)|
-|period|<b>true</b>|string|t(:usdcPeriod)|
-|limit|false|string|t(:usdcLimit)|
-|startTime|<b>true</b>|number|t(:startTime)|
-
-
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-| symbol | string | t(:usdcSymbol) |
-| period | string | t(:usdcPeriod) |
-| openTime | number | t(:openTime) |
-| open | string | t(:open) |
-| high | string | t(:high) |
-| low | string | t(:low) |
-| close | string | t(:close) |
-
-
-### t(:queryOpenInterest)
-
-Perpetual only.
-
-> t(:codequote_curlExample)
-
-```console
-curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/open-interest \
--H "Content-Type: application/json" \
--d '{"symbol":"BTCUSD","period":"1"}'
-```
-
-```python
-```
-
-> t(:codequote_responseExample)
-
-```javascript
-
-{
-    "retCode":0,
-    "retMsg":"",
-    "result":[
-        {
-            "symbol":"BTCUSD",
-            "timestamp":1635648300,
-            "openInterest":"1.1"
-        }
-    ]
-}
-
-```
-
-<p class="fake_header">t(:httprequest)</p>
-POST
-<code><span id=usdcOpenInterest>/perpetual/usdc/openapi/public/v1/open-interest</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcOpenInterest"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|symbol|<b>true</b>|string|t(:usdcSymbol)|
-|period|<b>true</b>|string|t(:usdcOpenInterestPeriod)|
-|limit|false|string|t(:usdcOpenInterestLimit)|
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-| symbol | string | t(:usdcSymbol) |
-| timestamp | number | t(:timestamp) |
-| openInterest | string | t(:marketopeninterest) |
-
-
-### t(:bigDealOrder)
-Perpetual only.
-> t(:codequote_curlExample)
-
-```console
-
-curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal \
--H "Content-Type: application/json" \
--d '{"symbol":"BTCUSD"}'
-
-```
-
-```python
-```
-
-> t(:codequote_responseExample)
-
-```javascript
-
-{
-    "retCode":0,
-    "retMsg":"OK",
-    "result":[
-        {
-            "symbol":"BTCUSD",
-            "side":"Sell",
-            "timestamp":1636690065,
-            "value":"697998"
-        }
-    ]
-}
-
-```
-<p class="fake_header">t(:httprequest)</p>
-POST
-<code><span id=usdcBigDeal>/perpetual/usdc/openapi/public/v1/big-deal</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcBigDeal"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|symbol|<b>true</b>|string|t(:usdcSymbol)|
-|limit|false|string|t(:usdcBigDealLimit)|
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-| symbol | string | t(:usdcSymbol) |
-| timestamp | number | t(:timestamp) |
-| side | string | t(:side) |
-| value | string | t(:usdcValue) |
-
-
-
-### t(:accountRatio)
-
-Perpetual only.
-
-
-> t(:codequote_curlExample)
-
-```console
-curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/account-ratio \
--H "Content-Type: application/json" \
--d '{"symbol":"BTCUSD","period":"5min"}'
-```
-
-```python
-```
-
-> t(:codequote_responseExample)
-
-```javascript
-  {
-  "retCode":0,
-    "retMsg":"OK",
-    "result":[
-      {
-        "symbol":"BTCUSD",
-        "buyRatio":0.5831,
-        "sellRatio":0.4169,
-        "timestamp":1636700400
-      }
-  ]
-}
-
-```
-<p class="fake_header">t(:httprequest)</p>
-POST
-<code><span id=usdcAccountRatio>/perpetual/usdc/openapi/public/v1/account-ratio</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcAccountRatio"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|symbol|<b>true</b>|string|t(:usdcSymbol)|
-|period|<b>true</b>|string|t(:usdcAccountRatioPeriod)|
-|limit|false|string|t(:usdcAccountRatioLimit)|
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-| symbol | string | t(:usdcSymbol) |
-| buyRatio | string | t(:buyRatio) |
-| sellRatio | string | t(:sellRatio) |
-| timestamp | number | t(:timestamp) |
-
-
-
 ### t(:queryDeliveryPrice)
 
-Option only.
-
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/option/usdc/openapi/public/v1/delivery-price \
--H "Content-Type: application/json" \
--d '{"symbol":"BTC-22OCT21-45000-C"}'
+curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/delivery-price?symbol=BTC-3NOV21-58000-C'
 ```
 
 ```python
@@ -695,20 +253,23 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/public/v1/delivery-price 
 
 ```javascript
 {
-    "retCode": 0,
-    "retMsg": "",
-    "result": [
-        {
-            "symbol": "BTC-22OCT21-45000-C",
-            "deliveryPrice": "100.01",
-            "deliveryTime": 1597659000,
-            "cursor": ""
-        }
+  "retCode": 0,
+    "retMsg": "success",
+    "result": {
+    "resultTotalSize": 1,
+      "cursor": "",
+      "dataList": [
+      {
+        "symbol": "BTC-3NOV21-58000-C",
+        "deliveryPrice": "63149.218777910",
+        "deliveryTime": "1635926400000"
+      }
     ]
+  }
 }
 ```
 <p class="fake_header">t(:httprequest)</p>
-POST
+GET
 <code><span id=usdcDeliveyPrice>/option/usdc/openapi/public/v1/delivery-price</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcDeliveyPrice"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
@@ -729,17 +290,12 @@ POST
 | cursor | string | t(:cursor) |
 
 
-
 ### t(:queryLatest500Trades)
-
-For both Perpetual and Option
 
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/option/usdc/openapi/public/v1/query-trade-latest \
--H "Content-Type: application/json" \
--d '{"category":"option","symbol":"BTC-19NOV21-30000-P","optionType":"PUT","limit":1}'
+curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/query-trade-latest?category=OPTION&limit=1'
 ```
 
 ```python
@@ -749,33 +305,33 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/public/v1/query-trade-lat
 
 ```javascript
 {
-  "retCode":0,
-    "retMsg":"OK",
-    "result":{
-    "resultTotalSize":1,
-      "cursor":"",
-      "dataList":[
+  "retCode": 0,
+    "retMsg": "Success.",
+    "result": {
+    "resultTotalSize": 1,
+      "cursor": "",
+      "dataList": [
       {
-        "id":"184c3c8b",
-        "symbol":"BTC-19NOV21-30000-P",
-        "orderPrice":"1.00",
-        "orderQty":"0.020",
-        "side":"Buy",
-        "time":"1636704178974"
+        "id": "617f220d",
+        "symbol": "BTC-3DEC21-80000-P",
+        "orderPrice": "22775.50",
+        "orderQty": "1.000",
+        "side": "Sell",
+        "time": "1638248170932"
       }
     ]
   }
 }
 ```
 <p class="fake_header">t(:httprequest)</p>
-POST
+GET
 <code><span id=usdcTradeLastest>/option/usdc/openapi/public/v1/query-trade-latest</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcTradeLastest"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category|<b>true</b>|string|t(:category)|
+|category|<b>true</b>|string|t(:usdcCategory)|
 |symbol|false|string|t(:usdcSymbol)|
 |optionType|false|string|t(:usdcOptionType)|
 |limit|false|string|t(:usdcLimitMax500)|

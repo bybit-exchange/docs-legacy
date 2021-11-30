@@ -25,6 +25,8 @@ t(:usdc_trading_symbol_comment)
 
 ## Order type (`type`/`orderTypes`)
 * `LIMIT`
+* `MARKET`
+* `LIMIT_MAKER`
 
 
 ## Currency (`currency`/`coin`)
@@ -73,8 +75,3 @@ t(:usdcPriceRule)
 ## Margin Mode
 * `REGULAR_MARGIN`
 * `PORTFOLIO_MARGIN`
-
-## Exec Type
-* `TRADE`
-
-
