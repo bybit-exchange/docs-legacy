@@ -105,7 +105,6 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category|<b>true</b>|string|t(:usdcCategory)|
 |symbol|false|string|t(:usdcSymbol)|
 |direction|false|string|t(:direction)|
 |limit|false|string|t(:usdcLimit)|
@@ -679,7 +678,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category|<b>true</b>|string|t(:usdcCategory)|
+|category|<b>true</b>|string|t(:usdcPerpCategory)|
 |symbol|false|string|t(:usdcSymbol)|
 |limit|false|string|t(:usdcLimitMax500)|
 

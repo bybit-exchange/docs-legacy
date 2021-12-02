@@ -2458,23 +2458,23 @@ zh-cn:
     期权鑒權接口（即需要簽名的接口）的限頻規則是每秒不超過20次
   usdc_websocket_subscribe_desc: |
     <p>訂閱:</p>
-    <p>ws.send(‘{“method”:“public/subscribe”,“id”:“{uuid}“,”params”:{“channels”:[“topic1",“topic2”]}}‘)</p>
+    <p>ws.send('{"method":"public/subscribe","id":"{uuid}","params":{"channels":["topic1","topic2"]}}')</p>
     <p>或者 </p>
-    <p>ws.send(‘{“method”:“private/subscribe”,“id”:“{uuid}“,”params”:{“channels”:[“topic1",“topic2”]}}‘)</p>
+    <p>ws.send('{"method":"private/subscribe","id":"{uuid}","params":{"channels":["topic1","topic2"]}}')</p>
     <p>響應結果:</p>
-    <p>{“id”:“{uuid}“,”code”:0,“data”:{“successChannels”:[“topic1”],“failChannels”:[“topic2”]},“type”:“COMMAND_RESP”}</p>
+    <p>{"id":"{uuid}","code":0,"data":{"successChannels":["topic1"],"failChannels":["topic2"]},"type":"COMMAND_RESP"}</p>
   usdc_websocket_unsubscribe_desc: |
     <p>取消訂閱</p>
-    <p>ws.send(‘{“method”:“public/unsubscribe”,“id”:“{uuid}“,”params”:{“channels”:[“topic1",“topic2”]}}‘)  </p>
+    <p>ws.send('{"method":"public/unsubscribe","id":"{uuid}","params":{"channels":["topic1","topic2"]}}')  </p>
     <p>或者  </p>
-    <p>ws.send(‘{“method”:“private/unsubscribe”,“id”:“{uuid}“,”params”:{“channels”:[“topic1",“topic2”]}}’) </p>
+    <p>ws.send('{"method":"private/unsubscribe","id":"{uuid}","params":{"channels":["topic1","topic2"]}}’) </p>
     <p>響應結果: </p>
-    <p>{“id”:“{uuid}“,”code”:0,“data”:{“successChannels”:[“topic1”],“failChannels”:[“topic2”]},“type”:“COMMAND_RESP”}</p>
+    <p>{"id":"{uuid}","code":0,"data":{"successChannels":["topic1"],"failChannels":["topic2"]},"type":"COMMAND_RESP"}</p>
 
     <p>取消所有訂閱</p>
-    <p>{“method”:“public/unSubAll”,“id”:“requestId”}</p>
+    <p>{"method":"public/unSubAll","id":"requestId"}</p>
     <p>響應:</p>
-    <p> {“id”:“requestId”,“code”:0,“type”:“COMMAND_RESP”}</p>
+    <p> {"id":"requestId","code":0,"type":"COMMAND_RESP"}</p>
 
 
   usdc_websocket_para_orderbook: |
@@ -2502,23 +2502,23 @@ zh-cn:
   optionPlaceType: 期權下單類型，價格或者iv下單.1：價格下單，2：iv下單。如果是1，則orderQty和orderPrice是必傳字段，為2表示iv和orderQty為必傳字段。
   optionOutRequestId: 外部訂單號，用作冪等， 期權場景必填，最大不成超過32位
   orderLinkId: 關聯訂單號，最大不成超過32位
-  usdcFutureTakeProfit: 止盈價格,期貨時使用
-  usdcFutureStopLoss: 止損價格,期貨時使用
-  slTriggerBy: 止損激活價格類型，默認為LastPrice,期貨時使用
-  tptriggerby: 止盈激活價格類型，默認為LastPrice,期貨時使用
+  usdcFutureTakeProfit: 止盈價格
+  usdcFutureStopLoss: 止損價格
+  slTriggerBy: 止損激活價格類型，默認為LastPrice
+  tptriggerby: 止盈激活價格類型，默認為LastPrice
 
 
-  triggerPrice: 觸發價格。期貨時使用
-  triggerBy: 觸發價格類型，默認為LastPrice，僅期貨場景使用 (暫時不支持條件單)
+  triggerPrice: 觸發價格
+  triggerBy: 觸發價格類型，默認為LastPrice， (暫時不支持條件單)
   positionIdx: 期貨時使用 0-One-Way Mode 1-Buy side of both side mode 2-Sell side of both side mode
   mmp: 僅在功能開啟後生效。true表示此訂單為mmp訂單（目前還未上線）
   reduceOnly: 只減倉
   closeOnTrigger: 觸發後平倉. 如果下平倉單，請設置為true，避免因為保證金不足而導致下單失敗
-  takeProfit: 止盈價格,期貨場景使用
-  stopLoss: 止損價格,期貨場景使用
+  takeProfit: 止盈價格
+  stopLoss: 止損價格
   usdcOrderId: 平台生成的訂單號
   uscdOrderType: 訂單類型
-  usdcOrderFilter: 期貨場景時時必填，判斷active order還是stop order
+  usdcOrderFilter:   参考  <a href="#order-filter">Order Filter</a>
   usdcReplaceOrderId: 期權場景必傳
   usdcOrderLinkId: orderId和orderLinkId二者必須傳一個
   cancelAllResponse: 取消所有活動單接口，實時返回的是受理成功或者失敗，根據retCode進行判斷
@@ -2584,28 +2584,28 @@ zh-cn:
   entryPrice: 平均入場價
   positionPnl: 平均入場價計算的未實現損益
   roi: 未結盈虧百分比
-  tpSlMode: 止盈止損模式, 僅限期貨
-  positionValue: 倉位價值,僅限期貨
-  liqPrice: 強平價格,僅限期貨
-  trailingStop: 追踪止損,僅限期貨
-  bustPrice: 破產價格,僅限期貨
-  occClosingFee: 倉位佔用的平倉手續費,僅限期貨
-  occFundingFee: 倉位size和當前資金費率預佔用資金費用,僅限期貨
-  trakeProfit: 止盈價格,僅限期貨
-  positionStatus: 倉位狀態，正常，強平，減倉,僅限期貨
-  deleverageIndicator: 風險指示燈等級（1，2，3，4，5）,僅限期貨
-  orderMargin: 委託預佔用保證金,僅限期貨
-  unrealisedPnl: 未結盈虧,僅限期貨
-  cumRealisedPnl: 累計已結盈虧,僅限期貨
-  cumCommission: 累計佣金,僅限期貨
+  tpSlMode: 止盈止損模式
+  positionValue: 倉位價值
+  liqPrice: 強平價格
+  trailingStop: 追踪止損
+  bustPrice: 破產價格
+  occClosingFee: 倉位佔用的平倉手續費
+  occFundingFee: 倉位size和當前資金費率預佔用資金費用
+  trakeProfit: 止盈價格
+  positionStatus: 倉位狀態，正常，強平，減倉
+  deleverageIndicator: 風險指示燈等級（1，2，3，4，5）
+  orderMargin: 委託預佔用保證金
+  unrealisedPnl: 未結盈虧
+  cumRealisedPnl: 累計已結盈虧
+  cumCommission: 累計佣金
 
-  trailingActive: 追踪止損觸發價格。追踪止損會在到達該價格後才會觸發（追踪止損默認立即觸發）,僅限期貨
-  slSize: 在部分止盈止損模式下，止損合約數量,僅限期貨
-  tpSize: 在部分止盈止損模式下，止盈合約數量,僅限期貨
+  trailingActive: 追踪止損觸發價格。追踪止損會在到達該價格後才會觸發（追踪止損默認立即觸發）
+  slSize: 在部分止盈止損模式下，止損合約數量
+  tpSize: 在部分止盈止損模式下，止盈合約數量
 
-  tradingStopTakeProfit: 止盈價格,不小於0,如果等於0則是取消止盈(TP),僅限期貨
-  tradingStopLoss: 止損價格,如果等於0則是取消止損(SL),僅限期貨
-  tradingTrailingStop: 不小於0,如果等於0則是取消追踪止損(TS),僅限期貨
+  tradingStopTakeProfit: 止盈價格,不小於0,如果等於0則是取消止盈(TP)
+  tradingStopLoss: 止損價格,如果等於0則是取消止損(SL)
+  tradingTrailingStop: 不小於0,如果等於0則是取消追踪止損(TS)
   userId: 用戶ID
   usdcId: 倉位id
   positionMargin: 倉位保證金
@@ -2663,11 +2663,11 @@ zh-cn:
   usdcturnover: 成交金額
   usdcconfirm: 是否確認
   usdcautoAddMargin: 是否自動追加保證金
-  isIsolated: 是否逐倉,僅限期貨
-  execValue: 倉位價值，僅限期貨
+  isIsolated: 是否逐倉
+  execValue: 倉位價值
   excPrice: 成交價格
   execQty: 成交數量
-  lastLiquidityInd: 流動性, 僅限期貨
+  lastLiquidityInd: <a href="#lastliquidityind">流動性</a>
   leavesQty: 剩餘委託數量
   createType: 下單操作的觸發場景
   cancelType: 取消操作的觸發場景
@@ -2692,12 +2692,11 @@ zh-cn:
   usdcLimitMax500: 默認500
 
   websocket_aside_heartbeat_option: |
-    <p>客戶端需要定時發送“ping“給Bybit，Bybit服務器返回heartbeat”pong“來顯示客戶端和服務器之間的連接正常。建議至少每30s發送一次。</p>
+    <p>客戶端需要定時發送"ping"給Bybit，Bybit服務器返回heartbeat"pong"來顯示客戶端和服務器之間的連接正常。建議至少每30s發送一次。</p>
     <p>如果客戶端沒有正常收到heartbeat的反饋，則需要檢查網絡連接狀態，並重新連接服務器。</p>
-    <p>如Bybit服務器，超過3分鐘沒有收到客戶端的“ping”，則服務器會判定客戶端已斷開鏈接（如實際未斷開，此時Bybit服務端也會主動斷開鏈接）。</p>
-    <p>如果服務器判定並斷開鏈接，且客戶處於開啟“斷線保護”的狀態，則客戶所有的Active order也會被自動全部取消。</p>
+    <p>如Bybit服務器，超過3分鐘沒有收到客戶端的"ping"，則服務器會判定客戶端已斷開鏈接（如實際未斷開，此時Bybit服務端也會主動斷開鏈接）。</p>
+    <p>如果服務器判定並斷開鏈接，且客戶處於開啟"斷線保護"的狀態，則客戶所有的Active order也會被自動全部取消。</p>
 
-  usdcMethodInfo: 所有接口均為POST接口
   usdc_auth_para_construct1: <p>1. 参数为json格式</p>
   resultTotalSize: 條數
   dataList: 返回結果list，參考如下的字段
@@ -2752,9 +2751,9 @@ zh-cn:
     </ul>
 
 
-  usdcTptriggerby: 止盈激活價格類型，默認為MarkPrice,期貨時使用
-  usdcSlTriggerBy: 止損激活價格類型，默認為MarkPrice,期貨時使用
-  usdcTriggerBy: 觸發價格類型，默認為MarkPrice，僅期貨場景使用
+  usdcTptriggerby: 止盈激活價格類型，默認為MarkPrice
+  usdcSlTriggerBy: 止損激活價格類型，默認為MarkPrice
+  usdcTriggerBy: 觸發價格類型，默認為MarkPrice
   usdcSettleLogsDesc: 僅期貨場景使用
   riskLimitDesc:  僅期貨場景使用
   usdcQty: 數量
@@ -2793,8 +2792,109 @@ zh-cn:
   usdcTradeApi: 交易
   queryLatest500Trades: 最近500條成交記錄
   usdcTradeHistory: 成交記錄
-  usdcTransactionType:  參考 <a href="#transaction-type-transaction-type">Transaction type</a>
+  usdcTransactionType:  <a href="#transaction-type-transaction-type">Transaction type</a>
   activeOrders: 活動單
   usdcActiveOrder: |
     <p>topic:</p>
-    <p>期權: user.option.order</p>
+    <p>user.option.order</p>
+
+  usdcPerpCategory: 類型 PERPETUAL
+  usdcPerpOrderType: <a href="#order-type-type-ordertypes">訂單類型</a>
+  usdc_perp_websocket_para_endpoint: |
+    Websocket服務器地址（期權）:
+    <ul>
+    <p>
+      <li>測試網:
+        公共Topics: <span id="testnet_address">wss://stream-testnet.bybit.com/perpetual/ws/v1/realtime_public</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <br/>
+
+        私有Topics: <span id="testnet_address_2">wss://stream-testnet.bybit.com/trade/option/usdc/private/v1</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+      </li>
+    </p>
+    <p>
+
+    </p>
+    <p>所有private接口都需要認證，public 接口不需要認證.</p>
+    </ul>
+  usdc_perp_websocket_subscribe_desc: |
+    <p>訂閱:</p>
+    <p>公有:</p>
+    <p>ws.send('{"op": "subscribe", "args": ["orderBook_200.100ms.BTCPERP"]}')</p>
+    <p>響應結果:</p>
+    <p>{"success":true,"ret_msg":"","conn_id":"6808c806-6fe5-4001-9355-816babba3fcd","request":{"op":"subscribe","args":["orderBook_200.100ms.BTCPERP"]}}</p>
+
+    <p>私有:</p>
+    <p>ws.send('{"method":"private/subscribe","id":"{uuid}增量推送示例 - 快照數據推送後，推送的增量數據","params":{"channels":["user.option.order"]}}')</p>
+    <p>響應結果:</p>
+    <p>{"id":"requestId","code":0,"data":{"successChannels":["user.option.order"]},"usIn":1638415789932,"usOut":1638415789932,"usDiff":0,"type":"COMMAND_RESP"}</p>
+
+  usdc_perp_websocket_unsubscribe_desc: |
+    <p>取消訂閱</p>
+     <p>公有:</p>
+    <p>ws.send('{"op": "unsubscribe", "args": ["orderBook_200.100ms.BTCPERP"]}'); </p>
+    <p>響應結果:</p>
+    <p>{"success":true,"ret_msg":"","conn_id":"c53a9a5c-ff3a-443a-b56d-2cbd8552566f","request":{"op":"unsubscribe","args":["orderBook_200.100ms.BTCPERP"]}}</p>
+
+    <p>私有:</p>
+    <p>ws.send('{"method":"private/unsubscribe","id":"{uuid}","params":{"channels":["topic1","topic2"]}}’) </p>
+    <p>{"id":"{uuid}","code":0,"data":{"successChannels":["topic1"],"failChannels":["topic2"]},"type":"COMMAND_RESP"}</p>
+    <p>取消所有私有訂閱</p>
+    <p>{"method":"public/unSubAll","id":"requestId"}</p>
+    <p>響應:</p>
+    <p> {"id":"requestId","code":0,"type":"COMMAND_RESP"}</p>
+
+  usdc_perp_websocket_para_orderbook: |
+    <p>獲取檔位範圍：25或者200</p>
+    <p>訂閱成功後, 先推送全量數據包,再推送增量數據包</p>
+    <p>topic的格式：orderBookL2_25.{symbol} 或者 orderBook_200.100ms.{symbol}</p>
+    <p>orderBookL2_25.BTCPERP 或者 orderBook_200.100ms.BTCPERP</p>
+
+  usdc_current_24_total_perp:
+    <p>獲取Bybit平台最近的成交數據</p>
+    <p>topic的格式：trade.{symbol}</p>
+    <p>trade.BTCPERP</p>
+
+  usdc_perp_lastest_symbol_info: |
+    <p>topic的格式:</p>
+    <p>instrument_info.100ms.{symbol}</p>
+    <p>instrument_info.100ms.BTCPERP</p>
+  usdc_perp_position_desc: |
+    <p>topic:</p>
+    <p>user.perp.position</p>
+  usdc_perp_trade_history: |
+    <p>topic:</p>
+    <p>user.perp.trade</p>
+
+  usdc_perp_active_order: |
+    <p>topic:</p>
+    <p>user.perp.order</p>
+  usdc_perp_leave_qty: 剩餘數量
+  usdc_perp_order_desc:  |
+    <p>topic:</p>
+    <p>user.perp.orderHistory</p>
+  usdc_perp_price_rule:
+    <ul>
+    <li>最大值1百萬 (<code>1000000</code>)</li>
+    <li>必須是正數：
+    <ul>
+    <li><code>40</code> - 合法</li>
+    <li><code>40.5</code> - 合法</li>
+    <li><code>40.1</code> - 非法</li>
+    <li><code>-30.5</code> - 非法</li>
+    </li>
+    </ul>
+  usdc_perp_quantity:
+    <ul>
+    <li>最大值1千 (<code>1000</code>)</li>
+    <li>必須是正數：
+    <ul>
+    <li><code>40</code> - 合法</li>
+    <li><code>40.001</code> - 合法</li>
+    <li><code>-30.5</code> - 非法</li>
+    </ul>
+    </li>
+    </ul>
+  usdc_perp_order_price: 訂單價格
+

@@ -11,7 +11,6 @@ t(:auth_para_privatepublic)
 
 ## t(:authenticationparameters)
 
-t(:usdcMethodInfo)
 
 
 t(:spot_auth_para_recv)

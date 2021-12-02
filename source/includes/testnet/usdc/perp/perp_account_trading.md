@@ -9,32 +9,48 @@ t(:account_para)
 ```console
 curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/place-order \
 -H "Content-Type: application/json" \
--D '{"outRequestId":"021f276a-0a5f-4f35-9859-5f32353ce0ad","symbol":"BTC-26NOV21-58000-P","orderType":"Limit","side":"Buy","orderQty":"1","orderPrice":"1","timeInForce":"GoodTillCancel","placeMode":1,"placeType":1}'
+-D '{
+    "side": "Buy",
+    "orderType": "Limit",
+    "orderQty": "0.01",
+    "orderPrice": "64300",
+    "timeInForce": "GoodTillCancel",
+    "closeOnTrigger": false,
+    "outRequestId": "",
+    "reduceOnly": false,
+    "symbol": "BTCPERP",
+    "orderLinkId": "",
+    "positionIdx": 0,
+    "mmp": false
+}'
 ```
 
 > t(:codequote_responseExample)
 
 ```javascript
 {
-    "retCode": 0,
+  "retCode": 0,
     "retMsg": "",
-    "extCode": null,
-    "extInfo": null,
     "result": {
-        "symbol": "BTC-26NOV21-58000-P",
-        "orderType": "Limit",
-        "side": "Buy",
-        "orderPrice": "1",
-        "orderLinkId": "162073788655749",
-        "iv": "100",
-        "placeMode": 1,
-        "placeType": 1,
-        "timeInForce": "PostOnly",
-        "outRequestId": "1620737886573",
-        "reduceOnly": true,
-        "orderPrice": "20000",
-        "orderQty": "10"
-    }
+    "orderId": "29373a80-ba76-4e5c-9c5d-17efa02804ea",
+      "orderLinkId": "",
+      "mmp": false,
+      "symbol": "BTCPERP",
+      "orderType": "Limit",
+      "side": "Buy",
+      "orderQty": "0.01000000",
+      "orderPrice": "59925.00",
+      "iv": "0",
+      "timeInForce": "GoodTillCancel",
+      "orderStatus": "Created",
+      "createdAt": "1638340762484732",
+      "basePrice": "0.00",
+      "triggerPrice": "0.00",
+      "takeProfit": "0.00",
+      "stopLoss": "0.00",
+      "slTriggerBy": "UNKNOWN",
+      "tpTriggerBy": "UNKNOWN"
+  }
 }
 ```
 t(:placeOrderInfo)
@@ -49,9 +65,9 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |symbol|<b>true</b>|string|t(:usdcSymbol)|
-|orderType|<b>true</b>|string|t(:usdcOrderType)|
+|orderType|<b>true</b>|string|t(:usdcPerpOrderType)|
 |side|<b>true</b>|string|t(:side)|
-|orderPrice|false|string|t(:usdcPlaceOrderPrice)|
+|orderPrice|false|string|t(:usdc_perp_order_price)|
 |orderQty|<b>true</b>|string|t(:usdcOrderQty)|
 |t(:row_parameter_timeInForce)|false|string|t(:row_comment_timeInForce)|
 |orderLinkId|false|string|t(:orderLinkId)|
@@ -76,7 +92,7 @@ POST
 |symbol|string|t(:usdcSymbol)|
 |orderPrice|string|t(:usdcOrderPrice)|
 |orderQty|string|t(:usdcOrderQty)|
-|orderType|string|t(:uscdOrderType)|
+|orderType|string|t(:usdcPerpOrderType)|
 |side|string|t(:side)|
 
 ### t(:usdcReplaceOrder)
@@ -85,7 +101,17 @@ POST
 ```console
 curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/replace-order \
 -H "Content-Type: application/json" \
--D '{"outRequestId":"89befe89-0869-405a-a07c-2599324d009d","symbol":"BTC-26NOV21-58000-P","orderId":"be6c87be-da18-4876-9a64-6b7ccc859071","orderQty":"1","orderPrice":"1"}'
+-D '{
+"symbol":"BTCPERP",
+"orderLinkId":"",
+"orderId":"29373a80-ba76-4e5c-9c5d-17efa02804ea",
+"orderQty":"0.02",
+"orderPrice":"59888.3",
+"iv":"10",
+"takeProfit":"",
+"stopLoss":"",
+"orderFilter":"Order"
+}'
 
 
 ```
@@ -99,15 +125,12 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/replace-ord
 
 ```javascript
 {
-    "retCode": 0,
+  "retCode": 0,
     "retMsg": "",
-    "extCode": null,
-    "extInfo": null,
     "result": {
-        "outRequestId": "89befe89-0869-405a-a07c-2599324d009d",
-        "symbol": "BTC-26NOV21-58000-P",
-        "orderId": "be6c87be-da18-4876-9a64-6b7ccc859071"
-    }
+      "orderId": "61f22ac5-6774-46e6-9697-fc3f2621ee09",
+      "orderLinkId": ""
+  }
 }
 ```
 
@@ -120,9 +143,9 @@ POST
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|outRequestId|<b>true</b>|string|t(:optionOutRequestId)|
 |symbol|<b>true</b>|string|t(:usdcSymbol)|
-|orderId|false|string|t(:usdcReplaceOrderId)|
+|orderFilter|<b>true</b>|string|t(:usdcOrderFilter)|
+|orderId|false|string|t(:usdcOrderId)|
 |orderLinkId|false|string|t(:usdcOrderLinkId)|
 |orderPrice|false|string|t(:usdcOrderPrice)|
 |orderQty|false|string|t(:usdcOrderQty)|
@@ -130,7 +153,6 @@ POST
 |stopLoss|false|string|t(:stopLoss)|
 |tptriggerby|false|string|t(:usdcTptriggerby)|
 |slTriggerBy|false|string|t(:usdcSlTriggerBy)|
-|orderFilter|false|string|t(:usdcOrderFilter)|
 |triggerPrice|false|string|t(:triggerPrice)|
 
 
@@ -146,13 +168,18 @@ POST
 
 ### t(:usdcCancelOrder)
 
-t(:usdc_order_book_path)
-
 
 ```console
 curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/cancel-order \
 -H "Content-Type: application/json" \
--D '{"outRequestId":"01f90031-4697-4b1f-affe-eb0032c58212","symbol":"BTC-26NOV21-58000-P","orderId":"ec6d8081-8950-491b-bf43-22ddb09df0fc"}'
+-D '
+{
+"symbol":"BTCPERP",
+"orderLinkId":"",
+"orderFilter":"Order",
+"orderId":"752cff9a-6941-44d3-a405-bd297b1df4bc"
+}
+'
 
 ```
 
@@ -165,20 +192,18 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/cancel-orde
 
 ```javascript
 {
-    "retCode": 0,
+  "retCode": 0,
     "retMsg": "",
-    "extCode": null,
-    "extInfo": null,
     "result": {
-        "orderId": "ec6d8081-8950-491b-bf43-22ddb09df0fc"
-    }
+    "orderId": "752cff9a-6941-44d3-a405-bd297b1df4bc"
+  }
 }
 ```
 
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=uopvCancel>/{category}/usdc/openapi/private/v1/cancel-order</span></code>
+<code><span id=uopvCancel>/perpetual/usdc/openapi/private/v1/cancel-order</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvCancel"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -186,10 +211,9 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |symbol|<b>true</b>|string|t(:usdcSymbol)|
-|outRequestId|false|string|t(:optionOutRequestId)|
-|orderId|false|string|t(:usdcReplaceOrderId)|
+|orderFilter|<b>true</b>|string|t(:usdcOrderFilter)|
+|orderId|false|string||
 |orderLinkId|false|string|t(:usdcOrderLinkId)|
-|orderFilter|false|string|t(:usdcOrderFilter)|
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -207,7 +231,10 @@ POST
 ```console
 curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/cancel-order \
 -H "Content-Type: application/json" \
--D '{"outRequestId":"cdde8186-fda8-457d-9451-5b83b7780ad4"}'
+-D '{
+    "symbol": "BTCPERP",
+    "orderFilter": "Order"
+}'
 
 
 ```
@@ -221,11 +248,8 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/cancel-order \
 
 ```javascript
 {
-    "retCode": 0,
-    "retMsg": "OK",
-    "extCode": null,
-    "extInfo": null,
-    "result": null
+  "retCode": 0,
+    "retMsg": ""
 }
 ```
 
@@ -238,7 +262,8 @@ POST
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|outRequestId|<b>true</b>|string|t(:optionOutRequestId)|
+|symbol|<b>true</b>|string|t(:usdcSymbol)|
+|orderFilter|false|string|t(:usdcOrderFilter)|
 
 <p>
 t(:cancelAllResponse)
@@ -246,13 +271,14 @@ t(:cancelAllResponse)
 
 ### t(:usdcQryUnOrPartFilled)
 
-For both Perpetual and Option.
-
 
 ```console
 curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-active-orders \
 -H "Content-Type: application/json" \
--D '{"category":"option"}'
+-D '{
+    "category": "PERPETUAL",
+    "symbol": "BTCPERP"
+}'
 
 ```
 
@@ -265,40 +291,40 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-active-o
 
 ```javascript
 {
-  "retCode":0,
-    "retMsg":"OK",
-    "result":{
-    "resultTotalSize":1,
-      "cursor":"e3d0eff2-7567-4ca1-af1c-9eb9a39ac119%3A1634291502127%2C0b9c9c0c-4098-4d30-a266-6aa87dc26f7f%3A1634285036815",
-      "dataList":[
+  "retCode": 0,
+    "retMsg": "Success.",
+    "result": {
+    "resultTotalSize": 1,
+      "cursor": "5475e84b-605d-4345-a420-d7f423173cf0%3A1638341866977%2C5475e84b-605d-4345-a420-d7f423173cf0%3A1638341866977",
+      "dataList": [
       {
-        "orderId":"e3d0eff2-7567-4ca1-af1c-9eb9a39ac119",
-        "orderLinkId":"",
-        "createdAt":"1634291502127",
-        "symbol":"BTC-16OCT21-21000-P",
-        "orderType":"Limit",
-        "side":"Buy",
-        "orderQty":"2.10",
-        "orderPrice":"30.0",
-        "iv":"852.00%",
-        "timeInForce":"GoodTillCancel",
-        "leavesQty":"0.10",
-        "leavesValue":"3.0000",
-        "cumExecQty":"2.00",
-        "cumExecValue":"60.0000",
-        "cumExecFee":"6.0000",
-        "im":"69.3000",
-        "orderStatus":"PartiallyFilled",
-        "takeProfit":"",
-        "stopLoss":"",
-        "tpTriggerBy":"",
-        "slTriggerBy":"",
-        "lastExecPrice":"",
-        "basePrice":"",
-        "triggerPrice":"",
-        "triggerBy":"",
-        "reduceOnly":0,
-        "closeOnTrigger":""
+        "orderId": "5475e84b-605d-4345-a420-d7f423173cf0",
+        "orderLinkId": "",
+        "createdAt": "1638341866974",
+        "symbol": "BTCPERP",
+        "orderType": "Limit",
+        "side": "Buy",
+        "orderQty": "0.010",
+        "orderPrice": "41300.0",
+        "iv": "",
+        "timeInForce": "GoodTillCancel",
+        "leavesQty": "0.010",
+        "leavesValue": "0.0000",
+        "cumExecQty": "",
+        "cumExecValue": "0.0000",
+        "cumExecFee": "0.0000",
+        "im": "",
+        "orderStatus": "New",
+        "takeProfit": "",
+        "stopLoss": "",
+        "tpTriggerBy": "",
+        "slTriggerBy": "",
+        "lastExecPrice": "0.0",
+        "basePrice": "",
+        "triggerPrice": "",
+        "triggerBy": "",
+        "reduceOnly": 0,
+        "closeOnTrigger": ""
       }
     ]
   }
@@ -315,8 +341,8 @@ POST
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category|<b>true</b>|string|t(:usdcCategory)|
-|symbol|<b>true</b>|string|t(:usdcSymbol)|
+|category|<b>true</b>|string|t(:usdcPerpCategory)|
+|symbol|false|string|t(:usdcSymbol)|
 |orderId|false|string|t(:usdcOrderId)|
 |orderLinkId|false|string|t(:orderLinkId)|
 |orderFilter|false|string|t(:usdcOrderFilter)|
@@ -338,11 +364,10 @@ POST
 |orderId|string|t(:usdcOrderId)|
 |orderLinkId|string|t(:orderLinkId)|
 |symbol|string|t(:usdcSymbol)|
-|orderType|string|t(:usdcOrderType)|
+|orderType|string|t(:usdcPerpOrderType)|
 |side|string|t(:side)|
 |orderQty|string|t(:usdcOrderQty)|
 |orderPrice|string|t(:usdcOrderPrice)|
-|iv|string|t(:optionIv)|
 |t(:row_parameter_timeInForce)|string|t(:row_comment_timeInForce)|
 |leavesValue|string|t(:leavesValue)|
 |cumExecQty|string|t(:cumExecQty)|
@@ -358,7 +383,7 @@ POST
 |basePrice|string|t(:basePrice)|
 |triggerPrice|string|t(:triggerPrice)|
 |triggerBy|string|t(:usdcTriggerBy)|
-|reduceOnly|string|t(:reduceOnly)|
+|reduceOnly|bool|t(:reduceOnly)|
 |closeOnTrigger|string|t(:closeOnTrigger)|
 |createdAt|number|t(:createdAt)|
 |cursor|string|t(:cursor)|
@@ -367,13 +392,14 @@ POST
 
 ### t(:usdcQryOrderHistory)
 
-For both Perpetual and Option.
-
 ```console
 
 curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-history \
 -H "Content-Type: application/json" \
--D '{"category":"option"}'
+-D '{
+    "category": "PERPETUAL",
+    "limit":2
+}'
 
 ```
 
@@ -424,6 +450,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
     ]
   }
 }
+
 ```
 
 
@@ -436,7 +463,7 @@ POST
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category|<b>true</b>|string|t(:usdcCategory)|
+|category|<b>true</b>|string|t(:usdcPerpCategory)|
 |symbol|false|string|t(:usdcSymbol)|
 |orderId|false|string|t(:usdcOrderId)|
 |orderLinkId|false|string|t(:orderLinkId)|
@@ -460,11 +487,10 @@ POST
 |orderId|string|t(:usdcOrderId)|
 |orderLinkId|string|t(:orderLinkId)|
 |symbol|string|t(:usdcSymbol)|
-|orderType|string|t(:usdcOrderType)|
+|orderType|string|t(:usdcPerpOrderType)|
 |side|string|t(:side)|
 |orderQty|string|t(:usdcOrderQty)|
 |orderPrice|string|t(:usdcOrderPrice)|
-|iv|string|t(:optionIv)|
 |t(:row_parameter_timeInForce)|string|t(:row_comment_timeInForce)|
 |leavesValue|string|t(:leavesValue)|
 |cumExecQty|string|t(:cumExecQty)|
@@ -491,14 +517,15 @@ POST
 
 ### t(:usdcTradeHistory)
 
-For both Perpetual and Option.
-
 > t(:codequote_curlExample)
 
 ```console
 curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/execution-list \
 -H "Content-Type: application/json" \
--D '{"startTime":"1633687786728","symbol":"1633797786728","category":"option","type":"Settlement","orderId":"70bc3d92-009c-464b-8399-010b9d4aac2b"}'
+-D '{
+    "category": "PERPETUAL",
+    "limit": 1
+}'
 ```
 
 ```python
@@ -510,27 +537,28 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/execution-list
 
 ```javascript
 {
-    "retCode":0,
-    "retMsg":"Success.",
-    "result":{
-        "resultTotalSize":1,
-        "cursor":"512e57a4-758d-57c5-8531-4b639e737211%3A1637053904869%3A9544%2C512e57a4-758d-57c5-8531-4b639e737211%3A1637053904869%3A9544",
-        "dataList":[
-            {
-                "orderId":"70bc3d92-009c-464b-8399-010b9d4aac2b",
-                "orderLinkId":"",
-                "symbol":"BTC-19NOV21-55000-P",
-                "execPrice":"102.00",
-                "execQty":"0.010",
-                "execFee":"0.1020",
-                "feeRate":"0.0250%",
-                "tradeTime":"1637053904869",
-                "execType":"TRADE",
-                "lastLiquidityInd":"UNKNOWN",
-                "execValue":""
-            }
-        ]
-    }
+  "retCode": 0,
+    "retMsg": "Success.",
+    "result": {
+    "resultTotalSize": 1,
+      "cursor": "14c7eb47-15e7-565a-b622-9633d09a5389%3A1638341411981%3A9806%2C14c7eb47-15e7-565a-b622-9633d09a5389%3A1638341411981%3A9806",
+      "dataList": [
+      {
+        "orderId": "61f22ac5-6774-46e6-9697-fc3f2621ee09",
+        "orderLinkId": "",
+        "symbol": "BTCPERP",
+        "execPrice": "57168.50",
+        "execQty": "0.020",
+        "execFee": "0.8576",
+        "feeRate": "0.000750",
+        "tradeTime": "1638341411981",
+        "execType": "TRADE",
+        "lastLiquidityInd": "TAKER",
+        "execValue": "1143.3700",
+        "tradeId": "14c7eb47-15e7-565a-b622-9633d09a5389"
+      }
+    ]
+  }
 }
 
 ```
@@ -545,8 +573,8 @@ POST
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category|<b>true</b>|string|t(:category)|
-|symbol|<b>true</b>|string|t(:usdcSymbol)|
+|category|<b>true</b>|string|t(:usdcPerpCategory)|
+|symbol|false|string|t(:usdcSymbol)|
 |orderId|false|string|t(:usdcOrderId)|
 |orderLinkId|false|string|t(:usdcOrderLinkId)|
 |startTime|<b>true</b>|string|t(:usdcStartTime)|
@@ -582,14 +610,16 @@ POST
 t(:wallet_para)
 
 ### t(:transactionLog)
-For both Perpetual and Option.
 
 > t(:codequote_curlExample)
 
 ```console
 curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-transaction-log \
 -H "Content-Type: application/json" \
--D '{"startTime":"1633687786728","endTime":"1633797786728","category":"perpetual","type":"Settlement"}'
+-D '{
+    "type": "TRADE",
+    "limit": 1
+}'
 ```
 
 ```python
@@ -601,30 +631,30 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-transact
 
 ```javascript
 {
-  "retCode":0,
-    "retMsg":"OK",
-    "result":{
-    "resultTotalSize":1,
-      "cursor":"ccc62b1a-e1a0-42b6-86b5-3570e22cfbdf%3A1634284800789%2Cb09397d8-4da1-4d32-b70f-c59efd381f66%3A1634284800769",
-      "dataList":[
+  "retCode": 0,
+    "retMsg": "Success.",
+    "result": {
+    "resultTotalSize": 1,
+      "cursor": "289037_BTCPERP_1176501331%3A1638341411994%3A9806%2C289037_BTCPERP_1176501331%3A1638341411994%3A9806",
+      "dataList": [
       {
-        "transactionTime":"1634284800789",
-        "symbol":"BTC-15OCT21-30000-P",
-        "type":"DELIVERY",
-        "side":"Buy",
-        "tradePrice":"59306.9",
-        "funding":"0.0000",
-        "qty":"0.20",
-        "size":"0.00",
-        "fee":"0.0000",
-        "cashFlow":"0.0000",
-        "change":"0.0000",
-        "cashBalance":"100690.9019",
-        "feeRate":"0.0000%",
-        "orderId":"",
-        "orderLinkId":"",
-        "tradeId":"",
-        "info":""
+        "transactionTime": "1638341411994",
+        "symbol": "BTCPERP",
+        "type": "TRADE",
+        "side": "Buy",
+        "tradePrice": "57168.5",
+        "funding": "0.0000",
+        "qty": "0.020",
+        "size": "1.150",
+        "fee": "0.8576",
+        "cashFlow": "-",
+        "change": "-0.8575",
+        "cashBalance": "24080.5708",
+        "feeRate": "0.0008",
+        "orderId": "61f22ac5-6774-46e6-9697-fc3f2621ee09",
+        "orderLinkId": "",
+        "tradeId": "14c7eb47-15e7-565a-b622-9633d09a5389",
+        "info": ""
       }
     ]
   }
@@ -663,7 +693,7 @@ POST
 |symbol|string|t(:usdcSymbol)
 |type|string|t(:usdcType)|
 |side|string|t(:side)|
-|orderQty|string|t(:usdcOrderQty)|
+|qty|string|t(:usdcOrderQty)|
 |size|string|t(:uscdSize)|
 |tradePrice|string|t(:tradePrice)|
 |funding|string|t(:usdcFunding)|
@@ -738,7 +768,6 @@ POST
 
 
 ### t(:assetInfo)
-For both Perpetual and Option.
 > t(:codequote_curlExample)
 
 ```console
@@ -857,15 +886,16 @@ POST
 
 ## t(:accountPosition)
 
-
 ### t(:queryPosition)
-For both Perpetual and Option.
+
 > t(:codequote_curlExample)
 
 ```console
 curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-position \
 -H "Content-Type: application/json" \
--D '{"symbol":"BTC-22OCT21-40000-C","category":"option"}'
+-D '{
+    "category": "PERPETUAL"
+}'
 ```
 
 ```python
@@ -877,40 +907,40 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-position
 
 ```javascript
 {
-  "retCode":0,
-    "retMsg":"OK",
-    "result":{
-    "resultTotalSize":1,
-      "cursor":"BTC-22OCT21-40000-C%3A1634287448443%2CBTC-22OCT21-40000-C%3A1634287448443",
-      "dataList":[
+  "retCode": 0,
+    "retMsg": "Success.",
+    "result": {
+    "resultTotalSize": 1,
+      "cursor": "BTCPERP%3A1638341866990%2CBTCPERP%3A1638341866990",
+      "dataList": [
       {
-        "riskId":"",
-        "symbol":"BTC-22OCT21-40000-C",
-        "side":"Buy",
-        "size":"0.20",
-        "entryPrice":"19000.0",
-        "sessionAvgPrice":"19000.0",
-        "markPrice":"19136.49",
-        "sessionUPL":"27.2974",
-        "sessionRPL":"0.0000",
-        "IM":"0.0000",
-        "MM":"0.0000",
-        "createdAt":"1634287448443",
-        "updatedAt":"1634287448443",
-        "tpSLMode":"",
-        "positionValue":"",
-        "leverage":"",
-        "liqPrice":"",
-        "trailingStop":"",
-        "bustPrice":"",
-        "occClosingFee":"",
-        "trakeProfit":"",
-        "stopLoss":"",
-        "positionStatus":0,
-        "deleverageIndicator":0,
-        "orderMargin":"",
-        "unrealisedPnl":"",
-        "cumRealisedPnl":""
+        "riskId": "10001",
+        "symbol": "BTCPERP",
+        "side": "Buy",
+        "size": "1.150",
+        "entryPrice": "59112.4",
+        "sessionAvgPrice": "56982.5",
+        "markPrice": "56984.31",
+        "sessionUPL": "2.0358",
+        "sessionRPL": "0.0000",
+        "IM": "6843.8130",
+        "MM": "385.7824",
+        "createdAt": "1638341866990",
+        "updatedAt": "1638341866990",
+        "tpSLMode": "UNKNOWN",
+        "positionValue": "67979.2700",
+        "leverage": "10.00",
+        "liqPrice": "-",
+        "trailingStop": "0.0000",
+        "bustPrice": "-",
+        "occClosingFee": "0.0000",
+        "trakeProfit": "0.0",
+        "stopLoss": "0.0",
+        "positionStatus": "NORMAL",
+        "deleverageIndicator": 0,
+        "orderMargin": "41.8885",
+        "unrealisedPnl": "0.0000",
+        "cumRealisedPnl": "0.0000"
       }
     ]
   }
@@ -927,7 +957,7 @@ POST
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category|<b>true</b>|string|t(:usdcCategory)|
+|category|<b>true</b>|string|t(:usdcPerpCategory)|
 |symbol|false|string|t(:usdcSymbol)|
 |cursor|false|string|t(:cursor)|
 |direction|false|string|t(:direction)|
@@ -975,15 +1005,16 @@ POST
 
 ### t(:setPositionLeverage)
 
-Perpetual only.
-
 > t(:codequote_curlExample)
 
 ```console
 
 curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/position/leverage/save \
 -H "Content-Type: application/json" \
--d '{"symbol":"BTCUSD","buy_leverage":14,"sell_leverage":14}'
+-d '{
+    "symbol": "BTCPERP",
+    "leverage": "1"
+}'
 
 ```
 
@@ -1004,7 +1035,7 @@ print(client.Positions.Positions_saveLeverage(symbol="BTCUSD", leverage="14").re
     "extCode": null,
     "extInfo": null,
     "result": {
-        "leverage": 10
+        "leverage": 1
     }
 }
 ```
@@ -1030,88 +1061,8 @@ POST
 |leverage|number|t(:leverage)|
 
 
-### t(:queryDeliveryLog)
-Option only.
-> t(:codequote_curlExample)
-
-```console
-curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-delivery-list \
--H "Content-Type: application/json" \
--d '{"symbol":"BTC-22OCT21-45000-C"}'
-```
-
-```python
-
-```
-
-
-> t(:codequote_responseExample)
-
-```javascript
-{
-  "retCode":0,
-    "retMsg":"OK",
-    "result":{
-    "resultTotalSize":1,
-      "cursor":"ccc62b1a-e1a0-42b6-86b5-3570e22cfbdf%3A1634284800789%2Cb09397d8-4da1-4d32-b70f-c59efd381f66%3A1634284800769",
-      "dataList":[
-      {
-        "deliveryTime":"1634284800789",
-        "symbol":"BTC-15OCT21-30000-P",
-        "side":"Buy",
-        "position":"0.00",
-        "deliveryPrice":"59307.0",
-        "strike":"30000",
-        "fee":"0.0000",
-        "deliveryRpl":"0.0000"
-      }
-    ]
-  }
-}
-```
-
-
-<p class="fake_header">t(:httprequest)</p>
-POST
-<code><span id=uopvQueryDelivery>/option/usdc/openapi/private/v1/query-delivery-list</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvQueryDelivery"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|symbol|<b>true</b>|string|t(:usdcSymbol)|
-|expDate|false|string|t(:usdcExpDateRepsonse)|
-|direction|false|string|t(:direction)|
-|limit|false|number|t(:usdcMax50Min20)|
-|cursor|false|string|t(:cursor)|
-
-
-<p class="fake_header">t(:responseparameters)</p>
-
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|resultTotalSize|number|t(:resultTotalSize)|
-|cursor|string|t(:cursor)|
-|dataList|list|t(:dataList)|
-
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|deliveryTime|number|t(:usdcDeliveryTime)|
-|symbol|string|t(:usdcSymbol)|
-|side|string|t(:side)|
-|position|string|t(:usdcPosition)|
-|deliveryPrice|string|t(:usdcDeliveryPrice)|
-|strike|string|t(:usdcStrike)|
-|fee|string|t(:fee)|
-|deliveryRpl|string|t(:usdcDeliveryRpl)|
-
-
-
-
 
 ### t(:querySettleLogs)
-Perpetual only.
 > t(:codequote_curlExample)
 
 ```console
@@ -1185,102 +1136,17 @@ POST
 
 
 
-### t(:queryPositionInfo)
-
-Option only.
-
-> t(:codequote_curlExample)
-
-```console
-curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-position-exp-date \
--H "Content-Type: application/json" \
--d '{"expDate":"20211010"}'
-
-```
-
-```python
-
-```
-
-
-> t(:codequote_responseExample)
-
-```javascript
-{
-  "retCode":0,
-    "retMsg":"OK",
-    "result":{
-    "resultTotalSize":2,
-      "cursor":"22OCT21:0,15OCT21:0",
-      "dataList":[
-      {
-        "expDate":"22OCT21",
-        "pnl":"1062.0157",
-        "totalRPL":"0.0000",
-        "im":"14792.2241",
-        "mm":"10653.4193",
-        "sessionRPL":"1587.0000",
-        "sessionUPL":"1172.4930"
-      },
-      {
-        "expDate":"16OCT21",
-        "pnl":"-12.1500",
-        "totalRPL":"487.5000",
-        "im":"5891.6831",
-        "mm":"4184.0030",
-        "sessionRPL":"0.0000",
-        "sessionUPL":"0.0000"
-      }
-    ]
-  }
-}
-```
-
-
-<p class="fake_header">t(:httprequest)</p>
-POST
-<code><span id=upovPositionExp>/option/usdc/openapi/private/v1/query-position-exp-date</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#upovPositionExp"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|expDate|false|number|t(:expDate)|
-|direction|false|string|t(:direction)|
-|limit|false|number|t(:usdcMax50Min20)|
-|cursor|false|string|t(:cursor)|
-
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|resultTotalSize|number|t(:resultTotalSize)|
-|cursor|string|t(:cursor)|
-|dataList|list|t(:dataList)|
-
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|expDate|string|t(:expDate)|
-|pnl|string|t(:pnl)|
-|totalRpl|string|t(:totalRpl)|
-|sessionUpl|string|t(:sessionUpl)|
-|sessionRpl|string|t(:sessionRpl)|
-|im|string|t(:usdcIm)|
-|mm|string|t(:usdcMm)|
-
 ## t(:riskLimit)
 
 
 ### t(:queryRiskLimits)
-Perpetual only.
 
 > t(:codequote_curlExample)
 
 ```console
 curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/risk-limit/list \
 -H "Content-Type: application/json" \
--d '{"symbol":"BTCUSD"}'
+-d '{"symbol":"BTCPERP"}'
 ```
 
 ```python
@@ -1323,13 +1189,12 @@ POST
 
 ### t(:setRiskLimits)
 
-Perpetual only.
 > t(:codequote_curlExample)
 
 ```console
 curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/position/set-risk-limit \
 -H "Content-Type: application/json" \
--d '{"symbol":"BTCUSD","risk_id":2}'
+-d '{"symbol":"BTCPERP","riskId":2}'
 
 ```
 

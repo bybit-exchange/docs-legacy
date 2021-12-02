@@ -40,27 +40,12 @@ t(:usdc_trading_symbol_comment)
 * `PENDING_NEW`
 * `REJECTED`
 
-## Quantity (`qty`)
+## Quantity (`orderQty`)
 t(:usdcQuantity)
 
 ## Price (`price`)
 t(:usdcPriceRule)
 
-
-## Kline interval (`interval`)
-* `1m` t(:interval_1)
-* `3m` t(:interval_3)
-* `5m` t(:interval_5)
-* `15m` t(:interval_15)
-* `30m` t(:interval_30)
-* `1h` t(:interval_60)
-* `2h` t(:interval_120)
-* `4h` t(:interval_240)
-* `6h` t(:interval_360)
-* `12h` t(:interval_720)
-* `1d` t(:interval_D)
-* `1w` t(:interval_W)
-* `1M` t(:interval_M)
 
 ## Transaction type (`Transaction type`)
 * `TRANSFER_IN`
