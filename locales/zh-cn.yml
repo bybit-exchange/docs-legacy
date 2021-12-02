@@ -2527,7 +2527,6 @@ zh-cn:
 
   placeOrderInfo: |
     <p>本API提供了交易USDC保證金賬戶下的合約單筆下單模式。 </p>
-    <p>下單時需保證賬戶內有足夠的資金。一旦下單，根據訂單所需資金，您的賬戶資金將在訂單生命週期內凍結相應額度，被凍結的資金額度取決於訂單指定的參數。 </p>
     <p>本接口實時返回請求受理結果。 </p>
     <p>最終執行結果需要通過查詢或者ws推送獲知</p>
   replaceInfo: 價格、數量、iv至少需要傳一個。期貨場景，價格、數量至少需要傳一個
@@ -2729,7 +2728,7 @@ zh-cn:
   usdc_trading_symbol_comment: 您可以根據<a href="#t-querysymbolinfo">Query Symbol</a>接口獲取所有交易中的symbol
   usdcPriceRule:
     <ul>
-    <li>最大值1百萬 (<code>1000000</code>)</li>
+    <li>最大值1千萬 (<code>10000000</code>)</li>
     <li>必須是正數：
     <ul>
     <li><code>40</code> - 合法</li>
@@ -2897,4 +2896,23 @@ zh-cn:
     </li>
     </ul>
   usdc_perp_order_price: 訂單價格
+  usdc_ip_rate_para_understanding: |
+    <p> Bybit會基於請求IP做頻率限製，針對不同的請求方法有以下規則：</p>
+    <ul>
+    <li>
+      <code>GET</code>方法:
+      <ul>
+        <li>連續2分鐘內每秒不超過50個請求</li>
+        <li>連續5秒內每秒不超過70個請求</li>
+      </ul>
+    </li>
+    <li>
+      <code>POST</code>方法:
+      <ul>
+        <li>連續2分鐘內每秒不超過20個請求</li>
+        <li>連續5秒內每秒不超過50個請求</li>
+      </ul>
+    </li>
+    </ul>
+  usdc_perp_order_type: 參考 <a href="#order-type-type-ordertypes">訂單類型</a>
 

@@ -17,17 +17,17 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/order-book?s
 ```javascript
 {
   "retCode":0,
-    "retMsg":"SUCCESS",
+    "retMsg":"",
     "result":[
     {
-      "price":"9.40065408",
-      "size":"155196.7296",
-      "side":"BID"
+      "price":"56390",
+      "size":"0.0130000",
+      "side":"Buy"
     },
     {
-      "price":"9.13032704",
-      "size":"40493.4592",
-      "side":"ASK"
+      "price":"56797.5",
+      "size":"1.4430000",
+      "side":"Sell"
     }
   ]
 }

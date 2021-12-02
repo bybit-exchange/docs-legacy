@@ -1005,6 +1005,8 @@ POST
 
 ### t(:setPositionLeverage)
 
+Only for REGULAR_MARGIN.
+
 > t(:codequote_curlExample)
 
 ```console

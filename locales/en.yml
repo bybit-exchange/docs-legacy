@@ -2713,10 +2713,9 @@ en:
 
   placeOrderInfo: |
     <p>Place an order using the USDC Derivatives Account. </p>
-    <p>Once an order is placed, a corresponding portion of your wallet balance will be frozen. The amount depends on parameter configuration specified in your order.   </p>
     <p>The request status can be queried in real time. </p>
     <p>The response parameters must be queried through a query or a WebSocket response.</p>
-  replaceInfo: For Options, at least one of the three parameters — price, quantity or implied volatility — must be input. For Derivatives, either price or quantity is required.
+  replaceInfo: For Options, at least one of the three parameters — price, quantity or implied volatility — must be input.
   leavesValue: Est. order value of unfilled orders
   cumExecQty: Total filled quantity
   cumExecValue: Total order value of filled orders
@@ -2886,9 +2885,9 @@ en:
   usdc_auth_para_construct1: <p>1.The parameters are in json format</p>
   resultTotalSize: length of dataList
   dataList: Return the result list, refer to the following fields
-  usdcBatchOrdersDesc: Each request supports a max. of four orders. Options only.
+  usdcBatchOrdersDesc: Each request supports a max. of four orders.
   publicTopic: Public Topic
-  bybitTradeHistory: Trade History on Bybit
+  bybitTradeHistory: Trade
   insuranceFund: Insurance Fund
   latestSymbolInfo: Latest Symbol Info
   userPositionsInfo: Position
@@ -3068,3 +3067,41 @@ en:
     </ul>
     </li>
     </ul>
+  usdc_ip_rate_para_understanding: |
+    <p>The IP limits are shared across all endpoints.</p>
+    <p>Bybit has different IP frequency limits for <code>GET</code> and <code>POST</code> method<span>:</span></p>
+    <ul>
+    <li>
+      <code>GET</code> method:
+      <ul>
+        <li>50 requests per second continuously for 2 minutes</li>
+        <li>70 requests per second continuously for 5 seconds</li>
+      </ul>
+    </li>
+    <li>
+      <code>POST</code> method:
+      <ul>
+        <li>20 requests per second continuously for 2 minutes</li>
+        <li>50 requests per second continuously for 5 seconds</li>
+      </ul>
+    </li>
+    </ul>
+  usdc_perp_websocket_para_endpoint: |
+    Websocket Server Address :
+    <ul>
+    <p>
+      <li>Testnet:
+        Public: <span id="testnet_address">wss://stream-testnet.bybit.com/perpetual/ws/v1/realtime_public</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <br/>
+
+        Private: <span id="testnet_address_2">wss://stream-testnet.bybit.com/trade/option/usdc/private/v1</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+      </li>
+    </p>
+    <p>
+
+    </p>
+    <p>All requests made to the private API must be authenticated. Requests made to the public API do not require authentication.</p>
+    </ul>
+  usdc_perp_order_type: refer to <a href="#order-type-type-ordertypes">Order Type</a>

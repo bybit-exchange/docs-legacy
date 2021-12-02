@@ -705,7 +705,7 @@ t(:usdc_perp_active_order)
 | orderId |string |t(:usdcOrderId) |
 | orderLinkId |string |t(:orderLinkId) |
 | symbol |string |t(:usdcSymbol) |
-| orderType|string |t(:usdcOrderType) |
+| orderType|string |t(:usdc_perp_order_type) |
 | side |string |t(:side) |
 | qty |string |t(:orderAllSize) |
 | leavesQty |string |t(:orderFilledSize) |
@@ -805,7 +805,7 @@ t(:usdc_perp_order_desc)
 | orderId |string |t(:usdcOrderId) |
 | orderLinkId |string |t(:orderLinkId) |
 | symbol |string |t(:usdcSymbol) |
-| orderType|string |t(:usdcOrderType) |
+| orderType|string |t(:usdc_perp_order_type) |
 | side |string |t(:side) |
 | qty |string |t(:orderAllSize) |
 | leavesQty |string |t(:orderFilledSize) |
