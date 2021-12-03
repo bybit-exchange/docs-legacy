@@ -622,7 +622,7 @@ t(:usdc_perp_trade_history)
 | execId |string |trade Id|
 
 
-### t(:activeOrders)
+### t(:usdc_perp_active_orders_snapshot)
 
 > t(:codequote_subscribe)
 
@@ -708,7 +708,7 @@ t(:usdc_perp_active_order)
 | orderType|string |t(:usdc_perp_order_type) |
 | side |string |t(:side) |
 | qty |string |t(:orderAllSize) |
-| leavesQty |string |t(:orderFilledSize) |
+| leavesQty |string |t(:usdc_unfilled_order_size) |
 | price |string |t(:usdcOrderPrice) |
 | t(:row_parameter_timeInForce) |string |t(:row_comment_timeInForce) |
 | cumQty |string |t(:cumExecQty) |
@@ -724,6 +724,110 @@ t(:usdc_perp_active_order)
 | basePrice |string |t(:basePrice) |
 | triggerPrice |string |t(:triggerPrice) |
 | triggerBy |string |t(:triggerBy) |
+
+
+
+
+### t(:usdc_perp_active_orders_delta)
+
+> t(:codequote_subscribe)
+
+```javascript
+ ws.send('{"method":"private/subscribe","id":"{100003}","params":{"channels":["user.perp.order.t"]}}');
+```
+
+> t(:usdc_trade_codequote_snapshot)
+
+```javascript
+{
+  "id":"3bf267b3-2d04-4e43-bcb4-c4fea4e8b737",
+    "channel":"user.perp.order.t",
+    "type":"SNAPSHOT",
+    "serialNumber":1,
+    "publishTime":90468981,
+    "creationTime":1638498893090,
+    "data":{
+    "result":[
+      {
+        "accountId":0,
+        "userId":247007,
+        "symbol":"BTCPERP",
+        "createType":null,
+        "cancelType":"UNKNOWN",
+        "orderLinkId":"",
+        "tpTriggerBy":null,
+        "slTriggerBy":null,
+        "takeProfit":"0",
+        "stopLoss":"0",
+        "orderId":"41648c64-a1f9-49ee-8f14-de18a086b29e",
+        "side":"Sell",
+        "orderType":"Limit",
+        "timeInForce":"GoodTillCancel",
+        "reduceOnly":false,
+        "stopOrderType":"UNKNOWN",
+        "triggerBy":"UNKNOWN",
+        "basePrice":"",
+        "trailValue":"0",
+        "triggerPrice":"0",
+        "price":"53667",
+        "orderAvgPrice":"56414",
+        "qty":"0.01",
+        "leavesQty":"0",
+        "cumQty":"0.01000000",
+        "cumValue":"564.14",
+        "cumExecFee":"0.423105",
+        "orderStatus":"Filled",
+        "cxlRejReason":"EC_NoError",
+        "createdAtE3":1638498892923,
+        "updatedAtE3":1638498892926,
+        "origTriggerPrice":"0",
+        "origPrice":"0",
+        "origQty":"0",
+        "origOrderType":null,
+        "isWorking":true,
+        "type":"Limit",
+        "avgPrice":"56414",
+        "pnl":"",
+        "orderIm":"0",
+        "symbolId":0,
+        "expectedDirection":"UNKNOWN",
+        "closeOnTrigger":false
+      }
+    ],
+      "version":519491,
+      "sendTime":1638498893045
+  }
+}
+```
+
+t(:usdc_perp_active_order_delta_topic)
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| orderId |string |t(:usdcOrderId) |
+| orderLinkId |string |t(:orderLinkId) |
+| symbol |string |t(:usdcSymbol) |
+| orderType|string |t(:usdc_perp_order_type) |
+| side |string |t(:side) |
+| qty |string |t(:orderAllSize) |
+| leavesQty |string |t(:usdc_unfilled_order_size) |
+| price |string |t(:usdcOrderPrice) |
+| t(:row_parameter_timeInForce) |string |t(:row_comment_timeInForce) |
+| cumQty |string |t(:cumExecQty) |
+| cumExecFee |string |t(:cumExecFee) |
+| orderIm |string |t(:im) |
+| orderStatus |string |t(:orderStatus) |
+| reduceOnly |number |t(:reduceOnly) |
+| closeOnTrigger |bool |t(:closeOnTrigger) |
+| takeProfit |string |t(:takeProfit) |
+| stopLoss |string |t(:stopLoss) |
+| tpTriggerBy |string |t(:tptriggerby) |
+| slTriggerBy |string |t(:slTriggerBy) |
+| basePrice |string |t(:basePrice) |
+| triggerPrice |string |t(:triggerPrice) |
+| triggerBy |string |t(:triggerBy) |
+
 
 
 ### t(:userOrderHistory)
@@ -808,7 +912,7 @@ t(:usdc_perp_order_desc)
 | orderType|string |t(:usdc_perp_order_type) |
 | side |string |t(:side) |
 | qty |string |t(:orderAllSize) |
-| leavesQty |string |t(:orderFilledSize) |
+| leavesQty |string |t(:usdc_unfilled_order_size) |
 | price |string |t(:usdcOrderPrice) |
 | t(:row_parameter_timeInForce) |string |t(:row_comment_timeInForce) |
 | cumQty |string |t(:cumExecQty) |

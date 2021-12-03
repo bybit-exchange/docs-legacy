@@ -2911,7 +2911,7 @@ en:
   usdc_trading_symbol_comment: refer to <a href="#t-querysymbolinfo">Query Symbol</a> endpoint
   usdcPriceRule:
     <ul>
-    <li>Must be less than 1 million (<code>1000000</code>)</li>
+    <li>Must be less than 10 million (<code>10000000</code>)</li>
     <li>Must be a positive number：
     <ul>
     <li><code>40</code> - allowed</li>
@@ -3039,6 +3039,7 @@ en:
     <p>topic:</p>
     <p>user.perp.trade</p>
   usdc_perp_active_order: |
+    <p>After a successful subscription of this topic, all active orders will be fetched.</p>
     <p>topic:</p>
     <p>user.perp.order</p>
   usdc_perp_order_desc: |
@@ -3105,3 +3106,10 @@ en:
     <p>All requests made to the private API must be authenticated. Requests made to the public API do not require authentication.</p>
     </ul>
   usdc_perp_order_type: refer to <a href="#order-type-type-ordertypes">Order Type</a>
+  usdc_perp_active_orders_snapshot: Active Orders(All)
+  usdc_perp_active_orders_delta: Active Orders(Delta)
+  usdc_perp_active_order_delta_topic: |
+    <p>After a successful subscription of this topic, new active order will be fetched.</p>
+    <p>topic:</p>
+    <p>user.perp.order.t</p>
+  usdc_unfilled_order_size: unfilled size of order
