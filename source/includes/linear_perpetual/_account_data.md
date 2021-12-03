@@ -1606,13 +1606,13 @@ POST
 ```console
 curl https://api-testnet.bybit.com/private/linear/position/switch-mode \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSDT","mode":0,"timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","symbol":"BTCUSDT","mode":"MergedSingle","timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
 ```python--old
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.LinearPositions.LinearPositions_switchPositionMode(symbol="BTCUSDT",mode=0).result())
+print(client.LinearPositions.LinearPositions_switchPositionMode(symbol="BTCUSDT",mode="MergedSingle").result())
 ```
 
 ```python--pybit
@@ -1621,7 +1621,7 @@ session = HTTP("https://api-testnet.bybit.com",
                api_key="", api_secret="")
 print(session.position_mode_switch(
     symbol="BTCUSDT",
-    mode=0
+    mode="MergedSingle"
 ))
 ```
 
@@ -1652,7 +1652,7 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
-|mode |<b>true</b> |int |t(:row_comment_positionmode) |
+|mode |<b>true</b> |string |t(:linear_comment_positionmode) |
 
 
 ### t(:switchmode)
