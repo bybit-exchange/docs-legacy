@@ -303,7 +303,7 @@ print(session.fast_cancel_active_order(
 
 
 <aside class="notice">
-t(:spotFastCancelTips)
+t(:spotNormalCancelTips)
 </aside>
 
 <p class="fake_header">t(:httprequest)</p>
@@ -375,7 +375,7 @@ print(session.batch_cancel_active_order(
 ```
 
 <aside class="notice">
-t(:spotFastCancelTips)
+t(:spotCancelTips)
 </aside>
 
 <p class="fake_header">t(:httprequest)</p>
@@ -492,7 +492,7 @@ print(session.batch_cancel_active_order_by_ids(
 ```
 
 <aside class="notice">
-t(:spotFastCancelTips)
+t(:spotNormalCancelTips)
 </aside>
 
 <p class="fake_header">t(:httprequest)</p>
