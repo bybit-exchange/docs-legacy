@@ -788,7 +788,8 @@ GET
 |limit|false|integer|t(:spot_trades_history_limit)|
 |fromId|false|integer|t(:spot_from_id)|
 |toId|false|integer|t(:spot_to_id)|
-
+|startTime|false|long|t(:spot_start_time)|
+|endTime|false|long|t(:spot_end_time)|
 
 <p class="fake_header">t(:responseparameters)</p>
 
