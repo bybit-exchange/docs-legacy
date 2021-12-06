@@ -5,7 +5,7 @@ t(:ENUMs_para)
 * `Buy`
 * `Sell`
 
-## TimeInForce (`timeInForce`)
+## Time in force (`timeInForce`)
 * `GTC` - Good Till Canceled
 * `FOK` - Fill or Kill
 * `IOC` - Immediate or Cancel

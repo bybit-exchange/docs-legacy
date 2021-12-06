@@ -153,7 +153,7 @@ en:
   row_comment_orderLinkId: Unique user-set order ID. Maximum length of 36 characters
   row_comment_page: Page. By default, gets first page of data
   row_comment_page_max50: Page. By default, gets first page of data. Maximum of 50 pages
-  row_comment_order: Sort orders by creation date. Defaults to <code>desc</code>
+  row_comment_order: Sort orders by creation date. Defaults to <code>asc</code>
   row_comment_stopOrderId: Conditional order ID. Once triggered, the conditional order creates an active order with the same ID (<code>order_id</code>)
   row_comment_pRQty: New order quantity. Do not pass this field if you don't want modify it
   row_comment_pRPrice: New order price. Do not pass this field if you don't want modify it
@@ -342,7 +342,7 @@ en:
 
   # Spot enum parameter table links
   row_parameter_type: <a href="#order-type-type-ordertypes">type</a>
-  row_parameter_timeInForce: <a href="#timeinforce-timeinforce">timeInForce</a>
+  row_parameter_timeInForce: <a href="#time-in-force-timeinforce">timeInForce</a>
   spot_row_parameter_orderStatus: <a href="#order-status-status">status</a>
 
 
@@ -1478,7 +1478,7 @@ en:
   account_asset_http_403: Access denied
   account_asset_http_404: Request path not found
   account_asset_err_0:    SUCCESS
-  account_asset_err_10001: ParamErr
+  account_asset_err_10001: Params Error
   account_asset_err_10016: SvcErr
   account_asset_err_38000: Processing
   account_asset_err_38001: AvailableBalanceRunningLow
@@ -1506,7 +1506,7 @@ en:
 
 
   err_10000: An unknown error occurred while processing the request
-  err_10001: Error - request failed processed. Please try again.
+  err_10001: Params Error
   err_10002: Request not authorized - an API key is required and should be included in all requests.
   err_10003: Too many requests - please use WebSocket for live updates. Current limit is %s requests per minute.
   err_10004: invalid sign
@@ -2243,6 +2243,8 @@ en:
   tradehistory: Trade History
   spot_from_id:  Query begins with the trade ID
   spot_to_id: Query ends with the trade ID
+  spot_start_time: Start time
+  spot_end_time: End time
   spot_token: Asset
   spot_fee: Trading fee
   spot_locked: Reserved for orders
@@ -2293,9 +2295,9 @@ en:
     Order type. Use comma splicing to indicate multiple order types, eg <code>LIMIT,LIMIT_MAKER</code>. Default: <code>LIMIT</code>
   spotCancelOrderIds: order ID, use comma splicing to indicate multiple orderIds, no more than 100 ids.
 
-#  spotCancelTips: The actual result of the cancellation request needs to be checked by order status or match result endpoints after submitting the request.(It is a synchronous settlement API)
-#  spotFastCancelTips: The actual result of the cancellation request needs to be checked by order status or match result endpoints after submitting the request.(It is an asynchronous settlement API)
-  spotFastCancelTips: The actual result of the cancellation request needs to be checked by order status or match result endpoints after submitting the request.
+  spotCancelTips: The actual result of the cancellation request needs to be checked by order status or match result endpoints after submitting the request.(It is a synchronous settlement API)
+  spotFastCancelTips: The actual result of the cancellation request needs to be checked by order status or match result endpoints after submitting the request.(It is an asynchronous settlement API)
+  spotNormalCancelTips: The actual result of the cancellation request needs to be checked by order status or match result endpoints after submitting the request.
   #spot_ws_v1
   spot_price: Price
   spot_symbol: Trading pair
@@ -2901,10 +2903,10 @@ en:
   bybitTradeHistory: Trade History on Bybit
   insuranceFund: Insurance Fund
   latestSymbolInfo: Latest Symbol Info
-  userPositionsInfo: Query Positions Info
-  userFilledHistory: Filled History
+  userPositionsInfo: Position
+  userFilledHistory: Trade
   userOrderHistory: Order History
-  userConditionalOrders: Conditional Orders
+  userConditionalOrders: Conditional Order
   userGreeks: Greeks
   usdc_trade_codequote_snapshot: Snapshot Response Example - format of response
   usdcLastestSymbolInfo: |
@@ -2996,5 +2998,7 @@ en:
   usdcOrderDesc: |
     <p>topic:</p>
     <p>Option: user.option.orderHistory</p>
-  usdcTimeInForce: refer to <a href="#timeinforce-time_in_force">timeInForce</a>
-
+  activeOrders: Active Order
+  usdcActiveOrder: |
+    <p>topic:</p>
+    <p>Option: user.option.order</p>

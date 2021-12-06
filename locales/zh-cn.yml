@@ -179,7 +179,7 @@ zh-cn:
   row_comment_rate_limit: 頻率限製
   row_comment_path: 請求路徑
   row_comment_consume: 消耗
-  row_comment_order: 按創建時間排序
+  row_comment_order: 按創建時間排序（默認升序）
   row_comment_interval: 數據更新頻率. 枚舉值： 1 3 5 15 30 60 120 240 360 720 "D" "M" "W"
   row_comment_from_timestamp: 起始時間戳（單位秒）
   row_comment_limit_200: 每頁數量, 最大200. 默認每頁200條
@@ -1331,7 +1331,7 @@ zh-cn:
   account_asset_err_90011: 獲取子賬戶列表失敗
 
   err_10000: 處理請求時發生未知錯誤
-  err_10001: 內部錯誤; 無法處理您的請求。 請再試一次.
+  err_10001: 參數錯誤
   #spot
   err_1001: 參數錯誤
   err_1002: 您無權執行此請求。請求需要發送API Key，我們建議在所有的請求中都附加API Key
@@ -2037,6 +2037,8 @@ zh-cn:
   tradehistory: 交易記錄
   spot_from_id: 從此tradeId 開始查詢
   spot_to_id: 以此tradeId為終點
+  spot_start_time: 起始時間戳（單位秒）
+  spot_end_time: 結束時間
 #  balance: 賬號余額
   spot_token: 幣種
   spot_total: 總額
@@ -2086,10 +2088,10 @@ zh-cn:
   spot_match_order_id: 撮合訂單id
   spot_account_id: 賬戶id
   spot_match_account_id: 撮合賬戶id
-#  spotCancelTips：此接口只提交取消請求，實際取消結果需要通過訂單狀態，撮合狀態等接口來確認。(這是個同步結算接口)
-#  spotFastCancelTips: 此接口只提交取消請求，實際取消結果需要通過訂單狀態，撮合狀態等接口來確認。(這是個異步結算接口)
-  spotFastCancelTips: 此接口只提交取消請求，實際取消結果需要通過訂單狀態，撮合狀態等接口來確認。
-  row_parameter_timeInForce: <a href="#timeinforce-timeinforce">timeInForce</a>
+  spotCancelTips: 此接口只提交取消請求，實際取消結果需要通過訂單狀態，撮合狀態等接口來確認。(這是個同步結算接口)
+  spotFastCancelTips: 此接口只提交取消請求，實際取消結果需要通過訂單狀態，撮合狀態等接口來確認。(這是個異步結算接口)
+  spotNormalCancelTips: 此接口只提交取消請求，實際取消結果需要通過訂單狀態，撮合狀態等接口來確認。
+  row_parameter_timeInForce: <a href="#time-in-force-timeinforce">timeInForce</a>
 
   #spot_ws_v1
   spot_price: 價格
@@ -2802,4 +2804,7 @@ zh-cn:
   queryLatest500Trades: 最近500條成交記錄
   usdcTradeHistory: 成交記錄
   usdcTransactionType:  參考 <a href="#transaction-type-transaction-type">Transaction type</a>
-  usdcTimeInForce: 參考 <a href="#timeinforce-time_in_force">timeInForce</a>
+  activeOrders: 活動單
+  usdcActiveOrder: |
+    <p>topic:</p>
+    <p>期權: user.option.order</p>

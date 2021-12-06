@@ -222,13 +222,13 @@ GET
 | qty  |number |t(:row_response_comment_qty) |
 |time_in_force |string |t(:row_comment_timeInForce)  |
 |order_status |string |t(:row_comment_orderStatus)  |
-| ext_fields>close_on_trigger |bool |t(:row_comment_closeOnTrigger) |
-| ext_fields>orig_order_type |string |t(:row_comment_orig_order_type) |
-| ext_fields>prior_x_req_price  |number |t(:row_comment_prior_x_req_price) |
-| ext_fields>op_from |string |t(:row_comment_op_from) |
-| ext_fields>remark |string |t(:row_comment_remark) |
-| ext_fields>o_req_num |number |t(:row_comment_o_req_num) |
-| ext_fields>xreq_type |string |t(:row_comment_xreq_type) |
+| close_on_trigger |bool |t(:row_comment_closeOnTrigger) |
+| orig_order_type |string |t(:row_comment_orig_order_type) |
+| prior_x_req_price  |number |t(:row_comment_prior_x_req_price) |
+| op_from |string |t(:row_comment_op_from) |
+| remark |string |t(:row_comment_remark) |
+| o_req_num |number |t(:row_comment_o_req_num) |
+| xreq_type |string |t(:row_comment_xreq_type) |
 | last_exec_time |string |t(:row_comment_last_exec_time) |
 | last_exec_price |number |t(:row_comment_last_exec_price) |
 | leaves_qty |number |t(:row_comment_leaves_qty) |
@@ -448,14 +448,14 @@ POST
 |t(:row_parameter_price) |number |t(:row_response_comment_price)  |
 |t(:row_parameter_quantity) |number |t(:row_response_comment_qty)  |
 |t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
-|ext_fields>stop_order_type |string |t(:row_comment_stopOrderType)  |
-|ext_fields>t(:row_parameter_trigger_price) |string |t(:row_comment_triggerBy)  |
-|ext_fields>base_price |number |t(:row_response_comment_basePrice)  |
-|ext_fields>t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
-|ext_fields>stop_order_type |string |t(:row_comment_stopOrderType)  |
-|ext_fields>expected_direction |string |t(:row_comment_expected_direction)  |
-|ext_fields>trigger_price |number |t(:stop_order_trigger_price)  |
-|ext_fields>op_from |string |t(:row_comment_op_from)  |
+|stop_order_type |string |t(:row_comment_stopOrderType)  |
+|t(:row_parameter_trigger_price) |string |t(:row_comment_triggerBy)  |
+|base_price |number |t(:row_response_comment_basePrice)  |
+|t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
+|stop_order_type |string |t(:row_comment_stopOrderType)  |
+|expected_direction |string |t(:row_comment_expected_direction)  |
+|trigger_price |number |t(:stop_order_trigger_price)  |
+|op_from |string |t(:row_comment_op_from)  |
 |remark |string |t(:row_comment_remark)  |
 |o_req_num |number |t(:row_comment_o_req_num)  |
 |leaves_qty |number |t(:row_comment_leaves_qty)  |
@@ -877,7 +877,7 @@ POST
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|position > id |number |t(:row_comment_position_id)  |
+|id |number |t(:row_comment_position_id)  |
 |user_id |number |t(:row_comment_userID)  |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
@@ -907,7 +907,7 @@ POST
 |position_seq |number |t(:row_comment_position_seq)  |
 |created_at |string |t(:row_comment_created_at)  |
 |updated_at |string |t(:row_comment_updated_at)  |
-|ext_fields>trailing_active |string |t(:row_comment_trailing_active)  |
+|trailing_active |string |t(:row_comment_trailing_active)  |
 |risk>id |number |t(:row_comment_riskId)  |
 |risk>coin |string |t(:row_comment_coin_type)  |
 |risk>limit |number |t(:row_comment_risk_limit)    |
