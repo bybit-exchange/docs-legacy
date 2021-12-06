@@ -16,6 +16,10 @@
   - t(:restapi_update_20211206_1)
 - [t(:myposition)](#t-myposition) [t(:changelog_update)]
   - t(:restapi_update_20211206_2)
+- [t(:websocketorder)] [t(:changelog_update)]
+  - t(:restapi_update_20211206_2)
+- [t(:websocketstoporder)] [t(:changelog_update)]
+  - t(:restapi_update_20211206_2)
 
 ## 2021-10-13
 ### REST API
