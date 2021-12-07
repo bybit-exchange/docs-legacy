@@ -16,8 +16,8 @@ t(:usdc_trading_symbol_comment)
 
 
 ## Order type (`type`/`orderTypes`)
-* `LIMIT`
-* `MARKET`
+* `Limit`
+* `Market`
 
 
 ## Currency (`currency`/`coin`)
@@ -25,13 +25,11 @@ t(:usdc_trading_symbol_comment)
 
 
 ## Order status (`status`)
-* `NEW`
-* `PARTIALLY_FILLED`
-* `FILLED`
-* `CANCELED`
-* `PENDING_CANCEL`
-* `PENDING_NEW`
-* `REJECTED`
+* `New`
+* `PartiallyFilled`
+* `Filled`
+* `Cancelled`
+* `Rejected`
 
 ## Quantity (`qty`)
 t(:usdc_perp_quantity)
