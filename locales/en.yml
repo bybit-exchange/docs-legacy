@@ -264,6 +264,8 @@ en:
   row_comment_limit_500_1000: Limit for data size per page, max size is 1000. Default as showing 500 pieces of data per page
   row_comment_buy_ratio: Long position ratio
   row_comment_sell_ratio: Short position ratio
+  row_comment_tp_sl_mode: TrailingProfit or StopLoss mode <code>Full</code> or <code>Partial</code>
+  row_comment_mode: Position mode,  <code>MergedSingle</code> or <code>BothSide</code>
 
   row_response_comment_price: Order price
   row_response_comment_qty: Order quantity in USD
@@ -1857,6 +1859,9 @@ en:
   linear_account_para_addMargin: Add Margin
   linear_account_row_comment_margin: Add/Remove how much margin<span>:</span> Increase 10; decrease -10, supports 4 decimal places
 
+  linear_comment_positionmode: |
+    Position Mode. <code>MergedSingle</code><span>:</span> One-Way Mode; <code>BothSide</code><span>:</span> Hedge Mode
+
   ### inverse future
   switchpositionmode: Position Mode Switch
   account_para_switchpositionmode: |
@@ -2057,6 +2062,10 @@ en:
   ws_update_20210225: Add websocket support to inverse future
 
   restapi_update_2021101201: Fix <code>price_scale</code> response of <a href="#t-querysymbol">Query Symbol</a> Endpoint for USDT perpetual symbols.
+
+  restapi_update_20211206: Add parameter <code>position_idx</code> to Request Parameters and Response Parameters
+  restapi_update_20211206_1: Add parameter <code>position_idx</code> to Request Parameters
+  restapi_update_20211206_2: Add parameter <code>position_idx</code> to Response Parameters 
 
   restapi_update_20210910:
    <ul><li>Limit <code>start_time</code> and <code>end_time</code> to be within seven days of the current date. For earlier records, please contact customer support.</li></ul>
