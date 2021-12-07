@@ -3,7 +3,6 @@ t(:account_para)
 
 ## t(:usdcTradeApi)
 ### t(:usdcPlaceOrder)
-t(:usdc_order_book_path)
 > t(:codequote_curlExample)
 
 ```console
@@ -41,7 +40,7 @@ t(:placeOrderInfo)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=uopvPlace>/{category}/usdc/openapi/private/v1/place-order</span></code>
+<code><span id=uopvPlace>/option/usdc/openapi/private/v1/place-order</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvPlace"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -58,15 +57,8 @@ POST
 |placeType|false|string|t(:optionPlaceType)|
 |t(:row_parameter_timeInForce)|false|string|t(:row_comment_timeInForce)|
 |outRequestId|false|string|t(:optionOutRequestId)|
-|orderLinkId|false|string|t(:orderLinkId)|
+|orderLinkId|<b>true</b>|string|t(:orderLinkId)|
 |reduceOnly|false|bool|t(:reduceOnly)|
-|closeOnTrigger|false|bool|t(:closeOnTrigger)|
-|takeProfit|false|string|t(:takeProfit)|
-|stopLoss|false|string|t(:stopLoss)|
-|tptriggerby|false|number|t(:usdcTptriggerby)|
-|slTriggerBy|false|string|t(:usdcSlTriggerBy)|
-|triggerPrice|false|string|t(:triggerPrice)|
-|triggerBy|false|number|t(:usdcTriggerBy)|
 |mmp|false|string|t(:mmp)|
 
 
@@ -124,8 +116,6 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-place-or
 }
 ```
 
-Option only.
-
 <p class="fake_header">t(:httprequest)</p>
 POST
 <code><span id=uopvBatchPlace>/option/usdc/openapi/private/v1/batch-place-order</span></code>
@@ -151,13 +141,6 @@ POST
 |outRequestId|false|string|t(:optionOutRequestId)|
 |orderLinkId|false|string|t(:orderLinkId)|
 |reduceOnly|false|bool|t(:reduceOnly)|
-|closeOnTrigger|false|bool|t(:closeOnTrigger)|
-|takeProfit|false|number|t(:takeProfit)|
-|stopLoss|false|number|t(:stopLoss)|
-|tptriggerby|false|number|t(:usdcTptriggerby)|
-|slTriggerBy|false|string|t(:usdcSlTriggerBy)|
-|triggerPrice|false|string|t(:triggerPrice)|
-|triggerBy|false|number|t(:usdcTriggerBy)|
 |mmp|false|string|t(:mmp)|
 
 
@@ -175,8 +158,6 @@ POST
 |side|string|t(:side)|
 
 ### t(:usdcReplaceOrder)
-t(:usdc_order_book_path)
-
 
 ```console
 curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/replace-order \
@@ -211,7 +192,7 @@ t(:replaceInfo)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=uopvReplace>/{category}/usdc/openapi/private/v1/replace-order</span></code>
+<code><span id=uopvReplace>/option/usdc/openapi/private/v1/replace-order</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvReplace"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -220,19 +201,11 @@ POST
 |:----- |:-------|:-----|----- |
 |outRequestId|<b>true</b>|string|t(:optionOutRequestId)|
 |symbol|<b>true</b>|string|t(:usdcSymbol)|
-|orderId|false|string|t(:usdcReplaceOrderId)|
+|orderId|<b>true</b>|string|t(:usdcReplaceOrderId)|
 |orderLinkId|false|string|t(:usdcOrderLinkId)|
 |orderPrice|false|string|t(:usdcOrderPrice)|
 |orderQty|false|string|t(:usdcOrderQty)|
 |iv|false|string|t(:optionIv)|
-|takeProfit|false|string|t(:takeProfit)|
-|stopLoss|false|string|t(:stopLoss)|
-|tptriggerby|false|string|t(:usdcTptriggerby)|
-|slTriggerBy|false|string|t(:usdcSlTriggerBy)|
-|orderFilter|false|string|t(:usdcOrderFilter)|
-|triggerPrice|false|string|t(:triggerPrice)|
-
-
 
 <p class="fake_header">t(:responseparameters)</p>
 
@@ -241,10 +214,7 @@ POST
 |orderId|string|t(:usdcOrderId)|
 |orderLinkId|string|t(:orderLinkId)
 
-
-
 ### t(:usdcBatchReplaceOrders)
-Option only.
 
 ```console
 curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-replace-orders \
@@ -291,18 +261,11 @@ POST
 |:----- |:-------|:-----|----- |
 |outRequestId|<b>true</b>|string|t(:optionOutRequestId)|
 |symbol|<b>true</b>|string|t(:usdcSymbol)|
-|orderId|false|string|t(:usdcReplaceOrderId)|
+|orderId|<b>true</b>|string|t(:usdcReplaceOrderId)|
 |orderLinkId|false|string|t(:usdcOrderLinkId)|
 |orderPrice|false|string|t(:usdcOrderPrice)|
 |orderQty|false|string|t(:usdcOrderQty)|
 |iv|false|string|t(:optionIv)|
-|takeProfit|false|string|t(:takeProfit)|
-|stopLoss|false|string|t(:stopLoss)|
-|tptriggerby|false|string|t(:usdcTptriggerby)|
-|slTriggerBy|false|string|t(:usdcSlTriggerBy)|
-|orderFilter|false|string|t(:usdcOrderFilter)|
-|triggerPrice|false|string|t(:triggerPrice)|
-
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -315,9 +278,6 @@ POST
 
 
 ### t(:usdcCancelOrder)
-
-t(:usdc_order_book_path)
-
 
 ```console
 curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/cancel-order \
@@ -348,7 +308,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/cancel-order \
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=uopvCancel>/{category}/usdc/openapi/private/v1/cancel-order</span></code>
+<code><span id=uopvCancel>/option/usdc/openapi/private/v1/cancel-order</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvCancel"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -357,9 +317,8 @@ POST
 |:----- |:-------|:-----|----- |
 |symbol|<b>true</b>|string|t(:usdcSymbol)|
 |outRequestId|false|string|t(:optionOutRequestId)|
-|orderId|false|string|t(:usdcReplaceOrderId)|
+|orderId|<b>true</b>|string|t(:usdcReplaceOrderId)|
 |orderLinkId|false|string|t(:usdcOrderLinkId)|
-|orderFilter|false|string|t(:usdcOrderFilter)|
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -369,11 +328,7 @@ POST
 |orderId|string|t(:usdcOrderId)|
 
 
-
-
-
 ### t(:usdcBatchCancelOrders)
-
 
 ```console
 curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-cancel-orders \
@@ -402,7 +357,6 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-cancel-o
 }
 ```
 
-Option only.
 <p class="fake_header">t(:httprequest)</p>
 POST
 <code><span id=uopvBatchCancel>/option/usdc/openapi/private/v1/batch-cancel-orders</span></code>
@@ -418,9 +372,8 @@ POST
 |:----- |:-------|:-----|----- |
 |symbol|<b>true</b>|string|t(:usdcSymbol)|
 |outRequestId|false|string|t(:optionOutRequestId)|
-|orderId|false|string|t(:usdcReplaceOrderId)|
+|orderId|<b>true</b>|string|t(:usdcReplaceOrderId)|
 |orderLinkId|false|string|t(:usdcOrderLinkId)|
-|orderFilter|false|string|t(:usdcOrderFilter)|
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -432,8 +385,6 @@ POST
 
 
 ### t(:usdcCancelAll)
-
-Option only.
 
 ```console
 curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/cancel-order \
@@ -476,9 +427,6 @@ t(:cancelAllResponse)
 </p>
 
 ### t(:usdcQryUnOrPartFilled)
-
-For both Perpetual and Option.
-
 
 ```console
 curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-active-orders \
@@ -547,10 +495,9 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |category|<b>true</b>|string|t(:usdcCategory)|
-|symbol|<b>true</b>|string|t(:usdcSymbol)|
+|symbol|false|string|t(:usdcSymbol)|
 |orderId|false|string|t(:usdcOrderId)|
 |orderLinkId|false|string|t(:orderLinkId)|
-|orderFilter|false|string|t(:usdcOrderFilter)|
 |direction|false|string|t(:direction)|
 |limit|false|number|t(:row_comment_limit)|
 |cursor|false|string|t(:cursor)|
@@ -581,30 +528,18 @@ POST
 |cumExecFee|string|t(:cumExecFee)|
 |im|string|t(:im)|
 |orderStatus|string|t(:orderStatus)|
-|takeProfit|string|t(:takeProfit)|
-|stopLoss|string|t(:stopLoss)|
-|tpTriggerBy|string|t(:usdcTptriggerby)|
-|slTriggerBy|string|t(:usdcSlTriggerBy)|
-|lastExecPrice|string|t(:lastExecPrice)|
-|basePrice|string|t(:basePrice)|
-|triggerPrice|string|t(:triggerPrice)|
-|triggerBy|string|t(:usdcTriggerBy)|
 |reduceOnly|string|t(:reduceOnly)|
-|closeOnTrigger|string|t(:closeOnTrigger)|
 |createdAt|number|t(:createdAt)|
 |cursor|string|t(:cursor)|
 
 
-
 ### t(:usdcQryOrderHistory)
-
-For both Perpetual and Option.
 
 ```console
 
 curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-history \
 -H "Content-Type: application/json" \
--D '{"category":"option"}'
+-D '{"category":"OPTION"}'
 
 ```
 
@@ -672,7 +607,6 @@ POST
 |orderId|false|string|t(:usdcOrderId)|
 |orderLinkId|false|string|t(:orderLinkId)|
 |orderStatus|false|string|t(:orderStatus)|
-|orderFilter|false|string|t(:usdcOrderFilter)|
 |direction|false|string|t(:direction)|
 |limit|false|number|t(:row_comment_limit)|
 |cursor|false|string|t(:cursor)|
@@ -705,16 +639,8 @@ POST
 |cashFlow|string|t(:cashFlow)|
 |realisedPnl|string|t(:realisedPnl)|
 |orderStatus|string|t(:orderStatus)|
-|takeProfit|string|t(:takeProfit)|
-|stopLoss|string|t(:stopLoss)|
-|tpTriggerBy|string|t(:usdcTptriggerby)|
-|slTriggerBy|string|t(:usdcSlTriggerBy)|
-|lastExecPrice|string|t(:lastExecPrice)|
 |basePrice|string|t(:basePrice)|
-|triggerPrice|string|t(:triggerPrice)|
-|triggerBy|string|t(:usdcTriggerBy)|
 |reduceOnly|bool|t(:reduceOnly)|
-|closeOnTrigger|string|t(:closeOnTrigger)|
 |createdAt|number|t(:createdAt)|
 |updatedAt|number|t(:updatedAt)|
 |cursor|string|t(:cursor)|
@@ -722,14 +648,12 @@ POST
 
 ### t(:usdcTradeHistory)
 
-For both Perpetual and Option.
-
 > t(:codequote_curlExample)
 
 ```console
 curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/execution-list \
 -H "Content-Type: application/json" \
--D '{"startTime":"1633687786728","symbol":"1633797786728","category":"option","type":"Settlement","orderId":"70bc3d92-009c-464b-8399-010b9d4aac2b"}'
+-D '{"startTime":"1633687786728","symbol":"1633797786728","category":"OPTION","type":"Settlement","orderId":"70bc3d92-009c-464b-8399-010b9d4aac2b"}'
 ```
 
 ```python
@@ -757,8 +681,6 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/execution-list
                 "feeRate":"0.0250%",
                 "tradeTime":"1637053904869",
                 "execType":"TRADE",
-                "lastLiquidityInd":"UNKNOWN",
-                "execValue":""
             }
         ]
     }
@@ -776,8 +698,8 @@ POST
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category|<b>true</b>|string|t(:category)|
-|symbol|<b>true</b>|string|t(:usdcSymbol)|
+|category|<b>true</b>|string|t(:usdcCategory)|
+|symbol|false|string|t(:usdcSymbol)|
 |orderId|false|string|t(:usdcOrderId)|
 |orderLinkId|false|string|t(:usdcOrderLinkId)|
 |startTime|<b>true</b>|string|t(:usdcStartTime)|
@@ -803,17 +725,14 @@ POST
 |execQty|string|t(:uscdSize)|
 |execFee|string|t(:fee)|
 |feeRate|string|t(:feeRate)|
-|tradeTime|number|t(:tradeTime)|
+|tradeTime|string|t(:tradeTime)|
 |execType|string|t(:execType)|
-|lastLiquidityInd|string|t(:lastLiquidityInd)|
-|execValue|string|t(:execValue)|
 
 
 ## t(:account_wallet)
 t(:wallet_para)
 
 ### t(:transactionLog)
-For both Perpetual and Option.
 
 > t(:codequote_curlExample)
 
@@ -969,7 +888,6 @@ POST
 
 
 ### t(:assetInfo)
-For both Perpetual and Option.
 > t(:codequote_curlExample)
 
 ```console
@@ -1090,13 +1008,12 @@ POST
 
 
 ### t(:queryPosition)
-For both Perpetual and Option.
 > t(:codequote_curlExample)
 
 ```console
 curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-position \
 -H "Content-Type: application/json" \
--D '{"symbol":"BTC-22OCT21-40000-C","category":"option"}'
+-D '{"symbol":"BTC-22OCT21-40000-C","category":"OPTION"}'
 ```
 
 ```python
@@ -1204,65 +1121,8 @@ POST
 |unrealisedPnl|string|t(:unrealisedPnl)|
 |cumRealisedPnl|string|t(:cumRealisedPnl)|
 
-### t(:setPositionLeverage)
-
-Perpetual only.
-
-> t(:codequote_curlExample)
-
-```console
-
-curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/position/leverage/save \
--H "Content-Type: application/json" \
--d '{"symbol":"BTCUSD","buy_leverage":14,"sell_leverage":14}'
-
-```
-
-```python
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Positions.Positions_saveLeverage(symbol="BTCUSD", leverage="14").result())
-
-```
-
-
-> t(:codequote_responseExample)
-
-```javascript
-{
-    "retCode": 0,
-    "retMsg": "",
-    "extCode": null,
-    "extInfo": null,
-    "result": {
-        "leverage": 10
-    }
-}
-```
-
-
-<p class="fake_header">t(:httprequest)</p>
-POST
-<code><span id=uopvLeverageSave>/perpetual/usdc/openapi/private/v1/position/leverage/save</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvLeverageSave"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|symbol|<b>true</b>|string|t(:usdcSymbol)|
-|leverage|<b>true</b>|number|t(:usdcLeverage)|
-
-
-<p class="fake_header">t(:responseparameters)</p>
-
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|leverage|number|t(:leverage)|
-
-
 ### t(:queryDeliveryLog)
-Option only.
+
 > t(:codequote_curlExample)
 
 ```console
@@ -1341,84 +1201,8 @@ POST
 
 
 
-### t(:querySettleLogs)
-Perpetual only.
-> t(:codequote_curlExample)
-
-```console
-curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/session-settlement \
--H "Content-Type: application/json" \
--d '{"symbol":"BTC-22OCT21-45000-C"}'
-
-```
-
-```python
-
-```
-
-
-> t(:codequote_responseExample)
-
-```javascript
-{
-  "retCode":0,
-    "retMsg":"OK",
-    "result":{
-    "resultTotalSize":1,
-      "cursor":"",
-      "dataList":[
-        {
-          "symbol":"1fd26147-247d-4433-9845-a236981c3689",
-          "side":"Buy",
-          "size":"1",
-          "sessionAvgPrice":"1",
-          "markPrice":"100",
-          "sessionRpl":"100"
-        }
-    ]
-  }
-}
-```
-
-
-<p class="fake_header">t(:httprequest)</p>
-POST
-<code><span id=upovSession>/option/usdc/openapi/private/v1/session-settlement</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#upovSession"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|symbol|<b>true</b>|string|t(:usdcSymbol)|
-|direction|false|string|t(:direction)|
-|limit|false|number|t(:usdcMax50Min20)|
-|cursor|false|string|t(:cursor)|
-
-
-<p class="fake_header">t(:responseparameters)</p>
-
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|resultTotalSize|number|t(:resultTotalSize)|
-|cursor|string|t(:cursor)|
-|dataList|list|t(:dataList)|
-
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|symbol|string|t(:usdcSymbol)|
-|side|string|t(:side)|
-|size|string|t(:usdcSize)|
-|sessionAvgPrice|string|t(:sessionAvgPrice)|
-|markPrice|string|t(:markPrice)|
-|sessionRpl|string|t(:sessionRpl)|
-|cursor|string|t(:cursor)|
-
-
-
 ### t(:queryPositionInfo)
 
-Option only.
 
 > t(:codequote_curlExample)
 
@@ -1499,104 +1283,3 @@ POST
 |sessionRpl|string|t(:sessionRpl)|
 |im|string|t(:usdcIm)|
 |mm|string|t(:usdcMm)|
-
-## t(:riskLimit)
-
-
-### t(:queryRiskLimits)
-Perpetual only.
-
-> t(:codequote_curlExample)
-
-```console
-curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/risk-limit/list \
--H "Content-Type: application/json" \
--d '{"symbol":"BTCUSD"}'
-```
-
-```python
-
-```
-
-
-> t(:codequote_responseExample)
-
-```javascript
-
-```
-
-
-<p class="fake_header">t(:httprequest)</p>
-POST
-<code><span id=uopv>/perpetual/usdc/openapi/public/v1/risk-limit/list</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopv"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|symbol|<b>true</b>|string|t(:usdcSymbol)|
-
-
-<p class="fake_header">t(:responseparameters)</p>
-
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|symbol|string|t(:usdcSymbol)|
-|riskId|number|t(:riskId)|
-|limit|string|t(:usdcRiskLimit)|
-|maintainMargin|string|t(:maintainMargin)|
-|startingMargin|string|t(:startingMargin)|
-|section|string|t(:section)|
-|isLowestRisk|string|t(:isLowestRisk)|
-|maxLeverage|string|t(:maxLeverage)|
-
-
-### t(:setRiskLimits)
-
-Perpetual only.
-> t(:codequote_curlExample)
-
-```console
-curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/position/set-risk-limit \
--H "Content-Type: application/json" \
--d '{"symbol":"BTCUSD","risk_id":2}'
-
-```
-
-```python
-
-```
-
-
-> t(:codequote_responseExample)
-
-```javascript
-{
-    "retCode": 0,
-    "retMsg": "OK",
-    "result": {
-        "riskId": 2
-  }
-}
-```
-
-
-<p class="fake_header">t(:httprequest)</p>
-POST
-<code><span id=uopvSetRisk>/perpetual/usdc/openapi/private/v1/position/set-risk-limit</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvSetRisk"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|symbol|<b>true</b>|string|t(:usdcSymbol)|
-|riskId|<b>true</b>|number|t(:riskId)|
-
-
-<p class="fake_header">t(:responseparameters)</p>
-
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|riskId|number|t(:riskId)|

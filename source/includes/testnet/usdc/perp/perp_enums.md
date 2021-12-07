@@ -5,14 +5,6 @@ t(:ENUMs_para)
 * `Buy`
 * `Sell`
 
-## PlaceMode (`placeMode`)
-* `1` - basic
-* `2` - advanced
-
-## PlaceType (`placeType`)
-* `1` - price
-* `2` - iv
-
 ## Time in force (`timeInForce`)
 * `GoodTillCancel`
 * `ImmediateOrCancel`
@@ -24,9 +16,8 @@ t(:usdc_trading_symbol_comment)
 
 
 ## Order type (`type`/`orderTypes`)
-* `LIMIT`
-* `MARKET`
-* `LIMIT_MAKER`
+* `Limit`
+* `Market`
 
 
 ## Currency (`currency`/`coin`)
@@ -34,19 +25,17 @@ t(:usdc_trading_symbol_comment)
 
 
 ## Order status (`status`)
-* `NEW`
-* `PARTIALLY_FILLED`
-* `FILLED`
-* `CANCELED`
-* `PENDING_CANCEL`
-* `PENDING_NEW`
-* `REJECTED`
+* `New`
+* `PartiallyFilled`
+* `Filled`
+* `Cancelled`
+* `Rejected`
 
 ## Quantity (`qty`)
-t(:usdcQuantity)
+t(:usdc_perp_quantity)
 
 ## Price (`price`)
-t(:usdcPriceRule)
+t(:usdc_perp_price_rule)
 
 
 ## Kline interval (`interval`)
@@ -75,3 +64,16 @@ t(:usdcPriceRule)
 ## Margin Mode
 * `REGULAR_MARGIN`
 * `PORTFOLIO_MARGIN`
+
+
+## Order Filter
+* `Order`
+* `StopOrder`
+
+## LastLiquidityInd
+* `TAKER`
+* `MAKER`
+
+
+## Exec Type
+* `TRADE`

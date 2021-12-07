@@ -2483,7 +2483,8 @@ en:
   usdcList: list
   usdcSymbol: Contract name
   usdcTickerInfo: Latest Symbol Info
-  usdcOrderBookSide: Direction. For Option, ASK or BID. For Perpetual Buy or Sell.
+  usdcOrderBookSide: Direction. ASK or BID.
+  usdcPerpOrderBookSide: Direction, Buy or Sell
   usdcSize: size
   usdcOrderBook: OrderBook
   usdcPeriod: |
@@ -2537,17 +2538,17 @@ en:
   usdcQuoteCoin: Quote currency
   usdcTakerFeeRate: Taker fee rate
   usdcMakerFeeRate: Maker fee rate
-  minLeverage: Min. leverage  (Perpetual only)
-  maxLeverage: Max. leverage (Perpetual only)
-  leverageStep: Modification to leverage  (Perpetual only)
+  minLeverage: Min. leverage
+  maxLeverage: Max. leverage
+  leverageStep: Modification to leverage
   minPrice: Min. order price
   maxPrice: Max. order price
   tickSize: Tick size
   minTradingQty: Min. order quantity
   maxTradingQty: Max. order quantity
   qtyStep: Min. order quantity increment
-  deliveryFeeRate: Delivery fee rate (Options only)
-  deliveryTime: Delivery time, unit in milliseconds (Options only)
+  deliveryFeeRate: Delivery fee rate
+  deliveryTime: Delivery time, unit in milliseconds
   timestamp: Timestamp, unit in milliseconds
   usdcValue: Order value
 
@@ -2643,29 +2644,28 @@ en:
     The frequency limit for Options is no more than 20 requests per second.
   usdc_websocket_subscribe_desc: |
     <p>Subscribing:</p>
-    <p>ws.send(‘{“method”:“public/subscribe”,“id”:“{uuid}“,”params”:{“channels”:[“topic1",“topic2”]}}‘)</p>
+    <p>ws.send('{"method":"public/subscribe","id":"{uuid}","params":{"channels":["topic1","topic2"]}}')</p>
     <p>or </p>
-    <p>ws.send(‘{“method”:“private/subscribe”,“id”:“{uuid}“,”params”:{“channels”:[“topic1",“topic2”]}}‘)</p>
+    <p>ws.send('{"method":"private/subscribe","id":"{uuid}","params":{"channels":["topic1","topic2"]}}')</p>
     <p>Response:</p>
-    <p>{“id”:“{uuid}“,”code”:0,“data”:{“successChannels”:[“topic1”],“failChannels”:[“topic2”]},“type”:“COMMAND_RESP”}</p>
+    <p>{"id":"{uuid}","code":0,"data":{"successChannels":["topic1"],"failChannels":["topic2"]},"type":"COMMAND_RESP"}</p>
   usdc_websocket_unsubscribe_desc: |
     <p>Remove WebSocket Topic Subscriptions</p>
-    <p>ws.send(‘{“method”:“public/unsubscribe”,“id”:“{uuid}“,”params”:{“channels”:[“topic1",“topic2”]}}‘)  </p>
+    <p>ws.send('{"method":"public/unsubscribe","id":"{uuid}","params":{"channels":["topic1","topic2"]}}')  </p>
     <p>or  </p>
-    <p>ws.send(‘{“method”:“private/unsubscribe”,“id”:“{uuid}“,”params”:{“channels”:[“topic1",“topic2”]}}’) </p>
+    <p>ws.send('{"method":"private/unsubscribe","id":"{uuid}","params":{"channels":["topic1","topic2"]}}’) </p>
     <p>Response: </p>
-    <p>{“id”:“{uuid}“,”code”:0,“data”:{“successChannels”:[“topic1”],“failChannels”:[“topic2”]},“type”:“COMMAND_RESP”}</p>
+    <p>{"id":"{uuid}","code":0,"data":{"successChannels":["topic1"],"failChannels":["topic2"]},"type":"COMMAND_RESP"}</p>
 
     <p>Remove All WebSocket Topic Subscriptions</p>
-    <p>{“method”:“public/unSubAll”,“id”:“requestId”}</p>
+    <p>{"method":"public/unSubAll","id":"requestId"}</p>
     <p>Response:</p>
-    <p> {“id”:“requestId”,“code”:0,“type”:“COMMAND_RESP”}</p>
+    <p> {"id":"requestId","code":0,"type":"COMMAND_RESP"}</p>
 
 
   usdc_websocket_para_orderbook: |
-    <p>Either 25 or 100 or 200 orders will be fetched from the bid and ask side of the order book.</p>
+    <p>Either 25 or 100 orders will be fetched from the bid and ask side of the order book.</p>
     <p>After a successful subscription, it will always provide the snapshot response.</p>
-    <p>For option, only 25 or 100 orders will be fetched.</p>
     <p>Topic format:</p>
     <p>Either orderbook25.{symbol} or orderbook100.{symbol} for Option.</p>
     <p>Such as orderbook25.BTC-5NOV21-30000-P or orderbook100.BTC-5NOV21-30000-P</p>
@@ -2684,7 +2684,7 @@ en:
 
 
 
-  usdcOrderType: Order type (MARKET is not supported currently for Options)
+  usdcOrderType: refer to<a href="#order-type-type-ordertypes">Order type</a> (MARKET is not supported currently for Options)
   optionIv: Implied volatility
   optionPlaceMode: Order mode, can be Advanced or Basic.For Perpetual, can be empty,But for Option, can not be empty.Number 1 is basic and number 2 is advanced.If 1, <code>orderQty</code> and <code>orderPrice</code> can not be empty. If 2, refer to <code>placeType</code>.
   optionPlaceType: Order type, can be price or implied volatility.Number 1 is price and number 2 is implied volatility. If 1,orderQty and orderPrice can not be empty. If 2, <code>iv</code> and <code>orderQty</code> can not be empty.
@@ -2706,25 +2706,24 @@ en:
   stopLoss: Stop-loss price (Perpetual)
   usdcOrderId: Order ID
   uscdOrderType: Order type
-  usdcOrderFilter: Active order or close order, required for Perpetual
+  usdcOrderFilter: refer to  <a href="#order-filter">Order Filter</a>
   usdcReplaceOrderId: Order ID, required for Options
-  usdcOrderLinkId: Either orderId or orderLinkId is required (Perpetual)
+  usdcOrderLinkId: Either orderId or orderLinkId is required
   cancelAllResponse: This is used to cancel all active orders . The real-time response indicates whether the request is successful, depending on retCode.
   usdcSymbolInfo: Query for all if blank.
   symbolStatus: Status, can be WAITING_ONLINE, ONLINE, DELIVERING, or OFFLINE
 
   placeOrderInfo: |
     <p>Place an order using the USDC Derivatives Account. </p>
-    <p>Once an order is placed, a corresponding portion of your wallet balance will be frozen. The amount depends on parameter configuration specified in your order.   </p>
     <p>The request status can be queried in real time. </p>
     <p>The response parameters must be queried through a query or a WebSocket response.</p>
-  replaceInfo: For Options, at least one of the three parameters — price, quantity or implied volatility — must be input. For Derivatives, either price or quantity is required.
+  replaceInfo: For Options, at least one of the three parameters — price, quantity or implied volatility — must be input.
   leavesValue: Est. order value of unfilled orders
   cumExecQty: Total filled quantity
   cumExecValue: Total order value of filled orders
   cumExecFee: Total trading fees
   im: Initial margin
-  orderStatus: Order status
+  orderStatus: <a href="#order-status-status">Order status</a>
   lastExecPrice: Filled price
   basePrice: Market price during order placement
   createdAt: Creation time
@@ -2772,28 +2771,28 @@ en:
   entryPrice: Avg. entry price
   positionPnl: UPL derived from the avg. entry price
   roi: ROI
-  tpSlMode: TP/SL settings (Perpetual)
-  positionValue: Position value (Perpetual)
-  liqPrice: Liquidation price (Perpetual)
-  trailingStop: Trailing stop (Perpetual)
-  bustPrice: Bankruptcy price (Perpetual)
-  occClosingFee: Position closing fees (Perpetual)
-  occFundingFee: Est. funding fees (Perpetual)
-  trakeProfit: Take-profit price (Perpetual)
-  positionStatus: Position status; can be normal, liquidating, and auto deleveraging (Perpetual)
-  deleverageIndicator: ADL indicators; can be 1,2,3,4,5 (Perpetual)
+  tpSlMode: TP/SL settings
+  positionValue: Position value
+  liqPrice: Liquidation price
+  trailingStop: Trailing stop
+  bustPrice: Bankruptcy price
+  occClosingFee: Position closing fees
+  occFundingFee: Est. funding fees
+  trakeProfit: Take-profit price
+  positionStatus: Position status; can be normal, liquidating, and auto deleveraging
+  deleverageIndicator: ADL indicators; can be 1,2,3,4,5
   orderMargin: Pre-occupied order margin
-  unrealisedPnl: unrealised pnl (Perpetual)
-  cumRealisedPnl: Accumulated realised pnl (all-time total) (Perpetual)
-  cumCommission: Commission (Perpetual)
+  unrealisedPnl: unrealised pnl
+  cumRealisedPnl: Accumulated realised pnl (all-time total)
+  cumCommission: Commission
 
-  trailingActive: Trigger price for trailing stop (Perpetual)
-  slSize: Stop-loss order quantity (Perpetual)
-  tpSize: Take-profit order quantity (Perpetual)
+  trailingActive: Trigger price for trailing stop
+  slSize: Stop-loss order quantity
+  tpSize: Take-profit order quantity
 
-  tradingStopTakeProfit: Take-profit price, cannot be less than zero; zero means canceling TP (Perpetual)
-  tradingStopLoss: Stop-loss price, cannot be less than zero; zero means canceling SL (Perpetual)
-  tradingTrailingStop: Trailing stop, cannot be less than zero; zero means canceling TS (Perpetual)
+  tradingStopTakeProfit: Take-profit price, cannot be less than zero; zero means canceling TP
+  tradingStopLoss: Stop-loss price, cannot be less than zero; zero means canceling SL
+  tradingTrailingStop: Trailing stop, cannot be less than zero; zero means canceling TS
   userId: UID
   usdcId: Position ID
   positionMargin: Position margin
@@ -2801,7 +2800,7 @@ en:
 
   usdcLeverage: Must be greater than zero and less than the max. leverage allowed
   endTime: End time, unit in seconds
-  execType: Execution type (cannot be “Funding”)
+  execType: <a href="#exec-type">Execution type</a>
   closedSize: Quantity to close
   cumEntryValue: Position value to close
   cumExitValue: Position value of the filled close order
@@ -2851,11 +2850,11 @@ en:
   usdcturnover: 24-hour turnover
   usdcconfirm: Confirmed or not
   usdcautoAddMargin: Whether auto margin replenishment has been enabled
-  isIsolated: True means isolated margin, false means cross margin (Perpetual)
-  execValue: Position value (Perpetual)
+  isIsolated: True means isolated margin, false means cross margin
+  execValue: Position value
   excPrice: Filled price
   execQty: Filled quantity
-  lastLiquidityInd: Liquidity (Perpetual)
+  lastLiquidityInd:  <a href="#lastliquidityind">Liquidity</a>
   leavesQty: Unfilled quantity
   createType: Order placement
   cancelType: Order cancelation
@@ -2885,13 +2884,12 @@ en:
     <p>If the Bybit server does not receive a "ping" from the client for more than 3 minutes, the server will determine that the client has been disconnected (if it is not disconnected, the Bybit server will also actively disconnect at this time).</p>
     <p>If the server determines and disconnects the link, and the client is in the state of "disconnection protection", all open orders of the client will be automatically cancelled.</p>
 
-  usdcMethodInfo: All methods are POST methods
   usdc_auth_para_construct1: <p>1.The parameters are in json format</p>
   resultTotalSize: length of dataList
   dataList: Return the result list, refer to the following fields
-  usdcBatchOrdersDesc: Each request supports a max. of four orders. Options only.
+  usdcBatchOrdersDesc: Each request supports a max. of four orders.
   publicTopic: Public Topic
-  bybitTradeHistory: Trade History on Bybit
+  bybitTradeHistory: Trade
   insuranceFund: Insurance Fund
   latestSymbolInfo: Latest Symbol Info
   userPositionsInfo: Position
@@ -2912,21 +2910,22 @@ en:
   udscGeeksDesc: |
     <p>topic:</p>
     <p>Option: user.option.greeks</p>
-  usdc_trading_symbol_comment: refer to <a href="#querySymbolInfo">Query Symbol</a> endpoint
+  usdc_trading_symbol_comment: refer to <a href="#t-querysymbolinfo">Query Symbol</a> endpoint
   usdcPriceRule:
     <ul>
-    <li>Must be less than 1 million (<code>1000000</code>)</li>
+    <li>Must be less than 10 million (<code>10000000</code>)</li>
     <li>Must be a positive number：
     <ul>
     <li><code>40</code> - allowed</li>
-    <li><code>40.01</code> - allowed</li>
+    <li><code>40.5</code> - allowed</li>
+    <li><code>40.1</code> - not allowed</li>
     <li><code>-30.5</code> - not allowed</li>
     </ul>
     </li>
     </ul>
   usdcQuantity:
     <ul>
-    <li>Must be less than 1 million  (<code>1000000</code>)</li>
+    <li>Must be less than 1 thousand  (<code>1000</code>)</li>
     <li>Must be a positive number：
     <li>Must conform to the symbol's <code>qtyStep</code>.</li>
     <ul>
@@ -2993,3 +2992,126 @@ en:
   usdcActiveOrder: |
     <p>topic:</p>
     <p>Option: user.option.order</p>
+  usdcPerpCategory: Type. PERPETUAL
+  usdcPerpOrderType: <a href="#order-type-type-ordertypes">Order Type</a>
+  usdc_perp_order_price: Order Price
+  usdc_perp_websocket_subscribe_desc: |
+    <p>Subscribing:</p>
+    <p>Public:</p>
+    <p>ws.send('{"op": "subscribe", "args": ["orderBook_200.100ms.BTCPERP"]}')</p>
+    <p>Response:</p>
+    <p>{"success":true,"ret_msg":"","conn_id":"6808c806-6fe5-4001-9355-816babba3fcd","request":{"op":"subscribe","args":["orderBook_200.100ms.BTCPERP"]}}</p>
+
+    <p>Private:</p>
+    <p>ws.send('{"method":"private/subscribe","id":"{uuid}","params":{"channels":["user.option.order"]}}')</p>
+    <p>Response:</p>
+    <p>{"id":"requestId","code":0,"data":{"successChannels":["user.option.order"]},"usIn":1638415789932,"usOut":1638415789932,"usDiff":0,"type":"COMMAND_RESP"}</p>
+  usdc_perp_websocket_unsubscribe_desc: |
+    <p>Understanding</p>
+     <p>Public:</p>
+    <p>ws.send('{"op": "unsubscribe", "args": ["orderBook_200.100ms.BTCPERP"]}'); </p>
+    <p>Response:</p>
+    <p>{"success":true,"ret_msg":"","conn_id":"c53a9a5c-ff3a-443a-b56d-2cbd8552566f","request":{"op":"unsubscribe","args":["orderBook_200.100ms.BTCPERP"]}}</p>
+
+    <p>Private:</p>
+    <p>ws.send('{"method":"private/unsubscribe","id":"{uuid}","params":{"channels":["topic1","topic2"]}}’) </p>
+    <p>{"id":"{uuid}","code":0,"data":{"successChannels":["topic1"],"failChannels":["topic2"]},"type":"COMMAND_RESP"}</p>
+    <p>Cancel All Private Topics</p>
+    <p>{"method":"public/unSubAll","id":"requestId"}</p>
+    <p>Response:</p>
+    <p> {"id":"requestId","code":0,"type":"COMMAND_RESP"}</p>
+  usdc_perp_websocket_para_orderbook: |
+    <p>Either 25 or 200 orders will be fetched from the bid and ask side of the order book.</p>
+    <p>After a successful subscription,  the first response will be a snapshot data, then provide the delta data</p>
+    <p>topic format：orderBookL2_25.{symbol} or orderBook_200.100ms.{symbol}</p>
+    <p>orderBookL2_25.BTCPERP or orderBook_200.100ms.BTCPERP</p>
+  usdc_current_24_total_perp:
+    <p>Fetch the transaction data on Bybit in the last 24 hours.</p>
+    <p>topic format：trade.{symbol}</p>
+    <p>trade.BTCPERP</p>
+
+
+  usdc_perp_lastest_symbol_info: |
+    <p>topic format: instrument_info.100ms.{symbol}</p>
+    <p>instrument_info.100ms.BTCPERP</p>
+  usdc_perp_position_desc: |
+    <p>topic:</p>
+    <p>user.perp.position</p>
+  usdc_perp_trade_history: |
+    <p>topic:</p>
+    <p>user.perp.trade</p>
+  usdc_perp_active_order: |
+    <p>Subscribe to stay updated on active orders.</p>
+    <p>topic:</p>
+    <p>user.perp.order</p>
+  usdc_perp_order_desc: |
+    <p>topic:</p>
+    <p>user.perp.orderHistory</p>
+
+  usdc_perp_price_rule:
+    <ul>
+    <li>Must be less than 1 million (<code>1000000</code>)</li>
+    <li>Must be a positive number：
+    <ul>
+    <li><code>40</code> - allowed</li>
+    <li><code>40.5</code> - allowed</li>
+    <li><code>40.1</code> - not allowed</li>
+    <li><code>-30.5</code> - not allowed</li>
+    </li>
+    </ul>
+  usdc_perp_quantity:
+    <ul>
+    <li>Must be less than 1 thousand (<code>1000</code>)</li>
+    <li>Must be a positive number：
+    <ul>
+    <li><code>40</code> - allowed</li>
+    <li><code>40.001</code> - allowed</li>
+    <li><code>-30.5</code> - not allowed</li>
+    </ul>
+    </li>
+    </ul>
+  usdc_ip_rate_para_understanding: |
+    <p>The IP limits are shared across all endpoints.</p>
+    <p>Bybit has different IP frequency limits for <code>GET</code> and <code>POST</code> method<span>:</span></p>
+    <ul>
+    <li>
+      <code>GET</code> method:
+      <ul>
+        <li>50 requests per second continuously for 2 minutes</li>
+        <li>70 requests per second continuously for 5 seconds</li>
+      </ul>
+    </li>
+    <li>
+      <code>POST</code> method:
+      <ul>
+        <li>20 requests per second continuously for 2 minutes</li>
+        <li>50 requests per second continuously for 5 seconds</li>
+      </ul>
+    </li>
+    </ul>
+  usdc_perp_websocket_para_endpoint: |
+    Websocket Server Address :
+    <ul>
+    <p>
+      <li>Testnet:
+        Public: <span id="testnet_address">wss://stream-testnet.bybit.com/perpetual/ws/v1/realtime_public</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <br/>
+
+        Private: <span id="testnet_address_2">wss://stream-testnet.bybit.com/trade/option/usdc/private/v1</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+      </li>
+    </p>
+    <p>
+
+    </p>
+    <p>All requests made to the private API must be authenticated. Requests made to the public API do not require authentication.</p>
+    </ul>
+  usdc_perp_order_type: refer to <a href="#order-type-type-ordertypes">Order Type</a>
+  usdc_perp_active_orders_snapshot: Active Orders(Full Data)
+  usdc_perp_active_orders_delta: Active Orders(Status)
+  usdc_perp_active_order_delta_topic: |
+    <p>Subscribe to stay updated on new and partially filled active orders.</p>
+    <p>topic:</p>
+    <p>user.perp.order.t</p>
+  usdc_unfilled_order_size: unfilled size of order
