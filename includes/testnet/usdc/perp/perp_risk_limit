@@ -1,0 +1,156 @@
+<h1 id='t-risklimit'>t(:riskLimit)</h1><h2 id='t-queryrisklimits'>t(:queryRiskLimits)</h2>
+<blockquote>
+<p>t(:codequote_curlExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com//perpetual/usdc/openapi/public/v1/risk-limit/list \
+-H "Content-Type: application/json" \
+-d '{"symbol":"BTCUSD"}'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+</code></pre></div>
+<blockquote>
+<p>t(:codequote_responseExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code>
+</code></pre></div>
+<p>t(:riskLimitDesc)</p>
+
+<p class="fake_header">t(:httprequest)</p>
+
+<p>POST
+<code><span id=vpoCreate>/perpetual/usdc/openapi/public/v1/risk-limit/list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_required)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">t(:responseparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">riskId</td>
+<td style="text-align: left">number</td>
+<td>t(:riskId)</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcRiskLimit)</td>
+</tr>
+<tr>
+<td style="text-align: left">maintainMargin</td>
+<td style="text-align: left">string</td>
+<td>t(:maintainMargin)</td>
+</tr>
+<tr>
+<td style="text-align: left">startingMargin</td>
+<td style="text-align: left">string</td>
+<td>t(:startingMargin)</td>
+</tr>
+<tr>
+<td style="text-align: left">section</td>
+<td style="text-align: left">string</td>
+<td>t(:section)</td>
+</tr>
+<tr>
+<td style="text-align: left">isLowestRisk</td>
+<td style="text-align: left">string</td>
+<td>t(:isLowestRisk)</td>
+</tr>
+<tr>
+<td style="text-align: left">maxLeverage</td>
+<td style="text-align: left">string</td>
+<td>t(:maxLeverage)</td>
+</tr>
+</tbody></table>
+<h2 id='t-setrisklimits'>t(:setRiskLimits)</h2>
+<blockquote>
+<p>t(:codequote_curlExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/position/set-risk-limit \
+-H "Content-Type: application/json" \
+-d '{"symbol":"BTCUSD","risk_id":2}'
+
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+</code></pre></div>
+<blockquote>
+<p>t(:codequote_responseExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">riskId</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">t(:httprequest)</p>
+
+<p>POST
+<code><span id=vpoCreate>/perpetual/usdc/openapi/private/v1/position/set-risk-limit</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_required)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">riskId</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">number</td>
+<td>t(:riskId)</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">t(:responseparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">riskId</td>
+<td style="text-align: left">number</td>
+<td>t(:riskId)</td>
+</tr>
+</tbody></table>

@@ -658,6 +658,7 @@
             <span class="dropdown-content-selected"><a href=/docs/zh-cn/spot>Mainnet</a></span>
             <a href=/docs/zh-cn/testnet/spot>Testnet</a>
 
+
       </div>
     </div>
   </li>
@@ -2674,7 +2675,7 @@ orderId和ordersLinkId至少要輸入一個。
 <span class="p">}</span>
 </code></pre></div>
 <aside class="notice">
-此接口只提交取消請求，實際取消結果需要通過訂單狀態，撮合狀態等接口來確認。
+此接口只提交取消請求，實際取消結果需要通過訂單狀態，撮合狀態等接口來確認。(這是個同步結算接口)
 </aside>
 
 <p class="fake_header">HTTP 請求</p>
@@ -2757,7 +2758,7 @@ orderId和ordersLinkId至少要輸入一個。
 <span class="p">}</span>
 </code></pre></div>
 <aside class="notice">
-此接口只提交取消請求，實際取消結果需要通過訂單狀態，撮合狀態等接口來確認。
+此接口只提交取消請求，實際取消結果需要通過訂單狀態，撮合狀態等接口來確認。(這是個異步結算接口)
 </aside>
 
 <p class="fake_header">HTTP 請求</p>
@@ -3381,6 +3382,18 @@ orderId和ordersLinkId至少要輸入一個。
 <td style="text-align: left">false</td>
 <td style="text-align: left">integer</td>
 <td>以此tradeId為終點</td>
+</tr>
+<tr>
+<td style="text-align: left">startTime</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">long</td>
+<td>起始時間戳（單位秒）</td>
+</tr>
+<tr>
+<td style="text-align: left">endTime</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">long</td>
+<td>結束時間</td>
 </tr>
 </tbody></table>
 

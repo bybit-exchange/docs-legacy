@@ -648,7 +648,17 @@
   <li><a href="/docs/spot" class="selected">Spot</a></li>
   <li><a href="/docs/account_asset">Account Asset</a></li>
 
-        <li><a href="/docs/testnet/usdc">USDC Contract</a></li>
+    <li>
+        <div class="dropdown">
+          <button class="dropbtn">USDC Contract
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+                <a href=/docs/usdc/option>Option</a>
+                <a href=/docs/usdc/perpetual>Perpetual</a>
+          </div>
+        </div>
+    </li>
 
   <li>
     <div class="dropdown">
@@ -658,6 +668,7 @@
       <div class="dropdown-content">
             <a href=/docs/spot>Mainnet</a>
             <span class="dropdown-content-selected"><a href=/docs/testnet/spot>Testnet</a></span>
+
 
       </div>
     </div>
@@ -2677,7 +2688,7 @@ At least one must be entered in the orderId field and the ordersLinkId field
 <span class="p">}</span>
 </code></pre></div>
 <aside class="notice">
-The actual result of the cancellation request needs to be checked by order status or match result endpoints after submitting the request.
+The actual result of the cancellation request needs to be checked by order status or match result endpoints after submitting the request.(It is a synchronous settlement API)
 </aside>
 
 <p class="fake_header">HTTP Request</p>
@@ -2760,7 +2771,7 @@ The actual result of the cancellation request needs to be checked by order statu
 <span class="p">}</span>
 </code></pre></div>
 <aside class="notice">
-The actual result of the cancellation request needs to be checked by order status or match result endpoints after submitting the request.
+The actual result of the cancellation request needs to be checked by order status or match result endpoints after submitting the request.(It is an asynchronous settlement API)
 </aside>
 
 <p class="fake_header">HTTP Request</p>
@@ -3384,6 +3395,18 @@ The actual result of the cancellation request needs to be checked by order statu
 <td style="text-align: left">false</td>
 <td style="text-align: left">integer</td>
 <td>Query ends with the trade ID</td>
+</tr>
+<tr>
+<td style="text-align: left">startTime</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">long</td>
+<td>Start time</td>
+</tr>
+<tr>
+<td style="text-align: left">endTime</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">long</td>
+<td>End time</td>
 </tr>
 </tbody></table>
 

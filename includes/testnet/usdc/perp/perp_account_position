@@ -1,0 +1,799 @@
+<h1 id='t-accountposition'>t(:accountPosition)</h1><h2 id='t-queryposition'>t(:queryPosition)</h2>
+<blockquote>
+<p>t(:codequote_curlExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-position \
+-H "Content-Type: application/json" \
+-D '{"symbol":"BTC-22OCT21-40000-C","category":"option"}'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+</code></pre></div>
+<blockquote>
+<p>t(:codequote_responseExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:{</span>
+    <span class="dl">"</span><span class="s2">resultTotalSize</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">cursor</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTC-22OCT21-40000-C%3A1634287448443%2CBTC-22OCT21-40000-C%3A1634287448443</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">dataList</span><span class="dl">"</span><span class="p">:[</span>
+      <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">riskId</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTC-22OCT21-40000-C</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.20</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">entryPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">19000.0</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">sessionAvgPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">19000.0</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">markPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">19136.49</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">sessionUPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">27.2974</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">sessionRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">IM</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">MM</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">createdAt</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1634287448443</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">updatedAt</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1634287448443</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">tpSLMode</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">positionValue</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">leverage</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">liqPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">trailingStop</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">bustPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">occClosingFee</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">trakeProfit</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">stopLoss</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">positionStatus</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">deleverageIndicator</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderMargin</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">unrealisedPnl</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">cumRealisedPnl</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">t(:httprequest)</p>
+
+<p>POST
+<code><span id=vpoCreate>/option/usdc/openapi/private/v1/query-position</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_required)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">category</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcCategory)</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:cursor)</td>
+</tr>
+<tr>
+<td style="text-align: left">direction</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:direction)</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcPositionLimit)</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">t(:responseparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">resultTotalSize</td>
+<td style="text-align: left">number</td>
+<td>t(:resultTotalSize)</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">string</td>
+<td>t(:cursor)</td>
+</tr>
+<tr>
+<td style="text-align: left">dataList</td>
+<td style="text-align: left">list</td>
+<td>t(:dataList)</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">riskId</td>
+<td style="text-align: left">string</td>
+<td>riskId</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">string</td>
+<td>t(:side)</td>
+</tr>
+<tr>
+<td style="text-align: left">size</td>
+<td style="text-align: left">string</td>
+<td>t(:uscdSize)</td>
+</tr>
+<tr>
+<td style="text-align: left">entryPrice</td>
+<td style="text-align: left">string</td>
+<td>t(:entryPrice)</td>
+</tr>
+<tr>
+<td style="text-align: left">sessionAvgPrice</td>
+<td style="text-align: left">string</td>
+<td>t(:sessionAvgPrice)</td>
+</tr>
+<tr>
+<td style="text-align: left">markPrice</td>
+<td style="text-align: left">string</td>
+<td>t(:markPrice)</td>
+</tr>
+<tr>
+<td style="text-align: left">positionPnl</td>
+<td style="text-align: left">string</td>
+<td>t(:positionPnl)</td>
+</tr>
+<tr>
+<td style="text-align: left">sessionUpl</td>
+<td style="text-align: left">string</td>
+<td>t(:sessionUpl)</td>
+</tr>
+<tr>
+<td style="text-align: left">sessionRpl</td>
+<td style="text-align: left">string</td>
+<td>t(:sessionRpl)</td>
+</tr>
+<tr>
+<td style="text-align: left">IM</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcIm)</td>
+</tr>
+<tr>
+<td style="text-align: left">MM</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcMm)</td>
+</tr>
+<tr>
+<td style="text-align: left">createdAt</td>
+<td style="text-align: left">string</td>
+<td>t(:createdAt)</td>
+</tr>
+<tr>
+<td style="text-align: left">updatedAt</td>
+<td style="text-align: left">string</td>
+<td>t(:updatedAt)</td>
+</tr>
+<tr>
+<td style="text-align: left">tpSlMode</td>
+<td style="text-align: left">string</td>
+<td>t(:tpSlMode)</td>
+</tr>
+<tr>
+<td style="text-align: left">positionValue</td>
+<td style="text-align: left">string</td>
+<td>t(:positionValue)</td>
+</tr>
+<tr>
+<td style="text-align: left">leverage</td>
+<td style="text-align: left">string</td>
+<td>t(:leverage)</td>
+</tr>
+<tr>
+<td style="text-align: left">liqPrice</td>
+<td style="text-align: left">string</td>
+<td>t(:liqPrice)</td>
+</tr>
+<tr>
+<td style="text-align: left">trailingStop</td>
+<td style="text-align: left">string</td>
+<td>t(:trailingStop)</td>
+</tr>
+<tr>
+<td style="text-align: left">bustPrice</td>
+<td style="text-align: left">string</td>
+<td>t(:bustPrice)</td>
+</tr>
+<tr>
+<td style="text-align: left">occClosingFee</td>
+<td style="text-align: left">string</td>
+<td>t(:occClosingFee)</td>
+</tr>
+<tr>
+<td style="text-align: left">trakeProfit</td>
+<td style="text-align: left">string</td>
+<td>t(:trakeProfit)</td>
+</tr>
+<tr>
+<td style="text-align: left">stopLoss</td>
+<td style="text-align: left">string</td>
+<td>t(:stopLoss)</td>
+</tr>
+<tr>
+<td style="text-align: left">positionStatus</td>
+<td style="text-align: left">string</td>
+<td>t(:positionStatus)</td>
+</tr>
+<tr>
+<td style="text-align: left">deleverageIndicator</td>
+<td style="text-align: left">string</td>
+<td>t(:deleverageIndicator)</td>
+</tr>
+<tr>
+<td style="text-align: left">orderMargin</td>
+<td style="text-align: left">string</td>
+<td>t(:orderMargin)</td>
+</tr>
+<tr>
+<td style="text-align: left">unrealisedPnl</td>
+<td style="text-align: left">string</td>
+<td>t(:unrealisedPnl)</td>
+</tr>
+<tr>
+<td style="text-align: left">cumRealisedPnl</td>
+<td style="text-align: left">string</td>
+<td>t(:cumRealisedPnl)</td>
+</tr>
+</tbody></table>
+<h2 id='t-setpositionleverage'>t(:setPositionLeverage)</h2>
+<blockquote>
+<p>t(:codequote_curlExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">
+curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/position/leverage/save \
+-H "Content-Type: application/json" \
+-d '{"symbol":"BTCUSD","buy_leverage":14,"sell_leverage":14}'
+
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Positions</span><span class="p">.</span><span class="n">Positions_saveLeverage</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span> <span class="n">leverage</span><span class="o">=</span><span class="s">"14"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
+
+</code></pre></div>
+<blockquote>
+<p>t(:codequote_responseExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">extCode</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">extInfo</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">leverage</span><span class="dl">"</span><span class="p">:</span> <span class="mi">10</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">t(:httprequest)</p>
+
+<p>POST
+<code><span id=vpoCreate>/perpetual/usdc/openapi/private/v1/position/leverage/save</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_required)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">leverage</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">number</td>
+<td>t(:usdcLeverage)</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">t(:responseparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">leverage</td>
+<td style="text-align: left">number</td>
+<td>t(:leverage)</td>
+</tr>
+</tbody></table>
+<h2 id='t-querydeliverylog'>t(:queryDeliveryLog)</h2>
+<blockquote>
+<p>t(:codequote_curlExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-delivery-list \
+-H "Content-Type: application/json" \
+-d '{"symbol":"BTC-22OCT21-45000-C"}'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+</code></pre></div>
+<blockquote>
+<p>t(:codequote_responseExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:{</span>
+    <span class="dl">"</span><span class="s2">resultTotalSize</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">cursor</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">ccc62b1a-e1a0-42b6-86b5-3570e22cfbdf%3A1634284800789%2Cb09397d8-4da1-4d32-b70f-c59efd381f66%3A1634284800769</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">dataList</span><span class="dl">"</span><span class="p">:[</span>
+      <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">deliveryTime</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1634284800789</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTC-15OCT21-30000-P</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">position</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.00</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">deliveryPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">59307.0</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">strike</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">30000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">fee</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">deliveryRpl</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">t(:httprequest)</p>
+
+<p>POST
+<code><span id=vpoCreate>/option/usdc/openapi/private/v1/query-delivery-list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_required)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">expDate</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcExpDateRepsonse)</td>
+</tr>
+<tr>
+<td style="text-align: left">direction</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:direction)</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">number</td>
+<td>t(:usdcMax50Min20)</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:cursor)</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">t(:responseparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">resultTotalSize</td>
+<td style="text-align: left">number</td>
+<td>t(:resultTotalSize)</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">string</td>
+<td>t(:cursor)</td>
+</tr>
+<tr>
+<td style="text-align: left">dataList</td>
+<td style="text-align: left">list</td>
+<td>t(:dataList)</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">deliveryTime</td>
+<td style="text-align: left">number</td>
+<td>t(:usdcDeliveryTime)</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">string</td>
+<td>t(:side)</td>
+</tr>
+<tr>
+<td style="text-align: left">position</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcPosition)</td>
+</tr>
+<tr>
+<td style="text-align: left">deliveryPrice</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcDeliveryPrice)</td>
+</tr>
+<tr>
+<td style="text-align: left">strike</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcStrike)</td>
+</tr>
+<tr>
+<td style="text-align: left">fee</td>
+<td style="text-align: left">string</td>
+<td>t(:fee)</td>
+</tr>
+<tr>
+<td style="text-align: left">deliveryRpl</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcDeliveryRpl)</td>
+</tr>
+</tbody></table>
+<h2 id='t-querysettlelogs'>t(:querySettleLogs)</h2>
+<blockquote>
+<p>t(:codequote_curlExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/session-settlement \
+-H "Content-Type: application/json" \
+-d '{"symbol":"BTC-22OCT21-45000-C"}'
+
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+</code></pre></div>
+<blockquote>
+<p>t(:codequote_responseExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:{</span>
+    <span class="dl">"</span><span class="s2">resultTotalSize</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">cursor</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">dataList</span><span class="dl">"</span><span class="p">:[</span>
+        <span class="p">{</span>
+          <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1fd26147-247d-4433-9845-a236981c3689</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">sessionAvgPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">markPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">100</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">sessionRpl</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">100</span><span class="dl">"</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>t(:usdcSettleLogsDesc)</p>
+
+<p class="fake_header">t(:httprequest)</p>
+
+<p>POST
+<code><span id=vpoCreate>/option/usdc/openapi/private/v1/session-settlement</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_required)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">direction</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:direction)</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">number</td>
+<td>t(:usdcMax50Min20)</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:cursor)</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">t(:responseparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">resultTotalSize</td>
+<td style="text-align: left">number</td>
+<td>t(:resultTotalSize)</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">string</td>
+<td>t(:cursor)</td>
+</tr>
+<tr>
+<td style="text-align: left">dataList</td>
+<td style="text-align: left">list</td>
+<td>t(:dataList)</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">string</td>
+<td>t(:side)</td>
+</tr>
+<tr>
+<td style="text-align: left">size</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSize)</td>
+</tr>
+<tr>
+<td style="text-align: left">sessionAvgPrice</td>
+<td style="text-align: left">string</td>
+<td>t(:sessionAvgPrice)</td>
+</tr>
+<tr>
+<td style="text-align: left">markPrice</td>
+<td style="text-align: left">string</td>
+<td>t(:markPrice)</td>
+</tr>
+<tr>
+<td style="text-align: left">sessionRpl</td>
+<td style="text-align: left">string</td>
+<td>t(:sessionRpl)</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">string</td>
+<td>t(:cursor)</td>
+</tr>
+</tbody></table>
+<h2 id='t-querypositioninfo'>t(:queryPositionInfo)</h2>
+<blockquote>
+<p>t(:codequote_curlExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-position-exp-date \
+-H "Content-Type: application/json" \
+-d '{"expDate":"20211010"}'
+
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+</code></pre></div>
+<blockquote>
+<p>t(:codequote_responseExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:{</span>
+    <span class="dl">"</span><span class="s2">resultTotalSize</span><span class="dl">"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">cursor</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">22OCT21:0,15OCT21:0</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">dataList</span><span class="dl">"</span><span class="p">:[</span>
+      <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">expDate</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">22OCT21</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">pnl</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1062.0157</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">totalRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">im</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">14792.2241</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">mm</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">10653.4193</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">sessionRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1587.0000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">sessionUPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1172.4930</span><span class="dl">"</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">expDate</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">16OCT21</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">pnl</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">-12.1500</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">totalRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">487.5000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">im</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">5891.6831</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">mm</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">4184.0030</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">sessionRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">sessionUPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">t(:httprequest)</p>
+
+<p>POST
+<code><span id=vpoCreate>/option/usdc/openapi/private/v1/query-position-exp-date</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_required)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">expDate</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">number</td>
+<td>t(:expDate)</td>
+</tr>
+<tr>
+<td style="text-align: left">direction</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:direction)</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">number</td>
+<td>t(:usdcMax50Min20)</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:cursor)</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">t(:responseparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">resultTotalSize</td>
+<td style="text-align: left">number</td>
+<td>t(:resultTotalSize)</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">string</td>
+<td>t(:cursor)</td>
+</tr>
+<tr>
+<td style="text-align: left">dataList</td>
+<td style="text-align: left">list</td>
+<td>t(:dataList)</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">expDate</td>
+<td style="text-align: left">string</td>
+<td>t(:expDate)</td>
+</tr>
+<tr>
+<td style="text-align: left">pnl</td>
+<td style="text-align: left">string</td>
+<td>t(:pnl)</td>
+</tr>
+<tr>
+<td style="text-align: left">totalRpl</td>
+<td style="text-align: left">string</td>
+<td>t(:totalRpl)</td>
+</tr>
+<tr>
+<td style="text-align: left">sessionUpl</td>
+<td style="text-align: left">string</td>
+<td>t(:sessionUpl)</td>
+</tr>
+<tr>
+<td style="text-align: left">sessionRpl</td>
+<td style="text-align: left">string</td>
+<td>t(:sessionRpl)</td>
+</tr>
+<tr>
+<td style="text-align: left">im</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcIm)</td>
+</tr>
+<tr>
+<td style="text-align: left">mm</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcMm)</td>
+</tr>
+</tbody></table>

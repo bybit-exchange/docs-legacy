@@ -658,6 +658,7 @@
             <span class="dropdown-content-selected"><a href=/docs/spot>Mainnet</a></span>
             <a href=/docs/testnet/spot>Testnet</a>
 
+
       </div>
     </div>
   </li>
@@ -2676,7 +2677,7 @@ At least one must be entered in the orderId field and the ordersLinkId field
 <span class="p">}</span>
 </code></pre></div>
 <aside class="notice">
-The actual result of the cancellation request needs to be checked by order status or match result endpoints after submitting the request.
+The actual result of the cancellation request needs to be checked by order status or match result endpoints after submitting the request.(It is a synchronous settlement API)
 </aside>
 
 <p class="fake_header">HTTP Request</p>
@@ -2759,7 +2760,7 @@ The actual result of the cancellation request needs to be checked by order statu
 <span class="p">}</span>
 </code></pre></div>
 <aside class="notice">
-The actual result of the cancellation request needs to be checked by order status or match result endpoints after submitting the request.
+The actual result of the cancellation request needs to be checked by order status or match result endpoints after submitting the request.(It is an asynchronous settlement API)
 </aside>
 
 <p class="fake_header">HTTP Request</p>
@@ -3383,6 +3384,18 @@ The actual result of the cancellation request needs to be checked by order statu
 <td style="text-align: left">false</td>
 <td style="text-align: left">integer</td>
 <td>Query ends with the trade ID</td>
+</tr>
+<tr>
+<td style="text-align: left">startTime</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">long</td>
+<td>Start time</td>
+</tr>
+<tr>
+<td style="text-align: left">endTime</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">long</td>
+<td>End time</td>
 </tr>
 </tbody></table>
 

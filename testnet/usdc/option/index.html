@@ -12,7 +12,7 @@
       gtag('config', 'UA-158616893-1');
     </script>
 
-    <link href="../../images/favicon-4f296779.ico" rel="icon" type="image/ico" />
+    <link href="../../../images/favicon-4f296779.ico" rel="icon" type="image/ico" />
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -628,9 +628,9 @@
   color: #859900;
 }
     </style>
-    <link href="../../stylesheets/screen-6a7bc757.css" rel="stylesheet" media="screen" />
-    <link href="../../stylesheets/print-41ffbffc.css" rel="stylesheet" media="print" />
-      <script src="../../javascripts/all-159fd355.js"></script>
+    <link href="../../../stylesheets/screen-6a7bc757.css" rel="stylesheet" media="screen" />
+    <link href="../../../stylesheets/print-41ffbffc.css" rel="stylesheet" media="print" />
+      <script src="../../../javascripts/all-159fd355.js"></script>
 
     <script>
       $(function() { setupCodeCopy(); });
@@ -638,8 +638,8 @@
   </head>
   <header class="top-nav">
   <div class="top-menu">
-  <a href="https://bybit-exchange.github.io/docs/usdc" class="logo-link" target="_self">
-    <img src="../../images/logo-aed6448d.svg" class="logo" alt="" />
+  <a href="https://bybit-exchange.github.io/docs/usdc/option" class="logo-link" target="_self">
+    <img src="../../../images/logo-aed6448d.svg" class="logo" alt="" />
   </a>
   <ul class="con">
     <li><a href="/docs/inverse">Inverse Perpetual</a></li>
@@ -648,7 +648,17 @@
   <li><a href="/docs/spot">Spot</a></li>
   <li><a href="/docs/account_asset">Account Asset</a></li>
 
-        <li><a href="/docs/testnet/usdc" class="selected">USDC Contract</a></li>
+    <li>
+        <div class="dropdown">
+          <button class="dropbtn">USDC Contract
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+                <a href=/docs/usdc/option>Option</a>
+                <a href=/docs/usdc/perpetual>Perpetual</a>
+          </div>
+        </div>
+    </li>
 
   <li>
     <div class="dropdown">
@@ -657,8 +667,9 @@
       </button>
       <div class="dropdown-content">
 
-            <a href=/docs/usdc>Mainnet</a>
-            <span class="dropdown-content-selected"><a href=/docs/testnet/usdc>Testnet</a></span>
+            <a href=/docs/usdc/option>Mainnet</a>
+            <span class="dropdown-content-selected"><a href=/docs/testnet/usdc/option>Testnet</a></span>
+
       </div>
     </div>
   </li>
@@ -667,11 +678,11 @@
   <a class="international" id="international" href="javascript:void(0);">繁體中文</a>
   </header>
 
-  <body class="testnet testnet_usdc testnet_usdc_index" data-languages="[&quot;console&quot;,&quot;python&quot;]">
+  <body class="testnet testnet_usdc testnet_usdc_option testnet_usdc_option_index" data-languages="[&quot;console&quot;,&quot;python&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="../../images/navbar-cad8cdcb.png" alt="" />
+        <img src="../../../images/navbar-cad8cdcb.png" alt="" />
       </span>
     </a>
     <div class="toc-wrapper">
@@ -716,31 +727,10 @@
                     <a href="#t-usdcorderbook" class="toc-h2 toc-link" data-title="OrderBook">OrderBook</a>
                   </li>
                   <li>
-                    <a href="#t-querykline" class="toc-h2 toc-link" data-title="Query Kline">Query Kline</a>
-                  </li>
-                  <li>
-                    <a href="#t-usdctickerinfo" class="toc-h2 toc-link" data-title="Latest Symbol Info">Latest Symbol Info</a>
-                  </li>
-                  <li>
                     <a href="#t-querysymbolinfo" class="toc-h2 toc-link" data-title="Contract Info">Contract Info</a>
                   </li>
                   <li>
-                    <a href="#t-markkline" class="toc-h2 toc-link" data-title="Mark Price">Mark Price</a>
-                  </li>
-                  <li>
-                    <a href="#t-indexkline" class="toc-h2 toc-link" data-title="Index Price">Index Price</a>
-                  </li>
-                  <li>
-                    <a href="#t-premiumkline" class="toc-h2 toc-link" data-title="Index Premium">Index Premium</a>
-                  </li>
-                  <li>
-                    <a href="#t-queryopeninterest" class="toc-h2 toc-link" data-title="Open Interest">Open Interest</a>
-                  </li>
-                  <li>
-                    <a href="#t-bigdealorder" class="toc-h2 toc-link" data-title="Large Orders">Large Orders</a>
-                  </li>
-                  <li>
-                    <a href="#t-accountratio" class="toc-h2 toc-link" data-title="Long-Short Ratio">Long-Short Ratio</a>
+                    <a href="#t-usdctickerinfo" class="toc-h2 toc-link" data-title="Latest Symbol Info">Latest Symbol Info</a>
                   </li>
                   <li>
                     <a href="#t-querydeliveryprice" class="toc-h2 toc-link" data-title="Delivery Price">Delivery Price</a>
@@ -812,27 +802,10 @@
                             <a href="#t-queryposition" class="toc-h3 toc-link" data-title="Query My Positions">Query My Positions</a>
                           </li>
                           <li>
-                            <a href="#t-setpositionleverage" class="toc-h3 toc-link" data-title="Set Leverage">Set Leverage</a>
-                          </li>
-                          <li>
                             <a href="#t-querydeliverylog" class="toc-h3 toc-link" data-title="Query Delivery History">Query Delivery History</a>
                           </li>
                           <li>
-                            <a href="#t-querysettlelogs" class="toc-h3 toc-link" data-title="Query Settlement History">Query Settlement History</a>
-                          </li>
-                          <li>
                             <a href="#t-querypositioninfo" class="toc-h3 toc-link" data-title="Query Positions Info Upon Expiry">Query Positions Info Upon Expiry</a>
-                          </li>
-                      </ul>
-                  </li>
-                  <li>
-                    <a href="#t-risklimit" class="toc-h2 toc-link" data-title="Risk Limit API">Risk Limit API</a>
-                      <ul class="toc-list-h3">
-                          <li>
-                            <a href="#t-queryrisklimits" class="toc-h3 toc-link" data-title="Query Risk Limit">Query Risk Limit</a>
-                          </li>
-                          <li>
-                            <a href="#t-setrisklimits" class="toc-h3 toc-link" data-title="Set Risk Limit">Set Risk Limit</a>
                           </li>
                       </ul>
                   </li>
@@ -851,9 +824,6 @@
               <ul class="toc-list-h2">
                   <li>
                     <a href="#t-ipratelimits" class="toc-h2 toc-link" data-title="IP Rate Limit">IP Rate Limit</a>
-                  </li>
-                  <li>
-                    <a href="#t-perendpoint" class="toc-h2 toc-link" data-title="Rate Limits For All Private Endpoints">Rate Limits For All Private Endpoints</a>
                   </li>
               </ul>
           </li>
@@ -887,13 +857,10 @@
                             <a href="#orderbook" class="toc-h3 toc-link" data-title="OrderBook">OrderBook</a>
                           </li>
                           <li>
-                            <a href="#t-bybittradehistory" class="toc-h3 toc-link" data-title="Trade History on Bybit">Trade History on Bybit</a>
+                            <a href="#t-bybittradehistory" class="toc-h3 toc-link" data-title="Trade">Trade</a>
                           </li>
                           <li>
                             <a href="#t-latestsymbolinfo" class="toc-h3 toc-link" data-title="Latest Symbol Info">Latest Symbol Info</a>
-                          </li>
-                          <li>
-                            <a href="#kline" class="toc-h3 toc-link" data-title="KLine">KLine</a>
                           </li>
                       </ul>
                   </li>
@@ -911,9 +878,6 @@
                           </li>
                           <li>
                             <a href="#t-userorderhistory" class="toc-h3 toc-link" data-title="Order History">Order History</a>
-                          </li>
-                          <li>
-                            <a href="#t-userconditionalorders" class="toc-h3 toc-link" data-title="Conditional Order">Conditional Order</a>
                           </li>
                           <li>
                             <a href="#t-usergreeks" class="toc-h3 toc-link" data-title="Greeks">Greeks</a>
@@ -950,19 +914,19 @@
                     <a href="#order-status-status" class="toc-h2 toc-link" data-title="Order status (status)">Order status (<code>status</code>)</a>
                   </li>
                   <li>
-                    <a href="#quantity-qty" class="toc-h2 toc-link" data-title="Quantity (qty)">Quantity (<code>qty</code>)</a>
+                    <a href="#quantity-orderqty" class="toc-h2 toc-link" data-title="Quantity (orderQty)">Quantity (<code>orderQty</code>)</a>
                   </li>
                   <li>
                     <a href="#price-price" class="toc-h2 toc-link" data-title="Price (price)">Price (<code>price</code>)</a>
-                  </li>
-                  <li>
-                    <a href="#kline-interval-interval" class="toc-h2 toc-link" data-title="Kline interval (interval)">Kline interval (<code>interval</code>)</a>
                   </li>
                   <li>
                     <a href="#transaction-type-transaction-type" class="toc-h2 toc-link" data-title="Transaction type (Transaction type)">Transaction type (<code>Transaction type</code>)</a>
                   </li>
                   <li>
                     <a href="#margin-mode" class="toc-h2 toc-link" data-title="Margin Mode">Margin Mode</a>
+                  </li>
+                  <li>
+                    <a href="#exec-type" class="toc-h2 toc-link" data-title="Exec Type">Exec Type</a>
                   </li>
               </ul>
           </li>
@@ -981,7 +945,7 @@
 Clipboard script
 -->
 
-<script src="../dist/clipboard.min-f99f064d.js"></script>
+<script src="../dist/clipboard.min.js"></script>
 
 <script>
 var clipboard = new ClipboardJS('.clipboard_button');
@@ -995,7 +959,7 @@ clipboard.on('error', function(e) {
 });
 </script>
 <h1 id='t-introduction'>Group And Resources</h1><h5 id='t-intro_para'><p><a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common errors.</p> <p>For further assistance or feedback, please join the <a href="https://t.me/BybitAPI">API Telegram chat</a>! API discussion group on Telegram.</p></h5><h3 id='t-resources'>Group And Bybit API Resources</h3>
-<p><ul class="bybit-community"> <li><img src="../../images/help_favicon-06f791dd.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> </ul></p>
+<p><ul class="bybit-community"> <li><img src="../../../images/help_favicon-06f791dd.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> </ul></p>
 <h1 id='t-changelog'>Changelog</h1><h1 id='t-authentication'>Authentication</h1>
 <aside class="notice">
 Please visit Bybit's <a href="https://testnet.bybit.com/app/user/api-management"> <b>testnet</b></a> or <a href="https://www.bybit.com/app/user/api-management"> <b>mainnet</b></a> to generate an API key
@@ -1007,16 +971,16 @@ REST Base Endpoint:
   <p>
     <li>Testnet:<br/>
       <span id="testnet">https://api-testnet.bybit.com</span>
-      <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+      <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
     </li>
   </p>
   <p>
     <li>Mainnet (please choose one based on your network status):<br/>
       <span id="mainnet_1">https://api.bybit.com</span>
-      <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_1"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+      <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_1"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
       <br/>
       <span id="mainnet_2">https://api.bytick.com</span>
-      <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_2"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+      <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_2"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
     </li>
   </p>
  </ul>
@@ -1025,8 +989,6 @@ REST Base Endpoint:
 
 <p><p>All requests made to private endpoints must be authenticated. Requests made to public endpoints do not require additional authentication.</p></p>
 <h2 id='t-authenticationparameters'>Parameters for Authenticated Endpoints</h2>
-<p>All methods are POST methods</p>
-
 <p><p>We also provide <code>recvWindow</code> (unit in millisecond and default value is 5,000) to specify how long an HTTP request is valid. It is also used to prevent replay attacks.</p>
 <p>A smaller <code>recvWindow</code> is more secure, but your request may fail if the transmission time is greater than your <code>recvWindow</code>.</p>
 <p>Please make sure that your <code>timestamp</code> is in sync with our server time. You can use the <a href=#t-servertime>Server Time</a> endpoint.</p>
@@ -1081,27 +1043,31 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book \
--H "Content-Type: application/json" \
--d '{"symbol": "BTC-22OCT21-45000-C"}'
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">
+curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?symbol=BTC-3DEC21-62000-P'
 
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
 <blockquote>
 <p>Response Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">SUCCESS</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCESS</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
-      <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">9.40065408</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">155196.7296</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BID</span><span class="dl">"</span>
+      <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5000.00000000</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2.0000</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BID</span><span class="dl">"</span>
     <span class="p">},</span>
     <span class="p">{</span>
-      <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">9.13032704</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">40493.4592</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">ASK</span><span class="dl">"</span>
+      <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1.50000000</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0200</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BID</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5900.00000000</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.9000</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ASK</span><span class="dl">"</span>
     <span class="p">}</span>
   <span class="p">]</span>
 <span class="p">}</span>
@@ -1110,11 +1076,9 @@ function copyStringToClipboard (endpoint) {
 
 <p class="fake_header">HTTP Request</p>
 
-<p>POST
-<code><span id=uopvorderBook>/{category}/usdc/openapi/public/v1/order-book</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvorderBook"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
-
-<p>Options：category=option, Perpetual：category=perpetual</p>
+<p>GET
+<code><span id=uopvorderBook>/option/usdc/openapi/public/v1/order-book</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvorderBook"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
 
@@ -1156,52 +1120,57 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">side</td>
 <td style="text-align: left">string</td>
-<td>Direction. For Option, ASK or BID. For Perpetual Buy or Sell.</td>
+<td>Direction. ASK or BID.</td>
 </tr>
 </tbody></table>
-<h3 id='t-querykline'>Query Kline</h3>
-<p>Perpetual only.</p>
-
+<h3 id='t-querysymbolinfo'>Contract Info</h3>
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/kline/list' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "symbol": "BTCPERP",
-    "period":"1",
-    "limit":"1",
-    "startTime":1
-}'
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/symbols?limit=1'
+
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
 <blockquote>
 <p>Response Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code>
-<span class="p">{</span>
-  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
-  <span class="p">{</span>
-    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">volume</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">period</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">openTime</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1636358160</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">open</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">66001.50</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">high</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">66001.50</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">low</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">66001.50</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">close</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">66001.50</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">turnover</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1188.02</span><span class="dl">"</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">resultTotalSize</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1618</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">cursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0%2C1</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">dataList</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC-28JAN22-250000-C</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ONLINE</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">baseCoin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">quoteCoin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USD</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">settleCoin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDC</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">takerFee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00025</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">makerFee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00025</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">minLeverage</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">maxLeverage</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">leverageStep</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">minOrderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.5</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">maxOrderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10000000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">minOrderSize</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">maxOrderSize</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">tickSize</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.5</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">minOrderSizeIncrement</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">basicDeliveryFeeRate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00015</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">deliveryTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1643356800000</span><span class="dl">"</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
   <span class="p">}</span>
-<span class="p">]</span>
 <span class="p">}</span>
-
 </code></pre></div>
+<p>Query for all if blank.</p>
+
 <p class="fake_header">HTTP Request</p>
 
-<p>POST
-<code><span id=sqvdMerged>/perpetual/usdc/openapi/public/v1/kline/list</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<p>GET
+<code><span id=usdcSymbols>/option/usdc/openapi/public/v1/symbols</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcSymbols"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
 
@@ -1215,28 +1184,28 @@ function copyStringToClipboard (endpoint) {
 </thead><tbody>
 <tr>
 <td style="text-align: left">symbol</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>Contract name</td>
 </tr>
 <tr>
-<td style="text-align: left">period</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">direction</td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td><p>Data refresh frequency. Enum: 1 3 5 15 30 60 120 240 360 720 "D" "M" "W"</p>
+<td><p>prev: prev page, next: next page.</p>
 </td>
-</tr>
-<tr>
-<td style="text-align: left">startTime</td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">number</td>
-<td>Start time, unit in seconds</td>
 </tr>
 <tr>
 <td style="text-align: left">limit</td>
 <td style="text-align: left">false</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>Number of data per page; the max. value is 200, and the default value is 200</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>API pass-through</td>
 </tr>
 </tbody></table>
 
@@ -1250,102 +1219,127 @@ function copyStringToClipboard (endpoint) {
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">volume</td>
-<td style="text-align: left">string</td>
-<td>Trading volume</td>
-</tr>
-<tr>
 <td style="text-align: left">symbol</td>
 <td style="text-align: left">string</td>
 <td>Contract name</td>
 </tr>
 <tr>
-<td style="text-align: left">open</td>
+<td style="text-align: left">status</td>
 <td style="text-align: left">string</td>
-<td>Open price</td>
+<td>Status, can be WAITING_ONLINE, ONLINE, DELIVERING, or OFFLINE</td>
 </tr>
 <tr>
-<td style="text-align: left">openTime</td>
+<td style="text-align: left">baseCoin</td>
+<td style="text-align: left">string</td>
+<td>Base currency</td>
+</tr>
+<tr>
+<td style="text-align: left">quoteCoin</td>
+<td style="text-align: left">string</td>
+<td>Quote currency</td>
+</tr>
+<tr>
+<td style="text-align: left">takerFeeRate</td>
+<td style="text-align: left">string</td>
+<td>Taker fee rate</td>
+</tr>
+<tr>
+<td style="text-align: left">makerFeeRate</td>
+<td style="text-align: left">string</td>
+<td>Maker fee rate</td>
+</tr>
+<tr>
+<td style="text-align: left">minPrice</td>
+<td style="text-align: left">string</td>
+<td>Min. order price</td>
+</tr>
+<tr>
+<td style="text-align: left">maxPrice</td>
+<td style="text-align: left">string</td>
+<td>Max. order price</td>
+</tr>
+<tr>
+<td style="text-align: left">tickSize</td>
+<td style="text-align: left">string</td>
+<td>Tick size</td>
+</tr>
+<tr>
+<td style="text-align: left">minTradingQty</td>
+<td style="text-align: left">string</td>
+<td>Min. order quantity</td>
+</tr>
+<tr>
+<td style="text-align: left">maxTradingQty</td>
+<td style="text-align: left">string</td>
+<td>Max. order quantity</td>
+</tr>
+<tr>
+<td style="text-align: left">qtyStep</td>
+<td style="text-align: left">string</td>
+<td>Min. order quantity increment</td>
+</tr>
+<tr>
+<td style="text-align: left">deliveryFeeRate</td>
+<td style="text-align: left">string</td>
+<td>Delivery fee rate</td>
+</tr>
+<tr>
+<td style="text-align: left">deliveryTime</td>
 <td style="text-align: left">number</td>
-<td>Start time</td>
+<td>Delivery time, unit in milliseconds</td>
 </tr>
 <tr>
-<td style="text-align: left">turnover</td>
+<td style="text-align: left">cursor</td>
 <td style="text-align: left">string</td>
-<td>Turnover</td>
-</tr>
-<tr>
-<td style="text-align: left">period</td>
-<td style="text-align: left">string</td>
-<td><p>Data refresh frequency. Enum: 1 3 5 15 30 60 120 240 360 720 "D" "M" "W"</p>
-</td>
-</tr>
-<tr>
-<td style="text-align: left">low</td>
-<td style="text-align: left">string</td>
-<td>24-hour low</td>
-</tr>
-<tr>
-<td style="text-align: left">high</td>
-<td style="text-align: left">string</td>
-<td>24-hour high</td>
-</tr>
-<tr>
-<td style="text-align: left">close</td>
-<td style="text-align: left">string</td>
-<td>24-hour high</td>
+<td>API pass-through</td>
 </tr>
 </tbody></table>
 <h3 id='t-usdctickerinfo'>Latest Symbol Info</h3>
-<p>Options：category=option, Perpetual：category=perpetual</p>
-
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/public/v1/tick \
--H "Content-Type: application/json" \
--D '{"symbol": "BTC-22OCT21-45000-C"}'
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/tick?symbol=BTC-28JAN22-250000-C'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
 <blockquote>
 <p>Response Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">SUCCESS</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:{</span>
-    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTC-22OCT21-45000-C</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">bid</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">9.40065408</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">bidIv</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">bidSize</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">155196.7296</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">ask</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">12.03032704</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">askIv</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">askSize</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">144786.7184</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">lastPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">12.03032704</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">openInterest</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">56.3</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">indexPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">57513.73000000</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">markPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">12996.21947583</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">markPriceIv</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1.1613</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">change24h</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">-0.99849621</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">high24h</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">8000.00000000</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">low24h</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2.02000000</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">volume24h</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">11459759.9440</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">turnover24h</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">89748414.25099826</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">totalVolume</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">11459760</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">totalTurnover</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">89748415</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">predictedDeliveryPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">57540.52549555</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">underlyingPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">57708.12000000</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">delta</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.93742138</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">gamma</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.00001242</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">vega</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">10.51152247</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">theta</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">-76.37969432</span><span class="dl">"</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCESS</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC-28JAN22-250000-C</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">bid</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">bidIv</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">bidSize</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">ask</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">askIv</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">askSize</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">lastPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">openInterest</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">indexPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">56171.79000000</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">markPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">12.72021285</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">markPriceIv</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1.1701</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">change24h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">high24h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">low24h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">volume24h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">turnover24h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">totalVolume</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">totalTurnover</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">predictedDeliveryPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">underlyingPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">57039.61000000</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">delta</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00184380</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">gamma</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000022</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">vega</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1.35132531</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">theta</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-1.33819821</span><span class="dl">"</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p class="fake_header">HTTP Request</p>
 
-<p>POST
-<code><span id=usdcTick>/{category}/usdc/openapi/public/v1/tick</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcTick"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<p>GET
+<code><span id=usdcTick>/option/usdc/openapi/public/v1/tick</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcTick"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
 
@@ -1500,870 +1494,36 @@ function copyStringToClipboard (endpoint) {
 <td>Theta value</td>
 </tr>
 </tbody></table>
-<h3 id='t-querysymbolinfo'>Contract Info</h3>
-<p>Options：category=option, Perpetual：category=perpetual</p>
-
-<blockquote>
-<p>Request Example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/public/v1/symbols \
--H "Content-Type: application/json" \
--d '{"symbol":"BTC-26NOV21-80000-P","category":"option"}'
-
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
-<blockquote>
-<p>Response Example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC-26NOV21-80000-P</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ONLINE</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">baseCoin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">quoteCoin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USD</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">takerFeeRate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0075</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">makerFeeRate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0075</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">minLeverage</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">maxLeverage</span><span class="dl">"</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">minPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">maxPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">99999</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">qtyStep</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">deliveryFeeRate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">deliveryTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1632919052</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">cursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">{'id':111}</span><span class="dl">"</span><span class="p">,</span>
-        <span class="p">}</span>
-    <span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>Query for all if blank.</p>
-
-<p class="fake_header">HTTP Request</p>
-
-<p>POST
-<code><span id=usdcSymbols>/{category}/usdc/openapi/public/v1/symbols</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcSymbols"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
-
-<p class="fake_header">Request Parameters</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Required</th>
-<th style="text-align: left">Type</th>
-<th>Comment</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">category</td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">string</td>
-<td>Type .OPTION or PERPETUAL</td>
-</tr>
-<tr>
-<td style="text-align: left">symbol</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>Contract name</td>
-</tr>
-<tr>
-<td style="text-align: left">direction</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td><p>prev: prev page, next: next page.</p>
-</td>
-</tr>
-<tr>
-<td style="text-align: left">limit</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>Number of data per page; the max. value is 200, and the default value is 200</td>
-</tr>
-<tr>
-<td style="text-align: left">cursor</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>API pass-through</td>
-</tr>
-</tbody></table>
-
-<p class="fake_header">Response Parameters</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Type</th>
-<th>Comment</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">symbol</td>
-<td style="text-align: left">string</td>
-<td>Contract name</td>
-</tr>
-<tr>
-<td style="text-align: left">status</td>
-<td style="text-align: left">string</td>
-<td>Status, can be WAITING_ONLINE, ONLINE, DELIVERING, or OFFLINE</td>
-</tr>
-<tr>
-<td style="text-align: left">baseCoin</td>
-<td style="text-align: left">string</td>
-<td>Base currency</td>
-</tr>
-<tr>
-<td style="text-align: left">quoteCoin</td>
-<td style="text-align: left">string</td>
-<td>Quote currency</td>
-</tr>
-<tr>
-<td style="text-align: left">takerFeeRate</td>
-<td style="text-align: left">string</td>
-<td>Taker fee rate</td>
-</tr>
-<tr>
-<td style="text-align: left">makerFeeRate</td>
-<td style="text-align: left">string</td>
-<td>Maker fee rate</td>
-</tr>
-<tr>
-<td style="text-align: left">minLeverage</td>
-<td style="text-align: left">number</td>
-<td>Min. leverage  (Perpetual only)</td>
-</tr>
-<tr>
-<td style="text-align: left">maxLeverage</td>
-<td style="text-align: left">number</td>
-<td>Max. leverage (Perpetual only)</td>
-</tr>
-<tr>
-<td style="text-align: left">leverageStep</td>
-<td style="text-align: left">number</td>
-<td>Modification to leverage  (Perpetual only)</td>
-</tr>
-<tr>
-<td style="text-align: left">minPrice</td>
-<td style="text-align: left">string</td>
-<td>Min. order price</td>
-</tr>
-<tr>
-<td style="text-align: left">maxPrice</td>
-<td style="text-align: left">string</td>
-<td>Max. order price</td>
-</tr>
-<tr>
-<td style="text-align: left">tickSize</td>
-<td style="text-align: left">string</td>
-<td>Tick size</td>
-</tr>
-<tr>
-<td style="text-align: left">minTradingQty</td>
-<td style="text-align: left">string</td>
-<td>Min. order quantity</td>
-</tr>
-<tr>
-<td style="text-align: left">maxTradingQty</td>
-<td style="text-align: left">string</td>
-<td>Max. order quantity</td>
-</tr>
-<tr>
-<td style="text-align: left">qtyStep</td>
-<td style="text-align: left">string</td>
-<td>Min. order quantity increment</td>
-</tr>
-<tr>
-<td style="text-align: left">deliveryFeeRate</td>
-<td style="text-align: left">string</td>
-<td>Delivery fee rate (Options only)</td>
-</tr>
-<tr>
-<td style="text-align: left">deliveryTime</td>
-<td style="text-align: left">number</td>
-<td>Delivery time, unit in milliseconds (Options only)</td>
-</tr>
-<tr>
-<td style="text-align: left">cursor</td>
-<td style="text-align: left">string</td>
-<td>API pass-through</td>
-</tr>
-</tbody></table>
-<h3 id='t-markkline'>Mark Price</h3>
-<p>Perpetual only.</p>
-
-<blockquote>
-<p>Request Example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/mark-price-kline \
--H "Content-Type: application/json" \
--d '{
-    "symbol": "BTCPERP",
-    "period":"1",
-    "startTime":1,
-    "limit":"1"
-}'
-
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
-<blockquote>
-<p>Response Example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code>
-<span class="p">{</span>
-    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
-        <span class="p">{</span>
-            <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">period</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">openTime</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1634696220</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">open</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">63884.11</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">high</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">63884.11</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">low</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">63862.49</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">close</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">63866.63</span><span class="dl">"</span>
-        <span class="p">}</span>
-    <span class="p">]</span>
-<span class="p">}</span>
-
-</code></pre></div>
-<p class="fake_header">HTTP Request</p>
-
-<p>POST
-<code><span id=usdcMarkPriceKline>/perpetual/usdc/openapi/public/v1/mark-price-kline</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcMarkPriceKline"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
-
-<p class="fake_header">Request Parameters</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Required</th>
-<th style="text-align: left">Type</th>
-<th>Comment</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">symbol</td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">string</td>
-<td>Contract name</td>
-</tr>
-<tr>
-<td style="text-align: left">period</td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">string</td>
-<td><p>Data refresh frequency. Enum: 1 3 5 15 30 60 120 240 360 720 "D" "M" "W"</p>
-</td>
-</tr>
-<tr>
-<td style="text-align: left">limit</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>Number of data per page; the max. value is 200, and the default value is 200</td>
-</tr>
-<tr>
-<td style="text-align: left">startTime</td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">number</td>
-<td>Start time, unit in seconds</td>
-</tr>
-</tbody></table>
-
-<p class="fake_header">Response Parameters</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Type</th>
-<th>Comment</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">symbol</td>
-<td style="text-align: left">string</td>
-<td>Contract name</td>
-</tr>
-<tr>
-<td style="text-align: left">period</td>
-<td style="text-align: left">string</td>
-<td><p>Data refresh frequency. Enum: 1 3 5 15 30 60 120 240 360 720 "D" "M" "W"</p>
-</td>
-</tr>
-<tr>
-<td style="text-align: left">openTime</td>
-<td style="text-align: left">number</td>
-<td>Start time</td>
-</tr>
-<tr>
-<td style="text-align: left">open</td>
-<td style="text-align: left">string</td>
-<td>Open price</td>
-</tr>
-<tr>
-<td style="text-align: left">high</td>
-<td style="text-align: left">string</td>
-<td>24-hour high</td>
-</tr>
-<tr>
-<td style="text-align: left">low</td>
-<td style="text-align: left">string</td>
-<td>24-hour low</td>
-</tr>
-<tr>
-<td style="text-align: left">close</td>
-<td style="text-align: left">string</td>
-<td>Close price</td>
-</tr>
-</tbody></table>
-<h3 id='t-indexkline'>Index Price</h3>
-<p>Perpetual only.</p>
-
-<blockquote>
-<p>Request Example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/index-price-kline \
--H "Content-Type: application/json" \
--d '{
-    "symbol": "BTCPERP",
-    "period":"W",
-    "startTime":1634378400
-}'
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
-<blockquote>
-<p>Response Example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
-        <span class="p">{</span>
-            <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">period</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">W</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">openTime</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1635120000</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">open</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">62033.96</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">high</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">62058.66</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">low</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">60005.97</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">close</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">61359.21</span><span class="dl">"</span>
-        <span class="p">}</span>
-    <span class="p">]</span>
-<span class="p">}</span>
-
-</code></pre></div>
-<p class="fake_header">HTTP Request</p>
-
-<p>POST
-<code><span id=uscIndexPriceKline>/perpetual/usdc/openapi/public/v1/index-price-kline</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uscIndexPriceKline"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
-
-<p class="fake_header">Request Parameters</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Required</th>
-<th style="text-align: left">Type</th>
-<th>Comment</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">symbol</td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">string</td>
-<td>Contract name</td>
-</tr>
-<tr>
-<td style="text-align: left">period</td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">string</td>
-<td><p>Data refresh frequency. Enum: 1 3 5 15 30 60 120 240 360 720 "D" "M" "W"</p>
-</td>
-</tr>
-<tr>
-<td style="text-align: left">limit</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>Number of data per page; the max. value is 200, and the default value is 200</td>
-</tr>
-<tr>
-<td style="text-align: left">startTime</td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">number</td>
-<td>Start time, unit in seconds</td>
-</tr>
-</tbody></table>
-
-<p class="fake_header">Response Parameters</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Type</th>
-<th>Comment</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">symbol</td>
-<td style="text-align: left">string</td>
-<td>Contract name</td>
-</tr>
-<tr>
-<td style="text-align: left">period</td>
-<td style="text-align: left">string</td>
-<td><p>Data refresh frequency. Enum: 1 3 5 15 30 60 120 240 360 720 "D" "M" "W"</p>
-</td>
-</tr>
-<tr>
-<td style="text-align: left">openTime</td>
-<td style="text-align: left">number</td>
-<td>Start time</td>
-</tr>
-<tr>
-<td style="text-align: left">open</td>
-<td style="text-align: left">string</td>
-<td>Open price</td>
-</tr>
-<tr>
-<td style="text-align: left">high</td>
-<td style="text-align: left">string</td>
-<td>24-hour high</td>
-</tr>
-<tr>
-<td style="text-align: left">low</td>
-<td style="text-align: left">string</td>
-<td>24-hour low</td>
-</tr>
-<tr>
-<td style="text-align: left">close</td>
-<td style="text-align: left">string</td>
-<td>Close price</td>
-</tr>
-</tbody></table>
-<h3 id='t-premiumkline'>Index Premium</h3>
-<p>Perpetual only.</p>
-
-<blockquote>
-<p>Request Example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/premium-index-kline \
--H "Content-Type: application/json" \
--d '{
-    "symbol": "BTCPERP",
-    "limit": 1,
-    "period":"1",
-    "startTime":1
-}'
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
-<blockquote>
-<p>Response Example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code>
-<span class="p">{</span>
-    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
-        <span class="p">{</span>
-            <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">period</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">openTime</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1635648300</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">open</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.000066</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">high</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.000066</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">low</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.000066</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">close</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.000066</span><span class="dl">"</span>
-        <span class="p">}</span>
-    <span class="p">]</span>
-<span class="p">}</span>
-
-</code></pre></div>
-<p class="fake_header">HTTP Request</p>
-
-<p>POST
-<code><span id=usdcPremiumIndexKline>/perpetual/usdc/openapi/public/v1/premium-index-kline</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcPremiumIndexKline"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
-
-<p class="fake_header">Request Parameters</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Required</th>
-<th style="text-align: left">Type</th>
-<th>Comment</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">symbol</td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">string</td>
-<td>Contract name</td>
-</tr>
-<tr>
-<td style="text-align: left">period</td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">string</td>
-<td><p>Data refresh frequency. Enum: 1 3 5 15 30 60 120 240 360 720 "D" "M" "W"</p>
-</td>
-</tr>
-<tr>
-<td style="text-align: left">limit</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>Number of data per page; the max. value is 200, and the default value is 200</td>
-</tr>
-<tr>
-<td style="text-align: left">startTime</td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">number</td>
-<td>Start time, unit in seconds</td>
-</tr>
-</tbody></table>
-
-<p class="fake_header">Response Parameters</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Type</th>
-<th>Comment</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">symbol</td>
-<td style="text-align: left">string</td>
-<td>Contract name</td>
-</tr>
-<tr>
-<td style="text-align: left">period</td>
-<td style="text-align: left">string</td>
-<td><p>Data refresh frequency. Enum: 1 3 5 15 30 60 120 240 360 720 "D" "M" "W"</p>
-</td>
-</tr>
-<tr>
-<td style="text-align: left">openTime</td>
-<td style="text-align: left">number</td>
-<td>Start time</td>
-</tr>
-<tr>
-<td style="text-align: left">open</td>
-<td style="text-align: left">string</td>
-<td>Open price</td>
-</tr>
-<tr>
-<td style="text-align: left">high</td>
-<td style="text-align: left">string</td>
-<td>24-hour high</td>
-</tr>
-<tr>
-<td style="text-align: left">low</td>
-<td style="text-align: left">string</td>
-<td>24-hour low</td>
-</tr>
-<tr>
-<td style="text-align: left">close</td>
-<td style="text-align: left">string</td>
-<td>Close price</td>
-</tr>
-</tbody></table>
-<h3 id='t-queryopeninterest'>Open Interest</h3>
-<p>Perpetual only.</p>
-
-<blockquote>
-<p>Request Example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/open-interest \
--H "Content-Type: application/json" \
--d '{"symbol":"BTCUSD","period":"1"}'
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
-<blockquote>
-<p>Response Example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code>
-<span class="p">{</span>
-    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
-        <span class="p">{</span>
-            <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSD</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span><span class="mi">1635648300</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">openInterest</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1.1</span><span class="dl">"</span>
-        <span class="p">}</span>
-    <span class="p">]</span>
-<span class="p">}</span>
-
-</code></pre></div>
-<p class="fake_header">HTTP Request</p>
-
-<p>POST
-<code><span id=usdcOpenInterest>/perpetual/usdc/openapi/public/v1/open-interest</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcOpenInterest"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
-
-<p class="fake_header">Request Parameters</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Required</th>
-<th style="text-align: left">Type</th>
-<th>Comment</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">symbol</td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">string</td>
-<td>Contract name</td>
-</tr>
-<tr>
-<td style="text-align: left">period</td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">string</td>
-<td>Data refresh frequency. 5min, 15min, 30min, 1h, 4h, 1d</td>
-</tr>
-<tr>
-<td style="text-align: left">limit</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>Number of data per page; the max value 200, and the default value is 50</td>
-</tr>
-</tbody></table>
-
-<p class="fake_header">Response Parameters</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Type</th>
-<th>Comment</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">symbol</td>
-<td style="text-align: left">string</td>
-<td>Contract name</td>
-</tr>
-<tr>
-<td style="text-align: left">timestamp</td>
-<td style="text-align: left">number</td>
-<td>Timestamp, unit in milliseconds</td>
-</tr>
-<tr>
-<td style="text-align: left">openInterest</td>
-<td style="text-align: left">string</td>
-<td>Open Interest</td>
-</tr>
-</tbody></table>
-<h3 id='t-bigdealorder'>Large Orders</h3>
-<p>Perpetual only.</p>
-
-<blockquote>
-<p>Request Example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">
-curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal \
--H "Content-Type: application/json" \
--d '{"symbol":"BTCUSD"}'
-
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
-<blockquote>
-<p>Response Example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code>
-<span class="p">{</span>
-    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
-        <span class="p">{</span>
-            <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSD</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span><span class="mi">1636690065</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">value</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">697998</span><span class="dl">"</span>
-        <span class="p">}</span>
-    <span class="p">]</span>
-<span class="p">}</span>
-
-</code></pre></div>
-<p class="fake_header">HTTP Request</p>
-
-<p>POST
-<code><span id=usdcBigDeal>/perpetual/usdc/openapi/public/v1/big-deal</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcBigDeal"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
-
-<p class="fake_header">Request Parameters</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Required</th>
-<th style="text-align: left">Type</th>
-<th>Comment</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">symbol</td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">string</td>
-<td>Contract name</td>
-</tr>
-<tr>
-<td style="text-align: left">limit</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>Number of data returned; the max. value is 100, and the default value is 500</td>
-</tr>
-</tbody></table>
-
-<p class="fake_header">Response Parameters</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Type</th>
-<th>Comment</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">symbol</td>
-<td style="text-align: left">string</td>
-<td>Contract name</td>
-</tr>
-<tr>
-<td style="text-align: left">timestamp</td>
-<td style="text-align: left">number</td>
-<td>Timestamp, unit in milliseconds</td>
-</tr>
-<tr>
-<td style="text-align: left">side</td>
-<td style="text-align: left">string</td>
-<td>Direction</td>
-</tr>
-<tr>
-<td style="text-align: left">value</td>
-<td style="text-align: left">string</td>
-<td>Order value</td>
-</tr>
-</tbody></table>
-<h3 id='t-accountratio'>Long-Short Ratio</h3>
-<p>Perpetual only.</p>
-
-<blockquote>
-<p>Request Example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/account-ratio \
--H "Content-Type: application/json" \
--d '{"symbol":"BTCUSD","period":"5min"}'
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
-<blockquote>
-<p>Response Example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code>  <span class="p">{</span>
-  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
-      <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSD</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">buyRatio</span><span class="dl">"</span><span class="p">:</span><span class="mf">0.5831</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">sellRatio</span><span class="dl">"</span><span class="p">:</span><span class="mf">0.4169</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span><span class="mi">1636700400</span>
-      <span class="p">}</span>
-  <span class="p">]</span>
-<span class="p">}</span>
-
-</code></pre></div>
-<p class="fake_header">HTTP Request</p>
-
-<p>POST
-<code><span id=usdcAccountRatio>/perpetual/usdc/openapi/public/v1/account-ratio</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcAccountRatio"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
-
-<p class="fake_header">Request Parameters</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Required</th>
-<th style="text-align: left">Type</th>
-<th>Comment</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">symbol</td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">string</td>
-<td>Contract name</td>
-</tr>
-<tr>
-<td style="text-align: left">period</td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">string</td>
-<td>Data refresh frequency. 5min, 15min, 30min, 1h, 4h, 1d</td>
-</tr>
-<tr>
-<td style="text-align: left">limit</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>Number of data returned; the max. value is 500, and the default value is 50</td>
-</tr>
-</tbody></table>
-
-<p class="fake_header">Response Parameters</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Type</th>
-<th>Comment</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">symbol</td>
-<td style="text-align: left">string</td>
-<td>Contract name</td>
-</tr>
-<tr>
-<td style="text-align: left">buyRatio</td>
-<td style="text-align: left">string</td>
-<td>Long position ratio</td>
-</tr>
-<tr>
-<td style="text-align: left">sellRatio</td>
-<td style="text-align: left">string</td>
-<td>Short position ratio</td>
-</tr>
-<tr>
-<td style="text-align: left">timestamp</td>
-<td style="text-align: left">number</td>
-<td>Timestamp, unit in milliseconds</td>
-</tr>
-</tbody></table>
 <h3 id='t-querydeliveryprice'>Delivery Price</h3>
-<p>Option only.</p>
-
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/public/v1/delivery-price \
--H "Content-Type: application/json" \
--d '{"symbol":"BTC-22OCT21-45000-C"}'
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/delivery-price?symbol=BTC-3NOV21-58000-C'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
 <blockquote>
 <p>Response Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC-22OCT21-45000-C</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">deliveryPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">100.01</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">deliveryTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1597659000</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">cursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span>
-        <span class="p">}</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">resultTotalSize</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">cursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">dataList</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC-3NOV21-58000-C</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">deliveryPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">63149.218777910</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">deliveryTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1635926400000</span><span class="dl">"</span>
+      <span class="p">}</span>
     <span class="p">]</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p class="fake_header">HTTP Request</p>
 
-<p>POST
+<p>GET
 <code><span id=usdcDeliveyPrice>/option/usdc/openapi/public/v1/delivery-price</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcDeliveyPrice"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcDeliveyPrice"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
 
@@ -2424,7 +1584,7 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal \
 <tr>
 <td style="text-align: left">deliveryTime</td>
 <td style="text-align: left">number</td>
-<td>Delivery time, unit in milliseconds (Options only)</td>
+<td>Delivery time, unit in milliseconds</td>
 </tr>
 <tr>
 <td style="text-align: left">cursor</td>
@@ -2433,32 +1593,28 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal \
 </tr>
 </tbody></table>
 <h3 id='t-querylatest500trades'>Query Last 500 Trades</h3>
-<p>For both Perpetual and Option</p>
-
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/public/v1/query-trade-latest \
--H "Content-Type: application/json" \
--d '{"category":"option","symbol":"BTC-19NOV21-30000-P","optionType":"PUT","limit":1}'
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/query-trade-latest?category=OPTION&amp;limit=1'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
 <blockquote>
 <p>Response Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:{</span>
-    <span class="dl">"</span><span class="s2">resultTotalSize</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">cursor</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">dataList</span><span class="dl">"</span><span class="p">:[</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Success.</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">resultTotalSize</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">cursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">dataList</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
       <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">184c3c8b</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTC-19NOV21-30000-P</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1.00</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderQty</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.020</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1636704178974</span><span class="dl">"</span>
+        <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">617f220d</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC-3DEC21-80000-P</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">22775.50</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1.000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1638248170932</span><span class="dl">"</span>
       <span class="p">}</span>
     <span class="p">]</span>
   <span class="p">}</span>
@@ -2466,9 +1622,9 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal \
 </code></pre></div>
 <p class="fake_header">HTTP Request</p>
 
-<p>POST
+<p>GET
 <code><span id=usdcTradeLastest>/option/usdc/openapi/public/v1/query-trade-latest</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcTradeLastest"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcTradeLastest"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
 
@@ -2578,8 +1734,6 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal \
 <h1 id='t-accountdata'>Account Data Endpoints</h1>
 <p>The following account data endpoints require authentication.</p>
 <h2 id='t-usdctradeapi'>Order API</h2><h3 id='t-usdcplaceorder'>Place Order</h3>
-<p>Options：category=option, Perpetual：category=perpetual</p>
-
 <blockquote>
 <p>Request Example</p>
 </blockquote>
@@ -2613,7 +1767,6 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal \
 <span class="p">}</span>
 </code></pre></div>
 <p><p>Place an order using the USDC Derivatives Account. </p>
-<p>Once an order is placed, a corresponding portion of your wallet balance will be frozen. The amount depends on parameter configuration specified in your order.   </p>
 <p>The request status can be queried in real time. </p>
 <p>The response parameters must be queried through a query or a WebSocket response.</p>
 </p>
@@ -2621,8 +1774,8 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal \
 <p class="fake_header">HTTP Request</p>
 
 <p>POST
-<code><span id=uopvPlace>/{category}/usdc/openapi/private/v1/place-order</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvPlace"><img src="../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+<code><span id=uopvPlace>/option/usdc/openapi/private/v1/place-order</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvPlace"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
 
@@ -2644,7 +1797,7 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal \
 <td style="text-align: left">orderType</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Order type (MARKET is not supported currently for Options)</td>
+<td>refer to<a href="#order-type-type-ordertypes">Order type</a> (MARKET is not supported currently for Options)</td>
 </tr>
 <tr>
 <td style="text-align: left">side</td>
@@ -2696,7 +1849,7 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal \
 </tr>
 <tr>
 <td style="text-align: left">orderLinkId</td>
-<td style="text-align: left">false</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Custom ID used for cross-platform strategy remarks; a max. of 32 characters</td>
 </tr>
@@ -2705,48 +1858,6 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal \
 <td style="text-align: left">false</td>
 <td style="text-align: left">bool</td>
 <td>Reduce-only</td>
-</tr>
-<tr>
-<td style="text-align: left">closeOnTrigger</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">bool</td>
-<td>Close on trigger, please set it to true for a close order</td>
-</tr>
-<tr>
-<td style="text-align: left">takeProfit</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>Take-profit price (Perpetual)</td>
-</tr>
-<tr>
-<td style="text-align: left">stopLoss</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>Stop-loss price (Perpetual)</td>
-</tr>
-<tr>
-<td style="text-align: left">tptriggerby</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">number</td>
-<td>Price type for take-profit triggering (Perpetual), Default <code>MarkPrice</code></td>
-</tr>
-<tr>
-<td style="text-align: left">slTriggerBy</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>Price type for stop-loss triggering (Perpetual), Default <code>MarkPrice</code></td>
-</tr>
-<tr>
-<td style="text-align: left">triggerPrice</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>Trigger price</td>
-</tr>
-<tr>
-<td style="text-align: left">triggerBy</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">number</td>
-<td>Trigger price type. Default <code>MarkPrice</code></td>
 </tr>
 <tr>
 <td style="text-align: left">mmp</td>
@@ -2802,7 +1913,7 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal \
 </tr>
 </tbody></table>
 <h3 id='t-usdcbatchorders'>Place Batch Orders</h3>
-<p>Each request supports a max. of four orders. Options only.</p>
+<p>Each request supports a max. of four orders.</p>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-place-order \
 -H "Content-Type: application/json" \
 -D '{"orderRequest":[{"outRequestId":"4c77b34a-9093-4bca-9cad-727cd6efed7e","symbol":"BTC-26NOV21-58000-P","orderType":"Limit","side":"Buy","orderQty":"1","orderPrice":"1","timeInForce":"GoodTillCancel","placeMode":1,"placeType":1}]}'
@@ -2833,13 +1944,11 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal \
     <span class="p">}]</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Option only.</p>
-
 <p class="fake_header">HTTP Request</p>
 
 <p>POST
 <code><span id=uopvBatchPlace>/option/usdc/openapi/private/v1/batch-place-order</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvBatchPlace"><img src="../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvBatchPlace"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
 
@@ -2877,7 +1986,7 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal \
 <td style="text-align: left">orderType</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Order type (MARKET is not supported currently for Options)</td>
+<td>refer to<a href="#order-type-type-ordertypes">Order type</a> (MARKET is not supported currently for Options)</td>
 </tr>
 <tr>
 <td style="text-align: left">side</td>
@@ -2940,48 +2049,6 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal \
 <td>Reduce-only</td>
 </tr>
 <tr>
-<td style="text-align: left">closeOnTrigger</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">bool</td>
-<td>Close on trigger, please set it to true for a close order</td>
-</tr>
-<tr>
-<td style="text-align: left">takeProfit</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">number</td>
-<td>Take-profit price (Perpetual)</td>
-</tr>
-<tr>
-<td style="text-align: left">stopLoss</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">number</td>
-<td>Stop-loss price (Perpetual)</td>
-</tr>
-<tr>
-<td style="text-align: left">tptriggerby</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">number</td>
-<td>Price type for take-profit triggering (Perpetual), Default <code>MarkPrice</code></td>
-</tr>
-<tr>
-<td style="text-align: left">slTriggerBy</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>Price type for stop-loss triggering (Perpetual), Default <code>MarkPrice</code></td>
-</tr>
-<tr>
-<td style="text-align: left">triggerPrice</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>Trigger price</td>
-</tr>
-<tr>
-<td style="text-align: left">triggerBy</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">number</td>
-<td>Trigger price type. Default <code>MarkPrice</code></td>
-</tr>
-<tr>
 <td style="text-align: left">mmp</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
@@ -3034,9 +2101,7 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal \
 <td>Direction</td>
 </tr>
 </tbody></table>
-<h3 id='t-usdcreplaceorder'>Modify Order</h3>
-<p>Options：category=option, Perpetual：category=perpetual</p>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/replace-order \
+<h3 id='t-usdcreplaceorder'>Modify Order</h3><div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/replace-order \
 -H "Content-Type: application/json" \
 -D '{"outRequestId":"89befe89-0869-405a-a07c-2599324d009d","symbol":"BTC-26NOV21-58000-P","orderId":"be6c87be-da18-4876-9a64-6b7ccc859071","orderQty":"1","orderPrice":"1"}'
 
@@ -3058,13 +2123,13 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal \
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>For Options, at least one of the three parameters — price, quantity or implied volatility — must be input. For Derivatives, either price or quantity is required.</p>
+<p>For Options, at least one of the three parameters — price, quantity or implied volatility — must be input.</p>
 
 <p class="fake_header">HTTP Request</p>
 
 <p>POST
-<code><span id=uopvReplace>/{category}/usdc/openapi/private/v1/replace-order</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvReplace"><img src="../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+<code><span id=uopvReplace>/option/usdc/openapi/private/v1/replace-order</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvReplace"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
 
@@ -3090,7 +2155,7 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal \
 </tr>
 <tr>
 <td style="text-align: left">orderId</td>
-<td style="text-align: left">false</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Order ID, required for Options</td>
 </tr>
@@ -3098,7 +2163,7 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal \
 <td style="text-align: left">orderLinkId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Either orderId or orderLinkId is required (Perpetual)</td>
+<td>Either orderId or orderLinkId is required</td>
 </tr>
 <tr>
 <td style="text-align: left">orderPrice</td>
@@ -3117,42 +2182,6 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal \
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>Implied volatility</td>
-</tr>
-<tr>
-<td style="text-align: left">takeProfit</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>Take-profit price (Perpetual)</td>
-</tr>
-<tr>
-<td style="text-align: left">stopLoss</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>Stop-loss price (Perpetual)</td>
-</tr>
-<tr>
-<td style="text-align: left">tptriggerby</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>Price type for take-profit triggering (Perpetual), Default <code>MarkPrice</code></td>
-</tr>
-<tr>
-<td style="text-align: left">slTriggerBy</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>Price type for stop-loss triggering (Perpetual), Default <code>MarkPrice</code></td>
-</tr>
-<tr>
-<td style="text-align: left">orderFilter</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>Active order or close order, required for Perpetual</td>
-</tr>
-<tr>
-<td style="text-align: left">triggerPrice</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>Trigger price</td>
 </tr>
 </tbody></table>
 
@@ -3176,9 +2205,7 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal \
 <td>Custom ID used for cross-platform strategy remarks; a max. of 32 characters</td>
 </tr>
 </tbody></table>
-<h3 id='t-usdcbatchreplaceorders'>Batch Modify Orders</h3>
-<p>Option only.</p>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-replace-orders \
+<h3 id='t-usdcbatchreplaceorders'>Batch Modify Orders</h3><div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-replace-orders \
 -H "Content-Type: application/json" \
 -D '{"replaceOrderRequest":[{"outRequestId":"89befe89-0869-405a-a07c-2599324d009d","symbol":"BTC-26NOV21-58000-P","orderId":"be6c87be-da18-4876-9a64-6b7ccc859071","orderQty":"1","orderPrice":"1"}]}'
 
@@ -3204,7 +2231,7 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal \
 
 <p>POST
 <code><span id=uopvBatchReplace>/option/usdc/openapi/private/v1/batch-replace-orders</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvBatchReplace"><img src="../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvBatchReplace"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
 
@@ -3246,7 +2273,7 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal \
 </tr>
 <tr>
 <td style="text-align: left">orderId</td>
-<td style="text-align: left">false</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Order ID, required for Options</td>
 </tr>
@@ -3254,7 +2281,7 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal \
 <td style="text-align: left">orderLinkId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Either orderId or orderLinkId is required (Perpetual)</td>
+<td>Either orderId or orderLinkId is required</td>
 </tr>
 <tr>
 <td style="text-align: left">orderPrice</td>
@@ -3273,42 +2300,6 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal \
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>Implied volatility</td>
-</tr>
-<tr>
-<td style="text-align: left">takeProfit</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>Take-profit price (Perpetual)</td>
-</tr>
-<tr>
-<td style="text-align: left">stopLoss</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>Stop-loss price (Perpetual)</td>
-</tr>
-<tr>
-<td style="text-align: left">tptriggerby</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>Price type for take-profit triggering (Perpetual), Default <code>MarkPrice</code></td>
-</tr>
-<tr>
-<td style="text-align: left">slTriggerBy</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>Price type for stop-loss triggering (Perpetual), Default <code>MarkPrice</code></td>
-</tr>
-<tr>
-<td style="text-align: left">orderFilter</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>Active order or close order, required for Perpetual</td>
-</tr>
-<tr>
-<td style="text-align: left">triggerPrice</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>Trigger price</td>
 </tr>
 </tbody></table>
 
@@ -3332,9 +2323,7 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal \
 <td>Custom ID used for cross-platform strategy remarks; a max. of 32 characters</td>
 </tr>
 </tbody></table>
-<h3 id='t-usdccancelorder'>Cancel Order</h3>
-<p>Options：category=option, Perpetual：category=perpetual</p>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/cancel-order \
+<h3 id='t-usdccancelorder'>Cancel Order</h3><div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/cancel-order \
 -H "Content-Type: application/json" \
 -D '{"outRequestId":"01f90031-4697-4b1f-affe-eb0032c58212","symbol":"BTC-26NOV21-58000-P","orderId":"ec6d8081-8950-491b-bf43-22ddb09df0fc"}'
 
@@ -3356,8 +2345,8 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal \
 <p class="fake_header">HTTP Request</p>
 
 <p>POST
-<code><span id=uopvCancel>/{category}/usdc/openapi/private/v1/cancel-order</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvCancel"><img src="../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+<code><span id=uopvCancel>/option/usdc/openapi/private/v1/cancel-order</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvCancel"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
 
@@ -3383,7 +2372,7 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal \
 </tr>
 <tr>
 <td style="text-align: left">orderId</td>
-<td style="text-align: left">false</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Order ID, required for Options</td>
 </tr>
@@ -3391,13 +2380,7 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal \
 <td style="text-align: left">orderLinkId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Either orderId or orderLinkId is required (Perpetual)</td>
-</tr>
-<tr>
-<td style="text-align: left">orderFilter</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>Active order or close order, required for Perpetual</td>
+<td>Either orderId or orderLinkId is required</td>
 </tr>
 </tbody></table>
 
@@ -3436,11 +2419,11 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal \
     <span class="p">}]</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Option only.
 <p class="fake_header">HTTP Request</p>
-POST
+
+<p>POST
 <code><span id=uopvBatchCancel>/option/usdc/openapi/private/v1/batch-cancel-orders</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvBatchCancel"><img src="../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvBatchCancel"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
 
@@ -3482,7 +2465,7 @@ POST
 </tr>
 <tr>
 <td style="text-align: left">orderId</td>
-<td style="text-align: left">false</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Order ID, required for Options</td>
 </tr>
@@ -3490,13 +2473,7 @@ POST
 <td style="text-align: left">orderLinkId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Either orderId or orderLinkId is required (Perpetual)</td>
-</tr>
-<tr>
-<td style="text-align: left">orderFilter</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>Active order or close order, required for Perpetual</td>
+<td>Either orderId or orderLinkId is required</td>
 </tr>
 </tbody></table>
 
@@ -3515,9 +2492,7 @@ POST
 <td>Order ID</td>
 </tr>
 </tbody></table>
-<h3 id='t-usdccancelall'>Cancel All Active Orders</h3>
-<p>Option only.</p>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/cancel-order \
+<h3 id='t-usdccancelall'>Cancel All Active Orders</h3><div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/cancel-order \
 -H "Content-Type: application/json" \
 -D '{"outRequestId":"cdde8186-fda8-457d-9451-5b83b7780ad4"}'
 
@@ -3539,7 +2514,7 @@ POST
 
 <p>POST
 <code><span id=uopvCancelAll>/option/usdc/openapi/private/v1/cancel-all</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvCancelAll"><img src="../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvCancelAll"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
 
@@ -3562,9 +2537,7 @@ POST
 <p>
 This is used to cancel all active orders . The real-time response indicates whether the request is successful, depending on retCode.
 </p>
-<h3 id='t-usdcqryunorpartfilled'>Query Unfilled/Partially Filled Orders</h3>
-<p>For both Perpetual and Option.</p>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-active-orders \
+<h3 id='t-usdcqryunorpartfilled'>Query Unfilled/Partially Filled Orders</h3><div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-active-orders \
 -H "Content-Type: application/json" \
 -D '{"category":"option"}'
 
@@ -3617,7 +2590,7 @@ This is used to cancel all active orders . The real-time response indicates whet
 
 <p>POST
 <code><span id=uopvQueryActive>/option/usdc/openapi/private/v1/query-active-orders</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvQueryActive"><img src="../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvQueryActive"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
 
@@ -3637,7 +2610,7 @@ This is used to cancel all active orders . The real-time response indicates whet
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>Contract name</td>
 </tr>
@@ -3652,12 +2625,6 @@ This is used to cancel all active orders . The real-time response indicates whet
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>Custom ID used for cross-platform strategy remarks; a max. of 32 characters</td>
-</tr>
-<tr>
-<td style="text-align: left">orderFilter</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>Active order or close order, required for Perpetual</td>
 </tr>
 <tr>
 <td style="text-align: left">direction</td>
@@ -3731,7 +2698,7 @@ This is used to cancel all active orders . The real-time response indicates whet
 <tr>
 <td style="text-align: left">orderType</td>
 <td style="text-align: left">string</td>
-<td>Order type (MARKET is not supported currently for Options)</td>
+<td>refer to<a href="#order-type-type-ordertypes">Order type</a> (MARKET is not supported currently for Options)</td>
 </tr>
 <tr>
 <td style="text-align: left">side</td>
@@ -3786,57 +2753,12 @@ This is used to cancel all active orders . The real-time response indicates whet
 <tr>
 <td style="text-align: left">orderStatus</td>
 <td style="text-align: left">string</td>
-<td>Order status</td>
-</tr>
-<tr>
-<td style="text-align: left">takeProfit</td>
-<td style="text-align: left">string</td>
-<td>Take-profit price (Perpetual)</td>
-</tr>
-<tr>
-<td style="text-align: left">stopLoss</td>
-<td style="text-align: left">string</td>
-<td>Stop-loss price (Perpetual)</td>
-</tr>
-<tr>
-<td style="text-align: left">tpTriggerBy</td>
-<td style="text-align: left">string</td>
-<td>Price type for take-profit triggering (Perpetual), Default <code>MarkPrice</code></td>
-</tr>
-<tr>
-<td style="text-align: left">slTriggerBy</td>
-<td style="text-align: left">string</td>
-<td>Price type for stop-loss triggering (Perpetual), Default <code>MarkPrice</code></td>
-</tr>
-<tr>
-<td style="text-align: left">lastExecPrice</td>
-<td style="text-align: left">string</td>
-<td>Filled price</td>
-</tr>
-<tr>
-<td style="text-align: left">basePrice</td>
-<td style="text-align: left">string</td>
-<td>Market price during order placement</td>
-</tr>
-<tr>
-<td style="text-align: left">triggerPrice</td>
-<td style="text-align: left">string</td>
-<td>Trigger price</td>
-</tr>
-<tr>
-<td style="text-align: left">triggerBy</td>
-<td style="text-align: left">string</td>
-<td>Trigger price type. Default <code>MarkPrice</code></td>
+<td><a href="#order-status-status">Order status</a></td>
 </tr>
 <tr>
 <td style="text-align: left">reduceOnly</td>
 <td style="text-align: left">string</td>
 <td>Reduce-only</td>
-</tr>
-<tr>
-<td style="text-align: left">closeOnTrigger</td>
-<td style="text-align: left">string</td>
-<td>Close on trigger, please set it to true for a close order</td>
 </tr>
 <tr>
 <td style="text-align: left">createdAt</td>
@@ -3849,12 +2771,10 @@ This is used to cancel all active orders . The real-time response indicates whet
 <td>API pass-through</td>
 </tr>
 </tbody></table>
-<h3 id='t-usdcqryorderhistory'>Query Order History</h3>
-<p>For both Perpetual and Option.</p>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">
+<h3 id='t-usdcqryorderhistory'>Query Order History</h3><div class="highlight"><pre class="highlight console tab-console"><code><span class="go">
 curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-history \
 -H "Content-Type: application/json" \
--D '{"category":"option"}'
+-D '{"category":"OPTION"}'
 
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
 </code></pre></div>
@@ -3905,7 +2825,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 
 <p>POST
 <code><span id=uopvQueryHistory>/option/usdc/openapi/private/v1/query-order-history</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvQueryHistory"><img src="../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvQueryHistory"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
 
@@ -3945,13 +2865,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 <td style="text-align: left">orderStatus</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Order status</td>
-</tr>
-<tr>
-<td style="text-align: left">orderFilter</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>Active order or close order, required for Perpetual</td>
+<td><a href="#order-status-status">Order status</a></td>
 </tr>
 <tr>
 <td style="text-align: left">direction</td>
@@ -4025,7 +2939,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 <tr>
 <td style="text-align: left">orderType</td>
 <td style="text-align: left">string</td>
-<td>Order type (MARKET is not supported currently for Options)</td>
+<td>refer to<a href="#order-type-type-ordertypes">Order type</a> (MARKET is not supported currently for Options)</td>
 </tr>
 <tr>
 <td style="text-align: left">side</td>
@@ -4090,32 +3004,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 <tr>
 <td style="text-align: left">orderStatus</td>
 <td style="text-align: left">string</td>
-<td>Order status</td>
-</tr>
-<tr>
-<td style="text-align: left">takeProfit</td>
-<td style="text-align: left">string</td>
-<td>Take-profit price (Perpetual)</td>
-</tr>
-<tr>
-<td style="text-align: left">stopLoss</td>
-<td style="text-align: left">string</td>
-<td>Stop-loss price (Perpetual)</td>
-</tr>
-<tr>
-<td style="text-align: left">tpTriggerBy</td>
-<td style="text-align: left">string</td>
-<td>Price type for take-profit triggering (Perpetual), Default <code>MarkPrice</code></td>
-</tr>
-<tr>
-<td style="text-align: left">slTriggerBy</td>
-<td style="text-align: left">string</td>
-<td>Price type for stop-loss triggering (Perpetual), Default <code>MarkPrice</code></td>
-</tr>
-<tr>
-<td style="text-align: left">lastExecPrice</td>
-<td style="text-align: left">string</td>
-<td>Filled price</td>
+<td><a href="#order-status-status">Order status</a></td>
 </tr>
 <tr>
 <td style="text-align: left">basePrice</td>
@@ -4123,24 +3012,9 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 <td>Market price during order placement</td>
 </tr>
 <tr>
-<td style="text-align: left">triggerPrice</td>
-<td style="text-align: left">string</td>
-<td>Trigger price</td>
-</tr>
-<tr>
-<td style="text-align: left">triggerBy</td>
-<td style="text-align: left">string</td>
-<td>Trigger price type. Default <code>MarkPrice</code></td>
-</tr>
-<tr>
 <td style="text-align: left">reduceOnly</td>
 <td style="text-align: left">bool</td>
 <td>Reduce-only</td>
-</tr>
-<tr>
-<td style="text-align: left">closeOnTrigger</td>
-<td style="text-align: left">string</td>
-<td>Close on trigger, please set it to true for a close order</td>
 </tr>
 <tr>
 <td style="text-align: left">createdAt</td>
@@ -4159,14 +3033,12 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 </tr>
 </tbody></table>
 <h3 id='t-usdctradehistory'>Trade History</h3>
-<p>For both Perpetual and Option.</p>
-
 <blockquote>
 <p>Request Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/execution-list \
 -H "Content-Type: application/json" \
--D '{"startTime":"1633687786728","symbol":"1633797786728","category":"option","type":"Settlement","orderId":"70bc3d92-009c-464b-8399-010b9d4aac2b"}'
+-D '{"startTime":"1633687786728","symbol":"1633797786728","category":"OPTION","type":"Settlement","orderId":"70bc3d92-009c-464b-8399-010b9d4aac2b"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
 </code></pre></div>
 <blockquote>
@@ -4189,8 +3061,6 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
                 <span class="dl">"</span><span class="s2">feeRate</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.0250%</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">tradeTime</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1637053904869</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">execType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">TRADE</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">lastLiquidityInd</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">execValue</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span>
             <span class="p">}</span>
         <span class="p">]</span>
     <span class="p">}</span>
@@ -4201,7 +3071,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 
 <p>POST
 <code><span id=uopvExecution>/option/usdc/openapi/private/v1/execution-list</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvExecution"><img src="../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvExecution"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
 
@@ -4221,7 +3091,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>Contract name</td>
 </tr>
@@ -4235,7 +3105,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 <td style="text-align: left">orderLinkId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Either orderId or orderLinkId is required (Perpetual)</td>
+<td>Either orderId or orderLinkId is required</td>
 </tr>
 <tr>
 <td style="text-align: left">startTime</td>
@@ -4334,30 +3204,18 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 </tr>
 <tr>
 <td style="text-align: left">tradeTime</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>Timestamp, unit in milliseconds</td>
 </tr>
 <tr>
 <td style="text-align: left">execType</td>
 <td style="text-align: left">string</td>
-<td>Execution type (cannot be “Funding”)</td>
-</tr>
-<tr>
-<td style="text-align: left">lastLiquidityInd</td>
-<td style="text-align: left">string</td>
-<td>Liquidity (Perpetual)</td>
-</tr>
-<tr>
-<td style="text-align: left">execValue</td>
-<td style="text-align: left">string</td>
-<td>Position value (Perpetual)</td>
+<td><a href="#exec-type">Execution type</a></td>
 </tr>
 </tbody></table>
 <h2 id='t-account_wallet'>Account API</h2>
 <p>The following wallet data endpoints require authentication.</p>
 <h3 id='t-transactionlog'>Transaction Log</h3>
-<p>For both Perpetual and Option.</p>
-
 <blockquote>
 <p>Request Example</p>
 </blockquote>
@@ -4403,7 +3261,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 
 <p>POST
 <code><span id=uopvQueryTransaction>/option/usdc/openapi/private/v1/query-transaction-log</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvQueryTransaction"><img src="../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvQueryTransaction"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
 
@@ -4607,7 +3465,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 
 <p>POST
 <code><span id=uopvQueryBalance>/option/usdc/openapi/private/v1/query-wallet-balance</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvQueryBalance"><img src="../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvQueryBalance"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
 
 <p class="fake_header">Response Parameters</p>
 
@@ -4665,8 +3523,6 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 </tr>
 </tbody></table>
 <h3 id='t-assetinfo'>Asset Info</h3>
-<p>For both Perpetual and Option.</p>
-
 <blockquote>
 <p>Request Example</p>
 </blockquote>
@@ -4704,7 +3560,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 
 <p>POST
 <code><span id=uopvAsset>/option/usdc/openapi/private/v1/query-asset-info</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvAsset"><img src="../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvAsset"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
 
@@ -4829,7 +3685,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-margin-i
 
 <p>POST
 <code><span id=uopvMargin>/option/usdc/openapi/private/v1/query-margin-info</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvMargin"><img src="../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvMargin"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
 
@@ -4859,14 +3715,12 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-margin-i
 </tr>
 </tbody></table>
 <h2 id='t-accountposition'>Positions API</h2><h3 id='t-queryposition'>Query My Positions</h3>
-<p>For both Perpetual and Option.</p>
-
 <blockquote>
 <p>Request Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-position \
 -H "Content-Type: application/json" \
--D '{"symbol":"BTC-22OCT21-40000-C","category":"option"}'
+-D '{"symbol":"BTC-22OCT21-40000-C","category":"OPTION"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
 </code></pre></div>
 <blockquote>
@@ -4916,7 +3770,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-margin-i
 
 <p>POST
 <code><span id=uopvPosition>/option/usdc/openapi/private/v1/query-position</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvPosition"><img src="../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvPosition"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
 
@@ -5067,12 +3921,12 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-margin-i
 <tr>
 <td style="text-align: left">tpSlMode</td>
 <td style="text-align: left">string</td>
-<td>TP/SL settings (Perpetual)</td>
+<td>TP/SL settings</td>
 </tr>
 <tr>
 <td style="text-align: left">positionValue</td>
 <td style="text-align: left">string</td>
-<td>Position value (Perpetual)</td>
+<td>Position value</td>
 </tr>
 <tr>
 <td style="text-align: left">leverage</td>
@@ -5082,27 +3936,27 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-margin-i
 <tr>
 <td style="text-align: left">liqPrice</td>
 <td style="text-align: left">string</td>
-<td>Liquidation price (Perpetual)</td>
+<td>Liquidation price</td>
 </tr>
 <tr>
 <td style="text-align: left">trailingStop</td>
 <td style="text-align: left">string</td>
-<td>Trailing stop (Perpetual)</td>
+<td>Trailing stop</td>
 </tr>
 <tr>
 <td style="text-align: left">bustPrice</td>
 <td style="text-align: left">string</td>
-<td>Bankruptcy price (Perpetual)</td>
+<td>Bankruptcy price</td>
 </tr>
 <tr>
 <td style="text-align: left">occClosingFee</td>
 <td style="text-align: left">string</td>
-<td>Position closing fees (Perpetual)</td>
+<td>Position closing fees</td>
 </tr>
 <tr>
 <td style="text-align: left">trakeProfit</td>
 <td style="text-align: left">string</td>
-<td>Take-profit price (Perpetual)</td>
+<td>Take-profit price</td>
 </tr>
 <tr>
 <td style="text-align: left">stopLoss</td>
@@ -5112,12 +3966,12 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-margin-i
 <tr>
 <td style="text-align: left">positionStatus</td>
 <td style="text-align: left">string</td>
-<td>Position status; can be normal, liquidating, and auto deleveraging (Perpetual)</td>
+<td>Position status; can be normal, liquidating, and auto deleveraging</td>
 </tr>
 <tr>
 <td style="text-align: left">deleverageIndicator</td>
 <td style="text-align: left">string</td>
-<td>ADL indicators; can be 1,2,3,4,5 (Perpetual)</td>
+<td>ADL indicators; can be 1,2,3,4,5</td>
 </tr>
 <tr>
 <td style="text-align: left">orderMargin</td>
@@ -5127,91 +3981,15 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-margin-i
 <tr>
 <td style="text-align: left">unrealisedPnl</td>
 <td style="text-align: left">string</td>
-<td>unrealised pnl (Perpetual)</td>
+<td>unrealised pnl</td>
 </tr>
 <tr>
 <td style="text-align: left">cumRealisedPnl</td>
 <td style="text-align: left">string</td>
-<td>Accumulated realised pnl (all-time total) (Perpetual)</td>
-</tr>
-</tbody></table>
-<h3 id='t-setpositionleverage'>Set Leverage</h3>
-<p>Perpetual only.</p>
-
-<blockquote>
-<p>Request Example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">
-curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/position/leverage/save \
--H "Content-Type: application/json" \
--d '{"symbol":"BTCUSD","buy_leverage":14,"sell_leverage":14}'
-
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
-<span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Positions</span><span class="p">.</span><span class="n">Positions_saveLeverage</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span> <span class="n">leverage</span><span class="o">=</span><span class="s">"14"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
-
-</code></pre></div>
-<blockquote>
-<p>Response Example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">extCode</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">extInfo</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">leverage</span><span class="dl">"</span><span class="p">:</span> <span class="mi">10</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<p class="fake_header">HTTP Request</p>
-
-<p>POST
-<code><span id=uopvLeverageSave>/perpetual/usdc/openapi/private/v1/position/leverage/save</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvLeverageSave"><img src="../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
-
-<p class="fake_header">Request Parameters</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Required</th>
-<th style="text-align: left">Type</th>
-<th>Comment</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">symbol</td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">string</td>
-<td>Contract name</td>
-</tr>
-<tr>
-<td style="text-align: left">leverage</td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">number</td>
-<td>Must be greater than zero and less than the max. leverage allowed</td>
-</tr>
-</tbody></table>
-
-<p class="fake_header">Response Parameters</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Type</th>
-<th>Comment</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">leverage</td>
-<td style="text-align: left">number</td>
-<td>Leverage</td>
+<td>Accumulated realised pnl (all-time total)</td>
 </tr>
 </tbody></table>
 <h3 id='t-querydeliverylog'>Query Delivery History</h3>
-<p>Option only.</p>
-
 <blockquote>
 <p>Request Example</p>
 </blockquote>
@@ -5248,7 +4026,7 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/position/le
 
 <p>POST
 <code><span id=uopvQueryDelivery>/option/usdc/openapi/private/v1/query-delivery-list</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvQueryDelivery"><img src="../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvQueryDelivery"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
 
@@ -5367,155 +4145,7 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/position/le
 <td>Delivery Rpl</td>
 </tr>
 </tbody></table>
-<h3 id='t-querysettlelogs'>Query Settlement History</h3>
-<p>Perpetual only.</p>
-
-<blockquote>
-<p>Request Example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/session-settlement \
--H "Content-Type: application/json" \
--d '{"symbol":"BTC-22OCT21-45000-C"}'
-
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
-</code></pre></div>
-<blockquote>
-<p>Response Example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:{</span>
-    <span class="dl">"</span><span class="s2">resultTotalSize</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">cursor</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">dataList</span><span class="dl">"</span><span class="p">:[</span>
-        <span class="p">{</span>
-          <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1fd26147-247d-4433-9845-a236981c3689</span><span class="dl">"</span><span class="p">,</span>
-          <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
-          <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
-          <span class="dl">"</span><span class="s2">sessionAvgPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
-          <span class="dl">"</span><span class="s2">markPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">100</span><span class="dl">"</span><span class="p">,</span>
-          <span class="dl">"</span><span class="s2">sessionRpl</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">100</span><span class="dl">"</span>
-        <span class="p">}</span>
-    <span class="p">]</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<p class="fake_header">HTTP Request</p>
-
-<p>POST
-<code><span id=upovSession>/option/usdc/openapi/private/v1/session-settlement</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#upovSession"><img src="../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
-
-<p class="fake_header">Request Parameters</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Required</th>
-<th style="text-align: left">Type</th>
-<th>Comment</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">symbol</td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">string</td>
-<td>Contract name</td>
-</tr>
-<tr>
-<td style="text-align: left">direction</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td><p>prev: prev page, next: next page.</p>
-</td>
-</tr>
-<tr>
-<td style="text-align: left">limit</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">number</td>
-<td>Number of data per page; the max. value is 50, and the default value is 20</td>
-</tr>
-<tr>
-<td style="text-align: left">cursor</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>API pass-through</td>
-</tr>
-</tbody></table>
-
-<p class="fake_header">Response Parameters</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Type</th>
-<th>Comment</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">resultTotalSize</td>
-<td style="text-align: left">number</td>
-<td>length of dataList</td>
-</tr>
-<tr>
-<td style="text-align: left">cursor</td>
-<td style="text-align: left">string</td>
-<td>API pass-through</td>
-</tr>
-<tr>
-<td style="text-align: left">dataList</td>
-<td style="text-align: left">list</td>
-<td>Return the result list, refer to the following fields</td>
-</tr>
-</tbody></table>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Type</th>
-<th>Comment</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">symbol</td>
-<td style="text-align: left">string</td>
-<td>Contract name</td>
-</tr>
-<tr>
-<td style="text-align: left">side</td>
-<td style="text-align: left">string</td>
-<td>Direction</td>
-</tr>
-<tr>
-<td style="text-align: left">size</td>
-<td style="text-align: left">string</td>
-<td>size</td>
-</tr>
-<tr>
-<td style="text-align: left">sessionAvgPrice</td>
-<td style="text-align: left">string</td>
-<td>Settlement price</td>
-</tr>
-<tr>
-<td style="text-align: left">markPrice</td>
-<td style="text-align: left">string</td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align: left">sessionRpl</td>
-<td style="text-align: left">string</td>
-<td>Session RPL</td>
-</tr>
-<tr>
-<td style="text-align: left">cursor</td>
-<td style="text-align: left">string</td>
-<td>API pass-through</td>
-</tr>
-</tbody></table>
 <h3 id='t-querypositioninfo'>Query Positions Info Upon Expiry</h3>
-<p>Option only.</p>
-
 <blockquote>
 <p>Request Example</p>
 </blockquote>
@@ -5561,7 +4191,7 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/position/le
 
 <p>POST
 <code><span id=upovPositionExp>/option/usdc/openapi/private/v1/query-position-exp-date</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#upovPositionExp"><img src="../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#upovPositionExp"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
 
@@ -5669,164 +4299,6 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/position/le
 <td>Maintenance margin</td>
 </tr>
 </tbody></table>
-<h2 id='t-risklimit'>Risk Limit API</h2><h3 id='t-queryrisklimits'>Query Risk Limit</h3>
-<p>Perpetual only.</p>
-
-<blockquote>
-<p>Request Example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/risk-limit/list \
--H "Content-Type: application/json" \
--d '{"symbol":"BTCUSD"}'
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
-</code></pre></div>
-<blockquote>
-<p>Response Example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code>
-</code></pre></div>
-<p class="fake_header">HTTP Request</p>
-
-<p>POST
-<code><span id=uopv>/perpetual/usdc/openapi/public/v1/risk-limit/list</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopv"><img src="../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
-
-<p class="fake_header">Request Parameters</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Required</th>
-<th style="text-align: left">Type</th>
-<th>Comment</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">symbol</td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">string</td>
-<td>Contract name</td>
-</tr>
-</tbody></table>
-
-<p class="fake_header">Response Parameters</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Type</th>
-<th>Comment</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">symbol</td>
-<td style="text-align: left">string</td>
-<td>Contract name</td>
-</tr>
-<tr>
-<td style="text-align: left">riskId</td>
-<td style="text-align: left">number</td>
-<td>Risk ID</td>
-</tr>
-<tr>
-<td style="text-align: left">limit</td>
-<td style="text-align: left">string</td>
-<td>Risk Limit</td>
-</tr>
-<tr>
-<td style="text-align: left">maintainMargin</td>
-<td style="text-align: left">string</td>
-<td>Maintenance margin</td>
-</tr>
-<tr>
-<td style="text-align: left">startingMargin</td>
-<td style="text-align: left">string</td>
-<td>Initial margin</td>
-</tr>
-<tr>
-<td style="text-align: left">section</td>
-<td style="text-align: left">string</td>
-<td>Interval</td>
-</tr>
-<tr>
-<td style="text-align: left">isLowestRisk</td>
-<td style="text-align: left">string</td>
-<td>Whether it’s the lowest risk limit; 0 indicates no and 1 means yes</td>
-</tr>
-<tr>
-<td style="text-align: left">maxLeverage</td>
-<td style="text-align: left">string</td>
-<td>Max. leverage (Perpetual only)</td>
-</tr>
-</tbody></table>
-<h3 id='t-setrisklimits'>Set Risk Limit</h3>
-<p>Perpetual only.</p>
-
-<blockquote>
-<p>Request Example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/position/set-risk-limit \
--H "Content-Type: application/json" \
--d '{"symbol":"BTCUSD","risk_id":2}'
-
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
-</code></pre></div>
-<blockquote>
-<p>Response Example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">riskId</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<p class="fake_header">HTTP Request</p>
-
-<p>POST
-<code><span id=uopvSetRisk>/perpetual/usdc/openapi/private/v1/position/set-risk-limit</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvSetRisk"><img src="../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
-
-<p class="fake_header">Request Parameters</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Required</th>
-<th style="text-align: left">Type</th>
-<th>Comment</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">symbol</td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">string</td>
-<td>Contract name</td>
-</tr>
-<tr>
-<td style="text-align: left">riskId</td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">number</td>
-<td>Risk ID</td>
-</tr>
-</tbody></table>
-
-<p class="fake_header">Response Parameters</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Type</th>
-<th>Comment</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">riskId</td>
-<td style="text-align: left">number</td>
-<td>Risk ID</td>
-</tr>
-</tbody></table>
 <h1 id='t-api'>API Data Endpoints</h1>
 <p>The following API data endpoints do not require authentication.</p>
 <h3 id='t-servertime'>Server Time</h3>
@@ -5855,7 +4327,7 @@ curl https://api-testnet.bybit.com/v2/public/time
 
 <p>GET
 <code><span id=vpTime>/v2/public/time</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpTime"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpTime"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
 
@@ -5869,7 +4341,7 @@ curl https://api-testnet.bybit.com/v2/public/time
 </thead><tbody>
 </tbody></table>
 <h1 id='t-ratelimits'>API Rate Limits</h1><h3 id='t-ipratelimits'>IP Rate Limit</h3>
-<p><p>The IP limits are shared across all endpoints: futures and account asset but SPOT is separate from them. Mainnet and testnet IP limits are separate.</p>
+<p><p>The IP limits are shared across all endpoints.</p>
 <p>Bybit has different IP frequency limits for <code>GET</code> and <code>POST</code> method<span>:</span></p>
 <ul>
 <li>
@@ -5887,9 +4359,6 @@ curl https://api-testnet.bybit.com/v2/public/time
   </ul>
 </li>
 </ul>
-</p>
-<h3 id='t-perendpoint'>Rate Limits For All Private Endpoints</h3>
-<p>The frequency limit for Options is no more than 20 requests per second.
 </p>
 <h1 id='t-websocket'>WebSocket Data</h1><h2 id='t-websocketauthentication'>Authentication</h2>
 <blockquote>
@@ -5955,11 +4424,11 @@ curl https://api-testnet.bybit.com/v2/public/time
 <p>
   <li>Testnet:
     Public: <span id="testnet_address">wss://stream-testnet.bybit.com/trade/option/usdc/public/v1</span>
-    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
     <br/>
 
     Private: <span id="testnet_address_2">wss://stream-testnet.bybit.com/trade/option/usdc/private/v1</span>
-    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address_2"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address_2"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
   </li>
 </p>
 <p>
@@ -6004,25 +4473,25 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 </blockquote>
 
 <p><p>Subscribing:</p>
-<p>ws.send(‘{“method”:“public/subscribe”,“id”:“{uuid}“,”params”:{“channels”:[“topic1",“topic2”]}}‘)</p>
+<p>ws.send('{"method":"public/subscribe","id":"{uuid}","params":{"channels":["topic1","topic2"]}}')</p>
 <p>or </p>
-<p>ws.send(‘{“method”:“private/subscribe”,“id”:“{uuid}“,”params”:{“channels”:[“topic1",“topic2”]}}‘)</p>
+<p>ws.send('{"method":"private/subscribe","id":"{uuid}","params":{"channels":["topic1","topic2"]}}')</p>
 <p>Response:</p>
-<p>{“id”:“{uuid}“,”code”:0,“data”:{“successChannels”:[“topic1”],“failChannels”:[“topic2”]},“type”:“COMMAND_RESP”}</p>
+<p>{"id":"{uuid}","code":0,"data":{"successChannels":["topic1"],"failChannels":["topic2"]},"type":"COMMAND_RESP"}</p>
 </p>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Subscribing to the trade data for BTCUSDT</span>
 </code></pre></div><h3 id='t-websocketunfilters'>Understanding Websocket Filters unsubscription</h3>
 <p><p>Remove WebSocket Topic Subscriptions</p>
-<p>ws.send(‘{“method”:“public/unsubscribe”,“id”:“{uuid}“,”params”:{“channels”:[“topic1",“topic2”]}}‘)  </p>
+<p>ws.send('{"method":"public/unsubscribe","id":"{uuid}","params":{"channels":["topic1","topic2"]}}')  </p>
 <p>or  </p>
-<p>ws.send(‘{“method”:“private/unsubscribe”,“id”:“{uuid}“,”params”:{“channels”:[“topic1",“topic2”]}}’) </p>
+<p>ws.send('{"method":"private/unsubscribe","id":"{uuid}","params":{"channels":["topic1","topic2"]}}’) </p>
 <p>Response: </p>
-<p>{“id”:“{uuid}“,”code”:0,“data”:{“successChannels”:[“topic1”],“failChannels”:[“topic2”]},“type”:“COMMAND_RESP”}</p>
+<p>{"id":"{uuid}","code":0,"data":{"successChannels":["topic1"],"failChannels":["topic2"]},"type":"COMMAND_RESP"}</p>
 
 <p>Remove All WebSocket Topic Subscriptions</p>
-<p>{“method”:“public/unSubAll”,“id”:“requestId”}</p>
+<p>{"method":"public/unSubAll","id":"requestId"}</p>
 <p>Response:</p>
-<p> {“id”:“requestId”,“code”:0,“type”:“COMMAND_RESP”}</p>
+<p> {"id":"requestId","code":0,"type":"COMMAND_RESP"}</p>
 </p>
 <h2 id='t-websocketresponse'>Understanding Subscription Response</h2>
 <blockquote>
@@ -6070,9 +4539,8 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 
 
 </code></pre></div>
-<p><p>Either 25 or 100 or 200 orders will be fetched from the bid and ask side of the order book.</p>
+<p><p>Either 25 or 100 orders will be fetched from the bid and ask side of the order book.</p>
 <p>After a successful subscription, it will always provide the snapshot response.</p>
-<p>For option, only 25 or 100 orders will be fetched.</p>
 <p>Topic format:</p>
 <p>Either orderbook25.{symbol} or orderbook100.{symbol} for Option.</p>
 <p>Such as orderbook25.BTC-5NOV21-30000-P or orderbook100.BTC-5NOV21-30000-P</p>
@@ -6108,7 +4576,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <td>Position qty</td>
 </tr>
 </tbody></table>
-<h3 id='t-bybittradehistory'>Trade History on Bybit</h3>
+<h3 id='t-bybittradehistory'>Trade</h3>
 <blockquote>
 <p>How to Subscribe</p>
 </blockquote>
@@ -6365,86 +4833,6 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <td>Theta value</td>
 </tr>
 </tbody></table>
-<h3 id='kline'>KLine</h3>
-<blockquote>
-<p>How to Subscribe</p>
-</blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code></code></pre></div>
-<blockquote>
-<p>Snapshot Response Example - format of the first response</p>
-</blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code>
-</code></pre></div>
-<blockquote>
-<p>Delta Response Example - format of the responses following the snapshot response</p>
-</blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code>
-</code></pre></div>
-<p class="fake_header">Response Parameters</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Type</th>
-<th>Comment</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">start</td>
-<td style="text-align: left">string</td>
-<td>Start time, unit in seconds</td>
-</tr>
-<tr>
-<td style="text-align: left">end</td>
-<td style="text-align: left">string</td>
-<td>End time, unit in seconds</td>
-</tr>
-<tr>
-<td style="text-align: left">open</td>
-<td style="text-align: left">string</td>
-<td>Open price</td>
-</tr>
-<tr>
-<td style="text-align: left">close</td>
-<td style="text-align: left">string</td>
-<td>Close price</td>
-</tr>
-<tr>
-<td style="text-align: left">high</td>
-<td style="text-align: left">string</td>
-<td>24-hour high</td>
-</tr>
-<tr>
-<td style="text-align: left">low</td>
-<td style="text-align: left">string</td>
-<td>24-hour low</td>
-</tr>
-<tr>
-<td style="text-align: left">volume</td>
-<td style="text-align: left">string</td>
-<td>24-hour trading volume</td>
-</tr>
-<tr>
-<td style="text-align: left">turnover</td>
-<td style="text-align: left">string</td>
-<td>24-hour turnover</td>
-</tr>
-<tr>
-<td style="text-align: left">confirm</td>
-<td style="text-align: left">string</td>
-<td>Confirmed or not</td>
-</tr>
-<tr>
-<td style="text-align: left">crossSeq</td>
-<td style="text-align: left">string</td>
-<td>crossSeq</td>
-</tr>
-<tr>
-<td style="text-align: left">timestamp</td>
-<td style="text-align: left">string</td>
-<td>Timestamp, unit in milliseconds</td>
-</tr>
-</tbody></table>
 <h2 id='private-topics'>Private Topics</h2><h3 id='t-userpositionsinfo'>Position</h3>
 <blockquote>
 <p>How to Subscribe</p>
@@ -6559,76 +4947,6 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <td style="text-align: left">string</td>
 <td>Maintenance margin</td>
 </tr>
-<tr>
-<td style="text-align: left">tpSlMode</td>
-<td style="text-align: left">string</td>
-<td>TP/SL settings (Perpetual)</td>
-</tr>
-<tr>
-<td style="text-align: left">positionValue</td>
-<td style="text-align: left">string</td>
-<td>Position value (Perpetual)</td>
-</tr>
-<tr>
-<td style="text-align: left">leverage</td>
-<td style="text-align: left">number</td>
-<td>Leverage</td>
-</tr>
-<tr>
-<td style="text-align: left">liqPrice</td>
-<td style="text-align: left">string</td>
-<td>Liquidation price (Perpetual)</td>
-</tr>
-<tr>
-<td style="text-align: left">trailingStop</td>
-<td style="text-align: left">number</td>
-<td>Trailing stop (Perpetual)</td>
-</tr>
-<tr>
-<td style="text-align: left">bustPrice</td>
-<td style="text-align: left">string</td>
-<td>Bankruptcy price (Perpetual)</td>
-</tr>
-<tr>
-<td style="text-align: left">occClosingFee</td>
-<td style="text-align: left">string</td>
-<td>Position closing fees (Perpetual)</td>
-</tr>
-<tr>
-<td style="text-align: left">trakeProfit</td>
-<td style="text-align: left">string</td>
-<td>Take-profit price (Perpetual)</td>
-</tr>
-<tr>
-<td style="text-align: left">stopLoss</td>
-<td style="text-align: left">string</td>
-<td>Stop-loss price (Perpetual)</td>
-</tr>
-<tr>
-<td style="text-align: left">positionStatus</td>
-<td style="text-align: left">string</td>
-<td>Position status; can be normal, liquidating, and auto deleveraging (Perpetual)</td>
-</tr>
-<tr>
-<td style="text-align: left">deleverageIndicator</td>
-<td style="text-align: left">number</td>
-<td>ADL indicators; can be 1,2,3,4,5 (Perpetual)</td>
-</tr>
-<tr>
-<td style="text-align: left">orderMargin</td>
-<td style="text-align: left">string</td>
-<td>Pre-occupied order margin</td>
-</tr>
-<tr>
-<td style="text-align: left">unrealisedPnl</td>
-<td style="text-align: left">string</td>
-<td>unrealised pnl (Perpetual)</td>
-</tr>
-<tr>
-<td style="text-align: left">cumRealisedPnl</td>
-<td style="text-align: left">string</td>
-<td>Accumulated realised pnl (all-time total) (Perpetual)</td>
-</tr>
 </tbody></table>
 <h3 id='t-userfilledhistory'>Trade</h3>
 <blockquote>
@@ -6733,17 +5051,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <tr>
 <td style="text-align: left">execType</td>
 <td style="text-align: left">string</td>
-<td>Execution type (cannot be “Funding”)</td>
-</tr>
-<tr>
-<td style="text-align: left">execValue</td>
-<td style="text-align: left">string</td>
-<td>Position value (Perpetual)</td>
-</tr>
-<tr>
-<td style="text-align: left">lastLiquidityInd</td>
-<td style="text-align: left">string</td>
-<td>Liquidity (Perpetual)</td>
+<td><a href="#exec-type">Execution type</a></td>
 </tr>
 </tbody></table>
 <h3 id='t-activeorders'>Active Order</h3>
@@ -6834,7 +5142,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <tr>
 <td style="text-align: left">orderType</td>
 <td style="text-align: left">string</td>
-<td>Order type (MARKET is not supported currently for Options)</td>
+<td>refer to<a href="#order-type-type-ordertypes">Order type</a> (MARKET is not supported currently for Options)</td>
 </tr>
 <tr>
 <td style="text-align: left">side</td>
@@ -6884,7 +5192,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <tr>
 <td style="text-align: left">orderStatus</td>
 <td style="text-align: left">string</td>
-<td>Order status</td>
+<td><a href="#order-status-status">Order status</a></td>
 </tr>
 <tr>
 <td style="text-align: left">reduceOnly</td>
@@ -6892,44 +5200,9 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <td>Reduce-only</td>
 </tr>
 <tr>
-<td style="text-align: left">closeOnTrigger</td>
-<td style="text-align: left">string</td>
-<td>Close on trigger, please set it to true for a close order</td>
-</tr>
-<tr>
-<td style="text-align: left">takeProfit</td>
-<td style="text-align: left">string</td>
-<td>Take-profit price (Perpetual)</td>
-</tr>
-<tr>
-<td style="text-align: left">stopLoss</td>
-<td style="text-align: left">string</td>
-<td>Stop-loss price (Perpetual)</td>
-</tr>
-<tr>
-<td style="text-align: left">tpTriggerBy</td>
-<td style="text-align: left">string</td>
-<td>Price type for take-profit triggering (Perpetual), default value is last traded price</td>
-</tr>
-<tr>
-<td style="text-align: left">slTriggerBy</td>
-<td style="text-align: left">string</td>
-<td>Price type for stop-loss triggering (Perpetual), default value is last traded price</td>
-</tr>
-<tr>
 <td style="text-align: left">basePrice</td>
 <td style="text-align: left">string</td>
 <td>Market price during order placement</td>
-</tr>
-<tr>
-<td style="text-align: left">triggerPrice</td>
-<td style="text-align: left">string</td>
-<td>Trigger price</td>
-</tr>
-<tr>
-<td style="text-align: left">triggerBy</td>
-<td style="text-align: left">string</td>
-<td>Trigger price type (For conditional order, not available yet)</td>
 </tr>
 </tbody></table>
 <h3 id='t-userorderhistory'>Order History</h3>
@@ -7018,7 +5291,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <tr>
 <td style="text-align: left">orderType</td>
 <td style="text-align: left">string</td>
-<td>Order type (MARKET is not supported currently for Options)</td>
+<td>refer to<a href="#order-type-type-ordertypes">Order type</a> (MARKET is not supported currently for Options)</td>
 </tr>
 <tr>
 <td style="text-align: left">side</td>
@@ -7068,155 +5341,12 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <tr>
 <td style="text-align: left">orderStatus</td>
 <td style="text-align: left">string</td>
-<td>Order status</td>
+<td><a href="#order-status-status">Order status</a></td>
 </tr>
 <tr>
 <td style="text-align: left">reduceOnly</td>
 <td style="text-align: left">number</td>
 <td>Reduce-only</td>
-</tr>
-<tr>
-<td style="text-align: left">closeOnTrigger</td>
-<td style="text-align: left">string</td>
-<td>Close on trigger, please set it to true for a close order</td>
-</tr>
-<tr>
-<td style="text-align: left">takeProfit</td>
-<td style="text-align: left">string</td>
-<td>Take-profit price (Perpetual)</td>
-</tr>
-<tr>
-<td style="text-align: left">stopLoss</td>
-<td style="text-align: left">string</td>
-<td>Stop-loss price (Perpetual)</td>
-</tr>
-<tr>
-<td style="text-align: left">tpTriggerBy</td>
-<td style="text-align: left">string</td>
-<td>Price type for take-profit triggering (Perpetual), default value is last traded price</td>
-</tr>
-<tr>
-<td style="text-align: left">slTriggerBy</td>
-<td style="text-align: left">string</td>
-<td>Price type for stop-loss triggering (Perpetual), default value is last traded price</td>
-</tr>
-<tr>
-<td style="text-align: left">basePrice</td>
-<td style="text-align: left">string</td>
-<td>Market price during order placement</td>
-</tr>
-<tr>
-<td style="text-align: left">triggerPrice</td>
-<td style="text-align: left">string</td>
-<td>Trigger price</td>
-</tr>
-<tr>
-<td style="text-align: left">triggerBy</td>
-<td style="text-align: left">string</td>
-<td>Trigger price type (For conditional order, not available yet)</td>
-</tr>
-</tbody></table>
-<h3 id='t-userconditionalorders'>Conditional Order</h3>
-<blockquote>
-<p>How to Subscribe</p>
-</blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code></code></pre></div>
-<blockquote>
-<p>Snapshot Response Example - format of the first response</p>
-</blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code></code></pre></div>
-<blockquote>
-<p>Delta Response Example - format of the responses following the snapshot response</p>
-</blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code></code></pre></div>
-<p class="fake_header">Response Parameters</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Type</th>
-<th>Comment</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">orderId</td>
-<td style="text-align: left">string</td>
-<td>Order ID</td>
-</tr>
-<tr>
-<td style="text-align: left">orderLinkId</td>
-<td style="text-align: left">string</td>
-<td>Custom ID used for cross-platform strategy remarks; a max. of 32 characters</td>
-</tr>
-<tr>
-<td style="text-align: left">symbol</td>
-<td style="text-align: left">string</td>
-<td>Contract name</td>
-</tr>
-<tr>
-<td style="text-align: left">orderType</td>
-<td style="text-align: left">string</td>
-<td>Order type (MARKET is not supported currently for Options)</td>
-</tr>
-<tr>
-<td style="text-align: left">side</td>
-<td style="text-align: left">string</td>
-<td>Direction</td>
-</tr>
-<tr>
-<td style="text-align: left">qty</td>
-<td style="text-align: left">string</td>
-<td>order quanty</td>
-</tr>
-<tr>
-<td style="text-align: left">price</td>
-<td style="text-align: left">string</td>
-<td>price</td>
-</tr>
-<tr>
-<td style="text-align: left"><a href="#time-in-force-timeinforce">timeInForce</a></td>
-<td style="text-align: left">string</td>
-<td><a href="https://help.bybit.com/hc/en-us/articles/360039749233-What-Are-Time-In-Force-TIF-GTC-IOC-FOK-">Time in force</a></td>
-</tr>
-<tr>
-<td style="text-align: left">createType</td>
-<td style="text-align: left">string</td>
-<td>Order placement</td>
-</tr>
-<tr>
-<td style="text-align: left">cancelType</td>
-<td style="text-align: left">string</td>
-<td>Order cancelation</td>
-</tr>
-<tr>
-<td style="text-align: left">cumExecFee</td>
-<td style="text-align: left">string</td>
-<td>Total trading fees</td>
-</tr>
-<tr>
-<td style="text-align: left">orderStatus</td>
-<td style="text-align: left">string</td>
-<td>Order status</td>
-</tr>
-<tr>
-<td style="text-align: left">triggerBy</td>
-<td style="text-align: left">string</td>
-<td>Trigger price type (For conditional order, not available yet)</td>
-</tr>
-<tr>
-<td style="text-align: left">triggerPrice</td>
-<td style="text-align: left">string</td>
-<td>Trigger price</td>
-</tr>
-<tr>
-<td style="text-align: left">closeOnTrigger</td>
-<td style="text-align: left">string</td>
-<td>Close on trigger, please set it to true for a close order</td>
-</tr>
-<tr>
-<td style="text-align: left">timestamp</td>
-<td style="text-align: left">number</td>
-<td>Timestamp, unit in milliseconds</td>
 </tr>
 </tbody></table>
 <h3 id='t-usergreeks'>Greeks</h3>
@@ -7320,12 +5450,10 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <li><code>PostOnly</code></li>
 </ul>
 <h2 id='symbol-symbol'>Symbol (<code>symbol</code>)</h2>
-<p>refer to <a href="#querySymbolInfo">Query Symbol</a> endpoint</p>
+<p>refer to <a href="#t-querysymbolinfo">Query Symbol</a> endpoint</p>
 <h2 id='order-type-type-ordertypes'>Order type (<code>type</code>/<code>orderTypes</code>)</h2>
 <ul>
-<li><code>LIMIT</code></li>
-<li><code>MARKET</code></li>
-<li><code>LIMIT_MAKER</code></li>
+<li><code>Limit</code></li>
 </ul>
 <h2 id='currency-currency-coin'>Currency (<code>currency</code>/<code>coin</code>)</h2>
 <ul>
@@ -7333,34 +5461,16 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 </ul>
 <h2 id='order-status-status'>Order status (<code>status</code>)</h2>
 <ul>
-<li><code>NEW</code></li>
-<li><code>PARTIALLY_FILLED</code></li>
-<li><code>FILLED</code></li>
-<li><code>CANCELED</code></li>
-<li><code>PENDING_CANCEL</code></li>
-<li><code>PENDING_NEW</code></li>
-<li><code>REJECTED</code></li>
+<li><code>New</code></li>
+<li><code>PartiallyFilled</code></li>
+<li><code>Filled</code></li>
+<li><code>Cancelled</code></li>
+<li><code>Rejected</code></li>
 </ul>
-<h2 id='quantity-qty'>Quantity (<code>qty</code>)</h2>
-<p><ul> <li>Must be less than 1 million  (<code>1000000</code>)</li> <li>Must be a positive number： <li>Must conform to the symbol's <code>qtyStep</code>.</li> <ul> <li><code>40</code> - allowed</li> <li><code>40.01</code> - allowed</li> <li><code>-30.5</code> - not allowed</li> </ul> </li> </ul></p>
+<h2 id='quantity-orderqty'>Quantity (<code>orderQty</code>)</h2>
+<p><ul> <li>Must be less than 1 thousand  (<code>1000</code>)</li> <li>Must be a positive number： <li>Must conform to the symbol's <code>qtyStep</code>.</li> <ul> <li><code>40</code> - allowed</li> <li><code>40.01</code> - allowed</li> <li><code>-30.5</code> - not allowed</li> </ul> </li> </ul></p>
 <h2 id='price-price'>Price (<code>price</code>)</h2>
-<p><ul> <li>Must be less than 1 million (<code>1000000</code>)</li> <li>Must be a positive number： <ul> <li><code>40</code> - allowed</li> <li><code>40.01</code> - allowed</li> <li><code>-30.5</code> - not allowed</li> </ul> </li> </ul></p>
-<h2 id='kline-interval-interval'>Kline interval (<code>interval</code>)</h2>
-<ul>
-<li><code>1m</code> - 1 minute</li>
-<li><code>3m</code> - 3 minutes</li>
-<li><code>5m</code> - 5 minutes</li>
-<li><code>15m</code> - 15 minutes</li>
-<li><code>30m</code> - 30 minutes</li>
-<li><code>1h</code> - 1 hour</li>
-<li><code>2h</code> - 2 hours</li>
-<li><code>4h</code> - 4 hours</li>
-<li><code>6h</code> - 6 hours</li>
-<li><code>12h</code> - 12 hours</li>
-<li><code>1d</code> - 1 day</li>
-<li><code>1w</code> - 1 week</li>
-<li><code>1M</code> - 1 month</li>
-</ul>
+<p><ul> <li>Must be less than 10 million (<code>10000000</code>)</li> <li>Must be a positive number： <ul> <li><code>40</code> - allowed</li> <li><code>40.5</code> - allowed</li> <li><code>40.1</code> - not allowed</li> <li><code>-30.5</code> - not allowed</li> </ul> </li> </ul></p>
 <h2 id='transaction-type-transaction-type'>Transaction type (<code>Transaction type</code>)</h2>
 <ul>
 <li><code>TRANSFER_IN</code></li>
@@ -7374,6 +5484,10 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <ul>
 <li><code>REGULAR_MARGIN</code></li>
 <li><code>PORTFOLIO_MARGIN</code></li>
+</ul>
+<h2 id='exec-type'>Exec Type</h2>
+<ul>
+<li><code>TRADE</code></li>
 </ul>
 <h1 id='t-errors'>Errors</h1>
 <p>The Bybit API uses the following HTTP codes and error codes<span>:</span></p>
