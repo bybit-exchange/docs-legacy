@@ -1682,8 +1682,8 @@ t(:switchmode_aside)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=pltcList>/private/linear/tpsl/switch-mode</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pltcList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=pltSwitchMode>/private/linear/tpsl/switch-mode</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pltSwitchMode"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
