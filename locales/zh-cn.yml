@@ -777,8 +777,9 @@ zh-cn:
   wallet_aside_walletRecords1: 如果用戶不通過<code>coin</code>傳入<code>USDT</code>，USDT記錄將不會被返回給用戶。
   ### Withdraw Records
   withdrawrecords: 提幣記錄
-  wallet_para_withdrawRecords: 查詢提幣記錄。
-  wallet_aside_withdrawRecords: 請註意該接口數據和<code>資金記錄</code>中<code>Withdraw</code>類型數據的區別：
+  wallet_para_withdrawRecords: |
+    <p>查詢提幣記錄。</p>
+    <p>請註意該接口數據和<code>資金記錄</code>中<code>Withdraw</code>類型數據的區別：</p>
     <p>在該接口中，一次提幣申請對應一條記錄，並且有<code>status</code>字段表示當前提幣狀態。</p>
     <p>在<code>資金記錄</code>接口中，一旦用戶申請提幣，就會產生一條<code>Withdraw</code>類型的數據，並且當提幣申請取消、過期、或審核拒絕的時候，資金記錄中會再新增一條<code>Refund</code>類型的數據。</p>
 
@@ -2933,4 +2934,3 @@ zh-cn:
     <p>topic:</p>
     <p>user.perp.order.t</p>
   usdc_unfilled_order_size: 剩餘數量
-
