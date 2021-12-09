@@ -1228,22 +1228,31 @@ en:
   websocket_para_orderbook252: |
     <p>After the subscription response, the first response will be the snapshot response. This shows the entire orderbook. The data is ordered by price, starting with the lowest buys and ending with the highest sells.</p>
     <p>Following this, all responses are in the delta format, which represents updates to the orderbook relative to the last response.</p>
+    <p>Push frequency: <b>20ms</b></p>
   ### orderBookL2_200
   websocketorderbook200: orderBookL2_200
   websocket_para_orderbook200: |
     <p>Fetches the orderbook with a depth of 200 orders per side.</p>
     <p>After the subscription response, the first response will be the snapshot response. This shows the entire orderbook. The data is ordered by price, starting with the lowest buys and ending with the highest sells.</p>
     <p>Following this, all responses are in the delta format, which represents updates to the orderbook relative to the last response.</p>
+    <p>Push frequency: <b>100ms</b></p>
   ### trade
   websockettrade: trade
-  websocket_para_trade: Get real-time trading information.
+  websocket_para_trade: |
+    <p>Get real-time trading information.</p>
+    <p>Push frequency: <b>100ms</b></p>
   ### insurance
   websocketinsurance: insurance
-  websocket_para_insurance: Get the daily insurance fund update.
+  websocket_para_insurance: |
+    <p>Get the daily insurance fund update.</p>
+    <p>Push frequency: <b>20:00 UTC / day</b></p>
   websocket_aside_insurance: The <code>wallet_balance</code> is in Satoshis, with one Satoshi being 100 millionth (<code>100000000</code>) of one Bitcoin.
   ### instrument_info
   websocketinstrumentInfo: instrument_info
-  websocket_para_instrumentInfo: Get latest information for symbol.
+  websocket_para_instrumentInfo: |
+    <p>Get latest information for symbol.</p>
+    <p>Push frequency: <b>100ms</b></p>
+
   websocket_aside_instrumentInfo1: |
     This topic only utilises the <code>update</code> field. Both the <code>delete</code> and <code>insert</code> fields are null. If a key is not found in the <code>update</code> field, its value has not changed.
   websocket_aside_instrumentInfo2: |
@@ -1259,13 +1268,17 @@ en:
     <li>W</li>
     <li>M</li>
     </ul>
+    <p>Push frequency: <b>1-60s</b></p>
+
   websocket_aside_klineV2: |
     If <code>confirm</code> is <code>True</code>, the data is the final tick for the interval. Otherwise, it is a snapshot.
   websocketkline: kline
 
   ## liquidation
   websocketliquidation: liquidation
-  websocket_query_liqrecords: Pushes liquidation orders.
+  websocket_query_liqrecords:  |
+    <p>Pushes liquidation orders.</p>
+    <p>Push frequency: <b>real-time</b></p>
 
   ## Private Topics
   privatetopics: Private Topics
@@ -2065,7 +2078,7 @@ en:
 
   restapi_update_20211206: Add parameter <code>position_idx</code> to Request Parameters and Response Parameters
   restapi_update_20211206_1: Add parameter <code>position_idx</code> to Request Parameters
-  restapi_update_20211206_2: Add parameter <code>position_idx</code> to Response Parameters 
+  restapi_update_20211206_2: Add parameter <code>position_idx</code> to Response Parameters
 
   restapi_update_20210910:
    <ul><li>Limit <code>start_time</code> and <code>end_time</code> to be within seven days of the current date. For earlier records, please contact customer support.</li></ul>
@@ -2288,6 +2301,7 @@ en:
   spot_ticket_id: Ticket ID
   spot_match_order_id: Order ID of the opponent
   spot_account_id: Account ID
+
 #  spot_match_account_id: Account ID
   spotQuoteAssetVolume: Quote asset volume
   spotMakerRebate: Marker rebate
