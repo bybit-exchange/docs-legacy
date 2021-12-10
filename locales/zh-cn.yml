@@ -1101,22 +1101,30 @@ zh-cn:
   websocket_para_orderbook252: |
     <p>訂閱成功後, 會立即得到一個當前快照包的推送信息. orderbook數據按訂單價格升序排列, 從最低價格的買單到最高價格的賣單.</p>
     <p>快照包之後，每當orderbook發生變化，websocket都會推送這些變化的增量數據.</p>
+    <p>推送頻率：<b>20ms</b></p>
   ### orderBookL2_200
   websocketorderbook200: orderBook200檔
   websocket_para_orderbook200: |
     <p>獲取200檔orderbook數據.</p>
     <p>訂閱成功後, 會立即得到一個當前快照包的推送信息. orderbook數據按訂單價格升序排序, 從最低價格的買單到最高價格的賣單.</p>
     <p>快照包之後，每當orderbook發生變化，websocket將會繼續推送這些增量數據.</p>
+    <p>推送頻率：<b>100ms</b></p>
   ### trade
   websockettrade: 平臺成交
-  websocket_para_trade: 獲取Bybit平臺最近成交數據.
+  websocket_para_trade: |
+    <p>獲取Bybit平臺最近成交數據.</p>
+    <p>推送頻率：<b>100ms</b></p>
   ### insurance
   websocketinsurance: 保險基金
-  websocket_para_insurance: 獲取保險基金數據.
+  websocket_para_insurance: |
+    <p>獲取保險基金數據.</p>
+    <p>推送頻率：<b>每天 20:00 UTC </b></p>
   websocket_aside_insurance: 註意<code>wallet_balance</code>的單位為<code>聰</code>, 1聰等於一百萬分之一個比特幣.
   ### instrument_info
   websocketinstrumentInfo: 行情
-  websocket_para_instrumentInfo: 獲取合約的最新數據.
+  websocket_para_instrumentInfo: |
+    <p>獲取合約的最新數據.</p>
+    <p>Push frequency: <b>100ms</b></p>
   websocket_aside_instrumentInfo1: |
     註意，該topic只會推送<code>update</code>數據. <code>delete</code>和<code>insert</code>數據都為空. 如果<code>update</code>數據也為空,則表明信息沒有發生變化.
   websocket_aside_instrumentInfo2: |
@@ -1133,6 +1141,7 @@ zh-cn:
     <li>W</li>
     <li>M</li>
     </ul>
+    <p>推送頻率：<b>1-60s</b></p>
   websocket_aside_klineV2: |
     註意如果字段<code>confirm</code>為<code>True</code>, 則表明這是這根K線的最後一個tick；否則，這只是一個快照數據，即中間價格
   websocketkline: K線
@@ -1910,7 +1919,9 @@ zh-cn:
   restapi_update_20210917: 我們於 2021 年 9 月 17日上線 正向合約Liquidation WebSocket API推送強平訂單， 此次調整旨在打造更加公平的交易環境，防止一些交易者通過強平訂單數據提前獲取市場信息，搶跑強平引擎。 請務必於 2021 年 9 月 24 日前調整代碼，以確保流暢的交易體驗。 感謝您一直以來的支持！
   markpricekline: 標記價格K線
   websocketliquidation: 平臺強平推送
-  websocket_query_liqrecords: 查詢平臺強平推送
+  websocket_query_liqrecords: |
+    <p>查詢平臺強平推送.</p>
+    <p>推送頻率：<b>實時的</b></p>
   linear_query_mark_price_kline: 查詢標記價格K線
   linear_resp_field_last_exec_price: 最近成交價格
   linear_resp_field_cum_exec_qty: 累計成交數量
