@@ -6377,6 +6377,7 @@ B用戶：
 
 <p><p>訂閱成功後, 會立即得到一個當前快照包的推送信息. orderbook數據按訂單價格升序排列, 從最低價格的買單到最高價格的賣單.</p>
 <p>快照包之後，每當orderbook發生變化，websocket都會推送這些變化的增量數據.</p>
+<p>推送頻率：<b>20ms</b></p>
 </p>
 
 <p class="fake_header">返回參數</p>
@@ -6495,6 +6496,7 @@ B用戶：
 <p><p>獲取200檔orderbook數據.</p>
 <p>訂閱成功後, 會立即得到一個當前快照包的推送信息. orderbook數據按訂單價格升序排序, 從最低價格的買單到最高價格的賣單.</p>
 <p>快照包之後，每當orderbook發生變化，websocket將會繼續推送這些增量數據.</p>
+<p>推送頻率：<b>100ms</b></p>
 </p>
 
 <p class="fake_header">返回參數</p>
@@ -6580,7 +6582,9 @@ B用戶：
     <span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>獲取Bybit平臺最近成交數據.</p>
+<p><p>獲取Bybit平臺最近成交數據.</p>
+<p>推送頻率：<b>100ms</b></p>
+</p>
 
 <p class="fake_header">返回參數</p>
 
@@ -6677,7 +6681,9 @@ B用戶：
     <span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>獲取保險基金數據.</p>
+<p><p>獲取保險基金數據.</p>
+<p>推送頻率：<b>每天 20:00 UTC </b></p>
+</p>
 
 <aside class="notice">
 註意<code>wallet_balance</code>的單位為<code>聰</code>, 1聰等於一百萬分之一個比特幣.
@@ -6827,7 +6833,9 @@ B用戶：
     <span class="dl">"</span><span class="s2">timestamp_e6</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1578853525691123</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>獲取合約的最新數據.</p>
+<p><p>獲取合約的最新數據.</p>
+<p>Push frequency: <b>100ms</b></p>
+</p>
 
 <aside class="warning">
 註意，該topic只會推送<code>update</code>數據. <code>delete</code>和<code>insert</code>數據都為空. 如果<code>update</code>數據也為空,則表明信息沒有發生變化.
@@ -7047,6 +7055,7 @@ B用戶：
 <li>W</li>
 <li>M</li>
 </ul>
+<p>推送頻率：<b>1-60s</b></p>
 </p>
 
 <aside class="notice">

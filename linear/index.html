@@ -7803,6 +7803,7 @@ Want a greater depth? Take a look at the <a href="#t-websocketorderbook200">orde
 
 <p><p>After the subscription response, the first response will be the snapshot response. This shows the entire orderbook. The data is ordered by price, starting with the lowest buys and ending with the highest sells.</p>
 <p>Following this, all responses are in the delta format, which represents updates to the orderbook relative to the last response.</p>
+<p>Push frequency: <b>20ms</b></p>
 </p>
 
 <p class="fake_header">Response Parameters</p>
@@ -7923,6 +7924,7 @@ Want a greater depth? Take a look at the <a href="#t-websocketorderbook200">orde
 <p><p>Fetches the orderbook with a depth of 200 orders per side.</p>
 <p>After the subscription response, the first response will be the snapshot response. This shows the entire orderbook. The data is ordered by price, starting with the lowest buys and ending with the highest sells.</p>
 <p>Following this, all responses are in the delta format, which represents updates to the orderbook relative to the last response.</p>
+<p>Push frequency: <b>100ms</b></p>
 </p>
 
 <p class="fake_header">Response Parameters</p>
@@ -7992,7 +7994,9 @@ Want a greater depth? Take a look at the <a href="#t-websocketorderbook200">orde
     <span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Get real-time trading information.</p>
+<p><p>Get real-time trading information.</p>
+<p>Push frequency: <b>100ms</b></p>
+</p>
 
 <p class="fake_header">Response Parameters</p>
 
@@ -8149,7 +8153,9 @@ Want a greater depth? Take a look at the <a href="#t-websocketorderbook200">orde
   <span class="dl">"</span><span class="s2">timestamp_e6</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1626255132104671</span><span class="dl">"</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Get latest information for symbol.</p>
+<p><p>Get latest information for symbol.</p>
+<p>Push frequency: <b>100ms</b></p>
+</p>
 
 <aside class="warning">
 This topic only utilises the <code>update</code> field. Both the <code>delete</code> and <code>insert</code> fields are null. If a key is not found in the <code>update</code> field, its value has not changed.
@@ -8390,6 +8396,7 @@ Some values use scientific notation. This is indicated by that value's key, whic
 <li>W</li>
 <li>M</li>
 </ul>
+<p>Push frequency: <b>1-60s</b></p>
 </p>
 
 <aside class="notice">
@@ -8494,7 +8501,9 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Pushes liquidation orders.</p>
+<p><p>Pushes liquidation orders.</p>
+<p>Push frequency: <b>real-time</b></p>
+</p>
 
 <p class="fake_header">Response Parameters</p>
 

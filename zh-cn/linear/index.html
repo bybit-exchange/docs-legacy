@@ -7760,6 +7760,7 @@ B用戶：
 
 <p><p>訂閱成功後, 會立即得到一個當前快照包的推送信息. orderbook數據按訂單價格升序排列, 從最低價格的買單到最高價格的賣單.</p>
 <p>快照包之後，每當orderbook發生變化，websocket都會推送這些變化的增量數據.</p>
+<p>推送頻率：<b>20ms</b></p>
 </p>
 
 <p class="fake_header">返回參數</p>
@@ -7880,6 +7881,7 @@ B用戶：
 <p><p>獲取200檔orderbook數據.</p>
 <p>訂閱成功後, 會立即得到一個當前快照包的推送信息. orderbook數據按訂單價格升序排序, 從最低價格的買單到最高價格的賣單.</p>
 <p>快照包之後，每當orderbook發生變化，websocket將會繼續推送這些增量數據.</p>
+<p>推送頻率：<b>100ms</b></p>
 </p>
 
 <p class="fake_header">返回參數</p>
@@ -7949,7 +7951,9 @@ B用戶：
     <span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>獲取Bybit平臺最近成交數據.</p>
+<p><p>獲取Bybit平臺最近成交數據.</p>
+<p>推送頻率：<b>100ms</b></p>
+</p>
 
 <p class="fake_header">返回參數</p>
 
@@ -8106,7 +8110,9 @@ B用戶：
   <span class="dl">"</span><span class="s2">timestamp_e6</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1626255132104671</span><span class="dl">"</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>獲取合約的最新數據.</p>
+<p><p>獲取合約的最新數據.</p>
+<p>Push frequency: <b>100ms</b></p>
+</p>
 
 <aside class="warning">
 註意，該topic只會推送<code>update</code>數據. <code>delete</code>和<code>insert</code>數據都為空. 如果<code>update</code>數據也為空,則表明信息沒有發生變化.
@@ -8348,6 +8354,7 @@ B用戶：
 <li>W</li>
 <li>M</li>
 </ul>
+<p>推送頻率：<b>1-60s</b></p>
 </p>
 
 <aside class="notice">
@@ -8452,7 +8459,9 @@ B用戶：
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>查詢平臺強平推送</p>
+<p><p>查詢平臺強平推送.</p>
+<p>推送頻率：<b>實時的</b></p>
+</p>
 
 <p class="fake_header">返回參數</p>
 
@@ -8471,7 +8480,7 @@ B用戶：
 <tr>
 <td style="text-align: left"><a href="#side-side">side</a></td>
 <td style="text-align: left">string</td>
-<td>強平訂單的方向</td>
+<td>被強平倉位的方向</td>
 </tr>
 <tr>
 <td style="text-align: left">price</td>
