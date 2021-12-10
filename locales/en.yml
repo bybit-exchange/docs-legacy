@@ -2346,14 +2346,14 @@ en:
 
   spot_public_websocket_frequency_realtime: Pushes data in <b>realtime</b>.
 
-  spot_public_websocket_frequency_300_delay_400: Push data at a frequence of <b>300ms</b>. Message received with a maximum delay of <b>400ms</b>.
-  spot_public_websocket_frequency_300_delay_650: Push data at a frequence of <b>300ms</b>. Message received with a maximum delay of <b>650ms</b>.
-  spot_public_websocket_frequency_250_delay_300: Push data at a frequence of <b>250ms</b>. Message received with a maximum delay of <b>300ms</b>.
+  spot_public_websocket_frequency_300_delay_400: Pushes data at a frequency of <b>300ms</b>. Message received with a maximum delay of <b>400ms</b>.
+  spot_public_websocket_frequency_300_delay_650: Pushes data at a frequency of <b>300ms</b>. Message received with a maximum delay of <b>650ms</b>.
+  spot_public_websocket_frequency_250_delay_300: Pushes data at a frequency of <b>250ms</b>. Message received with a maximum delay of <b>300ms</b>.
   spot_public_websocket_frequency_near_realtime: Pushes data near in <b>realtime</b>.
 
   spot_websocket_trade_desc_v1: |
     <p>This topic pushes raw data for each trade.</p>
-    <p>After a successful subscription message, the first data message (as indicated by <code>"f": true</code>) consists of the last 60 trades. After this payload (<code>"f": false</code>), messages are pushed at frequency of 300ms.</p>
+    <p>After a successful subscription message, the first data message (as indicated by <code>"f": true</code>) consists of the last 60 trades. After this payload (<code>"f": false</code>), only new trades are pushed.</p>
     <p>Variable <code>v</code> is a trade ID which is unique across the platform.</p>
 
   websocketrealtimes: realtimes
@@ -2361,13 +2361,13 @@ en:
     The 24-hr statistics of a trading pair.
 #  websocketkline: kline
   spot_websocket_kline_desc_v1: |
-    <p>Kline data.</p>
-    <p>To subscribe to different intervals, alter append your desired interval to the topic name. For 1 minute klines, set the topic as <code>kline_1m</code>, for 1 hour klines use <code>kline_1h</code>, etc. Available intervals are listed <a href="#kline-interval-interval">here</a>.</p>
+    <p>This topic pushes kline data.</p>
+    <p>To subscribe to different intervals, append your desired interval to the topic name. For 1 minute klines, set the topic as <code>kline_1m</code>, for 1 hour klines use <code>kline_1h</code>, etc. Available intervals are listed <a href="#kline-interval-interval">here</a>.</p>
 
   spot_broker_info: brokerinfo return
   websocketdepth: depth
   spot_websocket_orderbook_desc_v1: |
-    <p>This topic pushes all order book data.</p>
+    <p>This topic pushes order book data.</p>
     <ul>
       <li>Snapshot depth: 200 per side.</li>
       <li>Events which trigger a message push to this topic:
@@ -2381,12 +2381,16 @@ en:
     </ul>
 
   websocketmergeddepth: mergedDepth
-  spot_websocket_orderbook_merge_desc_v1: <code>dumpScale</code> must be specified for this endpoint. It refers to the number of decimal places
+  spot_websocket_orderbook_merge_desc_v1: |
+    <p>This topic pushes aggregated order book data.</p>
+    <p><code>dumpScale</code> must be specified for this endpoint. It refers to the number of decimal places, eg <code>1</code> for <code>50000.5</code> or <code>0</code> for <code>50000</code>.</p>
+    <p>Pushes a depth of 40 items per side, regardless of the <code>dumpScale</code>.</p>
 
   websocketdiffdepth: diffDepth
   spot_websocket_orderbook_delta_desc_v1: |
     <p>Changes (if any) in the bid–ask spread of the order book will be pushed. The first message pushes a depth of 200 per side. The following messages act as delta messages, which represent updates to the order book relative to the last response.</p>
-    <p>In Order Book Streams (Float Depth), the quantity returned may not be equal to the actual bid-ask quantity corresponding to the price. If the quantity=0, it indicates that the price has already changed. If the quantity>0, it refers to the updated bid-ask quantity corresponding to the price.</p>
+    <p>For a Python example of the logic to maintain a local order book with this topic, see <a href="https://github.com/verata-veritatis/pybit/blob/8a647208dbdce1519de3fbce172d3dcf2141ccaf/pybit/__init__.py#L2279">here</a>.</p>
+    <p>If the quantity=0, it indicates that there are no longer any orders at this price level. If the quantity>0, the quantity for this price has changed.</p>
     <p>Assume the response includes the following:</p>
     <p>&nbsp;&nbsp;> ["0.00181860", "155.92000000"]// price, quantity</p>
     <p>If the next payload is:</p>
@@ -2394,7 +2398,7 @@ en:
     <p>This means that the quantity corresponding to this price has been updated.</p>
     <p>If the next payload is:</p>
     <p>&nbsp;&nbsp;> ["0.00181860", "0"]</p>
-    <p>This means that the price has already changed.</p>
+    <p>This means that the price has already changed (there are no orders on this side at this price level).</p>
 
   spot_websocket_many_symbol_desc: support many symbol, separate with ','.
   spot_websocket_subscribe_desc: |
@@ -2426,14 +2430,12 @@ en:
 
   websocketv2kline: kline
   spot_websocket_kline_desc_v2: |
-    <p>Kline data pushed at a frequency of every second.</p>
     <p>The topic name is <code>kline</code>. To subscribe to different intervals, pass your desired interval with the <code>klineType</code> parameter. Available intervals are listed <a href="#kline-interval-interval">here</a>.</p>
 
   websocketv2trade: trade
   spot_websocket_trade_desc_v2: |
-    <p>The Trade Streams push raw trade information; each trade has a unique buyer and seller.</p>
-    <p>After successful handshake and connected to server, the server will return the latest 60 trades. After this payload, the following will be real-time trades.</p>
-    <p>Variable "v" acts as an tradeId. This variable is shared across different symbols; however, each ID is unique. For example, suppose in the last 5 seconds 3 trades happened in ETHUSDT, BTCUSDT, and BHTBTC. Their version (which is "v") will be consecutive: 112, 113, 114.</p>
+    <p>This topic pushes raw trade information; each trade has a unique buyer and seller.</p>
+    <p>Variable "v" acts as a tradeId. This variable is shared across different symbols; however, each ID is unique. For example, suppose in the last 5 seconds 3 trades happened in ETHUSDT, BTCUSDT, and BHTBTC. Their version (which is "v") will be consecutive: 112, 113, 114.</p>
 
   websocketv2depth: depth
   spot_websocket_orderbook_desc_v2: |
@@ -2452,7 +2454,7 @@ en:
 
   websocketv2realtimes: realtimes
   spot_websocket_symbol_ticker_desc_v2: |
-    The 24-hr statistics of a trading pair pushed at a frequency of ???
+    The 24-hr statistics of a trading pair.
 
   # Transfer API Data Endpoints
   transfer_api: Transfer Data Endpoints
