@@ -664,7 +664,6 @@ en:
   fundingRate_notice: Historical funding rates are not available through the API. However, you can obtain a CSV of this data by using the "Export" button <a href="https://www.bybit.com/data/basic/inverse/funding-history?symbol=BTCUSD">here</a>.
   ### Query Symbol
   querysymbol: Query Symbol
-  spot_querysymbol: Query Symbol
   market_para_querySymbol: Get symbol info.
   ### Query Liquidated Orders
   query_liqrecords: Liquidated Orders
@@ -2264,7 +2263,7 @@ en:
   spot_is_close: Is close
   spot_is_normal: Is normal
   spot_is_working: Is working
-  spot_match_account_id: Match account ID
+  spot_match_account_id: Account ID of the opponent trader
   spot_trade_time: Current timestamp, unit in millisecond
   spot_best_bid_price: Best bid price
   spot_best_ask_price: Best ask price
@@ -2287,14 +2286,14 @@ en:
   spotTakerBaseVolume: Taker buy volume in base asset
   spotTakerQuoteVolume: Taker buy volume in quote asset
   spot_ticket_id: Ticket ID
-  spot_match_order_id: Order ID of the opponent
+  spot_match_order_id: Order ID of the opponent trader
   spot_account_id: Account ID
 #  spot_match_account_id: Account ID
   spotQuoteAssetVolume: Quote asset volume
-  spotMakerRebate: Marker rebate
+  spotMakerRebate: Maker rebate
   batchcancel_spotOrderTypes: |
-    Order type. Use comma splicing to indicate multiple order types, eg <code>LIMIT,LIMIT_MAKER</code>. Default: <code>LIMIT</code>
-  spotCancelOrderIds: order ID, use comma splicing to indicate multiple orderIds, no more than 100 ids.
+    Order type. Use commas to indicate multiple order types, eg <code>LIMIT,LIMIT_MAKER</code>. Default: <code>LIMIT</code>
+  spotCancelOrderIds: Order ID, use commas to indicate multiple orderIds. Maximum of 100 ids.
 
   spotCancelTips: The actual result of the cancellation request needs to be checked by order status or match result endpoints after submitting the request.(It is a synchronous settlement API)
   spotFastCancelTips: The actual result of the cancellation request needs to be checked by order status or match result endpoints after submitting the request.(It is an asynchronous settlement API)
