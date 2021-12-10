@@ -67,11 +67,11 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|transfer_id |true |string |t(:row_comment_transfer_id) |
-|<a href="#currency-currency-coin">coin</a> |true |string |t(:row_comment_currency) |
-|amount |true |string |t(:row_comment_to_amount) |
-|<a href="#account-type-from_account_type-to_account_type">from_account_type</a> |true |string |t(:row_comment_accounttype) |
-|<a href="#account-type-from_account_type-to_account_type">to_account_type</a> |true |string |t(:row_comment_accounttype) |
+|transfer_id |<b>true</b> |string |t(:row_comment_transfer_id) |
+|<a href="#currency-currency-coin">coin</a> |<b>true</b> |string |t(:row_comment_currency) |
+|amount |<b>true</b> |string |t(:row_comment_to_amount) |
+|<a href="#account-type-from_account_type-to_account_type">from_account_type</a> |<b>true</b> |string |t(:row_comment_accounttype) |
+|<a href="#account-type-from_account_type-to_account_type">to_account_type</a> |<b>true</b> |string |t(:row_comment_accounttype) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -147,11 +147,11 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|transfer_id |true |string |t(:row_comment_transfer_id) |
-|<a href="#currency-currency-coin">coin</a> |true |string |t(:row_comment_currency) |
-|amount |true |string |t(:row_comment_to_amount) |
-|sub_user_id |true |string |t(:row_comment_to_subUserId) |
-|<a href="#transfer-type-type">type</a> |true |string |t(:row_comment_transfertype) |
+|transfer_id |<b>true</b> |string |t(:row_comment_transfer_id) |
+|<a href="#currency-currency-coin">coin</a> |<b>true</b> |string |t(:row_comment_currency) |
+|amount |<b>true</b> |string |t(:row_comment_to_amount) |
+|sub_user_id |<b>true</b> |string |t(:row_comment_to_subUserId) |
+|<a href="#transfer-type-type">type</a> |<b>true</b> |string |t(:row_comment_transfertype) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|

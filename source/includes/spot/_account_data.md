@@ -315,9 +315,9 @@ DELETE
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
+|symbolId|<b>true</b>|string|t(:spotSymbol)|
 |orderId|false|string|t(:spotOrderId)|
 |orderLinkId|false|string|t(:spotOrderLinkId)|
-|symbolId|true|string|t(:spotSymbol)|
 
 <aside class="notice">
 t(:spotGetOrderRemark)
@@ -387,7 +387,7 @@ DELETE
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|true|string|t(:spotSymbol)|
+|symbol|<b>true</b>|string|t(:spotSymbol)|
 |side|false|string|t(:spotSide)|
 |<a href="#order-type-type-ordertypes">orderTypes</a>|false|string|t(:batchcancel_spotOrderTypes)|
 
@@ -445,7 +445,7 @@ DELETE
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|true|string|t(:spotSymbol)|
+|symbol|<b>true</b>|string|t(:spotSymbol)|
 |side|false|string|t(:spotSide)|
 |orderTypes|fasle|string|t(:batchcancel_spotOrderTypes)|
 
@@ -504,7 +504,7 @@ DELETE
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|orderIds|true|string|t(:spotCancelOrderIds)|
+|orderIds|<b>true</b>|string|t(:spotCancelOrderIds)|
 
 <p class="fake_header">t(:responseparameters)</p>
 
