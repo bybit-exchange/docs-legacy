@@ -649,7 +649,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-transact
         "fee": "0.8576",
         "cashFlow": "-",
         "change": "-0.8575",
-        "cashBalance": "24080.5708",
+        "walletBalance": "24080.5708",
         "feeRate": "0.0008",
         "orderId": "61f22ac5-6774-46e6-9697-fc3f2621ee09",
         "orderLinkId": "",
@@ -700,7 +700,7 @@ POST
 |fee|string|t(:fee)|
 |cashFlow|string|t(:cashFlow)|
 |change|string|t(:usdcChange)|
-|cashBalance|string|t(:cashBalance)|
+|walletBalance|string|t(:cashBalance)|
 |feeRate|string|t(:feeRate)|
 |tradeId|string|t(:tradeId)|
 |orderId|string|t(:usdcOrderId)|
@@ -734,7 +734,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-wallet-b
     "extInfo": null,
     "result": {
         "equity": "1",
-        "cashBalance": "1",
+        "walletBalance": "1",
         "availableBalance": "1",
         "accountIM": "162073788655749",
         "accountMM": "100",
@@ -757,7 +757,7 @@ POST
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |equity|number|t(:equity)|
-|cashBalance|string|t(:cashBalance)
+|walletBalance|string|t(:cashBalance)
 |availableBalance|string|t(:availableBalance)|
 |marginBalance|string|t(:marginBalance)|
 |accountIM|string|t(:accountIm)|

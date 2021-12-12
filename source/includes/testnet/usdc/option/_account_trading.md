@@ -739,7 +739,7 @@ t(:wallet_para)
 ```console
 curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-transaction-log \
 -H "Content-Type: application/json" \
--D '{"startTime":"1633687786728","endTime":"1633797786728","category":"perpetual","type":"Settlement"}'
+-D '{"type":"TRADE","limit":1}'
 ```
 
 ```python
@@ -751,30 +751,30 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-transact
 
 ```javascript
 {
-  "retCode":0,
-    "retMsg":"OK",
-    "result":{
-    "resultTotalSize":1,
-      "cursor":"ccc62b1a-e1a0-42b6-86b5-3570e22cfbdf%3A1634284800789%2Cb09397d8-4da1-4d32-b70f-c59efd381f66%3A1634284800769",
-      "dataList":[
+  "retCode": 0,
+    "retMsg": "Success.",
+    "result": {
+    "resultTotalSize": 1,
+      "cursor": "9893%3A0%2C9893%3A0",
+      "dataList": [
       {
-        "transactionTime":"1634284800789",
-        "symbol":"BTC-15OCT21-30000-P",
-        "type":"DELIVERY",
-        "side":"Buy",
-        "tradePrice":"59306.9",
-        "funding":"0.0000",
-        "qty":"0.20",
-        "size":"0.00",
-        "fee":"0.0000",
-        "cashFlow":"0.0000",
-        "change":"0.0000",
-        "cashBalance":"100690.9019",
-        "feeRate":"0.0000%",
-        "orderId":"",
-        "orderLinkId":"",
-        "tradeId":"",
-        "info":""
+        "transactionTime": "1638842921038",
+        "symbol": "BTCPERP",
+        "type": "TRADE",
+        "side": "Sell",
+        "tradePrice": "50830.0",
+        "funding": "0.0000",
+        "qty": "0.010",
+        "size": "1.110",
+        "fee": "0.3813",
+        "cashFlow": "2.8159",
+        "change": "2.4346",
+        "walletBalance": "16906.4074",
+        "feeRate": "0.0008",
+        "orderId": "dd216843-fe5d-43bc-b2c7-ab6a5958cd90",
+        "orderLinkId": "",
+        "tradeId": "f256315f-c80b-5d3e-a9c3-2a1de95e9637",
+        "info": ""
       }
     ]
   }
@@ -820,7 +820,7 @@ POST
 |fee|string|t(:fee)|
 |cashFlow|string|t(:cashFlow)|
 |change|string|t(:usdcChange)|
-|cashBalance|string|t(:cashBalance)|
+|walletBalance|string|t(:cashBalance)|
 |feeRate|string|t(:feeRate)|
 |tradeId|string|t(:tradeId)|
 |orderId|string|t(:usdcOrderId)|
@@ -854,7 +854,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-wallet-b
     "extInfo": null,
     "result": {
         "equity": "1",
-        "cashBalance": "1",
+        "walletBalance": "1",
         "availableBalance": "1",
         "accountIM": "162073788655749",
         "accountMM": "100",
@@ -877,7 +877,7 @@ POST
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |equity|number|t(:equity)|
-|cashBalance|string|t(:cashBalance)
+|walletBalance|string|t(:cashBalance)
 |availableBalance|string|t(:availableBalance)|
 |marginBalance|string|t(:marginBalance)|
 |accountIM|string|t(:accountIm)|
