@@ -176,6 +176,10 @@ t(:wallet_aside_walletRecords)
 t(:wallet_aside_walletRecords1)
 </aside>
 
+<aside class="warning">
+t(:wallet_aside_walletRecords2)
+</aside>
+
 <p class="fake_header">t(:httprequest)</p>
 GET
 <code><span id=oawfRecordsNew>/v2/private/wallet/fund/records</span></code>
@@ -260,8 +264,8 @@ print(session.withdraw_records())
 
 t(:wallet_para_withdrawRecords)
 
-<aside class="notice">
-t(:wallet_aside_withdrawRecords)
+<aside class="warning">
+t(:wallet_aside_walletRecords2)
 </aside>
 
 <p class="fake_header">t(:httprequest)</p>

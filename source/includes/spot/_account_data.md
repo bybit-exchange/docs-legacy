@@ -53,8 +53,8 @@ print(session.place_active_order(
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/spot/v1/order</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+<code><span id=svPostOrder>/spot/v1/order</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svPostOrder"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
@@ -141,19 +141,15 @@ t(:getactive)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpoList>/spot/v1/order</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=svGetOrder>/spot/v1/order</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svGetOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|orderId|false|string|t(:spotOrderId)|
-|orderLinkId|false|string|t(:spotOrderLinkId)|
-
-<aside class="notice">
-t(:spotGetOrderRemark)
-</aside>
+|orderId|false|string|t(:misc_row_comment_orderIdNotOrderLinkId_spot)|
+|orderLinkId|false|string|t(:misc_row_comment_orderLinkIdNotOrderId_spot)|
 
 <p class="fake_header">t(:responseparameters)</p>
 
@@ -225,20 +221,15 @@ print(session.cancel_active_order(
 
 <p class="fake_header">t(:httprequest)</p>
 DELETE
-<code><span id=vpoCancel>/spot/v1/order</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancel"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=svDeleteOrder>/spot/v1/order</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svDeleteOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|orderId|false|string|t(:spotOrderId)|
-|orderLinkId|false|string|t(:spotOrderLinkId)|
-
-<aside class="notice">
-t(:spotGetOrderRemark)
-</aside>
-
+|orderId|false|string|t(:misc_row_comment_orderIdNotOrderLinkId_spot)|
+|orderLinkId|false|string|t(:misc_row_comment_orderLinkIdNotOrderId_spot)|
 
 <p class="fake_header">t(:responseparameters)</p>
 
@@ -308,21 +299,16 @@ t(:spotNormalCancelTips)
 
 <p class="fake_header">t(:httprequest)</p>
 DELETE
-<code><span id=vpoCancel>/spot/v1/order/fast</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancel"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=svoFast>/spot/v1/order/fast</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svoFast"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|orderId|false|string|t(:spotOrderId)|
-|orderLinkId|false|string|t(:spotOrderLinkId)|
-|symbolId|true|string|t(:spotSymbol)|
-
-<aside class="notice">
-t(:spotGetOrderRemark)
-</aside>
-
+|symbolId|<b>true</b>|string|t(:spotSymbol)|
+|orderId|false|string|t(:misc_row_comment_orderIdNotOrderLinkId_spot)|
+|orderLinkId|false|string|t(:misc_row_comment_orderLinkIdNotOrderId_spot)|
 
 <p class="fake_header">t(:responseparameters)</p>
 
@@ -387,7 +373,7 @@ DELETE
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|true|string|t(:spotSymbol)|
+|symbol|<b>true</b>|string|t(:spotSymbol)|
 |side|false|string|t(:spotSide)|
 |<a href="#order-type-type-ordertypes">orderTypes</a>|false|string|t(:batchcancel_spotOrderTypes)|
 
@@ -438,14 +424,14 @@ t(:spotFastCancelTips)
 
 <p class="fake_header">t(:httprequest)</p>
 DELETE
-<code><span id=vpoCancel>/spot/order/batch-fast-cancel</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancel"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=soBatchFastCancel>/spot/order/batch-fast-cancel</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#soBatchFastCancel"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|true|string|t(:spotSymbol)|
+|symbol|<b>true</b>|string|t(:spotSymbol)|
 |side|false|string|t(:spotSide)|
 |orderTypes|fasle|string|t(:batchcancel_spotOrderTypes)|
 
@@ -497,14 +483,14 @@ t(:spotNormalCancelTips)
 
 <p class="fake_header">t(:httprequest)</p>
 DELETE
-<code><span id=vpoCancel>/spot/order/batch-cancel-by-ids</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancel"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=soBatchCancelIds>/spot/order/batch-cancel-by-ids</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#soBatchCancelIds"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|orderIds|true|string|t(:spotCancelOrderIds)|
+|orderIds|<b>true</b>|string|t(:spotCancelOrderIds)|
 
 <p class="fake_header">t(:responseparameters)</p>
 
@@ -591,8 +577,8 @@ print(session.query_active_order(
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpoCancelAll>/spot/v1/open-orders</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancelAll"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=svOpenOrders>/spot/v1/open-orders</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svOpenOrders"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
@@ -686,8 +672,8 @@ print(session.query_active_order(
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpoReplace>/spot/v1/history-orders</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoReplace"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=svHistoryOrders>/spot/v1/history-orders</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svHistoryOrders"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|

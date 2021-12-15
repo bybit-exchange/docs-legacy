@@ -664,7 +664,6 @@ en:
   fundingRate_notice: Historical funding rates are not available through the API. However, you can obtain a CSV of this data by using the "Export" button <a href="https://www.bybit.com/data/basic/inverse/funding-history?symbol=BTCUSD">here</a>.
   ### Query Symbol
   querysymbol: Query Symbol
-  spot_querysymbol: Query Symbol
   market_para_querySymbol: Get symbol info.
   ### Query Liquidated Orders
   query_liqrecords: Liquidated Orders
@@ -876,11 +875,12 @@ en:
   wallet_aside_walletRecords: |
     Find more detail for types <code>Withdraw</code> and <code>Refund</code> in the <a href="#t-withdrawrecords">Withdraw Records</a> endpoint.
   wallet_aside_walletRecords1: USDT records will not be returned unless you pass <code>USDT</code> with the <code>coin</code> parameter.
+  wallet_aside_walletRecords2: Deposit or withdrawal records which occurred after 2021-07-15 will not be shown by this endpoint. This is due to the introduction of the spot wallet at this time. New endpoints are being developed to show these missing records.
   ### Withdraw Records
   withdrawrecords: Withdraw Records
-  wallet_para_withdrawRecords: Get withdrawal records.
-  wallet_aside_withdrawRecords: |
-    The difference between data returned by this endpoint and data of type <code>Withdraw</code> in the <a href="#t-walletrecords">Wallet Fund Records</a> endpoint:<p></p>
+  wallet_para_withdrawRecords: |
+    <p>Get withdrawal records.</p>
+    <p>The difference between data returned by this endpoint and data of type <code>Withdraw</code> in the <a href="#t-walletrecords">Wallet Fund Records</a> endpoint:<p>
     <p>This endpoint provides one withdrawal operation per record, and you can check the current withdrawal state with the <code>status</code> field.</p>
     <p>Once you have submitted a withdrawal application, there will be a record with type <code>Withdraw</code>, and if the application is <code>CancelByUser</code>, <code>Reject</code> or <code>Expire</code> in the <a href="#t-walletrecords">Wallet Fund Records</a> endpoint, with a corresponding record with type <code>Refund</code>.</p>
 
@@ -1664,6 +1664,9 @@ en:
   misc_row_comment_orderLinkIdNotOrderId: Unique user-set order ID. <b>Required</b> if not passing <code>order_id</code>
   misc_row_comment_orderLinkIdNotStopOrderId: Unique user-set order ID. <b>Required</b> if not passing <code>stop_order_id</code>
   misc_row_comment_orderIdNotOrderLinkId: Order ID. <b>Required</b> if not passing <code>order_link_id</code>
+  misc_row_comment_orderLinkIdNotOrderId_spot: Unique user-set order ID. <b>Required</b> if not passing <code>orderId</code>
+  misc_row_comment_orderIdNotOrderLinkId_spot: Order ID. <b>Required</b> if not passing <code>orderLinkId</code>
+
   misc_row_comment_symbolNotOrderId: Contract type. <b>Required</b>
 
   default: Default
@@ -2276,7 +2279,7 @@ en:
   spot_is_close: Is close
   spot_is_normal: Is normal
   spot_is_working: Is working
-  spot_match_account_id: Match account ID
+  spot_match_account_id: Account ID of the opponent trader
   spot_trade_time: Current timestamp, unit in millisecond
   spot_best_bid_price: Best bid price
   spot_best_ask_price: Best ask price
@@ -2299,15 +2302,15 @@ en:
   spotTakerBaseVolume: Taker buy volume in base asset
   spotTakerQuoteVolume: Taker buy volume in quote asset
   spot_ticket_id: Ticket ID
-  spot_match_order_id: Order ID of the opponent
+  spot_match_order_id: Order ID of the opponent trader
   spot_account_id: Account ID
 
 #  spot_match_account_id: Account ID
   spotQuoteAssetVolume: Quote asset volume
-  spotMakerRebate: Marker rebate
+  spotMakerRebate: Maker rebate
   batchcancel_spotOrderTypes: |
-    Order type. Use comma splicing to indicate multiple order types, eg <code>LIMIT,LIMIT_MAKER</code>. Default: <code>LIMIT</code>
-  spotCancelOrderIds: order ID, use comma splicing to indicate multiple orderIds, no more than 100 ids.
+    Order type. Use commas to indicate multiple order types, eg <code>LIMIT,LIMIT_MAKER</code>. Default: <code>LIMIT</code>
+  spotCancelOrderIds: Order ID, use commas to indicate multiple orderIds. Maximum of 100 ids.
 
   spotCancelTips: The actual result of the cancellation request needs to be checked by order status or match result endpoints after submitting the request.(It is a synchronous settlement API)
   spotFastCancelTips: The actual result of the cancellation request needs to be checked by order status or match result endpoints after submitting the request.(It is an asynchronous settlement API)
@@ -2358,16 +2361,16 @@ en:
   spot_gains: Change
   spot_kline_latest_records: It only returns the results from latest 3500 candles regardless of what interval is specified
 
-  spot_public_websocket_frequency_realtime: Pushes data in <b>realtime</b>.
+  spot_public_websocket_frequency_realtime: Pushes data in <b>real-time</b>.
 
-  spot_public_websocket_frequency_300_delay_400: Push data at a frequence of <b>300ms</b>. Message received with a maximum delay of <b>400ms</b>.
-  spot_public_websocket_frequency_300_delay_650: Push data at a frequence of <b>300ms</b>. Message received with a maximum delay of <b>650ms</b>.
-  spot_public_websocket_frequency_250_delay_300: Push data at a frequence of <b>250ms</b>. Message received with a maximum delay of <b>300ms</b>.
-  spot_public_websocket_frequency_near_realtime: Pushes data near in <b>realtime</b>.
+  spot_public_websocket_frequency_300_delay_400: Pushes data at a frequency of <b>300ms</b>. Message received with a maximum delay of <b>400ms</b>.
+  spot_public_websocket_frequency_300_delay_650: Pushes data at a frequency of <b>300ms</b>. Message received with a maximum delay of <b>650ms</b>.
+  spot_public_websocket_frequency_250_delay_300: Pushes data at a frequency of <b>250ms</b>. Message received with a maximum delay of <b>300ms</b>.
+  spot_public_websocket_frequency_near_realtime: Pushes data near <b>real-time</b>.
 
   spot_websocket_trade_desc_v1: |
     <p>This topic pushes raw data for each trade.</p>
-    <p>After a successful subscription message, the first data message (as indicated by <code>"f": true</code>) consists of the last 60 trades. After this payload (<code>"f": false</code>), messages are pushed at frequency of 300ms.</p>
+    <p>After a successful subscription message, the first data message (as indicated by <code>"f": true</code>) consists of the last 60 trades. After this payload (<code>"f": false</code>), only new trades are pushed.</p>
     <p>Variable <code>v</code> is a trade ID which is unique across the platform.</p>
 
   websocketrealtimes: realtimes
@@ -2375,13 +2378,13 @@ en:
     The 24-hr statistics of a trading pair.
 #  websocketkline: kline
   spot_websocket_kline_desc_v1: |
-    <p>Kline data.</p>
-    <p>To subscribe to different intervals, alter append your desired interval to the topic name. For 1 minute klines, set the topic as <code>kline_1m</code>, for 1 hour klines use <code>kline_1h</code>, etc. Available intervals are listed <a href="#kline-interval-interval">here</a>.</p>
+    <p>This topic pushes kline data.</p>
+    <p>To subscribe to different intervals, append your desired interval to the topic name. For 1 minute klines, set the topic as <code>kline_1m</code>, for 1 hour klines use <code>kline_1h</code>, etc. Available intervals are listed <a href="#kline-interval-interval">here</a>.</p>
 
   spot_broker_info: brokerinfo return
   websocketdepth: depth
   spot_websocket_orderbook_desc_v1: |
-    <p>This topic pushes all order book data.</p>
+    <p>This topic pushes order book data.</p>
     <ul>
       <li>Snapshot depth: 200 per side.</li>
       <li>Events which trigger a message push to this topic:
@@ -2395,12 +2398,16 @@ en:
     </ul>
 
   websocketmergeddepth: mergedDepth
-  spot_websocket_orderbook_merge_desc_v1: <code>dumpScale</code> must be specified for this endpoint. It refers to the number of decimal places
+  spot_websocket_orderbook_merge_desc_v1: |
+    <p>This topic pushes aggregated order book data.</p>
+    <p><code>dumpScale</code> must be specified for this endpoint. It refers to the number of decimal places, eg <code>1</code> for <code>50000.5</code> or <code>0</code> for <code>50000</code>.</p>
+    <p>Pushes a depth of 40 items per side, regardless of the <code>dumpScale</code>.</p>
 
   websocketdiffdepth: diffDepth
   spot_websocket_orderbook_delta_desc_v1: |
     <p>Changes (if any) in the bid–ask spread of the order book will be pushed. The first message pushes a depth of 200 per side. The following messages act as delta messages, which represent updates to the order book relative to the last response.</p>
-    <p>In Order Book Streams (Float Depth), the quantity returned may not be equal to the actual bid-ask quantity corresponding to the price. If the quantity=0, it indicates that the price has already changed. If the quantity>0, it refers to the updated bid-ask quantity corresponding to the price.</p>
+    <p>For a Python example of the logic to maintain a local order book with this topic, see <a href="https://github.com/verata-veritatis/pybit/blob/8a647208dbdce1519de3fbce172d3dcf2141ccaf/pybit/__init__.py#L2279">here</a>.</p>
+    <p>If the quantity=0, it indicates that there are no longer any orders at this price level. If the quantity>0, the quantity for this price has changed.</p>
     <p>Assume the response includes the following:</p>
     <p>&nbsp;&nbsp;> ["0.00181860", "155.92000000"]// price, quantity</p>
     <p>If the next payload is:</p>
@@ -2408,7 +2415,7 @@ en:
     <p>This means that the quantity corresponding to this price has been updated.</p>
     <p>If the next payload is:</p>
     <p>&nbsp;&nbsp;> ["0.00181860", "0"]</p>
-    <p>This means that the price has already changed.</p>
+    <p>This means that the price has already changed (there are no orders on this side at this price level).</p>
 
   spot_websocket_many_symbol_desc: support many symbol, separate with ','.
   spot_websocket_subscribe_desc: |
@@ -2440,14 +2447,12 @@ en:
 
   websocketv2kline: kline
   spot_websocket_kline_desc_v2: |
-    <p>Kline data pushed at a frequency of every second.</p>
     <p>The topic name is <code>kline</code>. To subscribe to different intervals, pass your desired interval with the <code>klineType</code> parameter. Available intervals are listed <a href="#kline-interval-interval">here</a>.</p>
 
   websocketv2trade: trade
   spot_websocket_trade_desc_v2: |
-    <p>The Trade Streams push raw trade information; each trade has a unique buyer and seller.</p>
-    <p>After successful handshake and connected to server, the server will return the latest 60 trades. After this payload, the following will be real-time trades.</p>
-    <p>Variable "v" acts as an tradeId. This variable is shared across different symbols; however, each ID is unique. For example, suppose in the last 5 seconds 3 trades happened in ETHUSDT, BTCUSDT, and BHTBTC. Their version (which is "v") will be consecutive: 112, 113, 114.</p>
+    <p>This topic pushes raw trade information; each trade has a unique buyer and seller.</p>
+    <p>Variable "v" acts as a tradeId. This variable is shared across different symbols; however, each ID is unique. For example, suppose in the last 5 seconds 3 trades happened in ETHUSDT, BTCUSDT, and BHTBTC. Their version (which is "v") will be consecutive: 112, 113, 114.</p>
 
   websocketv2depth: depth
   spot_websocket_orderbook_desc_v2: |
@@ -2466,7 +2471,7 @@ en:
 
   websocketv2realtimes: realtimes
   spot_websocket_symbol_ticker_desc_v2: |
-    The 24-hr statistics of a trading pair pushed at a frequency of ???
+    The 24-hr statistics of a trading pair.
 
   # Transfer API Data Endpoints
   transfer_api: Transfer Data Endpoints
