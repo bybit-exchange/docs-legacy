@@ -9205,6 +9205,10 @@ GET
 如果用戶不通過<code>coin</code>傳入<code>USDT</code>，USDT記錄將不會被返回給用戶。
 </aside>
 
+<aside class="warning">
+Deposit or withdrawal records which occurred after 2021-07-15 will not be shown by this endpoint. This is due to the introduction of the spot wallet at this time. New endpoints are being developed to show these missing records.
+</aside>
+
 <p class="fake_header">HTTP 請求</p>
 
 <p>GET
@@ -9363,10 +9367,14 @@ GET
   <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">120</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>查詢提幣記錄。</p>
+<p><p>查詢提幣記錄。</p>
+<p>請註意該接口數據和<code>資金記錄</code>中<code>Withdraw</code>類型數據的區別：</p>
+<p>在該接口中，一次提幣申請對應一條記錄，並且有<code>status</code>字段表示當前提幣狀態。</p>
+<p>在<code>資金記錄</code>接口中，一旦用戶申請提幣，就會產生一條<code>Withdraw</code>類型的數據，並且當提幣申請取消、過期、或審核拒絕的時候，資金記錄中會再新增一條<code>Refund</code>類型的數據。</p>
+</p>
 
-<aside class="notice">
-請註意該接口數據和<code>資金記錄</code>中<code>Withdraw</code>類型數據的區別： <p>在該接口中，一次提幣申請對應一條記錄，並且有<code>status</code>字段表示當前提幣狀態。</p> <p>在<code>資金記錄</code>接口中，一旦用戶申請提幣，就會產生一條<code>Withdraw</code>類型的數據，並且當提幣申請取消、過期、或審核拒絕的時候，資金記錄中會再新增一條<code>Refund</code>類型的數據。</p>
+<aside class="warning">
+Deposit or withdrawal records which occurred after 2021-07-15 will not be shown by this endpoint. This is due to the introduction of the spot wallet at this time. New endpoints are being developed to show these missing records.
 </aside>
 
 <p class="fake_header">HTTP 請求</p>

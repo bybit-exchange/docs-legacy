@@ -9281,6 +9281,10 @@ Find more detail for types <code>Withdraw</code> and <code>Refund</code> in the 
 USDT records will not be returned unless you pass <code>USDT</code> with the <code>coin</code> parameter.
 </aside>
 
+<aside class="warning">
+Deposit or withdrawal records which occurred after 2021-07-15 will not be shown by this endpoint. This is due to the introduction of the spot wallet at this time. New endpoints are being developed to show these missing records.
+</aside>
+
 <p class="fake_header">HTTP Request</p>
 
 <p>GET
@@ -9439,13 +9443,14 @@ USDT records will not be returned unless you pass <code>USDT</code> with the <co
   <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">120</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Get withdrawal records.</p>
-
-<aside class="notice">
-The difference between data returned by this endpoint and data of type <code>Withdraw</code> in the <a href="#t-walletrecords">Wallet Fund Records</a> endpoint:<p></p>
+<p><p>Get withdrawal records.</p>
+<p>The difference between data returned by this endpoint and data of type <code>Withdraw</code> in the <a href="#t-walletrecords">Wallet Fund Records</a> endpoint:<p>
 <p>This endpoint provides one withdrawal operation per record, and you can check the current withdrawal state with the <code>status</code> field.</p>
 <p>Once you have submitted a withdrawal application, there will be a record with type <code>Withdraw</code>, and if the application is <code>CancelByUser</code>, <code>Reject</code> or <code>Expire</code> in the <a href="#t-walletrecords">Wallet Fund Records</a> endpoint, with a corresponding record with type <code>Refund</code>.</p>
+</p>
 
+<aside class="warning">
+Deposit or withdrawal records which occurred after 2021-07-15 will not be shown by this endpoint. This is due to the introduction of the spot wallet at this time. New endpoints are being developed to show these missing records.
 </aside>
 
 <p class="fake_header">HTTP Request</p>

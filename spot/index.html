@@ -748,7 +748,7 @@
             <a href="#t-marketdata" class="toc-h1 toc-link" data-title="Market Data Endpoints">Market Data Endpoints</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#t-spot_querysymbol" class="toc-h2 toc-link" data-title="Query Symbol">Query Symbol</a>
+                    <a href="#t-querysymbol" class="toc-h2 toc-link" data-title="Query Symbol">Query Symbol</a>
                   </li>
                   <li>
                     <a href="#t-orderbook" class="toc-h2 toc-link" data-title="Order Book">Order Book</a>
@@ -1125,7 +1125,7 @@ function copyStringToClipboard (endpoint) {
 </script>
 <h1 id='t-marketdata'>Market Data Endpoints</h1>
 <p>The following market data endpoints do not require authentication.</p>
-<h3 id='t-spot_querysymbol'>Query Symbol</h3>
+<h3 id='t-querysymbol'>Query Symbol</h3>
 <blockquote>
 <p>Request Example</p>
 </blockquote>
@@ -2043,8 +2043,8 @@ If symbol is not specified, the best order price from all symbols will be return
 <p class="fake_header">HTTP Request</p>
 
 <p>POST
-<code><span id=vpoCreate>/spot/v1/order</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+<code><span id=svPostOrder>/spot/v1/order</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svPostOrder"><img src="../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
 
@@ -2225,8 +2225,8 @@ If symbol is not specified, the best order price from all symbols will be return
 <p class="fake_header">HTTP Request</p>
 
 <p>GET
-<code><span id=vpoList>/spot/v1/order</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoList"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<code><span id=svGetOrder>/spot/v1/order</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svGetOrder"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
 
@@ -2242,19 +2242,15 @@ If symbol is not specified, the best order price from all symbols will be return
 <td style="text-align: left">orderId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Order ID</td>
+<td>Order ID. <b>Required</b> if not passing <code>orderLinkId</code></td>
 </tr>
 <tr>
 <td style="text-align: left">orderLinkId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>User-generated order ID</td>
+<td>Unique user-set order ID. <b>Required</b> if not passing <code>orderId</code></td>
 </tr>
 </tbody></table>
-
-<aside class="notice">
-At least one must be entered in the orderId field and the ordersLinkId field
-</aside>
 
 <p class="fake_header">Response Parameters</p>
 
@@ -2405,8 +2401,8 @@ At least one must be entered in the orderId field and the ordersLinkId field
 <p class="fake_header">HTTP Request</p>
 
 <p>DELETE
-<code><span id=vpoCancel>/spot/v1/order</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancel"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<code><span id=svDeleteOrder>/spot/v1/order</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svDeleteOrder"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
 
@@ -2422,19 +2418,15 @@ At least one must be entered in the orderId field and the ordersLinkId field
 <td style="text-align: left">orderId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Order ID</td>
+<td>Order ID. <b>Required</b> if not passing <code>orderLinkId</code></td>
 </tr>
 <tr>
 <td style="text-align: left">orderLinkId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>User-generated order ID</td>
+<td>Unique user-set order ID. <b>Required</b> if not passing <code>orderId</code></td>
 </tr>
 </tbody></table>
-
-<aside class="notice">
-At least one must be entered in the orderId field and the ordersLinkId field
-</aside>
 
 <p class="fake_header">Response Parameters</p>
 
@@ -2550,8 +2542,8 @@ The actual result of the cancellation request needs to be checked by order statu
 <p class="fake_header">HTTP Request</p>
 
 <p>DELETE
-<code><span id=vpoCancel>/spot/v1/order/fast</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancel"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<code><span id=svoFast>/spot/v1/order/fast</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svoFast"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
 
@@ -2564,28 +2556,24 @@ The actual result of the cancellation request needs to be checked by order statu
 </tr>
 </thead><tbody>
 <tr>
+<td style="text-align: left">symbolId</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Name of the trading pair</td>
+</tr>
+<tr>
 <td style="text-align: left">orderId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Order ID</td>
+<td>Order ID. <b>Required</b> if not passing <code>orderLinkId</code></td>
 </tr>
 <tr>
 <td style="text-align: left">orderLinkId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>User-generated order ID</td>
-</tr>
-<tr>
-<td style="text-align: left">symbolId</td>
-<td style="text-align: left">true</td>
-<td style="text-align: left">string</td>
-<td>Name of the trading pair</td>
+<td>Unique user-set order ID. <b>Required</b> if not passing <code>orderId</code></td>
 </tr>
 </tbody></table>
-
-<aside class="notice">
-At least one must be entered in the orderId field and the ordersLinkId field
-</aside>
 
 <p class="fake_header">Response Parameters</p>
 
@@ -2706,7 +2694,7 @@ The actual result of the cancellation request needs to be checked by order statu
 </thead><tbody>
 <tr>
 <td style="text-align: left">symbol</td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Name of the trading pair</td>
 </tr>
@@ -2720,7 +2708,7 @@ The actual result of the cancellation request needs to be checked by order statu
 <td style="text-align: left"><a href="#order-type-type-ordertypes">orderTypes</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Order type. Use comma splicing to indicate multiple order types, eg <code>LIMIT,LIMIT_MAKER</code>. Default: <code>LIMIT</code>
+<td>Order type. Use commas to indicate multiple order types, eg <code>LIMIT,LIMIT_MAKER</code>. Default: <code>LIMIT</code>
 </td>
 </tr>
 </tbody></table>
@@ -2774,8 +2762,8 @@ The actual result of the cancellation request needs to be checked by order statu
 <p class="fake_header">HTTP Request</p>
 
 <p>DELETE
-<code><span id=vpoCancel>/spot/order/batch-fast-cancel</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancel"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<code><span id=soBatchFastCancel>/spot/order/batch-fast-cancel</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#soBatchFastCancel"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
 
@@ -2789,7 +2777,7 @@ The actual result of the cancellation request needs to be checked by order statu
 </thead><tbody>
 <tr>
 <td style="text-align: left">symbol</td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Name of the trading pair</td>
 </tr>
@@ -2803,7 +2791,7 @@ The actual result of the cancellation request needs to be checked by order statu
 <td style="text-align: left">orderTypes</td>
 <td style="text-align: left">fasle</td>
 <td style="text-align: left">string</td>
-<td>Order type. Use comma splicing to indicate multiple order types, eg <code>LIMIT,LIMIT_MAKER</code>. Default: <code>LIMIT</code>
+<td>Order type. Use commas to indicate multiple order types, eg <code>LIMIT,LIMIT_MAKER</code>. Default: <code>LIMIT</code>
 </td>
 </tr>
 </tbody></table>
@@ -2859,8 +2847,8 @@ The actual result of the cancellation request needs to be checked by order statu
 <p class="fake_header">HTTP Request</p>
 
 <p>DELETE
-<code><span id=vpoCancel>/spot/order/batch-cancel-by-ids</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancel"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<code><span id=soBatchCancelIds>/spot/order/batch-cancel-by-ids</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#soBatchCancelIds"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
 
@@ -2874,9 +2862,9 @@ The actual result of the cancellation request needs to be checked by order statu
 </thead><tbody>
 <tr>
 <td style="text-align: left">orderIds</td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>order ID, use comma splicing to indicate multiple orderIds, no more than 100 ids.</td>
+<td>Order ID, use commas to indicate multiple orderIds. Maximum of 100 ids.</td>
 </tr>
 </tbody></table>
 
@@ -2971,8 +2959,8 @@ The actual result of the cancellation request needs to be checked by order statu
 <p class="fake_header">HTTP Request</p>
 
 <p>GET
-<code><span id=vpoCancelAll>/spot/v1/open-orders</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancelAll"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<code><span id=svOpenOrders>/spot/v1/open-orders</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svOpenOrders"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
 
@@ -3164,8 +3152,8 @@ The actual result of the cancellation request needs to be checked by order statu
 <p class="fake_header">HTTP Request</p>
 
 <p>GET
-<code><span id=vpoReplace>/spot/v1/history-orders</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoReplace"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<code><span id=svHistoryOrders>/spot/v1/history-orders</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svHistoryOrders"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
 
@@ -3474,7 +3462,7 @@ The actual result of the cancellation request needs to be checked by order statu
 <tr>
 <td style="text-align: left">matchOrderId</td>
 <td style="text-align: left">long</td>
-<td>Order ID of the opponent</td>
+<td>Order ID of the opponent trader</td>
 </tr>
 <tr>
 <td style="text-align: left">fee</td>
@@ -3494,7 +3482,7 @@ The actual result of the cancellation request needs to be checked by order statu
 <tr>
 <td style="text-align: left">makerRebate</td>
 <td style="text-align: left">float</td>
-<td>Marker rebate</td>
+<td>Maker rebate</td>
 </tr>
 </tbody></table>
 
@@ -3563,23 +3551,19 @@ The actual result of the cancellation request needs to be checked by order statu
 <code><span id=svAccount>/spot/v1/account</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svAccount"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
-<p class="fake_header">Response Parameters</p>
+<p class="fake_header">Request Parameters</p>
 
 <table><thead>
 <tr>
 <th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
 <th style="text-align: left">Type</th>
 <th>Comment</th>
 </tr>
 </thead><tbody>
-<tr>
-<td style="text-align: left">balances</td>
-<td style="text-align: left">object</td>
-<td>Account balances</td>
-</tr>
 </tbody></table>
 
-<p class="fake_header">balances object</p>
+<p class="fake_header">Response Parameters</p>
 
 <table><thead>
 <tr>
@@ -3890,11 +3874,11 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <span class="p">}</span>
 </code></pre></div>
 <p><p>This topic pushes raw data for each trade.</p>
-<p>After a successful subscription message, the first data message (as indicated by <code>"f": true</code>) consists of the last 60 trades. After this payload (<code>"f": false</code>), messages are pushed at frequency of 300ms.</p>
+<p>After a successful subscription message, the first data message (as indicated by <code>"f": true</code>) consists of the last 60 trades. After this payload (<code>"f": false</code>), only new trades are pushed.</p>
 <p>Variable <code>v</code> is a trade ID which is unique across the platform.</p>
 </p>
 
-<p>Push data at a frequence of <b>300ms</b>. Message received with a maximum delay of <b>400ms</b>.</p>
+<p>Pushes data at a frequency of <b>300ms</b>. Message received with a maximum delay of <b>400ms</b>.</p>
 
 <p class="fake_header">Response Parameters</p>
 
@@ -3996,7 +3980,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <p>The 24-hr statistics of a trading pair.
 </p>
 
-<p>Push data at a frequence of <b>300ms</b>. Message received with a maximum delay of <b>400ms</b>.</p>
+<p>Pushes data at a frequency of <b>300ms</b>. Message received with a maximum delay of <b>400ms</b>.</p>
 
 <p class="fake_header">Response Parameters</p>
 
@@ -4127,11 +4111,11 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
   <span class="dl">"</span><span class="s2">shared</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><p>Kline data.</p>
-<p>To subscribe to different intervals, alter append your desired interval to the topic name. For 1 minute klines, set the topic as <code>kline_1m</code>, for 1 hour klines use <code>kline_1h</code>, etc. Available intervals are listed <a href="#kline-interval-interval">here</a>.</p>
+<p><p>This topic pushes kline data.</p>
+<p>To subscribe to different intervals, append your desired interval to the topic name. For 1 minute klines, set the topic as <code>kline_1m</code>, for 1 hour klines use <code>kline_1h</code>, etc. Available intervals are listed <a href="#kline-interval-interval">here</a>.</p>
 </p>
 
-<p>Push data at a frequence of <b>300ms</b>. Message received with a maximum delay of <b>400ms</b>.</p>
+<p>Pushes data at a frequency of <b>300ms</b>. Message received with a maximum delay of <b>400ms</b>.</p>
 
 <p class="fake_header">Response Parameters</p>
 
@@ -4267,7 +4251,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
   <span class="dl">"</span><span class="s2">shared</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><p>This topic pushes all order book data.</p>
+<p><p>This topic pushes order book data.</p>
 <ul>
   <li>Snapshot depth: 200 per side.</li>
   <li>Events which trigger a message push to this topic:
@@ -4281,7 +4265,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 </ul>
 </p>
 
-<p>Push data at a frequence of <b>300ms</b>. Message received with a maximum delay of <b>650ms</b>.</p>
+<p>Pushes data at a frequency of <b>300ms</b>. Message received with a maximum delay of <b>650ms</b>.</p>
 
 <p class="fake_header">Response Parameters</p>
 
@@ -4417,9 +4401,12 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
     <span class="dl">"</span><span class="s2">shared</span><span class="dl">"</span><span class="p">:</span><span class="kc">false</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><code>dumpScale</code> must be specified for this endpoint. It refers to the number of decimal places</p>
+<p><p>This topic pushes aggregated order book data.</p>
+<p><code>dumpScale</code> must be specified for this endpoint. It refers to the number of decimal places, eg <code>1</code> for <code>50000.5</code> or <code>0</code> for <code>50000</code>.</p>
+<p>Pushes a depth of 40 items per side, regardless of the <code>dumpScale</code>.</p>
+</p>
 
-<p>Push data at a frequence of <b>300ms</b>. Message received with a maximum delay of <b>650ms</b>.</p>
+<p>Pushes data at a frequency of <b>300ms</b>. Message received with a maximum delay of <b>650ms</b>.</p>
 
 <p class="fake_header">Response Parameters</p>
 
@@ -4540,7 +4527,8 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <span class="p">}</span>
 </code></pre></div>
 <p><p>Changes (if any) in the bid–ask spread of the order book will be pushed. The first message pushes a depth of 200 per side. The following messages act as delta messages, which represent updates to the order book relative to the last response.</p>
-<p>In Order Book Streams (Float Depth), the quantity returned may not be equal to the actual bid-ask quantity corresponding to the price. If the quantity=0, it indicates that the price has already changed. If the quantity>0, it refers to the updated bid-ask quantity corresponding to the price.</p>
+<p>For a Python example of the logic to maintain a local order book with this topic, see <a href="https://github.com/verata-veritatis/pybit/blob/8a647208dbdce1519de3fbce172d3dcf2141ccaf/pybit/__init__.py#L2279">here</a>.</p>
+<p>If the quantity=0, it indicates that there are no longer any orders at this price level. If the quantity>0, the quantity for this price has changed.</p>
 <p>Assume the response includes the following:</p>
 <p>&nbsp;&nbsp;> ["0.00181860", "155.92000000"]// price, quantity</p>
 <p>If the next payload is:</p>
@@ -4548,10 +4536,10 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <p>This means that the quantity corresponding to this price has been updated.</p>
 <p>If the next payload is:</p>
 <p>&nbsp;&nbsp;> ["0.00181860", "0"]</p>
-<p>This means that the price has already changed.</p>
+<p>This means that the price has already changed (there are no orders on this side at this price level).</p>
 </p>
 
-<p>Push data at a frequence of <b>300ms</b>. Message received with a maximum delay of <b>650ms</b>.</p>
+<p>Pushes data at a frequency of <b>300ms</b>. Message received with a maximum delay of <b>650ms</b>.</p>
 
 <p class="fake_header">Response Parameters</p>
 
@@ -4693,7 +4681,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 </ul>
 </p>
 
-<p>Push data at a frequence of <b>250ms</b>. Message received with a maximum delay of <b>300ms</b>.</p>
+<p>Pushes data at a frequency of <b>250ms</b>. Message received with a maximum delay of <b>300ms</b>.</p>
 
 <p class="fake_header">Response Parameters</p>
 
@@ -4802,11 +4790,10 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><p>Kline data pushed at a frequency of every second.</p>
-<p>The topic name is <code>kline</code>. To subscribe to different intervals, pass your desired interval with the <code>klineType</code> parameter. Available intervals are listed <a href="#kline-interval-interval">here</a>.</p>
+<p><p>The topic name is <code>kline</code>. To subscribe to different intervals, pass your desired interval with the <code>klineType</code> parameter. Available intervals are listed <a href="#kline-interval-interval">here</a>.</p>
 </p>
 
-<p>Pushes data near in <b>realtime</b>.</p>
+<p>Pushes data near <b>real-time</b>.</p>
 
 <p class="fake_header">Response Parameters</p>
 
@@ -4929,12 +4916,11 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><p>The Trade Streams push raw trade information; each trade has a unique buyer and seller.</p>
-<p>After successful handshake and connected to server, the server will return the latest 60 trades. After this payload, the following will be real-time trades.</p>
-<p>Variable "v" acts as an tradeId. This variable is shared across different symbols; however, each ID is unique. For example, suppose in the last 5 seconds 3 trades happened in ETHUSDT, BTCUSDT, and BHTBTC. Their version (which is "v") will be consecutive: 112, 113, 114.</p>
+<p><p>This topic pushes raw trade information; each trade has a unique buyer and seller.</p>
+<p>Variable "v" acts as a tradeId. This variable is shared across different symbols; however, each ID is unique. For example, suppose in the last 5 seconds 3 trades happened in ETHUSDT, BTCUSDT, and BHTBTC. Their version (which is "v") will be consecutive: 112, 113, 114.</p>
 </p>
 
-<p>Pushes data near in <b>realtime</b>.</p>
+<p>Pushes data near <b>real-time</b>.</p>
 
 <p class="fake_header">Response Parameters</p>
 
@@ -5040,7 +5026,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 </code></pre></div>
 <p>Best bid price and best ask price</p>
 
-<p>Push data at a frequence of <b>250ms</b>. Message received with a maximum delay of <b>300ms</b>.</p>
+<p>Pushes data at a frequency of <b>250ms</b>. Message received with a maximum delay of <b>300ms</b>.</p>
 
 <p class="fake_header">Response Parameters</p>
 
@@ -5147,10 +5133,10 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>The 24-hr statistics of a trading pair pushed at a frequency of ???
+<p>The 24-hr statistics of a trading pair.
 </p>
 
-<p>Pushes data near in <b>realtime</b>.</p>
+<p>Pushes data near <b>real-time</b>.</p>
 
 <p class="fake_header">Response Parameters</p>
 
@@ -5260,7 +5246,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 </code></pre></div>
 <p>Pushes data about your account.</p>
 
-<p>Pushes data in <b>realtime</b>.</p>
+<p>Pushes data in <b>real-time</b>.</p>
 
 <p class="fake_header">Response Parameters</p>
 
@@ -5366,7 +5352,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 </code></pre></div>
 <p>Pushes data about your orders. <code>Z</code> divided by <code>z</code> equals the average filled price.</p>
 
-<p>Pushes data in <b>realtime</b>.</p>
+<p>Pushes data in <b>real-time</b>.</p>
 
 <p class="fake_header">Response Parameters</p>
 
@@ -5435,7 +5421,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <tr>
 <td style="text-align: left">M</td>
 <td style="text-align: left">string</td>
-<td>Order ID of the opponent</td>
+<td>Order ID of the opponent trader</td>
 </tr>
 <tr>
 <td style="text-align: left">l</td>
@@ -5490,7 +5476,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <tr>
 <td style="text-align: left">A</td>
 <td style="text-align: left">string</td>
-<td>Match account ID</td>
+<td>Account ID of the opponent trader</td>
 </tr>
 <tr>
 <td style="text-align: left">C</td>
@@ -5540,7 +5526,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <p>Pushes data about your trades (fills). When an order is filled, you will receive two messages: one from <code>ticketInfo</code>, and one from <code>executionReport</code>
 </p>
 
-<p>Pushes data in <b>realtime</b>.</p>
+<p>Pushes data in <b>real-time</b>.</p>
 
 <p class="fake_header">Response Parameters</p>
 
@@ -5599,7 +5585,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <tr>
 <td style="text-align: left">O</td>
 <td style="text-align: left">string</td>
-<td>Order ID of the opponent</td>
+<td>Order ID of the opponent trader</td>
 </tr>
 <tr>
 <td style="text-align: left">a</td>
@@ -5609,7 +5595,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <tr>
 <td style="text-align: left">A</td>
 <td style="text-align: left">string</td>
-<td>Match account ID</td>
+<td>Account ID of the opponent trader</td>
 </tr>
 </tbody></table>
 <h1 id='t-enums'>Enums Definitions</h1>

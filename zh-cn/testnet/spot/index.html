@@ -759,7 +759,7 @@
             <a href="#t-marketdata" class="toc-h1 toc-link" data-title="行情接口">行情接口</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#t-spot_querysymbol" class="toc-h2 toc-link" data-title="查詢信息">查詢信息</a>
+                    <a href="#t-querysymbol" class="toc-h2 toc-link" data-title="查詢合約信息">查詢合約信息</a>
                   </li>
                   <li>
                     <a href="#t-orderbook" class="toc-h2 toc-link" data-title="Orderbook">Orderbook</a>
@@ -1134,7 +1134,7 @@ function copyStringToClipboard (endpoint) {
 </script>
 <h1 id='t-marketdata'>行情接口</h1>
 <p>以下市場行情數據接口不需要驗權.</p>
-<h3 id='t-spot_querysymbol'>查詢信息</h3>
+<h3 id='t-querysymbol'>查詢合約信息</h3>
 <blockquote>
 <p>請求示例</p>
 </blockquote>
@@ -2052,8 +2052,8 @@ function copyStringToClipboard (endpoint) {
 <p class="fake_header">HTTP 請求</p>
 
 <p>POST
-<code><span id=vpoCreate>/spot/v1/order</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+<code><span id=svPostOrder>/spot/v1/order</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svPostOrder"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
 
 <p class="fake_header">請求參數</p>
 
@@ -2234,8 +2234,8 @@ function copyStringToClipboard (endpoint) {
 <p class="fake_header">HTTP 請求</p>
 
 <p>GET
-<code><span id=vpoList>/spot/v1/order</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoList"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<code><span id=svGetOrder>/spot/v1/order</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svGetOrder"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">請求參數</p>
 
@@ -2251,19 +2251,15 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">orderId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>訂單ID</td>
+<td>Order ID. <b>Required</b> if not passing <code>orderLinkId</code></td>
 </tr>
 <tr>
 <td style="text-align: left">orderLinkId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>特殊訂單ID，用戶自己生成</td>
+<td>Unique user-set order ID. <b>Required</b> if not passing <code>orderId</code></td>
 </tr>
 </tbody></table>
-
-<aside class="notice">
-orderId和ordersLinkId至少要輸入一個。
-</aside>
 
 <p class="fake_header">返回參數</p>
 
@@ -2414,8 +2410,8 @@ orderId和ordersLinkId至少要輸入一個。
 <p class="fake_header">HTTP 請求</p>
 
 <p>DELETE
-<code><span id=vpoCancel>/spot/v1/order</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancel"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<code><span id=svDeleteOrder>/spot/v1/order</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svDeleteOrder"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">請求參數</p>
 
@@ -2431,19 +2427,15 @@ orderId和ordersLinkId至少要輸入一個。
 <td style="text-align: left">orderId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>訂單ID</td>
+<td>Order ID. <b>Required</b> if not passing <code>orderLinkId</code></td>
 </tr>
 <tr>
 <td style="text-align: left">orderLinkId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>特殊訂單ID，用戶自己生成</td>
+<td>Unique user-set order ID. <b>Required</b> if not passing <code>orderId</code></td>
 </tr>
 </tbody></table>
-
-<aside class="notice">
-orderId和ordersLinkId至少要輸入一個。
-</aside>
 
 <p class="fake_header">返回參數</p>
 
@@ -2559,8 +2551,8 @@ orderId和ordersLinkId至少要輸入一個。
 <p class="fake_header">HTTP 請求</p>
 
 <p>DELETE
-<code><span id=vpoCancel>/spot/v1/order/fast</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancel"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<code><span id=svoFast>/spot/v1/order/fast</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svoFast"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">請求參數</p>
 
@@ -2573,28 +2565,24 @@ orderId和ordersLinkId至少要輸入一個。
 </tr>
 </thead><tbody>
 <tr>
+<td style="text-align: left">symbolId</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>幣對名稱</td>
+</tr>
+<tr>
 <td style="text-align: left">orderId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>訂單ID</td>
+<td>Order ID. <b>Required</b> if not passing <code>orderLinkId</code></td>
 </tr>
 <tr>
 <td style="text-align: left">orderLinkId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>特殊訂單ID，用戶自己生成</td>
-</tr>
-<tr>
-<td style="text-align: left">symbolId</td>
-<td style="text-align: left">true</td>
-<td style="text-align: left">string</td>
-<td>幣對名稱</td>
+<td>Unique user-set order ID. <b>Required</b> if not passing <code>orderId</code></td>
 </tr>
 </tbody></table>
-
-<aside class="notice">
-orderId和ordersLinkId至少要輸入一個。
-</aside>
 
 <p class="fake_header">返回參數</p>
 
@@ -2715,7 +2703,7 @@ orderId和ordersLinkId至少要輸入一個。
 </thead><tbody>
 <tr>
 <td style="text-align: left">symbol</td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>幣對名稱</td>
 </tr>
@@ -2783,8 +2771,8 @@ orderId和ordersLinkId至少要輸入一個。
 <p class="fake_header">HTTP 請求</p>
 
 <p>DELETE
-<code><span id=vpoCancel>/spot/order/batch-fast-cancel</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancel"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<code><span id=soBatchFastCancel>/spot/order/batch-fast-cancel</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#soBatchFastCancel"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">請求參數</p>
 
@@ -2798,7 +2786,7 @@ orderId和ordersLinkId至少要輸入一個。
 </thead><tbody>
 <tr>
 <td style="text-align: left">symbol</td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>幣對名稱</td>
 </tr>
@@ -2868,8 +2856,8 @@ orderId和ordersLinkId至少要輸入一個。
 <p class="fake_header">HTTP 請求</p>
 
 <p>DELETE
-<code><span id=vpoCancel>/spot/order/batch-cancel-by-ids</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancel"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<code><span id=soBatchCancelIds>/spot/order/batch-cancel-by-ids</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#soBatchCancelIds"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">請求參數</p>
 
@@ -2883,7 +2871,7 @@ orderId和ordersLinkId至少要輸入一個。
 </thead><tbody>
 <tr>
 <td style="text-align: left">orderIds</td>
-<td style="text-align: left">true</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>訂單號, 可用英文逗號拼接表示多個訂單, 不超過100個。</td>
 </tr>
@@ -2980,8 +2968,8 @@ orderId和ordersLinkId至少要輸入一個。
 <p class="fake_header">HTTP 請求</p>
 
 <p>GET
-<code><span id=vpoCancelAll>/spot/v1/open-orders</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancelAll"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<code><span id=svOpenOrders>/spot/v1/open-orders</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svOpenOrders"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">請求參數</p>
 
@@ -3173,8 +3161,8 @@ orderId和ordersLinkId至少要輸入一個。
 <p class="fake_header">HTTP 請求</p>
 
 <p>GET
-<code><span id=vpoReplace>/spot/v1/history-orders</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoReplace"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<code><span id=svHistoryOrders>/spot/v1/history-orders</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svHistoryOrders"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">請求參數</p>
 
@@ -3572,23 +3560,19 @@ orderId和ordersLinkId至少要輸入一個。
 <code><span id=svAccount>/spot/v1/account</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svAccount"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
-<p class="fake_header">返回參數</p>
+<p class="fake_header">請求參數</p>
 
 <table><thead>
 <tr>
 <th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
 <th style="text-align: left">類型</th>
 <th>說明</th>
 </tr>
 </thead><tbody>
-<tr>
-<td style="text-align: left">balances</td>
-<td style="text-align: left">object</td>
-<td>賬戶余額</td>
-</tr>
 </tbody></table>
 
-<p class="fake_header">balances object</p>
+<p class="fake_header">返回參數</p>
 
 <table><thead>
 <tr>
@@ -3892,7 +3876,7 @@ orderId和ordersLinkId至少要輸入一個。
 <span class="p">}</span>
 </code></pre></div>
 <p><p>逐筆交易推送每一筆成交的信息。成交，或者說交易的定義是僅有一個吃單者與一個掛單者相互交易。</p>
-<p>在成功連接到服務器後，服務器首先會推送一條最近的60條成交。在這條推送之後，每條推送都是實時的成交。</p>
+<p>在成功連接到服務器後，服務器首先會推送一條最近的60條成交。在這條推送之後，每條推送都是最新實時的成交。</p>
 <p>變量「v」可以理解成一個交易ID。這個變量是全局遞增的並且獨特的。</p>
 </p>
 
@@ -4128,7 +4112,7 @@ orderId和ordersLinkId至少要輸入一個。
   <span class="dl">"</span><span class="s2">shared</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><p>K線數據.</p>
+<p><p>K線數據推送信息.</p>
 <p>訂閱不同的Kline時間間隔; 一分鐘K線<code>kline_1m</code>, 一小時K線<code>kline_1h</code> etc.  可選的時間間隔請點擊<a href="#kline-interval-interval">這裏</a>.</p>
 </p>
 
@@ -4420,7 +4404,7 @@ orderId和ordersLinkId至少要輸入一個。
     <span class="dl">"</span><span class="s2">shared</span><span class="dl">"</span><span class="p">:</span><span class="kc">false</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>這個訂閱必須傳dumpScale（合並精度）這個參數。dumpScale不能大於ticker的精度。你可以在brokerInfo這個端點查詢ticker的精度信息。</p>
+<p>｜ <p>聚合訂單簿數據推送</p> <p>這個訂閱必須傳dumpScale（合並精度）這個參數。dumpScale不能大於ticker的精度。你可以在brokerInfo這個端點查詢ticker的精度信息。</p> <p>举例：<code>1</code> -> <code>50000.5</code>; <code>0</code> -> <code>50000</code>.</p> <p>無論 dumpScale 如何，单邊推送 40 個深度信息</p></p>
 
 <p><b>300ms</b>推送一次，最大延遲<b>650ms</b>。</p>
 
@@ -4542,7 +4526,8 @@ orderId和ordersLinkId至少要輸入一個。
   <span class="dl">"</span><span class="s2">shared</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><p>推送訂單簿的變化部分（如果有）。第一次推送的是全量的訂單簿，接下來推送增量部分。</p>
+<p><p>推送訂單簿的變化部分（如果有）。第一次推送的是全量的訂單簿（单邊推送 200 個深度信息），接下來推送增量部分。</p>
+<p>有關使用此主題維護本地訂單簿的邏輯。请看Python 示例：<a href="https://github.com/verata-veritatis/pybit/blob/8a647208dbdce1519de3fbce172d3dcf2141ccaf/pybit/__init__.py#L2279"></a>.</p>
 <p>在增量深度信息中，數量不一定等於對應價格的數量。如果數量=0，這說明在上一條推送中的這個價格已經沒有了。如果數量>0，這時的數量為更新後的這個價格所對應的數量。</p>
 <p>假設我們收到的返回數據中有這樣一條：</p>
 <p>&nbsp;&nbsp;> ["0.00181860", "155.92000000"] // 價格，數量</p>
@@ -4808,8 +4793,7 @@ orderId和ordersLinkId至少要輸入一個。
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><p>K線stream逐秒推送所請求的K線種類(最新一根K線)的更新</p>
-<p>訂閱Kline需要提供間隔參數，最短為分鐘線，最長為月線。支持以下間隔:</p>
+<p><p>訂閱Kline需要提供間隔參數，最短為分鐘線，最長為月線。支持以下間隔:</p>
 <p>m -> 分鐘; h -> 小時; d -> 天; w -> 周; M -> 月</p>
   <ul>
   <li>1m</li>
@@ -4952,7 +4936,6 @@ orderId和ordersLinkId至少要輸入一個。
 <span class="p">}</span>
 </code></pre></div>
 <p><p>逐筆交易推送每一筆成交的信息。成交，或者說交易的定義是僅有一個吃單者與一個掛單者相互交易。</p>
-<p>在成功連接到服務器後，服務器首先會推送一條最近的60條成交。在這條推送之後，每條推送都是實時的成交。</p>
 <p>變量「v」可以理解成一個交易ID。這個變量是全局遞增的並且獨特的。例如：假設過去5秒有3筆交易發生，分別是ETHUSDT、BTCUSDT、BHTBTC。它們的「v」會為連續的值（112，113，114）。</p>
 </p>
 
@@ -5169,7 +5152,7 @@ orderId和ordersLinkId至少要輸入一個。
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p></p>
+<p>交易對的 24 小時統計數據。</p>
 
 <p>近實時推送。</p>
 
