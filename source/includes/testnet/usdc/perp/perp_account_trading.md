@@ -229,7 +229,7 @@ POST
 ### t(:usdcCancelAll)
 
 ```console
-curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/cancel-order \
+curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/cancel-order \
 -H "Content-Type: application/json" \
 -D '{
     "symbol": "BTCPERP",
@@ -255,7 +255,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/cancel-order \
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=uopvCancelAll>/option/usdc/openapi/private/v1/cancel-all</span></code>
+<code><span id=uopvCancelAll>/perpetual/usdc/openapi/private/v1/cancel-all</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvCancelAll"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
