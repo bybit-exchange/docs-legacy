@@ -1283,3 +1283,64 @@ POST
 |sessionRpl|string|t(:sessionRpl)|
 |im|string|t(:usdcIm)|
 |mm|string|t(:usdcMm)|
+
+
+
+
+## t(:usdcMmp)
+
+### t(:whatIsUsdcMmp)
+
+t(:whatIsUsdcMmpDesc)
+
+
+### t(:enableMmp)
+
+t(:enableMmpDesc)
+
+The default settings are as follows：
+
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|currency|string|t(:usdcCurrency)|
+|windowMs|string|t(:usdcWindowMs)|
+|frozenPeriodMs|string|t(:usdcFrozenPeriodMs)|
+|qtyLimit|string|t(:usdcQtyLimit)|
+|deltaLimit|string|t(:usdcDeltaLimit)|
+
+
+
+### t(:modifyMmp)
+
+<p class="fake_header">t(:httprequest)</p>
+
+POST
+<code><span id=mmpModify>/option/usdc/openapi/private/v1/mmp-modify</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mmpModify"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|currency |<b>true</b>|string|t(:usdcCurrency) |
+|windowMs |<b>true</b>|number|t(:usdcWindowMs) |
+|frozenPeriodMs |<b>true</b>|number|t(:usdcFrozenPeriodMs) |
+|qtyLimit |<b>true</b>|string|t(:usdcQtyLimit) |
+|deltaLimit |<b>true</b>|string|t(:usdcDeltaLimit) |
+
+
+
+### t(:resetMmp)
+
+<p class="fake_header">t(:httprequest)</p>
+
+POST
+<code><span id=mmpReset>/option/usdc/openapi/private/v1/mmp-reset</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mmpReset"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|currency |<b>true</b>|string|t(:usdcCurrency) |
+
