@@ -817,6 +817,23 @@
                           </li>
                       </ul>
                   </li>
+                  <li>
+                    <a href="#t-usdcmmp" class="toc-h2 toc-link" data-title="Market Maker Protection">Market Maker Protection</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#t-whatisusdcmmp" class="toc-h3 toc-link" data-title="What is MMP">What is MMP</a>
+                          </li>
+                          <li>
+                            <a href="#t-enablemmp" class="toc-h3 toc-link" data-title="How to Enable MMP">How to Enable MMP</a>
+                          </li>
+                          <li>
+                            <a href="#t-modifymmp" class="toc-h3 toc-link" data-title="Modify">Modify</a>
+                          </li>
+                          <li>
+                            <a href="#t-resetmmp" class="toc-h3 toc-link" data-title="Reset">Reset</a>
+                          </li>
+                      </ul>
+                  </li>
               </ul>
           </li>
           <li>
@@ -899,12 +916,6 @@
               <ul class="toc-list-h2">
                   <li>
                     <a href="#side-side" class="toc-h2 toc-link" data-title="Side (side)">Side (<code>side</code>)</a>
-                  </li>
-                  <li>
-                    <a href="#placemode-placemode" class="toc-h2 toc-link" data-title="PlaceMode (placeMode)">PlaceMode (<code>placeMode</code>)</a>
-                  </li>
-                  <li>
-                    <a href="#placetype-placetype" class="toc-h2 toc-link" data-title="PlaceType (placeType)">PlaceType (<code>placeType</code>)</a>
                   </li>
                   <li>
                     <a href="#time-in-force-timeinforce" class="toc-h2 toc-link" data-title="Time in force (timeInForce)">Time in force (<code>timeInForce</code>)</a>
@@ -1747,7 +1758,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/place-order \
 -H "Content-Type: application/json" \
--D '{"outRequestId":"021f276a-0a5f-4f35-9859-5f32353ce0ad","symbol":"BTC-26NOV21-58000-P","orderType":"Limit","side":"Buy","orderQty":"1","orderPrice":"1","timeInForce":"GoodTillCancel","placeMode":1,"placeType":1}'
+-D '{"outRequestId":"021f276a-0a5f-4f35-9859-5f32353ce0ad","symbol":"BTC-26NOV21-58000-P","orderType":"Limit","side":"Buy","orderQty":"1","orderPrice":"1","timeInForce":"GoodTillCancel"}'
 </span></code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -1764,8 +1775,6 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
         <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">162073788655749</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">iv</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">100</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">placeMode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">placeType</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">PostOnly</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">outRequestId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1620737886573</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">reduceOnly</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -1830,18 +1839,6 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>Implied volatility</td>
-</tr>
-<tr>
-<td style="text-align: left">placeMode</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>Order mode, can be Advanced or Basic.For Perpetual, can be empty,But for Option, can not be empty.Number 1 is basic and number 2 is advanced.If 1, <code>orderQty</code> and <code>orderPrice</code> can not be empty. If 2, refer to <code>placeType</code>.</td>
-</tr>
-<tr>
-<td style="text-align: left">placeType</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>Order type, can be price or implied volatility.Number 1 is price and number 2 is implied volatility. If 1,orderQty and orderPrice can not be empty. If 2, <code>iv</code> and <code>orderQty</code> can not be empty.</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#time-in-force-timeinforce">timeInForce</a></td>
@@ -1924,7 +1921,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <p>Each request supports a max. of four orders.</p>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-place-order \
 -H "Content-Type: application/json" \
--D '{"orderRequest":[{"outRequestId":"4c77b34a-9093-4bca-9cad-727cd6efed7e","symbol":"BTC-26NOV21-58000-P","orderType":"Limit","side":"Buy","orderQty":"1","orderPrice":"1","timeInForce":"GoodTillCancel","placeMode":1,"placeType":1}]}'
+-D '{"orderRequest":[{"outRequestId":"4c77b34a-9093-4bca-9cad-727cd6efed7e","symbol":"BTC-26NOV21-58000-P","orderType":"Limit","side":"Buy","orderQty":"1","orderPrice":"1","timeInForce":"GoodTillCancel"}]}'
 
 
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
@@ -1943,8 +1940,6 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
         <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">162073788655749</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">placeMode</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">placeType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">PostOnly</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">outRequestId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1620737886573</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
@@ -2019,18 +2014,6 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>Implied volatility</td>
-</tr>
-<tr>
-<td style="text-align: left">placeMode</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>Order mode, can be Advanced or Basic.For Perpetual, can be empty,But for Option, can not be empty.Number 1 is basic and number 2 is advanced.If 1, <code>orderQty</code> and <code>orderPrice</code> can not be empty. If 2, refer to <code>placeType</code>.</td>
-</tr>
-<tr>
-<td style="text-align: left">placeType</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>Order type, can be price or implied volatility.Number 1 is price and number 2 is implied volatility. If 1,orderQty and orderPrice can not be empty. If 2, <code>iv</code> and <code>orderQty</code> can not be empty.</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#time-in-force-timeinforce">timeInForce</a></td>
@@ -4307,6 +4290,172 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-margin-i
 <td>Maintenance margin</td>
 </tr>
 </tbody></table>
+<h2 id='t-usdcmmp'>Market Maker Protection</h2><h3 id='t-whatisusdcmmp'>What is MMP</h3>
+<p><p>Market Maker Protection (MMP) is an automated mechanism designed to protect market makers (MM) against liquidity risks and over-exposure in the market. </p>
+<p>It prevents simultaneous trade executions on quotes provided by the MM within a short time span. </p>
+<p>The MM can automatically pull their quotes if the number of contracts traded for an underlying asset exceeds the configured threshold within a certain time frame. Once MMP is triggered,</p>
+<p>any pre-existing MMP orders will be automatically canceled,</p>
+<p>and new orders tagged as MMP will be rejected for a specific duration — known as the frozen period — so that MM can reassess the market and modify the quotes.</p>
+</p>
+<h3 id='t-enablemmp'>How to Enable MMP</h3>
+<p><p>Send an email to Bybit (financial.inst@bybit.com) or contact your business development (BD) manager to apply for MMP.</p>
+</p>
+
+<p>The default settings are as follows</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+<th>default value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">currency</td>
+<td style="text-align: left">string</td>
+<td>Currency</td>
+<td>BTC</td>
+</tr>
+<tr>
+<td style="text-align: left">windowMs</td>
+<td style="text-align: left">string</td>
+<td>Time Window(Millisecond)</td>
+<td>5000</td>
+</tr>
+<tr>
+<td style="text-align: left">frozenPeriodMs</td>
+<td style="text-align: left">string</td>
+<td>Frozen Period(Millisecond)</td>
+<td>100</td>
+</tr>
+<tr>
+<td style="text-align: left">qtyLimit</td>
+<td style="text-align: left">string</td>
+<td>Quantity Limit</td>
+<td>100</td>
+</tr>
+<tr>
+<td style="text-align: left">deltaLimit</td>
+<td style="text-align: left">string</td>
+<td>Delta Limit</td>
+<td>100</td>
+</tr>
+</tbody></table>
+<h3 id='t-modifymmp'>Modify</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/mmp-modify \
+-H "Content-Type: application/json" \
+-d '{
+    "currency":"BTC",
+    "windowMs":500000,
+    "frozenPeriodMs":300,
+    "qtyLimit":"10",
+    "deltaLimit":"100"
+}'
+
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+</code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> 
+   <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>POST
+<code><span id=mmpModify>/option/usdc/openapi/private/v1/mmp-modify</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mmpModify"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">currency</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Currency</td>
+</tr>
+<tr>
+<td style="text-align: left">windowMs</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">number</td>
+<td>Time Window(Millisecond)</td>
+</tr>
+<tr>
+<td style="text-align: left">frozenPeriodMs</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">number</td>
+<td>Frozen Period(Millisecond)</td>
+</tr>
+<tr>
+<td style="text-align: left">qtyLimit</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Quantity Limit</td>
+</tr>
+<tr>
+<td style="text-align: left">deltaLimit</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Delta Limit</td>
+</tr>
+</tbody></table>
+<h3 id='t-resetmmp'>Reset</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/mmp-reset \
+-H "Content-Type: application/json" \
+-d '{
+    "currency":"BTC"
+}'
+
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+</code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> 
+   <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>POST
+<code><span id=mmpReset>/option/usdc/openapi/private/v1/mmp-reset</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mmpReset"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">currency</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Currency</td>
+</tr>
+</tbody></table>
 <h1 id='t-api'>API Data Endpoints</h1>
 <p>The following API data endpoints do not require authentication.</p>
 <h3 id='t-servertime'>Server Time</h3>
@@ -5439,16 +5588,6 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <ul>
 <li><code>Buy</code></li>
 <li><code>Sell</code></li>
-</ul>
-<h2 id='placemode-placemode'>PlaceMode (<code>placeMode</code>)</h2>
-<ul>
-<li><code>1</code> - basic</li>
-<li><code>2</code> - advanced</li>
-</ul>
-<h2 id='placetype-placetype'>PlaceType (<code>placeType</code>)</h2>
-<ul>
-<li><code>1</code> - price</li>
-<li><code>2</code> - iv</li>
 </ul>
 <h2 id='time-in-force-timeinforce'>Time in force (<code>timeInForce</code>)</h2>
 <ul>

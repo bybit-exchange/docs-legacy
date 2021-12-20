@@ -817,6 +817,23 @@
                           </li>
                       </ul>
                   </li>
+                  <li>
+                    <a href="#t-usdcmmp" class="toc-h2 toc-link" data-title="做市商保護">做市商保護</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#t-whatisusdcmmp" class="toc-h3 toc-link" data-title="MMP">MMP</a>
+                          </li>
+                          <li>
+                            <a href="#t-enablemmp" class="toc-h3 toc-link" data-title="開通">開通</a>
+                          </li>
+                          <li>
+                            <a href="#t-modifymmp" class="toc-h3 toc-link" data-title="Modify">Modify</a>
+                          </li>
+                          <li>
+                            <a href="#t-resetmmp" class="toc-h3 toc-link" data-title="Reset">Reset</a>
+                          </li>
+                      </ul>
+                  </li>
               </ul>
           </li>
           <li>
@@ -899,12 +916,6 @@
               <ul class="toc-list-h2">
                   <li>
                     <a href="#side-side" class="toc-h2 toc-link" data-title="Side (side)">Side (<code>side</code>)</a>
-                  </li>
-                  <li>
-                    <a href="#placemode-placemode" class="toc-h2 toc-link" data-title="PlaceMode (placeMode)">PlaceMode (<code>placeMode</code>)</a>
-                  </li>
-                  <li>
-                    <a href="#placetype-placetype" class="toc-h2 toc-link" data-title="PlaceType (placeType)">PlaceType (<code>placeType</code>)</a>
                   </li>
                   <li>
                     <a href="#time-in-force-timeinforce" class="toc-h2 toc-link" data-title="Time in force (timeInForce)">Time in force (<code>timeInForce</code>)</a>
@@ -1743,7 +1754,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/place-order \
 -H "Content-Type: application/json" \
--D '{"outRequestId":"021f276a-0a5f-4f35-9859-5f32353ce0ad","symbol":"BTC-26NOV21-58000-P","orderType":"Limit","side":"Buy","orderQty":"1","orderPrice":"1","timeInForce":"GoodTillCancel","placeMode":1,"placeType":1}'
+-D '{"outRequestId":"021f276a-0a5f-4f35-9859-5f32353ce0ad","symbol":"BTC-26NOV21-58000-P","orderType":"Limit","side":"Buy","orderQty":"1","orderPrice":"1","timeInForce":"GoodTillCancel"}'
 </span></code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -1760,8 +1771,6 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
         <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">162073788655749</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">iv</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">100</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">placeMode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">placeType</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">PostOnly</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">outRequestId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1620737886573</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">reduceOnly</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -1826,18 +1835,6 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>期權iv, 小數點後保留叁位小數</td>
-</tr>
-<tr>
-<td style="text-align: left">placeMode</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>期權下單模式，高級或者是基礎模式下單,期貨不需傳，期權需要。 1：基礎模式下單，2：高級模式下單。如果1，orderQty和orderPrice是必傳字段。如果是2， 參照 placeType.</td>
-</tr>
-<tr>
-<td style="text-align: left">placeType</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>期權下單類型，價格或者iv下單.1：價格下單，2：iv下單。如果是1，則orderQty和orderPrice是必傳字段，為2表示iv和orderQty為必傳字段。</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#time-in-force-timeinforce">timeInForce</a></td>
@@ -1920,7 +1917,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <p>支持用戶批量下單，一次請求裡最多包含4條記錄。</p>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-place-order \
 -H "Content-Type: application/json" \
--D '{"orderRequest":[{"outRequestId":"4c77b34a-9093-4bca-9cad-727cd6efed7e","symbol":"BTC-26NOV21-58000-P","orderType":"Limit","side":"Buy","orderQty":"1","orderPrice":"1","timeInForce":"GoodTillCancel","placeMode":1,"placeType":1}]}'
+-D '{"orderRequest":[{"outRequestId":"4c77b34a-9093-4bca-9cad-727cd6efed7e","symbol":"BTC-26NOV21-58000-P","orderType":"Limit","side":"Buy","orderQty":"1","orderPrice":"1","timeInForce":"GoodTillCancel"}]}'
 
 
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
@@ -1939,8 +1936,6 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
         <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">162073788655749</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">placeMode</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">placeType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">PostOnly</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">outRequestId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1620737886573</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
@@ -2015,18 +2010,6 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>期權iv, 小數點後保留叁位小數</td>
-</tr>
-<tr>
-<td style="text-align: left">placeMode</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>期權下單模式，高級或者是基礎模式下單,期貨不需傳，期權需要。 1：基礎模式下單，2：高級模式下單。如果1，orderQty和orderPrice是必傳字段。如果是2， 參照 placeType.</td>
-</tr>
-<tr>
-<td style="text-align: left">placeType</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>期權下單類型，價格或者iv下單.1：價格下單，2：iv下單。如果是1，則orderQty和orderPrice是必傳字段，為2表示iv和orderQty為必傳字段。</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#time-in-force-timeinforce">timeInForce</a></td>
@@ -4296,6 +4279,170 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-margin-i
 <td>維持保證金</td>
 </tr>
 </tbody></table>
+<h2 id='t-usdcmmp'>做市商保護</h2><h3 id='t-whatisusdcmmp'>MMP</h3>
+<p><p>做市商保護機制，旨在保護為平台提供流動性的做市商，防止在一定時間窗口內產生大量成交，導致流動性風險過度集中甚至擊穿某個做市商流動性。一旦某個賬戶在短時間內的總交易額超過了配置的限額，該賬戶的做市商保護將被觸發。</p>
+<p>當做市商保護被觸發時，賬戶現有的做市商保護訂單（被標記為做市商保護的訂單）將被交易引擎自動取消，而該賬戶新的做市商保護訂單將在未來一段時間（稱為凍結期）被拒絕（常規非MMP訂單不受影響）。用戶可以利用這段時間重新評估行情並修改報價。</p>
+</p>
+<h3 id='t-enablemmp'>開通</h3>
+<p><p>您可通過郵件Bybit【financial.inst@bybit.com】或聯繫對應的客戶經理申請開通。</p>
+<p></p>
+</p>
+
+<p>開通後，MMP的默認配置為</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+<th>默認值</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">currency</td>
+<td style="text-align: left">string</td>
+<td>幣種</td>
+<td>BTC</td>
+</tr>
+<tr>
+<td style="text-align: left">windowMs</td>
+<td style="text-align: left">string</td>
+<td>時間窗口(毫秒)</td>
+<td>5000</td>
+</tr>
+<tr>
+<td style="text-align: left">frozenPeriodMs</td>
+<td style="text-align: left">string</td>
+<td>凍結時間窗口(毫秒)</td>
+<td>100</td>
+</tr>
+<tr>
+<td style="text-align: left">qtyLimit</td>
+<td style="text-align: left">string</td>
+<td>數量上限</td>
+<td>100</td>
+</tr>
+<tr>
+<td style="text-align: left">deltaLimit</td>
+<td style="text-align: left">string</td>
+<td>delta 上限</td>
+<td>100</td>
+</tr>
+</tbody></table>
+<h3 id='t-modifymmp'>Modify</h3>
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/mmp-modify \
+-H "Content-Type: application/json" \
+-d '{
+    "currency":"BTC",
+    "windowMs":500000,
+    "frozenPeriodMs":300,
+    "qtyLimit":"10",
+    "deltaLimit":"100"
+}'
+
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+</code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> 
+   <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP 請求</p>
+
+<p>POST
+<code><span id=mmpModify>/option/usdc/openapi/private/v1/mmp-modify</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mmpModify"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">currency</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>幣種</td>
+</tr>
+<tr>
+<td style="text-align: left">windowMs</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">number</td>
+<td>時間窗口(毫秒)</td>
+</tr>
+<tr>
+<td style="text-align: left">frozenPeriodMs</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">number</td>
+<td>凍結時間窗口(毫秒)</td>
+</tr>
+<tr>
+<td style="text-align: left">qtyLimit</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>數量上限</td>
+</tr>
+<tr>
+<td style="text-align: left">deltaLimit</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>delta 上限</td>
+</tr>
+</tbody></table>
+<h3 id='t-resetmmp'>Reset</h3>
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/mmp-reset \
+-H "Content-Type: application/json" \
+-d '{
+    "currency":"BTC"
+}'
+
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+</code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> 
+   <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP 請求</p>
+
+<p>POST
+<code><span id=mmpReset>/option/usdc/openapi/private/v1/mmp-reset</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mmpReset"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">currency</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>幣種</td>
+</tr>
+</tbody></table>
 <h1 id='t-api'>通用數據接口</h1>
 <p>通用數據接口不需要鑒權。</p>
 <h3 id='t-servertime'>服務器時間</h3>
@@ -5425,16 +5572,6 @@ curl https://api-testnet.bybit.com/v2/public/time
 <ul>
 <li><code>Buy</code></li>
 <li><code>Sell</code></li>
-</ul>
-<h2 id='placemode-placemode'>PlaceMode (<code>placeMode</code>)</h2>
-<ul>
-<li><code>1</code> - basic</li>
-<li><code>2</code> - advanced</li>
-</ul>
-<h2 id='placetype-placetype'>PlaceType (<code>placeType</code>)</h2>
-<ul>
-<li><code>1</code> - price</li>
-<li><code>2</code> - iv</li>
 </ul>
 <h2 id='time-in-force-timeinforce'>Time in force (<code>timeInForce</code>)</h2>
 <ul>
