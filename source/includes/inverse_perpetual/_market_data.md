@@ -516,15 +516,15 @@ GET
 |price_scale |number |t(:row_response_comment_price_scale)    |
 |taker_fee |string |t(:row_response_comment_taker_fee)    |
 |maker_fee |string |t(:row_response_comment_maker_fee)    |
-|leverage_filter > min_leverage |number |t(:row_response_comment_min_leverage)    |
-|leverage_filter > max_leverage |number |t(:row_response_comment_max_leverage)    |
-|leverage_filter > leverage_step |string |t(:row_response_comment_leverage_step)    |
-|price_filter > min_price |string |t(:row_response_comment_min_price)    |
-|price_filter > max_price |string |t(:row_response_comment_max_price)    |
-|price_filter > tick_size |string |t(:row_response_comment_tick_size)    |
-|lot_size_filter > max_trading_qty |number |t(:row_response_comment_max_trading_qty)    |
-|lot_size_filter > min_trading_qty |number |t(:row_response_comment_min_trading_qty)    |
-|lot_size_filter > qty_step |number |t(:row_response_comment_qty_step)    |
+|min_leverage |number |t(:row_response_comment_min_leverage)    |
+|max_leverage |number |t(:row_response_comment_max_leverage)    |
+|leverage_step |string |t(:row_response_comment_leverage_step)    |
+|min_price |string |t(:row_response_comment_min_price)    |
+|max_price |string |t(:row_response_comment_max_price)    |
+|tick_size |string |t(:row_response_comment_tick_size)    |
+|max_trading_qty |number |t(:row_response_comment_max_trading_qty)    |
+|min_trading_qty |number |t(:row_response_comment_min_trading_qty)    |
+|qty_step |number |t(:row_response_comment_qty_step)    |
 
 
 
