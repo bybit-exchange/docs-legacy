@@ -8,7 +8,7 @@ t(:account_para)
 ```console
 curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/place-order \
 -H "Content-Type: application/json" \
--D '{"outRequestId":"021f276a-0a5f-4f35-9859-5f32353ce0ad","symbol":"BTC-26NOV21-58000-P","orderType":"Limit","side":"Buy","orderQty":"1","orderPrice":"1","timeInForce":"GoodTillCancel","placeMode":1,"placeType":1}'
+-D '{"outRequestId":"021f276a-0a5f-4f35-9859-5f32353ce0ad","symbol":"BTC-26NOV21-58000-P","orderType":"Limit","side":"Buy","orderQty":"1","orderPrice":"1","timeInForce":"GoodTillCancel"}'
 ```
 
 > t(:codequote_responseExample)
@@ -26,8 +26,6 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/place-order \
         "orderPrice": "1",
         "orderLinkId": "162073788655749",
         "iv": "100",
-        "placeMode": 1,
-        "placeType": 1,
         "timeInForce": "PostOnly",
         "outRequestId": "1620737886573",
         "reduceOnly": true,
@@ -53,8 +51,6 @@ POST
 |orderPrice|false|string|t(:usdcPlaceOrderPrice)|
 |orderQty|<b>true</b>|string|t(:usdcOrderQty)|
 |iv|false|string|t(:optionIv)|
-|placeMode|false|string|t(:optionPlaceMode)|
-|placeType|false|string|t(:optionPlaceType)|
 |t(:row_parameter_timeInForce)|false|string|t(:row_comment_timeInForce)|
 |outRequestId|false|string|t(:optionOutRequestId)|
 |orderLinkId|<b>true</b>|string|t(:orderLinkId)|
@@ -82,7 +78,7 @@ t(:usdcBatchOrdersDesc)
 ```console
 curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-place-order \
 -H "Content-Type: application/json" \
--D '{"orderRequest":[{"outRequestId":"4c77b34a-9093-4bca-9cad-727cd6efed7e","symbol":"BTC-26NOV21-58000-P","orderType":"Limit","side":"Buy","orderQty":"1","orderPrice":"1","timeInForce":"GoodTillCancel","placeMode":1,"placeType":1}]}'
+-D '{"orderRequest":[{"outRequestId":"4c77b34a-9093-4bca-9cad-727cd6efed7e","symbol":"BTC-26NOV21-58000-P","orderType":"Limit","side":"Buy","orderQty":"1","orderPrice":"1","timeInForce":"GoodTillCancel"}]}'
 
 
 ```
@@ -106,8 +102,6 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-place-or
         "side": "Buy",
         "orderPrice": "1",
         "orderLinkId": "162073788655749",
-        "placeMode": "1",
-        "placeType": "1",
         "timeInForce": "PostOnly",
         "outRequestId": "1620737886573",
         "orderPrice": "1",
@@ -135,8 +129,6 @@ POST
 |orderPrice|false|string|t(:usdcPlaceOrderPrice)|
 |orderQty|<b>true</b>|string|t(:usdcOrderQty)|
 |iv|false|string|t(:optionIv)|
-|placeMode|false|string|t(:optionPlaceMode)|
-|placeType|false|string|t(:optionPlaceType)|
 |t(:row_parameter_timeInForce)|false|string|t(:row_comment_timeInForce)|
 |outRequestId|false|string|t(:optionOutRequestId)|
 |orderLinkId|false|string|t(:orderLinkId)|
@@ -1298,19 +1290,49 @@ t(:whatIsUsdcMmpDesc)
 
 t(:enableMmpDesc)
 
-The default settings are as follows：
+t(:usdcMmpDefault)
 
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|currency|string|t(:usdcCurrency)|
-|windowMs|string|t(:usdcWindowMs)|
-|frozenPeriodMs|string|t(:usdcFrozenPeriodMs)|
-|qtyLimit|string|t(:usdcQtyLimit)|
-|deltaLimit|string|t(:usdcDeltaLimit)|
+
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|t(:column_default)|
+|:----- |:-----|----- |----- |
+|currency|string|t(:usdcCurrency)|BTC|
+|windowMs|string|t(:usdcWindowMs)|5000|
+|frozenPeriodMs|string|t(:usdcFrozenPeriodMs)|100|
+|qtyLimit|string|t(:usdcQtyLimit)|100|
+|deltaLimit|string|t(:usdcDeltaLimit)|100|
 
 
 
 ### t(:modifyMmp)
+
+> t(:codequote_curlExample)
+
+```console
+curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/mmp-modify \
+-H "Content-Type: application/json" \
+-d '{
+    "currency":"BTC",
+    "windowMs":500000,
+    "frozenPeriodMs":300,
+    "qtyLimit":"10",
+    "deltaLimit":"100"
+}'
+
+```
+
+```python
+
+```
+
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+  "retCode":0, 
+   "retMsg":"OK"
+}
+```
 
 <p class="fake_header">t(:httprequest)</p>
 
@@ -1331,6 +1353,33 @@ POST
 
 
 ### t(:resetMmp)
+
+
+
+> t(:codequote_curlExample)
+
+```console
+curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/mmp-reset \
+-H "Content-Type: application/json" \
+-d '{
+    "currency":"BTC"
+}'
+
+```
+
+```python
+
+```
+
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+  "retCode":0, 
+   "retMsg":"OK"
+}
+```
 
 <p class="fake_header">t(:httprequest)</p>
 

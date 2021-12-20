@@ -1236,3 +1236,5 @@ POST
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |riskId|number|t(:riskId)|
+
+

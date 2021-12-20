@@ -5,14 +5,6 @@ t(:ENUMs_para)
 * `Buy`
 * `Sell`
 
-## PlaceMode (`placeMode`)
-* `1` - basic
-* `2` - advanced
-
-## PlaceType (`placeType`)
-* `1` - price
-* `2` - iv
-
 ## Time in force (`timeInForce`)
 * `GoodTillCancel`
 * `ImmediateOrCancel`
