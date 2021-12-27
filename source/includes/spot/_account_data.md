@@ -761,7 +761,9 @@ print(session.user_trade_records(
 }
 ```
 
-
+<aside class="notice">
+t(:spotTradesHistoryTips)
+</aside>
 <p class="fake_header">t(:httprequest)</p>
 GET
 <code><span id=svMyTrades>/spot/v1/myTrades</span></code>
