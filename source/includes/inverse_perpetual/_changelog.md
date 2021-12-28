@@ -1,5 +1,10 @@
 # t(:changelog)   
 
+## 2021-12-28
+### REST API
+- [t(:publictradingrecords)](#t-publictradingrecords) [t(:changelog_update)]
+  - t(:restapi_update_20211228)
+
 ## 2021-09-24
 ### REST API
 - [t(:query_liqrecords)](#t-query_liqrecords) [t(:changelog_delete)]
