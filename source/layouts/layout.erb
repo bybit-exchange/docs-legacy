@@ -92,10 +92,12 @@ under the License.
       .con a {
         display: inline-block;
         color: #B0B8DB;
-        font-size: 16px;
+        font-size: 15px;
         text-decoration: none;
         line-height: 23px;
         padding: 0 20px;
+        vertical-align: middle;
+        transform: translate(0, -3px);
       }
 
       .con a.selected {
@@ -104,7 +106,7 @@ under the License.
         color: #fff;
       }
 
-      a.international{
+      a.international {
         display: block;
         height: 27px;
         line-height: 27px;
@@ -114,6 +116,7 @@ under the License.
         border: 1px solid #383F66;
         padding: 0 20px;
         color: #F0B90B;
+        word-break: keep-all;
       }
 
       /* Environment dropdown list */
@@ -128,12 +131,15 @@ under the License.
         background-color: inherit;
         display: inline-block;
         color: #B0B8DB;
-        font-size: 16px;
+        font-size: 15px;
         text-decoration: none;
-        line-height: 53px;
-        padding: 0 60px;
+        line-height: 23px;
+        padding: 0 20px;
         border: none;
         background: none;
+        vertical-align: middle;
+        transform: translate(0, -3px);
+
       }
 
       /* Add a red background color to navbar links on hover */
@@ -145,7 +151,7 @@ under the License.
       .dropdown-content {
         color: #B0B8DB;
         background: #333;
-        font-size: 16px;
+        font-size: 15px;
         text-decoration: none;
         line-height: 53px;
         padding: 0;
@@ -158,10 +164,10 @@ under the License.
       /* Links inside the dropdown */
       .dropdown-content a {
         color: #B0B8DB;
-        font-size: 16px;
+        font-size: 15px;
         text-decoration: none;
         line-height: 53px;
-        padding: 0 20px;
+        padding: 0 10px;
         display: block;
         text-align: left;
       }
@@ -170,7 +176,7 @@ under the License.
       .dropdown-content-selected {
         display: block;
         /*color: #696e83;*/
-        background-color: #626262;
+        background-color: #474747;
       }
 
       /* Add a grey background color to dropdown links on hover */
@@ -242,11 +248,17 @@ under the License.
 <% end %>
 
   <% if page_classes.include?("testnet") %>
-      <% if page_classes.end_with?("usdc_index") %>
-        <li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/testnet/usdc" class="selected"><%=t(:usdc)%></a></li>
-      <% else %>
-        <li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/testnet/usdc"><%=t(:usdc)%></a></li>
-      <% end %>
+    <li>
+        <div class="dropdown">
+          <button class="dropbtn"><%=t(:usdc)%>
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+                <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/usdc/option>Option</a>
+                <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/usdc/perpetual>Perpetual</a>
+          </div>
+        </div>
+    </li>
   <% end %>
 
   <li>
@@ -301,15 +313,25 @@ under the License.
                   <% end %>
                 <% end %>
 
-        <% if page_classes.end_with?("usdc_index") %>
+        <% if page_classes.end_with?("option_index") %>
           <% if page_classes.include?("testnet") %>
-            <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/usdc>Mainnet</a>
-            <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/usdc>Testnet</a></span>
+            <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/usdc/option>Mainnet</a>
+            <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/usdc/option>Testnet</a></span>
           <% else %>
-            <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/usdc>Mainnet</a></span>
-            <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/usdc>Testnet</a>
+            <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/usdc/option>Mainnet</a></span>
+            <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/usdc/option>Testnet</a>
           <% end %>
         <% end %>
+
+        <% if page_classes.end_with?("perpetual_index") %>
+            <% if page_classes.include?("testnet") %>
+              <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/usdc/perpetual>Mainnet</a>
+              <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/usdc/perpetual>Testnet</a></span>
+            <% else %>
+              <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/usdc/perpetual>Mainnet</a></span>
+              <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/usdc/perpetual>Testnet</a>
+            <% end %>
+          <% end %>
       </div>
     </div>
   </li>

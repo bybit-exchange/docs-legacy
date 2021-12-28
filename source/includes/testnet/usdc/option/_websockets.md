@@ -313,41 +313,6 @@ t(:usdcLastestSymbolInfo)
 | theta |string |t(:theta) |
 
 
-### KLine
-> t(:codequote_subscribe)
-
-```javascript
-```
-
-> t(:codequote_snapshot)
-
-```javascript
-
-```
-
-> t(:codequote_delta)
-
-```javascript
-
-```
-
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-| start |string |t(:usdcStart) |
-| end |string |t(:usdcEnd) |
-| open |string |t(:open) |
-| close |string |t(:close) |
-| high |string |t(:high) |
-| low |string |t(:low) |
-| volume |string |t(:usdcvolume) |
-| turnover |string |t(:usdcturnover) |
-| confirm |string |t(:usdcconfirm) |
-| crossSeq |string |crossSeq |
-| timestamp |string |t(:timestamp) |
-
-
 
 ## Private Topics
 ### t(:userPositionsInfo)
@@ -419,20 +384,6 @@ t(:usdcPositionDesc)
 | sessionUpl |string |t(:sessionUpl) |
 | positionIM |string |t(:im) |
 | positionMM |string |t(:usdcMm) |
-| tpSlMode |string |t(:tpSlMode) |
-| positionValue |string |t(:positionValue) |
-| leverage |number |t(:leverage) |
-| liqPrice |string |t(:liqPrice) |
-| trailingStop |number |t(:trailingStop) |
-| bustPrice |string |t(:bustPrice) |
-| occClosingFee |string |t(:occClosingFee) |
-| trakeProfit |string |t(:trakeProfit) |
-| stopLoss |string |t(:stopLoss) |
-| positionStatus |string |t(:positionStatus) |
-| deleverageIndicator |number |t(:deleverageIndicator) |
-| orderMargin |string |t(:orderMargin) |
-| unrealisedPnl |string |t(:unrealisedPnl) |
-| cumRealisedPnl |string |t(:cumRealisedPnl) |
 
 
 ### t(:userFilledHistory)
@@ -499,8 +450,6 @@ t(:usdcFilledHistory)
 | fees |string |t(:execFee) |
 | feeRate |string |t(:feeRate) |
 | execType |string |t(:execType) |
-| execValue |string |t(:execValue) |
-| lastLiquidityInd |string |t(:lastLiquidityInd) |
 
 ### t(:activeOrders)
 
@@ -582,14 +531,7 @@ t(:usdcActiveOrder)
 | orderIM |string |t(:im) |
 | orderStatus |string |t(:orderStatus) |
 | reduceOnly |number |t(:reduceOnly) |
-| closeOnTrigger |string |t(:closeOnTrigger) |
-| takeProfit |string |t(:takeProfit) |
-| stopLoss |string |t(:stopLoss) |
-| tpTriggerBy |string |t(:tptriggerby) |
-| slTriggerBy |string |t(:slTriggerBy) |
 | basePrice |string |t(:basePrice) |
-| triggerPrice |string |t(:triggerPrice) |
-| triggerBy |string |t(:triggerBy) |
 
 
 ### t(:userOrderHistory)
@@ -669,52 +611,6 @@ t(:usdcOrderDesc)
 | orderIM |string |t(:im) |
 | orderStatus |string |t(:orderStatus) |
 | reduceOnly |number |t(:reduceOnly) |
-| closeOnTrigger |string |t(:closeOnTrigger) |
-| takeProfit |string |t(:takeProfit) |
-| stopLoss |string |t(:stopLoss) |
-| tpTriggerBy |string |t(:tptriggerby) |
-| slTriggerBy |string |t(:slTriggerBy) |
-| basePrice |string |t(:basePrice) |
-| triggerPrice |string |t(:triggerPrice) |
-| triggerBy |string |t(:triggerBy) |
-
-
-### t(:userConditionalOrders)
-
-> t(:codequote_subscribe)
-
-```javascript
-```
-
-> t(:codequote_snapshot)
-
-```javascript
-```
-
-> t(:codequote_delta)
-
-```javascript
-```
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-| orderId |string |t(:usdcOrderId) |
-| orderLinkId |string |t(:orderLinkId) |
-| symbol |string |t(:usdcSymbol) |
-| orderType|string |t(:usdcOrderType) |
-| side |string |t(:side) |
-| qty |string |t(:usdcQty) |
-| price |string |t(:usdcPrice) |
-|t(:row_parameter_timeInForce) |string |t(:row_comment_timeInForce) |
-| createType |string |t(:createType) |
-| cancelType |string |t(:cancelType) |
-| cumExecFee |string |t(:cumExecFee) |
-| orderStatus |string |t(:orderStatus) |
-| triggerBy |string |t(:triggerBy) |
-| triggerPrice |string |t(:triggerPrice) |
-| closeOnTrigger |string |t(:closeOnTrigger) |
-| timestamp |number |t(:timestamp) |
 
 
 
