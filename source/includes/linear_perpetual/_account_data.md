@@ -95,6 +95,7 @@ POST
 |stop_loss |false |number |t(:row_comment_stopLoss) |
 |t(:row_parameter_tp_trigger_by) |false |string |t(:account_row_comment_tp_trigger_by) |
 |t(:row_parameter_sl_trigger_by) |false |string |t(:account_row_comment_sl_trigger_by) |
+|position_idx |false |integer |t(:row_comment_position_idx)  |
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -122,6 +123,7 @@ POST
 |stop_loss |number |t(:row_comment_stop_loss)  |
 |t(:row_parameter_tp_trigger_by) |string |t(:account_row_comment_tp_trigger_by)  |
 |t(:row_parameter_sl_trigger_by) |string |t(:account_row_comment_sl_trigger_by)  |
+|position_idx |integer |t(:row_comment_position_idx)  |
 
 ### t(:getactive)
 > t(:codequote_curlExample)
@@ -711,6 +713,7 @@ POST
 |stop_loss |false |number |t(:row_comment_stopLoss) |
 |t(:row_parameter_tp_trigger_by) |false |string |t(:account_row_comment_tp_trigger_by) |
 |t(:row_parameter_sl_trigger_by) |false |string |t(:account_row_comment_sl_trigger_by) |
+|position_idx |false |integer |t(:row_comment_position_idx)  |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -736,6 +739,7 @@ POST
 |t(:row_parameter_trigger_price) |string |t(:row_comment_triggerBy)  |
 |reduce_only |bool |t(:linear_resp_field_reduce_only)  |
 |close_on_trigger |bool |t(:row_response_close_on_trigger)  |
+|position_idx |integer |t(:row_comment_position_idx)  |
 
 ### t(:getcond)
 > t(:codequote_curlExample)
@@ -1477,7 +1481,7 @@ GET
 |take_profit |string |t(:row_comment_take_profit)  |
 |stop_loss |string |t(:row_comment_stop_loss)  |
 |trailing_stop |string |t(:row_comment_trailing_stop)  |
-
+|position_idx |integer |t(:row_comment_position_idx)  |
 
 ### t(:setautoaddmargin)
 > t(:codequote_curlExample)
@@ -1534,6 +1538,7 @@ POST
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
 |t(:row_parameter_side) |<b>true</b> |string |t(:row_comment_side)    |
 |auto_add_margin |<b>true</b> |bool |t(:linear_row_comment_set_auto_margin)  |
+|position_idx |false |integer |t(:row_comment_position_idx)  |
 
 
 ### t(:marginswitch)
@@ -1593,6 +1598,62 @@ POST
 |is_isolated |<b>true</b> |bool |t(:linear_row_comment_switch_isolated)  |
 |buy_leverage |<b>true</b> |number |t(:linear_row_comment_leverage)  |
 |sell_leverage |<b>true</b> |number |t(:linear_row_comment_leverage)  |
+
+
+### t(:switchpositionmode)
+> t(:codequote_curlExample)
+
+```console
+curl https://api-testnet.bybit.com/private/linear/position/switch-mode \
+-H "Content-Type: application/json" \
+-d '{"api_key":"{api_key}","symbol":"BTCUSDT","mode":"MergedSingle","timestamp":{timestamp},"sign":"{sign}"}'
+```
+
+```python--old
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.LinearPositions.LinearPositions_switchPositionMode(symbol="BTCUSDT",mode="MergedSingle").result())
+```
+
+```python--pybit
+from pybit import HTTP
+session = HTTP("https://api-testnet.bybit.com",
+               api_key="", api_secret="")
+print(session.position_mode_switch(
+    symbol="BTCUSDT",
+    mode="MergedSingle"
+))
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "ok",
+    "ext_code": "",
+    "result": null,
+    "ext_info": null,
+    "time_now": "1577477968.175013",
+    "rate_limit_status": 74,
+    "rate_limit_reset_ms": 1577477968183,
+    "rate_limit": 75
+}
+```
+
+t(:account_para_switchpositionmode)
+
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=ulSwitchMode>/private/linear/position/switch-mode</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ulSwitchMode"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
+|mode |<b>true</b> |string |t(:linear_comment_positionmode) |
+
 
 ### t(:switchmode)
 > t(:codequote_responseExample)
@@ -1724,6 +1785,7 @@ POST
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
 |t(:row_parameter_side) |<b>true</b> |string |t(:row_comment_side)    |
 |margin |<b>true</b> |number |t(:linear_account_row_comment_margin) |
+|position_idx |false |integer |t(:row_comment_position_idx)  |
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -1869,6 +1931,7 @@ POST
 |t(:row_parameter_sl_trigger_by) | false | string | t(:account_row_comment_sl_trigger_by)
 |sl_size |false |number |t(:row_comment_sl_size) |
 |tp_size |false |number |t(:row_comment_tp_size) |
+|position_idx |false |integer |t(:row_comment_position_idx)  |
 
 
 ### t(:usertraderecords)
@@ -2256,6 +2319,7 @@ POST
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
 |t(:row_parameter_side) |<b>true</b> |string |t(:row_comment_side)    |
 |risk_id |<b>true</b> |integer |t(:row_comment_riskId) |
+|position_idx |false |integer |t(:row_comment_position_idx)  |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|

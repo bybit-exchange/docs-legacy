@@ -784,7 +784,12 @@ while True:
            "sl_trigger_by": "Normal",
            "realised_pnl": "Normal",
            "cum_realised_pnl": "Normal",
-           "position_seq": 14
+           "position_seq": 14,
+           "tp_sl_mode": "Full",
+           "position_idx": 1,
+           "mode": "MergedSingle",
+           "isolated": true,
+           "risk_id": 0
        }
    ]
 }
@@ -815,6 +820,11 @@ t(:account_para_myPosition)
 |cum_realised_pnl |string |t(:row_comment_cum_realised_pnl)  |
 |position_status |string |t(:row_comment_position_status)  |
 |position_seq |number |t(:row_comment_position_seq)  |
+|tp_sl_mode |string |t(:row_comment_tp_sl_mode)  |
+|position_idx |number |t(:row_comment_position_idx)  |
+|mode |string |t(:row_comment_mode)  |
+|isolated |bool |t(:row_comment_isolated)  |
+|risk_id |number |t(:row_comment_riskId)  |
 
 
 ### t(:websocketexecution)
@@ -957,6 +967,7 @@ while True:
             "trailing_stop": 0,
             "reduce_only": false,
             "close_on_trigger": false,
+            "position_idx": 1,
             "create_time": "2020-08-12T21:18:40.780039678Z",
             "update_time": "2020-08-12T21:18:40.787986415Z"
         }
@@ -982,6 +993,7 @@ while True:
 |cum_exec_fee |string |t(:linear_resp_field_cum_exec_fee)  |
 |reduce_only | bool | t(:row_comment_reduceOnly)|
 |close_on_trigger | bool | t(:row_comment_closeOnTrigger)|
+|position_idx |number |t(:row_comment_position_idx)  |
 |create_time |string |t(:row_comment_timestamp)  |
 |update_time |string |t(:row_comment_resp_update_time)  |
 
@@ -1030,6 +1042,7 @@ while True:
             "trigger_price": "8584.5",
             "reduce_only": false,
             "close_on_trigger": false,
+            "position_idx": 1,
             "create_time": "2020-01-14T14:11:22.062Z",
             "update_time": "2020-01-14T14:11:22.062Z"
         }
@@ -1055,6 +1068,7 @@ while True:
 |trigger_price | string | t(:stop_order_trigger_price)|
 |reduce_only | bool | t(:row_comment_reduceOnly)|
 |close_on_trigger | bool | t(:row_comment_closeOnTrigger)|
+|position_idx |number |t(:row_comment_position_idx)  |
 |created_at |string |t(:row_comment_created_at)  |
 |updated_at |string |t(:row_comment_updated_at)  |
 

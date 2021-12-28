@@ -1,4 +1,30 @@
 # t(:changelog)
+## 2021-12-28
+### REST API
+- [t(:switchpositionmode)](#t-switchpositionmode) [t(:changelog_new)]
+- [t(:placeactive)](#t-placeactive) [t(:changelog_update)]
+  - t(:restapi_update_20211206)
+- [t(:placecond)](#t-placecond) [t(:changelog_update)]
+  - t(:restapi_update_20211206)
+- [t(:setautoaddmargin)](#t-setautoaddmargin) [t(:changelog_update)]
+  - t(:restapi_update_20211206_1)
+- [t(:tradingstop)](#t-tradingstop) [t(:changelog_update)]
+  - t(:restapi_update_20211206_1)
+- [t(:addmargin)](#t-addmargin) [t(:changelog_update)]
+  - t(:restapi_update_20211206_1)
+- [t(:setrisklimit)](#t-setrisklimit) [t(:changelog_update)]
+  - t(:restapi_update_20211206_1)
+- [t(:myposition)](#t-myposition) [t(:changelog_update)]
+  - t(:restapi_update_20211206_2)
+  
+### Websocket API
+- [t(:websocketposition)](#t-websocketposition) [t(:changelog_update)]
+  - t(:restapi_update_20211206_2)
+- [t(:websocketorder)](#t-websocketorder) [t(:changelog_update)]
+  - t(:restapi_update_20211206_2)
+- [t(:websocketstoporder)](#t-websocketstoporder) [t(:changelog_update)]
+  - t(:restapi_update_20211206_2)
+
 ## 2021-10-13
 ### REST API
 - [t(:querysymbol)](#t-querysymbol) [t(:changelog_update)]
