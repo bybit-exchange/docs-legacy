@@ -2260,8 +2260,8 @@ en:
   tradehistory: Trade History
   spot_from_id:  Query begins with the trade ID
   spot_to_id: Query ends with the trade ID
-  spot_start_time: Start time
-  spot_end_time: End time
+  spot_start_time: Start time, unit in millisecond
+  spot_end_time: End time, unit in millisecond
   spot_token: Asset
   spot_fee: Trading fee
   spot_locked: Reserved for orders
@@ -2316,7 +2316,8 @@ en:
   spotCancelTips: The actual result of the cancellation request needs to be checked by order status or match result endpoints after submitting the request.(It is a synchronous settlement API)
   spotFastCancelTips: The actual result of the cancellation request needs to be checked by order status or match result endpoints after submitting the request.(It is an asynchronous settlement API)
   spotNormalCancelTips: The actual result of the cancellation request needs to be checked by order status or match result endpoints after submitting the request.
-  spotTradesHistoryTips: If there is no startTime for the input, you can only query the transaction datas in one week. If you want to query historical transaction datas one week ago, startTime is required for the input.
+  spotTradesHistoryTips: If there is no startTime for the input, you can only query the trade records in one week. If you want to query historical trade records one week ago, startTime is required for the input.
+  spotOrdersHistoryTips: If there is no startTime for the input, you can only query the recent orders records in reverse order by time.
   #spot_ws_v1
   spot_price: Price
   spot_symbol: Trading pair

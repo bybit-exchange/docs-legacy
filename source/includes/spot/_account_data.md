@@ -669,7 +669,9 @@ print(session.query_active_order(
 }
 ```
 
-
+<aside class="notice">
+t(:spotOrdersHistoryTips)
+</aside>
 <p class="fake_header">t(:httprequest)</p>
 GET
 <code><span id=svHistoryOrders>/spot/v1/history-orders</span></code>
@@ -681,6 +683,8 @@ GET
 |symbol|false|string|t(:spotSymbol)|
 |orderId|false|string|t(:spotOrderId4Pagination)|
 |limit|false|integer|t(:spot_order_list_limit)|
+|startTime|false|long|t(:spot_start_time)|
+|endTime|false|long|t(:spot_end_time)|
 
 <p class="fake_header">t(:responseparameters)</p>
 
