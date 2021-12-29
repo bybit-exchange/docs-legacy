@@ -3158,6 +3158,10 @@ function copyStringToClipboard (endpoint) {
     <span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
+<aside class="notice">
+If there is no startTime for the input, you can only query the recent orders records in reverse order by time.
+</aside>
+
 <p class="fake_header">HTTP 請求</p>
 
 <p>GET
@@ -3191,6 +3195,18 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">false</td>
 <td style="text-align: left">integer</td>
 <td>默認500，最大500</td>
+</tr>
+<tr>
+<td style="text-align: left">startTime</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">long</td>
+<td>起始時間戳（單位毫秒）</td>
+</tr>
+<tr>
+<td style="text-align: left">endTime</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">long</td>
+<td>結束時間（單位毫秒）</td>
 </tr>
 </tbody></table>
 
@@ -3398,13 +3414,13 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">startTime</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">long</td>
-<td>起始時間戳（單位秒）</td>
+<td>起始時間戳（單位毫秒）</td>
 </tr>
 <tr>
 <td style="text-align: left">endTime</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">long</td>
-<td>結束時間</td>
+<td>結束時間（單位毫秒）</td>
 </tr>
 </tbody></table>
 
