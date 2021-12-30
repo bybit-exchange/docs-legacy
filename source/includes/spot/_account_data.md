@@ -744,6 +744,7 @@ print(session.user_trade_records(
             "symbol": "BTCUSDT",
             "symbolName": "BTCUSDT",
             "orderId": "931975236946097408",
+            "ticketId": "1057753175328833537",
             "matchOrderId": "931975113180558592",
             "price": "20000.00001",
             "qty": "0.01",
@@ -790,6 +791,7 @@ GET
 |symbol|string|t(:spotSymbol)|
 |id| int |t(:spotId)|
 |orderId|integer|t(:spotOrderId)|
+|ticketId|integer|t(:spotTicketId)|
 |price|float|t(:spotPrice)|
 |qty|float|t(:spotQty)|
 |commission|float|t(:spotCommission)|
