@@ -327,43 +327,50 @@ ws.send('{"method":"private/subscribe","id":"{100002}","params":{"channels":["us
 > t(:usdc_trade_codequote_snapshot)
 
 ```javascript
-
 {
-    "id":"c2c04b81-1d7a-4662-bab7-cbc8adbde8d2",
+  "id":"12827e35-ab18-416f-b754-5fff8315459f",
     "channel":"user.option.position",
     "type":"SNAPSHOT",
     "serialNumber":1,
-    "publishTime":217924248,
-    "creationTime":1635229560217,
+    "publishTime":134984932,
+    "creationTime":1640835309134,
     "data":{
-        "result":[
-            {
-                "symbol":"BTC-5NOV21-66000-P",
-                "side":"Sell",
-                "positionSize":"-1.0000",
-                "positionAvgPrice":"6100.00000000",
-                "sessionAvgPrice":"5044.04000000",
-                "markPrice":"5044.04",
-                "strikePrice":"",
-                "exerciseDeliveryPrice":"5.51047098",
-                "positionIM":"15850",
-                "positionMM":"7124.04",
-                "pnl":"1055.96",
-                "sessionUPL":"0",
-                "sessionRPL":"",
-                "deliveryRPL":"",
-                "iv":"0.7883",
-                "version":80,
-                "sendTime":1635229560137,
-                "positionTime":1635215719716,
-                "roi":"0.173108196721311475",
-                "crossSeq":null,
-                "pushActionType":0
-            }
-        ],
-        "version":20660,
-        "sendTime":1635229560137
-    }
+    "result":[
+      {
+        "positionIdx":0,
+        "symbol":"BTC-31DEC21-24000-P",
+        "positionStatus":null,
+        "side":"Sell",
+        "action":"OPEN",
+        "positionSize":"-0.1000",
+        "positionAvgPrice":"1.45000000",
+        "sessionAvgPrice":"1.45000000",
+        "markPrice":"0",
+        "strikePrice":"",
+        "exerciseDeliveryPrice":"27.96182801",
+        "positionIM":"465.9957",
+        "positionMM":"358.705039",
+        "fees":"",
+        "pnl":"0.145",
+        "sessionUPL":"0.145",
+        "sessionRPL":"",
+        "deliveryRPL":"",
+        "iv":"1.1524",
+        "version":34,
+        "sendTime":1640835309093,
+        "positionTime":1640834421428,
+        "roi":"1",
+        "crossSeq":null,
+        "pushActionType":0,
+        "size":"-0.1000",
+        "entryPrice":"1.45000000",
+        "PNL":"0.145",
+        "ROI":"1"
+      }
+    ],
+      "version":8043,
+      "sendTime":1640835309093
+  }
 }
 
 ```
@@ -374,16 +381,17 @@ t(:usdcPositionDesc)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| riskId|number |t(:riskId) |
 | symbol |string |t(:usdcSymbol) |
 | side |string |t(:side) |
 | positionSize |string |t(:usdcSize) |
 | positionAvgPrice |string |t(:entryPrice) |
 | sessionAvgPrice |string |t(:sessionAvgPrice) |
 | markPrice |string |t(:markPrice) |
-| sessionUpl |string |t(:sessionUpl) |
+| sessionUPL |string |t(:sessionUpl) |
 | positionIM |string |t(:im) |
 | positionMM |string |t(:usdcMm) |
+| PNL |string |PNL |
+| ROI |string |ROI |
 
 
 ### t(:userFilledHistory)
@@ -398,39 +406,43 @@ ws.send('{"method":"private/subscribe","id":"{100002}","params":{"channels":["us
 ```javascript
 
 {
-  "id":"f22195c3-d89c-4b93-9bc6-8c65b59cebcb",
+  "id":"985cf6de-2e7e-4d18-92ff-e7a2b4fcfcc1",
   "channel":"user.option.tradeHistory",
   "type":"SNAPSHOT",
   "serialNumber":1,
-  "publishTime":141688047,
-  "creationTime":1635229352141,
+  "publishTime":129276349,
+  "creationTime":1640834911129,
   "data":{
   "result":[
     {
-      "orderId":"0d57c2a2-7c6f-4a9d-8820-043b5559db21",
-      "tradeId":"54313b81-ae20-5f45-91e1-a12738f02257",
-      "transId":"20211026658e36b0-62bb-4a03-ad19-c319a2e5dd4a",
-      "symbol":"BTC-26OCT21-38000-P",
+      "orderId":"4aaea02f-d62b-4951-9e12-7e2d9e37fb4c",
+      "tradeId":"77fdaeef-b931-51f4-96c8-33f97c722053",
+      "transId":"cross-101810-634476-1",
+      "symbol":"BTC-31DEC21-18000-P",
       "side":"Sell",
-      "tradePrice":"311.5",
-      "markPrice":"0.00000001",
-      "indexPrice":"62289.65000000",
-      "underlying":"62298.93000000",
-      "positionAvgPrice":"311.5",
-      "iv":"4.8160",
+      "tradePrice":"1",
+      "markPrice":"0.00000000",
+      "indexPrice":"46545.16000000",
+      "underlying":"46562.86000000",
+      "positionAvgPrice":"1",
+      "iv":"1.1980",
       "size":"0.01",
-      "fees":"0.15572413",
-      "tradeTime":1635229351696,
+      "fees":"0.001",
+      "tradeTime":1640834911093,
       "version":null,
       "sendTime":null,
-      "crossSeq":null
+      "crossSeq":null,
+      "reduceOnly":false,
+      "orderLinkId":"test2021122417000217",
+      "execPrice":"1",
+      "execQty":"0.01",
+      "execFee":"0.001"
     }
   ],
-    "version":34,
-    "sendTime":1635229352127
+    "version":33,
+    "sendTime":1640834911106
 }
 }
-
 
 
 ```
@@ -444,11 +456,11 @@ t(:usdcFilledHistory)
 | tradeTime|number |t(:tradeTime) |
 | orderId |string |  |
 | orderLinkId |string |t(:orderLinkId) |
+| tradeId |string |t(:usdcTradeId) |
 | symbol |string |t(:usdcSymbol) |
-| tradePrice |string |t(:excPrice) |
-| size |string |t(:execQty) |
-| fees |string |t(:execFee) |
-| feeRate |string |t(:feeRate) |
+| execPrice |string |t(:excPrice) |
+| execQty |string |t(:execQty) |
+| execFee |string |t(:execFee) |
 | execType |string |t(:execType) |
 
 ### t(:activeOrders)

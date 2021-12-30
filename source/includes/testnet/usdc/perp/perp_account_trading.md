@@ -291,43 +291,44 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-active-o
 
 ```javascript
 {
-  "retCode": 0,
-    "retMsg": "Success.",
-    "result": {
-    "resultTotalSize": 1,
-      "cursor": "5475e84b-605d-4345-a420-d7f423173cf0%3A1638341866977%2C5475e84b-605d-4345-a420-d7f423173cf0%3A1638341866977",
+  "result": {
+    "cursor": "3dd0f4a4-b726-4921-9a23-723e0c0fdbd3%3A1640856463068%2C3dd0f4a4-b726-4921-9a23-723e0c0fdbd3%3A1640856463068",
+      "resultTotalSize": 1,
       "dataList": [
       {
-        "orderId": "5475e84b-605d-4345-a420-d7f423173cf0",
-        "orderLinkId": "",
-        "createdAt": "1638341866974",
         "symbol": "BTCPERP",
         "orderType": "Limit",
-        "side": "Buy",
-        "orderQty": "0.010",
-        "orderPrice": "41300.0",
-        "iv": "",
-        "timeInForce": "GoodTillCancel",
-        "leavesQty": "0.010",
-        "leavesValue": "0.0000",
-        "cumExecQty": "",
-        "cumExecValue": "0.0000",
-        "cumExecFee": "0.0000",
-        "im": "",
+        "orderLinkId": "",
+        "orderId": "3dd0f4a4-b726-4921-9a23-723e0c0fdbd3",
+        "stopOrderType": "UNKNOWN",
         "orderStatus": "New",
-        "takeProfit": "",
-        "stopLoss": "",
-        "tpTriggerBy": "",
-        "slTriggerBy": "",
-        "lastExecPrice": "0.0",
+        "takeProfit": "0.0000",
+        "cumExecValue": "0.0000",
+        "createdAt": "1640856463065",
+        "orderPnl": "-",
+        "price": "38000.0",
+        "tpTriggerBy": "UNKNOWN",
+        "timeInForce": "GoodTillCancel",
         "basePrice": "",
-        "triggerPrice": "",
-        "triggerBy": "",
+        "side": "Buy",
+        "triggerPrice": "0.0000",
+        "cumExecFee": "0.0000",
+        "leavesQty": "0.010",
+        "slTriggerBy": "UNKNOWN",
+        "iv": "",
+        "closeOnTrigger": "UNKNOWN",
+        "cumExecQty": "",
         "reduceOnly": 0,
-        "closeOnTrigger": ""
+        "qty": "0.010",
+        "stopLoss": "0.0000",
+        "lastExecPrice": "0.0",
+        "triggerBy": "UNKNOWN",
+        "orderIM": ""
       }
     ]
-  }
+  },
+  "retCode": 0,
+    "retMsg": "Success."
 }
 ```
 
@@ -366,14 +367,13 @@ POST
 |symbol|string|t(:usdcSymbol)|
 |orderType|string|t(:usdcPerpOrderType)|
 |side|string|t(:side)|
-|orderQty|string|t(:usdcOrderQty)|
-|orderPrice|string|t(:usdcOrderPrice)|
+|qty|string|t(:usdcOrderQty)|
+|price|string|t(:usdcOrderPrice)|
 |t(:row_parameter_timeInForce)|string|t(:row_comment_timeInForce)|
-|leavesValue|string|t(:leavesValue)|
 |cumExecQty|string|t(:cumExecQty)|
 |cumExecValue|string|t(:cumExecValue)|
 |cumExecFee|string|t(:cumExecFee)|
-|im|string|t(:im)|
+|orderIM|string|t(:im)|
 |orderStatus|string|t(:orderStatus)|
 |takeProfit|string|t(:takeProfit)|
 |stopLoss|string|t(:stopLoss)|
@@ -384,9 +384,9 @@ POST
 |triggerPrice|string|t(:triggerPrice)|
 |triggerBy|string|t(:usdcTriggerBy)|
 |reduceOnly|bool|t(:reduceOnly)|
+|stopOrderType|string|t(:usdcStopOrderType)|
 |closeOnTrigger|string|t(:closeOnTrigger)|
 |createdAt|number|t(:createdAt)|
-|cursor|string|t(:cursor)|
 
 
 
@@ -412,43 +412,46 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 
 ```javascript
 {
-  "retCode":0,
-    "retMsg":"OK",
-    "result":{
-    "resultTotalSize":1,
-      "cursor":"5e42be7e-c92f-4388-91fc-30ec1f321e32%3A1634286322771%2C6ad08ad0-14d8-43a6-9a38-6a01d7d7c833%3A1634285916577",
-      "dataList":[
+  "result": {
+    "cursor": "640034d1-97ec-4382-9983-694898c03ba3%3A1640854950675%2C640034d1-97ec-4382-9983-694898c03ba3%3A1640854950675",
+      "resultTotalSize": 1,
+      "dataList": [
       {
-        "orderId":"5e42be7e-c92f-4388-91fc-30ec1f321e32",
-        "orderLinkId":"",
-        "createdAt":"1634286322771",
-        "updatedAt":"1634286322771",
-        "symbol":"BTC-22OCT21-30000-C",
-        "orderType":"Limit",
-        "side":"Sell",
-        "orderQty":"0.30",
-        "orderPrice":"39000.0",
-        "iv":"958.70%",
-        "timeInForce":"GoodTillCancel",
-        "leavesQty":"0.00",
-        "cumExecQty":"0.30",
-        "cumExecFee":"4.4338",
-        "im":"0.0000",
-        "cashFlow":"11700.0000",
-        "realisedPnl":"0.0000",
-        "orderStatus":"Filled",
-        "closeOnTrigger":"",
-        "reduceOnly":0,
-        "takeProfit":"",
-        "stopLoss":"",
-        "tpTriggerBy":"",
-        "slTriggerBy":"",
-        "basePrice":"",
-        "triggerPrice":"",
-        "triggerBy":""
+        "symbol": "BTCPERP",
+        "orderType": "Market",
+        "orderLinkId": "",
+        "orderId": "640034d1-97ec-4382-9983-694898c03ba3",
+        "cancelType": "UNKNOWN",
+        "stopOrderType": "UNKNOWN",
+        "orderStatus": "Filled",
+        "takeProfit": "0.0000",
+        "createdAt": "1640854950672",
+        "orderPnl": "-",
+        "price": "49192.5",
+        "tpTriggerBy": "UNKNOWN",
+        "timeInForce": "ImmediateOrCancel",
+        "updatedAt": "1640854950675",
+        "basePrice": "",
+        "realisedPnl": "0.0000",
+        "side": "Buy",
+        "triggerPrice": "0.0",
+        "cumExecFee": "0.3514",
+        "leavesQty": "0.000",
+        "cashFlow": "",
+        "slTriggerBy": "UNKNOWN",
+        "iv": "",
+        "closeOnTrigger": "UNKNOWN",
+        "cumExecQty": "0.010",
+        "reduceOnly": 0,
+        "qty": "0.010",
+        "stopLoss": "0.0000",
+        "triggerBy": "UNKNOWN",
+        "orderIM": ""
       }
     ]
-  }
+  },
+  "retCode": 0,
+    "retMsg": "Success."
 }
 
 ```
@@ -489,14 +492,14 @@ POST
 |symbol|string|t(:usdcSymbol)|
 |orderType|string|t(:usdcPerpOrderType)|
 |side|string|t(:side)|
-|orderQty|string|t(:usdcOrderQty)|
-|orderPrice|string|t(:usdcOrderPrice)|
+|qty|string|t(:usdcOrderQty)|
+|price|string|t(:usdcOrderPrice)|
 |t(:row_parameter_timeInForce)|string|t(:row_comment_timeInForce)|
 |leavesValue|string|t(:leavesValue)|
 |cumExecQty|string|t(:cumExecQty)|
 |cumExecValue|string|t(:cumExecValue)|
 |cumExecFee|string|t(:cumExecFee)|
-|im|string|t(:im)|
+|orderIM|string|t(:im)|
 |cashFlow|string|t(:cashFlow)|
 |realisedPnl|string|t(:realisedPnl)|
 |orderStatus|string|t(:orderStatus)|
@@ -509,10 +512,10 @@ POST
 |triggerPrice|string|t(:triggerPrice)|
 |triggerBy|string|t(:usdcTriggerBy)|
 |reduceOnly|bool|t(:reduceOnly)|
+|stopOrderType|string|t(:usdcStopOrderType)|
 |closeOnTrigger|string|t(:closeOnTrigger)|
 |createdAt|number|t(:createdAt)|
 |updatedAt|number|t(:updatedAt)|
-|cursor|string|t(:cursor)|
 
 
 ### t(:usdcTradeHistory)
@@ -537,28 +540,28 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/execution-list
 
 ```javascript
 {
-  "retCode": 0,
-    "retMsg": "Success.",
-    "result": {
-    "resultTotalSize": 1,
-      "cursor": "14c7eb47-15e7-565a-b622-9633d09a5389%3A1638341411981%3A9806%2C14c7eb47-15e7-565a-b622-9633d09a5389%3A1638341411981%3A9806",
+  "result": {
+    "cursor": "52%3A1%2C52%3A1",
+      "resultTotalSize": 1,
       "dataList": [
       {
-        "orderId": "61f22ac5-6774-46e6-9697-fc3f2621ee09",
-        "orderLinkId": "",
         "symbol": "BTCPERP",
-        "execPrice": "57168.50",
-        "execQty": "0.020",
-        "execFee": "0.8576",
-        "feeRate": "0.000750",
-        "tradeTime": "1638341411981",
-        "execType": "TRADE",
+        "tradeTime": "1640854950675",
+        "orderLinkId": "",
+        "orderId": "640034d1-97ec-4382-9983-694898c03ba3",
+        "execPrice": "46851.50",
         "lastLiquidityInd": "TAKER",
-        "execValue": "1143.3700",
-        "tradeId": "14c7eb47-15e7-565a-b622-9633d09a5389"
+        "execValue": "468.5150",
+        "execType": "TRADE",
+        "execQty": "0.010",
+        "execFee": "0.3514",
+        "feeRate": "0.000750",
+        "tradeId": "22f7e871-e11b-50f0-aa6f-40dc52f57322"
       }
     ]
-  }
+  },
+  "retCode": 0,
+    "retMsg": "Success."
 }
 
 ```
@@ -604,6 +607,7 @@ POST
 |execType|string|t(:execType)|
 |lastLiquidityInd|string|t(:lastLiquidityInd)|
 |execValue|string|t(:execValue)|
+|tradeId|string|t(:tradeId)|
 
 
 ## t(:account_wallet)
@@ -907,43 +911,43 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-position
 
 ```javascript
 {
-  "retCode": 0,
-    "retMsg": "Success.",
-    "result": {
-    "resultTotalSize": 1,
-      "cursor": "BTCPERP%3A1638341866990%2CBTCPERP%3A1638341866990",
+  "result": {
+    "cursor": "BTCPERP%3A1640856463080%2CBTCPERP%3A1640856463080",
+      "resultTotalSize": 1,
       "dataList": [
       {
-        "riskId": "10001",
         "symbol": "BTCPERP",
-        "side": "Buy",
-        "size": "1.150",
-        "entryPrice": "59112.4",
-        "sessionAvgPrice": "56982.5",
-        "markPrice": "56984.31",
-        "sessionUPL": "2.0358",
-        "sessionRPL": "0.0000",
-        "IM": "6843.8130",
-        "MM": "385.7824",
-        "createdAt": "1638341866990",
-        "updatedAt": "1638341866990",
-        "tpSLMode": "UNKNOWN",
-        "positionValue": "67979.2700",
         "leverage": "10.00",
-        "liqPrice": "-",
-        "trailingStop": "0.0000",
-        "bustPrice": "-",
         "occClosingFee": "0.0000",
-        "trakeProfit": "0.0",
-        "stopLoss": "0.0",
-        "positionStatus": "NORMAL",
-        "deleverageIndicator": 0,
-        "orderMargin": "41.8885",
+        "liqPrice": "-",
+        "positionValue": "1403.8050",
+        "takeProfit": "0.0",
+        "riskId": "10001",
+        "trailingStop": "0.0000",
         "unrealisedPnl": "0.0000",
-        "cumRealisedPnl": "0.0000"
+        "createdAt": "1640856463080",
+        "markPrice": "46891.81",
+        "cumRealisedPnl": "0.0000",
+        "positionMM": "7.9666",
+        "positionIM": "141.3281",
+        "updatedAt": "1640856463080",
+        "tpSLMode": "UNKNOWN",
+        "side": "Buy",
+        "bustPrice": "-",
+        "deleverageIndicator": 0,
+        "entryPrice": "46793.5",
+        "size": "0.030",
+        "sessionRPL": "0.0000",
+        "positionStatus": "NORMAL",
+        "sessionUPL": "0.3391",
+        "stopLoss": "0.0",
+        "orderMargin": "38.5415",
+        "sessionAvgPrice": "46880.5"
       }
     ]
-  }
+  },
+  "retCode": 0,
+    "retMsg": "Success."
 }
 ```
 
@@ -981,21 +985,19 @@ POST
 |entryPrice|string|t(:entryPrice)
 |sessionAvgPrice|string|t(:sessionAvgPrice)|
 |markPrice|string|t(:markPrice)|
-|positionPnl|string|t(:positionPnl)|
-|sessionUpl|string|t(:sessionUpl)|
-|sessionRpl|string|t(:sessionRpl)|
-|IM|string|t(:usdcIm)|
-|MM|string|t(:usdcMm)|
+|sessionUPL|string|t(:sessionUpl)|
+|sessionRPL|string|t(:sessionRpl)|
+|positionIM|string|t(:usdcIm)|
+|positionMM|string|t(:usdcMm)|
 |createdAt|string|t(:createdAt)|
 |updatedAt|string|t(:updatedAt)|
 |tpSlMode|string|t(:tpSlMode)|
 |positionValue|string|t(:positionValue)|
 |leverage|string|t(:leverage)|
 |liqPrice|string|t(:liqPrice)|
-|trailingStop|string|t(:trailingStop)|
 |bustPrice|string|t(:bustPrice)|
 |occClosingFee|string|t(:occClosingFee)|
-|trakeProfit|string|t(:trakeProfit)|
+|takeProfit|string|t(:trakeProfit)|
 |stopLoss|string|t(:stopLoss)|
 |positionStatus|string|t(:positionStatus)|
 |deleverageIndicator|string|t(:deleverageIndicator)|
