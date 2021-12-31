@@ -457,67 +457,63 @@ ws.send('{"method":"private/subscribe","id":"{100002}","params":{"channels":["us
 > t(:usdc_trade_codequote_snapshot)
 
 ```javascript
-
 {
-  "id":"eeda6da2-ed9d-43f1-bfe8-8564017f0a63",
-  "channel":"user.perp.position",
-  "type":"SNAPSHOT",
-  "serialNumber":1,
-  "publishTime":221947838,
-  "creationTime":1638429615221,
-  "data":{
-  "result":[
-    {
-      "userId":247007,
-      "coin":"USDC",
-      "symbolId":45,
-      "positionIdx":0,
-      "mode":"MergedSingle",
-      "riskId":"10001",
-      "leverageE2":1000,
-      "positionStatus":"NORMAL",
-      "adlRankIndicator":0,
-      "side":"Buy",
-      "size":"1.15000000",
-      "value":"67979.27000000",
-      "entryPrice":"59112.40860000",
-      "markPrice":"56918.04",
-      "unrealisedPnl":"",
-      "occClosingFee":"0.00000000",
-      "occFundingFee":"0.00000000",
-      "liqPrice":"0.00000000",
-      "bustPrice":"0.00000000",
-      "bv2cE8":10142500,
-      "sv2cE8":10157500,
-      "cumRealisedPnl":"",
-      "tpTriggerBy":"UNKNOWN",
-      "slTriggerBy":"UNKNOWN",
-      "takeProfit":"0.00000000",
-      "stopLoss":"0.00000000",
-      "trailingStop":"0.00000000",
-      "activationPrice":"0.00000000",
-      "tpSlMode":"UNKNOWN",
-      "updatedAtE3":1638341866990,
-      "tpOrderNum":0,
-      "slOrderNum":0,
-      "tpFreeSize":"",
-      "slFreeSize":"",
-      "sessionAvgPrice":"57238.06000000",
-      "sessionUpl":"-368.023",
-      "sessionRpl":"0",
-      "positionIm":"6843.81299617575",
-      "positionMm":"385.78235662575",
-      "accountId":289037,
-      "symbol":"BTCPERP",
-      "freeCost":"-41.88852500",
-      "freeQty":"-1.15000000"
-    }
-  ],
-    "version":473374,
-    "sendTime":1638429615131
+  "id":"e6d0ea6f-eca8-4e20-a141-821e4d39b028",
+    "channel":"user.perp.position",
+    "type":"SNAPSHOT",
+    "serialNumber":1,
+    "publishTime":365038088,
+    "creationTime":1640854533365,
+    "data":{
+    "result":[
+      {
+        "symbol":"BTCPERP",
+        "symbolId":45,
+        "leverage":1000,
+        "slFreeSize":"",
+        "tpSlMode":"UNKNOWN",
+        "occClosingFee":"0.00000000",
+        "liqPrice":"0.00000000",
+        "bv2cE8":10142500,
+        "tpFreeSize":"",
+        "takeProfit":"0.00000000",
+        "positionValue":"467.42000000",
+        "riskId":"10001",
+        "trailingStop":"0.00000000",
+        "mode":"MergedSingle",
+        "unrealisedPnl":"",
+        "markPrice":"46864.26",
+        "occFundingFee":"0.00000000",
+        "adlRankIndicator":0,
+        "cumRealisedPnl":"",
+        "tpOrderNum":0,
+        "slOrderNum":0,
+        "positionMM":"2.6526085",
+        "positionIdx":0,
+        "tpTriggerBy":"UNKNOWN",
+        "updatedAtE3":1640844691107,
+        "positionIM":"47.0575085",
+        "freeCost":"0.00000000",
+        "bustPrice":"0.00000000",
+        "side":"Buy",
+        "freeQty":"-0.01000000",
+        "slTriggerBy":"UNKNOWN",
+        "entryPrice":"46742.00000000",
+        "sv2cE8":10157500,
+        "size":"0.01000000",
+        "positionStatus":"NORMAL",
+        "sessionRPL":"0",
+        "activationPrice":"0.00000000",
+        "sessionUPL":"-1.3876",
+        "stopLoss":"0.00000000",
+        "sessionAvgPrice":"47003.02000000",
+        "coin":"USDC"
+      }
+    ],
+      "version":38547,
+      "sendTime":1640854533138
+  }
 }
-}
-
 ```
 
 
@@ -526,18 +522,17 @@ t(:usdc_perp_position_desc)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| riskId|number |t(:riskId) |
+| riskId|string |t(:riskId) |
 | symbol |string |t(:usdcSymbol) |
 | side |string |t(:side) |
 | size |string |t(:usdcSize) |
 | entryPrice |string |t(:entryPrice) |
 | markPrice |string |t(:markPrice) |
-| sessionUpl |string |t(:sessionUpl) |
-| positionIm |string |t(:im) |
-| positionMm |string |t(:usdcMm) |
+| sessionUPL |string |t(:sessionUpl) |
+| positionIM |string |t(:im) |
+| positionMM |string |t(:usdcMm) |
 | tpSlMode |string |t(:tpSlMode) |
-| value |string |t(:positionValue) |
-| leverageE2 |number |t(:leverage) |
+| positionValue |string |t(:positionValue) |
 | liqPrice |string |t(:liqPrice) |
 | trailingStop |number |t(:trailingStop) |
 | bustPrice |string |t(:bustPrice) |
@@ -545,7 +540,6 @@ t(:usdc_perp_position_desc)
 | takeProfit |string |t(:trakeProfit) |
 | stopLoss |string |t(:stopLoss) |
 | positionStatus |string |t(:positionStatus) |
-| deleverageIndicator |number |t(:deleverageIndicator) |
 | unrealisedPnl |string |t(:unrealisedPnl) |
 | cumRealisedPnl |string |t(:cumRealisedPnl) |
 
@@ -562,12 +556,12 @@ ws.send('{"method":"private/subscribe","id":"{100002}","params":{"channels":["us
 ```javascript
 
 {
-  "id":"03c9ef6a-a96e-452a-bace-ec760edeff32",
+  "id":"ddecb43d-a4ab-43ce-ad3c-91d2fa759b83",
   "channel":"user.perp.trade",
   "type":"SNAPSHOT",
   "serialNumber":1,
-  "publishTime":266836178,
-  "creationTime":1638433627266,
+  "publishTime":791594832,
+  "creationTime":1640854772791,
   "data":{
   "result":[
     {
@@ -575,29 +569,29 @@ ws.send('{"method":"private/subscribe","id":"{100002}","params":{"channels":["us
       "symbolId":null,
       "symbol":"BTCPERP",
       "symbolName":"BTCPERP",
-      "orderLinkId":null,
-      "orderId":"05b0647e-d7e9-4edc-9f9c-54a3b22d3675",
-      "side":"Sell",
-      "orderType":"Limit",
+      "orderLinkId":"",
+      "orderId":"3ea08645-2989-4cec-ad3e-3dcb6ca6e20e",
+      "side":"Buy",
+      "orderType":"Market",
       "reduceOnly":false,
-      "price":"54294",
+      "price":"49123",
       "qty":"0.01",
       "leavesQty":null,
-      "execTimeE3":1638433627189,
       "execType":"Trade",
-      "execId":"4f45d7e5-0fd2-5812-8a3f-0aff67b08858",
-      "execPrice":"57104.5",
+      "execPrice":"46787",
       "execQty":"0.01",
       "feeRate":"0.00075",
-      "execFee":"0.42828375",
+      "execFee":"0.3509025",
       "version":null,
       "sendTime":null,
       "crossSeq":null,
-      "maker":false
+      "maker":false,
+      "tradeId":"31eaa9a8-1d5b-50dc-b172-1002c98a355d",
+      "tradeTime":1640854772730
     }
   ],
-    "version":9833,
-    "sendTime":1638433627245
+    "version":51,
+    "sendTime":1640854772745
 }
 }
 
@@ -609,17 +603,16 @@ t(:usdc_perp_trade_history)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| execTimeE3|number |t(:tradeTime) |
+| tradeTime|number |t(:tradeTime) |
 | orderId |string | t(:usdcOrderId) |
 | orderLinkId |string |t(:orderLinkId) |
 | symbol |string |t(:usdcSymbol) |
-| price |string |t(:excPrice) |
-| qty |string |t(:execQty) |
+| execPrice |string |t(:excPrice) |
+| execQty |string |t(:execQty) |
 | execFee |string |t(:execFee) |
 | feeRate |string |t(:feeRate) |
 | execType |string |t(:execType) |
-| execValue |string |t(:execValue) |
-| execId |string |trade Id|
+| tradeId |string |trade Id|
 
 
 ### t(:usdc_perp_active_orders_snapshot)
@@ -740,62 +733,62 @@ t(:usdc_perp_active_order)
 
 ```javascript
 {
-  "id":"3bf267b3-2d04-4e43-bcb4-c4fea4e8b737",
+  "id":"8439b7bf-9c6a-4ce2-9c48-72ddbbc4544e",
     "channel":"user.perp.order.t",
     "type":"SNAPSHOT",
     "serialNumber":1,
-    "publishTime":90468981,
-    "creationTime":1638498893090,
+    "publishTime":738754913,
+    "creationTime":1640854950738,
     "data":{
     "result":[
       {
         "accountId":0,
         "userId":247007,
         "symbol":"BTCPERP",
-        "createType":null,
+        "createType":"CreateByUser",
         "cancelType":"UNKNOWN",
         "orderLinkId":"",
-        "tpTriggerBy":null,
-        "slTriggerBy":null,
+        "tpTriggerBy":"UNKNOWN",
+        "slTriggerBy":"UNKNOWN",
         "takeProfit":"0",
         "stopLoss":"0",
-        "orderId":"41648c64-a1f9-49ee-8f14-de18a086b29e",
-        "side":"Sell",
-        "orderType":"Limit",
-        "timeInForce":"GoodTillCancel",
+        "orderId":"640034d1-97ec-4382-9983-694898c03ba3",
+        "side":"Buy",
+        "orderType":"Market",
+        "timeInForce":"ImmediateOrCancel",
         "reduceOnly":false,
         "stopOrderType":"UNKNOWN",
         "triggerBy":"UNKNOWN",
         "basePrice":"",
         "trailValue":"0",
         "triggerPrice":"0",
-        "price":"53667",
-        "orderAvgPrice":"56414",
+        "price":"49192.5",
+        "orderAvgPrice":"46851.5",
         "qty":"0.01",
         "leavesQty":"0",
-        "cumQty":"0.01000000",
-        "cumValue":"564.14",
-        "cumExecFee":"0.423105",
+        "cumValue":"468.515",
+        "cumExecFee":"0.35138625",
         "orderStatus":"Filled",
         "cxlRejReason":"EC_NoError",
-        "createdAtE3":1638498892923,
-        "updatedAtE3":1638498892926,
         "origTriggerPrice":"0",
         "origPrice":"0",
         "origQty":"0",
         "origOrderType":null,
         "isWorking":true,
-        "type":"Limit",
-        "avgPrice":"56414",
+        "type":"Market",
+        "avgPrice":"46851.5",
         "pnl":"",
-        "orderIm":"0",
         "symbolId":0,
         "expectedDirection":"UNKNOWN",
-        "closeOnTrigger":false
+        "closeOnTrigger":false,
+        "cumExecQty":"0.01",
+        "orderIM":"0",
+        "createdAt":1640854950672,
+        "updatedAt":1640854950675
       }
     ],
-      "version":519491,
-      "sendTime":1638498893045
+      "version":38989,
+      "sendTime":1640854950690
   }
 }
 ```
@@ -814,9 +807,8 @@ t(:usdc_perp_active_order_delta_topic)
 | leavesQty |string |t(:usdc_unfilled_order_size) |
 | price |string |t(:usdcOrderPrice) |
 | t(:row_parameter_timeInForce) |string |t(:row_comment_timeInForce) |
-| cumQty |string |t(:cumExecQty) |
 | cumExecFee |string |t(:cumExecFee) |
-| orderIm |string |t(:im) |
+| orderIM |string |t(:im) |
 | orderStatus |string |t(:orderStatus) |
 | reduceOnly |number |t(:reduceOnly) |
 | closeOnTrigger |bool |t(:closeOnTrigger) |
@@ -827,6 +819,7 @@ t(:usdc_perp_active_order_delta_topic)
 | basePrice |string |t(:basePrice) |
 | triggerPrice |string |t(:triggerPrice) |
 | triggerBy |string |t(:triggerBy) |
+| stopOrderType |string |t(:usdcStopOrderType) |
 
 
 
@@ -841,62 +834,62 @@ t(:usdc_perp_active_order_delta_topic)
 
 ```javascript
 {
-  "id":"b33395cd-8279-4e35-8a88-0fb7ca250a8f",
+  "id":"8eb06bdc-bf5e-408c-a5fc-e5084d0e3682",
     "channel":"user.perp.orderHistory",
     "type":"SNAPSHOT",
     "serialNumber":1,
-    "publishTime":378404740,
-    "creationTime":1638436244378,
+    "publishTime":743752330,
+    "creationTime":1640854950743,
     "data":{
     "result":[
       {
         "accountId":0,
         "userId":247007,
         "symbol":"BTCPERP",
-        "createType":null,
+        "createType":"CreateByUser",
         "cancelType":"UNKNOWN",
         "orderLinkId":"",
-        "tpTriggerBy":null,
-        "slTriggerBy":null,
+        "tpTriggerBy":"UNKNOWN",
+        "slTriggerBy":"UNKNOWN",
         "takeProfit":"0",
         "stopLoss":"0",
-        "orderId":"2fe9ed0c-f0cf-4cf2-8ac9-de28b6021fe6",
-        "side":"Sell",
-        "orderType":"Limit",
-        "timeInForce":"GoodTillCancel",
+        "orderId":"640034d1-97ec-4382-9983-694898c03ba3",
+        "side":"Buy",
+        "orderType":"Market",
+        "timeInForce":"ImmediateOrCancel",
         "reduceOnly":false,
         "stopOrderType":"UNKNOWN",
         "triggerBy":"UNKNOWN",
         "basePrice":"",
         "trailValue":"0",
         "triggerPrice":"0",
-        "price":"54204.5",
-        "orderAvgPrice":"57055",
+        "price":"49192.5",
+        "orderAvgPrice":"46851.5",
         "qty":"0.01",
         "leavesQty":"0",
-        "cumQty":"0.01000000",
-        "cumValue":"570.55",
-        "cumExecFee":"0.4279125",
+        "cumValue":"468.515",
+        "cumExecFee":"0.35138625",
         "orderStatus":"Filled",
         "cxlRejReason":"EC_NoError",
-        "createdAtE3":1638436244299,
-        "updatedAtE3":1638436244302,
         "origTriggerPrice":"0",
         "origPrice":"0",
         "origQty":"0",
         "origOrderType":null,
         "isWorking":true,
-        "type":"Limit",
-        "avgPrice":"57055",
+        "type":"Market",
+        "avgPrice":"46851.5",
         "pnl":"",
-        "orderIm":"0",
         "symbolId":0,
         "expectedDirection":"UNKNOWN",
-        "closeOnTrigger":false
+        "closeOnTrigger":false,
+        "cumExecQty":"0.01",
+        "orderIM":"0",
+        "createdAt":1640854950672,
+        "updatedAt":1640854950675
       }
     ],
-      "version":489367,
-      "sendTime":1638436244319
+      "version":38989,
+      "sendTime":1640854950690
   }
 }
 ```
@@ -915,9 +908,8 @@ t(:usdc_perp_order_desc)
 | leavesQty |string |t(:usdc_unfilled_order_size) |
 | price |string |t(:usdcOrderPrice) |
 | t(:row_parameter_timeInForce) |string |t(:row_comment_timeInForce) |
-| cumQty |string |t(:cumExecQty) |
 | cumExecFee |string |t(:cumExecFee) |
-| orderIm |string |t(:im) |
+| orderIM |string |t(:im) |
 | orderStatus |string |t(:orderStatus) |
 | reduceOnly |number |t(:reduceOnly) |
 | closeOnTrigger |bool |t(:closeOnTrigger) |

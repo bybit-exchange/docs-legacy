@@ -52,4 +52,25 @@ t(:usdcPriceRule)
 ## Exec Type
 * `TRADE`
 
+## Stop Order Type
+* `Stop`
+* `TakeProfit`
+* `StopLoss`
+* `TrailingStop`
+* `TrailingProfit`
+* `PartialTakeProfit`
+* `PartialStopLoss`
+
+
+## Cancel Type
+* `CancelByUser`
+* `CancelAllBeforeLiq`
+* `CancelAllBeforeAdl`
+* `CancelByReduceOnly`
+* `CancelBySettle`
+* `CancelByCannotAffordOrderCost`
+* `CancelByPmTrialMmOverEquity`
+* `CancelByAccountBlocking`
+* `CancelByDelivery`
+* `CancelByMmpTriggered`
 
