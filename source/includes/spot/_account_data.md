@@ -163,7 +163,7 @@ GET
 |orderId|long|t(:spotOrderId)|
 |price|float|t(:spotOPrice)|
 |origQty|float|t(:spotOriQty)|
-|executedQty|float|t(:spotExecQty)|
+|executedQty|float|t(:spotExecQty2)|
 |cummulativeQuoteQty|float|t(:spotCummulativeQuoteQty)|
 |avgPrice|float|t(:spotAvgPrice)|
 |t(:spot_row_parameter_orderStatus)|string|t(:spotStatus)|
@@ -243,7 +243,7 @@ DELETE
 |transactTime|long|t(:spotTransactTime)|
 |price|float|t(:spotOPrice)|
 |origQty|float|t(:spotOriQty)|
-|executedQty|float|t(:spotExecQty)|
+|executedQty|float|t(:spotExecQty2)|
 |t(:row_parameter_timeInForce)|string|t(:row_comment_timeInForce)|
 |t(:row_parameter_type)|string|t(:spotOrderType)|
 |side|string|t(:spotSide)|
@@ -322,7 +322,7 @@ DELETE
 |transactTime|long|t(:spotTransactTime)|
 |price|float|t(:spotOPrice)|
 |origQty|float|t(:spotOriQty)|
-|executedQty|float|t(:spotExecQty)|
+|executedQty|float|t(:spotExecQty2)|
 |timeInForce|string|t(:row_comment_timeInForce)|
 |type|string|t(:spotOrderType)|
 |side|string|t(:spotSide)|
@@ -601,7 +601,7 @@ GET
 |orderId|long|t(:spotOrderId)|
 |price|float|t(:spotOPrice)|
 |origQty|float|t(:spotOriQty)|
-|executedQty|float|t(:spotExecQty)|
+|executedQty|float|t(:spotExecQty2)|
 |cummulativeQuoteQty|float|t(:spotCummulativeQuoteQty)|
 |avgPrice|float|t(:spotAvgPrice)|
 |t(:spot_row_parameter_orderStatus)|string|t(:spotStatus)|
@@ -698,7 +698,7 @@ GET
 |orderId|long|t(:spotOrderId)|
 |price|float|t(:spotPrice)|
 |origQty|float|t(:spotOriQty)|
-|executedQty|float|t(:spotExecQty)|
+|executedQty|float|t(:spotExecQty2)|
 |cummulativeQuoteQty|float|t(:spotCummulativeQuoteQty)|
 |avgPrice|float|t(:spotAvgPrice)|
 |t(:spot_row_parameter_orderStatus)|string|t(:spotStatus)|
