@@ -947,6 +947,12 @@
                   <li>
                     <a href="#exec-type" class="toc-h2 toc-link" data-title="Exec Type">Exec Type</a>
                   </li>
+                  <li>
+                    <a href="#stop-order-type" class="toc-h2 toc-link" data-title="Stop Order Type">Stop Order Type</a>
+                  </li>
+                  <li>
+                    <a href="#cancel-type" class="toc-h2 toc-link" data-title="Cancel Type">Cancel Type</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -2538,43 +2544,44 @@ This is used to cancel all active orders . The real-time response indicates whet
 <p>Response Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:{</span>
-    <span class="dl">"</span><span class="s2">resultTotalSize</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">cursor</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">e3d0eff2-7567-4ca1-af1c-9eb9a39ac119%3A1634291502127%2C0b9c9c0c-4098-4d30-a266-6aa87dc26f7f%3A1634285036815</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">dataList</span><span class="dl">"</span><span class="p">:[</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">cursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">c0769523-61f9-4cb2-b448-336cf314ca1d%3A1640843809216%2Cc0769523-61f9-4cb2-b448-336cf314ca1d%3A1640843809216</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">resultTotalSize</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">dataList</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
       <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">e3d0eff2-7567-4ca1-af1c-9eb9a39ac119</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">createdAt</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1634291502127</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTC-16OCT21-21000-P</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Limit</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderQty</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2.10</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">30.0</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">iv</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">852.00%</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">GoodTillCancel</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">leavesQty</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.10</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">leavesValue</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">3.0000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">cumExecQty</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2.00</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">cumExecValue</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">60.0000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">cumExecFee</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">6.0000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">im</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">69.3000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderStatus</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">PartiallyFilled</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">takeProfit</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">stopLoss</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">tpTriggerBy</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">slTriggerBy</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">lastExecPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">basePrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">triggerPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">triggerBy</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">reduceOnly</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">closeOnTrigger</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC-31DEC21-18000-P</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Limit</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">test2021122417000220</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">c0769523-61f9-4cb2-b448-336cf314ca1d</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">stopOrderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">New</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">takeProfit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">cumExecValue</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">createdAt</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1640843809216</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderPnl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1.0</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">tpTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GoodTillCancel</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">basePrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">triggerPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">cumExecFee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">leavesQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.010</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">slTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">iv</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5.2820</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">closeOnTrigger</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">cumExecQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">reduceOnly</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.010</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">stopLoss</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">lastExecPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">triggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderIM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0110</span><span class="dl">"</span>
       <span class="p">}</span>
     <span class="p">]</span>
-  <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Success.</span><span class="dl">"</span>
 <span class="p">}</span>
 </code></pre></div>
 <p class="fake_header">HTTP Request</p>
@@ -2697,12 +2704,12 @@ This is used to cancel all active orders . The real-time response indicates whet
 <td>Direction</td>
 </tr>
 <tr>
-<td style="text-align: left">orderQty</td>
+<td style="text-align: left">qty</td>
 <td style="text-align: left">string</td>
 <td>Order quantity</td>
 </tr>
 <tr>
-<td style="text-align: left">orderPrice</td>
+<td style="text-align: left">price</td>
 <td style="text-align: left">string</td>
 <td>Order price</td>
 </tr>
@@ -2717,9 +2724,9 @@ This is used to cancel all active orders . The real-time response indicates whet
 <td><a href="https://help.bybit.com/hc/en-us/articles/360039749233-What-Are-Time-In-Force-TIF-GTC-IOC-FOK-">Time in force</a></td>
 </tr>
 <tr>
-<td style="text-align: left">leavesValue</td>
+<td style="text-align: left">orderPnl</td>
 <td style="text-align: left">string</td>
-<td>Est. order value of unfilled orders</td>
+<td>Order PNL</td>
 </tr>
 <tr>
 <td style="text-align: left">cumExecQty</td>
@@ -2737,7 +2744,7 @@ This is used to cancel all active orders . The real-time response indicates whet
 <td>Total trading fees</td>
 </tr>
 <tr>
-<td style="text-align: left">im</td>
+<td style="text-align: left">orderIM</td>
 <td style="text-align: left">string</td>
 <td>Initial margin</td>
 </tr>
@@ -2756,11 +2763,6 @@ This is used to cancel all active orders . The real-time response indicates whet
 <td style="text-align: left">number</td>
 <td>Creation time</td>
 </tr>
-<tr>
-<td style="text-align: left">cursor</td>
-<td style="text-align: left">string</td>
-<td>API pass-through</td>
-</tr>
 </tbody></table>
 <h3 id='t-usdcqryorderhistory'>Query Order History</h3><div class="highlight"><pre class="highlight console tab-console"><code><span class="go">
 curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-history \
@@ -2773,43 +2775,46 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 <p>Response Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:{</span>
-    <span class="dl">"</span><span class="s2">resultTotalSize</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">cursor</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">5e42be7e-c92f-4388-91fc-30ec1f321e32%3A1634286322771%2C6ad08ad0-14d8-43a6-9a38-6a01d7d7c833%3A1634285916577</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">dataList</span><span class="dl">"</span><span class="p">:[</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">cursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">cc27c6ff-a4ec-4739-96bc-6d2b266606d4%3A1640843817698%2Ccc27c6ff-a4ec-4739-96bc-6d2b266606d4%3A1640843817698</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">resultTotalSize</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">dataList</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
       <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">5e42be7e-c92f-4388-91fc-30ec1f321e32</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">createdAt</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1634286322771</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">updatedAt</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1634286322771</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTC-22OCT21-30000-C</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Limit</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderQty</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.30</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">39000.0</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">iv</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">958.70%</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">GoodTillCancel</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">leavesQty</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.00</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">cumExecQty</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.30</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">cumExecFee</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">4.4338</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">im</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">cashFlow</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">11700.0000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">realisedPnl</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderStatus</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Filled</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">closeOnTrigger</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">reduceOnly</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">takeProfit</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">stopLoss</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">tpTriggerBy</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">slTriggerBy</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">basePrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">triggerPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">triggerBy</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC-31DEC21-18000-P</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Limit</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">test2021122417000221</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">cc27c6ff-a4ec-4739-96bc-6d2b266606d4</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">cancelType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">stopOrderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Filled</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">takeProfit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">createdAt</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1640843817698</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderPnl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1.0</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">tpTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GoodTillCancel</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">updatedAt</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1640843817698</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">basePrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">realisedPnl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">triggerPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">cumExecFee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0010</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">leavesQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">cashFlow</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0100</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">slTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">iv</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5.2820</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">closeOnTrigger</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">cumExecQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.010</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">reduceOnly</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.010</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">stopLoss</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">triggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderIM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span>
       <span class="p">}</span>
     <span class="p">]</span>
-  <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Success.</span><span class="dl">"</span>
 <span class="p">}</span>
 </code></pre></div>
 <p class="fake_header">HTTP Request</p>
@@ -2938,12 +2943,12 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 <td>Direction</td>
 </tr>
 <tr>
-<td style="text-align: left">orderQty</td>
+<td style="text-align: left">qty</td>
 <td style="text-align: left">string</td>
 <td>Order quantity</td>
 </tr>
 <tr>
-<td style="text-align: left">orderPrice</td>
+<td style="text-align: left">price</td>
 <td style="text-align: left">string</td>
 <td>Order price</td>
 </tr>
@@ -2968,17 +2973,12 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 <td>Total filled quantity</td>
 </tr>
 <tr>
-<td style="text-align: left">cumExecValue</td>
-<td style="text-align: left">string</td>
-<td>Total order value of filled orders</td>
-</tr>
-<tr>
 <td style="text-align: left">cumExecFee</td>
 <td style="text-align: left">string</td>
 <td>Total trading fees</td>
 </tr>
 <tr>
-<td style="text-align: left">im</td>
+<td style="text-align: left">orderIM</td>
 <td style="text-align: left">string</td>
 <td>Initial margin</td>
 </tr>
@@ -2998,6 +2998,11 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 <td><a href="#order-status-status">Order status</a></td>
 </tr>
 <tr>
+<td style="text-align: left">orderPnl</td>
+<td style="text-align: left">string</td>
+<td>Order PNL</td>
+</tr>
+<tr>
 <td style="text-align: left">basePrice</td>
 <td style="text-align: left">string</td>
 <td>Market price during order placement</td>
@@ -3008,6 +3013,11 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 <td>Reduce-only</td>
 </tr>
 <tr>
+<td style="text-align: left">cancelType</td>
+<td style="text-align: left">string</td>
+<td>refer to <a href="#cancel-type">Cancel Type</a></td>
+</tr>
+<tr>
 <td style="text-align: left">createdAt</td>
 <td style="text-align: left">number</td>
 <td>Creation time</td>
@@ -3016,11 +3026,6 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 <td style="text-align: left">updatedAt</td>
 <td style="text-align: left">number</td>
 <td>Update time</td>
-</tr>
-<tr>
-<td style="text-align: left">cursor</td>
-<td style="text-align: left">string</td>
-<td>API pass-through</td>
 </tr>
 </tbody></table>
 <h3 id='t-usdctradehistory'>Trade History</h3>
@@ -3036,25 +3041,28 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 <p>Response Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Success.</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:{</span>
-        <span class="dl">"</span><span class="s2">resultTotalSize</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">cursor</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">512e57a4-758d-57c5-8531-4b639e737211%3A1637053904869%3A9544%2C512e57a4-758d-57c5-8531-4b639e737211%3A1637053904869%3A9544</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">dataList</span><span class="dl">"</span><span class="p">:[</span>
-            <span class="p">{</span>
-                <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">70bc3d92-009c-464b-8399-010b9d4aac2b</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTC-19NOV21-55000-P</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">execPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">102.00</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">execQty</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.010</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">execFee</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.1020</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">feeRate</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.0250%</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">tradeTime</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1637053904869</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">execType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">TRADE</span><span class="dl">"</span><span class="p">,</span>
-            <span class="p">}</span>
-        <span class="p">]</span>
-    <span class="p">}</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">cursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">34%3A0%2C34%3A0</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">resultTotalSize</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">dataList</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC-31DEC21-18000-P</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">tradeTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1640834911093</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">test2021122417000218</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">13ad19bf-5e23-479b-8261-54f1baf290e1</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">execPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1.00</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">lastLiquidityInd</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">TAKER</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">execValue</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">execType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">TRADE</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">execQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.010</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">execFee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0010</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">feeRate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.000300</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">tradeId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">77fdaeef-b931-51f4-96c8-33f97c722053</span><span class="dl">"</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Success.</span><span class="dl">"</span>
 <span class="p">}</span>
 
 </code></pre></div>
@@ -3172,6 +3180,11 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 <td style="text-align: left">orderLinkId</td>
 <td style="text-align: left">string</td>
 <td>Custom ID used for cross-platform strategy remarks; a max. of 32 characters</td>
+</tr>
+<tr>
+<td style="text-align: left">tradeId</td>
+<td style="text-align: left">string</td>
+<td>Trade Id</td>
 </tr>
 <tr>
 <td style="text-align: left">execPrice</td>
@@ -3718,43 +3731,43 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-margin-i
 <p>Response Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:{</span>
-    <span class="dl">"</span><span class="s2">resultTotalSize</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">cursor</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTC-22OCT21-40000-C%3A1634287448443%2CBTC-22OCT21-40000-C%3A1634287448443</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">dataList</span><span class="dl">"</span><span class="p">:[</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">cursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC-31DEC21-24000-P%3A1640834421431%2CBTC-31DEC21-24000-P%3A1640834421431</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">resultTotalSize</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">dataList</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
       <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">riskId</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTC-22OCT21-40000-C</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.20</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">entryPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">19000.0</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">sessionAvgPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">19000.0</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">markPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">19136.49</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">sessionUPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">27.2974</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">sessionRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">IM</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">MM</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">createdAt</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1634287448443</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">updatedAt</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1634287448443</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">tpSLMode</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">positionValue</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">leverage</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">liqPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">trailingStop</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">bustPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">occClosingFee</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">trakeProfit</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">stopLoss</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">positionStatus</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">deleverageIndicator</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderMargin</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">unrealisedPnl</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">cumRealisedPnl</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC-31DEC21-24000-P</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">leverage</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">occClosingFee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">liqPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">positionValue</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">takeProfit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">riskId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">trailingStop</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">unrealisedPnl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">createdAt</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1640834421431</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">markPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">cumRealisedPnl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">positionMM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">359.5271</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">positionIM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">467.0633</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">updatedAt</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1640834421431</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">tpSLMode</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">bustPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">deleverageIndicator</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">entryPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1.4</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-0.100</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">sessionRPL</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">positionStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">sessionUPL</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1450</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">stopLoss</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderMargin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">sessionAvgPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1.5</span><span class="dl">"</span>
       <span class="p">}</span>
     <span class="p">]</span>
-  <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Success.</span><span class="dl">"</span>
 <span class="p">}</span>
 </code></pre></div>
 <p class="fake_header">HTTP Request</p>
@@ -3875,27 +3888,22 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-margin-i
 <td></td>
 </tr>
 <tr>
-<td style="text-align: left">positionPnl</td>
-<td style="text-align: left">string</td>
-<td>UPL derived from the avg. entry price</td>
-</tr>
-<tr>
-<td style="text-align: left">sessionUpl</td>
+<td style="text-align: left">sessionUPL</td>
 <td style="text-align: left">string</td>
 <td>Session UPL</td>
 </tr>
 <tr>
-<td style="text-align: left">sessionRpl</td>
+<td style="text-align: left">sessionRPL</td>
 <td style="text-align: left">string</td>
 <td>Session RPL</td>
 </tr>
 <tr>
-<td style="text-align: left">IM</td>
+<td style="text-align: left">positionIM</td>
 <td style="text-align: left">string</td>
 <td>Initial margin</td>
 </tr>
 <tr>
-<td style="text-align: left">MM</td>
+<td style="text-align: left">positionMM</td>
 <td style="text-align: left">string</td>
 <td>Maintenance margin</td>
 </tr>
@@ -3910,19 +3918,9 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-margin-i
 <td>Update time</td>
 </tr>
 <tr>
-<td style="text-align: left">tpSlMode</td>
-<td style="text-align: left">string</td>
-<td>TP/SL settings</td>
-</tr>
-<tr>
 <td style="text-align: left">positionValue</td>
 <td style="text-align: left">string</td>
 <td>Position value</td>
-</tr>
-<tr>
-<td style="text-align: left">leverage</td>
-<td style="text-align: left">string</td>
-<td>Leverage</td>
 </tr>
 <tr>
 <td style="text-align: left">liqPrice</td>
@@ -3930,44 +3928,14 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-margin-i
 <td>Liquidation price</td>
 </tr>
 <tr>
-<td style="text-align: left">trailingStop</td>
-<td style="text-align: left">string</td>
-<td>Trailing stop</td>
-</tr>
-<tr>
 <td style="text-align: left">bustPrice</td>
 <td style="text-align: left">string</td>
 <td>Bankruptcy price</td>
 </tr>
 <tr>
-<td style="text-align: left">occClosingFee</td>
-<td style="text-align: left">string</td>
-<td>Position closing fees</td>
-</tr>
-<tr>
-<td style="text-align: left">trakeProfit</td>
-<td style="text-align: left">string</td>
-<td>Take-profit price</td>
-</tr>
-<tr>
-<td style="text-align: left">stopLoss</td>
-<td style="text-align: left">string</td>
-<td>Stop-loss price (Perpetual)</td>
-</tr>
-<tr>
 <td style="text-align: left">positionStatus</td>
 <td style="text-align: left">string</td>
 <td>Position status; can be normal, liquidating, and auto deleveraging</td>
-</tr>
-<tr>
-<td style="text-align: left">deleverageIndicator</td>
-<td style="text-align: left">string</td>
-<td>ADL indicators; can be 1,2,3,4,5</td>
-</tr>
-<tr>
-<td style="text-align: left">orderMargin</td>
-<td style="text-align: left">string</td>
-<td>Pre-occupied order margin</td>
 </tr>
 <tr>
 <td style="text-align: left">unrealisedPnl</td>
@@ -5001,43 +4969,50 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <blockquote>
 <p>Snapshot Response Example - format of response</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code>
-<span class="p">{</span>
-    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">c2c04b81-1d7a-4662-bab7-cbc8adbde8d2</span><span class="dl">"</span><span class="p">,</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">12827e35-ab18-416f-b754-5fff8315459f</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">channel</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">user.option.position</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">SNAPSHOT</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">serialNumber</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">publishTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">217924248</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1635229560217</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">publishTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">134984932</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1640835309134</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
-        <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
-            <span class="p">{</span>
-                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTC-5NOV21-66000-P</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">positionSize</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">-1.0000</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">positionAvgPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">6100.00000000</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">sessionAvgPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">5044.04000000</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">markPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">5044.04</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">strikePrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">exerciseDeliveryPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">5.51047098</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">positionIM</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">15850</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">positionMM</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">7124.04</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">pnl</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1055.96</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">sessionUPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">sessionRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">deliveryRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">iv</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.7883</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span><span class="mi">80</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">sendTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1635229560137</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">positionTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1635215719716</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">roi</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.173108196721311475</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">crossSeq</span><span class="dl">"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">pushActionType</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span>
-            <span class="p">}</span>
-        <span class="p">],</span>
-        <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span><span class="mi">20660</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">sendTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1635229560137</span>
-    <span class="p">}</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
+      <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">positionIdx</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTC-31DEC21-24000-P</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">positionStatus</span><span class="dl">"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">OPEN</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">positionSize</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">-0.1000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">positionAvgPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1.45000000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">sessionAvgPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1.45000000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">markPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">strikePrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">exerciseDeliveryPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">27.96182801</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">positionIM</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">465.9957</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">positionMM</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">358.705039</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">fees</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">pnl</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.145</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">sessionUPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.145</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">sessionRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">deliveryRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">iv</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1.1524</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span><span class="mi">34</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">sendTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1640835309093</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">positionTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1640834421428</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">roi</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">crossSeq</span><span class="dl">"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">pushActionType</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">-0.1000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">entryPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1.45000000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">PNL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.145</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">ROI</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1</span><span class="dl">"</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+      <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span><span class="mi">8043</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">sendTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1640835309093</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 
 </code></pre></div>
@@ -5054,11 +5029,6 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <th>Comment</th>
 </tr>
 </thead><tbody>
-<tr>
-<td style="text-align: left">riskId</td>
-<td style="text-align: left">number</td>
-<td>Risk ID</td>
-</tr>
 <tr>
 <td style="text-align: left">symbol</td>
 <td style="text-align: left">string</td>
@@ -5090,7 +5060,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <td></td>
 </tr>
 <tr>
-<td style="text-align: left">sessionUpl</td>
+<td style="text-align: left">sessionUPL</td>
 <td style="text-align: left">string</td>
 <td>Session UPL</td>
 </tr>
@@ -5104,6 +5074,16 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <td style="text-align: left">string</td>
 <td>Maintenance margin</td>
 </tr>
+<tr>
+<td style="text-align: left">PNL</td>
+<td style="text-align: left">string</td>
+<td>PNL</td>
+</tr>
+<tr>
+<td style="text-align: left">ROI</td>
+<td style="text-align: left">string</td>
+<td>ROI</td>
+</tr>
 </tbody></table>
 <h3 id='t-userfilledhistory'>Trade</h3>
 <blockquote>
@@ -5116,39 +5096,43 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code>
 <span class="p">{</span>
-  <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">f22195c3-d89c-4b93-9bc6-8c65b59cebcb</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">985cf6de-2e7e-4d18-92ff-e7a2b4fcfcc1</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">channel</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">user.option.tradeHistory</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">SNAPSHOT</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">serialNumber</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">publishTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">141688047</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1635229352141</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">publishTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">129276349</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1640834911129</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
     <span class="p">{</span>
-      <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0d57c2a2-7c6f-4a9d-8820-043b5559db21</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">tradeId</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">54313b81-ae20-5f45-91e1-a12738f02257</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">transId</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">20211026658e36b0-62bb-4a03-ad19-c319a2e5dd4a</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTC-26OCT21-38000-P</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">4aaea02f-d62b-4951-9e12-7e2d9e37fb4c</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">tradeId</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">77fdaeef-b931-51f4-96c8-33f97c722053</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">transId</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">cross-101810-634476-1</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTC-31DEC21-18000-P</span><span class="dl">"</span><span class="p">,</span>
       <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">tradePrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">311.5</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">markPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.00000001</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">indexPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">62289.65000000</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">underlying</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">62298.93000000</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">positionAvgPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">311.5</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">iv</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">4.8160</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">tradePrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">markPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">indexPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">46545.16000000</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">underlying</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">46562.86000000</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">positionAvgPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">iv</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1.1980</span><span class="dl">"</span><span class="p">,</span>
       <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">fees</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.15572413</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">tradeTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1635229351696</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">fees</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.001</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">tradeTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1640834911093</span><span class="p">,</span>
       <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
       <span class="dl">"</span><span class="s2">sendTime</span><span class="dl">"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">crossSeq</span><span class="dl">"</span><span class="p">:</span><span class="kc">null</span>
+      <span class="dl">"</span><span class="s2">crossSeq</span><span class="dl">"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">reduceOnly</span><span class="dl">"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">test2021122417000217</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">execPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">execQty</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">execFee</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.001</span><span class="dl">"</span>
     <span class="p">}</span>
   <span class="p">],</span>
-    <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span><span class="mi">34</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">sendTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1635229352127</span>
+    <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span><span class="mi">33</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">sendTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1640834911106</span>
 <span class="p">}</span>
 <span class="p">}</span>
-
 
 
 </code></pre></div>
@@ -5181,29 +5165,29 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <td>Custom ID used for cross-platform strategy remarks; a max. of 32 characters</td>
 </tr>
 <tr>
+<td style="text-align: left">tradeId</td>
+<td style="text-align: left">string</td>
+<td>Trade Id</td>
+</tr>
+<tr>
 <td style="text-align: left">symbol</td>
 <td style="text-align: left">string</td>
 <td>Contract name</td>
 </tr>
 <tr>
-<td style="text-align: left">tradePrice</td>
+<td style="text-align: left">execPrice</td>
 <td style="text-align: left">string</td>
 <td>Filled price</td>
 </tr>
 <tr>
-<td style="text-align: left">size</td>
+<td style="text-align: left">execQty</td>
 <td style="text-align: left">string</td>
 <td>Filled quantity</td>
 </tr>
 <tr>
-<td style="text-align: left">fees</td>
+<td style="text-align: left">execFee</td>
 <td style="text-align: left">string</td>
 <td>Trading fees</td>
-</tr>
-<tr>
-<td style="text-align: left">feeRate</td>
-<td style="text-align: left">string</td>
-<td>Taker or maker fee rate</td>
 </tr>
 <tr>
 <td style="text-align: left">execType</td>
@@ -5635,6 +5619,29 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <h2 id='exec-type'>Exec Type</h2>
 <ul>
 <li><code>TRADE</code></li>
+</ul>
+<h2 id='stop-order-type'>Stop Order Type</h2>
+<ul>
+<li><code>Stop</code></li>
+<li><code>TakeProfit</code></li>
+<li><code>StopLoss</code></li>
+<li><code>TrailingStop</code></li>
+<li><code>TrailingProfit</code></li>
+<li><code>PartialTakeProfit</code></li>
+<li><code>PartialStopLoss</code></li>
+</ul>
+<h2 id='cancel-type'>Cancel Type</h2>
+<ul>
+<li><code>CancelByUser</code></li>
+<li><code>CancelAllBeforeLiq</code></li>
+<li><code>CancelAllBeforeAdl</code></li>
+<li><code>CancelByReduceOnly</code></li>
+<li><code>CancelBySettle</code></li>
+<li><code>CancelByCannotAffordOrderCost</code></li>
+<li><code>CancelByPmTrialMmOverEquity</code></li>
+<li><code>CancelByAccountBlocking</code></li>
+<li><code>CancelByDelivery</code></li>
+<li><code>CancelByMmpTriggered</code></li>
 </ul>
 <h1 id='t-errors'>Errors</h1>
 <p>The Bybit API uses the following HTTP codes and error codes<span>:</span></p>
