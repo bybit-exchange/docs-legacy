@@ -346,7 +346,6 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
-|from |false |int |t(:row_comment_from)|
 |limit |false |int |t(:row_comment_limit_liq)|
 
 <p class="fake_header">t(:responseparameters)</p>
