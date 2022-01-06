@@ -711,7 +711,6 @@ t(:websocket_aside_instrumentInfo2)
 |updated_at |string |t(:row_comment_updated_at)  |
 |next_funding_time |string |t(:row_comment_resp_next_funding_time)  |
 |countdown_hour |integer |t(:row_comment_resp_countdown_hour)  |
-|funding_rate_interval |number |t(:row_comment_resp_funding_rate_interval) |
 
 
 ### t(:websocketklineV2)
