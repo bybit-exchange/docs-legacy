@@ -1,5 +1,5 @@
 # t(:changelog)
-## 2021-12-28
+## 2021-12-06
 ### REST API
 - [t(:switchpositionmode)](#t-switchpositionmode) [t(:changelog_new)]
 - [t(:placeactive)](#t-placeactive) [t(:changelog_update)]

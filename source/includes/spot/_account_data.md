@@ -53,8 +53,8 @@ print(session.place_active_order(
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/spot/v1/order</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+<code><span id=svPostOrder>/spot/v1/order</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svPostOrder"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
@@ -141,19 +141,15 @@ t(:getactive)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpoList>/spot/v1/order</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=svGetOrder>/spot/v1/order</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svGetOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|orderId|false|string|t(:spotOrderId)|
-|orderLinkId|false|string|t(:spotOrderLinkId)|
-
-<aside class="notice">
-t(:spotGetOrderRemark)
-</aside>
+|orderId|false|string|t(:misc_row_comment_orderIdNotOrderLinkId_spot)|
+|orderLinkId|false|string|t(:misc_row_comment_orderLinkIdNotOrderId_spot)|
 
 <p class="fake_header">t(:responseparameters)</p>
 
@@ -167,7 +163,7 @@ t(:spotGetOrderRemark)
 |orderId|long|t(:spotOrderId)|
 |price|float|t(:spotOPrice)|
 |origQty|float|t(:spotOriQty)|
-|executedQty|float|t(:spotExecQty)|
+|executedQty|float|t(:spotExecQty2)|
 |cummulativeQuoteQty|float|t(:spotCummulativeQuoteQty)|
 |avgPrice|float|t(:spotAvgPrice)|
 |t(:spot_row_parameter_orderStatus)|string|t(:spotStatus)|
@@ -225,20 +221,15 @@ print(session.cancel_active_order(
 
 <p class="fake_header">t(:httprequest)</p>
 DELETE
-<code><span id=vpoCancel>/spot/v1/order</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancel"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=svDeleteOrder>/spot/v1/order</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svDeleteOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|orderId|false|string|t(:spotOrderId)|
-|orderLinkId|false|string|t(:spotOrderLinkId)|
-
-<aside class="notice">
-t(:spotGetOrderRemark)
-</aside>
-
+|orderId|false|string|t(:misc_row_comment_orderIdNotOrderLinkId_spot)|
+|orderLinkId|false|string|t(:misc_row_comment_orderLinkIdNotOrderId_spot)|
 
 <p class="fake_header">t(:responseparameters)</p>
 
@@ -252,7 +243,7 @@ t(:spotGetOrderRemark)
 |transactTime|long|t(:spotTransactTime)|
 |price|float|t(:spotOPrice)|
 |origQty|float|t(:spotOriQty)|
-|executedQty|float|t(:spotExecQty)|
+|executedQty|float|t(:spotExecQty2)|
 |t(:row_parameter_timeInForce)|string|t(:row_comment_timeInForce)|
 |t(:row_parameter_type)|string|t(:spotOrderType)|
 |side|string|t(:spotSide)|
@@ -303,26 +294,21 @@ print(session.fast_cancel_active_order(
 
 
 <aside class="notice">
-t(:spotFastCancelTips)
+t(:spotNormalCancelTips)
 </aside>
 
 <p class="fake_header">t(:httprequest)</p>
 DELETE
-<code><span id=vpoCancel>/spot/v1/order/fast</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancel"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=svoFast>/spot/v1/order/fast</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svoFast"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|orderId|false|string|t(:spotOrderId)|
-|orderLinkId|false|string|t(:spotOrderLinkId)|
-|symbolId|true|string|t(:spotSymbol)|
-
-<aside class="notice">
-t(:spotGetOrderRemark)
-</aside>
-
+|symbolId|<b>true</b>|string|t(:spotSymbol)|
+|orderId|false|string|t(:misc_row_comment_orderIdNotOrderLinkId_spot)|
+|orderLinkId|false|string|t(:misc_row_comment_orderLinkIdNotOrderId_spot)|
 
 <p class="fake_header">t(:responseparameters)</p>
 
@@ -336,7 +322,7 @@ t(:spotGetOrderRemark)
 |transactTime|long|t(:spotTransactTime)|
 |price|float|t(:spotOPrice)|
 |origQty|float|t(:spotOriQty)|
-|executedQty|float|t(:spotExecQty)|
+|executedQty|float|t(:spotExecQty2)|
 |timeInForce|string|t(:row_comment_timeInForce)|
 |type|string|t(:spotOrderType)|
 |side|string|t(:spotSide)|
@@ -375,7 +361,7 @@ print(session.batch_cancel_active_order(
 ```
 
 <aside class="notice">
-t(:spotFastCancelTips)
+t(:spotCancelTips)
 </aside>
 
 <p class="fake_header">t(:httprequest)</p>
@@ -387,7 +373,7 @@ DELETE
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|true|string|t(:spotSymbol)|
+|symbol|<b>true</b>|string|t(:spotSymbol)|
 |side|false|string|t(:spotSide)|
 |<a href="#order-type-type-ordertypes">orderTypes</a>|false|string|t(:batchcancel_spotOrderTypes)|
 
@@ -438,14 +424,14 @@ t(:spotFastCancelTips)
 
 <p class="fake_header">t(:httprequest)</p>
 DELETE
-<code><span id=vpoCancel>/spot/order/batch-fast-cancel</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancel"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=soBatchFastCancel>/spot/order/batch-fast-cancel</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#soBatchFastCancel"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|true|string|t(:spotSymbol)|
+|symbol|<b>true</b>|string|t(:spotSymbol)|
 |side|false|string|t(:spotSide)|
 |orderTypes|fasle|string|t(:batchcancel_spotOrderTypes)|
 
@@ -492,19 +478,19 @@ print(session.batch_cancel_active_order_by_ids(
 ```
 
 <aside class="notice">
-t(:spotFastCancelTips)
+t(:spotNormalCancelTips)
 </aside>
 
 <p class="fake_header">t(:httprequest)</p>
 DELETE
-<code><span id=vpoCancel>/spot/order/batch-cancel-by-ids</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancel"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=soBatchCancelIds>/spot/order/batch-cancel-by-ids</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#soBatchCancelIds"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|orderIds|true|string|t(:spotCancelOrderIds)|
+|orderIds|<b>true</b>|string|t(:spotCancelOrderIds)|
 
 <p class="fake_header">t(:responseparameters)</p>
 
@@ -591,8 +577,8 @@ print(session.query_active_order(
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpoCancelAll>/spot/v1/open-orders</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancelAll"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=svOpenOrders>/spot/v1/open-orders</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svOpenOrders"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
@@ -615,7 +601,7 @@ GET
 |orderId|long|t(:spotOrderId)|
 |price|float|t(:spotOPrice)|
 |origQty|float|t(:spotOriQty)|
-|executedQty|float|t(:spotExecQty)|
+|executedQty|float|t(:spotExecQty2)|
 |cummulativeQuoteQty|float|t(:spotCummulativeQuoteQty)|
 |avgPrice|float|t(:spotAvgPrice)|
 |t(:spot_row_parameter_orderStatus)|string|t(:spotStatus)|
@@ -683,11 +669,13 @@ print(session.query_active_order(
 }
 ```
 
-
+<aside class="notice">
+t(:spotOrdersHistoryTips)
+</aside>
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpoReplace>/spot/v1/history-orders</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoReplace"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=svHistoryOrders>/spot/v1/history-orders</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svHistoryOrders"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -695,6 +683,8 @@ GET
 |symbol|false|string|t(:spotSymbol)|
 |orderId|false|string|t(:spotOrderId4Pagination)|
 |limit|false|integer|t(:spot_order_list_limit)|
+|startTime|false|long|t(:spot_start_time)|
+|endTime|false|long|t(:spot_end_time)|
 
 <p class="fake_header">t(:responseparameters)</p>
 
@@ -708,7 +698,7 @@ GET
 |orderId|long|t(:spotOrderId)|
 |price|float|t(:spotPrice)|
 |origQty|float|t(:spotOriQty)|
-|executedQty|float|t(:spotExecQty)|
+|executedQty|float|t(:spotExecQty2)|
 |cummulativeQuoteQty|float|t(:spotCummulativeQuoteQty)|
 |avgPrice|float|t(:spotAvgPrice)|
 |t(:spot_row_parameter_orderStatus)|string|t(:spotStatus)|
@@ -754,6 +744,7 @@ print(session.user_trade_records(
             "symbol": "BTCUSDT",
             "symbolName": "BTCUSDT",
             "orderId": "931975236946097408",
+            "ticketId": "1057753175328833537",
             "matchOrderId": "931975113180558592",
             "price": "20000.00001",
             "qty": "0.01",
@@ -775,7 +766,9 @@ print(session.user_trade_records(
 }
 ```
 
-
+<aside class="notice">
+t(:spotTradesHistoryTips)
+</aside>
 <p class="fake_header">t(:httprequest)</p>
 GET
 <code><span id=svMyTrades>/spot/v1/myTrades</span></code>
@@ -788,7 +781,8 @@ GET
 |limit|false|integer|t(:spot_trades_history_limit)|
 |fromId|false|integer|t(:spot_from_id)|
 |toId|false|integer|t(:spot_to_id)|
-
+|startTime|false|long|t(:spot_start_time)|
+|endTime|false|long|t(:spot_end_time)|
 
 <p class="fake_header">t(:responseparameters)</p>
 
@@ -797,6 +791,7 @@ GET
 |symbol|string|t(:spotSymbol)|
 |id| int |t(:spotId)|
 |orderId|integer|t(:spotOrderId)|
+|ticketId|integer|t(:spotTicketId)|
 |price|float|t(:spotPrice)|
 |qty|float|t(:spotQty)|
 |commission|float|t(:spotCommission)|

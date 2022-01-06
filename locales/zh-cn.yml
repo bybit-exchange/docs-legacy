@@ -14,7 +14,7 @@ zh-cn:
   codequote_responseExampleFormatAll: 響應示例
   codequote_curlExample: 請求示例
   codequote_subscribe: 請求訂閱
-  spot_transactId: 交易ID
+  spot_transactId: 成交ID
   spot_time: 時間
   spot_message: 是否成功
   spot_sMessage: 是否成功
@@ -179,7 +179,7 @@ zh-cn:
   row_comment_rate_limit: 頻率限製
   row_comment_path: 請求路徑
   row_comment_consume: 消耗
-  row_comment_order: 按創建時間排序
+  row_comment_order: 按創建時間排序（默認升序）
   row_comment_interval: 數據更新頻率. 枚舉值： 1 3 5 15 30 60 120 240 360 720 "D" "M" "W"
   row_comment_from_timestamp: 起始時間戳（單位秒）
   row_comment_limit_200: 每頁數量, 最大200. 默認每頁200條
@@ -264,7 +264,8 @@ zh-cn:
   row_comment_buy_ratio: 多倉人數占比
   row_comment_sell_ratio: 空倉人數占比
   request_disable: 此接口不再推薦使用!
-
+  row_comment_tp_sl_mode: 止盈止損模式 <code>Full</code> or <code>Partial</code>
+  row_comment_mode: 倉位模式，  <code>MergedSingle</code> or <code>BothSide</code>
 
 
   row_response_comment_price: 委托價格
@@ -315,7 +316,7 @@ zh-cn:
   row_comment_tx_id: 交易哈希ID
   row_comment_address: 地址
   row_comment_submited_at: 提交時間
-  row_response_liq_record_side: 強平訂單的方向
+  row_response_liq_record_side: 被強平倉位的方向
   row_comment_max_leverage: 最大杠桿
 
 
@@ -578,7 +579,6 @@ zh-cn:
   ### Query Symbol
   querysymbol: 查詢合約信息
   market_para_querySymbol: 獲取合約信息.
-  spot_querysymbol: 查詢信息
 
   ### Query Liquidated Orders
   query_liqrecords: 查詢強平訂單數據
@@ -777,8 +777,9 @@ zh-cn:
   wallet_aside_walletRecords1: 如果用戶不通過<code>coin</code>傳入<code>USDT</code>，USDT記錄將不會被返回給用戶。
   ### Withdraw Records
   withdrawrecords: 提幣記錄
-  wallet_para_withdrawRecords: 查詢提幣記錄。
-  wallet_aside_withdrawRecords: 請註意該接口數據和<code>資金記錄</code>中<code>Withdraw</code>類型數據的區別：
+  wallet_para_withdrawRecords: |
+    <p>查詢提幣記錄。</p>
+    <p>請註意該接口數據和<code>資金記錄</code>中<code>Withdraw</code>類型數據的區別：</p>
     <p>在該接口中，一次提幣申請對應一條記錄，並且有<code>status</code>字段表示當前提幣狀態。</p>
     <p>在<code>資金記錄</code>接口中，一旦用戶申請提幣，就會產生一條<code>Withdraw</code>類型的數據，並且當提幣申請取消、過期、或審核拒絕的時候，資金記錄中會再新增一條<code>Refund</code>類型的數據。</p>
 
@@ -1101,22 +1102,30 @@ zh-cn:
   websocket_para_orderbook252: |
     <p>訂閱成功後, 會立即得到一個當前快照包的推送信息. orderbook數據按訂單價格升序排列, 從最低價格的買單到最高價格的賣單.</p>
     <p>快照包之後，每當orderbook發生變化，websocket都會推送這些變化的增量數據.</p>
+    <p>推送頻率：<b>20ms</b></p>
   ### orderBookL2_200
   websocketorderbook200: orderBook200檔
   websocket_para_orderbook200: |
     <p>獲取200檔orderbook數據.</p>
     <p>訂閱成功後, 會立即得到一個當前快照包的推送信息. orderbook數據按訂單價格升序排序, 從最低價格的買單到最高價格的賣單.</p>
     <p>快照包之後，每當orderbook發生變化，websocket將會繼續推送這些增量數據.</p>
+    <p>推送頻率：<b>100ms</b></p>
   ### trade
   websockettrade: 平臺成交
-  websocket_para_trade: 獲取Bybit平臺最近成交數據.
+  websocket_para_trade: |
+    <p>獲取Bybit平臺最近成交數據.</p>
+    <p>推送頻率：<b>100ms</b></p>
   ### insurance
   websocketinsurance: 保險基金
-  websocket_para_insurance: 獲取保險基金數據.
+  websocket_para_insurance: |
+    <p>獲取保險基金數據.</p>
+    <p>推送頻率：<b>每天 20:00 UTC </b></p>
   websocket_aside_insurance: 註意<code>wallet_balance</code>的單位為<code>聰</code>, 1聰等於一百萬分之一個比特幣.
   ### instrument_info
   websocketinstrumentInfo: 行情
-  websocket_para_instrumentInfo: 獲取合約的最新數據.
+  websocket_para_instrumentInfo: |
+    <p>獲取合約的最新數據.</p>
+    <p>Push frequency: <b>100ms</b></p>
   websocket_aside_instrumentInfo1: |
     註意，該topic只會推送<code>update</code>數據. <code>delete</code>和<code>insert</code>數據都為空. 如果<code>update</code>數據也為空,則表明信息沒有發生變化.
   websocket_aside_instrumentInfo2: |
@@ -1133,6 +1142,7 @@ zh-cn:
     <li>W</li>
     <li>M</li>
     </ul>
+    <p>推送頻率：<b>1-60s</b></p>
   websocket_aside_klineV2: |
     註意如果字段<code>confirm</code>為<code>True</code>, 則表明這是這根K線的最後一個tick；否則，這只是一個快照數據，即中間價格
   websocketkline: K線
@@ -1331,7 +1341,7 @@ zh-cn:
   account_asset_err_90011: 獲取子賬戶列表失敗
 
   err_10000: 處理請求時發生未知錯誤
-  err_10001: 內部錯誤; 無法處理您的請求。 請再試一次.
+  err_10001: 參數錯誤
   #spot
   err_1001: 參數錯誤
   err_1002: 您無權執行此請求。請求需要發送API Key，我們建議在所有的請求中都附加API Key
@@ -1684,6 +1694,8 @@ zh-cn:
   linear_account_para_addMargin: 追加保證金
   linear_account_row_comment_margin: 增加/減少多少保證金,增加10，減少-10，支持小數後4位
 
+  linear_comment_positionmode: 倉位模式<span>:</span> MergedSingle - 單倉模式  BothSide - 雙倉模式
+
   ## inverse Perpetual
   account_aside_switchpositionmode: 僅在Testnet環境可用
 
@@ -1756,6 +1768,7 @@ zh-cn:
   linear_private_switchmode: 切換止盈止損模式至全倉或部分
   linear_row_comment_limit: 每頁數量, 最大50. 默認每頁20條，最多50條每頁
   linear_row_comment_limit_50_200: 每頁數量, 最大200. 默認每頁50條，最多200條每頁
+  restapi_update_20211228: 移除 <a href="#t-publictradingrecords">平臺交易歷史數據</a> 入參中的 <code>from</code> 字段。
   restapi_update_20200417_1: 新增 <code>BTCUSDT</code> 至orderbook
   restapi_update_20200417_2: 新增 <code>BTCUSDT</code> 至合約最新信息
   restapi_update_20200417_3: 新增 <code>trade_time_ms</code> 字段
@@ -1851,6 +1864,11 @@ zh-cn:
 
   restapi_update_2021101201: 修復USDT合約<a href="#t-querysymbol">Query Symbol</a>接口中<code>price_scale</code>返回參數。
 
+  restapi_update_20211206: 请求参数和返回参数新增<code>position_idx</code>
+  restapi_update_20211206_1: 请求参数新增<code>position_idx</code>
+  restapi_update_20211206_2: 返回参数新增<code>position_idx</code>
+
+
   ws_update_20210202_0: 新增字段<code>reduce_only</code>和<code>close_on_trigger</code>
   ws_update_20210202_1: 新增字段<code>close_on_trigger</code>
 
@@ -1903,7 +1921,9 @@ zh-cn:
   restapi_update_20210917: 我們於 2021 年 9 月 17日上線 正向合約Liquidation WebSocket API推送強平訂單， 此次調整旨在打造更加公平的交易環境，防止一些交易者通過強平訂單數據提前獲取市場信息，搶跑強平引擎。 請務必於 2021 年 9 月 24 日前調整代碼，以確保流暢的交易體驗。 感謝您一直以來的支持！
   markpricekline: 標記價格K線
   websocketliquidation: 平臺強平推送
-  websocket_query_liqrecords: 查詢平臺強平推送
+  websocket_query_liqrecords: |
+    <p>查詢平臺強平推送.</p>
+    <p>推送頻率：<b>實時的</b></p>
   linear_query_mark_price_kline: 查詢標記價格K線
   linear_resp_field_last_exec_price: 最近成交價格
   linear_resp_field_cum_exec_qty: 累計成交數量
@@ -1970,7 +1990,7 @@ zh-cn:
   spotCategory: symbol 所在分區:1主類別
   spotQuoteAssetVolume: 行情資產數量
 
-  spotId: 交易ID
+  spotId: 與 API 使用無關。 該字段反映了網站<a href="https://www.bybit.com/user/assets/order/spot-history/active">交易歷史</a>中“交易ID”的一部分
   spotQty: 交易數量
   spotQtyPlaceOrder: |
     交易數量(<b>市價買單即<code>type=Market</code>且<code>side=Buy</code>時qty指的是quote currency；比如BTCUSDT的qty指的是USDT的qty, 而非市價買單時qty指向都是BTC</b>)
@@ -1981,7 +2001,6 @@ zh-cn:
   spotIsMaker: true=Maker false=Taker
   spotSymbolName: 現貨幣對名稱
   spotIcebergQty: 請忽略
-  spotGetOrderRemark: orderId和ordersLinkId至少要輸入一個。
   spotCummulativeQuoteQty: 對於某些歷史數據 `cummulativeQuoteQty` 可能會 < 0, 這說明數據當前不可用。
   spotStopPrice: 停止價
   spot_kline_interval: K線圖區間。可識別發送的值為：1m, 5m, 15m, 30m, 1h, 1d, 1W, 1M (m=分鐘, h=小時, d=天, w=星期, M=月)
@@ -2002,11 +2021,13 @@ zh-cn:
   spotPrice: 訂單價格，對於LIMIT 訂單必需發送
   spotOrderId: 訂單ID
   spotOrderId4Pagination: 通過指定訂單ID返回比這個orderId小的訂單,可以用來分頁
+  spotTicketId: 成交ID
   spotFees: 訂單的手續費
   spotOriQty: 訂單數量
   spotFeeTokenId: 手續費 Token ID
   spotFeeTokenName: 手續費 Token 名稱
   spotExecQty: 請忽略
+  spotExecQty2: 成交數量
   spotIgnore: 請忽略
   spot_balances: 賬戶余額
   spotAvgPrice: 訂單已成交的平均價格
@@ -2030,6 +2051,8 @@ zh-cn:
   tradehistory: 交易記錄
   spot_from_id: 從此tradeId 開始查詢
   spot_to_id: 以此tradeId為終點
+  spot_start_time: 起始時間戳（單位毫秒）
+  spot_end_time: 結束時間（單位毫秒）
 #  balance: 賬號余額
   spot_token: 幣種
   spot_total: 總額
@@ -2076,12 +2099,14 @@ zh-cn:
   spotOrderTypes: 可選訂單類型, LIMIT/LIMIT_MAKER，可用英文逗號拼接表示多個類型。不傳默認為LIMIT。
   spotCancelOrderIds: 訂單號, 可用英文逗號拼接表示多個訂單, 不超過100個。
   spot_ticket_id: ticket id
-  spot_match_order_id: 撮合訂單id
+  spot_match_order_id: 對手交易者的order_id
   spot_account_id: 賬戶id
   spot_match_account_id: 撮合賬戶id
-#  spotCancelTips：此接口只提交取消請求，實際取消結果需要通過訂單狀態，撮合狀態等接口來確認。(這是個同步結算接口)
-#  spotFastCancelTips: 此接口只提交取消請求，實際取消結果需要通過訂單狀態，撮合狀態等接口來確認。(這是個異步結算接口)
-  spotFastCancelTips: 此接口只提交取消請求，實際取消結果需要通過訂單狀態，撮合狀態等接口來確認。
+  spotCancelTips: 此接口只提交取消請求，實際取消結果需要通過訂單狀態，撮合狀態等接口來確認。(這是個同步結算接口)
+  spotFastCancelTips: 此接口只提交取消請求，實際取消結果需要通過訂單狀態，撮合狀態等接口來確認。(這是個異步結算接口)
+  spotNormalCancelTips: 此接口只提交取消請求，實際取消結果需要通過訂單狀態，撮合狀態等接口來確認。
+  spotTradesHistoryTips: 如果不傳<code>startTime</code>，只能查詢最近7天的交易數據。如果要查詢一周之前的歷史交易數據，需要傳startTime
+  spotOrdersHistoryTips: 如果不傳<code>startTime</code>，只能查詢按時間倒序的下單數據。
   row_parameter_timeInForce: <a href="#time-in-force-timeinforce">timeInForce</a>
 
   #spot_ws_v1
@@ -2140,14 +2165,14 @@ zh-cn:
   spot_websocket_trade_v1: 逐筆交易
   spot_websocket_trade_desc_v1: |
     <p>逐筆交易推送每一筆成交的信息。成交，或者說交易的定義是僅有一個吃單者與一個掛單者相互交易。</p>
-    <p>在成功連接到服務器後，服務器首先會推送一條最近的60條成交。在這條推送之後，每條推送都是實時的成交。</p>
+    <p>在成功連接到服務器後，服務器首先會推送一條最近的60條成交。在這條推送之後，每條推送都是最新實時的成交。</p>
     <p>變量「v」可以理解成一個交易ID。這個變量是全局遞增的並且獨特的。</p>
 
   spot_websocket_ticker_v1: Symbol的Ticker
   spot_websocket_ticker_desc_v1: 按Symbol刷新的24小時完整ticker信息。
   spot_websocket_kline_v1: K線/蠟燭圖
   spot_websocket_kline_desc_v1: |
-    <p>K線數據.</p>
+    <p>K線數據推送信息.</p>
     <p>訂閱不同的Kline時間間隔; 一分鐘K線<code>kline_1m</code>, 一小時K線<code>kline_1h</code> etc.  可選的時間間隔請點擊<a href="#kline-interval-interval">這裏</a>.</p>
 
   spot_broker_info: brokerinfo數據返回
@@ -2169,11 +2194,16 @@ zh-cn:
     <p>這個訂閱會推送全量深度信息，因此數據量大。如果想要推送評率更快，請訂閱合並深度。</p>
 
   spot_websocket_orderbook_merge_v1: 訂單簿(合並深度)
-  spot_websocket_orderbook_merge_desc_v1: 這個訂閱必須傳dumpScale（合並精度）這個參數。dumpScale不能大於ticker的精度。你可以在brokerInfo這個端點查詢ticker的精度信息。
+  spot_websocket_orderbook_merge_desc_v1: ｜
+    <p>聚合訂單簿數據推送</p>
+    <p>這個訂閱必須傳dumpScale（合並精度）這個參數。dumpScale不能大於ticker的精度。你可以在brokerInfo這個端點查詢ticker的精度信息。</p>
+    <p>举例：<code>1</code> -> <code>50000.5</code>; <code>0</code> -> <code>50000</code>.</p>
+    <p>無論 dumpScale 如何，单邊推送 40 個深度信息</p>
 
   spot_websocket_orderbook_delta_v1: 訂單簿(增量深度)
   spot_websocket_orderbook_delta_desc_v1: |
-    <p>推送訂單簿的變化部分（如果有）。第一次推送的是全量的訂單簿，接下來推送增量部分。</p>
+    <p>推送訂單簿的變化部分（如果有）。第一次推送的是全量的訂單簿（单邊推送 200 個深度信息），接下來推送增量部分。</p>
+    <p>有關使用此主題維護本地訂單簿的邏輯。请看Python 示例：<a href="https://github.com/verata-veritatis/pybit/blob/8a647208dbdce1519de3fbce172d3dcf2141ccaf/pybit/__init__.py#L2279"></a>.</p>
     <p>在增量深度信息中，數量不一定等於對應價格的數量。如果數量=0，這說明在上一條推送中的這個價格已經沒有了。如果數量>0，這時的數量為更新後的這個價格所對應的數量。</p>
     <p>假設我們收到的返回數據中有這樣一條：</p>
     <p>&nbsp;&nbsp;> ["0.00181860", "155.92000000"] // 價格，數量</p>
@@ -2211,7 +2241,6 @@ zh-cn:
 
   spot_websocket_kline_v2: K線/蠟燭圖
   spot_websocket_kline_desc_v2: |
-    <p>K線stream逐秒推送所請求的K線種類(最新一根K線)的更新</p>
     <p>訂閱Kline需要提供間隔參數，最短為分鐘線，最長為月線。支持以下間隔:</p>
     <p>m -> 分鐘; h -> 小時; d -> 天; w -> 周; M -> 月</p>
       <ul>
@@ -2233,7 +2262,6 @@ zh-cn:
   spot_websocket_trade_v2: 逐筆交易
   spot_websocket_trade_desc_v2: |
     <p>逐筆交易推送每一筆成交的信息。成交，或者說交易的定義是僅有一個吃單者與一個掛單者相互交易。</p>
-    <p>在成功連接到服務器後，服務器首先會推送一條最近的60條成交。在這條推送之後，每條推送都是實時的成交。</p>
     <p>變量「v」可以理解成一個交易ID。這個變量是全局遞增的並且獨特的。例如：假設過去5秒有3筆交易發生，分別是ETHUSDT、BTCUSDT、BHTBTC。它們的「v」會為連續的值（112，113，114）。</p>
 
   spot_websocket_orderbook_v2: 訂單簿(全量深度)
@@ -2255,7 +2283,7 @@ zh-cn:
     <p>這個訂閱會推送全量深度信息，因此數據量大。如果想要推送評率更快，請訂閱合並深度。</p>
 
   spot_websocket_symbol_ticker_v2: symbol的Ticker
-  spot_websocket_symbol_ticker_desc_v2: ''
+  spot_websocket_symbol_ticker_desc_v2: 交易對的 24 小時統計數據。
 
   spot_public_websocket_frequency_300_delay_400: <b>300ms</b>推送一次，最大延遲<b>400ms</b>。
   spot_public_websocket_frequency_300_delay_650: <b>300ms</b>推送一次，最大延遲<b>650ms</b>。
@@ -2304,7 +2332,8 @@ zh-cn:
   usdcList: 列表
   usdcSymbol: 合約名稱
   usdcTickerInfo: 合約最新信息
-  usdcOrderBookSide: 買賣方向, 期權ASK or BID， 期貨 Buy or Sell
+  usdcOrderBookSide: 買賣方向, ASK or BID
+  usdcPerpOrderBookSide: 買賣方向, Buy or Sell
   usdcVolume: 交易量
   usdcSize: 倉位
   usdcOrderBook: OrderBook
@@ -2354,17 +2383,17 @@ zh-cn:
   usdcQuoteCoin: 結算幣種
   usdcTakerFeeRate: taker手續費率
   usdcMakerFeeRate: maker手續費率
-  minLeverage: 最小槓桿數， 僅限期貨
-  maxLeverage: 最大槓桿數， 僅限期貨
-  leverageStep: 槓桿增加或減少數量， 僅限期貨
+  minLeverage: 最小槓桿數
+  maxLeverage: 最大槓桿數
+  leverageStep: 槓桿增加或減少數量
   minPrice: 最小委託價格
   maxPrice: 最大委託價格
   tickSize: 價格最小變動單位
   minTradingQty: 最小委託數量
   maxTradingQty: 最大委託數量
   qtyStep: 合約數量最小單位
-  deliveryFeeRate: 交割費率， 僅限期權使用
-  deliveryTime: 交割時間，精確到毫秒， 僅限期權使用
+  deliveryFeeRate: 交割費率
+  deliveryTime: 交割時間，精確到毫秒
   timestamp: 時間戳
   usdcValue: 訂單價值
 
@@ -2458,29 +2487,28 @@ zh-cn:
     期权鑒權接口（即需要簽名的接口）的限頻規則是每秒不超過20次
   usdc_websocket_subscribe_desc: |
     <p>訂閱:</p>
-    <p>ws.send(‘{“method”:“public/subscribe”,“id”:“{uuid}“,”params”:{“channels”:[“topic1",“topic2”]}}‘)</p>
+    <p>ws.send('{"method":"public/subscribe","id":"{uuid}","params":{"channels":["topic1","topic2"]}}')</p>
     <p>或者 </p>
-    <p>ws.send(‘{“method”:“private/subscribe”,“id”:“{uuid}“,”params”:{“channels”:[“topic1",“topic2”]}}‘)</p>
+    <p>ws.send('{"method":"private/subscribe","id":"{uuid}","params":{"channels":["topic1","topic2"]}}')</p>
     <p>響應結果:</p>
-    <p>{“id”:“{uuid}“,”code”:0,“data”:{“successChannels”:[“topic1”],“failChannels”:[“topic2”]},“type”:“COMMAND_RESP”}</p>
+    <p>{"id":"{uuid}","code":0,"data":{"successChannels":["topic1"],"failChannels":["topic2"]},"type":"COMMAND_RESP"}</p>
   usdc_websocket_unsubscribe_desc: |
     <p>取消訂閱</p>
-    <p>ws.send(‘{“method”:“public/unsubscribe”,“id”:“{uuid}“,”params”:{“channels”:[“topic1",“topic2”]}}‘)  </p>
+    <p>ws.send('{"method":"public/unsubscribe","id":"{uuid}","params":{"channels":["topic1","topic2"]}}')  </p>
     <p>或者  </p>
-    <p>ws.send(‘{“method”:“private/unsubscribe”,“id”:“{uuid}“,”params”:{“channels”:[“topic1",“topic2”]}}’) </p>
+    <p>ws.send('{"method":"private/unsubscribe","id":"{uuid}","params":{"channels":["topic1","topic2"]}}’) </p>
     <p>響應結果: </p>
-    <p>{“id”:“{uuid}“,”code”:0,“data”:{“successChannels”:[“topic1”],“failChannels”:[“topic2”]},“type”:“COMMAND_RESP”}</p>
+    <p>{"id":"{uuid}","code":0,"data":{"successChannels":["topic1"],"failChannels":["topic2"]},"type":"COMMAND_RESP"}</p>
 
     <p>取消所有訂閱</p>
-    <p>{“method”:“public/unSubAll”,“id”:“requestId”}</p>
+    <p>{"method":"public/unSubAll","id":"requestId"}</p>
     <p>響應:</p>
-    <p> {“id”:“requestId”,“code”:0,“type”:“COMMAND_RESP”}</p>
+    <p> {"id":"requestId","code":0,"type":"COMMAND_RESP"}</p>
 
 
   usdc_websocket_para_orderbook: |
-    <p>獲取檔位範圍：25、100、200.</p>
+    <p>獲取檔位範圍：25、100.</p>
     <p>訂閱成功後, 會持續得到一個當前快照包的推送信息. </p>
-    <p>期權只能订阅25、100檔位</p>
     <p>topic的格式：orderbook25.{symbol} 或者 orderbook100.{symbol} </p>
     <p>比如orderbook25.BTC-5NOV21-30000-P 或者 orderbook100.BTC-5NOV21-30000-P</p>
 
@@ -2497,47 +2525,46 @@ zh-cn:
 
 
 
-  usdcOrderType: 訂單類型 （期權暫時不支持市價委託）
+  usdcOrderType: 參考 <a href="#order-type-type-ordertypes">訂單類型</a> （期權暫時不支持市價委託）
   optionIv: 期權iv, 小數點後保留叁位小數
   optionPlaceMode: 期權下單模式，高級或者是基礎模式下單,期貨不需傳，期權需要。 1：基礎模式下單，2：高級模式下單。如果1，orderQty和orderPrice是必傳字段。如果是2， 參照 placeType.
   optionPlaceType: 期權下單類型，價格或者iv下單.1：價格下單，2：iv下單。如果是1，則orderQty和orderPrice是必傳字段，為2表示iv和orderQty為必傳字段。
   optionOutRequestId: 外部訂單號，用作冪等， 期權場景必填，最大不成超過32位
   orderLinkId: 關聯訂單號，最大不成超過32位
-  usdcFutureTakeProfit: 止盈價格,期貨時使用
-  usdcFutureStopLoss: 止損價格,期貨時使用
-  slTriggerBy: 止損激活價格類型，默認為LastPrice,期貨時使用
-  tptriggerby: 止盈激活價格類型，默認為LastPrice,期貨時使用
+  usdcFutureTakeProfit: 止盈價格
+  usdcFutureStopLoss: 止損價格
+  slTriggerBy: 止損激活價格類型，默認為LastPrice
+  tptriggerby: 止盈激活價格類型，默認為LastPrice
 
 
-  triggerPrice: 觸發價格。期貨時使用
-  triggerBy: 觸發價格類型，默認為LastPrice，僅期貨場景使用 (暫時不支持條件單)
+  triggerPrice: 觸發價格
+  triggerBy: 觸發價格類型，默認為LastPrice， (暫時不支持條件單)
   positionIdx: 期貨時使用 0-One-Way Mode 1-Buy side of both side mode 2-Sell side of both side mode
   mmp: 僅在功能開啟後生效。true表示此訂單為mmp訂單（目前還未上線）
   reduceOnly: 只減倉
   closeOnTrigger: 觸發後平倉. 如果下平倉單，請設置為true，避免因為保證金不足而導致下單失敗
-  takeProfit: 止盈價格,期貨場景使用
-  stopLoss: 止損價格,期貨場景使用
+  takeProfit: 止盈價格
+  stopLoss: 止損價格
   usdcOrderId: 平台生成的訂單號
   uscdOrderType: 訂單類型
-  usdcOrderFilter: 期貨場景時時必填，判斷active order還是stop order
+  usdcOrderFilter:   参考  <a href="#order-filter">Order Filter</a>
   usdcReplaceOrderId: 期權場景必傳
-  usdcOrderLinkId: 期貨場景，orderId和orderLinkId二者必須傳一個
+  usdcOrderLinkId: orderId和orderLinkId二者必須傳一個
   cancelAllResponse: 取消所有活動單接口，實時返回的是受理成功或者失敗，根據retCode進行判斷
   usdcSymbolInfo: symbol不傳則查詢所有的symbol
   symbolStatus: symbol狀態 WAITING_ONLINE 待上線  ONLINE, 上線  DELIVERING, 交割中    OFFLINE  下線
 
   placeOrderInfo: |
     <p>本API提供了交易USDC保證金賬戶下的合約單筆下單模式。 </p>
-    <p>下單時需保證賬戶內有足夠的資金。一旦下單，根據訂單所需資金，您的賬戶資金將在訂單生命週期內凍結相應額度，被凍結的資金額度取決於訂單指定的參數。 </p>
     <p>本接口實時返回請求受理結果。 </p>
     <p>最終執行結果需要通過查詢或者ws推送獲知</p>
-  replaceInfo: 期權場景下，價格、數量、iv至少需要傳一個。期貨場景，價格、數量至少需要傳一個
+  replaceInfo: 價格、數量、iv至少需要傳一個。期貨場景，價格、數量至少需要傳一個
   leavesValue: 剩餘掛單數量對應的預估價值
   cumExecQty: 累計成交數量
   cumExecValue: 累計成交價值
   cumExecFee: 累計成交手續費
   im: 起始保證金
-  orderStatus: 訂單狀態
+  orderStatus: <a href="#order-status-status">訂單狀態</a>
   lastExecPrice: 最近一次成交價
   basePrice: 下單時市價
   createdAt: 創建時間
@@ -2585,28 +2612,28 @@ zh-cn:
   entryPrice: 平均入場價
   positionPnl: 平均入場價計算的未實現損益
   roi: 未結盈虧百分比
-  tpSlMode: 止盈止損模式, 僅限期貨
-  positionValue: 倉位價值,僅限期貨
-  liqPrice: 強平價格,僅限期貨
-  trailingStop: 追踪止損,僅限期貨
-  bustPrice: 破產價格,僅限期貨
-  occClosingFee: 倉位佔用的平倉手續費,僅限期貨
-  occFundingFee: 倉位size和當前資金費率預佔用資金費用,僅限期貨
-  trakeProfit: 止盈價格,僅限期貨
-  positionStatus: 倉位狀態，正常，強平，減倉,僅限期貨
-  deleverageIndicator: 風險指示燈等級（1，2，3，4，5）,僅限期貨
-  orderMargin: 委託預佔用保證金,僅限期貨
-  unrealisedPnl: 未結盈虧,僅限期貨
-  cumRealisedPnl: 累計已結盈虧,僅限期貨
-  cumCommission: 累計佣金,僅限期貨
+  tpSlMode: 止盈止損模式
+  positionValue: 倉位價值
+  liqPrice: 強平價格
+  trailingStop: 追踪止損
+  bustPrice: 破產價格
+  occClosingFee: 倉位佔用的平倉手續費
+  occFundingFee: 倉位size和當前資金費率預佔用資金費用
+  trakeProfit: 止盈價格
+  positionStatus: 倉位狀態，正常，強平，減倉
+  deleverageIndicator: 風險指示燈等級（1，2，3，4，5）
+  orderMargin: 委託預佔用保證金
+  unrealisedPnl: 未結盈虧
+  cumRealisedPnl: 累計已結盈虧
+  cumCommission: 累計佣金
 
-  trailingActive: 追踪止損觸發價格。追踪止損會在到達該價格後才會觸發（追踪止損默認立即觸發）,僅限期貨
-  slSize: 在部分止盈止損模式下，止損合約數量,僅限期貨
-  tpSize: 在部分止盈止損模式下，止盈合約數量,僅限期貨
+  trailingActive: 追踪止損觸發價格。追踪止損會在到達該價格後才會觸發（追踪止損默認立即觸發）
+  slSize: 在部分止盈止損模式下，止損合約數量
+  tpSize: 在部分止盈止損模式下，止盈合約數量
 
-  tradingStopTakeProfit: 止盈價格,不小於0,如果等於0則是取消止盈(TP),僅限期貨
-  tradingStopLoss: 止損價格,如果等於0則是取消止損(SL),僅限期貨
-  tradingTrailingStop: 不小於0,如果等於0則是取消追踪止損(TS),僅限期貨
+  tradingStopTakeProfit: 止盈價格,不小於0,如果等於0則是取消止盈(TP)
+  tradingStopLoss: 止損價格,如果等於0則是取消止損(SL)
+  tradingTrailingStop: 不小於0,如果等於0則是取消追踪止損(TS)
   userId: 用戶ID
   usdcId: 倉位id
   positionMargin: 倉位保證金
@@ -2614,7 +2641,7 @@ zh-cn:
 
   usdcLeverage: leverage必須大於0且小於最大可設置槓桿risk limit levarage
   endTime: 結束時間戳（單位秒）
-  execType: 交易類型(不能為"Funding")
+  execType: <a href="#exec-type">交易類型</a>
   closedSize: 平倉委託對應的平倉大小
   cumEntryValue: 被平掉的倉位價值
   cumExitValue: 平倉訂單累計成交價值
@@ -2664,11 +2691,11 @@ zh-cn:
   usdcturnover: 成交金額
   usdcconfirm: 是否確認
   usdcautoAddMargin: 是否自動追加保證金
-  isIsolated: 是否逐倉,僅限期貨
-  execValue: 倉位價值，僅限期貨
+  isIsolated: 是否逐倉
+  execValue: 倉位價值
   excPrice: 成交價格
   execQty: 成交數量
-  lastLiquidityInd: 流動性, 僅限期貨
+  lastLiquidityInd: <a href="#lastliquidityind">流動性</a>
   leavesQty: 剩餘委託數量
   createType: 下單操作的觸發場景
   cancelType: 取消操作的觸發場景
@@ -2693,12 +2720,11 @@ zh-cn:
   usdcLimitMax500: 默認500
 
   websocket_aside_heartbeat_option: |
-    <p>客戶端需要定時發送“ping“給Bybit，Bybit服務器返回heartbeat”pong“來顯示客戶端和服務器之間的連接正常。建議至少每30s發送一次。</p>
+    <p>客戶端需要定時發送"ping"給Bybit，Bybit服務器返回heartbeat"pong"來顯示客戶端和服務器之間的連接正常。建議至少每30s發送一次。</p>
     <p>如果客戶端沒有正常收到heartbeat的反饋，則需要檢查網絡連接狀態，並重新連接服務器。</p>
-    <p>如Bybit服務器，超過3分鐘沒有收到客戶端的“ping”，則服務器會判定客戶端已斷開鏈接（如實際未斷開，此時Bybit服務端也會主動斷開鏈接）。</p>
-    <p>如果服務器判定並斷開鏈接，且客戶處於開啟“斷線保護”的狀態，則客戶所有的Active order也會被自動全部取消。</p>
+    <p>如Bybit服務器，超過3分鐘沒有收到客戶端的"ping"，則服務器會判定客戶端已斷開鏈接（如實際未斷開，此時Bybit服務端也會主動斷開鏈接）。</p>
+    <p>如果服務器判定並斷開鏈接，且客戶處於開啟"斷線保護"的狀態，則客戶所有的Active order也會被自動全部取消。</p>
 
-  usdcMethodInfo: 所有接口均為POST接口
   usdc_auth_para_construct1: <p>1. 参数为json格式</p>
   resultTotalSize: 條數
   dataList: 返回結果list，參考如下的字段
@@ -2728,21 +2754,21 @@ zh-cn:
   udscGeeksDesc: |
     <p>topic:</p>
     <p>期權: user.option.greeks</p>
-  usdc_trading_symbol_comment: 您可以根據<a href="#querySymbolInfo">Query Symbol</a>接口獲取所有交易中的symbol
+  usdc_trading_symbol_comment: 您可以根據<a href="#t-querysymbolinfo">Query Symbol</a>接口獲取所有交易中的symbol
   usdcPriceRule:
     <ul>
-    <li>最大值1百萬 (<code>1000000</code>)</li>
+    <li>最大值1千萬 (<code>10000000</code>)</li>
     <li>必須是正數：
     <ul>
     <li><code>40</code> - 合法</li>
-    <li><code>40.01</code> - 合法</li>
+    <li><code>40.5</code> - 合法</li>
+    <li><code>40.1</code> - 非法</li>
     <li><code>-30.5</code> - 非法</li>
-    </ul>optionPlaceMode
     </li>
     </ul>
   usdcQuantity:
     <ul>
-    <li>最大值1百萬 (<code>1000000</code>)</li>
+    <li>最大值1千 (<code>1000</code>)</li>
     <li>必須是正數：
     <ul>
     <li><code>40</code> - 合法</li>
@@ -2753,9 +2779,9 @@ zh-cn:
     </ul>
 
 
-  usdcTptriggerby: 止盈激活價格類型，默認為MarkPrice,期貨時使用
-  usdcSlTriggerBy: 止損激活價格類型，默認為MarkPrice,期貨時使用
-  usdcTriggerBy: 觸發價格類型，默認為MarkPrice，僅期貨場景使用
+  usdcTptriggerby: 止盈激活價格類型，默認為MarkPrice
+  usdcSlTriggerBy: 止損激活價格類型，默認為MarkPrice
+  usdcTriggerBy: 觸發價格類型，默認為MarkPrice
   usdcSettleLogsDesc: 僅期貨場景使用
   riskLimitDesc:  僅期貨場景使用
   usdcQty: 數量
@@ -2794,7 +2820,160 @@ zh-cn:
   usdcTradeApi: 交易
   queryLatest500Trades: 最近500條成交記錄
   usdcTradeHistory: 成交記錄
-  usdcTransactionType:  參考 <a href="#transaction-type-transaction-type">Transaction type</a>
+  usdcTransactionType:  <a href="#transaction-type-transaction-type">Transaction type</a>
+  activeOrders: 活動單
+  usdcActiveOrder: |
+    <p>topic:</p>
+    <p>user.option.order</p>
+
+  usdcPerpCategory: 類型 PERPETUAL
+  usdcPerpOrderType: <a href="#order-type-type-ordertypes">訂單類型</a>
+  usdc_perp_websocket_para_endpoint: |
+    Websocket服務器地址（期權）:
+    <ul>
+    <p>
+      <li>測試網:
+        公共Topics: <span id="testnet_address">wss://stream-testnet.bybit.com/perpetual/ws/v1/realtime_public</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <br/>
+
+        私有Topics: <span id="testnet_address_2">wss://stream-testnet.bybit.com/trade/option/usdc/private/v1</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+      </li>
+    </p>
+    <p>
+
+    </p>
+    <p>所有private接口都需要認證，public 接口不需要認證.</p>
+    </ul>
+  usdc_perp_websocket_subscribe_desc: |
+    <p>訂閱:</p>
+    <p>公有:</p>
+    <p>ws.send('{"op": "subscribe", "args": ["orderBook_200.100ms.BTCPERP"]}')</p>
+    <p>響應結果:</p>
+    <p>{"success":true,"ret_msg":"","conn_id":"6808c806-6fe5-4001-9355-816babba3fcd","request":{"op":"subscribe","args":["orderBook_200.100ms.BTCPERP"]}}</p>
+
+    <p>私有:</p>
+    <p>ws.send('{"method":"private/subscribe","id":"{uuid}增量推送示例 - 快照數據推送後，推送的增量數據","params":{"channels":["user.option.order"]}}')</p>
+    <p>響應結果:</p>
+    <p>{"id":"requestId","code":0,"data":{"successChannels":["user.option.order"]},"usIn":1638415789932,"usOut":1638415789932,"usDiff":0,"type":"COMMAND_RESP"}</p>
+
+  usdc_perp_websocket_unsubscribe_desc: |
+    <p>取消訂閱</p>
+     <p>公有:</p>
+    <p>ws.send('{"op": "unsubscribe", "args": ["orderBook_200.100ms.BTCPERP"]}'); </p>
+    <p>響應結果:</p>
+    <p>{"success":true,"ret_msg":"","conn_id":"c53a9a5c-ff3a-443a-b56d-2cbd8552566f","request":{"op":"unsubscribe","args":["orderBook_200.100ms.BTCPERP"]}}</p>
+
+    <p>私有:</p>
+    <p>ws.send('{"method":"private/unsubscribe","id":"{uuid}","params":{"channels":["topic1","topic2"]}}’) </p>
+    <p>{"id":"{uuid}","code":0,"data":{"successChannels":["topic1"],"failChannels":["topic2"]},"type":"COMMAND_RESP"}</p>
+    <p>取消所有私有訂閱</p>
+    <p>{"method":"public/unSubAll","id":"requestId"}</p>
+    <p>響應:</p>
+    <p> {"id":"requestId","code":0,"type":"COMMAND_RESP"}</p>
+
+  usdc_perp_websocket_para_orderbook: |
+    <p>獲取檔位範圍：25或者200</p>
+    <p>訂閱成功後, 先推送全量數據包,再推送增量數據包</p>
+    <p>topic的格式：orderBookL2_25.{symbol} 或者 orderBook_200.100ms.{symbol}</p>
+    <p>orderBookL2_25.BTCPERP 或者 orderBook_200.100ms.BTCPERP</p>
+
+  usdc_current_24_total_perp:
+    <p>獲取Bybit平台最近的成交數據</p>
+    <p>topic的格式：trade.{symbol}</p>
+    <p>trade.BTCPERP</p>
+
+  usdc_perp_lastest_symbol_info: |
+    <p>topic的格式:</p>
+    <p>instrument_info.100ms.{symbol}</p>
+    <p>instrument_info.100ms.BTCPERP</p>
+  usdc_perp_position_desc: |
+    <p>topic:</p>
+    <p>user.perp.position</p>
+  usdc_perp_trade_history: |
+    <p>topic:</p>
+    <p>user.perp.trade</p>
+
+  usdc_perp_active_order: |
+    <p>訂閱此topic後,會收到所有的活動單數據</p>
+    <p>topic:</p>
+    <p>user.perp.order</p>
+  usdc_perp_leave_qty: 剩餘數量
+  usdc_perp_order_desc:  |
+    <p>topic:</p>
+    <p>user.perp.orderHistory</p>
+  usdc_perp_price_rule:
+    <ul>
+    <li>最大值1百萬 (<code>1000000</code>)</li>
+    <li>必須是正數：
+    <ul>
+    <li><code>40</code> - 合法</li>
+    <li><code>40.5</code> - 合法</li>
+    <li><code>40.1</code> - 非法</li>
+    <li><code>-30.5</code> - 非法</li>
+    </li>
+    </ul>
+  usdc_perp_quantity:
+    <ul>
+    <li>最大值1千 (<code>1000</code>)</li>
+    <li>必須是正數：
+    <ul>
+    <li><code>40</code> - 合法</li>
+    <li><code>40.001</code> - 合法</li>
+    <li><code>-30.5</code> - 非法</li>
+    </ul>
+    </li>
+    </ul>
+  usdc_perp_order_price: 訂單價格
+  usdc_ip_rate_para_understanding: |
+    <p> Bybit會基於請求IP做頻率限製，針對不同的請求方法有以下規則：</p>
+    <ul>
+    <li>
+      <code>GET</code>方法:
+      <ul>
+        <li>連續2分鐘內每秒不超過50個請求</li>
+        <li>連續5秒內每秒不超過70個請求</li>
+      </ul>
+    </li>
+    <li>
+      <code>POST</code>方法:
+      <ul>
+        <li>連續2分鐘內每秒不超過20個請求</li>
+        <li>連續5秒內每秒不超過50個請求</li>
+      </ul>
+    </li>
+    </ul>
+  usdc_perp_order_type: 參考 <a href="#order-type-type-ordertypes">訂單類型</a>
+  usdc_perp_active_orders_snapshot: 活動單(全部)
+  usdc_perp_active_orders_delta: 活動單(新增)
+  usdc_perp_active_order_delta_topic: |
+    <p>訂閱此消息後，會收到新增的活動單数据</p>
+    <p>topic:</p>
+    <p>user.perp.order.t</p>
+  usdc_unfilled_order_size: 剩餘數量
+  usdcMmp: 做市商保護
+  whatIsUsdcMmp: MMP
+  enableMmp: 開通
+  setUpMmp: 設置
+  usdcCurrency: 幣種
+  usdcWindowMs: 時間窗口(毫秒)
+  usdcFrozenPeriodMs: 凍結時間窗口(毫秒)
+  usdcQtyLimit: 數量上限
+  usdcDeltaLimit: delta 上限
+  whatIsUsdcMmpDesc: |
+    <p>做市商保護機制，旨在保護為平台提供流動性的做市商，防止在一定時間窗口內產生大量成交，導致流動性風險過度集中甚至擊穿某個做市商流動性。一旦某個賬戶在短時間內的總交易額超過了配置的限額，該賬戶的做市商保護將被觸發。</p>
+    <p>當做市商保護被觸發時，賬戶現有的做市商保護訂單（被標記為做市商保護的訂單）將被交易引擎自動取消，而該賬戶新的做市商保護訂單將在未來一段時間（稱為凍結期）被拒絕（常規非MMP訂單不受影響）。用戶可以利用這段時間重新評估行情並修改報價。</p>
+  enableMmpDesc: |
+    <p>您可通過郵件Bybit【financial.inst@bybit.com】或聯繫對應的客戶經理申請開通。</p>
+    <p></p>
+  usdcMmpDefault: 開通後，MMP的默認配置為
+
+
+  column_default: 默認值
+  usdcStopOrderType: 參考 <a href="#stop-order-type">Stop Order Type</a>
+  usdcCancelType: 參考 <a href="#cancel-type">Cancel Type</a>
+  usdcTradeId: Trade Id
 
   etp: ETP
   etp_para: 以下ETP接口都需要鑒權.

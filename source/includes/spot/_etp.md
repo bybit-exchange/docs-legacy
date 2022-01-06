@@ -45,7 +45,7 @@ curl https://api-testnet.bybit.com/spot/v1/etp/info \
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpoCreate>/spot/v1/etp/info</span></code>
+<code><span id=vpoCreate>/spot/etp/v1/info</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -112,7 +112,7 @@ curl https://api-testnet.bybit.com/spot/v1/etp/purchase \
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/spot/v1/etp/purchase</span></code>
+<code><span id=vpoCreate>/spot/etp/v1/purchase</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -172,7 +172,7 @@ curl https://api-testnet.bybit.com/spot/v1/etp/redeem \
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/spot/v1/etp/redeem</span></code>
+<code><span id=vpoCreate>/spot/etp/v1/redeem</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -233,7 +233,7 @@ POST
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpoCreate>/spot/v1/etp/record</span></code>
+<code><span id=vpoCreate>/spot/etp/v1/record</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -289,7 +289,7 @@ GET
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpoCreate>/spot/quote/v1/etp/reference</span></code>
+<code><span id=vpoCreate>/spot/etp/v1/reference</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
