@@ -276,7 +276,7 @@ GET
     "ret_code": 0,
     "ret_msg": null,
     "result": {
-    "symbol": "btc3lusdtnav",
+      "etpCode": "btc3lusdtnav",
       "nav": "12.12345678",
       "navTime": 1620917160000,
       "leverage": "2.12345678",
@@ -296,13 +296,13 @@ GET
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|<b>true</b>|string|t(:spotSymbol)|
+|etpCode|<b>true</b>|string|t(:spotEtpCode)|
 
 <p class="fake_header">t(:responseparameters)</p>
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|symbol|string|t(:spotSymbol)|
+|etpCode|string|t(:spotResEtpCode)|
 |nav|string|t(:spotEtpQuoteNav)|
 |navTime|long|t(:spotEtpQuoteNavTime)|
 |basket|string|t(:spotEtpQuoteBasket)|
