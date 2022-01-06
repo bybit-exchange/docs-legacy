@@ -610,7 +610,8 @@ while True:
          "updated_at": "2020-01-12T18:25:16Z",         
          "next_funding_time": "2020-01-13T00:00:00Z",  //next funding time
                                                        //the rest time to settle funding fee
-         "countdown_hour": 6                           //the remaining time to settle the funding fee
+         "countdown_hour": 6,                           //the remaining time to settle the funding fee
+         "funding_rate_interval": 8
          },
     "cross_seq":9267002,
     "timestamp_e6":1615794861826248
@@ -691,7 +692,7 @@ t(:websocket_aside_instrumentInfo2)
 |updated_at |string |t(:row_comment_updated_at)  |
 |next_funding_time |string |t(:row_comment_resp_next_funding_time)  |
 |countdown_hour |integer |t(:row_comment_resp_countdown_hour)  |
-
+|funding_rate_interval |integer |t(:row_comment_resp_funding_rate_interval) |
 
 ### t(:websocketklineV2)
 > t(:codequote_subscribe)

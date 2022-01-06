@@ -520,7 +520,8 @@ while True:
        "created_at": "1970-01-01T00:00:00.000Z",
        "updated_at": "2021-07-14T09:32:10.000Z",
        "next_funding_time": "2021-07-14T16:00:00Z",
-       "count_down_hour": "7",
+       "count_down_hour": 7,
+       "funding_rate_interval": 8,
        "bid1_price_e4": "322950000",
        "ask1_price_e4": "322955000"
        "bid1_price": "322950000",
@@ -609,6 +610,7 @@ t(:websocket_aside_instrumentInfo2)
 |updated_at |string |t(:row_comment_updated_at)  |
 |next_funding_time |string |t(:row_comment_resp_next_funding_time)  |
 |countdown_hour |number |t(:row_comment_resp_countdown_hour)  |
+|funding_rate_interval |integer |t(:row_comment_resp_funding_rate_interval) |
 |bid1_price_e4 |integer|t(:row_comment_bid1_price_e4)  |
 |ask1_price_e4 |integer|t(:row_comment_ask1_price_e4)  |
 |bid1_price |integer|t(:row_comment_bid1_price)  |
