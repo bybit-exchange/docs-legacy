@@ -10681,7 +10681,8 @@ The <code>wallet_balance</code> is in Satoshis, with one Satoshi being 100 milli
          <span class="dl">"</span><span class="s2">updated_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2020-01-12T18:25:16Z</span><span class="dl">"</span><span class="p">,</span>         
          <span class="dl">"</span><span class="s2">next_funding_time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2020-01-13T00:00:00Z</span><span class="dl">"</span><span class="p">,</span>  <span class="c1">//next funding time</span>
                                                        <span class="c1">//the rest time to settle funding fee</span>
-         <span class="dl">"</span><span class="s2">countdown_hour</span><span class="dl">"</span><span class="p">:</span> <span class="mi">6</span>                           <span class="c1">//the remaining time to settle the funding fee</span>
+         <span class="dl">"</span><span class="s2">countdown_hour</span><span class="dl">"</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>                           <span class="c1">//the remaining time to settle the funding fee</span>
+         <span class="dl">"</span><span class="s2">funding_rate_interval</span><span class="dl">"</span><span class="p">:</span> <span class="mi">8</span>
          <span class="p">},</span>
     <span class="dl">"</span><span class="s2">cross_seq</span><span class="dl">"</span><span class="p">:</span><span class="mi">9267002</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">timestamp_e6</span><span class="dl">"</span><span class="p">:</span><span class="mi">1615794861826248</span>
@@ -10889,6 +10890,11 @@ Some values use scientific notation. This is indicated by that value's key, whic
 <td style="text-align: left">countdown_hour</td>
 <td style="text-align: left">integer</td>
 <td>Countdown of settlement capital cost</td>
+</tr>
+<tr>
+<td style="text-align: left">funding_rate_interval</td>
+<td style="text-align: left">integer</td>
+<td>funding rate time interval, unit hour</td>
 </tr>
 </tbody></table>
 <h3 id='t-websocketklinev2'>klineV2</h3>
