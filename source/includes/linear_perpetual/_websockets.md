@@ -610,7 +610,7 @@ t(:websocket_aside_instrumentInfo2)
 |updated_at |string |t(:row_comment_updated_at)  |
 |next_funding_time |string |t(:row_comment_resp_next_funding_time)  |
 |countdown_hour |number |t(:row_comment_resp_countdown_hour)  |
-|funding_rate_interval |number |t(:row_comment_resp_funding_rate_interval) |
+|funding_rate_interval |integer |t(:row_comment_resp_funding_rate_interval) |
 |bid1_price_e4 |integer|t(:row_comment_bid1_price_e4)  |
 |ask1_price_e4 |integer|t(:row_comment_ask1_price_e4)  |
 |bid1_price |integer|t(:row_comment_bid1_price)  |
