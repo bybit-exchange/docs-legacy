@@ -2544,12 +2544,12 @@ en:
   withdraw_and_deposit: Withdraw and Deposit Endpoints
   depositsrecordquery: Query Deposit Records
   depositsrecorddesc: |
-    Rules：Only query the deposit records of spot accounts order by id in reverse order. The maximum difference between the start time and the end time is 30 days. 
+    Rules：Only query the deposit records of spot accounts order by id in reverse order. The maximum difference between the start time and the end time is 30 days.
   depositwithdrawstarttime: |
     start time (In Seconds).  Default value: 30 days before the current time
   depositwithdrawendtime: |
     end time (In Seconds). Default value: current time
-  depositcursorinfo: | 
+  depositcursorinfo: |
     cursor infomation: base64 {"minID":1,"maxID":32}.getByte().  Default value: ""
   depositcurrencyinfo: |
     coin name: for example, BTC.  Default value: all
@@ -2560,7 +2560,7 @@ en:
   deposit_response_chainname: chain name
   deposit_response_amt: deposit amount
   deposit_response_txid : |
-    transaction ID. withdrawal failed or withdrawal canceled: ""
+    transaction ID. deposit failed or deposit canceled: ""
   deposit_response_status: |
     <p>0=unknown<br>
     1=ToBeConfirmed <br>
@@ -2577,7 +2577,7 @@ en:
 
   withdrawrecordquery: Query Withdraw Records
   withdrawrecorddesc: |
-    Rule: order by id in reverse order. The maximum difference between the start time and the end time is 30 days. 
+    Rule: order by id in reverse order. The maximum difference between the start time and the end time is 30 days.
   withdraw_response_amt: withdrawal quantity
   withdraw_response_chainname: chain name
   withdraw_response_txid : |
@@ -2613,7 +2613,7 @@ en:
     Rules: order by id in reverse order, no pagination required. The frequency limit is consistent with the current online interface.
   coin_info_coin: Coin
   coin_info_name: Name
-  coin_info_remain_amt: Current maximum withdrawal amount 
+  coin_info_remain_amt: Current maximum withdrawal amount
   coin_info_chain_type: chain type
   coin_info_confirmation: deposit confirmation number
   coin_info_withdraw_fee: withdraw fee.  if withdraw fee is empty, It means that this coin does not support withdrawal
@@ -2624,13 +2624,13 @@ en:
   asset_info_account_type: |
     Account type. Default value: ACCOUNT_TYPE_SPOT
   asset_info_status: |
-    <p>status: ACCOUNT_STATUS_NORMAL -- NORMAL 
+    <p>status: ACCOUNT_STATUS_NORMAL -- NORMAL
     ACCOUNT_STATUS_UNSPECIFIED -- ABNORMAL </p>
   asset_info_frozen_balance: frozen balance
   asset_info_available_balance: available balance
   asset_info_withdraw: temporarily ""
 
-  withdraw: Withdraw 
+  withdraw: Withdraw
   withdraw_addr: address. Address verification whether there is a whitelist of withdrawal addresses
   withdraw_tag: Need to fill in if there is a tag
   withdraw_amount: |

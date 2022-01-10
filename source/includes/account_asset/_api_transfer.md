@@ -832,24 +832,12 @@ curl --location --request POST 'https://api-testnet.bybit.com/asset/v1/private/w
     "ret_code": 0,
     "ret_msg": "OK",
     "ext_code": "",
-    "result": {
-        "spot": {
-            "status": "ACCOUNT_STATUS_NORMAL",
-            "assets": [
-                {
-                    "coin": "BIT",
-                    "frozen": "0",
-                    "free": "90.62928",
-                    "withdraw": ""
-                }
-            ]
-        }
-    },
+    "result": {},
     "ext_info": null,
-    "time_now": 1641544103244,
-    "rate_limit_status": 56,
-    "rate_limit_reset_ms": 1641544103244,
-    "rate_limit": 4
+    "time_now": 1641798821116,
+    "rate_limit_status": 9,
+    "rate_limit_reset_ms": 1641798821116,
+    "rate_limit": 1
 }
 ```
 

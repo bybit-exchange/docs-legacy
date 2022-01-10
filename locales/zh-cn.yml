@@ -2325,7 +2325,115 @@ zh-cn:
   accountType_contract: 期貨賬戶
   accountType_investment: 理財賬戶
 
+#充值/提現API數據接口 -- 開始
+  withdraw_and_deposit: 充值與提現接口
+  depositsrecordquery: 充值記錄查詢
+  depositsrecorddesc: |
+    規則：只查詢現貨賬戶的充值記錄，按id倒序進行，開始時間和截止時間差最大限制為30天
+  depositwithdrawstarttime: |
+    開始時間 (精確到秒)。  默認為當前時間之前30天
+  depositwithdrawendtime: |
+    結束時間 (精確到秒)。 默認為當前時間
+  depositcursorinfo: |
+    游標信息：base64 {"minID":1,"maxID":32}.getByte()。 默認空
+  depositcurrencyinfo: |
+    幣種名：舉例，BTC。默認全部
+  depositlimitinfo: |
+    每頁條數。0< limit <=50 默認為50
+  depositdirectioninfo: |
+    上一頁Prev，下一頁 Next。默認下一頁
+  deposit_response_chainname: 鏈名
+  deposit_response_amt: 充值的數量
+  deposit_response_txid : |
+    交易ID。充值失敗/取消充值：為空
+  deposit_response_status: |
+    <p>0=未知<br>
+    1=待確認 <br>
+    2=上賬中 <br>
+    3=已完成 <br>
+    4=充值失敗 </p>
+  deposit_target_addr: 充值的目標地址
+  deposit_response_tag: 充值目標地址的tag
+  deposit_response_depositFee: 充值手續費
+  deposit_response_updateTime: 最後更新時間
+  deposit_response_cursor: |
+    游標信息：base64 {"minID":1,"maxID":32}.getByte()
+  deposit_response_currency_info: 充值的幣種
 
+  withdrawrecordquery: 提現記錄查詢
+  withdrawrecorddesc: |
+    規則：按id倒序進行，開始時間和截止時間差最大限制為30天
+  withdraw_response_amt: 提現的數量
+  withdraw_response_chainname: 鏈名
+  withdraw_response_txid : |
+    交易ID。提現失敗/提現撤銷：為空
+  withdraw_response_status: |
+    <table border=1><tr><th>接口返回值</th><th>對應c端狀態</th><th>狀態值</th></tr>
+    <tr><td>ToBeConfirmed</td><td></td><td>SecurityCheck</td></tr>
+    <tr><td>UnderReview</td><td>安全檢查</td><td>SecurityCheck</td></tr>
+    <tr><td>UnderFinalReview</td><td>安全檢查</td><td>SecurityCheck</td></tr>
+    <tr><td>Pending/td><td>進行中</td><td>Pending</td></tr>
+    <tr><td>Packed/td><td>進行中>/td><td>Pending</td></tr>
+    <tr><td>Download</td><td>進行中</td><td>Pending</td></tr>
+    <tr><td>Broadcasted</td><td>進行中</td><td>Pending</td></tr>
+    <tr><td>Success</td><td>轉賬成功</td><td>success</td></tr>
+    <tr><td>CancelByUser</td><td>已取消</td><td>CancelByUser</td></tr>
+    <tr><td>Reject</td><td>駁回</td><td>Reject</td></tr>
+    <tr><td>Expire</td><td>失敗</td><td>Fail</td></tr>
+    <tr><td>Processing</td><td>進行中</td><td>Pending</td></tr>
+    <tr><td>Fail</td><td>失敗</td><td>Fail</td></tr>
+    <tr><td>AutoReject</td><td>駁回</td><td>Reject</td></tr>
+    </table>
+  withdraw_target_addr: 提現目標地址
+  withdraw_response_tag: 提現目標地址的tag
+  withdraw_response_withdrawFee: 提現手續費
+  withdraw_response_updateTime: 提幣狀態更新時間
+  withdraw_response_createTime: 發起提幣時間
+  withdraw_response_cursor: |
+    游標信息：base64 {"minID":1,"maxID":32}.getByte()
+  withdraw_response_currency_info: 提現的幣種
+
+  coin_info_query: 幣種信息查詢
+  coin_info_desc: |
+    規則：按id倒序進行，無須分頁，限頻跟目前線上接口保持一致
+  coin_info_coin: 幣種
+  coin_info_name: 幣種名稱
+  coin_info_remain_amt: 該幣種當前最大可提現數量
+  coin_info_chain_type: 鏈名
+  coin_info_confirmation: 充值上賬確認數
+  coin_info_withdraw_fee: 提現手續費。如果提現費為空，則表示該幣不支持提現
+  coin_info_deposit_min: 最小充值數量
+  coin_info_withdraw_min: 最小提現數量
+
+  asset_info_query: 資產信息查詢
+  asset_info_account_type: |
+    賬戶類型。默認為現貨賬戶: ACCOUNT_TYPE_SPOT
+  asset_info_status: |
+    <p>賬戶狀態: ACCOUNT_STATUS_NORMAL -- 正常
+    ACCOUNT_STATUS_UNSPECIFIED -- 不正常 </p>
+  asset_info_frozen_balance: 掛單凍結金額
+  asset_info_available_balance: 可用餘額
+  asset_info_withdraw: 暫時沒有值
+
+  withdraw: 提現
+  withdraw_addr: 地址。地址校驗是否存在提現地址的白名單
+  withdraw_tag: 存在tag的需要填寫
+  withdraw_amount: |
+    提幣數量。規則：大於等於最小提幣金額，最小提幣金額可從幣種信息接口獲取。
+  withdraw_request_id: 提現單ID
+
+  cancel_withdraw: 撤銷提幣
+  cancel_withdraw_response: |
+    結果對象（撤單申請結果：1成功，0失敗）
+
+  deposit_addr_info: 充值地址信息查詢
+  deposit_addr_info_desc: |
+    規則：子賬號暫不支持充值
+  deposit_addr_chain_info: |
+    鏈名：從幣種信息中獲取；未填寫時返回全部
+  deposit_coin: 充值的幣種
+  deposit_address: 充值地址
+  deposit_tag: 充值tag
 
   #### usdc合約相关
   usdc: USDC合約
