@@ -1492,22 +1492,51 @@ en:
   account_asset_http_403: Access denied
   account_asset_http_404: Request path not found
   account_asset_err_0:    SUCCESS
-  account_asset_err_10001: Params Error
-  account_asset_err_10016: SvcErr
+  account_asset_err_10001: Parameter error
+  account_asset_err_10016: service is not available
   account_asset_err_38000: Processing
-  account_asset_err_38001: AvailableBalanceRunningLow
-  account_asset_err_38002: CannotBeTransfer
-  account_asset_err_90001: TransferAmountLessThanZero
-  account_asset_err_90002: TransferAmountScaleMore
-  account_asset_err_90003: TransferLTVCheckError
-  account_asset_err_90004: AccountNotFound
-  account_asset_err_90005: AccountNotFound
-  account_asset_err_90006: QueryTransferError
-  account_asset_err_90007: QuerySubMemberTransferError
-  account_asset_err_90008: QueryTransferIDRedisError
-  account_asset_err_90009: TransferIDExist
-  account_asset_err_90010: AccountTypeError
-  account_asset_err_90011: GetSubMemberRelationError
+  account_asset_err_38001: Insufficient available balance
+  account_asset_err_38002: Unable to transfer
+  account_asset_err_90001: The transfer amount is less than 0
+  account_asset_err_90002: The transfer amount accuracy is greater than 8
+  account_asset_err_90003: Transfer error, please contact customer service
+  account_asset_err_90004: Account not found
+  account_asset_err_90005: Check balance error
+  account_asset_err_90006: Query transfer error
+  account_asset_err_90007: Query sub-account transfer error
+  account_asset_err_90008: Query transfer ID error
+  account_asset_err_90009: Transfer ID already exists
+  account_asset_err_90010: The transfer-in account type cannot be used as the transfer-out account type
+  account_asset_err_90011: Failed to get the list of sub-accounts
+  account_asset_err_90012: Query withdrawal record error
+  account_asset_err_90013: Query recharge record error
+  account_asset_err_90014: Not support sub-accounts temporarily
+  account_asset_err_90015: This currency cannot be topped up
+  account_asset_err_90016: Recharge chain query error
+  account_asset_err_90029: Users in the gray period are not on the whitelist
+  account_asset_err_90030: The withdrawal address is not in the whitelist
+  account_asset_err_90031: User status is abnormal
+  account_asset_err_90032: User sensitive operation, withdrawal is prohibited within 24 hours
+  account_asset_err_90033: The system is under maintenance
+  account_asset_err_90034: Withdrawal of this currency has been closed
+  account_asset_err_90035: The withdrawal amount is less than the lower limit of a single withdrawal
+  account_asset_err_90036: The withdrawal amount is greater than the upper limit of a single withdrawal
+  account_asset_err_90037: Exceeded the upper limit of the platform's withdrawal limit on the day
+  account_asset_err_90038: Kyc limit exceeded
+  account_asset_err_90039: Spot market makers withdraw excess cash
+  account_asset_err_90040: Withdrawal is being processed
+  account_asset_err_90041: Spot account does not exist
+  account_asset_err_90042: Insufficient available balance in spot account
+  account_asset_err_90043: Insufficient available balance in contract account
+  account_asset_err_90044: Withdrawal failed
+  account_asset_err_90045: The withdrawal record does not exist
+  account_asset_err_90046: The withdrawal initiator is inconsistent
+  account_asset_err_90047: Hot wallet status cannot be cancelled
+  account_asset_err_90048: The withdrawal status does not allow cancellation
+  account_asset_err_90049: Failed to cancel withdrawal and add money
+  account_asset_err_90050: Blocked login status does not allow withdrawals
+  account_asset_err_90051: User withdrawal is blocked
+  account_asset_err_90052: Replay request denied
 
   #spot error
   err_1001: Request failed to be processed. Please try again.
@@ -1846,7 +1875,7 @@ en:
 
 
   ### Linear Cancel Active Order
-  linear_row_comment_qty: Order quantity in BTC
+  linear_row_comment_qty: Order quantity in USDT
   linear_row_comment_reduceOnly: <a href="https://help.bybit.com/hc/en-us/articles/360039260574-What-is-a-reduce-only-order-"> What is a reduce-only order?</a> True means your position can only reduce in size if this order is triggered. When <code>reduce_only</code> is true, take profit/stop loss cannot be set
   linear_row_comment_closeOnTrigger: <a href="https://help.bybit.com/hc/en-us/articles/360039260534-What-is-a-close-on-trigger-Order-">  What is a close on trigger order?</a> For a closing order. It can only reduce your position, not increase it. If the account has insufficient available balance when the closing order is triggered, then other active orders of similar contracts will be cancelled or reduced. It can be used to ensure your stop loss reduces your position regardless of current available margin.
   placeactive: Place Active Order
@@ -2510,6 +2539,117 @@ en:
   accountType_spot: ""
   accountType_contract: ""
   accountType_investment: "- ByFi Account"
+
+  #Withdraw/Deposit API Data Endpoints -- start
+  withdraw_and_deposit: Withdraw and Deposit Endpoints
+  depositsrecordquery: Query Deposit Records
+  depositsrecorddesc: |
+    Rules：Only query the deposit records of spot accounts order by id in reverse order. The maximum difference between the start time and the end time is 30 days. 
+  depositwithdrawstarttime: |
+    start time (In Seconds).  Default value: 30 days before the current time
+  depositwithdrawendtime: |
+    end time (In Seconds). Default value: current time
+  depositcursorinfo: | 
+    cursor infomation: base64 {"minID":1,"maxID":32}.getByte().  Default value: ""
+  depositcurrencyinfo: |
+    coin name: for example, BTC.  Default value: all
+  depositlimitinfo: |
+    Number of items per page，0< limit <=50.  Default value: 50
+  depositdirectioninfo: |
+    prev page: Prev，next page: Next.  Default value: Next
+  deposit_response_chainname: chain name
+  deposit_response_amt: deposit amount
+  deposit_response_txid : |
+    transaction ID. withdrawal failed or withdrawal canceled: ""
+  deposit_response_status: |
+    <p>0=unknown<br>
+    1=ToBeConfirmed <br>
+    2=processing <br>
+    3=success <br>
+    4=deposit failed</p>
+  deposit_target_addr: deposit target address
+  deposit_response_tag: tag of deposit target address
+  deposit_response_depositFee: deposit fee
+  deposit_response_updateTime: last updated time
+  deposit_response_cursor: |
+    cursor information: base64 {"minID":1,"maxID":32}.getByte()
+  deposit_response_currency_info: deposit coin
+
+  withdrawrecordquery: Query Withdraw Records
+  withdrawrecorddesc: |
+    Rule: order by id in reverse order. The maximum difference between the start time and the end time is 30 days. 
+  withdraw_response_amt: withdrawal quantity
+  withdraw_response_chainname: chain name
+  withdraw_response_txid : |
+    transaction ID. withdrawal failed or withdrawal canceled: ""
+  withdraw_response_status: |
+    <table border=1><tr><th>Return values</th><th>Status correspond to the client</th><th>status</th></tr>
+    <tr><td>ToBeConfirmed</td><td></td><td>SecurityCheck</td></tr>
+    <tr><td>UnderReview</td><td>SecurityCheck</td><td>SecurityCheck</td></tr>
+    <tr><td>UnderFinalReview</td><td>SecurityCheck</td><td>SecurityCheck</td></tr>
+    <tr><td>Pending/td><td>Pending</td><td>Pending</td></tr>
+    <tr><td>Packed/td><td>Pending>/td><td>Pending</td></tr>
+    <tr><td>Download</td><td>Pending</td><td>Pending</td></tr>
+    <tr><td>Broadcasted</td><td>Pending</td><td>Pending</td></tr>
+    <tr><td>Success</td><td>success</td><td>success</td></tr>
+    <tr><td>CancelByUser</td><td>cancelByUser</td><td>CancelByUser</td></tr>
+    <tr><td>Reject</td><td>Reject</td><td>Reject</td></tr>
+    <tr><td>Expire</td><td>Fail</td><td>Fail</td></tr>
+    <tr><td>Processing</td><td>Pending</td><td>Pending</td></tr>
+    <tr><td>Fail</td><td>Fail</td><td>Fail</td></tr>
+    <tr><td>AutoReject</td><td>Reject</td><td>Reject</td></tr>
+    </table>
+  withdraw_target_addr: withdrawal target address
+  withdraw_response_tag: tag of withdrawal target address
+  withdraw_response_withdrawFee: withdrawal fee
+  withdraw_response_updateTime: withdrawal status updated time
+  withdraw_response_createTime: withdrawal create time
+  withdraw_response_cursor: |
+    cursor information: base64 {"minID":1,"maxID":32}.getByte()
+  withdraw_response_currency_info: withdrawal coin
+
+  coin_info_query: Query Coin Information
+  coin_info_desc: |
+    Rules: order by id in reverse order, no pagination required. The frequency limit is consistent with the current online interface.
+  coin_info_coin: Coin
+  coin_info_name: Name
+  coin_info_remain_amt: Current maximum withdrawal amount 
+  coin_info_chain_type: chain type
+  coin_info_confirmation: deposit confirmation number
+  coin_info_withdraw_fee: withdraw fee.  if withdraw fee is empty, It means that this coin does not support withdrawal
+  coin_info_deposit_min: minimum deposit amount
+  coin_info_withdraw_min: minimum withdrawal amount
+
+  asset_info_query: Query Asset Information
+  asset_info_account_type: |
+    Account type. Default value: ACCOUNT_TYPE_SPOT
+  asset_info_status: |
+    <p>status: ACCOUNT_STATUS_NORMAL -- NORMAL 
+    ACCOUNT_STATUS_UNSPECIFIED -- ABNORMAL </p>
+  asset_info_frozen_balance: frozen balance
+  asset_info_available_balance: available balance
+  asset_info_withdraw: temporarily ""
+
+  withdraw: Withdraw 
+  withdraw_addr: address. Address verification whether there is a whitelist of withdrawal addresses
+  withdraw_tag: Need to fill in if there is a tag
+  withdraw_amount: |
+    withdraw amounts. Rules: Greater than or equal to the minimum withdrawal amount. The minimum withdrawal amount can be obtained from the Coin Info Query API
+  withdraw_request_id: withdraw request ID
+
+  cancel_withdraw: Cancel withdrawal
+  cancel_withdraw_response: |
+    result（cancel application result: 1 SUCCESS，0 FAIL）
+
+  deposit_addr_info: Query Deposit Address Information
+  deposit_addr_info_desc: |
+    Rules: Sub-account can not deposit
+  deposit_addr_chain_info: |
+    chain type：can be obtained from coin info query api；Default value: all type
+  deposit_coin: deposit coin
+  deposit_address: deposit address
+  deposit_tag: deposit tag
+  #Withdraw/Deposit API Data Endpoints -- start
 
 
   ###usdc contract
