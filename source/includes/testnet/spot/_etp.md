@@ -25,12 +25,12 @@ curl https://api-testnet.bybit.com/spot/v1/etp/info \
       "maxRedeem": "1000.12345678",
       "minRedeem": "1.12345678",
       "maxRedeemDaily": "1000002.12345678",
-      "purchaseFee": "0.12345678",
-      "redeemFee": "0.12345678",
+      "purchaseFeeRate": "0.12345678",
+      "redeemFeeRate": "0.12345678",
       "etpStatus": "1",
-      "fundFee": "0.12345678",
+      "fundFeeRate": "0.12345678",
       "fundFeeTime": 1620917160000,
-      "manageFee": "-0.12345678",
+      "manageFeeRate": "-0.12345678",
       "manageFeeTime": 1620917160000,
       "circulation": "3124234233.12345678",
       "value": "1212432.12345678",
@@ -68,12 +68,12 @@ GET
 |maxRedeem|string|t(:spotResMaxRedeem)|
 |minRedeem|string|t(:spotResMinRedeem)|
 |maxRedeemDaily|string|t(:spotResMaxRedeemDaily)|
-|purchaseFee|string|t(:spotResPurchaseFee)|
-|redeemFee|string|t(:spotResRedeemFee)|
+|purchaseFeeRate|string|t(:spotResPurchaseFee)|
+|redeemFeeRate|string|t(:spotResRedeemFee)|
 |etpStatus|int|t(:spotResEtpStatus)|
-|fundFee|string|t(:spotResFundFee)|
+|fundFeeRate|string|t(:spotResFundFee)|
 |fundFeeTime|long|t(:spotResFundFeeTime)|
-|manageFee|string|t(:spotResManageFee)|
+|manageFeeRate|string|t(:spotResManageFee)|
 |manageFeeTime|string|t(:spotResManageFeeTime)|
 |circulation|string|t(:spotResCirculation)|
 |value|string|t(:spotResValue)|
