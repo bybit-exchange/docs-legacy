@@ -2550,7 +2550,7 @@ en:
   depositwithdrawendtime: |
     end time (In Seconds). Default value: current time
   depositcursorinfo: |
-    cursor infomation: base64 {"minID":1,"maxID":32}.getByte().  Default value: ""
+    cursor infomation: used for pagination.  Default value: ""
   depositcurrencyinfo: |
     coin name: for example, BTC.  Default value: all
   depositlimitinfo: |
@@ -2572,7 +2572,7 @@ en:
   deposit_response_depositFee: deposit fee
   deposit_response_updateTime: last updated time
   deposit_response_cursor: |
-    cursor information: base64 {"minID":1,"maxID":32}.getByte()
+    cursor information: used for pagination. Default value: ""
   deposit_response_currency_info: deposit coin
 
   withdrawrecordquery: Query Withdraw Records
@@ -2605,7 +2605,7 @@ en:
   withdraw_response_updateTime: withdrawal status updated time
   withdraw_response_createTime: withdrawal create time
   withdraw_response_cursor: |
-    cursor information: base64 {"minID":1,"maxID":32}.getByte()
+    cursor information: used for pagination. Default value: ""
   withdraw_response_currency_info: withdrawal coin
 
   coin_info_query: Query Coin Information
@@ -2630,7 +2630,7 @@ en:
   asset_info_available_balance: available balance
   asset_info_withdraw: temporarily ""
 
-  withdraw: Withdraw
+  withdraw_info: Withdraw
   withdraw_addr: address. Address verification whether there is a whitelist of withdrawal addresses
   withdraw_tag: Need to fill in if there is a tag
   withdraw_amount: |

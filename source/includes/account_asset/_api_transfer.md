@@ -745,7 +745,7 @@ GET
 |withdraw|string|t(:asset_info_withdraw)|
 
 
-### t(:withdraw)
+### t(:withdraw_info)
 > t(:codequote_curlExample)
 
 ```console
