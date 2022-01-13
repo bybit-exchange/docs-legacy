@@ -575,6 +575,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
+|withdrawId |false |long |t(:withdraw_id) |
 |startTime |false |long |t(:depositwithdrawstarttime) |
 |endTime |false |long |t(:depositwithdrawendtime) |
 |<a href="#currency-currency-coin">coin</a> |false |string |t(:depositcurrencyinfo) |
@@ -598,7 +599,7 @@ GET
 |createTime|int64|t(:withdraw_response_createTime)|
 |updateTime|int64|t(:withdraw_response_updateTime)|
 |cursor|string|t(:withdraw_response_cursor)|
-
+|withdraw_id|string|t(:withdraw_id)|
 
 ### t(:coin_info_query)
 > t(:codequote_curlExample)
