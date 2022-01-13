@@ -140,7 +140,7 @@ en:
   row_comment_price: Order price. <b>Required</b> if you make limit price order
   row_comment_stopOrderPrice: Execution price for conditional order. <b>Required</b> if you make limit price order
   row_comment_basePrice: It will be used to compare with the value of <code>stop_px</code>, to decide whether your conditional order will be triggered by crossing trigger price from upper side or lower side. Mainly used to identify the expected direction of the current conditional order.
-  row_comment_stopPx: Trigger price
+  row_comment_stopPx: Trigger price. If you're expecting the price to rise to trigger your conditional order, make sure stop_px > max(market price, base_price) else, stop_px < min(market price, base_price)
   row_comment_timeInForce: <a href="https://help.bybit.com/hc/en-us/articles/360039749233-What-Are-Time-In-Force-TIF-GTC-IOC-FOK-">Time in force</a>
   row_comment_triggerBy: Trigger price type. Default <code>LastPrice</code>
   row_comment_tp_size: Take profit quantity (when in <a href="#t-switchmode">partial mode</a>)
@@ -1859,7 +1859,7 @@ en:
     <p>Custom order ID: You may customise order IDs for active orders. We will link it to the system order ID, and return the unique system order ID to you after the active order is created successfully. You may use this order ID or your custom order ID to cancel your active order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
     <p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSDT instrument and 280 active orders on the ETHUSDT instrument.</b></p>
   linear_row_comment_basePrice: It will be used to compare with the value of <code>stop_px</code>, to decide whether your conditional order will be triggered by crossing trigger price from upper side or lower side. Mainly used to identify the expected direction of the current conditional order.
-  linear_row_comment_stopPx: Trigger price
+  linear_row_comment_stopPx: Trigger price. If you're expecting the price to rise to trigger your conditional order, make sure stop_px > max(market price, base_price) else, stop_px < min(market price, base_price)
 
   setautoaddmargin: Set Auto Add Margin
   linear_account_para_setAutoAddMargin: Set auto add margin, or <a href="https://help.bybit.com/hc/en-us/articles/900000394403-Introduction-to-Auto-Margin-Replenishment-USDT-Contract-">Auto-Margin Replenishment</a>.
