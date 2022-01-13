@@ -540,7 +540,8 @@ curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/wi
                 "tag": "",
                 "withdrawFee": "0.001",
                 "createTime": "1631694166",
-                "updateTime": "1631694775"
+                "updateTime": "1631694775",
+                "withdraw_id":"301121231312"
             },
             {
                 "coin": "LTC",
@@ -552,7 +553,8 @@ curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/wi
                 "tag": "",
                 "withdrawFee": "0.001",
                 "createTime": "1631684557",
-                "updateTime": "1631685384"
+                "updateTime": "1631685384",
+                "withdraw_id":"301121231313"
             }
         ],
         "cursor": "eyJtaW5JRCI6MjAxNTM1MywibWF4SUQiOjIwMTU4OTF9"
@@ -592,7 +594,7 @@ GET
 |chain|string|t(:withdraw_response_chainname)|
 |amount|string|t(:withdraw_response_amt)|
 |txid|string|t(:withdraw_response_txid)|
-|status|int|t(:withdraw_response_status)|
+|status|string|t(:withdraw_response_status)|
 |toAddress|string|t(:withdraw_target_addr)|
 |tag|string|t(:withdraw_response_tag)|
 |WithdrawFee|string|t(:withdraw_response_withdrawFee)|
@@ -805,7 +807,7 @@ POST
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |result|Object|result object|
-|id|int64|t(:withdraw_request_id)
+|id|int64|t(:withdraw_id)
 
 
 ### t(:cancel_withdraw)
@@ -851,7 +853,7 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|id| <b>true</b> | int64 |t(:withdraw_request_id)
+|id| <b>true</b> | int64 |t(:withdraw_id)
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
