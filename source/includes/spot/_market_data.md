@@ -2,7 +2,7 @@
 t(:market_para_auth)
 
 
-### t(:querysymbol)
+### t(:spot_querysymbol)
 > t(:codequote_curlExample)
 
 ```console
