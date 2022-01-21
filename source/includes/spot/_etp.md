@@ -5,7 +5,7 @@ t(:etp_para)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/spot/v1/etp/info \
+curl https://api-testnet.bybit.com/spot/etp/v1/info \
 -H "Content-Type: application/x-www-form-urlencoded" \
 -d 'api_key={api_key}&etpCode={etpCode}&timestamp=1637669364000'
 ```
@@ -84,7 +84,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/spot/v1/etp/purchase \
+curl https://api-testnet.bybit.com/spot/etp/v1/purchase \
 -H "Content-Type: application/x-www-form-urlencoded" \
 -d 'api_key={api_key}&etpCode={etpCode}&etpAmount={etpAmount}&serialNo={serialNo}&timestamp=1637669364000'
 ```
@@ -144,7 +144,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/spot/v1/etp/redeem \
+curl https://api-testnet.bybit.com/spot/etp/v1/redeem \
 -H "Content-Type: application/x-www-form-urlencoded" \
 -d 'api_key={api_key}&etpCode={etpCode}&etpQuantity={etpQuantity}&serialNo={serialNo}&timestamp=1637669364000'
 ```
