@@ -27,7 +27,7 @@ curl https://api-testnet.bybit.com/spot/etp/v1/info \
       "maxRedeemDaily": "1000002.12345678",
       "purchaseFeeRate": "0.12345678",
       "redeemFeeRate": "0.12345678",
-      "etpStatus": "1",
+      "status": "1",
       "fundFeeRate": "0.12345678",
       "fundFeeTime": 1620917160000,
       "manageFeeRate": "-0.12345678",
@@ -70,7 +70,7 @@ GET
 |maxRedeemDaily|string|t(:spotResMaxRedeemDaily)|
 |purchaseFeeRate|string|t(:spotResPurchaseFee)|
 |redeemFeeRate|string|t(:spotResRedeemFee)|
-|etpStatus|int|t(:spotResEtpStatus)|
+|status|string|t(:spotResEtpStatus)|
 |fundFeeRate|string|t(:spotResFundFee)|
 |fundFeeTime|long|t(:spotResFundFeeTime)|
 |manageFeeRate|string|t(:spotResManageFee)|
@@ -96,8 +96,8 @@ curl https://api-testnet.bybit.com/spot/etp/v1/purchase \
     "ret_code": 0,
     "ret_msg": null,
     "result": {
-        "etpCode": "btc3l",
-        "orderStatus": 1,
+        "etpCode": "BTC3L",
+        "orderStatus": "1",
         "orderQuantity": "12",
         "orderAmount": "123.12345678",
         "amount": "123.12345678",
@@ -130,7 +130,7 @@ POST
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |etpCode|string|t(:spotResEtpCode)|
-|orderStatus|int|t(:spotResOrderStatus)|
+|orderStatus|string|t(:spotResOrderStatus)|
 |orderQuantity|string|t(:spotResOrderQuantity)|
 |orderAmount|string|t(:spotResOrderAmount)|
 |amount|string|t(:spotResAmount)|
@@ -156,8 +156,8 @@ curl https://api-testnet.bybit.com/spot/etp/v1/redeem \
   "ret_code": 0,
     "ret_msg": null,
     "result": {
-      "etpCode": "btc3l",
-      "orderStatus": 1,
+      "etpCode": "BTC3L",
+      "orderStatus": "1",
       "quantity": "12",
       "orderQuantity": "123.12345678",
       "orderAmount": "123.12345678",
@@ -190,7 +190,7 @@ POST
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |etpCode|string|t(:spotResEtpCode)|
-|orderStatus|int|t(:spotResOrderStatus)|
+|orderStatus|string|t(:spotResOrderStatus)|
 |quantity|string|t(:spotEtpQuantity)|
 |orderQuantity|string|t(:spotResOrderQuantity)|
 |orderAmount|string|t(:spotResOrderAmount)|
@@ -219,7 +219,7 @@ POST
         "orderType": 1,
         "orderTime": 1620917160000,
         "excTime": 1620917160000,
-        "status": 1,
+        "orderStatus": "1",
         "fee": "0.12345678",
         "amount": "12.12345678",
         "value": "12.12345678",
@@ -258,7 +258,7 @@ GET
 |orderType|int|t(:spotEtpOrderType)|
 |orderTime|long|t(:spotResOrderTime)|
 |excTime|long|t(:spotResExcTime)|
-|status|int|t(:spotResStatus)|
+|orderStatus|string|t(:spotResStatus)|
 |fee|string|t(:spotResFee)|
 |amount|string|t(:spotResAmount)|
 |value|string|t(:spotResRecordValue)|
