@@ -344,6 +344,9 @@ en:
   row_parameter_type: <a href="#order-type-type-ordertypes">type</a>
   row_parameter_timeInForce: <a href="#time-in-force-timeinforce">timeInForce</a>
   spot_row_parameter_orderStatus: <a href="#order-status-status">status</a>
+  row_parameter_etpStatus: <a href="#etp-status-etpstatus">etpStatus</a>
+  row_parameter_etpOrderStatus: <a href="#etp-order-status-orderstatus">orderStatus</a>
+  row_parameter_etpOrderType: <a href="#etp-order-type-ordertype">orderType</a>
 
 
   enum_withdraw_status_link: <a href="#withdraw-status-status">Withdraw Status Enum</a>
@@ -1473,7 +1476,20 @@ en:
   date: |
     Follows the format: yyyy-mm-dd
 
+  ## ETP status (`etpStatus`)
+  etpStatus_1: "- ETP can be purchased and redeemed"
+  etpStatus_2: "- ETP can be purchased, but not redeemed"
+  etpStatus_3: "- ETP can be redeemed, but not purchased"
+  etpStatus_4: "- ETP cannot be purchased nor redeemed"
 
+  ## ETP order status (`orderStatus`)
+  etpOrderStatus_1: "- Completed"
+  etpOrderStatus_2: "- In progress"
+  etpOrderStatus_3: "- Failed"
+
+  ## ETP order type (`orderType`)
+  etpOrderType_1: "- Purchase"
+  etpOrderType_2: "- Redemption"
 
   # Error Code
   errors_intro: The Bybit API uses the following HTTP codes and error codes<span>:</span>
@@ -3175,7 +3191,7 @@ en:
   usdcCancelType: refer to <a href="#cancel-type">Cancel Type</a>
   usdcTradeId: Trade Id
 
-  etp: etp
+  etp: ETP
   etp_para: The following ETP endpoints require authentication.
   etpInfo: ETP Asset basic info
   row_parameter_etpCode: ETP Asset name
