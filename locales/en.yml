@@ -189,6 +189,7 @@ en:
   row_comment_limit_100: Limit for data size per page, max size is 100. Default as showing 50 pieces of data per page
   row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page
   row_comment_limit_50_500: Limit for data size per page, max size is 500. Default as showing 50 pieces of data per page
+  row_comment_limit_100_500: Limit for data size per page, max size is 500. Default as showing 100 pieces of data per page
   row_comment_period: Data recording period. <code>5min</code>, <code>15min</code>, <code>30min</code>, <code>1h</code>, <code>4h</code>, <code>1d</code>
   row_comment_last_exec_time: Last execution time
   row_comment_last_exec_price: Last execution price
@@ -344,6 +345,9 @@ en:
   row_parameter_type: <a href="#order-type-type-ordertypes">type</a>
   row_parameter_timeInForce: <a href="#time-in-force-timeinforce">timeInForce</a>
   spot_row_parameter_orderStatus: <a href="#order-status-status">status</a>
+  row_parameter_etpStatus: <a href="#etp-status-etpstatus">etpStatus</a>
+  row_parameter_etpOrderStatus: <a href="#etp-order-status-orderstatus">orderStatus</a>
+  row_parameter_etpOrderType: <a href="#etp-order-type-ordertype">orderType</a>
 
 
   enum_withdraw_status_link: <a href="#withdraw-status-status">Withdraw Status Enum</a>
@@ -1473,7 +1477,20 @@ en:
   date: |
     Follows the format: yyyy-mm-dd
 
+  ## ETP status (`etpStatus`)
+  etpStatus_1: "- ETP can be purchased and redeemed"
+  etpStatus_2: "- ETP can be purchased, but not redeemed"
+  etpStatus_3: "- ETP can be redeemed, but not purchased"
+  etpStatus_4: "- ETP cannot be purchased nor redeemed"
 
+  ## ETP order status (`orderStatus`)
+  etpOrderStatus_1: "- Completed"
+  etpOrderStatus_2: "- In progress"
+  etpOrderStatus_3: "- Failed"
+
+  ## ETP order type (`orderType`)
+  etpOrderType_1: "- Purchase"
+  etpOrderType_2: "- Redemption"
 
   # Error Code
   errors_intro: The Bybit API uses the following HTTP codes and error codes<span>:</span>
@@ -3175,9 +3192,9 @@ en:
   usdcCancelType: refer to <a href="#cancel-type">Cancel Type</a>
   usdcTradeId: Trade Id
 
-  etp: etp
+  etp: ETP Endpoints
   etp_para: The following ETP endpoints require authentication.
-  etpInfo: ETP Asset basic info
+  etpInfo: Asset Info
   row_parameter_etpCode: ETP Asset name
   spotEtpCode: Code of the ETP symbol
   spotResEtpCode: Code of the ETP symbol
@@ -3200,7 +3217,7 @@ en:
   spotResTotal: Upper limit
   spotResNetValue: Net asset value
 
-  etpPurchase: Purchase ETPs
+  etpPurchase: Purchase
   spotEtpAmount: Purchase amount
   spotResOrderStatus: Order status; 1. Completed; 2. In progress; 3. Failed
   spotResOrderQuantity: Order quantity of the ETP
@@ -3210,10 +3227,10 @@ en:
   spotResValueCoin: Quote asset
   spotEtpSerialNo: Serial number
 
-  etpRedeem: Redeem ETPs
+  etpRedeem: Redeem
   spotEtpQuantity: Quantity
 
-  etpRecord: Query ETP Redemption History
+  etpRecord: Purchase/Redemption History
   spotEtpOrderId: Order ID
   spotEtpStartTime: Start time
   spotEtpEndTime: End time
@@ -3224,7 +3241,8 @@ en:
   spotResFee: Trading fees
   spotResRecordValue: Filled value
 
-  etpQuoteReference: Query ETP Market Info
+  etpQuoteReference: Market Info
+  etpQuoteReference_para: This endpoint does not require authentication.
   spotEtpQuoteNav: Net asset value
   spotEtpQuoteNavTime: Update time for net asset value (in milliseconds and UTC time zone)
   spotEtpQuoteBasket: Basket value

@@ -27,7 +27,7 @@ curl https://api-testnet.bybit.com/spot/etp/v1/info \
       "maxRedeemDaily": "1000002.12345678",
       "purchaseFeeRate": "0.12345678",
       "redeemFeeRate": "0.12345678",
-      "status": "1",
+      "etpStatus": "1",
       "fundFeeRate": "0.12345678",
       "fundFeeTime": 1620917160000,
       "manageFeeRate": "-0.12345678",
@@ -45,15 +45,14 @@ curl https://api-testnet.bybit.com/spot/etp/v1/info \
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpoCreate>/spot/etp/v1/info</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+<code><span id=sevInfo>/spot/etp/v1/info</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sevInfo"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |etpCode|<b>true</b>|string|t(:spotEtpCode)|
-|timestamp|<b>false</b>|number|t(:spot_timestamp)|
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -70,7 +69,7 @@ GET
 |maxRedeemDaily|string|t(:spotResMaxRedeemDaily)|
 |purchaseFeeRate|string|t(:spotResPurchaseFee)|
 |redeemFeeRate|string|t(:spotResRedeemFee)|
-|status|string|t(:spotResEtpStatus)|
+|t(:row_parameter_etpStatus)|int|t(:spotResEtpStatus)|
 |fundFeeRate|string|t(:spotResFundFee)|
 |fundFeeTime|long|t(:spotResFundFeeTime)|
 |manageFeeRate|string|t(:spotResManageFee)|
@@ -96,8 +95,8 @@ curl https://api-testnet.bybit.com/spot/etp/v1/purchase \
     "ret_code": 0,
     "ret_msg": null,
     "result": {
-        "etpCode": "BTC3L",
-        "orderStatus": "1",
+        "etpCode": "btc3l",
+        "orderStatus": 1,
         "orderQuantity": "12",
         "orderAmount": "123.12345678",
         "amount": "123.12345678",
@@ -108,12 +107,12 @@ curl https://api-testnet.bybit.com/spot/etp/v1/purchase \
     "ext_code": null,
     "ext_info": null
 }
-``` 
+```
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/spot/etp/v1/purchase</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+<code><span id=sevPurchase>/spot/etp/v1/purchase</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sevPurchase"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
@@ -121,7 +120,6 @@ POST
 |:----- |:-------|:-----|----- |
 |etpCode|<b>true</b>|string|t(:spotEtpCode)|
 |etpAmount|<b>true</b>|number|t(:spotEtpAmount)|
-|timestamp|<b>true</b>|number|t(:spot_timestamp)|
 |serialNo|<b>true</b>|string|t(:spotEtpSerialNo)|
 
 
@@ -130,7 +128,7 @@ POST
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |etpCode|string|t(:spotResEtpCode)|
-|orderStatus|string|t(:spotResOrderStatus)|
+|t(:row_parameter_etpOrderStatus)|int|t(:spotResOrderStatus)|
 |orderQuantity|string|t(:spotResOrderQuantity)|
 |orderAmount|string|t(:spotResOrderAmount)|
 |amount|string|t(:spotResAmount)|
@@ -156,8 +154,8 @@ curl https://api-testnet.bybit.com/spot/etp/v1/redeem \
   "ret_code": 0,
     "ret_msg": null,
     "result": {
-      "etpCode": "BTC3L",
-      "orderStatus": "1",
+      "etpCode": "btc3l",
+      "orderStatus": 1,
       "quantity": "12",
       "orderQuantity": "123.12345678",
       "orderAmount": "123.12345678",
@@ -165,15 +163,15 @@ curl https://api-testnet.bybit.com/spot/etp/v1/redeem \
       "id": 1,
       "valueCoin": "usdt"
   },
-  "ext_code": null, 
+  "ext_code": null,
   "ext_info": null
 }
-``` 
+```
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/spot/etp/v1/redeem</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+<code><span id=sevRedeem>/spot/etp/v1/redeem</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sevRedeem"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
@@ -181,7 +179,6 @@ POST
 |:----- |:-------|:-----|----- |
 |etpCode|<b>true</b>|string|t(:spotEtpCode)|
 |etpQuantity|<b>true</b>|number|t(:spotEtpQuantity)|
-|timestamp|<b>true</b>|number|t(:spot_timestamp)|
 |serialNo|<b>true</b>|string|t(:spotEtpSerialNo)|
 
 
@@ -190,7 +187,7 @@ POST
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |etpCode|string|t(:spotResEtpCode)|
-|orderStatus|string|t(:spotResOrderStatus)|
+|t(:row_parameter_etpOrderStatus)|int|t(:spotResOrderStatus)|
 |quantity|string|t(:spotEtpQuantity)|
 |orderQuantity|string|t(:spotResOrderQuantity)|
 |orderAmount|string|t(:spotResOrderAmount)|
@@ -219,7 +216,7 @@ POST
         "orderType": 1,
         "orderTime": 1620917160000,
         "excTime": 1620917160000,
-        "orderStatus": "1",
+        "status": 1,
         "fee": "0.12345678",
         "amount": "12.12345678",
         "value": "12.12345678",
@@ -229,25 +226,24 @@ POST
     "ext_code": null,
     "ext_info": null
 }
-``` 
+```
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpoCreate>/spot/etp/v1/record</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+<code><span id=sevRecord>/spot/etp/v1/record</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sevRecord"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|etpCode|<b>false</b>|string|t(:spotEtpCode)|
-|orderId|<b>false</b>|long|t(:spotEtpOrderId)|
-|timestamp|<b>true</b>|long|t(:spot_timestamp)|
-|startTime|<b>false</b>|long|t(:spotEtpStartTime)|
-|endTime|<b>false</b>|long|t(:spotEtpEndTime)|
-|limit|<b>false</b>|int|t(:row_comment_limit_100_500)|
-|orderType|<b>false</b>|int|t(:spotEtpOrderType)|
-|serialNo|<b>false</b>|string|t(:spotEtpSerialNo)|
+|etpCode|false|string|t(:spotEtpCode)|
+|orderId|false|long|t(:spotEtpOrderId)|
+|startTime|false|long|t(:spotEtpStartTime)|
+|endTime|false|long|t(:spotEtpEndTime)|
+|limit|false|int|t(:row_comment_limit_100_500)|
+|t(:row_parameter_etpOrderType)|false|int|t(:spotEtpOrderType)|
+|serialNo|false|string|t(:spotEtpSerialNo)|
 
 <p class="fake_header">t(:responseparameters)</p>
 
@@ -255,10 +251,10 @@ GET
 |:----- |:-----|----- |
 |etpCode|string|t(:spotResEtpCode)|
 |orderId|string|t(:spotEtpOrderId)|
-|orderType|int|t(:spotEtpOrderType)|
+|t(:row_parameter_etpOrderType)|int|t(:spotEtpOrderType)|
 |orderTime|long|t(:spotResOrderTime)|
 |excTime|long|t(:spotResExcTime)|
-|orderStatus|string|t(:spotResStatus)|
+|t(:row_parameter_etpOrderStatus)|int|t(:spotResStatus)|
 |fee|string|t(:spotResFee)|
 |amount|string|t(:spotResAmount)|
 |value|string|t(:spotResRecordValue)|
@@ -285,12 +281,14 @@ GET
   "ext_code": null,
   "ext_info": null
 }
-``` 
+```
+
+t(:etpQuoteReference_para)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpoCreate>/spot/etp/v1/reference</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+<code><span id=sevReference>/spot/etp/v1/reference</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sevReference"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
