@@ -28,7 +28,7 @@ curl https://api-testnet.bybit.com/spot/etp/v1/info \
       "purchaseFeeRate": "0.12345678",
       "redeemFeeRate": "0.12345678",
       "etpStatus": "1",
-      "fundFeeRate": "0.12345678",
+      "fundFee": "0.12345678",
       "fundFeeTime": 1620917160000,
       "manageFeeRate": "-0.12345678",
       "manageFeeTime": 1620917160000,
@@ -70,7 +70,7 @@ GET
 |purchaseFeeRate|string|t(:spotResPurchaseFee)|
 |redeemFeeRate|string|t(:spotResRedeemFee)|
 |t(:row_parameter_etpStatus)|int|t(:spotResEtpStatus)|
-|fundFeeRate|string|t(:spotResFundFee)|
+|fundFee|string|t(:spotResFundFee)|
 |fundFeeTime|long|t(:spotResFundFeeTime)|
 |manageFeeRate|string|t(:spotResManageFee)|
 |manageFeeTime|string|t(:spotResManageFeeTime)|
