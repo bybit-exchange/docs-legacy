@@ -122,7 +122,7 @@ POST
 |etpCode|<b>true</b>|string|t(:spotEtpCode)|
 |etpAmount|<b>true</b>|number|t(:spotEtpAmount)|
 |timestamp|<b>true</b>|number|t(:spot_timestamp)|
-|serialNo|<b>true</b>|string|t(:spotEtpSerialNo)|
+|serialNo|<b>false</b>|string|t(:spotEtpSerialNo)|
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -182,7 +182,7 @@ POST
 |etpCode|<b>true</b>|string|t(:spotEtpCode)|
 |etpQuantity|<b>true</b>|number|t(:spotEtpQuantity)|
 |timestamp|<b>true</b>|number|t(:spot_timestamp)|
-|serialNo|<b>true</b>|string|t(:spotEtpSerialNo)|
+|serialNo|<b>false</b>|string|t(:spotEtpSerialNo)|
 
 
 <p class="fake_header">t(:responseparameters)</p>
