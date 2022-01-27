@@ -75,7 +75,7 @@ t(:price)
 * `1w` t(:interval_W)
 * `1M` t(:interval_M)
 
-## ETP status (`etpStatus`)
+## ETP status (`status`)
 * `1` t(:etpStatus_1)
 * `2` t(:etpStatus_2)
 * `3` t(:etpStatus_3)

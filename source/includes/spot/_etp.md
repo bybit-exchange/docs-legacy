@@ -27,7 +27,7 @@ curl https://api-testnet.bybit.com/spot/etp/v1/info \
       "maxRedeemDaily": "1000002.12345678",
       "purchaseFeeRate": "0.12345678",
       "redeemFeeRate": "0.12345678",
-      "etpStatus": "1",
+      "status": "1",
       "fundFee": "0.12345678",
       "fundFeeTime": 1620917160000,
       "manageFeeRate": "-0.12345678",
