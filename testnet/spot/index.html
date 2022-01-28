@@ -3717,8 +3717,6 @@ If <code>startTime</code> is not specified, you can only query for records in th
 <aside class="notice">
 Not fully released
 </aside>
-
-<p>The following ETP endpoints require authentication.</p>
 <h3 id='t-etpinfo'>Asset Info</h3>
 <blockquote>
 <p>Request Example</p>
@@ -3778,7 +3776,7 @@ Not fully released
 <td style="text-align: left">etpCode</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Code of the ETP symbol; currently only BTC+3L and BTC-3L</td>
+<td>Abbreviation of the ETP; currently only BTC+3L and BTC-3L</td>
 </tr>
 <tr>
 <td style="text-align: left">timestamp</td>
@@ -3800,7 +3798,7 @@ Not fully released
 <tr>
 <td style="text-align: left">etpCode</td>
 <td style="text-align: left">string</td>
-<td>Code of the ETP symbol</td>
+<td>Abbreviation of the ETP</td>
 </tr>
 <tr>
 <td style="text-align: left">etpName</td>
@@ -3855,7 +3853,7 @@ Not fully released
 <tr>
 <td style="text-align: left">fundFee</td>
 <td style="text-align: left">string</td>
-<td>Funding fees rate charged daily to users who hold ETP</td>
+<td>Funding fee, charged daily to users holding ETP</td>
 </tr>
 <tr>
 <td style="text-align: left">fundFeeTime</td>
@@ -3885,7 +3883,7 @@ Not fully released
 <tr>
 <td style="text-align: left">total</td>
 <td style="text-align: left">string</td>
-<td>Upper limit</td>
+<td>total circulation</td>
 </tr>
 <tr>
 <td style="text-align: left">netValue</td>
@@ -3893,6 +3891,10 @@ Not fully released
 <td>Net asset value</td>
 </tr>
 </tbody></table>
+
+<aside class="notice">
+The following ETP endpoints require authentication.
+</aside>
 <h3 id='t-etppurchase'>Purchase</h3>
 <blockquote>
 <p>Request Example</p>
@@ -3941,7 +3943,7 @@ Not fully released
 <td style="text-align: left">etpCode</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Code of the ETP symbol; currently only BTC+3L and BTC-3L</td>
+<td>Abbreviation of the ETP; currently only BTC+3L and BTC-3L</td>
 </tr>
 <tr>
 <td style="text-align: left">etpAmount</td>
@@ -3975,7 +3977,7 @@ Not fully released
 <tr>
 <td style="text-align: left">etpCode</td>
 <td style="text-align: left">string</td>
-<td>Code of the ETP symbol</td>
+<td>Abbreviation of the ETP</td>
 </tr>
 <tr>
 <td style="text-align: left">orderStatus</td>
@@ -3985,12 +3987,12 @@ Not fully released
 <tr>
 <td style="text-align: left">orderQuantity</td>
 <td style="text-align: left">string</td>
-<td>Order quantity of the ETP</td>
+<td>Actual purchase quantity of the ETP</td>
 </tr>
 <tr>
 <td style="text-align: left">orderAmount</td>
 <td style="text-align: left">string</td>
-<td>Order value of the ETP</td>
+<td>Actual redeem amount of the ETP</td>
 </tr>
 <tr>
 <td style="text-align: left">amount</td>
@@ -4066,13 +4068,13 @@ Not fully released
 <td style="text-align: left">etpCode</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Code of the ETP symbol; currently only BTC+3L and BTC-3L</td>
+<td>Abbreviation of the ETP; currently only BTC+3L and BTC-3L</td>
 </tr>
 <tr>
 <td style="text-align: left">etpQuantity</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">number</td>
-<td>Quantity</td>
+<td>Actual redeem quantity of the ETP</td>
 </tr>
 <tr>
 <td style="text-align: left">timestamp</td>
@@ -4100,7 +4102,7 @@ Not fully released
 <tr>
 <td style="text-align: left">etpCode</td>
 <td style="text-align: left">string</td>
-<td>Code of the ETP symbol</td>
+<td>Abbreviation of the ETP</td>
 </tr>
 <tr>
 <td style="text-align: left">orderStatus</td>
@@ -4110,22 +4112,17 @@ Not fully released
 <tr>
 <td style="text-align: left">quantity</td>
 <td style="text-align: left">string</td>
-<td>Quantity</td>
+<td>Actual redeem quantity of the ETP</td>
 </tr>
 <tr>
 <td style="text-align: left">orderQuantity</td>
 <td style="text-align: left">string</td>
-<td>Order quantity of the ETP</td>
+<td>Actual purchase quantity of the ETP</td>
 </tr>
 <tr>
 <td style="text-align: left">orderAmount</td>
 <td style="text-align: left">string</td>
-<td>Order value of the ETP</td>
-</tr>
-<tr>
-<td style="text-align: left">amount</td>
-<td style="text-align: left">string</td>
-<td>Actual purchase value of the ETP</td>
+<td>Actual redeem amount of the ETP</td>
 </tr>
 <tr>
 <td style="text-align: left">timestamp</td>
@@ -4196,7 +4193,7 @@ Not fully released
 <td style="text-align: left">etpCode</td>
 <td style="text-align: left"><b>false</b></td>
 <td style="text-align: left">string</td>
-<td>Code of the ETP symbol; currently only BTC+3L and BTC-3L</td>
+<td>Abbreviation of the ETP; currently only BTC+3L and BTC-3L</td>
 </tr>
 <tr>
 <td style="text-align: left">orderId</td>
@@ -4254,7 +4251,7 @@ Not fully released
 <tr>
 <td style="text-align: left">etpCode</td>
 <td style="text-align: left">string</td>
-<td>Code of the ETP symbol</td>
+<td>Abbreviation of the ETP</td>
 </tr>
 <tr>
 <td style="text-align: left">orderId</td>
@@ -4347,7 +4344,7 @@ Not fully released
 <td style="text-align: left">etpCode</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Code of the ETP symbol; currently only BTC+3L and BTC-3L</td>
+<td>Abbreviation of the ETP; currently only BTC+3L and BTC-3L</td>
 </tr>
 </tbody></table>
 
@@ -4363,7 +4360,7 @@ Not fully released
 <tr>
 <td style="text-align: left">etpCode</td>
 <td style="text-align: left">string</td>
-<td>Code of the ETP symbol</td>
+<td>Abbreviation of the ETP</td>
 </tr>
 <tr>
 <td style="text-align: left">nav</td>
@@ -4383,7 +4380,7 @@ Not fully released
 <tr>
 <td style="text-align: left">leverage</td>
 <td style="text-align: left">string</td>
-<td>Leverage of the order.</td>
+<td>Real Leverage calculated by last traded price.</td>
 </tr>
 </tbody></table>
 <h1 id='t-ratelimits'>API Rate Limits</h1><h3 id='t-ipratelimits'>IP Rate Limit</h3>

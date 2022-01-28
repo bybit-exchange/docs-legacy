@@ -3715,8 +3715,6 @@ function copyStringToClipboard (endpoint) {
 <aside class="notice">
 没有完全开放
 </aside>
-
-<p>以下ETP接口都需要鑒權.</p>
 <h3 id='t-etpinfo'>ETP 资产基础信息查询</h3>
 <blockquote>
 <p>請求示例</p>
@@ -3853,22 +3851,22 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">fundFee</td>
 <td style="text-align: left">string</td>
-<td>每天针对持有etp资产的用户收取的管理费</td>
+<td>每天针对持有etp资产的用户收取的资金费用</td>
 </tr>
 <tr>
 <td style="text-align: left">fundFeeTime</td>
 <td style="text-align: left">long</td>
-<td>收取资金管理费的时间</td>
+<td>收取资金费用的时间</td>
 </tr>
 <tr>
 <td style="text-align: left">manageFeeRate</td>
 <td style="text-align: left">string</td>
-<td>资金费率</td>
+<td>管理费率</td>
 </tr>
 <tr>
 <td style="text-align: left">manageFeeTime</td>
 <td style="text-align: left">string</td>
-<td>收取资金费的时间</td>
+<td>收取资金管理费的时间</td>
 </tr>
 <tr>
 <td style="text-align: left">circulation</td>
@@ -3891,6 +3889,10 @@ function copyStringToClipboard (endpoint) {
 <td>当前净值</td>
 </tr>
 </tbody></table>
+
+<aside class="notice">
+以下ETP接口都需要鑒權.
+</aside>
 <h3 id='t-etppurchase'>申购</h3>
 <blockquote>
 <p>請求示例</p>
@@ -4119,11 +4121,6 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">orderAmount</td>
 <td style="text-align: left">string</td>
 <td>实际下单金额</td>
-</tr>
-<tr>
-<td style="text-align: left">amount</td>
-<td style="text-align: left">string</td>
-<td>下单的etp资产金额</td>
 </tr>
 <tr>
 <td style="text-align: left">timestamp</td>
@@ -4376,12 +4373,12 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">basket</td>
 <td style="text-align: left">string</td>
-<td>篮子头寸</td>
+<td>篮子</td>
 </tr>
 <tr>
 <td style="text-align: left">leverage</td>
 <td style="text-align: left">string</td>
-<td>訂單杠桿</td>
+<td>真實槓桿倍數</td>
 </tr>
 </tbody></table>
 <h1 id='t-ratelimits'>頻率限製</h1><h3 id='t-ipratelimits'>IP頻率限製</h3>
