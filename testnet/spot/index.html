@@ -836,6 +836,26 @@
               </ul>
           </li>
           <li>
+            <a href="#t-etp" class="toc-h1 toc-link" data-title="ETP Endpoints">ETP Endpoints</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-etpinfo" class="toc-h2 toc-link" data-title="Asset Info">Asset Info</a>
+                  </li>
+                  <li>
+                    <a href="#t-etppurchase" class="toc-h2 toc-link" data-title="Purchase">Purchase</a>
+                  </li>
+                  <li>
+                    <a href="#t-etpredeem" class="toc-h2 toc-link" data-title="Redeem">Redeem</a>
+                  </li>
+                  <li>
+                    <a href="#t-etprecord" class="toc-h2 toc-link" data-title="Purchase/Redemption History">Purchase/Redemption History</a>
+                  </li>
+                  <li>
+                    <a href="#t-etpquotereference" class="toc-h2 toc-link" data-title="Market Info">Market Info</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#t-ratelimits" class="toc-h1 toc-link" data-title="API Rate Limits">API Rate Limits</a>
               <ul class="toc-list-h2">
                   <li>
@@ -960,6 +980,15 @@
                   </li>
                   <li>
                     <a href="#kline-interval-interval" class="toc-h2 toc-link" data-title="Kline interval (interval)">Kline interval (<code>interval</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#etp-status-status" class="toc-h2 toc-link" data-title="ETP status (status)">ETP status (<code>status</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#etp-order-status-orderstatus" class="toc-h2 toc-link" data-title="ETP order status (orderStatus)">ETP order status (<code>orderStatus</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#etp-order-type-ordertype" class="toc-h2 toc-link" data-title="ETP order type (orderType)">ETP order type (<code>orderType</code>)</a>
                   </li>
               </ul>
           </li>
@@ -3684,6 +3713,679 @@ If <code>startTime</code> is not specified, you can only query for records in th
 </tr>
 </thead><tbody>
 </tbody></table>
+<h1 id='t-etp'>ETP Endpoints</h1>
+<aside class="notice">
+Not fully released
+</aside>
+
+<p>The following ETP endpoints require authentication.</p>
+<h3 id='t-etpinfo'>Asset Info</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/spot/etp/v1/info \
+-H "Content-Type: application/x-www-form-urlencoded" \
+-d 'api_key={api_key}&amp;etpCode={etpCode}&amp;timestamp=1637669364000'
+</span></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">etpCode</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">btc3l</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">etpName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC*3</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">maxPurchase</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">300024.12345678</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">minPurchase</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.12345678</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">maxPurchaseDaily</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">500000.12345678</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">maxRedeem</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1000.12345678</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">minRedeem</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1.12345678</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">maxRedeemDaily</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1000002.12345678</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">purchaseFeeRate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.12345678</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">redeemFeeRate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.12345678</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">fundFee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.12345678</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">fundFeeTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1620917160000</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">manageFeeRate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-0.12345678</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">manageFeeTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1620917160000</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">circulation</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">3124234233.12345678</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">value</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1212432.12345678</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">total</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">200000000.12345678</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">netValue</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10.12345678</span><span class="dl">"</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=vpoCreate>/spot/etp/v1/info</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">etpCode</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Code of the ETP symbol; currently only BTC+3L and BTC-3L</td>
+</tr>
+<tr>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left"><b>false</b></td>
+<td style="text-align: left">number</td>
+<td>Timestamp</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">etpCode</td>
+<td style="text-align: left">string</td>
+<td>Code of the ETP symbol</td>
+</tr>
+<tr>
+<td style="text-align: left">etpName</td>
+<td style="text-align: left">string</td>
+<td>Full name of the ETP</td>
+</tr>
+<tr>
+<td style="text-align: left">maxPurchase</td>
+<td style="text-align: left">string</td>
+<td>Max. purchase amount per transaction</td>
+</tr>
+<tr>
+<td style="text-align: left">minPurchase</td>
+<td style="text-align: left">string</td>
+<td>Min. purchase amount per transaction</td>
+</tr>
+<tr>
+<td style="text-align: left">maxPurchaseDaily</td>
+<td style="text-align: left">string</td>
+<td>Max. purchase amount per day</td>
+</tr>
+<tr>
+<td style="text-align: left">maxRedeem</td>
+<td style="text-align: left">string</td>
+<td>Max. redemption amount per transaction</td>
+</tr>
+<tr>
+<td style="text-align: left">minRedeem</td>
+<td style="text-align: left">string</td>
+<td>Min. redemption amount per transaction</td>
+</tr>
+<tr>
+<td style="text-align: left">maxRedeemDaily</td>
+<td style="text-align: left">string</td>
+<td>Max. redemption amount per day</td>
+</tr>
+<tr>
+<td style="text-align: left">purchaseFeeRate</td>
+<td style="text-align: left">string</td>
+<td>Purchase fees rate</td>
+</tr>
+<tr>
+<td style="text-align: left">redeemFeeRate</td>
+<td style="text-align: left">string</td>
+<td>Redemption fees rate</td>
+</tr>
+<tr>
+<td style="text-align: left">status</td>
+<td style="text-align: left">string</td>
+<td>Whether the ETP can be purchased or redeemed; 1. ETP can be purchased and redeemed; 2. ETP can be purchased, but not redeemed; 3. ETP can be redeemed, but not purchased; 4. ETP cannot be purchased nor redeemed</td>
+</tr>
+<tr>
+<td style="text-align: left">fundFee</td>
+<td style="text-align: left">string</td>
+<td>Funding fees rate charged daily to users who hold ETP</td>
+</tr>
+<tr>
+<td style="text-align: left">fundFeeTime</td>
+<td style="text-align: left">long</td>
+<td>Timestamps when funding fees are charged</td>
+</tr>
+<tr>
+<td style="text-align: left">manageFeeRate</td>
+<td style="text-align: left">string</td>
+<td>Management fees rate</td>
+</tr>
+<tr>
+<td style="text-align: left">manageFeeTime</td>
+<td style="text-align: left">string</td>
+<td>Timestamps when management fees are charged</td>
+</tr>
+<tr>
+<td style="text-align: left">circulation</td>
+<td style="text-align: left">string</td>
+<td>Circulating supply in the secondary market</td>
+</tr>
+<tr>
+<td style="text-align: left">value</td>
+<td style="text-align: left">string</td>
+<td>Total value</td>
+</tr>
+<tr>
+<td style="text-align: left">total</td>
+<td style="text-align: left">string</td>
+<td>Upper limit</td>
+</tr>
+<tr>
+<td style="text-align: left">netValue</td>
+<td style="text-align: left">string</td>
+<td>Net asset value</td>
+</tr>
+</tbody></table>
+<h3 id='t-etppurchase'>Purchase</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/spot/etp/v1/purchase \
+-H "Content-Type: application/x-www-form-urlencoded" \
+-d 'api_key={api_key}&amp;etpCode={etpCode}&amp;etpAmount={etpAmount}&amp;serialNo={serialNo}&amp;timestamp=1637669364000'
+</span></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">etpCode</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC3L</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderQuantity</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">12</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderAmount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">123.12345678</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">123.12345678</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1620917160000</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">valueCoin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">usdt</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>POST
+<code><span id=vpoCreate>/spot/etp/v1/purchase</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">etpCode</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Code of the ETP symbol; currently only BTC+3L and BTC-3L</td>
+</tr>
+<tr>
+<td style="text-align: left">etpAmount</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">number</td>
+<td>Purchase amount</td>
+</tr>
+<tr>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">number</td>
+<td>Timestamp</td>
+</tr>
+<tr>
+<td style="text-align: left">serialNo</td>
+<td style="text-align: left"><b>false</b></td>
+<td style="text-align: left">string</td>
+<td>Serial number</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">etpCode</td>
+<td style="text-align: left">string</td>
+<td>Code of the ETP symbol</td>
+</tr>
+<tr>
+<td style="text-align: left">orderStatus</td>
+<td style="text-align: left">string</td>
+<td>Order status; 1. Completed; 2. In progress; 3. Failed</td>
+</tr>
+<tr>
+<td style="text-align: left">orderQuantity</td>
+<td style="text-align: left">string</td>
+<td>Order quantity of the ETP</td>
+</tr>
+<tr>
+<td style="text-align: left">orderAmount</td>
+<td style="text-align: left">string</td>
+<td>Order value of the ETP</td>
+</tr>
+<tr>
+<td style="text-align: left">amount</td>
+<td style="text-align: left">string</td>
+<td>Actual purchase value of the ETP</td>
+</tr>
+<tr>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left">long</td>
+<td>Timestamp</td>
+</tr>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: left">long</td>
+<td>Transaction ID</td>
+</tr>
+<tr>
+<td style="text-align: left">valueCoin</td>
+<td style="text-align: left">string</td>
+<td>Quote asset</td>
+</tr>
+<tr>
+<td style="text-align: left">serialNo</td>
+<td style="text-align: left">string</td>
+<td>Serial number</td>
+</tr>
+</tbody></table>
+<h3 id='t-etpredeem'>Redeem</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/spot/etp/v1/redeem \
+-H "Content-Type: application/x-www-form-urlencoded" \
+-d 'api_key={api_key}&amp;etpCode={etpCode}&amp;etpQuantity={etpQuantity}&amp;serialNo={serialNo}&amp;timestamp=1637669364000'
+</span></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">etpCode</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC3L</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">orderStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">quantity</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">12</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">orderQuantity</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">123.12345678</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">orderAmount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">123.12345678</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1620917160000</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">valueCoin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">usdt</span><span class="dl">"</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span> 
+  <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>POST
+<code><span id=vpoCreate>/spot/etp/v1/redeem</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">etpCode</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Code of the ETP symbol; currently only BTC+3L and BTC-3L</td>
+</tr>
+<tr>
+<td style="text-align: left">etpQuantity</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">number</td>
+<td>Quantity</td>
+</tr>
+<tr>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">number</td>
+<td>Timestamp</td>
+</tr>
+<tr>
+<td style="text-align: left">serialNo</td>
+<td style="text-align: left"><b>false</b></td>
+<td style="text-align: left">string</td>
+<td>Serial number</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">etpCode</td>
+<td style="text-align: left">string</td>
+<td>Code of the ETP symbol</td>
+</tr>
+<tr>
+<td style="text-align: left">orderStatus</td>
+<td style="text-align: left">string</td>
+<td>Order status; 1. Completed; 2. In progress; 3. Failed</td>
+</tr>
+<tr>
+<td style="text-align: left">quantity</td>
+<td style="text-align: left">string</td>
+<td>Quantity</td>
+</tr>
+<tr>
+<td style="text-align: left">orderQuantity</td>
+<td style="text-align: left">string</td>
+<td>Order quantity of the ETP</td>
+</tr>
+<tr>
+<td style="text-align: left">orderAmount</td>
+<td style="text-align: left">string</td>
+<td>Order value of the ETP</td>
+</tr>
+<tr>
+<td style="text-align: left">amount</td>
+<td style="text-align: left">string</td>
+<td>Actual purchase value of the ETP</td>
+</tr>
+<tr>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left">long</td>
+<td>Timestamp</td>
+</tr>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: left">long</td>
+<td>Transaction ID</td>
+</tr>
+<tr>
+<td style="text-align: left">valueCoin</td>
+<td style="text-align: left">string</td>
+<td>Quote asset</td>
+</tr>
+<tr>
+<td style="text-align: left">serialNo</td>
+<td style="text-align: left">string</td>
+<td>Serial number</td>
+</tr>
+</tbody></table>
+<h3 id='t-etprecord'>Purchase/Redemption History</h3>
+<blockquote>
+<p>Request Example</p>
+
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span>
+    <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">etpCode</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">btc3l</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1620917160000</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">excTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1620917160000</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">fee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.12345678</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">12.12345678</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">value</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">12.12345678</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">valueCoin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">usdt</span><span class="dl">"</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=vpoCreate>/spot/etp/v1/record</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">etpCode</td>
+<td style="text-align: left"><b>false</b></td>
+<td style="text-align: left">string</td>
+<td>Code of the ETP symbol; currently only BTC+3L and BTC-3L</td>
+</tr>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left"><b>false</b></td>
+<td style="text-align: left">long</td>
+<td>Order ID</td>
+</tr>
+<tr>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">long</td>
+<td>Timestamp</td>
+</tr>
+<tr>
+<td style="text-align: left">startTime</td>
+<td style="text-align: left"><b>false</b></td>
+<td style="text-align: left">long</td>
+<td>Start time</td>
+</tr>
+<tr>
+<td style="text-align: left">endTime</td>
+<td style="text-align: left"><b>false</b></td>
+<td style="text-align: left">long</td>
+<td>End time</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left"><b>false</b></td>
+<td style="text-align: left">int</td>
+<td>Limit for data size per page, max size is 500. Default as showing 100 pieces of data per page</td>
+</tr>
+<tr>
+<td style="text-align: left">orderType</td>
+<td style="text-align: left"><b>false</b></td>
+<td style="text-align: left">int</td>
+<td>Order type; 1. Purchase; 2. Redemption</td>
+</tr>
+<tr>
+<td style="text-align: left">serialNo</td>
+<td style="text-align: left"><b>false</b></td>
+<td style="text-align: left">string</td>
+<td>Serial number</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">etpCode</td>
+<td style="text-align: left">string</td>
+<td>Code of the ETP symbol</td>
+</tr>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">string</td>
+<td>Order ID</td>
+</tr>
+<tr>
+<td style="text-align: left">orderType</td>
+<td style="text-align: left">int</td>
+<td>Order type; 1. Purchase; 2. Redemption</td>
+</tr>
+<tr>
+<td style="text-align: left">orderTime</td>
+<td style="text-align: left">long</td>
+<td>Order time</td>
+</tr>
+<tr>
+<td style="text-align: left">excTime</td>
+<td style="text-align: left">long</td>
+<td>Last update time of the order status</td>
+</tr>
+<tr>
+<td style="text-align: left">orderStatus</td>
+<td style="text-align: left">string</td>
+<td>Order status; 1. Completed; 2. In progress; 3. Failed</td>
+</tr>
+<tr>
+<td style="text-align: left">fee</td>
+<td style="text-align: left">string</td>
+<td>Trading fees</td>
+</tr>
+<tr>
+<td style="text-align: left">amount</td>
+<td style="text-align: left">string</td>
+<td>Actual purchase value of the ETP</td>
+</tr>
+<tr>
+<td style="text-align: left">value</td>
+<td style="text-align: left">string</td>
+<td>Filled value</td>
+</tr>
+<tr>
+<td style="text-align: left">valueCoin</td>
+<td style="text-align: left">string</td>
+<td>Quote asset</td>
+</tr>
+<tr>
+<td style="text-align: left">serialNo</td>
+<td style="text-align: left">string</td>
+<td>Serial number</td>
+</tr>
+</tbody></table>
+<h3 id='t-etpquotereference'>Market Info</h3>
+<blockquote>
+<p>Request Example</p>
+
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">etpCode</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">btc3lusdtnav</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">nav</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">12.12345678</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">navTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1620917160000</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">leverage</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2.12345678</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">basket</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">122222.12345678</span><span class="dl">"</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=vpoCreate>/spot/etp/v1/reference</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">etpCode</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Code of the ETP symbol; currently only BTC+3L and BTC-3L</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">etpCode</td>
+<td style="text-align: left">string</td>
+<td>Code of the ETP symbol</td>
+</tr>
+<tr>
+<td style="text-align: left">nav</td>
+<td style="text-align: left">string</td>
+<td>Net asset value</td>
+</tr>
+<tr>
+<td style="text-align: left">navTime</td>
+<td style="text-align: left">long</td>
+<td>Update time for net asset value (in milliseconds and UTC time zone)</td>
+</tr>
+<tr>
+<td style="text-align: left">basket</td>
+<td style="text-align: left">string</td>
+<td>Basket value</td>
+</tr>
+<tr>
+<td style="text-align: left">leverage</td>
+<td style="text-align: left">string</td>
+<td>Leverage of the order.</td>
+</tr>
+</tbody></table>
 <h1 id='t-ratelimits'>API Rate Limits</h1><h3 id='t-ipratelimits'>IP Rate Limit</h3>
 <p><p>The IP limits are shared across all endpoints: futures, spot, and account asset.</p>
 <p>Bybit has different IP frequency limits for <code>GET</code> and <code>POST</code> method<span>:</span></p>
@@ -5758,6 +6460,24 @@ ELSE
 <li><code>1d</code> - 1 day</li>
 <li><code>1w</code> - 1 week</li>
 <li><code>1M</code> - 1 month</li>
+</ul>
+<h2 id='etp-status-status'>ETP status (<code>status</code>)</h2>
+<ul>
+<li><code>1</code> - ETP can be purchased and redeemed</li>
+<li><code>2</code> - ETP can be purchased, but not redeemed</li>
+<li><code>3</code> - ETP can be redeemed, but not purchased</li>
+<li><code>4</code> - ETP cannot be purchased nor redeemed</li>
+</ul>
+<h2 id='etp-order-status-orderstatus'>ETP order status (<code>orderStatus</code>)</h2>
+<ul>
+<li><code>1</code> - Completed</li>
+<li><code>2</code> - In progress</li>
+<li><code>3</code> - Failed</li>
+</ul>
+<h2 id='etp-order-type-ordertype'>ETP order type (<code>orderType</code>)</h2>
+<ul>
+<li><code>1</code> - Purchase</li>
+<li><code>2</code> - Redemption</li>
 </ul>
 <h1 id='t-errors'>Errors</h1>
 <p>The Bybit API uses the following HTTP codes and error codes<span>:</span></p>
