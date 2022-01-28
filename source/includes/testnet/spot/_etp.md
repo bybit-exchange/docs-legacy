@@ -200,7 +200,6 @@ POST
 |quantity|string|t(:spotEtpQuantity)|
 |orderQuantity|string|t(:spotResOrderQuantity)|
 |orderAmount|string|t(:spotResOrderAmount)|
-|amount|string|t(:spotResAmount)|
 |timestamp|long|t(:spot_timestamp)|
 |id|long|t(:spotResId)|
 |valueCoin|string|t(:spotResValueCoin)|
