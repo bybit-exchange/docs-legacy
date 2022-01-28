@@ -2,7 +2,6 @@
 <aside class="notice">
 t(:etp_notice)
 </aside>
-t(:etp_para)
 
 ### t(:etpInfo)
 > t(:codequote_curlExample)
@@ -82,6 +81,10 @@ GET
 |value|string|t(:spotResValue)|
 |total|string|t(:spotResTotal)|
 |netValue|string|t(:spotResNetValue)|
+
+<aside class="notice">
+t(:etp_para)
+</aside>
 
 ### t(:etpPurchase)
 > t(:codequote_curlExample)
