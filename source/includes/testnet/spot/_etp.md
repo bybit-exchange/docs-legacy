@@ -1,4 +1,7 @@
 # t(:etp)
+<aside class="notice">
+t(:etp_notice)
+</aside>
 t(:etp_para)
 
 ### t(:etpInfo)
