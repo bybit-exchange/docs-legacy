@@ -2,7 +2,6 @@
 <aside class="notice">
 t(:etp_notice)
 </aside>
-t(:etp_para)
 
 ### t(:etpInfo)
 > t(:codequote_curlExample)
@@ -82,6 +81,10 @@ GET
 |value|string|t(:spotResValue)|
 |total|string|t(:spotResTotal)|
 |netValue|string|t(:spotResNetValue)|
+
+<aside class="notice">
+t(:etp_para)
+</aside>
 
 ### t(:etpPurchase)
 > t(:codequote_curlExample)
@@ -197,7 +200,6 @@ POST
 |quantity|string|t(:spotEtpQuantity)|
 |orderQuantity|string|t(:spotResOrderQuantity)|
 |orderAmount|string|t(:spotResOrderAmount)|
-|amount|string|t(:spotResAmount)|
 |timestamp|long|t(:spot_timestamp)|
 |id|long|t(:spotResId)|
 |valueCoin|string|t(:spotResValueCoin)|
