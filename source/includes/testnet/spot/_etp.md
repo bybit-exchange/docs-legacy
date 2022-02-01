@@ -137,9 +137,9 @@ POST
 |:----- |:-----|----- |
 |etpCode|string|t(:spotResEtpCode)|
 |orderStatus|string|t(:spotResOrderStatus)|
-|orderQuantity|string|t(:spotResOrderQuantity)|
-|orderAmount|string|t(:spotResOrderAmount)|
-|amount|string|t(:spotResAmount)|
+|orderQuantity|string|t(:spotResPurchaseOrderQuantity)|
+|orderAmount|string|t(:spotResPurchaseOrderAmount)|
+|amount|string|t(:spotResPurchaseAmount)|
 |timestamp|long|t(:spot_timestamp)|
 |id|long|t(:spotResId)|
 |valueCoin|string|t(:spotResValueCoin)|
@@ -197,9 +197,9 @@ POST
 |:----- |:-----|----- |
 |etpCode|string|t(:spotResEtpCode)|
 |orderStatus|string|t(:spotResOrderStatus)|
-|quantity|string|t(:spotEtpQuantity)|
-|orderQuantity|string|t(:spotResOrderQuantity)|
-|orderAmount|string|t(:spotResOrderAmount)|
+|quantity|string|t(:spotResRedeemQuantity)|
+|orderQuantity|string|t(:spotResRedeemOrderQuantity)|
+|orderAmount|string|t(:spotResRedeemOrderAmount)|
 |timestamp|long|t(:spot_timestamp)|
 |id|long|t(:spotResId)|
 |valueCoin|string|t(:spotResValueCoin)|
