@@ -198,7 +198,7 @@ t(:usdc_websocket_para_orderbook)
         "trades":[
             {
                 "symbol":"BTC-31DEC21-36000-P",
-                "execId":"787bf079-b6a5-5bc0-a76d-59dad9036e7b",
+                "tradeId":"787bf079-b6a5-5bc0-a76d-59dad9036e7b",
                 "price":"371",
                 "size":"0.01",
                 "tradeTime":"1636510323144",
@@ -222,6 +222,7 @@ t(:usdc_current_24_total)
 | side |string |t(:side) |
 | size |string |t(:row_comment_position_size) |
 | price |string |t(:row_comment_exec_price) |
+| tradeId |string | t(:tradeId) |
 
 
 

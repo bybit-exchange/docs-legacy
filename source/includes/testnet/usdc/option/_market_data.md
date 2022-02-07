@@ -316,7 +316,6 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/query-trade-la
         "symbol": "BTC-3DEC21-80000-P",
         "orderPrice": "22775.50",
         "orderQty": "1.000",
-        "side": "Sell",
         "time": "1638248170932"
       }
     ]
@@ -352,6 +351,5 @@ GET
 |symbol|string|t(:usdcSymbol)|
 |orderPrice|string|t(:usdcOrderPrice)|
 |orderQty|string|t(:usdcOrderQty)|
-|side|string|t(:side)|
 |time|number|t(:time)|
 
