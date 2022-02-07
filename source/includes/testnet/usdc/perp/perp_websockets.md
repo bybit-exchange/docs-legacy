@@ -266,6 +266,7 @@ t(:usdc_current_24_total_perp)
 | side |string |t(:side) |
 | size |string |t(:row_comment_position_size) |
 | price |string |t(:row_comment_exec_price) |
+| tradeId |string |t(:tradeId) |
 
 
 
@@ -612,7 +613,7 @@ t(:usdc_perp_trade_history)
 | execFee |string |t(:execFee) |
 | feeRate |string |t(:feeRate) |
 | execType |string |t(:execType) |
-| tradeId |string |trade Id|
+| tradeId |string |t(:tradeId)|
 
 
 ### t(:usdc_perp_active_orders_snapshot)

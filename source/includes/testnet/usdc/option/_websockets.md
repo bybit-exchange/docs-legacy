@@ -222,7 +222,7 @@ t(:usdc_current_24_total)
 | side |string |t(:side) |
 | size |string |t(:row_comment_position_size) |
 | price |string |t(:row_comment_exec_price) |
-| tradeId |string | Trade Id |
+| tradeId |string | t(:tradeId) |
 
 
 
