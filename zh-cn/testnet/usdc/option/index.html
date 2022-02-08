@@ -1634,7 +1634,6 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
         <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC-3DEC21-80000-P</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">22775.50</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">orderQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1.000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1638248170932</span><span class="dl">"</span>
       <span class="p">}</span>
     <span class="p">]</span>
@@ -1740,11 +1739,6 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">orderQty</td>
 <td style="text-align: left">string</td>
 <td>訂單數量</td>
-</tr>
-<tr>
-<td style="text-align: left">side</td>
-<td style="text-align: left">string</td>
-<td>買賣方向</td>
 </tr>
 <tr>
 <td style="text-align: left">time</td>
@@ -4707,7 +4701,7 @@ curl https://api-testnet.bybit.com/v2/public/time
         <span class="dl">"</span><span class="s2">trades</span><span class="dl">"</span><span class="p">:[</span>
             <span class="p">{</span>
                 <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTC-31DEC21-36000-P</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">execId</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">787bf079-b6a5-5bc0-a76d-59dad9036e7b</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">tradeId</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">787bf079-b6a5-5bc0-a76d-59dad9036e7b</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">371</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">tradeTime</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1636510323144</span><span class="dl">"</span><span class="p">,</span>
@@ -4754,6 +4748,11 @@ curl https://api-testnet.bybit.com/v2/public/time
 <td style="text-align: left">price</td>
 <td style="text-align: left">string</td>
 <td>成交價格</td>
+</tr>
+<tr>
+<td style="text-align: left">tradeId</td>
+<td style="text-align: left">string</td>
+<td>交易id</td>
 </tr>
 </tbody></table>
 <h3 id='t-latestsymbolinfo'>合約的最新行情數據</h3>
