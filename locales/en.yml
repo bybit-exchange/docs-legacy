@@ -532,6 +532,19 @@ en:
       <li>This issue will be fixed in the next major version of the API; unfortunately, it is not fixable in the short-term.</li>
     </ul>
 
+  faq_data_resilience: How can I ensure I am using up-to-date data?
+  faq_data_resilience_para: |
+    <ul>
+      <li>It is possible, although unlikely, that the REST API or (even less likely) the websocket could return/push old data.</li>
+      <li>For the greatest level of data resilience, we recommend clients to:
+        <ul>
+          <li>firstly, rely on the websocket, which will not only ensure you get the latest data as fast as possible, but will also ensure you get <i>complete</i> data</li>
+          <li>secondly, query the REST API to fill in any discrepencies in data - or between websocket disconnections.</li>
+        </ul>
+      <li>The best practice is to save all of this data locally in your own database or cache.</li>
+      <li>This frees up your rate limits for other requests and also ensures a level of redundancy against the exchange in case of data delays.</li>
+    </ul
+
 
   # api_auth
   # t(:authentication)
