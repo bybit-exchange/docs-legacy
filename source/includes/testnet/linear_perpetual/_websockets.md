@@ -57,6 +57,9 @@ ws.send(
 )
 ```
 
+<aside class="notice">
+t(:linear_websocket_endpoints_aside)
+</aside>
 
 t(:linear_websocket_para_endpoint)
 
