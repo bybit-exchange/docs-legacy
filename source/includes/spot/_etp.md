@@ -31,7 +31,6 @@ curl https://api-testnet.bybit.com/spot/etp/v1/info \
       "fundFeeTime": 1620917160000,
       "manageFeeRate": "-0.12345678",
       "manageFeeTime": 1620917160000,
-      "circulation": "3124234233.12345678",
       "value": "1212432.12345678",
       "total": "200000000.12345678",
       "netValue": "10.12345678"
@@ -73,7 +72,6 @@ GET
 |fundFeeTime|long|t(:spotResFundFeeTime)|
 |manageFeeRate|string|t(:spotResManageFee)|
 |manageFeeTime|string|t(:spotResManageFeeTime)|
-|circulation|string|t(:spotResCirculation)|
 |value|string|t(:spotResValue)|
 |total|string|t(:spotResTotal)|
 |netValue|string|t(:spotResNetValue)|
@@ -279,7 +277,8 @@ GET
       "nav": "12.12345678",
       "navTime": 1620917160000,
       "leverage": "2.12345678",
-      "basket": "122222.12345678"
+      "basket": "122222.12345678",
+      "circulation": "3124234233.12345678"
   },
   "ext_code": null,
   "ext_info": null
@@ -308,3 +307,4 @@ GET
 |navTime|long|t(:spotEtpQuoteNavTime)|
 |basket|string|t(:spotEtpQuoteBasket)|
 |leverage|string|t(:spotLeverage)|
+|circulation|string|t(:spotResCirculation)|
