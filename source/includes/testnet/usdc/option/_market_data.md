@@ -24,17 +24,17 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
     {
       "price": "5000.00000000",
       "size": "2.0000",
-      "side": "BID"
+      "side": "Buy"
     },
     {
       "price": "1.50000000",
       "size": "0.0200",
-      "side": "BID"
+      "side": "Buy"
     },
     {
       "price": "5900.00000000",
       "size": "0.9000",
-      "side": "ASK"
+      "side": "Sell"
     }
   ]
 }

@@ -2535,7 +2535,7 @@ en:
   usdcList: list
   usdcSymbol: Contract name
   usdcTickerInfo: Latest Symbol Info
-  usdcOrderBookSide: Direction. ASK or BID.
+  usdcOrderBookSide: Direction.
   usdcPerpOrderBookSide: Direction, Buy or Sell
   usdcSize: size
   usdcOrderBook: OrderBook
@@ -2696,23 +2696,19 @@ en:
     The frequency limit for Options is no more than 20 requests per second.
   usdc_websocket_subscribe_desc: |
     <p>Subscribing:</p>
-    <p>ws.send('{"method":"public/subscribe","id":"{uuid}","params":{"channels":["topic1","topic2"]}}')</p>
-    <p>or </p>
-    <p>ws.send('{"method":"private/subscribe","id":"{uuid}","params":{"channels":["topic1","topic2"]}}')</p>
+    <p>ws.send('{"op":"subscribe","id":"{uuid}","args":["topic1","topic2"]}');</p>
     <p>Response:</p>
-    <p>{"id":"{uuid}","code":0,"data":{"successChannels":["topic1"],"failChannels":["topic2"]},"type":"COMMAND_RESP"}</p>
+    <p>{"id":"{uuid}","code":0,"data":{"successTopics":["topic1"],"failTopics":["topic2"]},"type":"COMMAND_RESP"}</p>
   usdc_websocket_unsubscribe_desc: |
     <p>Remove WebSocket Topic Subscriptions</p>
-    <p>ws.send('{"method":"public/unsubscribe","id":"{uuid}","params":{"channels":["topic1","topic2"]}}')  </p>
-    <p>or  </p>
-    <p>ws.send('{"method":"private/unsubscribe","id":"{uuid}","params":{"channels":["topic1","topic2"]}}’) </p>
+    <p>ws.send('{"op":"unsubscribe","id":"{uuid}","args":["topic1","topic2"]}')  </p>
     <p>Response: </p>
-    <p>{"id":"{uuid}","code":0,"data":{"successChannels":["topic1"],"failChannels":["topic2"]},"type":"COMMAND_RESP"}</p>
+    <p>{"id":"{uuid}","code":0,"data":{"successTopics":["topic1"],"failTopics":["topic2"]},"type":"COMMAND_RESP"}</p>
 
     <p>Remove All WebSocket Topic Subscriptions</p>
-    <p>{"method":"public/unSubAll","id":"requestId"}</p>
+    <p>{"op":"unSubAll","id":"{uuid}"}</p>
     <p>Response:</p>
-    <p> {"id":"requestId","code":0,"type":"COMMAND_RESP"}</p>
+    <p> {"id":"{uuid}","code":0,"type":"COMMAND_RESP"}</p>
 
 
   usdc_websocket_para_orderbook: |
