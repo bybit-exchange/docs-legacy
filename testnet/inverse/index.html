@@ -1304,6 +1304,9 @@
                           <li>
                             <a href="#t-marginswitch" class="toc-h3 toc-link" data-title="Cross/Isolated Margin Switch">Cross/Isolated Margin Switch</a>
                           </li>
+                          <li>
+                            <a href="#t-queryfeerate" class="toc-h3 toc-link" data-title="Query Trading Fee Rate">Query Trading Fee Rate</a>
+                          </li>
                       </ul>
                   </li>
                   <li>
@@ -8245,6 +8248,81 @@ When set to Partial, TP/SL orders may have a quantity less than the position siz
 <td>When switching from cross to isolated, the value of <code>buy_leverage</code> must be equal to <code>sell_leverage</code>.</td>
 </tr>
 </tbody></table>
+<h3 id='t-queryfeerate'>Query Trading Fee Rate</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/private/position/fee-rate?api_key={api_key}&amp;symbol=BTCUSD&amp;timestamp={timestamp}&amp;sign={sign} \
+</span></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span>
+    <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">user_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">taker_fee_rate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">maker_fee_rate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1577477968.175013</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">74</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1577477968183</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">75</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=ulQueryFeeRate>/v2/private/position/fee-rate</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ulQueryFeeRate"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Symbol</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">user_id</td>
+<td style="text-align: left">number</td>
+<td>User ID</td>
+</tr>
+<tr>
+<td style="text-align: left">taker_fee_rate</td>
+<td style="text-align: left">string</td>
+<td>fee rate of taker</td>
+</tr>
+<tr>
+<td style="text-align: left">maker_fee_rate</td>
+<td style="text-align: left">string</td>
+<td>fee rate of maker</td>
+</tr>
+</tbody></table>
 <h2 id='t-risklimit'>Risk Limit</h2><h3 id='t-getrisklimit'>Get Risk Limit</h3>
 <blockquote>
 <p>Request Example</p>
@@ -8790,7 +8868,9 @@ Historical funding rates are not available through the API. However, you can obt
             <span class="p">],</span>
             <span class="dl">"</span><span class="s2">created_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2019-10-28T13:22:39.000Z</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">expired_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2020-01-28T13:22:39.000Z</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">read_only</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
+            <span class="dl">"</span><span class="s2">read_only</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">vip_level</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">mkt_maker_level</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span>
         <span class="p">}</span>
     <span class="p">],</span>
     <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
@@ -8878,6 +8958,16 @@ Historical funding rates are not available through the API. However, you can obt
 <td style="text-align: left">read_only</td>
 <td style="text-align: left">bool</td>
 <td>ReadOnly</td>
+</tr>
+<tr>
+<td style="text-align: left">vip_level</td>
+<td style="text-align: left">string</td>
+<td>VIP Level</td>
+</tr>
+<tr>
+<td style="text-align: left">mkt_maker_level</td>
+<td style="text-align: left">string</td>
+<td>Market maker level</td>
 </tr>
 </tbody></table>
 <h2 id='t-lcp'>LCP Info</h2>
@@ -12128,7 +12218,7 @@ ELSE
 </tr>
 <tr>
 <td>20001</td>
-<td>Order not exists</td>
+<td>Order nmarginswitchot exists</td>
 </tr>
 <tr>
 <td>20003</td>

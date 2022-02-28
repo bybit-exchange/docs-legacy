@@ -1302,6 +1302,9 @@
                           <li>
                             <a href="#t-marginswitch" class="toc-h3 toc-link" data-title="全倉/逐倉切換">全倉/逐倉切換</a>
                           </li>
+                          <li>
+                            <a href="#t-queryfeerate" class="toc-h3 toc-link" data-title="查询用户手續费率">查询用户手續费率</a>
+                          </li>
                       </ul>
                   </li>
                   <li>
@@ -8178,6 +8181,81 @@ GET
 <td>全倉/逐倉切換，需要傳杠桿並且<code>buy_leverage</code>和<code>sell_leverage</code>必須傳入相同參數；</td>
 </tr>
 </tbody></table>
+<h3 id='t-queryfeerate'>查询用户手續费率</h3>
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api.bybit.com/v2/private/position/fee-rate?api_key={api_key}&amp;symbol=BTCUSD&amp;timestamp={timestamp}&amp;sign={sign} \
+</span></code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span>
+    <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">user_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">taker_fee_rate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">maker_fee_rate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1577477968.175013</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">74</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1577477968183</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">75</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP 請求</p>
+
+<p>GET
+<code><span id=ulQueryFeeRate>/v2/private/position/fee-rate</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ulQueryFeeRate"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>合約類型</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">user_id</td>
+<td style="text-align: left">number</td>
+<td>用戶 ID</td>
+</tr>
+<tr>
+<td style="text-align: left">taker_fee_rate</td>
+<td style="text-align: left">string</td>
+<td>taker手續費</td>
+</tr>
+<tr>
+<td style="text-align: left">maker_fee_rate</td>
+<td style="text-align: left">string</td>
+<td>maker手續費</td>
+</tr>
+</tbody></table>
 <h2 id='t-risklimit'>風險限額</h2><h3 id='t-getrisklimit'>查詢風險限額表</h3>
 <blockquote>
 <p>請求示例</p>
@@ -8725,7 +8803,9 @@ GET
             <span class="p">],</span>
             <span class="dl">"</span><span class="s2">created_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2019-10-28T13:22:39.000Z</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">expired_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2020-01-28T13:22:39.000Z</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">read_only</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
+            <span class="dl">"</span><span class="s2">read_only</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">vip_level</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">mkt_maker_level</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span>
         <span class="p">}</span>
     <span class="p">],</span>
     <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
@@ -8813,6 +8893,16 @@ GET
 <td style="text-align: left">read_only</td>
 <td style="text-align: left">bool</td>
 <td>是否只讀</td>
+</tr>
+<tr>
+<td style="text-align: left">vip_level</td>
+<td style="text-align: left">string</td>
+<td>VIP用戶等級</td>
+</tr>
+<tr>
+<td style="text-align: left">mkt_maker_level</td>
+<td style="text-align: left">string</td>
+<td>market maker等級</td>
 </tr>
 </tbody></table>
 <h2 id='t-lcp'>流動性貢獻分</h2>
