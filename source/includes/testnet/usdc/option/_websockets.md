@@ -31,21 +31,35 @@ def send_auth(ws):
         bytes(secret, 'utf-8'),
         bytes(_val, 'utf-8'), digestmod='sha256'
     ).hexdigest())
-    ws.send(json.dumps({"id": "signAuth_request_id", "method": "public/signAuth",
-                        "params": {"sign": signature, "apiKey": key, "timestamp": expires}}))
+    
+    ws.send(
+      json.dumps({
+        "op": "auth",
+        "args": [api_key, expires, signature]
+      })
+    )
 
 def on_open(ws):
     print('opened')
     send_auth(ws)
     def pingPer(ws):
         while True:
-            ws.send("ping")
-            time.sleep(2)
+            ws.send(
+              json.dumps({
+              "op": "ping",
+              "args": ["946656000000"]
+              })
+            )
+            time.sleep(25)
     t1 = threading.Thread(target=pingPer, args=(ws,))
     t1.start()
-    ws.send(json.dumps({"method": "private/subscribe", "id": "{100003}", "params": {
-        "channels": ["user.option.order", "user.option.position", "user.option.tradeHistory",
-                     "user.option.orderHistory"]}}))
+    ws.send(
+      json.dumps({
+        "op": "subscribe", "id": "{100003}", 
+        "args": ["user.option.order", "user.option.position", 
+                 "user.option.tradeHistory", "user.option.orderHistory"]
+      })
+    )
 
 def connWS():
     ws = websocket.WebSocketApp("wss://stream-testnet.bybit.com/trade/option/usdc/private/v1",
@@ -72,13 +86,13 @@ t(:websocket_best_practices)
 > t(:websocket_codequote_heartbeat)
 
 ```javascript
-ws.send("ping");
+ws.send('{"op":"ping","args":["1535975085152"]}');
 ```
 
 > t(:codequote_responseExample)
 
 ```javascript
-{"pong": 1535975085152}
+{"op":"pong","args":["1535975085152"]}
 ```
 
 
@@ -123,7 +137,7 @@ t(:spot_websocket_para_response)
 > t(:codequote_subscribe)
 
 ```javascript
-  ws.send('{"method":"public/subscribe","id":"requestId","params":{"channels":["orderbook25.BTC-12NOV21-40000-P"]}}');
+  ws.send('{"op":"subscribe","id":"requestId","args":["orderbook25.BTC-12NOV21-40000-P"]}');
 ```
 
 > t(:codequote_snapshot)
@@ -132,15 +146,9 @@ t(:spot_websocket_para_response)
 
 {
   "id":"orderbook100.BTC-12NOV21-40000-P-117936-1636454548726",
-  "channel":"orderbook100.BTC-12NOV21-40000-P",
-  "type":"SNAPSHOT",
-  "serialNumber":117936,
-  "publishTime":726621846,
+  "topic":"orderbook100.BTC-12NOV21-40000-P",
   "creationTime":1636454548726,
   "data":{
-  "timestamp":"1636444250",
-    "crossSeq":"117936",
-    "symbol":"BTC-12NOV21-40000-P",
     "orderBooks":[
     {
       "price":"1764.5",
@@ -167,7 +175,6 @@ t(:usdc_websocket_para_orderbook)
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 | price |string |t(:row_comment_resp_price) |
-|symbol|string |t(:usdcSymbol)    |
 |side |string |t(:row_comment_side)  |
 |size |number |t(:row_comment_position_size)  |
 
@@ -178,7 +185,7 @@ t(:usdc_websocket_para_orderbook)
 > t(:codequote_subscribe)
 
 ```javascript
-  ws.send('{"method":"public/subscribe","id":"{1001}","params":{"channels":["recenttrades.BTC"]}}');
+  ws.send('{"op":"subscribe","id":"{1001}","args":["recenttrades.BTC"]}');
 ```
 
 
@@ -188,10 +195,7 @@ t(:usdc_websocket_para_orderbook)
 
 {
     "id":"recenttrades.BTC-118388-1636510323155",
-    "channel":"recenttrades.BTC",
-    "type":"SNAPSHOT",
-    "serialNumber":118388,
-    "publishTime":155063442,
+    "topic":"recenttrades.BTC",
     "creationTime":1636510323155,
     "data":{
         "coin":"BTC",
@@ -231,7 +235,7 @@ t(:usdc_current_24_total)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"method":"public/subscribe","id":"{1001}","params":{"channels":["instrument_info.BTC-19NOV21-58000-P"]}}');
+ws.send('{"op":"subscribe","id":"{1001}","args":["instrument_info.BTC-19NOV21-58000-P"]}');
 ```
 
 > t(:codequote_snapshot)
@@ -240,10 +244,7 @@ ws.send('{"method":"public/subscribe","id":"{1001}","params":{"channels":["instr
 
 {
     "id":"instrument_info.BTC-19NOV21-58000-P-98790-1636511446299",
-    "channel":"instrument_info.BTC-19NOV21-58000-P",
-    "type":"SNAPSHOT",
-    "serialNumber":98790,
-    "publishTime":299440840,
+    "topic":"instrument_info.BTC-19NOV21-58000-P",
     "creationTime":1636511446299,
     "data":{
         "symbol":"BTC-19NOV21-58000-P",
@@ -321,7 +322,7 @@ t(:usdcLastestSymbolInfo)
 
 ```javascript
 
-ws.send('{"method":"private/subscribe","id":"{100002}","params":{"channels":["user.option.position"]}}');
+ws.send('{"op":"subscribe","id":"{100002}","args":["user.option.position"]}');
 
 ```
 
@@ -330,10 +331,7 @@ ws.send('{"method":"private/subscribe","id":"{100002}","params":{"channels":["us
 ```javascript
 {
   "id":"12827e35-ab18-416f-b754-5fff8315459f",
-    "channel":"user.option.position",
-    "type":"SNAPSHOT",
-    "serialNumber":1,
-    "publishTime":134984932,
+    "topic":"user.option.position",
     "creationTime":1640835309134,
     "data":{
     "result":[
@@ -399,7 +397,7 @@ t(:usdcPositionDesc)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"method":"private/subscribe","id":"{100002}","params":{"channels":["user.option.tradeHistory"]}}');
+ws.send('{"op":"subscribe","id":"{100002}","args":["user.option.tradeHistory"]}');
 ```
 
 > t(:usdc_trade_codequote_snapshot)
@@ -408,10 +406,7 @@ ws.send('{"method":"private/subscribe","id":"{100002}","params":{"channels":["us
 
 {
   "id":"985cf6de-2e7e-4d18-92ff-e7a2b4fcfcc1",
-  "channel":"user.option.tradeHistory",
-  "type":"SNAPSHOT",
-  "serialNumber":1,
-  "publishTime":129276349,
+  "topic":"user.option.tradeHistory",
   "creationTime":1640834911129,
   "data":{
   "result":[
@@ -469,7 +464,7 @@ t(:usdcFilledHistory)
 > t(:codequote_subscribe)
 
 ```javascript
- ws.send('{"method":"private/subscribe","id":"{100003}","params":{"channels":["user.option.order"]}}');
+ ws.send('{"op":"subscribe","id":"{100003}","args":["user.option.order"]}');
 ```
 
 > t(:usdc_trade_codequote_snapshot)
@@ -478,10 +473,7 @@ t(:usdcFilledHistory)
 
 {
   "id":"f013f9e9-5d6c-4d43-bed4-6858d8a9de1e",
-  "channel":"user.option.order",
-  "type":"SNAPSHOT",
-  "serialNumber":1,
-  "publishTime":470805183,
+  "topic":"user.option.order",
   "creationTime":1637828113470,
   "data":{
   "result":[
@@ -551,7 +543,7 @@ t(:usdcActiveOrder)
 > t(:codequote_subscribe)
 
 ```javascript
- ws.send('{"method":"private/subscribe","id":"{100003}","params":{"channels":["user.option.orderHistory"]}}');
+ ws.send('{"op":"subscribe","id":"{100003}","args":["user.option.orderHistory"]}');
 ```
 
 > t(:usdc_trade_codequote_snapshot)
@@ -559,10 +551,7 @@ t(:usdcActiveOrder)
 ```javascript
 {
   "id":"7e998370-42e2-45ac-ba5e-83f0b8ea2f13",
-    "channel":"user.option.orderHistory",
-    "type":"SNAPSHOT",
-    "serialNumber":1,
-    "publishTime":512267606,
+    "topic":"user.option.orderHistory",
     "creationTime":1637834483512,
     "data":{
     "result":[
@@ -632,7 +621,7 @@ t(:usdcOrderDesc)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"method":"private/subscribe","id":"{100003}","params":{"channels":["user.option.greeks"]}}');
+ws.send('{"op":"subscribe","id":"{100003}","args":["user.option.greeks"]}');
 
 ```
 
@@ -642,10 +631,7 @@ ws.send('{"method":"private/subscribe","id":"{100003}","params":{"channels":["us
 
 {
     "id":"37f1e862-5eaf-4cb5-a588-b369286cd805",
-    "channel":"user.option.greeks",
-    "type":"SNAPSHOT",
-    "serialNumber":1,
-    "publishTime":136973647,
+    "topic":"user.option.greeks",
     "creationTime":1636528352136,
     "data":{
         "result":[
