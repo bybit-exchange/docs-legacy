@@ -1080,17 +1080,17 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
     <span class="p">{</span>
       <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5000.00000000</span><span class="dl">"</span><span class="p">,</span>
       <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2.0000</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BID</span><span class="dl">"</span>
+      <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span>
     <span class="p">},</span>
     <span class="p">{</span>
       <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1.50000000</span><span class="dl">"</span><span class="p">,</span>
       <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0200</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BID</span><span class="dl">"</span>
+      <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span>
     <span class="p">},</span>
     <span class="p">{</span>
       <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5900.00000000</span><span class="dl">"</span><span class="p">,</span>
       <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.9000</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ASK</span><span class="dl">"</span>
+      <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span>
     <span class="p">}</span>
   <span class="p">]</span>
 <span class="p">}</span>
@@ -1143,7 +1143,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <tr>
 <td style="text-align: left">side</td>
 <td style="text-align: left">string</td>
-<td>買賣方向, ASK or BID</td>
+<td>買賣方向</td>
 </tr>
 </tbody></table>
 <h3 id='t-querysymbolinfo'>查詢合約信息</h3>
@@ -4496,21 +4496,35 @@ curl https://api-testnet.bybit.com/v2/public/time
         <span class="nb">bytes</span><span class="p">(</span><span class="n">secret</span><span class="p">,</span> <span class="s">'utf-8'</span><span class="p">),</span>
         <span class="nb">bytes</span><span class="p">(</span><span class="n">_val</span><span class="p">,</span> <span class="s">'utf-8'</span><span class="p">),</span> <span class="n">digestmod</span><span class="o">=</span><span class="s">'sha256'</span>
     <span class="p">).</span><span class="n">hexdigest</span><span class="p">())</span>
-    <span class="n">ws</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span><span class="s">"id"</span><span class="p">:</span> <span class="s">"signAuth_request_id"</span><span class="p">,</span> <span class="s">"method"</span><span class="p">:</span> <span class="s">"public/signAuth"</span><span class="p">,</span>
-                        <span class="s">"params"</span><span class="p">:</span> <span class="p">{</span><span class="s">"sign"</span><span class="p">:</span> <span class="n">signature</span><span class="p">,</span> <span class="s">"apiKey"</span><span class="p">:</span> <span class="n">key</span><span class="p">,</span> <span class="s">"timestamp"</span><span class="p">:</span> <span class="n">expires</span><span class="p">}}))</span>
+
+    <span class="n">ws</span><span class="p">.</span><span class="n">send</span><span class="p">(</span>
+      <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span>
+        <span class="s">"op"</span><span class="p">:</span> <span class="s">"auth"</span><span class="p">,</span>
+        <span class="s">"args"</span><span class="p">:</span> <span class="p">[</span><span class="n">api_key</span><span class="p">,</span> <span class="n">expires</span><span class="p">,</span> <span class="n">signature</span><span class="p">]</span>
+      <span class="p">})</span>
+    <span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">on_open</span><span class="p">(</span><span class="n">ws</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="s">'opened'</span><span class="p">)</span>
     <span class="n">send_auth</span><span class="p">(</span><span class="n">ws</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">pingPer</span><span class="p">(</span><span class="n">ws</span><span class="p">):</span>
         <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
-            <span class="n">ws</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="s">"ping"</span><span class="p">)</span>
-            <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">ws</span><span class="p">.</span><span class="n">send</span><span class="p">(</span>
+              <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span>
+              <span class="s">"op"</span><span class="p">:</span> <span class="s">"ping"</span><span class="p">,</span>
+              <span class="s">"args"</span><span class="p">:</span> <span class="p">[</span><span class="s">"946656000000"</span><span class="p">]</span>
+              <span class="p">})</span>
+            <span class="p">)</span>
+            <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
     <span class="n">t1</span> <span class="o">=</span> <span class="n">threading</span><span class="p">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">pingPer</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">ws</span><span class="p">,))</span>
     <span class="n">t1</span><span class="p">.</span><span class="n">start</span><span class="p">()</span>
-    <span class="n">ws</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span><span class="s">"method"</span><span class="p">:</span> <span class="s">"private/subscribe"</span><span class="p">,</span> <span class="s">"id"</span><span class="p">:</span> <span class="s">"{100003}"</span><span class="p">,</span> <span class="s">"params"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s">"channels"</span><span class="p">:</span> <span class="p">[</span><span class="s">"user.option.order"</span><span class="p">,</span> <span class="s">"user.option.position"</span><span class="p">,</span> <span class="s">"user.option.tradeHistory"</span><span class="p">,</span>
-                     <span class="s">"user.option.orderHistory"</span><span class="p">]}}))</span>
+    <span class="n">ws</span><span class="p">.</span><span class="n">send</span><span class="p">(</span>
+      <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span>
+        <span class="s">"op"</span><span class="p">:</span> <span class="s">"subscribe"</span><span class="p">,</span> <span class="s">"id"</span><span class="p">:</span> <span class="s">"{100003}"</span><span class="p">,</span> 
+        <span class="s">"args"</span><span class="p">:</span> <span class="p">[</span><span class="s">"user.option.order"</span><span class="p">,</span> <span class="s">"user.option.position"</span><span class="p">,</span> 
+                 <span class="s">"user.option.tradeHistory"</span><span class="p">,</span> <span class="s">"user.option.orderHistory"</span><span class="p">]</span>
+      <span class="p">})</span>
+    <span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">connWS</span><span class="p">():</span>
     <span class="n">ws</span> <span class="o">=</span> <span class="n">websocket</span><span class="p">.</span><span class="n">WebSocketApp</span><span class="p">(</span><span class="s">"wss://stream-testnet.bybit.com/trade/option/usdc/private/v1"</span><span class="p">,</span>
@@ -4550,12 +4564,12 @@ curl https://api-testnet.bybit.com/v2/public/time
 <blockquote>
 <p>如何發送心跳包</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">"</span><span class="s2">ping</span><span class="dl">"</span><span class="p">);</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"ping","args":["1535975085152"]}</span><span class="dl">'</span><span class="p">);</span>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span><span class="dl">"</span><span class="s2">pong</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1535975085152</span><span class="p">}</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span><span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">pong</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">args</span><span class="dl">"</span><span class="p">:[</span><span class="dl">"</span><span class="s2">1535975085152</span><span class="dl">"</span><span class="p">]}</span>
 </code></pre></div>
 <aside class="warning">
 由於網絡或者程序不穩定,我們強烈建議您使用 <code>ping</code> 心跳包來維持連接. 心跳包建議每30秒發送一次.
@@ -4577,25 +4591,21 @@ curl https://api-testnet.bybit.com/v2/public/time
 </blockquote>
 
 <p><p>訂閱:</p>
-<p>ws.send('{"method":"public/subscribe","id":"{uuid}","params":{"channels":["topic1","topic2"]}}')</p>
-<p>或者 </p>
-<p>ws.send('{"method":"private/subscribe","id":"{uuid}","params":{"channels":["topic1","topic2"]}}')</p>
+<p>ws.send('{"op":"subscribe","id":"{uuid}","args":["topic1","topic2"]}');</p>
 <p>響應結果:</p>
-<p>{"id":"{uuid}","code":0,"data":{"successChannels":["topic1"],"failChannels":["topic2"]},"type":"COMMAND_RESP"}</p>
+<p>{"id":"{uuid}","code":0,"data":{"successTopics":["topic1"],"failTopics":["topic2"]},"type":"COMMAND_RESP"}</p>
 </p>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Subscribing to the trade data for BTCUSDT</span>
 </code></pre></div><h3 id='t-websocketunfilters'>Websocket取消訂閱方式</h3>
 <p><p>取消訂閱</p>
-<p>ws.send('{"method":"public/unsubscribe","id":"{uuid}","params":{"channels":["topic1","topic2"]}}')  </p>
-<p>或者  </p>
-<p>ws.send('{"method":"private/unsubscribe","id":"{uuid}","params":{"channels":["topic1","topic2"]}}’) </p>
+<p>ws.send('{"op":"unsubscribe","id":"{uuid}","args":["topic1","topic2"]}')  </p>
 <p>響應結果: </p>
-<p>{"id":"{uuid}","code":0,"data":{"successChannels":["topic1"],"failChannels":["topic2"]},"type":"COMMAND_RESP"}</p>
+<p>{"id":"{uuid}","code":0,"data":{"successTopics":["topic1"],"failTopics":["topic2"]},"type":"COMMAND_RESP"}</p>
 
 <p>取消所有訂閱</p>
-<p>{"method":"public/unSubAll","id":"requestId"}</p>
+<p>{"op":"unSubAll","id":"{uuid}"}</p>
 <p>響應:</p>
-<p> {"id":"requestId","code":0,"type":"COMMAND_RESP"}</p>
+<p> {"id":"{uuid}","code":0,"type":"COMMAND_RESP"}</p>
 </p>
 <h2 id='t-websocketresponse'>訂閱結果</h2>
 <blockquote>
@@ -4608,7 +4618,7 @@ curl https://api-testnet.bybit.com/v2/public/time
 <blockquote>
 <p>請求訂閱</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code>  <span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"method":"public/subscribe","id":"requestId","params":{"channels":["orderbook25.BTC-12NOV21-40000-P"]}}</span><span class="dl">'</span><span class="p">);</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code>  <span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","id":"requestId","args":["orderbook25.BTC-12NOV21-40000-P"]}</span><span class="dl">'</span><span class="p">);</span>
 </code></pre></div>
 <blockquote>
 <p>快照推送示例 - 連接建立成功後首次推送</p>
@@ -4616,15 +4626,9 @@ curl https://api-testnet.bybit.com/v2/public/time
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code>
 <span class="p">{</span>
   <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">orderbook100.BTC-12NOV21-40000-P-117936-1636454548726</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">channel</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">orderbook100.BTC-12NOV21-40000-P</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">SNAPSHOT</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">serialNumber</span><span class="dl">"</span><span class="p">:</span><span class="mi">117936</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">publishTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">726621846</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">orderbook100.BTC-12NOV21-40000-P</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1636454548726</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
-  <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1636444250</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">crossSeq</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">117936</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTC-12NOV21-40000-P</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">orderBooks</span><span class="dl">"</span><span class="p">:[</span>
     <span class="p">{</span>
       <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1764.5</span><span class="dl">"</span><span class="p">,</span>
@@ -4664,11 +4668,6 @@ curl https://api-testnet.bybit.com/v2/public/time
 <td>委托價格</td>
 </tr>
 <tr>
-<td style="text-align: left">symbol</td>
-<td style="text-align: left">string</td>
-<td>合約名稱</td>
-</tr>
-<tr>
 <td style="text-align: left">side</td>
 <td style="text-align: left">string</td>
 <td>方向</td>
@@ -4683,7 +4682,7 @@ curl https://api-testnet.bybit.com/v2/public/time
 <blockquote>
 <p>請求訂閱</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code>  <span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"method":"public/subscribe","id":"{1001}","params":{"channels":["recenttrades.BTC"]}}</span><span class="dl">'</span><span class="p">);</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code>  <span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","id":"{1001}","args":["recenttrades.BTC"]}</span><span class="dl">'</span><span class="p">);</span>
 </code></pre></div>
 <blockquote>
 <p>快照推送示例 - 有成交時推動數據示例</p>
@@ -4691,10 +4690,7 @@ curl https://api-testnet.bybit.com/v2/public/time
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code>
 <span class="p">{</span>
     <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">recenttrades.BTC-118388-1636510323155</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">channel</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">recenttrades.BTC</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">SNAPSHOT</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">serialNumber</span><span class="dl">"</span><span class="p">:</span><span class="mi">118388</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">publishTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">155063442</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">recenttrades.BTC</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1636510323155</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
         <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
@@ -4759,7 +4755,7 @@ curl https://api-testnet.bybit.com/v2/public/time
 <blockquote>
 <p>請求訂閱</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"method":"public/subscribe","id":"{1001}","params":{"channels":["instrument_info.BTC-19NOV21-58000-P"]}}</span><span class="dl">'</span><span class="p">);</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","id":"{1001}","args":["instrument_info.BTC-19NOV21-58000-P"]}</span><span class="dl">'</span><span class="p">);</span>
 </code></pre></div>
 <blockquote>
 <p>快照推送示例 - 連接建立成功後首次推送</p>
@@ -4767,10 +4763,7 @@ curl https://api-testnet.bybit.com/v2/public/time
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code>
 <span class="p">{</span>
     <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">instrument_info.BTC-19NOV21-58000-P-98790-1636511446299</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">channel</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">instrument_info.BTC-19NOV21-58000-P</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">SNAPSHOT</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">serialNumber</span><span class="dl">"</span><span class="p">:</span><span class="mi">98790</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">publishTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">299440840</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">instrument_info.BTC-19NOV21-58000-P</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1636511446299</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
         <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTC-19NOV21-58000-P</span><span class="dl">"</span><span class="p">,</span>
@@ -4946,7 +4939,7 @@ curl https://api-testnet.bybit.com/v2/public/time
 <p>請求訂閱</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code>
-<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"method":"private/subscribe","id":"{100002}","params":{"channels":["user.option.position"]}}</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","id":"{100002}","args":["user.option.position"]}</span><span class="dl">'</span><span class="p">);</span>
 
 </code></pre></div>
 <blockquote>
@@ -4954,10 +4947,7 @@ curl https://api-testnet.bybit.com/v2/public/time
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">12827e35-ab18-416f-b754-5fff8315459f</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">channel</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">user.option.position</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">SNAPSHOT</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">serialNumber</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">publishTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">134984932</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">user.option.position</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1640835309134</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
@@ -5072,7 +5062,7 @@ curl https://api-testnet.bybit.com/v2/public/time
 <blockquote>
 <p>請求訂閱</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"method":"private/subscribe","id":"{100002}","params":{"channels":["user.option.tradeHistory"]}}</span><span class="dl">'</span><span class="p">);</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","id":"{100002}","args":["user.option.tradeHistory"]}</span><span class="dl">'</span><span class="p">);</span>
 </code></pre></div>
 <blockquote>
 <p>快照推送示例 - 有成交時推動數據示例</p>
@@ -5080,10 +5070,7 @@ curl https://api-testnet.bybit.com/v2/public/time
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code>
 <span class="p">{</span>
   <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">985cf6de-2e7e-4d18-92ff-e7a2b4fcfcc1</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">channel</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">user.option.tradeHistory</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">SNAPSHOT</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">serialNumber</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">publishTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">129276349</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">user.option.tradeHistory</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1640834911129</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
@@ -5182,7 +5169,7 @@ curl https://api-testnet.bybit.com/v2/public/time
 <blockquote>
 <p>請求訂閱</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code> <span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"method":"private/subscribe","id":"{100003}","params":{"channels":["user.option.order"]}}</span><span class="dl">'</span><span class="p">);</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code> <span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","id":"{100003}","args":["user.option.order"]}</span><span class="dl">'</span><span class="p">);</span>
 </code></pre></div>
 <blockquote>
 <p>快照推送示例 - 有成交時推動數據示例</p>
@@ -5190,10 +5177,7 @@ curl https://api-testnet.bybit.com/v2/public/time
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code>
 <span class="p">{</span>
   <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">f013f9e9-5d6c-4d43-bed4-6858d8a9de1e</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">channel</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">user.option.order</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">SNAPSHOT</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">serialNumber</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">publishTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">470805183</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">user.option.order</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1637828113470</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
@@ -5333,17 +5317,14 @@ curl https://api-testnet.bybit.com/v2/public/time
 <blockquote>
 <p>請求訂閱</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code> <span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"method":"private/subscribe","id":"{100003}","params":{"channels":["user.option.orderHistory"]}}</span><span class="dl">'</span><span class="p">);</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code> <span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","id":"{100003}","args":["user.option.orderHistory"]}</span><span class="dl">'</span><span class="p">);</span>
 </code></pre></div>
 <blockquote>
 <p>快照推送示例 - 有成交時推動數據示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">7e998370-42e2-45ac-ba5e-83f0b8ea2f13</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">channel</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">user.option.orderHistory</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">SNAPSHOT</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">serialNumber</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">publishTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">512267606</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">user.option.orderHistory</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1637834483512</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
@@ -5477,7 +5458,7 @@ curl https://api-testnet.bybit.com/v2/public/time
 <blockquote>
 <p>請求訂閱</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"method":"private/subscribe","id":"{100003}","params":{"channels":["user.option.greeks"]}}</span><span class="dl">'</span><span class="p">);</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","id":"{100003}","args":["user.option.greeks"]}</span><span class="dl">'</span><span class="p">);</span>
 
 </code></pre></div>
 <blockquote>
@@ -5486,10 +5467,7 @@ curl https://api-testnet.bybit.com/v2/public/time
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code>
 <span class="p">{</span>
     <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">37f1e862-5eaf-4cb5-a588-b369286cd805</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">channel</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">user.option.greeks</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">SNAPSHOT</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">serialNumber</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">publishTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">136973647</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">user.option.greeks</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1636528352136</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
         <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
