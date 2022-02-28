@@ -124,6 +124,8 @@ zh-cn:
   row_comment_permissions: ApiKey 所有權限
   row_comment_expired_at: 過期時間
   row_comment_read_only: 是否只讀
+  row_comment_vip_level: VIP用戶等級
+  row_comment_mkt_maker_level: market maker等級
   row_comment_lcp_date: 日期
   row_comment_lcp_self_ratio: 已廢棄! 個人有效掛單占比
   row_comment_lcp_platform_ratio: 已廢棄! 平臺有效掛單占比
@@ -267,7 +269,8 @@ zh-cn:
   request_disable: 此接口不再推薦使用!
   row_comment_tp_sl_mode: 止盈止損模式 <code>Full</code> or <code>Partial</code>
   row_comment_mode: 倉位模式，  <code>MergedSingle</code> or <code>BothSide</code>
-
+  row_comment_taker_fee_rate: taker手續費
+  row_comment_maker_fee_rate: maker手續費
 
   row_response_comment_price: 委托價格
   row_response_comment_qty: 委托數量
@@ -1715,6 +1718,8 @@ zh-cn:
   ## inverse Perpetual
   account_aside_switchpositionmode: 僅在Testnet環境可用
 
+  queryfeerate: 查询用户手續费率
+
   ### inverse futures
   switchpositionmode: 切換倉位模式
   account_para_switchpositionmode: 單倉模式下，只能在單方向下持倉<br/>雙倉模式下，可以同時在兩個方向持倉。
@@ -1723,6 +1728,7 @@ zh-cn:
   inverse_row_comment_leverage: 全倉/逐倉切換，需要傳杠桿並且<code>buy_leverage</code>和<code>sell_leverage</code>必須傳入相同參數；
   futures_account_para_switchIsolated: 全倉/逐倉切換，從全倉切換至逐倉時需要傳杠桿
   futures_row_comment_switch_isolated: 全倉/逐倉, true是逐倉，false是全倉
+
 
   ### 正向websocket
   linear_websocket_para_endpoint: |
@@ -1935,6 +1941,7 @@ zh-cn:
   restapi_update_2021091402: 於此同時我們於 2021 年 9 月 14 日上線反向合約的 Liquidation WebSocket API，推送強平訂單。 此次調整旨在打造更加公平的交易環境，防止一些交易者通過強平訂單數據提前獲取市場信息，搶跑強平引擎。 請務必於 2021 年 9 月 24 日前調整代碼，以確保流暢的交易體驗。 感謝您一直以來的支持！
   restapi_update_20210924: Liquidated Orders REST API 將於 2021 年 9 月 24 日全量下線, 請使用<a href="#t-websocketliquidation">平臺強平推送</a> websocket服務。
   restapi_update_20210917: 我們於 2021 年 9 月 17日上線 正向合約Liquidation WebSocket API推送強平訂單， 此次調整旨在打造更加公平的交易環境，防止一些交易者通過強平訂單數據提前獲取市場信息，搶跑強平引擎。 請務必於 2021 年 9 月 24 日前調整代碼，以確保流暢的交易體驗。 感謝您一直以來的支持！
+  restapi_update_20220228: 返回參數中新增加 <code>vip_level</code>字段和 <code>mkt_maker_level</code>字段。
   markpricekline: 標記價格K線
   websocketliquidation: 平臺強平推送
   websocket_query_liqrecords: |

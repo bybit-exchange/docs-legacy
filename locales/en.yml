@@ -103,6 +103,8 @@ en:
   row_comment_permissions: ApiKey permission
   row_comment_expired_at: Expire time
   row_comment_read_only: ReadOnly
+  row_comment_vip_level: VIP Level
+  row_comment_mkt_maker_level: Market maker level
   row_comment_lcp_date: Date
   row_comment_lcp_self_ratio: Deprecated! Personal effective ratio
   row_comment_lcp_platform_ratio: Deprecated! Platform effective ratio
@@ -268,6 +270,9 @@ en:
   row_comment_sell_ratio: Short position ratio
   row_comment_tp_sl_mode: TrailingProfit or StopLoss mode <code>Full</code> or <code>Partial</code>
   row_comment_mode: Position mode,  <code>MergedSingle</code> or <code>BothSide</code>
+  row_comment_taker_fee_rate: fee rate of taker
+  row_comment_maker_fee_rate: fee rate of maker
+
 
   row_response_comment_price: Order price
   row_response_comment_qty: Order quantity in USD
@@ -1602,7 +1607,7 @@ en:
   err_20015: Invalid API key or IP.
   err_20016: Trading window not open yet for current pair.
 
-  err_20001: Order not exists
+  err_20001: Order nmarginswitchot exists
   err_20003: missing parameter <code>side</code>
   err_20004: invalid parameter <code>side</code>
   err_20005: missing parameter <code>symbol</code>
@@ -1885,7 +1890,7 @@ en:
 
   linear_account_para_setLeverage: Set Leverage
   linear_row_comment_leverage: Must be greater than 0 and less than the <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>.
-
+  queryfeerate: Query Trading Fee Rate
   marginswitch: Cross/Isolated Margin Switch
   linear_account_para_switchIsolated: Switch Cross/Isolated; must set leverage value when switching from Cross to Isolated
   linear_row_comment_switch_isolated: Cross/Isolated<span>:</span> true is Isolated; false is Cross
@@ -2109,6 +2114,7 @@ en:
   restapi_update_2021091402: This shift to a websocket helps ensure a fair trading environment by preventing some traders from getting early access to market information. Please ensure you switch to the websocket service before 2021-09-24. Thank you for your continued support!
   restapi_update_20210924: This endpoint is now offline. Please replace with the <a href="#t-websocketliquidation">liquidation</a> websocket.
   restapi_update_20210917: This shift to a websocket helps ensure a fair trading environment by preventing some traders from getting early access to market information. Please ensure you switch to the websocket service before 2021-09-24. Thank you for your continued support!
+  restapi_update_20220228: Add response parameters <code>vip_level</code> and <code>mkt_maker_level</code> in <a href="#t-key">API Key Info</a> 。
   restapi_update_20210312: Fix value of <code>exec_type,last_liquidity_ind</code> for <a href="#t-usertraderecords">User Trade Record</a> endpoint
   restapi_update_20210315: Prior to December 31, 2020, order price of a market order was returned as the last traded price as of the moment of order placement. On and after December 31, 2020, order price of a market order is returned as a revised limit price. For more information, please refer to  <a href="#t-activeorders">description of market order</a>.
   restapi_update_20210402: Add comment of errcode 10016,10018,30074,30075

@@ -2162,6 +2162,53 @@ POST
 |sell_leverage |<b>true</b> |number |t(:inverse_row_comment_leverage)  |
 
 
+### t(:queryfeerate)
+> t(:codequote_curlExample)
+
+```console
+curl https://api.bybit.com/v2/private/position/fee-rate?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}&sign={sign} \
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "ok",
+    "ext_code": "",
+    "result":
+    {
+      "user_id": "",
+      "taker_fee_rate": "",
+      "maker_fee_rate": "",
+    },
+    "ext_info": null,
+    "time_now": "1577477968.175013",
+    "rate_limit_status": 74,
+    "rate_limit_reset_ms": 1577477968183,
+    "rate_limit": 75
+}
+```
+
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=ulQueryFeeRate>/v2/private/position/fee-rate</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ulQueryFeeRate"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
+
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|user_id |number |t(:row_comment_position_user_id)  |
+|taker_fee_rate |string |t(:row_comment_taker_fee_rate)    |
+|maker_fee_rate |string |t(:row_comment_maker_fee_rate)    |
+
 
 ## t(:risklimit)
 ### t(:getrisklimit)
@@ -2563,7 +2610,9 @@ print(session.api_key_info())
             ],
             "created_at": "2019-10-28T13:22:39.000Z",
             "expired_at": "2020-01-28T13:22:39.000Z",
-            "read_only": false
+            "read_only": false,
+            "vip_level":"",
+            "mkt_maker_level":""
         }
     ],
     "ext_info": null,
@@ -2598,6 +2647,8 @@ GET
 |created_at |string |t(:row_comment_created_at)  |
 |expired_at |string |t(:row_comment_expired_at)  |
 |read_only |bool |t(:row_comment_read_only)  |
+|vip_level |string |t(:row_comment_vip_level)  |
+|mkt_maker_level |string |t(:row_comment_mkt_maker_level)  |
 
 ## t(:lcp)
 > t(:codequote_curlExample)
