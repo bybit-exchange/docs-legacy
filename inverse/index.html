@@ -8409,12 +8409,12 @@ When set to Partial, TP/SL orders may have a quantity less than the position siz
 <tr>
 <td style="text-align: left">taker_fee_rate</td>
 <td style="text-align: left">string</td>
-<td>fee rate of taker</td>
+<td>Taker fee rate</td>
 </tr>
 <tr>
 <td style="text-align: left">maker_fee_rate</td>
 <td style="text-align: left">string</td>
-<td>fee rate of maker</td>
+<td>Maker fee rate</td>
 </tr>
 </tbody></table>
 <h2 id='t-risklimit'>Risk Limit</h2><h3 id='t-getrisklimit'>Get Risk Limit</h3>
@@ -9963,13 +9963,14 @@ Deposit or withdrawal records which occurred after 2021-07-15 will not be shown 
     <td>1 / request</td>
   </tr>
   <tr>
-    <td rowspan="4">75/min</td>
+    <td rowspan="5">75/min</td>
     <td>/v2/private/position/leverage/save </td>
     <td>1 / request</td>
   </tr>
   <tr><td>/v2/private/position/change-position-margin</td><td>1 / request</td></tr>
   <tr><td>/v2/private/position/trading-stop</td><td>1 / request</td></tr>
   <tr><td>/v2/private/tpsl/switch-mode</td><td>1 / request</td></tr>
+  <tr><td>/v2/private/position/fee-rate</td><td>1 / request</td></tr>
   <tr>
     <td rowspan="3">120/min</td>
   </tr>
@@ -12256,7 +12257,7 @@ ELSE
 </tr>
 <tr>
 <td>20001</td>
-<td>Order nmarginswitchot exists</td>
+<td>Order not exists</td>
 </tr>
 <tr>
 <td>20003</td>
