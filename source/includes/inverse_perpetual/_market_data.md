@@ -397,6 +397,7 @@ print(session.query_symbol())
             "price_scale":2,
             "taker_fee":"0.00075",
             "maker_fee":"-0.00025",
+            "funding_interval":480,
             "leverage_filter":{
                 "min_leverage":1,
                 "max_leverage":100,
@@ -422,6 +423,7 @@ print(session.query_symbol())
             "price_scale":3,
             "taker_fee":"0.00075",
             "maker_fee":"-0.00025",
+            "funding_interval":480,
             "leverage_filter":{
                 "min_leverage":1,
                 "max_leverage":50,
@@ -447,6 +449,7 @@ print(session.query_symbol())
             "price_scale":2,
             "taker_fee":"0.00075",
             "maker_fee":"-0.00025",
+            "funding_interval":480,
             "leverage_filter":{
                 "min_leverage":1,
                 "max_leverage":100,
@@ -472,6 +475,7 @@ print(session.query_symbol())
             "price_scale":2,
             "taker_fee":"0.00075",
             "maker_fee":"-0.00025",
+            "funding_interval":480,
             "leverage_filter":{
                 "min_leverage":1,
                 "max_leverage":100,
@@ -524,7 +528,7 @@ GET
 |max_trading_qty |number |t(:row_response_comment_max_trading_qty)    |
 |min_trading_qty |number |t(:row_response_comment_min_trading_qty)    |
 |qty_step |number |t(:row_response_comment_qty_step)    |
-
+|funding_interval |number |t(:row_response_funding_interval)    |
 
 
 ### t(:markpricekline)
