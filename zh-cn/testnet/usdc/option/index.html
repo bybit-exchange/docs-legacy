@@ -4593,19 +4593,19 @@ curl https://api-testnet.bybit.com/v2/public/time
 <p><p>訂閱:</p>
 <p>ws.send('{"op":"subscribe","id":"{uuid}","args":["topic1","topic2"]}');</p>
 <p>響應結果:</p>
-<p>{"id":"{uuid}","code":0,"data":{"successTopics":["topic1"],"failTopics":["topic2"]},"type":"COMMAND_RESP"}</p>
+<p>{"id":"{uuid}","success":true,"data":{"successTopics":["topic1"],"failTopics":["topic2"]},"type":"COMMAND_RESP"}</p>
 </p>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Subscribing to the trade data for BTCUSDT</span>
 </code></pre></div><h3 id='t-websocketunfilters'>Websocket取消訂閱方式</h3>
 <p><p>取消訂閱</p>
 <p>ws.send('{"op":"unsubscribe","id":"{uuid}","args":["topic1","topic2"]}')  </p>
 <p>響應結果: </p>
-<p>{"id":"{uuid}","code":0,"data":{"successTopics":["topic1"],"failTopics":["topic2"]},"type":"COMMAND_RESP"}</p>
+<p>{"id":"{uuid}","success":true,"data":{"successTopics":["topic1"],"failTopics":["topic2"]},"type":"COMMAND_RESP"}</p>
 
 <p>取消所有訂閱</p>
 <p>{"op":"unSubAll","id":"{uuid}"}</p>
 <p>響應:</p>
-<p> {"id":"{uuid}","code":0,"type":"COMMAND_RESP"}</p>
+<p> {"id":"{uuid}","success":true,"type":"COMMAND_RESP"}</p>
 </p>
 <h2 id='t-websocketresponse'>訂閱結果</h2>
 <blockquote>

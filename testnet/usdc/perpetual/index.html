@@ -4967,7 +4967,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <p>Private:</p>
 <p>ws.send('{"method":"private/subscribe","id":"{uuid}","params":{"channels":["user.option.order"]}}')</p>
 <p>Response:</p>
-<p>{"id":"requestId","code":0,"data":{"successChannels":["user.option.order"]},"usIn":1638415789932,"usOut":1638415789932,"usDiff":0,"type":"COMMAND_RESP"}</p>
+<p>{"id":"requestId","success":true,"data":{"successChannels":["user.option.order"]},"usIn":1638415789932,"usOut":1638415789932,"usDiff":0,"type":"COMMAND_RESP"}</p>
 </p>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Subscribing to the trade data for BTCUSDT</span>
 </code></pre></div><h3 id='t-websocketunfilters'>Understanding Websocket Filters unsubscription</h3>
@@ -4979,11 +4979,11 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 
 <p>Private:</p>
 <p>ws.send('{"method":"private/unsubscribe","id":"{uuid}","params":{"channels":["topic1","topic2"]}}’) </p>
-<p>{"id":"{uuid}","code":0,"data":{"successChannels":["topic1"],"failChannels":["topic2"]},"type":"COMMAND_RESP"}</p>
+<p>{"id":"{uuid}","success":true,"data":{"successChannels":["topic1"],"failChannels":["topic2"]},"type":"COMMAND_RESP"}</p>
 <p>Cancel All Private Topics</p>
 <p>{"method":"public/unSubAll","id":"requestId"}</p>
 <p>Response:</p>
-<p> {"id":"requestId","code":0,"type":"COMMAND_RESP"}</p>
+<p> {"id":"requestId","success":true,"type":"COMMAND_RESP"}</p>
 </p>
 <h2 id='t-websocketresponse'>Understanding Subscription Response</h2>
 <blockquote>

@@ -4608,19 +4608,19 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <p><p>Subscribing:</p>
 <p>ws.send('{"op":"subscribe","id":"{uuid}","args":["topic1","topic2"]}');</p>
 <p>Response:</p>
-<p>{"id":"{uuid}","code":0,"data":{"successTopics":["topic1"],"failTopics":["topic2"]},"type":"COMMAND_RESP"}</p>
+<p>{"id":"{uuid}","success":true,"data":{"successTopics":["topic1"],"failTopics":["topic2"]},"type":"COMMAND_RESP"}</p>
 </p>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Subscribing to the trade data for BTCUSDT</span>
 </code></pre></div><h3 id='t-websocketunfilters'>Understanding Websocket Filters unsubscription</h3>
 <p><p>Remove WebSocket Topic Subscriptions</p>
 <p>ws.send('{"op":"unsubscribe","id":"{uuid}","args":["topic1","topic2"]}')  </p>
 <p>Response: </p>
-<p>{"id":"{uuid}","code":0,"data":{"successTopics":["topic1"],"failTopics":["topic2"]},"type":"COMMAND_RESP"}</p>
+<p>{"id":"{uuid}","success":true,"data":{"successTopics":["topic1"],"failTopics":["topic2"]},"type":"COMMAND_RESP"}</p>
 
 <p>Remove All WebSocket Topic Subscriptions</p>
 <p>{"op":"unSubAll","id":"{uuid}"}</p>
 <p>Response:</p>
-<p> {"id":"{uuid}","code":0,"type":"COMMAND_RESP"}</p>
+<p> {"id":"{uuid}","success":true,"type":"COMMAND_RESP"}</p>
 </p>
 <h2 id='t-websocketresponse'>Understanding Subscription Response</h2>
 <blockquote>
