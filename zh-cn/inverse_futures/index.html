@@ -638,7 +638,7 @@
     </style>
     <link href="../../stylesheets/screen-6a7bc757.css" rel="stylesheet" media="screen" />
     <link href="../../stylesheets/print-41ffbffc.css" rel="stylesheet" media="print" />
-      <script src="../../javascripts/all-159fd355.js"></script>
+      <script src="../../javascripts/all-52d563e0.js"></script>
 
     <script>
       $(function() { setupCodeCopy(); });
@@ -832,34 +832,34 @@
               </ul>
           </li>
           <li>
-            <a href="#t-faq" class="toc-h1 toc-link" data-title="FAQ">FAQ</a>
+            <a href="#t-faq" class="toc-h1 toc-link" data-title="translation missing: zh-cn.faq">translation missing: zh-cn.faq</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#t-faq_reduce_only" class="toc-h2 toc-link" data-title="reduce_only and close_on_trigger - what's the difference?"><code>reduce_only</code> and <code>close_on_trigger</code> - what's the difference?</a>
+                    <a href="#t-faq_reduce_only" class="toc-h2 toc-link" data-title="translation missing: zh-cn.faq_reduce_only">translation missing: zh-cn.faq_reduce_only</a>
                   </li>
                   <li>
-                    <a href="#t-faq_website_orders" class="toc-h2 toc-link" data-title="Why aren't all my orders showing on the website?">Why aren't all my orders showing on the website?</a>
+                    <a href="#t-faq_website_orders" class="toc-h2 toc-link" data-title="translation missing: zh-cn.faq_website_orders">translation missing: zh-cn.faq_website_orders</a>
                   </li>
                   <li>
-                    <a href="#t-faq_calculating_order_size" class="toc-h2 toc-link" data-title="Calculating order size based on available wallet balance">Calculating order size based on available wallet balance</a>
+                    <a href="#t-faq_calculating_order_size" class="toc-h2 toc-link" data-title="translation missing: zh-cn.faq_calculating_order_size">translation missing: zh-cn.faq_calculating_order_size</a>
                   </li>
                   <li>
-                    <a href="#t-faq_exchange_assets" class="toc-h2 toc-link" data-title="Can I exchange assets with the API?">Can I exchange assets with the API?</a>
+                    <a href="#t-faq_exchange_assets" class="toc-h2 toc-link" data-title="translation missing: zh-cn.faq_exchange_assets">translation missing: zh-cn.faq_exchange_assets</a>
                   </li>
                   <li>
-                    <a href="#t-faq_server_location" class="toc-h2 toc-link" data-title="Where are Bybit's servers located?">Where are Bybit's servers located?</a>
+                    <a href="#t-faq_server_location" class="toc-h2 toc-link" data-title="translation missing: zh-cn.faq_server_location">translation missing: zh-cn.faq_server_location</a>
                   </li>
                   <li>
-                    <a href="#t-faq_testnet_funds" class="toc-h2 toc-link" data-title="How do I get funds for testnet?">How do I get funds for testnet?</a>
+                    <a href="#t-faq_testnet_funds" class="toc-h2 toc-link" data-title="translation missing: zh-cn.faq_testnet_funds">translation missing: zh-cn.faq_testnet_funds</a>
                   </li>
                   <li>
-                    <a href="#t-faq_closed_pnl_price" class="toc-h2 toc-link" data-title="Why are my Closed PNL prices inaccurate?">Why are my Closed PNL prices inaccurate?</a>
+                    <a href="#t-faq_closed_pnl_price" class="toc-h2 toc-link" data-title="translation missing: zh-cn.faq_closed_pnl_price">translation missing: zh-cn.faq_closed_pnl_price</a>
                   </li>
                   <li>
-                    <a href="#t-faq_float_precision" class="toc-h2 toc-link" data-title="Why are values returned to too many decimal places? (float precision issue)">Why are values returned to too many decimal places? (float precision issue)</a>
+                    <a href="#t-faq_float_precision" class="toc-h2 toc-link" data-title="translation missing: zh-cn.faq_float_precision">translation missing: zh-cn.faq_float_precision</a>
                   </li>
                   <li>
-                    <a href="#t-faq_data_resilience" class="toc-h2 toc-link" data-title="How can I ensure I am using up-to-date data?">How can I ensure I am using up-to-date data?</a>
+                    <a href="#t-faq_data_resilience" class="toc-h2 toc-link" data-title="translation missing: zh-cn.faq_data_resilience">translation missing: zh-cn.faq_data_resilience</a>
                   </li>
               </ul>
           </li>
@@ -1404,74 +1404,24 @@ clipboard.on('error', function(e) {
 <ul>
 <li>修改url前綴<code>future</code> 為 <code>futures</code></li>
 </ul>
-<h1 id='t-faq'>FAQ</h1><h2 id='t-faq_reduce_only'><code>reduce_only</code> and <code>close_on_trigger</code> - what's the difference?</h2>
-<p><ul>
-<li>To close your position, specify <b><code>reduce_only</code> to <code>true</code></b>. <code>close_on_trigger</code> is not strictly applicable here, but you can also set it to <code>true</code> if it's required.</li>
-<li><code>reduce_only</code> is the one that really matters for closing position, and we will improve the interface in the future.</li>
-<li>Be careful when you specify <code>close_on_trigger</code> to <code>true</code> as it could cause conflict when <code>reduce_only</code> is <code>false</code>.</li>
-</ul>
-</p>
-<h2 id='t-faq_website_orders'>Why aren't all my orders showing on the website?</h2>
-<p><ul>
-  <li>Users who have bots which place large numbers of laddered orders will be restricted by the frontend interface, which only shows a maximum of 50 orders on-screen.</li>
-  <li>Don't worry, your orders are still in the system and can be queried by the API, but the frontend cannot show more than 50.</li>
-</ul>
-</p>
-<h2 id='t-faq_calculating_order_size'>Calculating order size based on available wallet balance</h2>
-<p><ul>
-  <li><code>price * available_balance * leverage * perc * (1 - (0.00075 * 2))</code></li>
-  <li>Unfortunately this is not a perfectly accurate formula; the real calculation is complex and may be published in the docs at a later date.</li>
-  <ul>
-    <li><code>price</code> - last price (or your entry price) - can be found with the <a href="#t-latestsymbolinfo">Latest Symbol Info endpoint</a>.</li>
-    <li><code>available_balance</code> - can be found with the <a href="#t-myposition">My Position endpoint</a>.</li>
-    <li><code>leverage</code> - up to the respective maximum leverage for the market and your risk limit (eg 2, 10, 50).</li>
-    <li><code>perc</code> - 0.1 for 10%, 0.25 for 25%, etc.</li>
-    <li><code>1 - (0.00075 * 2)</code> - used to calculate the maximum order cost (always assumes entry &amp; exit orders use taker fee regardless actual fee).</li>
-  </ul>
-</ul>
-</p>
-<h2 id='t-faq_exchange_assets'>Can I exchange assets with the API?</h2>
-<p><ul>
-  <li>There is no endpoint to exchange assets. This can only be done on the <a href="https://testnet.bybit.com/app/assets/assets-exchange">website</a>.</li>
-  <li>However, it is possible to access your <a href="#t-assetexchangerecords">Asset Exchange Records</a> with the API.</li>
-</ul>
-</p>
-<h2 id='t-faq_server_location'>Where are Bybit's servers located?</h2>
-<p>AWS Singapore, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-availability-zones">Availability Zone ID</a> apse1-az3.
-</p>
-<h2 id='t-faq_testnet_funds'>How do I get funds for testnet?</h2>
-<p>To get testnet funds, please contact the website's customer support using the yellow support button <a href="https://testnet.bybit.com">shown in the bottom-right corner</a>.
-</p>
-<h2 id='t-faq_closed_pnl_price'>Why are my Closed PNL prices inaccurate?</h2>
-<p><ul>
-  <li>The <code>entry_price</code> and <code>exit_price</code> returned by Closed PNL endpoints are not the actual execution prices of the orders.
-  <li>It is based on the total costs of the order
-  <ul>
-    <li>(whether or not the position was only opened/closed by one order executed at one price - it is more complicated if multiple orders opened/closed a position.)</li>
-  </ul>
-  <li>For instance, the <code>entry_price</code> and <code>exit_price</code> reported by this endpoint are influenced by the fee paid/received on the orders.</li>
-</ul>
-</p>
-<h2 id='t-faq_float_precision'>Why are values returned to too many decimal places? (float precision issue)</h2>
-<p><ul>
-  <li>For example, you received <code>11.969999</code> but you expected <code>11.97</code>.
-  <li>Some values are returned to too many decimal places, or a fraction too high or low, due to a float precision problem.</li>
-  <li>For now, we recommend rounding the received value to the correct decimal place. This can be done with reference to the <a href="#t-querysymbol">Query Symbol</a> endpoint.</li>
-  <li>This issue will be fixed in the next major version of the API; unfortunately, it is not fixable in the short-term.</li>
-</ul>
-</p>
-<h2 id='t-faq_data_resilience'>How can I ensure I am using up-to-date data?</h2>
-<p><ul>
-  <li>It is possible, although unlikely, that the REST API or (even less likely) the websocket could return/push old data.</li>
-  <li>For the greatest level of data resilience, we recommend clients to:
-    <ul>
-      <li>firstly, rely on the websocket, which will not only ensure you get the latest data as fast as possible, but will also ensure you get <i>complete</i> data</li>
-      <li>secondly, query the REST API to fill in any discrepencies in data - or between websocket disconnections.</li>
-    </ul>
-  <li>The best practice is to save all of this data locally in your own database or cache.</li>
-  <li>This frees up your rate limits for other requests and also ensures a level of redundancy against the exchange in case of data delays.</li>
-</ul
-</p>
+<h1 id='t-faq'>translation missing: zh-cn.faq</h1><h2 id='t-faq_reduce_only'>translation missing: zh-cn.faq_reduce_only</h2>
+<p>translation missing: zh-cn.faq_reduce_only_para</p>
+<h2 id='t-faq_website_orders'>translation missing: zh-cn.faq_website_orders</h2>
+<p>translation missing: zh-cn.faq_website_orders_para</p>
+<h2 id='t-faq_calculating_order_size'>translation missing: zh-cn.faq_calculating_order_size</h2>
+<p>translation missing: zh-cn.faq_calculating_order_size_para</p>
+<h2 id='t-faq_exchange_assets'>translation missing: zh-cn.faq_exchange_assets</h2>
+<p>translation missing: zh-cn.faq_exchange_assets_para</p>
+<h2 id='t-faq_server_location'>translation missing: zh-cn.faq_server_location</h2>
+<p>translation missing: zh-cn.faq_server_location_para</p>
+<h2 id='t-faq_testnet_funds'>translation missing: zh-cn.faq_testnet_funds</h2>
+<p>translation missing: zh-cn.faq_testnet_funds_para</p>
+<h2 id='t-faq_closed_pnl_price'>translation missing: zh-cn.faq_closed_pnl_price</h2>
+<p>translation missing: zh-cn.faq_closed_pnl_price_para</p>
+<h2 id='t-faq_float_precision'>translation missing: zh-cn.faq_float_precision</h2>
+<p>translation missing: zh-cn.faq_float_precision_para</p>
+<h2 id='t-faq_data_resilience'>translation missing: zh-cn.faq_data_resilience</h2>
+<p>translation missing: zh-cn.faq_data_resilience_para</p>
 <h1 id='t-authentication'>鑒權/認證</h1>
 <aside class="notice">
 請先生成<a href="https://testnet.bybit.com/app/user/api-management"><b>測試網</b></a> 或 <a href="https://www.bybit.com/app/user/api-management"<b>主網</b></a>API KEY。
@@ -4527,7 +4477,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">created_at</td>
 <td style="text-align: left">string</td>
-<td>The account creation time</td>
+<td>translation missing: zh-cn.row_comment_created_at_position</td>
 </tr>
 <tr>
 <td style="text-align: left">updated_at</td>
@@ -5646,7 +5596,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left"><a href="#side-side">side</a></td>
 <td style="text-align: left">string</td>
-<td>Side of the closing order</td>
+<td>translation missing: zh-cn.row_response_closedPnlSide</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#quantity-qty">qty</a></td>
@@ -8027,19 +7977,19 @@ ELSE
 </ul>
 <h2 id='kline-interval-interval'>Kline interval (<code>interval</code>)</h2>
 <ul>
-<li><code>1</code> - 1 minute</li>
-<li><code>3</code> - 3 minutes</li>
-<li><code>5</code> - 5 minutes</li>
-<li><code>15</code> - 15 minutes</li>
-<li><code>30</code> - 30 minutes</li>
-<li><code>60</code> - 1 hour</li>
-<li><code>120</code> - 2 hours</li>
-<li><code>240</code> - 4 hours</li>
-<li><code>360</code> - 6 hours</li>
-<li><code>720</code> - 12 hours</li>
-<li><code>D</code> - 1 day</li>
-<li><code>W</code> - 1 week</li>
-<li><code>M</code> - 1 month</li>
+<li><code>1</code> translation missing: zh-cn.interval_1</li>
+<li><code>3</code> translation missing: zh-cn.interval_3</li>
+<li><code>5</code> translation missing: zh-cn.interval_5</li>
+<li><code>15</code> translation missing: zh-cn.interval_15</li>
+<li><code>30</code> translation missing: zh-cn.interval_30</li>
+<li><code>60</code> translation missing: zh-cn.interval_60</li>
+<li><code>120</code> translation missing: zh-cn.interval_120</li>
+<li><code>240</code> translation missing: zh-cn.interval_240</li>
+<li><code>360</code> translation missing: zh-cn.interval_360</li>
+<li><code>720</code> translation missing: zh-cn.interval_720</li>
+<li><code>D</code> translation missing: zh-cn.interval_D</li>
+<li><code>W</code> translation missing: zh-cn.interval_W</li>
+<li><code>M</code> translation missing: zh-cn.interval_M</li>
 </ul>
 <h2 id='stop-order-type-stop_order_type'>Stop order type (<code>stop_order_type</code>)</h2>
 <ul>
