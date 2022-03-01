@@ -2512,17 +2512,17 @@ zh-cn:
     <p>訂閱:</p>
     <p>ws.send('{"op":"subscribe","id":"{uuid}","args":["topic1","topic2"]}');</p>
     <p>響應結果:</p>
-    <p>{"id":"{uuid}","code":0,"data":{"successTopics":["topic1"],"failTopics":["topic2"]},"type":"COMMAND_RESP"}</p>
+    <p>{"id":"{uuid}","success":true,"data":{"successTopics":["topic1"],"failTopics":["topic2"]},"type":"COMMAND_RESP"}</p>
   usdc_websocket_unsubscribe_desc: |
     <p>取消訂閱</p>
     <p>ws.send('{"op":"unsubscribe","id":"{uuid}","args":["topic1","topic2"]}')  </p>
     <p>響應結果: </p>
-    <p>{"id":"{uuid}","code":0,"data":{"successTopics":["topic1"],"failTopics":["topic2"]},"type":"COMMAND_RESP"}</p>
+    <p>{"id":"{uuid}","success":true,"data":{"successTopics":["topic1"],"failTopics":["topic2"]},"type":"COMMAND_RESP"}</p>
 
     <p>取消所有訂閱</p>
     <p>{"op":"unSubAll","id":"{uuid}"}</p>
     <p>響應:</p>
-    <p> {"id":"{uuid}","code":0,"type":"COMMAND_RESP"}</p>
+    <p> {"id":"{uuid}","success":true,"type":"COMMAND_RESP"}</p>
 
 
   usdc_websocket_para_orderbook: |
@@ -2875,7 +2875,7 @@ zh-cn:
     <p>私有:</p>
     <p>ws.send('{"method":"private/subscribe","id":"{uuid}增量推送示例 - 快照數據推送後，推送的增量數據","params":{"channels":["user.option.order"]}}')</p>
     <p>響應結果:</p>
-    <p>{"id":"requestId","code":0,"data":{"successChannels":["user.option.order"]},"usIn":1638415789932,"usOut":1638415789932,"usDiff":0,"type":"COMMAND_RESP"}</p>
+    <p>{"id":"requestId","success":true,"data":{"successChannels":["user.option.order"]},"usIn":1638415789932,"usOut":1638415789932,"usDiff":0,"type":"COMMAND_RESP"}</p>
 
   usdc_perp_websocket_unsubscribe_desc: |
     <p>取消訂閱</p>
@@ -2886,11 +2886,11 @@ zh-cn:
 
     <p>私有:</p>
     <p>ws.send('{"method":"private/unsubscribe","id":"{uuid}","params":{"channels":["topic1","topic2"]}}’) </p>
-    <p>{"id":"{uuid}","code":0,"data":{"successChannels":["topic1"],"failChannels":["topic2"]},"type":"COMMAND_RESP"}</p>
+    <p>{"id":"{uuid}","success":true,"data":{"successChannels":["topic1"],"failChannels":["topic2"]},"type":"COMMAND_RESP"}</p>
     <p>取消所有私有訂閱</p>
     <p>{"method":"public/unSubAll","id":"requestId"}</p>
     <p>響應:</p>
-    <p> {"id":"requestId","code":0,"type":"COMMAND_RESP"}</p>
+    <p> {"id":"requestId","success":true,"type":"COMMAND_RESP"}</p>
 
   usdc_perp_websocket_para_orderbook: |
     <p>獲取檔位範圍：25或者200</p>
