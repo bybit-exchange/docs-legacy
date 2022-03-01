@@ -520,7 +520,7 @@ GET
 |taker_fee |string |t(:row_response_comment_taker_fee)    |
 |maker_fee |string |t(:row_response_comment_maker_fee)    |
 |min_leverage |number |t(:row_response_comment_min_leverage)    |
-|max_leverage |number |t(:row_response_comment_max_leverage)    |
+|max_leverage |number |t(:row_response_comment_public_max_leverage)    |
 |leverage_step |string |t(:row_response_comment_leverage_step)    |
 |min_price |string |t(:row_response_comment_min_price)    |
 |max_price |string |t(:row_response_comment_max_price)    |
