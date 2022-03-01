@@ -1,0 +1,1282 @@
+<h1 id='t-marketdata'>t(:marketdata)</h1>
+<p>t(:market_para_auth)</p>
+<h3 id='t-usdcorderbook'>t(:usdcOrderBook)</h3>
+<blockquote>
+<p>t(:codequote_curlExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/order-book?symbol=BTCPERP' \
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
+<blockquote>
+<p>t(:codequote_responseExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
+    <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">56390</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.0130000</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">56797.5</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1.4430000</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">t(:httprequest)</p>
+
+<p>GET
+<code><span id=uopvorderBook>/perpetual/usdc/openapi/public/v1/order-book</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvorderBook"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_required)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">t(:responseparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">price</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcPrice)</td>
+</tr>
+<tr>
+<td style="text-align: left">size</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSize)</td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcPerpOrderBookSide)</td>
+</tr>
+</tbody></table>
+<h3 id='t-querysymbolinfo'>t(:querySymbolInfo)</h3>
+<blockquote>
+<p>t(:codequote_curlExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/symbols
+
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
+<blockquote>
+<p>t(:codequote_responseExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ONLINE</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">baseCoin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">quoteCoin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USD</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">takerFeeRate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00075</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">makerFeeRate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-0.00025</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">minLeverage</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">maxLeverage</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">100</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">leverageStep</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">minPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.50</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">maxPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">999999.00</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">tickSize</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.50</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">maxTradingQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5.000</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">minTradingQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.001</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">qtyStep</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.001</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">deliveryFeeRate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">deliveryTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">t(:httprequest)</p>
+
+<p>GET
+<code><span id=usdcSymbols>/perpetual/usdc/openapi/public/v1/symbols</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcSymbols"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_required)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">direction</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:direction)</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcLimit)</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">t(:responseparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">status</td>
+<td style="text-align: left">string</td>
+<td>t(:symbolStatus)</td>
+</tr>
+<tr>
+<td style="text-align: left">baseCoin</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcBaseCoin)</td>
+</tr>
+<tr>
+<td style="text-align: left">quoteCoin</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcQuoteCoin)</td>
+</tr>
+<tr>
+<td style="text-align: left">takerFeeRate</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcTakerFeeRate)</td>
+</tr>
+<tr>
+<td style="text-align: left">makerFeeRate</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcMakerFeeRate)</td>
+</tr>
+<tr>
+<td style="text-align: left">minLeverage</td>
+<td style="text-align: left">number</td>
+<td>t(:minLeverage)</td>
+</tr>
+<tr>
+<td style="text-align: left">maxLeverage</td>
+<td style="text-align: left">number</td>
+<td>t(:maxLeverage)</td>
+</tr>
+<tr>
+<td style="text-align: left">leverageStep</td>
+<td style="text-align: left">number</td>
+<td>t(:leverageStep)</td>
+</tr>
+<tr>
+<td style="text-align: left">minPrice</td>
+<td style="text-align: left">string</td>
+<td>t(:minPrice)</td>
+</tr>
+<tr>
+<td style="text-align: left">maxPrice</td>
+<td style="text-align: left">string</td>
+<td>t(:maxPrice)</td>
+</tr>
+<tr>
+<td style="text-align: left">tickSize</td>
+<td style="text-align: left">string</td>
+<td>t(:tickSize)</td>
+</tr>
+<tr>
+<td style="text-align: left">minTradingQty</td>
+<td style="text-align: left">string</td>
+<td>t(:minTradingQty)</td>
+</tr>
+<tr>
+<td style="text-align: left">maxTradingQty</td>
+<td style="text-align: left">string</td>
+<td>t(:maxTradingQty)</td>
+</tr>
+<tr>
+<td style="text-align: left">qtyStep</td>
+<td style="text-align: left">string</td>
+<td>t(:qtyStep)</td>
+</tr>
+</tbody></table>
+<h3 id='t-usdctickerinfo'>t(:usdcTickerInfo)</h3>
+<blockquote>
+<p>t(:codequote_curlExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/tick?symbol=BTCPERP'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
+<blockquote>
+<p>t(:codequote_responseExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">bid</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">56685</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">bidIv</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">bidSize</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1.954</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">ask</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">56760</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">askIv</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">askSize</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">114.866</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">lastPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">56457.00</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">openInterest</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1853.80</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">indexPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">56928.09</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">markPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">57216.42</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">markPriceIv</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">change24h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-0.053195</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">high24h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">59629.00</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">low24h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">56110.50</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">volume24h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">35.92</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">turnover24h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2040176.21</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">totalVolume</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">35.92</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">totalTurnover</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2040176.21</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">fundingRate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">predictedFundingRate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">nextFundingTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2021-11-30T16:00:00Z</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">countdownHour</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">6</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">predictedDeliveryPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">underlyingPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">delta</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">gamma</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">vega</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">theta</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">t(:httprequest)</p>
+
+<p>GET
+<code><span id=usdcTick>/perpetual/usdc/openapi/public/v1/tick</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcTick"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_required)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">t(:responseparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">bid</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcBid)</td>
+</tr>
+<tr>
+<td style="text-align: left">bidSize</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcBidSize)</td>
+</tr>
+<tr>
+<td style="text-align: left">ask</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcAsk)</td>
+</tr>
+<tr>
+<td style="text-align: left">askSize</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcAskSize)</td>
+</tr>
+<tr>
+<td style="text-align: left">lastPrice</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcLastPrice)</td>
+</tr>
+<tr>
+<td style="text-align: left">openInterest</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcOpenInterest)</td>
+</tr>
+<tr>
+<td style="text-align: left">indexPrice</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcIndexPrice)</td>
+</tr>
+<tr>
+<td style="text-align: left">markPrice</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcMarkPrice)</td>
+</tr>
+<tr>
+<td style="text-align: left">change24h</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcChange24h)</td>
+</tr>
+<tr>
+<td style="text-align: left">high24h</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcHigh24h)</td>
+</tr>
+<tr>
+<td style="text-align: left">low24h</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcLow24h)</td>
+</tr>
+<tr>
+<td style="text-align: left">volume24h</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcVolume24h)</td>
+</tr>
+<tr>
+<td style="text-align: left">turnover24h</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcTurnover24h)</td>
+</tr>
+<tr>
+<td style="text-align: left">totalVolume</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcTotalVolume)</td>
+</tr>
+<tr>
+<td style="text-align: left">totalTurnover</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcTotalTurnover)</td>
+</tr>
+<tr>
+<td style="text-align: left">underlyingPrice</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcUnderlyingPrice)</td>
+</tr>
+</tbody></table>
+<h3 id='t-querykline'>t(:querykline)</h3>
+<blockquote>
+<p>t(:codequote_curlExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/kline/list?symbol=BTCPERP&amp;period=1&amp;limit=1&amp;startTime=1
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
+<blockquote>
+<p>t(:codequote_responseExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code>
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
+  <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">volume</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">period</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">openTime</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1636358160</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">open</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">66001.50</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">high</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">66001.50</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">low</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">66001.50</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">close</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">66001.50</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">turnover</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1188.02</span><span class="dl">"</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<p class="fake_header">t(:httprequest)</p>
+
+<p>GET
+<code><span id=sqvdMerged>/perpetual/usdc/openapi/public/v1/kline/list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_required)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">period</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcPeriod)</td>
+</tr>
+<tr>
+<td style="text-align: left">startTime</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">number</td>
+<td>t(:usdcStartTime)</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">number</td>
+<td>t(:usdcLimit)</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">t(:responseparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">volume</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcVolume)</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">open</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcOpen)</td>
+</tr>
+<tr>
+<td style="text-align: left">openTime</td>
+<td style="text-align: left">number</td>
+<td>t(:usdcOpenTime)</td>
+</tr>
+<tr>
+<td style="text-align: left">turnover</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcTurnover)</td>
+</tr>
+<tr>
+<td style="text-align: left">period</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcPeriod)</td>
+</tr>
+<tr>
+<td style="text-align: left">low</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcLow)</td>
+</tr>
+<tr>
+<td style="text-align: left">high</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcHigh)</td>
+</tr>
+<tr>
+<td style="text-align: left">close</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcClose)</td>
+</tr>
+</tbody></table>
+<h3 id='t-markkline'>t(:markKLine)</h3>
+<blockquote>
+<p>t(:codequote_curlExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/mark-price-kline?symbol=BTCPERP&amp;period=1&amp;limit=1&amp;startTime=1'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
+<blockquote>
+<p>t(:codequote_responseExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code>
+<span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
+        <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">period</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">openTime</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1634696220</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">open</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">63884.11</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">high</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">63884.11</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">low</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">63862.49</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">close</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">63866.63</span><span class="dl">"</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<p class="fake_header">t(:httprequest)</p>
+
+<p>GET
+<code><span id=usdcMarkPriceKline>/perpetual/usdc/openapi/public/v1/mark-price-kline</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcMarkPriceKline"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_required)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">period</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcPeriod)</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcLimit)</td>
+</tr>
+<tr>
+<td style="text-align: left">startTime</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">number</td>
+<td>t(:startTime)</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">t(:responseparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">period</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcPeriod)</td>
+</tr>
+<tr>
+<td style="text-align: left">openTime</td>
+<td style="text-align: left">number</td>
+<td>t(:openTime)</td>
+</tr>
+<tr>
+<td style="text-align: left">open</td>
+<td style="text-align: left">string</td>
+<td>t(:open)</td>
+</tr>
+<tr>
+<td style="text-align: left">high</td>
+<td style="text-align: left">string</td>
+<td>t(:high)</td>
+</tr>
+<tr>
+<td style="text-align: left">low</td>
+<td style="text-align: left">string</td>
+<td>t(:low)</td>
+</tr>
+<tr>
+<td style="text-align: left">close</td>
+<td style="text-align: left">string</td>
+<td>t(:close)</td>
+</tr>
+</tbody></table>
+<h3 id='t-indexkline'>t(:indexKLine)</h3>
+<blockquote>
+<p>t(:codequote_curlExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/index-price-kline?symbol=BTCPERP&amp;period=1&amp;limit=1&amp;startTime=1'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
+<blockquote>
+<p>t(:codequote_responseExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
+        <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">period</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">W</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">openTime</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1635120000</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">open</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">62033.96</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">high</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">62058.66</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">low</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">60005.97</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">close</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">61359.21</span><span class="dl">"</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<p class="fake_header">t(:httprequest)</p>
+
+<p>GET
+<code><span id=uscIndexPriceKline>/perpetual/usdc/openapi/public/v1/index-price-kline</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uscIndexPriceKline"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_required)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">period</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcPeriod)</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcLimit)</td>
+</tr>
+<tr>
+<td style="text-align: left">startTime</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">number</td>
+<td>t(:startTime)</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">t(:responseparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">period</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcPeriod)</td>
+</tr>
+<tr>
+<td style="text-align: left">openTime</td>
+<td style="text-align: left">number</td>
+<td>t(:openTime)</td>
+</tr>
+<tr>
+<td style="text-align: left">open</td>
+<td style="text-align: left">string</td>
+<td>t(:open)</td>
+</tr>
+<tr>
+<td style="text-align: left">high</td>
+<td style="text-align: left">string</td>
+<td>t(:high)</td>
+</tr>
+<tr>
+<td style="text-align: left">low</td>
+<td style="text-align: left">string</td>
+<td>t(:low)</td>
+</tr>
+<tr>
+<td style="text-align: left">close</td>
+<td style="text-align: left">string</td>
+<td>t(:close)</td>
+</tr>
+</tbody></table>
+<h3 id='t-premiumkline'>t(:premiumKLine)</h3>
+<blockquote>
+<p>t(:codequote_curlExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/premium-index-kline?symbol=BTCPERP&amp;period=1&amp;limit=1&amp;startTime=1'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
+<blockquote>
+<p>t(:codequote_responseExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code>
+<span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
+        <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">period</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">openTime</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1635648300</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">open</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.000066</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">high</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.000066</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">low</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.000066</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">close</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.000066</span><span class="dl">"</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<p class="fake_header">t(:httprequest)</p>
+
+<p>GET
+<code><span id=usdcPremiumIndexKline>/perpetual/usdc/openapi/public/v1/premium-index-kline</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcPremiumIndexKline"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_required)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">period</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcPeriod)</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcLimit)</td>
+</tr>
+<tr>
+<td style="text-align: left">startTime</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">number</td>
+<td>t(:startTime)</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">t(:responseparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">period</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcPeriod)</td>
+</tr>
+<tr>
+<td style="text-align: left">openTime</td>
+<td style="text-align: left">number</td>
+<td>t(:openTime)</td>
+</tr>
+<tr>
+<td style="text-align: left">open</td>
+<td style="text-align: left">string</td>
+<td>t(:open)</td>
+</tr>
+<tr>
+<td style="text-align: left">high</td>
+<td style="text-align: left">string</td>
+<td>t(:high)</td>
+</tr>
+<tr>
+<td style="text-align: left">low</td>
+<td style="text-align: left">string</td>
+<td>t(:low)</td>
+</tr>
+<tr>
+<td style="text-align: left">close</td>
+<td style="text-align: left">string</td>
+<td>t(:close)</td>
+</tr>
+</tbody></table>
+<h3 id='t-queryopeninterest'>t(:queryOpenInterest)</h3>
+<blockquote>
+<p>t(:codequote_curlExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/open-interest?symbol=BTCPERP&amp;period=5min&amp;limit=2'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
+<blockquote>
+<p>t(:codequote_responseExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code>
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">openInterest</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">11</span><span class="dl">"</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1637922300</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">openInterest</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">185380200000</span><span class="dl">"</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<p class="fake_header">t(:httprequest)</p>
+
+<p>GET
+<code><span id=usdcOpenInterest>/perpetual/usdc/openapi/public/v1/open-interest</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcOpenInterest"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_required)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">period</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcOpenInterestPeriod)</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcOpenInterestLimit)</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">t(:responseparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left">number</td>
+<td>t(:timestamp)</td>
+</tr>
+<tr>
+<td style="text-align: left">openInterest</td>
+<td style="text-align: left">string</td>
+<td>t(:marketopeninterest)</td>
+</tr>
+</tbody></table>
+<h3 id='t-bigdealorder'>t(:bigDealOrder)</h3>
+<blockquote>
+<p>t(:codequote_curlExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">
+curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal?symbol=BTCPERP&amp;limit=2'
+
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
+<blockquote>
+<p>t(:codequote_responseExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code>
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1638254956</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">value</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1933941.70000000</span><span class="dl">"</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1638254952</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">value</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">504610.00000000</span><span class="dl">"</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<p class="fake_header">t(:httprequest)</p>
+
+<p>GET
+<code><span id=usdcBigDeal>/perpetual/usdc/openapi/public/v1/big-deal</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcBigDeal"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_required)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcBigDealLimit)</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">t(:responseparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left">number</td>
+<td>t(:timestamp)</td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">string</td>
+<td>t(:side)</td>
+</tr>
+<tr>
+<td style="text-align: left">value</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcValue)</td>
+</tr>
+</tbody></table>
+<h3 id='t-accountratio'>t(:accountRatio)</h3>
+<blockquote>
+<p>t(:codequote_curlExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/account-ratio?symbol=BTCPERP&amp;limit=2&amp;period=1d'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
+<blockquote>
+<p>t(:codequote_responseExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code> <span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">buyRatio</span><span class="dl">"</span><span class="p">:</span> <span class="mf">0.6131</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">sellRatio</span><span class="dl">"</span><span class="p">:</span> <span class="mf">0.3869</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1638230400</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">buyRatio</span><span class="dl">"</span><span class="p">:</span> <span class="mf">0.5902</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">sellRatio</span><span class="dl">"</span><span class="p">:</span> <span class="mf">0.4098</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1638144000</span><span class="dl">"</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<p class="fake_header">t(:httprequest)</p>
+
+<p>GET
+<code><span id=usdcAccountRatio>/perpetual/usdc/openapi/public/v1/account-ratio</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcAccountRatio"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_required)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">period</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcAccountRatioPeriod)</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcAccountRatioLimit)</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">t(:responseparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">buyRatio</td>
+<td style="text-align: left">string</td>
+<td>t(:buyRatio)</td>
+</tr>
+<tr>
+<td style="text-align: left">sellRatio</td>
+<td style="text-align: left">string</td>
+<td>t(:sellRatio)</td>
+</tr>
+<tr>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left">number</td>
+<td>t(:timestamp)</td>
+</tr>
+</tbody></table>
+<h3 id='t-querylatest500trades'>t(:queryLatest500Trades)</h3>
+<blockquote>
+<p>t(:codequote_curlExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/query-trade-latest?symbol=BTCPERP&amp;limit=2&amp;category=PERPETUAL' \
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
+<blockquote>
+<p>t(:codequote_responseExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Success.</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">resultTotalSize</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">cursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">dataList</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">3caaa0ca</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">58445.00</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.010</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1638275679673</span><span class="dl">"</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10cc3064</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">58477.50</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.010</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1638275670702</span><span class="dl">"</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">t(:httprequest)</p>
+
+<p>GET
+<code><span id=usdcTradeLastest>/option/usdc/openapi/public/v1/query-trade-latest</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcTradeLastest"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_required)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">category</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcPerpCategory)</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcLimitMax500)</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">t(:responseparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">resultTotalSize</td>
+<td style="text-align: left">number</td>
+<td>t(:resultTotalSize)</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">string</td>
+<td>t(:cursor)</td>
+</tr>
+<tr>
+<td style="text-align: left">dataList</td>
+<td style="text-align: left">list</td>
+<td>t(:dataList)</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">transactionTime</td>
+<td style="text-align: left">number</td>
+<td>t(:transactionTime)</td>
+</tr>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: left">string</td>
+<td>ID</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">orderPrice</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcOrderPrice)</td>
+</tr>
+<tr>
+<td style="text-align: left">orderQty</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcOrderQty)</td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">string</td>
+<td>t(:side)</td>
+</tr>
+<tr>
+<td style="text-align: left">time</td>
+<td style="text-align: left">number</td>
+<td>t(:time)</td>
+</tr>
+</tbody></table>

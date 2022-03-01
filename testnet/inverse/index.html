@@ -1172,6 +1172,9 @@
                   <li>
                     <a href="#t-faq_float_precision" class="toc-h2 toc-link" data-title="Why are values returned to too many decimal places? (float precision issue)">Why are values returned to too many decimal places? (float precision issue)</a>
                   </li>
+                  <li>
+                    <a href="#t-faq_data_resilience" class="toc-h2 toc-link" data-title="How can I ensure I am using up-to-date data?">How can I ensure I am using up-to-date data?</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -2413,6 +2416,18 @@ clipboard.on('error', function(e) {
   <li>This issue will be fixed in the next major version of the API; unfortunately, it is not fixable in the short-term.</li>
 </ul>
 </p>
+<h2 id='t-faq_data_resilience'>How can I ensure I am using up-to-date data?</h2>
+<p><ul>
+  <li>It is possible, although unlikely, that the REST API or (even less likely) the websocket could return/push old data.</li>
+  <li>For the greatest level of data resilience, we recommend clients to:
+    <ul>
+      <li>firstly, rely on the websocket, which will not only ensure you get the latest data as fast as possible, but will also ensure you get <i>complete</i> data</li>
+      <li>secondly, query the REST API to fill in any discrepencies in data - or between websocket disconnections.</li>
+    </ul>
+  <li>The best practice is to save all of this data locally in your own database or cache.</li>
+  <li>This frees up your rate limits for other requests and also ensures a level of redundancy against the exchange in case of data delays.</li>
+</ul
+</p>
 <h1 id='t-authentication'>Authentication</h1>
 <aside class="notice">
 Please visit Bybit's <a href="https://testnet.bybit.com/app/user/api-management"> <b>testnet</b></a> or <a href="https://www.bybit.com/app/user/api-management"> <b>mainnet</b></a> to generate an API key
@@ -2579,7 +2594,7 @@ function copyStringToClipboard (endpoint) {
     <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1567108756.834357</span><span class="dl">"</span>             <span class="c1">// UTC timestamp</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Get the orderbook. Each side has a depth of 50.</p>
+<p>Get the orderbook. Each side has a depth of 25.</p>
 
 <aside class="notice">
 The response is in the snapshot format.
@@ -3348,7 +3363,7 @@ The response is in the snapshot format.
 <tr>
 <td style="text-align: left">max_leverage</td>
 <td style="text-align: left">number</td>
-<td>Max leverage</td>
+<td>Max leverage (indicates the max leverage, assuming the lowest risk limit setting)</td>
 </tr>
 <tr>
 <td style="text-align: left">leverage_step</td>
@@ -4236,13 +4251,13 @@ GET
     <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">100</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><p>Market price active order: A traditional market price order which will be filled at the best available price. <code>price</code> is not required for this type of order.
+<p><p>Market price: A traditional market price order which will be filled at the best available price. <code>price</code> is not required for this type of order.
 <b>To protect market order from excessive slippage, Bybit converts a market order into a limit order with a spread. A market buy order is converted into a limit order at a higher than best ask price; a market sell order is converted into a limit order at a lower than best bid price.
    The converted limit price and executed price are both available in trade history.</b>.</p>
-<p>Limit price active order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
+<p>Limit price: You can set an execution price for your order. The system will fill your order once the last traded price reaches your execution price.</p>
 <p><b>Take profit/Stop loss: You may only set a TP/SL conditional order upon opening the position. Once you hold a position, any new active order requests which contain TP/SL data will be accepted but the TP/SL data will be ignored. <code>tp_trigger_by</code>/<code>sl_trigger_by</code> default to LastPrice. Passing values to the <code>take_profit</code> or <code>stop_loss</code> parameters in this endpoint will create conditional orders managed by the system, which will be be automatically cancelled if the position is closed.</b></p>
 <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell. All USD markets have a contract size of 1 USD. See more</p>
-<p>Order price: If it is a conditional order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the price_filter field in the <a href="#t-querysymbol">Query Symbol</a> endpoint. This must modulo by 0.5 (20 and 21.5 are accepted, but 16.1 or 16.15 are not).</p>
+<p>Order price: If it is a conditional order, this parameter is required. When there is no position, the price should be 10% higher than the market price and less than 1 million. For the minimum unit of price movement, please refer to the price_filter field in the <a href="#t-querysymbol">Query Symbol</a> endpoint. This must modulo by 0.5 (20 and 21.5 are accepted, but 16.1 or 16.15 are not).</p>
 <p>Custom order ID: You may customise order IDs for active orders. We will link it to the system order ID, and return the unique system order ID to you after the active order is created successfully. You may use this order ID or your custom order ID to cancel your active order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
 <p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSD instrument and 280 active orders on the ETHUSD instrument.</b></p>
 </p>
@@ -5583,13 +5598,13 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <p>Limit price conditional order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
 <p>Take profit/Stop loss: You may only set a take-profit/stop-loss conditional order upon opening the position. Once you hold a position, the take profit and stop loss information you sent when placing an order will no longer be valid.</p>
 <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell, currently Bybit only support order quantity in an integer.</p>
-<p>Order price: If it is a stop order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the price_filter field in the <a href="#t-querysymbol">Query Symbol</a> endpoint.</p>
+<p>Order price: If it is a stop order, this parameter is required. When there is no position, the price should be 10% higher than the market price and less than 1 million. For the minimum unit of price movement, please refer to the price_filter field in the <a href="#t-querysymbol">Query Symbol</a> endpoint.</p>
 <p>Conditional order trigger price: You may set a trigger price for your conditional order. conditional order will not enter the order book until the last price hits the trigger price. When last price hits trigger price: 1) your limit conditional order will enter order book, and wait to be executed; 2) your market conditional order will be executed immediately at the best available market price.</p>
 <p>Customize conditional order ID: You may customize order IDs for active orders. We will link it to the system order ID , and return the unique system order ID to you after the active order is created successfully. You may use this order ID to cancel your active order. The customized order ID is asked to be unique, with a maximum length of 36 characters.</p>
 </p>
 
 <aside class="notice">
-Take profit/Stop loss is not supported in placing conditional orders. One can only use these 2 functions when placing active orders. Moreover, each account can hold up to 10 conditional orders yet to be filled entirely simultaneously.
+Take profit/Stop loss is not supported in placing conditional orders. One can only use these 2 functions when placing active orders. Moreover, each account can hold up to 10 conditional orders per symbol yet to be filled entirely simultaneously.
 </aside>
 
 <p class="fake_header">HTTP Request</p>
@@ -8464,7 +8479,7 @@ Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles
 <tr>
 <td style="text-align: left">starting_margin</td>
 <td style="text-align: left">number</td>
-<td>Starting margin</td>
+<td>Starting margin. The same as the "Initial Margin %" shown <a href="https://help.bybit.com/hc/en-us/articles/900000170023-Risk-Limit-USDT-Contract-">in the risk limit tables</a></td>
 </tr>
 <tr>
 <td style="text-align: left">section</td>
@@ -10163,6 +10178,15 @@ Prior notice will be given via the website if we update this mechanism.
     <span class="p">})</span>
 <span class="p">)</span>
 </code></pre></div>
+<aside class="notice">
+<b>Note that the following endpoints only apply to <i>Inverse Perpetual/Futures</i></b>. To listen to other websockets, go to:
+<ul>
+  <li><a href="https://bybit-exchange.github.io/docs/linear/#t-websocketauthentication">USDT (Linear) Perpetual</a></li>
+  <li><a href="https://bybit-exchange.github.io/docs/spot/#t-websocketauthentication">Spot</a></li>
+</ul>
+
+</aside>
+
 <p><p>Base endpoints:</p>
 <ul>
   <li>Testnet:
@@ -11968,7 +11992,7 @@ Some values use scientific notation. This is indicated by that value's key, whic
 <li><code>ExchangeOrderDeposit</code> </li>
 <li><code>ReturnServiceCash</code> - Refund of handling fee bonus</li>
 <li><code>Insurance</code> - Insurance account transfer</li>
-<li><code>SubMember</code> - Mother-child account transfer</li>
+<li><code>SubMember</code> - Parent-child account transfer</li>
 <li><code>Coupon</code> - Coupon interest</li>
 <li><code>AccountTransfer</code> - Account transfer</li>
 <li><code>CashBack</code> - Cash back</li>
@@ -13292,13 +13316,13 @@ ELSE
 <p>Limit price conditional order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
 <p>Take profit/Stop loss: You may only set a take-profit/stop-loss conditional order upon opening the position. Once you hold a position, the take profit and stop loss information you sent when placing an order will no longer be valid.</p>
 <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell, currently Bybit only support order quantity in an integer.</p>
-<p>Order price: If it is a stop order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the price_filter field in the <a href="#t-querysymbol">Query Symbol</a> endpoint.</p>
+<p>Order price: If it is a stop order, this parameter is required. When there is no position, the price should be 10% higher than the market price and less than 1 million. For the minimum unit of price movement, please refer to the price_filter field in the <a href="#t-querysymbol">Query Symbol</a> endpoint.</p>
 <p>Conditional order trigger price: You may set a trigger price for your conditional order. conditional order will not enter the order book until the last price hits the trigger price. When last price hits trigger price: 1) your limit conditional order will enter order book, and wait to be executed; 2) your market conditional order will be executed immediately at the best available market price.</p>
 <p>Customize conditional order ID: You may customize order IDs for active orders. We will link it to the system order ID , and return the unique system order ID to you after the active order is created successfully. You may use this order ID to cancel your active order. The customized order ID is asked to be unique, with a maximum length of 36 characters.</p>
 </p>
 
 <aside class="notice">
-Take profit/Stop loss is not supported in placing conditional orders. One can only use these 2 functions when placing active orders. Moreover, each account can hold up to 10 conditional orders yet to be filled entirely simultaneously.
+Take profit/Stop loss is not supported in placing conditional orders. One can only use these 2 functions when placing active orders. Moreover, each account can hold up to 10 conditional orders per symbol yet to be filled entirely simultaneously.
 </aside>
 
 <p class="fake_header">HTTP Request</p>
@@ -14036,7 +14060,7 @@ Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles
 <tr>
 <td style="text-align: left">starting_margin</td>
 <td style="text-align: left">string</td>
-<td>Starting margin</td>
+<td>Starting margin. The same as the "Initial Margin %" shown <a href="https://help.bybit.com/hc/en-us/articles/900000170023-Risk-Limit-USDT-Contract-">in the risk limit tables</a></td>
 </tr>
 <tr>
 <td style="text-align: left">section</td>
@@ -14365,7 +14389,7 @@ Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles
 <tr>
 <td style="text-align: left">risk&gt;starting_margin</td>
 <td style="text-align: left">string</td>
-<td>Starting margin</td>
+<td>Starting margin. The same as the "Initial Margin %" shown <a href="https://help.bybit.com/hc/en-us/articles/900000170023-Risk-Limit-USDT-Contract-">in the risk limit tables</a></td>
 </tr>
 <tr>
 <td style="text-align: left">risk&gt;section</td>

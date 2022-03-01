@@ -656,6 +656,16 @@
   <li><a href="/docs/spot" class="selected">Spot</a></li>
   <li><a href="/docs/account_asset">Account Asset</a></li>
 
+    <li>
+        <div class="dropdown">
+          <button class="dropbtn">USDC Contract
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+                <a href=/docs/usdc/perpetual>Perpetual</a>
+          </div>
+        </div>
+    </li>
 
   <li>
     <div class="dropdown">
@@ -3502,7 +3512,7 @@ If <code>startTime</code> is not specified, you can only query for records in th
 <tr>
 <td style="text-align: left">fee</td>
 <td style="text-align: left">object</td>
-<td>Trading fee</td>
+<td>Trading fee (for a single fill)</td>
 </tr>
 <tr>
 <td style="text-align: left">feeTokenId</td>
@@ -3512,7 +3522,7 @@ If <code>startTime</code> is not specified, you can only query for records in th
 <tr>
 <td style="text-align: left">feeAmount</td>
 <td style="text-align: left">float</td>
-<td>Trading fee</td>
+<td>Trading fee (for a single fill)</td>
 </tr>
 <tr>
 <td style="text-align: left">makerRebate</td>
@@ -3543,7 +3553,7 @@ If <code>startTime</code> is not specified, you can only query for records in th
 <tr>
 <td style="text-align: left">fee</td>
 <td style="text-align: left">float</td>
-<td>Trading fee</td>
+<td>Trading fee (for a single fill)</td>
 </tr>
 </tbody></table>
 <h1 id='t-wallet'>Wallet Data Endpoints</h1>
@@ -3743,6 +3753,15 @@ If <code>startTime</code> is not specified, you can only query for records in th
     <span class="p">})</span>
 <span class="p">)</span>
 </code></pre></div>
+<aside class="notice">
+<b>Note that the following endpoints only apply to <i>Spot</i></b>. To listen to other websockets, go to:
+<ul>
+  <li><a href="https://bybit-exchange.github.io/docs/inverse/#t-websocketauthentication">Inverse Perpetual/Futures</a></li>
+  <li><a href="https://bybit-exchange.github.io/docs/linear/#t-websocketauthentication">USDT (Linear) Perpetual</a></li>
+</ul>
+
+</aside>
+
 <p>Base endpoints:
 <ul>
   <li>Testnet:
@@ -5476,7 +5495,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <tr>
 <td style="text-align: left">n</td>
 <td style="text-align: left">string</td>
-<td>Trading fee</td>
+<td>Trading fee (for a single fill)</td>
 </tr>
 <tr>
 <td style="text-align: left">N</td>
@@ -5486,7 +5505,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <tr>
 <td style="text-align: left">u</td>
 <td style="text-align: left">boolean</td>
-<td>Is normal</td>
+<td>Is normal trade. False if self-trade.</td>
 </tr>
 <tr>
 <td style="text-align: left">w</td>

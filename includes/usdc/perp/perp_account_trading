@@ -1,0 +1,2407 @@
+<h1 id='t-accountdata'>t(:accountdata)</h1>
+<p>t(:account_para)</p>
+<h2 id='t-usdctradeapi'>t(:usdcTradeApi)</h2><h3 id='t-usdcplaceorder'>t(:usdcPlaceOrder)</h3>
+<blockquote>
+<p>t(:codequote_curlExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/place-order \
+-H "Content-Type: application/json" \
+-D '{
+    "side": "Buy",
+    "orderType": "Limit",
+    "orderQty": "0.01",
+    "orderPrice": "64300",
+    "timeInForce": "GoodTillCancel",
+    "closeOnTrigger": false,
+    "outRequestId": "",
+    "reduceOnly": false,
+    "symbol": "BTCPERP",
+    "orderLinkId": "",
+    "positionIdx": 0,
+    "mmp": false
+}'
+</span></code></pre></div>
+<blockquote>
+<p>t(:codequote_responseExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">29373a80-ba76-4e5c-9c5d-17efa02804ea</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">mmp</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Limit</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">orderQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.01000000</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">59925.00</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">iv</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GoodTillCancel</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">orderStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Created</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">createdAt</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1638340762484732</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">basePrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">triggerPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">takeProfit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">stopLoss</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">slTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">tpTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>t(:placeOrderInfo)</p>
+
+<p class="fake_header">t(:httprequest)</p>
+
+<p>POST
+<code><span id=uopvPlace>/perpetual/usdc/openapi/private/v1/place-order</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvPlace"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_required)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">orderType</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcPerpOrderType)</td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:side)</td>
+</tr>
+<tr>
+<td style="text-align: left">orderPrice</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:usdc_perp_order_price)</td>
+</tr>
+<tr>
+<td style="text-align: left">orderQty</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcOrderQty)</td>
+</tr>
+<tr>
+<td style="text-align: left">t(:row_parameter_timeInForce)</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:row_comment_timeInForce)</td>
+</tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:orderLinkId)</td>
+</tr>
+<tr>
+<td style="text-align: left">reduceOnly</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">bool</td>
+<td>t(:reduceOnly)</td>
+</tr>
+<tr>
+<td style="text-align: left">closeOnTrigger</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">bool</td>
+<td>t(:closeOnTrigger)</td>
+</tr>
+<tr>
+<td style="text-align: left">takeProfit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:takeProfit)</td>
+</tr>
+<tr>
+<td style="text-align: left">stopLoss</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:stopLoss)</td>
+</tr>
+<tr>
+<td style="text-align: left">tptriggerby</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">number</td>
+<td>t(:usdcTptriggerby)</td>
+</tr>
+<tr>
+<td style="text-align: left">slTriggerBy</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSlTriggerBy)</td>
+</tr>
+<tr>
+<td style="text-align: left">triggerPrice</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:triggerPrice)</td>
+</tr>
+<tr>
+<td style="text-align: left">triggerBy</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">number</td>
+<td>t(:usdcTriggerBy)</td>
+</tr>
+<tr>
+<td style="text-align: left">mmp</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">bool</td>
+<td>t(:mmp)</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">t(:responseparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcOrderId)</td>
+</tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">string</td>
+<td>t(:orderLinkId)</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">orderPrice</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcOrderPrice)</td>
+</tr>
+<tr>
+<td style="text-align: left">orderQty</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcOrderQty)</td>
+</tr>
+<tr>
+<td style="text-align: left">orderType</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcPerpOrderType)</td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">string</td>
+<td>t(:side)</td>
+</tr>
+</tbody></table>
+<h3 id='t-usdcreplaceorder'>t(:usdcReplaceOrder)</h3><div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/replace-order \
+-H "Content-Type: application/json" \
+-D '{
+"symbol":"BTCPERP",
+"orderLinkId":"",
+"orderId":"29373a80-ba76-4e5c-9c5d-17efa02804ea",
+"orderQty":"0.02",
+"orderPrice":"59888.3",
+"iv":"10",
+"takeProfit":"",
+"stopLoss":"",
+"orderFilter":"Order"
+}'
+
+
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+</code></pre></div>
+<blockquote>
+<p>t(:codequote_responseExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">61f22ac5-6774-46e6-9697-fc3f2621ee09</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">t(:httprequest)</p>
+
+<p>POST
+<code><span id=uopvReplace>/perpetual/usdc/openapi/private/v1/replace-order</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvReplace"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_required)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">orderFilter</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcOrderFilter)</td>
+</tr>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcOrderId)</td>
+</tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcOrderLinkId)</td>
+</tr>
+<tr>
+<td style="text-align: left">orderPrice</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcOrderPrice)</td>
+</tr>
+<tr>
+<td style="text-align: left">orderQty</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcOrderQty)</td>
+</tr>
+<tr>
+<td style="text-align: left">takeProfit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:takeProfit)</td>
+</tr>
+<tr>
+<td style="text-align: left">stopLoss</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:stopLoss)</td>
+</tr>
+<tr>
+<td style="text-align: left">tptriggerby</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcTptriggerby)</td>
+</tr>
+<tr>
+<td style="text-align: left">slTriggerBy</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSlTriggerBy)</td>
+</tr>
+<tr>
+<td style="text-align: left">triggerPrice</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:triggerPrice)</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">t(:responseparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcOrderId)</td>
+</tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">string</td>
+<td>t(:orderLinkId)</td>
+</tr>
+</tbody></table>
+<h3 id='t-usdccancelorder'>t(:usdcCancelOrder)</h3><div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/cancel-order \
+-H "Content-Type: application/json" \
+-D '
+{
+"symbol":"BTCPERP",
+"orderLinkId":"",
+"orderFilter":"Order",
+"orderId":"752cff9a-6941-44d3-a405-bd297b1df4bc"
+}
+'
+
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+</code></pre></div>
+<blockquote>
+<p>t(:codequote_responseExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">752cff9a-6941-44d3-a405-bd297b1df4bc</span><span class="dl">"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">t(:httprequest)</p>
+
+<p>POST
+<code><span id=uopvCancel>/perpetual/usdc/openapi/private/v1/cancel-order</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvCancel"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_required)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">orderFilter</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcOrderFilter)</td>
+</tr>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcOrderLinkId)</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">t(:responseparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcOrderId)</td>
+</tr>
+</tbody></table>
+<h3 id='t-usdccancelall'>t(:usdcCancelAll)</h3><div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/cancel-order \
+-H "Content-Type: application/json" \
+-D '{
+    "symbol": "BTCPERP",
+    "orderFilter": "Order"
+}'
+
+
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+</code></pre></div>
+<blockquote>
+<p>t(:codequote_responseExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">t(:httprequest)</p>
+
+<p>POST
+<code><span id=uopvCancelAll>/perpetual/usdc/openapi/private/v1/cancel-all</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvCancelAll"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_required)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">orderFilter</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcOrderFilter)</td>
+</tr>
+</tbody></table>
+
+<p>
+t(:cancelAllResponse)
+</p>
+<h3 id='t-usdcqryunorpartfilled'>t(:usdcQryUnOrPartFilled)</h3><div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-active-orders \
+-H "Content-Type: application/json" \
+-D '{
+    "category": "PERPETUAL",
+    "symbol": "BTCPERP"
+}'
+
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+</code></pre></div>
+<blockquote>
+<p>t(:codequote_responseExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">cursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">3dd0f4a4-b726-4921-9a23-723e0c0fdbd3%3A1640856463068%2C3dd0f4a4-b726-4921-9a23-723e0c0fdbd3%3A1640856463068</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">resultTotalSize</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">dataList</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Limit</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">3dd0f4a4-b726-4921-9a23-723e0c0fdbd3</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">stopOrderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">New</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">takeProfit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">cumExecValue</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">createdAt</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1640856463065</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderPnl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">38000.0</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">tpTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GoodTillCancel</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">basePrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">triggerPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">cumExecFee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">leavesQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.010</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">slTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">iv</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">closeOnTrigger</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">cumExecQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">reduceOnly</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.010</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">stopLoss</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">lastExecPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">triggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderIM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Success.</span><span class="dl">"</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">t(:httprequest)</p>
+
+<p>POST
+<code><span id=uopvQueryActive>/option/usdc/openapi/private/v1/query-active-orders</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvQueryActive"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_required)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">category</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcPerpCategory)</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcOrderId)</td>
+</tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:orderLinkId)</td>
+</tr>
+<tr>
+<td style="text-align: left">orderFilter</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcOrderFilter)</td>
+</tr>
+<tr>
+<td style="text-align: left">direction</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:direction)</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">number</td>
+<td>t(:row_comment_limit)</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:cursor)</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">t(:responseparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">resultTotalSize</td>
+<td style="text-align: left">number</td>
+<td>t(:resultTotalSize)</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">string</td>
+<td>t(:cursor)</td>
+</tr>
+<tr>
+<td style="text-align: left">dataList</td>
+<td style="text-align: left">list</td>
+<td>t(:dataList)</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcOrderId)</td>
+</tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">string</td>
+<td>t(:orderLinkId)</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">orderType</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcPerpOrderType)</td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">string</td>
+<td>t(:side)</td>
+</tr>
+<tr>
+<td style="text-align: left">qty</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcOrderQty)</td>
+</tr>
+<tr>
+<td style="text-align: left">price</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcOrderPrice)</td>
+</tr>
+<tr>
+<td style="text-align: left">t(:row_parameter_timeInForce)</td>
+<td style="text-align: left">string</td>
+<td>t(:row_comment_timeInForce)</td>
+</tr>
+<tr>
+<td style="text-align: left">cumExecQty</td>
+<td style="text-align: left">string</td>
+<td>t(:cumExecQty)</td>
+</tr>
+<tr>
+<td style="text-align: left">cumExecValue</td>
+<td style="text-align: left">string</td>
+<td>t(:cumExecValue)</td>
+</tr>
+<tr>
+<td style="text-align: left">cumExecFee</td>
+<td style="text-align: left">string</td>
+<td>t(:cumExecFee)</td>
+</tr>
+<tr>
+<td style="text-align: left">orderIM</td>
+<td style="text-align: left">string</td>
+<td>t(:im)</td>
+</tr>
+<tr>
+<td style="text-align: left">orderStatus</td>
+<td style="text-align: left">string</td>
+<td>t(:orderStatus)</td>
+</tr>
+<tr>
+<td style="text-align: left">takeProfit</td>
+<td style="text-align: left">string</td>
+<td>t(:takeProfit)</td>
+</tr>
+<tr>
+<td style="text-align: left">stopLoss</td>
+<td style="text-align: left">string</td>
+<td>t(:stopLoss)</td>
+</tr>
+<tr>
+<td style="text-align: left">tpTriggerBy</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcTptriggerby)</td>
+</tr>
+<tr>
+<td style="text-align: left">slTriggerBy</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSlTriggerBy)</td>
+</tr>
+<tr>
+<td style="text-align: left">lastExecPrice</td>
+<td style="text-align: left">string</td>
+<td>t(:lastExecPrice)</td>
+</tr>
+<tr>
+<td style="text-align: left">basePrice</td>
+<td style="text-align: left">string</td>
+<td>t(:basePrice)</td>
+</tr>
+<tr>
+<td style="text-align: left">triggerPrice</td>
+<td style="text-align: left">string</td>
+<td>t(:triggerPrice)</td>
+</tr>
+<tr>
+<td style="text-align: left">triggerBy</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcTriggerBy)</td>
+</tr>
+<tr>
+<td style="text-align: left">reduceOnly</td>
+<td style="text-align: left">bool</td>
+<td>t(:reduceOnly)</td>
+</tr>
+<tr>
+<td style="text-align: left">stopOrderType</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcStopOrderType)</td>
+</tr>
+<tr>
+<td style="text-align: left">closeOnTrigger</td>
+<td style="text-align: left">string</td>
+<td>t(:closeOnTrigger)</td>
+</tr>
+<tr>
+<td style="text-align: left">createdAt</td>
+<td style="text-align: left">number</td>
+<td>t(:createdAt)</td>
+</tr>
+</tbody></table>
+<h3 id='t-usdcqryorderhistory'>t(:usdcQryOrderHistory)</h3><div class="highlight"><pre class="highlight console tab-console"><code><span class="go">
+curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-history \
+-H "Content-Type: application/json" \
+-D '{
+    "category": "PERPETUAL",
+    "limit":2
+}'
+
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+</code></pre></div>
+<blockquote>
+<p>t(:codequote_responseExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">cursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">640034d1-97ec-4382-9983-694898c03ba3%3A1640854950675%2C640034d1-97ec-4382-9983-694898c03ba3%3A1640854950675</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">resultTotalSize</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">dataList</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Market</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">640034d1-97ec-4382-9983-694898c03ba3</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">cancelType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">stopOrderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Filled</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">takeProfit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">createdAt</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1640854950672</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderPnl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">49192.5</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">tpTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ImmediateOrCancel</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">updatedAt</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1640854950675</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">basePrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">realisedPnl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">triggerPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">cumExecFee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.3514</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">leavesQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">cashFlow</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">slTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">iv</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">closeOnTrigger</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">cumExecQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.010</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">reduceOnly</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.010</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">stopLoss</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">triggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderIM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Success.</span><span class="dl">"</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<p class="fake_header">t(:httprequest)</p>
+
+<p>POST
+<code><span id=uopvQueryHistory>/option/usdc/openapi/private/v1/query-order-history</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvQueryHistory"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_required)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">category</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcPerpCategory)</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcOrderId)</td>
+</tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:orderLinkId)</td>
+</tr>
+<tr>
+<td style="text-align: left">orderStatus</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:orderStatus)</td>
+</tr>
+<tr>
+<td style="text-align: left">orderFilter</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcOrderFilter)</td>
+</tr>
+<tr>
+<td style="text-align: left">direction</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:direction)</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">number</td>
+<td>t(:row_comment_limit)</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:cursor)</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">t(:responseparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">resultTotalSize</td>
+<td style="text-align: left">number</td>
+<td>t(:resultTotalSize)</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">string</td>
+<td>t(:cursor)</td>
+</tr>
+<tr>
+<td style="text-align: left">dataList</td>
+<td style="text-align: left">list</td>
+<td>t(:dataList)</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcOrderId)</td>
+</tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">string</td>
+<td>t(:orderLinkId)</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">orderType</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcPerpOrderType)</td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">string</td>
+<td>t(:side)</td>
+</tr>
+<tr>
+<td style="text-align: left">qty</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcOrderQty)</td>
+</tr>
+<tr>
+<td style="text-align: left">price</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcOrderPrice)</td>
+</tr>
+<tr>
+<td style="text-align: left">t(:row_parameter_timeInForce)</td>
+<td style="text-align: left">string</td>
+<td>t(:row_comment_timeInForce)</td>
+</tr>
+<tr>
+<td style="text-align: left">leavesValue</td>
+<td style="text-align: left">string</td>
+<td>t(:leavesValue)</td>
+</tr>
+<tr>
+<td style="text-align: left">cumExecQty</td>
+<td style="text-align: left">string</td>
+<td>t(:cumExecQty)</td>
+</tr>
+<tr>
+<td style="text-align: left">cumExecValue</td>
+<td style="text-align: left">string</td>
+<td>t(:cumExecValue)</td>
+</tr>
+<tr>
+<td style="text-align: left">cumExecFee</td>
+<td style="text-align: left">string</td>
+<td>t(:cumExecFee)</td>
+</tr>
+<tr>
+<td style="text-align: left">orderIM</td>
+<td style="text-align: left">string</td>
+<td>t(:im)</td>
+</tr>
+<tr>
+<td style="text-align: left">cashFlow</td>
+<td style="text-align: left">string</td>
+<td>t(:cashFlow)</td>
+</tr>
+<tr>
+<td style="text-align: left">realisedPnl</td>
+<td style="text-align: left">string</td>
+<td>t(:realisedPnl)</td>
+</tr>
+<tr>
+<td style="text-align: left">orderStatus</td>
+<td style="text-align: left">string</td>
+<td>t(:orderStatus)</td>
+</tr>
+<tr>
+<td style="text-align: left">takeProfit</td>
+<td style="text-align: left">string</td>
+<td>t(:takeProfit)</td>
+</tr>
+<tr>
+<td style="text-align: left">stopLoss</td>
+<td style="text-align: left">string</td>
+<td>t(:stopLoss)</td>
+</tr>
+<tr>
+<td style="text-align: left">tpTriggerBy</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcTptriggerby)</td>
+</tr>
+<tr>
+<td style="text-align: left">slTriggerBy</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSlTriggerBy)</td>
+</tr>
+<tr>
+<td style="text-align: left">lastExecPrice</td>
+<td style="text-align: left">string</td>
+<td>t(:lastExecPrice)</td>
+</tr>
+<tr>
+<td style="text-align: left">basePrice</td>
+<td style="text-align: left">string</td>
+<td>t(:basePrice)</td>
+</tr>
+<tr>
+<td style="text-align: left">triggerPrice</td>
+<td style="text-align: left">string</td>
+<td>t(:triggerPrice)</td>
+</tr>
+<tr>
+<td style="text-align: left">triggerBy</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcTriggerBy)</td>
+</tr>
+<tr>
+<td style="text-align: left">reduceOnly</td>
+<td style="text-align: left">bool</td>
+<td>t(:reduceOnly)</td>
+</tr>
+<tr>
+<td style="text-align: left">stopOrderType</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcStopOrderType)</td>
+</tr>
+<tr>
+<td style="text-align: left">closeOnTrigger</td>
+<td style="text-align: left">string</td>
+<td>t(:closeOnTrigger)</td>
+</tr>
+<tr>
+<td style="text-align: left">createdAt</td>
+<td style="text-align: left">number</td>
+<td>t(:createdAt)</td>
+</tr>
+<tr>
+<td style="text-align: left">updatedAt</td>
+<td style="text-align: left">number</td>
+<td>t(:updatedAt)</td>
+</tr>
+</tbody></table>
+<h3 id='t-usdctradehistory'>t(:usdcTradeHistory)</h3>
+<blockquote>
+<p>t(:codequote_curlExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/execution-list \
+-H "Content-Type: application/json" \
+-D '{
+    "category": "PERPETUAL",
+    "limit": 1
+}'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+</code></pre></div>
+<blockquote>
+<p>t(:codequote_responseExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">cursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">52%3A1%2C52%3A1</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">resultTotalSize</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">dataList</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">tradeTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1640854950675</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">640034d1-97ec-4382-9983-694898c03ba3</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">execPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">46851.50</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">lastLiquidityInd</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">TAKER</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">execValue</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">468.5150</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">execType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">TRADE</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">execQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.010</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">execFee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.3514</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">feeRate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.000750</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">tradeId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">22f7e871-e11b-50f0-aa6f-40dc52f57322</span><span class="dl">"</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Success.</span><span class="dl">"</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<p class="fake_header">t(:httprequest)</p>
+
+<p>POST
+<code><span id=uopvExecution>/option/usdc/openapi/private/v1/execution-list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvExecution"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_required)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">category</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcPerpCategory)</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcOrderId)</td>
+</tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcOrderLinkId)</td>
+</tr>
+<tr>
+<td style="text-align: left">startTime</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcStartTime)</td>
+</tr>
+<tr>
+<td style="text-align: left">direction</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:direction)</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:row_comment_limit)</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:cursor)</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">t(:responseparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">resultTotalSize</td>
+<td style="text-align: left">number</td>
+<td>t(:resultTotalSize)</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">string</td>
+<td>t(:cursor)</td>
+</tr>
+<tr>
+<td style="text-align: left">dataList</td>
+<td style="text-align: left">list</td>
+<td>t(:dataList)</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcOrderId)</td>
+</tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">string</td>
+<td>t(:orderLinkId)</td>
+</tr>
+<tr>
+<td style="text-align: left">execPrice</td>
+<td style="text-align: left">string</td>
+<td>t(:tradePrice)</td>
+</tr>
+<tr>
+<td style="text-align: left">execQty</td>
+<td style="text-align: left">string</td>
+<td>t(:uscdSize)</td>
+</tr>
+<tr>
+<td style="text-align: left">execFee</td>
+<td style="text-align: left">string</td>
+<td>t(:fee)</td>
+</tr>
+<tr>
+<td style="text-align: left">feeRate</td>
+<td style="text-align: left">string</td>
+<td>t(:feeRate)</td>
+</tr>
+<tr>
+<td style="text-align: left">tradeTime</td>
+<td style="text-align: left">number</td>
+<td>t(:tradeTime)</td>
+</tr>
+<tr>
+<td style="text-align: left">execType</td>
+<td style="text-align: left">string</td>
+<td>t(:execType)</td>
+</tr>
+<tr>
+<td style="text-align: left">lastLiquidityInd</td>
+<td style="text-align: left">string</td>
+<td>t(:lastLiquidityInd)</td>
+</tr>
+<tr>
+<td style="text-align: left">execValue</td>
+<td style="text-align: left">string</td>
+<td>t(:execValue)</td>
+</tr>
+<tr>
+<td style="text-align: left">tradeId</td>
+<td style="text-align: left">string</td>
+<td>t(:tradeId)</td>
+</tr>
+</tbody></table>
+<h2 id='t-account_wallet'>t(:account_wallet)</h2>
+<p>t(:wallet_para)</p>
+<h3 id='t-transactionlog'>t(:transactionLog)</h3>
+<blockquote>
+<p>t(:codequote_curlExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-transaction-log \
+-H "Content-Type: application/json" \
+-D '{
+    "type": "TRADE",
+    "limit": 1
+}'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+</code></pre></div>
+<blockquote>
+<p>t(:codequote_responseExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Success.</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">resultTotalSize</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">cursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">289037_BTCPERP_1176501331%3A1638341411994%3A9806%2C289037_BTCPERP_1176501331%3A1638341411994%3A9806</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">dataList</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">transactionTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1638341411994</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">TRADE</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">tradePrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">57168.5</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">funding</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.020</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1.150</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">fee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.8576</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">cashFlow</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">change</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-0.8575</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">walletBalance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">24080.5708</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">feeRate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0008</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">61f22ac5-6774-46e6-9697-fc3f2621ee09</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">tradeId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">14c7eb47-15e7-565a-b622-9633d09a5389</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">info</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">t(:httprequest)</p>
+
+<p>POST
+<code><span id=uopvQueryTransaction>/option/usdc/openapi/private/v1/query-transaction-log</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvQueryTransaction"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_required)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">type</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcTransactionType)</td>
+</tr>
+<tr>
+<td style="text-align: left">startTime</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcStartTime)</td>
+</tr>
+<tr>
+<td style="text-align: left">endTime</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcEndTime)</td>
+</tr>
+<tr>
+<td style="text-align: left">direction</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:direction)</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:row_comment_limit)</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:cursor)</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">t(:responseparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">resultTotalSize</td>
+<td style="text-align: left">number</td>
+<td>t(:resultTotalSize)</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">string</td>
+<td>t(:cursor)</td>
+</tr>
+<tr>
+<td style="text-align: left">dataList</td>
+<td style="text-align: left">list</td>
+<td>t(:dataList)</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">transactionTime</td>
+<td style="text-align: left">number</td>
+<td>t(:transactionTime)</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">type</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcType)</td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">string</td>
+<td>t(:side)</td>
+</tr>
+<tr>
+<td style="text-align: left">qty</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcOrderQty)</td>
+</tr>
+<tr>
+<td style="text-align: left">size</td>
+<td style="text-align: left">string</td>
+<td>t(:uscdSize)</td>
+</tr>
+<tr>
+<td style="text-align: left">tradePrice</td>
+<td style="text-align: left">string</td>
+<td>t(:tradePrice)</td>
+</tr>
+<tr>
+<td style="text-align: left">funding</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcFunding)</td>
+</tr>
+<tr>
+<td style="text-align: left">fee</td>
+<td style="text-align: left">string</td>
+<td>t(:fee)</td>
+</tr>
+<tr>
+<td style="text-align: left">cashFlow</td>
+<td style="text-align: left">string</td>
+<td>t(:cashFlow)</td>
+</tr>
+<tr>
+<td style="text-align: left">change</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcChange)</td>
+</tr>
+<tr>
+<td style="text-align: left">walletBalance</td>
+<td style="text-align: left">string</td>
+<td>t(:cashBalance)</td>
+</tr>
+<tr>
+<td style="text-align: left">feeRate</td>
+<td style="text-align: left">string</td>
+<td>t(:feeRate)</td>
+</tr>
+<tr>
+<td style="text-align: left">tradeId</td>
+<td style="text-align: left">string</td>
+<td>t(:tradeId)</td>
+</tr>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcOrderId)</td>
+</tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">string</td>
+<td>t(:orderLinkId)</td>
+</tr>
+<tr>
+<td style="text-align: left">info</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcInfo)</td>
+</tr>
+</tbody></table>
+<h3 id='t-usdcaccountinfo'>t(:usdcAccountInfo)</h3>
+<p>For USDC Account.</p>
+
+<blockquote>
+<p>t(:codequote_curlExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-wallet-balance \
+
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+</code></pre></div>
+<blockquote>
+<p>t(:codequote_responseExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">extCode</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">extInfo</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">equity</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">walletBalance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">availableBalance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">accountIM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">162073788655749</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">accountMM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">100</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">totalRPL</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1620737886573</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">totalSessionUPL</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1620737886573</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">totalSessionRPL</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1620737886573</span><span class="dl">"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">t(:httprequest)</p>
+
+<p>POST
+<code><span id=uopvQueryBalance>/option/usdc/openapi/private/v1/query-wallet-balance</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvQueryBalance"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">t(:responseparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">equity</td>
+<td style="text-align: left">number</td>
+<td>t(:equity)</td>
+</tr>
+<tr>
+<td style="text-align: left">walletBalance</td>
+<td style="text-align: left">string</td>
+<td>t(:cashBalance)</td>
+</tr>
+<tr>
+<td style="text-align: left">availableBalance</td>
+<td style="text-align: left">string</td>
+<td>t(:availableBalance)</td>
+</tr>
+<tr>
+<td style="text-align: left">marginBalance</td>
+<td style="text-align: left">string</td>
+<td>t(:marginBalance)</td>
+</tr>
+<tr>
+<td style="text-align: left">accountIM</td>
+<td style="text-align: left">string</td>
+<td>t(:accountIm)</td>
+</tr>
+<tr>
+<td style="text-align: left">accountMM</td>
+<td style="text-align: left">string</td>
+<td>t(:accountMm)</td>
+</tr>
+<tr>
+<td style="text-align: left">totalRPL</td>
+<td style="text-align: left">string</td>
+<td>t(:totalRpl)</td>
+</tr>
+<tr>
+<td style="text-align: left">totalSessionUPL</td>
+<td style="text-align: left">string</td>
+<td>t(:totalSessionUpl)</td>
+</tr>
+<tr>
+<td style="text-align: left">totalSessionRPL</td>
+<td style="text-align: left">string</td>
+<td>t(:totalSessionRpl)</td>
+</tr>
+</tbody></table>
+<h3 id='t-assetinfo'>t(:assetInfo)</h3>
+<blockquote>
+<p>t(:codequote_curlExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-asset-info \
+-H "Content-Type: application/json" \
+-D '{"baseCoin":"BTC"}'
+
+</span></code></pre></div>
+<blockquote>
+<p>t(:codequote_responseExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:{</span>
+    <span class="dl">"</span><span class="s2">resultTotalSize</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">dataList</span><span class="dl">"</span><span class="p">:[</span>
+      <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">baseCoin</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">totalDelta</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">-0.1093</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">totalGamma</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.00000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">totalVega</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1.8799</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">totalTheta</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">-19.2038</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">totalRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">-3773.8879</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">sessionUPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">-16.0781</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">sessionRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">-13.0000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">im</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">28940.8205</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">mm</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">14997.4532</span><span class="dl">"</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">t(:httprequest)</p>
+
+<p>POST
+<code><span id=uopvAsset>/option/usdc/openapi/private/v1/query-asset-info</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvAsset"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_required)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">baseCoin</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcBaseCoin)</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">t(:responseparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">resultTotalSize</td>
+<td style="text-align: left">int</td>
+<td>t(:resultTotalSize)</td>
+</tr>
+<tr>
+<td style="text-align: left">dataList</td>
+<td style="text-align: left">list</td>
+<td>t(:dataList)</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">baseCoin</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcBaseCoin)</td>
+</tr>
+<tr>
+<td style="text-align: left">totalDelta</td>
+<td style="text-align: left">string</td>
+<td>t(:totalDelta)</td>
+</tr>
+<tr>
+<td style="text-align: left">totalGamma</td>
+<td style="text-align: left">string</td>
+<td>t(:totalGamma)</td>
+</tr>
+<tr>
+<td style="text-align: left">totalVega</td>
+<td style="text-align: left">string</td>
+<td>t(:totalVega)</td>
+</tr>
+<tr>
+<td style="text-align: left">totalTheta</td>
+<td style="text-align: left">string</td>
+<td>t(:totalTheta)</td>
+</tr>
+<tr>
+<td style="text-align: left">im</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcIm)</td>
+</tr>
+<tr>
+<td style="text-align: left">mm</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcMm)</td>
+</tr>
+<tr>
+<td style="text-align: left">totalRpl</td>
+<td style="text-align: left">string</td>
+<td>t(:totalRpl)</td>
+</tr>
+<tr>
+<td style="text-align: left">sessionUpl</td>
+<td style="text-align: left">string</td>
+<td>t(:sessionUpl)</td>
+</tr>
+<tr>
+<td style="text-align: left">sessionRpl</td>
+<td style="text-align: left">string</td>
+<td>t(:sessionRpl)</td>
+</tr>
+</tbody></table>
+<h3 id='t-querymarginmode'>t(:queryMarginMode)</h3>
+<p>For USDC ACCOUNT.</p>
+
+<blockquote>
+<p>t(:codequote_curlExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">
+curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-margin-info \
+
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+</code></pre></div>
+<blockquote>
+<p>t(:codequote_responseExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:{</span>
+    <span class="dl">"</span><span class="s2">marginMode</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">REGULAR_MARGIN</span><span class="dl">"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">t(:httprequest)</p>
+
+<p>POST
+<code><span id=uopvMargin>/option/usdc/openapi/private/v1/query-margin-info</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvMargin"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_required)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<p class="fake_header">t(:responseparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">marginMode</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcMarginMode)</td>
+</tr>
+</tbody></table>
+<h2 id='t-accountposition'>t(:accountPosition)</h2><h3 id='t-queryposition'>t(:queryPosition)</h3>
+<blockquote>
+<p>t(:codequote_curlExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-position \
+-H "Content-Type: application/json" \
+-D '{
+    "category": "PERPETUAL"
+}'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+</code></pre></div>
+<blockquote>
+<p>t(:codequote_responseExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">cursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCPERP%3A1640856463080%2CBTCPERP%3A1640856463080</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">resultTotalSize</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">dataList</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">leverage</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10.00</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">occClosingFee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">liqPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">positionValue</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1403.8050</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">takeProfit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">riskId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10001</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">trailingStop</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">unrealisedPnl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">createdAt</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1640856463080</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">markPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">46891.81</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">cumRealisedPnl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">positionMM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">7.9666</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">positionIM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">141.3281</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">updatedAt</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1640856463080</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">tpSLMode</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">bustPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">deleverageIndicator</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">entryPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">46793.5</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.030</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">sessionRPL</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">positionStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">NORMAL</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">sessionUPL</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.3391</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">stopLoss</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderMargin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">38.5415</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">sessionAvgPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">46880.5</span><span class="dl">"</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Success.</span><span class="dl">"</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">t(:httprequest)</p>
+
+<p>POST
+<code><span id=uopvPosition>/option/usdc/openapi/private/v1/query-position</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvPosition"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_required)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">category</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcPerpCategory)</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:cursor)</td>
+</tr>
+<tr>
+<td style="text-align: left">direction</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:direction)</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcPositionLimit)</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">t(:responseparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">resultTotalSize</td>
+<td style="text-align: left">number</td>
+<td>t(:resultTotalSize)</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">string</td>
+<td>t(:cursor)</td>
+</tr>
+<tr>
+<td style="text-align: left">dataList</td>
+<td style="text-align: left">list</td>
+<td>t(:dataList)</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">riskId</td>
+<td style="text-align: left">string</td>
+<td>riskId</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">string</td>
+<td>t(:side)</td>
+</tr>
+<tr>
+<td style="text-align: left">size</td>
+<td style="text-align: left">string</td>
+<td>t(:uscdSize)</td>
+</tr>
+<tr>
+<td style="text-align: left">entryPrice</td>
+<td style="text-align: left">string</td>
+<td>t(:entryPrice)</td>
+</tr>
+<tr>
+<td style="text-align: left">sessionAvgPrice</td>
+<td style="text-align: left">string</td>
+<td>t(:sessionAvgPrice)</td>
+</tr>
+<tr>
+<td style="text-align: left">markPrice</td>
+<td style="text-align: left">string</td>
+<td>t(:markPrice)</td>
+</tr>
+<tr>
+<td style="text-align: left">sessionUPL</td>
+<td style="text-align: left">string</td>
+<td>t(:sessionUpl)</td>
+</tr>
+<tr>
+<td style="text-align: left">sessionRPL</td>
+<td style="text-align: left">string</td>
+<td>t(:sessionRpl)</td>
+</tr>
+<tr>
+<td style="text-align: left">positionIM</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcIm)</td>
+</tr>
+<tr>
+<td style="text-align: left">positionMM</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcMm)</td>
+</tr>
+<tr>
+<td style="text-align: left">createdAt</td>
+<td style="text-align: left">string</td>
+<td>t(:createdAt)</td>
+</tr>
+<tr>
+<td style="text-align: left">updatedAt</td>
+<td style="text-align: left">string</td>
+<td>t(:updatedAt)</td>
+</tr>
+<tr>
+<td style="text-align: left">tpSlMode</td>
+<td style="text-align: left">string</td>
+<td>t(:tpSlMode)</td>
+</tr>
+<tr>
+<td style="text-align: left">positionValue</td>
+<td style="text-align: left">string</td>
+<td>t(:positionValue)</td>
+</tr>
+<tr>
+<td style="text-align: left">leverage</td>
+<td style="text-align: left">string</td>
+<td>t(:leverage)</td>
+</tr>
+<tr>
+<td style="text-align: left">liqPrice</td>
+<td style="text-align: left">string</td>
+<td>t(:liqPrice)</td>
+</tr>
+<tr>
+<td style="text-align: left">bustPrice</td>
+<td style="text-align: left">string</td>
+<td>t(:bustPrice)</td>
+</tr>
+<tr>
+<td style="text-align: left">occClosingFee</td>
+<td style="text-align: left">string</td>
+<td>t(:occClosingFee)</td>
+</tr>
+<tr>
+<td style="text-align: left">takeProfit</td>
+<td style="text-align: left">string</td>
+<td>t(:trakeProfit)</td>
+</tr>
+<tr>
+<td style="text-align: left">stopLoss</td>
+<td style="text-align: left">string</td>
+<td>t(:stopLoss)</td>
+</tr>
+<tr>
+<td style="text-align: left">positionStatus</td>
+<td style="text-align: left">string</td>
+<td>t(:positionStatus)</td>
+</tr>
+<tr>
+<td style="text-align: left">deleverageIndicator</td>
+<td style="text-align: left">string</td>
+<td>t(:deleverageIndicator)</td>
+</tr>
+<tr>
+<td style="text-align: left">orderMargin</td>
+<td style="text-align: left">string</td>
+<td>t(:orderMargin)</td>
+</tr>
+<tr>
+<td style="text-align: left">unrealisedPnl</td>
+<td style="text-align: left">string</td>
+<td>t(:unrealisedPnl)</td>
+</tr>
+<tr>
+<td style="text-align: left">cumRealisedPnl</td>
+<td style="text-align: left">string</td>
+<td>t(:cumRealisedPnl)</td>
+</tr>
+</tbody></table>
+<h3 id='t-setpositionleverage'>t(:setPositionLeverage)</h3>
+<p>Only for REGULAR_MARGIN.</p>
+
+<blockquote>
+<p>t(:codequote_curlExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">
+curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/position/leverage/save \
+-H "Content-Type: application/json" \
+-d '{
+    "symbol": "BTCPERP",
+    "leverage": "1"
+}'
+
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">bybit</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Positions</span><span class="p">.</span><span class="n">Positions_saveLeverage</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span> <span class="n">leverage</span><span class="o">=</span><span class="s">"14"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
+
+</code></pre></div>
+<blockquote>
+<p>t(:codequote_responseExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">extCode</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">extInfo</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">leverage</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">t(:httprequest)</p>
+
+<p>POST
+<code><span id=uopvLeverageSave>/perpetual/usdc/openapi/private/v1/position/leverage/save</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvLeverageSave"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_required)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">leverage</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">number</td>
+<td>t(:usdcLeverage)</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">t(:responseparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">leverage</td>
+<td style="text-align: left">number</td>
+<td>t(:leverage)</td>
+</tr>
+</tbody></table>
+<h3 id='t-querysettlelogs'>t(:querySettleLogs)</h3>
+<blockquote>
+<p>t(:codequote_curlExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/session-settlement \
+-H "Content-Type: application/json" \
+-d '{"symbol":"BTC-22OCT21-45000-C"}'
+
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+</code></pre></div>
+<blockquote>
+<p>t(:codequote_responseExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:{</span>
+    <span class="dl">"</span><span class="s2">resultTotalSize</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">cursor</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">dataList</span><span class="dl">"</span><span class="p">:[</span>
+        <span class="p">{</span>
+          <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1fd26147-247d-4433-9845-a236981c3689</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">sessionAvgPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">markPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">100</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">sessionRpl</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">100</span><span class="dl">"</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">t(:httprequest)</p>
+
+<p>POST
+<code><span id=upovSession>/option/usdc/openapi/private/v1/session-settlement</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#upovSession"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_required)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">direction</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:direction)</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">number</td>
+<td>t(:usdcMax50Min20)</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>t(:cursor)</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">t(:responseparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">resultTotalSize</td>
+<td style="text-align: left">number</td>
+<td>t(:resultTotalSize)</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">string</td>
+<td>t(:cursor)</td>
+</tr>
+<tr>
+<td style="text-align: left">dataList</td>
+<td style="text-align: left">list</td>
+<td>t(:dataList)</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">string</td>
+<td>t(:side)</td>
+</tr>
+<tr>
+<td style="text-align: left">size</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSize)</td>
+</tr>
+<tr>
+<td style="text-align: left">sessionAvgPrice</td>
+<td style="text-align: left">string</td>
+<td>t(:sessionAvgPrice)</td>
+</tr>
+<tr>
+<td style="text-align: left">markPrice</td>
+<td style="text-align: left">string</td>
+<td>t(:markPrice)</td>
+</tr>
+<tr>
+<td style="text-align: left">sessionRpl</td>
+<td style="text-align: left">string</td>
+<td>t(:sessionRpl)</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">string</td>
+<td>t(:cursor)</td>
+</tr>
+</tbody></table>
+<h2 id='t-risklimit'>t(:riskLimit)</h2><h3 id='t-queryrisklimits'>t(:queryRiskLimits)</h3>
+<blockquote>
+<p>t(:codequote_curlExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/risk-limit/list \
+-H "Content-Type: application/json" \
+-d '{"symbol":"BTCPERP"}'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+</code></pre></div>
+<blockquote>
+<p>t(:codequote_responseExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code>
+</code></pre></div>
+<p class="fake_header">t(:httprequest)</p>
+
+<p>POST
+<code><span id=uopv>/perpetual/usdc/openapi/public/v1/risk-limit/list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopv"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_required)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">t(:responseparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">riskId</td>
+<td style="text-align: left">number</td>
+<td>t(:riskId)</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcRiskLimit)</td>
+</tr>
+<tr>
+<td style="text-align: left">maintainMargin</td>
+<td style="text-align: left">string</td>
+<td>t(:maintainMargin)</td>
+</tr>
+<tr>
+<td style="text-align: left">startingMargin</td>
+<td style="text-align: left">string</td>
+<td>t(:startingMargin)</td>
+</tr>
+<tr>
+<td style="text-align: left">section</td>
+<td style="text-align: left">string</td>
+<td>t(:section)</td>
+</tr>
+<tr>
+<td style="text-align: left">isLowestRisk</td>
+<td style="text-align: left">string</td>
+<td>t(:isLowestRisk)</td>
+</tr>
+<tr>
+<td style="text-align: left">maxLeverage</td>
+<td style="text-align: left">string</td>
+<td>t(:maxLeverage)</td>
+</tr>
+</tbody></table>
+<h3 id='t-setrisklimits'>t(:setRiskLimits)</h3>
+<blockquote>
+<p>t(:codequote_curlExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/position/set-risk-limit \
+-H "Content-Type: application/json" \
+-d '{"symbol":"BTCPERP","riskId":2}'
+
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+</code></pre></div>
+<blockquote>
+<p>t(:codequote_responseExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">riskId</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">t(:httprequest)</p>
+
+<p>POST
+<code><span id=uopvSetRisk>/perpetual/usdc/openapi/private/v1/position/set-risk-limit</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvSetRisk"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_required)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">riskId</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">number</td>
+<td>t(:riskId)</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">t(:responseparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">riskId</td>
+<td style="text-align: left">number</td>
+<td>t(:riskId)</td>
+</tr>
+</tbody></table>

@@ -859,6 +859,9 @@
                   <li>
                     <a href="#t-faq_float_precision" class="toc-h2 toc-link" data-title="Why are values returned to too many decimal places? (float precision issue)">Why are values returned to too many decimal places? (float precision issue)</a>
                   </li>
+                  <li>
+                    <a href="#t-faq_data_resilience" class="toc-h2 toc-link" data-title="How can I ensure I am using up-to-date data?">How can I ensure I am using up-to-date data?</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -1457,6 +1460,18 @@ clipboard.on('error', function(e) {
   <li>For now, we recommend rounding the received value to the correct decimal place. This can be done with reference to the <a href="#t-querysymbol">Query Symbol</a> endpoint.</li>
   <li>This issue will be fixed in the next major version of the API; unfortunately, it is not fixable in the short-term.</li>
 </ul>
+</p>
+<h2 id='t-faq_data_resilience'>How can I ensure I am using up-to-date data?</h2>
+<p><ul>
+  <li>It is possible, although unlikely, that the REST API or (even less likely) the websocket could return/push old data.</li>
+  <li>For the greatest level of data resilience, we recommend clients to:
+    <ul>
+      <li>firstly, rely on the websocket, which will not only ensure you get the latest data as fast as possible, but will also ensure you get <i>complete</i> data</li>
+      <li>secondly, query the REST API to fill in any discrepencies in data - or between websocket disconnections.</li>
+    </ul>
+  <li>The best practice is to save all of this data locally in your own database or cache.</li>
+  <li>This frees up your rate limits for other requests and also ensures a level of redundancy against the exchange in case of data delays.</li>
+</ul
 </p>
 <h1 id='t-authentication'>鑒權/認證</h1>
 <aside class="notice">
@@ -3004,7 +3019,7 @@ function copyStringToClipboard (endpoint) {
 </p>
 
 <aside class="notice">
-請註意:只允許最多創建10個條件委托單
+請註意:只允許每個合約最多創建10個條件委托單
 </aside>
 
 <p class="fake_header">HTTP 請求</p>
@@ -6168,6 +6183,15 @@ B用戶：
     <span class="p">})</span>
 <span class="p">)</span>
 </code></pre></div>
+<aside class="notice">
+<b>請注意，以下接口僅適用於 <i>反向永續/反向交割</i></b>. 要監聽其他 websocket，請轉到:
+<ul>
+  <li><a href="https://bybit-exchange.github.io/docs/linear/#t-websocketauthentication">USDT (正向) 永續</a></li>
+  <li><a href="https://bybit-exchange.github.io/docs/spot/#t-websocketauthentication">現貨</a></li>
+</ul>
+
+</aside>
+
 <p><p>Websocket服務器地址:</p>
 <ul>
 <p>
