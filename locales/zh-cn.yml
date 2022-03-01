@@ -82,7 +82,7 @@ zh-cn:
   row_comment_coin_type: 幣種
   row_comment_risk_limit: 風險限額
   row_comment_maintain_margin: 維持保證金
-  row_comment_starting_margin: 起始保證金
+  row_comment_starting_margin: 起始保證金。與風險限額表中<a href="https://help.bybit.com/hc/en-us/articles/900000170023-Risk-Limit-USDT-Contract-">中顯示的"初始保證金百分比"相同 </a>
   row_comment_section: 區間點
   row_comment_is_lowest_risk: 是否最低風險限額0:不是 1:是
   row_comment_funding_rate: 資金費率
@@ -299,7 +299,7 @@ zh-cn:
   row_response_comment_maker_fee: maker 手續費
   row_response_comment_leverage_filter: 杠桿指示信息
   row_response_comment_min_leverage: 最小杠桿數
-  row_response_comment_public_max_leverage: 最大杠桿數
+  row_response_comment_public_max_leverage: 最大杠桿數 (假設在最低風險限額設置時候的最大槓桿數)
   row_response_comment_leverage_step: 杠桿最小增加或減少數量
   row_response_comment_price_filter: 價格指示信息
   row_response_comment_min_price: 最小價格
@@ -555,7 +555,7 @@ zh-cn:
 
   ### Orderbook
   orderbook: Orderbook
-  market_para_orderbook: 獲取Bybit當前Orderbook信息.
+  market_para_orderbook: 獲取Bybit當前Orderbook信息. 每邊的深度為25
   market_aside_orderbook: 響應數據是當前時間的切片數據.
   ### Query Kline
   querykline: 查詢K線數據
@@ -672,9 +672,9 @@ zh-cn:
     <p>條件委托觸發價格: 您可以為您的條件委托單設置一個觸發價格，條件委托單不進入委托表（Order Book)，只有觸發條件成立如市場價格到達觸發價格時，條件委托單才會進入交易系統。當市場價格到達觸發價格：1）您的限價條件委托單進入Order Book，等待被執行；2）您的市價條件委托單將按照市場最優價格立即被執行。</p>
     <p>自定義條件單ID: 您可以自定義活動委托訂單ID，我們會為您關聯到系統的訂單ID，並把系統的唯一訂單ID在活動委托創建成功後一並返回給您，您可以使用該訂單ID去取消活動委托，同時要求您傳遞的自定義訂單ID最大長度不超過36個字段且唯一。</p>
   account_aside_placeCond:
-    請註意:只允許最多創建10個條件委托單
+    請註意:只允許每個合約最多創建10個條件委托單
   account_aside_placeCond_linear: |
-    請註意:只允許最多創建10個條件委托單
+    請註意:只允許每個合約最多創建10個條件委托單
   account_aside_placeActive_linear_warn: |
     請註意:
     <ul>
@@ -1003,6 +1003,12 @@ zh-cn:
   websocket_codequote_auth_spot: |
     <p>建立連接後發送auth請求驗證</p>
     <p>注意：如果您正在使用 <a href="https://github.com/verata-veritatis/pybit">pybit</a> 或其他高級庫，你可以忽略這段代碼 - 因為身份驗證已經為您處理。</p>
+  websocket_endpoints_aside: |
+    <b>請注意，以下接口僅適用於 <i>反向永續/反向交割</i></b>. 要監聽其他 websocket，請轉到:
+    <ul>
+      <li><a href="https://bybit-exchange.github.io/docs/linear/#t-websocketauthentication">USDT (正向) 永續</a></li>
+      <li><a href="https://bybit-exchange.github.io/docs/spot/#t-websocketauthentication">現貨</a></li>
+    </ul>
   websocket_para_endpoint: |
     <p>Websocket服務器地址:</p>
     <ul>
@@ -1021,6 +1027,12 @@ zh-cn:
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
       </li>
     </p>
+    </ul>
+  spot_websocket_endpoints_aside: |
+    <b>請注意，以下接口僅適用於 <i>現貨</i></b>. 要監聽其他 websocket，請轉到:
+    <ul>
+      <li><a href="https://bybit-exchange.github.io/docs/inverse/#t-websocketauthentication">反向永續/反向交割</a></li>
+      <li><a href="https://bybit-exchange.github.io/docs/linear/#t-websocketauthentication">USDT (正向) 永續</a></li>
     </ul>
   spot_websocket_para_endpoint: |
     Websocket服務器地址:
@@ -1723,6 +1735,12 @@ zh-cn:
   inverse_row_comment_leverage: 全倉/逐倉切換，需要傳杠桿並且<code>buy_leverage</code>和<code>sell_leverage</code>必須傳入相同參數；
   futures_account_para_switchIsolated: 全倉/逐倉切換，從全倉切換至逐倉時需要傳杠桿
   futures_row_comment_switch_isolated: 全倉/逐倉, true是逐倉，false是全倉
+  linear_websocket_endpoints_aside: |
+    <b>請注意，以下接口僅適用於 <i>USDT (正向) 永續</i></b>. 要監聽其他 websocket，請轉到:
+      <ul>
+        <li><a href="https://bybit-exchange.github.io/docs/inverse/#t-websocketauthentication">反向永續/反向交割</a></li>
+        <li><a href="https://bybit-exchange.github.io/docs/spot/#t-websocketauthentication">現貨</a></li>
+      </ul>
 
   ### 正向websocket
   linear_websocket_para_endpoint: |
@@ -2072,7 +2090,7 @@ zh-cn:
 #  balance: 賬號余額
   spot_token: 幣種
   spot_total: 總額
-  spot_fees: 手續費
+  spot_fees: 手續費（單筆成交）
   spot_account_free: 可用余額
   spot_fee: 手續費
   spot_fee_symbol: 手續費幣種
@@ -2090,7 +2108,7 @@ zh-cn:
   spot_is_buyer_maker: true為買單， false為賣單
   spot_is_limit_maker: 是否是LIMIT_MAKER單
   spot_leverage: 杠桿
-  spot_is_normal: 是否是普通單
+  spot_is_normal: True是普通單 False是自成交
   spot_is_working: 是否在處理
   spot_is_close: 是否關閉
 #  spot_match_account_id: 撮合賬戶ID
