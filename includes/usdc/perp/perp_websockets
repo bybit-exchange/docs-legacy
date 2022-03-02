@@ -19,8 +19,8 @@
     <span class="k">print</span><span class="p">(</span><span class="s">"### about to close please don't close ###"</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">send_auth</span><span class="p">(</span><span class="n">ws</span><span class="p">):</span>
-    <span class="n">key</span> <span class="o">=</span> <span class="s">'XXXXXXXXXXXXXXXXXXXX'</span>
-    <span class="n">secret</span> <span class="o">=</span> <span class="s">'XXXXXXXXXXXXXXXXXXXX'</span>
+    <span class="n">api_key</span> <span class="o">=</span> <span class="s">'XXXXXXXXXXXXXXX'</span>
+    <span class="n">secret</span> <span class="o">=</span> <span class="s">'XXXXXXXXXXXXXXX'</span>
     <span class="n">expires</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span> <span class="o">+</span> <span class="mi">10</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span>
     <span class="n">_val</span> <span class="o">=</span> <span class="sa">f</span><span class="s">'GET/realtime</span><span class="si">{</span><span class="n">expires</span><span class="si">}</span><span class="s">'</span>
     <span class="k">print</span><span class="p">(</span><span class="n">_val</span><span class="p">)</span>
@@ -28,21 +28,34 @@
         <span class="nb">bytes</span><span class="p">(</span><span class="n">secret</span><span class="p">,</span> <span class="s">'utf-8'</span><span class="p">),</span>
         <span class="nb">bytes</span><span class="p">(</span><span class="n">_val</span><span class="p">,</span> <span class="s">'utf-8'</span><span class="p">),</span> <span class="n">digestmod</span><span class="o">=</span><span class="s">'sha256'</span>
     <span class="p">).</span><span class="n">hexdigest</span><span class="p">())</span>
-    <span class="n">ws</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span><span class="s">"id"</span><span class="p">:</span> <span class="s">"signAuth_request_id"</span><span class="p">,</span> <span class="s">"method"</span><span class="p">:</span> <span class="s">"public/signAuth"</span><span class="p">,</span>
-                        <span class="s">"params"</span><span class="p">:</span> <span class="p">{</span><span class="s">"sign"</span><span class="p">:</span> <span class="n">signature</span><span class="p">,</span> <span class="s">"apiKey"</span><span class="p">:</span> <span class="n">key</span><span class="p">,</span> <span class="s">"timestamp"</span><span class="p">:</span> <span class="n">expires</span><span class="p">}}))</span>
+
+    <span class="n">ws</span><span class="p">.</span><span class="n">send</span><span class="p">(</span>
+      <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span>
+        <span class="s">"op"</span><span class="p">:</span> <span class="s">"auth"</span><span class="p">,</span>
+        <span class="s">"args"</span><span class="p">:</span> <span class="p">[</span><span class="n">api_key</span><span class="p">,</span> <span class="n">expires</span><span class="p">,</span> <span class="n">signature</span><span class="p">]</span>
+      <span class="p">})</span>
+    <span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">on_open</span><span class="p">(</span><span class="n">ws</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="s">'opened'</span><span class="p">)</span>
     <span class="n">send_auth</span><span class="p">(</span><span class="n">ws</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">pingPer</span><span class="p">(</span><span class="n">ws</span><span class="p">):</span>
         <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
-            <span class="n">ws</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="s">"ping"</span><span class="p">)</span>
-            <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">ws</span><span class="p">.</span><span class="n">send</span><span class="p">(</span>
+              <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span>
+              <span class="s">"op"</span><span class="p">:</span> <span class="s">"ping"</span><span class="p">,</span>
+              <span class="s">"args"</span><span class="p">:</span> <span class="p">[</span><span class="s">"946656000000"</span><span class="p">]</span>
+              <span class="p">})</span>
+            <span class="p">)</span>
+            <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
     <span class="n">t1</span> <span class="o">=</span> <span class="n">threading</span><span class="p">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">pingPer</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">ws</span><span class="p">,))</span>
     <span class="n">t1</span><span class="p">.</span><span class="n">start</span><span class="p">()</span>
-    <span class="n">ws</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span><span class="s">"method"</span><span class="p">:</span> <span class="s">"private/subscribe"</span><span class="p">,</span> <span class="s">"id"</span><span class="p">:</span> <span class="s">"{100003}"</span><span class="p">,</span> <span class="s">"params"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s">"channels"</span><span class="p">:</span> <span class="p">[</span><span class="s">"user.option.order"</span><span class="p">,</span> <span class="s">"user.option.position"</span><span class="p">,</span> <span class="s">"user.option.tradeHistory"</span><span class="p">,</span>
-                     <span class="s">"user.option.orderHistory"</span><span class="p">]}}))</span>
+    <span class="n">ws</span><span class="p">.</span><span class="n">send</span><span class="p">(</span>
+      <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span>
+        <span class="s">"op"</span><span class="p">:</span> <span class="s">"subscribe"</span><span class="p">,</span> <span class="s">"id"</span><span class="p">:</span> <span class="s">"{100003}"</span><span class="p">,</span>
+        <span class="s">"args"</span><span class="p">:</span> <span class="p">[</span><span class="s">"user.openapi.perp.order"</span><span class="p">,</span> <span class="s">"user.openapi.perp.position"</span><span class="p">,</span> <span class="s">"user.openapi.perp.trade"</span><span class="p">]</span>
+      <span class="p">})</span>
+    <span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">connWS</span><span class="p">():</span>
     <span class="n">ws</span> <span class="o">=</span> <span class="n">websocket</span><span class="p">.</span><span class="n">WebSocketApp</span><span class="p">(</span><span class="s">"wss://stream-testnet.bybit.com/trade/option/usdc/private/v1"</span><span class="p">,</span>
@@ -64,31 +77,19 @@ t(:websocket_best_practices)
 <h2 id='t-heartbeat'>t(:heartbeat)</h2>
 <blockquote>
 <p>t(:websocket_codequote_heartbeat)</p>
-
-<p>public </p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">"</span><span class="s2">{</span><span class="se">\"</span><span class="s2">op</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ping</span><span class="se">\"</span><span class="s2">}</span><span class="dl">"</span><span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>private</p>
-</blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">"</span><span class="s2">ping</span><span class="dl">"</span><span class="p">);</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"ping","args":["1535975085152"]}</span><span class="dl">'</span><span class="p">);</span>
 </code></pre></div>
 <blockquote>
 <p>t(:codequote_responseExample)</p>
-
-<p>public</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span><span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">pong</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">conn_id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">84442344-7c63-4e25-be43-7edd345ca891</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">:{</span><span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">ping</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">args</span><span class="dl">"</span><span class="p">:</span><span class="kc">null</span><span class="p">}}</span>
-</code></pre></div>
-<blockquote>
-<p>private </p>
-</blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span><span class="dl">"</span><span class="s2">pong</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1535975085152</span><span class="p">}</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span><span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">pong</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">args</span><span class="dl">"</span><span class="p">:[</span><span class="dl">"</span><span class="s2">1535975085152</span><span class="dl">"</span><span class="p">]}</span>
 </code></pre></div>
 <aside class="warning">
 t(:websocket_aside_heartbeat)
 </aside>
+
+<p>t(:websocket_aside_heartbeat_option)</p>
 
 <!-- 连接数限制
 ## t(:websocketlimit)
@@ -99,10 +100,10 @@ t(:websocket_para_limit)
 <p>t(:websocket_codequote_filters1)</p>
 </blockquote>
 
-<p>t(:usdc_perp_websocket_subscribe_desc)</p>
+<p>t(:usdc_websocket_subscribe_desc)</p>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Subscribing to the trade data for BTCUSDT</span>
 </code></pre></div><h3 id='t-websocketunfilters'>t(:websocketunfilters)</h3>
-<p>t(:usdc_perp_websocket_unsubscribe_desc)</p>
+<p>t(:usdc_websocket_unsubscribe_desc)</p>
 <h2 id='t-websocketresponse'>t(:websocketresponse)</h2>
 <blockquote>
 <p>t(:websocket_codequote_response)</p>
@@ -603,68 +604,64 @@ t(:websocket_aside_klineV2)
 <p>t(:codequote_subscribe)</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code>
-<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"method":"private/subscribe","id":"{100002}","params":{"channels":["user.perp.position"]}}</span><span class="dl">'</span><span class="p">);</span>
-
+<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">json</span><span class="p">.</span><span class="nx">dumps</span><span class="p">({</span><span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">subscribe</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">{100003}</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">args</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">user.openapi.perp.position</span><span class="dl">"</span><span class="p">]});</span>
 </code></pre></div>
 <blockquote>
 <p>t(:usdc_trade_codequote_snapshot)</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">e6d0ea6f-eca8-4e20-a141-821e4d39b028</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">channel</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">user.perp.position</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">SNAPSHOT</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">serialNumber</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">publishTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">365038088</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1640854533365</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">7b8fdb38-1cfa-40f6-8010-f2ab3eb33df4</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">user.openapi.perp.position</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1646200751865</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
-      <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">symbolId</span><span class="dl">"</span><span class="p">:</span><span class="mi">45</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">leverage</span><span class="dl">"</span><span class="p">:</span><span class="mi">1000</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">slFreeSize</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">tpSlMode</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">occClosingFee</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">liqPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">bv2cE8</span><span class="dl">"</span><span class="p">:</span><span class="mi">10142500</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">tpFreeSize</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">takeProfit</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">positionValue</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">467.42000000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">riskId</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">10001</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">trailingStop</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">mode</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">MergedSingle</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">unrealisedPnl</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">markPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">46864.26</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">occFundingFee</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">adlRankIndicator</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">cumRealisedPnl</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">tpOrderNum</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">slOrderNum</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">positionMM</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2.6526085</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">positionIdx</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">tpTriggerBy</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">updatedAtE3</span><span class="dl">"</span><span class="p">:</span><span class="mi">1640844691107</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">positionIM</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">47.0575085</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">freeCost</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">bustPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">freeQty</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">-0.01000000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">slTriggerBy</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">entryPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">46742.00000000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">sv2cE8</span><span class="dl">"</span><span class="p">:</span><span class="mi">10157500</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.01000000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">positionStatus</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">NORMAL</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">sessionRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">activationPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">sessionUPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">-1.3876</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">stopLoss</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">sessionAvgPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">47003.02000000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">USDC</span><span class="dl">"</span>
-      <span class="p">}</span>
-    <span class="p">],</span>
-      <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span><span class="mi">38547</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">sendTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1640854533138</span>
-  <span class="p">}</span>
+        <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
+
+        <span class="p">],</span>
+        <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">baseLine</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">dataType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">NEW</span><span class="dl">"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="p">{</span>
+    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">9cf9e9a8-2f19-4252-a2b6-1fd733a8bee2</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">user.openapi.perp.position</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1646200779801</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
+        <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">positionStatus</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">NORMAL</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.001</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">entryPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">44277</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">sessionAvgPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">44277</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">markPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">44285.75</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">positionIM</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">4.457586975</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">positionMM</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.251271975</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">positionValue</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">44.277</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">liqPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">bustPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">occClosingFee</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">unrealisedPnl</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cumRealisedPnl</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">sessionUPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.00875</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">sessionRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">createdAt</span><span class="dl">"</span><span class="p">:</span><span class="mi">1646200779751</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">updatedAt</span><span class="dl">"</span><span class="p">:</span><span class="mi">1646200779751</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">tpSLMode</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">leverage</span><span class="dl">"</span><span class="p">:</span><span class="mi">1000</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">trailingStop</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">takeProfit</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">stopLoss</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">deleverageIndicator</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">riskId</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">10001</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">baseLine</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">dataType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">CHANGE</span><span class="dl">"</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>t(:usdc_perp_position_desc)</p>
@@ -783,52 +780,36 @@ t(:websocket_aside_klineV2)
 <blockquote>
 <p>t(:codequote_subscribe)</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"method":"private/subscribe","id":"{100002}","params":{"channels":["user.perp.trade"]}}</span><span class="dl">'</span><span class="p">);</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">json</span><span class="p">.</span><span class="nx">dumps</span><span class="p">({</span><span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">subscribe</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">{100003}</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">args</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">user.openapi.perp.trade</span><span class="dl">"</span><span class="p">]}))</span>
 </code></pre></div>
 <blockquote>
 <p>t(:usdc_trade_codequote_snapshot)</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code>
-<span class="p">{</span>
-  <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">ddecb43d-a4ab-43ce-ad3c-91d2fa759b83</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">channel</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">user.perp.trade</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">SNAPSHOT</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">serialNumber</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">publishTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">791594832</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1640854772791</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
-  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
-    <span class="p">{</span>
-      <span class="dl">"</span><span class="s2">execValue</span><span class="dl">"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">symbolId</span><span class="dl">"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">symbolName</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">3ea08645-2989-4cec-ad3e-3dcb6ca6e20e</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Market</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">reduceOnly</span><span class="dl">"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">49123</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">leavesQty</span><span class="dl">"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">execType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Trade</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">execPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">46787</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">execQty</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">feeRate</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.00075</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">execFee</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.3509025</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">sendTime</span><span class="dl">"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">crossSeq</span><span class="dl">"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">maker</span><span class="dl">"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">tradeId</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">31eaa9a8-1d5b-50dc-b172-1002c98a355d</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">tradeTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1640854772730</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">6ffe5750-d3b6-4de8-b63a-736a59aa8278</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">user.openapi.perp.trade</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1646200779785</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
+        <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2a44a4de-8244-4be9-b343-52bdfe135c9e</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">tradeId</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">9ae8aad2-0dae-583f-bff1-89aef6f88cd2</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">execPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">44277</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">execQty</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.001</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">execFee</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.03320775</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">feeRate</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.00075</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">tradeTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1646200779736</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">lastLiquidityInd</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">TAKER</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">execValue</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">44.277</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">execType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">TRADE</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">baseLine</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span>
     <span class="p">}</span>
-  <span class="p">],</span>
-    <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span><span class="mi">51</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">sendTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1640854772745</span>
 <span class="p">}</span>
-<span class="p">}</span>
-
 </code></pre></div>
 <p>t(:usdc_perp_trade_history)</p>
 
@@ -896,73 +877,68 @@ t(:websocket_aside_klineV2)
 <blockquote>
 <p>t(:codequote_subscribe)</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code> <span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"method":"private/subscribe","id":"{100003}","params":{"channels":["user.perp.order"]}}</span><span class="dl">'</span><span class="p">);</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">json</span><span class="p">.</span><span class="nx">dumps</span><span class="p">({</span><span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">subscribe</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">{100003}</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">args</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">user.openapi.perp.order</span><span class="dl">"</span><span class="p">]}))</span>
 </code></pre></div>
 <blockquote>
 <p>t(:usdc_trade_codequote_snapshot)</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code>
-<span class="p">{</span>
-  <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">ba153ca0-28d2-4288-929c-7f6ca1789ace</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">channel</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">user.perp.order</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">SNAPSHOT</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">serialNumber</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">publishTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">172236766</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1638435407172</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
-  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
-    <span class="p">{</span>
-      <span class="dl">"</span><span class="s2">accountId</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">userId</span><span class="dl">"</span><span class="p">:</span><span class="mi">247007</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">createType</span><span class="dl">"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">cancelType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">tpTriggerBy</span><span class="dl">"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">slTriggerBy</span><span class="dl">"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">takeProfit</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">stopLoss</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">c85955ab-36c9-40cd-a86d-e95f330d8ea2</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Limit</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">GoodTillCancel</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">reduceOnly</span><span class="dl">"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">stopOrderType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">triggerBy</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">basePrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">41300.00000000</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">trailValue</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">triggerPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">41300.00000000</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">orderAvgPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.0100</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">leavesQty</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.0100</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">cumQty</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">cumValue</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">cumExecFee</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">orderStatus</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">New</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">cxlRejReason</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">EC_NoError</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">createdAtE3</span><span class="dl">"</span><span class="p">:</span><span class="mi">1638432605741</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">updatedAtE3</span><span class="dl">"</span><span class="p">:</span><span class="mi">1638432605744</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">origTriggerPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">origPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">origQty</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">origOrderType</span><span class="dl">"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">isWorking</span><span class="dl">"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">avgPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">pnl</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">orderIm</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">41.888525</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">symbolId</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">expectedDirection</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">closeOnTrigger</span><span class="dl">"</span><span class="p">:</span><span class="kc">false</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">c044cbae-8331-4a2e-93c9-5114ab4815cf</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">user.openapi.perp.order</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1646200751861</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
+        <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
+
+        <span class="p">],</span>
+        <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">baseLine</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">dataType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">NEW</span><span class="dl">"</span>
     <span class="p">}</span>
-  <span class="p">],</span>
-    <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span><span class="mi">487192</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">sendTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1638435407124</span>
-<span class="p">}</span>
 <span class="p">}</span>
 
-
+<span class="p">{</span>
+    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">aa89ef9f-e77a-4ccd-a35c-b62e2c03c8e0</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">user.openapi.perp.order</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1646200779822</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
+        <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2a44a4de-8244-4be9-b343-52bdfe135c9e</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">createdAt</span><span class="dl">"</span><span class="p">:</span><span class="mi">1646200779733</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">updatedAt</span><span class="dl">"</span><span class="p">:</span><span class="mi">1646200779736</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderStatus</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Filled</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">44283.5</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.001</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cumExecQty</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.001</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">leavesQty</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderIM</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">realisedPnl</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">None</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Limit</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">reduceOnly</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">GoodTillCancel</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cumExecFee</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.03320775</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderPnl</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">basePrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cumExecValue</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">44.277</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">closeOnTrigger</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">false</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">triggerBy</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">takeProfit</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">stopLoss</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">tpTriggerBy</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">slTriggerBy</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">triggerPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">stopOrderType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cancelType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">baseLine</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">dataType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">CHANGE</span><span class="dl">"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>t(:usdc_perp_active_order)</p>
 

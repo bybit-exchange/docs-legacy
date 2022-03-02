@@ -4487,7 +4487,7 @@ curl https://api-testnet.bybit.com/v2/public/time
     <span class="k">print</span><span class="p">(</span><span class="s">"### about to close please don't close ###"</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">send_auth</span><span class="p">(</span><span class="n">ws</span><span class="p">):</span>
-    <span class="n">key</span> <span class="o">=</span> <span class="s">'XXXXXXXXXXXXXXXXXXXX'</span>
+    <span class="n">api_key</span> <span class="o">=</span> <span class="s">'XXXXXXXXXXXXXXXXXXXX'</span>
     <span class="n">secret</span> <span class="o">=</span> <span class="s">'XXXXXXXXXXXXXXXXXXXX'</span>
     <span class="n">expires</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span> <span class="o">+</span> <span class="mi">10</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span>
     <span class="n">_val</span> <span class="o">=</span> <span class="sa">f</span><span class="s">'GET/realtime</span><span class="si">{</span><span class="n">expires</span><span class="si">}</span><span class="s">'</span>
@@ -4593,19 +4593,19 @@ curl https://api-testnet.bybit.com/v2/public/time
 <p><p>訂閱:</p>
 <p>ws.send('{"op":"subscribe","id":"{uuid}","args":["topic1","topic2"]}');</p>
 <p>響應結果:</p>
-<p>{"id":"{uuid}","success":true,"data":{"successTopics":["topic1"],"failTopics":["topic2"]},"type":"COMMAND_RESP"}</p>
+<p>{"id":"{uuid}","success":True,"conn_id":{conn_id},"data":{"successTopics":["topic1"],"failTopics":["topic2"]},"type":"COMMAND_RESP"}</p>
 </p>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Subscribing to the trade data for BTCUSDT</span>
 </code></pre></div><h3 id='t-websocketunfilters'>Websocket取消訂閱方式</h3>
 <p><p>取消訂閱</p>
 <p>ws.send('{"op":"unsubscribe","id":"{uuid}","args":["topic1","topic2"]}')  </p>
 <p>響應結果: </p>
-<p>{"id":"{uuid}","success":true,"data":{"successTopics":["topic1"],"failTopics":["topic2"]},"type":"COMMAND_RESP"}</p>
+<p>{"id":"{uuid}","success":True,"conn_id":{conn_id},"data":{"successTopics":["topic1"],"failTopics":["topic2"]},"type":"COMMAND_RESP"}</p>
 
 <p>取消所有訂閱</p>
 <p>{"op":"unSubAll","id":"{uuid}"}</p>
 <p>響應:</p>
-<p> {"id":"{uuid}","success":true,"type":"COMMAND_RESP"}</p>
+<p> {"id":"{uuid}","success":True,"conn_id":{conn_id},"type":"COMMAND_RESP"}</p>
 </p>
 <h2 id='t-websocketresponse'>訂閱結果</h2>
 <blockquote>
@@ -4939,55 +4939,67 @@ curl https://api-testnet.bybit.com/v2/public/time
 <p>請求訂閱</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code>
-<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","id":"{100002}","args":["user.option.position"]}</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","id":"{100002}","args":["user.openapi.option.position"]}</span><span class="dl">'</span><span class="p">);</span>
 
 </code></pre></div>
 <blockquote>
 <p>快照推送示例 - 有成交時推動數據示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">12827e35-ab18-416f-b754-5fff8315459f</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">user.option.position</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1640835309134</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">33c4141b-b633-49f5-a538-91cfef2cb504</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">user.openapi.option.position</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1646188724143</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
-      <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">positionIdx</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTC-31DEC21-24000-P</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">positionStatus</span><span class="dl">"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">action</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">OPEN</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">positionSize</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">-0.1000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">positionAvgPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1.45000000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">sessionAvgPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1.45000000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">markPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">strikePrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">exerciseDeliveryPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">27.96182801</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">positionIM</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">465.9957</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">positionMM</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">358.705039</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">fees</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">pnl</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.145</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">sessionUPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.145</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">sessionRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">deliveryRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">iv</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1.1524</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span><span class="mi">34</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">sendTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1640835309093</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">positionTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1640834421428</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">roi</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">crossSeq</span><span class="dl">"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">pushActionType</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">-0.1000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">entryPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1.45000000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">PNL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.145</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">ROI</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1</span><span class="dl">"</span>
-      <span class="p">}</span>
-    <span class="p">],</span>
-      <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span><span class="mi">8043</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">sendTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1640835309093</span>
-  <span class="p">}</span>
+        <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTC-4MAR22-42000-P</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">positionStatus</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">None</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">-0.0600</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">entryPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">840.00000000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">sessionAvgPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">840.00000000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">markPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">400.56264288</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">positionIM</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">320.3565</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">positionMM</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">108.7412785728</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">sessionUPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">26.3662414272</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">sessionRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">createdAt</span><span class="dl">"</span><span class="p">:</span><span class="mi">1646186217040</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">updatedAt</span><span class="dl">"</span><span class="p">:</span><span class="mi">1646188573334</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">baseLine</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">dataType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">NEW</span><span class="dl">"</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
+<span class="p">{</span>
+    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">b52634d5-78ae-47c1-83e9-ed27178fafa3</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">user.openapi.option.position</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1646188735967</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
+        <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTC-4MAR22-42000-P</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">positionStatus</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">None</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">-0.1</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">entryPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">840</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">sessionAvgPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">840</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">markPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">397.26035968</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">positionIM</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">533.82805</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">positionMM</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">180.908979968</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">sessionUPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">44.273964032</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">sessionRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">createdAt</span><span class="dl">"</span><span class="p">:</span><span class="mi">1646188735878</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">updatedAt</span><span class="dl">"</span><span class="p">:</span><span class="mi">1646188735878</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">baseLine</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">dataType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">CHANGE</span><span class="dl">"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 <p><p>topic:</p>
 <p>期權: user.option.position</p>
@@ -5062,46 +5074,35 @@ curl https://api-testnet.bybit.com/v2/public/time
 <blockquote>
 <p>請求訂閱</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","id":"{100002}","args":["user.option.tradeHistory"]}</span><span class="dl">'</span><span class="p">);</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","id":"{100002}","args":["user.openapi.option.trade"]}</span><span class="dl">'</span><span class="p">);</span>
 </code></pre></div>
 <blockquote>
 <p>快照推送示例 - 有成交時推動數據示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code>
 <span class="p">{</span>
-  <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">985cf6de-2e7e-4d18-92ff-e7a2b4fcfcc1</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">user.option.tradeHistory</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1640834911129</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
-  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
-    <span class="p">{</span>
-      <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">4aaea02f-d62b-4951-9e12-7e2d9e37fb4c</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">tradeId</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">77fdaeef-b931-51f4-96c8-33f97c722053</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">transId</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">cross-101810-634476-1</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTC-31DEC21-18000-P</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">tradePrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">markPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">indexPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">46545.16000000</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">underlying</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">46562.86000000</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">positionAvgPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">iv</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1.1980</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">fees</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.001</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">tradeTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1640834911093</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">sendTime</span><span class="dl">"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">crossSeq</span><span class="dl">"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">reduceOnly</span><span class="dl">"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">test2021122417000217</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">execPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">execQty</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">execFee</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.001</span><span class="dl">"</span>
+    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">5767b59e-3034-43a9-851f-61ed50fccddc</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">user.openapi.option.trade</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1646188735928</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
+        <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">a64db071-3c98-44db-bcc8-d4a71e7aaf86</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">tradeId</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">55565169-2da0-5cb3-9dc8-6669c6d777c9</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTC-4MAR22-42000-P</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">execPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">840</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">execQty</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.04</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">execFee</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.52943604</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">feeRate</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.0003</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">tradeTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1646188735862</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">lastLiquidityInd</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">TAKER</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">execType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">TRADE</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">baseLine</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span>
     <span class="p">}</span>
-  <span class="p">],</span>
-    <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span><span class="mi">33</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">sendTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1640834911106</span>
-<span class="p">}</span>
 <span class="p">}</span>
 
 
@@ -5169,52 +5170,61 @@ curl https://api-testnet.bybit.com/v2/public/time
 <blockquote>
 <p>請求訂閱</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code> <span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","id":"{100003}","args":["user.option.order"]}</span><span class="dl">'</span><span class="p">);</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code> <span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","id":"{100003}","args":["user.openapi.option.order"]}</span><span class="dl">'</span><span class="p">);</span>
 </code></pre></div>
 <blockquote>
 <p>快照推送示例 - 有成交時推動數據示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code>
 <span class="p">{</span>
-  <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">f013f9e9-5d6c-4d43-bed4-6858d8a9de1e</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">user.option.order</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1637828113470</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
-  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
-    <span class="p">{</span>
-      <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">cee50e1d-c36a-46f3-b861-4012f8c2589b</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTC-26NOV21-30000-P</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">orderStatus</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">New</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">3383.50000000</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">orderAllSize</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.0100</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">orderFilledSize</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">orderRemainingSize</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.0100</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">orderAvgPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">3383.50000000</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">orderIM</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">33.97985865</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Limit</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">orderTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1637828113432</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">reduceOnly</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">GoodTillCancel</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">fees</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">cashFlow</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">orderRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span><span class="mi">9719</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">sendTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">9719</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">crossSeq</span><span class="dl">"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">deliveryTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1637913600000</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">strikePrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">30000</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">symbolType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">P</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">postOnly</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">placeType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">placeMode</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">advanced</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">iv</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">14.8490</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">pushActionType</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span>
+    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">af390ef0-6471-4b24-86f2-f24436966db3</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">user.openapi.option.order</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1646188724138</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
+        <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
+
+        <span class="p">],</span>
+        <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">baseLine</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">dataType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">NEW</span><span class="dl">"</span>
     <span class="p">}</span>
-  <span class="p">],</span>
-    <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span><span class="mi">240533</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">sendTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1637828113452</span>
 <span class="p">}</span>
+
+<span class="p">{</span>
+    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">4c7fb1a7-6d5c-4d2f-9ee1-7da9ae47dadb</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">user.openapi.option.order</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1646188735902</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
+        <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">a64db071-3c98-44db-bcc8-d4a71e7aaf86</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">createdAt</span><span class="dl">"</span><span class="p">:</span><span class="mi">1646188735853</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">updatedAt</span><span class="dl">"</span><span class="p">:</span><span class="mi">1646188735853</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTC-4MAR22-42000-P</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderStatus</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">New</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">840</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cashFlow</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">None</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">realisedPnl</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.04</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cumExecQty</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">leavesQty</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.04</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderIM</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">180.46065604</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Limit</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">reduceOnly</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">GoodTillCancel</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cumExecFee</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">iv</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1.261</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderPnl</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cumExecValue</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cancelType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">baseLine</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">dataType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">CHANGE</span><span class="dl">"</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 
