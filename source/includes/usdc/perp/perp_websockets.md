@@ -468,7 +468,11 @@ ws.send(json.dumps({"op": "subscribe", "id": "{100003}","args": ["user.openapi.p
         "dataType":"NEW"
     }
 }
+```
 
+> t(:codequote_delta)
+
+```javascript
 {
     "id":"9cf9e9a8-2f19-4252-a2b6-1fd733a8bee2",
     "topic":"user.openapi.perp.position",
@@ -517,26 +521,32 @@ t(:usdc_perp_position_desc)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| riskId|string |t(:riskId) |
 | symbol |string |t(:usdcSymbol) |
+| positionStatus |string |t(:usdcPositionStatus) |
 | side |string |t(:side) |
 | size |string |t(:usdcSize) |
 | entryPrice |string |t(:entryPrice) |
-| markPrice |string |t(:markPrice) |
-| sessionUPL |string |t(:sessionUpl) |
+| sessionAvgPrice |string |t(:perpSessionAvgPrice) |
+| markPrice |string |t(:usdcMarkPrice) |
 | positionIM |string |t(:im) |
 | positionMM |string |t(:usdcMm) |
-| tpSlMode |string |t(:tpSlMode) |
 | positionValue |string |t(:positionValue) |
 | liqPrice |string |t(:liqPrice) |
-| trailingStop |number |t(:trailingStop) |
 | bustPrice |string |t(:bustPrice) |
 | occClosingFee |string |t(:occClosingFee) |
+| unrealisedPnl |string |t(:unrealisedPnl) |
+| cumRealisedPnl |string |t(:cumRealisedPnl) |
+| sessionUPL |string |t(:sessionUpl) |
+| createdAt |string |t(:row_comment_created_at) |
+| updatedAt |string |t(:row_comment_updated_at) |
+| tpSlMode |string |t(:tpSlMode) |
+| leverage |string |t(:usdcLeverage) |
+| trailingStop |number |t(:trailingStop) |
 | takeProfit |string |t(:trakeProfit) |
 | stopLoss |string |t(:stopLoss) |
 | positionStatus |string |t(:positionStatus) |
-| unrealisedPnl |string |t(:unrealisedPnl) |
-| cumRealisedPnl |string |t(:cumRealisedPnl) |
+| deleverageIndicator |string |t(:deleverageIndicator) |
+| riskId |string |t(:riskId) |
 
 
 ### t(:userFilledHistory)
@@ -582,16 +592,19 @@ t(:usdc_perp_trade_history)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| tradeTime|number |t(:tradeTime) |
 | orderId |string | t(:usdcOrderId) |
 | orderLinkId |string |t(:orderLinkId) |
+| tradeId |string |t(:tradeId)|
 | symbol |string |t(:usdcSymbol) |
 | execPrice |string |t(:excPrice) |
 | execQty |string |t(:execQty) |
 | execFee |string |t(:execFee) |
 | feeRate |string |t(:feeRate) |
+| tradeTime |number |t(:tradeTime) |
+| lastLiquidityInd |string |t(:lastLiquidityInd) |
+| execValue |string |t(:usdcExecValue)
 | execType |string |t(:execType) |
-| tradeId |string |t(:tradeId)|
+
 
 
 ### t(:usdc_perp_active_orders_snapshot)
@@ -618,7 +631,11 @@ ws.send(json.dumps({"op": "subscribe", "id": "{100003}","args": ["user.openapi.p
         "dataType":"NEW"
     }
 }
+```
 
+> t(:codequote_delta)
+
+```javascript
 {
     "id":"aa89ef9f-e77a-4ccd-a35c-b62e2c03c8e0",
     "topic":"user.openapi.perp.order",
@@ -671,129 +688,33 @@ t(:usdc_perp_active_order)
 |:----- |:-----|----- |
 | orderId |string |t(:usdcOrderId) |
 | orderLinkId |string |t(:orderLinkId) |
+| createdAt |string |t(:row_comment_created_at) |
+| updatedAt |string |t(:row_comment_updated_at) |
 | symbol |string |t(:usdcSymbol) |
-| orderType|string |t(:usdc_perp_order_type) |
+| orderStatus |string |t(:orderStatus) |
 | side |string |t(:side) |
-| qty |string |t(:orderAllSize) |
-| leavesQty |string |t(:usdc_unfilled_order_size) |
 | price |string |t(:usdcOrderPrice) |
-| t(:row_parameter_timeInForce) |string |t(:row_comment_timeInForce) |
-| cumQty |string |t(:cumExecQty) |
-| cumExecFee |string |t(:cumExecFee) |
+| qty |string |t(:orderAllSize) |
+| cumExecQty |string |t(:cumExecQty) |
+| leavesQty |string |t(:usdc_unfilled_order_size) |
 | orderIm |string |t(:im) |
-| orderStatus |string |t(:orderStatus) |
-| reduceOnly |number |t(:reduceOnly) |
-| closeOnTrigger |bool |t(:closeOnTrigger) |
-| takeProfit |string |t(:takeProfit) |
-| stopLoss |string |t(:stopLoss) |
-| tpTriggerBy |string |t(:tptriggerby) |
-| slTriggerBy |string |t(:slTriggerBy) |
-| basePrice |string |t(:basePrice) |
-| triggerPrice |string |t(:triggerPrice) |
-| triggerBy |string |t(:triggerBy) |
-
-
-
-
-### t(:usdc_perp_active_orders_delta)
-
-> t(:codequote_subscribe)
-
-```javascript
- ws.send('{"method":"private/subscribe","id":"{100003}","params":{"channels":["user.perp.order.t"]}}');
-```
-
-> t(:usdc_trade_codequote_snapshot)
-
-```javascript
-{
-  "id":"8439b7bf-9c6a-4ce2-9c48-72ddbbc4544e",
-    "channel":"user.perp.order.t",
-    "type":"SNAPSHOT",
-    "serialNumber":1,
-    "publishTime":738754913,
-    "creationTime":1640854950738,
-    "data":{
-    "result":[
-      {
-        "accountId":0,
-        "userId":247007,
-        "symbol":"BTCPERP",
-        "createType":"CreateByUser",
-        "cancelType":"UNKNOWN",
-        "orderLinkId":"",
-        "tpTriggerBy":"UNKNOWN",
-        "slTriggerBy":"UNKNOWN",
-        "takeProfit":"0",
-        "stopLoss":"0",
-        "orderId":"640034d1-97ec-4382-9983-694898c03ba3",
-        "side":"Buy",
-        "orderType":"Market",
-        "timeInForce":"ImmediateOrCancel",
-        "reduceOnly":false,
-        "stopOrderType":"UNKNOWN",
-        "triggerBy":"UNKNOWN",
-        "basePrice":"",
-        "trailValue":"0",
-        "triggerPrice":"0",
-        "price":"49192.5",
-        "orderAvgPrice":"46851.5",
-        "qty":"0.01",
-        "leavesQty":"0",
-        "cumValue":"468.515",
-        "cumExecFee":"0.35138625",
-        "orderStatus":"Filled",
-        "cxlRejReason":"EC_NoError",
-        "origTriggerPrice":"0",
-        "origPrice":"0",
-        "origQty":"0",
-        "origOrderType":null,
-        "isWorking":true,
-        "type":"Market",
-        "avgPrice":"46851.5",
-        "pnl":"",
-        "symbolId":0,
-        "expectedDirection":"UNKNOWN",
-        "closeOnTrigger":false,
-        "cumExecQty":"0.01",
-        "orderIM":"0",
-        "createdAt":1640854950672,
-        "updatedAt":1640854950675
-      }
-    ],
-      "version":38989,
-      "sendTime":1640854950690
-  }
-}
-```
-
-t(:usdc_perp_active_order_delta_topic)
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-| orderId |string |t(:usdcOrderId) |
-| orderLinkId |string |t(:orderLinkId) |
-| symbol |string |t(:usdcSymbol) |
+| realisedPnl |string |t(:realisedPnl) |
 | orderType|string |t(:usdc_perp_order_type) |
-| side |string |t(:side) |
-| qty |string |t(:orderAllSize) |
-| leavesQty |string |t(:usdc_unfilled_order_size) |
-| price |string |t(:usdcOrderPrice) |
+| reduceOnly |number |t(:reduceOnly) |
 | t(:row_parameter_timeInForce) |string |t(:row_comment_timeInForce) |
 | cumExecFee |string |t(:cumExecFee) |
-| orderIM |string |t(:im) |
-| orderStatus |string |t(:orderStatus) |
-| reduceOnly |number |t(:reduceOnly) |
+| orderPnl |string |t(:usdcOrderPnl) |
+| basePrice |string |t(:basePrice) |
+| cumExecValue |string |t(:cumExecValue) |
 | closeOnTrigger |bool |t(:closeOnTrigger) |
+| triggerBy |string |t(:triggerBy) |
 | takeProfit |string |t(:takeProfit) |
 | stopLoss |string |t(:stopLoss) |
 | tpTriggerBy |string |t(:tptriggerby) |
 | slTriggerBy |string |t(:slTriggerBy) |
-| basePrice |string |t(:basePrice) |
 | triggerPrice |string |t(:triggerPrice) |
-| triggerBy |string |t(:triggerBy) |
 | stopOrderType |string |t(:usdcStopOrderType) |
+| cancelType |string |t(:usdcCancelType) |
 
 
 
