@@ -22,7 +22,7 @@ def on_close(ws):
     print("### about to close please don't close ###")
 
 def send_auth(ws):
-    key = 'XXXXXXXXXXXXXXXXXXXX'
+    api_key = 'XXXXXXXXXXXXXXXXXXXX'
     secret = 'XXXXXXXXXXXXXXXXXXXX'
     expires = int((time.time() + 10) * 1000)
     _val = f'GET/realtime{expires}'
@@ -322,7 +322,7 @@ t(:usdcLastestSymbolInfo)
 
 ```javascript
 
-ws.send('{"op":"subscribe","id":"{100002}","args":["user.option.position"]}');
+ws.send('{"op":"subscribe","id":"{100002}","args":["user.openapi.option.position"]}');
 
 ```
 
@@ -330,48 +330,60 @@ ws.send('{"op":"subscribe","id":"{100002}","args":["user.option.position"]}');
 
 ```javascript
 {
-  "id":"12827e35-ab18-416f-b754-5fff8315459f",
-    "topic":"user.option.position",
-    "creationTime":1640835309134,
+    "id":"33c4141b-b633-49f5-a538-91cfef2cb504",
+    "topic":"user.openapi.option.position",
+    "creationTime":1646188724143,
     "data":{
-    "result":[
-      {
-        "positionIdx":0,
-        "symbol":"BTC-31DEC21-24000-P",
-        "positionStatus":null,
-        "side":"Sell",
-        "action":"OPEN",
-        "positionSize":"-0.1000",
-        "positionAvgPrice":"1.45000000",
-        "sessionAvgPrice":"1.45000000",
-        "markPrice":"0",
-        "strikePrice":"",
-        "exerciseDeliveryPrice":"27.96182801",
-        "positionIM":"465.9957",
-        "positionMM":"358.705039",
-        "fees":"",
-        "pnl":"0.145",
-        "sessionUPL":"0.145",
-        "sessionRPL":"",
-        "deliveryRPL":"",
-        "iv":"1.1524",
-        "version":34,
-        "sendTime":1640835309093,
-        "positionTime":1640834421428,
-        "roi":"1",
-        "crossSeq":null,
-        "pushActionType":0,
-        "size":"-0.1000",
-        "entryPrice":"1.45000000",
-        "PNL":"0.145",
-        "ROI":"1"
-      }
-    ],
-      "version":8043,
-      "sendTime":1640835309093
-  }
+        "result":[
+            {
+                "symbol":"BTC-4MAR22-42000-P",
+                "positionStatus":"None",
+                "side":"Sell",
+                "size":"-0.0600",
+                "entryPrice":"840.00000000",
+                "sessionAvgPrice":"840.00000000",
+                "markPrice":"400.56264288",
+                "positionIM":"320.3565",
+                "positionMM":"108.7412785728",
+                "sessionUPL":"26.3662414272",
+                "sessionRPL":"",
+                "createdAt":1646186217040,
+                "updatedAt":1646188573334
+            }
+        ],
+        "version":3,
+        "baseLine":1,
+        "dataType":"NEW"
+    }
 }
 
+{
+    "id":"b52634d5-78ae-47c1-83e9-ed27178fafa3",
+    "topic":"user.openapi.option.position",
+    "creationTime":1646188735967,
+    "data":{
+        "result":[
+            {
+                "symbol":"BTC-4MAR22-42000-P",
+                "positionStatus":"None",
+                "side":"Sell",
+                "size":"-0.1",
+                "entryPrice":"840",
+                "sessionAvgPrice":"840",
+                "markPrice":"397.26035968",
+                "positionIM":"533.82805",
+                "positionMM":"180.908979968",
+                "sessionUPL":"44.273964032",
+                "sessionRPL":"",
+                "createdAt":1646188735878,
+                "updatedAt":1646188735878
+            }
+        ],
+        "version":4,
+        "baseLine":1,
+        "dataType":"CHANGE"
+    }
+}
 ```
 
 
@@ -397,7 +409,7 @@ t(:usdcPositionDesc)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op":"subscribe","id":"{100002}","args":["user.option.tradeHistory"]}');
+ws.send('{"op":"subscribe","id":"{100002}","args":["user.openapi.option.trade"]}');
 ```
 
 > t(:usdc_trade_codequote_snapshot)
@@ -405,39 +417,28 @@ ws.send('{"op":"subscribe","id":"{100002}","args":["user.option.tradeHistory"]}'
 ```javascript
 
 {
-  "id":"985cf6de-2e7e-4d18-92ff-e7a2b4fcfcc1",
-  "topic":"user.option.tradeHistory",
-  "creationTime":1640834911129,
-  "data":{
-  "result":[
-    {
-      "orderId":"4aaea02f-d62b-4951-9e12-7e2d9e37fb4c",
-      "tradeId":"77fdaeef-b931-51f4-96c8-33f97c722053",
-      "transId":"cross-101810-634476-1",
-      "symbol":"BTC-31DEC21-18000-P",
-      "side":"Sell",
-      "tradePrice":"1",
-      "markPrice":"0.00000000",
-      "indexPrice":"46545.16000000",
-      "underlying":"46562.86000000",
-      "positionAvgPrice":"1",
-      "iv":"1.1980",
-      "size":"0.01",
-      "fees":"0.001",
-      "tradeTime":1640834911093,
-      "version":null,
-      "sendTime":null,
-      "crossSeq":null,
-      "reduceOnly":false,
-      "orderLinkId":"test2021122417000217",
-      "execPrice":"1",
-      "execQty":"0.01",
-      "execFee":"0.001"
+    "id":"5767b59e-3034-43a9-851f-61ed50fccddc",
+    "topic":"user.openapi.option.trade",
+    "creationTime":1646188735928,
+    "data":{
+        "result":[
+            {
+                "orderId":"a64db071-3c98-44db-bcc8-d4a71e7aaf86",
+                "orderLinkId":"",
+                "tradeId":"55565169-2da0-5cb3-9dc8-6669c6d777c9",
+                "symbol":"BTC-4MAR22-42000-P",
+                "execPrice":"840",
+                "execQty":"0.04",
+                "execFee":"0.52943604",
+                "feeRate":"0.0003",
+                "tradeTime":1646188735862,
+                "lastLiquidityInd":"TAKER",
+                "execType":"TRADE"
+            }
+        ],
+        "version":4,
+        "baseLine":1
     }
-  ],
-    "version":33,
-    "sendTime":1640834911106
-}
 }
 
 
@@ -464,7 +465,7 @@ t(:usdcFilledHistory)
 > t(:codequote_subscribe)
 
 ```javascript
- ws.send('{"op":"subscribe","id":"{100003}","args":["user.option.order"]}');
+ ws.send('{"op":"subscribe","id":"{100003}","args":["user.openapi.option.order"]}');
 ```
 
 > t(:usdc_trade_codequote_snapshot)
@@ -472,45 +473,54 @@ t(:usdcFilledHistory)
 ```javascript
 
 {
-  "id":"f013f9e9-5d6c-4d43-bed4-6858d8a9de1e",
-  "topic":"user.option.order",
-  "creationTime":1637828113470,
-  "data":{
-  "result":[
-    {
-      "orderId":"cee50e1d-c36a-46f3-b861-4012f8c2589b",
-      "symbol":"BTC-26NOV21-30000-P",
-      "orderStatus":"New",
-      "side":"Buy",
-      "orderPrice":"3383.50000000",
-      "orderAllSize":"0.0100",
-      "orderFilledSize":"0.0000",
-      "orderRemainingSize":"0.0100",
-      "orderAvgPrice":"3383.50000000",
-      "orderIM":"33.97985865",
-      "orderType":"Limit",
-      "orderTime":1637828113432,
-      "reduceOnly":0,
-      "timeInForce":"GoodTillCancel",
-      "fees":"0.00000000",
-      "cashFlow":"",
-      "orderRPL":"",
-      "version":9719,
-      "sendTime":9719,
-      "crossSeq":null,
-      "deliveryTime":1637913600000,
-      "strikePrice":"30000",
-      "symbolType":"P",
-      "postOnly":0,
-      "placeType":"price",
-      "placeMode":"advanced",
-      "iv":"14.8490",
-      "pushActionType":0
+    "id":"af390ef0-6471-4b24-86f2-f24436966db3",
+    "topic":"user.openapi.option.order",
+    "creationTime":1646188724138,
+    "data":{
+        "result":[
+
+        ],
+        "version":6,
+        "baseLine":1,
+        "dataType":"NEW"
     }
-  ],
-    "version":240533,
-    "sendTime":1637828113452
 }
+
+{
+    "id":"4c7fb1a7-6d5c-4d2f-9ee1-7da9ae47dadb",
+    "topic":"user.openapi.option.order",
+    "creationTime":1646188735902,
+    "data":{
+        "result":[
+            {
+                "orderId":"a64db071-3c98-44db-bcc8-d4a71e7aaf86",
+                "orderLinkId":"",
+                "createdAt":1646188735853,
+                "updatedAt":1646188735853,
+                "symbol":"BTC-4MAR22-42000-P",
+                "orderStatus":"New",
+                "side":"Sell",
+                "price":"840",
+                "cashFlow":"None",
+                "realisedPnl":"",
+                "qty":"0.04",
+                "cumExecQty":"0",
+                "leavesQty":"0.04",
+                "orderIM":"180.46065604",
+                "orderType":"Limit",
+                "reduceOnly":0,
+                "timeInForce":"GoodTillCancel",
+                "cumExecFee":"0",
+                "iv":"1.261",
+                "orderPnl":"",
+                "cumExecValue":"0",
+                "cancelType":"UNKNOWN"
+            }
+        ],
+        "version":7,
+        "baseLine":1,
+        "dataType":"CHANGE"
+    }
 }
 
 
