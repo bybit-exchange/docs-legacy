@@ -76,7 +76,7 @@ POST
 t(:usdcBatchOrdersDesc)
 
 ```console
-curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-place-order \
+curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-place-orders \
 -H "Content-Type: application/json" \
 -D '{"orderRequest":[{"outRequestId":"4c77b34a-9093-4bca-9cad-727cd6efed7e","symbol":"BTC-26NOV21-58000-P","orderType":"Limit","side":"Buy","orderQty":"1","orderPrice":"1","timeInForce":"GoodTillCancel"}]}'
 
@@ -112,7 +112,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-place-or
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=uopvBatchPlace>/option/usdc/openapi/private/v1/batch-place-order</span></code>
+<code><span id=uopvBatchPlace>/option/usdc/openapi/private/v1/batch-place-orders</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvBatchPlace"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>

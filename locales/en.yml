@@ -2717,6 +2717,14 @@ en:
     <p>Topic format:</p>
     <p>Either orderbook25.{symbol} or orderbook100.{symbol} for Option.</p>
     <p>Such as orderbook25.BTC-5NOV21-30000-P or orderbook100.BTC-5NOV21-30000-P</p>
+
+  usdc_websocket_para_orderbook_100: |
+    <p>100 orders will be fetched from the bid and ask side of the order book.</p>
+    <p>After a successful subscription, it will always provide the snapshot response.</p>
+    <p>Topic format:</p>
+    <p>delta.orderbook100.{symbol}</p>
+    <p>Such as delta.orderbook100.BTC-5NOV21-30000-P</p>
+
   usdc_current_24_total:
     <p>Fetch the transaction data on Bybit in the last 24 hours.</p>
     <p>After a successful subscription, any changes in the transaction data will be pushed in real time or once every second. The number of pushes depends on the number of new transaction records within the time frame.</p>
@@ -2951,7 +2959,7 @@ en:
     <p>instrument_info.{symbol},such as: instrument_info.BTC-19NOV21-58000-P</p>
   usdcPositionDesc: |
     <p>topic:</p>
-    <p>Option: user.option.position</p>
+    <p>Option: user.openapi.option.position</p>
   usdcFilledHistory: |
     <p>topic:</p>
     <p>Option: user.option.tradeHistory</p>
@@ -3039,7 +3047,16 @@ en:
   activeOrders: Active Order
   usdcActiveOrder: |
     <p>topic:</p>
-    <p>Option: user.option.order</p>
+    <p>Option: user.openapi.option.order</p>
+    <p>When the link is established successfully, a full package will be added first. If you place an order again, you will receive an incremental data package.</p>
+    <p>-If the dataType is NEW, full data will be pushed  </p>
+    <p>-if the dataType is CHANGE, incremental data will be pushed  </p>
+
+  usdcCommonDesc: |
+    <p>When the link is established successfully, a full package will be added first. If you place an order again, you will receive an incremental data package.</p>
+    <p>-If the dataType is NEW, full data will be pushed  </p>
+    <p>-if the dataType is CHANGE, incremental data will be pushed  </p>
+
   usdcPerpCategory: Type. PERPETUAL
   usdcPerpOrderType: <a href="#order-type-type-ordertypes">Order Type</a>
   usdc_perp_order_price: Order Price
