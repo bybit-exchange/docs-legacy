@@ -2551,6 +2551,12 @@ zh-cn:
     <p>topic的格式：orderbook25.{symbol} 或者 orderbook100.{symbol} </p>
     <p>比如orderbook25.BTC-5NOV21-30000-P 或者 orderbook100.BTC-5NOV21-30000-P</p>
 
+  usdc_websocket_para_orderbook_100: |
+     <p>獲取檔位範圍：100.</p>
+     <p>鏈接建立成功時,會首先增收一個全量包,如再次下單,會收到增量的數據包.. </p>
+     <p>topic的格式：delta.orderbook100.{symbol} </p>
+     <p>比如 delta.orderbook100.BTC-5NOV21-30000-P</p>
+
   usdc_current_24_total:
     <p>獲取Bybit平台最近24的成交數據</p>
     <p>從用戶訂閱開始，實時推送增量交易歷史，實時 或 每1秒推送一次，時間段中有多少條新增交易記錄就推多少條</p>
@@ -2783,10 +2789,10 @@ zh-cn:
   usdc_trade_codequote_snapshot: 快照推送示例 - 有成交時推動數據示例
   usdcPositionDesc: |
     <p>topic:</p>
-    <p>期權: user.option.position</p>
+    <p>期權: user.openapi.option.position</p>
   usdcFilledHistory: |
     <p>topic:</p>
-    <p>期權: user.option.tradeHistory</p>
+    <p>期權: user.openapi.option.trade</p>
   usdcOrderDesc: |
     <p>topic:</p>
     <p>期權: user.option.orderHistory</p>
@@ -2863,7 +2869,12 @@ zh-cn:
   activeOrders: 活動單
   usdcActiveOrder: |
     <p>topic:</p>
-    <p>user.option.order</p>
+    <p>user.openapi.option.order</p>
+
+  usdcCommonDesc: |
+    <p>鏈接建立成功時,會首先增收一個全量包,如再次下單,會收到增量的數據包. </p>
+    <p>1:若dataType為NEW，則該條數據為全量數據</p>
+    <p>2:若dataType為CHANGE，則該條數據為變化導致的增量數據</p>
 
   usdcPerpCategory: 類型 PERPETUAL
   usdcPerpOrderType: <a href="#order-type-type-ordertypes">訂單類型</a>
@@ -2929,7 +2940,7 @@ zh-cn:
     <p>instrument_info.100ms.BTCPERP</p>
   usdc_perp_position_desc: |
     <p>topic:</p>
-    <p>user.perp.position</p>
+    <p>user.openapi.perp.position</p>
   usdc_perp_trade_history: |
     <p>topic:</p>
     <p>user.perp.trade</p>
@@ -2937,7 +2948,7 @@ zh-cn:
   usdc_perp_active_order: |
     <p>訂閱此topic後,會收到所有的活動單數據</p>
     <p>topic:</p>
-    <p>user.perp.order</p>
+    <p>user.openapi.perp.order</p>
   usdc_perp_leave_qty: 剩餘數量
   usdc_perp_order_desc:  |
     <p>topic:</p>
