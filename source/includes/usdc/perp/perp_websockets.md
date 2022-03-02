@@ -22,8 +22,8 @@ def on_close(ws):
     print("### about to close please don't close ###")
 
 def send_auth(ws):
-    key = 'XXXXXXXXXXXXXXXXXXXX'
-    secret = 'XXXXXXXXXXXXXXXXXXXX'
+    api_key = 'XXXXXXXXXXXXXXX'
+    secret = 'XXXXXXXXXXXXXXX'
     expires = int((time.time() + 10) * 1000)
     _val = f'GET/realtime{expires}'
     print(_val)
@@ -31,21 +31,34 @@ def send_auth(ws):
         bytes(secret, 'utf-8'),
         bytes(_val, 'utf-8'), digestmod='sha256'
     ).hexdigest())
-    ws.send(json.dumps({"id": "signAuth_request_id", "method": "public/signAuth",
-                        "params": {"sign": signature, "apiKey": key, "timestamp": expires}}))
+
+    ws.send(
+      json.dumps({
+        "op": "auth",
+        "args": [api_key, expires, signature]
+      })
+    )
 
 def on_open(ws):
     print('opened')
     send_auth(ws)
     def pingPer(ws):
         while True:
-            ws.send("ping")
-            time.sleep(2)
+            ws.send(
+              json.dumps({
+              "op": "ping",
+              "args": ["946656000000"]
+              })
+            )
+            time.sleep(25)
     t1 = threading.Thread(target=pingPer, args=(ws,))
     t1.start()
-    ws.send(json.dumps({"method": "private/subscribe", "id": "{100003}", "params": {
-        "channels": ["user.option.order", "user.option.position", "user.option.tradeHistory",
-                     "user.option.orderHistory"]}}))
+    ws.send(
+      json.dumps({
+        "op": "subscribe", "id": "{100003}",
+        "args": ["user.openapi.perp.order", "user.openapi.perp.position", "user.openapi.perp.trade"]
+      })
+    )
 
 def connWS():
     ws = websocket.WebSocketApp("wss://stream-testnet.bybit.com/trade/option/usdc/private/v1",
@@ -71,30 +84,14 @@ t(:websocket_best_practices)
 ## t(:heartbeat)
 > t(:websocket_codequote_heartbeat)
 
-> public 
- 
 ```javascript
-ws.send("{\"op\":\"ping\"}");
-```
-
-> private
-
-```javascript
-ws.send("ping");
+ws.send('{"op":"ping","args":["1535975085152"]}');
 ```
 
 > t(:codequote_responseExample)
 
-> public
-
 ```javascript
-{"success":true,"ret_msg":"pong","conn_id":"84442344-7c63-4e25-be43-7edd345ca891","request":{"op":"ping","args":null}}
-```
-
-> private 
-
-```javascript
-{"pong": 1535975085152}
+{"op":"pong","args":["1535975085152"]}
 ```
 
 
@@ -102,6 +99,7 @@ ws.send("ping");
 t(:websocket_aside_heartbeat)
 </aside>
 
+t(:websocket_aside_heartbeat_option)
 
 <!-- 连接数限制
 ## t(:websocketlimit)
@@ -113,7 +111,7 @@ t(:websocket_para_limit)
 ### t(:websocketfilters)
 > t(:websocket_codequote_filters1)
 
-t(:usdc_perp_websocket_subscribe_desc)
+t(:usdc_websocket_subscribe_desc)
 
 ```javascript
 // Subscribing to the trade data for BTCUSDT
@@ -121,7 +119,7 @@ t(:usdc_perp_websocket_subscribe_desc)
 
 ### t(:websocketunfilters)
 
-t(:usdc_perp_websocket_unsubscribe_desc)
+t(:usdc_websocket_unsubscribe_desc)
 
 ## t(:websocketresponse)
 > t(:websocket_codequote_response)
@@ -451,69 +449,65 @@ t(:websocket_aside_klineV2)
 
 ```javascript
 
-ws.send('{"method":"private/subscribe","id":"{100002}","params":{"channels":["user.perp.position"]}}');
-
+ws.send(json.dumps({"op": "subscribe", "id": "{100003}","args": ["user.openapi.perp.position"]});
 ```
 
 > t(:usdc_trade_codequote_snapshot)
 
 ```javascript
 {
-  "id":"e6d0ea6f-eca8-4e20-a141-821e4d39b028",
-    "channel":"user.perp.position",
-    "type":"SNAPSHOT",
-    "serialNumber":1,
-    "publishTime":365038088,
-    "creationTime":1640854533365,
+    "id":"7b8fdb38-1cfa-40f6-8010-f2ab3eb33df4",
+    "topic":"user.openapi.perp.position",
+    "creationTime":1646200751865,
     "data":{
-    "result":[
-      {
-        "symbol":"BTCPERP",
-        "symbolId":45,
-        "leverage":1000,
-        "slFreeSize":"",
-        "tpSlMode":"UNKNOWN",
-        "occClosingFee":"0.00000000",
-        "liqPrice":"0.00000000",
-        "bv2cE8":10142500,
-        "tpFreeSize":"",
-        "takeProfit":"0.00000000",
-        "positionValue":"467.42000000",
-        "riskId":"10001",
-        "trailingStop":"0.00000000",
-        "mode":"MergedSingle",
-        "unrealisedPnl":"",
-        "markPrice":"46864.26",
-        "occFundingFee":"0.00000000",
-        "adlRankIndicator":0,
-        "cumRealisedPnl":"",
-        "tpOrderNum":0,
-        "slOrderNum":0,
-        "positionMM":"2.6526085",
-        "positionIdx":0,
-        "tpTriggerBy":"UNKNOWN",
-        "updatedAtE3":1640844691107,
-        "positionIM":"47.0575085",
-        "freeCost":"0.00000000",
-        "bustPrice":"0.00000000",
-        "side":"Buy",
-        "freeQty":"-0.01000000",
-        "slTriggerBy":"UNKNOWN",
-        "entryPrice":"46742.00000000",
-        "sv2cE8":10157500,
-        "size":"0.01000000",
-        "positionStatus":"NORMAL",
-        "sessionRPL":"0",
-        "activationPrice":"0.00000000",
-        "sessionUPL":"-1.3876",
-        "stopLoss":"0.00000000",
-        "sessionAvgPrice":"47003.02000000",
-        "coin":"USDC"
-      }
-    ],
-      "version":38547,
-      "sendTime":1640854533138
-  }
+        "result":[
+
+        ],
+        "version":1,
+        "baseLine":1,
+        "dataType":"NEW"
+    }
+}
+
+{
+    "id":"9cf9e9a8-2f19-4252-a2b6-1fd733a8bee2",
+    "topic":"user.openapi.perp.position",
+    "creationTime":1646200779801,
+    "data":{
+        "result":[
+            {
+                "symbol":"BTCPERP",
+                "positionStatus":"NORMAL",
+                "side":"Buy",
+                "size":"0.001",
+                "entryPrice":"44277",
+                "sessionAvgPrice":"44277",
+                "markPrice":"44285.75",
+                "positionIM":"4.457586975",
+                "positionMM":"0.251271975",
+                "positionValue":"44.277",
+                "liqPrice":"",
+                "bustPrice":"",
+                "occClosingFee":"",
+                "unrealisedPnl":"0.0000",
+                "cumRealisedPnl":"0.0000",
+                "sessionUPL":"0.00875",
+                "sessionRPL":"0",
+                "createdAt":1646200779751,
+                "updatedAt":1646200779751,
+                "tpSLMode":"UNKNOWN",
+                "leverage":1000,
+                "trailingStop":"",
+                "takeProfit":"0",
+                "stopLoss":"0",
+                "deleverageIndicator":0,
+                "riskId":"10001"
+            }
+        ],
+        "version":2,
+        "baseLine":1,
+        "dataType":"CHANGE"
+    }
 }
 ```
 
@@ -549,53 +543,37 @@ t(:usdc_perp_position_desc)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"method":"private/subscribe","id":"{100002}","params":{"channels":["user.perp.trade"]}}');
+ws.send(json.dumps({"op": "subscribe", "id": "{100003}","args": ["user.openapi.perp.trade"]}))
 ```
 
 > t(:usdc_trade_codequote_snapshot)
 
 ```javascript
-
 {
-  "id":"ddecb43d-a4ab-43ce-ad3c-91d2fa759b83",
-  "channel":"user.perp.trade",
-  "type":"SNAPSHOT",
-  "serialNumber":1,
-  "publishTime":791594832,
-  "creationTime":1640854772791,
-  "data":{
-  "result":[
-    {
-      "execValue":null,
-      "symbolId":null,
-      "symbol":"BTCPERP",
-      "symbolName":"BTCPERP",
-      "orderLinkId":"",
-      "orderId":"3ea08645-2989-4cec-ad3e-3dcb6ca6e20e",
-      "side":"Buy",
-      "orderType":"Market",
-      "reduceOnly":false,
-      "price":"49123",
-      "qty":"0.01",
-      "leavesQty":null,
-      "execType":"Trade",
-      "execPrice":"46787",
-      "execQty":"0.01",
-      "feeRate":"0.00075",
-      "execFee":"0.3509025",
-      "version":null,
-      "sendTime":null,
-      "crossSeq":null,
-      "maker":false,
-      "tradeId":"31eaa9a8-1d5b-50dc-b172-1002c98a355d",
-      "tradeTime":1640854772730
+    "id":"6ffe5750-d3b6-4de8-b63a-736a59aa8278",
+    "topic":"user.openapi.perp.trade",
+    "creationTime":1646200779785,
+    "data":{
+        "result":[
+            {
+                "orderId":"2a44a4de-8244-4be9-b343-52bdfe135c9e",
+                "orderLinkId":"",
+                "tradeId":"9ae8aad2-0dae-583f-bff1-89aef6f88cd2",
+                "symbol":"BTCPERP",
+                "execPrice":"44277",
+                "execQty":"0.001",
+                "execFee":"0.03320775",
+                "feeRate":"0.00075",
+                "tradeTime":1646200779736,
+                "lastLiquidityInd":"TAKER",
+                "execValue":"44.277",
+                "execType":"TRADE"
+            }
+        ],
+        "version":1,
+        "baseLine":1
     }
-  ],
-    "version":51,
-    "sendTime":1640854772745
 }
-}
-
 ```
 
 
@@ -621,74 +599,69 @@ t(:usdc_perp_trade_history)
 > t(:codequote_subscribe)
 
 ```javascript
- ws.send('{"method":"private/subscribe","id":"{100003}","params":{"channels":["user.perp.order"]}}');
+ws.send(json.dumps({"op": "subscribe", "id": "{100003}","args": ["user.openapi.perp.order"]}))
 ```
 
 > t(:usdc_trade_codequote_snapshot)
 
 ```javascript
+{
+    "id":"c044cbae-8331-4a2e-93c9-5114ab4815cf",
+    "topic":"user.openapi.perp.order",
+    "creationTime":1646200751861,
+    "data":{
+        "result":[
+
+        ],
+        "version":1,
+        "baseLine":1,
+        "dataType":"NEW"
+    }
+}
 
 {
-  "id":"ba153ca0-28d2-4288-929c-7f6ca1789ace",
-  "channel":"user.perp.order",
-  "type":"SNAPSHOT",
-  "serialNumber":1,
-  "publishTime":172236766,
-  "creationTime":1638435407172,
-  "data":{
-  "result":[
-    {
-      "accountId":0,
-      "userId":247007,
-      "symbol":"BTCPERP",
-      "createType":null,
-      "cancelType":"UNKNOWN",
-      "orderLinkId":"",
-      "tpTriggerBy":null,
-      "slTriggerBy":null,
-      "takeProfit":"0.00000000",
-      "stopLoss":"0.00000000",
-      "orderId":"c85955ab-36c9-40cd-a86d-e95f330d8ea2",
-      "side":"Buy",
-      "orderType":"Limit",
-      "timeInForce":"GoodTillCancel",
-      "reduceOnly":false,
-      "stopOrderType":"UNKNOWN",
-      "triggerBy":"UNKNOWN",
-      "basePrice":"41300.00000000",
-      "trailValue":"0.00000000",
-      "triggerPrice":"0.00000000",
-      "price":"41300.00000000",
-      "orderAvgPrice":"0.00000000",
-      "qty":"0.0100",
-      "leavesQty":"0.0100",
-      "cumQty":"0.0000",
-      "cumValue":"0.00000000",
-      "cumExecFee":"0.00000000",
-      "orderStatus":"New",
-      "cxlRejReason":"EC_NoError",
-      "createdAtE3":1638432605741,
-      "updatedAtE3":1638432605744,
-      "origTriggerPrice":"",
-      "origPrice":"",
-      "origQty":"",
-      "origOrderType":null,
-      "isWorking":true,
-      "type":"UNKNOWN",
-      "avgPrice":"0.00000000",
-      "pnl":"",
-      "orderIm":"41.888525",
-      "symbolId":0,
-      "expectedDirection":"UNKNOWN",
-      "closeOnTrigger":false
+    "id":"aa89ef9f-e77a-4ccd-a35c-b62e2c03c8e0",
+    "topic":"user.openapi.perp.order",
+    "creationTime":1646200779822,
+    "data":{
+        "result":[
+            {
+                "orderId":"2a44a4de-8244-4be9-b343-52bdfe135c9e",
+                "orderLinkId":"",
+                "createdAt":1646200779733,
+                "updatedAt":1646200779736,
+                "symbol":"BTCPERP",
+                "orderStatus":"Filled",
+                "side":"Buy",
+                "price":"44283.5",
+                "qty":"0.001",
+                "cumExecQty":"0.001",
+                "leavesQty":"0",
+                "orderIM":"0",
+                "realisedPnl":"None",
+                "orderType":"Limit",
+                "reduceOnly":0,
+                "timeInForce":"GoodTillCancel",
+                "cumExecFee":"0.03320775",
+                "orderPnl":"",
+                "basePrice":"",
+                "cumExecValue":"44.277",
+                "closeOnTrigger":"false",
+                "triggerBy":"UNKNOWN",
+                "takeProfit":"0",
+                "stopLoss":"0",
+                "tpTriggerBy":"UNKNOWN",
+                "slTriggerBy":"UNKNOWN",
+                "triggerPrice":"0",
+                "stopOrderType":"UNKNOWN",
+                "cancelType":"UNKNOWN"
+            }
+        ],
+        "version":2,
+        "baseLine":1,
+        "dataType":"CHANGE"
     }
-  ],
-    "version":487192,
-    "sendTime":1638435407124
 }
-}
-
-
 ```
 
 t(:usdc_perp_active_order)
