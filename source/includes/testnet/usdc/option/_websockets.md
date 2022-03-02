@@ -22,7 +22,7 @@ def on_close(ws):
     print("### about to close please don't close ###")
 
 def send_auth(ws):
-    key = 'XXXXXXXXXXXXXXXXXXXX'
+    api_key = 'XXXXXXXXXXXXXXXXXXXX'
     secret = 'XXXXXXXXXXXXXXXXXXXX'
     expires = int((time.time() + 10) * 1000)
     _val = f'GET/realtime{expires}'
@@ -166,89 +166,9 @@ t(:spot_websocket_para_response)
 
 
 
-
-
 ```
 
 t(:usdc_websocket_para_orderbook)
-
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-| price |string |t(:row_comment_resp_price) |
-|side |string |t(:row_comment_side)  |
-|size |number |t(:row_comment_position_size)  |
-
-
-
-### OrderBook(delta)
-
-> t(:codequote_subscribe)
-
-```javascript
-  ws.send('{"op":"subscribe","id":"requestId","args":["delta.orderbook100.BTC-4MAR22-25000-P"]}');
-```
-
-> t(:codequote_snapshot)
-
-```javascript
-
-{
-  "id":"delta.orderbook100.BTC-4MAR22-25000-P-65815768-1646214405074",
-  "topic":"delta.orderbook100.BTC-4MAR22-25000-P",
-  "creationTime":1646214405074,
-  "data":{
-  "version":"55",
-    "dataType":"NEW",
-    "orderBook":[
-    {
-      "price":"10",
-      "size":"1.67",
-      "side":"Buy"
-    },
-    {
-      "price":"5",
-      "size":"0.01",
-      "side":"Buy"
-    }
-  ]
-}
-}
-```
-
-
-> t(:codequote_delta)
-
-```javascript
-{
-  "id":"delta.orderbook100.BTC-4MAR22-25000-P-65815769-1646214587050",
-    "topic":"delta.orderbook100.BTC-4MAR22-25000-P",
-    "creationTime":1646214587050,
-    "data":{
-    "version":"56",
-      "dataType":"CHANGE",
-      "delete":[
-
-    ],
-      "update":[
-
-    ],
-      "insert":[
-      {
-        "price":"15",
-        "size":"1",
-        "side":"Buy"
-      }
-    ]
-  }
-}
-```
-
-
-t(:usdc_websocket_para_orderbook_100)
-
-t(:usdcCommonDesc)
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -397,9 +317,7 @@ t(:usdcLastestSymbolInfo)
 
 
 ## Private Topics
-
 ### t(:userPositionsInfo)
-
 > t(:codequote_subscribe)
 
 ```javascript
@@ -501,7 +419,7 @@ t(:usdcCommonDesc)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op":"subscribe","id":"{100002}","args":["user.option.tradeHistory"]}');
+ws.send('{"op":"subscribe","id":"{100002}","args":["user.openapi.option.trade"]}');
 ```
 
 > t(:usdc_trade_codequote_snapshot)
@@ -509,39 +427,28 @@ ws.send('{"op":"subscribe","id":"{100002}","args":["user.option.tradeHistory"]}'
 ```javascript
 
 {
-  "id":"985cf6de-2e7e-4d18-92ff-e7a2b4fcfcc1",
-  "topic":"user.option.tradeHistory",
-  "creationTime":1640834911129,
-  "data":{
-  "result":[
-    {
-      "orderId":"4aaea02f-d62b-4951-9e12-7e2d9e37fb4c",
-      "tradeId":"77fdaeef-b931-51f4-96c8-33f97c722053",
-      "transId":"cross-101810-634476-1",
-      "symbol":"BTC-31DEC21-18000-P",
-      "side":"Sell",
-      "tradePrice":"1",
-      "markPrice":"0.00000000",
-      "indexPrice":"46545.16000000",
-      "underlying":"46562.86000000",
-      "positionAvgPrice":"1",
-      "iv":"1.1980",
-      "size":"0.01",
-      "fees":"0.001",
-      "tradeTime":1640834911093,
-      "version":null,
-      "sendTime":null,
-      "crossSeq":null,
-      "reduceOnly":false,
-      "orderLinkId":"test2021122417000217",
-      "execPrice":"1",
-      "execQty":"0.01",
-      "execFee":"0.001"
+    "id":"5767b59e-3034-43a9-851f-61ed50fccddc",
+    "topic":"user.openapi.option.trade",
+    "creationTime":1646188735928,
+    "data":{
+        "result":[
+            {
+                "orderId":"a64db071-3c98-44db-bcc8-d4a71e7aaf86",
+                "orderLinkId":"",
+                "tradeId":"55565169-2da0-5cb3-9dc8-6669c6d777c9",
+                "symbol":"BTC-4MAR22-42000-P",
+                "execPrice":"840",
+                "execQty":"0.04",
+                "execFee":"0.52943604",
+                "feeRate":"0.0003",
+                "tradeTime":1646188735862,
+                "lastLiquidityInd":"TAKER",
+                "execType":"TRADE"
+            }
+        ],
+        "version":4,
+        "baseLine":1
     }
-  ],
-    "version":33,
-    "sendTime":1640834911106
-}
 }
 
 
