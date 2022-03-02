@@ -622,8 +622,11 @@ t(:websocket_aside_klineV2)
         <span class="dl">"</span><span class="s2">dataType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">NEW</span><span class="dl">"</span>
     <span class="p">}</span>
 <span class="p">}</span>
-
-<span class="p">{</span>
+</code></pre></div>
+<blockquote>
+<p>t(:codequote_delta)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
     <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">9cf9e9a8-2f19-4252-a2b6-1fd733a8bee2</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">user.openapi.perp.position</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1646200779801</span><span class="p">,</span>
@@ -676,14 +679,14 @@ t(:websocket_aside_klineV2)
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">riskId</td>
-<td style="text-align: left">string</td>
-<td>t(:riskId)</td>
-</tr>
-<tr>
 <td style="text-align: left">symbol</td>
 <td style="text-align: left">string</td>
 <td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">positionStatus</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcPositionStatus)</td>
 </tr>
 <tr>
 <td style="text-align: left">side</td>
@@ -701,14 +704,14 @@ t(:websocket_aside_klineV2)
 <td>t(:entryPrice)</td>
 </tr>
 <tr>
-<td style="text-align: left">markPrice</td>
+<td style="text-align: left">sessionAvgPrice</td>
 <td style="text-align: left">string</td>
-<td>t(:markPrice)</td>
+<td>t(:perpSessionAvgPrice)</td>
 </tr>
 <tr>
-<td style="text-align: left">sessionUPL</td>
+<td style="text-align: left">markPrice</td>
 <td style="text-align: left">string</td>
-<td>t(:sessionUpl)</td>
+<td>t(:usdcMarkPrice)</td>
 </tr>
 <tr>
 <td style="text-align: left">positionIM</td>
@@ -721,11 +724,6 @@ t(:websocket_aside_klineV2)
 <td>t(:usdcMm)</td>
 </tr>
 <tr>
-<td style="text-align: left">tpSlMode</td>
-<td style="text-align: left">string</td>
-<td>t(:tpSlMode)</td>
-</tr>
-<tr>
 <td style="text-align: left">positionValue</td>
 <td style="text-align: left">string</td>
 <td>t(:positionValue)</td>
@@ -736,11 +734,6 @@ t(:websocket_aside_klineV2)
 <td>t(:liqPrice)</td>
 </tr>
 <tr>
-<td style="text-align: left">trailingStop</td>
-<td style="text-align: left">number</td>
-<td>t(:trailingStop)</td>
-</tr>
-<tr>
 <td style="text-align: left">bustPrice</td>
 <td style="text-align: left">string</td>
 <td>t(:bustPrice)</td>
@@ -749,6 +742,46 @@ t(:websocket_aside_klineV2)
 <td style="text-align: left">occClosingFee</td>
 <td style="text-align: left">string</td>
 <td>t(:occClosingFee)</td>
+</tr>
+<tr>
+<td style="text-align: left">unrealisedPnl</td>
+<td style="text-align: left">string</td>
+<td>t(:unrealisedPnl)</td>
+</tr>
+<tr>
+<td style="text-align: left">cumRealisedPnl</td>
+<td style="text-align: left">string</td>
+<td>t(:cumRealisedPnl)</td>
+</tr>
+<tr>
+<td style="text-align: left">sessionUPL</td>
+<td style="text-align: left">string</td>
+<td>t(:sessionUpl)</td>
+</tr>
+<tr>
+<td style="text-align: left">createdAt</td>
+<td style="text-align: left">string</td>
+<td>t(:row_comment_created_at)</td>
+</tr>
+<tr>
+<td style="text-align: left">updatedAt</td>
+<td style="text-align: left">string</td>
+<td>t(:row_comment_updated_at)</td>
+</tr>
+<tr>
+<td style="text-align: left">tpSlMode</td>
+<td style="text-align: left">string</td>
+<td>t(:tpSlMode)</td>
+</tr>
+<tr>
+<td style="text-align: left">leverage</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcLeverage)</td>
+</tr>
+<tr>
+<td style="text-align: left">trailingStop</td>
+<td style="text-align: left">number</td>
+<td>t(:trailingStop)</td>
 </tr>
 <tr>
 <td style="text-align: left">takeProfit</td>
@@ -766,14 +799,14 @@ t(:websocket_aside_klineV2)
 <td>t(:positionStatus)</td>
 </tr>
 <tr>
-<td style="text-align: left">unrealisedPnl</td>
+<td style="text-align: left">deleverageIndicator</td>
 <td style="text-align: left">string</td>
-<td>t(:unrealisedPnl)</td>
+<td>t(:deleverageIndicator)</td>
 </tr>
 <tr>
-<td style="text-align: left">cumRealisedPnl</td>
+<td style="text-align: left">riskId</td>
 <td style="text-align: left">string</td>
-<td>t(:cumRealisedPnl)</td>
+<td>t(:riskId)</td>
 </tr>
 </tbody></table>
 <h3 id='t-userfilledhistory'>t(:userFilledHistory)</h3>
@@ -823,11 +856,6 @@ t(:websocket_aside_klineV2)
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">tradeTime</td>
-<td style="text-align: left">number</td>
-<td>t(:tradeTime)</td>
-</tr>
-<tr>
 <td style="text-align: left">orderId</td>
 <td style="text-align: left">string</td>
 <td>t(:usdcOrderId)</td>
@@ -836,6 +864,11 @@ t(:websocket_aside_klineV2)
 <td style="text-align: left">orderLinkId</td>
 <td style="text-align: left">string</td>
 <td>t(:orderLinkId)</td>
+</tr>
+<tr>
+<td style="text-align: left">tradeId</td>
+<td style="text-align: left">string</td>
+<td>t(:tradeId)</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -863,14 +896,24 @@ t(:websocket_aside_klineV2)
 <td>t(:feeRate)</td>
 </tr>
 <tr>
+<td style="text-align: left">tradeTime</td>
+<td style="text-align: left">number</td>
+<td>t(:tradeTime)</td>
+</tr>
+<tr>
+<td style="text-align: left">lastLiquidityInd</td>
+<td style="text-align: left">string</td>
+<td>t(:lastLiquidityInd)</td>
+</tr>
+<tr>
+<td style="text-align: left">execValue</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcExecValue)</td>
+</tr>
+<tr>
 <td style="text-align: left">execType</td>
 <td style="text-align: left">string</td>
 <td>t(:execType)</td>
-</tr>
-<tr>
-<td style="text-align: left">tradeId</td>
-<td style="text-align: left">string</td>
-<td>t(:tradeId)</td>
 </tr>
 </tbody></table>
 <h3 id='t-usdc_perp_active_orders_snapshot'>t(:usdc_perp_active_orders_snapshot)</h3>
@@ -895,8 +938,11 @@ t(:websocket_aside_klineV2)
         <span class="dl">"</span><span class="s2">dataType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">NEW</span><span class="dl">"</span>
     <span class="p">}</span>
 <span class="p">}</span>
-
-<span class="p">{</span>
+</code></pre></div>
+<blockquote>
+<p>t(:codequote_delta)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
     <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">aa89ef9f-e77a-4ccd-a35c-b62e2c03c8e0</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">user.openapi.perp.order</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1646200779822</span><span class="p">,</span>
@@ -962,14 +1008,24 @@ t(:websocket_aside_klineV2)
 <td>t(:orderLinkId)</td>
 </tr>
 <tr>
+<td style="text-align: left">createdAt</td>
+<td style="text-align: left">string</td>
+<td>t(:row_comment_created_at)</td>
+</tr>
+<tr>
+<td style="text-align: left">updatedAt</td>
+<td style="text-align: left">string</td>
+<td>t(:row_comment_updated_at)</td>
+</tr>
+<tr>
 <td style="text-align: left">symbol</td>
 <td style="text-align: left">string</td>
 <td>t(:usdcSymbol)</td>
 </tr>
 <tr>
-<td style="text-align: left">orderType</td>
+<td style="text-align: left">orderStatus</td>
 <td style="text-align: left">string</td>
-<td>t(:usdc_perp_order_type)</td>
+<td>t(:orderStatus)</td>
 </tr>
 <tr>
 <td style="text-align: left">side</td>
@@ -977,34 +1033,24 @@ t(:websocket_aside_klineV2)
 <td>t(:side)</td>
 </tr>
 <tr>
-<td style="text-align: left">qty</td>
-<td style="text-align: left">string</td>
-<td>t(:orderAllSize)</td>
-</tr>
-<tr>
-<td style="text-align: left">leavesQty</td>
-<td style="text-align: left">string</td>
-<td>t(:usdc_unfilled_order_size)</td>
-</tr>
-<tr>
 <td style="text-align: left">price</td>
 <td style="text-align: left">string</td>
 <td>t(:usdcOrderPrice)</td>
 </tr>
 <tr>
-<td style="text-align: left">t(:row_parameter_timeInForce)</td>
+<td style="text-align: left">qty</td>
 <td style="text-align: left">string</td>
-<td>t(:row_comment_timeInForce)</td>
+<td>t(:orderAllSize)</td>
 </tr>
 <tr>
-<td style="text-align: left">cumQty</td>
+<td style="text-align: left">cumExecQty</td>
 <td style="text-align: left">string</td>
 <td>t(:cumExecQty)</td>
 </tr>
 <tr>
-<td style="text-align: left">cumExecFee</td>
+<td style="text-align: left">leavesQty</td>
 <td style="text-align: left">string</td>
-<td>t(:cumExecFee)</td>
+<td>t(:usdc_unfilled_order_size)</td>
 </tr>
 <tr>
 <td style="text-align: left">orderIm</td>
@@ -1012,150 +1058,9 @@ t(:websocket_aside_klineV2)
 <td>t(:im)</td>
 </tr>
 <tr>
-<td style="text-align: left">orderStatus</td>
+<td style="text-align: left">realisedPnl</td>
 <td style="text-align: left">string</td>
-<td>t(:orderStatus)</td>
-</tr>
-<tr>
-<td style="text-align: left">reduceOnly</td>
-<td style="text-align: left">number</td>
-<td>t(:reduceOnly)</td>
-</tr>
-<tr>
-<td style="text-align: left">closeOnTrigger</td>
-<td style="text-align: left">bool</td>
-<td>t(:closeOnTrigger)</td>
-</tr>
-<tr>
-<td style="text-align: left">takeProfit</td>
-<td style="text-align: left">string</td>
-<td>t(:takeProfit)</td>
-</tr>
-<tr>
-<td style="text-align: left">stopLoss</td>
-<td style="text-align: left">string</td>
-<td>t(:stopLoss)</td>
-</tr>
-<tr>
-<td style="text-align: left">tpTriggerBy</td>
-<td style="text-align: left">string</td>
-<td>t(:tptriggerby)</td>
-</tr>
-<tr>
-<td style="text-align: left">slTriggerBy</td>
-<td style="text-align: left">string</td>
-<td>t(:slTriggerBy)</td>
-</tr>
-<tr>
-<td style="text-align: left">basePrice</td>
-<td style="text-align: left">string</td>
-<td>t(:basePrice)</td>
-</tr>
-<tr>
-<td style="text-align: left">triggerPrice</td>
-<td style="text-align: left">string</td>
-<td>t(:triggerPrice)</td>
-</tr>
-<tr>
-<td style="text-align: left">triggerBy</td>
-<td style="text-align: left">string</td>
-<td>t(:triggerBy)</td>
-</tr>
-</tbody></table>
-<h3 id='t-usdc_perp_active_orders_delta'>t(:usdc_perp_active_orders_delta)</h3>
-<blockquote>
-<p>t(:codequote_subscribe)</p>
-</blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code> <span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"method":"private/subscribe","id":"{100003}","params":{"channels":["user.perp.order.t"]}}</span><span class="dl">'</span><span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>t(:usdc_trade_codequote_snapshot)</p>
-</blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">8439b7bf-9c6a-4ce2-9c48-72ddbbc4544e</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">channel</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">user.perp.order.t</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">SNAPSHOT</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">serialNumber</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">publishTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">738754913</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1640854950738</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
-      <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">accountId</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">userId</span><span class="dl">"</span><span class="p">:</span><span class="mi">247007</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">createType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">CreateByUser</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">cancelType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">tpTriggerBy</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">slTriggerBy</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">takeProfit</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">stopLoss</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">640034d1-97ec-4382-9983-694898c03ba3</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Market</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">ImmediateOrCancel</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">reduceOnly</span><span class="dl">"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">stopOrderType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">triggerBy</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">basePrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">trailValue</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">triggerPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">49192.5</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderAvgPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">46851.5</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">leavesQty</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">cumValue</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">468.515</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">cumExecFee</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.35138625</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderStatus</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Filled</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">cxlRejReason</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">EC_NoError</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">origTriggerPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">origPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">origQty</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">origOrderType</span><span class="dl">"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">isWorking</span><span class="dl">"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Market</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">avgPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">46851.5</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">pnl</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">symbolId</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">expectedDirection</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">closeOnTrigger</span><span class="dl">"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">cumExecQty</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderIM</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">createdAt</span><span class="dl">"</span><span class="p">:</span><span class="mi">1640854950672</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">updatedAt</span><span class="dl">"</span><span class="p">:</span><span class="mi">1640854950675</span>
-      <span class="p">}</span>
-    <span class="p">],</span>
-      <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span><span class="mi">38989</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">sendTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1640854950690</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>t(:usdc_perp_active_order_delta_topic)</p>
-
-<p class="fake_header">t(:responseparameters)</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">t(:column_parameter)</th>
-<th style="text-align: left">t(:column_type)</th>
-<th>t(:column_comments)</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">orderId</td>
-<td style="text-align: left">string</td>
-<td>t(:usdcOrderId)</td>
-</tr>
-<tr>
-<td style="text-align: left">orderLinkId</td>
-<td style="text-align: left">string</td>
-<td>t(:orderLinkId)</td>
-</tr>
-<tr>
-<td style="text-align: left">symbol</td>
-<td style="text-align: left">string</td>
-<td>t(:usdcSymbol)</td>
+<td>t(:realisedPnl)</td>
 </tr>
 <tr>
 <td style="text-align: left">orderType</td>
@@ -1163,24 +1068,9 @@ t(:websocket_aside_klineV2)
 <td>t(:usdc_perp_order_type)</td>
 </tr>
 <tr>
-<td style="text-align: left">side</td>
-<td style="text-align: left">string</td>
-<td>t(:side)</td>
-</tr>
-<tr>
-<td style="text-align: left">qty</td>
-<td style="text-align: left">string</td>
-<td>t(:orderAllSize)</td>
-</tr>
-<tr>
-<td style="text-align: left">leavesQty</td>
-<td style="text-align: left">string</td>
-<td>t(:usdc_unfilled_order_size)</td>
-</tr>
-<tr>
-<td style="text-align: left">price</td>
-<td style="text-align: left">string</td>
-<td>t(:usdcOrderPrice)</td>
+<td style="text-align: left">reduceOnly</td>
+<td style="text-align: left">number</td>
+<td>t(:reduceOnly)</td>
 </tr>
 <tr>
 <td style="text-align: left">t(:row_parameter_timeInForce)</td>
@@ -1193,24 +1083,29 @@ t(:websocket_aside_klineV2)
 <td>t(:cumExecFee)</td>
 </tr>
 <tr>
-<td style="text-align: left">orderIM</td>
+<td style="text-align: left">orderPnl</td>
 <td style="text-align: left">string</td>
-<td>t(:im)</td>
+<td>t(:usdcOrderPnl)</td>
 </tr>
 <tr>
-<td style="text-align: left">orderStatus</td>
+<td style="text-align: left">basePrice</td>
 <td style="text-align: left">string</td>
-<td>t(:orderStatus)</td>
+<td>t(:basePrice)</td>
 </tr>
 <tr>
-<td style="text-align: left">reduceOnly</td>
-<td style="text-align: left">number</td>
-<td>t(:reduceOnly)</td>
+<td style="text-align: left">cumExecValue</td>
+<td style="text-align: left">string</td>
+<td>t(:cumExecValue)</td>
 </tr>
 <tr>
 <td style="text-align: left">closeOnTrigger</td>
 <td style="text-align: left">bool</td>
 <td>t(:closeOnTrigger)</td>
+</tr>
+<tr>
+<td style="text-align: left">triggerBy</td>
+<td style="text-align: left">string</td>
+<td>t(:triggerBy)</td>
 </tr>
 <tr>
 <td style="text-align: left">takeProfit</td>
@@ -1233,24 +1128,19 @@ t(:websocket_aside_klineV2)
 <td>t(:slTriggerBy)</td>
 </tr>
 <tr>
-<td style="text-align: left">basePrice</td>
-<td style="text-align: left">string</td>
-<td>t(:basePrice)</td>
-</tr>
-<tr>
 <td style="text-align: left">triggerPrice</td>
 <td style="text-align: left">string</td>
 <td>t(:triggerPrice)</td>
 </tr>
 <tr>
-<td style="text-align: left">triggerBy</td>
-<td style="text-align: left">string</td>
-<td>t(:triggerBy)</td>
-</tr>
-<tr>
 <td style="text-align: left">stopOrderType</td>
 <td style="text-align: left">string</td>
 <td>t(:usdcStopOrderType)</td>
+</tr>
+<tr>
+<td style="text-align: left">cancelType</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcCancelType)</td>
 </tr>
 </tbody></table>
 <h3 id='t-userorderhistory'>t(:userOrderHistory)</h3>

@@ -905,10 +905,7 @@
                             <a href="#t-userfilledhistory" class="toc-h3 toc-link" data-title="用戶成交記錄">用戶成交記錄</a>
                           </li>
                           <li>
-                            <a href="#t-usdc_perp_active_orders_snapshot" class="toc-h3 toc-link" data-title="活動單(全部)">活動單(全部)</a>
-                          </li>
-                          <li>
-                            <a href="#t-usdc_perp_active_orders_delta" class="toc-h3 toc-link" data-title="活動單(新增)">活動單(新增)</a>
+                            <a href="#t-usdc_perp_active_orders_snapshot" class="toc-h3 toc-link" data-title="活動單">活動單</a>
                           </li>
                           <li>
                             <a href="#t-userorderhistory" class="toc-h3 toc-link" data-title="用戶訂單信息">用戶訂單信息</a>
@@ -5497,8 +5494,11 @@ curl https://api-testnet.bybit.com/v2/public/time
         <span class="dl">"</span><span class="s2">dataType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">NEW</span><span class="dl">"</span>
     <span class="p">}</span>
 <span class="p">}</span>
-
-<span class="p">{</span>
+</code></pre></div>
+<blockquote>
+<p>增量推送示例 - 快照數據推送後，推送的增量數據</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
     <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">9cf9e9a8-2f19-4252-a2b6-1fd733a8bee2</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">user.openapi.perp.position</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1646200779801</span><span class="p">,</span>
@@ -5553,14 +5553,14 @@ curl https://api-testnet.bybit.com/v2/public/time
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">riskId</td>
-<td style="text-align: left">string</td>
-<td>風險限額ID</td>
-</tr>
-<tr>
 <td style="text-align: left">symbol</td>
 <td style="text-align: left">string</td>
 <td>合約名稱</td>
+</tr>
+<tr>
+<td style="text-align: left">positionStatus</td>
+<td style="text-align: left">string</td>
+<td>倉位狀態</td>
 </tr>
 <tr>
 <td style="text-align: left">side</td>
@@ -5578,14 +5578,14 @@ curl https://api-testnet.bybit.com/v2/public/time
 <td>平均入場價</td>
 </tr>
 <tr>
+<td style="text-align: left">sessionAvgPrice</td>
+<td style="text-align: left">string</td>
+<td>結算週期內持倉均價</td>
+</tr>
+<tr>
 <td style="text-align: left">markPrice</td>
 <td style="text-align: left">string</td>
 <td>標記價格</td>
-</tr>
-<tr>
-<td style="text-align: left">sessionUPL</td>
-<td style="text-align: left">string</td>
-<td>未實現損益</td>
 </tr>
 <tr>
 <td style="text-align: left">positionIM</td>
@@ -5598,11 +5598,6 @@ curl https://api-testnet.bybit.com/v2/public/time
 <td>維持保證金</td>
 </tr>
 <tr>
-<td style="text-align: left">tpSlMode</td>
-<td style="text-align: left">string</td>
-<td>止盈止損模式</td>
-</tr>
-<tr>
 <td style="text-align: left">positionValue</td>
 <td style="text-align: left">string</td>
 <td>倉位價值</td>
@@ -5613,11 +5608,6 @@ curl https://api-testnet.bybit.com/v2/public/time
 <td>強平價格</td>
 </tr>
 <tr>
-<td style="text-align: left">trailingStop</td>
-<td style="text-align: left">number</td>
-<td>追踪止損</td>
-</tr>
-<tr>
 <td style="text-align: left">bustPrice</td>
 <td style="text-align: left">string</td>
 <td>破產價格</td>
@@ -5626,6 +5616,46 @@ curl https://api-testnet.bybit.com/v2/public/time
 <td style="text-align: left">occClosingFee</td>
 <td style="text-align: left">string</td>
 <td>倉位佔用的平倉手續費</td>
+</tr>
+<tr>
+<td style="text-align: left">unrealisedPnl</td>
+<td style="text-align: left">string</td>
+<td>未結盈虧</td>
+</tr>
+<tr>
+<td style="text-align: left">cumRealisedPnl</td>
+<td style="text-align: left">string</td>
+<td>累計已結盈虧</td>
+</tr>
+<tr>
+<td style="text-align: left">sessionUPL</td>
+<td style="text-align: left">string</td>
+<td>未實現損益</td>
+</tr>
+<tr>
+<td style="text-align: left">createdAt</td>
+<td style="text-align: left">string</td>
+<td>創建時間</td>
+</tr>
+<tr>
+<td style="text-align: left">updatedAt</td>
+<td style="text-align: left">string</td>
+<td>更新時間</td>
+</tr>
+<tr>
+<td style="text-align: left">tpSlMode</td>
+<td style="text-align: left">string</td>
+<td>止盈止損模式</td>
+</tr>
+<tr>
+<td style="text-align: left">leverage</td>
+<td style="text-align: left">string</td>
+<td>leverage必須大於0且小於最大可設置槓桿risk limit levarage</td>
+</tr>
+<tr>
+<td style="text-align: left">trailingStop</td>
+<td style="text-align: left">number</td>
+<td>追踪止損</td>
 </tr>
 <tr>
 <td style="text-align: left">takeProfit</td>
@@ -5643,14 +5673,14 @@ curl https://api-testnet.bybit.com/v2/public/time
 <td>倉位狀態，正常，強平，減倉</td>
 </tr>
 <tr>
-<td style="text-align: left">unrealisedPnl</td>
+<td style="text-align: left">deleverageIndicator</td>
 <td style="text-align: left">string</td>
-<td>未結盈虧</td>
+<td>風險指示燈等級（1，2，3，4，5）</td>
 </tr>
 <tr>
-<td style="text-align: left">cumRealisedPnl</td>
+<td style="text-align: left">riskId</td>
 <td style="text-align: left">string</td>
-<td>累計已結盈虧</td>
+<td>風險限額ID</td>
 </tr>
 </tbody></table>
 <h3 id='t-userfilledhistory'>用戶成交記錄</h3>
@@ -5702,11 +5732,6 @@ curl https://api-testnet.bybit.com/v2/public/time
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">tradeTime</td>
-<td style="text-align: left">number</td>
-<td>毫秒時間戳</td>
-</tr>
-<tr>
 <td style="text-align: left">orderId</td>
 <td style="text-align: left">string</td>
 <td>平台生成的訂單號</td>
@@ -5715,6 +5740,11 @@ curl https://api-testnet.bybit.com/v2/public/time
 <td style="text-align: left">orderLinkId</td>
 <td style="text-align: left">string</td>
 <td>關聯訂單號，最大不成超過32位</td>
+</tr>
+<tr>
+<td style="text-align: left">tradeId</td>
+<td style="text-align: left">string</td>
+<td>交易id</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -5742,17 +5772,27 @@ curl https://api-testnet.bybit.com/v2/public/time
 <td>手續費率</td>
 </tr>
 <tr>
+<td style="text-align: left">tradeTime</td>
+<td style="text-align: left">number</td>
+<td>毫秒時間戳</td>
+</tr>
+<tr>
+<td style="text-align: left">lastLiquidityInd</td>
+<td style="text-align: left">string</td>
+<td><a href="#lastliquidityind">流動性</a></td>
+</tr>
+<tr>
+<td style="text-align: left">execValue</td>
+<td style="text-align: left">string</td>
+<td>成交價值</td>
+</tr>
+<tr>
 <td style="text-align: left">execType</td>
 <td style="text-align: left">string</td>
 <td><a href="#exec-type">交易類型</a></td>
 </tr>
-<tr>
-<td style="text-align: left">tradeId</td>
-<td style="text-align: left">string</td>
-<td>交易id</td>
-</tr>
 </tbody></table>
-<h3 id='t-usdc_perp_active_orders_snapshot'>活動單(全部)</h3>
+<h3 id='t-usdc_perp_active_orders_snapshot'>活動單</h3>
 <blockquote>
 <p>請求訂閱</p>
 </blockquote>
@@ -5774,8 +5814,11 @@ curl https://api-testnet.bybit.com/v2/public/time
         <span class="dl">"</span><span class="s2">dataType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">NEW</span><span class="dl">"</span>
     <span class="p">}</span>
 <span class="p">}</span>
-
-<span class="p">{</span>
+</code></pre></div>
+<blockquote>
+<p>增量推送示例 - 快照數據推送後，推送的增量數據</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
     <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">aa89ef9f-e77a-4ccd-a35c-b62e2c03c8e0</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">user.openapi.perp.order</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1646200779822</span><span class="p">,</span>
@@ -5844,14 +5887,24 @@ curl https://api-testnet.bybit.com/v2/public/time
 <td>關聯訂單號，最大不成超過32位</td>
 </tr>
 <tr>
+<td style="text-align: left">createdAt</td>
+<td style="text-align: left">string</td>
+<td>創建時間</td>
+</tr>
+<tr>
+<td style="text-align: left">updatedAt</td>
+<td style="text-align: left">string</td>
+<td>更新時間</td>
+</tr>
+<tr>
 <td style="text-align: left">symbol</td>
 <td style="text-align: left">string</td>
 <td>合約名稱</td>
 </tr>
 <tr>
-<td style="text-align: left">orderType</td>
+<td style="text-align: left">orderStatus</td>
 <td style="text-align: left">string</td>
-<td>參考 <a href="#order-type-type-ordertypes">訂單類型</a></td>
+<td><a href="#order-status-status">訂單狀態</a></td>
 </tr>
 <tr>
 <td style="text-align: left">side</td>
@@ -5859,34 +5912,24 @@ curl https://api-testnet.bybit.com/v2/public/time
 <td>買賣方向</td>
 </tr>
 <tr>
-<td style="text-align: left">qty</td>
-<td style="text-align: left">string</td>
-<td>訂單數量</td>
-</tr>
-<tr>
-<td style="text-align: left">leavesQty</td>
-<td style="text-align: left">string</td>
-<td>剩餘數量</td>
-</tr>
-<tr>
 <td style="text-align: left">price</td>
 <td style="text-align: left">string</td>
 <td>訂單價格</td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="#time-in-force-timeinforce">timeInForce</a></td>
+<td style="text-align: left">qty</td>
 <td style="text-align: left">string</td>
-<td><a href="https://help.bybit.com/hc/zh-cn/articles/360039749233-%E4%BB%80%E4%B9%88%E6%98%AF%E8%AE%A2%E5%8D%95%E6%89%A7%E8%A1%8C%E7%AD%96%E7%95%A5-TIF-GTC-FOK-IOC-">執行策略</a></td>
+<td>訂單數量</td>
 </tr>
 <tr>
-<td style="text-align: left">cumQty</td>
+<td style="text-align: left">cumExecQty</td>
 <td style="text-align: left">string</td>
 <td>累計成交數量</td>
 </tr>
 <tr>
-<td style="text-align: left">cumExecFee</td>
+<td style="text-align: left">leavesQty</td>
 <td style="text-align: left">string</td>
-<td>累計成交手續費</td>
+<td>剩餘數量</td>
 </tr>
 <tr>
 <td style="text-align: left">orderIm</td>
@@ -5894,153 +5937,9 @@ curl https://api-testnet.bybit.com/v2/public/time
 <td>起始保證金</td>
 </tr>
 <tr>
-<td style="text-align: left">orderStatus</td>
+<td style="text-align: left">realisedPnl</td>
 <td style="text-align: left">string</td>
-<td><a href="#order-status-status">訂單狀態</a></td>
-</tr>
-<tr>
-<td style="text-align: left">reduceOnly</td>
-<td style="text-align: left">number</td>
-<td>只減倉</td>
-</tr>
-<tr>
-<td style="text-align: left">closeOnTrigger</td>
-<td style="text-align: left">bool</td>
-<td>觸發後平倉. 如果下平倉單，請設置為true，避免因為保證金不足而導致下單失敗</td>
-</tr>
-<tr>
-<td style="text-align: left">takeProfit</td>
-<td style="text-align: left">string</td>
-<td>止盈價格</td>
-</tr>
-<tr>
-<td style="text-align: left">stopLoss</td>
-<td style="text-align: left">string</td>
-<td>止損價格</td>
-</tr>
-<tr>
-<td style="text-align: left">tpTriggerBy</td>
-<td style="text-align: left">string</td>
-<td>止盈激活價格類型，默認為LastPrice</td>
-</tr>
-<tr>
-<td style="text-align: left">slTriggerBy</td>
-<td style="text-align: left">string</td>
-<td>止損激活價格類型，默認為LastPrice</td>
-</tr>
-<tr>
-<td style="text-align: left">basePrice</td>
-<td style="text-align: left">string</td>
-<td>下單時市價</td>
-</tr>
-<tr>
-<td style="text-align: left">triggerPrice</td>
-<td style="text-align: left">string</td>
-<td>觸發價格</td>
-</tr>
-<tr>
-<td style="text-align: left">triggerBy</td>
-<td style="text-align: left">string</td>
-<td>觸發價格類型，默認為LastPrice， (暫時不支持條件單)</td>
-</tr>
-</tbody></table>
-<h3 id='t-usdc_perp_active_orders_delta'>活動單(新增)</h3>
-<blockquote>
-<p>請求訂閱</p>
-</blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code> <span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"method":"private/subscribe","id":"{100003}","params":{"channels":["user.perp.order.t"]}}</span><span class="dl">'</span><span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>快照推送示例 - 有成交時推動數據示例</p>
-</blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">8439b7bf-9c6a-4ce2-9c48-72ddbbc4544e</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">channel</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">user.perp.order.t</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">SNAPSHOT</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">serialNumber</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">publishTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">738754913</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1640854950738</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
-      <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">accountId</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">userId</span><span class="dl">"</span><span class="p">:</span><span class="mi">247007</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">createType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">CreateByUser</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">cancelType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">tpTriggerBy</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">slTriggerBy</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">takeProfit</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">stopLoss</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">640034d1-97ec-4382-9983-694898c03ba3</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Market</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">ImmediateOrCancel</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">reduceOnly</span><span class="dl">"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">stopOrderType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">triggerBy</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">basePrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">trailValue</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">triggerPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">49192.5</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderAvgPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">46851.5</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">leavesQty</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">cumValue</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">468.515</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">cumExecFee</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.35138625</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderStatus</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Filled</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">cxlRejReason</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">EC_NoError</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">origTriggerPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">origPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">origQty</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">origOrderType</span><span class="dl">"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">isWorking</span><span class="dl">"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Market</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">avgPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">46851.5</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">pnl</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">symbolId</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">expectedDirection</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">closeOnTrigger</span><span class="dl">"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">cumExecQty</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderIM</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">createdAt</span><span class="dl">"</span><span class="p">:</span><span class="mi">1640854950672</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">updatedAt</span><span class="dl">"</span><span class="p">:</span><span class="mi">1640854950675</span>
-      <span class="p">}</span>
-    <span class="p">],</span>
-      <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span><span class="mi">38989</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">sendTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1640854950690</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<p><p>訂閱此消息後，會收到新增的活動單数据</p>
-<p>topic:</p>
-<p>user.perp.order.t</p>
-</p>
-
-<p class="fake_header">返回參數</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">參數</th>
-<th style="text-align: left">類型</th>
-<th>說明</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">orderId</td>
-<td style="text-align: left">string</td>
-<td>平台生成的訂單號</td>
-</tr>
-<tr>
-<td style="text-align: left">orderLinkId</td>
-<td style="text-align: left">string</td>
-<td>關聯訂單號，最大不成超過32位</td>
-</tr>
-<tr>
-<td style="text-align: left">symbol</td>
-<td style="text-align: left">string</td>
-<td>合約名稱</td>
+<td>平倉累計損益</td>
 </tr>
 <tr>
 <td style="text-align: left">orderType</td>
@@ -6048,24 +5947,9 @@ curl https://api-testnet.bybit.com/v2/public/time
 <td>參考 <a href="#order-type-type-ordertypes">訂單類型</a></td>
 </tr>
 <tr>
-<td style="text-align: left">side</td>
-<td style="text-align: left">string</td>
-<td>買賣方向</td>
-</tr>
-<tr>
-<td style="text-align: left">qty</td>
-<td style="text-align: left">string</td>
-<td>訂單數量</td>
-</tr>
-<tr>
-<td style="text-align: left">leavesQty</td>
-<td style="text-align: left">string</td>
-<td>剩餘數量</td>
-</tr>
-<tr>
-<td style="text-align: left">price</td>
-<td style="text-align: left">string</td>
-<td>訂單價格</td>
+<td style="text-align: left">reduceOnly</td>
+<td style="text-align: left">number</td>
+<td>只減倉</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#time-in-force-timeinforce">timeInForce</a></td>
@@ -6078,24 +5962,29 @@ curl https://api-testnet.bybit.com/v2/public/time
 <td>累計成交手續費</td>
 </tr>
 <tr>
-<td style="text-align: left">orderIM</td>
+<td style="text-align: left">orderPnl</td>
 <td style="text-align: left">string</td>
-<td>起始保證金</td>
+<td>該筆訂單的總的交易損益總和</td>
 </tr>
 <tr>
-<td style="text-align: left">orderStatus</td>
+<td style="text-align: left">basePrice</td>
 <td style="text-align: left">string</td>
-<td><a href="#order-status-status">訂單狀態</a></td>
+<td>下單時市價</td>
 </tr>
 <tr>
-<td style="text-align: left">reduceOnly</td>
-<td style="text-align: left">number</td>
-<td>只減倉</td>
+<td style="text-align: left">cumExecValue</td>
+<td style="text-align: left">string</td>
+<td>累計成交價值</td>
 </tr>
 <tr>
 <td style="text-align: left">closeOnTrigger</td>
 <td style="text-align: left">bool</td>
 <td>觸發後平倉. 如果下平倉單，請設置為true，避免因為保證金不足而導致下單失敗</td>
+</tr>
+<tr>
+<td style="text-align: left">triggerBy</td>
+<td style="text-align: left">string</td>
+<td>觸發價格類型，默認為LastPrice， (暫時不支持條件單)</td>
 </tr>
 <tr>
 <td style="text-align: left">takeProfit</td>
@@ -6118,24 +6007,19 @@ curl https://api-testnet.bybit.com/v2/public/time
 <td>止損激活價格類型，默認為LastPrice</td>
 </tr>
 <tr>
-<td style="text-align: left">basePrice</td>
-<td style="text-align: left">string</td>
-<td>下單時市價</td>
-</tr>
-<tr>
 <td style="text-align: left">triggerPrice</td>
 <td style="text-align: left">string</td>
 <td>觸發價格</td>
 </tr>
 <tr>
-<td style="text-align: left">triggerBy</td>
-<td style="text-align: left">string</td>
-<td>觸發價格類型，默認為LastPrice， (暫時不支持條件單)</td>
-</tr>
-<tr>
 <td style="text-align: left">stopOrderType</td>
 <td style="text-align: left">string</td>
 <td>參考 <a href="#stop-order-type">Stop Order Type</a></td>
+</tr>
+<tr>
+<td style="text-align: left">cancelType</td>
+<td style="text-align: left">string</td>
+<td>參考 <a href="#cancel-type">Cancel Type</a></td>
 </tr>
 </tbody></table>
 <h3 id='t-userorderhistory'>用戶訂單信息</h3>
