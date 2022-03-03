@@ -2702,17 +2702,17 @@ en:
     <p>Subscribing:</p>
     <p>ws.send('{"op":"subscribe","id":"{uuid}","args":["topic1","topic2"]}');</p>
     <p>Response:</p>
-    <p>{"id":"{uuid}","success":True,"conn_id":{conn_id},"data":{"successTopics":["topic1"],"failTopics":["topic2"]},"type":"COMMAND_RESP"}</p>
+    <p>{"id":"{uuid}","success":true,"conn_id":{conn_id},"data":{"successTopics":["topic1"],"failTopics":["topic2"]},"type":"COMMAND_RESP"}</p>
   usdc_websocket_unsubscribe_desc: |
     <p>Remove WebSocket Topic Subscriptions</p>
     <p>ws.send('{"op":"unsubscribe","id":"{uuid}","args":["topic1","topic2"]}')  </p>
     <p>Response: </p>
-    <p>{"id":"{uuid}","success":True,"conn_id":{conn_id},"data":{"successTopics":["topic1"],"failTopics":["topic2"]},"type":"COMMAND_RESP"}</p>
+    <p>{"id":"{uuid}","success":true,"conn_id":{conn_id},"data":{"successTopics":["topic1"],"failTopics":["topic2"]},"type":"COMMAND_RESP"}</p>
 
     <p>Remove All WebSocket Topic Subscriptions</p>
     <p>{"op":"unSubAll","id":"{uuid}"}</p>
     <p>Response:</p>
-    <p> {"id":"{uuid}","success":True,"conn_id":{conn_id},"type":"COMMAND_RESP"}</p>
+    <p> {"id":"{uuid}","success":true,"conn_id":{conn_id},"type":"COMMAND_RESP"}</p>
 
 
   usdc_websocket_para_orderbook: |
@@ -3196,7 +3196,7 @@ en:
     <p>All requests made to the private API must be authenticated. Requests made to the public API do not require authentication.</p>
     </ul>
   usdc_perp_order_type: refer to <a href="#order-type-type-ordertypes">Order Type</a>
-  usdc_perp_active_orders_snapshot: Active Orders
+  usdc_perp_active_orders_snapshot: Orders
   usdc_perp_active_order_delta_topic: |
     <p>Subscribe to stay updated on new and partially filled active orders.</p>
     <p>topic:</p>
