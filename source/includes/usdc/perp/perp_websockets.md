@@ -215,8 +215,8 @@ t(:usdc_perp_websocket_para_orderbook)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| price |string |t(:row_comment_resp_price) |
-|symbol|string |t(:usdcSymbol)    |
+|price |string |t(:row_comment_resp_price) |
+|symbol |string |t(:usdcSymbol)    |
 |side |string |t(:row_comment_side)  |
 |size |number |t(:row_comment_position_size)  |
 
@@ -715,104 +715,3 @@ t(:usdc_perp_active_order)
 | triggerPrice |string |t(:triggerPrice) |
 | stopOrderType |string |t(:usdcStopOrderType) |
 | cancelType |string |t(:usdcCancelType) |
-
-
-
-### t(:userOrderHistory)
-> t(:codequote_subscribe)
-
-```javascript
- ws.send('{"method":"private/subscribe","id":"{100003}","params":{"channels":["user.perp.orderHistory"]}}');
-```
-
-> t(:usdc_trade_codequote_snapshot)
-
-```javascript
-{
-  "id":"8eb06bdc-bf5e-408c-a5fc-e5084d0e3682",
-    "channel":"user.perp.orderHistory",
-    "type":"SNAPSHOT",
-    "serialNumber":1,
-    "publishTime":743752330,
-    "creationTime":1640854950743,
-    "data":{
-    "result":[
-      {
-        "accountId":0,
-        "userId":247007,
-        "symbol":"BTCPERP",
-        "createType":"CreateByUser",
-        "cancelType":"UNKNOWN",
-        "orderLinkId":"",
-        "tpTriggerBy":"UNKNOWN",
-        "slTriggerBy":"UNKNOWN",
-        "takeProfit":"0",
-        "stopLoss":"0",
-        "orderId":"640034d1-97ec-4382-9983-694898c03ba3",
-        "side":"Buy",
-        "orderType":"Market",
-        "timeInForce":"ImmediateOrCancel",
-        "reduceOnly":false,
-        "stopOrderType":"UNKNOWN",
-        "triggerBy":"UNKNOWN",
-        "basePrice":"",
-        "trailValue":"0",
-        "triggerPrice":"0",
-        "price":"49192.5",
-        "orderAvgPrice":"46851.5",
-        "qty":"0.01",
-        "leavesQty":"0",
-        "cumValue":"468.515",
-        "cumExecFee":"0.35138625",
-        "orderStatus":"Filled",
-        "cxlRejReason":"EC_NoError",
-        "origTriggerPrice":"0",
-        "origPrice":"0",
-        "origQty":"0",
-        "origOrderType":null,
-        "isWorking":true,
-        "type":"Market",
-        "avgPrice":"46851.5",
-        "pnl":"",
-        "symbolId":0,
-        "expectedDirection":"UNKNOWN",
-        "closeOnTrigger":false,
-        "cumExecQty":"0.01",
-        "orderIM":"0",
-        "createdAt":1640854950672,
-        "updatedAt":1640854950675
-      }
-    ],
-      "version":38989,
-      "sendTime":1640854950690
-  }
-}
-```
-
-t(:usdc_perp_order_desc)
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-| orderId |string |t(:usdcOrderId) |
-| orderLinkId |string |t(:orderLinkId) |
-| symbol |string |t(:usdcSymbol) |
-| orderType|string |t(:usdc_perp_order_type) |
-| side |string |t(:side) |
-| qty |string |t(:orderAllSize) |
-| leavesQty |string |t(:usdc_unfilled_order_size) |
-| price |string |t(:usdcOrderPrice) |
-| t(:row_parameter_timeInForce) |string |t(:row_comment_timeInForce) |
-| cumExecFee |string |t(:cumExecFee) |
-| orderIM |string |t(:im) |
-| orderStatus |string |t(:orderStatus) |
-| reduceOnly |number |t(:reduceOnly) |
-| closeOnTrigger |bool |t(:closeOnTrigger) |
-| takeProfit |string |t(:takeProfit) |
-| stopLoss |string |t(:stopLoss) |
-| tpTriggerBy |string |t(:tptriggerby) |
-| slTriggerBy |string |t(:slTriggerBy) |
-| basePrice |string |t(:basePrice) |
-| triggerPrice |string |t(:triggerPrice) |
-| triggerBy |string |t(:triggerBy) |
-

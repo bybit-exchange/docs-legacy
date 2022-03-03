@@ -669,90 +669,12 @@ t(:usdcCommonDesc)
 | reduceOnly |number |t(:reduceOnly) |
 | basePrice |string |t(:basePrice) |
 
-
-### t(:userOrderHistory)
-> t(:codequote_subscribe)
-
-```javascript
- ws.send('{"op":"subscribe","id":"{100003}","args":["user.option.orderHistory"]}');
-```
-
-> t(:usdc_trade_codequote_snapshot)
-
-```javascript
-{
-  "id":"7e998370-42e2-45ac-ba5e-83f0b8ea2f13",
-    "topic":"user.option.orderHistory",
-    "creationTime":1637834483512,
-    "data":{
-    "result":[
-      {
-        "orderId":"48eca7f8-6916-4473-befc-7c4ad1790783",
-        "symbol":"BTC-26NOV21-30000-P",
-        "orderStatus":"Filled",
-        "side":"Buy",
-        "orderPrice":"3383.5",
-        "orderAllSize":"0.01",
-        "orderFilledSize":"0.01",
-        "orderRemainingSize":"0",
-        "orderAvgPrice":"3383.5",
-        "orderIM":"33.979505575",
-        "orderType":"Limit",
-        "orderTime":1637834483427,
-        "reduceOnly":0,
-        "timeInForce":"GoodTillCancel",
-        "fees":"0.14450558",
-        "cashFlow":"-33.835",
-        "orderRPL":"",
-        "version":9722,
-        "sendTime":9722,
-        "crossSeq":null,
-        "deliveryTime":1637913600000,
-        "strikePrice":"30000",
-        "symbolType":"P",
-        "postOnly":0,
-        "placeType":"price",
-        "placeMode":"advanced",
-        "iv":"15.409",
-        "pushActionType":0
-      }
-    ],
-      "version":251355,
-      "sendTime":1637834483458
-  }
-}
-
-```
-
-t(:usdcOrderDesc)
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-| orderId |string |t(:usdcOrderId) |
-| orderLinkId |string |t(:orderLinkId) |
-| symbol |string |t(:usdcSymbol) |
-| orderType|string |t(:usdcOrderType) |
-| side |string |t(:side) |
-| orderAllSize |string |t(:orderAllSize) |
-| orderFilledSize |string |t(:orderFilledSize) |
-| orderPrice |string |t(:usdcOrderPrice) |
-| iv |string |t(:optionIv) |
-|t(:row_parameter_timeInForce) |string |t(:row_comment_timeInForce) |
-| cumExecQty |string |t(:cumExecQty) |
-| cumExecFee |string |t(:cumExecFee) |
-| orderIM |string |t(:im) |
-| orderStatus |string |t(:orderStatus) |
-| reduceOnly |number |t(:reduceOnly) |
-
-
-
 ### t(:userGreeks)
 
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op":"subscribe","id":"{100003}","args":["user.option.greeks"]}');
+ws.send('{"op":"subscribe","id":"{100003}","args":["user.openapi.greeks"]}');
 
 ```
 
@@ -761,24 +683,21 @@ ws.send('{"op":"subscribe","id":"{100003}","args":["user.option.greeks"]}');
 ```javascript
 
 {
-    "id":"37f1e862-5eaf-4cb5-a588-b369286cd805",
-    "topic":"user.option.greeks",
-    "creationTime":1636528352136,
+    "id":"b3666f79-abf0-45a6-9c6d-ff4d41912b57",
+    "topic":"user.openapi.greeks",
+    "creationTime":1646274372152,
     "data":{
         "result":[
             {
                 "coin":"BTC",
-                "totalDelta":"-0.029750694800",
-                "totalGamma":"0.000001592300",
-                "totalVega":"1.202332081800",
-                "totalTheta":"-9.525983454600",
-                "version":null,
-                "sendTime":null,
-                "crossSeq":null
+                "totalDelta":"0.0006714372",
+                "totalGamma":"-0.0000000654",
+                "totalVega":"-0.3207237154",
+                "totalTheta":"0.1142353260"
             }
         ],
-        "version":63672,
-        "sendTime":1636528352096
+        "version":3984,
+        "baseLine":1
     }
 }
 
@@ -789,7 +708,7 @@ t(:udscGeeksDesc)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| baseCoin |string |t(:usdcBaseCoin) |
+| coin |string |t(:usdcBaseCoin) |
 | totalDelta |string |t(:delta) |
 | totalGamma |string |t(:gamma) |
 | totalVega|string |t(:vega) |

@@ -2536,17 +2536,17 @@ zh-cn:
     <p>訂閱:</p>
     <p>ws.send('{"op":"subscribe","id":"{uuid}","args":["topic1","topic2"]}');</p>
     <p>響應結果:</p>
-    <p>{"id":"{uuid}","success":True,"conn_id":{conn_id},"data":{"successTopics":["topic1"],"failTopics":["topic2"]},"type":"COMMAND_RESP"}</p>
+    <p>{"id":"{uuid}","success":true,"conn_id":{conn_id},"data":{"successTopics":["topic1"],"failTopics":["topic2"]},"type":"COMMAND_RESP"}</p>
   usdc_websocket_unsubscribe_desc: |
     <p>取消訂閱</p>
     <p>ws.send('{"op":"unsubscribe","id":"{uuid}","args":["topic1","topic2"]}')  </p>
     <p>響應結果: </p>
-    <p>{"id":"{uuid}","success":True,"conn_id":{conn_id},"data":{"successTopics":["topic1"],"failTopics":["topic2"]},"type":"COMMAND_RESP"}</p>
+    <p>{"id":"{uuid}","success":true,"conn_id":{conn_id},"data":{"successTopics":["topic1"],"failTopics":["topic2"]},"type":"COMMAND_RESP"}</p>
 
     <p>取消所有訂閱</p>
     <p>{"op":"unSubAll","id":"{uuid}"}</p>
     <p>響應:</p>
-    <p> {"id":"{uuid}","success":True,"conn_id":{conn_id},"type":"COMMAND_RESP"}</p>
+    <p> {"id":"{uuid}","success":true,"conn_id":{conn_id},"type":"COMMAND_RESP"}</p>
 
 
   usdc_websocket_para_orderbook: |
@@ -2557,7 +2557,6 @@ zh-cn:
 
   usdc_websocket_para_orderbook_100: |
      <p>獲取檔位範圍：100.</p>
-     <p>鏈接建立成功時,會首先增收一個全量包,如再次下單,會收到增量的數據包.. </p>
      <p>topic的格式：delta.orderbook100.{symbol} </p>
      <p>比如 delta.orderbook100.BTC-5NOV21-30000-P</p>
 
@@ -2870,7 +2869,7 @@ zh-cn:
   queryLatest500Trades: 最近500條成交記錄
   usdcTradeHistory: 成交記錄
   usdcTransactionType:  <a href="#transaction-type-transaction-type">Transaction type</a>
-  activeOrders: 活動單
+  activeOrders: 訂單
   usdcActiveOrder: |
     <p>topic:</p>
     <p>user.openapi.option.order</p>
@@ -2883,23 +2882,45 @@ zh-cn:
   usdcPerpCategory: 類型 PERPETUAL
   usdcPerpOrderType: <a href="#order-type-type-ordertypes">訂單類型</a>
   usdc_perp_websocket_para_endpoint: |
-    Websocket服務器地址（期權）:
-    <ul>
-    <p>
-      <li>測試網:
-        公共Topics: <span id="testnet_address">wss://stream-testnet.bybit.com/perpetual/ws/v1/realtime_public</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-        <br/>
-
-        私有Topics: <span id="testnet_address_2">wss://stream-testnet.bybit.com/trade/option/usdc/private/v1</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-      </li>
-    </p>
-    <p>
-
-    </p>
-    <p>所有private接口都需要認證，public 接口不需要認證.</p>
-    </ul>
+    Websocket服務器地址:
+        <ul>
+        <p>
+          <li>測試網公共topic地址:
+            <ul>
+              <li><span id="testnet_address">wss://stream-testnet.bybit.com/perpetual/ws/v1/realtime_public</span>
+              <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button></li>
+            </ul>
+          </li>
+          <li>
+            測試網私有topic地址:
+            <ul>
+              <li><span id="testnet_address_2">wss://stream-testnet.bybit.com/trade/option/usdc/private/v1</span>
+              <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button></li>
+            </ul>
+          </li>
+        </p>
+        <p>
+          <li>主網公共topic地址(請根據您的網絡情況選擇以下任意一個地址使用):<br/>
+            <ul>
+              <li><span id="mainnet_perpetual_public_address">wss://stream.bybit.com/perpetual/ws/v1/realtime_public</span>
+              <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_perpetual_public_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button></li>
+              <li><span id="mainnet_perpetual_public_address_2">wss://stream.bytick.com/perpetual/ws/v1/realtime_public</span>
+              <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_perpetual_public_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button></li>
+            </ul>
+          </li>
+        </p>
+        <p>
+          <li>主網私有topic地址(請根據您的網絡情況選擇以下任意一個地址使用):<br/>
+            <ul>
+              <li><span id="mainnet_perpetual_private_address">wss://stream.bybit.com/trade/option/usdc/private/v1</span>
+              <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_perpetual_private_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+              <li><span id="mainnet_perpetual_private_address_2">wss://stream.bytick.com/trade/option/usdc/private/v1</span>
+              <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_perpetual_private_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button></li>
+            </ul>
+          </li>
+        </p>
+        <p>私有topic需要進行認證. 公共類topics不需要進行驗證.</p>
+        </ul>
   usdc_perp_websocket_subscribe_desc: |
     <p>訂閱:</p>
     <p>公有:</p>
@@ -2999,7 +3020,7 @@ zh-cn:
     </li>
     </ul>
   usdc_perp_order_type: 參考 <a href="#order-type-type-ordertypes">訂單類型</a>
-  usdc_perp_active_orders_snapshot: 活動單
+  usdc_perp_active_orders_snapshot: 訂單
   usdc_perp_active_order_delta_topic: |
     <p>訂閱此消息後，會收到新增的活動單数据</p>
     <p>topic:</p>
