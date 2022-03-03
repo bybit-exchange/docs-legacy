@@ -902,10 +902,7 @@
                             <a href="#t-userfilledhistory" class="toc-h3 toc-link" data-title="Trade">Trade</a>
                           </li>
                           <li>
-                            <a href="#t-activeorders" class="toc-h3 toc-link" data-title="Active Order">Active Order</a>
-                          </li>
-                          <li>
-                            <a href="#t-userorderhistory" class="toc-h3 toc-link" data-title="Order History">Order History</a>
+                            <a href="#t-activeorders" class="toc-h3 toc-link" data-title="Orders">Orders</a>
                           </li>
                           <li>
                             <a href="#t-usergreeks" class="toc-h3 toc-link" data-title="Greeks">Greeks</a>
@@ -4611,19 +4608,19 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <p><p>Subscribing:</p>
 <p>ws.send('{"op":"subscribe","id":"{uuid}","args":["topic1","topic2"]}');</p>
 <p>Response:</p>
-<p>{"id":"{uuid}","success":True,"conn_id":{conn_id},"data":{"successTopics":["topic1"],"failTopics":["topic2"]},"type":"COMMAND_RESP"}</p>
+<p>{"id":"{uuid}","success":true,"conn_id":{conn_id},"data":{"successTopics":["topic1"],"failTopics":["topic2"]},"type":"COMMAND_RESP"}</p>
 </p>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Subscribing to the trade data for BTCUSDT</span>
 </code></pre></div><h3 id='t-websocketunfilters'>Understanding Websocket Filters unsubscription</h3>
 <p><p>Remove WebSocket Topic Subscriptions</p>
 <p>ws.send('{"op":"unsubscribe","id":"{uuid}","args":["topic1","topic2"]}')  </p>
 <p>Response: </p>
-<p>{"id":"{uuid}","success":True,"conn_id":{conn_id},"data":{"successTopics":["topic1"],"failTopics":["topic2"]},"type":"COMMAND_RESP"}</p>
+<p>{"id":"{uuid}","success":true,"conn_id":{conn_id},"data":{"successTopics":["topic1"],"failTopics":["topic2"]},"type":"COMMAND_RESP"}</p>
 
 <p>Remove All WebSocket Topic Subscriptions</p>
 <p>{"op":"unSubAll","id":"{uuid}"}</p>
 <p>Response:</p>
-<p> {"id":"{uuid}","success":True,"conn_id":{conn_id},"type":"COMMAND_RESP"}</p>
+<p> {"id":"{uuid}","success":true,"conn_id":{conn_id},"type":"COMMAND_RESP"}</p>
 </p>
 <h2 id='t-websocketresponse'>Understanding Subscription Response</h2>
 <blockquote>
@@ -4756,7 +4753,6 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <span class="p">}</span>
 </code></pre></div>
 <p><p>100 orders will be fetched from the bid and ask side of the order book.</p>
-<p>After a successful subscription, it will always provide the snapshot response.</p>
 <p>Topic format:</p>
 <p>delta.orderbook100.{symbol}</p>
 <p>Such as delta.orderbook100.BTC-5NOV21-30000-P</p>
@@ -5290,7 +5286,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <td><a href="#exec-type">Execution type</a></td>
 </tr>
 </tbody></table>
-<h3 id='t-activeorders'>Active Order</h3>
+<h3 id='t-activeorders'>Orders</h3>
 <blockquote>
 <p>How to Subscribe</p>
 </blockquote>
@@ -5481,152 +5477,11 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <td>Market price during order placement</td>
 </tr>
 </tbody></table>
-<h3 id='t-userorderhistory'>Order History</h3>
-<blockquote>
-<p>How to Subscribe</p>
-</blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code> <span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","id":"{100003}","args":["user.option.orderHistory"]}</span><span class="dl">'</span><span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>Snapshot Response Example - format of response</p>
-</blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">7e998370-42e2-45ac-ba5e-83f0b8ea2f13</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">user.option.orderHistory</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1637834483512</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
-      <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">48eca7f8-6916-4473-befc-7c4ad1790783</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTC-26NOV21-30000-P</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderStatus</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Filled</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">3383.5</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderAllSize</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderFilledSize</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderRemainingSize</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderAvgPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">3383.5</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderIM</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">33.979505575</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Limit</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1637834483427</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">reduceOnly</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">GoodTillCancel</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">fees</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.14450558</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">cashFlow</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">-33.835</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span><span class="mi">9722</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">sendTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">9722</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">crossSeq</span><span class="dl">"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">deliveryTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1637913600000</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">strikePrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">30000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">symbolType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">P</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">postOnly</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">placeType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">placeMode</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">advanced</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">iv</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">15.409</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">pushActionType</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span>
-      <span class="p">}</span>
-    <span class="p">],</span>
-      <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span><span class="mi">251355</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">sendTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1637834483458</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-</code></pre></div>
-<p><p>topic:</p>
-<p>Option: user.option.orderHistory</p>
-</p>
-
-<p class="fake_header">Response Parameters</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Type</th>
-<th>Comment</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">orderId</td>
-<td style="text-align: left">string</td>
-<td>Order ID</td>
-</tr>
-<tr>
-<td style="text-align: left">orderLinkId</td>
-<td style="text-align: left">string</td>
-<td>Custom ID used for cross-platform strategy remarks; a max. of 32 characters</td>
-</tr>
-<tr>
-<td style="text-align: left">symbol</td>
-<td style="text-align: left">string</td>
-<td>Contract name</td>
-</tr>
-<tr>
-<td style="text-align: left">orderType</td>
-<td style="text-align: left">string</td>
-<td>refer to<a href="#order-type-type-ordertypes">Order type</a> (MARKET is not supported currently for Options)</td>
-</tr>
-<tr>
-<td style="text-align: left">side</td>
-<td style="text-align: left">string</td>
-<td>Direction</td>
-</tr>
-<tr>
-<td style="text-align: left">orderAllSize</td>
-<td style="text-align: left">string</td>
-<td>size of order.</td>
-</tr>
-<tr>
-<td style="text-align: left">orderFilledSize</td>
-<td style="text-align: left">string</td>
-<td>filled size of order.</td>
-</tr>
-<tr>
-<td style="text-align: left">orderPrice</td>
-<td style="text-align: left">string</td>
-<td>Order price</td>
-</tr>
-<tr>
-<td style="text-align: left">iv</td>
-<td style="text-align: left">string</td>
-<td>Implied volatility</td>
-</tr>
-<tr>
-<td style="text-align: left"><a href="#time-in-force-timeinforce">timeInForce</a></td>
-<td style="text-align: left">string</td>
-<td><a href="https://help.bybit.com/hc/en-us/articles/360039749233-What-Are-Time-In-Force-TIF-GTC-IOC-FOK-">Time in force</a></td>
-</tr>
-<tr>
-<td style="text-align: left">cumExecQty</td>
-<td style="text-align: left">string</td>
-<td>Total filled quantity</td>
-</tr>
-<tr>
-<td style="text-align: left">cumExecFee</td>
-<td style="text-align: left">string</td>
-<td>Total trading fees</td>
-</tr>
-<tr>
-<td style="text-align: left">orderIM</td>
-<td style="text-align: left">string</td>
-<td>Initial margin</td>
-</tr>
-<tr>
-<td style="text-align: left">orderStatus</td>
-<td style="text-align: left">string</td>
-<td><a href="#order-status-status">Order status</a></td>
-</tr>
-<tr>
-<td style="text-align: left">reduceOnly</td>
-<td style="text-align: left">number</td>
-<td>Reduce-only</td>
-</tr>
-</tbody></table>
 <h3 id='t-usergreeks'>Greeks</h3>
 <blockquote>
 <p>How to Subscribe</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","id":"{100003}","args":["user.option.greeks"]}</span><span class="dl">'</span><span class="p">);</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","id":"{100003}","args":["user.openapi.greeks"]}</span><span class="dl">'</span><span class="p">);</span>
 
 </code></pre></div>
 <blockquote>
@@ -5634,24 +5489,21 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code>
 <span class="p">{</span>
-    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">37f1e862-5eaf-4cb5-a588-b369286cd805</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">user.option.greeks</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1636528352136</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">b3666f79-abf0-45a6-9c6d-ff4d41912b57</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">user.openapi.greeks</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1646274372152</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
         <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
             <span class="p">{</span>
                 <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">totalDelta</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">-0.029750694800</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">totalGamma</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.000001592300</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">totalVega</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1.202332081800</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">totalTheta</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">-9.525983454600</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">sendTime</span><span class="dl">"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">crossSeq</span><span class="dl">"</span><span class="p">:</span><span class="kc">null</span>
+                <span class="dl">"</span><span class="s2">totalDelta</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.0006714372</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">totalGamma</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">-0.0000000654</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">totalVega</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">-0.3207237154</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">totalTheta</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.1142353260</span><span class="dl">"</span>
             <span class="p">}</span>
         <span class="p">],</span>
-        <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span><span class="mi">63672</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">sendTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1636528352096</span>
+        <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span><span class="mi">3984</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">baseLine</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
@@ -5670,7 +5522,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">baseCoin</td>
+<td style="text-align: left">coin</td>
 <td style="text-align: left">string</td>
 <td>Base currency</td>
 </tr>
