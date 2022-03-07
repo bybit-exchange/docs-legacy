@@ -261,7 +261,7 @@ t(:usdc_current_24_total_perp)
 |:----- |:-----|----- |
 | tradeTime |string |t(:tradeTime) |
 | symbol |string |t(:usdcSymbol) |
-| side |string |t(:side) |
+| side |string |t(:websocketTradeSide) |
 | size |string |t(:row_comment_position_size) |
 | price |string |t(:row_comment_exec_price) |
 | tradeId |string |t(:tradeId) |

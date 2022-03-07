@@ -473,7 +473,7 @@ t(:websocket_para_trade)
 |time |string |t(:row_response_comment_time)  |
 |trade_time_ms |number |t(:row_response_comment_nill_time)  |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
-|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|t(:row_parameter_side) |string |t(:websocketTradeSide)  |
 |size |number |t(:row_comment_position_size)  |
 |t(:row_parameter_price) |number |t(:row_response_comment_price)  |
 |t(:row_parameter_tick_direction) |string |t(:row_comment_position_tick_direction)  |
