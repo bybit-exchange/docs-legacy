@@ -2150,8 +2150,8 @@ t(:linear_private_closed_pnl_records)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=pltcList>/futures/private/trade/closed-pnl/list</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pltcList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=pltcList1>/futures/private/trade/closed-pnl/list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pltcList1"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
