@@ -2777,7 +2777,8 @@ zh-cn:
   usdc_auth_para_construct1: <p>1. 参数为json格式</p>
   resultTotalSize: 條數
   dataList: 返回結果list，參考如下的字段
-  usdcBatchOrdersDesc: 支持用戶批量下單，一次請求裡最多包含4條記錄。
+  usdcBatchOrdersDesc: 支持用戶批量下單，一次請求裡最多包含4條記錄。請將reduce only類別的訂單單獨發送請求，不要與其他訂單類型混送。
+
   publicTopic: 公有推送
   bybitTradeHistory: Bybit平台最近成交數據
   insuranceFund: 保險基金數據
@@ -3104,3 +3105,5 @@ zh-cn:
   spotEtpQuoteNav: 净值
   spotEtpQuoteNavTime: 净值更新时间戳UTC毫秒
   spotEtpQuoteBasket: 篮子
+
+  perpUsdcReplaceOrderDesc: 活動訂單參數（如數量、價格）與止盈止損參數，無法同時在一個請求中修改，請分開請求進行修改。
