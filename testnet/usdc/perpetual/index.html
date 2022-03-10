@@ -2571,7 +2571,9 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal?sy
 <td>Direction</td>
 </tr>
 </tbody></table>
-<h3 id='t-usdcreplaceorder'>Modify Order</h3><div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/replace-order \
+<h3 id='t-usdcreplaceorder'>Modify Order</h3>
+<p>Active order parameters (such as quantity, price) and stop order parameters cannot be modified in one request at the same time. Please request modification separately.</p>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/replace-order \
 -H "Content-Type: application/json" \
 -D '{
 "symbol":"BTCPERP",

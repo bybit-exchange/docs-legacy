@@ -1914,7 +1914,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 </tr>
 </tbody></table>
 <h3 id='t-usdcbatchorders'>批量下單</h3>
-<p>支持用戶批量下單，一次請求裡最多包含4條記錄。</p>
+<p>支持用戶批量下單，一次請求裡最多包含4條記錄。請將reduce only類別的訂單單獨發送請求，不要與其他訂單類型混送。</p>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-place-orders \
 -H "Content-Type: application/json" \
 -D '{"orderRequest":[{"outRequestId":"4c77b34a-9093-4bca-9cad-727cd6efed7e","symbol":"BTC-26NOV21-58000-P","orderType":"Limit","side":"Buy","orderQty":"1","orderPrice":"1","timeInForce":"GoodTillCancel"}]}'
@@ -2192,7 +2192,9 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td>關聯訂單號，最大不成超過32位</td>
 </tr>
 </tbody></table>
-<h3 id='t-usdcbatchreplaceorders'>批量修改訂單</h3><div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-replace-orders \
+<h3 id='t-usdcbatchreplaceorders'>批量修改訂單</h3>
+<p>支持用戶批量下單，一次請求裡最多包含4條記錄。請將reduce only類別的訂單單獨發送請求，不要與其他訂單類型混送。</p>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-replace-orders \
 -H "Content-Type: application/json" \
 -D '{"replaceOrderRequest":[{"outRequestId":"89befe89-0869-405a-a07c-2599324d009d","symbol":"BTC-26NOV21-58000-P","orderId":"be6c87be-da18-4876-9a64-6b7ccc859071","orderQty":"1","orderPrice":"1"}]}'
 
