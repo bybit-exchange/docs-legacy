@@ -97,6 +97,8 @@ POST
 
 ### t(:usdcReplaceOrder)
 
+t(:perpUsdcReplaceOrderDesc)
+
 
 ```console
 curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/replace-order \

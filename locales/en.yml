@@ -2947,7 +2947,7 @@ en:
   usdc_auth_para_construct1: <p>1.The parameters are in json format</p>
   resultTotalSize: length of dataList
   dataList: Return the result list, refer to the following fields
-  usdcBatchOrdersDesc: Each request supports a max. of four orders.
+  usdcBatchOrdersDesc: Each request supports a max. of four orders. Please send the type of reduce only orders separately and do not mix with other order types in the same request.
   publicTopic: Public Topic
   bybitTradeHistory: Trade
   insuranceFund: Insurance Fund
@@ -3284,3 +3284,5 @@ en:
   spotEtpQuoteNav: Net asset value
   spotEtpQuoteNavTime: Update time for net asset value (in milliseconds and UTC time zone)
   spotEtpQuoteBasket: Basket value
+
+  perpUsdcReplaceOrderDesc: Active order parameters (such as quantity, price) and stop order parameters cannot be modified in one request at the same time. Please request modification separately.

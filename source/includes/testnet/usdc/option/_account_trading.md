@@ -208,6 +208,8 @@ POST
 
 ### t(:usdcBatchReplaceOrders)
 
+t(:usdcBatchOrdersDesc)
+
 ```console
 curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-replace-orders \
 -H "Content-Type: application/json" \
