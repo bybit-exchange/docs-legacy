@@ -15,7 +15,7 @@ t(:ENUMs_para)
 t(:usdc_trading_symbol_comment)
 
 
-## Order type (`type`/`orderTypes`)
+## Order type (`orderType`)
 * `Limit`
 
 
@@ -23,21 +23,21 @@ t(:usdc_trading_symbol_comment)
 * `USDC`
 
 
-## Order status (`status`)
+## Order status (`orderStatus`)
 * `New`
 * `PartiallyFilled`
 * `Filled`
 * `Cancelled`
 * `Rejected`
 
-## Quantity (`orderQty`)
+## Quantity (`orderQty`/`qty`)
 t(:usdcQuantity)
 
 ## Price (`price`)
 t(:usdcPriceRule)
 
 
-## Transaction type (`Transaction type`)
+## Transaction type (`type`)
 * `TRANSFER_IN`
 * `TRANSFER_OUT`
 * `TRADE`
@@ -45,14 +45,14 @@ t(:usdcPriceRule)
 * `DELIVERY`
 * `LIQUIDATION`
 
-## Margin Mode
+## Margin Mode (`marginMode`)
 * `REGULAR_MARGIN`
 * `PORTFOLIO_MARGIN`
 
-## Exec Type
+## Exec Type (`execType`)
 * `TRADE`
 
-## Stop Order Type
+## Stop Order Type (`stopOrderType`)
 * `Stop`
 * `TakeProfit`
 * `StopLoss`
@@ -62,7 +62,7 @@ t(:usdcPriceRule)
 * `PartialStopLoss`
 
 
-## Cancel Type
+## Cancel Type (`cancelType`)
 * `CancelByUser`
 * `CancelAllBeforeLiq`
 * `CancelAllBeforeAdl`
