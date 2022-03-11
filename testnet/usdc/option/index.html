@@ -924,34 +924,34 @@
                     <a href="#symbol-symbol" class="toc-h2 toc-link" data-title="Symbol (symbol)">Symbol (<code>symbol</code>)</a>
                   </li>
                   <li>
-                    <a href="#order-type-type-ordertypes" class="toc-h2 toc-link" data-title="Order type (type/orderTypes)">Order type (<code>type</code>/<code>orderTypes</code>)</a>
+                    <a href="#order-type-ordertype" class="toc-h2 toc-link" data-title="Order type (orderType)">Order type (<code>orderType</code>)</a>
                   </li>
                   <li>
                     <a href="#currency-currency-coin" class="toc-h2 toc-link" data-title="Currency (currency/coin)">Currency (<code>currency</code>/<code>coin</code>)</a>
                   </li>
                   <li>
-                    <a href="#order-status-status" class="toc-h2 toc-link" data-title="Order status (status)">Order status (<code>status</code>)</a>
+                    <a href="#order-status-orderstatus" class="toc-h2 toc-link" data-title="Order status (orderStatus)">Order status (<code>orderStatus</code>)</a>
                   </li>
                   <li>
-                    <a href="#quantity-orderqty" class="toc-h2 toc-link" data-title="Quantity (orderQty)">Quantity (<code>orderQty</code>)</a>
+                    <a href="#quantity-orderqty-qty" class="toc-h2 toc-link" data-title="Quantity (orderQty/qty)">Quantity (<code>orderQty</code>/<code>qty</code>)</a>
                   </li>
                   <li>
                     <a href="#price-price" class="toc-h2 toc-link" data-title="Price (price)">Price (<code>price</code>)</a>
                   </li>
                   <li>
-                    <a href="#transaction-type-transaction-type" class="toc-h2 toc-link" data-title="Transaction type (Transaction type)">Transaction type (<code>Transaction type</code>)</a>
+                    <a href="#transaction-type-type" class="toc-h2 toc-link" data-title="Transaction type (type)">Transaction type (<code>type</code>)</a>
                   </li>
                   <li>
-                    <a href="#margin-mode" class="toc-h2 toc-link" data-title="Margin Mode">Margin Mode</a>
+                    <a href="#margin-mode-marginmode" class="toc-h2 toc-link" data-title="Margin Mode (marginMode)">Margin Mode (<code>marginMode</code>)</a>
                   </li>
                   <li>
-                    <a href="#exec-type" class="toc-h2 toc-link" data-title="Exec Type">Exec Type</a>
+                    <a href="#exec-type-exectype" class="toc-h2 toc-link" data-title="Exec Type (execType)">Exec Type (<code>execType</code>)</a>
                   </li>
                   <li>
-                    <a href="#stop-order-type" class="toc-h2 toc-link" data-title="Stop Order Type">Stop Order Type</a>
+                    <a href="#stop-order-type-stopordertype" class="toc-h2 toc-link" data-title="Stop Order Type (stopOrderType)">Stop Order Type (<code>stopOrderType</code>)</a>
                   </li>
                   <li>
-                    <a href="#cancel-type" class="toc-h2 toc-link" data-title="Cancel Type">Cancel Type</a>
+                    <a href="#cancel-type-canceltype" class="toc-h2 toc-link" data-title="Cancel Type (cancelType)">Cancel Type (<code>cancelType</code>)</a>
                   </li>
               </ul>
           </li>
@@ -5565,7 +5565,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 </ul>
 <h2 id='symbol-symbol'>Symbol (<code>symbol</code>)</h2>
 <p>refer to <a href="#t-querysymbolinfo">Query Symbol</a> endpoint</p>
-<h2 id='order-type-type-ordertypes'>Order type (<code>type</code>/<code>orderTypes</code>)</h2>
+<h2 id='order-type-ordertype'>Order type (<code>orderType</code>)</h2>
 <ul>
 <li><code>Limit</code></li>
 </ul>
@@ -5573,7 +5573,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <ul>
 <li><code>USDC</code></li>
 </ul>
-<h2 id='order-status-status'>Order status (<code>status</code>)</h2>
+<h2 id='order-status-orderstatus'>Order status (<code>orderStatus</code>)</h2>
 <ul>
 <li><code>New</code></li>
 <li><code>PartiallyFilled</code></li>
@@ -5581,11 +5581,11 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <li><code>Cancelled</code></li>
 <li><code>Rejected</code></li>
 </ul>
-<h2 id='quantity-orderqty'>Quantity (<code>orderQty</code>)</h2>
+<h2 id='quantity-orderqty-qty'>Quantity (<code>orderQty</code>/<code>qty</code>)</h2>
 <p><ul> <li>Must be less than 1 thousand  (<code>1000</code>)</li> <li>Must be a positive number： <li>Must conform to the symbol's <code>qtyStep</code>.</li> <ul> <li><code>40</code> - allowed</li> <li><code>40.01</code> - allowed</li> <li><code>-30.5</code> - not allowed</li> </ul> </li> </ul></p>
 <h2 id='price-price'>Price (<code>price</code>)</h2>
 <p><ul> <li>Must be less than 10 million (<code>10000000</code>)</li> <li>Must be a positive number： <ul> <li><code>40</code> - allowed</li> <li><code>40.5</code> - allowed</li> <li><code>40.1</code> - not allowed</li> <li><code>-30.5</code> - not allowed</li> </ul> </li> </ul></p>
-<h2 id='transaction-type-transaction-type'>Transaction type (<code>Transaction type</code>)</h2>
+<h2 id='transaction-type-type'>Transaction type (<code>type</code>)</h2>
 <ul>
 <li><code>TRANSFER_IN</code></li>
 <li><code>TRANSFER_OUT</code></li>
@@ -5594,16 +5594,16 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <li><code>DELIVERY</code></li>
 <li><code>LIQUIDATION</code></li>
 </ul>
-<h2 id='margin-mode'>Margin Mode</h2>
+<h2 id='margin-mode-marginmode'>Margin Mode (<code>marginMode</code>)</h2>
 <ul>
 <li><code>REGULAR_MARGIN</code></li>
 <li><code>PORTFOLIO_MARGIN</code></li>
 </ul>
-<h2 id='exec-type'>Exec Type</h2>
+<h2 id='exec-type-exectype'>Exec Type (<code>execType</code>)</h2>
 <ul>
 <li><code>TRADE</code></li>
 </ul>
-<h2 id='stop-order-type'>Stop Order Type</h2>
+<h2 id='stop-order-type-stopordertype'>Stop Order Type (<code>stopOrderType</code>)</h2>
 <ul>
 <li><code>Stop</code></li>
 <li><code>TakeProfit</code></li>
@@ -5613,7 +5613,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <li><code>PartialTakeProfit</code></li>
 <li><code>PartialStopLoss</code></li>
 </ul>
-<h2 id='cancel-type'>Cancel Type</h2>
+<h2 id='cancel-type-canceltype'>Cancel Type (<code>cancelType</code>)</h2>
 <ul>
 <li><code>CancelByUser</code></li>
 <li><code>CancelAllBeforeLiq</code></li>
