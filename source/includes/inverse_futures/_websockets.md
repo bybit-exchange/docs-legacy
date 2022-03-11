@@ -470,7 +470,7 @@ t(:websocket_para_trade)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|time |string |t(:row_response_comment_time)  |
+|timestamp |string |t(:row_response_comment_time)  |
 |trade_time_ms |number |t(:row_response_comment_nill_time)  |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
 |t(:row_parameter_side) |string |t(:websocketTradeSide)  |

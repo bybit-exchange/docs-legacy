@@ -447,7 +447,7 @@ t(:websocket_para_trade)
 |tick_direction |string |t(:row_comment_position_tick_direction)  |
 |t(:row_parameter_price) |number |t(:row_response_comment_price)  |
 |size |number |t(:row_comment_position_size)  |
-|time |string |t(:row_response_comment_time)  |
+|timestamp |string |t(:row_response_comment_time)  |
 |trade_time_ms |string |t(:row_response_comment_nill_time)  |
 |t(:row_parameter_side) |string |t(:websocketTradeSide)  |
 |trade_id |string |t(:row_response_comment_trade_id)  |
