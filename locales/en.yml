@@ -1565,26 +1565,30 @@ en:
   err_1001: Request failed to be processed. Please try again.
   err_1002: Request not authorized. An API key is required and should be included in all requests.
   err_1003: Too many requests. Please use WebSocket for live updates. Current limit is %s requests per minute.
+  err_1004: Missing required parameter <code>symbol</code>. Content-Type has been configured to application/json; params in JSON format.
   err_1006: System not responding. Request status unknown. Please contact live support.
   err_1007: Response timeout from backend server. Delivery and request status unknown.
   err_1015: Too many new orders. Please lower request frequency.
   err_1016: Service not available.
+  err_1022: Signature for this request is not valid. Check the content-type and try without content-type. If symbol is set to BTC/USDT instead of BTCUSDT this error can ocur. The slash would not be urlencoded before the signature, but it would be after, resulting in mismatching param str.
+  err_1103: An unknown parameter was sent. For POST request - No content-type specified, should change to application/x-www-form-urlencoded or make sure the query string is in the full request URL. For DELETE request, make sure your parameters are in query string format and the query string is in the full request URL. For GET request - Don't set Content-Type to "application/json". "Spot" permission not enabled when creating the API key.
 
 
-  err_10000: An unknown error occurred while processing the request
+  err_10000: An unknown error occurred while processing the request.
   err_10001: Params Error
   err_10002: Request not authorized - an API key is required and should be included in all requests.
   err_10003: Too many requests - please use WebSocket for live updates. Current limit is %s requests per minute.
-  err_10004: invalid sign
-  err_10005: permission denied for current apikey
-  err_10006: System not responding. Request status unknown. Please contact live support.
+  err_10004: Invalid sign
+  err_10005: Permission denied for current apikey. API key was created without the correct permissions (e.g. doesn´t have Order permission, or it's set to read-only)
+  err_10006: System not responding. Request status unknown. Too many visits. Please contact live support.
   err_10007: Response timeout from backend server. Delivery and request status unknown.
-  err_10010: request ip mismatch
+  err_10010: Request IP mismatch.
+  err_10012: DB error
   err_10014: Trading pairs not supported.
   err_10015: Too many new orders. Please lower request frequency.
   err_10016: Service not available.
-  err_10017: request path not found or request method is invalid
-  err_10018: exceed ip rate limit
+  err_10017: Request path not found or request method is invalid
+  err_10018: Exceeded IP rate limit.
 
   err_10020: Request not supported.
   err_10021: Timestamp for the request is outside of the recvWindow. The timestamp of this request is 1000 milliseconds ahead of the server time. Please check local time and server time.
@@ -1610,7 +1614,7 @@ en:
   err_11027: Query intervals too large.
   err_11028: Invalid parameter combination.
   err_11030: Invalid parameter sent.
-  err_11031: Insufficient balance
+  err_11031: Insufficient balance.
   err_11032: Order price exceeded upper limit.
   err_11033: Order price exceeded lower limit.
   err_11034: Order price has too many decimals.
@@ -1620,6 +1624,8 @@ en:
   err_11038: Order price exceeded limits.
   err_11039: Order has been filled.
   err_11040: Order value exceeded lower limit.
+
+
   err_11041: Duplicate clientOrderId.
   err_11042: Order has been canceled.
   err_11043: Order not found.
@@ -1636,82 +1642,166 @@ en:
   err_20015: Invalid API key or IP.
   err_20016: Trading window not open yet for current pair.
 
-  err_20001: Order not exists
-  err_20003: missing parameter <code>side</code>
-  err_20004: invalid parameter <code>side</code>
-  err_20005: missing parameter <code>symbol</code>
-  err_20006: invalid parameter <code>symbol</code>
-  err_20007: missing parameter <code>order_type</code>
-  err_20008: invalid parameter <code>order_type</code>
-  err_20009: missing parameter <code>qty</code>
-  err_20012: qty must be greater than zero and less than 1 million
-  err_20017: missing parameter <code>order_id</code>
-  err_20018: invalid date format
-  err_20019: missing parameter <code>stop_px</code>
-  err_20020: missing parameter <code>base_price</code>
-  err_20021: missing parameter <code>stop_order_id</code>
-  err_20022: missing parameter <code>leverage</code>
-  err_20023: leverage must be a number
-  err_20031: leverage must be greater than zero
-  err_20070: missing parameter <code>margin</code>
-  err_20071: margin must be greater than zero
-  err_20084: order_id or order_link_id is required
-  err_30001: order_link_id is repeated
-  err_30003: qty must be more than the minimum allowed
-  err_30004: qty must be less than the maximum allowed
-  err_30005: price exceeds maximum allowed
-  err_30007: price exceeds minimum allowed
-  err_30008: invalid order_type
-  err_30009: no position found
-  err_30010: insufficient wallet balance
-  err_30011: operation not allowed as position is undergoing liquidation
-  err_30012: operation not allowed as position is undergoing ADL
-  err_30013: position is in liq or adl status
-  err_30014: invalid closing order, qty should not greater than size
-  err_30015: invalid closing order, side should be opposite
-  err_30016: TS and SL must be cancelled first while closing position
-  err_30017: estimated fill price cannot be lower than current Buy liq_price
-  err_30018: estimated fill price cannot be higher than current Sell liq_price
-  err_30019: cannot attach TP/SL params for non-zero position when placing non-opening position order
-  err_30020: position already has TP/SL params
-  err_30021: cannot afford estimated position_margin
-  err_30022: estimated buy liq_price cannot be higher than current mark_price
-  err_30023: estimated sell liq_price cannot be lower than current mark_price
-  err_30024: cannot set TP/SL/TS for zero-position
-  err_30025: trigger price should bigger than 10% of last price
-  err_30026: price too high
-  err_30027: price set for Take profit should be higher than Last Traded Price
-  err_30028: price set for Stop loss should be between Liquidation price and Last Traded Price
-  err_30029: price set for Stop loss should be between Last Traded Price and Liquidation price
-  err_30030: price set for Take profit should be lower than Last Traded Price
-  err_30031: insufficient available balance for order cost
-  err_30032: order has been filled or cancelled
-  err_30033: The number of stop orders exceeds maximum limit allowed
-  err_30034: no order found
-  err_30035: too fast to cancel
-  err_30036: the expected position value after order execution exceeds the current risk limit
-  err_30037: order already cancelled
-  err_30041: no position found
-  err_30042: insufficient wallet balance
-  err_30043: operation not allowed as position is undergoing liquidation
-  err_30044: operation not allowed as position is undergoing AD
-  err_30045: operation not allowed as position is not normal status
-  err_30049: insufficient available balance
-  err_30050: any adjustments made will trigger immediate liquidation
-  err_30051: due to risk limit, cannot adjust leverage
-  err_30052: leverage can not less than 1
-  err_30054: position margin is invalid
-  err_30057: requested quantity of contracts exceeds risk limit
-  err_30063: reduce-only rule not satisfied
-  err_30067: insufficient available balance
-  err_30068: exit value must be positive
-  err_30074: can't create the stop order, because you expect the order will be triggered when the <code>LastPrice</code>(or <code>IndexPrice</code>,  <code>MarkPrice</code>, determined by <code>trigger_by</code>) is raising to <code>stop_px</code>, but the <code>LastPrice</code>(or <code>IndexPrice</code>,  <code>MarkPrice</code>) is already equal to or greater than <code>stop_px</code>, please adjust <code>base_price</code> or <code>stop_px</code>
-  err_30075: can't create the stop order, because you expect the order will be triggered when the <code>LastPrice</code>(or <code>IndexPrice</code>,  <code>MarkPrice</code>, determined by <code>trigger_by</code>) is falling to <code>stop_px</code>, but the <code>LastPrice</code>(or <code>IndexPrice</code>,  <code>MarkPrice</code>) is already equal to or less than <code>stop_px</code>, please adjust <code>base_price</code> or <code>stop_px</code>
+  err_20001: Order does not exist.
+  err_20003: Missing parameter <code>side</code>
+  err_20004: Invalid parameter <code>side</code>
+  err_20005: Missing parameter <code>symbol</code>
+  err_20006: Invalid parameter <code>symbol</code>
+  err_20007: Missing parameter <code>order_type</code>
+  err_20008: Invalid parameter <code>order_type</code>
+  err_20009: Missing parameter <code>qty</code>
+  err_20012: <code>qty</code> must be greater than zero and less than 1 million
+  err_20017: Missing parameter <code>order_id</code>
+  err_20018: Invalid date format
+  err_20019: Missing parameter <code>stop_px</code>
+  err_20020: Missing parameter <code>base_price</code>
+  err_20021: Missing parameter <code>stop_order_id</code>
+  err_20022: Missing parameter <code>leverage</code>
+
+  err_20023: Leverage must be a number
+  err_20031: Leverage must be greater than zero
+  err_20070: Missing parameter <code>margin</code>
+  err_20071: <code>margin</code> must be greater than zero
+  err_20084: <code>order_id</code> or <code>order_link_id</code> is required
+
+  err_30001: <code>order_link_id</code> is not unique.
+  err_30002: Exit order already exists.
+  err_30003: <code>qty</code> must be higher than the minimum allowed.
+  err_30004: <code>qty</code> must be higher than the minimum allowed. The number of contracts exceeds maximum limit allowed. Order qty should be less than 1 million per order.
+  err_30005: Order price is out of permissible range.
+  err_30006: No <code>last_price</code>.
+  err_30007: Order price is out of permissible range.
+  err_30008: Invalid <code>order_type</code>.
+  err_30009: No position found.
+  err_30010: Insufficient wallet balance.
+  err_30011: Operation not allowed as position is undergoing liquidation
+  err_30012: Operation not allowed as position is undergoing ADL
+  err_30013: Position is in liq or adl status
+  err_30014: Invalid closing order, qty should not be greater than size.
+  err_30015: Invalid closing order, side should be the opposite.
+  err_30016: TP and SL must be cancelled before closing the position.
+  err_30017: Estimated fill price cannot be lower than current Buy liq_price.
+  err_30018: Estimated fill price cannot be higher than current Sell liq_price.
+  err_30019: Cannot attach TP/SL params for non-zero position when placing non-opening position order.
+  err_30020: Position already has TP/SL params.
+  err_30021: Cannot afford estimated position_margin.
+  err_30022: Estimated buy liq_price cannot be higher than current mark_price.
+  err_30023: Estimated sell liq_price cannot be lower than current mark_price.
+  err_30024: Cannot set TP/SL/TS for zero-position
+  err_30025: Trigger price should bigger than 10% of last price.
+  err_30026: Price is too high.
+  err_30027: Price set for Take profit should be higher than Last Traded Price.
+  err_30028: Price set for Stop Loss should be between Liquidation price and Last Traded Price.
+  err_30029: Price set for Stop Loss should be between Last Traded Price and Liquidation Price.
+  err_30030: Price set for Take Profit should be lower than Last Traded Price.
+  err_30031: Insufficient available balance for order cost.
+  err_30032: Order has been filled or cancelled.
+  err_30033: The number of stop orders exceeds maximum limit allowed.
+  err_30034: No stop order found.
+  err_30035: Too fast to cancel, try it later.
+  err_30036: The expected position value after order execution exceeds the current risk limit
+  err_30037: Order already cancelled
+  err_30038: No mark_price.
+  err_30039: Applied leverage has exceeded the permitted range.
+  err_30040: Any adjustments made will trigger immediate liquidation.
+
+  err_30041: No position found.
+  err_30042: Insufficient wallet balance.
+  err_30043: Operation not allowed as position is undergoing liquidation.
+  err_30044: Operation not allowed as position is undergoing ADL.
+  err_30045: Operation not allowed as position is not in normal status.
+  err_30046: There are multiple untriggered stop orders.
+  err_30047: Inconsistent p:o.
+  err_30048: Applied leverage has exceeded the permitted range.
+  err_30049: Insufficient available balance.
+  err_30050: Any adjustments made will trigger immediate liquidation!
+  err_30051: Due to risk limit, cannot adjust leverage.
+  err_30052: Leverage cannot be less than 1x.
+  err_30053: max_affordable_position_margin <= 0, position:%s
+  err_30054: fixed_new_position_margin is invalid.
+  err_30055: Available Balance is not enough to add margin.
+  err_30056: The position is in cross_margin.
+  err_30057: Requested quantity of contracts exceeds risk limit, please adjust your risk limit level before trying again.
+  err_30063: Reduce-only rule not satisfied
+  err_30066: Set auto add margin fail.
+  err_30067: Insufficient available balance.
+  err_30068: Exit value must be positive.
+  err_30073: Number of active orders is greater than 500.
+  err_30074: Can't create the stop order, because you expect the order will be triggered when the <code>LastPrice</code>(or <code>IndexPrice</code>,  <code>MarkPrice</code>, determined by <code>trigger_by</code>) is raising to <code>stop_px</code>, but the <code>LastPrice</code>(or <code>IndexPrice</code>,  <code>MarkPrice</code>) is already equal to or greater than <code>stop_px</code>, please adjust <code>base_price</code> or <code>stop_px</code>
+  err_30075: Can't create the stop order, because you expect the order will be triggered when the <code>LastPrice</code>(or <code>IndexPrice</code>,  <code>MarkPrice</code>, determined by <code>trigger_by</code>) is falling to <code>stop_px</code>, but the <code>LastPrice</code>(or <code>IndexPrice</code>,  <code>MarkPrice</code>) is already equal to or less than <code>stop_px</code>, please adjust <code>base_price</code> or <code>stop_px</code>
+  err_30076: Replace params invalid. Order not modified.
+  err_30077: Submission of order will result in the breach of user's limit according to open interest.
+  err_30078: Contracts not in trading status
+  err_30079: The position is about to trigger a liquidation
+  err_30080: Price cannot be lower than current Buy liq_price
+  err_30081: Price cannot be greater than current sell liq_price
+  err_30082: Position exists No switching of position mode allowed
+  err_30083: No change in position pattern
+  err_30084: No changes to the full position-by-position model
+  err_30085: Margin unchanged
+  err_30086: With a commissioned order, switching position mode is not allowed
+  err_30087: Symbol does not support two-way open positions
+  err_30088: Symbol does not exist
+  err_30089: Duplicate order number
+  err_30090: Risk limit info does not exist
+  err_30091: Illegal orders (meaning that the order os|cs is not legal in various scenarios)
+  err_30092: No position is not allowed to set margin
+  err_30093: No net position
+  err_30094: Withdrawal of an order before a liquidation is not concluded
+  err_30095: Full positions are not allowed to modify leverage
+
+
+  err_31003: User account banned
+  err_32006: The available balance is not sufficient to cover the handling fee.
+  err_32008: Insufficient available margin.
+  err_32009: Any adjustments made will trigger immediate liquidation.
+  err_32010: Risk limit cannot be adjusted due to insufficient available margin.
+  err_32011: Risk limit cannot be adjusted as the current/expected position value held exceeds the revised risk limit.
+
   err_33004: apikey already expired
-  err_34026: the limit is no change
-  err_35014: over order limit
 
+  err_34010: Wallet Balance is less than zero.
+  err_34015: Cannot set new leverage as it is equal to the previous leverage.
+  err_34017: Current leverage is less than 1X
+  err_34018: Cannot set leverage lower than 1X
+  err_34019: Cannot set leverage greater than maxLeverage.
+  err_34020: Cannot set leverage which is same to the previous leverage.
+  err_34021: Cannot cancel occ_calc_data, the data is wrong.
+  err_34022: Cannot set leverage which will cause available balance less than 0.
+  err_34023: The request was canceled because the origin request has been handled.
+  err_34024: The request does not include add margin data.
+  err_34025: Increase in leverage has failed.
+  err_34026: The new limit is equal to the old limit (no change).
+  err_34027: Cannot adjust leverage.
+  err_32009: Any adjustments made will trigger immediate liquidation.
+  err_34028: ReCalc Funding Fee Failed.
+  err_34030: positionInfo not sync with current exec_rpt.
+  err_34033: Realized PNL already rotated.
+  err_34032: PositionSeq not match on Withdraw.
+  err_34035: Add margin not modified.
+  err_34036: Set leverage not modified.
+  err_34037: Set custom fee rate not modified.
+  err_34038: Update deleverage indicator not modified.
+  err_34039: Update position status not modified.
+  err_34040: Set TP/SL/TS not modified.
 
+  err_35014: Over order limit.
+
+  err_37001: Both side positions tp_sl_mode is equal.
+  err_37002: Same tp_sl_mode.
+  err_37003: This position has at least one stop-link order and cannot switch between stop-loss and take-profit modes.
+  err_37004: This position has at least one stop-loss link order and cannot switch between stop-loss and take-profit modes
+  err_37005: This position has at least one trailing stop or trailing stop link order and cannot be switched to take profit and stop loss mode
+  err_37006: Conditional or limit orders carry a take profit and stop loss parameter
+  err_37007: Insufficient number of positions left to set Stop Loss and Take Profit
+  err_37008: Active orders are not allowed to modify the price and quantity when they also modify the trigger price
+  err_37009: Activity orders are not allowed to modify the stop-loss and take-profit settings if the order is partially filled
+  err_37010: In Full Take Profit Stop Loss mode, it is not allowed to modify the Stop Profit Stop Loss size
+  err_37011: In partial SL mode, SL is set to more than 20. Set SL/TP exceeds the limit oldTpNum+oldStNum+newNum=(2 the num is tp+sl)
+  err_37012: Stop loss price needs to be greater than base price.
+  err_37013: Stop loss price needs to be less than base price.
+
+  err_38101: Replacement of order will result in the breach of user's limit according to open interest.
 
   # Misc.
   misc_row_comment_orderLinkIdNotOrderId: Unique user-set order ID. <b>Required</b> if not passing <code>order_id</code>
