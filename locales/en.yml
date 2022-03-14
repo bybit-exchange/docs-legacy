@@ -2277,6 +2277,7 @@ en:
   restapi_update_20210617_3: Not recommend to use <a href="#t-setleverage">Set Leverage</a> endpoint switch Isolated Margin or Cross Margin
   restapi_update_20210618_1: After June 24, 2021 do not use <code>leverage</code> to determine if position is Isolated Margin or Cross Margin. <code>leverage</code> must be greater than 0 and less than the <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>.
   restapi_update_20210712: Optimize the input and output parameters of some interfaces
+  restapi_update_20220314: Add <code>m</code> (is maker) to the <code>ticketInfo</code> topic
   restapi_update_20210823: |
     Add additional enums for <code><a href="#wallet-fund-type-wallet_fund_type-type">wallet_fund_type</a></code>: <code>ReturnServiceCash</code>, <code>Insurance</code>, <code>SubMember</code> <code>Coupon</code>, <code>AccountTransfer</code>, <code>CashBack</code>
   restapi_update_20210826: Asset Transfer API released!
@@ -2595,6 +2596,7 @@ en:
   ticketInfo: ticketInfo
   ticketInfo_para: |
     Pushes data about your trades (fills). When an order is filled, you will receive two messages: one from <code>ticketInfo</code>, and one from <code>executionReport</code>
+  spot_ticket_info_maker: Is MAKER. true=maker, false=taker
 
   #spot_ws_v2
 

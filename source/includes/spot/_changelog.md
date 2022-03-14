@@ -1,5 +1,8 @@
 # t(:changelog)
-
+## 2022-03-14
+### Websocket API
+- [t(:ticketInfo)](#t-ticketinfo) [t(:changelog_update)]
+  - t(:restapi_update_20220314)
 
 ## 2021-07-12
 ### REST API
