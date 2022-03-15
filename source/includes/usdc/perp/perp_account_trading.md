@@ -12,6 +12,7 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/place-order
 -D '{
     "side": "Buy",
     "orderType": "Limit",
+    "orderFilter": "Order",
     "orderQty": "0.01",
     "orderPrice": "64300",
     "timeInForce": "GoodTillCancel",
@@ -66,6 +67,7 @@ POST
 |:----- |:-------|:-----|----- |
 |symbol|<b>true</b>|string|t(:usdcSymbol)|
 |orderType|<b>true</b>|string|t(:usdcPerpOrderType)|
+|orderFilter|<b>true</b>|string|t(:usdcOrderFilter)|
 |side|<b>true</b>|string|t(:side)|
 |orderPrice|false|string|t(:usdc_perp_order_price)|
 |orderQty|<b>true</b>|string|t(:usdcOrderQty)|

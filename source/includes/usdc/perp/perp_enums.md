@@ -65,7 +65,6 @@ t(:usdc_perp_price_rule)
 * `REGULAR_MARGIN`
 * `PORTFOLIO_MARGIN`
 
-
 ## Order Filter (`orderFilter`)
 * `Order`
 * `StopOrder`
@@ -73,7 +72,6 @@ t(:usdc_perp_price_rule)
 ## LastLiquidityInd (`LastLiquidityInd`)
 * `TAKER`
 * `MAKER`
-
 
 ## Exec Type (`execType`)
 * `TRADE`
