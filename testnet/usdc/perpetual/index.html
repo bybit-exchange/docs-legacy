@@ -2367,6 +2367,7 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal?sy
 -D '{
     "side": "Buy",
     "orderType": "Limit",
+    "orderFilter": "Order",
     "orderQty": "0.01",
     "orderPrice": "64300",
     "timeInForce": "GoodTillCancel",
@@ -2438,7 +2439,13 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal?sy
 <td style="text-align: left">orderType</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td><a href="#order-type-type-ordertypes">Order Type</a></td>
+<td><a href="#order-type-ordertypes">Order Type</a></td>
+</tr>
+<tr>
+<td style="text-align: left">orderFilter</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>refer to  <a href="#order-filter-orderfilter">Order Filter</a></td>
 </tr>
 <tr>
 <td style="text-align: left">side</td>
@@ -2563,7 +2570,7 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal?sy
 <tr>
 <td style="text-align: left">orderType</td>
 <td style="text-align: left">string</td>
-<td><a href="#order-type-type-ordertypes">Order Type</a></td>
+<td><a href="#order-type-ordertypes">Order Type</a></td>
 </tr>
 <tr>
 <td style="text-align: left">side</td>
@@ -2628,7 +2635,7 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal?sy
 <td style="text-align: left">orderFilter</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>refer to  <a href="#order-filter">Order Filter</a></td>
+<td>refer to  <a href="#order-filter-orderfilter">Order Filter</a></td>
 </tr>
 <tr>
 <td style="text-align: left">orderId</td>
@@ -2756,7 +2763,7 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal?sy
 <td style="text-align: left">orderFilter</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>refer to  <a href="#order-filter">Order Filter</a></td>
+<td>refer to  <a href="#order-filter-orderfilter">Order Filter</a></td>
 </tr>
 <tr>
 <td style="text-align: left">orderId</td>
@@ -2831,7 +2838,7 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal?sy
 <td style="text-align: left">orderFilter</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>refer to  <a href="#order-filter">Order Filter</a></td>
+<td>refer to  <a href="#order-filter-orderfilter">Order Filter</a></td>
 </tr>
 </tbody></table>
 
@@ -2935,7 +2942,7 @@ This is used to cancel all active orders . The real-time response indicates whet
 <td style="text-align: left">orderFilter</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>refer to  <a href="#order-filter">Order Filter</a></td>
+<td>refer to  <a href="#order-filter-orderfilter">Order Filter</a></td>
 </tr>
 <tr>
 <td style="text-align: left">direction</td>
@@ -3009,7 +3016,7 @@ This is used to cancel all active orders . The real-time response indicates whet
 <tr>
 <td style="text-align: left">orderType</td>
 <td style="text-align: left">string</td>
-<td><a href="#order-type-type-ordertypes">Order Type</a></td>
+<td><a href="#order-type-ordertypes">Order Type</a></td>
 </tr>
 <tr>
 <td style="text-align: left">side</td>
@@ -3224,7 +3231,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 <td style="text-align: left">orderFilter</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>refer to  <a href="#order-filter">Order Filter</a></td>
+<td>refer to  <a href="#order-filter-orderfilter">Order Filter</a></td>
 </tr>
 <tr>
 <td style="text-align: left">direction</td>
@@ -3298,7 +3305,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 <tr>
 <td style="text-align: left">orderType</td>
 <td style="text-align: left">string</td>
-<td><a href="#order-type-type-ordertypes">Order Type</a></td>
+<td><a href="#order-type-ordertypes">Order Type</a></td>
 </tr>
 <tr>
 <td style="text-align: left">side</td>
@@ -3610,12 +3617,12 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 <tr>
 <td style="text-align: left">execType</td>
 <td style="text-align: left">string</td>
-<td><a href="#exec-type">Execution type</a></td>
+<td><a href="#exec-type-exectype">Execution type</a></td>
 </tr>
 <tr>
 <td style="text-align: left">lastLiquidityInd</td>
 <td style="text-align: left">string</td>
-<td><a href="#lastliquidityind">Liquidity</a></td>
+<td><a href="#lastliquidityind-lastliquidityind">Liquidity</a></td>
 </tr>
 <tr>
 <td style="text-align: left">execValue</td>
@@ -3695,7 +3702,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 <td style="text-align: left">type</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>refer to <a href="#transaction-type-transaction-type">Transaction type</a></td>
+<td>refer to <a href="#transaction-type-type">Transaction type</a></td>
 </tr>
 <tr>
 <td style="text-align: left">startTime</td>
@@ -4129,7 +4136,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-margin-i
 <tr>
 <td style="text-align: left">marginMode</td>
 <td style="text-align: left">string</td>
-<td>Margin mode <a href="#margin-mode">Margin Mode</a></td>
+<td>Margin mode <a href="#margin-mode-marginmode">Margin Mode</a></td>
 </tr>
 </tbody></table>
 <h2 id='t-accountposition'>Positions API</h2><h3 id='t-queryposition'>Query My Positions</h3>
@@ -5817,7 +5824,7 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 <tr>
 <td style="text-align: left">lastLiquidityInd</td>
 <td style="text-align: left">string</td>
-<td><a href="#lastliquidityind">Liquidity</a></td>
+<td><a href="#lastliquidityind-lastliquidityind">Liquidity</a></td>
 </tr>
 <tr>
 <td style="text-align: left">execValue</td>
@@ -5827,7 +5834,7 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 <tr>
 <td style="text-align: left">execType</td>
 <td style="text-align: left">string</td>
-<td><a href="#exec-type">Execution type</a></td>
+<td><a href="#exec-type-exectype">Execution type</a></td>
 </tr>
 </tbody></table>
 <h3 id='t-usdc_perp_active_orders_snapshot'>Orders</h3>
