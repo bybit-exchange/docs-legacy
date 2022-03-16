@@ -95,7 +95,7 @@ POST
 |stop_loss |false |number |t(:row_comment_stopLoss) |
 |t(:row_parameter_tp_trigger_by) |false |string |t(:account_row_comment_tp_trigger_by) |
 |t(:row_parameter_sl_trigger_by) |false |string |t(:account_row_comment_sl_trigger_by) |
-|position_idx |false |integer |t(:row_comment_position_idx)  |
+|position_idx |false |integer |t(:row_comment_position_idx_create_order)  |
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -713,7 +713,7 @@ POST
 |stop_loss |false |number |t(:row_comment_stopLoss) |
 |t(:row_parameter_tp_trigger_by) |false |string |t(:account_row_comment_tp_trigger_by) |
 |t(:row_parameter_sl_trigger_by) |false |string |t(:account_row_comment_sl_trigger_by) |
-|position_idx |false |integer |t(:row_comment_position_idx)  |
+|position_idx |false |integer |t(:row_comment_position_idx_create_order)  |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
