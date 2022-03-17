@@ -3,7 +3,7 @@
 > t(:websocket_codequote_auth_spot)
 
 ```python--pybit
-# based on: https://github.com/verata-veritatis/pybit/blob/master/pybit/__init__.py
+# based on: https://github.com/bybit-exchange/pybit/blob/master/pybit/_http_manager.py
 
 import hmac
 import json

@@ -1004,7 +1004,7 @@ zh-cn:
     方法2: 建立連接後發送auth請求驗證.
   websocket_codequote_auth_spot: |
     <p>建立連接後發送auth請求驗證</p>
-    <p>注意：如果您正在使用 <a href="https://github.com/verata-veritatis/pybit">pybit</a> 或其他高級庫，你可以忽略這段代碼 - 因為身份驗證已經為您處理。</p>
+    <p>注意：如果您正在使用 <a href="https://github.com/bybit-exchange/pybit">pybit</a> 或其他高級庫，你可以忽略這段代碼 - 因為身份驗證已經為您處理。</p>
   websocket_endpoints_aside: |
     <b>請注意，以下接口僅適用於 <i>反向永續/反向交割</i></b>. 要監聽其他 websocket，請轉到:
     <ul>
@@ -2249,7 +2249,7 @@ zh-cn:
   spot_websocket_orderbook_delta_v1: 訂單簿(增量深度)
   spot_websocket_orderbook_delta_desc_v1: |
     <p>推送訂單簿的變化部分（如果有）。第一次推送的是全量的訂單簿（单邊推送 200 個深度信息），接下來推送增量部分。</p>
-    <p>有關使用此主題維護本地訂單簿的邏輯。请看Python 示例：<a href="https://github.com/verata-veritatis/pybit/blob/8a647208dbdce1519de3fbce172d3dcf2141ccaf/pybit/__init__.py#L2279"></a>.</p>
+    <p>有關使用此主題維護本地訂單簿的邏輯。请看Python 示例：<a href="https://github.com/bybit-exchange/pybit/blob/8a647208dbdce1519de3fbce172d3dcf2141ccaf/pybit/__init__.py#L2279"></a>.</p>
     <p>在增量深度信息中，數量不一定等於對應價格的數量。如果數量=0，這說明在上一條推送中的這個價格已經沒有了。如果數量>0，這時的數量為更新後的這個價格所對應的數量。</p>
     <p>假設我們收到的返回數據中有這樣一條：</p>
     <p>&nbsp;&nbsp;> ["0.00181860", "155.92000000"] // 價格，數量</p>
