@@ -888,6 +888,10 @@ while True:
 
 t(:account_para_myPosition)
 
+<aside class="notice">
+t(:websocketposition_aside)
+</aside>
+
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |

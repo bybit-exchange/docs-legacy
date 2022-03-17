@@ -1216,6 +1216,7 @@ en:
       </li>
     </ul>
   websocket_aside_auth: <b>Public</b> topics do not require authentication. The following section applies to <b>private</b> topics only.
+  websocket_aside_push_trigger: Typically, websocket messages will only be pushed when a change occurs. You won't receive a snapshot message immediately upon subscription unless otherwise stated. This means that when subscribing to your <code>position</code>, you won't receive any position messages until (for example) your position size changes.
   websocket_para_methods: Authentication examples are shown in code block.
   spot_websocket_para_methods: There are two authentication methods. Example of signing algorithms can be found here.
   websocket_aside_signature: Example signature algorithms can be found <a href="https://github.com/bybit-exchange/api-usage-examples">here</a>.
@@ -1326,8 +1327,10 @@ en:
   privatetopics: Private Topics
   ### position
   websocketposition: position
+  websocketposition_aside: Note that changes to <code>unrealised_pnl</code> won't trigger new message pushes as it changes constantly with the last traded price. You can calculate the unrealised PNL yourself by referring to <a href ="https://help.bybit.com/hc/en-us/articles/900000404726-P-L-calculations-Inverse-Contracts-">these formulas</a>.
   ### execution
   websocketexecution: execution
+  websocket_execution_aside: This topic pushes all executions <i>except</i> <a href="#exec-type-exec_type"><code>Funding</code></a>.
   ### order
   websocketorder: order
   ### stop_order

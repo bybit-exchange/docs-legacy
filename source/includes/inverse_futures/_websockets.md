@@ -784,6 +784,11 @@ t(:websocket_aside_klineV2)
 
 
 ## t(:privatetopics)
+
+<aside class="notice">
+t(:websocket_aside_push_trigger)
+</aside>
+
 ### t(:websocketposition)
 > t(:codequote_subscribe)
 
@@ -864,6 +869,11 @@ while True:
 ```
 
 t(:account_para_myPosition)
+
+<aside class="notice">
+t(:websocketposition_aside)
+</aside>
+
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -962,6 +972,10 @@ while True:
 ```
 
 t(:wallet_para_tradeRecords)
+
+<aside class="notice">
+t(:websocket_execution_aside)
+</aside>
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|

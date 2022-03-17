@@ -891,6 +891,10 @@ while True:
 
 t(:wallet_para_tradeRecords)
 
+<aside class="notice">
+t(:websocket_execution_aside)
+</aside>
+
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
