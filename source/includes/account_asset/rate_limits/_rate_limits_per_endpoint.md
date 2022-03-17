@@ -1,3 +1,7 @@
+<aside class="notice">
+t(:assetRateLimitIntro)
+</aside>
+
 ### t(:perendpointtransfer)
 <table class="custom_table">
     <tr>
@@ -9,7 +13,7 @@
         <td rowspan="2">20/min</td>
         <td>/asset/v1/private/transfer </td>
         <td>1 / request</td>
-    </tr>
+    </tr>F
     <tr>
         <td>/asset/v1/private/sub-member/transfer </td>
         <td>1 / request</td>
