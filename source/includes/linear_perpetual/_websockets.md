@@ -900,7 +900,7 @@ t(:wallet_para_tradeRecords)
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 |order_id |string |t(:row_comment_order_id)  |
 |exec_id |string |t(:row_comment_exec_id)  |
-|order_link_id |string |t(:row_response_comment_orderLinkId)  |
+|order_link_id |string |t(:row_comment_orderLinkId)  |
 |t(:row_parameter_price) |string |t(:row_comment_exec_price)    |
 |order_qty |number |t(:row_comment_order_qty)  |
 |t(:row_parameter_exec_type) |string |t(:enum_exec_type_link)  |
@@ -984,7 +984,7 @@ while True:
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |order_id |string |t(:row_comment_order_id)  |
-|order_link_id |string |t(:row_response_comment_orderLinkId)  |
+|order_link_id |string |t(:row_comment_orderLinkId)  |
 |t(:row_parameter_symbol) |string |t(:row_comment_symbol)  |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 |t(:row_parameter_order_type) |string |t(:row_comment_stopOrderType) |
@@ -1059,7 +1059,7 @@ while True:
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |stop_order_id |string |t(:row_comment_stopOrderId) |
-|order_link_id |string |t(:row_response_comment_orderLinkId)  |
+|order_link_id |string |t(:row_comment_orderLinkId)  |
 |user_id |number |t(:row_comment_userID)  |
 |t(:row_parameter_symbol) |string |t(:enum_symbol_link)  |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
