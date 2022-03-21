@@ -13,7 +13,7 @@ t(:assetRateLimitIntro)
         <td rowspan="2">20/min</td>
         <td>/asset/v1/private/transfer </td>
         <td>1 / request</td>
-    </tr>F
+    </tr>
     <tr>
         <td>/asset/v1/private/sub-member/transfer </td>
         <td>1 / request</td>
@@ -56,7 +56,7 @@ t(:assetRateLimitIntro)
         <td>1 / request</td>
     </tr>
     <tr>
-        <td rowspan="4">60/min</td>
+        <td rowspan="2">60/min</td>
         <td>/asset/v1/private/asset-info/query </td>
         <td>1 / request</td>
     </tr>
@@ -65,6 +65,7 @@ t(:assetRateLimitIntro)
         <td>1 / request</td>
     </tr>
     <tr>
+        <td rowspan="2">120/min</td>
         <td>/asset/v1/private/withdraw/record/query </td>
         <td>1 / request</td>
     </tr>
