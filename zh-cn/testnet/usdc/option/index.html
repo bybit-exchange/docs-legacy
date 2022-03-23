@@ -850,6 +850,9 @@
                   <li>
                     <a href="#t-ipratelimits" class="toc-h2 toc-link" data-title="IP頻率限製">IP頻率限製</a>
                   </li>
+                  <li>
+                    <a href="#t-perendpoint" class="toc-h2 toc-link" data-title="接口頻率限製表">接口頻率限製表</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -4467,6 +4470,29 @@ curl https://api-testnet.bybit.com/v2/public/time
 </li>
 </ul>
 </p>
+<h3 id='t-perendpoint'>接口頻率限製表</h3>
+<table class="custom_table">
+  <tr>
+    <th>頻率限製</th>
+    <th>請求路徑</th>
+  </tr>
+  <tr>
+    <td rowspan="1">20 requests/second</td>
+    <td>/option/usdc/openapi/private/v1/cancel-order </td>
+  </tr>
+  <tr>
+    <td rowspan="1">20 requests/second</td>
+    <td>/option/usdc/openapi/private/v1/batch-cancel-orders </td>
+  </tr>
+  <tr>
+    <td rowspan="1">2 requests/second</td>
+    <td>/option/usdc/openapi/private/v1/cancel-all </td>
+  </tr>
+  <tr>
+    <td rowspan="1">5 requests/second</td>
+    <td>All other private endpoints</td>
+  </tr>
+</table>
 <h1 id='t-websocket'>WebSocket接口</h1><h2 id='t-websocketauthentication'>鑒權/認證</h2>
 <blockquote>
 <p>建立連接後發送auth請求驗證
