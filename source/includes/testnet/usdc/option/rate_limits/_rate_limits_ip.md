@@ -26,3 +26,4 @@ t(:usdc_ip_rate_para_understanding)
     <td>All other private endpoints</td>
   </tr>
 </table>
+t(:ratelimitUsdc)
