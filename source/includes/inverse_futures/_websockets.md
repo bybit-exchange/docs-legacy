@@ -987,7 +987,7 @@ t(:websocket_execution_aside)
 |order_link_id |string |t(:row_comment_orderLinkId)  |
 |t(:row_parameter_price) |string |t(:row_comment_exec_price)    |
 |order_qty |number |t(:row_comment_order_qty)  |
-|t(:row_parameter_exec_type) |string |t(:enum_exec_type_link)  |
+|t(:row_parameter_exec_type) |string |t(:exec_type_pnl)  |
 |exec_qty |number |t(:row_comment_exec_qty)  |
 |exec_fee |string |t(:row_comment_exec_fee)    |
 |leaves_qty |number |t(:row_comment_leaves_qty)  |
