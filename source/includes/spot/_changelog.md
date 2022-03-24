@@ -1,4 +1,9 @@
 # t(:changelog)
+## 2022-03-24
+### REST API
+- [t(:tradehistory)](#t-tradehistory) [t(:changelog_update)]
+  - t(:restapi_update_20220324)
+
 ## 2022-03-14
 ### Websocket API
 - [t(:ticketInfo)](#t-ticketinfo) [t(:changelog_update)]
