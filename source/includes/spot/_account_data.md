@@ -781,6 +781,7 @@ GET
 |limit|false|integer|t(:spot_trades_history_limit)|
 |fromTicketId|false|integer|t(:spot_from_id)|
 |toTicketId|false|integer|t(:spot_to_id)|
+|orderId|false|integer|t(:spotOrderId)|
 |startTime|false|long|t(:spot_start_time)|
 |endTime|false|long|t(:spot_end_time)|
 
