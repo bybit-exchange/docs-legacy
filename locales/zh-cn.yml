@@ -1963,6 +1963,9 @@ zh-cn:
   restapi_update_20210917: 我們於 2021 年 9 月 17日上線 正向合約Liquidation WebSocket API推送強平訂單， 此次調整旨在打造更加公平的交易環境，防止一些交易者通過強平訂單數據提前獲取市場信息，搶跑強平引擎。 請務必於 2021 年 9 月 24 日前調整代碼，以確保流暢的交易體驗。 感謝您一直以來的支持！
   restapi_update_20220228: 返回參數中新增加 <code>vip_level</code>字段和 <code>mkt_maker_level</code>字段。
   restapi_update_20220301: 返回參數中新增加 <code>funding_interval</code>字段。
+#  restapi_update_20220324: 交易記錄接口中請求參數增加<code>fromTicketId</code>, <code>toTicketId</code>, <code>orderId</code>，去除 <code>fromId</code>, <code>toId</code>。
+  restapi_update_20220324_1: 请求参数新增 <code>fromTicketId</code>, <code>toTicketId</code>, <code>orderId</code>。
+  restapi_update_20220324_2: 请求参数廢棄 <code>fromId</code>, <code>toId</code>。
   markpricekline: 標記價格K線
   websocketliquidation: 平臺強平推送
   websocket_query_liqrecords: |
@@ -2182,7 +2185,7 @@ zh-cn:
   spot_sell_price: 賣一價價格
   spot_sell_qty: 賣一價數量
   spot_binance_change: 余額變化
-  spot_asset: 資產名稱
+  spot_asset: 幣名
   spot_available_qty: 可用數量
   spot_frezen_qty: 凍結數量
   spot_event_type: 事件類型
