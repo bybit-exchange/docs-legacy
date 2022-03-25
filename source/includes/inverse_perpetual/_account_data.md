@@ -84,13 +84,13 @@ POST
 |t(:row_parameter_quantity) |<b>true</b> |integer |t(:row_comment_qty) |
 |t(:row_parameter_price) |false |number |t(:row_comment_resp_price) |
 |t(:row_parameter_time_in_force) |<b>true</b> |string |t(:row_comment_timeInForce) |
+|reduce_only |false |bool |t(:row_comment_reduceOnly) |
 |close_on_trigger |false |bool |t(:row_comment_closeOnTrigger)
 |order_link_id |false |string |t(:row_comment_orderLinkId) |
 |take_profit |false |number |t(:row_comment_takeProfit) |
 |stop_loss |false |number |t(:row_comment_stopLoss) |
 |t(:row_parameter_tp_trigger_by) |false |string |t(:account_row_comment_tp_trigger_by) |
 |t(:row_parameter_sl_trigger_by) |false |string |t(:account_row_comment_sl_trigger_by) |
-|reduce_only |false |bool |t(:row_comment_reduceOnly) |
 
 
 <p class="fake_header">t(:responseparameters)</p>
