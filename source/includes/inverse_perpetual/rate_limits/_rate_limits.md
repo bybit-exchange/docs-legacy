@@ -13,6 +13,9 @@ t(:rate_para_liquidity)
 #### t(:ofrthreshold)
 t(:rate_para_threshold)
 
+##### t(:ofrminimum)
+t(:rate_para_minimum)
+
 ##### t(:ofrratio)
 t(:rate_para_ratio)
 
@@ -26,10 +29,6 @@ t(:rate_pre_ratioExampleA)
 <pre class="center-column-nonindent">
 t(:rate_pre_ratioExampleB)
 </pre>
-
-
-##### t(:ofrminimum)
-t(:rate_para_minimum)
 
 
 #### t(:frequencylimit)
