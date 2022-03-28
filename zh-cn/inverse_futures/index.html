@@ -861,6 +861,9 @@
                   <li>
                     <a href="#t-faq_data_resilience" class="toc-h2 toc-link" data-title="How can I ensure I am using up-to-date data?">How can I ensure I am using up-to-date data?</a>
                   </li>
+                  <li>
+                    <a href="#t-faq_turnover" class="toc-h2 toc-link" data-title="What is the difference between turnover and volume?">What is the difference between turnover and volume?</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -1067,13 +1070,13 @@
                             <a href="#t-ofrthreshold" class="toc-h3 toc-link" data-title="報單成交率">報單成交率</a>
                               <ul class="toc-list-h4">
                                   <li>
+                                    <a href="#t-ofrminimum" class="toc-h4 toc-link" data-title="API 交易用戶最小報單成交率門檻">API 交易用戶最小報單成交率門檻</a>
+                                  </li>
+                                  <li>
                                     <a href="#t-ofrratio" class="toc-h4 toc-link" data-title="報單成交率">報單成交率</a>
                                   </li>
                                   <li>
                                     <a href="#t-ofrratioexample" class="toc-h4 toc-link" data-title="報單成交率舉例">報單成交率舉例</a>
-                                  </li>
-                                  <li>
-                                    <a href="#t-ofrminimum" class="toc-h4 toc-link" data-title="API 交易用戶最小報單成交率門檻">API 交易用戶最小報單成交率門檻</a>
                                   </li>
                               </ul>
                           </li>
@@ -2077,6 +2080,12 @@ clipboard.on('error', function(e) {
   <li>This frees up your rate limits for other requests and also ensures a level of redundancy against the exchange in case of data delays.</li>
 </ul
 </p>
+<h2 id='t-faq_turnover'>What is the difference between turnover and volume?</h2>
+<p><ul>
+  <li>Turnover: is in the opposite currency to the quantity's currency</li>
+  <li>Volume: is in the same currency as the quantity's currency</li>
+</ul>
+</p>
 <h1 id='t-authentication'>鑒權/認證</h1>
 <aside class="notice">
 請先生成<a href="https://testnet.bybit.com/app/user/api-management"><b>測試網</b></a> 或 <a href="https://www.bybit.com/app/user/api-management"<b>主網</b></a>API KEY。
@@ -2490,7 +2499,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">string</td>
-<td>機構自定義訂單ID</td>
+<td>機構自定義訂單ID, 最大長度36位，且同一機構下自定義ID不可重復</td>
 </tr>
 <tr>
 <td style="text-align: left">created_at</td>
@@ -2717,7 +2726,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">string</td>
-<td>機構自定義訂單ID</td>
+<td>機構自定義訂單ID, 最大長度36位，且同一機構下自定義ID不可重復</td>
 </tr>
 <tr>
 <td style="text-align: left">created_at</td>
@@ -2940,7 +2949,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">string</td>
-<td>機構自定義訂單ID</td>
+<td>機構自定義訂單ID, 最大長度36位，且同一機構下自定義ID不可重復</td>
 </tr>
 <tr>
 <td style="text-align: left">created_at</td>
@@ -3421,7 +3430,7 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>機構自定義訂單ID</td>
+<td>機構自定義訂單ID, 最大長度36位，且同一機構下自定義ID不可重復</td>
 </tr>
 </tbody></table>
 
@@ -3522,7 +3531,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">string</td>
-<td>機構自定義訂單ID</td>
+<td>機構自定義訂單ID, 最大長度36位，且同一機構下自定義ID不可重復</td>
 </tr>
 <tr>
 <td style="text-align: left">created_at</td>
@@ -3822,7 +3831,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">string</td>
-<td>機構自定義訂單ID</td>
+<td>機構自定義訂單ID, 最大長度36位，且同一機構下自定義ID不可重復</td>
 </tr>
 <tr>
 <td style="text-align: left">take_profit</td>
@@ -4019,7 +4028,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">string</td>
-<td>機構自定義訂單ID</td>
+<td>機構自定義訂單ID, 最大長度36位，且同一機構下自定義ID不可重復</td>
 </tr>
 <tr>
 <td style="text-align: left">created_at</td>
@@ -4674,7 +4683,7 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>機構自定義訂單ID</td>
+<td>機構自定義訂單ID, 最大長度36位，且同一機構下自定義ID不可重復</td>
 </tr>
 </tbody></table>
 
@@ -4770,7 +4779,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">string</td>
-<td>機構自定義訂單ID</td>
+<td>機構自定義訂單ID, 最大長度36位，且同一機構下自定義ID不可重復</td>
 </tr>
 <tr>
 <td style="text-align: left">created_at</td>
@@ -5027,7 +5036,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">auto_add_margin</td>
 <td style="text-align: left">number</td>
-<td>是否自動追加保證金</td>
+<td>是否 <a href="https://help.bybit.com/hc/en-us/articles/900000394403-Introduction-to-Auto-Margin-Replenishment-USDT-Contract-),">自動追加保證金</a></td>
 </tr>
 <tr>
 <td style="text-align: left">leverage</td>
@@ -5077,7 +5086,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">trailing_stop</td>
 <td style="text-align: left">string</td>
-<td>追蹤止損</td>
+<td>追蹤止損（與當前價格的距離）</td>
 </tr>
 <tr>
 <td style="text-align: left">position_status</td>
@@ -5441,7 +5450,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">auto_add_margin</td>
 <td style="text-align: left">number</td>
-<td>是否自動追加保證金</td>
+<td>是否 <a href="https://help.bybit.com/hc/en-us/articles/900000394403-Introduction-to-Auto-Margin-Replenishment-USDT-Contract-),">自動追加保證金</a></td>
 </tr>
 <tr>
 <td style="text-align: left">leverage</td>
@@ -5486,7 +5495,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">trailing_stop</td>
 <td style="text-align: left">string</td>
-<td>追蹤止損</td>
+<td>追蹤止損（與當前價格的距離）</td>
 </tr>
 <tr>
 <td style="text-align: left">position_status</td>
@@ -6071,7 +6080,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">string</td>
-<td>機構自定義訂單ID</td>
+<td>機構自定義訂單ID, 最大長度36位，且同一機構下自定義ID不可重復</td>
 </tr>
 <tr>
 <td style="text-align: left">order_price</td>
@@ -6613,6 +6622,8 @@ function copyStringToClipboard (endpoint) {
 <h4 id='t-ofrthreshold'>報單成交率</h4>
 <p>平臺上每天提交超過<code>2000</code>個報單的賬戶，需要保持<code>7天</code>的報單成交率高於<code>最小報單成交率門檻值</code>，違反此規則將會被降低頻率或禁用 API。
 </p>
+<h5 id='t-ofrminimum'>API 交易用戶最小報單成交率門檻</h5>
+<p><code>7</code>日內API 交易用戶最小報單成交率門檻 0.1%</p>
 <h5 id='t-ofrratio'>報單成交率</h5>
 <p><ul>
 <li><code>報單成交率</code>: 定義為 一段時間段內，用戶已成交報單數量占該用戶已提交報單數量的比例</li>
@@ -6625,7 +6636,7 @@ function copyStringToClipboard (endpoint) {
 <pre class="center-column-nonindent">
 A用戶：
 已成交報單數量 = 2
-已提交報單數量 =8
+已提交報單數量 = 8
 報單成交率 = 2 / 8 = 25％
 
 </pre>
@@ -6633,12 +6644,10 @@ A用戶：
 <pre class="center-column-nonindent">
 B用戶：
 已成交報單數量 = 1
-已提交報單數量 =1
+已提交報單數量 = 1
 報單成交率 = 1 / 1 = 100％
 
 </pre>
-<h5 id='t-ofrminimum'>API 交易用戶最小報單成交率門檻</h5>
-<p><code>7</code>日內API 交易用戶最小報單成交率門檻 0.1%</p>
 <h4 id='t-frequencylimit'>API 交易用戶提高頻率的條件</h4>
 <p>平臺會根據API用戶近<code>7</code>日掛單對<code>平臺流動性貢獻分</code>的最低值，對滿足條件的用戶進行提高頻率上限的獎勵</p>
 
@@ -6735,7 +6744,7 @@ B用戶：
 <p>方法1: 建立連接時附帶驗證信息.
 </p>
 </blockquote>
-<div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="c1"># based on: https://github.com/verata-veritatis/pybit/blob/master/pybit/__init__.py
+<div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="c1"># based on: https://github.com/bybit-exchange/pybit/blob/master/pybit/_http_manager.py
 </span>
 <span class="kn">import</span> <span class="nn">hmac</span>
 <span class="kn">import</span> <span class="nn">json</span>
@@ -7599,12 +7608,12 @@ B用戶：
 <tr>
 <td style="text-align: left">total_turnover_e8</td>
 <td style="text-align: left">integer</td>
-<td>總營業額  * 10^8</td>
+<td>總<a href="#t-faq_turnover">成交金額</a> * 10^8</td>
 </tr>
 <tr>
 <td style="text-align: left">turnover_24h_e8</td>
 <td style="text-align: left">integer</td>
-<td>24小時營業額 * 10^8</td>
+<td>24小時<a href="#t-faq_turnover">成交金額</a> * 10^8</td>
 </tr>
 <tr>
 <td style="text-align: left">total_volume</td>
@@ -7749,7 +7758,7 @@ B用戶：
 <tr>
 <td style="text-align: left">turnover</td>
 <td style="text-align: left">number</td>
-<td>成交金額</td>
+<td><a href="#t-faq_turnover">成交金額</a></td>
 </tr>
 <tr>
 <td style="text-align: left">confirm</td>
@@ -7767,7 +7776,11 @@ B用戶：
 <td>結束時間戳（秒）</td>
 </tr>
 </tbody></table>
-<h2 id='t-privatetopics'>私有 Topics</h2><h3 id='t-websocketposition'>持倉</h3>
+<h2 id='t-privatetopics'>私有 Topics</h2>
+<aside class="notice">
+通常，只有在發生更改時才會推送 websocket 消息。 除非另有說明，否則您不會在訂閱後立即收到快照消息。 這意味著當訂閱您的 <code>position</code> 時，例如您的頭寸規模發生變化之前，您不會收到任何頭寸消息。
+</aside>
+<h3 id='t-websocketposition'>持倉</h3>
 <blockquote>
 <p>請求訂閱</p>
 </blockquote>
@@ -7838,6 +7851,10 @@ B用戶：
 <span class="p">}</span>
 </code></pre></div>
 <p>獲取我的倉位列表。通過該接口可以獲取當前用戶的持倉信息，如持倉數量、賬戶余額等信息</p>
+
+<aside class="notice">
+請注意，對 <code>unrealised_pnl</code> 的更改不會觸發新消息推送，因為它會隨著最後交易價格不斷變化。 您可以參考<a href="https://help.bybit.com/hc/en-us/articles/900000404726-PL-calculations-Inverse-Contracts-">這些公式</a>自行計算未實現盈虧。
+</aside>
 
 <p class="fake_header">返回參數</p>
 
@@ -7936,7 +7953,7 @@ B用戶：
 <tr>
 <td style="text-align: left">trailing_stop</td>
 <td style="text-align: left">string</td>
-<td>追蹤止損</td>
+<td>追蹤止損（與當前價格的距離）</td>
 </tr>
 <tr>
 <td style="text-align: left">trailing_active</td>
@@ -7966,7 +7983,7 @@ B用戶：
 <tr>
 <td style="text-align: left">auto_add_margin</td>
 <td style="text-align: left">number</td>
-<td>是否自動追加保證金</td>
+<td>是否 <a href="https://help.bybit.com/hc/en-us/articles/900000394403-Introduction-to-Auto-Margin-Replenishment-USDT-Contract-),">自動追加保證金</a></td>
 </tr>
 <tr>
 <td style="text-align: left">cum_realised_pnl</td>
@@ -8037,6 +8054,10 @@ B用戶：
 </code></pre></div>
 <p>獲取用戶成交記錄，按時間升序排列。</p>
 
+<aside class="notice">
+本主題推送所有執行 <i>除了</i> <a href="#exec-type-exec_type"><code>Funding</code></a>。
+</aside>
+
 <p class="fake_header">返回參數</p>
 
 <table><thead>
@@ -8069,7 +8090,7 @@ B用戶：
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">string</td>
-<td>機構自定義訂單ID</td>
+<td>機構自定義訂單ID, 最大長度36位，且同一機構下自定義ID不可重復</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#price-price">price</a></td>
@@ -8084,7 +8105,7 @@ B用戶：
 <tr>
 <td style="text-align: left"><a href="#exec-type-exec_type">exec_type</a></td>
 <td style="text-align: left">string</td>
-<td><a href="#exec-type-exec_type">交易類型枚舉</a></td>
+<td>交易類型(不能為"Funding")</td>
 </tr>
 <tr>
 <td style="text-align: left">exec_qty</td>
@@ -8190,7 +8211,7 @@ B用戶：
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">string</td>
-<td>機構自定義訂單ID</td>
+<td>機構自定義訂單ID, 最大長度36位，且同一機構下自定義ID不可重復</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
@@ -8275,7 +8296,7 @@ B用戶：
 <tr>
 <td style="text-align: left">trailing_stop</td>
 <td style="text-align: left">string</td>
-<td>追蹤止損</td>
+<td>追蹤止損（與當前價格的距離）</td>
 </tr>
 <tr>
 <td style="text-align: left">trailing_active</td>
@@ -8362,7 +8383,7 @@ B用戶：
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">string</td>
-<td>機構自定義訂單ID</td>
+<td>機構自定義訂單ID, 最大長度36位，且同一機構下自定義ID不可重復</td>
 </tr>
 <tr>
 <td style="text-align: left">user_id</td>

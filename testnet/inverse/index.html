@@ -1175,6 +1175,9 @@
                   <li>
                     <a href="#t-faq_data_resilience" class="toc-h2 toc-link" data-title="How can I ensure I am using up-to-date data?">How can I ensure I am using up-to-date data?</a>
                   </li>
+                  <li>
+                    <a href="#t-faq_turnover" class="toc-h2 toc-link" data-title="What is the difference between turnover and volume?">What is the difference between turnover and volume?</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -1401,13 +1404,13 @@
                             <a href="#t-ofrthreshold" class="toc-h3 toc-link" data-title="Order Fill Ratio (OFR) Threshold">Order Fill Ratio (OFR) Threshold</a>
                               <ul class="toc-list-h4">
                                   <li>
+                                    <a href="#t-ofrminimum" class="toc-h4 toc-link" data-title="Minimum OFR Threshold">Minimum OFR Threshold</a>
+                                  </li>
+                                  <li>
                                     <a href="#t-ofrratio" class="toc-h4 toc-link" data-title="Order Fill Ratio (OFR)">Order Fill Ratio (OFR)</a>
                                   </li>
                                   <li>
                                     <a href="#t-ofrratioexample" class="toc-h4 toc-link" data-title="Order Fill Ratio Example">Order Fill Ratio Example</a>
-                                  </li>
-                                  <li>
-                                    <a href="#t-ofrminimum" class="toc-h4 toc-link" data-title="Minimum OFR Threshold">Minimum OFR Threshold</a>
                                   </li>
                               </ul>
                           </li>
@@ -3033,6 +3036,12 @@ clipboard.on('error', function(e) {
   <li>This frees up your rate limits for other requests and also ensures a level of redundancy against the exchange in case of data delays.</li>
 </ul
 </p>
+<h2 id='t-faq_turnover'>What is the difference between turnover and volume?</h2>
+<p><ul>
+  <li>Turnover: is in the opposite currency to the quantity's currency</li>
+  <li>Volume: is in the same currency as the quantity's currency</li>
+</ul>
+</p>
 <h1 id='t-authentication'>Authentication</h1>
 <aside class="notice">
 Please visit Bybit's <a href="https://testnet.bybit.com/app/user/api-management"> <b>testnet</b></a> or <a href="https://www.bybit.com/app/user/api-management"> <b>mainnet</b></a> to generate an API key
@@ -3403,7 +3412,7 @@ The response is in the snapshot format.
 <tr>
 <td style="text-align: left">turnover</td>
 <td style="text-align: left">string</td>
-<td>Transaction amount</td>
+<td><a href="#t-faq_turnover">Turnover</a></td>
 </tr>
 </tbody></table>
 <h3 id='t-latestsymbolinfo'>Latest Information for Symbol</h3>
@@ -3602,12 +3611,12 @@ The response is in the snapshot format.
 <tr>
 <td style="text-align: left">total_turnover</td>
 <td style="text-align: left">string</td>
-<td>Total turnover</td>
+<td>Total <a href="#t-faq_turnover">turnover</a></td>
 </tr>
 <tr>
 <td style="text-align: left">turnover_24h</td>
 <td style="text-align: left">string</td>
-<td>Turnover for 24H</td>
+<td><a href="#t-faq_turnover">Turnover</a> for 24h</td>
 </tr>
 <tr>
 <td style="text-align: left">total_volume</td>
@@ -3948,7 +3957,7 @@ The response is in the snapshot format.
 <tr>
 <td style="text-align: left">price_scale</td>
 <td style="text-align: left">number</td>
-<td>Price scale (how many decimal places the price of a symbol has)</td>
+<td>Price scale (the number of decimal places to which a price can be submitted, although the final price may be rounded to conform to the <code>tick_size</code>)</td>
 </tr>
 <tr>
 <td style="text-align: left">taker_fee</td>
@@ -4920,6 +4929,12 @@ GET
 <td><a href="https://help.bybit.com/hc/en-us/articles/360039749233-What-Are-Time-In-Force-TIF-GTC-IOC-FOK-">Time in force</a></td>
 </tr>
 <tr>
+<td style="text-align: left">reduce_only</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">bool</td>
+<td><a href="https://help.bybit.com/hc/en-us/articles/360039260574-What-is-a-reduce-only-order-"> What is a reduce-only order?</a> True means your position can only reduce in size if this order is triggered</td>
+</tr>
+<tr>
 <td style="text-align: left">close_on_trigger</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">bool</td>
@@ -4956,12 +4971,6 @@ GET
 <td style="text-align: left">string</td>
 <td>Stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
 </td>
-</tr>
-<tr>
-<td style="text-align: left">reduce_only</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">bool</td>
-<td><a href="https://help.bybit.com/hc/en-us/articles/360039260574-What-is-a-reduce-only-order-"> What is a reduce-only order?</a> True means your position can only reduce in size if this order is triggered</td>
 </tr>
 </tbody></table>
 
@@ -5057,7 +5066,7 @@ GET
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">string</td>
-<td>Customised order ID</td>
+<td>Unique user-set order ID. Maximum length of 36 characters</td>
 </tr>
 <tr>
 <td style="text-align: left">created_at</td>
@@ -5282,7 +5291,7 @@ GET
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">string</td>
-<td>Customised order ID</td>
+<td>Unique user-set order ID. Maximum length of 36 characters</td>
 </tr>
 <tr>
 <td style="text-align: left">created_at</td>
@@ -5507,7 +5516,7 @@ GET
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">string</td>
-<td>Customised order ID</td>
+<td>Unique user-set order ID. Maximum length of 36 characters</td>
 </tr>
 <tr>
 <td style="text-align: left">created_at</td>
@@ -6011,7 +6020,7 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Customised order ID</td>
+<td>Unique user-set order ID. Maximum length of 36 characters</td>
 </tr>
 </tbody></table>
 
@@ -6107,7 +6116,7 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">string</td>
-<td>Customised order ID</td>
+<td>Unique user-set order ID. Maximum length of 36 characters</td>
 </tr>
 <tr>
 <td style="text-align: left">created_at</td>
@@ -6404,7 +6413,7 @@ Take profit/Stop loss is not supported in placing conditional orders. One can on
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">string</td>
-<td>Customised order ID</td>
+<td>Unique user-set order ID. Maximum length of 36 characters</td>
 </tr>
 <tr>
 <td style="text-align: left">take_profit</td>
@@ -6599,7 +6608,7 @@ Take profit/Stop loss is not supported in placing conditional orders. One can on
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">string</td>
-<td>Customised order ID</td>
+<td>Unique user-set order ID. Maximum length of 36 characters</td>
 </tr>
 <tr>
 <td style="text-align: left">created_at</td>
@@ -7255,7 +7264,7 @@ Please note that you can only modify untriggered conditional orders.
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Customised order ID</td>
+<td>Unique user-set order ID. Maximum length of 36 characters</td>
 </tr>
 </tbody></table>
 
@@ -7346,7 +7355,7 @@ Please note that you can only modify untriggered conditional orders.
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">string</td>
-<td>Customised order ID</td>
+<td>Unique user-set order ID. Maximum length of 36 characters</td>
 </tr>
 <tr>
 <td style="text-align: left">created_at</td>
@@ -7656,7 +7665,7 @@ Please note that you can only modify untriggered conditional orders.
 <tr>
 <td style="text-align: left">auto_add_margin</td>
 <td style="text-align: left">number</td>
-<td>Whether to add margin automatically</td>
+<td>Whether or not <a href="https://help.bybit.com/hc/en-us/articles/900000394403-Introduction-to-Auto-Margin-Replenishment-USDT-Contract-),">auto-margin replenishment</a> is enabled</td>
 </tr>
 <tr>
 <td style="text-align: left">leverage</td>
@@ -7707,7 +7716,7 @@ Please note that you can only modify untriggered conditional orders.
 <tr>
 <td style="text-align: left">trailing_stop</td>
 <td style="text-align: left">string</td>
-<td>Trailing stop</td>
+<td>Trailing stop (the distance from the current price)</td>
 </tr>
 <tr>
 <td style="text-align: left">position_status</td>
@@ -8063,7 +8072,7 @@ Passing these parameters will create conditional orders controlled by the system
 <tr>
 <td style="text-align: left">auto_add_margin</td>
 <td style="text-align: left">number</td>
-<td>Whether to add margin automatically</td>
+<td>Whether or not <a href="https://help.bybit.com/hc/en-us/articles/900000394403-Introduction-to-Auto-Margin-Replenishment-USDT-Contract-),">auto-margin replenishment</a> is enabled</td>
 </tr>
 <tr>
 <td style="text-align: left">leverage</td>
@@ -8109,7 +8118,7 @@ Passing these parameters will create conditional orders controlled by the system
 <tr>
 <td style="text-align: left">trailing_stop</td>
 <td style="text-align: left">string</td>
-<td>Trailing stop</td>
+<td>Trailing stop (the distance from the current price)</td>
 </tr>
 <tr>
 <td style="text-align: left">position_status</td>
@@ -8474,7 +8483,7 @@ One order may have multiple trade records.
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">string</td>
-<td>Customised order ID</td>
+<td>Unique user-set order ID. Maximum length of 36 characters</td>
 </tr>
 <tr>
 <td style="text-align: left">order_price</td>
@@ -9556,7 +9565,7 @@ Historical funding rates are not available through the API. However, you can obt
 <tr>
 <td style="text-align: left">inviter_id</td>
 <td style="text-align: left">number</td>
-<td>Inviter ID</td>
+<td>Inviter ID (the UID of the account which invited this account to the platform)</td>
 </tr>
 <tr>
 <td style="text-align: left">ips</td>
@@ -10614,6 +10623,8 @@ Deposit or withdrawal records which occurred after 2021-07-15 will not be shown 
 <h4 id='t-ofrthreshold'>Order Fill Ratio (OFR) Threshold</h4>
 <p>If you place more than <code>2000</code> orders per day on Bybit, please make sure that your 7-day OFR is above a <code>Minimum OFR threshold</code>. Otherwise, Bybit may reduce the rate limits for your API request.
 </p>
+<h5 id='t-ofrminimum'>Minimum OFR Threshold</h5>
+<p>7-day OFR must be kept above 0.1%.</p>
 <h5 id='t-ofrratio'>Order Fill Ratio (OFR)</h5>
 <p><ul>
 <li><code>Order Fill Ratio (OFR)</code>: <code>Orders Filled</code> to <code>Orders Submitted to Bybit</code> to Bybit.</li>
@@ -10627,7 +10638,7 @@ Deposit or withdrawal records which occurred after 2021-07-15 will not be shown 
 User A:
 Orders Filled = 2
 Orders Submitted to Bybit = 8
-QFR = 2/8 = 25%
+OFR = 2/8 = 25%
 
 </pre>
 
@@ -10635,11 +10646,9 @@ QFR = 2/8 = 25%
 User B:
 Orders Filled = 1
 Orders Submitted to Bybit = 1
-QFR = 1/1 = 100%
+OFR = 1/1 = 100%
 
 </pre>
-<h5 id='t-ofrminimum'>Minimum OFR Threshold</h5>
-<p>7-day OFR must be kept above 0.1%.</p>
 <h4 id='t-frequencylimit'>Rate Limits for API Requests</h4>
 <p>The rate limits for your API requests are based on your min. <code>Liquidity Contribution Points (LCP)</code> within <code>7</code> days.</p>
 
@@ -10732,7 +10741,7 @@ Prior notice will be given via the website if we update this mechanism.
 <p>First method: Apply for authentication when establishing a connection.
 </p>
 </blockquote>
-<div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="c1"># based on: https://github.com/verata-veritatis/pybit/blob/master/pybit/__init__.py
+<div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="c1"># based on: https://github.com/bybit-exchange/pybit/blob/master/pybit/_http_manager.py
 </span>
 <span class="kn">import</span> <span class="nn">hmac</span>
 <span class="kn">import</span> <span class="nn">json</span>
@@ -11573,12 +11582,12 @@ Some values use scientific notation. This is indicated by that value's key, whic
 <tr>
 <td style="text-align: left">total_turnover_e8</td>
 <td style="text-align: left">integer</td>
-<td>Total turnover * 10^8</td>
+<td>Total <a href="#t-faq_turnover">turnover</a> * 10^8</td>
 </tr>
 <tr>
 <td style="text-align: left">turnover_24h_e8</td>
 <td style="text-align: left">integer</td>
-<td>Turnover for 24H * 10^8</td>
+<td><a href="#t-faq_turnover">Turnover</a> for 24h * 10^8</td>
 </tr>
 <tr>
 <td style="text-align: left">total_volume</td>
@@ -11723,7 +11732,7 @@ Some values use scientific notation. This is indicated by that value's key, whic
 <tr>
 <td style="text-align: left">turnover</td>
 <td style="text-align: left">number</td>
-<td>Transaction amount</td>
+<td><a href="#t-faq_turnover">Turnover</a></td>
 </tr>
 <tr>
 <td style="text-align: left">confirm</td>
@@ -11881,6 +11890,10 @@ Some values use scientific notation. This is indicated by that value's key, whic
 </code></pre></div>
 <p>Get my position list.</p>
 
+<aside class="notice">
+Note that changes to <code>unrealised_pnl</code> won't trigger new message pushes as it changes constantly with the last traded price. You can calculate the unrealised PNL yourself by referring to <a href ="https://help.bybit.com/hc/en-us/articles/900000404726-P-L-calculations-Inverse-Contracts-">these formulas</a>.
+</aside>
+
 <p class="fake_header">Response Parameters</p>
 
 <table><thead>
@@ -11980,7 +11993,7 @@ Some values use scientific notation. This is indicated by that value's key, whic
 <tr>
 <td style="text-align: left">trailing_stop</td>
 <td style="text-align: left">string</td>
-<td>Trailing stop</td>
+<td>Trailing stop (the distance from the current price)</td>
 </tr>
 <tr>
 <td style="text-align: left">trailing_active</td>
@@ -12016,7 +12029,7 @@ Some values use scientific notation. This is indicated by that value's key, whic
 <tr>
 <td style="text-align: left">auto_add_margin</td>
 <td style="text-align: left">number</td>
-<td>Whether to add margin automatically</td>
+<td>Whether or not <a href="https://help.bybit.com/hc/en-us/articles/900000394403-Introduction-to-Auto-Margin-Replenishment-USDT-Contract-),">auto-margin replenishment</a> is enabled</td>
 </tr>
 <tr>
 <td style="text-align: left">cum_realised_pnl</td>
@@ -12088,6 +12101,10 @@ Some values use scientific notation. This is indicated by that value's key, whic
 </code></pre></div>
 <p>Get user's trading records. The results are ordered in ascending order (the first item is the oldest).</p>
 
+<aside class="notice">
+This topic pushes all executions <i>except</i> <a href="#exec-type-exec_type"><code>Funding</code></a>.
+</aside>
+
 <p class="fake_header">Response Parameters</p>
 
 <table><thead>
@@ -12120,7 +12137,7 @@ Some values use scientific notation. This is indicated by that value's key, whic
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">string</td>
-<td>Customised order ID</td>
+<td>Unique user-set order ID. Maximum length of 36 characters</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#price-price">price</a></td>
@@ -12135,7 +12152,7 @@ Some values use scientific notation. This is indicated by that value's key, whic
 <tr>
 <td style="text-align: left"><a href="#exec-type-exec_type">exec_type</a></td>
 <td style="text-align: left">string</td>
-<td><a href="#exec-type-exec_type">Exec Type Enum</a></td>
+<td>Execution type (cannot be <code>Funding</code>)</td>
 </tr>
 <tr>
 <td style="text-align: left">exec_qty</td>
@@ -12241,7 +12258,7 @@ Some values use scientific notation. This is indicated by that value's key, whic
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">string</td>
-<td>Customised order ID</td>
+<td>Unique user-set order ID. Maximum length of 36 characters</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
@@ -12326,7 +12343,7 @@ Some values use scientific notation. This is indicated by that value's key, whic
 <tr>
 <td style="text-align: left">trailing_stop</td>
 <td style="text-align: left">string</td>
-<td>Trailing stop</td>
+<td>Trailing stop (the distance from the current price)</td>
 </tr>
 <tr>
 <td style="text-align: left">trailing_active</td>
@@ -12413,7 +12430,7 @@ Some values use scientific notation. This is indicated by that value's key, whic
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">string</td>
-<td>Customised order ID</td>
+<td>Unique user-set order ID. Maximum length of 36 characters</td>
 </tr>
 <tr>
 <td style="text-align: left">user_id</td>
@@ -13872,7 +13889,7 @@ ELSE
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">string</td>
-<td>Customised order ID</td>
+<td>Unique user-set order ID. Maximum length of 36 characters</td>
 </tr>
 <tr>
 <td style="text-align: left">created_at</td>
@@ -14332,7 +14349,7 @@ Take profit/Stop loss is not supported in placing conditional orders. One can on
 <tr>
 <td style="text-align: left">order_link_id</td>
 <td style="text-align: left">string</td>
-<td>Customised order ID</td>
+<td>Unique user-set order ID. Maximum length of 36 characters</td>
 </tr>
 <tr>
 <td style="text-align: left">created_at</td>
@@ -14890,7 +14907,7 @@ Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles
 <tr>
 <td style="text-align: left">auto_add_margin</td>
 <td style="text-align: left">number</td>
-<td>Whether to add margin automatically</td>
+<td>Whether or not <a href="https://help.bybit.com/hc/en-us/articles/900000394403-Introduction-to-Auto-Margin-Replenishment-USDT-Contract-),">auto-margin replenishment</a> is enabled</td>
 </tr>
 <tr>
 <td style="text-align: left">leverage</td>
@@ -14936,7 +14953,7 @@ Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles
 <tr>
 <td style="text-align: left">trailing_stop</td>
 <td style="text-align: left">number</td>
-<td>Trailing stop</td>
+<td>Trailing stop (the distance from the current price)</td>
 </tr>
 <tr>
 <td style="text-align: left">position_status</td>
