@@ -514,6 +514,7 @@ ws.send('{"op":"subscribe","id":"{100002}","args":["user.openapi.option.trade"]}
                 "orderLinkId":"",
                 "tradeId":"55565169-2da0-5cb3-9dc8-6669c6d777c9",
                 "symbol":"BTC-4MAR22-42000-P",
+                'side': 'Sell',
                 "execPrice":"840",
                 "execQty":"0.04",
                 "execFee":"0.52943604",
@@ -542,6 +543,7 @@ t(:usdcFilledHistory)
 | orderLinkId |string |t(:orderLinkId) |
 | tradeId |string |t(:usdcTradeId) |
 | symbol |string |t(:usdcSymbol) |
+| side |string |t(:side) |
 | execPrice |string |t(:excPrice) |
 | execQty |string |t(:execQty) |
 | execFee |string |t(:execFee) |

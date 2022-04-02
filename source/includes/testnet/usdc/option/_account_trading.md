@@ -670,6 +670,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/execution-list
         "symbol": "BTC-31DEC21-18000-P",
         "tradeTime": "1640834911093",
         "orderLinkId": "test2021122417000218",
+        "side": "Sell",
         "orderId": "13ad19bf-5e23-479b-8261-54f1baf290e1",
         "execPrice": "1.00",
         "lastLiquidityInd": "TAKER",
@@ -721,6 +722,7 @@ POST
 |symbol|string|t(:usdcSymbol)|
 |orderId|string|t(:usdcOrderId)|
 |orderLinkId|string|t(:orderLinkId)|
+|side|string|t(:side)|
 |tradeId|string|t(:usdcTradeId)|
 |execPrice|string|t(:tradePrice)|
 |execQty|string|t(:uscdSize)|
