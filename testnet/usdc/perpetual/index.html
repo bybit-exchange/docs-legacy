@@ -3487,6 +3487,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
         <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">tradeTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1640854950675</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">640034d1-97ec-4382-9983-694898c03ba3</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">execPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">46851.50</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">lastLiquidityInd</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">TAKER</span><span class="dl">"</span><span class="p">,</span>
@@ -3618,6 +3619,11 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 <td style="text-align: left">orderLinkId</td>
 <td style="text-align: left">string</td>
 <td>Custom ID used for cross-platform strategy remarks; a max. of 32 characters</td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">string</td>
+<td>Direction</td>
 </tr>
 <tr>
 <td style="text-align: left">execPrice</td>
@@ -5799,6 +5805,7 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
                 <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">tradeId</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">9ae8aad2-0dae-583f-bff1-89aef6f88cd2</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">'</span><span class="s1">side</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Buy</span><span class="dl">'</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">execPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">44277</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">execQty</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.001</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">execFee</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.03320775</span><span class="dl">"</span><span class="p">,</span>
@@ -5846,6 +5853,11 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 <td style="text-align: left">symbol</td>
 <td style="text-align: left">string</td>
 <td>Contract name</td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">string</td>
+<td>Direction</td>
 </tr>
 <tr>
 <td style="text-align: left">execPrice</td>

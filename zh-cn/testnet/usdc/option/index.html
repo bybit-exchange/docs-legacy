@@ -3038,6 +3038,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
         <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC-31DEC21-18000-P</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">tradeTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1640834911093</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">test2021122417000218</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">13ad19bf-5e23-479b-8261-54f1baf290e1</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">execPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1.00</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">lastLiquidityInd</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">TAKER</span><span class="dl">"</span><span class="p">,</span>
@@ -3168,6 +3169,11 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 <td style="text-align: left">orderLinkId</td>
 <td style="text-align: left">string</td>
 <td>關聯訂單號，最大不成超過32位</td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">string</td>
+<td>買賣方向</td>
 </tr>
 <tr>
 <td style="text-align: left">tradeId</td>
@@ -5220,6 +5226,7 @@ curl https://api-testnet.bybit.com/v2/public/time
                 <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">tradeId</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">55565169-2da0-5cb3-9dc8-6669c6d777c9</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTC-4MAR22-42000-P</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">'</span><span class="s1">side</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Sell</span><span class="dl">'</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">execPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">840</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">execQty</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.04</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">execFee</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.52943604</span><span class="dl">"</span><span class="p">,</span>
@@ -5273,6 +5280,11 @@ curl https://api-testnet.bybit.com/v2/public/time
 <td style="text-align: left">symbol</td>
 <td style="text-align: left">string</td>
 <td>合約名稱</td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">string</td>
+<td>買賣方向</td>
 </tr>
 <tr>
 <td style="text-align: left">execPrice</td>
