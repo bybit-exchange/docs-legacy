@@ -552,6 +552,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/execution-list
         "symbol": "BTCPERP",
         "tradeTime": "1640854950675",
         "orderLinkId": "",
+        "side": "Buy",
         "orderId": "640034d1-97ec-4382-9983-694898c03ba3",
         "execPrice": "46851.50",
         "lastLiquidityInd": "TAKER",
@@ -600,9 +601,10 @@ POST
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|symbol|string|t(:usdcSymbol)
-|orderId|string|t(:usdcOrderId)
-|orderLinkId|string|t(:orderLinkId)
+|symbol|string|t(:usdcSymbol)|
+|orderId|string|t(:usdcOrderId)|
+|orderLinkId|string|t(:orderLinkId)|
+|side|string|t(:side)|
 |execPrice|string|t(:tradePrice)|
 |execQty|string|t(:uscdSize)|
 |execFee|string|t(:fee)|

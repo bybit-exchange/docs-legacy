@@ -570,6 +570,7 @@ ws.send(json.dumps({"op": "subscribe", "id": "{100003}","args": ["user.openapi.p
                 "orderLinkId":"",
                 "tradeId":"9ae8aad2-0dae-583f-bff1-89aef6f88cd2",
                 "symbol":"BTCPERP",
+                'side': 'Buy',
                 "execPrice":"44277",
                 "execQty":"0.001",
                 "execFee":"0.03320775",
@@ -596,6 +597,7 @@ t(:usdc_perp_trade_history)
 | orderLinkId |string |t(:orderLinkId) |
 | tradeId |string |t(:tradeId)|
 | symbol |string |t(:usdcSymbol) |
+| side |string |t(:side) |
 | execPrice |string |t(:excPrice) |
 | execQty |string |t(:execQty) |
 | execFee |string |t(:execFee) |
