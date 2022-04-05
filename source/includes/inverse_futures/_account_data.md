@@ -2227,7 +2227,7 @@ print(session.set_risk_limit(
 ```
 
 <aside class="notice">
-t(:account_aside_getRisk)
+t(:account_aside_getRisk_inverse)
 </aside>
 
 <p class="fake_header">t(:httprequest)</p>

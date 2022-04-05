@@ -2293,7 +2293,7 @@ print(session.get_risk_limit(
 t(:account_para_getRisk)
 
 <aside class="notice">
-t(:account_aside_getRisk)
+t(:account_aside_getRisk_inverse)
 </aside>
 
 <p class="fake_header">t(:httprequest)</p>
@@ -2313,7 +2313,7 @@ GET
 |t(:row_parameter_symbol) |string |t(:row_comment_symbol)  |
 |limit |number |t(:row_comment_risk_limit)    |
 |maintain_margin |number |t(:row_comment_maintain_margin)  |
-|starting_margin |number |t(:row_comment_starting_margin)  |
+|starting_margin |number |t(:row_comment_starting_margin_inverse)  |
 |section |string |t(:row_comment_section)  |
 |is_lowest_risk |number |t(:row_comment_is_lowest_risk)    |
 |created_at |string |t(:row_comment_created_at)  |
@@ -2357,7 +2357,7 @@ print(session.set_risk_limit(
 ```
 
 <aside class="notice">
-t(:account_aside_getRisk)
+t(:account_aside_getRisk_inverse)
 </aside>
 
 <p class="fake_header">t(:httprequest)</p>
