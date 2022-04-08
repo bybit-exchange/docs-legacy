@@ -1215,8 +1215,10 @@ while True:
     "topic": "wallet",
     "data": [
         {
-            "wallet_balance": 1.50175786,
-            "available_balance": 1.50177818
+            "user_id": 738713,
+            "coin": "BTC",
+            "available_balance": "1.50121026",
+            "wallet_balance": "1.50121261"
         }
     ]
 }
