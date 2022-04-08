@@ -70,7 +70,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/symbols?limit=1'
+curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/symbols?limit=1&status=ONLINE&status=OFFLINE'
 
 ```
 
@@ -123,6 +123,7 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |symbol|false|string|t(:usdcSymbol)|
+|status|false|string|t(:symbolStatus)|
 |direction|false|string|t(:direction)|
 |limit|false|string|t(:usdcLimit)|
 |cursor|false|string|t(:cursor)|
