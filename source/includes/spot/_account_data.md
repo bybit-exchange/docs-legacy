@@ -276,18 +276,7 @@ print(session.fast_cancel_active_order(
     "ext_code": null,
     "ext_info": null,
     "result": {
-        "accountId": "10054",
-        "symbol": "ETHUSDT",
-        "orderLinkId": "162081160171552",
-        "orderId": "889826641228952064",
-        "transactTime": "1620811601728",
-        "price": "20000",
-        "origQty": "10",
-        "executedQty": "0",
-        "status": "CANCELED",
-        "timeInForce": "GTC",
-        "type": "LIMIT",
-        "side": "BUY"
+        "isCancelled": true
     }
 }
 ```
@@ -314,18 +303,7 @@ DELETE
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|orderId|integer|t(:spotOrderId)|
-|orderLinkId|string|t(:spotOrderLinkId)
-|symbol|string|t(:spotSymbol)|
-|status|string|t(:spotStatus)|
-|accountId|long|t(:spotAccountId)|
-|transactTime|long|t(:spotTransactTime)|
-|price|float|t(:spotOPrice)|
-|origQty|float|t(:spotOriQty)|
-|executedQty|float|t(:spotExecQty2)|
-|timeInForce|string|t(:row_comment_timeInForce)|
-|type|string|t(:spotOrderType)|
-|side|string|t(:spotSide)|
+|isCancelled|bool|t(:spot_message)|
 
 
 ### t(:batchcancelactiveorder)
