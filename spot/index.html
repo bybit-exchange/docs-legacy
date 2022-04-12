@@ -2752,18 +2752,7 @@ If symbol is not specified, the best order price from all symbols will be return
     <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">accountId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10054</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ETHUSDT</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">162081160171552</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">889826641228952064</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">transactTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1620811601728</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">20000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">origQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">executedQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">CANCELED</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GTC</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LIMIT</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BUY</span><span class="dl">"</span>
+        <span class="dl">"</span><span class="s2">isCancelled</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -2817,64 +2806,9 @@ The actual result of the cancellation request needs to be checked by order statu
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">orderId</td>
-<td style="text-align: left">integer</td>
-<td>Order ID</td>
-</tr>
-<tr>
-<td style="text-align: left">orderLinkId</td>
-<td style="text-align: left">string</td>
-<td>User-generated order ID</td>
-</tr>
-<tr>
-<td style="text-align: left">symbol</td>
-<td style="text-align: left">string</td>
-<td>Name of the trading pair</td>
-</tr>
-<tr>
-<td style="text-align: left">status</td>
-<td style="text-align: left">string</td>
-<td>Order status</td>
-</tr>
-<tr>
-<td style="text-align: left">accountId</td>
-<td style="text-align: left">long</td>
-<td>Account ID</td>
-</tr>
-<tr>
-<td style="text-align: left">transactTime</td>
-<td style="text-align: left">long</td>
-<td>Order Creation Time</td>
-</tr>
-<tr>
-<td style="text-align: left">price</td>
-<td style="text-align: left">float</td>
-<td>Order price</td>
-</tr>
-<tr>
-<td style="text-align: left">origQty</td>
-<td style="text-align: left">float</td>
-<td>Order quantity</td>
-</tr>
-<tr>
-<td style="text-align: left">executedQty</td>
-<td style="text-align: left">float</td>
-<td>Executed quantity</td>
-</tr>
-<tr>
-<td style="text-align: left">timeInForce</td>
-<td style="text-align: left">string</td>
-<td><a href="https://help.bybit.com/hc/en-us/articles/360039749233-What-Are-Time-In-Force-TIF-GTC-IOC-FOK-">Time in force</a></td>
-</tr>
-<tr>
-<td style="text-align: left">type</td>
-<td style="text-align: left">string</td>
-<td>Order type</td>
-</tr>
-<tr>
-<td style="text-align: left">side</td>
-<td style="text-align: left">string</td>
-<td>Order direction</td>
+<td style="text-align: left">isCancelled</td>
+<td style="text-align: left">bool</td>
+<td>Success or not (true/false)</td>
 </tr>
 </tbody></table>
 <h3 id='t-batchcancelactiveorder'>Batch Cancel Active Order</h3>
