@@ -305,7 +305,6 @@ DELETE
 |:----- |:-----|----- |
 |isCancelled|bool|t(:spot_message)|
 
-
 ### t(:batchcancelactiveorder)
 > t(:codequote_curlExample)
 
