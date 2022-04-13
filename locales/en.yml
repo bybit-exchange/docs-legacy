@@ -3374,10 +3374,14 @@ en:
   setUpMmpDesc: |
     <p>The configuration parameters are as follows</p>
   usdcCurrency: Currency
+  usdcMmpEnabled: Whether MMP is enabled
+  usdcMmpUserConfigurable: Whether the user can modify the MMP configuration
   usdcWindowMs: Time Window(Millisecond)
-  usdcFrozenPeriodMs: Frozen Period(Millisecond)
-  usdcQtyLimit: Quantity Limit
-  usdcDeltaLimit: Delta Limit
+  usdcFrozenPeriodMs: Frozen Period(Millisecond). (0 means the account will remain frozen until manually reset)
+  usdcQtyLimit: Quantity Limit. (positive number, up to two decimal places)
+  usdcDeltaLimit: Delta Limit. (positive number, up to two decimal places)
+  usdcMmpFrozenUntilMs: Timestamp of when the freeze is expected to be automatically unfrozen (Millisecond)
+  usdcMmpFrozen: whether to freeze
   modifyMmp: Modify
   resetMmp: Reset
   usdcMmpDefault: The default settings are as follows

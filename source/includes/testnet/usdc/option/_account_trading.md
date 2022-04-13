@@ -1008,7 +1008,6 @@ POST
 
 
 ### t(:queryMMPState)
-For USDC ACCOUNT.
 
 > t(:codequote_curlExample)
 
@@ -1063,14 +1062,14 @@ POST
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |baseCoin|string|t(:usdcBaseCoin)|
-|mmpEnabled|boolean|MMP开关是否开启 |
-|mmpUserConfigurable|boolean|用户是否可以修改MMP配置|
-|windowMs|string||
-|frozenPeriodMs|string||
-|qtyLimit|string||
-|deltaLimit|string||
-|mmpFrozenUntilMs|string||
-|mmpFrozen|boolean||
+|mmpEnabled|boolean|t(:usdcMmpEnabled)|
+|mmpUserConfigurable|boolean|t(:usdcMmpUserConfigurable)|
+|windowMs|string|t(:usdcWindowMs)|
+|frozenPeriodMs|string|t(:usdcFrozenPeriodMs)|
+|qtyLimit|string|t(:usdcQtyLimit)|
+|deltaLimit|string|t(:usdcDeltaLimit)|
+|mmpFrozenUntilMs|string|t(:usdcMmpFrozenUntilMs)|
+|mmpFrozen|boolean|t(:usdcMmpFrozen)|
 
 ## t(:accountPosition)
 
