@@ -1006,71 +1006,6 @@ POST
 |:----- |:-----|----- |
 |marginMode|string|t(:usdcMarginMode)|
 
-
-### t(:queryMMPState)
-
-> t(:codequote_curlExample)
-
-```console
-
-curl https://api-testnet.bytick.com/option/usdc/openapi/private/v1/get-mmp-state \
--H "Content-Type: application/json" \
--D '{"baseCoin":"BTC"}'
-```
-
-```python
-
-```
-
-
-> t(:codequote_responseExample)
-
-```javascript
-{
-    "retCode": 0,
-    "retMsg": "OK",
-    "result": [
-        {
-            "baseCoin": "",
-            "mmpEnabled": false,
-            "mmpUserConfigurable": false,
-            "windowMs": "0",
-            "frozenPeriodMs": "0",
-            "qtyLimit": "",
-            "deltaLimit": "",
-            "mmpFrozenUntilMs": "0",
-            "mmpFrozen": false
-        }
-    ]
-}
-```
-
-
-<p class="fake_header">t(:httprequest)</p>
-POST
-<code><span id=uopvAsset>/option/usdc/openapi/private/v1/get-mmp-state</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvAsset"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|baseCoin|false|string|t(:usdcBaseCoin)|
-
-<p class="fake_header">t(:responseparameters)</p>
-
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|baseCoin|string|t(:usdcBaseCoin)|
-|mmpEnabled|boolean|t(:usdcMmpEnabled)|
-|mmpUserConfigurable|boolean|t(:usdcMmpUserConfigurable)|
-|windowMs|string|t(:usdcWindowMs)|
-|frozenPeriodMs|string|t(:usdcFrozenPeriodMs)|
-|qtyLimit|string|t(:usdcQtyLimit)|
-|deltaLimit|string|t(:usdcDeltaLimit)|
-|mmpFrozenUntilMs|string|t(:usdcMmpFrozenUntilMs)|
-|mmpFrozen|boolean|t(:usdcMmpFrozen)|
-
 ## t(:accountPosition)
 
 
@@ -1459,3 +1394,67 @@ POST
 |:----- |:-------|:-----|----- |
 |currency |<b>true</b>|string|t(:usdcCurrency) |
 
+
+### t(:queryMMPState)
+
+> t(:codequote_curlExample)
+
+```console
+
+curl https://api-testnet.bytick.com/option/usdc/openapi/private/v1/get-mmp-state \
+-H "Content-Type: application/json" \
+-D '{"baseCoin":"BTC"}'
+```
+
+```python
+
+```
+
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "retCode": 0,
+    "retMsg": "OK",
+    "result": [
+        {
+            "baseCoin": "",
+            "mmpEnabled": false,
+            "mmpUserConfigurable": false,
+            "windowMs": "0",
+            "frozenPeriodMs": "0",
+            "qtyLimit": "",
+            "deltaLimit": "",
+            "mmpFrozenUntilMs": "0",
+            "mmpFrozen": false
+        }
+    ]
+}
+```
+
+
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=uopvAsset>/option/usdc/openapi/private/v1/get-mmp-state</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvAsset"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|baseCoin|false|string|t(:usdcBaseCoin)|
+
+<p class="fake_header">t(:responseparameters)</p>
+
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|baseCoin|string|t(:usdcBaseCoin)|
+|mmpEnabled|boolean|t(:usdcMmpEnabled)|
+|mmpUserConfigurable|boolean|t(:usdcMmpUserConfigurable)|
+|windowMs|string|t(:usdcWindowMs)|
+|frozenPeriodMs|string|t(:usdcFrozenPeriodMs)|
+|qtyLimit|string|t(:usdcQtyLimit)|
+|deltaLimit|string|t(:usdcDeltaLimit)|
+|mmpFrozenUntilMs|string|t(:usdcMmpFrozenUntilMs)|
+|mmpFrozen|boolean|t(:usdcMmpFrozen)|
