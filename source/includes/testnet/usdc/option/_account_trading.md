@@ -48,11 +48,11 @@ POST
 |symbol|<b>true</b>|string|t(:usdcSymbol)|
 |orderType|<b>true</b>|string|t(:usdcOrderType)|
 |side|<b>true</b>|string|t(:side)|
+|outRequestId|false|string|t(:optionOutRequestId)|
 |orderPrice|false|string|t(:usdcPlaceOrderPrice)|
 |orderQty|<b>true</b>|string|t(:usdcOrderQty)|
 |iv|false|string|t(:optionIv)|
 |t(:row_parameter_timeInForce)|false|string|t(:row_comment_timeInForce)|
-|outRequestId|false|string|t(:optionOutRequestId)|
 |orderLinkId|<b>true</b>|string|t(:orderLinkId)|
 |reduceOnly|false|bool|t(:reduceOnly)|
 |mmp|false|string|t(:mmp)|
@@ -191,9 +191,9 @@ POST
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|outRequestId|<b>true</b>|string|t(:optionOutRequestId)|
 |symbol|<b>true</b>|string|t(:usdcSymbol)|
 |orderId|<b>true</b>|string|t(:usdcReplaceOrderId)|
+|outRequestId|false|string|t(:optionOutRequestId)|
 |orderLinkId|false|string|t(:usdcOrderLinkId)|
 |orderPrice|false|string|t(:usdcOrderPrice)|
 |orderQty|false|string|t(:usdcOrderQty)|
@@ -253,9 +253,9 @@ POST
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|outRequestId|<b>true</b>|string|t(:optionOutRequestId)|
 |symbol|<b>true</b>|string|t(:usdcSymbol)|
 |orderId|<b>true</b>|string|t(:usdcReplaceOrderId)|
+|outRequestId|false|string|t(:optionOutRequestId)|
 |orderLinkId|false|string|t(:usdcOrderLinkId)|
 |orderPrice|false|string|t(:usdcOrderPrice)|
 |orderQty|false|string|t(:usdcOrderQty)|
@@ -414,7 +414,7 @@ POST
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|outRequestId|<b>true</b>|string|t(:optionOutRequestId)|
+|outRequestId|false|string|t(:optionOutRequestId)|
 
 <p>
 t(:cancelAllResponse)
@@ -1006,6 +1006,71 @@ POST
 |:----- |:-----|----- |
 |marginMode|string|t(:usdcMarginMode)|
 
+
+### t(:queryMMPState)
+For USDC ACCOUNT.
+
+> t(:codequote_curlExample)
+
+```console
+
+curl https://api-testnet.bytick.com/option/usdc/openapi/private/v1/get-mmp-state \
+-H "Content-Type: application/json" \
+-D '{"baseCoin":"BTC"}'
+```
+
+```python
+
+```
+
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "retCode": 0,
+    "retMsg": "OK",
+    "result": [
+        {
+            "baseCoin": "",
+            "mmpEnabled": false,
+            "mmpUserConfigurable": false,
+            "windowMs": "0",
+            "frozenPeriodMs": "0",
+            "qtyLimit": "",
+            "deltaLimit": "",
+            "mmpFrozenUntilMs": "0",
+            "mmpFrozen": false
+        }
+    ]
+}
+```
+
+
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=uopvAsset>/option/usdc/openapi/private/v1/get-mmp-state</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvAsset"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|baseCoin|false|string|t(:usdcBaseCoin)|
+
+<p class="fake_header">t(:responseparameters)</p>
+
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|baseCoin|string|t(:usdcBaseCoin)|
+|mmpEnabled|boolean|MMP开关是否开启 |
+|mmpUserConfigurable|boolean|用户是否可以修改MMP配置|
+|windowMs|string||
+|frozenPeriodMs|string||
+|qtyLimit|string||
+|deltaLimit|string||
+|mmpFrozenUntilMs|string||
+|mmpFrozen|boolean||
 
 ## t(:accountPosition)
 
