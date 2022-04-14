@@ -391,7 +391,7 @@ t(:usdcLastestSymbolInfo)
 | vega |string |t(:vega) |
 | theta |string |t(:theta) |
 
-### Platform Insurance
+### t(:usdcPlatformInsurance)
 > t(:codequote_subscribe)
 
 ```javascript

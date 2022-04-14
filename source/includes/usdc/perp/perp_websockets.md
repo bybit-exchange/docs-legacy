@@ -441,7 +441,7 @@ t(:websocket_aside_klineV2)
 | crossSeq |string |crossSeq |
 | timestamp |string |t(:timestamp) |
 
-### Platform Insurance
+### t(:usdcPlatformInsurance)
 > t(:codequote_subscribe)
 
 ```javascript

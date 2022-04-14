@@ -1971,6 +1971,8 @@ zh-cn:
 #  restapi_update_20220324: 交易記錄接口中請求參數增加<code>fromTicketId</code>, <code>toTicketId</code>, <code>orderId</code>，去除 <code>fromId</code>, <code>toId</code>。
   restapi_update_20220324_1: 请求参数新增 <code>fromTicketId</code>, <code>toTicketId</code>, <code>orderId</code>。
   restapi_update_20220324_2: 请求参数廢棄 <code>fromId</code>, <code>toId</code>。
+  restapi_update_20220414_1: 下LIMIT_MAKER 訂單時忽略 MaxTradeQty 和 MaxTradeAmount的限制
+  restapi_update_20220414_2: 添加新的Websocket public topic "Platform Insurance"
   markpricekline: 標記價格K線
   websocketliquidation: 平臺強平推送
   websocket_query_liqrecords: |
@@ -2037,8 +2039,8 @@ zh-cn:
   spotMinTradeQuantity: 最小訂單數量
   spotMinTradeAmount: 最小訂單額
   spotMinPricePrecision: 最小價格精度
-  spotmaxTradeQuantity: 最大成交量
-  spotmaxTradeAmount: 最大成交額
+  spotmaxTradeQuantity: 最大成交量（當您下訂單類型為 LIMIT_MAKER 時將被忽略）
+  spotmaxTradeAmount: 最大成交額（當您下訂單類型為 LIMIT_MAKER 時將被忽略）
   spotCategory: symbol 所在分區:1主類別
   spotQuoteAssetVolume: 行情資產數量
 

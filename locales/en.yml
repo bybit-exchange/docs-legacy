@@ -1325,7 +1325,7 @@ en:
   websocket_aside_klineV2: |
     If <code>confirm</code> is <code>True</code>, the data is the final tick for the interval. Otherwise, it is a snapshot.
   websocketkline: kline
-  websocket_usdc_platform_insurance: At 0:00, 8:00, and 16:00 UTC+0, the insurance fund will be pushed once each.
+  websocket_usdc_platform_insurance: At 0:00, 8:00, and 16:00 UTC+0, the insurance fund will be pushed.
 
   ## liquidation
   websocketliquidation: liquidation
@@ -2300,6 +2300,8 @@ en:
   restapi_update_20210826: Asset Transfer API released!
   restapi_update_20220324_1: Add request parameters <code>fromTicketId</code>, <code>toTicketId</code>, <code>orderId</code>
   restapi_update_20220324_2: Deprecate request parameters <code>fromId</code>, <code>toId</code>
+  restapi_update_20220414_1: MaxTradeQty and MaxTradeAmount are ignored when placing LIMIT_MAKER orders
+  restapi_update_20220414_2: Add new Websocket public topic "Platform Insurance"
   markpricekline: Query Mark Price Kline
   linear_query_mark_price_kline: Query mark price kline (like <a href="#t-querykline">Query Kline</a> but for <a href="https://help.bybit.com/hc/en-us/articles/360039261074-What-is-Dual-Price-mechanism-">mark price</a>).
   linear_resp_field_last_exec_price: Last execution price
@@ -2361,8 +2363,8 @@ en:
   spotMinTradeQuantity: Min. order qty
   spotMinTradeAmount: Min. order value
   spotMinPricePrecision: Min. number of decimal places
-  spotmaxTradeQuantity: Max. order qty
-  spotmaxTradeAmount: Max. order value
+  spotmaxTradeQuantity: Max. order qty (It is ignored when you place an order with order type LIMIT_MAKER)
+  spotmaxTradeAmount: Max. order value (It is ignored when you place an order with order type LIMIT_MAKER)
   spotCategory:  Category
 
   spotSymbol: Name of the trading pair
@@ -3271,7 +3273,7 @@ en:
   usdc_platform_insurance: |
     <p>topic:</p>
     <p>platform.insurance.USDC</p>
-
+  usdcPlatformInsurance: Platform Insurance
   usdc_perp_price_rule:
     <ul>
     <li>Must be less than 1 million (<code>1000000</code>)</li>
