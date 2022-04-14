@@ -175,6 +175,7 @@ GET
 |time|long|t(:spotTime)|
 |updateTime|long|t(:spotUpdateTime)|
 |isWorking|boolean|t(:spotIsWorking)|
+|locked|float|t(:spotOrderLocked)|
 
 
 ### t(:cancelactive)
