@@ -8,7 +8,7 @@
 ## 2022-04-13
 ### REST API
 - [t(:getactive)](#t-getactive) [t(:changelog_new)]
-  - t(:restapi_update_20220413)
+  - t(:restapi_update_20220414_1)
 
 ## 2022-03-24
 ### REST API
