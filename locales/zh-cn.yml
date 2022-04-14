@@ -1166,6 +1166,7 @@ zh-cn:
   websocket_aside_klineV2: |
     註意如果字段<code>confirm</code>為<code>True</code>, 則表明這是這根K線的最後一個tick；否則，這只是一個快照數據，即中間價格
   websocketkline: K線
+  websocket_usdc_platform_insurance: 0:00、8:00、16:00 UTC+0，保險基金將分別推送一次。
 
   ## Private Topics
   privatetopics: 私有 Topics
@@ -1970,6 +1971,8 @@ zh-cn:
 #  restapi_update_20220324: 交易記錄接口中請求參數增加<code>fromTicketId</code>, <code>toTicketId</code>, <code>orderId</code>，去除 <code>fromId</code>, <code>toId</code>。
   restapi_update_20220324_1: 请求参数新增 <code>fromTicketId</code>, <code>toTicketId</code>, <code>orderId</code>。
   restapi_update_20220324_2: 请求参数廢棄 <code>fromId</code>, <code>toId</code>。
+  restapi_update_20220414_1: 下LIMIT_MAKER 訂單時忽略 MaxTradeQty 和 MaxTradeAmount的限制
+  restapi_update_20220414_2: 添加新的Websocket public topic "Platform Insurance"
   restapi_update_20220413: 返回參數中新增加 <code>locked</code>。
   markpricekline: 標記價格K線
   websocketliquidation: 平臺強平推送
@@ -2037,8 +2040,8 @@ zh-cn:
   spotMinTradeQuantity: 最小訂單數量
   spotMinTradeAmount: 最小訂單額
   spotMinPricePrecision: 最小價格精度
-  spotmaxTradeQuantity: 最大成交量
-  spotmaxTradeAmount: 最大成交額
+  spotmaxTradeQuantity: 最大成交量（當您下訂單類型為 LIMIT_MAKER 時將被忽略）
+  spotmaxTradeAmount: 最大成交額（當您下訂單類型為 LIMIT_MAKER 時將被忽略）
   spotCategory: symbol 所在分區:1主類別
   spotQuoteAssetVolume: 行情資產數量
   spotOrderLocked: 鎖定數量（如果為0，則說明該筆訂單的資金已完成結算）
@@ -2499,6 +2502,7 @@ zh-cn:
   assetInfo: 資產信息
   setMarginMode: 設置保證金模式
   queryMarginMode: 查詢保證金模式
+  queryMMPState: 查詢 MMP 狀態
 
   accountPosition: 賬戶持倉
   queryPosition: 查詢持倉
@@ -2751,6 +2755,7 @@ zh-cn:
   usdcturnover: 成交金額
   usdcconfirm: 是否確認
   usdcautoAddMargin: 是否自動追加保證金
+  usdcInsuranceBalance: USDC 保險餘額
   isIsolated: 是否逐倉
   execValue: 倉位價值
   excPrice: 成交價格
@@ -3044,10 +3049,14 @@ zh-cn:
   enableMmp: 開通
   setUpMmp: 設置
   usdcCurrency: 幣種
+  usdcMmpEnabled: MMP開關是否開啟
+  usdcMmpUserConfigurable: 用戶是否可以修改MMP配置
   usdcWindowMs: 時間窗口(毫秒)
-  usdcFrozenPeriodMs: 凍結時間窗口(毫秒)
+  usdcFrozenPeriodMs: 凍結時間窗口(毫秒) (0表示賬戶將保持凍結狀態，直到手動重置)
   usdcQtyLimit: 數量上限
   usdcDeltaLimit: delta 上限
+  usdcMmpFrozenUntilMs: 預計凍結到何時自動解凍的時間戳(毫秒)
+  usdcMmpFrozen: 是否凍結
   whatIsUsdcMmpDesc: |
     <p>做市商保護機制，旨在保護為平台提供流動性的做市商，防止在一定時間窗口內產生大量成交，導致流動性風險過度集中甚至擊穿某個做市商流動性。一旦某個賬戶在短時間內的總交易額超過了配置的限額，該賬戶的做市商保護將被觸發。</p>
     <p>當做市商保護被觸發時，賬戶現有的做市商保護訂單（被標記為做市商保護的訂單）將被交易引擎自動取消，而該賬戶新的做市商保護訂單將在未來一段時間（稱為凍結期）被拒絕（常規非MMP訂單不受影響）。用戶可以利用這段時間重新評估行情並修改報價。</p>

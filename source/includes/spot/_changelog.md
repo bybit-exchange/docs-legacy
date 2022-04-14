@@ -1,4 +1,10 @@
 # t(:changelog)
+
+## 2022-04-14
+### REST API
+- [t(:spot_querysymbol)](#t-spot_querysymbol) [t(:changelog_update)]
+  - t(:restapi_update_20220324_1)
+
 ## 2022-04-13
 ### REST API
 - [t(:getactive)](#t-getactive) [t(:changelog_new)]

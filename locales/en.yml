@@ -1325,6 +1325,7 @@ en:
   websocket_aside_klineV2: |
     If <code>confirm</code> is <code>True</code>, the data is the final tick for the interval. Otherwise, it is a snapshot.
   websocketkline: kline
+  websocket_usdc_platform_insurance: At 0:00, 8:00, and 16:00 UTC+0, the insurance fund will be pushed.
 
   ## liquidation
   websocketliquidation: liquidation
@@ -1585,6 +1586,7 @@ en:
   err_1015: Too many new orders. Please lower request frequency.
   err_1016: Service not available.
   err_1022: Signature for this request is not valid. Check the content-type and try without content-type. If symbol is set to BTC/USDT instead of BTCUSDT this error can ocur. The slash would not be urlencoded before the signature, but it would be after, resulting in mismatching param str.
+  err_1032: Network error. Please try again later
   err_1103: An unknown parameter was sent. For POST request - No content-type specified, should change to application/x-www-form-urlencoded or make sure the query string is in the full request URL. For DELETE request, make sure your parameters are in query string format and the query string is in the full request URL. For GET request - Don't set Content-Type to "application/json". "Spot" permission not enabled when creating the API key.
 
 
@@ -2298,6 +2300,8 @@ en:
   restapi_update_20210826: Asset Transfer API released!
   restapi_update_20220324_1: Add request parameters <code>fromTicketId</code>, <code>toTicketId</code>, <code>orderId</code>
   restapi_update_20220324_2: Deprecate request parameters <code>fromId</code>, <code>toId</code>
+  restapi_update_20220414_1: MaxTradeQty and MaxTradeAmount are ignored when placing LIMIT_MAKER orders
+  restapi_update_20220414_2: Add new Websocket public topic "Platform Insurance"
   restapi_update_20220413: Add response parameter <code>locked</code>
   markpricekline: Query Mark Price Kline
   linear_query_mark_price_kline: Query mark price kline (like <a href="#t-querykline">Query Kline</a> but for <a href="https://help.bybit.com/hc/en-us/articles/360039261074-What-is-Dual-Price-mechanism-">mark price</a>).
@@ -2360,8 +2364,8 @@ en:
   spotMinTradeQuantity: Min. order qty
   spotMinTradeAmount: Min. order value
   spotMinPricePrecision: Min. number of decimal places
-  spotmaxTradeQuantity: Max. order qty
-  spotmaxTradeAmount: Max. order value
+  spotmaxTradeQuantity: Max. order qty (It is ignored when you place an order with order type LIMIT_MAKER)
+  spotmaxTradeAmount: Max. order value (It is ignored when you place an order with order type LIMIT_MAKER)
   spotCategory:  Category
 
   spotSymbol: Name of the trading pair
@@ -2806,6 +2810,7 @@ en:
   assetInfo: Asset Info
   setMarginMode: Set Margin Mode
   queryMarginMode: Query Margin Mode
+  queryMMPState: Query MMP state
 
   accountPosition: Positions API
   queryPosition: Query My Positions
@@ -3063,6 +3068,7 @@ en:
   usdcturnover: 24-hour turnover
   usdcconfirm: Confirmed or not
   usdcautoAddMargin: Whether auto margin replenishment has been enabled
+  usdcInsuranceBalance: USDC Insurance Balance
   isIsolated: True means isolated margin, false means cross margin
   execValue: Position value
   excPrice: Filled price
@@ -3266,7 +3272,10 @@ en:
   usdc_perp_order_desc: |
     <p>topic:</p>
     <p>user.perp.orderHistory</p>
-
+  usdc_platform_insurance: |
+    <p>topic:</p>
+    <p>platform.insurance.USDC</p>
+  usdcPlatformInsurance: Platform Insurance
   usdc_perp_price_rule:
     <ul>
     <li>Must be less than 1 million (<code>1000000</code>)</li>
@@ -3370,10 +3379,14 @@ en:
   setUpMmpDesc: |
     <p>The configuration parameters are as follows</p>
   usdcCurrency: Currency
+  usdcMmpEnabled: Whether MMP is enabled
+  usdcMmpUserConfigurable: Whether the user can modify the MMP configuration
   usdcWindowMs: Time Window(Millisecond)
-  usdcFrozenPeriodMs: Frozen Period(Millisecond)
-  usdcQtyLimit: Quantity Limit
-  usdcDeltaLimit: Delta Limit
+  usdcFrozenPeriodMs: Frozen Period(Millisecond). (0 means the account will remain frozen until manually reset)
+  usdcQtyLimit: Quantity Limit. (positive number, up to two decimal places)
+  usdcDeltaLimit: Delta Limit. (positive number, up to two decimal places)
+  usdcMmpFrozenUntilMs: Timestamp of when the freeze is expected to be automatically unfrozen (Millisecond)
+  usdcMmpFrozen: whether to freeze
   modifyMmp: Modify
   resetMmp: Reset
   usdcMmpDefault: The default settings are as follows
