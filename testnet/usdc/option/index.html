@@ -832,6 +832,9 @@
                           <li>
                             <a href="#t-resetmmp" class="toc-h3 toc-link" data-title="Reset">Reset</a>
                           </li>
+                          <li>
+                            <a href="#t-querymmpstate" class="toc-h3 toc-link" data-title="Query MMP state">Query MMP state</a>
+                          </li>
                       </ul>
                   </li>
               </ul>
@@ -892,6 +895,9 @@
                           </li>
                           <li>
                             <a href="#t-latestsymbolinfo" class="toc-h3 toc-link" data-title="Latest Symbol Info">Latest Symbol Info</a>
+                          </li>
+                          <li>
+                            <a href="#t-usdcplatforminsurance" class="toc-h3 toc-link" data-title="Platform Insurance">Platform Insurance</a>
                           </li>
                       </ul>
                   </li>
@@ -1828,6 +1834,12 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td>Direction</td>
 </tr>
 <tr>
+<td style="text-align: left">outRequestId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>ID used for idempotence with a max. of 32 characters, required for Options</td>
+</tr>
+<tr>
 <td style="text-align: left">orderPrice</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
@@ -1850,12 +1862,6 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td><a href="https://help.bybit.com/hc/en-us/articles/360039749233-What-Are-Time-In-Force-TIF-GTC-IOC-FOK-">Time in force</a></td>
-</tr>
-<tr>
-<td style="text-align: left">outRequestId</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>ID used for idempotence with a max. of 32 characters, required for Options</td>
 </tr>
 <tr>
 <td style="text-align: left">orderLinkId</td>
@@ -2138,12 +2144,6 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">outRequestId</td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">string</td>
-<td>ID used for idempotence with a max. of 32 characters, required for Options</td>
-</tr>
-<tr>
 <td style="text-align: left">symbol</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
@@ -2154,6 +2154,12 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Order ID, required for Options</td>
+</tr>
+<tr>
+<td style="text-align: left">outRequestId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>ID used for idempotence with a max. of 32 characters, required for Options</td>
 </tr>
 <tr>
 <td style="text-align: left">orderLinkId</td>
@@ -2258,12 +2264,6 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">outRequestId</td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">string</td>
-<td>ID used for idempotence with a max. of 32 characters, required for Options</td>
-</tr>
-<tr>
 <td style="text-align: left">symbol</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
@@ -2274,6 +2274,12 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Order ID, required for Options</td>
+</tr>
+<tr>
+<td style="text-align: left">outRequestId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>ID used for idempotence with a max. of 32 characters, required for Options</td>
 </tr>
 <tr>
 <td style="text-align: left">orderLinkId</td>
@@ -2526,7 +2532,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 </thead><tbody>
 <tr>
 <td style="text-align: left">outRequestId</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>ID used for idempotence with a max. of 32 characters, required for Options</td>
 </tr>
@@ -4301,19 +4307,19 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-margin-i
 <tr>
 <td style="text-align: left">frozenPeriodMs</td>
 <td style="text-align: left">string</td>
-<td>Frozen Period(Millisecond)</td>
+<td>Frozen Period(Millisecond). (0 means the account will remain frozen until manually reset)</td>
 <td>100</td>
 </tr>
 <tr>
 <td style="text-align: left">qtyLimit</td>
 <td style="text-align: left">string</td>
-<td>Quantity Limit</td>
+<td>Quantity Limit. (positive number, up to two decimal places)</td>
 <td>100</td>
 </tr>
 <tr>
 <td style="text-align: left">deltaLimit</td>
 <td style="text-align: left">string</td>
-<td>Delta Limit</td>
+<td>Delta Limit. (positive number, up to two decimal places)</td>
 <td>100</td>
 </tr>
 </tbody></table>
@@ -4373,19 +4379,19 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-margin-i
 <td style="text-align: left">frozenPeriodMs</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">number</td>
-<td>Frozen Period(Millisecond)</td>
+<td>Frozen Period(Millisecond). (0 means the account will remain frozen until manually reset)</td>
 </tr>
 <tr>
 <td style="text-align: left">qtyLimit</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Quantity Limit</td>
+<td>Quantity Limit. (positive number, up to two decimal places)</td>
 </tr>
 <tr>
 <td style="text-align: left">deltaLimit</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Delta Limit</td>
+<td>Delta Limit. (positive number, up to two decimal places)</td>
 </tr>
 </tbody></table>
 <h3 id='t-resetmmp'>Reset</h3>
@@ -4429,6 +4435,116 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-margin-i
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Currency</td>
+</tr>
+</tbody></table>
+<h3 id='t-querymmpstate'>Query MMP state</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">
+curl https://api-testnet.bytick.com/option/usdc/openapi/private/v1/get-mmp-state \
+-H "Content-Type: application/json" \
+-D '{"baseCoin":"BTC"}'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+</code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">baseCoin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">mmpEnabled</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">mmpUserConfigurable</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">windowMs</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">frozenPeriodMs</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">qtyLimit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">deltaLimit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">mmpFrozenUntilMs</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">mmpFrozen</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>POST
+<code><span id=uopvAsset>/option/usdc/openapi/private/v1/get-mmp-state</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvAsset"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">baseCoin</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Base currency</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">baseCoin</td>
+<td style="text-align: left">string</td>
+<td>Base currency</td>
+</tr>
+<tr>
+<td style="text-align: left">mmpEnabled</td>
+<td style="text-align: left">boolean</td>
+<td>Whether MMP is enabled</td>
+</tr>
+<tr>
+<td style="text-align: left">mmpUserConfigurable</td>
+<td style="text-align: left">boolean</td>
+<td>Whether the user can modify the MMP configuration</td>
+</tr>
+<tr>
+<td style="text-align: left">windowMs</td>
+<td style="text-align: left">string</td>
+<td>Time Window(Millisecond)</td>
+</tr>
+<tr>
+<td style="text-align: left">frozenPeriodMs</td>
+<td style="text-align: left">string</td>
+<td>Frozen Period(Millisecond). (0 means the account will remain frozen until manually reset)</td>
+</tr>
+<tr>
+<td style="text-align: left">qtyLimit</td>
+<td style="text-align: left">string</td>
+<td>Quantity Limit. (positive number, up to two decimal places)</td>
+</tr>
+<tr>
+<td style="text-align: left">deltaLimit</td>
+<td style="text-align: left">string</td>
+<td>Delta Limit. (positive number, up to two decimal places)</td>
+</tr>
+<tr>
+<td style="text-align: left">mmpFrozenUntilMs</td>
+<td style="text-align: left">string</td>
+<td>Timestamp of when the freeze is expected to be automatically unfrozen (Millisecond)</td>
+</tr>
+<tr>
+<td style="text-align: left">mmpFrozen</td>
+<td style="text-align: left">boolean</td>
+<td>whether to freeze</td>
 </tr>
 </tbody></table>
 <h1 id='t-api'>API Data Endpoints</h1>
@@ -5079,6 +5195,61 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <td style="text-align: left">theta</td>
 <td style="text-align: left">string</td>
 <td>Theta value</td>
+</tr>
+</tbody></table>
+<h3 id='t-usdcplatforminsurance'>Platform Insurance</h3>
+<blockquote>
+<p>How to Subscribe</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["platform.insurance.USDC"]}</span><span class="dl">'</span><span class="p">)</span>
+
+</code></pre></div>
+<blockquote>
+<p>Response Example - format of all responses</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">'</span><span class="s1">id</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">d5249692-c34b-48f0-9db5-d693a30bce09</span><span class="dl">'</span><span class="p">,</span> 
+    <span class="dl">'</span><span class="s1">topic</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">platform.insurance.USDC</span><span class="dl">'</span><span class="p">,</span> 
+    <span class="dl">'</span><span class="s1">creationTime</span><span class="dl">'</span><span class="p">:</span> <span class="mi">1649750400693</span><span class="p">,</span> 
+    <span class="dl">'</span><span class="s1">data</span><span class="dl">'</span><span class="p">:</span> 
+        <span class="p">{</span>
+            <span class="dl">'</span><span class="s1">insuranceBalance</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">1180144.86587280</span><span class="dl">'</span><span class="p">,</span> 
+            <span class="dl">'</span><span class="s1">baseCoin</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">USDC</span><span class="dl">'</span><span class="p">,</span> 
+            <span class="dl">'</span><span class="s1">timestamp</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">1649750400693</span><span class="dl">'</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><p>topic:</p>
+<p>platform.insurance.USDC</p>
+</p>
+
+<aside class="notice">
+At 0:00, 8:00, and 16:00 UTC+0, the insurance fund will be pushed.
+</aside>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">insuranceBalance</td>
+<td style="text-align: left">string</td>
+<td>USDC Insurance Balance</td>
+</tr>
+<tr>
+<td style="text-align: left">baseCoin</td>
+<td style="text-align: left">string</td>
+<td>Base currency</td>
+</tr>
+<tr>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left">string</td>
+<td>Timestamp, unit in milliseconds</td>
 </tr>
 </tbody></table>
 <h2 id='private-topics'>Private Topics</h2><h3 id='t-userpositionsinfo'>Position</h3>
@@ -5823,7 +5994,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 </tr>
 <tr>
 <td>3100136</td>
-<td>Order does not exist.</td>
+<td>Order does not exist. (the order does not exist or the order has been completed to the final state (Canceled, Filled))</td>
 </tr>
 <tr>
 <td>3100141</td>
