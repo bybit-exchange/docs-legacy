@@ -1,15 +1,15 @@
-# t(:etp)
+# t(:lt)
 <aside class="notice">
-t(:etp_notice)
+t(:lt_notice)
 </aside>
 
-### t(:etpInfo)
+### t(:ltInfo)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/spot/etp/v1/info \
+curl https://api-testnet.bybit.com/spot/lt/v1/info \
 -H "Content-Type: application/x-www-form-urlencoded" \
--d 'api_key={api_key}&etpCode={etpCode}&timestamp=1637669364000'
+-d 'api_key={api_key}&ltCode={ltCode}&timestamp=1637669364000'
 ```
 
 > t(:codequote_responseExample)
@@ -19,8 +19,8 @@ curl https://api-testnet.bybit.com/spot/etp/v1/info \
   "ret_code": 0,
     "ret_msg": null,
     "result": {
-      "etpCode": "btc3l",
-      "etpName": "BTC*3",
+      "ltCode": "btc3l",
+      "ltName": "BTC*3",
       "maxPurchase": "300024.12345678",
       "minPurchase": "0.12345678",
       "maxPurchaseDaily": "500000.12345678",
@@ -34,7 +34,6 @@ curl https://api-testnet.bybit.com/spot/etp/v1/info \
       "fundFeeTime": 1620917160000,
       "manageFeeRate": "-0.12345678",
       "manageFeeTime": 1620917160000,
-      "circulation": "3124234233.12345678",
       "value": "1212432.12345678",
       "total": "200000000.12345678",
       "netValue": "10.12345678"
@@ -47,14 +46,14 @@ curl https://api-testnet.bybit.com/spot/etp/v1/info \
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpoCreate>/spot/etp/v1/info</span></code>
+<code><span id=vpoCreate>/spot/lt/v1/info</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|etpCode|<b>true</b>|string|t(:spotEtpCode)|
+|ltCode|<b>true</b>|string|t(:spotLtCode)|
 |timestamp|<b>false</b>|number|t(:spot_timestamp)|
 
 
@@ -62,8 +61,8 @@ GET
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|etpCode|string|t(:spotResEtpCode)|
-|etpName|string|t(:spotResEtpName)|
+|ltCode|string|t(:spotResLtCode)|
+|ltName|string|t(:spotResLtName)|
 |maxPurchase|string|t(:spotResMaxPurchase)|
 |minPurchase|string|t(:spotResMinPurchase)|
 |maxPurchaseDaily|string|t(:spotResMaxPurchaseDaily)|
@@ -72,27 +71,26 @@ GET
 |maxRedeemDaily|string|t(:spotResMaxRedeemDaily)|
 |purchaseFeeRate|string|t(:spotResPurchaseFee)|
 |redeemFeeRate|string|t(:spotResRedeemFee)|
-|status|string|t(:spotResEtpStatus)|
+|status|string|t(:spotResLtStatus)|
 |fundFee|string|t(:spotResFundFee)|
 |fundFeeTime|long|t(:spotResFundFeeTime)|
 |manageFeeRate|string|t(:spotResManageFee)|
 |manageFeeTime|string|t(:spotResManageFeeTime)|
-|circulation|string|t(:spotResCirculation)|
 |value|string|t(:spotResValue)|
 |total|string|t(:spotResTotal)|
 |netValue|string|t(:spotResNetValue)|
 
 <aside class="notice">
-t(:etp_para)
+t(:lt_para)
 </aside>
 
-### t(:etpPurchase)
+### t(:ltPurchase)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/spot/etp/v1/purchase \
+curl https://api-testnet.bybit.com/spot/lt/v1/purchase \
 -H "Content-Type: application/x-www-form-urlencoded" \
--d 'api_key={api_key}&etpCode={etpCode}&etpAmount={etpAmount}&serialNo={serialNo}&timestamp=1637669364000'
+-d 'api_key={api_key}&ltCode={ltCode}&ltAmount={ltAmount}&serialNo={serialNo}&timestamp=1637669364000'
 ```
 
 > t(:codequote_responseExample)
@@ -102,7 +100,7 @@ curl https://api-testnet.bybit.com/spot/etp/v1/purchase \
     "ret_code": 0,
     "ret_msg": null,
     "result": {
-        "etpCode": "BTC3L",
+        "ltCode": "BTC3L",
         "orderStatus": "1",
         "orderQuantity": "12",
         "orderAmount": "123.12345678",
@@ -118,24 +116,24 @@ curl https://api-testnet.bybit.com/spot/etp/v1/purchase \
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/spot/etp/v1/purchase</span></code>
+<code><span id=vpoCreate>/spot/lt/v1/purchase</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|etpCode|<b>true</b>|string|t(:spotEtpCode)|
-|etpAmount|<b>true</b>|number|t(:spotEtpAmount)|
+|ltCode|<b>true</b>|string|t(:spotLtCode)|
+|ltAmount|<b>true</b>|number|t(:spotLtAmount)|
 |timestamp|<b>true</b>|number|t(:spot_timestamp)|
-|serialNo|<b>false</b>|string|t(:spotEtpSerialNo)|
+|serialNo|<b>false</b>|string|t(:spotLtSerialNo)|
 
 
 <p class="fake_header">t(:responseparameters)</p>
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|etpCode|string|t(:spotResEtpCode)|
+|ltCode|string|t(:spotResLtCode)|
 |orderStatus|string|t(:spotResOrderStatus)|
 |orderQuantity|string|t(:spotResPurchaseOrderQuantity)|
 |orderAmount|string|t(:spotResPurchaseOrderAmount)|
@@ -143,16 +141,16 @@ POST
 |timestamp|long|t(:spot_timestamp)|
 |id|long|t(:spotResId)|
 |valueCoin|string|t(:spotResValueCoin)|
-|serialNo|string|t(:spotEtpSerialNo)|
+|serialNo|string|t(:spotLtSerialNo)|
 
 
-### t(:etpRedeem)
+### t(:ltRedeem)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/spot/etp/v1/redeem \
+curl https://api-testnet.bybit.com/spot/lt/v1/redeem \
 -H "Content-Type: application/x-www-form-urlencoded" \
--d 'api_key={api_key}&etpCode={etpCode}&etpQuantity={etpQuantity}&serialNo={serialNo}&timestamp=1637669364000'
+-d 'api_key={api_key}&ltCode={ltCode}&ltQuantity={ltQuantity}&serialNo={serialNo}&timestamp=1637669364000'
 ```
 
 > t(:codequote_responseExample)
@@ -178,24 +176,24 @@ curl https://api-testnet.bybit.com/spot/etp/v1/redeem \
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/spot/etp/v1/redeem</span></code>
+<code><span id=vpoCreate>/spot/lt/v1/redeem</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|etpCode|<b>true</b>|string|t(:spotEtpCode)|
-|etpQuantity|<b>true</b>|number|t(:spotEtpQuantity)|
+|ltCode|<b>true</b>|string|t(:spotLtCode)|
+|ltQuantity|<b>true</b>|number|t(:spotLtQuantity)|
 |timestamp|<b>true</b>|number|t(:spot_timestamp)|
-|serialNo|<b>false</b>|string|t(:spotEtpSerialNo)|
+|serialNo|<b>false</b>|string|t(:spotLtSerialNo)|
 
 
 <p class="fake_header">t(:responseparameters)</p>
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|etpCode|string|t(:spotResEtpCode)|
+|ltCode|string|t(:spotResLtCode)|
 |orderStatus|string|t(:spotResOrderStatus)|
 |quantity|string|t(:spotResRedeemQuantity)|
 |orderQuantity|string|t(:spotResRedeemOrderQuantity)|
