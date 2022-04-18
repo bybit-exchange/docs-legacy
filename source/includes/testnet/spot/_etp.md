@@ -311,4 +311,4 @@ GET
 |navTime|long|t(:spotLtQuoteNavTime)|
 |basket|string|t(:spotLtQuoteBasket)|
 |leverage|string|t(:spotLeverage)|
-｜circulation|string|t(:spotResCirculation)|
+|circulation|string|t(:spotResCirculation)|
