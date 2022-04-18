@@ -1137,7 +1137,7 @@ POST
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|time|number|(t:settlementTime)
+|time|number|t(:settlementTime)|
 |symbol|string|t(:usdcSymbol)|
 |side|string|t(:side)|
 |size|string|t(:usdcSize)|
