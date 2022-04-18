@@ -160,7 +160,7 @@ curl https://api-testnet.bybit.com/spot/lt/v1/redeem \
   "ret_code": 0,
     "ret_msg": null,
     "result": {
-      "etpCode": "BTC3L",
+      "ltCode": "BTC3L",
       "orderStatus": "1",
       "quantity": "12",
       "orderQuantity": "123.12345678",
@@ -201,10 +201,10 @@ POST
 |timestamp|long|t(:spot_timestamp)|
 |id|long|t(:spotResId)|
 |valueCoin|string|t(:spotResValueCoin)|
-|serialNo|string|t(:spotEtpSerialNo)|
+|serialNo|string|t(:spotLtSerialNo)|
 
 
-### t(:etpRecord)
+### t(:ltRecord)
 > t(:codequote_curlExample)
 
 
@@ -213,52 +213,52 @@ POST
 ```javascript
 {
     "ret_code": 0,
-    "ret_msg": null,
-    "result":
-    [
-      {
-        "etpCode": "btc3l",
-        "orderId": 1,
-        "orderType": 1,
-        "orderTime": 1620917160000,
-        "excTime": 1620917160000,
-        "orderStatus": "1",
-        "fee": "0.12345678",
-        "amount": "12.12345678",
-        "value": "12.12345678",
-        "valueCoin": "usdt"
-      }
-    ],
+    "ret_msg": "",
     "ext_code": null,
-    "ext_info": null
+    "ext_info": null,
+    "result": [
+        {
+            "ltCode": "BTC3L",
+            "orderId": "1049",
+            "orderType": 1,
+            "orderTime": "1650253091000",
+            "excTime": "1650253107000",
+            "orderStatus": "1",
+            "fee": "0",
+            "amount": "9.44245991",
+            "value": "85.50095708",
+            "valueCoin": "USDT",
+            "serialNo": "0a65e240165025309566610041"
+        }
+    ]
 }
 ``` 
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpoCreate>/spot/etp/v1/record</span></code>
+<code><span id=vpoCreate>/spot/lt/v1/record</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|etpCode|<b>false</b>|string|t(:spotEtpCode)|
-|orderId|<b>false</b>|long|t(:spotEtpOrderId)|
+|ltCode|<b>false</b>|string|t(:spotLtCode)|
+|orderId|<b>false</b>|long|t(:spotLtOrderId)|
 |timestamp|<b>true</b>|long|t(:spot_timestamp)|
-|startTime|<b>false</b>|long|t(:spotEtpStartTime)|
-|endTime|<b>false</b>|long|t(:spotEtpEndTime)|
+|startTime|<b>false</b>|long|t(:spotLtStartTime)|
+|endTime|<b>false</b>|long|t(:spotLtEndTime)|
 |limit|<b>false</b>|int|t(:row_comment_limit_100_500)|
-|orderType|<b>false</b>|int|t(:spotEtpOrderType)|
-|serialNo|<b>false</b>|string|t(:spotEtpSerialNo)|
+|orderType|<b>false</b>|int|t(:spotLtOrderType)|
+|serialNo|<b>false</b>|string|t(:spotLtSerialNo)|
 
 <p class="fake_header">t(:responseparameters)</p>
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|etpCode|string|t(:spotResEtpCode)|
-|orderId|string|t(:spotEtpOrderId)|
-|orderType|int|t(:spotEtpOrderType)|
+|ltCode|string|t(:spotResLtCode)|
+|orderId|string|t(:spotLtOrderId)|
+|orderType|int|t(:spotLtOrderType)|
 |orderTime|long|t(:spotResOrderTime)|
 |excTime|long|t(:spotResExcTime)|
 |orderStatus|string|t(:spotResStatus)|
@@ -266,10 +266,10 @@ GET
 |amount|string|t(:spotResAmount)|
 |value|string|t(:spotResRecordValue)|
 |valueCoin|string|t(:spotResValueCoin)|
-|serialNo|string|t(:spotEtpSerialNo)|
+|serialNo|string|t(:spotLtSerialNo)|
 
 
-### t(:etpQuoteReference)
+### t(:ltQuoteReference)
 > t(:codequote_curlExample)
 
 > t(:codequote_responseExample)
@@ -277,36 +277,38 @@ GET
 ```javascript
 {
     "ret_code": 0,
-    "ret_msg": null,
+    "ret_msg": "",
+    "ext_code": null,
+    "ext_info": null,
     "result": {
-      "etpCode": "btc3lusdtnav",
-      "nav": "12.12345678",
-      "navTime": 1620917160000,
-      "leverage": "2.12345678",
-      "basket": "122222.12345678"
-  },
-  "ext_code": null,
-  "ext_info": null
+        "ltCode": "BTC3L",
+        "nav": "8.348543196938590649",
+        "navTime": "1650259325443",
+        "basket": "14.063000000262307568",
+        "leverage": "3.451925561403627643",
+        "circulation": "18969.901970158967556311"
+    }
 }
 ``` 
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpoCreate>/spot/etp/v1/reference</span></code>
+<code><span id=vpoCreate>/spot/lt/v1/reference</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|etpCode|<b>true</b>|string|t(:spotEtpCode)|
+|ltCode|<b>true</b>|string|t(:spotLtCode)|
 
 <p class="fake_header">t(:responseparameters)</p>
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|etpCode|string|t(:spotResEtpCode)|
-|nav|string|t(:spotEtpQuoteNav)|
-|navTime|long|t(:spotEtpQuoteNavTime)|
-|basket|string|t(:spotEtpQuoteBasket)|
+|ltCode|string|t(:spotResLtCode)|
+|nav|string|t(:spotLtQuoteNav)|
+|navTime|long|t(:spotLtQuoteNavTime)|
+|basket|string|t(:spotLtQuoteBasket)|
 |leverage|string|t(:spotLeverage)|
+｜circulation|string|t(:spotResCirculation)|
