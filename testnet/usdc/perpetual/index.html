@@ -4554,22 +4554,23 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/position/le
 <p>Response Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:{</span>
-    <span class="dl">"</span><span class="s2">resultTotalSize</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">cursor</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">dataList</span><span class="dl">"</span><span class="p">:[</span>
-        <span class="p">{</span>
-          <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1fd26147-247d-4433-9845-a236981c3689</span><span class="dl">"</span><span class="p">,</span>
-          <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
-          <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
-          <span class="dl">"</span><span class="s2">sessionAvgPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
-          <span class="dl">"</span><span class="s2">markPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">100</span><span class="dl">"</span><span class="p">,</span>
-          <span class="dl">"</span><span class="s2">sessionRpl</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">100</span><span class="dl">"</span>
-        <span class="p">}</span>
-    <span class="p">]</span>
-  <span class="p">}</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Success.</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">resultTotalSize</span><span class="dl">"</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">cursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">4327:0,4286:0</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">dataList</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1650240000000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.001</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">sessionAvgPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">39685.53</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">markPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">39686.28</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">sessionRpl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-0.7730</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p class="fake_header">HTTP Request</p>
@@ -4649,6 +4650,11 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/position/le
 </tr>
 </thead><tbody>
 <tr>
+<td style="text-align: left">time</td>
+<td style="text-align: left">number</td>
+<td>(t:settlementTime)</td>
+</tr>
+<tr>
 <td style="text-align: left">symbol</td>
 <td style="text-align: left">string</td>
 <td>Contract name</td>
@@ -4677,11 +4683,6 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/position/le
 <td style="text-align: left">sessionRpl</td>
 <td style="text-align: left">string</td>
 <td>Session RPL</td>
-</tr>
-<tr>
-<td style="text-align: left">cursor</td>
-<td style="text-align: left">string</td>
-<td>API pass-through</td>
 </tr>
 </tbody></table>
 <h2 id='t-risklimit'>Risk Limit API</h2><h3 id='t-queryrisklimits'>Query Risk Limit</h3>
