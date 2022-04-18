@@ -1091,22 +1091,23 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/session-settle
 
 ```javascript
 {
-  "retCode":0,
-    "retMsg":"OK",
-    "result":{
-    "resultTotalSize":1,
-      "cursor":"",
-      "dataList":[
-        {
-          "symbol":"1fd26147-247d-4433-9845-a236981c3689",
-          "side":"Buy",
-          "size":"1",
-          "sessionAvgPrice":"1",
-          "markPrice":"100",
-          "sessionRpl":"100"
-        }
-    ]
-  }
+    "retCode": 0,
+    "retMsg": "Success.",
+    "result": {
+        "resultTotalSize": 20,
+        "cursor": "4327:0,4286:0",
+        "dataList": [
+            {
+                "time": "1650240000000",
+                "symbol": "BTCPERP",
+                "side": "Buy",
+                "size": "0.001",
+                "sessionAvgPrice": "39685.53",
+                "markPrice": "39686.28",
+                "sessionRpl": "-0.7730"
+            }
+        ]
+    }
 }
 ```
 
@@ -1136,13 +1137,13 @@ POST
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
+|time|number|(t:settlementTime)
 |symbol|string|t(:usdcSymbol)|
 |side|string|t(:side)|
 |size|string|t(:usdcSize)|
 |sessionAvgPrice|string|t(:sessionAvgPrice)|
 |markPrice|string|t(:markPrice)|
 |sessionRpl|string|t(:sessionRpl)|
-|cursor|string|t(:cursor)|
 
 
 
