@@ -263,7 +263,7 @@ GET
 |excTime|long|t(:spotResExcTime)|
 |orderStatus|string|t(:spotResStatus)|
 |fee|string|t(:spotResFee)|
-|amount|string|t(:spotResAmount)|
+|amount|string|t(:spotResOrderQuantity)|
 |value|string|t(:spotResRecordValue)|
 |valueCoin|string|t(:spotResValueCoin)|
 |serialNo|string|t(:spotLtSerialNo)|

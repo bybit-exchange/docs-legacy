@@ -724,10 +724,10 @@ t(:spot_websocket_lt_nav_desc_v1)
 | s | string | t(:spotLtSymbolNav) |
 | nav | string | t(:spotResNetValue) |
 | b | string | t(:spotLtQuoteBasket) |
-| l | array | t(:spotLeverage) |
-| loan | array | t(:spotLoan) |
-| ti | boolean | t(:spotResTotal) |
-| n | number | t(:spotTotalPositionValue) |
+| l | string | t(:spotLeverage) |
+| loan | string | t(:spotLoan) |
+| ti | string | t(:spotResTotal) |
+| n | string | t(:spotTotalPositionValue) |
 
 
 ## t(:publictopics_v2)
