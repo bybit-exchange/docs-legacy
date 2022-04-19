@@ -2426,6 +2426,8 @@ en:
     <p>Pushes a depth of 40 items per side, regardless of the <code>dumpScale</code>.</p>
 
   websocketdiffdepth: diffDepth
+  websocketLtNetvalue: lt
+  spot_websocket_lt_nav_desc_v1: Leveraged Token Net Value Push. Pushes data at a frequency of 300ms. Message received with a maximum delay of 400ms.
   spot_websocket_orderbook_delta_desc_v1: |
     <p>Changes (if any) in the bid–ask spread of the order book will be pushed. The first message pushes a depth of 200 per side. The following messages act as delta messages, which represent updates to the order book relative to the last response.</p>
     <p>For a Python example of the logic to maintain a local order book with this topic, see <a href="https://github.com/verata-veritatis/pybit/blob/8a647208dbdce1519de3fbce172d3dcf2141ccaf/pybit/__init__.py#L2279">here</a>.</p>
@@ -2461,6 +2463,11 @@ en:
   ticketInfo: ticketInfo
   ticketInfo_para: |
     Pushes data about your trades (fills). When an order is filled, you will receive two messages: one from <code>ticketInfo</code>, and one from <code>executionReport</code>
+
+  spotLtSymbolNav: Please make sure to add "NAV" as a suffix to the name of the pair you're querying
+  spotTotalPositionValue: Total position value = position value (per basket) * circulating supply (per basket)
+  spotLoan: Basket loan
+
 
   #spot_ws_v2
 

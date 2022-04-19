@@ -2215,6 +2215,8 @@ zh-cn:
     <p>無論 dumpScale 如何，单邊推送 40 個深度信息</p>
 
   spot_websocket_orderbook_delta_v1: 訂單簿(增量深度)
+  websocketLtNetvalue: lt
+  spot_websocket_lt_nav_desc_v1: Leveraged Token 淨值推送。300ms推送一次，最大延迟400ms
   spot_websocket_orderbook_delta_desc_v1: |
     <p>推送訂單簿的變化部分（如果有）。第一次推送的是全量的訂單簿（单邊推送 200 個深度信息），接下來推送增量部分。</p>
     <p>有關使用此主題維護本地訂單簿的邏輯。请看Python 示例：<a href="https://github.com/verata-veritatis/pybit/blob/8a647208dbdce1519de3fbce172d3dcf2141ccaf/pybit/__init__.py#L2279"></a>.</p>
@@ -2248,6 +2250,9 @@ zh-cn:
   executionReport_desc: 訂單信息推送. Z/z 等於成交均價
   ticketInfo_para: 成交信息推送
   spot_public_websocket_frequency_realtime: 實時推送
+  spotLtSymbolNav: 查詢的交易對名稱，為避免重複，幣對後綴一律添加"NAV"
+  spotTotalPositionValue: 名義持倉（總籃子 = 籃子頭寸*發行量)
+  spotLoan: 籃子借貸
 
   #spot_ws_v2
   spot_websocket_ticker_v2: 訂單簿的Ticker
