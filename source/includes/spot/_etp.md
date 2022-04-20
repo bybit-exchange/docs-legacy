@@ -1,8 +1,4 @@
 # t(:lt)
-<aside class="notice">
-t(:lt_notice)
-</aside>
-
 ### t(:ltInfo)
 > t(:codequote_curlExample)
 
