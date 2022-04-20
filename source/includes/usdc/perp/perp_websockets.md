@@ -130,8 +130,8 @@ t(:usdc_websocket_unsubscribe_desc)
 
 t(:spot_websocket_para_response)
 
-## Public Topics
-### OrderBook
+## t(:publictopics)
+### t(:websocketorderbook)
 
 > t(:codequote_subscribe)
 
@@ -223,7 +223,7 @@ t(:usdc_perp_websocket_para_orderbook)
 
 
 
-### t(:bybitTradeHistory)
+### t(:websockettrade)
 > t(:codequote_subscribe)
 
 ```javascript
@@ -269,7 +269,7 @@ t(:usdc_current_24_total_perp)
 
 
 
-### t(:latestSymbolInfo)
+### t(:websocketinstrumentInfo)
 > t(:codequote_subscribe)
 
 ```javascript
@@ -384,7 +384,7 @@ t(:usdc_perp_lastest_symbol_info)
 |ask1Price |integer|t(:row_comment_ask1_price)  |
 
 
-### KLine
+### t(:websocketkline)
 > t(:codequote_subscribe)
 
 ```javascript
@@ -441,7 +441,7 @@ t(:websocket_aside_klineV2)
 | crossSeq |string |crossSeq |
 | timestamp |string |t(:timestamp) |
 
-### t(:usdcPlatformInsurance)
+### t(:websocketinsurance)
 > t(:codequote_subscribe)
 
 ```javascript
@@ -477,13 +477,12 @@ t(:websocket_usdc_platform_insurance)
 | timestamp |string |t(:timestamp) |
 
 
-## Private Topics
-### t(:userPositionsInfo)
+## t(:privatetopics)
+### t(:websocketposition)
 > t(:codequote_subscribe)
 
 ```javascript
-
-ws.send(json.dumps({"op": "subscribe", "id": "{100003}","args": ["user.openapi.perp.position"]});
+ws.send(json.dumps({"op": "subscribe", "id": "{100003}","args": ["user.openapi.perp.position"]}));
 ```
 
 > t(:usdc_trade_codequote_snapshot)
@@ -583,7 +582,7 @@ t(:usdc_perp_position_desc)
 | riskId |string |t(:riskId) |
 
 
-### t(:userFilledHistory)
+### t(:websocketexecution)
 > t(:codequote_subscribe)
 
 ```javascript
@@ -643,7 +642,7 @@ t(:usdc_perp_trade_history)
 
 
 
-### t(:usdc_perp_active_orders_snapshot)
+### t(:websocketorder)
 
 > t(:codequote_subscribe)
 
