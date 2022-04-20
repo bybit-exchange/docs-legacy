@@ -309,6 +309,6 @@ GET
 |ltCode|string|t(:spotResLtCode)|
 |nav|string|t(:spotLtQuoteNav)|
 |navTime|long|t(:spotLtQuoteNavTime)|
-|basket|string|t(:spotLtQuoteBasket)|
+|basket|string|t(:spotTotalPositionValue)|
 |leverage|string|t(:spotLeverage)|
 |circulation|string|t(:spotResCirculation)|

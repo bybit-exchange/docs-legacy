@@ -726,7 +726,7 @@ t(:spot_websocket_lt_nav_desc_v1)
 | b | string | t(:spotLtQuoteBasket) |
 | l | string | t(:spotLeverage) |
 | loan | string | t(:spotLoan) |
-| ti | string | t(:spotResTotal) |
+| ti | string | t(:spotResCirculation) |
 | n | string | t(:spotTotalPositionValue) |
 
 
