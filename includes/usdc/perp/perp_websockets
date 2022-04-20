@@ -111,7 +111,7 @@ t(:websocket_para_limit)
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code>
 </code></pre></div>
 <p>t(:spot_websocket_para_response)</p>
-<h2 id='public-topics'>Public Topics</h2><h3 id='orderbook'>OrderBook</h3>
+<h2 id='t-publictopics'>t(:publictopics)</h2><h3 id='t-websocketorderbook'>t(:websocketorderbook)</h3>
 <blockquote>
 <p>t(:codequote_subscribe)</p>
 </blockquote>
@@ -217,7 +217,7 @@ t(:websocket_para_limit)
 <td>t(:row_comment_position_size)</td>
 </tr>
 </tbody></table>
-<h3 id='t-bybittradehistory'>t(:bybitTradeHistory)</h3>
+<h3 id='t-websockettrade'>t(:websockettrade)</h3>
 <blockquote>
 <p>t(:codequote_subscribe)</p>
 </blockquote>
@@ -286,7 +286,7 @@ t(:websocket_para_limit)
 <td>t(:tradeId)</td>
 </tr>
 </tbody></table>
-<h3 id='t-latestsymbolinfo'>t(:latestSymbolInfo)</h3>
+<h3 id='t-websocketinstrumentinfo'>t(:websocketinstrumentInfo)</h3>
 <blockquote>
 <p>t(:codequote_subscribe)</p>
 </blockquote>
@@ -495,7 +495,7 @@ t(:websocket_para_limit)
 <td>t(:row_comment_ask1_price)</td>
 </tr>
 </tbody></table>
-<h3 id='kline'>KLine</h3>
+<h3 id='t-websocketkline'>t(:websocketkline)</h3>
 <blockquote>
 <p>t(:codequote_subscribe)</p>
 </blockquote>
@@ -599,7 +599,7 @@ t(:websocket_aside_klineV2)
 <td>t(:timestamp)</td>
 </tr>
 </tbody></table>
-<h3 id='t-usdcplatforminsurance'>t(:usdcPlatformInsurance)</h3>
+<h3 id='t-websocketinsurance'>t(:websocketinsurance)</h3>
 <blockquote>
 <p>t(:codequote_subscribe)</p>
 </blockquote>
@@ -652,12 +652,11 @@ t(:websocket_usdc_platform_insurance)
 <td>t(:timestamp)</td>
 </tr>
 </tbody></table>
-<h2 id='private-topics'>Private Topics</h2><h3 id='t-userpositionsinfo'>t(:userPositionsInfo)</h3>
+<h2 id='t-privatetopics'>t(:privatetopics)</h2><h3 id='t-websocketposition'>t(:websocketposition)</h3>
 <blockquote>
 <p>t(:codequote_subscribe)</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code>
-<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">json</span><span class="p">.</span><span class="nx">dumps</span><span class="p">({</span><span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">subscribe</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">{100003}</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">args</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">user.openapi.perp.position</span><span class="dl">"</span><span class="p">]});</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">json</span><span class="p">.</span><span class="nx">dumps</span><span class="p">({</span><span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">subscribe</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">{100003}</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">args</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">user.openapi.perp.position</span><span class="dl">"</span><span class="p">]}));</span>
 </code></pre></div>
 <blockquote>
 <p>t(:usdc_trade_codequote_snapshot)</p>
@@ -862,7 +861,7 @@ t(:websocket_usdc_platform_insurance)
 <td>t(:riskId)</td>
 </tr>
 </tbody></table>
-<h3 id='t-userfilledhistory'>t(:userFilledHistory)</h3>
+<h3 id='t-websocketexecution'>t(:websocketexecution)</h3>
 <blockquote>
 <p>t(:codequote_subscribe)</p>
 </blockquote>
@@ -975,7 +974,7 @@ t(:websocket_usdc_platform_insurance)
 <td>t(:execType)</td>
 </tr>
 </tbody></table>
-<h3 id='t-usdc_perp_active_orders_snapshot'>t(:usdc_perp_active_orders_snapshot)</h3>
+<h3 id='t-websocketorder'>t(:websocketorder)</h3>
 <blockquote>
 <p>t(:codequote_subscribe)</p>
 </blockquote>

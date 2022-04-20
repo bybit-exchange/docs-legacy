@@ -892,36 +892,36 @@
                     <a href="#t-websocketresponse" class="toc-h2 toc-link" data-title="訂閱結果">訂閱結果</a>
                   </li>
                   <li>
-                    <a href="#public-topics" class="toc-h2 toc-link" data-title="Public Topics">Public Topics</a>
+                    <a href="#t-publictopics" class="toc-h2 toc-link" data-title="公共 Topics">公共 Topics</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#orderbook" class="toc-h3 toc-link" data-title="OrderBook">OrderBook</a>
+                            <a href="#t-websocketorderbook" class="toc-h3 toc-link" data-title="orderBookL2">orderBookL2</a>
                           </li>
                           <li>
-                            <a href="#t-bybittradehistory" class="toc-h3 toc-link" data-title="Bybit平台最近成交數據">Bybit平台最近成交數據</a>
+                            <a href="#t-websockettrade" class="toc-h3 toc-link" data-title="平臺成交">平臺成交</a>
                           </li>
                           <li>
-                            <a href="#t-latestsymbolinfo" class="toc-h3 toc-link" data-title="合約的最新行情數據">合約的最新行情數據</a>
+                            <a href="#t-websocketinstrumentinfo" class="toc-h3 toc-link" data-title="行情">行情</a>
                           </li>
                           <li>
-                            <a href="#kline" class="toc-h3 toc-link" data-title="KLine">KLine</a>
+                            <a href="#t-websocketkline" class="toc-h3 toc-link" data-title="K線">K線</a>
                           </li>
                           <li>
-                            <a href="#t-usdcplatforminsurance" class="toc-h3 toc-link" data-title="Platform Insurance">Platform Insurance</a>
+                            <a href="#t-websocketinsurance" class="toc-h3 toc-link" data-title="保險基金">保險基金</a>
                           </li>
                       </ul>
                   </li>
                   <li>
-                    <a href="#private-topics" class="toc-h2 toc-link" data-title="Private Topics">Private Topics</a>
+                    <a href="#t-privatetopics" class="toc-h2 toc-link" data-title="私有 Topics">私有 Topics</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#t-userpositionsinfo" class="toc-h3 toc-link" data-title="用戶持倉信息">用戶持倉信息</a>
+                            <a href="#t-websocketposition" class="toc-h3 toc-link" data-title="持倉">持倉</a>
                           </li>
                           <li>
-                            <a href="#t-userfilledhistory" class="toc-h3 toc-link" data-title="用戶成交記錄">用戶成交記錄</a>
+                            <a href="#t-websocketexecution" class="toc-h3 toc-link" data-title="個人成交">個人成交</a>
                           </li>
                           <li>
-                            <a href="#t-usdc_perp_active_orders_snapshot" class="toc-h3 toc-link" data-title="訂單">訂單</a>
+                            <a href="#t-websocketorder" class="toc-h3 toc-link" data-title="活動單">活動單</a>
                           </li>
                       </ul>
                   </li>
@@ -1006,7 +1006,7 @@ clipboard.on('error', function(e) {
 <p><ul class="bybit-community"> <li><img src="../../../../images/favicon-4f296779.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/zh-cn"><strong>幫助中心</strong></a> - <strong>在這裏了解合約交易</strong> <li><img src="../../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>官方Python SDK</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文討論群</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文討論群</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong> </ul></p>
 <h1 id='t-changelog'>更新日誌</h1><h2 id='2022-04-14'>2022-04-14</h2><h3 id='websocket-api'>Websocket API</h3>
 <ul>
-<li><a href="#t-platform-insurance">Platform Insurance</a> [新增]
+<li><a href="#t-websocketinsurance">保險基金</a> [新增]
 
 <ul>
 <li>添加新的Websocket public topic "Platform Insurance"</li>
@@ -5073,7 +5073,7 @@ curl https://api-testnet.bybit.com/v2/public/time
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code>
 </code></pre></div>
 <p>訂閱成功後會立即返回訂閱的消息結果，您可以根據返回結果判斷是否訂閱成功</p>
-<h2 id='public-topics'>Public Topics</h2><h3 id='orderbook'>OrderBook</h3>
+<h2 id='t-publictopics'>公共 Topics</h2><h3 id='t-websocketorderbook'>orderBookL2</h3>
 <blockquote>
 <p>請求訂閱</p>
 </blockquote>
@@ -5183,7 +5183,7 @@ curl https://api-testnet.bybit.com/v2/public/time
 <td>倉位數量</td>
 </tr>
 </tbody></table>
-<h3 id='t-bybittradehistory'>Bybit平台最近成交數據</h3>
+<h3 id='t-websockettrade'>平臺成交</h3>
 <blockquote>
 <p>請求訂閱</p>
 </blockquote>
@@ -5252,7 +5252,7 @@ curl https://api-testnet.bybit.com/v2/public/time
 <td>交易id</td>
 </tr>
 </tbody></table>
-<h3 id='t-latestsymbolinfo'>合約的最新行情數據</h3>
+<h3 id='t-websocketinstrumentinfo'>行情</h3>
 <blockquote>
 <p>請求訂閱</p>
 </blockquote>
@@ -5464,7 +5464,7 @@ curl https://api-testnet.bybit.com/v2/public/time
 <td>最佳賣單價格</td>
 </tr>
 </tbody></table>
-<h3 id='kline'>KLine</h3>
+<h3 id='t-websocketkline'>K線</h3>
 <blockquote>
 <p>請求訂閱</p>
 </blockquote>
@@ -5578,7 +5578,7 @@ curl https://api-testnet.bybit.com/v2/public/time
 <td>時間戳</td>
 </tr>
 </tbody></table>
-<h3 id='t-usdcplatforminsurance'>Platform Insurance</h3>
+<h3 id='t-websocketinsurance'>保險基金</h3>
 <blockquote>
 <p>請求訂閱</p>
 </blockquote>
@@ -5633,12 +5633,11 @@ curl https://api-testnet.bybit.com/v2/public/time
 <td>時間戳</td>
 </tr>
 </tbody></table>
-<h2 id='private-topics'>Private Topics</h2><h3 id='t-userpositionsinfo'>用戶持倉信息</h3>
+<h2 id='t-privatetopics'>私有 Topics</h2><h3 id='t-websocketposition'>持倉</h3>
 <blockquote>
 <p>請求訂閱</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code>
-<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">json</span><span class="p">.</span><span class="nx">dumps</span><span class="p">({</span><span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">subscribe</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">{100003}</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">args</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">user.openapi.perp.position</span><span class="dl">"</span><span class="p">]});</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">json</span><span class="p">.</span><span class="nx">dumps</span><span class="p">({</span><span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">subscribe</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">{100003}</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">args</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">user.openapi.perp.position</span><span class="dl">"</span><span class="p">]}));</span>
 </code></pre></div>
 <blockquote>
 <p>快照推送示例 - 有成交時推動數據示例</p>
@@ -5845,7 +5844,7 @@ curl https://api-testnet.bybit.com/v2/public/time
 <td>風險限額ID</td>
 </tr>
 </tbody></table>
-<h3 id='t-userfilledhistory'>用戶成交記錄</h3>
+<h3 id='t-websocketexecution'>個人成交</h3>
 <blockquote>
 <p>請求訂閱</p>
 </blockquote>
@@ -5960,7 +5959,7 @@ curl https://api-testnet.bybit.com/v2/public/time
 <td><a href="#exec-type-exectype">交易類型</a></td>
 </tr>
 </tbody></table>
-<h3 id='t-usdc_perp_active_orders_snapshot'>訂單</h3>
+<h3 id='t-websocketorder'>活動單</h3>
 <blockquote>
 <p>請求訂閱</p>
 </blockquote>
@@ -6229,19 +6228,19 @@ curl https://api-testnet.bybit.com/v2/public/time
 <p><ul> <li>最大值1百萬 (<code>1000000</code>)</li> <li>必須是正數： <ul> <li><code>40</code> - 合法</li> <li><code>40.5</code> - 合法</li> <li><code>40.1</code> - 非法</li> <li><code>-30.5</code> - 非法</li> </li> </ul></p>
 <h2 id='kline-interval-interval'>Kline interval (<code>interval</code>)</h2>
 <ul>
-<li><code>1m</code> - 1 minute</li>
-<li><code>3m</code> - 3 minutes</li>
-<li><code>5m</code> - 5 minutes</li>
-<li><code>15m</code> - 15 minutes</li>
-<li><code>30m</code> - 30 minutes</li>
-<li><code>1h</code> - 1 hour</li>
-<li><code>2h</code> - 2 hours</li>
-<li><code>4h</code> - 4 hours</li>
-<li><code>6h</code> - 6 hours</li>
-<li><code>12h</code> - 12 hours</li>
-<li><code>1d</code> - 1 day</li>
-<li><code>1w</code> - 1 week</li>
-<li><code>1M</code> - 1 month</li>
+<li><code>1</code> - 1 minute</li>
+<li><code>3</code> - 3 minutes</li>
+<li><code>5</code> - 5 minutes</li>
+<li><code>15</code> - 15 minutes</li>
+<li><code>30</code> - 30 minutes</li>
+<li><code>60</code> - 1 hour</li>
+<li><code>120</code> - 2 hours</li>
+<li><code>240</code> - 4 hours</li>
+<li><code>360</code> - 6 hours</li>
+<li><code>720</code> - 12 hours</li>
+<li><code>D</code> - 1 day</li>
+<li><code>W</code> - 1 week</li>
+<li><code>M</code> - 1 month</li>
 </ul>
 <h2 id='transaction-type-type'>Transaction type (<code>type</code>)</h2>
 <ul>

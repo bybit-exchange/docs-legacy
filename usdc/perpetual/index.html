@@ -891,36 +891,36 @@
                     <a href="#t-websocketresponse" class="toc-h2 toc-link" data-title="Understanding Subscription Response">Understanding Subscription Response</a>
                   </li>
                   <li>
-                    <a href="#public-topics" class="toc-h2 toc-link" data-title="Public Topics">Public Topics</a>
+                    <a href="#t-publictopics" class="toc-h2 toc-link" data-title="Public Topics">Public Topics</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#orderbook" class="toc-h3 toc-link" data-title="OrderBook">OrderBook</a>
+                            <a href="#t-websocketorderbook" class="toc-h3 toc-link" data-title="orderBookL2">orderBookL2</a>
                           </li>
                           <li>
-                            <a href="#t-bybittradehistory" class="toc-h3 toc-link" data-title="Trade">Trade</a>
+                            <a href="#t-websockettrade" class="toc-h3 toc-link" data-title="trade">trade</a>
                           </li>
                           <li>
-                            <a href="#t-latestsymbolinfo" class="toc-h3 toc-link" data-title="Latest Symbol Info">Latest Symbol Info</a>
+                            <a href="#t-websocketinstrumentinfo" class="toc-h3 toc-link" data-title="instrument_info">instrument_info</a>
                           </li>
                           <li>
-                            <a href="#kline" class="toc-h3 toc-link" data-title="KLine">KLine</a>
+                            <a href="#t-websocketkline" class="toc-h3 toc-link" data-title="kline">kline</a>
                           </li>
                           <li>
-                            <a href="#t-usdcplatforminsurance" class="toc-h3 toc-link" data-title="Platform Insurance">Platform Insurance</a>
+                            <a href="#t-websocketinsurance" class="toc-h3 toc-link" data-title="insurance">insurance</a>
                           </li>
                       </ul>
                   </li>
                   <li>
-                    <a href="#private-topics" class="toc-h2 toc-link" data-title="Private Topics">Private Topics</a>
+                    <a href="#t-privatetopics" class="toc-h2 toc-link" data-title="Private Topics">Private Topics</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#t-userpositionsinfo" class="toc-h3 toc-link" data-title="Position">Position</a>
+                            <a href="#t-websocketposition" class="toc-h3 toc-link" data-title="position">position</a>
                           </li>
                           <li>
-                            <a href="#t-userfilledhistory" class="toc-h3 toc-link" data-title="Trade">Trade</a>
+                            <a href="#t-websocketexecution" class="toc-h3 toc-link" data-title="execution">execution</a>
                           </li>
                           <li>
-                            <a href="#t-usdc_perp_active_orders_snapshot" class="toc-h3 toc-link" data-title="Orders">Orders</a>
+                            <a href="#t-websocketorder" class="toc-h3 toc-link" data-title="order">order</a>
                           </li>
                       </ul>
                   </li>
@@ -1005,7 +1005,7 @@ clipboard.on('error', function(e) {
 <p><ul class="bybit-community"> <li><img src="../../images/help_favicon-06f791dd.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>Official Python SDK</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> </ul></p>
 <h1 id='t-changelog'>Changelog</h1><h2 id='2022-04-14'>2022-04-14</h2><h3 id='websocket-api'>Websocket API</h3>
 <ul>
-<li><a href="#t-platform-insurance">Platform Insurance</a> [new]
+<li><a href="#t-websocketinsurance">insurance</a> [new]
 
 <ul>
 <li>Add new Websocket public topic "Platform Insurance"</li>
@@ -5090,7 +5090,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code>
 </code></pre></div>
 <p>Once you subscribe successfully, you'd receive result information. You can determine whether the subscription is successful based on the response.</p>
-<h2 id='public-topics'>Public Topics</h2><h3 id='orderbook'>OrderBook</h3>
+<h2 id='t-publictopics'>Public Topics</h2><h3 id='t-websocketorderbook'>orderBookL2</h3>
 <blockquote>
 <p>How to Subscribe</p>
 </blockquote>
@@ -5200,7 +5200,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <td>Position qty</td>
 </tr>
 </tbody></table>
-<h3 id='t-bybittradehistory'>Trade</h3>
+<h3 id='t-websockettrade'>trade</h3>
 <blockquote>
 <p>How to Subscribe</p>
 </blockquote>
@@ -5269,7 +5269,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <td>Transaction ID</td>
 </tr>
 </tbody></table>
-<h3 id='t-latestsymbolinfo'>Latest Symbol Info</h3>
+<h3 id='t-websocketinstrumentinfo'>instrument_info</h3>
 <blockquote>
 <p>How to Subscribe</p>
 </blockquote>
@@ -5480,7 +5480,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <td>Best ask price</td>
 </tr>
 </tbody></table>
-<h3 id='kline'>KLine</h3>
+<h3 id='t-websocketkline'>kline</h3>
 <blockquote>
 <p>How to Subscribe</p>
 </blockquote>
@@ -5594,7 +5594,7 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 <td>Timestamp, unit in milliseconds</td>
 </tr>
 </tbody></table>
-<h3 id='t-usdcplatforminsurance'>Platform Insurance</h3>
+<h3 id='t-websocketinsurance'>insurance</h3>
 <blockquote>
 <p>How to Subscribe</p>
 </blockquote>
@@ -5649,12 +5649,11 @@ At 0:00, 8:00, and 16:00 UTC+0, the insurance fund will be pushed.
 <td>Timestamp, unit in milliseconds</td>
 </tr>
 </tbody></table>
-<h2 id='private-topics'>Private Topics</h2><h3 id='t-userpositionsinfo'>Position</h3>
+<h2 id='t-privatetopics'>Private Topics</h2><h3 id='t-websocketposition'>position</h3>
 <blockquote>
 <p>How to Subscribe</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code>
-<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">json</span><span class="p">.</span><span class="nx">dumps</span><span class="p">({</span><span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">subscribe</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">{100003}</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">args</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">user.openapi.perp.position</span><span class="dl">"</span><span class="p">]});</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">json</span><span class="p">.</span><span class="nx">dumps</span><span class="p">({</span><span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">subscribe</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">{100003}</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">args</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">user.openapi.perp.position</span><span class="dl">"</span><span class="p">]}));</span>
 </code></pre></div>
 <blockquote>
 <p>Snapshot Response Example - format of response</p>
@@ -5861,7 +5860,7 @@ At 0:00, 8:00, and 16:00 UTC+0, the insurance fund will be pushed.
 <td>Risk ID</td>
 </tr>
 </tbody></table>
-<h3 id='t-userfilledhistory'>Trade</h3>
+<h3 id='t-websocketexecution'>execution</h3>
 <blockquote>
 <p>How to Subscribe</p>
 </blockquote>
@@ -5976,7 +5975,7 @@ At 0:00, 8:00, and 16:00 UTC+0, the insurance fund will be pushed.
 <td><a href="#exec-type-exectype">Execution type</a></td>
 </tr>
 </tbody></table>
-<h3 id='t-usdc_perp_active_orders_snapshot'>Orders</h3>
+<h3 id='t-websocketorder'>order</h3>
 <blockquote>
 <p>How to Subscribe</p>
 </blockquote>
@@ -6242,22 +6241,22 @@ At 0:00, 8:00, and 16:00 UTC+0, the insurance fund will be pushed.
 <h2 id='quantity-qty'>Quantity (<code>qty</code>)</h2>
 <p><ul> <li>Must be less than 1 thousand (<code>1000</code>)</li> <li>Must be a positive number： <ul> <li><code>40</code> - allowed</li> <li><code>40.001</code> - allowed</li> <li><code>-30.5</code> - not allowed</li> </ul> </li> </ul></p>
 <h2 id='price-price'>Price (<code>price</code>)</h2>
-<p><ul> <li>Must be less than 1 million (<code>1000000</code>)</li> <li>Must be a positive number： <ul> <li><code>40</code> - allowed</li> <li><code>40.5</code> - allowed</li> <li><code>40.1</code> - not allowed</li> <li><code>-30.5</code> - not allowed</li> </li> </ul></p>
+<p><ul> <li>Must be less than 1 million (<code>1000000</code>)</li> <li>Must be a positive number： <ul> <li><code>40</code> - allowed</li> <li><code>40.5</code> - allowed</li> <li><code>40.1</code> - not allowed</li> <li><code>-30.5</code> - not allowed</li> </ul> </li> </ul></p>
 <h2 id='kline-interval-interval'>Kline interval (<code>interval</code>)</h2>
 <ul>
-<li><code>1m</code> - 1 minute</li>
-<li><code>3m</code> - 3 minutes</li>
-<li><code>5m</code> - 5 minutes</li>
-<li><code>15m</code> - 15 minutes</li>
-<li><code>30m</code> - 30 minutes</li>
-<li><code>1h</code> - 1 hour</li>
-<li><code>2h</code> - 2 hours</li>
-<li><code>4h</code> - 4 hours</li>
-<li><code>6h</code> - 6 hours</li>
-<li><code>12h</code> - 12 hours</li>
-<li><code>1d</code> - 1 day</li>
-<li><code>1w</code> - 1 week</li>
-<li><code>1M</code> - 1 month</li>
+<li><code>1</code> - 1 minute</li>
+<li><code>3</code> - 3 minutes</li>
+<li><code>5</code> - 5 minutes</li>
+<li><code>15</code> - 15 minutes</li>
+<li><code>30</code> - 30 minutes</li>
+<li><code>60</code> - 1 hour</li>
+<li><code>120</code> - 2 hours</li>
+<li><code>240</code> - 4 hours</li>
+<li><code>360</code> - 6 hours</li>
+<li><code>720</code> - 12 hours</li>
+<li><code>D</code> - 1 day</li>
+<li><code>W</code> - 1 week</li>
+<li><code>M</code> - 1 month</li>
 </ul>
 <h2 id='transaction-type-type'>Transaction type (<code>type</code>)</h2>
 <ul>
