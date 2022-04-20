@@ -2115,6 +2115,8 @@ en:
   linear_private_switchmode: Switch mode between Full or Partial
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
+  restapi_update_20220420_2: Add lt public Topics
+  restapi_update_20220420_1: Add Leveraged Token Endpoints
   restapi_update_20211228: Remove <code>from</code> field from parameters of <a href="#t-publictradingrecords">Public Trading Records</a>.
   restapi_update_20200417_1: Add new symbol <code>BTCUSDT</code>
   restapi_update_20200417_2: Add new symbol <code>BTCUSDT</code>
@@ -2584,6 +2586,8 @@ en:
     <p>Pushes a depth of 40 items per side, regardless of the <code>dumpScale</code>.</p>
 
   websocketdiffdepth: diffDepth
+  websocketLtNetvalue: lt
+  spot_websocket_lt_nav_desc_v1: Leveraged Token Net Value Push. Pushes data at a frequency of 300ms. Message received with a maximum delay of 400ms.
   spot_websocket_orderbook_delta_desc_v1: |
     <p>Changes (if any) in the bid–ask spread of the order book will be pushed. The first message pushes a depth of 200 per side. The following messages act as delta messages, which represent updates to the order book relative to the last response.</p>
     <p>For a Python example of the logic to maintain a local order book with this topic, see <a href="https://github.com/bybit-exchange/pybit/blob/8a647208dbdce1519de3fbce172d3dcf2141ccaf/pybit/__init__.py#L2279">here</a>.</p>
@@ -2620,6 +2624,11 @@ en:
   ticketInfo_para: |
     Pushes data about your trades (fills). When an order is filled, you will receive two messages: one from <code>ticketInfo</code>, and one from <code>executionReport</code>
   spot_ticket_info_maker: Is MAKER. true=maker, false=taker
+
+  spotLtSymbolNav: Please make sure to add "NAV" as a suffix to the name of the pair you're querying
+  spotTotalPositionValue: Total position value = basket value * total circulation
+  spotLoan: Basket loan
+
 
   #spot_ws_v2
 
@@ -3394,60 +3403,71 @@ en:
   usdcCancelType: refer to <a href="#cancel-type">Cancel Type</a>
   usdcTradeId: Trade Id
 
-  etp: ETP Endpoints
-  etp_notice: Not fully released
-  etp_para: The following ETP endpoints require authentication.
-  etpInfo: Asset Info
+  lt: Leveraged Token Endpoints
+  lt_notice: Not fully released
+  lt_para: The following Leveraged Token endpoints require authentication.
+  ltInfo: Asset Info
   row_parameter_etpCode: ETP Asset name
-  spotEtpCode: Abbreviation of the ETP; currently only BTC+3L and BTC-3L
-  spotResEtpCode: Abbreviation of the ETP
-  spotResEtpName: Full name of the ETP
+  spotLtCode: Abbreviation of the LT. Actually only BTC3L and BTC3S available
+  spotResLtCode: Abbreviation of the LT
+  spotResLtName: Full name of the LT
   spotResMaxPurchase: Max. purchase amount per transaction
   spotResMinPurchase: Min. purchase amount per transaction
   spotResMaxPurchaseDaily: Max. purchase amount per day
   spotResMaxRedeem: Max. redemption amount per transaction
   spotResMinRedeem: Min. redemption amount per transaction
   spotResMaxRedeemDaily: Max. redemption amount per day
-  spotResPurchaseFee: Purchase fees rate
-  spotResRedeemFee: Redemption fees rate
-  spotResEtpStatus: Whether the ETP can be purchased or redeemed; 1. ETP can be purchased and redeemed; 2. ETP can be purchased, but not redeemed; 3. ETP can be redeemed, but not purchased; 4. ETP cannot be purchased nor redeemed
-  spotResFundFee: Funding fee, charged daily to users holding ETP
+  spotResPurchaseFee: Purchase fees
+  spotResRedeemFee: Redemption fees
+  spotResLtStatus: Whether the LT can be purchased or redeemed; 1. LT can be purchased and redeemed; 2. LT can be purchased, but not redeemed; 3. LT can be redeemed, but not purchased; 4. LT cannot be purchased nor redeemed
+  spotResFundFee: Funding fees charged daily to users who hold LT
   spotResFundFeeTime: Timestamps when funding fees are charged
-  spotResManageFee: Management fees rate
+  spotResManageFee: Management fees
   spotResManageFeeTime: Timestamps when management fees are charged
   spotResCirculation: Circulating supply in the secondary market
   spotResValue: Total value
   spotResTotal: total circulation
   spotResNetValue: Net asset value
 
-  etpPurchase: Purchase
-  spotEtpAmount: Purchase amount
+  ltPurchase: Purchase
+  spotLtAmount: Purchase amount
   spotResOrderStatus: Order status; 1. Completed; 2. In progress; 3. Failed
-  spotResOrderQuantity: Actual purchase quantity of the ETP
-  spotResOrderAmount: Actual redeem amount of the ETP
-  spotResAmount: Actual purchase value of the ETP
+#  spotResOrderQuantity: Actual purchase quantity of the ETP
+#  spotResOrderAmount: Actual redeem amount of the ETP
+  spotResAmount: amount of LT
+
+  spotResPurchaseOrderQuantity: Order quantity of the LT
+  spotResPurchaseOrderAmount: Order value of the LT
+  spotResPurchaseAmount: Actual purchase value of the LT
+  spotResRedeemQuantity: Quantity
+  spotResRedeemOrderQuantity: Order quantity of the LT
+  spotResRedeemOrderAmount: Order value of the LT
+  spotResOrderQuantity: Order quantity of the LT
+
   spotResId: Transaction ID
   spotResValueCoin: Quote asset
-  spotEtpSerialNo: Serial number
+  spotLtSerialNo: Serial number
 
-  etpRedeem: Redeem
-  spotEtpQuantity: Actual redeem quantity of the ETP
+  ltRedeem: Redeem
+  spotLtQuantity: Redeem quantity
 
-  etpRecord: Purchase/Redemption History
-  spotEtpOrderId: Order ID
-  spotEtpStartTime: Start time
-  spotEtpEndTime: End time
-  spotEtpOrderType: Order type; 1. Purchase; 2. Redemption
+  ltRecord: Purchase/Redemption History
+  spotLtOrderId: Order ID
+  spotLtStartTime: Start time
+  spotLtEndTime: End time
+  spotLtOrderType: Order type; 1. Purchase; 2. Redemption
   spotResOrderTime: Order time
   spotResExcTime: Last update time of the order status
   spotResStatus: Order status; 1. Completed; 2. In progress; 3. Failed
   spotResFee: Trading fees
   spotResRecordValue: Filled value
 
-  etpQuoteReference: Market Info
-  etpQuoteReference_para: This endpoint does not require authentication.
-  spotEtpQuoteNav: Net asset value
-  spotEtpQuoteNavTime: Update time for net asset value (in milliseconds and UTC time zone)
-  spotEtpQuoteBasket: Basket value
+
+  ltQuoteReference: Market Info
+  ltQuoteReference_para: This endpoint does not require authentication.
+  spotLtQuoteNav: Net asset value
+  spotLtQuoteNavTime: Update time for net asset value (in milliseconds and UTC time zone)
+  spotLtQuoteBasket: Basket value
+
 
   perpUsdcReplaceOrderDesc: Active order parameters (such as quantity, price) and stop order parameters cannot be modified in one request at the same time. Please request modification separately.

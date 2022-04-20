@@ -1813,6 +1813,8 @@ zh-cn:
   linear_private_switchmode: 切換止盈止損模式至全倉或部分
   linear_row_comment_limit: 每頁數量, 最大50. 默認每頁20條，最多50條每頁
   linear_row_comment_limit_50_200: 每頁數量, 最大200. 默認每頁50條，最多200條每頁
+  restapi_update_20220420_2: 新增 lt public Topics
+  restapi_update_20220420_1: 新增 Leveraged Token 接口
   restapi_update_20211228: 移除 <a href="#t-publictradingrecords">平臺交易歷史數據</a> 入參中的 <code>from</code> 字段。
   restapi_update_20200417_1: 新增 <code>BTCUSDT</code> 至orderbook
   restapi_update_20200417_2: 新增 <code>BTCUSDT</code> 至合約最新信息
@@ -2257,6 +2259,8 @@ zh-cn:
     <p>無論 dumpScale 如何，单邊推送 40 個深度信息</p>
 
   spot_websocket_orderbook_delta_v1: 訂單簿(增量深度)
+  websocketLtNetvalue: lt
+  spot_websocket_lt_nav_desc_v1: Leveraged Token 淨值推送。300ms推送一次，最大延迟400ms
   spot_websocket_orderbook_delta_desc_v1: |
     <p>推送訂單簿的變化部分（如果有）。第一次推送的是全量的訂單簿（单邊推送 200 個深度信息），接下來推送增量部分。</p>
     <p>有關使用此主題維護本地訂單簿的邏輯。请看Python 示例：<a href="https://github.com/bybit-exchange/pybit/blob/8a647208dbdce1519de3fbce172d3dcf2141ccaf/pybit/__init__.py#L2279"></a>.</p>
@@ -2291,6 +2295,9 @@ zh-cn:
   ticketInfo_para: 成交信息推送
   spot_ticket_info_maker: 是否為MAKER。true為maker, false為taker
   spot_public_websocket_frequency_realtime: 實時推送
+  spotLtSymbolNav: 查詢的交易對名稱，為避免重複，幣對後綴一律添加"NAV"
+  spotTotalPositionValue: 名義持倉（總籃子 = 籃子頭寸*發行量)
+  spotLoan: 籃子借貸
 
   #spot_ws_v2
   spot_websocket_ticker_v2: 訂單簿的Ticker
@@ -3070,59 +3077,67 @@ zh-cn:
   usdcCancelType: 參考 <a href="#cancel-type">Cancel Type</a>
   usdcTradeId: Trade Id
 
-  etp: ETP
-  etp_notice: 没有完全开放
-  etp_para: 以下ETP接口都需要鑒權.
-  etpInfo: ETP 资产基础信息查询
-  row_parameter_etpCode: ETP资产名称
-  spotEtpCode: 想要查询的ETP资产名称，从资产列表中获取. 目前只有BTC+3L和BTC-3L
-  spotResEtpCode: ETP资产简称
-  spotResEtpName: ETP资产全称
-  spotResMaxPurchase: 单次最大申购金额
-  spotResMinPurchase: 单次最小申购金额
-  spotResMaxPurchaseDaily: 单个自然日最大申购金额
-  spotResMaxRedeem: 单次最大赎回数量
-  spotResMinRedeem: 单次最小赎回数量
-  spotResMaxRedeemDaily: 单个自然日最大赎回数量
-  spotResPurchaseFee: 申购费率
-  spotResRedeemFee: 赎回费率
-  spotResEtpStatus: 目前etp资产是否可以进行申购赎回,1. 申赎均正常 2. 仅可申购，不可赎回 3. 仅可赎回，不可申购 4. 申赎均暂停
-  spotResFundFee: 每天针对持有etp资产的用户收取的资金费用
-  spotResFundFeeTime: 收取资金费用的时间
-  spotResManageFee: 管理费率
-  spotResManageFeeTime: 收取资金管理费的时间
-  spotResCirculation: 在二级市场流通的代币数量
-  spotResValue: 名义资产规模
-  spotResTotal: 总上限
-  spotResNetValue: 当前净值
+  lt: Leveraged Token 接口
+  lt_notice: 沒有完全開放
+  lt_para: 以下LT接口都需要鑒權.
+  ltInfo: LT 資產基礎信息查詢
+  row_parameter_etpCode: LT資產名稱
+  spotLtCode: 想要查詢的LT資產名稱，從資產列表中獲取. 目前只有BTC3L和BTC3S
+  spotResLtCode: LT資產簡稱
+  spotResLtName: LT資產全稱
+  spotResMaxPurchase: 單次最大申購金額
+  spotResMinPurchase: 單次最小申購金額
+  spotResMaxPurchaseDaily: 單個自然日最大申購金額
+  spotResMaxRedeem: 單次最大贖回數量
+  spotResMinRedeem: 單次最小贖回數量
+  spotResMaxRedeemDaily: 單個自然日最大贖回數量
+  spotResPurchaseFee: 申購費率
+  spotResRedeemFee: 贖回費率
+  spotResLtStatus: 目前LT資產是否可以進行申購贖回,1. 申贖均正常 2. 僅可申購，不可贖回 3. 僅可贖回，不可申購 4. 申贖均暫停
+  spotResFundFee: 每天針對持有LT資產的用戶收取的資金費用
+  spotResFundFeeTime: 收取資金費用的時間
+  spotResManageFee: 管理費率
+  spotResManageFeeTime: 收取資金管理費的時間
+  spotResCirculation: 在二級市場流通的代幣數量
+  spotResValue: 名義資產規模
+  spotResTotal: 總上限
+  spotResNetValue: 當前淨值
 
-  etpPurchase: 申购
-  spotEtpAmount: 下单金额
-  spotResOrderStatus: 申购单状态：1. 已完成 2. 等待中 3. 失败
-  spotResOrderQuantity: 实际下单的etp资产数量
-  spotResOrderAmount: 实际下单金额
-  spotResAmount: 下单的etp资产金额
-  spotResId: 交易单号
-  spotResValueCoin: 计价币种
-  spotEtpSerialNo: 序列号
+  ltPurchase: 申購
+  spotLtAmount: 下單金額
+  spotResOrderStatus: 申購單狀態：1. 已完成 2. 等待中 3. 失敗
+#  spotResOrderQuantity: 实际下单的etp资产数量
+#  spotResOrderAmount: 实际下单金额
+  spotResAmount: 下單的LT資產金額
+  spotResPurchaseOrderQuantity: 實際成交的LT資產數量
+  spotResPurchaseOrderAmount: 實際成交金額
+  spotResPurchaseAmount: 下單的LT資產金額
+  spotResRedeemQuantity: 下單的LT資產數量
+  spotResRedeemOrderQuantity: 實際成交的LT資產數量
+  spotResRedeemOrderAmount: 實際成交的金額
+  spotResOrderQuantity: 實際成交的LT資產數量
 
-  etpRedeem: 赎回
-  spotEtpQuantity: 数量
+  spotResId: 交易單號
+  spotResValueCoin: 計價幣種
+  spotLtSerialNo: 序列號
 
-  etpRecord: 申赎记录查询
-  spotEtpOrderId: 订单ID
-  spotEtpStartTime: 起始时间
-  spotEtpEndTime: 截止时间
-  spotEtpOrderType: 订单类型 1. 申购 2. 赎回
-  spotResOrderTime: 下单时间
-  spotResExcTime: 订单状态最后一次更新时间
-  spotResStatus: 订单状态：1. 已成交。2. 等待中。3. 失败
-  spotResFee: 交易手续费
-  spotResRecordValue: 成交价值
+  ltRedeem: 贖回
+  spotLtQuantity: 贖回數量
 
-  etpQuoteReference: ETP 行情查询
-  spotEtpQuoteNav: 净值
-  spotEtpQuoteNavTime: 净值更新时间戳UTC毫秒
-  spotEtpQuoteBasket: 篮子
+  ltRecord: 申贖記錄查詢
+  spotLtOrderId: 訂單ID
+  spotLtStartTime: 起始時間
+  spotLtEndTime: 截止時間
+  spotLtOrderType: 訂單類型 1. 申購 2. 贖回
+  spotResOrderTime: 下單時間
+  spotResExcTime: 訂單狀態最後一次更新時間
+  spotResStatus: 訂單狀態：1. 已成交。 2. 等待中。 3. 失敗
+  spotResFee: 交易手續費
+  spotResRecordValue: 成交價值
+
+  ltQuoteReference: LT 行情查詢
+  spotLtQuoteNav: 淨值
+  spotLtQuoteNavTime: 淨值更新時間戳UTC毫秒
+  spotLtQuoteBasket: 籃子
 
   perpUsdcReplaceOrderDesc: 活動訂單參數（如數量、價格）與止盈止損參數，無法同時在一個請求中修改，請分開請求進行修改。

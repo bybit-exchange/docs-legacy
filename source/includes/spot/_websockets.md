@@ -671,6 +671,68 @@ t(:spot_public_websocket_frequency_300_delay_650)
 | f | boolean | t(:spot_first) |
 | o | number | t(:spotIgnore) |
 
+
+### t(:websocketLtNetvalue)
+> t(:codequote_subscribe)
+
+```javascript
+{
+    "topic": "lt",
+    "symbol": "BTC3LUSDTNAV",
+    "event": "sub",
+    "params": {
+        "binary": False
+    }
+}
+```
+
+```python--pybit
+
+```
+
+> t(:codequote_responseExampleFormatAll)
+
+```javascript
+{
+    "symbol":"BTC3LUSDTNAV",
+    "symbolName":"BTC3LUSDTNAV",
+    "topic":"lt",
+    "params":{
+        "realtimeInterval":"24h",
+        "binary":"false"
+    },
+    "data":[
+        {
+            "t":1650272320201,
+            "s":"BTC3LUSDTNAV",
+            "nav":"8.36157024279442973500",
+            "b":"0.000741332244224795",
+            "l":"3.448586744632192167",
+            "loan":"-20.474030060817421380",
+            "ti":"18969.901970158967556311",
+            "n":"14.063000000262307568"
+        }
+    ],
+    "f":"True",
+    "sendTime":1650272320374
+}
+```
+t(:spot_websocket_lt_nav_desc_v1)
+
+<p class="fake_header">t(:responseparameters)</p>
+
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| t | number | t(:spot_timestamp) |
+| s | string | t(:spotLtSymbolNav) |
+| nav | string | t(:spotResNetValue) |
+| b | string | t(:spotLtQuoteBasket) |
+| l | string | t(:spotLeverage) |
+| loan | string | t(:spotLoan) |
+| ti | string | t(:spotResCirculation) |
+| n | string | t(:spotTotalPositionValue) |
+
+
 ## t(:publictopics_v2)
 ### t(:websocketv2depth)
 > t(:codequote_subscribe)
