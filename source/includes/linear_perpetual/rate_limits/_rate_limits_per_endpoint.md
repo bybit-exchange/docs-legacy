@@ -20,13 +20,15 @@ t(:rate_para_understanding)
     <th>t(:row_comment_consume)</th>
   </tr>
   <tr>
-    <td rowspan="6">100/min</td>
+    <td rowspan="8">100/min</td>
     <td>/private/linear/order/create </td>
     <td>1 / request</td>
   </tr>
+  <tr><td>/private/linear/order/replace </td><td>1 / request</td></tr>
   <tr><td>/private/linear/order/cancel </td><td>1 / request</td></tr>
   <tr><td>/private/linear/order/cancel-all </td><td>10 / request</td></tr>
   <tr><td>/private/linear/stop-order/create </td><td>1 / request</td></tr>
+  <tr><td>/private/linear/stop-order/replace </td><td>1 / request</td></tr>
   <tr><td>/private/linear/stop-order/cancel </td><td>1 / request</td></tr>
   <tr><td>/private/linear/stop-order/cancel-all </td><td>10 / request</td></tr>
   <tr>

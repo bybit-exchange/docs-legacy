@@ -5,7 +5,7 @@
 > t(:websocket_codequote_auth1)
 
 ```python--pybit
-# based on: https://github.com/verata-veritatis/pybit/blob/master/pybit/__init__.py
+# based on: https://github.com/bybit-exchange/pybit/blob/master/pybit/_http_manager.py
 
 import hmac
 import json
@@ -57,6 +57,9 @@ ws.send(
 )
 ```
 
+<aside class="notice">
+t(:linear_websocket_endpoints_aside)
+</aside>
 
 t(:linear_websocket_para_endpoint)
 
@@ -444,9 +447,9 @@ t(:websocket_para_trade)
 |tick_direction |string |t(:row_comment_position_tick_direction)  |
 |t(:row_parameter_price) |number |t(:row_response_comment_price)  |
 |size |number |t(:row_comment_position_size)  |
-|time |string |t(:row_response_comment_time)  |
+|timestamp |string |t(:row_response_comment_time)  |
 |trade_time_ms |string |t(:row_response_comment_nill_time)  |
-|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|t(:row_parameter_side) |string |t(:websocketTradeSide)  |
 |trade_id |string |t(:row_response_comment_trade_id)  |
 
 
@@ -520,7 +523,8 @@ while True:
        "created_at": "1970-01-01T00:00:00.000Z",
        "updated_at": "2021-07-14T09:32:10.000Z",
        "next_funding_time": "2021-07-14T16:00:00Z",
-       "count_down_hour": "7",
+       "count_down_hour": 7,
+       "funding_rate_interval": 8,
        "bid1_price_e4": "322950000",
        "ask1_price_e4": "322955000"
        "bid1_price": "322950000",
@@ -609,6 +613,7 @@ t(:websocket_aside_instrumentInfo2)
 |updated_at |string |t(:row_comment_updated_at)  |
 |next_funding_time |string |t(:row_comment_resp_next_funding_time)  |
 |countdown_hour |number |t(:row_comment_resp_countdown_hour)  |
+|funding_rate_interval |integer |t(:row_comment_resp_funding_rate_interval) |
 |bid1_price_e4 |integer|t(:row_comment_bid1_price_e4)  |
 |ask1_price_e4 |integer|t(:row_comment_ask1_price_e4)  |
 |bid1_price |integer|t(:row_comment_bid1_price)  |
@@ -888,6 +893,10 @@ while True:
 
 t(:wallet_para_tradeRecords)
 
+<aside class="notice">
+t(:websocket_execution_aside)
+</aside>
+
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
@@ -895,10 +904,10 @@ t(:wallet_para_tradeRecords)
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 |order_id |string |t(:row_comment_order_id)  |
 |exec_id |string |t(:row_comment_exec_id)  |
-|order_link_id |string |t(:row_response_comment_orderLinkId)  |
+|order_link_id |string |t(:row_comment_orderLinkId)  |
 |t(:row_parameter_price) |string |t(:row_comment_exec_price)    |
 |order_qty |number |t(:row_comment_order_qty)  |
-|t(:row_parameter_exec_type) |string |t(:enum_exec_type_link)  |
+|t(:row_parameter_exec_type) |string |t(:exec_type_pnl)  |
 |exec_qty |number |t(:row_comment_exec_qty)  |
 |exec_fee |string |t(:row_comment_exec_fee)    |
 |trade_time |string |t(:row_comment_trade_time)  |
@@ -979,7 +988,7 @@ while True:
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |order_id |string |t(:row_comment_order_id)  |
-|order_link_id |string |t(:row_response_comment_orderLinkId)  |
+|order_link_id |string |t(:row_comment_orderLinkId)  |
 |t(:row_parameter_symbol) |string |t(:row_comment_symbol)  |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 |t(:row_parameter_order_type) |string |t(:row_comment_stopOrderType) |
@@ -1054,7 +1063,7 @@ while True:
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |stop_order_id |string |t(:row_comment_stopOrderId) |
-|order_link_id |string |t(:row_response_comment_orderLinkId)  |
+|order_link_id |string |t(:row_comment_orderLinkId)  |
 |user_id |number |t(:row_comment_userID)  |
 |t(:row_parameter_symbol) |string |t(:enum_symbol_link)  |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |

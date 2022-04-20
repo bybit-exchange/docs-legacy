@@ -12,6 +12,7 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/place-order
 -D '{
     "side": "Buy",
     "orderType": "Limit",
+    "orderFilter": "Order",
     "orderQty": "0.01",
     "orderPrice": "64300",
     "timeInForce": "GoodTillCancel",
@@ -66,6 +67,7 @@ POST
 |:----- |:-------|:-----|----- |
 |symbol|<b>true</b>|string|t(:usdcSymbol)|
 |orderType|<b>true</b>|string|t(:usdcPerpOrderType)|
+|orderFilter|<b>true</b>|string|t(:usdcOrderFilter)|
 |side|<b>true</b>|string|t(:side)|
 |orderPrice|false|string|t(:usdc_perp_order_price)|
 |orderQty|<b>true</b>|string|t(:usdcOrderQty)|
@@ -96,6 +98,8 @@ POST
 |side|string|t(:side)|
 
 ### t(:usdcReplaceOrder)
+
+t(:perpUsdcReplaceOrderDesc)
 
 
 ```console
@@ -548,6 +552,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/execution-list
         "symbol": "BTCPERP",
         "tradeTime": "1640854950675",
         "orderLinkId": "",
+        "side": "Buy",
         "orderId": "640034d1-97ec-4382-9983-694898c03ba3",
         "execPrice": "46851.50",
         "lastLiquidityInd": "TAKER",
@@ -596,9 +601,10 @@ POST
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|symbol|string|t(:usdcSymbol)
-|orderId|string|t(:usdcOrderId)
-|orderLinkId|string|t(:orderLinkId)
+|symbol|string|t(:usdcSymbol)|
+|orderId|string|t(:usdcOrderId)|
+|orderLinkId|string|t(:orderLinkId)|
+|side|string|t(:side)|
 |execPrice|string|t(:tradePrice)|
 |execQty|string|t(:uscdSize)|
 |execFee|string|t(:fee)|
@@ -1085,22 +1091,23 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/session-settle
 
 ```javascript
 {
-  "retCode":0,
-    "retMsg":"OK",
-    "result":{
-    "resultTotalSize":1,
-      "cursor":"",
-      "dataList":[
-        {
-          "symbol":"1fd26147-247d-4433-9845-a236981c3689",
-          "side":"Buy",
-          "size":"1",
-          "sessionAvgPrice":"1",
-          "markPrice":"100",
-          "sessionRpl":"100"
-        }
-    ]
-  }
+    "retCode": 0,
+    "retMsg": "Success.",
+    "result": {
+        "resultTotalSize": 20,
+        "cursor": "4327:0,4286:0",
+        "dataList": [
+            {
+                "time": "1650240000000",
+                "symbol": "BTCPERP",
+                "side": "Buy",
+                "size": "0.001",
+                "sessionAvgPrice": "39685.53",
+                "markPrice": "39686.28",
+                "sessionRpl": "-0.7730"
+            }
+        ]
+    }
 }
 ```
 
@@ -1130,13 +1137,13 @@ POST
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
+|time|number|t(:settlementTime)|
 |symbol|string|t(:usdcSymbol)|
 |side|string|t(:side)|
 |size|string|t(:usdcSize)|
 |sessionAvgPrice|string|t(:sessionAvgPrice)|
 |markPrice|string|t(:markPrice)|
 |sessionRpl|string|t(:sessionRpl)|
-|cursor|string|t(:cursor)|
 
 
 

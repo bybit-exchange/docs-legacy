@@ -88,14 +88,14 @@ POST
 |t(:row_parameter_quantity) |<b>true</b> |number |t(:linear_row_comment_qty) |
 |t(:row_parameter_price) |false |number |t(:row_comment_price) |
 |t(:row_parameter_time_in_force) |<b>true</b> |string |t(:row_comment_timeInForce) |
-|close_on_trigger |<b>true</b> |bool |t(:linear_row_comment_closeOnTrigger)
 |reduce_only |<b>true</b> |bool |t(:linear_row_comment_reduceOnly) |
+|close_on_trigger |<b>true</b> |bool |t(:linear_row_comment_closeOnTrigger)
 |order_link_id |false |string |t(:row_comment_orderLinkId) |
 |take_profit |false |number |t(:row_comment_takeProfit) |
 |stop_loss |false |number |t(:row_comment_stopLoss) |
 |t(:row_parameter_tp_trigger_by) |false |string |t(:account_row_comment_tp_trigger_by) |
 |t(:row_parameter_sl_trigger_by) |false |string |t(:account_row_comment_sl_trigger_by) |
-|position_idx |false |integer |t(:row_comment_position_idx)  |
+|position_idx |false |integer |t(:row_comment_position_idx_create_order)  |
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -116,7 +116,7 @@ POST
 |cum_exec_fee |number |t(:linear_resp_field_cum_exec_fee)  |
 |reduce_only |bool |t(:linear_resp_field_reduce_only)  |
 |close_on_trigger |bool |t(:row_response_close_on_trigger)  |
-|order_link_id |string |t(:row_response_comment_orderLinkId)  |
+|order_link_id |string |t(:row_comment_orderLinkId)  |
 |created_time |string |t(:row_comment_created_at)  |
 |updated_time |string |t(:row_comment_updated_at)  |
 |take_profit |number |t(:row_comment_take_profit)  |
@@ -222,7 +222,7 @@ GET
 |cum_exec_qty |number |t(:linear_resp_field_cum_exec_qty)  |
 |cum_exec_value |number |t(:linear_resp_field_cum_exec_value)  |
 |cum_exec_fee |number |t(:linear_resp_field_cum_exec_fee)  |
-|order_link_id |string |t(:row_response_comment_orderLinkId)  |
+|order_link_id |string |t(:row_comment_orderLinkId)  |
 |reduce_only |bool |t(:linear_resp_field_reduce_only)  |
 |close_on_trigger |bool |t(:row_response_close_on_trigger)  |
 |created_time |string |t(:row_comment_created_at)  |
@@ -592,7 +592,7 @@ GET
 |cum_exec_fee |number |t(:linear_resp_field_cum_exec_fee)  |
 |reduce_only |bool |t(:linear_resp_field_reduce_only)  |
 |close_on_trigger |bool |t(:row_response_close_on_trigger)  |
-|order_link_id |string |t(:row_response_comment_orderLinkId)  |
+|order_link_id |string |t(:row_comment_orderLinkId)  |
 |created_time |string |t(:row_comment_created_at)  |
 |updated_time |string |t(:row_comment_updated_at)  |
 |take_profit |number |t(:row_comment_take_profit)  |
@@ -706,14 +706,14 @@ POST
 |stop_px |<b>true</b> | number | t(:linear_row_comment_stopPx) |
 |t(:row_parameter_time_in_force) |<b>true</b> |string |t(:row_comment_timeInForce) |
 |t(:row_parameter_trigger_price) | false | string | t(:row_comment_triggerBy)|
-|close_on_trigger |<b>true</b> |bool |t(:row_comment_closeOnTrigger)
 |reduce_only |<b>true</b> |bool |t(:linear_row_comment_reduceOnly) |
+|close_on_trigger |<b>true</b> |bool |t(:row_comment_closeOnTrigger)
 |order_link_id |false |string |t(:row_comment_orderLinkId) |
 |take_profit |false |number |t(:row_comment_takeProfit) |
 |stop_loss |false |number |t(:row_comment_stopLoss) |
 |t(:row_parameter_tp_trigger_by) |false |string |t(:account_row_comment_tp_trigger_by) |
 |t(:row_parameter_sl_trigger_by) |false |string |t(:account_row_comment_sl_trigger_by) |
-|position_idx |false |integer |t(:row_comment_position_idx)  |
+|position_idx |false |integer |t(:row_comment_position_idx_create_order)  |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -728,7 +728,7 @@ POST
 |t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
 |t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
 |trigger_price |number |t(:stop_order_trigger_price)  |
-|order_link_id |string |t(:row_response_comment_orderLinkId) |
+|order_link_id |string |t(:row_comment_orderLinkId) |
 |created_time |string |t(:row_comment_created_at)  |
 |updated_time |string |t(:row_comment_updated_at)  |
 |take_profit |number |t(:row_comment_take_profit)  |
@@ -859,7 +859,7 @@ GET
 |t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
 |order_status |string |t(:row_comment_stopOrderStatus)
 |trigger_price |number |t(:stop_order_trigger_price)  |
-|order_link_id |string |t(:row_response_comment_orderLinkId) |
+|order_link_id |string |t(:row_comment_orderLinkId) |
 |created_time |string |t(:row_comment_created_at)  |
 |updated_time |string |t(:row_comment_updated_at)  |
 |take_profit |number |t(:row_comment_take_profit)  |
@@ -1213,7 +1213,7 @@ GET
 |t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
 |t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
 |trigger_price |number |t(:stop_order_trigger_price)  |
-|order_link_id |string |t(:row_response_comment_orderLinkId)  |
+|order_link_id |string |t(:row_comment_orderLinkId)  |
 |created_time |string |t(:row_comment_created_at)  |
 |updated_time |string |t(:row_comment_updated_at)  |
 |take_profit |number |t(:row_comment_take_profit)  |
@@ -2026,7 +2026,7 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |order_id |string |t(:row_comment_order_id)  |
-|order_link_id |string |t(:row_response_comment_orderLinkId)  |
+|order_link_id |string |t(:row_comment_orderLinkId)  |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 |t(:row_parameter_symbol) |string |t(:row_comment_symbol)  |
 |order_price |number |t(:row_comment_order_price)  |
@@ -2231,7 +2231,7 @@ print(session.get_risk_limit(
 t(:account_para_getRisk)
 
 <aside class="notice">
-t(:account_aside_getRisk)
+t(:account_aside_getRisk_linear)
 </aside>
 
 <p class="fake_header">t(:httprequest)</p>
@@ -2251,7 +2251,7 @@ GET
 |t(:row_parameter_symbol) |string |t(:row_comment_symbol)  |
 |limit |number |t(:row_comment_risk_limit)    |
 |maintain_margin |number |t(:row_comment_maintain_margin)  |
-|starting_margin |number |t(:row_comment_starting_margin)  |
+|starting_margin |number |t(:row_comment_starting_margin_linear)  |
 |section |string |t(:row_comment_section)  |
 |is_lowest_risk |number |t(:row_comment_is_lowest_risk)    |
 |created_at |string |t(:row_comment_created_at)  |

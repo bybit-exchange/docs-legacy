@@ -5,7 +5,7 @@
 > t(:websocket_codequote_auth1)
 
 ```python--pybit
-# based on: https://github.com/verata-veritatis/pybit/blob/master/pybit/__init__.py
+# based on: https://github.com/bybit-exchange/pybit/blob/master/pybit/_http_manager.py
 
 import hmac
 import json
@@ -57,6 +57,9 @@ ws.send(
 )
 ```
 
+<aside class="notice">
+t(:websocket_endpoints_aside)
+</aside>
 
 t(:websocket_para_endpoint)
 
@@ -461,10 +464,10 @@ t(:websocket_para_trade)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|time |string |t(:row_response_comment_time)  |
+|timestamp |string |t(:row_response_comment_time)  |
 |trade_time_ms |number |t(:row_response_comment_nill_time)  |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
-|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|t(:row_parameter_side) |string |t(:websocketTradeSide)  |
 |size |number |t(:row_comment_position_size)  |
 |t(:row_parameter_price) |number |t(:row_response_comment_price)  |
 |t(:row_parameter_tick_direction) |string |t(:row_comment_position_tick_direction)  |
@@ -610,7 +613,8 @@ while True:
          "updated_at": "2020-01-12T18:25:16Z",         
          "next_funding_time": "2020-01-13T00:00:00Z",  //next funding time
                                                        //the rest time to settle funding fee
-         "countdown_hour": 6                           //the remaining time to settle the funding fee
+         "countdown_hour": 6,                           //the remaining time to settle the funding fee
+         "funding_rate_interval": 8
          },
     "cross_seq":9267002,
     "timestamp_e6":1615794861826248
@@ -691,7 +695,7 @@ t(:websocket_aside_instrumentInfo2)
 |updated_at |string |t(:row_comment_updated_at)  |
 |next_funding_time |string |t(:row_comment_resp_next_funding_time)  |
 |countdown_hour |integer |t(:row_comment_resp_countdown_hour)  |
-
+|funding_rate_interval |integer |t(:row_comment_resp_funding_rate_interval) |
 
 ### t(:websocketklineV2)
 > t(:codequote_subscribe)
@@ -884,6 +888,10 @@ while True:
 
 t(:account_para_myPosition)
 
+<aside class="notice">
+t(:websocketposition_aside)
+</aside>
+
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
@@ -983,6 +991,10 @@ while True:
 
 t(:wallet_para_tradeRecords)
 
+<aside class="notice">
+t(:websocket_execution_aside)
+</aside>
+
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
@@ -990,10 +1002,10 @@ t(:wallet_para_tradeRecords)
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 |order_id |string |t(:row_comment_order_id)  |
 |exec_id |string |t(:row_comment_exec_id)  |
-|order_link_id |string |t(:row_response_comment_orderLinkId)  |
+|order_link_id |string |t(:row_comment_orderLinkId)  |
 |t(:row_parameter_price) |string |t(:row_comment_exec_price)    |
 |order_qty |number |t(:row_comment_order_qty)  |
-|t(:row_parameter_exec_type) |string |t(:enum_exec_type_link)  |
+|t(:row_parameter_exec_type) |string |t(:exec_type_pnl)  |
 |exec_qty |number |t(:row_comment_exec_qty)  |
 |exec_fee |string |t(:row_comment_exec_fee)    |
 |leaves_qty |number |t(:row_comment_leaves_qty)  |
@@ -1076,7 +1088,7 @@ while True:
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |order_id |string |t(:row_comment_order_id)  |
-|order_link_id |string |t(:row_response_comment_orderLinkId)  |
+|order_link_id |string |t(:row_comment_orderLinkId)  |
 |t(:row_parameter_symbol) |string |t(:row_comment_symbol)  |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 |t(:row_parameter_order_type) |string |t(:row_comment_stopOrderType) |
@@ -1155,7 +1167,7 @@ while True:
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |order_id |string |t(:row_comment_order_id)  |
-|order_link_id |string |t(:row_response_comment_orderLinkId)  |
+|order_link_id |string |t(:row_comment_orderLinkId)  |
 |user_id |number |t(:row_comment_userID)  |
 |t(:row_parameter_symbol) |string |t(:enum_symbol_link)  |
 |t(:row_parameter_order_type) |string |t(:enum_order_type_link)  |
@@ -1203,8 +1215,10 @@ while True:
     "topic": "wallet",
     "data": [
         {
-            "wallet_balance": 1.50175786,
-            "available_balance": 1.50177818
+            "user_id": 738713,
+            "coin": "BTC",
+            "available_balance": "1.50121026",
+            "wallet_balance": "1.50121261"
         }
     ]
 }

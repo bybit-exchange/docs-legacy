@@ -15,7 +15,7 @@ t(:ENUMs_para)
 t(:usdc_trading_symbol_comment)
 
 
-## Order type (`type`/`orderTypes`)
+## Order type (`orderTypes`)
 * `Limit`
 * `Market`
 
@@ -24,7 +24,7 @@ t(:usdc_trading_symbol_comment)
 * `USDC`
 
 
-## Order status (`status`)
+## Order status (`orderStatus`)
 * `New`
 * `PartiallyFilled`
 * `Filled`
@@ -53,7 +53,7 @@ t(:usdc_perp_price_rule)
 * `1w` t(:interval_W)
 * `1M` t(:interval_M)
 
-## Transaction type (`Transaction type`)
+## Transaction type (`type`)
 * `TRANSFER_IN`
 * `TRANSFER_OUT`
 * `TRADE`
@@ -61,19 +61,17 @@ t(:usdc_perp_price_rule)
 * `DELIVERY`
 * `LIQUIDATION`
 
-## Margin Mode
+## Margin Mode (`marginMode`)
 * `REGULAR_MARGIN`
 * `PORTFOLIO_MARGIN`
 
-
-## Order Filter
+## Order Filter (`orderFilter`)
 * `Order`
 * `StopOrder`
 
-## LastLiquidityInd
+## LastLiquidityInd (`LastLiquidityInd`)
 * `TAKER`
 * `MAKER`
 
-
-## Exec Type
+## Exec Type (`execType`)
 * `TRADE`

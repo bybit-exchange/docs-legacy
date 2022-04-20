@@ -48,11 +48,11 @@ POST
 |symbol|<b>true</b>|string|t(:usdcSymbol)|
 |orderType|<b>true</b>|string|t(:usdcOrderType)|
 |side|<b>true</b>|string|t(:side)|
+|outRequestId|false|string|t(:optionOutRequestId)|
 |orderPrice|false|string|t(:usdcPlaceOrderPrice)|
 |orderQty|<b>true</b>|string|t(:usdcOrderQty)|
 |iv|false|string|t(:optionIv)|
 |t(:row_parameter_timeInForce)|false|string|t(:row_comment_timeInForce)|
-|outRequestId|false|string|t(:optionOutRequestId)|
 |orderLinkId|<b>true</b>|string|t(:orderLinkId)|
 |reduceOnly|false|bool|t(:reduceOnly)|
 |mmp|false|string|t(:mmp)|
@@ -76,7 +76,7 @@ POST
 t(:usdcBatchOrdersDesc)
 
 ```console
-curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-place-order \
+curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-place-orders \
 -H "Content-Type: application/json" \
 -D '{"orderRequest":[{"outRequestId":"4c77b34a-9093-4bca-9cad-727cd6efed7e","symbol":"BTC-26NOV21-58000-P","orderType":"Limit","side":"Buy","orderQty":"1","orderPrice":"1","timeInForce":"GoodTillCancel"}]}'
 
@@ -112,7 +112,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-place-or
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=uopvBatchPlace>/option/usdc/openapi/private/v1/batch-place-order</span></code>
+<code><span id=uopvBatchPlace>/option/usdc/openapi/private/v1/batch-place-orders</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvBatchPlace"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -191,9 +191,9 @@ POST
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|outRequestId|<b>true</b>|string|t(:optionOutRequestId)|
 |symbol|<b>true</b>|string|t(:usdcSymbol)|
 |orderId|<b>true</b>|string|t(:usdcReplaceOrderId)|
+|outRequestId|false|string|t(:optionOutRequestId)|
 |orderLinkId|false|string|t(:usdcOrderLinkId)|
 |orderPrice|false|string|t(:usdcOrderPrice)|
 |orderQty|false|string|t(:usdcOrderQty)|
@@ -207,6 +207,8 @@ POST
 |orderLinkId|string|t(:orderLinkId)
 
 ### t(:usdcBatchReplaceOrders)
+
+t(:usdcBatchOrdersDesc)
 
 ```console
 curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-replace-orders \
@@ -251,9 +253,9 @@ POST
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|outRequestId|<b>true</b>|string|t(:optionOutRequestId)|
 |symbol|<b>true</b>|string|t(:usdcSymbol)|
 |orderId|<b>true</b>|string|t(:usdcReplaceOrderId)|
+|outRequestId|false|string|t(:optionOutRequestId)|
 |orderLinkId|false|string|t(:usdcOrderLinkId)|
 |orderPrice|false|string|t(:usdcOrderPrice)|
 |orderQty|false|string|t(:usdcOrderQty)|
@@ -412,7 +414,7 @@ POST
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|outRequestId|<b>true</b>|string|t(:optionOutRequestId)|
+|outRequestId|false|string|t(:optionOutRequestId)|
 
 <p>
 t(:cancelAllResponse)
@@ -668,6 +670,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/execution-list
         "symbol": "BTC-31DEC21-18000-P",
         "tradeTime": "1640834911093",
         "orderLinkId": "test2021122417000218",
+        "side": "Sell",
         "orderId": "13ad19bf-5e23-479b-8261-54f1baf290e1",
         "execPrice": "1.00",
         "lastLiquidityInd": "TAKER",
@@ -719,6 +722,7 @@ POST
 |symbol|string|t(:usdcSymbol)|
 |orderId|string|t(:usdcOrderId)|
 |orderLinkId|string|t(:orderLinkId)|
+|side|string|t(:side)|
 |tradeId|string|t(:usdcTradeId)|
 |execPrice|string|t(:tradePrice)|
 |execQty|string|t(:uscdSize)|
@@ -1001,7 +1005,6 @@ POST
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |marginMode|string|t(:usdcMarginMode)|
-
 
 ## t(:accountPosition)
 
@@ -1391,3 +1394,67 @@ POST
 |:----- |:-------|:-----|----- |
 |currency |<b>true</b>|string|t(:usdcCurrency) |
 
+
+### t(:queryMMPState)
+
+> t(:codequote_curlExample)
+
+```console
+
+curl https://api-testnet.bytick.com/option/usdc/openapi/private/v1/get-mmp-state \
+-H "Content-Type: application/json" \
+-D '{"baseCoin":"BTC"}'
+```
+
+```python
+
+```
+
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "retCode": 0,
+    "retMsg": "OK",
+    "result": [
+        {
+            "baseCoin": "",
+            "mmpEnabled": false,
+            "mmpUserConfigurable": false,
+            "windowMs": "0",
+            "frozenPeriodMs": "0",
+            "qtyLimit": "",
+            "deltaLimit": "",
+            "mmpFrozenUntilMs": "0",
+            "mmpFrozen": false
+        }
+    ]
+}
+```
+
+
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=uopvAsset>/option/usdc/openapi/private/v1/get-mmp-state</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvAsset"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|baseCoin|false|string|t(:usdcBaseCoin)|
+
+<p class="fake_header">t(:responseparameters)</p>
+
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|baseCoin|string|t(:usdcBaseCoin)|
+|mmpEnabled|boolean|t(:usdcMmpEnabled)|
+|mmpUserConfigurable|boolean|t(:usdcMmpUserConfigurable)|
+|windowMs|string|t(:usdcWindowMs)|
+|frozenPeriodMs|string|t(:usdcFrozenPeriodMs)|
+|qtyLimit|string|t(:usdcQtyLimit)|
+|deltaLimit|string|t(:usdcDeltaLimit)|
+|mmpFrozenUntilMs|string|t(:usdcMmpFrozenUntilMs)|
+|mmpFrozen|boolean|t(:usdcMmpFrozen)|

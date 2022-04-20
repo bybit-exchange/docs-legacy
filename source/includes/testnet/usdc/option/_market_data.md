@@ -24,17 +24,17 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
     {
       "price": "5000.00000000",
       "size": "2.0000",
-      "side": "BID"
+      "side": "Buy"
     },
     {
       "price": "1.50000000",
       "size": "0.0200",
-      "side": "BID"
+      "side": "Buy"
     },
     {
       "price": "5900.00000000",
       "size": "0.9000",
-      "side": "ASK"
+      "side": "Sell"
     }
   ]
 }
@@ -70,7 +70,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/symbols?limit=1'
+curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/symbols?limit=1&status=ONLINE&status=OFFLINE'
 
 ```
 
@@ -123,6 +123,7 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |symbol|false|string|t(:usdcSymbol)|
+|status|false|string|t(:symbolStatus)|
 |direction|false|string|t(:direction)|
 |limit|false|string|t(:usdcLimit)|
 |cursor|false|string|t(:cursor)|
@@ -316,7 +317,6 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/query-trade-la
         "symbol": "BTC-3DEC21-80000-P",
         "orderPrice": "22775.50",
         "orderQty": "1.000",
-        "side": "Sell",
         "time": "1638248170932"
       }
     ]
@@ -352,6 +352,5 @@ GET
 |symbol|string|t(:usdcSymbol)|
 |orderPrice|string|t(:usdcOrderPrice)|
 |orderQty|string|t(:usdcOrderQty)|
-|side|string|t(:side)|
 |time|number|t(:time)|
 

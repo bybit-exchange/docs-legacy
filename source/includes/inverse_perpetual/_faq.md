@@ -22,3 +22,9 @@ t(:faq_closed_pnl_price_para)
 
 ## t(:faq_float_precision)
 t(:faq_float_precision_para)
+
+## t(:faq_data_resilience)
+t(:faq_data_resilience_para)
+
+## t(:faq_turnover)
+t(:faq_turnover_para)

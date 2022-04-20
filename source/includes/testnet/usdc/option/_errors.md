@@ -43,7 +43,7 @@ Return Code | t(:errorcode_meaning)
 3100127  |	{{key0}} not yet available for trades.
 3100128  |	{{key0}} no longer available for trades.
 3100129  |	Repeated Request
-3100136  |	Order does not exist.
+3100136  |	Order does not exist. (the order does not exist or the order has been completed to the final state (Canceled, Filled))
 3100141  |	Failed to place new order(s)! Position is being liquidated.
 3100143  |	Failed to cancel! The order has already been filled.
 3100191  |	Failed! The order has already been canceled.
