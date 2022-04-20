@@ -19,8 +19,8 @@ curl https://api-testnet.bybit.com/spot/lt/v1/info \
   "ret_code": 0,
     "ret_msg": null,
     "result": {
-      "ltCode": "btc3l",
-      "ltName": "BTC*3",
+      "ltCode": "BTC3L",
+      "ltName": "3X Long",
       "maxPurchase": "300024.12345678",
       "minPurchase": "0.12345678",
       "maxPurchaseDaily": "500000.12345678",
@@ -46,8 +46,8 @@ curl https://api-testnet.bybit.com/spot/lt/v1/info \
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpoCreate>/spot/lt/v1/info</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+<code><span id=ltInfo>/spot/lt/v1/info</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ltInfo"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
@@ -107,7 +107,7 @@ curl https://api-testnet.bybit.com/spot/lt/v1/purchase \
         "amount": "123.12345678",
         "timestamp": 1620917160000,
         "id": 1,
-        "valueCoin": "usdt"
+        "valueCoin": "USDT"
     },
     "ext_code": null,
     "ext_info": null
@@ -116,8 +116,8 @@ curl https://api-testnet.bybit.com/spot/lt/v1/purchase \
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/spot/lt/v1/purchase</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+<code><span id=ltPurchase>/spot/lt/v1/purchase</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ltPurchase"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
@@ -167,7 +167,7 @@ curl https://api-testnet.bybit.com/spot/lt/v1/redeem \
       "orderAmount": "123.12345678",
       "timestamp": 1620917160000,
       "id": 1,
-      "valueCoin": "usdt"
+      "valueCoin": "USDT"
   },
   "ext_code": null, 
   "ext_info": null
@@ -176,8 +176,8 @@ curl https://api-testnet.bybit.com/spot/lt/v1/redeem \
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/spot/lt/v1/redeem</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+<code><span id=ltRedeem>/spot/lt/v1/redeem</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ltRedeem"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
@@ -236,8 +236,8 @@ POST
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpoCreate>/spot/lt/v1/record</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+<code><span id=ltRecord>/spot/lt/v1/record</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ltRecord"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
@@ -293,8 +293,8 @@ GET
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpoCreate>/spot/lt/v1/reference</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+<code><span id=ltReference>/spot/lt/v1/reference</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ltReference"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
