@@ -71,10 +71,54 @@ GET
 |fundFee|string|t(:spotResFundFee)|
 |fundFeeTime|long|t(:spotResFundFeeTime)|
 |manageFeeRate|string|t(:spotResManageFee)|
-|manageFeeTime|string|t(:spotResManageFeeTime)|
+|manageFeeTime|long|t(:spotResManageFeeTime)|
 |value|string|t(:spotResValue)|
 |total|string|t(:spotResTotal)|
 |netValue|string|t(:spotResNetValue)|
+
+### t(:ltQuoteReference)
+> t(:codequote_curlExample)
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "",
+    "ext_code": null,
+    "ext_info": null,
+    "result": {
+        "ltCode": "BTC3L",
+        "nav": "8.348543196938590649",
+        "navTime": "1650259325443",
+        "basket": "14.063000000262307568",
+        "leverage": "3.451925561403627643",
+        "circulation": "18969.901970158967556311"
+    }
+}
+``` 
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=ltReference>/spot/lt/v1/reference</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ltReference"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|ltCode|<b>true</b>|string|t(:spotLtCode)|
+
+<p class="fake_header">t(:responseparameters)</p>
+
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|ltCode|string|t(:spotResLtCode)|
+|nav|string|t(:spotLtQuoteNav)|
+|navTime|string|t(:spotLtQuoteNavTime)|
+|basket|string|t(:spotTotalPositionValue)|
+|leverage|string|t(:spotLeverage)|
+|circulation|string|t(:spotResCirculation)|
 
 <aside class="notice">
 t(:lt_para)
@@ -255,56 +299,11 @@ GET
 |ltCode|string|t(:spotResLtCode)|
 |orderId|string|t(:spotLtOrderId)|
 |orderType|int|t(:spotLtOrderType)|
-|orderTime|long|t(:spotResOrderTime)|
-|excTime|long|t(:spotResExcTime)|
+|orderTime|string|t(:spotResOrderTime)|
+|excTime|string|t(:spotResExcTime)|
 |orderStatus|string|t(:spotResStatus)|
 |fee|string|t(:spotResFee)|
 |amount|string|t(:spotResOrderQuantity)|
 |value|string|t(:spotResRecordValue)|
 |valueCoin|string|t(:spotResValueCoin)|
 |serialNo|string|t(:spotLtSerialNo)|
-
-
-### t(:ltQuoteReference)
-> t(:codequote_curlExample)
-
-> t(:codequote_responseExample)
-
-```javascript
-{
-    "ret_code": 0,
-    "ret_msg": "",
-    "ext_code": null,
-    "ext_info": null,
-    "result": {
-        "ltCode": "BTC3L",
-        "nav": "8.348543196938590649",
-        "navTime": "1650259325443",
-        "basket": "14.063000000262307568",
-        "leverage": "3.451925561403627643",
-        "circulation": "18969.901970158967556311"
-    }
-}
-``` 
-
-<p class="fake_header">t(:httprequest)</p>
-GET
-<code><span id=ltReference>/spot/lt/v1/reference</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ltReference"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|ltCode|<b>true</b>|string|t(:spotLtCode)|
-
-<p class="fake_header">t(:responseparameters)</p>
-
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|ltCode|string|t(:spotResLtCode)|
-|nav|string|t(:spotLtQuoteNav)|
-|navTime|long|t(:spotLtQuoteNavTime)|
-|basket|string|t(:spotTotalPositionValue)|
-|leverage|string|t(:spotLeverage)|
-|circulation|string|t(:spotResCirculation)|
