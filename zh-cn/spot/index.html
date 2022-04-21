@@ -884,6 +884,9 @@
                     <a href="#t-ltinfo" class="toc-h2 toc-link" data-title="LT 資產基礎信息查詢">LT 資產基礎信息查詢</a>
                   </li>
                   <li>
+                    <a href="#t-ltquotereference" class="toc-h2 toc-link" data-title="LT 行情查詢">LT 行情查詢</a>
+                  </li>
+                  <li>
                     <a href="#t-ltpurchase" class="toc-h2 toc-link" data-title="申購">申購</a>
                   </li>
                   <li>
@@ -891,9 +894,6 @@
                   </li>
                   <li>
                     <a href="#t-ltrecord" class="toc-h2 toc-link" data-title="申贖記錄查詢">申贖記錄查詢</a>
-                  </li>
-                  <li>
-                    <a href="#t-ltquotereference" class="toc-h2 toc-link" data-title="LT 行情查詢">LT 行情查詢</a>
                   </li>
               </ul>
           </li>
@@ -4082,7 +4082,7 @@ function copyStringToClipboard (endpoint) {
 </tr>
 <tr>
 <td style="text-align: left">manageFeeTime</td>
-<td style="text-align: left">string</td>
+<td style="text-align: left">long</td>
 <td>收取資金管理費的時間</td>
 </tr>
 <tr>
@@ -4099,6 +4099,91 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">netValue</td>
 <td style="text-align: left">string</td>
 <td>當前淨值</td>
+</tr>
+</tbody></table>
+<h3 id='t-ltquotereference'>LT 行情查詢</h3>
+<blockquote>
+<p>請求示例</p>
+
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">ltCode</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC3L</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">nav</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">8.348543196938590649</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">navTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1650259325443</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">basket</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">14.063000000262307568</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">leverage</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">3.451925561403627643</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">circulation</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">18969.901970158967556311</span><span class="dl">"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP 請求</p>
+
+<p>GET
+<code><span id=ltReference>/spot/lt/v1/reference</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ltReference"><img src="../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">ltCode</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>想要查詢的LT資產名稱，從資產列表中獲取. 目前只有BTC3L和BTC3S</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">ltCode</td>
+<td style="text-align: left">string</td>
+<td>LT資產簡稱</td>
+</tr>
+<tr>
+<td style="text-align: left">nav</td>
+<td style="text-align: left">string</td>
+<td>淨值</td>
+</tr>
+<tr>
+<td style="text-align: left">navTime</td>
+<td style="text-align: left">string</td>
+<td>淨值更新時間戳UTC毫秒</td>
+</tr>
+<tr>
+<td style="text-align: left">basket</td>
+<td style="text-align: left">string</td>
+<td>名義持倉（總籃子 = 籃子頭寸*發行量)</td>
+</tr>
+<tr>
+<td style="text-align: left">leverage</td>
+<td style="text-align: left">string</td>
+<td>真實槓桿倍數</td>
+</tr>
+<tr>
+<td style="text-align: left">circulation</td>
+<td style="text-align: left">string</td>
+<td>在二級市場流通的代幣數量</td>
 </tr>
 </tbody></table>
 
@@ -4475,12 +4560,12 @@ function copyStringToClipboard (endpoint) {
 </tr>
 <tr>
 <td style="text-align: left">orderTime</td>
-<td style="text-align: left">long</td>
+<td style="text-align: left">string</td>
 <td>下單時間</td>
 </tr>
 <tr>
 <td style="text-align: left">excTime</td>
-<td style="text-align: left">long</td>
+<td style="text-align: left">string</td>
 <td>訂單狀態最後一次更新時間</td>
 </tr>
 <tr>
@@ -4512,91 +4597,6 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">serialNo</td>
 <td style="text-align: left">string</td>
 <td>序列號</td>
-</tr>
-</tbody></table>
-<h3 id='t-ltquotereference'>LT 行情查詢</h3>
-<blockquote>
-<p>請求示例</p>
-
-<p>響應示例</p>
-</blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">ltCode</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC3L</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">nav</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">8.348543196938590649</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">navTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1650259325443</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">basket</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">14.063000000262307568</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">leverage</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">3.451925561403627643</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">circulation</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">18969.901970158967556311</span><span class="dl">"</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<p class="fake_header">HTTP 請求</p>
-
-<p>GET
-<code><span id=ltReference>/spot/lt/v1/reference</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ltReference"><img src="../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
-
-<p class="fake_header">請求參數</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">參數</th>
-<th style="text-align: left">是否必須</th>
-<th style="text-align: left">類型</th>
-<th>說明</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">ltCode</td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">string</td>
-<td>想要查詢的LT資產名稱，從資產列表中獲取. 目前只有BTC3L和BTC3S</td>
-</tr>
-</tbody></table>
-
-<p class="fake_header">返回參數</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">參數</th>
-<th style="text-align: left">類型</th>
-<th>說明</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">ltCode</td>
-<td style="text-align: left">string</td>
-<td>LT資產簡稱</td>
-</tr>
-<tr>
-<td style="text-align: left">nav</td>
-<td style="text-align: left">string</td>
-<td>淨值</td>
-</tr>
-<tr>
-<td style="text-align: left">navTime</td>
-<td style="text-align: left">long</td>
-<td>淨值更新時間戳UTC毫秒</td>
-</tr>
-<tr>
-<td style="text-align: left">basket</td>
-<td style="text-align: left">string</td>
-<td>名義持倉（總籃子 = 籃子頭寸*發行量)</td>
-</tr>
-<tr>
-<td style="text-align: left">leverage</td>
-<td style="text-align: left">string</td>
-<td>真實槓桿倍數</td>
-</tr>
-<tr>
-<td style="text-align: left">circulation</td>
-<td style="text-align: left">string</td>
-<td>在二級市場流通的代幣數量</td>
 </tr>
 </tbody></table>
 <h1 id='t-ratelimits'>頻率限製</h1><h3 id='t-ipratelimits'>IP頻率限製</h3>

@@ -884,6 +884,9 @@
                     <a href="#t-ltinfo" class="toc-h2 toc-link" data-title="Asset Info">Asset Info</a>
                   </li>
                   <li>
+                    <a href="#t-ltquotereference" class="toc-h2 toc-link" data-title="Market Info">Market Info</a>
+                  </li>
+                  <li>
                     <a href="#t-ltpurchase" class="toc-h2 toc-link" data-title="Purchase">Purchase</a>
                   </li>
                   <li>
@@ -891,9 +894,6 @@
                   </li>
                   <li>
                     <a href="#t-ltrecord" class="toc-h2 toc-link" data-title="Purchase/Redemption History">Purchase/Redemption History</a>
-                  </li>
-                  <li>
-                    <a href="#t-ltquotereference" class="toc-h2 toc-link" data-title="Market Info">Market Info</a>
                   </li>
               </ul>
           </li>
@@ -4084,7 +4084,7 @@ If <code>startTime</code> is not specified, you can only query for records in th
 </tr>
 <tr>
 <td style="text-align: left">manageFeeTime</td>
-<td style="text-align: left">string</td>
+<td style="text-align: left">long</td>
 <td>Timestamps when management fees are charged</td>
 </tr>
 <tr>
@@ -4101,6 +4101,91 @@ If <code>startTime</code> is not specified, you can only query for records in th
 <td style="text-align: left">netValue</td>
 <td style="text-align: left">string</td>
 <td>Net asset value</td>
+</tr>
+</tbody></table>
+<h3 id='t-ltquotereference'>Market Info</h3>
+<blockquote>
+<p>Request Example</p>
+
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">ltCode</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC3L</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">nav</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">8.348543196938590649</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">navTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1650259325443</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">basket</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">14.063000000262307568</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">leverage</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">3.451925561403627643</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">circulation</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">18969.901970158967556311</span><span class="dl">"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=ltReference>/spot/lt/v1/reference</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ltReference"><img src="../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">ltCode</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Abbreviation of the LT. Actually only BTC3L and BTC3S available</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">ltCode</td>
+<td style="text-align: left">string</td>
+<td>Abbreviation of the LT</td>
+</tr>
+<tr>
+<td style="text-align: left">nav</td>
+<td style="text-align: left">string</td>
+<td>Net asset value</td>
+</tr>
+<tr>
+<td style="text-align: left">navTime</td>
+<td style="text-align: left">string</td>
+<td>Update time for net asset value (in milliseconds and UTC time zone)</td>
+</tr>
+<tr>
+<td style="text-align: left">basket</td>
+<td style="text-align: left">string</td>
+<td>Total position value = basket value * total circulation</td>
+</tr>
+<tr>
+<td style="text-align: left">leverage</td>
+<td style="text-align: left">string</td>
+<td>Real Leverage calculated by last traded price.</td>
+</tr>
+<tr>
+<td style="text-align: left">circulation</td>
+<td style="text-align: left">string</td>
+<td>Circulating supply in the secondary market</td>
 </tr>
 </tbody></table>
 
@@ -4477,12 +4562,12 @@ The following Leveraged Token endpoints require authentication.
 </tr>
 <tr>
 <td style="text-align: left">orderTime</td>
-<td style="text-align: left">long</td>
+<td style="text-align: left">string</td>
 <td>Order time</td>
 </tr>
 <tr>
 <td style="text-align: left">excTime</td>
-<td style="text-align: left">long</td>
+<td style="text-align: left">string</td>
 <td>Last update time of the order status</td>
 </tr>
 <tr>
@@ -4514,91 +4599,6 @@ The following Leveraged Token endpoints require authentication.
 <td style="text-align: left">serialNo</td>
 <td style="text-align: left">string</td>
 <td>Serial number</td>
-</tr>
-</tbody></table>
-<h3 id='t-ltquotereference'>Market Info</h3>
-<blockquote>
-<p>Request Example</p>
-
-<p>Response Example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">ltCode</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC3L</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">nav</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">8.348543196938590649</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">navTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1650259325443</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">basket</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">14.063000000262307568</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">leverage</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">3.451925561403627643</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">circulation</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">18969.901970158967556311</span><span class="dl">"</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<p class="fake_header">HTTP Request</p>
-
-<p>GET
-<code><span id=ltReference>/spot/lt/v1/reference</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ltReference"><img src="../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
-
-<p class="fake_header">Request Parameters</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Required</th>
-<th style="text-align: left">Type</th>
-<th>Comment</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">ltCode</td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">string</td>
-<td>Abbreviation of the LT. Actually only BTC3L and BTC3S available</td>
-</tr>
-</tbody></table>
-
-<p class="fake_header">Response Parameters</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Type</th>
-<th>Comment</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">ltCode</td>
-<td style="text-align: left">string</td>
-<td>Abbreviation of the LT</td>
-</tr>
-<tr>
-<td style="text-align: left">nav</td>
-<td style="text-align: left">string</td>
-<td>Net asset value</td>
-</tr>
-<tr>
-<td style="text-align: left">navTime</td>
-<td style="text-align: left">long</td>
-<td>Update time for net asset value (in milliseconds and UTC time zone)</td>
-</tr>
-<tr>
-<td style="text-align: left">basket</td>
-<td style="text-align: left">string</td>
-<td>Total position value = basket value * total circulation</td>
-</tr>
-<tr>
-<td style="text-align: left">leverage</td>
-<td style="text-align: left">string</td>
-<td>Real Leverage calculated by last traded price.</td>
-</tr>
-<tr>
-<td style="text-align: left">circulation</td>
-<td style="text-align: left">string</td>
-<td>Circulating supply in the secondary market</td>
 </tr>
 </tbody></table>
 <h1 id='t-ratelimits'>API Rate Limits</h1><h3 id='t-ipratelimits'>IP Rate Limit</h3>
