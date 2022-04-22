@@ -67,7 +67,7 @@ GET
 |maxRedeemDaily|string|t(:spotResMaxRedeemDaily)|
 |purchaseFeeRate|string|t(:spotResPurchaseFee)|
 |redeemFeeRate|string|t(:spotResRedeemFee)|
-|status|string|t(:spotResLtStatus)|
+|t(:row_parameter_ltStatus)|string|t(:spotResLtStatus)|
 |fundFee|string|t(:spotResFundFee)|
 |fundFeeTime|long|t(:spotResFundFeeTime)|
 |manageFeeRate|string|t(:spotResManageFee)|
@@ -174,7 +174,7 @@ POST
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |ltCode|string|t(:spotResLtCode)|
-|orderStatus|string|t(:spotResOrderStatus)|
+|t(:row_parameter_ltOrderStatus)|string|t(:spotResOrderStatus)|
 |orderQuantity|string|t(:spotResPurchaseOrderQuantity)|
 |orderAmount|string|t(:spotResPurchaseOrderAmount)|
 |amount|string|t(:spotResPurchaseAmount)|
@@ -234,7 +234,7 @@ POST
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |ltCode|string|t(:spotResLtCode)|
-|orderStatus|string|t(:spotResOrderStatus)|
+|t(:row_parameter_ltOrderStatus)|string|t(:spotResOrderStatus)|
 |quantity|string|t(:spotResRedeemQuantity)|
 |orderQuantity|string|t(:spotResRedeemOrderQuantity)|
 |orderAmount|string|t(:spotResRedeemOrderAmount)|
@@ -289,7 +289,7 @@ GET
 |startTime|<b>false</b>|long|t(:spotLtStartTime)|
 |endTime|<b>false</b>|long|t(:spotLtEndTime)|
 |limit|<b>false</b>|int|t(:row_comment_limit_100_500)|
-|orderType|<b>false</b>|int|t(:spotLtOrderType)|
+|t(:row_parameter_ltOrderType)|<b>false</b>|int|t(:spotLtOrderType)|
 |serialNo|<b>false</b>|string|t(:spotLtSerialNo)|
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -298,10 +298,10 @@ GET
 |:----- |:-----|----- |
 |ltCode|string|t(:spotResLtCode)|
 |orderId|string|t(:spotLtOrderId)|
-|orderType|int|t(:spotLtOrderType)|
+|t(:row_parameter_ltOrderType)|int|t(:spotLtOrderType)|
 |orderTime|string|t(:spotResOrderTime)|
 |excTime|string|t(:spotResExcTime)|
-|orderStatus|string|t(:spotResStatus)|
+|t(:row_parameter_ltOrderStatus)|string|t(:spotResOrderStatus)|
 |fee|string|t(:spotResFee)|
 |amount|string|t(:spotResOrderQuantity)|
 |value|string|t(:spotResRecordValue)|
