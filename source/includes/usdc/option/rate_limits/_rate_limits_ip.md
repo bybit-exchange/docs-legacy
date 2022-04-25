@@ -10,15 +10,7 @@ t(:usdc_ip_rate_para_understanding)
     <th>t(:row_comment_path)</th>
   </tr>
   <tr>
-    <td rowspan="1">20 requests/second</td>
-    <td>/option/usdc/openapi/private/v1/cancel-order </td>
-  </tr>
-  <tr>
-    <td rowspan="1">20 requests/second</td>
-    <td>/option/usdc/openapi/private/v1/batch-cancel-orders </td>
-  </tr>
-  <tr>
-    <td rowspan="1">2 requests/second</td>
+    <td rowspan="1">1 requests/second</td>
     <td>/option/usdc/openapi/private/v1/cancel-all </td>
   </tr>
   <tr>
