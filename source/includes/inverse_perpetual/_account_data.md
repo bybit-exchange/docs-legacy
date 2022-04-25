@@ -1911,7 +1911,7 @@ GET
 |order_id |false |string |t(:wallet_row_comment_orderId) |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:misc_row_comment_symbolNotOrderId) |
 |start_time |false |int |t(:row_comment_startTime_ms) |
-|page |false |integer |t(:row_comment_page) |
+|page |false |integer |t(:row_comment_page_max50) |
 |limit |false |integer |t(:row_comment_limit_50_200) |
 |<a href="#order-order">order</a> |false |string |t(:row_comment_order) |
 

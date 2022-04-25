@@ -843,7 +843,7 @@ GET
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
 |t(:row_parameter_stop_order) |false |string |t(:row_comment_stopOrderStatus)|
 |t(:row_parameter_order) |false |string |t(:row_comment_order) |
-|page |false |integer |t(:row_comment_page) |
+|page |false |integer |t(:row_comment_page_max50) |
 |limit |false |integer |t(:row_comment_limit) |
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -2018,7 +2018,7 @@ GET
 |start_time |false |integer |t(:row_comment_startTime_ms_week) |
 |end_time |false |integer |t(:row_comment_endTime_ms_week) |
 |t(:row_parameter_exec_type) |false |string |t(:linear_exec_type) |
-|page |false |integer |t(:row_comment_page) |
+|page |false |integer |t(:row_comment_page_max50) |
 |limit |false |integer |t(:linear_row_comment_limit_50_200) |
 
 
