@@ -47,12 +47,13 @@ t(:rate_para_understanding)
   <tr><td>/private/linear/position/add-margin </td><td>1 / request</td></tr>
     
   <tr>
-    <td rowspan="3">120/min</td>
+    <td rowspan="4">120/min</td>
     <td>/private/linear/position/list  </td>
     <td>1 / request</td>
   </tr>
   <tr><td>/private/linear/trade/closed-pnl/list </td><td>1 / request</td></tr>
   <tr><td>/private/linear/trade/execution/list </td><td>1 / request</td></tr>
+  <tr><td>/private/linear/trade/execution/history-list </td><td>1 / request</td></tr>
     
   <tr>
     <td rowspan="4">600/min</td>
