@@ -310,13 +310,24 @@ GET
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|currency|<b>true</b>|string|t(:spotCurrency)|
+|startTime|false|long|t(:spot_orders_start_time)|
+|endTime|false|long|t(:spot_orders_end_time)|
+|currency|false|string|t(:spotCurrency)|
+|limit|false|int|t(:spotCrossMarginLimit)|
 
 <p class="fake_header">t(:responseparameters)</p>
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
+|repayMarginOrderId|string|t(:spotRepayMarginOrderId)|
+|repayId|string|t(:spotRepayId)|
+|repayTime|string|t(:spotRepayTime)|
+|accountId|string|t(:spotAccountId)|
 |currency|string|t(:spotCurrency)|
-|interestRate|string|t(:spotInterestRate)|
-|maxLoanAmount|int|t(:spotMaxLoanAmount)|
-|loanAbleAmount|string|t(:spotLoanableAmount)|
+|repaidAmount|string|t(:spotRepaidAmount)|
+|transactIds|array||
+|repaidSerialNumber|string|t(:spotRepaidSerialNumber)|
+|transactId|string|t(:spotTransactId)|
+|repaidAmount|string|t(:spotRepaidAmount)|
+|repaidPrincipal|string|t(:spotRepaidPrincipal)|
+|repaidInterest|string|t(:spotRepaidInterest)|
