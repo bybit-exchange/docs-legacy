@@ -215,8 +215,8 @@ GET
 |:----- |:-----|----- |
 |status|string|t(:spotCrossMarginAccountStatus)|
 |riskRate|string|t(:spotResOrderStatus)|
-|acctBalanceSum|string|t(:spotResRedeemQuantity)|
-|debtBalanceSum|string|t(:spotResRedeemOrderQuantity)|
+|acctBalanceSum|string|t(:spotAcctBalanceSum)|
+|debtBalanceSum|string|t(:spotDebtBalanceSum)|
 |loanAccountList|List|Object|
 |tokenId|string|t(:spotTokenId)|
 |total|string|t(:spotTotal)|
