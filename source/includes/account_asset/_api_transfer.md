@@ -447,22 +447,22 @@ api_key=XXXXXXXXXXX&coin=LTC&timestamp=1641534660578&recv_window=50000&sign=XXXX
                 "coin": "LTC",
                 "chain": "LTC",
                 "amount": "0.156",
-                "txId": "XXXXXXXXXXXXXXXXXXXXXXXXXX",
+                "tx_id": "XXXXXXXXXXXXXXXXXXXXXXXXXX",
                 "status": 3,
-                "toAddress": "XXXXXXXXXXXXXXXXXXXXXXXXXX",
+                "to_address": "XXXXXXXXXXXXXXXXXXXXXXXXXX",
                 "tag": "",
-                "depositFee": "",
+                "deposit_fee": "",
                 "updateTime": "1631697910"
             },
             {
                 "coin": "LTC",
                 "chain": "LTC",
                 "amount": "0.158",
-                "txId": "XXXXXXXXXXXXXXXXXXXXXXXXXX",
+                "tx_id": "XXXXXXXXXXXXXXXXXXXXXXXXXX",
                 "status": 3,
-                "toAddress": "XXXXXXXXXXXXXXXXXXXXXXXXXX",
+                "to_address": "XXXXXXXXXXXXXXXXXXXXXXXXXX",
                 "tag": "",
-                "depositFee": "",
+                "deposit_fee": "",
                 "updateTime": "1631688429"
             }
         ],
@@ -486,8 +486,8 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|startTime |false |long |t(:depositwithdrawstarttime) |
-|endTime |false |long |t(:depositwithdrawendtime) |
+|start_time |false |long |t(:depositwithdrawstarttime) |
+|end_time |false |long |t(:depositwithdrawendtime) |
 |<a href="#currency-currency-coin">coin</a> |false |string |t(:depositcurrencyinfo) |
 |cursor |false |string |t(:depositcursorinfo) |
 |<a href="#page-direction-direction">direction</a> |false |aaa |t(:depositdirectioninfo) |
@@ -501,15 +501,16 @@ GET
 |coin|string|t(:deposit_response_currency_info)|
 |chain|string|t(:deposit_response_chainname)|
 |amount|string|t(:deposit_response_amt)|
-|txid|string|t(:deposit_response_txid)|
+|tx_id|string|t(:deposit_response_txid)|
 |status|int|t(:deposit_response_status)|
-|toAddress|string|t(:deposit_target_addr)|
+|to_address|string|t(:deposit_target_addr)|
 |tag|string|t(:deposit_response_tag)|
-|depositFee|string|t(:deposit_response_depositFee)|
-|updateTime|int64|t(:deposit_response_updateTime)|
+|deposit_fee|string|t(:deposit_response_depositFee)|
+|update_time|int64|t(:deposit_response_updateTime)|
+|confirmations｜string|t(:deposit_confirmations)|
+|tx_index|string|t(:deposit_tx_index)|
+|block_hash|string|t(:deposit_block_hash)|
 |cursor|string|t(:deposit_response_cursor)|
-
-
 
 ### t(:withdrawrecordquery)
 > t(:codequote_curlExample)
@@ -534,26 +535,26 @@ curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/wi
                 "coin": "LTC",
                 "chain": "LTC",
                 "amount": "0.157",
-                "txId": "XXXXXXXXXXXXXXXXXXXXXXXXXX",
+                "tx_id": "XXXXXXXXXXXXXXXXXXXXXXXXXX",
                 "status": "success",
-                "toAddress": "XXXXXXXXXXXXXXXXXXXXXXXXXX",
+                "to_address": "XXXXXXXXXXXXXXXXXXXXXXXXXX",
                 "tag": "",
-                "withdrawFee": "0.001",
-                "createTime": "1631694166",
-                "updateTime": "1631694775",
+                "withdraw_fee": "0.001",
+                "create_time": "1631694166",
+                "success_at": "1631694775",
                 "withdraw_id":"301121231312"
             },
             {
                 "coin": "LTC",
                 "chain": "LTC",
                 "amount": "0.159",
-                "txId": "XXXXXXXXXXXXXXXXXXXXXXXXXX",
+                "tx_id": "XXXXXXXXXXXXXXXXXXXXXXXXXX",
                 "status": "success",
                 "toAddress": "XXXXXXXXXXXXXXXXXXXXXXXXXX",
                 "tag": "",
-                "withdrawFee": "0.001",
-                "createTime": "1631684557",
-                "updateTime": "1631685384",
+                "withdraw_fee": "0.001",
+                "create_time": "1631684557",
+                "success_at": "1631685384",
                 "withdraw_id":"301121231313"
             }
         ],
@@ -577,9 +578,9 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|withdrawId |false |long |t(:withdraw_id) |
-|startTime |false |long |t(:depositwithdrawstarttime) |
-|endTime |false |long |t(:depositwithdrawendtime) |
+|withdraw_id |false |long |t(:withdraw_id) |
+|start_time |false |long |t(:depositwithdrawstarttime) |
+|end_time |false |long |t(:depositwithdrawendtime) |
 |<a href="#currency-currency-coin">coin</a> |false |string |t(:depositcurrencyinfo) |
 |cursor |false |string |t(:depositcursorinfo) |
 |<a href="#page-direction-direction">direction</a> |false |aaa |t(:depositdirectioninfo) |
@@ -593,13 +594,13 @@ GET
 |coin|string|t(:withdraw_response_currency_info)|
 |chain|string|t(:withdraw_response_chainname)|
 |amount|string|t(:withdraw_response_amt)|
-|txid|string|t(:withdraw_response_txid)|
+|tx_id|string|t(:withdraw_response_txid)|
 |status|string|t(:withdraw_response_status)|
-|toAddress|string|t(:withdraw_target_addr)|
+|to_address|string|t(:withdraw_target_addr)|
 |tag|string|t(:withdraw_response_tag)|
-|WithdrawFee|string|t(:withdraw_response_withdrawFee)|
-|createTime|int64|t(:withdraw_response_createTime)|
-|updateTime|int64|t(:withdraw_response_updateTime)|
+|withdraw_fee|string|t(:withdraw_response_withdrawFee)|
+|create_time|int64|t(:withdraw_response_createTime)|
+|success_at|int64|t(:withdraw_response_updateTime)|
 |cursor|string|t(:withdraw_response_cursor)|
 |withdraw_id|string|t(:withdraw_id)|
 
@@ -733,7 +734,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|accountType|false |string |t(:asset_info_account_type)|
+|account_type|false |string |t(:asset_info_account_type)|
 |<a href="#currency-currency-coin">coin</a> |false |string |t(:coin_info_coin)|
 
 
