@@ -2052,12 +2052,6 @@ GET
 curl "https://api-testnet.bybit.com/private/linear/trade/execution/history-list?api_key={api_key}&symbol=BTCUSDT&timestamp={timestamp}&sign={sign}"
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.LinearExecution.LinearExecution_getTrades(symbol="BTCUSDT").result())
-```
-
 ```python--pybit
 from pybit import HTTP
 session = HTTP("https://api-testnet.bybit.com",
@@ -2072,42 +2066,40 @@ print(session.user_trade_records(
 ```javascript
 {
     "ret_code": 0,
-        "ret_msg": "OK",
-        "ext_code": "",
-        "ext_info": "",
-        "result": {
-            "page_token": "ak53UXZyQUIxNWl1ckNhdmlIZ1hRcnQvK2t2MExRS0U5eFVXR25yUWZ6MXJ6OWF3NkExY2ZvZVVIbk4zOXQwZzdiS2FlRkRuRHBCaGk5bGVHb0hVUW9MN0ZheG9aMU9hQmxNOEFKckNCbTRUblIrTEZsN3NzL1JDSFllaSt0blhnd2F1SW9lZDJvajZiU0VvL1BrQ2ExT2ZhTWJ5dEE4a0VKc0YzZEVDbUhyRFpucDU3WjZ2bzgwbzhNOHFGVkJ6MXRmRXRaMUg3ckNGTXFtRUthWjBBbGZOLzBGVGNhNktsbmdoNkhjdXl0KythdWtReUhGdVBXQ2kvT1c3WDdUOG9oMWNPZnY0cllNd1UzK01tTWJ5Vy9iWHRIMFJVWkF2cmlSQ1Zwc0g1b1dOc1Z2WkM1Sm1IZytKamtjdmZDY2xZQWVObjdyeGNHY0I0RXRqbnQ3RUR3WHA3MzFTT1MxUG90ZDVWdlR5cmRnPQ==",
-            "data": [
-                {
-                    "order_id":"cb89f263-ee13-4fae-b243-cff6d5085a28",
-                    "order_link_id":"",
-                    "side":"Sell", //t(:enum_side_link)
-                    "symbol":"BTCUSDT", //t(:enum_symbol_link)
-                    "exec_id":"d115f186-a927-54ec-a68e-cd04e74c16a1",
-                    "price":29450, //t(:comment_abandoned)
-                    "order_price":29450,
-                    "order_qty":100,
-                    "order_type":"Market", //t(:enum_order_type_link)
-                    "fee_rate":0.00075,
-                    "exec_price":32550,
-                    "exec_type":"Trade", //t(:enum_exec_type_link)
-                    "exec_qty":0.02,
-                    "exec_fee":0.48825,
-                    "exec_value":651,
-                    "leaves_qty":99.98,
-                    "closed_size":0.02, //t(:row_comment_closed_size)
-                    "last_liquidity_ind":"RemovedLiquidity", //t(:enum_Liquidity_type_link)
-                    "trade_time":1646115100, //t(:comment_abandoned)
-                    "trade_time_ms":1646115100705
-                }
-            ]
-        },
-        "time_now": "1577480599.097287",
-        "rate_limit_status": 119,
-        "rate_limit_reset_ms": 1580885703683,
-        "rate_limit": 120
-    }
-
+    "ret_msg": "OK",
+    "ext_code": "",
+    "ext_info": "",
+    "result": {
+        "page_token": "",
+        "data": [
+            {
+                "order_id": "55bd3595-938d-4d7f-b1ab-7abd6a3ec1cb",
+                "order_link_id": "",
+                "side": "Sell",
+                "symbol": "BTCUSDT",
+                "exec_id": "730cc113-7f05-5f1e-82b5-432bba9dfeab",
+                "price": 39391,
+                "order_price": 39391,
+                "order_qty": 0.009,
+                "order_type": "Market",
+                "fee_rate": 0.0006,
+                "exec_price": 41469.5,
+                "exec_type": "Trade",
+                "exec_qty": 0.009,
+                "exec_fee": 0.2239353,
+                "exec_value": 373.2255,
+                "leaves_qty": 0,
+                "closed_size": 0.009,
+                "last_liquidity_ind": "RemovedLiquidity",
+                "trade_time": 1650444130,
+                "trade_time_ms": 1650444130065
+            }
+        ]
+    },
+    "time_now": "1651078431.113746",
+    "rate_limit_status": 117,
+    "rate_limit_reset_ms": 1651078431074,
+    "rate_limit": 120
 }
 ```
 
@@ -2119,8 +2111,8 @@ t(:wallet_aside_tradeRecords)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpeList>/private/linear/trade/execution/history-list</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpeList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=plteHistoryList>/private/linear/trade/execution/history-list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#plteHistoryList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
