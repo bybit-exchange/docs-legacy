@@ -35,7 +35,7 @@ POST
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|result|number|t(:spotResult)|
+|result|integer|t(:spotResult)|
 
 
 ### t(:spotRepayMarginLoan)
