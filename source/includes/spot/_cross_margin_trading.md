@@ -28,7 +28,7 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |currency|<b>true</b>|string|t(:spotCurrency)|
-|qty|<b>false</b>|string|t(:spotBorrowQty)|
+|qty|<b>true</b>|string|t(:spotBorrowQty)|
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -63,7 +63,7 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |currency|<b>true</b>|string|t(:spotCurrency)|
-|qty|<b>false</b>|string|t(:spotRepayQty)|
+|qty|<b>true</b>|string|t(:spotRepayQty)|
 
 <p class="fake_header">t(:responseparameters)</p>
 
@@ -217,7 +217,7 @@ GET
 |riskRate|string|t(:spotResOrderStatus)|
 |acctBalanceSum|string|t(:spotResRedeemQuantity)|
 |debtBalanceSum|string|t(:spotResRedeemOrderQuantity)|
-|loanAccountList|array||
+|loanAccountList|List|Object|
 |tokenId|string|t(:spotTokenId)|
 |total|string|t(:spotTotal)|
 |free|string|t(:spotFree)|
@@ -325,7 +325,7 @@ GET
 |accountId|string|t(:spotAccountId)|
 |currency|string|t(:spotCurrency)|
 |repaidAmount|string|t(:spotRepaidAmount)|
-|transactIds|array||
+|transactIds|List|Object|
 |repaidSerialNumber|string|t(:spotRepaidSerialNumber)|
 |transactId|string|t(:spotTransactId)|
 |repaidAmount|string|t(:spotRepaidAmount)|
