@@ -1871,6 +1871,11 @@ clipboard.on('error', function(e) {
 <ul>
 <li>Get user's trading records over the last two years (rolling).</li>
 </ul></li>
+<li><a href="#t-switchpositionmode">Position Mode Switch</a> [update]
+
+<ul>
+<li>Support <code>coin</code> level switching between One-Way Mode and Hedge Mode.</li>
+</ul></li>
 </ul>
 <h2 id='2021-12-28'>2021-12-28</h2><h3 id='rest-api-2'>REST API</h3>
 <ul>
@@ -6427,7 +6432,8 @@ Please note that you can only modify untriggered conditional orders.
     <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">75</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>If you are in One-Way Mode, you can only open one position on <code>Buy</code> or <code>Sell</code> side;<br/> If you are in Hedge Mode, you can open both <code>Buy</code> and <code>Sell</code> side positions simultaneously.
+<p>If you are in One-Way Mode, you can only open one position on <code>Buy</code> or <code>Sell</code> side. If you are in Hedge Mode, you can open both <code>Buy</code> and <code>Sell</code> side positions simultaneously.
+<p>Supports switching between One-Way Mode and Hedge Mode at the <code>coin</code> level.</p>
 </p>
 
 <p class="fake_header">HTTP Request</p>
@@ -6448,9 +6454,15 @@ Please note that you can only modify untriggered conditional orders.
 </thead><tbody>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Symbol</td>
+<td>Symbol. <b>Required</b> if not passing <code>coin</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td><code>currency</code> alias. <b>Required</b> if not passing <code>symbol</code></td>
 </tr>
 <tr>
 <td style="text-align: left">mode</td>

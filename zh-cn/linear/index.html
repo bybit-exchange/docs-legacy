@@ -1871,6 +1871,11 @@ clipboard.on('error', function(e) {
 <ul>
 <li>支持獲取2年內用戶成交記錄。</li>
 </ul></li>
+<li><a href="#t-switchpositionmode">切換倉位模式</a> [更新]
+
+<ul>
+<li>支持<code>coin</code>级别切换單倉模式和雙倉模式。</li>
+</ul></li>
 </ul>
 <h2 id='2021-12-28'>2021-12-28</h2><h3 id='rest-api-2'>REST API</h3>
 <ul>
@@ -6384,7 +6389,7 @@ GET
     <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">75</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>單倉模式下，只能在單方向下持倉<br/>雙倉模式下，可以同時在兩個方向持倉。</p>
+<p>單倉模式下，只能在單方向下持倉<br/>雙倉模式下，可以同時在兩個方向持倉，支持<code>coin</code>级别切换單倉模式和雙倉模式。</p>
 
 <p class="fake_header">HTTP 請求</p>
 
@@ -6404,9 +6409,15 @@ GET
 </thead><tbody>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>合約類型</td>
+<td>合約類型，至少传<code>symbol</code> 和 <code>coin</code>其中的一个，如果两个都传，将以<code>symbol</code>为准。</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td><code>currency</code> alias，至少传<code>symbol</code> 和 <code>coin</code>其中的一个，如果两个都传，将以<code>symbol</code>为准。</td>
 </tr>
 <tr>
 <td style="text-align: left">mode</td>
