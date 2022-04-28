@@ -411,7 +411,8 @@ print(session.query_symbol())
             "lot_size_filter":{
                 "max_trading_qty":1000000,
                 "min_trading_qty":1,
-                "qty_step":1
+                "qty_step":1,
+                "post_only_max_trading_qty":1000000
             }
         },
         {
@@ -437,7 +438,8 @@ print(session.query_symbol())
             "lot_size_filter":{
                 "max_trading_qty":1000000,
                 "min_trading_qty":1,
-                "qty_step":1
+                "qty_step":1,
+                "post_only_max_trading_qty":1000000
             }
         },
         {
@@ -463,7 +465,8 @@ print(session.query_symbol())
             "lot_size_filter":{
                 "max_trading_qty":100,
                 "min_trading_qty":0.001,
-                "qty_step":0.001
+                "qty_step":0.001,
+                "post_only_max_trading_qty":100
             }
         },
         {
@@ -489,7 +492,8 @@ print(session.query_symbol())
             "lot_size_filter":{
                 "max_trading_qty":1000000,
                 "min_trading_qty":1,
-                "qty_step":1
+                "qty_step":1,
+                "post_only_max_trading_qty":1000000
             }
         }
     ],
@@ -519,6 +523,7 @@ GET
 |price_scale |number |t(:row_response_comment_price_scale)    |
 |taker_fee |string |t(:row_response_comment_taker_fee)    |
 |maker_fee |string |t(:row_response_comment_maker_fee)    |
+|funding_interval |number |t(:row_response_funding_interval)    |
 |min_leverage |number |t(:row_response_comment_min_leverage)    |
 |max_leverage |number |t(:row_response_comment_public_max_leverage)    |
 |leverage_step |string |t(:row_response_comment_leverage_step)    |
@@ -528,7 +533,7 @@ GET
 |max_trading_qty |number |t(:row_response_comment_max_trading_qty)    |
 |min_trading_qty |number |t(:row_response_comment_min_trading_qty)    |
 |qty_step |number |t(:row_response_comment_qty_step)    |
-|funding_interval |number |t(:row_response_funding_interval)    |
+|post_only_max_trading_qty |string |t(:row_response_comment_post_only_max_trading_qty)    |
 
 
 ### t(:markpricekline)
