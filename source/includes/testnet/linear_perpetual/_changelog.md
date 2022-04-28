@@ -1,5 +1,5 @@
 # t(:changelog)
-## 2022-04-25
+## 2022-04-28
 ### REST API
 - [t(:userhistorytraderecords)](#t-userhistorytraderecords) [t(:changelog_new)]
   - t(:restapi_update_2022042501)
