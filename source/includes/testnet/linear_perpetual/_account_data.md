@@ -2044,6 +2044,118 @@ GET
 |trade_time_ms |number |t(:row_comment_trade_time)  |
 
 
+
+### t(:userhistorytraderecords)
+> t(:codequote_curlExample)
+
+```console
+curl "https://api-testnet.bybit.com/private/linear/trade/execution/history-list?api_key={api_key}&symbol=BTCUSDT&timestamp={timestamp}&sign={sign}"
+```
+
+```python--old
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.LinearExecution.LinearExecution_getTrades(symbol="BTCUSDT").result())
+```
+
+```python--pybit
+from pybit import HTTP
+session = HTTP("https://api-testnet.bybit.com",
+               api_key="", api_secret="")
+print(session.user_trade_records(
+    symbol="BTCUSDT"
+))
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+        "ret_msg": "OK",
+        "ext_code": "",
+        "ext_info": "",
+        "result": {
+            "page_token": "ak53UXZyQUIxNWl1ckNhdmlIZ1hRcnQvK2t2MExRS0U5eFVXR25yUWZ6MXJ6OWF3NkExY2ZvZVVIbk4zOXQwZzdiS2FlRkRuRHBCaGk5bGVHb0hVUW9MN0ZheG9aMU9hQmxNOEFKckNCbTRUblIrTEZsN3NzL1JDSFllaSt0blhnd2F1SW9lZDJvajZiU0VvL1BrQ2ExT2ZhTWJ5dEE4a0VKc0YzZEVDbUhyRFpucDU3WjZ2bzgwbzhNOHFGVkJ6MXRmRXRaMUg3ckNGTXFtRUthWjBBbGZOLzBGVGNhNktsbmdoNkhjdXl0KythdWtReUhGdVBXQ2kvT1c3WDdUOG9oMWNPZnY0cllNd1UzK01tTWJ5Vy9iWHRIMFJVWkF2cmlSQ1Zwc0g1b1dOc1Z2WkM1Sm1IZytKamtjdmZDY2xZQWVObjdyeGNHY0I0RXRqbnQ3RUR3WHA3MzFTT1MxUG90ZDVWdlR5cmRnPQ==",
+            "data": [
+                {
+                    "order_id":"cb89f263-ee13-4fae-b243-cff6d5085a28",
+                    "order_link_id":"",
+                    "side":"Sell", //t(:enum_side_link)
+                    "symbol":"BTCUSDT", //t(:enum_symbol_link)
+                    "exec_id":"d115f186-a927-54ec-a68e-cd04e74c16a1",
+                    "price":29450, //t(:comment_abandoned)
+                    "order_price":29450,
+                    "order_qty":100,
+                    "order_type":"Market", //t(:enum_order_type_link)
+                    "fee_rate":0.00075,
+                    "exec_price":32550,
+                    "exec_type":"Trade", //t(:enum_exec_type_link)
+                    "exec_qty":0.02,
+                    "exec_fee":0.48825,
+                    "exec_value":651,
+                    "leaves_qty":99.98,
+                    "closed_size":0.02, //t(:row_comment_closed_size)
+                    "last_liquidity_ind":"RemovedLiquidity", //t(:enum_Liquidity_type_link)
+                    "trade_time":1646115100, //t(:comment_abandoned)
+                    "trade_time_ms":1646115100705
+                }
+            ]
+        },
+        "time_now": "1577480599.097287",
+        "rate_limit_status": 119,
+        "rate_limit_reset_ms": 1580885703683,
+        "rate_limit": 120
+    }
+
+}
+```
+
+t(:linear_private_trade_records)
+
+<aside class="notice">
+t(:wallet_aside_tradeRecords)
+</aside>
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=vpeList>/private/linear/trade/execution/history-list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpeList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
+|start_time |false |integer |t(:row_comment_startTime_ms_2years) |
+|end_time |false |integer |t(:row_comment_endTime_ms_2years) |
+|t(:row_parameter_exec_type) |false |string |t(:linear_exec_type) |
+|page_token |false |string |t(:row_comment_page) |
+|limit |false |integer |t(:linear_row_comment_limit_100_100) |
+
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|order_id |string |t(:row_comment_order_id)  |
+|order_link_id |string |t(:row_comment_orderLinkId)  |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_symbol)  |
+|order_price |number |t(:row_comment_order_price)  |
+|order_qty |number |t(:row_comment_order_qty)  |
+|t(:row_parameter_order_type) |string |t(:row_comment_order_type)  |
+|fee_rate |number |t(:row_comment_fee_rate)  |
+|exec_price |number |t(:row_comment_exec_price)    |
+|t(:row_parameter_exec_type) |string |t(:enum_exec_type_link)  |
+|exec_qty |number |t(:row_comment_exec_qty)  |
+|exec_fee |number |t(:row_comment_exec_fee)    |
+|exec_value |number |t(:row_comment_exec_value)  |
+|leaves_qty |number |t(:row_comment_leaves_qty)  |
+|closed_size |number |t(:row_comment_closed_size)  |
+|t(:row_parameter_last_liquidity_ind) |string |t(:enum_Liquidity_type_link)  |
+|trade_time_ms |number |t(:row_comment_trade_time)  |
+
+
+
 ### t(:closedprofitandloss)
 > t(:codequote_curlExample)
 
