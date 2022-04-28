@@ -1641,7 +1641,7 @@ print(session.position_mode_switch(
 }
 ```
 
-t(:account_para_switchpositionmode)
+t(:account_para_switchpositionmode_withcoin)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
@@ -1651,7 +1651,8 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
+|t(:row_parameter_symbol) |<b>false</b> |string |t(:row_comment_symbol_with_coin)    |
+|<a href="#currency-currency-coin">coin</a> |false |string |t(:row_comment_coin_with_symbol) |
 |mode |<b>true</b> |string |t(:linear_comment_positionmode) |
 
 

@@ -1,4 +1,10 @@
 # t(:changelog)
+
+## 2022-04-29
+### REST API
+- [t(:switchpositionmode)](#t-switchpositionmode) [t(:changelog_update)]
+  - t(:restapi_update_2022042801)
+
 ## 2022-04-28
 ### REST API
 - [t(:userhistorytraderecords)](#t-userhistorytraderecords) [t(:changelog_new)]
