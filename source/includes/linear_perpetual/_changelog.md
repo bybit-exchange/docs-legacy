@@ -1,8 +1,11 @@
 # t(:changelog)
+
 ## 2022-04-28
 ### REST API
 - [t(:userhistorytraderecords)](#t-userhistorytraderecords) [t(:changelog_new)]
   - t(:restapi_update_2022042501)
+- [t(:switchpositionmode)](#t-switchpositionmode) [t(:changelog_update)]
+  - t(:restapi_update_2022042801)
 
 ## 2021-12-28
 ### REST API
@@ -21,7 +24,7 @@
   - t(:restapi_update_20211206_1)
 - [t(:myposition)](#t-myposition) [t(:changelog_update)]
   - t(:restapi_update_20211206_2)
-  
+
 ### Websocket API
 - [t(:websocketposition)](#t-websocketposition) [t(:changelog_update)]
   - t(:restapi_update_20211206_2)

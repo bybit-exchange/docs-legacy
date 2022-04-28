@@ -181,6 +181,8 @@ zh-cn:
   row_comment_endTime_ms_week: 結束時間戳（毫秒） 限定在當前時間的七天內, 如果想了解時間範圍更長的信息，請咨詢客服下載數據。
   row_comment_startTime_ms_2years: 開始時間戳（毫秒) 限定在當前時間的2年內，如果想了解時間範圍更長的信息，請咨詢客服下載數據。
   row_comment_endTime_ms_2years: 結束時間戳（毫秒） 限定在當前時間的2年內, 如果想了解時間範圍更長的信息，請咨詢客服下載數據。
+  row_comment_symbol_with_coin: 合約類型，至少传<code>symbol</code> 和 <code>coin</code>其中的一个，如果两个都传，将以<code>symbol</code>为准。
+  row_comment_coin_with_symbol: <code>currency</code> alias，至少传<code>symbol</code> 和 <code>coin</code>其中的一个，如果两个都传，将以<code>symbol</code>为准。
   row_comment_riskId: <a href="#t-getrisklimit">風險限額ID</a>
   row_comment_closed_size: 平倉委托對應的平倉大小
   row_comment_rate_limit: 頻率限製
@@ -1743,6 +1745,7 @@ zh-cn:
   ### inverse futures
   switchpositionmode: 切換倉位模式
   account_para_switchpositionmode: 單倉模式下，只能在單方向下持倉<br/>雙倉模式下，可以同時在兩個方向持倉。
+  account_para_switchpositionmode_withcoin: 單倉模式下，只能在單方向下持倉<br/>雙倉模式下，可以同時在兩個方向持倉，支持<code>coin</code>级别切换單倉模式和雙倉模式。
   row_comment_positionmode: 倉位模式<span>:</span> 0 - 單倉模式  3 - 雙倉模式
   futures_row_comment_leverage: <code>杠桿大於0，小於風險限額對應的杠桿</code>
   inverse_row_comment_leverage: 全倉/逐倉切換，需要傳杠桿並且<code>buy_leverage</code>和<code>sell_leverage</code>必須傳入相同參數；
@@ -1915,6 +1918,7 @@ zh-cn:
   restapi_update_20210826: 資產劃轉API發布
 
   restapi_update_2022042501: 支持獲取2年內用戶成交記錄。
+  restapi_update_2022042801: 支持<code>coin</code>级别切换單倉模式和雙倉模式。
 
   restapi_update_2021101201: 修復USDT合約<a href="#t-querysymbol">Query Symbol</a>接口中<code>price_scale</code>返回參數。
 

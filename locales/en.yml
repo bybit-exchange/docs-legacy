@@ -185,6 +185,8 @@ en:
   row_comment_endTime_ms_week: End timestamp point for result, in milliseconds. Timestamp must be within seven days of the current date. For earlier records, please contact customer support
   row_comment_startTime_ms_2years: Start timestamp point for result, in milliseconds. Timestamp must be within two years of the current date. For earlier records, please contact customer support
   row_comment_endTime_ms_2years: End timestamp point for result, in milliseconds. Timestamp must be within two years of the current date. For earlier records, please contact customer support
+  row_comment_symbol_with_coin: Symbol. <b>Required</b> if not passing <code>coin</code>
+  row_comment_coin_with_symbol: <code>currency</code> alias. <b>Required</b> if not passing <code>symbol</code>
   row_comment_riskId: <a href="#t-getrisklimit">Risk ID</a>
   row_comment_closed_size: The corresponding closing size of the closing order
   row_comment_rate_limit: Limit
@@ -2045,7 +2047,12 @@ en:
   ### inverse future
   switchpositionmode: Position Mode Switch
   account_para_switchpositionmode: |
-    If you are in One-Way Mode, you can only open one position on <code>Buy</code> or <code>Sell</code> side;<br/> If you are in Hedge Mode, you can open both <code>Buy</code> and <code>Sell</code> side positions simultaneously.
+    If you are in One-Way Mode, you can only open one position on <code>Buy</code> or <code>Sell</code> side. If you are in Hedge Mode, you can open both <code>Buy</code> and <code>Sell</code> side positions simultaneously.
+
+  account_para_switchpositionmode_withcoin: |
+    If you are in One-Way Mode, you can only open one position on <code>Buy</code> or <code>Sell</code> side. If you are in Hedge Mode, you can open both <code>Buy</code> and <code>Sell</code> side positions simultaneously.
+    <p>Supports switching between One-Way Mode and Hedge Mode at the <code>coin</code> level.</p>
+
   row_comment_positionmode: |
     Position Mode. <code>0</code><span>:</span> One-Way Mode; <code>3</code><span>:</span> Hedge Mode
   futures_row_comment_leverage: Must be greater than 0 and less than the <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>.
@@ -2252,6 +2259,7 @@ en:
   ws_update_20210225: Add websocket support to inverse future
 
   restapi_update_2022042501: Get user's trading records over the last two years (rolling).
+  restapi_update_2022042801: Support <code>coin</code> level switching between One-Way Mode and Hedge Mode.
 
   restapi_update_2021101201: Fix <code>price_scale</code> response of <a href="#t-querysymbol">Query Symbol</a> Endpoint for USDT perpetual symbols.
 
