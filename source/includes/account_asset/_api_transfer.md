@@ -452,7 +452,10 @@ api_key=XXXXXXXXXXX&coin=LTC&timestamp=1641534660578&recv_window=50000&sign=XXXX
                 "to_address": "XXXXXXXXXXXXXXXXXXXXXXXXXX",
                 "tag": "",
                 "deposit_fee": "",
-                "updateTime": "1631697910"
+                "success_at": "1631697910",
+                "confirmations": "0",
+                "tx_index": "",
+                "block_hash": ""
             },
             {
                 "coin": "LTC",
@@ -463,7 +466,10 @@ api_key=XXXXXXXXXXX&coin=LTC&timestamp=1641534660578&recv_window=50000&sign=XXXX
                 "to_address": "XXXXXXXXXXXXXXXXXXXXXXXXXX",
                 "tag": "",
                 "deposit_fee": "",
-                "updateTime": "1631688429"
+                "success_at": "1631688429",
+                "confirmations": "0",
+                "tx_index": "",
+                "block_hash": ""
             }
         ],
         "cursor": "eyJtaW5JRCI6NjkxNjExLCJtYXhJRCI6NjkyOTQ5fQ=="
@@ -506,8 +512,8 @@ GET
 |to_address|string|t(:deposit_target_addr)|
 |tag|string|t(:deposit_response_tag)|
 |deposit_fee|string|t(:deposit_response_depositFee)|
-|update_time|int64|t(:deposit_response_updateTime)|
-|confirmations｜string|t(:deposit_confirmations)|
+|success_at|int64|t(:deposit_response_updateTime)|
+|confirmations|string|t(:deposit_confirmations)|
 |tx_index|string|t(:deposit_tx_index)|
 |block_hash|string|t(:deposit_block_hash)|
 |cursor|string|t(:deposit_response_cursor)|
