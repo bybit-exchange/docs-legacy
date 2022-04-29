@@ -412,7 +412,7 @@ print(session.query_symbol())
                 "max_trading_qty":1000000,
                 "min_trading_qty":1,
                 "qty_step":1,
-                "post_only_max_trading_qty":1000000
+                "post_only_max_trading_qty":"5000000"
             }
         },
         {
@@ -439,7 +439,7 @@ print(session.query_symbol())
                 "max_trading_qty":1000000,
                 "min_trading_qty":1,
                 "qty_step":1,
-                "post_only_max_trading_qty":1000000
+                "post_only_max_trading_qty":"5000000"
             }
         },
         {
@@ -466,12 +466,12 @@ print(session.query_symbol())
                 "max_trading_qty":100,
                 "min_trading_qty":0.001,
                 "qty_step":0.001,
-                "post_only_max_trading_qty":100
+                "post_only_max_trading_qty":"500"
             }
         },
         {
-            "name":"BTCUSDM21",
-            "alias":"BTCUSD0625",
+            "name":"BTCUSDM22",
+            "alias":"BTCUSD0624",
             "status":"Trading",
             "base_currency":"BTC",
             "quote_currency":"USD",
@@ -493,7 +493,7 @@ print(session.query_symbol())
                 "max_trading_qty":1000000,
                 "min_trading_qty":1,
                 "qty_step":1,
-                "post_only_max_trading_qty":1000000
+                "post_only_max_trading_qty":"5000000"
             }
         }
     ],

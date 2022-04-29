@@ -2,7 +2,7 @@
 
 ## 2022-04-29
 ### REST API
-- [t(:querysymbol)](#t-querysymbol) [t(:changelog_update)]
+- [t(:placeactive)](#t-placeactive) & [t(:querysymbol)](#t-querysymbol) [t(:changelog_update)]
   - t(:restapi_update_20220429)
 
 

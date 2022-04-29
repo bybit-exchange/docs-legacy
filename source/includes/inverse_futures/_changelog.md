@@ -1,5 +1,10 @@
 # t(:changelog)
 
+## 2022-04-29
+### REST API
+- [t(:placeactive)](#t-placeactive) & [t(:querysymbol)](#t-querysymbol) [t(:changelog_update)]
+  - t(:restapi_update_20220429)
+
 ## 2022-04-28
 ### REST API
 - [t(:switchpositionmode)](#t-switchpositionmode) [t(:changelog_update)]
