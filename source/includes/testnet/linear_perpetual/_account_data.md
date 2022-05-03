@@ -2035,13 +2035,13 @@ GET
 |t(:row_parameter_order_type) |string |t(:row_comment_order_type)  |
 |fee_rate |number |t(:row_comment_fee_rate)  |
 |exec_price |number |t(:row_comment_exec_price)    |
-|t(:row_parameter_exec_type) |string |t(:enum_exec_type_link)  |
+|t(:row_parameter_exec_type) |string |t(:row_comment_exec_type) |
 |exec_qty |number |t(:row_comment_exec_qty)  |
 |exec_fee |number |t(:row_comment_exec_fee)    |
 |exec_value |number |t(:row_comment_exec_value)  |
 |leaves_qty |number |t(:row_comment_leaves_qty)  |
 |closed_size |number |t(:row_comment_closed_size)  |
-|t(:row_parameter_last_liquidity_ind) |string |t(:enum_Liquidity_type_link)  |
+|t(:row_parameter_last_liquidity_ind) |string |t(:row_comment_last_liquidity_ind) |
 |trade_time_ms |number |t(:row_comment_trade_time)  |
 
 
@@ -2146,13 +2146,13 @@ GET
 |t(:row_parameter_order_type) |string |t(:row_comment_order_type)  |
 |fee_rate |number |t(:row_comment_fee_rate)  |
 |exec_price |number |t(:row_comment_exec_price)    |
-|t(:row_parameter_exec_type) |string |t(:enum_exec_type_link)  |
+|t(:row_parameter_exec_type) |string |t(:row_comment_exec_type) |
 |exec_qty |number |t(:row_comment_exec_qty)  |
 |exec_fee |number |t(:row_comment_exec_fee)    |
 |exec_value |number |t(:row_comment_exec_value)  |
 |leaves_qty |number |t(:row_comment_leaves_qty)  |
 |closed_size |number |t(:row_comment_closed_size)  |
-|t(:row_parameter_last_liquidity_ind) |string |t(:enum_Liquidity_type_link)  |
+|t(:row_parameter_last_liquidity_ind) |string |t(:row_comment_last_liquidity_ind) |
 |trade_time_ms |number |t(:row_comment_trade_time)  |
 
 

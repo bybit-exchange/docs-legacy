@@ -2068,19 +2068,19 @@ GET
 |exec_id |string |t(:row_comment_exec_id)  |
 |exec_price |number |t(:row_comment_exec_price)    |
 |exec_qty |number |t(:row_comment_exec_qty)  |
-|t(:row_parameter_exec_type) |string |t(:enum_exec_type_link)  |
+|t(:row_parameter_exec_type) |string |t(:row_comment_exec_type) |
 |exec_value |string |t(:row_comment_exec_value)  |
 |fee_rate |string |t(:row_comment_fee_rate)  |
-|last_liquidity_ind |string |t(:enum_Liquidity_type_link)  |
+|last_liquidity_ind |string |t(:row_comment_exec_type) |
 |leaves_qty |number |t(:row_comment_leaves_qty)  |
 |nth_fill |number |t(:row_comment_nth_fill)  |
 |order_id |string |t(:row_comment_order_id)  |
 |order_link_id |string |t(:row_comment_orderLinkId)  |
 |order_price |string |t(:row_comment_order_price)  |
 |order_qty |string |t(:row_comment_order_qty)  |
-|t(:row_parameter_order_type) |string |t(:enum_order_type_link)  |
+|t(:row_parameter_order_type) |string |t(:row_comment_exec_type) |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
-|t(:row_parameter_symbol) |string |t(:enum_symbol_link)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_symbol)  |
 |user_id |number |t(:row_comment_user_id)  |
 |trade_time_ms |number |t(:row_comment_trade_time)  |
 
@@ -2176,7 +2176,7 @@ GET
 |t(:row_parameter_quantity) |number |t(:row_response_comment_qty)  |
 |order_price |number |t(:row_comment_order_price)  |
 |t(:row_parameter_order_type) |string |t(:row_comment_orderType)  |
-|t(:row_parameter_exec_type) |string |t(:enum_exec_type_link)  |
+|t(:row_parameter_exec_type) |string |t(:row_comment_exec_type) |
 |closed_size |number |t(:row_comment_closed_size)  |
 |cum_entry_value |number |t(:linear_resp_field_cum_entry_value)    |
 |avg_entry_price |number |t(:linear_resp_field_avg_entry_price)    |

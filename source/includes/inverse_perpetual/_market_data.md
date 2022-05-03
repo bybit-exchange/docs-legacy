@@ -148,7 +148,7 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 | t(:row_parameter_symbol) |string |t(:row_comment_symbol) |
-| interval |string |t(:row_comment_interval) |
+| <a href="#kline-interval-interval">interval</a> |string |t(:row_comment_interval) |
 | open_time |integer |t(:row_comment_resp_open_time) |
 | open |string |t(:row_comment_open) |
 | high |string |t(:row_comment_high) |
@@ -517,7 +517,7 @@ GET
 |:----- |:-----|----- |
 |name |string |t(:row_response_comment_name)    |
 |alias |string |t(:row_response_comment_name)    |
-|status |string |t(:row_response_comment_status)    |
+|t(:row_parameter_symbol_status) |string |t(:row_response_comment_status)    |
 |base_currency |string |t(:row_response_comment_base_currency)    |
 |quote_currency |string |t(:row_response_comment_quote_currency)    |
 |price_scale |number |t(:row_response_comment_price_scale)    |

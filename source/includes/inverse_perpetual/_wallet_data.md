@@ -279,7 +279,7 @@ GET
 |<a href="#date-start_date-end_date">start_date</a> |false |string |t(:row_comment_startDate) |
 |<a href="#date-start_date-end_date">end_date</a> |false |string |t(:row_comment_endDate) |
 |<a href="#currency-currency-coin">coin</a> |false |string |t(:row_comment_currency) |
-|<a href="#withdraw-status-status">status</a> |false |string |t(:enum_withdraw_status_link) |
+|t(:row_parameter_withdraw_status) |false |string |t(:row_comment_withdrawStatus) |
 |page |false |integer |t(:row_comment_page) |
 |limit |false |integer |t(:row_comment_limit) |
 
@@ -288,7 +288,7 @@ GET
 |:----- |:-----|----- |
 |user_id |number |t(:row_comment_userID)  |
 |coin |string |t(:row_comment_coin_type)  |
-|status |string |t(:enum_withdraw_status_link)  |
+|t(:row_parameter_withdraw_status) |string |t(:row_comment_withdrawStatus)  |
 |amount |string |t(:row_comment_fund_amount)  |
 |fee |string |t(:row_comment_fee_rate)  |
 |address |string |t(:row_comment_address)  |
