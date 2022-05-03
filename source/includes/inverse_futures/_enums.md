@@ -6,10 +6,10 @@ t(:ENUMs_para)
 * `Sell`
 
 ## Symbol (`symbol`)
-* `BTCUSDH21`  // H: t(:first_quarter);    21: 2021
-* `BTCUSDM21`  // M: t(:second_quarter);     21: 2021
-* `BTCUSDU21`  // U: t(:third_quarter);     21: 2021
-* `BTCUSDZ21`  // Z: t(:fourth_quarter);    21: 2021
+* `BTCUSDH21` - H: t(:first_quarter);    21: 2021
+* `BTCUSDM21` - M: t(:second_quarter);     21: 2021
+* `BTCUSDU21` - U: t(:third_quarter);     21: 2021
+* `BTCUSDZ21` - Z: t(:fourth_quarter);    21: 2021
 
 t(:trading_symbol_comment)
 
