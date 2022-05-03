@@ -2027,7 +2027,7 @@ GET
 |id |number |t(:row_comment_position_id)  |
 |user_id |number |t(:row_comment_userID)  |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
-|order_id |string |t(:row_comment_order_id) |
+|order_id |string |t(:row_response_closedPnlOrderId) |
 |t(:row_parameter_side) |string |t(:row_response_closedPnlSide)  |
 |t(:row_parameter_quantity) |number |t(:row_response_comment_qty)  |
 |order_price |number |t(:row_comment_order_price)  |
