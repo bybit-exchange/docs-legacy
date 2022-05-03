@@ -65,10 +65,10 @@ POST
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|<b>true</b>|string|t(:usdcSymbol)|
+|t(:row_parameter_symbol) |<b>true</b>|string|t(:usdcSymbol)|
 |orderType|<b>true</b>|string|t(:usdcPerpOrderType)|
 |orderFilter|<b>true</b>|string|t(:usdcOrderFilter)|
-|side|<b>true</b>|string|t(:side)|
+|t(:row_parameter_side) |<b>true</b>|string|t(:side)|
 |orderPrice|false|string|t(:usdc_perp_order_price)|
 |orderQty|<b>true</b>|string|t(:usdcOrderQty)|
 |t(:row_parameter_timeInForce)|false|string|t(:row_comment_timeInForce)|
@@ -91,11 +91,11 @@ POST
 |:----- |:-----|----- |
 |orderId|string|t(:usdcOrderId)|
 |orderLinkId|string|t(:orderLinkId)
-|symbol|string|t(:usdcSymbol)|
+|t(:row_parameter_symbol) |string|t(:usdcSymbol)|
 |orderPrice|string|t(:usdcOrderPrice)|
 |orderQty|string|t(:usdcOrderQty)|
 |orderType|string|t(:usdcPerpOrderType)|
-|side|string|t(:side)|
+|t(:row_parameter_side) |string|t(:side)|
 
 ### t(:usdcReplaceOrder)
 
@@ -147,7 +147,7 @@ POST
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|<b>true</b>|string|t(:usdcSymbol)|
+|t(:row_parameter_symbol) |<b>true</b>|string|t(:usdcSymbol)|
 |orderFilter|<b>true</b>|string|t(:usdcOrderFilter)|
 |orderId|false|string|t(:usdcOrderId)|
 |orderLinkId|false|string|t(:usdcOrderLinkId)|
@@ -214,7 +214,7 @@ POST
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|<b>true</b>|string|t(:usdcSymbol)|
+|t(:row_parameter_symbol) |<b>true</b>|string|t(:usdcSymbol)|
 |orderFilter|<b>true</b>|string|t(:usdcOrderFilter)|
 |orderId|false|string||
 |orderLinkId|false|string|t(:usdcOrderLinkId)|
@@ -266,7 +266,7 @@ POST
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|<b>true</b>|string|t(:usdcSymbol)|
+|t(:row_parameter_symbol) |<b>true</b>|string|t(:usdcSymbol)|
 |orderFilter|<b>true</b>|string|t(:usdcOrderFilter)|
 
 <p>
@@ -347,7 +347,7 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |category|<b>true</b>|string|t(:usdcPerpCategory)|
-|symbol|false|string|t(:usdcSymbol)|
+|t(:row_parameter_symbol) |false|string|t(:usdcSymbol)|
 |orderId|false|string|t(:usdcOrderId)|
 |orderLinkId|false|string|t(:orderLinkId)|
 |orderFilter|false|string|t(:usdcOrderFilter)|
@@ -368,11 +368,11 @@ POST
 |:----- |:-----|----- |
 |orderId|string|t(:usdcOrderId)|
 |orderLinkId|string|t(:orderLinkId)|
-|symbol|string|t(:usdcSymbol)|
+|t(:row_parameter_symbol) |string|t(:usdcSymbol)|
 |orderType|string|t(:usdcPerpOrderType)|
-|side|string|t(:side)|
+|t(:row_parameter_side) |string|t(:side)|
 |qty|string|t(:usdcOrderQty)|
-|price|string|t(:usdcOrderPrice)|
+|t(:row_parameter_price) |string|t(:usdcOrderPrice)|
 |t(:row_parameter_timeInForce)|string|t(:row_comment_timeInForce)|
 |cumExecQty|string|t(:cumExecQty)|
 |cumExecValue|string|t(:cumExecValue)|
@@ -474,7 +474,7 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |category|<b>true</b>|string|t(:usdcPerpCategory)|
-|symbol|false|string|t(:usdcSymbol)|
+|t(:row_parameter_symbol) |false|string|t(:usdcSymbol)|
 |orderId|false|string|t(:usdcOrderId)|
 |orderLinkId|false|string|t(:orderLinkId)|
 |orderStatus|false|string|t(:orderStatus)|
@@ -496,11 +496,11 @@ POST
 |:----- |:-----|----- |
 |orderId|string|t(:usdcOrderId)|
 |orderLinkId|string|t(:orderLinkId)|
-|symbol|string|t(:usdcSymbol)|
+|t(:row_parameter_symbol) |string|t(:usdcSymbol)|
 |orderType|string|t(:usdcPerpOrderType)|
-|side|string|t(:side)|
+|t(:row_parameter_side) |string|t(:side)|
 |qty|string|t(:usdcOrderQty)|
-|price|string|t(:usdcOrderPrice)|
+|t(:row_parameter_price) |string|t(:usdcOrderPrice)|
 |t(:row_parameter_timeInForce)|string|t(:row_comment_timeInForce)|
 |leavesValue|string|t(:leavesValue)|
 |cumExecQty|string|t(:cumExecQty)|
@@ -588,7 +588,7 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |category|<b>true</b>|string|t(:usdcPerpCategory)|
-|symbol|false|string|t(:usdcSymbol)|
+|t(:row_parameter_symbol) |false|string|t(:usdcSymbol)|
 |orderId|false|string|t(:usdcOrderId)|
 |orderLinkId|false|string|t(:usdcOrderLinkId)|
 |startTime|<b>true</b>|string|t(:usdcStartTime)|
@@ -607,10 +607,10 @@ POST
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|symbol|string|t(:usdcSymbol)|
+|t(:row_parameter_symbol) |string|t(:usdcSymbol)|
 |orderId|string|t(:usdcOrderId)|
 |orderLinkId|string|t(:orderLinkId)|
-|side|string|t(:side)|
+|t(:row_parameter_side) |string|t(:side)|
 |execPrice|string|t(:tradePrice)|
 |execQty|string|t(:uscdSize)|
 |execFee|string|t(:fee)|
@@ -710,9 +710,9 @@ POST
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |transactionTime|number|t(:transactionTime)|
-|symbol|string|t(:usdcSymbol)
+|t(:row_parameter_symbol) |string|t(:usdcSymbol)
 |type|string|t(:usdcType)|
-|side|string|t(:side)|
+|t(:row_parameter_side) |string|t(:side)|
 |qty|string|t(:usdcOrderQty)|
 |size|string|t(:uscdSize)|
 |tradePrice|string|t(:tradePrice)|
@@ -978,7 +978,7 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |category|<b>true</b>|string|t(:usdcPerpCategory)|
-|symbol|false|string|t(:usdcSymbol)|
+|t(:row_parameter_symbol) |false|string|t(:usdcSymbol)|
 |cursor|false|string|t(:cursor)|
 |direction|false|string|t(:direction)|
 |limit|number|string|t(:usdcPositionLimit)|
@@ -995,8 +995,8 @@ POST
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |riskId|string|riskId|
-|symbol|string|t(:usdcSymbol)|
-|side|string|t(:side)|
+|t(:row_parameter_symbol) |string|t(:usdcSymbol)|
+|t(:row_parameter_side) |string|t(:side)|
 |size|string|t(:uscdSize)
 |entryPrice|string|t(:entryPrice)
 |sessionAvgPrice|string|t(:sessionAvgPrice)|
@@ -1070,7 +1070,7 @@ POST
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|<b>true</b>|string|t(:usdcSymbol)|
+|t(:row_parameter_symbol) |<b>true</b>|string|t(:usdcSymbol)|
 |leverage|<b>true</b>|number|t(:usdcLeverage)|
 
 
@@ -1134,7 +1134,7 @@ POST
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|<b>true</b>|string|t(:usdcSymbol)|
+|t(:row_parameter_symbol) |<b>true</b>|string|t(:usdcSymbol)|
 |direction|false|string|t(:direction)|
 |limit|false|number|t(:usdcMax50Min20)|
 |cursor|false|string|t(:cursor)|
@@ -1151,8 +1151,8 @@ POST
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |time|number|t(:settlementTime)|
-|symbol|string|t(:usdcSymbol)|
-|side|string|t(:side)|
+|t(:row_parameter_symbol) |string|t(:usdcSymbol)|
+|t(:row_parameter_side) |string|t(:side)|
 |size|string|t(:usdcSize)|
 |sessionAvgPrice|string|t(:sessionAvgPrice)|
 |markPrice|string|t(:markPrice)|
@@ -1194,14 +1194,14 @@ GET
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|<b>true</b>|string|t(:usdcSymbol)|
+|t(:row_parameter_symbol) |<b>true</b>|string|t(:usdcSymbol)|
 
 
 <p class="fake_header">t(:responseparameters)</p>
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|symbol|string|t(:usdcSymbol)|
+|t(:row_parameter_symbol) |string|t(:usdcSymbol)|
 |riskId|number|t(:riskId)|
 |limit|string|t(:usdcRiskLimit)|
 |maintainMargin|string|t(:maintainMargin)|
@@ -1249,7 +1249,7 @@ POST
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|<b>true</b>|string|t(:usdcSymbol)|
+|t(:row_parameter_symbol) |<b>true</b>|string|t(:usdcSymbol)|
 |riskId|<b>true</b>|number|t(:riskId)|
 
 

@@ -99,13 +99,13 @@ POST
 |:----- |:-----|----- |
 | user_id |number |t(:row_comment_userID) |
 | order_id |string |t(:row_comment_order_id) |
-|symbol|string |t(:row_comment_symbol)    |
-|side |string |t(:row_comment_side)  |
-|order_type |string |t(:row_comment_order_type)  |
-|price |number |t(:row_comment_resp_price)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_symbol)    |
+|t(:row_parameter_symbol) |string |t(:row_comment_side)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_order_type)  |
+|t(:row_parameter_symbol) |number |t(:row_comment_resp_price)  |
 |qty |number |t(:row_response_comment_qty)  |
-|time_in_force |string |t(:row_comment_timeInForce)  |
-|order_status |string |t(:row_comment_orderStatus)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_timeInForce)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_orderStatus)  |
 |last_exec_time |string |t(:row_comment_last_exec_time)  |
 |last_exec_price |string |t(:row_comment_last_exec_price)  |
 |leaves_qty |number |t(:row_comment_leaves_qty)  |
@@ -206,13 +206,13 @@ GET
 |:----- |:-----|----- |
 |user_id |integer |t(:row_comment_userID) |
 |position_idx |integer |t(:row_comment_position_idx)  |
-|symbol |string |t(:row_comment_symbol) |
-|side |string |t(:row_comment_side) |
-|order_type |string |t(:row_comment_order_type) |
+|t(:row_parameter_symbol) |string |t(:row_comment_symbol) |
+|t(:row_parameter_symbol) |string |t(:row_comment_side) |
+|t(:row_parameter_symbol) |string |t(:row_comment_order_type) |
 |price  |string |t(:row_comment_resp_price) |
 |qty  |string |t(:row_response_comment_qty) |
-|time_in_force |string |t(:row_comment_timeInForce)  |
-|order_status |string |t(:row_comment_orderStatus)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_timeInForce)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_orderStatus)  |
 |leaves_qty |string |t(:row_comment_leaves_qty) |
 |leaves_value |string |t(:row_comment_leaves_value) |
 |cum_exec_qty |string |t(:linear_resp_field_cum_exec_qty)  |
@@ -311,13 +311,13 @@ POST
 |:----- |:-----|----- |
 |user_id |number |t(:row_comment_userID)  |
 |order_id |string |t(:account_row_comment_orderId) |
-|symbol|string |t(:row_comment_symbol)    |
-|side |string |t(:row_comment_side)  |
-|order_type |string |t(:row_comment_order_type)  |
-|price |number |t(:row_comment_resp_price)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_symbol)    |
+|t(:row_parameter_symbol) |string |t(:row_comment_side)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_order_type)  |
+|t(:row_parameter_symbol) |number |t(:row_comment_resp_price)  |
 |qty |number |t(:row_response_comment_qty)  |
 |t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce) |
-|order_status |string |t(:row_comment_orderStatus)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_orderStatus)  |
 |last_exec_time |string |t(:row_comment_last_exec_time)  |
 |last_exec_price |string |t(:row_comment_last_exec_price)  |
 |leaves_qty |number |t(:row_comment_leaves_qty)  |
@@ -411,15 +411,15 @@ POST
 |:----- |:-----|----- |
 |clOrdID |string |t(:row_comment_clOrdID)  |
 |user_id |number |t(:row_comment_userID)  |
-|symbol|string |t(:row_comment_symbol)    |
-|side |string |t(:row_comment_side)  |
-|order_type |string |t(:row_comment_order_type)  |
-|price |number |t(:row_comment_resp_price)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_symbol)    |
+|t(:row_parameter_symbol) |string |t(:row_comment_side)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_order_type)  |
+|t(:row_parameter_symbol) |number |t(:row_comment_resp_price)  |
 |qty |number |t(:row_response_comment_qty)  |
 |t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce) |
 |create_type |string |t(:row_comment_create_type)  |
 |cancel_type |string |t(:row_comment_cancel_type)  |
-|order_status |string |t(:row_comment_orderStatus)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_orderStatus)  |
 |leaves_qty |number |t(:row_comment_leaves_qty)  |
 |leaves_value |number |t(:row_comment_leaves_value)  |
 |created_at |string |t(:row_comment_created_at)  |
@@ -654,13 +654,13 @@ GET
 |:----- |:-----|----- |
 |user_id |number |t(:row_comment_userID)  |
 |position_idx |integer |t(:row_comment_position_idx)  |
-|symbol|string |t(:row_comment_symbol)    |
-|side |string |t(:row_comment_side)  |
-|order_type |string |t(:row_comment_order_type)  |
-|price |number |t(:row_comment_resp_price)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_symbol)    |
+|t(:row_parameter_symbol) |string |t(:row_comment_side)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_order_type)  |
+|t(:row_parameter_symbol) |number |t(:row_comment_resp_price)  |
 |qty |number |t(:row_response_comment_qty)  |
-|time_in_force |string |t(:row_comment_timeInForce)  |
-|order_status |string |t(:row_comment_orderStatus)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_timeInForce)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_orderStatus)  |
 |ext_fields |json |t(:row_comment_ext_fields)  |
 |leaves_qty |number |t(:row_comment_leaves_qty)  |
 |leaves_value |number |t(:row_comment_leaves_value)  |
@@ -1717,7 +1717,7 @@ POST
 |created_at |string |t(:row_comment_created_at)  |
 |updated_at |string |t(:row_comment_updated_at)  |
 |trailing_active |string |t(:row_comment_trailing_active)  |
-|sl_trigger_by |string |t(:row_comment_sl_trigger_by)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_sl_trigger_by)  |
 
 
 
@@ -2071,7 +2071,7 @@ GET
 |t(:row_parameter_exec_type) |string |t(:row_comment_exec_type) |
 |exec_value |string |t(:row_comment_exec_value)  |
 |fee_rate |string |t(:row_comment_fee_rate)  |
-|last_liquidity_ind |string |t(:row_comment_exec_type) |
+|t(:row_parameter_symbol) |string |t(:row_comment_exec_type) |
 |leaves_qty |number |t(:row_comment_leaves_qty)  |
 |nth_fill |number |t(:row_comment_nth_fill)  |
 |order_id |string |t(:row_comment_order_id)  |

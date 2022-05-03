@@ -292,7 +292,7 @@ t(:websocket_para_orderbook252)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| price |string |t(:row_comment_resp_price) |
+| t(:row_parameter_price) |string |t(:row_comment_resp_price) |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 |size |number |t(:row_comment_position_size)  |
@@ -398,7 +398,7 @@ t(:websocket_para_orderbook200)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| price |string |t(:row_comment_resp_price) |
+| t(:row_parameter_price) |string |t(:row_comment_resp_price) |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 |size |number |t(:row_comment_position_size)  |
@@ -684,7 +684,7 @@ t(:websocket_aside_instrumentInfo2)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|symbol|string |t(:row_comment_symbol)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_symbol)  |
 |last_price_e4 |integer |t(:row_comment_resp_last_price_e4)  |
 |t(:row_parameter_tick_direction) |string |t(:row_comment_position_tick_direction)  |
 |prev_price_24h_e4 |integer |t(:row_comment_resp_prev_price_24h_e4)  |
@@ -1154,7 +1154,7 @@ while True:
 |t(:row_parameter_symbol) |string |t(:row_comment_symbol)  |
 |t(:row_parameter_order_type) |string |t(:row_comment_order_type) |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
-|price |string |t(:row_response_comment_price)    |
+|t(:row_parameter_price) |string |t(:row_response_comment_price)    |
 |qty |number |t(:row_response_comment_qty)  |
 |t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
 |create_type |string |t(:row_comment_create_type)  |
@@ -1162,6 +1162,6 @@ while True:
 |t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
 |t(:row_parameter_stop_order_type) |string |t(:row_comment_stopOrderType)  |
 |trigger_by | string |t(:row_comment_triggerBy) |
-|trigger_price | string | t(:stop_order_trigger_price)|
+|t(:row_parameter_trigger_price) | string | t(:stop_order_trigger_price)|
 |close_on_trigger | bool | t(:row_comment_closeOnTrigger)|
 |timestamp |string |t(:row_response_comment_time)  |

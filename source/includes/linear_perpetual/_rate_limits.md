@@ -108,7 +108,7 @@ t(:rate_para_frequency)
 
 
 | t(:column_LCP) | t(:column_frequencyLimit) |
-|  ----    | ----  |
+| ----    | ----  |
 | 20-100  | t(:row_frequencyLimit_800) |
 | 10-20   | t(:row_frequencyLimit_600) |
 | 5-10    | t(:row_frequencyLimit_400) |

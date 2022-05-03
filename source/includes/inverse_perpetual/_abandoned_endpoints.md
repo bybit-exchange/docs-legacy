@@ -58,7 +58,7 @@ GET
 |t(:row_parameter_side) |string |t(:row_response_liq_record_side)  |
 |time |number |t(:row_response_comment_nill_time)  |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
-|price |number |t(:row_response_comment_execprice)  |
+|t(:row_parameter_price) |number |t(:row_response_comment_execprice)  |
 
 
 
@@ -205,7 +205,7 @@ GET
 |order_id |false |string |t(:account_row_comment_orderId) |
 |order_link_id |false |string |t(:row_comment_orderLinkId) |
 |t(:row_parameter_symbol) |false |string |t(:row_comment_symbol). t(:default) `BTCUSD` |
-|order |false |string |t(:row_comment_order)  |
+|t(:row_parameter_order) |false |string |t(:row_comment_order)  |
 |page |false |integer |t(:row_comment_page) |
 |limit |false |integer |t(:row_comment_limit) |
 |t(:row_parameter_order_status) |false |string |t(:account_row_comment_orderStatus) |
@@ -215,13 +215,13 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 | user_id |number |t(:row_comment_userID) |
-| symbol |string |t(:row_comment_symbol) |
-| side |string |t(:row_comment_side) |
-| order_type |string |t(:row_comment_order_type) |
+| t(:row_parameter_symbol) |string |t(:row_comment_symbol) |
+| t(:row_parameter_side) |string |t(:row_comment_side) |
+| t(:row_parameter_order_type) |string |t(:row_comment_order_type) |
 | price  |number |t(:row_comment_resp_price) |
 | qty  |number |t(:row_response_comment_qty) |
-|time_in_force |string |t(:row_comment_timeInForce)  |
-|order_status |string |t(:row_comment_orderStatus)  |
+|t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
+|t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
 | close_on_trigger |bool |t(:row_comment_closeOnTrigger) |
 | orig_order_type |string |t(:row_comment_orig_order_type) |
 | prior_x_req_price  |number |t(:row_comment_prior_x_req_price) |
@@ -448,13 +448,13 @@ POST
 |t(:row_parameter_price) |number |t(:row_response_comment_price)  |
 |t(:row_parameter_quantity) |number |t(:row_response_comment_qty)  |
 |t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
-|stop_order_type |string |t(:row_comment_stopOrderType)  |
+|t(:row_parameter_stop_order_type) |string |t(:row_comment_stopOrderType)  |
 |t(:row_parameter_trigger_price) |string |t(:row_comment_triggerBy)  |
 |base_price |number |t(:row_response_comment_basePrice)  |
 |t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
-|stop_order_type |string |t(:row_comment_stopOrderType)  |
+|t(:row_parameter_stop_order_type) |string |t(:row_comment_stopOrderType)  |
 |expected_direction |string |t(:row_comment_expected_direction)  |
-|trigger_price |number |t(:stop_order_trigger_price)  |
+|t(:row_parameter_trigger_price) |number |t(:stop_order_trigger_price)  |
 |op_from |string |t(:row_comment_op_from)  |
 |remark |string |t(:row_comment_remark)  |
 |o_req_num |number |t(:row_comment_o_req_num)  |

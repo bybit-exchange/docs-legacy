@@ -235,7 +235,7 @@ POST
 |:----- |:-----|----- |
 |ltCode|string|t(:spotResLtCode)|
 |t(:row_parameter_ltOrderStatus)|string|t(:spotResOrderStatus)|
-|quantity|string|t(:spotResRedeemQuantity)|
+|t(:row_parameter_quantity) |string|t(:spotResRedeemQuantity)|
 |orderQuantity|string|t(:spotResRedeemOrderQuantity)|
 |orderAmount|string|t(:spotResRedeemOrderAmount)|
 |timestamp|long|t(:spot_timestamp)|
