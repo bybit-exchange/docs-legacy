@@ -41,9 +41,9 @@ print(session.query_kline(
 	    "id": 3866948,
         "symbol": "BTCUSDT",
         "period": "1",
-        "start_at": 1577836800, // t(:comment_abandoned)
+        "start_at": 1577836800,
         "volume": 1451.59,
-        "open": 7700,           // t(:comment_abandoned)
+        "open": 7700,
         "high": 999999,
         "low": 0.5,
         "close": 6000,
@@ -120,18 +120,18 @@ print(session.public_trading_records(
 
 ```javascript
 {
-    "ret_code": 0,                                   // error code 0 means success
-    "ret_msg": "OK",                                 // error message
+    "ret_code": 0,
+    "ret_msg": "OK",
     "ext_code": "",
     "ext_info": "",
     "result": [
         {
-            "id": "18368131384",                            // ID, string type, all ids are in descending order globally
-            "symbol": "BTCUSDT",                            // contract type
-            "price": 9499.5,                                // execution price
-            "qty": 9500,                                    // execution quantity
-            "side": "Buy",                                  // side
-            "time": "2019-11-19T08:03:04.077Z",             // t(:comment_abandoned)
+            "id": "18368131384",
+            "symbol": "BTCUSDT",
+            "price": 9499.5,
+            "qty": 9500,
+            "side": "Buy",
+            "time": "2019-11-19T08:03:04.077Z",
             "trade_time_ms":1587638305175
         }
     ],
@@ -511,25 +511,25 @@ curl https://api-testnet.bybit.com/v2/public/orderBook/L2?symbol=BTCUSD
 
 ```javascript
 {
-    "ret_code": 0,                              // return code
-    "ret_msg": "OK",                            // error message
-    "ext_code": "",                             // additional error code
-    "ext_info": "",                             // additional error info
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "ext_info": "",
     "result": [
         {
-            "symbol": "BTCUSD",                 // symbol
-            "price": "9487",                    // price
-            "size": 336241,                     // size (in USD contracts)
-            "side": "Buy"                       // side
+            "symbol": "BTCUSD",
+            "price": "9487",
+            "size": 336241,
+            "side": "Buy"
         },
         {
-            "symbol": "BTCUSD",                 // symbol
-            "price": "9487.5",                  // price
-            "size": 522147,                     // size (in USD contracts)
-            "side": "Sell"                      // side
+            "symbol": "BTCUSD",
+            "price": "9487.5",
+            "size": 522147,
+            "side": "Sell"
         }
     ],
-    "time_now": "1567108756.834357"             // UTC timestamp
+    "time_now": "1567108756.834357"
 }
 ```
 

@@ -632,14 +632,14 @@ print(client.Order.Order_Replace(symbol="BTCUSD", order_id="").result())
 
 ```javascript
 {
-    "ret_code": 0,    //Error code,
-    "ret_msg": "ok",  //Error message,
+    "ret_code": 0,
+    "ret_msg": "ok",
     "ext_code": "",
     "result": {
         "order_id": "efa44157-c355-4a98-b6d6-1d846a936b93"
     },
-    "time_now": "1539778407.210858",    // UTC timestamp
-    "rate_limit_status": 99, // The remaining number of accesses in one minute
+    "time_now": "1539778407.210858",
+    "rate_limit_status": 99,
     "rate_limit_reset_ms": 1580885703683,
     "rate_limit": 100             
 }

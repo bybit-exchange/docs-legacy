@@ -378,7 +378,7 @@ print(session.cancel_all_active_orders(
             "leaves_value": "0",                                
             "created_at": "2019-11-30T10:38:53.564428Z",        
             "updated_at": "2019-11-30T10:38:59.102589Z",        
-            "cross_status": "PendingCancel",  // `PendingCancel` means the matching engine received the cancellation but there is no guarantee that the cancellation will be successful.
+            "cross_status": "PendingCancel",
             "cross_seq": 387734027                              
         }
     ],
@@ -456,14 +456,14 @@ print(session.replace_active_order(
 
 ```javascript
 {
-    "ret_code": 0,    //Error code,
-    "ret_msg": "ok",  //Error message,
+    "ret_code": 0,
+    "ret_msg": "ok",
     "ext_code": "",
     "result": {
         "order_id": "efa44157-c355-4a98-b6d6-1d846a936b93"
     },
-    "time_now": "1539778407.210858",    // UTC timestamp
-    "rate_limit_status": 99, // The remaining number of accesses in one minute
+    "time_now": "1539778407.210858",
+    "rate_limit_status": 99,
     "rate_limit_reset_ms": 1580885703683,
     "rate_limit": 100             
 }
@@ -2003,29 +2003,29 @@ print(session.user_trade_records(
     "ext_code": "",
     "ext_info": "",
     "result": {
-        "order_id": "t(:comment_abandoned)", // t(:comment_abandoned)
+        "order_id": "t(:comment_abandoned)",
         "trade_list": [
             {
-                "closed_size": 0, // t(:row_comment_closed_size)
+                "closed_size": 0,
                 "cross_seq": 277136382,
                 "exec_fee": "0.0000001",
                 "exec_id": "256e5ef8-abfe-5772-971b-f944e15e0d68",
                 "exec_price": "8178.5",
                 "exec_qty": 1,
-                "exec_time": "1571676941.70682",    //t(:comment_abandoned)
-                "exec_type": "Trade", //t(:enum_exec_type_link)
+                "exec_time": "1571676941.70682",
+                "exec_type": "Trade",
                 "exec_value": "0.00012227",
                 "fee_rate": "0.00075",
-                "last_liquidity_ind": "RemovedLiquidity", //t(:enum_Liquidity_type_link)
+                "last_liquidity_ind": "RemovedLiquidity",
                 "leaves_qty": 0,
                 "nth_fill": 2,
                 "order_id": "7ad50cb1-9ad0-4f74-804b-d82a516e1029",
                 "order_link_id": "",
                 "order_price": "8178",
                 "order_qty": 1,
-                "order_type": "Market", //t(:enum_order_type_link)
-                "side": "Buy", //t(:enum_side_link)
-                "symbol": "BTCUSDM21", //t(:enum_symbol_link)
+                "order_type": "Market",
+                "side": "Buy",
+                "symbol": "BTCUSDM21",
                 "user_id": 1,
                 "trade_time_ms": 1577480599000
             }

@@ -446,7 +446,7 @@ while True:
     "data": [
         {
             "timestamp": "2020-01-12T16:59:59.000Z",
-            "trade_time_ms": 1582793344685, // trade time in millisecond
+            "trade_time_ms": 1582793344685,
             "symbol": "BTCUSD",
             "side": "Sell",
             "size": 328,
@@ -578,42 +578,42 @@ while True:
     "type":"snapshot",
     "data": {
          "id": 1,
-         "symbol": "BTCUSD",                           //instrument name
-         "last_price_e4": 81165000,                    //the latest price
+         "symbol": "BTCUSD",
+         "last_price_e4": 81165000,
          "last_price": "81165000",  
-         "bid1_price_e4":400025000,                    // best bid price
+         "bid1_price_e4":400025000,
          "bid1_price":"400025000",
-         "ask1_price_e4":475450000,                    // best ask price
+         "ask1_price_e4":475450000,
          "ask1_price":"475450000",
-         "last_tick_direction": "ZeroPlusTick",        //the direction of last tick:PlusTick,ZeroPlusTick,MinusTick,ZeroMinusTick
-         "prev_price_24h_e4": 81585000,                //the price of prev 24h
+         "last_tick_direction": "ZeroPlusTick",
+         "prev_price_24h_e4": 81585000,
          "prev_price_24h": "81585000",
-         "price_24h_pcnt_e6": -5148,                   //the current last price percentage change from prev 24h price
-         "high_price_24h_e4": 82900000,                //the highest price of prev 24h
+         "price_24h_pcnt_e6": -5148,
+         "high_price_24h_e4": 82900000,
          "high_price_24h": "82900000",
-         "low_price_24h_e4": 79655000,                 //the lowest price of prev 24h
+         "low_price_24h_e4": 79655000,
          "low_price_24h": "79655000",
-         "prev_price_1h_e4": 81395000,                 //the price of prev 1h
+         "prev_price_1h_e4": 81395000,
          "prev_price_1h": "81395000",
-         "price_1h_pcnt_e6": -2825,                    //the current last price percentage change from prev 1h price
-         "mark_price_e4": 81178500,                    //mark price
+         "price_1h_pcnt_e6": -2825,
+         "mark_price_e4": 81178500,
          "mark_price": "81178500",
-         "index_price_e4": 81172800,                   //index price
+         "index_price_e4": 81172800,
          "index_price": "81172800",
-         "open_interest": 154418471,                   //open interest quantity - Attention, the update is not immediate - slowest update is 1 minute
-         "open_value_e8": 1997561103030,               //open value quantity - Attention, the update is not immediate - the slowest update is 1 minute
-         "total_turnover_e8": 2029370141961401,        //total turnover
-         "turnover_24h_e8": 9072939873591,             //24h turnover
-         "total_volume": 175654418740,                 //total volume
-         "volume_24h": 735865248,                      //24h volume
-         "funding_rate_e6": 100,                       //funding rate
-         "predicted_funding_rate_e6": 100,             //predicted funding rate
-         "cross_seq": 1053192577,                      //sequence
+         "open_interest": 154418471,
+         "open_value_e8": 1997561103030,
+         "total_turnover_e8": 2029370141961401,
+         "turnover_24h_e8": 9072939873591,
+         "total_volume": 175654418740,
+         "volume_24h": 735865248,
+         "funding_rate_e6": 100,
+         "predicted_funding_rate_e6": 100,
+         "cross_seq": 1053192577,
          "created_at": "2018-11-14T16:33:26Z",         
          "updated_at": "2020-01-12T18:25:16Z",         
-         "next_funding_time": "2020-01-13T00:00:00Z",  //next funding time
-                                                       //the rest time to settle funding fee
-         "countdown_hour": 6,                           //the remaining time to settle the funding fee
+         "next_funding_time": "2020-01-13T00:00:00Z",
+
+         "countdown_hour": 6,
          "funding_rate_interval": 8
          },
     "cross_seq":9267002,
@@ -723,21 +723,21 @@ while True:
 
 ```javascript
 {
-    "topic": "klineV2.1.BTCUSD",                //topic name
+    "topic": "klineV2.1.BTCUSD",
     "data": [{
-        "start": 1572425640,                    //start time of the candle
-        "end": 1572425700,                      //end time of the candle
-        "open": 9200,                           //open price
-        "close": 9202.5,                        //close price
-        "high": 9202.5,                         //max price
-        "low": 9196,                            //min price
-        "volume": 81790,                        //volume
-        "turnover": 8.889247899999999,          //turnover
-        "confirm": False,                       //snapshot flag
+        "start": 1572425640,
+        "end": 1572425700,
+        "open": 9200,
+        "close": 9202.5,
+        "high": 9202.5,
+        "low": 9196,
+        "volume": 81790,
+        "turnover": 8.889247899999999,
+        "confirm": False,
         "cross_seq": 297503466,                 
-        "timestamp": 1572425676958323           //cross time
+        "timestamp": 1572425676958323
     }],
-    "timestamp_e6": 1572425677047994            //server time
+    "timestamp_e6": 1572425677047994
 }
 ```
 
@@ -853,34 +853,33 @@ while True:
    "action": "update",
    "data": [
        {
-           "user_id":  1,                            // user ID
-           "symbol": "BTCUSD",                       // the contract for this position
-           "size": 11,                               // the current position amount
-           "side": "Sell",                           // side
-           "position_value": "0.00159252",           // positional value
-           "entry_price": "6907.291588174717",       // entry price
-           "liq_price": "7100.234",                  // liquidation price
-           "bust_price": "7088.1234",                // bankruptcy price
-           "leverage": "1",                           // leverage
-           "order_margin":  "1",                      // order margin
-           "position_margin":  "1",                   // position margin
-           "available_balance":  "2",                 // available balance
-           "take_profit": "0",                        // take profit price           
-           "tp_trigger_by":  "LastPrice",             // take profit trigger price, eg: LastPrice, IndexPrice. Conditional order only
-           "stop_loss": "0",                          // stop loss price
-           "sl_trigger_by":  "",                     // stop loss trigger price, eg: LastPrice, IndexPrice. Conditional order only
-           "realised_pnl":  "0.10",               // realised PNL
-           "trailing_stop": "0",                  // trailing stop points
-           "trailing_active": "0",                // trailing stop trigger price
-           "wallet_balance":  "4.12",             // wallet balance
+           "user_id":  1,
+           "symbol": "BTCUSD",
+           "size": 11,
+           "side": "Sell",
+           "position_value": "0.00159252",
+           "entry_price": "6907.291588174717",
+           "liq_price": "7100.234",
+           "bust_price": "7088.1234",
+           "leverage": "1",
+           "order_margin":  "1",
+           "position_margin":  "1",
+           "available_balance":  "2",
+           "take_profit": "0",
+           "tp_trigger_by":  "LastPrice",
+           "stop_loss": "0",
+           "sl_trigger_by":  "",
+           "realised_pnl":  "0.10",
+           "trailing_stop": "0",
+           "trailing_active": "0",
+           "wallet_balance":  "4.12",
            "risk_id":  1,                       
-           "occ_closing_fee":  "0.1",             // position closing
-           "occ_funding_fee":  "0.1",             // funding fee
-           "auto_add_margin": 0,                  // auto margin replenishment switch
-           "cum_realised_pnl":  "0.12",           // Total realized profit and loss
-           "position_status": "Normal",           // status of position (Normal: normal Liq: in the process of liquidation Adl: in the process of Auto-Deleveraging)
-                        // Auto margin replenishment enabled (0: no 1: yes)
-           "position_seq": 14                     // position version number
+           "occ_closing_fee":  "0.1",
+           "occ_funding_fee":  "0.1",
+           "auto_add_margin": 0,
+           "cum_realised_pnl":  "0.12",
+           "position_status": "Normal",
+           "position_seq": 14
        }
    ]
 }
@@ -983,7 +982,7 @@ while True:
             "exec_fee": "0.00000009",
             "leaves_qty": 0,
             "is_maker": false,
-            "trade_time": "2020-01-14T14:07:23.629Z" // trade time
+            "trade_time": "2020-01-14T14:07:23.629Z"
         }
     ]
 }
@@ -1152,10 +1151,10 @@ while True:
             "time_in_force": "ImmediateOrCancel",
             "create_type": "CreateByStopOrder",
             "cancel_type": "",
-            "order_status": "Untriggered", //t(:enum_stop_order_status_link)
+            "order_status": "Untriggered",
             "stop_order_type": "Stop",
             "trigger_by": "LastPrice",
-            "trigger_price": "8584.5", //t(:stop_order_trigger_price)
+            "trigger_price": "8584.5",
             "close_on_trigger": false,
             "timestamp": "2020-01-14T14:11:22.062Z"
         }

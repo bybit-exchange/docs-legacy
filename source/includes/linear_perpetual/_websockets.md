@@ -90,9 +90,9 @@ ws.send('{"op":"ping"}');
 
 ```javascript
 {
-    "success": true, // Whether ping is successful
+    "success": true,
     "ret_msg": "pong",
-    "conn_id": "036e5d21-804c-4447-a92d-b65a44d00700",// current connection id
+    "conn_id": "036e5d21-804c-4447-a92d-b65a44d00700"
     "request": {
         "op": "ping",
         "args": null
@@ -157,10 +157,10 @@ t(:websocket_para_intervals)
 
 ```javascript
 {
-   "success": true, // Whether subscription is successful
-   "ret_msg": "",   // Successful subscription: "", otherwise it shows error message
-   "conn_id":"e0e10eee-4eff-4d21-881e-a0c55c25e2da",// current connection id
-   "request": {     // Request to your subscription
+   "success": true,
+   "ret_msg": "",
+   "conn_id":"e0e10eee-4eff-4d21-881e-a0c55c25e2da"
+   "request": {
        "op": "subscribe",
        "args": [
            "kline.BTCUSDT.1m"
@@ -1045,7 +1045,7 @@ while True:
             "price": "8584.5",
             "qty": 1,
             "time_in_force": "ImmediateOrCancel",
-            "order_status": "Untriggered", //t(:enum_stop_order_status_link)
+            "order_status": "Untriggered",
             "stop_order_type": "Stop",
             "trigger_by": "LastPrice",
             "trigger_price": "8584.5",

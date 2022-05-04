@@ -51,11 +51,11 @@ print(session.place_active_order(
         "qty": 0.01,
         "time_in_force": "GoodTillCancel",
         "order_status": "New",
-        "last_exec_price": 8083,    //t(:linear_resp_field_last_exec_price)
-        "cum_exec_qty": 0,          //t(:linear_resp_field_cum_exec_qty)
-        "cum_exec_value": 0,        //t(:linear_resp_field_cum_exec_value)
-        "cum_exec_fee": 0,          //t(:linear_resp_field_cum_exec_fee)
-        "reduce_only": false,       //t(:linear_resp_field_reduce_only)
+        "last_exec_price": 8083,
+        "cum_exec_qty": 0,
+        "cum_exec_value": 0,
+        "cum_exec_fee": 0,
+        "reduce_only": false,
         "close_on_trigger": false
         "order_link_id": "",
         "created_time": "2019-10-21T07:28:19.396246Z",
@@ -394,14 +394,14 @@ print(session.replace_active_order(
 
 ```javascript
 {
-    "ret_code": 0,    //Error code,
-    "ret_msg": "ok",  //Error message,
+    "ret_code": 0,
+    "ret_msg": "ok",
     "ext_code": "",
     "result": {
         "order_id": "efa44157-c355-4a98-b6d6-1d846a936b93"
     },
-    "time_now": "1539778407.210858",    // UTC timestamp
-    "rate_limit_status": 99, // The remaining number of accesses in one minute
+    "time_now": "1539778407.210858",
+    "rate_limit_status": 99,
     "rate_limit_reset_ms": 1580885703683,
     "rate_limit": 100             
 }
@@ -1263,18 +1263,18 @@ print(session.my_position(
                "symbol":"BTCUSDT",
                "side":"Buy",
                "size":0,
-               "position_value":0,      //t(:linear_resp_field_position_value)
-               "entry_price":0,         //t(:linear_resp_field_entry_price)
-               "liq_price":1,           //t(:linear_resp_field_liq_price)
-               "bust_price":100,        //t(:linear_resp_field_bust_price)
+               "position_value":0,
+               "entry_price":0,
+               "liq_price":1,
+               "bust_price":100,
                "leverage":0,
                "is_isolated":true,
                "auto_add_margin": 0,
-               "position_margin":0,     //t(:linear_resp_field_position_margin)
-               "occ_closing_fee":0,     //t(:linear_resp_field_occ_closing_fee)
-               "realised_pnl":0,        //t(:linear_resp_field_realised_pnl)
-               "cum_realised_pnl":0,    //t(:linear_resp_field_cum_realised_pnl)
-               "free_qty": 30,          //t(:linear_resp_field_free_qty)
+               "position_margin":0,
+               "occ_closing_fee":0,
+               "realised_pnl":0,
+               "cum_realised_pnl":0,
+               "free_qty": 30,
                "tp_sl_mode": "Full",
                "unrealised_pnl": 0,
                "deleverage_indicator": 0,
@@ -1323,8 +1323,8 @@ print(session.my_position(
     "ext_info": "",
     "result": [
         {
-            "is_valid": true, //t(:resp_field_position_list_valid)
-            "data": { //t(:resp_field_position_list_data)
+            "is_valid": true,
+            "data": {
                 "user_id": 118921,
                 "symbol": "BTCUSDT",
                 "side": "Buy",
@@ -1351,8 +1351,8 @@ print(session.my_position(
             }
         },
         {
-            "is_valid": true, //t(:resp_field_position_list_valid)
-            "data": { //t(:resp_field_position_list_data)
+            "is_valid": true,
+            "data": {
                 "user_id": 118921,
                 "symbol": "BTCUSDT",
                 "side": "Sell",
@@ -1380,8 +1380,8 @@ print(session.my_position(
         },
         ...
         {
-            "is_valid": true, //t(:resp_field_position_list_valid)
-            "data": { //t(:resp_field_position_list_data)
+            "is_valid": true,
+            "data": {
                 "user_id": 118921,
                 "symbol": "XTZUSDT",
                 "side": "Buy",
@@ -1408,8 +1408,8 @@ print(session.my_position(
             }
         },
         {
-            "is_valid": true, //t(:resp_field_position_list_valid)
-            "data": { //t(:resp_field_position_list_data)
+            "is_valid": true,
+            "data": {
                 "user_id": 118921,
                 "symbol": "XTZUSDT",
                 "side": "Sell",
@@ -1971,23 +1971,23 @@ print(session.user_trade_records(
                 {
                     "order_id": "7369b2f4-52f1-4698-abf7-368e4ba9aefa",
                     "order_link_id": "",
-                    "side": "Buy",  //t(:enum_side_link)
-                    "symbol": "BTCUSDT", //t(:enum_symbol_link)
+                    "side": "Buy",
+                    "symbol": "BTCUSDT",
                     "exec_id": "9b8216fa-98d7-55c0-b5fa-279db5727996",
-                    "price": 5894,//t(:comment_abandoned)
+                    "price": 5894
                     "order_price": 5894,
                     "order_qty": 0.001,
-                    "order_type": "Limit", //t(:enum_order_type_link)
+                    "order_type": "Limit",
                     "fee_rate": 0.00075,
                     "exec_price": 5894,
-                    "exec_type": "Trade", //t(:enum_exec_type_link)
+                    "exec_type": "Trade",
                     "exec_qty": 0.001,
                     "exec_fee": 0.0044205,
                     "exec_value": 5.894,
                     "leaves_qty": 0,
-                    "closed_size": 0, // t(:row_comment_closed_size)
-                    "last_liquidity_ind": "RemovedLiquidity",  //t(:enum_Liquidity_type_link)
-                    "trade_time": 1585547384,//t(:comment_abandoned)
+                    "closed_size": 0,
+                    "last_liquidity_ind": "RemovedLiquidity",
+                    "trade_time": 1585547384
                     "trade_time_ms": 1585547384847
                 }
             ]
@@ -2082,23 +2082,23 @@ print(session.user_trade_records(
                 {
                     "order_id":"cb89f263-ee13-4fae-b243-cff6d5085a28",
                     "order_link_id":"",
-                    "side":"Sell", //t(:enum_side_link)
-                    "symbol":"BTCUSDT", //t(:enum_symbol_link)
+                    "side":"Sell",
+                    "symbol":"BTCUSDT",
                     "exec_id":"d115f186-a927-54ec-a68e-cd04e74c16a1",
-                    "price":29450, //t(:comment_abandoned)
+                    "price":29450,
                     "order_price":29450,
                     "order_qty":100,
-                    "order_type":"Market", //t(:enum_order_type_link)
+                    "order_type":"Market",
                     "fee_rate":0.00075,
                     "exec_price":32550,
-                    "exec_type":"Trade", //t(:enum_exec_type_link)
+                    "exec_type":"Trade",
                     "exec_qty":0.02,
                     "exec_fee":0.48825,
                     "exec_value":651,
                     "leaves_qty":99.98,
-                    "closed_size":0.02, //t(:row_comment_closed_size)
-                    "last_liquidity_ind":"RemovedLiquidity", //t(:enum_Liquidity_type_link)
-                    "trade_time":1646115100, //t(:comment_abandoned)
+                    "closed_size":0.02,
+                    "last_liquidity_ind":"RemovedLiquidity",
+                    "trade_time":1646115100,
                     "trade_time_ms":1646115100705
                 }
             ]
@@ -2200,13 +2200,13 @@ print(session.closed_profit_and_loss(
                  "order_price": 999999,
                  "order_type": "Market",
                  "exec_type": "Trade",
-                 "closed_size": 0.5,        //t(:linear_resp_field_closed_size)
-                 "cum_entry_value": 3000,   //t(:linear_resp_field_cum_entry_value)
-                 "avg_entry_price": 6000,   //t(:linear_resp_field_avg_entry_price)
-                 "cum_exit_value": 3000.5,  //t(:linear_resp_field_cum_exit_value)
-                 "avg_exit_price": 6001,    //t(:linear_resp_field_avg_exit_price)
-                 "closed_pnl": -5.000375,   //t(:linear_resp_field_closed_pnl)
-                 "fill_count": 1,           //t(:linear_resp_field_fill_count)
+                 "closed_size": 0.5,
+                 "cum_entry_value": 3000,
+                 "avg_entry_price": 6000,
+                 "cum_exit_value": 3000.5,
+                 "avg_exit_price": 6001,
+                 "closed_pnl": -5.000375,
+                 "fill_count": 1,
                  "leverage": 100,
                  "created_at": 1577480599
              }
