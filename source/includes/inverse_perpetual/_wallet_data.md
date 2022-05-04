@@ -76,7 +76,7 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |equity |number |t(:row_comment_equity)  |
-|available_balance |number |t(:row_comment_available_balance)  |
+|available_balance |number |t(:row_comment_http_available_balance)  |
 |used_margin |number |t(:row_comment_used_margin)    |
 |order_margin|number |t(:row_comment_order_margin)    |
 |position_margin |number |t(:row_comment_position_margin)  |

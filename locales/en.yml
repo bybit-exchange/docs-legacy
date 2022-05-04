@@ -56,6 +56,18 @@ en:
   row_comment_order_margin: Pre-occupied order margin
   row_comment_wallet_balance: Wallet balance
   row_comment_available_balance: Available balance = wallet balance - used margin
+  row_comment_http_available_balance: |
+    <p>In Isolated Margin Mode:</p>
+    <pre class="table-code">
+      available_balance = wallet_balance - (position_margin + occ_closing_fee + occ_funding_fee + order_margin)
+    </pre>
+    <p>In Cross Margin Mode:</p>
+    <pre class="table-code">
+      if unrealised_pnl > 0:
+          available_balance = wallet_balance - (position_margin + occ_closing_fee + occ_funding_fee + order_margin)
+      if unrealised_pnl < 0:
+          available_balance = wallet_balance - (position_margin + occ_closing_fee + occ_funding_fee + order_margin) + unrealised_pnl
+    </pre>
   row_comment_realised_pnl: Today's realised pnl
   row_comment_unrealised_pnl: unrealised pnl
   row_comment_cum_realised_pnl: Accumulated realised pnl (all-time total)
