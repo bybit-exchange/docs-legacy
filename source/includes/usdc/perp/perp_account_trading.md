@@ -267,7 +267,7 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |symbol|<b>true</b>|string|t(:usdcSymbol)|
-|orderFilter|false|string|t(:usdcOrderFilter)|
+|orderFilter|<b>true</b>|string|t(:usdcOrderFilter)|
 
 <p>
 t(:cancelAllResponse)
@@ -687,6 +687,7 @@ POST
 |direction|false|string|t(:direction)|
 |limit|<b>true</b>|string|t(:row_comment_limit)|
 |cursor|false|string|t(:cursor)|
+|category|false|string|t(:usdcCategory)|
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -1173,7 +1174,7 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/risk-limit/l
 
 
 <p class="fake_header">t(:httprequest)</p>
-POST
+GET
 <code><span id=uopv>/perpetual/usdc/openapi/public/v1/risk-limit/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopv"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
