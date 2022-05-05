@@ -2436,14 +2436,14 @@ clipboard.on('error', function(e) {
 </p>
 <h2 id='t-faq_calculating_order_size'>Calculating order size based on available wallet balance</h2>
 <p><ul>
-  <li><code>price * available_balance * leverage * perc * (1 - (0.00075 * 2))</code></li>
+  <li><code>price * available_balance * leverage * perc * (1 - (0.0006 * 2))</code></li>
   <li>Unfortunately this is not a perfectly accurate formula; the real calculation is complex and may be published in the docs at a later date.</li>
   <ul>
     <li><code>price</code> - last price (or your entry price) - can be found with the <a href="#t-latestsymbolinfo">Latest Symbol Info endpoint</a>.</li>
     <li><code>available_balance</code> - can be found with the <a href="#t-myposition">My Position endpoint</a>.</li>
     <li><code>leverage</code> - up to the respective maximum leverage for the market and your risk limit (eg 2, 10, 50).</li>
     <li><code>perc</code> - 0.1 for 10%, 0.25 for 25%, etc.</li>
-    <li><code>1 - (0.00075 * 2)</code> - used to calculate the maximum order cost (always assumes entry &amp; exit orders use taker fee regardless actual fee).</li>
+    <li><code>1 - (0.0006 * 2)</code> - used to calculate the maximum order cost (always assumes entry &amp; exit orders use taker fee regardless actual fee).</li>
   </ul>
 </ul>
 </p>
