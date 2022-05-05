@@ -325,7 +325,7 @@ GET
 |stop_order_id |false |string |t(:row_comment_stopOrderId) |
 |order_link_id |false |string |t(:row_comment_orderLinkId)|
 |t(:row_parameter_symbol) |false |string |t(:row_comment_symbol). Default `BTCUSD`    |
-|t(:row_parameter_stop_order) |false |string |t(:row_comment_stopOrderStatus)|
+|t(:row_parameter_order_status) |false |string |t(:row_comment_stopOrderStatus)|
 |t(:row_parameter_order) |false |string |t(:row_comment_order) |
 |page |false |integer |t(:row_comment_page) |
 |limit |false |integer |t(:row_comment_limit) |
@@ -334,7 +334,7 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |user_id |number |t(:row_comment_userID)  |
-|t(:row_parameter_stop_order)|string |t(:row_comment_stopOrderStatus)    |
+|t(:row_parameter_order_status)|string |t(:row_comment_stopOrderStatus)    |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 |t(:row_parameter_order_type) |string |t(:row_comment_orderType)  |
@@ -534,7 +534,7 @@ POST
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |user_id |number |t(:row_comment_userID)  |
-|t(:row_parameter_stop_order)|string |t(:row_comment_stopOrderStatus)    |
+|t(:row_parameter_order_status)|string |t(:row_comment_stopOrderStatus)    |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 |t(:row_parameter_order_type) |string |t(:row_comment_orderType)  |

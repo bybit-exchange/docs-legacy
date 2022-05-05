@@ -72,26 +72,25 @@ t(:para_order)
 * `desc` t(:desc)
 * `asc` t(:asc)
 
-## Order status (`order_status`)
+## Order status (`order_status`/`stop_order_status`)
 t(:para_orderStatusGet)
 
 * `Created` t(:created1)
-* `Rejected` t(:rejected)
+* `Rejected` t(:rejected1)
 * `New` t(:new1)
 * `PartiallyFilled` t(:partiallyFilled1)
 * `Filled` t(:filled1)
 * `Cancelled` t(:cancelled1)
 * `PendingCancel` t(:pendingCancel1)
 
-<!--
-## Stop order status (`stop_order_status`)
+Only for conditional orders:
+
 * `Active` t(:active)
 * `Untriggered` t(:untriggered)
 * `Triggered` t(:triggered)
 * `Cancelled` t(:cancelled)
 * `Rejected` t(:rejected)
 * `Deactivated` t(:deactivated1)
--->
 
 ## Cancel type (`cancel_type`)
 * `CancelByUser` t(:cancelByUser)

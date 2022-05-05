@@ -841,7 +841,7 @@ GET
 |stop_order_id |false |string |t(:row_comment_stopOrderId) |
 |order_link_id |false |string |t(:row_comment_orderLinkId)|
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
-|t(:row_parameter_stop_order) |false |string |t(:row_comment_stopOrderStatus)|
+|t(:row_parameter_order_status) |false |string |t(:row_comment_stopOrderStatus)|
 |t(:row_parameter_order) |false |string |t(:row_comment_order) |
 |page |false |integer |t(:row_comment_page_max50) |
 |limit |false |integer |t(:row_comment_limit) |

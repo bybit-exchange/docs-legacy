@@ -865,7 +865,7 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
-|t(:row_parameter_stop_order) |false |string |t(:account_row_comment_stopOrderStatus) |
+|t(:row_parameter_order_status) |false |string |t(:account_row_comment_stopOrderStatus) |
 |direction |false |string |t(:row_comment_cursor_direction) |
 |limit |false |integer |t(:row_comment_limit) |
 |cursor |false |string |t(:row_comment_cursor) |
@@ -875,7 +875,7 @@ GET
 |:----- |:-----|----- |
 |user_id |integer |t(:row_comment_userID)  |
 |position_idx |integer |t(:row_comment_position_idx)  |
-|t(:row_parameter_stop_order)|string |t(:row_comment_stopOrderStatus)    |
+|t(:row_parameter_order_status)|string |t(:row_comment_stopOrderStatus)    |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 |t(:row_parameter_order_type) |string |t(:row_comment_orderType)  |
