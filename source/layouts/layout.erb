@@ -247,7 +247,19 @@ under the License.
   <li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/account_asset"><%=t(:account_asset)%></a></li>
 <% end %>
 
- <% if page_classes.end_with?("usdc_index") %>
+ <% if page_classes.end_with?("usdc_option_index") %>
+    <li>
+        <div class="dropdown">
+          <button class="dropbtn"><%=t(:usdc)%>
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+                <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/usdc/option" class="selected"><%=t(:usdc_option)%></a>
+                <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/usdc/perpetual" class="selected"><%=t(:usdc_perpetual)%></a>
+          </div>
+        </div>
+    </li>
+ <% elsif page_classes.end_with?("usdc_perpetual_index") %>
     <li>
         <div class="dropdown">
           <button class="dropbtn"><%=t(:usdc)%>
@@ -325,7 +337,7 @@ under the License.
                   <% end %>
                 <% end %>
 
-        <% if page_classes.end_with?("option_index") %>
+        <% if page_classes.end_with?("usdc_option_index") %>
           <% if page_classes.include?("testnet") %>
             <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/usdc/option>Mainnet</a>
             <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/usdc/option>Testnet</a></span>
@@ -335,7 +347,7 @@ under the License.
           <% end %>
         <% end %>
 
-        <% if page_classes.end_with?("perpetual_index") %>
+        <% if page_classes.end_with?("usdc_perpetual_index") %>
             <% if page_classes.include?("testnet") %>
               <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/usdc/perpetual>Mainnet</a>
               <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/usdc/perpetual>Testnet</a></span>
