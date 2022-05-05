@@ -547,7 +547,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/wi
                 "tag": "",
                 "withdraw_fee": "0.001",
                 "create_time": "1631694166",
-                "success_at": "1631694775",
+                "update_time": "1631694775",
                 "withdraw_id":"301121231312"
             },
             {
@@ -560,7 +560,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/wi
                 "tag": "",
                 "withdraw_fee": "0.001",
                 "create_time": "1631684557",
-                "success_at": "1631685384",
+                "update_time": "1631685384",
                 "withdraw_id":"301121231313"
             }
         ],
@@ -606,7 +606,7 @@ GET
 |tag|string|t(:withdraw_response_tag)|
 |withdraw_fee|string|t(:withdraw_response_withdrawFee)|
 |create_time|int64|t(:withdraw_response_createTime)|
-|success_at|int64|t(:withdraw_response_updateTime)|
+|update_time|int64|t(:withdraw_response_updateTime)|
 |cursor|string|t(:withdraw_response_cursor)|
 |withdraw_id|string|t(:withdraw_id)|
 
