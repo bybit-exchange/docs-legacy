@@ -800,7 +800,7 @@ POST
 |direction|false|string|t(:direction)|
 |limit|<b>true</b>|string|t(:row_comment_limit)|
 |cursor|false|string|t(:cursor)|
-
+|category|false|string|t(:usdcCategory)|
 
 <p class="fake_header">t(:responseparameters)</p>
 
