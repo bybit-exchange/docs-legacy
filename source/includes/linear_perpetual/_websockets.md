@@ -1003,7 +1003,7 @@ while True:
 |reduce_only | bool | t(:row_comment_reduceOnly)|
 |close_on_trigger | bool | t(:row_comment_closeOnTrigger)|
 |position_idx |number |t(:row_comment_position_idx)  |
-|create_time |string |t(:row_comment_timestamp)  |
+|create_time |string |t(:websocketorder_row_comment_timestamp)  |
 |update_time |string |t(:row_comment_resp_update_time)  |
 
 ### t(:websocketstoporder)

@@ -1101,7 +1101,7 @@ while True:
 |cum_exec_qty |number |t(:linear_resp_field_cum_exec_qty)  |
 |cum_exec_value |string |t(:linear_resp_field_cum_exec_value)  |
 |cum_exec_fee |string |t(:linear_resp_field_cum_exec_fee)  |
-|timestamp |string |t(:row_comment_timestamp)  |
+|timestamp |string |t(:websocketorder_row_comment_timestamp)  |
 |take_profit |string |t(:row_comment_take_profit)  |
 |stop_loss |string |t(:row_comment_stop_loss)  |
 |trailing_stop |string |t(:row_comment_trailing_stop)  |
