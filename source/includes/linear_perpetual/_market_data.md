@@ -159,7 +159,7 @@ GET
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
 |t(:row_parameter_price) |number |t(:row_response_comment_execprice)  |
 |t(:row_parameter_quantity) |number |t(:row_response_comment_execqty)  |
-|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|t(:row_parameter_side) |string |t(:row_comment_side_taker)  |
 |time |string |t(:row_response_comment_time)  |
 |trade_time_ms |number |t(:row_response_comment_nill_time)  |
 
