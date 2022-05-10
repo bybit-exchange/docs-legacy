@@ -2538,7 +2538,7 @@ print(session.my_last_funding_fee(
 }
 ```
 
-t(:market_para_records)
+t(:account_para_myLastFunding)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
