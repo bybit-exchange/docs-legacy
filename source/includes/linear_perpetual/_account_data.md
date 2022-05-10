@@ -2410,7 +2410,7 @@ print(session.set_risk_limit(
 t(:account_para_setRisk)
 
 <aside class="notice">
-t(:account_para_setRisk)
+t(:account_aside_getRisk_linear)
 </aside>
 
 <p class="fake_header">t(:httprequest)</p>
