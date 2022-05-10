@@ -8,7 +8,7 @@ t(:account_para)
 ```console
 curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/place-order \
 -H "Content-Type: application/json" \
--D '{"outRequestId":"021f276a-0a5f-4f35-9859-5f32353ce0ad","symbol":"BTC-26NOV21-58000-P","orderType":"Limit","side":"Buy","orderQty":"1","orderPrice":"1","timeInForce":"GoodTillCancel"}'
+-D '{"symbol":"BTC-26NOV21-58000-P","orderType":"Limit","side":"Buy","orderQty":"1","orderPrice":"1","timeInForce":"GoodTillCancel"}'
 ```
 
 > t(:codequote_responseExample)
@@ -16,22 +16,17 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/place-order \
 ```javascript
 {
     "retCode": 0,
-    "retMsg": "",
-    "extCode": null,
-    "extInfo": null,
+    "retMsg": "OK",
     "result": {
-        "symbol": "BTC-26NOV21-58000-P",
+        "orderId": "8c65df91-91fc-461d-9b14-786379ef138c",
+        "orderLinkId": "AAAAA41133",
+        "symbol": "BTC-13MAY22-40000-C",
         "orderType": "Limit",
         "side": "Buy",
-        "orderPrice": "1",
-        "orderLinkId": "162073788655749",
-        "iv": "100",
-        "timeInForce": "PostOnly",
-        "outRequestId": "1620737886573",
-        "reduceOnly": true,
-        "orderPrice": "20000",
-        "orderQty": "10"
-    }
+        "orderQty": "0.01",
+        "orderPrice": "5"
+    },
+    "retExtMap": {}
 }
 ```
 t(:placeOrderInfo)
@@ -48,7 +43,6 @@ POST
 |symbol|<b>true</b>|string|t(:usdcSymbol)|
 |orderType|<b>true</b>|string|t(:usdcOrderType)|
 |side|<b>true</b>|string|t(:side)|
-|outRequestId|false|string|t(:optionOutRequestId)|
 |orderPrice|false|string|t(:usdcPlaceOrderPrice)|
 |orderQty|<b>true</b>|string|t(:usdcOrderQty)|
 |iv|false|string|t(:optionIv)|
@@ -78,7 +72,7 @@ t(:usdcBatchOrdersDesc)
 ```console
 curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-place-orders \
 -H "Content-Type: application/json" \
--D '{"orderRequest":[{"outRequestId":"4c77b34a-9093-4bca-9cad-727cd6efed7e","symbol":"BTC-26NOV21-58000-P","orderType":"Limit","side":"Buy","orderQty":"1","orderPrice":"1","timeInForce":"GoodTillCancel"}]}'
+-D '{"orderRequest":[{"symbol":"BTC-26NOV21-58000-P","orderType":"Limit","side":"Buy","orderQty":"1","orderPrice":"1","timeInForce":"GoodTillCancel"}]}'
 
 
 ```
@@ -93,20 +87,22 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-place-or
 ```javascript
 {
     "retCode": 0,
-    "retMsg": "",
-    "extCode": null,
-    "extInfo": null,
-    "result": [{
-        "symbol": "BTC-26NOV21-58000-P",
-        "orderType": "Limit",
-        "side": "Buy",
-        "orderPrice": "1",
-        "orderLinkId": "162073788655749",
-        "timeInForce": "PostOnly",
-        "outRequestId": "1620737886573",
-        "orderPrice": "1",
-        "orderQty": "1",
-    }]
+    "retMsg": "OK",
+    "result": [
+        {
+            "orderId": "fa6cd740-56ed-477d-9385-90ccbfee49ca",
+            "orderLinkId": "AAAAA4112",
+            "symbol": "BTC-13MAY22-40000-C",
+            "orderType": "Limit",
+            "side": "Buy",
+            "orderQty": "0.01",
+            "orderPrice": "5",
+            "extMap": {},
+            "errorCode": 0,
+            "errorDesc": ""
+        }
+    ],
+    "retExtMap": {}
 }
 ```
 
@@ -130,8 +126,7 @@ POST
 |orderQty|<b>true</b>|string|t(:usdcOrderQty)|
 |iv|false|string|t(:optionIv)|
 |t(:row_parameter_timeInForce)|false|string|t(:row_comment_timeInForce)|
-|outRequestId|false|string|t(:optionOutRequestId)|
-|orderLinkId|false|string|t(:orderLinkId)|
+|orderLinkId|<b>true</b>|string|t(:orderLinkId)|
 |reduceOnly|false|bool|t(:reduceOnly)|
 |mmp|false|string|t(:mmp)|
 
@@ -154,7 +149,7 @@ POST
 ```console
 curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/replace-order \
 -H "Content-Type: application/json" \
--D '{"outRequestId":"89befe89-0869-405a-a07c-2599324d009d","symbol":"BTC-26NOV21-58000-P","orderId":"be6c87be-da18-4876-9a64-6b7ccc859071","orderQty":"1","orderPrice":"1"}'
+-D '{"symbol":"BTC-26NOV21-58000-P","orderId":"be6c87be-da18-4876-9a64-6b7ccc859071","orderQty":"1","orderPrice":"1"}'
 
 
 ```
@@ -169,14 +164,14 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/replace-order 
 ```javascript
 {
     "retCode": 0,
-    "retMsg": "",
-    "extCode": null,
-    "extInfo": null,
+    "retMsg": "OK",
     "result": {
-        "outRequestId": "89befe89-0869-405a-a07c-2599324d009d",
-        "symbol": "BTC-26NOV21-58000-P",
-        "orderId": "be6c87be-da18-4876-9a64-6b7ccc859071"
-    }
+        "outRequestId": "",
+        "symbol": "BTC-13MAY22-40000-C",
+        "orderId": "8c65df91-91fc-461d-9b14-786379ef138c",
+        "orderLinkId": "AAAAA41133"
+    },
+    "retExtMap": {}
 }
 ```
 
@@ -192,8 +187,7 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |symbol|<b>true</b>|string|t(:usdcSymbol)|
-|orderId|<b>true</b>|string|t(:usdcReplaceOrderId)|
-|outRequestId|false|string|t(:optionOutRequestId)|
+|orderId|false|string|t(:usdcOrderLinkId)|
 |orderLinkId|false|string|t(:usdcOrderLinkId)|
 |orderPrice|false|string|t(:usdcOrderPrice)|
 |orderQty|false|string|t(:usdcOrderQty)|
@@ -203,8 +197,10 @@ POST
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
+|outRequestId|string|t(:optionOutRequestId)|
+|symbol|string|t(:usdcSymbol)|
 |orderId|string|t(:usdcOrderId)|
-|orderLinkId|string|t(:orderLinkId)
+|orderLinkId|string|t(:orderLinkId)|
 
 ### t(:usdcBatchReplaceOrders)
 
@@ -213,7 +209,7 @@ t(:usdcBatchOrdersDesc)
 ```console
 curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-replace-orders \
 -H "Content-Type: application/json" \
--D '{"replaceOrderRequest":[{"outRequestId":"89befe89-0869-405a-a07c-2599324d009d","symbol":"BTC-26NOV21-58000-P","orderId":"be6c87be-da18-4876-9a64-6b7ccc859071","orderQty":"1","orderPrice":"1"}]}'
+-D '{"replaceOrderRequest":[{"symbol":"BTC-26NOV21-58000-P","orderId":"be6c87be-da18-4876-9a64-6b7ccc859071","orderQty":"1","orderPrice":"1"}]}'
 
 
 ```
@@ -228,14 +224,19 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-replace-
 ```javascript
 {
     "retCode": 0,
-    "retMsg": "",
-    "extCode": null,
-    "extInfo": null,
-    "result": [{
-        "outRequestId": "89befe89-0869-405a-a07c-2599324d009d",
-        "symbol": "BTC-26NOV21-58000-P",
-        "orderId": "be6c87be-da18-4876-9a64-6b7ccc859071"
-    }]
+    "retMsg": "OK",
+    "result": [
+        {
+            "outRequestId": "",
+            "symbol": "BTC-13MAY22-40000-C",
+            "orderId": "8c65df91-91fc-461d-9b14-786379ef138c",
+            "extMap": {},
+            "errorCode": 0,
+            "errorDesc": "",
+            "orderLinkId": "AAAAA41133"
+        }
+    ],
+    "retExtMap": {}
 }
 ```
 
@@ -254,8 +255,7 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |symbol|<b>true</b>|string|t(:usdcSymbol)|
-|orderId|<b>true</b>|string|t(:usdcReplaceOrderId)|
-|outRequestId|false|string|t(:optionOutRequestId)|
+|orderId|false|string|t(:usdcOrderLinkId)|
 |orderLinkId|false|string|t(:usdcOrderLinkId)|
 |orderPrice|false|string|t(:usdcOrderPrice)|
 |orderQty|false|string|t(:usdcOrderQty)|
@@ -266,8 +266,10 @@ POST
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
+|outRequestId|string|t(:optionOutRequestId)|
+|symbol|string|t(:usdcSymbol)|
 |orderId|string|t(:usdcOrderId)|
-|orderLinkId|string|t(:orderLinkId)
+|orderLinkId|string|t(:orderLinkId)|
 
 
 
@@ -276,7 +278,7 @@ POST
 ```console
 curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/cancel-order \
 -H "Content-Type: application/json" \
--D '{"outRequestId":"01f90031-4697-4b1f-affe-eb0032c58212","symbol":"BTC-26NOV21-58000-P","orderId":"ec6d8081-8950-491b-bf43-22ddb09df0fc"}'
+-D '{"symbol":"BTC-26NOV21-58000-P","orderId":"ec6d8081-8950-491b-bf43-22ddb09df0fc"}'
 
 ```
 
@@ -290,12 +292,14 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/cancel-order \
 ```javascript
 {
     "retCode": 0,
-    "retMsg": "",
-    "extCode": null,
-    "extInfo": null,
+    "retMsg": "OK",
     "result": {
-        "orderId": "ec6d8081-8950-491b-bf43-22ddb09df0fc"
-    }
+        "outRequestId": "",
+        "symbol": "BTC-13MAY22-40000-C",
+        "orderId": "8c65df91-91fc-461d-9b14-786379ef138c",
+        "orderLinkId": ""
+    },
+    "retExtMap": {}
 }
 ```
 
@@ -310,8 +314,7 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |symbol|<b>true</b>|string|t(:usdcSymbol)|
-|outRequestId|false|string|t(:optionOutRequestId)|
-|orderId|<b>true</b>|string|t(:usdcReplaceOrderId)|
+|orderId|false|string|t(:usdcOrderLinkId)|
 |orderLinkId|false|string|t(:usdcOrderLinkId)|
 
 
@@ -319,7 +322,10 @@ POST
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
+|outRequestId|string|t(:optionOutRequestId)|
+|symbol|string|t(:usdcSymbol)|
 |orderId|string|t(:usdcOrderId)|
+|orderLinkId|string|t(:orderLinkId)|
 
 
 ### t(:usdcBatchCancelOrders)
@@ -327,7 +333,7 @@ POST
 ```console
 curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-cancel-orders \
 -H "Content-Type: application/json" \
--D '{"cancelRequest":[{"outRequestId":"0d3a1844-a7ba-4a95-9e2a-47843112f412","symbol":"BTC-26NOV21-58000-P","orderId":"1a69653f-c3c7-40b4-a492-17316a2086a2"}]}'
+-D '{"cancelRequest":[{"symbol":"BTC-26NOV21-58000-P","orderId":"1a69653f-c3c7-40b4-a492-17316a2086a2"}]}'
 
 
 ```
@@ -342,12 +348,18 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-cancel-o
 ```javascript
 {
     "retCode": 0,
-    "retMsg": "",
-    "extCode": null,
-    "extInfo": null,
-    "result": [{
-        "orderId": "1a69653f-c3c7-40b4-a492-17316a2086a2"
-    }]
+    "retMsg": "OK",
+    "retExtMap": {},
+    "result": [
+        {
+            "outRequestId": "",
+            "symbol": "BTC-13MAY22-40000-C",
+            "orderId": "720b97b4-8e7c-44c9-8417-1160ed82f990",
+            "orderLinkId": "AAAAA41134",
+            "errorCode": 0,
+            "errorDesc": ""
+        }
+    ]
 }
 ```
 
@@ -365,8 +377,7 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |symbol|<b>true</b>|string|t(:usdcSymbol)|
-|outRequestId|false|string|t(:optionOutRequestId)|
-|orderId|<b>true</b>|string|t(:usdcReplaceOrderId)|
+|orderId|false|string|t(:usdcOrderLinkId)|
 |orderLinkId|false|string|t(:usdcOrderLinkId)|
 
 
@@ -374,7 +385,10 @@ POST
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
+|outRequestId|string|t(:optionOutRequestId)|
+|symbol|string|t(:usdcSymbol)|
 |orderId|string|t(:usdcOrderId)|
+|orderLinkId|string|t(:orderLinkId)|
 
 
 
@@ -383,7 +397,7 @@ POST
 ```console
 curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/cancel-order \
 -H "Content-Type: application/json" \
--D '{"outRequestId":"cdde8186-fda8-457d-9451-5b83b7780ad4"}'
+-D '{}'
 
 
 ```
@@ -399,9 +413,17 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/cancel-order \
 {
     "retCode": 0,
     "retMsg": "OK",
-    "extCode": null,
-    "extInfo": null,
-    "result": null
+    "retExtMap": {},
+    "result": [
+        {
+            "outRequestId": "cancelAll-290119-1652176443114-0",
+            "symbol": "BTC-13MAY22-40000-C",
+            "orderId": "fa6cd740-56ed-477d-9385-90ccbfee49ca",
+            "orderLinkId": "",
+            "errorCode": 0,
+            "errorDesc": ""
+        }
+    ]
 }
 ```
 
@@ -414,7 +436,15 @@ POST
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|outRequestId|false|string|t(:optionOutRequestId)|
+
+<p class="fake_header">t(:responseparameters)</p>
+
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|outRequestId|string|t(:optionOutRequestId)|
+|symbol|string|t(:usdcSymbol)|
+|orderId|string|t(:usdcOrderId)|
+|orderLinkId|string|t(:orderLinkId)|
 
 <p>
 t(:cancelAllResponse)
