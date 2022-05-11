@@ -1769,29 +1769,24 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/place-order \
 -H "Content-Type: application/json" \
--D '{"outRequestId":"021f276a-0a5f-4f35-9859-5f32353ce0ad","symbol":"BTC-26NOV21-58000-P","orderType":"Limit","side":"Buy","orderQty":"1","orderPrice":"1","timeInForce":"GoodTillCancel"}'
+-D '{"symbol":"BTC-26NOV21-58000-P","orderType":"Limit","side":"Buy","orderQty":"1","orderPrice":"1","timeInForce":"GoodTillCancel"}'
 </span></code></pre></div>
 <blockquote>
 <p>Response Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
     <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">extCode</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">extInfo</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC-26NOV21-58000-P</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">8c65df91-91fc-461d-9b14-786379ef138c</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">AAAAA41133</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC-13MAY22-40000-C</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Limit</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">162073788655749</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">iv</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">100</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">PostOnly</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">outRequestId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1620737886573</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">reduceOnly</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">20000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10</span><span class="dl">"</span>
-    <span class="p">}</span>
+        <span class="dl">"</span><span class="s2">orderQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtMap</span><span class="dl">"</span><span class="p">:</span> <span class="p">{}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p><p>Place an order using the USDC Derivatives Account. </p>
@@ -1825,19 +1820,13 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">orderType</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>refer to<a href="#order-type-type-ordertypes">Order type</a> (MARKET is not supported currently for Options)</td>
+<td>refer to <a href="#order-type-type-ordertypes">Order type</a> (MARKET is not supported currently for Options)</td>
 </tr>
 <tr>
 <td style="text-align: left">side</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Direction</td>
-</tr>
-<tr>
-<td style="text-align: left">outRequestId</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>ID used for idempotence with a max. of 32 characters, required for Options</td>
 </tr>
 <tr>
 <td style="text-align: left">orderPrice</td>
@@ -1932,7 +1921,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <p>Each request supports a max. of four orders. The reduceOnly parameter should be separate and unique for each order in the request.</p>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-place-orders \
 -H "Content-Type: application/json" \
--D '{"orderRequest":[{"outRequestId":"4c77b34a-9093-4bca-9cad-727cd6efed7e","symbol":"BTC-26NOV21-58000-P","orderType":"Limit","side":"Buy","orderQty":"1","orderPrice":"1","timeInForce":"GoodTillCancel"}]}'
+-D '{"orderRequest":[{"symbol":"BTC-26NOV21-58000-P","orderType":"Limit","side":"Buy","orderQty":"1","orderPrice":"1","timeInForce":"GoodTillCancel"}]}'
 
 
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
@@ -1942,20 +1931,22 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
     <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">extCode</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">extInfo</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">[{</span>
-        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC-26NOV21-58000-P</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Limit</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">162073788655749</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">PostOnly</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">outRequestId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1620737886573</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
-    <span class="p">}]</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">fa6cd740-56ed-477d-9385-90ccbfee49ca</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">AAAAA4112</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC-13MAY22-40000-C</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Limit</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">orderQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">extMap</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+            <span class="dl">"</span><span class="s2">errorCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">errorDesc</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="dl">"</span><span class="s2">retExtMap</span><span class="dl">"</span><span class="p">:</span> <span class="p">{}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p class="fake_header">HTTP Request</p>
@@ -2000,7 +1991,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">orderType</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>refer to<a href="#order-type-type-ordertypes">Order type</a> (MARKET is not supported currently for Options)</td>
+<td>refer to <a href="#order-type-type-ordertypes">Order type</a> (MARKET is not supported currently for Options)</td>
 </tr>
 <tr>
 <td style="text-align: left">side</td>
@@ -2033,14 +2024,8 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td><a href="https://help.bybit.com/hc/en-us/articles/360039749233-What-Are-Time-In-Force-TIF-GTC-IOC-FOK-">Time in force</a></td>
 </tr>
 <tr>
-<td style="text-align: left">outRequestId</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>ID used for idempotence with a max. of 32 characters, required for Options</td>
-</tr>
-<tr>
 <td style="text-align: left">orderLinkId</td>
-<td style="text-align: left">false</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Custom ID used for cross-platform strategy remarks; a max. of 32 characters</td>
 </tr>
@@ -2105,7 +2090,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 </tbody></table>
 <h3 id='t-usdcreplaceorder'>Modify Order</h3><div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/replace-order \
 -H "Content-Type: application/json" \
--D '{"outRequestId":"89befe89-0869-405a-a07c-2599324d009d","symbol":"BTC-26NOV21-58000-P","orderId":"be6c87be-da18-4876-9a64-6b7ccc859071","orderQty":"1","orderPrice":"1"}'
+-D '{"symbol":"BTC-26NOV21-58000-P","orderId":"be6c87be-da18-4876-9a64-6b7ccc859071","orderQty":"1","orderPrice":"1"}'
 
 
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
@@ -2115,14 +2100,14 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
     <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">extCode</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">extInfo</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">outRequestId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">89befe89-0869-405a-a07c-2599324d009d</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC-26NOV21-58000-P</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">be6c87be-da18-4876-9a64-6b7ccc859071</span><span class="dl">"</span>
-    <span class="p">}</span>
+        <span class="dl">"</span><span class="s2">outRequestId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC-13MAY22-40000-C</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">8c65df91-91fc-461d-9b14-786379ef138c</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">AAAAA41133</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtMap</span><span class="dl">"</span><span class="p">:</span> <span class="p">{}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>For Options, at least one of the three parameters — price, quantity or implied volatility — must be input.</p>
@@ -2151,15 +2136,9 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 </tr>
 <tr>
 <td style="text-align: left">orderId</td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">string</td>
-<td>Order ID, required for Options</td>
-</tr>
-<tr>
-<td style="text-align: left">outRequestId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>ID used for idempotence with a max. of 32 characters, required for Options</td>
+<td>Either orderId or orderLinkId is required</td>
 </tr>
 <tr>
 <td style="text-align: left">orderLinkId</td>
@@ -2197,6 +2176,16 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 </tr>
 </thead><tbody>
 <tr>
+<td style="text-align: left">outRequestId</td>
+<td style="text-align: left">string</td>
+<td>ID used for idempotence with a max. of 32 characters, required for Options</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>Contract name</td>
+</tr>
+<tr>
 <td style="text-align: left">orderId</td>
 <td style="text-align: left">string</td>
 <td>Order ID</td>
@@ -2211,7 +2200,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <p>Each request supports a max. of four orders. The reduceOnly parameter should be separate and unique for each order in the request.</p>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-replace-orders \
 -H "Content-Type: application/json" \
--D '{"replaceOrderRequest":[{"outRequestId":"89befe89-0869-405a-a07c-2599324d009d","symbol":"BTC-26NOV21-58000-P","orderId":"be6c87be-da18-4876-9a64-6b7ccc859071","orderQty":"1","orderPrice":"1"}]}'
+-D '{"replaceOrderRequest":[{"symbol":"BTC-26NOV21-58000-P","orderId":"be6c87be-da18-4876-9a64-6b7ccc859071","orderQty":"1","orderPrice":"1"}]}'
 
 
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
@@ -2221,14 +2210,19 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
     <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">extCode</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">extInfo</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">[{</span>
-        <span class="dl">"</span><span class="s2">outRequestId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">89befe89-0869-405a-a07c-2599324d009d</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC-26NOV21-58000-P</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">be6c87be-da18-4876-9a64-6b7ccc859071</span><span class="dl">"</span>
-    <span class="p">}]</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">outRequestId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC-13MAY22-40000-C</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">8c65df91-91fc-461d-9b14-786379ef138c</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">extMap</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+            <span class="dl">"</span><span class="s2">errorCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">errorDesc</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">AAAAA41133</span><span class="dl">"</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="dl">"</span><span class="s2">retExtMap</span><span class="dl">"</span><span class="p">:</span> <span class="p">{}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p class="fake_header">HTTP Request</p>
@@ -2271,15 +2265,9 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 </tr>
 <tr>
 <td style="text-align: left">orderId</td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">string</td>
-<td>Order ID, required for Options</td>
-</tr>
-<tr>
-<td style="text-align: left">outRequestId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>ID used for idempotence with a max. of 32 characters, required for Options</td>
+<td>Either orderId or orderLinkId is required</td>
 </tr>
 <tr>
 <td style="text-align: left">orderLinkId</td>
@@ -2317,6 +2305,16 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 </tr>
 </thead><tbody>
 <tr>
+<td style="text-align: left">outRequestId</td>
+<td style="text-align: left">string</td>
+<td>ID used for idempotence with a max. of 32 characters, required for Options</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>Contract name</td>
+</tr>
+<tr>
 <td style="text-align: left">orderId</td>
 <td style="text-align: left">string</td>
 <td>Order ID</td>
@@ -2329,7 +2327,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 </tbody></table>
 <h3 id='t-usdccancelorder'>Cancel Order</h3><div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/cancel-order \
 -H "Content-Type: application/json" \
--D '{"outRequestId":"01f90031-4697-4b1f-affe-eb0032c58212","symbol":"BTC-26NOV21-58000-P","orderId":"ec6d8081-8950-491b-bf43-22ddb09df0fc"}'
+-D '{"symbol":"BTC-26NOV21-58000-P","orderId":"ec6d8081-8950-491b-bf43-22ddb09df0fc"}'
 
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
 </code></pre></div>
@@ -2338,12 +2336,14 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
     <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">extCode</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">extInfo</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ec6d8081-8950-491b-bf43-22ddb09df0fc</span><span class="dl">"</span>
-    <span class="p">}</span>
+        <span class="dl">"</span><span class="s2">outRequestId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC-13MAY22-40000-C</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">8c65df91-91fc-461d-9b14-786379ef138c</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtMap</span><span class="dl">"</span><span class="p">:</span> <span class="p">{}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p class="fake_header">HTTP Request</p>
@@ -2369,16 +2369,10 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td>Contract name</td>
 </tr>
 <tr>
-<td style="text-align: left">outRequestId</td>
+<td style="text-align: left">orderId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>ID used for idempotence with a max. of 32 characters, required for Options</td>
-</tr>
-<tr>
-<td style="text-align: left">orderId</td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">string</td>
-<td>Order ID, required for Options</td>
+<td>Either orderId or orderLinkId is required</td>
 </tr>
 <tr>
 <td style="text-align: left">orderLinkId</td>
@@ -2398,14 +2392,29 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 </tr>
 </thead><tbody>
 <tr>
+<td style="text-align: left">outRequestId</td>
+<td style="text-align: left">string</td>
+<td>ID used for idempotence with a max. of 32 characters, required for Options</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>Contract name</td>
+</tr>
+<tr>
 <td style="text-align: left">orderId</td>
 <td style="text-align: left">string</td>
 <td>Order ID</td>
 </tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">string</td>
+<td>Custom ID used for cross-platform strategy remarks; a max. of 32 characters</td>
+</tr>
 </tbody></table>
 <h3 id='t-usdcbatchcancelorders'>Batch Cancel Orders</h3><div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-cancel-orders \
 -H "Content-Type: application/json" \
--D '{"cancelRequest":[{"outRequestId":"0d3a1844-a7ba-4a95-9e2a-47843112f412","symbol":"BTC-26NOV21-58000-P","orderId":"1a69653f-c3c7-40b4-a492-17316a2086a2"}]}'
+-D '{"cancelRequest":[{"symbol":"BTC-26NOV21-58000-P","orderId":"1a69653f-c3c7-40b4-a492-17316a2086a2"}]}'
 
 
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
@@ -2415,12 +2424,18 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
     <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">extCode</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">extInfo</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">[{</span>
-        <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1a69653f-c3c7-40b4-a492-17316a2086a2</span><span class="dl">"</span>
-    <span class="p">}]</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retExtMap</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">outRequestId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC-13MAY22-40000-C</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">720b97b4-8e7c-44c9-8417-1160ed82f990</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">AAAAA41134</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">errorCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">errorDesc</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
 <p class="fake_header">HTTP Request</p>
@@ -2462,16 +2477,10 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td>Contract name</td>
 </tr>
 <tr>
-<td style="text-align: left">outRequestId</td>
+<td style="text-align: left">orderId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>ID used for idempotence with a max. of 32 characters, required for Options</td>
-</tr>
-<tr>
-<td style="text-align: left">orderId</td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">string</td>
-<td>Order ID, required for Options</td>
+<td>Either orderId or orderLinkId is required</td>
 </tr>
 <tr>
 <td style="text-align: left">orderLinkId</td>
@@ -2491,14 +2500,29 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 </tr>
 </thead><tbody>
 <tr>
+<td style="text-align: left">outRequestId</td>
+<td style="text-align: left">string</td>
+<td>ID used for idempotence with a max. of 32 characters, required for Options</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>Contract name</td>
+</tr>
+<tr>
 <td style="text-align: left">orderId</td>
 <td style="text-align: left">string</td>
 <td>Order ID</td>
 </tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">string</td>
+<td>Custom ID used for cross-platform strategy remarks; a max. of 32 characters</td>
+</tr>
 </tbody></table>
 <h3 id='t-usdccancelall'>Cancel All Active Orders</h3><div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/cancel-order \
 -H "Content-Type: application/json" \
--D '{"outRequestId":"cdde8186-fda8-457d-9451-5b83b7780ad4"}'
+-D '{}'
 
 
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
@@ -2509,9 +2533,17 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
     <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">extCode</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">extInfo</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
+    <span class="dl">"</span><span class="s2">retExtMap</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">outRequestId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">cancelAll-290119-1652176443114-0</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC-13MAY22-40000-C</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">fa6cd740-56ed-477d-9385-90ccbfee49ca</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">errorCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">errorDesc</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
 <p class="fake_header">HTTP Request</p>
@@ -2530,11 +2562,36 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <th>Comment</th>
 </tr>
 </thead><tbody>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
 <tr>
 <td style="text-align: left">outRequestId</td>
-<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>ID used for idempotence with a max. of 32 characters, required for Options</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>Contract name</td>
+</tr>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">string</td>
+<td>Order ID</td>
+</tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">string</td>
+<td>Custom ID used for cross-platform strategy remarks; a max. of 32 characters</td>
 </tr>
 </tbody></table>
 
@@ -2703,7 +2760,7 @@ This is used to cancel all active orders . The real-time response indicates whet
 <tr>
 <td style="text-align: left">orderType</td>
 <td style="text-align: left">string</td>
-<td>refer to<a href="#order-type-type-ordertypes">Order type</a> (MARKET is not supported currently for Options)</td>
+<td>refer to <a href="#order-type-type-ordertypes">Order type</a> (MARKET is not supported currently for Options)</td>
 </tr>
 <tr>
 <td style="text-align: left">side</td>
@@ -2942,7 +2999,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 <tr>
 <td style="text-align: left">orderType</td>
 <td style="text-align: left">string</td>
-<td>refer to<a href="#order-type-type-ordertypes">Order type</a> (MARKET is not supported currently for Options)</td>
+<td>refer to <a href="#order-type-type-ordertypes">Order type</a> (MARKET is not supported currently for Options)</td>
 </tr>
 <tr>
 <td style="text-align: left">side</td>
@@ -5627,7 +5684,7 @@ At 0:00, 8:00, and 16:00 UTC+0, the insurance fund will be pushed.
 <tr>
 <td style="text-align: left">orderType</td>
 <td style="text-align: left">string</td>
-<td>refer to<a href="#order-type-type-ordertypes">Order type</a> (MARKET is not supported currently for Options)</td>
+<td>refer to <a href="#order-type-type-ordertypes">Order type</a> (MARKET is not supported currently for Options)</td>
 </tr>
 <tr>
 <td style="text-align: left">side</td>
