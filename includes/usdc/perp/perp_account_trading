@@ -2427,3 +2427,143 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/position/le
 <td>t(:riskId)</td>
 </tr>
 </tbody></table>
+<h2 id='t-usdcfundingapi'>t(:usdcFundingApi)</h2><h3 id='t-fundingrate'>t(:fundingRate)</h3>
+<blockquote>
+<p>t(:codequote_curlExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/prev-funding-rate?symbol=BTCPERP \
+
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+</code></pre></div>
+<blockquote>
+<p>t(:codequote_responseExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">fundingRate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00010000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">fundingRateTimestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1652313600000</span><span class="dl">"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>t(:account_para_myLastFunding)</p>
+
+<p class="fake_header">t(:httprequest)</p>
+
+<p>GET
+<code><span id=usdcPerpPrevFunding>/perpetual/usdc/openapi/public/v1/prev-funding-rate</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcPerpPrevFunding"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_required)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">t(:responseparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+<tr>
+<td style="text-align: left">fundingRate</td>
+<td style="text-align: left">number</td>
+<td>t(:row_comment_funding_rate)</td>
+</tr>
+<tr>
+<td style="text-align: left">fundingRateTimestamp</td>
+<td style="text-align: left">number</td>
+<td>t(:row_comment_exec_timestamp)</td>
+</tr>
+</tbody></table>
+<h3 id='t-predictedfunding'>t(:predictedfunding)</h3>
+<blockquote>
+<p>t(:codequote_curlExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/predicted-funding \
+-H "Content-Type: application/json" \
+-d '{"symbol":"BTCPERP"}'
+
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+</code></pre></div>
+<blockquote>
+<p>t(:codequote_responseExample)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">predictedFundingRate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00010</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">predictedFundingFee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">29.0848836700</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>t(:account_para_predictedFunding)</p>
+
+<p class="fake_header">t(:httprequest)</p>
+
+<p>POST
+<code><span id=usdcPerpPredictedFunding>/perpetual/usdc/openapi/private/v1/predicted-funding</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcPerpPredictedFunding"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_required)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>t(:usdcSymbol)</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">t(:responseparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">predictedFundingRate</td>
+<td style="text-align: left">number</td>
+<td>t(:row_comment_predicted_funding_rate)</td>
+</tr>
+<tr>
+<td style="text-align: left">predictedFundingFee</td>
+<td style="text-align: left">number</td>
+<td>t(:row_comment_predicted_funding_fee)</td>
+</tr>
+</tbody></table>
