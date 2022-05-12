@@ -1248,3 +1248,93 @@ POST
 |riskId|number|t(:riskId)|
 
 
+## t(:usdcFundingApi)
+### t(:fundingRate)
+> t(:codequote_curlExample)
+
+```console
+curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/prev-funding-rate?symbol=BTCPERP \
+
+```
+
+```python
+
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "retCode": 0,
+    "retMsg": "",
+    "result": {
+        "symbol": "BTCPERP",
+        "fundingRate": "0.00010000",
+        "fundingRateTimestamp": "1652313600000"
+    }
+}
+```
+
+t(:account_para_myLastFunding)
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=usdcPerpPrevFunding>/perpetual/usdc/openapi/public/v1/prev-funding-rate</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcPerpPrevFunding"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|symbol|<b>true</b>|string|t(:usdcSymbol)|
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|symbol|string|t(:usdcSymbol)|
+|fundingRate |number |t(:row_comment_funding_rate)  |
+|fundingRateTimestamp |number |t(:row_comment_exec_timestamp)  |
+
+
+### t(:predictedfunding)
+> t(:codequote_curlExample)
+
+```console
+curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/predicted-funding \
+-H "Content-Type: application/json" \
+-d '{"symbol":"BTCPERP"}'
+
+```
+
+```python
+
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "result": {
+        "predictedFundingRate": "0.00010",
+        "predictedFundingFee": "29.0848836700"
+    },
+    "retCode": 0,
+    "retMsg": "success"
+}
+```
+t(:account_para_predictedFunding)
+
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=usdcPerpPredictedFunding>/perpetual/usdc/openapi/private/v1/predicted-funding</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcPerpPredictedFunding"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|symbol|<b>true</b>|string|t(:usdcSymbol)|
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|predictedFundingRate |number |t(:row_comment_predicted_funding_rate)    |
+|predictedFundingFee |number |t(:row_comment_predicted_funding_fee)  |
