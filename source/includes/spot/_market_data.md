@@ -36,7 +36,8 @@ print(session.query_symbol())
             "minPricePrecision": "0.01",
             "maxTradeQuantity": "2",
             "maxTradeAmount": "200",
-            "category": 1
+            "category": 1,
+            "innovation": false
         },
         {
             "name": "ETHUSDT",
@@ -50,7 +51,8 @@ print(session.query_symbol())
             "minPricePrecision": "0.01",
             "maxTradeQuantity": "2",
             "maxTradeAmount": "200",
-            "category": 1
+            "category": 1,
+            "innovation": false
         }
     ]
 }
