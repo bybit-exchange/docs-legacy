@@ -84,6 +84,7 @@ GET
 | maxTradeQuantity | string |t(:spotmaxTradeQuantity)|
 | maxTradeAmount | string |t(:spotmaxTradeAmount)|
 | category | int  |t(:spotCategory)|
+| innovation | boolean |t(:spotInnovation)|
 
 
 ### t(:orderbook)
