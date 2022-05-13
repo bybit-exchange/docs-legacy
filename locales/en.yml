@@ -2151,6 +2151,7 @@ en:
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
   linear_row_comment_limit_100_100: Limit for data size per page, max size is 100. Default as showing 100 pieces of data per page.
+  restapi_update_20220513: Add new response param <code>innovation</code>
   restapi_update_20220512: Add USDC Perpetual Funding API
   restapi_update_20220420_2: Add lt public Topics
   restapi_update_20220420_1: Add Leveraged Token Endpoints
@@ -2409,7 +2410,8 @@ en:
   spotmaxTradeQuantity: Max. order qty (It is ignored when you place an order with order type LIMIT_MAKER)
   spotmaxTradeAmount: Max. order value (It is ignored when you place an order with order type LIMIT_MAKER)
   spotCategory:  Category
-
+  spotInnovation: True indicates that the price of this currency is relatively volatile
+  spot_trading_symbol_comment: You can get all symbols with the <a href="#t-spot_querysymbol">Query Symbol</a> endpoint.
   spotSymbol: Name of the trading pair
   spotId: Irrelevant for API usage. This field reflects the "Transaction ID" from the <a href="https://www.bybit.com/user/assets/order/spot-history/active">Trade History</a> section of the website
   spotQty: Order quantity
@@ -2496,6 +2498,7 @@ en:
   spot_is_buyer_maker: True indicates buy order, false indicates sell order
   spot_is_limit_maker: Is LIMIT_MAKER
   spot_leverage: leverage
+  spot_liquidation_type: NO_LIQ indicates that it is not a liquidation order. IOC indicates that it is a liquidation order.
   spot_is_close: Is close
   spot_is_normal: Is normal trade. False if self-trade.
   spot_is_working: Is working

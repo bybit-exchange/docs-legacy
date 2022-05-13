@@ -1280,7 +1280,7 @@ t(:spot_public_websocket_frequency_realtime)
 | A | string | t(:spot_match_account_id) |
 | C | boolean | t(:spot_is_close) |
 | v | string | t(:spot_leverage) |
-
+| d | string | t(:spot_liquidation_type) |
 
 ### t(:ticketInfo)
 > t(:spot_private_topics_auth_sub)
