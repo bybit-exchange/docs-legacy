@@ -247,27 +247,27 @@ under the License.
   <li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/account_asset"><%=t(:account_asset)%></a></li>
 <% end %>
 
- <% if page_classes.end_with?("usdc_index") %>
+ <% if page_classes.include?("option") %>
     <li>
         <div class="dropdown">
           <button class="dropbtn"><%=t(:usdc)%>
             <i class="fa fa-caret-down"></i>
           </button>
           <div class="dropdown-content">
-                <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/usdc/option" class="selected"><%=t(:usdc_option)%></a>
-                <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/usdc/perpetual" class="selected"><%=t(:usdc_perpetual)%></a>
+                <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/usdc/option" class="dropdown-content-selected"><%=t(:usdc_option)%></a>
+                <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/usdc/perpetual"><%=t(:usdc_perpetual)%></a>
           </div>
         </div>
     </li>
-  <% else %>
+  <% elsif page_classes.include?("perpetual") %>
     <li>
         <div class="dropdown">
           <button class="dropbtn"><%=t(:usdc)%>
             <i class="fa fa-caret-down"></i>
           </button>
           <div class="dropdown-content">
-                <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/testnet/usdc/option"><%=t(:usdc_option)%></a>
-                <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/testnet/usdc/perpetual"><%=t(:usdc_perpetual)%></a>
+                <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/usdc/option" ><%=t(:usdc_option)%></a>
+                <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/usdc/perpetual" class="dropdown-content-selected"><%=t(:usdc_perpetual)%></a>
           </div>
         </div>
     </li>
@@ -325,7 +325,7 @@ under the License.
                   <% end %>
                 <% end %>
 
-        <% if page_classes.end_with?("option_index") %>
+        <% if page_classes.include?("option") %>
           <% if page_classes.include?("testnet") %>
             <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/usdc/option>Mainnet</a>
             <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/usdc/option>Testnet</a></span>
@@ -334,16 +334,16 @@ under the License.
             <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/usdc/option>Testnet</a>
           <% end %>
         <% end %>
-
-        <% if page_classes.end_with?("perpetual_index") %>
-            <% if page_classes.include?("testnet") %>
-              <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/usdc/perpetual>Mainnet</a>
-              <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/usdc/perpetual>Testnet</a></span>
-            <% else %>
-              <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/usdc/perpetual>Mainnet</a></span>
-              <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/usdc/perpetual>Testnet</a>
-            <% end %>
+        <% if page_classes.include?("perpetual") %>
+          <% if page_classes.include?("testnet") %>
+            <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/usdc/perpetual>Mainnet</a>
+            <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/usdc/perpetual>Testnet</a></span>
+          <% else %>
+            <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/usdc/perpetual>Mainnet</a></span>
+            <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/usdc/option>Testnet</a>
           <% end %>
+        <% end %>
+
       </div>
     </div>
   </li>
