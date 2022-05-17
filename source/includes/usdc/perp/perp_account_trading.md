@@ -460,6 +460,9 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 
 ```
 
+<aside class="notice">
+t(:usdcQueryLimit)
+</aside>
 
 <p class="fake_header">t(:httprequest)</p>
 POST
@@ -571,6 +574,9 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/execution-list
 
 ```
 
+<aside class="notice">
+t(:usdcQueryLimitWithInput)
+</aside>
 
 <p class="fake_header">t(:httprequest)</p>
 POST
@@ -671,6 +677,9 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-transact
 }
 ```
 
+<aside class="notice">
+t(:usdcQueryLimitWithInput)
+</aside>
 
 <p class="fake_header">t(:httprequest)</p>
 POST
@@ -1112,6 +1121,9 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/session-settle
 }
 ```
 
+<aside class="notice">
+t(:usdcQueryLimit)
+</aside>
 
 <p class="fake_header">t(:httprequest)</p>
 POST
