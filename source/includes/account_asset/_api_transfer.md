@@ -423,6 +423,69 @@ GET
 # t(:withdraw_and_deposit)
 t(:transfer_para)
 
+### t(:allowDepositList)
+> t(:codequote_curlExample)
+
+```console
+curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/public/deposit/allowed-deposit-list?coin=ETH&chain=ETH&page_index=1&page_size=10'
+```
+
+```python--pybit
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "result": {
+        "config_list": [
+            {
+                "coin": "ETH",
+                "chain": "ETH",
+                "coin_show_name": "ETH",
+                "chain_type": "ETH",
+                "block_confirm_number": 12,
+                "min_deposit_amount": "0"
+            }
+        ],
+        "total": "1"
+    },
+    "ext_info": null,
+    "time_now": 1652841868446
+}
+```
+
+t(:allowDepositListDesc)
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=allowDepositList>/asset/v1/public/deposit/allowed-deposit-list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#allowDepositList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|coin |false |string |t(:allowDepositCoin) |
+|chain |false |string |t(:allowDepositChain) |
+|page_index |false |long |t(:allowDepositPageIndex) |
+|page_size |false |long |t(:allowDepositPageSize) |
+
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|config_list|Array|Object|
+|coin|string|t(:deposit_response_currency_info)|
+|chain|string|t(:deposit_response_chainname)|
+|coin_show_name|string|t(:coinShowName)|
+|chain_type|string|t(:coin_info_chain_type)|
+|block_confirm_number|long|t(:coin_info_confirmation)|
+|min_deposit_amount|string|t(:minDepositAmount)|
+
+
 ### t(:depositsrecordquery)
 > t(:codequote_curlExample)
 
