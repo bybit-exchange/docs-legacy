@@ -977,7 +977,6 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#currency-currency-coin">coin</a> |<b>true</b> |string |t(:coin_info_coin)|
-|chain|false|string|t(:deposit_addr_chain_info)
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
