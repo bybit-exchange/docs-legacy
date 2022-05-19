@@ -860,8 +860,13 @@ zh-cn:
   spot_rate_text_limitReset: 如果您已超過該接口當前窗口頻率限製，該字段表示下個可用時間窗口的時間戳（毫秒），即什麽時候可以恢復訪問；如果您未超過該接口當前窗口頻率限製，該字段表示返回的是當前服務器時間（毫秒).
   ### Rate Limits For All Endpoints
   perendpoint: 接口頻率限製表
+  assetRateLimitIntro: 充值與提現接口頻率限製和現貨劃轉相關接口頻率限製是分開計算的。
   perendpointtransfer: 現貨劃轉接口的頻率限製
+
+  perendpointDepositWithdraw: 提現與充值接口的頻率限製
+
   ratelimitUsdc: 每個接口的頻率限製是單獨分開計算的。
+
   ### Order Limits
   orderlimits: 下單限製
   rate_para_limits: |
@@ -1381,6 +1386,35 @@ zh-cn:
   account_asset_err_90009: 劃轉ID已存在
   account_asset_err_90010: 轉入賬戶類型不能作為轉出賬戶類型
   account_asset_err_90011: 獲取子賬戶列表失敗
+  account_asset_err_90012: 查詢提現記錄錯誤
+  account_asset_err_90013: 查詢充值記錄錯誤
+  account_asset_err_90014: 暫不支持子賬號
+  account_asset_err_90015: 該幣種不能充值
+  account_asset_err_90016: 充值链查询错误
+  account_asset_err_90029: 灰度期用戶不在白名單
+  account_asset_err_90030: 提幣地址不在白名單
+  account_asset_err_90031: 用戶狀態異常
+  account_asset_err_90032: 用戶敏感操作，24小時內禁止提現
+  account_asset_err_90033: 系統正在維護
+  account_asset_err_90034: 該幣種提幣已關閉
+  account_asset_err_90035: 提幣金額小於單筆提幣下限
+  account_asset_err_90036: 提幣金額大於單筆提幣上限
+  account_asset_err_90037: 超出平台當天提現額度上限
+  account_asset_err_90038: 超過kyc限額
+  account_asset_err_90039: 現貨做市商提現超額
+  account_asset_err_90040: 提現正在處理中
+  account_asset_err_90041: 現貨賬戶不存在
+  account_asset_err_90042: 現貨賬戶可用餘額不足
+  account_asset_err_90043: 合約賬戶可用餘額不足
+  account_asset_err_90044: 提現失敗
+  account_asset_err_90045: 提現記錄不存在
+  account_asset_err_90046: 提現發起者不一致
+  account_asset_err_90047: 提現熱錢包狀態不允許取消
+  account_asset_err_90048: 提現狀態不允許取消
+  account_asset_err_90049: 撤銷提現加錢失敗
+  account_asset_err_90050: 封禁登錄狀態不允許提現
+  account_asset_err_90051: 用戶提現被封禁
+  account_asset_err_90052: 重放請求拒絕
 
   err_10000: 處理請求時發生未知錯誤
   err_10001: 參數錯誤
@@ -1720,7 +1754,7 @@ zh-cn:
   err_130090: 風險限額無效
 
   ### LinearPosition
-  linear_row_comment_qty: 委托數量(BTC)
+  linear_row_comment_qty: 委托數量(USDT)
   linear_row_comment_reduceOnly:  <a href="https://help.bybit.com/hc/zh-cn/articles/360039260574-%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%AA%E5%87%8F%E4%BB%93-"> 什麽是 reduce-only order?</a>,true-平倉 false-開倉,ture時止盈止損設置不生效
   linear_row_comment_closeOnTrigger: <a href="https://help.bybit.com/hc/zh-cn/articles/360039260534-%E4%BB%80%E4%B9%88%E6%98%AF%E8%A7%A6%E5%8F%91%E5%90%8E%E5%B9%B3%E4%BB%93-"> 什麽是 close on trigger order?</a>只會減少您的倉位而不會增加您的倉位。如果當平倉委托被觸發時，賬戶上的余額不足，那麽該合約的其他委托將被取消或者降低委托數量。使用此選項可以確保您的止損單被用於減倉而非加倉。
   linear_account_para_placeActive: |
@@ -1933,8 +1967,12 @@ zh-cn:
   restapi_update_20220314: 在<code>ticketInfo</code> topic中增加 <code>m</code> (是 maker)標誌
   restapi_update_20210826: 資產劃轉API發布
 
+  restapi_update_20220519: 提現與充值API發布
+
+
   restapi_update_2022042501: 支持獲取2年內用戶成交記錄。
   restapi_update_2022042801: 支持<code>coin</code>级别切换單倉模式和雙倉模式。
+
 
   restapi_update_2021101201: 修復USDT合約<a href="#t-querysymbol">Query Symbol</a>接口中<code>price_scale</code>返回參數。
 
@@ -2417,8 +2455,133 @@ zh-cn:
   accountType_spot: 現貨賬戶
   accountType_contract: 期貨賬戶
   accountType_investment: 理財賬戶
+  accountType_usdc: "- USDC衍生品賬戶"
 
+#充值/提現API數據接口 -- 開始
+  withdraw_and_deposit: 充值與提現接口
+  allowDepositList: 支持的充值列表查詢接口
+  allowDepositListDesc: 是一個公共接口。 coin和chain必須在輸入參數中配對出現。 否則，視為無條件查詢。
+  coinShowName: Coin show name
+  minDepositAmount: 最低充值金額
+  allowDepositCoin: 充值幣種. coin和chain必須在輸入參數中配對出現。 否則，視為無條件查詢。
+  allowDepositChain: 充值鏈名. coin和chain必須在輸入參數中配對出現。 否則，視為無條件查詢。
+  allowDepositPageIndex: |
+    頁面索引：用於分頁。 默認值：1
+  allowDepositPageSize: |
+    每頁的數量。 默認值：10
 
+  depositsrecordquery: 充值記錄查詢
+  depositsrecorddesc: |
+    規則：只查詢現貨賬戶的充值記錄，按id倒序進行，開始時間和截止時間差最大限制為30天
+  depositwithdrawstarttime: |
+    開始時間 (精確到秒)。  默認為當前時間之前30天
+  depositwithdrawendtime: |
+    結束時間 (精確到秒)。 默認為當前時間
+  depositcursorinfo: |
+    游標信息：用來分頁。 默認空
+  depositcurrencyinfo: |
+    幣種名：舉例，BTC。默認全部
+  depositlimitinfo: |
+    每頁條數。0< limit <=50 默認為50
+  depositdirectioninfo: |
+    上一頁Prev，下一頁 Next。默認下一頁
+  deposit_response_chainname: 鏈名
+  deposit_response_amt: 充值的數量
+  deposit_response_txid : |
+    交易ID。充值失敗/取消充值：為空
+  deposit_response_status: |
+    <p>0=未知<br>
+    1=待確認 <br>
+    2=上賬中 <br>
+    3=已完成 <br>
+    4=充值失敗 </p>
+  deposit_target_addr: 充值的目標地址
+  deposit_response_tag: 充值目標地址的tag
+  deposit_response_depositFee: 充值手續費
+  deposit_response_updateTime: 最後更新時間
+  deposit_confirmations: 确认区块的数量
+  deposit_tx_index: 交易序列号
+  deposit_block_hash: 鏈上的哈希數
+  deposit_response_cursor: |
+    游標信息：用來分頁
+  deposit_response_currency_info: 充值的幣種
+
+  withdrawrecordquery: 提現記錄查詢
+  withdrawrecorddesc: |
+    規則：按id倒序進行，開始時間和截止時間差最大限制為30天
+  withdraw_id: 提現ID。 (提現API響應參數中的提現請求ID)
+  withdraw_response_amt: 提現的數量
+  withdraw_response_chainname: 鏈名
+  withdraw_response_txid : |
+    交易ID。提現失敗/提現撤銷：為空
+  withdraw_response_status: |
+    <table border=1><tr><th>接口返回值</th><th>對應c端狀態</th><th>狀態值</th></tr>
+    <tr><td>ToBeConfirmed</td><td></td><td>SecurityCheck</td></tr>
+    <tr><td>UnderReview</td><td>安全檢查</td><td>SecurityCheck</td></tr>
+    <tr><td>UnderFinalReview</td><td>安全檢查</td><td>SecurityCheck</td></tr>
+    <tr><td>Pending</td><td>進行中</td><td>Pending</td></tr>
+    <tr><td>Packed</td><td>進行中>/td><td>Pending</td></tr>
+    <tr><td>Download</td><td>進行中</td><td>Pending</td></tr>
+    <tr><td>Broadcasted</td><td>進行中</td><td>Pending</td></tr>
+    <tr><td>Success</td><td>轉賬成功</td><td>success</td></tr>
+    <tr><td>CancelByUser</td><td>已取消</td><td>CancelByUser</td></tr>
+    <tr><td>Reject</td><td>駁回</td><td>Reject</td></tr>
+    <tr><td>Expire</td><td>失敗</td><td>Fail</td></tr>
+    <tr><td>Processing</td><td>進行中</td><td>Pending</td></tr>
+    <tr><td>Fail</td><td>失敗</td><td>Fail</td></tr>
+    <tr><td>AutoReject</td><td>駁回</td><td>Reject</td></tr>
+    </table>
+  withdraw_target_addr: 提現目標地址
+  withdraw_response_tag: 提現目標地址的tag
+  withdraw_response_withdrawFee: 提現手續費
+  withdraw_response_updateTime: 提幣狀態更新時間
+  withdraw_response_createTime: 發起提幣時間
+  withdraw_response_cursor: |
+    游標信息：用來分頁
+  withdraw_response_currency_info: 提現的幣種
+
+  coin_info_query: 幣種信息查詢
+  coin_info_desc: |
+    規則：按id倒序進行，無須分頁，限頻跟目前線上接口保持一致
+  coin_info_coin: 幣種
+  coin_info_frozen_balance: 凍結餘額
+  coin_info_name: 幣種名稱
+  coin_info_remain_amt: 該幣種當前最大可提現數量
+  coin_info_chain_type: 鏈名
+  coin_info_confirmation: 充值上賬確認數
+  coin_info_withdraw_fee: 提現手續費。如果提現費為空，則表示該幣不支持提現
+  coin_info_deposit_min: 最小充值數量
+  coin_info_withdraw_min: 最小提現數量
+
+  asset_info_query: 資產信息查詢
+  asset_info_account_type: |
+    賬戶類型。默認為現貨賬戶: ACCOUNT_TYPE_SPOT
+  asset_info_status: |
+    <p>賬戶狀態: ACCOUNT_STATUS_NORMAL -- 正常 <br>
+    ACCOUNT_STATUS_UNSPECIFIED -- 不正常 </p>
+  asset_info_frozen_balance: 掛單凍結金額
+  asset_info_available_balance: 可用餘額
+  asset_info_withdraw: 暫時沒有值
+
+  withdraw_info: 提現
+  withdraw_addr: 地址。地址校驗是否存在提現地址的白名單
+  withdraw_tag: 存在tag的需要填寫
+  withdraw_amount: |
+    提幣數量。規則：大於等於最小提幣金額，最小提幣金額可從幣種信息接口獲取。
+#  withdraw_request_id: 提現單ID
+
+  cancel_withdraw: 撤銷提幣
+  cancel_withdraw_response: |
+    結果對象（撤單申請結果：1成功，0失敗）
+
+  deposit_addr_info: 充值地址信息查詢
+  deposit_addr_info_desc: |
+    規則：子賬號暫不支持充值
+  deposit_addr_chain_info: |
+    鏈名：從幣種信息中獲取；未填寫時返回全部
+  deposit_coin: 充值的幣種
+  deposit_address: 充值地址
+  deposit_tag: 充值tag
 
   #### usdc合約相关
   usdc: USDC合約
