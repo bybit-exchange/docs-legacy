@@ -5,7 +5,8 @@ t(:ENUMs_para)
 * `CONTRACT`  t(:accountType_contract)
 * `SPOT`      t(:accountType_spot)
 * `INVESTMENT` t(:accountType_investment)
-* `OPTION` t(:accountType_usdc)
+* `OPTION` t(:accountType_option)
+
 
 ## Currency (`currency`/`coin`)
 * `BTC`

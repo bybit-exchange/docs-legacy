@@ -3,7 +3,7 @@
 > t(:websocket_codequote_auth_spot)
 
 ```python--pybit
-# based on: https://github.com/verata-veritatis/pybit/blob/master/pybit/__init__.py
+# based on: https://github.com/bybit-exchange/pybit/blob/master/pybit/_http_manager.py
 
 import hmac
 import json
@@ -36,6 +36,9 @@ ws.send(
 )
 ```
 
+<aside class="notice">
+t(:spot_websocket_endpoints_aside)
+</aside>
 
 t(:spot_websocket_para_endpoint)
 
@@ -269,7 +272,7 @@ t(:spot_public_websocket_frequency_300_delay_400)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| t | number | t(:spot_timestamp) |
+| t | number | t(:spot_time) |
 | s | string | t(:spot_symbol) |
 | sn | string | t(:spot_symbol) |
 | c | string | t(:spot_close)|
@@ -456,7 +459,7 @@ t(:spot_public_websocket_frequency_300_delay_650)
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:----- |----- |
 | e | number | t(:spotExchangeId) |
-| t | number | t(:spot_timestamp) |
+| t | number | t(:spot_timestamp2) |
 | s | string | t(:spot_symbol) |
 | v | string | t(:spot_version) |
 | b | array | t(:spot_buys) |
@@ -561,7 +564,7 @@ t(:spot_public_websocket_frequency_300_delay_650)
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:----- |----- |
-| t | number | t(:spot_timestamp) |
+| t | number | t(:spot_timestamp2) |
 | s | string | t(:spot_symbol) |
 | v | string | t(:spot_version) |
 | b | array | t(:spot_buys) |
@@ -660,13 +663,75 @@ t(:spot_public_websocket_frequency_300_delay_650)
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 | e | number | t(:spotExchangeId) |
-| t | number | t(:spot_timestamp) |
+| t | number | t(:spot_timestamp2) |
 | s | string | t(:spot_symbol) |
 | v | string | t(:spot_version) |
 | b | array | t(:spot_buys) |
 | a | array | t(:spot_sells) |
 | f | boolean | t(:spot_first) |
 | o | number | t(:spotIgnore) |
+
+
+### t(:websocketLtNetvalue)
+> t(:codequote_subscribe)
+
+```javascript
+{
+    "topic": "lt",
+    "symbol": "BTC3LUSDTNAV",
+    "event": "sub",
+    "params": {
+        "binary": False
+    }
+}
+```
+
+```python--pybit
+
+```
+
+> t(:codequote_responseExampleFormatAll)
+
+```javascript
+{
+    "symbol":"BTC3LUSDTNAV",
+    "symbolName":"BTC3LUSDTNAV",
+    "topic":"lt",
+    "params":{
+        "realtimeInterval":"24h",
+        "binary":"false"
+    },
+    "data":[
+        {
+            "t":1650272320201,
+            "s":"BTC3LUSDTNAV",
+            "nav":"8.36157024279442973500",
+            "b":"0.000741332244224795",
+            "l":"3.448586744632192167",
+            "loan":"-20.474030060817421380",
+            "ti":"18969.901970158967556311",
+            "n":"14.063000000262307568"
+        }
+    ],
+    "f":"True",
+    "sendTime":1650272320374
+}
+```
+t(:spot_websocket_lt_nav_desc_v1)
+
+<p class="fake_header">t(:responseparameters)</p>
+
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| t | number | t(:spot_timestamp) |
+| s | string | t(:spotLtSymbolNav) |
+| nav | string | t(:spotResNetValue) |
+| b | string | t(:spotLtQuoteBasket) |
+| l | string | t(:spotLeverage) |
+| loan | string | t(:spotLoan) |
+| ti | string | t(:spotResCirculation) |
+| n | string | t(:spotTotalPositionValue) |
+
 
 ## t(:publictopics_v2)
 ### t(:websocketv2depth)
@@ -760,7 +825,7 @@ t(:spot_public_websocket_frequency_250_delay_300)
 | symbol | string | t(:spot_symbol) |
 | symbolName | string | t(:spot_symbol) |
 | binary | string | t(:spot_binary) |
-| t | number | t(:spot_timestamp) |
+| t | number | t(:spot_timestamp2) |
 | s | string | t(:spot_symbol) |
 | v | string | t(:spot_version) |
 | b | string | t(:spot_buy) |
@@ -916,7 +981,7 @@ t(:spot_public_websocket_frequency_near_realtime)
 | binary | string | t(:spot_binary) |
 | symbolName | string | t(:spot_symbol) |
 | v | string | t(:spot_transactId) |
-| t | number | t(:spot_timestamp) |
+| t | number | t(:spot_time) |
 | p | string | t(:spot_price) |
 | q | string | t(:spot_quantity)|
 | m | boolean | t(:spot_side) |
@@ -992,7 +1057,7 @@ t(:spot_public_websocket_frequency_250_delay_300)
 | bidQty | string | t(:spot_buy_qty) |
 | askPrice | string | t(:spot_sell_price)|
 | askQty | boolean | t(:spot_sell_qty) |
-| time | member | t(:spot_timestamp) |
+| time | member | t(:spot_timestamp2) |
 
 
 ### t(:websocketv2realtimes)
@@ -1065,7 +1130,7 @@ t(:spot_public_websocket_frequency_near_realtime)
 | symbol | string | t(:spot_symbol) |
 | binary | string | t(:spot_binary) |
 | symbolName | string | t(:spot_symbol) |
-| t | number | t(:spot_timestamp) |
+| t | number | t(:spot_time) |
 | s | string | t(:spot_symbol) |
 | c | string | t(:spot_close)|
 | h | string | t(:spot_high)|
@@ -1215,7 +1280,7 @@ t(:spot_public_websocket_frequency_realtime)
 | A | string | t(:spot_match_account_id) |
 | C | boolean | t(:spot_is_close) |
 | v | string | t(:spot_leverage) |
-
+| d | string | t(:spot_liquidation_type) |
 
 ### t(:ticketInfo)
 > t(:spot_private_topics_auth_sub)
@@ -1248,7 +1313,8 @@ while True:
     "c":"1621910874883",
     "O":"899062000118679808",
     "a":"10043",
-    "A":"10024"
+    "A":"10024",
+    "m":true
   }
 ]
 ```
@@ -1273,3 +1339,4 @@ t(:spot_public_websocket_frequency_realtime)
 | O | string | t(:spot_match_order_id) |
 | a | string | t(:spot_account_id) |
 | A | string | t(:spot_match_account_id) |
+| m | boolean | t(:spot_ticket_info_maker) |

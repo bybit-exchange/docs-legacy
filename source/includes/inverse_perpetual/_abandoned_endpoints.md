@@ -344,7 +344,7 @@ GET
 |t(:row_parameter_stop_order_type) |string |t(:row_comment_stopOrderType)  |
 |t(:row_parameter_trigger_price) |string |t(:row_comment_triggerBy)  |
 |base_price |number |t(:row_response_comment_basePrice)  |
-|order_link_id |string |t(:row_response_comment_orderLinkId)  |
+|order_link_id |string |t(:row_comment_orderLinkId)  |
 |created_at |string |t(:row_comment_created_at)  |
 |updated_at |string |t(:row_comment_updated_at)  |
 |stop_px |number |t(:linear_row_comment_stopPx)  |
@@ -544,7 +544,7 @@ POST
 |t(:row_parameter_stop_order_type) |string |t(:row_comment_stopOrderType)  |
 |t(:row_parameter_trigger_price) |string |t(:row_comment_triggerBy)  |
 |base_price |number |t(:row_response_comment_basePrice)  |
-|order_link_id |string |t(:row_response_comment_orderLinkId)  |
+|order_link_id |string |t(:row_comment_orderLinkId)  |
 |created_at |string |t(:row_comment_created_at)  |
 |updated_at |string |t(:row_comment_updated_at)  |
 |stop_px |number |t(:linear_row_comment_stopPx)  |
@@ -749,7 +749,7 @@ print(client.Wallet.Wallet_getRiskLimit().result())
 t(:account_para_getRisk)
 
 <aside class="notice">
-t(:account_aside_getRisk)
+t(:account_aside_getRisk_inverse)
 </aside>
 
 <p class="fake_header">t(:httprequest)</p>
@@ -770,7 +770,7 @@ GET
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)   |
 |limit |number |t(:row_comment_risk_limit)    |
 |maintain_margin |string |t(:row_comment_maintain_margin)  |
-|starting_margin |string |t(:row_comment_starting_margin)  |
+|starting_margin |string |t(:row_comment_starting_margin_inverse)  |
 |section |string |t(:row_comment_section)  |
 |is_lowest_risk |number |t(:row_comment_is_lowest_risk)    |
 |created_at |string |t(:row_comment_created_at)  |
@@ -860,7 +860,7 @@ print(client.Wallet.Wallet_setRiskLimit(symbol="BTCUSD", risk_id=2).result())
 t(:account_para_setRisk)
 
 <aside class="notice">
-t(:account_aside_getRisk)
+t(:account_aside_getRisk_inverse)
 </aside>
 
 <p class="fake_header">t(:httprequest)</p>
@@ -912,7 +912,7 @@ POST
 |risk>coin |string |t(:row_comment_coin_type)  |
 |risk>limit |number |t(:row_comment_risk_limit)    |
 |risk>maintain_margin |string |t(:row_comment_maintain_margin)  |
-|risk>starting_margin |string |t(:row_comment_starting_margin)  |
+|risk>starting_margin |string |t(:row_comment_starting_margin_inverse)  |
 |risk>section |string |t(:row_comment_section)  |
 |risk>is_lowest_risk |number |t(:row_comment_is_lowest_risk)    |
 |risk>created_at |string |t(:row_comment_created_at)  |

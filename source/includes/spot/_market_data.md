@@ -2,7 +2,7 @@
 t(:market_para_auth)
 
 
-### t(:querysymbol)
+### t(:spot_querysymbol)
 > t(:codequote_curlExample)
 
 ```console
@@ -36,7 +36,8 @@ print(session.query_symbol())
             "minPricePrecision": "0.01",
             "maxTradeQuantity": "2",
             "maxTradeAmount": "200",
-            "category": 1
+            "category": 1,
+            "innovation": false
         },
         {
             "name": "ETHUSDT",
@@ -50,7 +51,8 @@ print(session.query_symbol())
             "minPricePrecision": "0.01",
             "maxTradeQuantity": "2",
             "maxTradeAmount": "200",
-            "category": 1
+            "category": 1,
+            "innovation": false
         }
     ]
 }
@@ -84,6 +86,7 @@ GET
 | maxTradeQuantity | string |t(:spotmaxTradeQuantity)|
 | maxTradeAmount | string |t(:spotmaxTradeAmount)|
 | category | int  |t(:spotCategory)|
+| innovation | boolean |t(:spotInnovation)|
 
 
 ### t(:orderbook)

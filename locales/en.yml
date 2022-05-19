@@ -5,6 +5,8 @@ en:
   inverse_perpetual: Inverse Perpetual
   linear_perpetual: USDT Perpetual
   account_asset: Account Asset
+  usdc_option: Option
+  usdc_perpetual: Perpetual
   search: Search
   comment_abandoned: <b>Abandoned!!</b>
   httprequest: HTTP Request
@@ -27,13 +29,15 @@ en:
   row_comment_position_id: PositionID
   row_comment_position_idx: |
     Position idx, used to identify positions in different position modes<span>:</span> <br/>0-One-Way Mode <br/>1-Buy side of both side mode <br/> 2-Sell side of both side mode
+  row_comment_position_idx_create_order: |
+    Position idx, used to identify positions in different position modes. <b>Required</b> if you are under One-Way Mode<span>:</span> <br/>0-One-Way Mode <br/>1-Buy side of both side mode <br/> 2-Sell side of both side mode
   row_comment_position_idx_leverage: Deprecated!! Position idx
   row_comment_position_mode: Position mode
   row_comment_position_size: Position qty
   row_comment_position_value: Position value
   row_comment_entry_price: Average entry price
   row_comment_isolated: <code>true</code> means isolated margin mode; <code>false</code> means cross margin mode
-  row_comment_auto_add_margin: Whether to add margin automatically
+  row_comment_auto_add_margin: Whether or not <a href="https://help.bybit.com/hc/en-us/articles/900000394403-Introduction-to-Auto-Margin-Replenishment-USDT-Contract-),">auto-margin replenishment</a> is enabled
   row_comment_position_margin: Position margin
   row_comment_effective_leverage: Effective leverage
   row_comment_liq_price: Liquidation price
@@ -43,7 +47,7 @@ en:
     Pre-occupied funding fee: calculated from position qty and current funding fee
   row_comment_take_profit: Take profit price
   row_comment_stop_loss: Stop loss price
-  row_comment_trailing_stop: Trailing stop
+  row_comment_trailing_stop: Trailing stop (the distance from the current price)
   row_comment_position_status: |
     Position status: <code>Normal</code>, <code>Liq</code>, <code>Adl</code>
   row_comment_deleverage_indicator: Deleverage indicator level (1,2,3,4,5)
@@ -82,7 +86,8 @@ en:
   row_comment_coin_type: Coin type
   row_comment_risk_limit: Risk limit
   row_comment_maintain_margin: Maintain margin
-  row_comment_starting_margin: Starting margin
+  row_comment_starting_margin_inverse: Starting margin. The same as the "Initial Margin %" shown <a href="https://help.bybit.com/hc/en-us/articles/360039749753-Risk-Limit-Inverse-Contract-">in the risk limit tables</a>
+  row_comment_starting_margin_linear: Starting margin. The same as the "Initial Margin %" shown <a href="https://help.bybit.com/hc/en-us/articles/900000170023-Risk-Limit-USDT-Contract-">in the risk limit tables</a>
   row_comment_section: Section
   row_comment_is_lowest_risk: |
     Is lowest risk. <code>0</code>: No; <code>1</code>: Yes
@@ -97,12 +102,14 @@ en:
   row_comment_api_key: API key
   row_comment_type: Key type
   row_comment_position_user_id: User ID
-  row_comment_position_inviter_id: Inviter ID
+  row_comment_position_inviter_id: Inviter ID (the UID of the account which invited this account to the platform)
   row_comment_position_ips: IP
   row_comment_note: Note
   row_comment_permissions: ApiKey permission
   row_comment_expired_at: Expire time
   row_comment_read_only: ReadOnly
+  row_comment_vip_level: VIP Level
+  row_comment_mkt_maker_level: Market maker level
   row_comment_lcp_date: Date
   row_comment_lcp_self_ratio: Deprecated! Personal effective ratio
   row_comment_lcp_platform_ratio: Deprecated! Platform effective ratio
@@ -140,7 +147,7 @@ en:
   row_comment_price: Order price. <b>Required</b> if you make limit price order
   row_comment_stopOrderPrice: Execution price for conditional order. <b>Required</b> if you make limit price order
   row_comment_basePrice: It will be used to compare with the value of <code>stop_px</code>, to decide whether your conditional order will be triggered by crossing trigger price from upper side or lower side. Mainly used to identify the expected direction of the current conditional order.
-  row_comment_stopPx: Trigger price
+  row_comment_stopPx: Trigger price. If you're expecting the price to rise to trigger your conditional order, make sure stop_px > max(market price, base_price) else, stop_px < min(market price, base_price)
   row_comment_timeInForce: <a href="https://help.bybit.com/hc/en-us/articles/360039749233-What-Are-Time-In-Force-TIF-GTC-IOC-FOK-">Time in force</a>
   row_comment_triggerBy: Trigger price type. Default <code>LastPrice</code>
   row_comment_tp_size: Take profit quantity (when in <a href="#t-switchmode">partial mode</a>)
@@ -178,6 +185,10 @@ en:
   row_comment_endTime_ms: End timestamp point for result, in milliseconds
   row_comment_startTime_ms_week: Start timestamp point for result, in milliseconds. Timestamp must be within seven days of the current date. For earlier records, please contact customer support
   row_comment_endTime_ms_week: End timestamp point for result, in milliseconds. Timestamp must be within seven days of the current date. For earlier records, please contact customer support
+  row_comment_startTime_ms_2years: Start timestamp point for result, in milliseconds. Timestamp must be within two years of the current date. For earlier records, please contact customer support
+  row_comment_endTime_ms_2years: End timestamp point for result, in milliseconds. Timestamp must be within two years of the current date. For earlier records, please contact customer support
+  row_comment_symbol_with_coin: Symbol. <b>Required</b> if not passing <code>coin</code>
+  row_comment_coin_with_symbol: <code>currency</code> alias. <b>Required</b> if not passing <code>symbol</code>
   row_comment_riskId: <a href="#t-getrisklimit">Risk ID</a>
   row_comment_closed_size: The corresponding closing size of the closing order
   row_comment_rate_limit: Limit
@@ -189,6 +200,7 @@ en:
   row_comment_limit_100: Limit for data size per page, max size is 100. Default as showing 50 pieces of data per page
   row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page
   row_comment_limit_50_500: Limit for data size per page, max size is 500. Default as showing 50 pieces of data per page
+  row_comment_limit_100_500: Limit for data size per page, max size is 500. Default as showing 100 pieces of data per page
   row_comment_period: Data recording period. <code>5min</code>, <code>15min</code>, <code>30min</code>, <code>1h</code>, <code>4h</code>, <code>1d</code>
   row_comment_last_exec_time: Last execution time
   row_comment_last_exec_price: Last execution price
@@ -207,7 +219,7 @@ en:
   row_comment_resp_size: Symbol contracts
   row_comment_resp_open_time: Starting time
   row_comment_resp_volume: Trading volume
-  row_comment_resp_turnover: Transaction amount
+  row_comment_resp_turnover: <a href="#t-faq_turnover">Turnover</a>
   row_comment_resp_bid_price: Purchase price of the first order
   row_comment_resp_ask_price: Selling price of the first order
   row_comment_resp_last_price: Latest transaction price
@@ -232,10 +244,10 @@ en:
   row_comment_resp_open_interest_e8: Open interest * 10^8
   row_comment_resp_open_value: Open position value
   row_comment_resp_open_value_e8: Open position value * 10^8
-  row_comment_resp_total_turnover: Total turnover
-  row_comment_resp_total_turnover_e8: Total turnover * 10^8
-  row_comment_resp_turnover_24h: Turnover for 24H
-  row_comment_resp_turnover_24h_e8: Turnover for 24H * 10^8
+  row_comment_resp_total_turnover: Total <a href="#t-faq_turnover">turnover</a>
+  row_comment_resp_total_turnover_e8: Total <a href="#t-faq_turnover">turnover</a> * 10^8
+  row_comment_resp_turnover_24h: <a href="#t-faq_turnover">Turnover</a> for 24h
+  row_comment_resp_turnover_24h_e8: <a href="#t-faq_turnover">Turnover</a> for 24h * 10^8
   row_comment_resp_total_volume: Total volume
   row_comment_resp_total_volume_e8: Total volume * 10^8
   row_comment_resp_volume_24h: Trading volume in the last 24 hours
@@ -267,12 +279,14 @@ en:
   row_comment_sell_ratio: Short position ratio
   row_comment_tp_sl_mode: TrailingProfit or StopLoss mode <code>Full</code> or <code>Partial</code>
   row_comment_mode: Position mode,  <code>MergedSingle</code> or <code>BothSide</code>
+  row_comment_taker_fee_rate: Taker fee rate
+  row_comment_maker_fee_rate: Maker fee rate
+
 
   row_response_comment_price: Order price
   row_response_comment_qty: Order quantity in USD
   row_response_comment_basePrice: Market price at placing order
   row_response_comment_triggerBy: Trigger price type
-  row_response_comment_orderLinkId: Customised order ID
   row_response_comment_id: Latest data ID
   row_response_comment_execprice: Execution price
   row_response_comment_time: UTC time
@@ -284,12 +298,12 @@ en:
   row_response_close_on_trigger: Is close on trigger order
   row_response_comment_base_currency: Base currency
   row_response_comment_quote_currency: Quote currency
-  row_response_comment_price_scale: Price scale (how many decimal places the price of a symbol has)
+  row_response_comment_price_scale: Price scale (the number of decimal places to which a price can be submitted, although the final price may be rounded to conform to the <code>tick_size</code>)
   row_response_comment_taker_fee: Taker fee
   row_response_comment_maker_fee: Maker fee
   row_response_comment_leverage_filter: Leverage filter
   row_response_comment_min_leverage: Min leverage
-  row_response_comment_max_leverage: Max leverage
+  row_response_comment_public_max_leverage: Max leverage (indicates the max leverage, assuming the lowest risk limit setting)
   row_response_comment_leverage_step: Leverage step
   row_response_comment_price_filter: Price filter
   row_response_comment_min_price: Min price
@@ -297,8 +311,10 @@ en:
   row_response_comment_tick_size: Tick size
   row_response_comment_lot_size_filter: Trading quantity info
   row_response_comment_max_trading_qty: Max trading quantity
+  row_response_comment_post_only_max_trading_qty: Max trading quantity of <code>PostOnly</code> orders
   row_response_comment_min_trading_qty: Min trading quantity
   row_response_comment_qty_step: Qty step
+  row_response_funding_interval: Funding fee interval
   row_response_comment_nill_time: Millisecond timestamp
   row_response_comment_trade_id: Trade ID
   row_response_comment_given_cash: Experience gold
@@ -345,6 +361,9 @@ en:
   row_parameter_type: <a href="#order-type-type-ordertypes">type</a>
   row_parameter_timeInForce: <a href="#time-in-force-timeinforce">timeInForce</a>
   spot_row_parameter_orderStatus: <a href="#order-status-status">status</a>
+  row_parameter_ltStatus: <a href="#lt-status-status">status</a>
+  row_parameter_ltOrderStatus: <a href="#lt-order-status-orderstatus">orderStatus</a>
+  row_parameter_ltOrderType: <a href="#lt-order-type-ordertype">orderType</a>
 
 
   enum_withdraw_status_link: <a href="#withdraw-status-status">Withdraw Status Enum</a>
@@ -389,6 +408,7 @@ en:
   intro_para_resources:
     <ul class="bybit-community">
     <li><img src="/images/help_favicon.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong>
+    <li><img src="/images/github_logo_icon.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>Official Python SDK</strong>
     <li><img src="/images/telegram_logo_icon.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong>
     <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong>
     <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong>
@@ -396,6 +416,7 @@ en:
   spot_intro_para_resources:
     <ul class="bybit-community">
     <li><img src="/images/help_favicon.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong>
+    <li><img src="/images/github_logo_icon.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>Official Python SDK</strong>
     <li><img src="/images/telegram_logo_icon.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong>
     <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong>
     <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong>
@@ -477,14 +498,14 @@ en:
   faq_calculating_order_size: Calculating order size based on available wallet balance
   faq_calculating_order_size_para: |
     <ul>
-      <li><code>price * available_balance * leverage * perc * (1 - (0.00075 * 2))</code></li>
+      <li><code>price * available_balance * leverage * perc * (1 - (0.0006 * 2))</code></li>
       <li>Unfortunately this is not a perfectly accurate formula; the real calculation is complex and may be published in the docs at a later date.</li>
       <ul>
         <li><code>price</code> - last price (or your entry price) - can be found with the <a href="#t-latestsymbolinfo">Latest Symbol Info endpoint</a>.</li>
         <li><code>available_balance</code> - can be found with the <a href="#t-myposition">My Position endpoint</a>.</li>
         <li><code>leverage</code> - up to the respective maximum leverage for the market and your risk limit (eg 2, 10, 50).</li>
         <li><code>perc</code> - 0.1 for 10%, 0.25 for 25%, etc.</li>
-        <li><code>1 - (0.00075 * 2)</code> - used to calculate the maximum order cost (always assumes entry &amp; exit orders use taker fee regardless actual fee).</li>
+        <li><code>1 - (0.0006 * 2)</code> - used to calculate the maximum order cost (always assumes entry &amp; exit orders use taker fee regardless actual fee).</li>
       </ul>
     </ul>
 
@@ -526,6 +547,26 @@ en:
       <li>Some values are returned to too many decimal places, or a fraction too high or low, due to a float precision problem.</li>
       <li>For now, we recommend rounding the received value to the correct decimal place. This can be done with reference to the <a href="#t-querysymbol">Query Symbol</a> endpoint.</li>
       <li>This issue will be fixed in the next major version of the API; unfortunately, it is not fixable in the short-term.</li>
+    </ul>
+
+  faq_data_resilience: How can I ensure I am using up-to-date data?
+  faq_data_resilience_para: |
+    <ul>
+      <li>It is possible, although unlikely, that the REST API or (even less likely) the websocket could return/push old data.</li>
+      <li>For the greatest level of data resilience, we recommend clients to:
+        <ul>
+          <li>firstly, rely on the websocket, which will not only ensure you get the latest data as fast as possible, but will also ensure you get <i>complete</i> data</li>
+          <li>secondly, query the REST API to fill in any discrepencies in data - or between websocket disconnections.</li>
+        </ul>
+      <li>The best practice is to save all of this data locally in your own database or cache.</li>
+      <li>This frees up your rate limits for other requests and also ensures a level of redundancy against the exchange in case of data delays.</li>
+    </ul
+
+  faq_turnover: What is the difference between turnover and volume?
+  faq_turnover_para: |
+    <ul>
+      <li>Turnover: is in the opposite currency to the quantity's currency</li>
+      <li>Volume: is in the same currency as the quantity's currency</li>
     </ul>
 
 
@@ -625,9 +666,9 @@ en:
   auth_para_construct3:
     <p>3. Append the sign parameter to the end of the parameters string, and send the HTTP request. Note that the message format for GET and POST requests is different. Please refer to the examples.</p>
   auth_aside_signature:
-    Example signature algorithms can be found <a href="https://github.com/bybit-exchange/api-connectors/tree/master/encryption_example">here</a>.
+    Example signature algorithms can be found <a href="https://github.com/bybit-exchange/api-usage-examples">here</a>.
   spot_auth_aside_signature:
-    Examples of signing algorithms can be found <a href="https://github.com/bybit-exchange/api-connectors/tree/master/encryption_example">here</a>.
+    Examples of signing algorithms can be found <a href="https://github.com/bybit-exchange/api-usage-examples">here</a>.
   spot_auth_codequote_construct1a:
     An example for balance query
   spot_auth_codequote_construct1b:
@@ -640,7 +681,7 @@ en:
 
   ### Orderbook
   orderbook: Order Book
-  market_para_orderbook: Get the orderbook. Each side has a depth of 50.
+  market_para_orderbook: Get the orderbook. Each side has a depth of 25.
   market_aside_orderbook: The response is in the snapshot format.
   ### Query Kline
   querykline: Query Kline
@@ -666,6 +707,7 @@ en:
   ### Query Symbol
   querysymbol: Query Symbol
   market_para_querySymbol: Get symbol info.
+  spot_querysymbol: Query Symbol
   ### Query Liquidated Orders
   query_liqrecords: Liquidated Orders
   market_para_query_liqrecords: Retrieve the liquidated orders, The query range is the last seven days of data.
@@ -701,13 +743,13 @@ en:
   ## Active Orders
   activeorders: Active Orders
   account_para_placeActive: |
-    <p>Market price active order: A traditional market price order which will be filled at the best available price. <code>price</code> is not required for this type of order.
+    <p>Market price: A traditional market price order which will be filled at the best available price. <code>price</code> is not required for this type of order.
     <b>To protect market order from excessive slippage, Bybit converts a market order into a limit order with a spread. A market buy order is converted into a limit order at a higher than best ask price; a market sell order is converted into a limit order at a lower than best bid price.
        The converted limit price and executed price are both available in trade history.</b>.</p>
-    <p>Limit price active order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
+    <p>Limit price: You can set an execution price for your order. The system will fill your order once the last traded price reaches your execution price.</p>
     <p><b>Take profit/Stop loss: You may only set a TP/SL conditional order upon opening the position. Once you hold a position, any new active order requests which contain TP/SL data will be accepted but the TP/SL data will be ignored. <code>tp_trigger_by</code>/<code>sl_trigger_by</code> default to LastPrice. Passing values to the <code>take_profit</code> or <code>stop_loss</code> parameters in this endpoint will create conditional orders managed by the system, which will be be automatically cancelled if the position is closed.</b></p>
     <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell. All USD markets have a contract size of 1 USD. See more</p>
-    <p>Order price: If it is a conditional order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the price_filter field in the <a href="#t-querysymbol">Query Symbol</a> endpoint. This must modulo by 0.5 (20 and 21.5 are accepted, but 16.1 or 16.15 are not).</p>
+    <p>Order price: If it is a conditional order, this parameter is required. When there is no position, the price should be 10% higher than the market price and less than 1 million. For the minimum unit of price movement, please refer to the price_filter field in the <a href="#t-querysymbol">Query Symbol</a> endpoint. This must modulo by 0.5 (20 and 21.5 are accepted, but 16.1 or 16.15 are not).</p>
     <p>Custom order ID: You may customise order IDs for active orders. We will link it to the system order ID, and return the unique system order ID to you after the active order is created successfully. You may use this order ID or your custom order ID to cancel your active order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
     <p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSD instrument and 280 active orders on the ETHUSD instrument.</b></p>
   ### Get Active Order
@@ -755,14 +797,14 @@ en:
     <p>Limit price conditional order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
     <p>Take profit/Stop loss: You may only set a take-profit/stop-loss conditional order upon opening the position. Once you hold a position, the take profit and stop loss information you sent when placing an order will no longer be valid.</p>
     <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell, currently Bybit only support order quantity in an integer.</p>
-    <p>Order price: If it is a stop order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the price_filter field in the <a href="#t-querysymbol">Query Symbol</a> endpoint.</p>
+    <p>Order price: If it is a stop order, this parameter is required. When there is no position, the price should be 10% higher than the market price and less than 1 million. For the minimum unit of price movement, please refer to the price_filter field in the <a href="#t-querysymbol">Query Symbol</a> endpoint.</p>
     <p>Conditional order trigger price: You may set a trigger price for your conditional order. conditional order will not enter the order book until the last price hits the trigger price. When last price hits trigger price: 1) your limit conditional order will enter order book, and wait to be executed; 2) your market conditional order will be executed immediately at the best available market price.</p>
     <p>Customize conditional order ID: You may customize order IDs for active orders. We will link it to the system order ID , and return the unique system order ID to you after the active order is created successfully. You may use this order ID to cancel your active order. The customized order ID is asked to be unique, with a maximum length of 36 characters.</p>
 
   account_aside_placeCond:
-    Take profit/Stop loss is not supported in placing conditional orders. One can only use these 2 functions when placing active orders. Moreover, each account can hold up to 10 conditional orders yet to be filled entirely simultaneously.
+    Take profit/Stop loss is not supported in placing conditional orders. One can only use these 2 functions when placing active orders. Moreover, each account can hold up to 10 conditional orders per symbol yet to be filled entirely simultaneously.
   account_aside_placeCond_linear: |
-    Each account can hold up to 10 conditional orders yet to be filled entirely simultaneously.
+    Each account can hold up to 10 conditional orders per symbol yet to be filled entirely simultaneously.
 
   account_aside_placeActive_linear_warn: |
     Please note:
@@ -828,13 +870,13 @@ en:
   account_para_tradingStop_linear: Set take profit, stop loss, and trailing stop for your open position. If using <a href="#t-switchmode">partial mode</a>, TP/SL/TS orders will not close your entire position.
   account_aside_tradingStop: Passing these parameters will create conditional orders controlled by the system. The system will cancel these orders if the position is closed, and adjust the qty according to the size of the open position.
   account_row_comment_side: Position side
-  account_row_comment_takeProfit: Cannot be less than 0, 0 means cancel TP
-  account_row_comment_stopLoss: Cannot be less than 0, 0 means cancel SL
+  account_row_comment_takeProfit: Cannot be less than 0, 0 means cancel TP (Not effective under <a href="#t-switchmode">partial mode</a>)
+  account_row_comment_stopLoss: Cannot be less than 0, 0 means cancel SL (Not effective under <a href="#t-switchmode">partial mode</a>)
   account_row_comment_tp_trigger_by: |
     Take profit trigger price type, default<span>:</span> <code>LastPrice</code>
   account_row_comment_sl_trigger_by: |
     Stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
-  account_row_comment_trailingStop: Cannot be less than 0, 0 means cancel TS
+  account_row_comment_trailingStop: Cannot be less than 0, 0 means cancel TS (Not effective under <a href="#t-switchmode">partial mode</a>)
   account_row_comment_trailingStop_active: Trailing stop trigger price. Trailing stops are triggered only when the price reaches the specified price. Trailing stops are triggered immediately by default.
 
   ### Closed Profit and Loss
@@ -891,14 +933,16 @@ en:
 
   ### User Trade Records
   usertraderecords: User Trade Records
+  userhistorytraderecords: Extended User Trade Records
   wallet_para_tradeRecords: Get user's trading records. The results are ordered in ascending order (the first item is the oldest).
   wallet_aside_tradeRecords: One order may have multiple trade records.
   wallet_row_comment_orderId: OrderID. If not provided, will return user's trading records
   ## Get Risk Limit
   getrisklimit: Get Risk Limit
   account_para_getRisk: Get risk limit. <b>This endpoint does not require authentication.</b>
-  account_aside_getRisk: Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles/360007107454-Risk-Limit-Overview">here</a>.
-  ## Set Risk Limit
+  account_aside_getRisk_inverse: Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles/360039749753-Risk-Limit-Inverse-Contract-">here</a>.
+  account_aside_getRisk_linear: Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles/900000170023-Risk-Limit-USDT-Contract-">here</a>.
+## Set Risk Limit
   setrisklimit: Set Risk Limit
   account_para_setRisk: Set risk limit.
 
@@ -975,7 +1019,11 @@ en:
   perendpoint: Rate Limits For All Private Endpoints
   assetRateLimitIntro: Rate Limits For Withdraw and Deposit Endpoints counts and Rate Limits For Transfer Endpoints counts are separated.
   perendpointtransfer: Rate Limits For Transfer Endpoints
+
   perendpointDepositWithdraw: Rate Limits For Withdraw and Deposit Endpoints
+
+  ratelimitUsdc: The rate limits for each private endpoint should be considered separately.
+
   ### Order Limits
   orderlimits: Order Limits
   rate_para_limits: |
@@ -1027,12 +1075,12 @@ en:
     User A:
     Orders Filled = 2
     Orders Submitted to Bybit = 8
-    QFR = 2/8 = 25%
+    OFR = 2/8 = 25%
   rate_pre_ratioExampleB: |
     User B:
     Orders Filled = 1
     Orders Submitted to Bybit = 1
-    QFR = 1/1 = 100%
+    OFR = 1/1 = 100%
   ##### Minimum OFR Threshold
   ofrminimum: Minimum OFR Threshold
   rate_para_minimum: 7-day OFR must be kept above 0.1%.
@@ -1124,7 +1172,13 @@ en:
     Second method: Apply for authentication after establishing a connection through auth request.
   websocket_codequote_auth_spot: |
     <p>Apply for authentication when establishing a connection.</p>
-    <p>Note: if you're using <a href="https://github.com/verata-veritatis/pybit">pybit</a> or another high-level library, you can ignore this code - as authentication is handled for you.</p>
+    <p>Note: if you're using <a href="https://github.com/bybit-exchange/pybit">pybit</a> or another high-level library, you can ignore this code - as authentication is handled for you.</p>
+  websocket_endpoints_aside: |
+    <b>Note that the following endpoints only apply to <i>Inverse Perpetual/Futures</i></b>. To listen to other websockets, go to:
+    <ul>
+      <li><a href="https://bybit-exchange.github.io/docs/linear/#t-websocketauthentication">USDT (Linear) Perpetual</a></li>
+      <li><a href="https://bybit-exchange.github.io/docs/spot/#t-websocketauthentication">Spot</a></li>
+    </ul>
   websocket_para_endpoint: |
     <p>Base endpoints:</p>
     <ul>
@@ -1140,6 +1194,12 @@ en:
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button></li>
         </ul>
       </li>
+    </ul>
+  spot_websocket_endpoints_aside: |
+    <b>Note that the following endpoints only apply to <i>Spot</i></b>. To listen to other websockets, go to:
+    <ul>
+      <li><a href="https://bybit-exchange.github.io/docs/inverse/#t-websocketauthentication">Inverse Perpetual/Futures</a></li>
+      <li><a href="https://bybit-exchange.github.io/docs/linear/#t-websocketauthentication">USDT (Linear) Perpetual</a></li>
     </ul>
   spot_websocket_para_endpoint: |
     Base endpoints:
@@ -1178,9 +1238,10 @@ en:
       </li>
     </ul>
   websocket_aside_auth: <b>Public</b> topics do not require authentication. The following section applies to <b>private</b> topics only.
-  websocket_para_methods: There are two methods of authentication, as shown in the code panel to the right.
+  websocket_aside_push_trigger: Typically, websocket messages will only be pushed when a change occurs. You won't receive a snapshot message immediately upon subscription unless otherwise stated. This means that when subscribing to your <code>position</code>, you won't receive any position messages until (for example) your position size changes.
+  websocket_para_methods: Authentication examples are shown in code block.
   spot_websocket_para_methods: There are two authentication methods. Example of signing algorithms can be found here.
-  websocket_aside_signature: Example signature algorithms can be found <a href="https://github.com/bybit-exchange/api-connectors/tree/master/encryption_example">here</a>.
+  websocket_aside_signature: Example signature algorithms can be found <a href="https://github.com/bybit-exchange/api-usage-examples">here</a>.
   websocket_best_practices: Due to network complexity, your may get disconnected at any time. Please follow the instructions below to ensure that you receive WebSocket messages on time:</span>
     <p>1. Keep connection alive by <a href="#t-heartbeat">sending heartbeat packet</a></p>
     <p>2. Reconnect as soon as possible if disconnected</p>
@@ -1224,6 +1285,8 @@ en:
   ## Public Topics
   publictopics: Public Topics
   publictopics_v2: Public Topics V2
+  ### orderBookL2
+  websocketorderbook: orderBookL2
   ### orderBookL2_25
   websocketorderbook25: orderBookL2_25
   websocket_para_orderbook251: Fetches the orderbook with a depth of 25 orders per side.
@@ -1241,8 +1304,8 @@ en:
     <p>Push frequency: <b>100ms</b></p>
   ### trade
   websockettrade: trade
+  websocketTradeSide: Direction of taker
   websocket_para_trade: |
-    <p>Get real-time trading information.</p>
     <p>Push frequency: <b>100ms</b></p>
   ### insurance
   websocketinsurance: insurance
@@ -1276,6 +1339,7 @@ en:
   websocket_aside_klineV2: |
     If <code>confirm</code> is <code>True</code>, the data is the final tick for the interval. Otherwise, it is a snapshot.
   websocketkline: kline
+  websocket_usdc_platform_insurance: At 0:00, 8:00, and 16:00 UTC+0, the insurance fund will be pushed.
 
   ## liquidation
   websocketliquidation: liquidation
@@ -1287,8 +1351,10 @@ en:
   privatetopics: Private Topics
   ### position
   websocketposition: position
+  websocketposition_aside: Note that changes to <code>unrealised_pnl</code> won't trigger new message pushes as it changes constantly with the last traded price. You can calculate the unrealised PNL yourself by referring to <a href ="https://help.bybit.com/hc/en-us/articles/900000404726-P-L-calculations-Inverse-Contracts-">these formulas</a>.
   ### execution
   websocketexecution: execution
+  websocket_execution_aside: This topic pushes all executions <i>except</i> <a href="#exec-type-exec_type"><code>Funding</code></a>.
   ### order
   websocketorder: order
   ### stop_order
@@ -1317,7 +1383,7 @@ en:
   exchangeOrderDeposit:  ""
   returnServiceCash: "- Refund of handling fee bonus"
   insurance: "- Insurance account transfer"
-  subMember: "- Mother-child account transfer"
+  subMember: "- Parent-child account transfer"
   coupon: "- Coupon interest"
   accountTransfer: "- Account transfer"
   cashBack: "- Cash back"
@@ -1476,7 +1542,20 @@ en:
   date: |
     Follows the format: yyyy-mm-dd
 
+  ## ETP status (`etpStatus`)
+  etpStatus_1: "- ETP can be purchased and redeemed"
+  etpStatus_2: "- ETP can be purchased, but not redeemed"
+  etpStatus_3: "- ETP can be redeemed, but not purchased"
+  etpStatus_4: "- ETP cannot be purchased nor redeemed"
 
+  ## ETP order status (`orderStatus`)
+  etpOrderStatus_1: "- Completed"
+  etpOrderStatus_2: "- In progress"
+  etpOrderStatus_3: "- Failed"
+
+  ## ETP order type (`orderType`)
+  etpOrderType_1: "- Purchase"
+  etpOrderType_2: "- Redemption"
 
   # Error Code
   errors_intro: The Bybit API uses the following HTTP codes and error codes<span>:</span>
@@ -1497,11 +1576,12 @@ en:
   account_asset_err_10001: Parameter error
   account_asset_err_10016: service is not available
   account_asset_err_38000: Processing
+
   account_asset_err_38001: Insufficient available balance
   account_asset_err_38002: Unable to transfer
   account_asset_err_90001: The transfer amount is less than 0
   account_asset_err_90002: The transfer amount accuracy is greater than 8
-  account_asset_err_90003: Transfer error, please contact customer service
+  account_asset_err_90003: Transfer error, please contact customer service (upper limit of transfer amount exceeded. please refer to <a href="https://help.bybit.com/hc/en-us/articles/4411635457177-Over-the-counter-OTC-Lending">Over the counter (OTC) Lending</a>)
   account_asset_err_90004: Account not found
   account_asset_err_90005: Check balance error
   account_asset_err_90006: Query transfer error
@@ -1540,30 +1620,37 @@ en:
   account_asset_err_90051: User withdrawal is blocked
   account_asset_err_90052: Replay request denied
 
+
+
   #spot error
   err_1001: Request failed to be processed. Please try again.
   err_1002: Request not authorized. An API key is required and should be included in all requests.
   err_1003: Too many requests. Please use WebSocket for live updates. Current limit is %s requests per minute.
+  err_1004: Missing required parameter <code>symbol</code>. Content-Type has been configured to application/json; params in JSON format.
   err_1006: System not responding. Request status unknown. Please contact live support.
   err_1007: Response timeout from backend server. Delivery and request status unknown.
   err_1015: Too many new orders. Please lower request frequency.
   err_1016: Service not available.
+  err_1022: Signature for this request is not valid. Check the content-type and try without content-type. If symbol is set to BTC/USDT instead of BTCUSDT this error can ocur. The slash would not be urlencoded before the signature, but it would be after, resulting in mismatching param str.
+  err_1032: Parameter format error
+  err_1103: An unknown parameter was sent. For POST request - No content-type specified, should change to application/x-www-form-urlencoded or make sure the query string is in the full request URL. For DELETE request, make sure your parameters are in query string format and the query string is in the full request URL. For GET request - Don't set Content-Type to "application/json". "Spot" permission not enabled when creating the API key.
 
 
-  err_10000: An unknown error occurred while processing the request
+  err_10000: An unknown error occurred while processing the request.
   err_10001: Params Error
   err_10002: Request not authorized - an API key is required and should be included in all requests.
   err_10003: Too many requests - please use WebSocket for live updates. Current limit is %s requests per minute.
-  err_10004: invalid sign
-  err_10005: permission denied for current apikey
-  err_10006: System not responding. Request status unknown. Please contact live support.
+  err_10004: Invalid sign
+  err_10005: Permission denied for current apikey. API key was created without the correct permissions (e.g. doesn´t have Order permission, or it's set to read-only)
+  err_10006: System not responding. Request status unknown. Too many visits. Please contact live support.
   err_10007: Response timeout from backend server. Delivery and request status unknown.
-  err_10010: request ip mismatch
+  err_10010: Request IP mismatch.
+  err_10012: DB error
   err_10014: Trading pairs not supported.
   err_10015: Too many new orders. Please lower request frequency.
   err_10016: Service not available.
-  err_10017: request path not found or request method is invalid
-  err_10018: exceed ip rate limit
+  err_10017: Request path not found or request method is invalid
+  err_10018: Exceeded IP rate limit.
 
   err_10020: Request not supported.
   err_10021: Timestamp for the request is outside of the recvWindow. The timestamp of this request is 1000 milliseconds ahead of the server time. Please check local time and server time.
@@ -1589,7 +1676,7 @@ en:
   err_11027: Query intervals too large.
   err_11028: Invalid parameter combination.
   err_11030: Invalid parameter sent.
-  err_11031: Insufficient balance
+  err_11031: Insufficient balance.
   err_11032: Order price exceeded upper limit.
   err_11033: Order price exceeded lower limit.
   err_11034: Order price has too many decimals.
@@ -1599,6 +1686,8 @@ en:
   err_11038: Order price exceeded limits.
   err_11039: Order has been filled.
   err_11040: Order value exceeded lower limit.
+
+
   err_11041: Duplicate clientOrderId.
   err_11042: Order has been canceled.
   err_11043: Order not found.
@@ -1614,83 +1703,187 @@ en:
   err_20014: Invalid API key format.
   err_20015: Invalid API key or IP.
   err_20016: Trading window not open yet for current pair.
+  err_4000: The serialNum is already in use.
+  err_4001: Daily purchase limit has been exceeded. Please try again later.
+  err_4002: There's a large number of purchase orders. Please try again later.
+  err_4003: Insufficient available balance. Please make a deposit and try again.
+  err_4004: Daily redemption limit has been exceeded. Please try again later.
+  err_4005: There's a large number of redemption orders. Please try again later.
+  err_4006: Insufficient available balance. Please make a deposit and try again.
+  err_4007: Order not found.
+  err_4008: Purchase period hasn't started yet.
+  err_4009: Purchase amount has exceeded the upper limit.
+  err_4010: You haven't passed the quiz yet! To purchase and/or redeem an LT, please complete the quiz first.
+  err_4012: Redemption period hasn't started yet.
+  err_4013: Redemption amount has exceeded the upper limit.
+  err_4014: Purchase of the LT has been temporarily suspended.
+  err_4015: Redemption of the LT has been temporarily suspended.
+  err_4016: Invalid format. Please check the length and numeric precision.
+  err_4110: Failed to place order<b>:</b> Exceed the maximum position limit of leveraged tokens, the current available limit is XXXX USDT.
 
-  err_20001: Order not exists
-  err_20003: missing parameter <code>side</code>
-  err_20004: invalid parameter <code>side</code>
-  err_20005: missing parameter <code>symbol</code>
-  err_20006: invalid parameter <code>symbol</code>
-  err_20007: missing parameter <code>order_type</code>
-  err_20008: invalid parameter <code>order_type</code>
-  err_20009: missing parameter <code>qty</code>
-  err_20012: qty must be greater than zero and less than 1 million
-  err_20017: missing parameter <code>order_id</code>
-  err_20018: invalid date format
-  err_20019: missing parameter <code>stop_px</code>
-  err_20020: missing parameter <code>base_price</code>
-  err_20021: missing parameter <code>stop_order_id</code>
-  err_20022: missing parameter <code>leverage</code>
-  err_20023: leverage must be a number
-  err_20031: leverage must be greater than zero
-  err_20070: missing parameter <code>margin</code>
-  err_20071: margin must be greater than zero
-  err_20084: order_id or order_link_id is required
-  err_30001: order_link_id is repeated
-  err_30003: qty must be more than the minimum allowed
-  err_30004: qty must be less than the maximum allowed
-  err_30005: price exceeds maximum allowed
-  err_30007: price exceeds minimum allowed
-  err_30008: invalid order_type
-  err_30009: no position found
-  err_30010: insufficient wallet balance
-  err_30011: operation not allowed as position is undergoing liquidation
-  err_30012: operation not allowed as position is undergoing ADL
-  err_30013: position is in liq or adl status
-  err_30014: invalid closing order, qty should not greater than size
-  err_30015: invalid closing order, side should be opposite
-  err_30016: TS and SL must be cancelled first while closing position
-  err_30017: estimated fill price cannot be lower than current Buy liq_price
-  err_30018: estimated fill price cannot be higher than current Sell liq_price
-  err_30019: cannot attach TP/SL params for non-zero position when placing non-opening position order
-  err_30020: position already has TP/SL params
-  err_30021: cannot afford estimated position_margin
-  err_30022: estimated buy liq_price cannot be higher than current mark_price
-  err_30023: estimated sell liq_price cannot be lower than current mark_price
-  err_30024: cannot set TP/SL/TS for zero-position
-  err_30025: trigger price should bigger than 10% of last price
-  err_30026: price too high
-  err_30027: price set for Take profit should be higher than Last Traded Price
-  err_30028: price set for Stop loss should be between Liquidation price and Last Traded Price
-  err_30029: price set for Stop loss should be between Last Traded Price and Liquidation price
-  err_30030: price set for Take profit should be lower than Last Traded Price
-  err_30031: insufficient available balance for order cost
-  err_30032: order has been filled or cancelled
-  err_30033: The number of stop orders exceeds maximum limit allowed
-  err_30034: no order found
-  err_30035: too fast to cancel
-  err_30036: the expected position value after order execution exceeds the current risk limit
-  err_30037: order already cancelled
-  err_30041: no position found
-  err_30042: insufficient wallet balance
-  err_30043: operation not allowed as position is undergoing liquidation
-  err_30044: operation not allowed as position is undergoing AD
-  err_30045: operation not allowed as position is not normal status
-  err_30049: insufficient available balance
-  err_30050: any adjustments made will trigger immediate liquidation
-  err_30051: due to risk limit, cannot adjust leverage
-  err_30052: leverage can not less than 1
-  err_30054: position margin is invalid
-  err_30057: requested quantity of contracts exceeds risk limit
-  err_30063: reduce-only rule not satisfied
-  err_30067: insufficient available balance
-  err_30068: exit value must be positive
-  err_30074: can't create the stop order, because you expect the order will be triggered when the <code>LastPrice</code>(or <code>IndexPrice</code>,  <code>MarkPrice</code>, determined by <code>trigger_by</code>) is raising to <code>stop_px</code>, but the <code>LastPrice</code>(or <code>IndexPrice</code>,  <code>MarkPrice</code>) is already equal to or greater than <code>stop_px</code>, please adjust <code>base_price</code> or <code>stop_px</code>
-  err_30075: can't create the stop order, because you expect the order will be triggered when the <code>LastPrice</code>(or <code>IndexPrice</code>,  <code>MarkPrice</code>, determined by <code>trigger_by</code>) is falling to <code>stop_px</code>, but the <code>LastPrice</code>(or <code>IndexPrice</code>,  <code>MarkPrice</code>) is already equal to or less than <code>stop_px</code>, please adjust <code>base_price</code> or <code>stop_px</code>
+
+
+
+  err_20001: Order does not exist.
+  err_20003: Missing parameter <code>side</code>
+  err_20004: Invalid parameter <code>side</code>
+  err_20005: Missing parameter <code>symbol</code>
+  err_20006: Invalid parameter <code>symbol</code>
+  err_20007: Missing parameter <code>order_type</code>
+  err_20008: Invalid parameter <code>order_type</code>
+  err_20009: Missing parameter <code>qty</code>
+  err_20012: <code>qty</code> must be greater than zero and less than 1 million
+  err_20017: Missing parameter <code>order_id</code>
+  err_20018: Invalid date format
+  err_20019: Missing parameter <code>stop_px</code>
+  err_20020: Missing parameter <code>base_price</code>
+  err_20021: Missing parameter <code>stop_order_id</code>
+  err_20022: Missing parameter <code>leverage</code>
+
+  err_20023: Leverage must be a number
+  err_20031: Leverage must be greater than zero
+  err_20070: Missing parameter <code>margin</code>
+  err_20071: <code>margin</code> must be greater than zero
+  err_20084: <code>order_id</code> or <code>order_link_id</code> is required
+
+  err_30001: <code>order_link_id</code> is not unique.
+  err_30002: Exit order already exists.
+  err_30003: <code>qty</code> must be higher than the minimum allowed.
+  err_30004: <code>qty</code> must be higher than the minimum allowed. The number of contracts exceeds maximum limit allowed. Order qty should be less than 1 million per order.
+  err_30005: Order price is out of permissible range.
+  err_30006: No <code>last_price</code>.
+  err_30007: Order price is out of permissible range.
+  err_30008: Invalid <code>order_type</code>.
+  err_30009: No position found.
+  err_30010: Insufficient wallet balance.
+  err_30011: Operation not allowed as position is undergoing liquidation
+  err_30012: Operation not allowed as position is undergoing ADL
+  err_30013: Position is in liq or adl status
+  err_30014: Invalid closing order, qty should not be greater than size.
+  err_30015: Invalid closing order, side should be the opposite.
+  err_30016: TP and SL must be cancelled before closing the position.
+  err_30017: Estimated fill price cannot be lower than current Buy liq_price.
+  err_30018: Estimated fill price cannot be higher than current Sell liq_price.
+  err_30019: Cannot attach TP/SL params for non-zero position when placing non-opening position order.
+  err_30020: Position already has TP/SL params.
+  err_30021: Cannot afford estimated position_margin.
+  err_30022: Estimated buy liq_price cannot be higher than current mark_price.
+  err_30023: Estimated sell liq_price cannot be lower than current mark_price.
+  err_30024: Cannot set TP/SL/TS for zero-position
+  err_30025: Trigger price should bigger than 10% of last price.
+  err_30026: Price is too high.
+  err_30027: Price set for Take profit should be higher than Last Traded Price.
+  err_30028: Price set for Stop Loss should be between Liquidation price and Last Traded Price.
+  err_30029: Price set for Stop Loss should be between Last Traded Price and Liquidation Price.
+  err_30030: Price set for Take Profit should be lower than Last Traded Price.
+  err_30031: Insufficient available balance for order cost.
+  err_30032: Order has been filled or cancelled.
+  err_30033: The number of stop orders exceeds maximum limit allowed.
+  err_30034: No stop order found.
+  err_30035: Too fast to cancel, try it later.
+  err_30036: The expected position value after order execution exceeds the current risk limit
+  err_30037: Order already cancelled
+  err_30038: No mark_price.
+  err_30039: Applied leverage has exceeded the permitted range.
+  err_30040: Any adjustments made will trigger immediate liquidation.
+
+  err_30041: No position found.
+  err_30042: Insufficient wallet balance.
+  err_30043: Operation not allowed as position is undergoing liquidation.
+  err_30044: Operation not allowed as position is undergoing ADL.
+  err_30045: Operation not allowed as position is not in normal status.
+  err_30046: There are multiple untriggered stop orders.
+  err_30047: Inconsistent p:o.
+  err_30048: Applied leverage has exceeded the permitted range.
+  err_30049: Insufficient available balance.
+  err_30050: Any adjustments made will trigger immediate liquidation!
+  err_30051: Due to risk limit, cannot adjust leverage.
+  err_30052: Leverage cannot be less than 1x.
+  err_30053: max_affordable_position_margin <= 0, position:%s
+  err_30054: fixed_new_position_margin is invalid.
+  err_30055: Available Balance is not enough to add margin.
+  err_30056: The position is in cross_margin.
+  err_30057: Requested quantity of contracts exceeds risk limit, please adjust your risk limit level before trying again.
+  err_30063: Reduce-only rule not satisfied
+  err_30066: Set auto add margin fail.
+  err_30067: Insufficient available balance.
+  err_30068: Exit value must be positive.
+  err_30073: Number of active orders is greater than 500.
+  err_30074: Can't create the stop order, because you expect the order will be triggered when the <code>LastPrice</code>(or <code>IndexPrice</code>,  <code>MarkPrice</code>, determined by <code>trigger_by</code>) is raising to <code>stop_px</code>, but the <code>LastPrice</code>(or <code>IndexPrice</code>,  <code>MarkPrice</code>) is already equal to or greater than <code>stop_px</code>, please adjust <code>base_price</code> or <code>stop_px</code>
+  err_30075: Can't create the stop order, because you expect the order will be triggered when the <code>LastPrice</code>(or <code>IndexPrice</code>,  <code>MarkPrice</code>, determined by <code>trigger_by</code>) is falling to <code>stop_px</code>, but the <code>LastPrice</code>(or <code>IndexPrice</code>,  <code>MarkPrice</code>) is already equal to or less than <code>stop_px</code>, please adjust <code>base_price</code> or <code>stop_px</code>
+  err_30076: Replace params invalid. Order not modified.
+  err_30077: Submission of order will result in the breach of user's limit according to open interest.
+  err_30078: Contracts not in trading status
+  err_30079: The position is about to trigger a liquidation
+  err_30080: Price cannot be lower than current Buy liq_price
+  err_30081: Price cannot be greater than current sell liq_price
+  err_30082: Position exists No switching of position mode allowed
+  err_30083: No change in position pattern
+  err_30084: No changes to the full position-by-position model
+  err_30085: Margin unchanged
+  err_30086: With a commissioned order, switching position mode is not allowed
+  err_30087: Symbol does not support two-way open positions
+  err_30088: Symbol does not exist
+  err_30089: Duplicate order number
+  err_30090: Risk limit info does not exist
+  err_30091: Illegal orders (meaning that the order os|cs is not legal in various scenarios)
+  err_30092: No position is not allowed to set margin
+  err_30093: No net position
+  err_30094: Withdrawal of an order before a liquidation is not concluded
+  err_30095: Full positions are not allowed to modify leverage
+
+
+  err_31003: User account banned
+  err_32006: The available balance is not sufficient to cover the handling fee.
+  err_32008: Insufficient available margin.
+  err_32009: Any adjustments made will trigger immediate liquidation.
+  err_32010: Risk limit cannot be adjusted due to insufficient available margin.
+  err_32011: Risk limit cannot be adjusted as the current/expected position value held exceeds the revised risk limit.
+
   err_33004: apikey already expired
-  err_34026: the limit is no change
-  err_35014: over order limit
 
+  err_34010: Wallet Balance is less than zero.
+  err_34015: Cannot set new leverage as it is equal to the previous leverage.
+  err_34017: Current leverage is less than 1X
+  err_34018: Cannot set leverage lower than 1X
+  err_34019: Cannot set leverage greater than maxLeverage.
+  err_34020: Cannot set leverage which is same to the previous leverage.
+  err_34021: Cannot cancel occ_calc_data, the data is wrong.
+  err_34022: Cannot set leverage which will cause available balance less than 0.
+  err_34023: The request was canceled because the origin request has been handled.
+  err_34024: The request does not include add margin data.
+  err_34025: Increase in leverage has failed.
+  err_34026: The new limit is equal to the old limit (no change).
+  err_34027: Cannot adjust leverage.
+  err_32009: Any adjustments made will trigger immediate liquidation.
+  err_34028: ReCalc Funding Fee Failed.
+  err_34030: positionInfo not sync with current exec_rpt.
+  err_34033: Realized PNL already rotated.
+  err_34032: PositionSeq not match on Withdraw.
+  err_34035: Add margin not modified.
+  err_34036: Set leverage not modified.
+  err_34037: Set custom fee rate not modified.
+  err_34038: Update deleverage indicator not modified.
+  err_34039: Update position status not modified.
+  err_34040: Set TP/SL/TS not modified.
 
+  err_35014: Over order limit.
+
+  err_37001: Both side positions tp_sl_mode is equal.
+  err_37002: Same tp_sl_mode.
+  err_37003: This position has at least one stop-link order and cannot switch between stop-loss and take-profit modes.
+  err_37004: This position has at least one stop-loss link order and cannot switch between stop-loss and take-profit modes
+  err_37005: This position has at least one trailing stop or trailing stop link order and cannot be switched to take profit and stop loss mode
+  err_37006: Conditional or limit orders carry a take profit and stop loss parameter
+  err_37007: Insufficient number of positions left to set Stop Loss and Take Profit
+  err_37008: Active orders are not allowed to modify the price and quantity when they also modify the trigger price
+  err_37009: Activity orders are not allowed to modify the stop-loss and take-profit settings if the order is partially filled
+  err_37010: In Full Take Profit Stop Loss mode, it is not allowed to modify the Stop Profit Stop Loss size
+  err_37011: In partial SL mode, SL is set to more than 20. Set SL/TP exceeds the limit oldTpNum+oldStNum+newNum=(2 the num is tp+sl)
+  err_37012: Stop loss price needs to be greater than base price.
+  err_37013: Stop loss price needs to be less than base price.
+
+  err_38101: Replacement of order will result in the breach of user's limit according to open interest.
 
   # Misc.
   misc_row_comment_orderLinkIdNotOrderId: Unique user-set order ID. <b>Required</b> if not passing <code>order_id</code>
@@ -1858,6 +2051,7 @@ en:
   err_130126: No orders
   err_130023: Will be triggered Liq after order is completed
   err_130127: Take Profit, Stop Loss and Trailing Stop Loss are not modified
+  err_130137: Please check to see if your existing position and open orders (together, your <code>pz_value</code>) will exceed your risk limit (<code>risk_limit</code>)
   err_130145: Close order side is large than position's leaving qty
   err_130149: Order creation successful but SL/TP setting failed
   err_130150: Please try again later.
@@ -1886,11 +2080,11 @@ en:
     <p>Limit price active order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
     <p><b>Take profit/Stop loss: You may only set a TP/SL conditional order upon opening the position. Once you hold a position, any new active order requests which contain TP/SL data will be accepted but TP/SL data will be ignored. <code>tp_trigger_by</code>/<code>sl_trigger_by</code> default to LastPrice. Passing values to the <code>take_profit</code> or <code>stop_loss</code> parameters in this endpoint will create conditional orders managed by the system, which will be be automatically cancelled if the position is closed.</b></p>
     <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell. For the minimum unit of qty increase or decrease, please refer to the <code>lot_size_filter</code> field in the <a href="#t-querysymbol">Query Symbol</a> endpoint.</p>
-    <p>Order price: If it is a stop order, this parameter is required. When there is no position, the long commission price should be 10% higher than the market price and less than 1 million. If there are positions, they need to be better than strong parity. For the minimum unit of price increase or decrease, please refer to the <code>price_filter</code> field in the <a href="#t-querysymbol">Query Symbol</a> endpoint.</p>
+    <p>Order price: If it is a stop order, this parameter is required. When there is no position, the long should be 10% higher than the market price and less than 1 million. For the minimum unit of price movement, please refer to the <code>price_filter</code> field in the <a href="#t-querysymbol">Query Symbol</a> endpoint.</p>
     <p>Custom order ID: You may customise order IDs for active orders. We will link it to the system order ID, and return the unique system order ID to you after the active order is created successfully. You may use this order ID or your custom order ID to cancel your active order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
     <p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSDT instrument and 280 active orders on the ETHUSDT instrument.</b></p>
   linear_row_comment_basePrice: It will be used to compare with the value of <code>stop_px</code>, to decide whether your conditional order will be triggered by crossing trigger price from upper side or lower side. Mainly used to identify the expected direction of the current conditional order.
-  linear_row_comment_stopPx: Trigger price
+  linear_row_comment_stopPx: Trigger price. If you're expecting the price to rise to trigger your conditional order, make sure stop_px > max(market price, base_price) else, stop_px < min(market price, base_price)
 
   setautoaddmargin: Set Auto Add Margin
   linear_account_para_setAutoAddMargin: Set auto add margin, or <a href="https://help.bybit.com/hc/en-us/articles/900000394403-Introduction-to-Auto-Margin-Replenishment-USDT-Contract-">Auto-Margin Replenishment</a>.
@@ -1898,7 +2092,7 @@ en:
 
   linear_account_para_setLeverage: Set Leverage
   linear_row_comment_leverage: Must be greater than 0 and less than the <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>.
-
+  queryfeerate: Query Trading Fee Rate
   marginswitch: Cross/Isolated Margin Switch
   linear_account_para_switchIsolated: Switch Cross/Isolated; must set leverage value when switching from Cross to Isolated
   linear_row_comment_switch_isolated: Cross/Isolated<span>:</span> true is Isolated; false is Cross
@@ -1913,7 +2107,12 @@ en:
   ### inverse future
   switchpositionmode: Position Mode Switch
   account_para_switchpositionmode: |
-    If you are in One-Way Mode, you can only open one position on <code>Buy</code> or <code>Sell</code> side;<br/> If you are in Hedge Mode, you can open both <code>Buy</code> and <code>Sell</code> side positions simultaneously.
+    If you are in One-Way Mode, you can only open one position on <code>Buy</code> or <code>Sell</code> side. If you are in Hedge Mode, you can open both <code>Buy</code> and <code>Sell</code> side positions simultaneously.
+
+  account_para_switchpositionmode_withcoin: |
+    If you are in One-Way Mode, you can only open one position on <code>Buy</code> or <code>Sell</code> side. If you are in Hedge Mode, you can open both <code>Buy</code> and <code>Sell</code> side positions simultaneously.
+    <p>Supports switching between One-Way Mode and Hedge Mode at the <code>coin</code> level.</p>
+
   row_comment_positionmode: |
     Position Mode. <code>0</code><span>:</span> One-Way Mode; <code>3</code><span>:</span> Hedge Mode
   futures_row_comment_leverage: Must be greater than 0 and less than the <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>.
@@ -1922,6 +2121,12 @@ en:
   futures_row_comment_switch_isolated: Cross/Isolated<span>:</span> true is Isolated; false is Cross
 
   ### websocket
+  linear_websocket_endpoints_aside: |
+    <b>Note that the following endpoints only apply to <i>USDT (Linear) Perpetual</i></b>. To listen to other websockets, go to:
+    <ul>
+      <li><a href="https://bybit-exchange.github.io/docs/inverse/#t-websocketauthentication">Inverse Perpetual/Futures</a></li>
+      <li><a href="https://bybit-exchange.github.io/docs/spot/#t-websocketauthentication">Spot</a></li>
+    </ul>
   linear_websocket_para_endpoint: |
     Base endpoints:
     <ul>
@@ -1982,6 +2187,11 @@ en:
   linear_private_switchmode: Switch mode between Full or Partial
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
+  linear_row_comment_limit_100_100: Limit for data size per page, max size is 100. Default as showing 100 pieces of data per page.
+  restapi_update_20220513: Add new response param <code>innovation</code>
+  restapi_update_20220512: Add USDC Perpetual Funding API
+  restapi_update_20220420_2: Add lt public Topics
+  restapi_update_20220420_1: Add Leveraged Token Endpoints
   restapi_update_20211228: Remove <code>from</code> field from parameters of <a href="#t-publictradingrecords">Public Trading Records</a>.
   restapi_update_20200417_1: Add new symbol <code>BTCUSDT</code>
   restapi_update_20200417_2: Add new symbol <code>BTCUSDT</code>
@@ -2110,6 +2320,9 @@ en:
   ws_update_20210202_2: Add fields <code>reduce_only</code>,<code>close_on_trigger</code>
   ws_update_20210225: Add websocket support to inverse future
 
+  restapi_update_2022042501: Get user's trading records over the last two years (rolling).
+  restapi_update_2022042801: Support <code>coin</code> level switching between One-Way Mode and Hedge Mode.
+
   restapi_update_2021101201: Fix <code>price_scale</code> response of <a href="#t-querysymbol">Query Symbol</a> Endpoint for USDT perpetual symbols.
 
   restapi_update_20211206: Add parameter <code>position_idx</code> to Request Parameters and Response Parameters
@@ -2122,6 +2335,8 @@ en:
   restapi_update_2021091402: This shift to a websocket helps ensure a fair trading environment by preventing some traders from getting early access to market information. Please ensure you switch to the websocket service before 2021-09-24. Thank you for your continued support!
   restapi_update_20210924: This endpoint is now offline. Please replace with the <a href="#t-websocketliquidation">liquidation</a> websocket.
   restapi_update_20210917: This shift to a websocket helps ensure a fair trading environment by preventing some traders from getting early access to market information. Please ensure you switch to the websocket service before 2021-09-24. Thank you for your continued support!
+  restapi_update_20220228: Add response parameters <code>vip_level</code> and <code>mkt_maker_level</code> in <a href="#t-key">API Key Info</a> 。
+  restapi_update_20220301: Add response parameters <code>funding_interval</code>.
   restapi_update_20210312: Fix value of <code>exec_type,last_liquidity_ind</code> for <a href="#t-usertraderecords">User Trade Record</a> endpoint
   restapi_update_20210315: Prior to December 31, 2020, order price of a market order was returned as the last traded price as of the moment of order placement. On and after December 31, 2020, order price of a market order is returned as a revised limit price. For more information, please refer to  <a href="#t-activeorders">description of market order</a>.
   restapi_update_20210402: Add comment of errcode 10016,10018,30074,30075
@@ -2158,10 +2373,20 @@ en:
   restapi_update_20210617_3: Not recommend to use <a href="#t-setleverage">Set Leverage</a> endpoint switch Isolated Margin or Cross Margin
   restapi_update_20210618_1: After June 24, 2021 do not use <code>leverage</code> to determine if position is Isolated Margin or Cross Margin. <code>leverage</code> must be greater than 0 and less than the <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>.
   restapi_update_20210712: Optimize the input and output parameters of some interfaces
+  restapi_update_20220314: Add <code>m</code> (is maker) to the <code>ticketInfo</code> topic
   restapi_update_20210823: |
     Add additional enums for <code><a href="#wallet-fund-type-wallet_fund_type-type">wallet_fund_type</a></code>: <code>ReturnServiceCash</code>, <code>Insurance</code>, <code>SubMember</code> <code>Coupon</code>, <code>AccountTransfer</code>, <code>CashBack</code>
   restapi_update_20210826: Asset Transfer API released!
+
   restapi_update_20220519: Withdraw and Deposit Endpoints released!
+
+  restapi_update_20220324_1: Add request parameters <code>fromTicketId</code>, <code>toTicketId</code>, <code>orderId</code>
+  restapi_update_20220324_2: Deprecate request parameters <code>fromId</code>, <code>toId</code>
+  restapi_update_20220414_1: MaxTradeQty and MaxTradeAmount are ignored when placing LIMIT_MAKER orders
+  restapi_update_20220414_2: Add new Websocket public topic "Platform Insurance"
+  restapi_update_20220413: Add response parameter <code>locked</code>
+  restapi_update_20220429: Increase maximum trading qty for <code>PostOnly</code> orders. Please refer to <code>post_only_max_trading_qty</code> in <a href="#t-querysymbol">Query Symbol</a> endpoint
+
   markpricekline: Query Mark Price Kline
   linear_query_mark_price_kline: Query mark price kline (like <a href="#t-querykline">Query Kline</a> but for <a href="https://help.bybit.com/hc/en-us/articles/360039261074-What-is-Dual-Price-mechanism-">mark price</a>).
   linear_resp_field_last_exec_price: Last execution price
@@ -2220,13 +2445,14 @@ en:
   spotQuoteCurrency: Quote currency
   spotBasePrecision: Decimal precision (base currency)
   spotQuotePrecision: Decimal precision (quote currency)
-  spotMinTradeQuantity: Min. order qty
-  spotMinTradeAmount: Min. order value
+  spotMinTradeQuantity: Min. order qty (Not valid for market buy orders)
+  spotMinTradeAmount: Min. order value (Only valid for market buy orders)
   spotMinPricePrecision: Min. number of decimal places
-  spotmaxTradeQuantity: Max. order qty
-  spotmaxTradeAmount: Max. order value
+  spotmaxTradeQuantity: Max. order qty (It is ignored when you place an order with order type LIMIT_MAKER)
+  spotmaxTradeAmount: Max. order value (It is ignored when you place an order with order type LIMIT_MAKER)
   spotCategory:  Category
-
+  spotInnovation: True indicates that the price of this currency is relatively volatile
+  spot_trading_symbol_comment: You can get all symbols with the <a href="#t-spot_querysymbol">Query Symbol</a> endpoint.
   spotSymbol: Name of the trading pair
   spotId: Irrelevant for API usage. This field reflects the "Transaction ID" from the <a href="https://www.bybit.com/user/assets/order/spot-history/active">Trade History</a> section of the website
   spotQty: Order quantity
@@ -2248,7 +2474,7 @@ en:
   spot_balances: Account balances
   spotTradeId: The ID for the trade
   spotUpdateTime: Last time order was updated
-  spotLeverage: Leverage of the order.
+  spotLeverage: Real Leverage calculated by last traded price.
   spotMarginLocked: Amount of margin locked for this order. This includes the actually margin needed plus fees to open and close the position.
   spotPriceType: The price type. Possible values include INPUT, OPPONENT, QUEUE, OVER, and MARKET.
   spotQuantity: Order quantity (for market buy order, quantity = amount)
@@ -2258,7 +2484,7 @@ en:
   spotTicker24hrRemark: If symbol is not specified, the data from all symbols will be returned
   spotTickerPriceRemark: If symbol is not specified, the price from all symbols will be returned
   spotBookTickerRemark: If symbol is not specified, the best order price from all symbols will be returned
-  spotTransactTime: Timestamp
+  spotTransactTime: Order Creation Time
   spotCummulativeQuoteQty: Total order quantity
   spotSide: Order direction
   spotOrderType: Order type
@@ -2284,21 +2510,22 @@ en:
   batchfastcancelactiveorder: Batch Fast Cancel Active Order
   batchcancelactiveorderbyids: Batch Cancel Active Order By IDs
   openorders: Open Orders
+  spotOrderLocked: Reserved for order (if it's 0, it means that the funds corresponding to the order have been settled)
   spot_transactId: Trade ID
-  spot_time: Timestamp
+  spot_time: Timestamp (trading time in the match box)
   spot_message: Success or not (true/false)
-  spot_sMessage: True indicates buy order, false indicates sell order
+  spot_sMessage: True indicates buy side is taker, false indicates sell side is taker
   spot_order_list_limit: Default value is 500, max 500
   spot_orders_start_time: Start time, unit in millisecond
   spot_orders_end_time: End time, unit in millisecond
   orderhistory: Order History
   tradehistory: Trade History
-  spot_from_id:  Query begins with the trade ID
-  spot_to_id: Query ends with the trade ID
+  spot_from_id:  Query greater than the trade ID. (fromTicketId < trade ID)
+  spot_to_id: Query smaller than the trade ID. (trade ID < toTicketId)
   spot_start_time: Start time, unit in millisecond
   spot_end_time: End time, unit in millisecond
   spot_token: Asset
-  spot_fee: Trading fee
+  spot_fee: Trading fee (for a single fill)
   spot_locked: Reserved for orders
   spot_depth_limit: Default value is 100
   spotOrderBookMergedScale: Precision of the merged orderbook, 1 means 1 digit
@@ -2312,8 +2539,9 @@ en:
   spot_is_buyer_maker: True indicates buy order, false indicates sell order
   spot_is_limit_maker: Is LIMIT_MAKER
   spot_leverage: leverage
+  spot_liquidation_type: NO_LIQ indicates that it is not a liquidation order. IOC indicates that it is a liquidation order.
   spot_is_close: Is close
-  spot_is_normal: Is normal
+  spot_is_normal: Is normal trade. False if self-trade.
   spot_is_working: Is working
   spot_match_account_id: Account ID of the opponent trader
   spot_trade_time: Current timestamp, unit in millisecond
@@ -2357,11 +2585,12 @@ en:
   spot_price: Price
   spot_symbol: Trading pair
   spot_quantity: Quantity
-  spot_side: True indicates buy order, false indicates sell order
+  spot_side: True indicates buy side is taker, false indicates sell side is taker
   spot_side_private: BUY indicates buy order, SELL indicates sell order
   spot_order_client_id: User-generated order ID
   spot_first: First message for this topic since subscription
   spot_timestamp: Timestamp
+  spot_timestamp2: Timestamp (last update time of the order book)
   spot_close: Close price
   spot_high: High price
   spot_low: Low price
@@ -2380,7 +2609,7 @@ en:
   spot_sell_price: Best ask price
   spot_sell_qty: Ask quantity
   spot_balance_change: Wallet balance change
-  spot_asset: Name of the trading pair
+  spot_asset: coin name
   spot_available_qty: Available balance
   spot_frozen_qty: Reserved for orders
   spot_event_type: Event type
@@ -2442,9 +2671,11 @@ en:
     <p>Pushes a depth of 40 items per side, regardless of the <code>dumpScale</code>.</p>
 
   websocketdiffdepth: diffDepth
+  websocketLtNetvalue: lt
+  spot_websocket_lt_nav_desc_v1: Leveraged Token Net Value Push. Pushes data at a frequency of 300ms. Message received with a maximum delay of 400ms.
   spot_websocket_orderbook_delta_desc_v1: |
     <p>Changes (if any) in the bid–ask spread of the order book will be pushed. The first message pushes a depth of 200 per side. The following messages act as delta messages, which represent updates to the order book relative to the last response.</p>
-    <p>For a Python example of the logic to maintain a local order book with this topic, see <a href="https://github.com/verata-veritatis/pybit/blob/8a647208dbdce1519de3fbce172d3dcf2141ccaf/pybit/__init__.py#L2279">here</a>.</p>
+    <p>For a Python example of the logic to maintain a local order book with this topic, see <a href="https://github.com/bybit-exchange/pybit/blob/8a647208dbdce1519de3fbce172d3dcf2141ccaf/pybit/__init__.py#L2279">here</a>.</p>
     <p>If the quantity=0, it indicates that there are no longer any orders at this price level. If the quantity>0, the quantity for this price has changed.</p>
     <p>Assume the response includes the following:</p>
     <p>&nbsp;&nbsp;> ["0.00181860", "155.92000000"]// price, quantity</p>
@@ -2477,6 +2708,12 @@ en:
   ticketInfo: ticketInfo
   ticketInfo_para: |
     Pushes data about your trades (fills). When an order is filled, you will receive two messages: one from <code>ticketInfo</code>, and one from <code>executionReport</code>
+  spot_ticket_info_maker: Is MAKER. true=maker, false=taker
+
+  spotLtSymbolNav: Please make sure to add "NAV" as a suffix to the name of the pair you're querying
+  spotTotalPositionValue: Total position value = basket value * total circulation
+  spotLoan: Basket loan
+
 
   #spot_ws_v2
 
@@ -2537,11 +2774,12 @@ en:
 
   querysubaccounttransferlist: Query Subaccount Transfer List
   querysubaccountlist: Query Subaccount List
-  in: ""
-  out: ""
+  in: "transfer from main account to subaccount"
+  out: "transfer from subaccount to main account"
   accountType_spot: ""
   accountType_contract: ""
   accountType_investment: "- ByFi Account"
+
   accountType_usdc: "- USDC Derivatives Account"
 
   #Withdraw/Deposit API Data Endpoints -- start
@@ -2670,13 +2908,18 @@ en:
   deposit_tag: deposit tag
   #Withdraw/Deposit API Data Endpoints -- start
 
+  accountType_option: "- USDC Account"
+
+
 
   ###usdc contract
   usdc: USDC Contract
   usdcList: list
   usdcSymbol: Contract name
+  usdcExecValue: order value of filled orders
+  usdcPositionStatus: Position status
   usdcTickerInfo: Latest Symbol Info
-  usdcOrderBookSide: Direction. ASK or BID.
+  usdcOrderBookSide: Direction.
   usdcPerpOrderBookSide: Direction, Buy or Sell
   usdcSize: size
   usdcOrderBook: OrderBook
@@ -2687,7 +2930,7 @@ en:
   usdcLimit: Number of data per page; the max. value is 200, and the default value is 200
   usdcVolume: Trading volume
 
-  usdcCategory: Type .OPTION or PERPETUAL
+  usdcCategory: Type. OPTION or PERPETUAL
   usdcOptionType: Call or put, required for Options
   usdcOpen: Open price
   usdcOpenTime: Start time
@@ -2705,6 +2948,7 @@ en:
   usdcAskSize: Ask quantity
   usdcLastPrice: Last traded price
   usdcOpenInterest: Open interest
+  usdcOrderPnl: The total trade profit and loss for this order
   usdcIndexPrice: Index Price
   usdcMarkPrice: Mark Price
   usdcMarkPriceIv: Implied volatility for mark price
@@ -2752,6 +2996,7 @@ en:
    <p>prev: prev page, next: next page.</p>
   deliveryPrice: Delivery price
   sessionAvgPrice: Settlement price
+  perpSessionAvgPrice: Average entry price during session
   settlementTime: Settlement time, unit in milliseconds
   usdcDeliveryLimit: Number of data per page; the max. value is 200, and the default value is 50
 
@@ -2782,6 +3027,7 @@ en:
   usdcCancelAll: Cancel All Active Orders
   usdcQryUnOrPartFilled: Query Unfilled/Partially Filled Orders
   usdcQryOrderHistory: Query Order History
+  usdcFundingApi: Funding API
 
   account_wallet: Account API
   transactionLog: Transaction Log
@@ -2789,6 +3035,7 @@ en:
   assetInfo: Asset Info
   setMarginMode: Set Margin Mode
   queryMarginMode: Query Margin Mode
+  queryMMPState: Query MMP state
 
   accountPosition: Positions API
   queryPosition: Query My Positions
@@ -2837,23 +3084,19 @@ en:
     The frequency limit for Options is no more than 20 requests per second.
   usdc_websocket_subscribe_desc: |
     <p>Subscribing:</p>
-    <p>ws.send('{"method":"public/subscribe","id":"{uuid}","params":{"channels":["topic1","topic2"]}}')</p>
-    <p>or </p>
-    <p>ws.send('{"method":"private/subscribe","id":"{uuid}","params":{"channels":["topic1","topic2"]}}')</p>
+    <p>ws.send('{"op":"subscribe","id":"{uuid}","args":["topic1","topic2"]}');</p>
     <p>Response:</p>
-    <p>{"id":"{uuid}","code":0,"data":{"successChannels":["topic1"],"failChannels":["topic2"]},"type":"COMMAND_RESP"}</p>
+    <p>{"id":"{uuid}","success":true,"conn_id":{conn_id},"data":{"successTopics":["topic1"],"failTopics":["topic2"]},"type":"COMMAND_RESP"}</p>
   usdc_websocket_unsubscribe_desc: |
     <p>Remove WebSocket Topic Subscriptions</p>
-    <p>ws.send('{"method":"public/unsubscribe","id":"{uuid}","params":{"channels":["topic1","topic2"]}}')  </p>
-    <p>or  </p>
-    <p>ws.send('{"method":"private/unsubscribe","id":"{uuid}","params":{"channels":["topic1","topic2"]}}’) </p>
+    <p>ws.send('{"op":"unsubscribe","id":"{uuid}","args":["topic1","topic2"]}')  </p>
     <p>Response: </p>
-    <p>{"id":"{uuid}","code":0,"data":{"successChannels":["topic1"],"failChannels":["topic2"]},"type":"COMMAND_RESP"}</p>
+    <p>{"id":"{uuid}","success":true,"conn_id":{conn_id},"data":{"successTopics":["topic1"],"failTopics":["topic2"]},"type":"COMMAND_RESP"}</p>
 
     <p>Remove All WebSocket Topic Subscriptions</p>
-    <p>{"method":"public/unSubAll","id":"requestId"}</p>
+    <p>{"op":"unSubAll","id":"{uuid}"}</p>
     <p>Response:</p>
-    <p> {"id":"requestId","code":0,"type":"COMMAND_RESP"}</p>
+    <p> {"id":"{uuid}","success":true,"conn_id":{conn_id},"type":"COMMAND_RESP"}</p>
 
 
   usdc_websocket_para_orderbook: |
@@ -2862,6 +3105,13 @@ en:
     <p>Topic format:</p>
     <p>Either orderbook25.{symbol} or orderbook100.{symbol} for Option.</p>
     <p>Such as orderbook25.BTC-5NOV21-30000-P or orderbook100.BTC-5NOV21-30000-P</p>
+
+  usdc_websocket_para_orderbook_100: |
+    <p>100 orders will be fetched from the bid and ask side of the order book.</p>
+    <p>Topic format:</p>
+    <p>delta.orderbook100.{symbol}</p>
+    <p>Such as delta.orderbook100.BTC-5NOV21-30000-P</p>
+
   usdc_current_24_total:
     <p>Fetch the transaction data on Bybit in the last 24 hours.</p>
     <p>After a successful subscription, any changes in the transaction data will be pushed in real time or once every second. The number of pushes depends on the number of new transaction records within the time frame.</p>
@@ -2877,7 +3127,7 @@ en:
 
 
 
-  usdcOrderType: refer to<a href="#order-type-type-ordertypes">Order type</a> (MARKET is not supported currently for Options)
+  usdcOrderType: refer to <a href="#order-type-type-ordertypes">Order type</a> (MARKET is not supported currently for Options)
   optionIv: Implied volatility
   optionPlaceMode: Order mode, can be Advanced or Basic.For Perpetual, can be empty,But for Option, can not be empty.Number 1 is basic and number 2 is advanced.If 1, <code>orderQty</code> and <code>orderPrice</code> can not be empty. If 2, refer to <code>placeType</code>.
   optionPlaceType: Order type, can be price or implied volatility.Number 1 is price and number 2 is implied volatility. If 1,orderQty and orderPrice can not be empty. If 2, <code>iv</code> and <code>orderQty</code> can not be empty.
@@ -2899,7 +3149,7 @@ en:
   stopLoss: Stop-loss price (Perpetual)
   usdcOrderId: Order ID
   uscdOrderType: Order type
-  usdcOrderFilter: refer to  <a href="#order-filter">Order Filter</a>
+  usdcOrderFilter: refer to  <a href="#order-filter-orderfilter">Order Filter</a>
   usdcReplaceOrderId: Order ID, required for Options
   usdcOrderLinkId: Either orderId or orderLinkId is required
   cancelAllResponse: This is used to cancel all active orders . The real-time response indicates whether the request is successful, depending on retCode.
@@ -2956,7 +3206,7 @@ en:
   sessionUpl: Session UPL
   sessionRpl: Session RPL
 
-  usdcMarginMode: Margin mode <a href="#margin-mode">Margin Mode</a>
+  usdcMarginMode: Margin mode <a href="#margin-mode-marginmode">Margin Mode</a>
   usdcInfo: Symbol info of liquidated assets under Portfolio Margin
 
   usdcPositionLimit: Number of data per page; the max. value is 50, and the default value is 20
@@ -2993,7 +3243,7 @@ en:
 
   usdcLeverage: Must be greater than zero and less than the max. leverage allowed
   endTime: End time, unit in seconds
-  execType: <a href="#exec-type">Execution type</a>
+  execType: <a href="#exec-type-exectype">Execution type</a>
   closedSize: Quantity to close
   cumEntryValue: Position value to close
   cumExitValue: Position value of the filled close order
@@ -3043,11 +3293,12 @@ en:
   usdcturnover: 24-hour turnover
   usdcconfirm: Confirmed or not
   usdcautoAddMargin: Whether auto margin replenishment has been enabled
+  usdcInsuranceBalance: USDC Insurance Balance
   isIsolated: True means isolated margin, false means cross margin
   execValue: Position value
   excPrice: Filled price
   execQty: Filled quantity
-  lastLiquidityInd:  <a href="#lastliquidityind">Liquidity</a>
+  lastLiquidityInd:  <a href="#lastliquidityind-lastliquidityind">Liquidity</a>
   leavesQty: Unfilled quantity
   createType: Order placement
   cancelType: Order cancelation
@@ -3080,13 +3331,12 @@ en:
   usdc_auth_para_construct1: <p>1.The parameters are in json format</p>
   resultTotalSize: length of dataList
   dataList: Return the result list, refer to the following fields
-  usdcBatchOrdersDesc: Each request supports a max. of four orders.
-  publicTopic: Public Topic
-  bybitTradeHistory: Trade
+  usdcBatchOrdersDesc: Each request supports a max. of four orders. The reduceOnly parameter should be separate and unique for each order in the request.
+  bybitTradeHistory: publictradingrecords
+  latestSymbolInfo: latestsymbolinfo
+  userPositionsInfo: myposition
+  userFilledHistory: usertraderecords
   insuranceFund: Insurance Fund
-  latestSymbolInfo: Latest Symbol Info
-  userPositionsInfo: Position
-  userFilledHistory: Trade
   userOrderHistory: Order History
   userConditionalOrders: Conditional Order
   userGreeks: Greeks
@@ -3096,13 +3346,13 @@ en:
     <p>instrument_info.{symbol},such as: instrument_info.BTC-19NOV21-58000-P</p>
   usdcPositionDesc: |
     <p>topic:</p>
-    <p>Option: user.option.position</p>
+    <p>Option: user.openapi.option.position</p>
   usdcFilledHistory: |
     <p>topic:</p>
-    <p>Option: user.option.tradeHistory</p>
+    <p>Option: user.openapi.option.trade</p>
   udscGeeksDesc: |
     <p>topic:</p>
-    <p>Option: user.option.greeks</p>
+    <p>Option: user.openapi.greeks</p>
   usdc_trading_symbol_comment: refer to <a href="#t-querysymbolinfo">Query Symbol</a> endpoint
   usdcPriceRule:
     <ul>
@@ -3177,16 +3427,22 @@ en:
   usdcTradeApi: Order API
   queryLatest500Trades: Query Last 500 Trades
   usdcTradeHistory: Trade History
-  usdcTransactionType: refer to <a href="#transaction-type-transaction-type">Transaction type</a>
+  usdcTransactionType: refer to <a href="#transaction-type-type">Transaction type</a>
   usdcOrderDesc: |
     <p>topic:</p>
     <p>Option: user.option.orderHistory</p>
-  activeOrders: Active Order
+  activeOrders: Orders
   usdcActiveOrder: |
     <p>topic:</p>
-    <p>Option: user.option.order</p>
+    <p>Option: user.openapi.option.order</p>
+
+  usdcCommonDesc: |
+    <p>When the link is established successfully, a full package will be added first. If you place an order again, you will receive an incremental data package.</p>
+    <p>-If the dataType is NEW, full data will be pushed  </p>
+    <p>-if the dataType is CHANGE, incremental data will be pushed  </p>
+
   usdcPerpCategory: Type. PERPETUAL
-  usdcPerpOrderType: <a href="#order-type-type-ordertypes">Order Type</a>
+  usdcPerpOrderType: <a href="#order-type-ordertypes">Order Type</a>
   usdc_perp_order_price: Order Price
   usdc_perp_websocket_subscribe_desc: |
     <p>Subscribing:</p>
@@ -3198,7 +3454,7 @@ en:
     <p>Private:</p>
     <p>ws.send('{"method":"private/subscribe","id":"{uuid}","params":{"channels":["user.option.order"]}}')</p>
     <p>Response:</p>
-    <p>{"id":"requestId","code":0,"data":{"successChannels":["user.option.order"]},"usIn":1638415789932,"usOut":1638415789932,"usDiff":0,"type":"COMMAND_RESP"}</p>
+    <p>{"id":"requestId","success":true,"data":{"successChannels":["user.option.order"]},"usIn":1638415789932,"usOut":1638415789932,"usDiff":0,"type":"COMMAND_RESP"}</p>
   usdc_perp_websocket_unsubscribe_desc: |
     <p>Understanding</p>
      <p>Public:</p>
@@ -3208,11 +3464,11 @@ en:
 
     <p>Private:</p>
     <p>ws.send('{"method":"private/unsubscribe","id":"{uuid}","params":{"channels":["topic1","topic2"]}}’) </p>
-    <p>{"id":"{uuid}","code":0,"data":{"successChannels":["topic1"],"failChannels":["topic2"]},"type":"COMMAND_RESP"}</p>
+    <p>{"id":"{uuid}","success":true,"data":{"successChannels":["topic1"],"failChannels":["topic2"]},"type":"COMMAND_RESP"}</p>
     <p>Cancel All Private Topics</p>
     <p>{"method":"public/unSubAll","id":"requestId"}</p>
     <p>Response:</p>
-    <p> {"id":"requestId","code":0,"type":"COMMAND_RESP"}</p>
+    <p> {"id":"requestId","success":true,"type":"COMMAND_RESP"}</p>
   usdc_perp_websocket_para_orderbook: |
     <p>Either 25 or 200 orders will be fetched from the bid and ask side of the order book.</p>
     <p>After a successful subscription,  the first response will be a snapshot data, then provide the delta data</p>
@@ -3229,18 +3485,20 @@ en:
     <p>instrument_info.100ms.BTCPERP</p>
   usdc_perp_position_desc: |
     <p>topic:</p>
-    <p>user.perp.position</p>
+    <p>user.openapi.perp.position</p>
   usdc_perp_trade_history: |
     <p>topic:</p>
-    <p>user.perp.trade</p>
+    <p>user.openapi.perp.trade</p>
   usdc_perp_active_order: |
     <p>Subscribe to stay updated on active orders.</p>
     <p>topic:</p>
-    <p>user.perp.order</p>
+    <p>user.openapi.perp.order</p>
   usdc_perp_order_desc: |
     <p>topic:</p>
     <p>user.perp.orderHistory</p>
-
+  usdc_platform_insurance: |
+    <p>topic:</p>
+    <p>platform.insurance.USDC</p>
   usdc_perp_price_rule:
     <ul>
     <li>Must be less than 1 million (<code>1000000</code>)</li>
@@ -3250,6 +3508,7 @@ en:
     <li><code>40.5</code> - allowed</li>
     <li><code>40.1</code> - not allowed</li>
     <li><code>-30.5</code> - not allowed</li>
+    </ul>
     </li>
     </ul>
   usdc_perp_quantity:
@@ -3283,26 +3542,46 @@ en:
     </li>
     </ul>
   usdc_perp_websocket_para_endpoint: |
-    Websocket Server Address :
+    Base endpoints:
     <ul>
     <p>
-      <li>Testnet:
-        Public: <span id="testnet_address">wss://stream-testnet.bybit.com/perpetual/ws/v1/realtime_public</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-        <br/>
-
-        Private: <span id="testnet_address_2">wss://stream-testnet.bybit.com/trade/option/usdc/private/v1</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+      <li>Testnet Public:
+        <ul>
+          <li><span id="testnet_address">wss://stream-testnet.bybit.com/perpetual/ws/v1/realtime_public</span>
+          <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button></li>
+        </ul>
+      </li>
+      <li>
+        Testnet Private:
+        <ul>
+          <li><span id="testnet_address_2">wss://stream-testnet.bybit.com/trade/option/usdc/private/v1</span>
+          <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button></li>
+        </ul>
       </li>
     </p>
     <p>
-
+      <li>Mainnet public (both endpoints are available):<br/>
+        <ul>
+          <li><span id="mainnet_perpetual_public_address">wss://stream.bybit.com/perpetual/ws/v1/realtime_public</span>
+          <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_perpetual_public_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button></li>
+          <li><span id="mainnet_perpetual_public_address_2">wss://stream.bytick.com/perpetual/ws/v1/realtime_public</span>
+          <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_perpetual_public_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button></li>
+        </ul>
+      </li>
+    </p>
+    <p>
+      <li>Mainnet private (both endpoints are available):<br/>
+        <ul>
+          <li><span id="mainnet_perpetual_private_address">wss://stream.bybit.com/trade/option/usdc/private/v1</span>
+          <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_perpetual_private_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+          <li><span id="mainnet_perpetual_private_address_2">wss://stream.bytick.com/trade/option/usdc/private/v1</span>
+          <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_perpetual_private_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button></li>
+        </ul>
+      </li>
     </p>
     <p>All requests made to the private API must be authenticated. Requests made to the public API do not require authentication.</p>
     </ul>
   usdc_perp_order_type: refer to <a href="#order-type-type-ordertypes">Order Type</a>
-  usdc_perp_active_orders_snapshot: Active Orders(Full Data)
-  usdc_perp_active_orders_delta: Active Orders(Status)
   usdc_perp_active_order_delta_topic: |
     <p>Subscribe to stay updated on new and partially filled active orders.</p>
     <p>topic:</p>
@@ -3323,10 +3602,14 @@ en:
   setUpMmpDesc: |
     <p>The configuration parameters are as follows</p>
   usdcCurrency: Currency
+  usdcMmpEnabled: Whether MMP is enabled
+  usdcMmpUserConfigurable: Whether the user can modify the MMP configuration
   usdcWindowMs: Time Window(Millisecond)
-  usdcFrozenPeriodMs: Frozen Period(Millisecond)
-  usdcQtyLimit: Quantity Limit
-  usdcDeltaLimit: Delta Limit
+  usdcFrozenPeriodMs: Frozen Period(Millisecond). (0 means the account will remain frozen until manually reset)
+  usdcQtyLimit: Quantity Limit. (positive number, up to two decimal places)
+  usdcDeltaLimit: Delta Limit. (positive number, up to two decimal places)
+  usdcMmpFrozenUntilMs: Timestamp of when the freeze is expected to be automatically unfrozen (Millisecond)
+  usdcMmpFrozen: whether to freeze
   modifyMmp: Modify
   resetMmp: Reset
   usdcMmpDefault: The default settings are as follows
@@ -3334,3 +3617,74 @@ en:
   usdcStopOrderType: refer to <a href="#stop-order-type">Stop Order Type</a>
   usdcCancelType: refer to <a href="#cancel-type">Cancel Type</a>
   usdcTradeId: Trade Id
+  usdcQueryLimit: The endpoint only supports up to 30 days of queried records
+  usdcQueryLimitWithInput: The endpoint only supports up to 30 days of queried records. An error will be returned if startTime is more than 30 days.
+
+  lt: Leveraged Token Endpoints
+  lt_notice: Not fully released
+  lt_para: The following Leveraged Token endpoints require authentication.
+  ltInfo: Asset Info
+  row_parameter_etpCode: ETP Asset name
+  spotLtCode: Abbreviation of the LT. Actually only BTC3L,BTC3S,ETH3L,ETH3S available
+  spotResLtCode: Abbreviation of the LT
+  spotResLtName: Full name of the LT
+  spotResMaxPurchase: Max. purchase amount per transaction
+  spotResMinPurchase: Min. purchase amount per transaction
+  spotResMaxPurchaseDaily: Max. purchase amount per day
+  spotResMaxRedeem: Max. redemption amount per transaction
+  spotResMinRedeem: Min. redemption amount per transaction
+  spotResMaxRedeemDaily: Max. redemption amount per day
+  spotResPurchaseFee: Purchase fees
+  spotResRedeemFee: Redemption fees
+  spotResLtStatus: Whether the LT can be purchased or redeemed; 1. LT can be purchased and redeemed; 2. LT can be purchased, but not redeemed; 3. LT can be redeemed, but not purchased; 4. LT cannot be purchased nor redeemed
+  spotResFundFee: Funding fees charged daily to users who hold LT
+  spotResFundFeeTime: Timestamps when funding fees are charged
+  spotResManageFee: Management fees
+  spotResManageFeeTime: Timestamps when management fees are charged
+  spotResCirculation: Circulating supply in the secondary market
+  spotResValue: Total value
+  spotResTotal: total circulation
+  spotResNetValue: Net asset value
+
+  ltPurchase: Purchase
+  spotLtAmount: Purchase amount
+  spotResOrderStatus: Order status; 1. Completed; 2. In progress; 3. Failed
+#  spotResOrderQuantity: Actual purchase quantity of the ETP
+#  spotResOrderAmount: Actual redeem amount of the ETP
+  spotResAmount: amount of LT
+
+  spotResPurchaseOrderQuantity: Order quantity of the LT
+  spotResPurchaseOrderAmount: Order value of the LT
+  spotResPurchaseAmount: Actual purchase value of the LT
+  spotResRedeemQuantity: Quantity
+  spotResRedeemOrderQuantity: Order quantity of the LT
+  spotResRedeemOrderAmount: Order value of the LT
+  spotResOrderQuantity: Order quantity of the LT
+
+  spotResId: Transaction ID
+  spotResValueCoin: Quote asset
+  spotLtSerialNo: Serial number
+
+  ltRedeem: Redeem
+  spotLtQuantity: Redeem quantity
+
+  ltRecord: Purchase/Redemption History
+  spotLtOrderId: Order ID
+  spotLtStartTime: Start time
+  spotLtEndTime: End time
+  spotLtOrderType: Order type; 1. Purchase; 2. Redemption
+  spotResOrderTime: Order time
+  spotResExcTime: Last update time of the order status
+  spotResStatus: Order status; 1. Completed; 2. In progress; 3. Failed
+  spotResFee: Trading fees
+  spotResRecordValue: Filled value
+
+
+  ltQuoteReference: Market Info
+  ltQuoteReference_para: This endpoint does not require authentication.
+  spotLtQuoteNav: Net asset value
+  spotLtQuoteNavTime: Update time for net asset value (in milliseconds and UTC time zone)
+  spotLtQuoteBasket: Basket value
+
+
+  perpUsdcReplaceOrderDesc: Active order parameters (such as quantity, price) and stop order parameters cannot be modified in one request at the same time. Please request modification separately.

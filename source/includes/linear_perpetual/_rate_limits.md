@@ -24,13 +24,15 @@ t(:rate_para_understanding)
     <th>t(:row_comment_consume)</th>
   </tr>
   <tr>
-    <td rowspan="6">100/min</td>
+    <td rowspan="8">100/min</td>
     <td>/private/linear/order/create </td>
     <td>1 / request</td>
   </tr>
+  <tr><td>/private/linear/order/replace </td><td>1 / request</td></tr>
   <tr><td>/private/linear/order/cancel </td><td>1 / request</td></tr>
   <tr><td>/private/linear/order/cancel-all </td><td>10 / request</td></tr>
   <tr><td>/private/linear/stop-order/create </td><td>1 / request</td></tr>
+  <tr><td>/private/linear/stop-order/replace </td><td>1 / request</td></tr>
   <tr><td>/private/linear/stop-order/cancel </td><td>1 / request</td></tr>
   <tr><td>/private/linear/stop-order/cancel-all </td><td>10 / request</td></tr>
   <tr>
@@ -45,12 +47,13 @@ t(:rate_para_understanding)
   <tr><td>/private/linear/position/add-margin </td><td>1 / request</td></tr>
     
   <tr>
-    <td rowspan="3">120/min</td>
+    <td rowspan="4">120/min</td>
     <td>/private/linear/position/list  </td>
     <td>1 / request</td>
   </tr>
   <tr><td>/private/linear/trade/closed-pnl/list </td><td>1 / request</td></tr>
   <tr><td>/private/linear/trade/execution/list </td><td>1 / request</td></tr>
+  <tr><td>/private/linear/trade/execution/history-list </td><td>1 / request</td></tr>
     
   <tr>
     <td rowspan="4">600/min</td>

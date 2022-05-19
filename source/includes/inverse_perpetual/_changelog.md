@@ -1,5 +1,22 @@
 # t(:changelog)   
 
+## 2022-04-29
+### REST API
+- [t(:placeactive)](#t-placeactive) & [t(:querysymbol)](#t-querysymbol) [t(:changelog_update)]
+  - t(:restapi_update_20220429)
+
+
+## 2022-03-01
+### REST API
+- [t(:querysymbol)](#t-querysymbol) [t(:changelog_update)]
+  - t(:restapi_update_20220301)
+
+## 2022-02-28
+### REST API
+- [t(:queryfeerate)](#t-queryfeerate) [t(:changelog_new)]
+- [t(:key)](#t-key) [t(:changelog_update)]
+  - t(:restapi_update_20220228)
+
 ## 2021-12-28
 ### REST API
 - [t(:publictradingrecords)](#t-publictradingrecords) [t(:changelog_update)]

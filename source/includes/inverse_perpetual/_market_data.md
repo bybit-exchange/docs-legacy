@@ -397,6 +397,7 @@ print(session.query_symbol())
             "price_scale":2,
             "taker_fee":"0.00075",
             "maker_fee":"-0.00025",
+            "funding_interval":480,
             "leverage_filter":{
                 "min_leverage":1,
                 "max_leverage":100,
@@ -410,7 +411,8 @@ print(session.query_symbol())
             "lot_size_filter":{
                 "max_trading_qty":1000000,
                 "min_trading_qty":1,
-                "qty_step":1
+                "qty_step":1,
+                "post_only_max_trading_qty":"5000000"
             }
         },
         {
@@ -422,6 +424,7 @@ print(session.query_symbol())
             "price_scale":3,
             "taker_fee":"0.00075",
             "maker_fee":"-0.00025",
+            "funding_interval":480,
             "leverage_filter":{
                 "min_leverage":1,
                 "max_leverage":50,
@@ -435,7 +438,8 @@ print(session.query_symbol())
             "lot_size_filter":{
                 "max_trading_qty":1000000,
                 "min_trading_qty":1,
-                "qty_step":1
+                "qty_step":1,
+                "post_only_max_trading_qty":"5000000"
             }
         },
         {
@@ -447,6 +451,7 @@ print(session.query_symbol())
             "price_scale":2,
             "taker_fee":"0.00075",
             "maker_fee":"-0.00025",
+            "funding_interval":480,
             "leverage_filter":{
                 "min_leverage":1,
                 "max_leverage":100,
@@ -460,18 +465,20 @@ print(session.query_symbol())
             "lot_size_filter":{
                 "max_trading_qty":100,
                 "min_trading_qty":0.001,
-                "qty_step":0.001
+                "qty_step":0.001,
+                "post_only_max_trading_qty":"500"
             }
         },
         {
-            "name":"BTCUSDM21",
-            "alias":"BTCUSD0625",
+            "name":"BTCUSDM22",
+            "alias":"BTCUSD0624",
             "status":"Trading",
             "base_currency":"BTC",
             "quote_currency":"USD",
             "price_scale":2,
             "taker_fee":"0.00075",
             "maker_fee":"-0.00025",
+            "funding_interval":480,
             "leverage_filter":{
                 "min_leverage":1,
                 "max_leverage":100,
@@ -485,7 +492,8 @@ print(session.query_symbol())
             "lot_size_filter":{
                 "max_trading_qty":1000000,
                 "min_trading_qty":1,
-                "qty_step":1
+                "qty_step":1,
+                "post_only_max_trading_qty":"5000000"
             }
         }
     ],
@@ -515,8 +523,9 @@ GET
 |price_scale |number |t(:row_response_comment_price_scale)    |
 |taker_fee |string |t(:row_response_comment_taker_fee)    |
 |maker_fee |string |t(:row_response_comment_maker_fee)    |
+|funding_interval |number |t(:row_response_funding_interval)    |
 |min_leverage |number |t(:row_response_comment_min_leverage)    |
-|max_leverage |number |t(:row_response_comment_max_leverage)    |
+|max_leverage |number |t(:row_response_comment_public_max_leverage)    |
 |leverage_step |string |t(:row_response_comment_leverage_step)    |
 |min_price |string |t(:row_response_comment_min_price)    |
 |max_price |string |t(:row_response_comment_max_price)    |
@@ -524,7 +533,7 @@ GET
 |max_trading_qty |number |t(:row_response_comment_max_trading_qty)    |
 |min_trading_qty |number |t(:row_response_comment_min_trading_qty)    |
 |qty_step |number |t(:row_response_comment_qty_step)    |
-
+|post_only_max_trading_qty |string |t(:row_response_comment_post_only_max_trading_qty)    |
 
 
 ### t(:markpricekline)

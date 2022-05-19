@@ -15,7 +15,7 @@ t(:ENUMs_para)
 * `ETHUSDT`
 * ...
 
-t(:trading_symbol_comment)
+t(:spot_trading_symbol_comment)
 
 
 ## Order type (`type`/`orderTypes`)
@@ -74,3 +74,18 @@ t(:price)
 * `1d` t(:interval_D)
 * `1w` t(:interval_W)
 * `1M` t(:interval_M)
+
+## LT status (`status`)
+* `1` t(:etpStatus_1)
+* `2` t(:etpStatus_2)
+* `3` t(:etpStatus_3)
+* `4` t(:etpStatus_4)
+
+## LT order status (`orderStatus`)
+* `1` t(:etpOrderStatus_1)
+* `2` t(:etpOrderStatus_2)
+* `3` t(:etpOrderStatus_3)
+
+## LT order type (`orderType`)
+* `1` t(:etpOrderType_1)
+* `2` t(:etpOrderType_2)

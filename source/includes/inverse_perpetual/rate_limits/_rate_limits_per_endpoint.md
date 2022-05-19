@@ -43,13 +43,14 @@ t(:rate_para_understanding)
     <td>1 / request</td>
   </tr>
   <tr>
-    <td rowspan="4">75/min</td>
+    <td rowspan="5">75/min</td>
     <td>/v2/private/position/leverage/save </td>
     <td>1 / request</td>
   </tr>
   <tr><td>/v2/private/position/change-position-margin</td><td>1 / request</td></tr>
   <tr><td>/v2/private/position/trading-stop</td><td>1 / request</td></tr>
   <tr><td>/v2/private/tpsl/switch-mode</td><td>1 / request</td></tr>
+  <tr><td>/v2/private/position/fee-rate</td><td>1 / request</td></tr>
   <tr>
     <td rowspan="3">120/min</td>
   </tr>
