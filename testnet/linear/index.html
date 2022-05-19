@@ -636,7 +636,7 @@
   color: #859900;
 }
     </style>
-    <link href="../../stylesheets/screen-6a7bc757.css" rel="stylesheet" media="screen" />
+    <link href="../../stylesheets/screen-995a21da.css" rel="stylesheet" media="screen" />
     <link href="../../stylesheets/print-41ffbffc.css" rel="stylesheet" media="print" />
       <script src="../../javascripts/all-52d563e0.js"></script>
 
@@ -1807,7 +1807,7 @@
                     <a href="#order-order" class="toc-h2 toc-link" data-title="Order (order)">Order (<code>order</code>)</a>
                   </li>
                   <li>
-                    <a href="#order-status-order_status" class="toc-h2 toc-link" data-title="Order status (order_status)">Order status (<code>order_status</code>)</a>
+                    <a href="#order-status-order_status-stop_order_status" class="toc-h2 toc-link" data-title="Order status (order_status/stop_order_status)">Order status (<code>order_status</code>/<code>stop_order_status</code>)</a>
                   </li>
                   <li>
                     <a href="#cancel-type-cancel_type" class="toc-h2 toc-link" data-title="Cancel type (cancel_type)">Cancel type (<code>cancel_type</code>)</a>
@@ -2669,9 +2669,9 @@ function copyStringToClipboard (endpoint) {
         <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">3866948</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">period</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">start_at</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1577836800</span><span class="p">,</span> <span class="c1">// <b>Abandoned!!</b></span>
+        <span class="dl">"</span><span class="s2">start_at</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1577836800</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">volume</span><span class="dl">"</span><span class="p">:</span> <span class="mf">1451.59</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">open</span><span class="dl">"</span><span class="p">:</span> <span class="mi">7700</span><span class="p">,</span>           <span class="c1">// <b>Abandoned!!</b></span>
+        <span class="dl">"</span><span class="s2">open</span><span class="dl">"</span><span class="p">:</span> <span class="mi">7700</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">high</span><span class="dl">"</span><span class="p">:</span> <span class="mi">999999</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">low</span><span class="dl">"</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">close</span><span class="dl">"</span><span class="p">:</span> <span class="mi">6000</span><span class="p">,</span>
@@ -2814,18 +2814,18 @@ function copyStringToClipboard (endpoint) {
 <p>Response Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>                                   <span class="c1">// error code 0 means success</span>
-    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>                                 <span class="c1">// error message</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
-            <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">18368131384</span><span class="dl">"</span><span class="p">,</span>                            <span class="c1">// ID, string type, all ids are in descending order globally</span>
-            <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>                            <span class="c1">// contract type</span>
-            <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="mf">9499.5</span><span class="p">,</span>                                <span class="c1">// execution price</span>
-            <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="mi">9500</span><span class="p">,</span>                                    <span class="c1">// execution quantity</span>
-            <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>                                  <span class="c1">// side</span>
-            <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2019-11-19T08:03:04.077Z</span><span class="dl">"</span><span class="p">,</span>             <span class="c1">// <b>Abandoned!!</b></span>
+            <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">18368131384</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="mf">9499.5</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="mi">9500</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2019-11-19T08:03:04.077Z</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">trade_time_ms</span><span class="dl">"</span><span class="p">:</span><span class="mi">1587638305175</span>
         <span class="p">}</span>
     <span class="p">],</span>
@@ -2884,7 +2884,7 @@ function copyStringToClipboard (endpoint) {
 <td>Symbol</td>
 </tr>
 <tr>
-<td style="text-align: left">price</td>
+<td style="text-align: left"><a href="#price-price">price</a></td>
 <td style="text-align: left">number</td>
 <td>Execution price</td>
 </tr>
@@ -2896,7 +2896,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left"><a href="#side-side">side</a></td>
 <td style="text-align: left">string</td>
-<td>Side</td>
+<td>Side of taker order</td>
 </tr>
 <tr>
 <td style="text-align: left">time</td>
@@ -3097,7 +3097,7 @@ function copyStringToClipboard (endpoint) {
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">symbol</td>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
@@ -3418,25 +3418,25 @@ curl https://api-testnet.bybit.com/v2/public/orderBook/L2?symbol=BTCUSD
 
 ```javascript
 {
-    "ret_code": 0,                              // return code
-    "ret_msg": "OK",                            // error message
-    "ext_code": "",                             // additional error code
-    "ext_info": "",                             // additional error info
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "ext_info": "",
     "result": [
         {
-            "symbol": "BTCUSD",                 // symbol
-            "price": "9487",                    // price
-            "size": 336241,                     // size (in USD contracts)
-            "side": "Buy"                       // side
+            "symbol": "BTCUSD",
+            "price": "9487",
+            "size": 336241,
+            "side": "Buy"
         },
         {
-            "symbol": "BTCUSD",                 // symbol
-            "price": "9487.5",                  // price
-            "size": 522147,                     // size (in USD contracts)
-            "side": "Sell"                      // side
+            "symbol": "BTCUSD",
+            "price": "9487.5",
+            "size": 522147,
+            "side": "Sell"
         }
     ],
-    "time_now": "1567108756.834357"             // UTC timestamp
+    "time_now": "1567108756.834357"
 }
 ```
 
@@ -3641,11 +3641,11 @@ GET
         <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">time_in_force</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GoodTillCancel</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">order_status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">New</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">last_exec_price</span><span class="dl">"</span><span class="p">:</span> <span class="mi">8083</span><span class="p">,</span>    <span class="c1">//Last execution price</span>
-        <span class="dl">"</span><span class="s2">cum_exec_qty</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>          <span class="c1">//Cumulative qty of trading</span>
-        <span class="dl">"</span><span class="s2">cum_exec_value</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>        <span class="c1">//Cumulative value of trading</span>
-        <span class="dl">"</span><span class="s2">cum_exec_fee</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>          <span class="c1">//Cumulative trading fees</span>
-        <span class="dl">"</span><span class="s2">reduce_only</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>       <span class="c1">//true means close order, false means open position</span>
+        <span class="dl">"</span><span class="s2">last_exec_price</span><span class="dl">"</span><span class="p">:</span> <span class="mi">8083</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">cum_exec_qty</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">cum_exec_value</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">cum_exec_fee</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">reduce_only</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">close_on_trigger</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
         <span class="dl">"</span><span class="s2">order_link_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">created_time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2019-10-21T07:28:19.396246Z</span><span class="dl">"</span><span class="p">,</span>
@@ -3802,22 +3802,22 @@ Please note:
 <td>UserID</td>
 </tr>
 <tr>
-<td style="text-align: left">symbol</td>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
 <tr>
-<td style="text-align: left">side</td>
+<td style="text-align: left"><a href="#side-side">side</a></td>
 <td style="text-align: left">string</td>
 <td>Side</td>
 </tr>
 <tr>
-<td style="text-align: left">order_type</td>
+<td style="text-align: left"><a href="#order-type-order_type">order_type</a></td>
 <td style="text-align: left">string</td>
 <td>Order type</td>
 </tr>
 <tr>
-<td style="text-align: left">price</td>
+<td style="text-align: left"><a href="#price-price">price</a></td>
 <td style="text-align: left">number</td>
 <td>Order price</td>
 </tr>
@@ -3827,12 +3827,12 @@ Please note:
 <td>Order quantity in USD</td>
 </tr>
 <tr>
-<td style="text-align: left">time_in_force</td>
+<td style="text-align: left"><a href="#time-in-force-time_in_force">time_in_force</a></td>
 <td style="text-align: left">string</td>
 <td><a href="https://help.bybit.com/hc/en-us/articles/360039749233-What-Are-Time-In-Force-TIF-GTC-IOC-FOK-">Time in force</a></td>
 </tr>
 <tr>
-<td style="text-align: left">order_status</td>
+<td style="text-align: left"><a href="#order-status-order_status-stop_order_status">order_status</a></td>
 <td style="text-align: left">string</td>
 <td>Order status</td>
 </tr>
@@ -3874,7 +3874,7 @@ Please note:
 <tr>
 <td style="text-align: left">created_time</td>
 <td style="text-align: left">string</td>
-<td>Creation time</td>
+<td>Creation time (when the <a href="#order-status-order_status-stop_order_status"><code>order_status</code></a> was <code>Created</code>)</td>
 </tr>
 <tr>
 <td style="text-align: left">updated_time</td>
@@ -4004,7 +4004,7 @@ Please note:
 <td>Symbol</td>
 </tr>
 <tr>
-<td style="text-align: left">order</td>
+<td style="text-align: left"><a href="#order-order">order</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>Sort orders by creation date. Defaults to <code>asc</code></td>
@@ -4022,7 +4022,7 @@ Please note:
 <td>Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page</td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="#order-status-order_status">order_status</a></td>
+<td style="text-align: left"><a href="#order-status-order_status-stop_order_status">order_status</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>Query your orders for all statuses if 'order_status' not provided. If you want to query orders with specific statuses, you can pass the order_status split by ','.</td>
@@ -4049,17 +4049,17 @@ Please note:
 <td>UserID</td>
 </tr>
 <tr>
-<td style="text-align: left">symbol</td>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
 <tr>
-<td style="text-align: left">side</td>
+<td style="text-align: left"><a href="#side-side">side</a></td>
 <td style="text-align: left">string</td>
 <td>Side</td>
 </tr>
 <tr>
-<td style="text-align: left">order_type</td>
+<td style="text-align: left"><a href="#order-type-order_type">order_type</a></td>
 <td style="text-align: left">string</td>
 <td>Order type</td>
 </tr>
@@ -4074,12 +4074,12 @@ Please note:
 <td>Order quantity in USD</td>
 </tr>
 <tr>
-<td style="text-align: left">time_in_force</td>
+<td style="text-align: left"><a href="#time-in-force-time_in_force">time_in_force</a></td>
 <td style="text-align: left">string</td>
 <td><a href="https://help.bybit.com/hc/en-us/articles/360039749233-What-Are-Time-In-Force-TIF-GTC-IOC-FOK-">Time in force</a></td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="#order-status-order_status">order_status</a></td>
+<td style="text-align: left"><a href="#order-status-order_status-stop_order_status">order_status</a></td>
 <td style="text-align: left">string</td>
 <td>Order status</td>
 </tr>
@@ -4121,7 +4121,7 @@ Please note:
 <tr>
 <td style="text-align: left">created_time</td>
 <td style="text-align: left">string</td>
-<td>Creation time</td>
+<td>Creation time (when the <a href="#order-status-order_status-stop_order_status"><code>order_status</code></a> was <code>Created</code>)</td>
 </tr>
 <tr>
 <td style="text-align: left">updated_time</td>
@@ -4345,14 +4345,14 @@ This endpoint's <code>rate_limit</code> will decrease by 10 per request; ie, one
 <p>Response Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>    <span class="c1">//Error code,</span>
-    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>  <span class="c1">//Error message,</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
         <span class="dl">"</span><span class="s2">order_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">efa44157-c355-4a98-b6d6-1d846a936b93</span><span class="dl">"</span>
     <span class="p">},</span>
-    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1539778407.210858</span><span class="dl">"</span><span class="p">,</span>    <span class="c1">// UTC timestamp</span>
-    <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">99</span><span class="p">,</span> <span class="c1">// The remaining number of accesses in one minute</span>
+    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1539778407.210858</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">99</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1580885703683</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">100</span>             
 <span class="p">}</span>
@@ -4625,22 +4625,22 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <td>UserID</td>
 </tr>
 <tr>
-<td style="text-align: left">symbol</td>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
 <tr>
-<td style="text-align: left">side</td>
+<td style="text-align: left"><a href="#side-side">side</a></td>
 <td style="text-align: left">string</td>
 <td>Side</td>
 </tr>
 <tr>
-<td style="text-align: left">order_type</td>
+<td style="text-align: left"><a href="#order-type-order_type">order_type</a></td>
 <td style="text-align: left">string</td>
 <td>Order type</td>
 </tr>
 <tr>
-<td style="text-align: left">price</td>
+<td style="text-align: left"><a href="#price-price">price</a></td>
 <td style="text-align: left">number</td>
 <td>Order price</td>
 </tr>
@@ -4650,12 +4650,12 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <td>Order quantity in USD</td>
 </tr>
 <tr>
-<td style="text-align: left">time_in_force</td>
+<td style="text-align: left"><a href="#time-in-force-time_in_force">time_in_force</a></td>
 <td style="text-align: left">string</td>
 <td><a href="https://help.bybit.com/hc/en-us/articles/360039749233-What-Are-Time-In-Force-TIF-GTC-IOC-FOK-">Time in force</a></td>
 </tr>
 <tr>
-<td style="text-align: left">order_status</td>
+<td style="text-align: left"><a href="#order-status-order_status-stop_order_status">order_status</a></td>
 <td style="text-align: left">string</td>
 <td>Order status</td>
 </tr>
@@ -4697,7 +4697,7 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <tr>
 <td style="text-align: left">created_time</td>
 <td style="text-align: left">string</td>
-<td>Creation time</td>
+<td>Creation time (when the <a href="#order-status-order_status-stop_order_status"><code>order_status</code></a> was <code>Created</code>)</td>
 </tr>
 <tr>
 <td style="text-align: left">updated_time</td>
@@ -4987,12 +4987,12 @@ Please note:
 <td><a href="https://help.bybit.com/hc/en-us/articles/360039749233-What-Are-Time-In-Force-TIF-GTC-IOC-FOK-">Time in force</a></td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="#order-status-order_status">order_status</a></td>
+<td style="text-align: left"><a href="#order-status-order_status-stop_order_status">order_status</a></td>
 <td style="text-align: left">string</td>
 <td>Order status</td>
 </tr>
 <tr>
-<td style="text-align: left">trigger_price</td>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">trigger_by</a></td>
 <td style="text-align: left">number</td>
 <td>If <code>stop_order_type</code> is <code>TrailingProfit</code>, this field is the trailing stop active price.</td>
 </tr>
@@ -5004,7 +5004,7 @@ Please note:
 <tr>
 <td style="text-align: left">created_time</td>
 <td style="text-align: left">string</td>
-<td>Creation time</td>
+<td>Creation time (when the <a href="#order-status-order_status-stop_order_status"><code>order_status</code></a> was <code>Created</code>)</td>
 </tr>
 <tr>
 <td style="text-align: left">updated_time</td>
@@ -5176,7 +5176,7 @@ Please note:
 <td>Symbol</td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="#stop-order-status-stop_order_status">stop_order_status</a></td>
+<td style="text-align: left"><a href="#order-status-order_status-stop_order_status">order_status</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>Stop order status</td>
@@ -5251,12 +5251,12 @@ Please note:
 <td><a href="https://help.bybit.com/hc/en-us/articles/360039749233-What-Are-Time-In-Force-TIF-GTC-IOC-FOK-">Time in force</a></td>
 </tr>
 <tr>
-<td style="text-align: left">order_status</td>
+<td style="text-align: left"><a href="#order-status-order_status-stop_order_status">order_status</a></td>
 <td style="text-align: left">string</td>
 <td>Stop order status</td>
 </tr>
 <tr>
-<td style="text-align: left">trigger_price</td>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">trigger_by</a></td>
 <td style="text-align: left">number</td>
 <td>If <code>stop_order_type</code> is <code>TrailingProfit</code>, this field is the trailing stop active price.</td>
 </tr>
@@ -5268,7 +5268,7 @@ Please note:
 <tr>
 <td style="text-align: left">created_time</td>
 <td style="text-align: left">string</td>
-<td>Creation time</td>
+<td>Creation time (when the <a href="#order-status-order_status-stop_order_status"><code>order_status</code></a> was <code>Created</code>)</td>
 </tr>
 <tr>
 <td style="text-align: left">updated_time</td>
@@ -5805,12 +5805,12 @@ Please note that you can only modify untriggered conditional orders.
 <td><a href="https://help.bybit.com/hc/en-us/articles/360039749233-What-Are-Time-In-Force-TIF-GTC-IOC-FOK-">Time in force</a></td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="#order-status-order_status">order_status</a></td>
+<td style="text-align: left"><a href="#order-status-order_status-stop_order_status">order_status</a></td>
 <td style="text-align: left">string</td>
 <td>Order status</td>
 </tr>
 <tr>
-<td style="text-align: left">trigger_price</td>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">trigger_by</a></td>
 <td style="text-align: left">number</td>
 <td>If <code>stop_order_type</code> is <code>TrailingProfit</code>, this field is the trailing stop active price.</td>
 </tr>
@@ -5822,7 +5822,7 @@ Please note that you can only modify untriggered conditional orders.
 <tr>
 <td style="text-align: left">created_time</td>
 <td style="text-align: left">string</td>
-<td>Creation time</td>
+<td>Creation time (when the <a href="#order-status-order_status-stop_order_status"><code>order_status</code></a> was <code>Created</code>)</td>
 </tr>
 <tr>
 <td style="text-align: left">updated_time</td>
@@ -5901,18 +5901,18 @@ Please note that you can only modify untriggered conditional orders.
                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
                <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
                <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-               <span class="dl">"</span><span class="s2">position_value</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>      <span class="c1">//Current position value</span>
-               <span class="dl">"</span><span class="s2">entry_price</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>         <span class="c1">//Average opening price</span>
-               <span class="dl">"</span><span class="s2">liq_price</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>           <span class="c1">//Liquidation price</span>
-               <span class="dl">"</span><span class="s2">bust_price</span><span class="dl">"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span>        <span class="c1">//Bust price</span>
+               <span class="dl">"</span><span class="s2">position_value</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+               <span class="dl">"</span><span class="s2">entry_price</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+               <span class="dl">"</span><span class="s2">liq_price</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+               <span class="dl">"</span><span class="s2">bust_price</span><span class="dl">"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span>
                <span class="dl">"</span><span class="s2">leverage</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
                <span class="dl">"</span><span class="s2">is_isolated</span><span class="dl">"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
                <span class="dl">"</span><span class="s2">auto_add_margin</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-               <span class="dl">"</span><span class="s2">position_margin</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>     <span class="c1">//Position margin</span>
-               <span class="dl">"</span><span class="s2">occ_closing_fee</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>     <span class="c1">//Pre-occupancy closing fee</span>
-               <span class="dl">"</span><span class="s2">realised_pnl</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>        <span class="c1">//Today's realised Profit and Loss</span>
-               <span class="dl">"</span><span class="s2">cum_realised_pnl</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>    <span class="c1">//Cumulative realised Profit and Loss</span>
-               <span class="dl">"</span><span class="s2">free_qty</span><span class="dl">"</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>          <span class="c1">//Qty which can be closed</span>
+               <span class="dl">"</span><span class="s2">position_margin</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+               <span class="dl">"</span><span class="s2">occ_closing_fee</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+               <span class="dl">"</span><span class="s2">realised_pnl</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+               <span class="dl">"</span><span class="s2">cum_realised_pnl</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+               <span class="dl">"</span><span class="s2">free_qty</span><span class="dl">"</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
                <span class="dl">"</span><span class="s2">tp_sl_mode</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Full</span><span class="dl">"</span><span class="p">,</span>
                <span class="dl">"</span><span class="s2">unrealised_pnl</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
                <span class="dl">"</span><span class="s2">deleverage_indicator</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -5962,8 +5962,8 @@ Please note that you can only modify untriggered conditional orders.
     <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
-            <span class="dl">"</span><span class="s2">is_valid</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">//represents whether the current data is valid</span>
-            <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span> <span class="c1">//the data can only be used when <code>is_valid</code> is <b>true</b></span>
+            <span class="dl">"</span><span class="s2">is_valid</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
                 <span class="dl">"</span><span class="s2">user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">118921</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
@@ -5990,8 +5990,8 @@ Please note that you can only modify untriggered conditional orders.
             <span class="p">}</span>
         <span class="p">},</span>
         <span class="p">{</span>
-            <span class="dl">"</span><span class="s2">is_valid</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">//represents whether the current data is valid</span>
-            <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span> <span class="c1">//the data can only be used when <code>is_valid</code> is <b>true</b></span>
+            <span class="dl">"</span><span class="s2">is_valid</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
                 <span class="dl">"</span><span class="s2">user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">118921</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span><span class="p">,</span>
@@ -6019,8 +6019,8 @@ Please note that you can only modify untriggered conditional orders.
         <span class="p">},</span>
         <span class="p">...</span>
         <span class="p">{</span>
-            <span class="dl">"</span><span class="s2">is_valid</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">//represents whether the current data is valid</span>
-            <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span> <span class="c1">//the data can only be used when <code>is_valid</code> is <b>true</b></span>
+            <span class="dl">"</span><span class="s2">is_valid</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
                 <span class="dl">"</span><span class="s2">user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">118921</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">XTZUSDT</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
@@ -6047,8 +6047,8 @@ Please note that you can only modify untriggered conditional orders.
             <span class="p">}</span>
         <span class="p">},</span>
         <span class="p">{</span>
-            <span class="dl">"</span><span class="s2">is_valid</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">//represents whether the current data is valid</span>
-            <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span> <span class="c1">//the data can only be used when <code>is_valid</code> is <b>true</b></span>
+            <span class="dl">"</span><span class="s2">is_valid</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
                 <span class="dl">"</span><span class="s2">user_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">118921</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">XTZUSDT</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span><span class="p">,</span>
@@ -6944,23 +6944,23 @@ Passing these parameters will create conditional orders controlled by the system
                 <span class="p">{</span>
                     <span class="dl">"</span><span class="s2">order_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">7369b2f4-52f1-4698-abf7-368e4ba9aefa</span><span class="dl">"</span><span class="p">,</span>
                     <span class="dl">"</span><span class="s2">order_link_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-                    <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>  <span class="c1">//<a href="#side-side">Side Enum</a></span>
-                    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span> <span class="c1">//<a href="#symbol-symbol">Symbol Enum</a></span>
+                    <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
+                    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
                     <span class="dl">"</span><span class="s2">exec_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">9b8216fa-98d7-55c0-b5fa-279db5727996</span><span class="dl">"</span><span class="p">,</span>
-                    <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="mi">5894</span><span class="p">,</span><span class="c1">//<b>Abandoned!!</b></span>
+                    <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="mi">5894</span>
                     <span class="dl">"</span><span class="s2">order_price</span><span class="dl">"</span><span class="p">:</span> <span class="mi">5894</span><span class="p">,</span>
                     <span class="dl">"</span><span class="s2">order_qty</span><span class="dl">"</span><span class="p">:</span> <span class="mf">0.001</span><span class="p">,</span>
-                    <span class="dl">"</span><span class="s2">order_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Limit</span><span class="dl">"</span><span class="p">,</span> <span class="c1">//<a href="#order-type-order_type">Order Type Enum</a></span>
+                    <span class="dl">"</span><span class="s2">order_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Limit</span><span class="dl">"</span><span class="p">,</span>
                     <span class="dl">"</span><span class="s2">fee_rate</span><span class="dl">"</span><span class="p">:</span> <span class="mf">0.00075</span><span class="p">,</span>
                     <span class="dl">"</span><span class="s2">exec_price</span><span class="dl">"</span><span class="p">:</span> <span class="mi">5894</span><span class="p">,</span>
-                    <span class="dl">"</span><span class="s2">exec_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Trade</span><span class="dl">"</span><span class="p">,</span> <span class="c1">//<a href="#exec-type-exec_type">Exec Type Enum</a></span>
+                    <span class="dl">"</span><span class="s2">exec_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Trade</span><span class="dl">"</span><span class="p">,</span>
                     <span class="dl">"</span><span class="s2">exec_qty</span><span class="dl">"</span><span class="p">:</span> <span class="mf">0.001</span><span class="p">,</span>
                     <span class="dl">"</span><span class="s2">exec_fee</span><span class="dl">"</span><span class="p">:</span> <span class="mf">0.0044205</span><span class="p">,</span>
                     <span class="dl">"</span><span class="s2">exec_value</span><span class="dl">"</span><span class="p">:</span> <span class="mf">5.894</span><span class="p">,</span>
                     <span class="dl">"</span><span class="s2">leaves_qty</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-                    <span class="dl">"</span><span class="s2">closed_size</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="c1">// The corresponding closing size of the closing order</span>
-                    <span class="dl">"</span><span class="s2">last_liquidity_ind</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">RemovedLiquidity</span><span class="dl">"</span><span class="p">,</span>  <span class="c1">//<a href="#liquidity-type-last_liquidity_ind">Liquidity Enum</a>, only valid while <code>exec_type</code> is <code>Trade, AdlTrade, BustTrade</code></span>
-                    <span class="dl">"</span><span class="s2">trade_time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1585547384</span><span class="p">,</span><span class="c1">//<b>Abandoned!!</b></span>
+                    <span class="dl">"</span><span class="s2">closed_size</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                    <span class="dl">"</span><span class="s2">last_liquidity_ind</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">RemovedLiquidity</span><span class="dl">"</span><span class="p">,</span>
+                    <span class="dl">"</span><span class="s2">trade_time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1585547384</span>
                     <span class="dl">"</span><span class="s2">trade_time_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1585547384847</span>
                 <span class="p">}</span>
             <span class="p">]</span>
@@ -6973,7 +6973,7 @@ Passing these parameters will create conditional orders controlled by the system
 
 <span class="p">}</span>
 </code></pre></div>
-<p>Get user's trading records. The results are ordered in descending order (the first item is the latest).</p>
+<p>Get user's trading records. The results are ordered in descending order (the first item is the latest). Returns records up to 2 years old.</p>
 
 <aside class="notice">
 One order may have multiple trade records.
@@ -7090,7 +7090,7 @@ One order may have multiple trade records.
 <tr>
 <td style="text-align: left"><a href="#exec-type-exec_type">exec_type</a></td>
 <td style="text-align: left">string</td>
-<td><a href="#exec-type-exec_type">Exec Type Enum</a></td>
+<td>Exec type</td>
 </tr>
 <tr>
 <td style="text-align: left">exec_qty</td>
@@ -7120,7 +7120,7 @@ One order may have multiple trade records.
 <tr>
 <td style="text-align: left"><a href="#liquidity-type-last_liquidity_ind">last_liquidity_ind</a></td>
 <td style="text-align: left">string</td>
-<td><a href="#liquidity-type-last_liquidity_ind">Liquidity Enum</a>, only valid while <code>exec_type</code> is <code>Trade, AdlTrade, BustTrade</code></td>
+<td>Only valid while <code>exec_type</code> is <code>Trade<\code>, <code>AdlTrade<\code>, <code>BustTrade</code></td>
 </tr>
 <tr>
 <td style="text-align: left">trade_time_ms</td>
@@ -7157,23 +7157,23 @@ One order may have multiple trade records.
                 <span class="p">{</span>
                     <span class="dl">"</span><span class="s2">order_id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">cb89f263-ee13-4fae-b243-cff6d5085a28</span><span class="dl">"</span><span class="p">,</span>
                     <span class="dl">"</span><span class="s2">order_link_id</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-                    <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span><span class="p">,</span> <span class="c1">//<a href="#side-side">Side Enum</a></span>
-                    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span> <span class="c1">//<a href="#symbol-symbol">Symbol Enum</a></span>
+                    <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span><span class="p">,</span>
+                    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
                     <span class="dl">"</span><span class="s2">exec_id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">d115f186-a927-54ec-a68e-cd04e74c16a1</span><span class="dl">"</span><span class="p">,</span>
-                    <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span><span class="mi">29450</span><span class="p">,</span> <span class="c1">//<b>Abandoned!!</b></span>
+                    <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span><span class="mi">29450</span><span class="p">,</span>
                     <span class="dl">"</span><span class="s2">order_price</span><span class="dl">"</span><span class="p">:</span><span class="mi">29450</span><span class="p">,</span>
                     <span class="dl">"</span><span class="s2">order_qty</span><span class="dl">"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span>
-                    <span class="dl">"</span><span class="s2">order_type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Market</span><span class="dl">"</span><span class="p">,</span> <span class="c1">//<a href="#order-type-order_type">Order Type Enum</a></span>
+                    <span class="dl">"</span><span class="s2">order_type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Market</span><span class="dl">"</span><span class="p">,</span>
                     <span class="dl">"</span><span class="s2">fee_rate</span><span class="dl">"</span><span class="p">:</span><span class="mf">0.00075</span><span class="p">,</span>
                     <span class="dl">"</span><span class="s2">exec_price</span><span class="dl">"</span><span class="p">:</span><span class="mi">32550</span><span class="p">,</span>
-                    <span class="dl">"</span><span class="s2">exec_type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Trade</span><span class="dl">"</span><span class="p">,</span> <span class="c1">//<a href="#exec-type-exec_type">Exec Type Enum</a></span>
+                    <span class="dl">"</span><span class="s2">exec_type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Trade</span><span class="dl">"</span><span class="p">,</span>
                     <span class="dl">"</span><span class="s2">exec_qty</span><span class="dl">"</span><span class="p">:</span><span class="mf">0.02</span><span class="p">,</span>
                     <span class="dl">"</span><span class="s2">exec_fee</span><span class="dl">"</span><span class="p">:</span><span class="mf">0.48825</span><span class="p">,</span>
                     <span class="dl">"</span><span class="s2">exec_value</span><span class="dl">"</span><span class="p">:</span><span class="mi">651</span><span class="p">,</span>
                     <span class="dl">"</span><span class="s2">leaves_qty</span><span class="dl">"</span><span class="p">:</span><span class="mf">99.98</span><span class="p">,</span>
-                    <span class="dl">"</span><span class="s2">closed_size</span><span class="dl">"</span><span class="p">:</span><span class="mf">0.02</span><span class="p">,</span> <span class="c1">//The corresponding closing size of the closing order</span>
-                    <span class="dl">"</span><span class="s2">last_liquidity_ind</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">RemovedLiquidity</span><span class="dl">"</span><span class="p">,</span> <span class="c1">//<a href="#liquidity-type-last_liquidity_ind">Liquidity Enum</a>, only valid while <code>exec_type</code> is <code>Trade, AdlTrade, BustTrade</code></span>
-                    <span class="dl">"</span><span class="s2">trade_time</span><span class="dl">"</span><span class="p">:</span><span class="mi">1646115100</span><span class="p">,</span> <span class="c1">//<b>Abandoned!!</b></span>
+                    <span class="dl">"</span><span class="s2">closed_size</span><span class="dl">"</span><span class="p">:</span><span class="mf">0.02</span><span class="p">,</span>
+                    <span class="dl">"</span><span class="s2">last_liquidity_ind</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">RemovedLiquidity</span><span class="dl">"</span><span class="p">,</span>
+                    <span class="dl">"</span><span class="s2">trade_time</span><span class="dl">"</span><span class="p">:</span><span class="mi">1646115100</span><span class="p">,</span>
                     <span class="dl">"</span><span class="s2">trade_time_ms</span><span class="dl">"</span><span class="p">:</span><span class="mi">1646115100705</span>
                 <span class="p">}</span>
             <span class="p">]</span>
@@ -7186,7 +7186,7 @@ One order may have multiple trade records.
 
 <span class="p">}</span>
 </code></pre></div>
-<p>Get user's trading records. The results are ordered in descending order (the first item is the latest).</p>
+<p>Get user's trading records. The results are ordered in descending order (the first item is the latest). Returns records up to 2 years old.</p>
 
 <aside class="notice">
 One order may have multiple trade records.
@@ -7303,7 +7303,7 @@ One order may have multiple trade records.
 <tr>
 <td style="text-align: left"><a href="#exec-type-exec_type">exec_type</a></td>
 <td style="text-align: left">string</td>
-<td><a href="#exec-type-exec_type">Exec Type Enum</a></td>
+<td>Exec type</td>
 </tr>
 <tr>
 <td style="text-align: left">exec_qty</td>
@@ -7333,7 +7333,7 @@ One order may have multiple trade records.
 <tr>
 <td style="text-align: left"><a href="#liquidity-type-last_liquidity_ind">last_liquidity_ind</a></td>
 <td style="text-align: left">string</td>
-<td><a href="#liquidity-type-last_liquidity_ind">Liquidity Enum</a>, only valid while <code>exec_type</code> is <code>Trade, AdlTrade, BustTrade</code></td>
+<td>Only valid while <code>exec_type</code> is <code>Trade<\code>, <code>AdlTrade<\code>, <code>BustTrade</code></td>
 </tr>
 <tr>
 <td style="text-align: left">trade_time_ms</td>
@@ -7377,13 +7377,13 @@ One order may have multiple trade records.
                  <span class="dl">"</span><span class="s2">order_price</span><span class="dl">"</span><span class="p">:</span> <span class="mi">999999</span><span class="p">,</span>
                  <span class="dl">"</span><span class="s2">order_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Market</span><span class="dl">"</span><span class="p">,</span>
                  <span class="dl">"</span><span class="s2">exec_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Trade</span><span class="dl">"</span><span class="p">,</span>
-                 <span class="dl">"</span><span class="s2">closed_size</span><span class="dl">"</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>        <span class="c1">//Closed size</span>
-                 <span class="dl">"</span><span class="s2">cum_entry_value</span><span class="dl">"</span><span class="p">:</span> <span class="mi">3000</span><span class="p">,</span>   <span class="c1">//Closed position value</span>
-                 <span class="dl">"</span><span class="s2">avg_entry_price</span><span class="dl">"</span><span class="p">:</span> <span class="mi">6000</span><span class="p">,</span>   <span class="c1">//Average entry price</span>
-                 <span class="dl">"</span><span class="s2">cum_exit_value</span><span class="dl">"</span><span class="p">:</span> <span class="mf">3000.5</span><span class="p">,</span>  <span class="c1">//Cumulative trading value of position closing orders</span>
-                 <span class="dl">"</span><span class="s2">avg_exit_price</span><span class="dl">"</span><span class="p">:</span> <span class="mi">6001</span><span class="p">,</span>    <span class="c1">//Average exit price</span>
-                 <span class="dl">"</span><span class="s2">closed_pnl</span><span class="dl">"</span><span class="p">:</span> <span class="o">-</span><span class="mf">5.000375</span><span class="p">,</span>   <span class="c1">//Closed Profit and Loss</span>
-                 <span class="dl">"</span><span class="s2">fill_count</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>           <span class="c1">//The number of fills in a single order</span>
+                 <span class="dl">"</span><span class="s2">closed_size</span><span class="dl">"</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+                 <span class="dl">"</span><span class="s2">cum_entry_value</span><span class="dl">"</span><span class="p">:</span> <span class="mi">3000</span><span class="p">,</span>
+                 <span class="dl">"</span><span class="s2">avg_entry_price</span><span class="dl">"</span><span class="p">:</span> <span class="mi">6000</span><span class="p">,</span>
+                 <span class="dl">"</span><span class="s2">cum_exit_value</span><span class="dl">"</span><span class="p">:</span> <span class="mf">3000.5</span><span class="p">,</span>
+                 <span class="dl">"</span><span class="s2">avg_exit_price</span><span class="dl">"</span><span class="p">:</span> <span class="mi">6001</span><span class="p">,</span>
+                 <span class="dl">"</span><span class="s2">closed_pnl</span><span class="dl">"</span><span class="p">:</span> <span class="o">-</span><span class="mf">5.000375</span><span class="p">,</span>
+                 <span class="dl">"</span><span class="s2">fill_count</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
                  <span class="dl">"</span><span class="s2">leverage</span><span class="dl">"</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
                  <span class="dl">"</span><span class="s2">created_at</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1577480599</span>
              <span class="p">}</span>
@@ -7479,7 +7479,7 @@ One order may have multiple trade records.
 <tr>
 <td style="text-align: left">order_id</td>
 <td style="text-align: left">string</td>
-<td>Order ID</td>
+<td>Order ID of the closing order</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#side-side">side</a></td>
@@ -7549,7 +7549,7 @@ One order may have multiple trade records.
 <tr>
 <td style="text-align: left">created_at</td>
 <td style="text-align: left">number</td>
-<td>Creation time</td>
+<td>Creation time (when the <a href="#order-status-order_status-stop_order_status"><code>order_status</code></a> was <code>Created</code>)</td>
 </tr>
 </tbody></table>
 <h2 id='t-risklimit'>Risk Limit</h2><h3 id='t-getrisklimit'>Get Risk Limit</h3>
@@ -7700,7 +7700,7 @@ Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles
 <tr>
 <td style="text-align: left">created_at</td>
 <td style="text-align: left">string</td>
-<td>Creation time</td>
+<td>Creation time (when the <a href="#order-status-order_status-stop_order_status"><code>order_status</code></a> was <code>Created</code>)</td>
 </tr>
 <tr>
 <td style="text-align: left">updated_at</td>
@@ -7752,7 +7752,7 @@ Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles
 <p>Set risk limit.</p>
 
 <aside class="notice">
-Set risk limit.
+Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles/900000170023-Risk-Limit-USDT-Contract-">here</a>.
 </aside>
 
 <p class="fake_header">HTTP Request</p>
@@ -7929,7 +7929,7 @@ Set risk limit.
     <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">120</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Get recent trades. You can find a complete history of trades on Bybit <a href="https://public.bybit.com">here</a>.</p>
+<p><a href="https://help.bybit.com/hc/en-us/articles/360039261114-What-is-funding-rate-and-predicted-rate-">Funding settlement occurs</a> every 8 hours at 00:00 UTC, 08:00 UTC and 16:00 UTC. The current interval's fund fee settlement is based on the previous interval's fund rate. For example, at 16:00, the settlement is based on the fund rate generated at 8:00. The fund rate generated at 16:00 will be used at 0:00 the next day.</p>
 
 <p class="fake_header">HTTP Request</p>
 
@@ -8104,7 +8104,7 @@ Set risk limit.
 <p>Bybit has different IP frequency limits for <code>GET</code> and <code>POST</code> method<span>:</span></p>
 <ul>
 <li>
-  <code>GET</code> method:
+  <code>GET</code> & <code>DELETE</code> method:
   <ul>
     <li>12 requests per second continuously for 2 minutes</li>
     <li>18 requests per second continuously for 5 seconds</li>
@@ -8450,9 +8450,9 @@ Due to network complexity, your may get disconnected at any time. Please follow 
 <p>Response Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-    <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// Whether ping is successful</span>
+    <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">pong</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">conn_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">036e5d21-804c-4447-a92d-b65a44d00700</span><span class="dl">"</span><span class="p">,</span><span class="c1">// current connection id</span>
+    <span class="dl">"</span><span class="s2">conn_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">036e5d21-804c-4447-a92d-b65a44d00700</span><span class="dl">"</span>
     <span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
         <span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ping</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">args</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
@@ -8508,10 +8508,10 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <p>Subscription Response</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-   <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// Whether subscription is successful</span>
-   <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>   <span class="c1">// Successful subscription: "", otherwise it shows error message</span>
-   <span class="dl">"</span><span class="s2">conn_id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">e0e10eee-4eff-4d21-881e-a0c55c25e2da</span><span class="dl">"</span><span class="p">,</span><span class="c1">// current connection id</span>
-   <span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>     <span class="c1">// Request to your subscription</span>
+   <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+   <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+   <span class="dl">"</span><span class="s2">conn_id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">e0e10eee-4eff-4d21-881e-a0c55c25e2da</span><span class="dl">"</span>
+   <span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
        <span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">subscribe</span><span class="dl">"</span><span class="p">,</span>
        <span class="dl">"</span><span class="s2">args</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
            <span class="dl">"</span><span class="s2">kline.BTCUSDT.1m</span><span class="dl">"</span>
@@ -8634,7 +8634,7 @@ Want a greater depth? Take a look at the <a href="#t-websocketorderbook200">orde
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">price</td>
+<td style="text-align: left"><a href="#price-price">price</a></td>
 <td style="text-align: left">string</td>
 <td>Order price</td>
 </tr>
@@ -8755,7 +8755,7 @@ Want a greater depth? Take a look at the <a href="#t-websocketorderbook200">orde
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">price</td>
+<td style="text-align: left"><a href="#price-price">price</a></td>
 <td style="text-align: left">string</td>
 <td>Order price</td>
 </tr>
@@ -8830,7 +8830,7 @@ Want a greater depth? Take a look at the <a href="#t-websocketorderbook200">orde
 <td>Symbol</td>
 </tr>
 <tr>
-<td style="text-align: left">tick_direction</td>
+<td style="text-align: left"><a href="#tick-direction-type-tick_direction">tick_direction</a></td>
 <td style="text-align: left">string</td>
 <td>Direction of price change</td>
 </tr>
@@ -8994,7 +8994,7 @@ Some values use scientific notation. This is indicated by that value's key, whic
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">symbol</td>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
@@ -9126,7 +9126,7 @@ Some values use scientific notation. This is indicated by that value's key, whic
 <tr>
 <td style="text-align: left">created_at</td>
 <td style="text-align: left">string</td>
-<td>Creation time</td>
+<td>Creation time (when the <a href="#order-status-order_status-stop_order_status"><code>order_status</code></a> was <code>Created</code>)</td>
 </tr>
 <tr>
 <td style="text-align: left">updated_at</td>
@@ -9342,7 +9342,7 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 <td>Liquidated position's side</td>
 </tr>
 <tr>
-<td style="text-align: left">price</td>
+<td style="text-align: left"><a href="#price-price">price</a></td>
 <td style="text-align: left">string</td>
 <td><a href="https://help.bybit.com/hc/en-us/articles/360039749813-What-is-Bankruptcy-Price-Inverse-Contract-">Bankruptcy price</a></td>
 </tr>
@@ -9526,7 +9526,7 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 <td>Position sequence</td>
 </tr>
 <tr>
-<td style="text-align: left">tp_sl_mode</td>
+<td style="text-align: left"><a href="#tp-sl-mode-tp_sl_mode">tp_sl_mode</a></td>
 <td style="text-align: left">string</td>
 <td>TrailingProfit or StopLoss mode <code>Full</code> or <code>Partial</code></td>
 </tr>
@@ -9787,7 +9787,7 @@ This topic pushes all executions <i>except</i> <a href="#exec-type-exec_type"><c
 <td><a href="https://help.bybit.com/hc/en-us/articles/360039749233-What-Are-Time-In-Force-TIF-GTC-IOC-FOK-">Time in force</a></td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="#order-status-order_status">order_status</a></td>
+<td style="text-align: left"><a href="#order-status-order_status-stop_order_status">order_status</a></td>
 <td style="text-align: left">string</td>
 <td>Order status</td>
 </tr>
@@ -9830,7 +9830,7 @@ This topic pushes all executions <i>except</i> <a href="#exec-type-exec_type"><c
 <tr>
 <td style="text-align: left">create_time</td>
 <td style="text-align: left">string</td>
-<td>Commission time</td>
+<td>Timestamp (when the <a href="#order-status-order_status-stop_order_status"><code>order_status</code></a> was <code>New</code>)</td>
 </tr>
 <tr>
 <td style="text-align: left">update_time</td>
@@ -9873,7 +9873,7 @@ This topic pushes all executions <i>except</i> <a href="#exec-type-exec_type"><c
             <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">8584.5</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">time_in_force</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ImmediateOrCancel</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">order_status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Untriggered</span><span class="dl">"</span><span class="p">,</span> <span class="c1">//<a href="#stop-order-status-stop_order_status">Stop Order Status</a></span>
+            <span class="dl">"</span><span class="s2">order_status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Untriggered</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">stop_order_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Stop</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">trigger_by</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LastPrice</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">trigger_price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">8584.5</span><span class="dl">"</span><span class="p">,</span>
@@ -9913,7 +9913,7 @@ This topic pushes all executions <i>except</i> <a href="#exec-type-exec_type"><c
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
 <td style="text-align: left">string</td>
-<td><a href="#symbol-symbol">Symbol Enum</a></td>
+<td>Symbol</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#side-side">side</a></td>
@@ -9923,10 +9923,10 @@ This topic pushes all executions <i>except</i> <a href="#exec-type-exec_type"><c
 <tr>
 <td style="text-align: left"><a href="#order-type-order_type">order_type</a></td>
 <td style="text-align: left">string</td>
-<td><a href="#order-type-order_type">Order Type Enum</a></td>
+<td>Order type</td>
 </tr>
 <tr>
-<td style="text-align: left">price</td>
+<td style="text-align: left"><a href="#price-price">price</a></td>
 <td style="text-align: left">string</td>
 <td>Order price</td>
 </tr>
@@ -9941,7 +9941,7 @@ This topic pushes all executions <i>except</i> <a href="#exec-type-exec_type"><c
 <td><a href="https://help.bybit.com/hc/en-us/articles/360039749233-What-Are-Time-In-Force-TIF-GTC-IOC-FOK-">Time in force</a></td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="#order-status-order_status">order_status</a></td>
+<td style="text-align: left"><a href="#order-status-order_status-stop_order_status">order_status</a></td>
 <td style="text-align: left">string</td>
 <td>Order status</td>
 </tr>
@@ -9956,7 +9956,7 @@ This topic pushes all executions <i>except</i> <a href="#exec-type-exec_type"><c
 <td>Trigger price type. Default <code>LastPrice</code></td>
 </tr>
 <tr>
-<td style="text-align: left">trigger_price</td>
+<td style="text-align: left"><a href="#trigger-price-type-trigger_by">trigger_by</a></td>
 <td style="text-align: left">string</td>
 <td>If <code>stop_order_type</code> is <code>TrailingProfit</code>, this field is the trailing stop active price.</td>
 </tr>
@@ -9979,7 +9979,7 @@ This topic pushes all executions <i>except</i> <a href="#exec-type-exec_type"><c
 <tr>
 <td style="text-align: left">created_at</td>
 <td style="text-align: left">string</td>
-<td>Creation time</td>
+<td>Creation time (when the <a href="#order-status-order_status-stop_order_status"><code>order_status</code></a> was <code>Created</code>)</td>
 </tr>
 <tr>
 <td style="text-align: left">updated_at</td>
@@ -10256,7 +10256,7 @@ This topic pushes all executions <i>except</i> <a href="#exec-type-exec_type"><c
 <h2 id='130127'>130127</h2>
 <p>Take Profit, Stop Loss and Trailing Stop Loss are not modified</p>
 <h2 id='130137'>130137</h2>
-<p>Please check to see if your existing position and open orders (together, your <code>pz_value</code>) will exceed your risk limit (<code>risk_limit</code>)</p>
+<p>Please check to see if your existing position and open orders (together, your <code>pz_value</code>) will exceed your risk limit (<code>risk_limit</code>). You can change your risk limit with the <a href="#t-setrisklimit">Set Risk limit endpoint</a>.</p>
 <h2 id='130145'>130145</h2>
 <p>Close order side is large than position's leaving qty</p>
 <h2 id='130149'>130149</h2>
@@ -10402,28 +10402,27 @@ ELSE
 <li><code>desc</code> </li>
 <li><code>asc</code> </li>
 </ul>
-<h2 id='order-status-order_status'>Order status (<code>order_status</code>)</h2>
+<h2 id='order-status-order_status-stop_order_status'>Order status (<code>order_status</code>/<code>stop_order_status</code>)</h2>
 <p></p>
 
 <ul>
 <li><code>Created</code> -  order has been accepted by the system but not yet put through the matching engine</li>
-<li><code>Rejected</code> - order has been triggered but failed to be placed (e.g. due to insufficient margin)</li>
 <li><code>New</code> - order has been placed successfully</li>
+<li><code>Rejected</code> </li>
 <li><code>PartiallyFilled</code> </li>
 <li><code>Filled</code> </li>
-<li><code>Cancelled</code> </li>
 <li><code>PendingCancel</code> - matching engine has received the cancelation request but it may not be canceled successfully</li>
+<li><code>Cancelled</code> </li>
 </ul>
 
-<!--
-## Stop order status (`stop_order_status`)
-* `Active` - order has been triggered and the new active order has been successfully placed. Is the final state of a successful conditional order
-* `Untriggered` - order yet to be triggered
-* `Triggered` - order has been triggered by last traded price
-* `Cancelled` - order has been canceled successfully
-* `Rejected` - order has been triggered but failed to be placed (e.g. due to insufficient margin)
-* `Deactivated` - order has been canceled by the user before being triggered
--->
+<p>Only for conditional orders:</p>
+
+<ul>
+<li><code>Untriggered</code> - order yet to be triggered</li>
+<li><code>Deactivated</code> - order has been canceled by the user before being triggered</li>
+<li><code>Triggered</code> - order has been triggered by last traded price</li>
+<li><code>Active</code> - order has been triggered and the new active order has been successfully placed. Is the final state of a successful conditional order</li>
+</ul>
 <h2 id='cancel-type-cancel_type'>Cancel type (<code>cancel_type</code>)</h2>
 <ul>
 <li><code>CancelByUser</code> </li>

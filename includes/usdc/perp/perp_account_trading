@@ -69,7 +69,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">symbol</td>
+<td style="text-align: left">t(:row_parameter_symbol)</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>t(:usdcSymbol)</td>
@@ -87,7 +87,7 @@
 <td>t(:usdcOrderFilter)</td>
 </tr>
 <tr>
-<td style="text-align: left">side</td>
+<td style="text-align: left">t(:row_parameter_side)</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>t(:side)</td>
@@ -192,7 +192,7 @@
 <td>t(:orderLinkId)</td>
 </tr>
 <tr>
-<td style="text-align: left">symbol</td>
+<td style="text-align: left">t(:row_parameter_symbol)</td>
 <td style="text-align: left">string</td>
 <td>t(:usdcSymbol)</td>
 </tr>
@@ -212,7 +212,7 @@
 <td>t(:usdcPerpOrderType)</td>
 </tr>
 <tr>
-<td style="text-align: left">side</td>
+<td style="text-align: left">t(:row_parameter_side)</td>
 <td style="text-align: left">string</td>
 <td>t(:side)</td>
 </tr>
@@ -265,7 +265,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">symbol</td>
+<td style="text-align: left">t(:row_parameter_symbol)</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>t(:usdcSymbol)</td>
@@ -393,7 +393,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">symbol</td>
+<td style="text-align: left">t(:row_parameter_symbol)</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>t(:usdcSymbol)</td>
@@ -451,6 +451,8 @@
     <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span>
 <span class="p">}</span>
 </code></pre></div>
+<p>t(:cancelAllResponse)</p>
+
 <p class="fake_header">t(:httprequest)</p>
 
 <p>POST
@@ -468,7 +470,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">symbol</td>
+<td style="text-align: left">t(:row_parameter_symbol)</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>t(:usdcSymbol)</td>
@@ -480,10 +482,6 @@
 <td>t(:usdcOrderFilter)</td>
 </tr>
 </tbody></table>
-
-<p>
-t(:cancelAllResponse)
-</p>
 <h3 id='t-usdcqryunorpartfilled'>t(:usdcQryUnOrPartFilled)</h3><div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-active-orders \
 -H "Content-Type: application/json" \
 -D '{
@@ -560,7 +558,7 @@ t(:cancelAllResponse)
 <td>t(:usdcPerpCategory)</td>
 </tr>
 <tr>
-<td style="text-align: left">symbol</td>
+<td style="text-align: left">t(:row_parameter_symbol)</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>t(:usdcSymbol)</td>
@@ -647,7 +645,7 @@ t(:cancelAllResponse)
 <td>t(:orderLinkId)</td>
 </tr>
 <tr>
-<td style="text-align: left">symbol</td>
+<td style="text-align: left">t(:row_parameter_symbol)</td>
 <td style="text-align: left">string</td>
 <td>t(:usdcSymbol)</td>
 </tr>
@@ -657,7 +655,7 @@ t(:cancelAllResponse)
 <td>t(:usdcPerpOrderType)</td>
 </tr>
 <tr>
-<td style="text-align: left">side</td>
+<td style="text-align: left">t(:row_parameter_side)</td>
 <td style="text-align: left">string</td>
 <td>t(:side)</td>
 </tr>
@@ -667,7 +665,7 @@ t(:cancelAllResponse)
 <td>t(:usdcOrderQty)</td>
 </tr>
 <tr>
-<td style="text-align: left">price</td>
+<td style="text-align: left">t(:row_parameter_price)</td>
 <td style="text-align: left">string</td>
 <td>t(:usdcOrderPrice)</td>
 </tr>
@@ -846,7 +844,7 @@ t(:usdcQueryLimit)
 <td>t(:usdcPerpCategory)</td>
 </tr>
 <tr>
-<td style="text-align: left">symbol</td>
+<td style="text-align: left">t(:row_parameter_symbol)</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>t(:usdcSymbol)</td>
@@ -939,7 +937,7 @@ t(:usdcQueryLimit)
 <td>t(:orderLinkId)</td>
 </tr>
 <tr>
-<td style="text-align: left">symbol</td>
+<td style="text-align: left">t(:row_parameter_symbol)</td>
 <td style="text-align: left">string</td>
 <td>t(:usdcSymbol)</td>
 </tr>
@@ -949,7 +947,7 @@ t(:usdcQueryLimit)
 <td>t(:usdcPerpOrderType)</td>
 </tr>
 <tr>
-<td style="text-align: left">side</td>
+<td style="text-align: left">t(:row_parameter_side)</td>
 <td style="text-align: left">string</td>
 <td>t(:side)</td>
 </tr>
@@ -959,7 +957,7 @@ t(:usdcQueryLimit)
 <td>t(:usdcOrderQty)</td>
 </tr>
 <tr>
-<td style="text-align: left">price</td>
+<td style="text-align: left">t(:row_parameter_price)</td>
 <td style="text-align: left">string</td>
 <td>t(:usdcOrderPrice)</td>
 </tr>
@@ -1143,7 +1141,7 @@ t(:usdcQueryLimitWithInput)
 <td>t(:usdcPerpCategory)</td>
 </tr>
 <tr>
-<td style="text-align: left">symbol</td>
+<td style="text-align: left">t(:row_parameter_symbol)</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>t(:usdcSymbol)</td>
@@ -1220,7 +1218,7 @@ t(:usdcQueryLimitWithInput)
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">symbol</td>
+<td style="text-align: left">t(:row_parameter_symbol)</td>
 <td style="text-align: left">string</td>
 <td>t(:usdcSymbol)</td>
 </tr>
@@ -1235,7 +1233,7 @@ t(:usdcQueryLimitWithInput)
 <td>t(:orderLinkId)</td>
 </tr>
 <tr>
-<td style="text-align: left">side</td>
+<td style="text-align: left">t(:row_parameter_side)</td>
 <td style="text-align: left">string</td>
 <td>t(:side)</td>
 </tr>
@@ -1435,7 +1433,7 @@ t(:usdcQueryLimitWithInput)
 <td>t(:transactionTime)</td>
 </tr>
 <tr>
-<td style="text-align: left">symbol</td>
+<td style="text-align: left">t(:row_parameter_symbol)</td>
 <td style="text-align: left">string</td>
 <td>t(:usdcSymbol)</td>
 </tr>
@@ -1445,7 +1443,7 @@ t(:usdcQueryLimitWithInput)
 <td>t(:usdcType)</td>
 </tr>
 <tr>
-<td style="text-align: left">side</td>
+<td style="text-align: left">t(:row_parameter_side)</td>
 <td style="text-align: left">string</td>
 <td>t(:side)</td>
 </tr>
@@ -1875,7 +1873,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-margin-i
 <td>t(:usdcPerpCategory)</td>
 </tr>
 <tr>
-<td style="text-align: left">symbol</td>
+<td style="text-align: left">t(:row_parameter_symbol)</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>t(:usdcSymbol)</td>
@@ -1939,12 +1937,12 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-margin-i
 <td>riskId</td>
 </tr>
 <tr>
-<td style="text-align: left">symbol</td>
+<td style="text-align: left">t(:row_parameter_symbol)</td>
 <td style="text-align: left">string</td>
 <td>t(:usdcSymbol)</td>
 </tr>
 <tr>
-<td style="text-align: left">side</td>
+<td style="text-align: left">t(:row_parameter_side)</td>
 <td style="text-align: left">string</td>
 <td>t(:side)</td>
 </tr>
@@ -2113,7 +2111,7 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/position/le
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">symbol</td>
+<td style="text-align: left">t(:row_parameter_symbol)</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>t(:usdcSymbol)</td>
@@ -2195,7 +2193,7 @@ t(:usdcQueryLimit)
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">symbol</td>
+<td style="text-align: left">t(:row_parameter_symbol)</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>t(:usdcSymbol)</td>
@@ -2259,12 +2257,12 @@ t(:usdcQueryLimit)
 <td>t(:settlementTime)</td>
 </tr>
 <tr>
-<td style="text-align: left">symbol</td>
+<td style="text-align: left">t(:row_parameter_symbol)</td>
 <td style="text-align: left">string</td>
 <td>t(:usdcSymbol)</td>
 </tr>
 <tr>
-<td style="text-align: left">side</td>
+<td style="text-align: left">t(:row_parameter_side)</td>
 <td style="text-align: left">string</td>
 <td>t(:side)</td>
 </tr>
@@ -2320,7 +2318,7 @@ t(:usdcQueryLimit)
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">symbol</td>
+<td style="text-align: left">t(:row_parameter_symbol)</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>t(:usdcSymbol)</td>
@@ -2337,7 +2335,7 @@ t(:usdcQueryLimit)
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">symbol</td>
+<td style="text-align: left">t(:row_parameter_symbol)</td>
 <td style="text-align: left">string</td>
 <td>t(:usdcSymbol)</td>
 </tr>
@@ -2415,7 +2413,7 @@ t(:usdcQueryLimit)
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">symbol</td>
+<td style="text-align: left">t(:row_parameter_symbol)</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>t(:usdcSymbol)</td>
