@@ -2199,25 +2199,20 @@ api_key=XXXXXXXXXXX&amp;coin=LTC&amp;timestamp=1641534660578&amp;recv_window=500
                 <span class="dl">"</span><span class="s2">remain_amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">99999</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">chains</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
                     <span class="p">{</span>
-                        <span class="dl">"</span><span class="s2">chain_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">TRX</span><span class="dl">"</span><span class="p">,</span>
-                        <span class="dl">"</span><span class="s2">confirmation</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">100</span><span class="dl">"</span><span class="p">,</span>
-                        <span class="dl">"</span><span class="s2">withdraw_fee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
-                        <span class="dl">"</span><span class="s2">deposit_min</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
-                        <span class="dl">"</span><span class="s2">withdraw_min</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10</span><span class="dl">"</span>
-                    <span class="p">},</span>
-                    <span class="p">{</span>
                         <span class="dl">"</span><span class="s2">chain_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ETH</span><span class="dl">"</span><span class="p">,</span>
                         <span class="dl">"</span><span class="s2">confirmation</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
                         <span class="dl">"</span><span class="s2">withdraw_fee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10</span><span class="dl">"</span><span class="p">,</span>
                         <span class="dl">"</span><span class="s2">deposit_min</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.002</span><span class="dl">"</span><span class="p">,</span>
-                        <span class="dl">"</span><span class="s2">withdraw_min</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">20</span><span class="dl">"</span>
+                        <span class="dl">"</span><span class="s2">withdraw_min</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">20</span><span class="dl">"</span><span class="p">,</span>
+                        <span class="dl">"</span><span class="s2">chain</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ETH</span><span class="dl">"</span>
                     <span class="p">},</span>
                     <span class="p">{</span>
                         <span class="dl">"</span><span class="s2">chain_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OMNI</span><span class="dl">"</span><span class="p">,</span>
                         <span class="dl">"</span><span class="s2">confirmation</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
                         <span class="dl">"</span><span class="s2">withdraw_fee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
                         <span class="dl">"</span><span class="s2">deposit_min</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
-                        <span class="dl">"</span><span class="s2">withdraw_min</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span>
+                        <span class="dl">"</span><span class="s2">withdraw_min</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                        <span class="dl">"</span><span class="s2">chain</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OMNI</span><span class="dl">"</span>
                     <span class="p">}</span>
                 <span class="p">]</span>
             <span class="p">}</span>
@@ -2310,6 +2305,11 @@ api_key=XXXXXXXXXXX&amp;coin=LTC&amp;timestamp=1641534660578&amp;recv_window=500
 <td style="text-align: left">withdraw_min</td>
 <td style="text-align: left">string</td>
 <td>minimum withdrawal amount</td>
+</tr>
+<tr>
+<td style="text-align: left">chain</td>
+<td style="text-align: left">string</td>
+<td>chain name</td>
 </tr>
 </tbody></table>
 <h3 id='t-asset_info_query'>Query Asset Information</h3>
@@ -2611,7 +2611,8 @@ ACCOUNT_STATUS_UNSPECIFIED -- ABNORMAL </p>
             <span class="p">{</span>
                 <span class="dl">"</span><span class="s2">chain_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LTC</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">address_deposit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">XXXXXXXXXXXXXXXXXXXX</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">tag_deposit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span>
+                <span class="dl">"</span><span class="s2">tag_deposit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">chain</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LTC</span><span class="dl">"</span>
             <span class="p">}</span>
         <span class="p">]</span>
     <span class="p">},</span>
@@ -2687,6 +2688,11 @@ ACCOUNT_STATUS_UNSPECIFIED -- ABNORMAL </p>
 <td style="text-align: left">tag_deposit</td>
 <td style="text-align: left">string</td>
 <td>deposit tag</td>
+</tr>
+<tr>
+<td style="text-align: left">chain</td>
+<td style="text-align: left">string</td>
+<td>chain name</td>
 </tr>
 </tbody></table>
 <h1 id='t-api'>API Data Endpoints</h1>
