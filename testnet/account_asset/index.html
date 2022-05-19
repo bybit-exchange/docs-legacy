@@ -716,10 +716,18 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#2021-08-26" class="toc-h2 toc-link" data-title="2021-08-26">2021-08-26</a>
+                    <a href="#2022-05-19" class="toc-h2 toc-link" data-title="2022-05-19">2022-05-19</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#rest-api" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2021-08-26" class="toc-h2 toc-link" data-title="2021-08-26">2021-08-26</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-2" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                       </ul>
                   </li>
@@ -757,6 +765,35 @@
               </ul>
           </li>
           <li>
+            <a href="#t-withdraw_and_deposit" class="toc-h1 toc-link" data-title="Withdraw and Deposit Endpoints">Withdraw and Deposit Endpoints</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-allowdepositlist" class="toc-h2 toc-link" data-title="Supported Deposit List Query Endpoints">Supported Deposit List Query Endpoints</a>
+                  </li>
+                  <li>
+                    <a href="#t-depositsrecordquery" class="toc-h2 toc-link" data-title="Query Deposit Records">Query Deposit Records</a>
+                  </li>
+                  <li>
+                    <a href="#t-withdrawrecordquery" class="toc-h2 toc-link" data-title="Query Withdraw Records">Query Withdraw Records</a>
+                  </li>
+                  <li>
+                    <a href="#t-coin_info_query" class="toc-h2 toc-link" data-title="Query Coin Information">Query Coin Information</a>
+                  </li>
+                  <li>
+                    <a href="#t-asset_info_query" class="toc-h2 toc-link" data-title="Query Asset Information">Query Asset Information</a>
+                  </li>
+                  <li>
+                    <a href="#t-withdraw_info" class="toc-h2 toc-link" data-title="Withdraw">Withdraw</a>
+                  </li>
+                  <li>
+                    <a href="#t-cancel_withdraw" class="toc-h2 toc-link" data-title="Cancel withdrawal">Cancel withdrawal</a>
+                  </li>
+                  <li>
+                    <a href="#t-deposit_addr_info" class="toc-h2 toc-link" data-title="Query Deposit Address Information">Query Deposit Address Information</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#t-api" class="toc-h1 toc-link" data-title="API Data Endpoints">API Data Endpoints</a>
               <ul class="toc-list-h2">
                   <li>
@@ -775,6 +812,9 @@
                   </li>
                   <li>
                     <a href="#t-perendpointtransfer" class="toc-h2 toc-link" data-title="Rate Limits For Transfer Endpoints">Rate Limits For Transfer Endpoints</a>
+                  </li>
+                  <li>
+                    <a href="#t-perendpointdepositwithdraw" class="toc-h2 toc-link" data-title="Rate Limits For Withdraw and Deposit Endpoints">Rate Limits For Withdraw and Deposit Endpoints</a>
                   </li>
               </ul>
           </li>
@@ -833,7 +873,12 @@ clipboard.on('error', function(e) {
 <p><p><a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common errors.</p> <p>For further assistance or feedback, please join the <a href="https://t.me/BybitAPI">API Telegram chat</a>! API discussion group on Telegram.</p></p>
 <h3 id='t-resources'>Group And Bybit API Resources</h3>
 <p><ul class="bybit-community"> <li><img src="../../images/help_favicon-06f791dd.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>Official Python SDK</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> </ul></p>
-<h1 id='t-changelog'>Changelog</h1><h2 id='2021-08-26'>2021-08-26</h2><h3 id='rest-api'>REST API</h3>
+<h1 id='t-changelog'>Changelog</h1><h2 id='2022-05-19'>2022-05-19</h2><h3 id='rest-api'>REST API</h3>
+<ul>
+<li><a href="#t-withdraw_and_deposit">Withdraw and Deposit Endpoints</a> [new]
+Withdraw and Deposit Endpoints released!</li>
+</ul>
+<h2 id='2021-08-26'>2021-08-26</h2><h3 id='rest-api-2'>REST API</h3>
 <ul>
 <li>Asset Transfer API released!</li>
 </ul>
@@ -1591,6 +1636,1059 @@ A subaccount can only be attributed to a parent account.
 <td>Subaccount</td>
 </tr>
 </tbody></table>
+<h1 id='t-withdraw_and_deposit'>Withdraw and Deposit Endpoints</h1>
+<p>The following API data endpoints require authentication.</p>
+<h3 id='t-allowdepositlist'>Supported Deposit List Query Endpoints</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/public/deposit/allowed-deposit-list?coin=ETH&amp;chain=ETH&amp;page_index=1&amp;page_size=10'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">config_list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ETH</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">chain</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ETH</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">coin_show_name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ETH</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">chain_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ETH</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">block_confirm_number</span><span class="dl">"</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">min_deposit_amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="dl">"</span><span class="s2">total</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1652841868446</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>It is a public endpoints. Coin and chain must be paired in the input parameter. Otherwise, it is regarded as an unconditional query.</p>
+
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=allowDepositList>/asset/v1/public/deposit/allowed-deposit-list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#allowDepositList"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">coin</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Deposit Coin. Coin and chain must be paired. Otherwise, it is regarded as an unconditional query</td>
+</tr>
+<tr>
+<td style="text-align: left">chain</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Deposit Chain Name. Coin and chain must be paired. Otherwise, it is regarded as an unconditional query</td>
+</tr>
+<tr>
+<td style="text-align: left">page_index</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">long</td>
+<td>Page Index: used for pagination.  Default value: 1
+</td>
+</tr>
+<tr>
+<td style="text-align: left">page_size</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">long</td>
+<td>Number of items per page. Default value: 10
+</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">config_list</td>
+<td style="text-align: left">Array</td>
+<td>Object</td>
+</tr>
+<tr>
+<td style="text-align: left">coin</td>
+<td style="text-align: left">string</td>
+<td>deposit coin</td>
+</tr>
+<tr>
+<td style="text-align: left">chain</td>
+<td style="text-align: left">string</td>
+<td>chain name</td>
+</tr>
+<tr>
+<td style="text-align: left">coin_show_name</td>
+<td style="text-align: left">string</td>
+<td>Coin show name</td>
+</tr>
+<tr>
+<td style="text-align: left">chain_type</td>
+<td style="text-align: left">string</td>
+<td>chain type</td>
+</tr>
+<tr>
+<td style="text-align: left">block_confirm_number</td>
+<td style="text-align: left">long</td>
+<td>deposit confirmation number</td>
+</tr>
+<tr>
+<td style="text-align: left">min_deposit_amount</td>
+<td style="text-align: left">string</td>
+<td>Minimum Deposit Amount</td>
+</tr>
+</tbody></table>
+<h3 id='t-depositsrecordquery'>Query Deposit Records</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/deposit/record/query?
+api_key=XXXXXXXXXXX&amp;coin=LTC&amp;timestamp=1641534660578&amp;recv_window=50000&amp;sign=XXXXXXXXXXX'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">rows</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">chain</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.156</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">tx_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">XXXXXXXXXXXXXXXXXXXXXXXXXX</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">to_address</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">XXXXXXXXXXXXXXXXXXXXXXXXXX</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">tag</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">deposit_fee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">success_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1631697910</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">confirmations</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">tx_index</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">block_hash</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">chain</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.158</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">tx_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">XXXXXXXXXXXXXXXXXXXXXXXXXX</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">to_address</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">XXXXXXXXXXXXXXXXXXXXXXXXXX</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">tag</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">deposit_fee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">success_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1631688429</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">confirmations</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">tx_index</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">block_hash</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="dl">"</span><span class="s2">cursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">eyJtaW5JRCI6NjkxNjExLCJtYXhJRCI6NjkyOTQ5fQ==</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1641535748233</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">119</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1641535748233</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Rules：Only query the deposit records of spot accounts order by id in reverse order. The maximum difference between the start time and the end time is 30 days.
+</p>
+
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=pdrq>/asset/v1/private/deposit/record/query</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pdrq"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">start_time</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">long</td>
+<td>start time (In Seconds).  Default value: 30 days before the current time
+</td>
+</tr>
+<tr>
+<td style="text-align: left">end_time</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">long</td>
+<td>end time (In Seconds). Default value: current time
+</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>coin name: for example, BTC.  Default value: all
+</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>cursor infomation: used for pagination.  Default value: ""
+</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#page-direction-direction">direction</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">aaa</td>
+<td>prev page: Prev，next page: Next.  Default value: Next
+</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">long</td>
+<td>Number of items per page，0< limit <=50.  Default value: 50
+</td>
+</tr>
+<tr>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">long</td>
+<td>timestamp</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">coin</td>
+<td style="text-align: left">string</td>
+<td>deposit coin</td>
+</tr>
+<tr>
+<td style="text-align: left">chain</td>
+<td style="text-align: left">string</td>
+<td>chain name</td>
+</tr>
+<tr>
+<td style="text-align: left">amount</td>
+<td style="text-align: left">string</td>
+<td>deposit amount</td>
+</tr>
+<tr>
+<td style="text-align: left">tx_id</td>
+<td style="text-align: left">string</td>
+<td>transaction ID. deposit failed or deposit canceled: ""
+</td>
+</tr>
+<tr>
+<td style="text-align: left">status</td>
+<td style="text-align: left">int</td>
+<td><p>0=unknown<br>
+1=ToBeConfirmed <br>
+2=processing <br>
+3=success <br>
+4=deposit failed</p>
+</td>
+</tr>
+<tr>
+<td style="text-align: left">to_address</td>
+<td style="text-align: left">string</td>
+<td>deposit target address</td>
+</tr>
+<tr>
+<td style="text-align: left">tag</td>
+<td style="text-align: left">string</td>
+<td>tag of deposit target address</td>
+</tr>
+<tr>
+<td style="text-align: left">deposit_fee</td>
+<td style="text-align: left">string</td>
+<td>deposit fee</td>
+</tr>
+<tr>
+<td style="text-align: left">success_at</td>
+<td style="text-align: left">int64</td>
+<td>last updated time</td>
+</tr>
+<tr>
+<td style="text-align: left">confirmations</td>
+<td style="text-align: left">string</td>
+<td>number of confirmation blocks</td>
+</tr>
+<tr>
+<td style="text-align: left">tx_index</td>
+<td style="text-align: left">string</td>
+<td>transaction sequence number</td>
+</tr>
+<tr>
+<td style="text-align: left">block_hash</td>
+<td style="text-align: left">string</td>
+<td>hash number on the chain</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">string</td>
+<td>cursor information: used for pagination. Default value: ""
+</td>
+</tr>
+</tbody></table>
+<h3 id='t-withdrawrecordquery'>Query Withdraw Records</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/withdraw/record/query?api_key=XXXXXXXXXXX&amp;coin=LTC&amp;limit=1&amp;timestamp=1641789839632&amp;recv_window=50000&amp;sign=XXXXXXXXXXX' 
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">rows</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">chain</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.157</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">tx_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">XXXXXXXXXXXXXXXXXXXXXXXXXX</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">to_address</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">XXXXXXXXXXXXXXXXXXXXXXXXXX</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">tag</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">withdraw_fee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.001</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">create_time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1631694166</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">update_time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1631694775</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">withdraw_id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">301121231312</span><span class="dl">"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">chain</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.159</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">tx_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">XXXXXXXXXXXXXXXXXXXXXXXXXX</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">toAddress</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">XXXXXXXXXXXXXXXXXXXXXXXXXX</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">tag</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">withdraw_fee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.001</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">create_time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1631684557</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">update_time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1631685384</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">withdraw_id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">301121231313</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="dl">"</span><span class="s2">cursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">eyJtaW5JRCI6MjAxNTM1MywibWF4SUQiOjIwMTU4OTF9</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1640921464384</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">117</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1640921464384</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">3</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Rule: order by id in reverse order. The maximum difference between the start time and the end time is 30 days.
+</p>
+
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=pwrq>/asset/v1/private/withdraw/record/query</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pwrq"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">withdraw_id</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">long</td>
+<td>withdrawal id. (withdraw request ID in Response Parameters of Withdrawal endpoint)</td>
+</tr>
+<tr>
+<td style="text-align: left">start_time</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">long</td>
+<td>start time (In Seconds).  Default value: 30 days before the current time
+</td>
+</tr>
+<tr>
+<td style="text-align: left">end_time</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">long</td>
+<td>end time (In Seconds). Default value: current time
+</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>coin name: for example, BTC.  Default value: all
+</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>cursor infomation: used for pagination.  Default value: ""
+</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#page-direction-direction">direction</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">aaa</td>
+<td>prev page: Prev，next page: Next.  Default value: Next
+</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">long</td>
+<td>Number of items per page，0< limit <=50.  Default value: 50
+</td>
+</tr>
+<tr>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">long</td>
+<td>timestamp</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">coin</td>
+<td style="text-align: left">string</td>
+<td>withdrawal coin</td>
+</tr>
+<tr>
+<td style="text-align: left">chain</td>
+<td style="text-align: left">string</td>
+<td>chain name</td>
+</tr>
+<tr>
+<td style="text-align: left">amount</td>
+<td style="text-align: left">string</td>
+<td>withdrawal quantity</td>
+</tr>
+<tr>
+<td style="text-align: left">tx_id</td>
+<td style="text-align: left">string</td>
+<td>transaction ID. withdrawal failed or withdrawal canceled: ""
+</td>
+</tr>
+<tr>
+<td style="text-align: left">status</td>
+<td style="text-align: left">string</td>
+<td><table border=1><tr><th>Return values</th><th>Status correspond to the client</th><th>status</th></tr>
+<tr><td>ToBeConfirmed</td><td></td><td>SecurityCheck</td></tr>
+<tr><td>UnderReview</td><td>SecurityCheck</td><td>SecurityCheck</td></tr>
+<tr><td>UnderFinalReview</td><td>SecurityCheck</td><td>SecurityCheck</td></tr>
+<tr><td>Pending</td><td>Pending</td><td>Pending</td></tr>
+<tr><td>Packed</td><td>Pending</td><td>Pending</td></tr>
+<tr><td>Download</td><td>Pending</td><td>Pending</td></tr>
+<tr><td>Broadcasted</td><td>Pending</td><td>Pending</td></tr>
+<tr><td>Success</td><td>success</td><td>success</td></tr>
+<tr><td>CancelByUser</td><td>cancelByUser</td><td>CancelByUser</td></tr>
+<tr><td>Reject</td><td>Reject</td><td>Reject</td></tr>
+<tr><td>Expire</td><td>Fail</td><td>Fail</td></tr>
+<tr><td>Processing</td><td>Pending</td><td>Pending</td></tr>
+<tr><td>Fail</td><td>Fail</td><td>Fail</td></tr>
+<tr><td>AutoReject</td><td>Reject</td><td>Reject</td></tr>
+</table>
+</td>
+</tr>
+<tr>
+<td style="text-align: left">to_address</td>
+<td style="text-align: left">string</td>
+<td>withdrawal target address</td>
+</tr>
+<tr>
+<td style="text-align: left">tag</td>
+<td style="text-align: left">string</td>
+<td>tag of withdrawal target address</td>
+</tr>
+<tr>
+<td style="text-align: left">withdraw_fee</td>
+<td style="text-align: left">string</td>
+<td>withdrawal fee</td>
+</tr>
+<tr>
+<td style="text-align: left">create_time</td>
+<td style="text-align: left">int64</td>
+<td>withdrawal create time</td>
+</tr>
+<tr>
+<td style="text-align: left">update_time</td>
+<td style="text-align: left">int64</td>
+<td>withdrawal status updated time</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">string</td>
+<td>cursor information: used for pagination. Default value: ""
+</td>
+</tr>
+<tr>
+<td style="text-align: left">withdraw_id</td>
+<td style="text-align: left">string</td>
+<td>withdrawal id. (withdraw request ID in Response Parameters of Withdrawal endpoint)</td>
+</tr>
+</tbody></table>
+<h3 id='t-coin_info_query'>Query Coin Information</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/coin-info/query?api_key=XXXXXXXXXXXXXXXXXXXXXXX&amp;timestamp=1641793091931&amp;recv_window=50000&amp;sign=XXXXXXXXXXXXXXXXXXXXXXX' 
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">rows</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">remain_amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">99999</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">chains</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="dl">"</span><span class="s2">chain_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">TRX</span><span class="dl">"</span><span class="p">,</span>
+                        <span class="dl">"</span><span class="s2">confirmation</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">100</span><span class="dl">"</span><span class="p">,</span>
+                        <span class="dl">"</span><span class="s2">withdraw_fee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+                        <span class="dl">"</span><span class="s2">deposit_min</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+                        <span class="dl">"</span><span class="s2">withdraw_min</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10</span><span class="dl">"</span>
+                    <span class="p">},</span>
+                    <span class="p">{</span>
+                        <span class="dl">"</span><span class="s2">chain_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ETH</span><span class="dl">"</span><span class="p">,</span>
+                        <span class="dl">"</span><span class="s2">confirmation</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+                        <span class="dl">"</span><span class="s2">withdraw_fee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10</span><span class="dl">"</span><span class="p">,</span>
+                        <span class="dl">"</span><span class="s2">deposit_min</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.002</span><span class="dl">"</span><span class="p">,</span>
+                        <span class="dl">"</span><span class="s2">withdraw_min</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">20</span><span class="dl">"</span>
+                    <span class="p">},</span>
+                    <span class="p">{</span>
+                        <span class="dl">"</span><span class="s2">chain_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OMNI</span><span class="dl">"</span><span class="p">,</span>
+                        <span class="dl">"</span><span class="s2">confirmation</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+                        <span class="dl">"</span><span class="s2">withdraw_fee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                        <span class="dl">"</span><span class="s2">deposit_min</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+                        <span class="dl">"</span><span class="s2">withdraw_min</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span>
+                    <span class="p">}</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1641541870237</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">119</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1641541870237</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Rules: order by id in reverse order, no pagination required. The frequency limit is consistent with the current online interface.
+</p>
+
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=pciq>/asset/v1/private/coin-info/query</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pciq"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Coin</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">name</td>
+<td style="text-align: left">string</td>
+<td>Name</td>
+</tr>
+<tr>
+<td style="text-align: left">coin</td>
+<td style="text-align: left">string</td>
+<td>Coin</td>
+</tr>
+<tr>
+<td style="text-align: left">remain_amount</td>
+<td style="text-align: left">string</td>
+<td>Current maximum withdrawal amount</td>
+</tr>
+<tr>
+<td style="text-align: left">chains</td>
+<td style="text-align: left">List</td>
+<td>Object</td>
+</tr>
+<tr>
+<td style="text-align: left">chain_type</td>
+<td style="text-align: left">string</td>
+<td>chain type</td>
+</tr>
+<tr>
+<td style="text-align: left">confirmation</td>
+<td style="text-align: left">int</td>
+<td>deposit confirmation number</td>
+</tr>
+<tr>
+<td style="text-align: left">withdraw_fee</td>
+<td style="text-align: left">string</td>
+<td>withdraw fee.  if withdraw fee is empty, It means that this coin does not support withdrawal</td>
+</tr>
+<tr>
+<td style="text-align: left">deposit_min</td>
+<td style="text-align: left">string</td>
+<td>minimum deposit amount</td>
+</tr>
+<tr>
+<td style="text-align: left">withdraw_min</td>
+<td style="text-align: left">string</td>
+<td>minimum withdrawal amount</td>
+</tr>
+</tbody></table>
+<h3 id='t-asset_info_query'>Query Asset Information</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/asset-info/query?api_key=XXXXXXXXXXXXXXX&amp;coin=BIT&amp;timestamp=1641790155961&amp;recv_window=50000&amp;sign=XXXXXXXXXXXXXXX' 
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">spot</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ACCOUNT_STATUS_NORMAL</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">assets</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BIT</span><span class="dl">"</span><span class="p">,</span>
+                    <span class="dl">"</span><span class="s2">frozen</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                    <span class="dl">"</span><span class="s2">free</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">90.62928</span><span class="dl">"</span><span class="p">,</span>
+                    <span class="dl">"</span><span class="s2">withdraw</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1641544103244</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">56</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1641544103244</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">4</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=paiq>/asset/v1/private/asset-info/query</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#paiq"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">account_type</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Account type. Default value: ACCOUNT_TYPE_SPOT
+</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Coin</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">status</td>
+<td style="text-align: left">string</td>
+<td><p>status: ACCOUNT_STATUS_NORMAL -- NORMAL <br>
+ACCOUNT_STATUS_UNSPECIFIED -- ABNORMAL </p>
+</td>
+</tr>
+<tr>
+<td style="text-align: left">assets</td>
+<td style="text-align: left">List</td>
+<td>Object</td>
+</tr>
+<tr>
+<td style="text-align: left">coin</td>
+<td style="text-align: left">string</td>
+<td>coin</td>
+</tr>
+<tr>
+<td style="text-align: left">frozen</td>
+<td style="text-align: left">string</td>
+<td>frozen balance</td>
+</tr>
+<tr>
+<td style="text-align: left">free</td>
+<td style="text-align: left">string</td>
+<td>available balance</td>
+</tr>
+<tr>
+<td style="text-align: left">withdraw</td>
+<td style="text-align: left">string</td>
+<td>temporarily ""</td>
+</tr>
+</tbody></table>
+<h3 id='t-withdraw_info'>Withdraw</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/asset/v1/private/withdraw' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "address": "XXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "amount": "0.153",
+    "coin": "LTC",
+    "chain": "LTC",
+    "sign": "XXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "timestamp": "1641789512739",
+    "api_key": "XXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "recv_window": "50000"
+}'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">3912530</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1641793038330</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1641793038330</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>POST
+<code><span id=pwith>/asset/v1/private/withdraw</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pwith"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+<br><p><b>content-type:</b>   application/json</p></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Coin</td>
+</tr>
+<tr>
+<td style="text-align: left">chain</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>chain name</td>
+</tr>
+<tr>
+<td style="text-align: left">address</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>address. Address verification whether there is a whitelist of withdrawal addresses</td>
+</tr>
+<tr>
+<td style="text-align: left">tag</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Need to fill in if there is a tag</td>
+</tr>
+<tr>
+<td style="text-align: left">amount</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>withdraw amounts. Rules: Greater than or equal to the minimum withdrawal amount. The minimum withdrawal amount can be obtained from the Coin Info Query API
+</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">result</td>
+<td style="text-align: left">Object</td>
+<td>result object</td>
+</tr>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: left">int64</td>
+<td>withdrawal id. (withdraw request ID in Response Parameters of Withdrawal endpoint)</td>
+</tr>
+</tbody></table>
+<h3 id='t-cancel_withdraw'>Cancel withdrawal</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/asset/v1/private/withdraw/cancel' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "id":234234324234,
+    "sign": "XXXXXXXXXXXXXXXXXXXXX",
+    "timestamp": "1641790660020",
+    "api_key": "XXXXXXXXXXXXXXXXXXXXX",
+    "recv_window": "50000"
+}'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1641798821116</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1641798821116</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>POST
+<code><span id=pwcan>/asset/v1/private/withdraw/cancel</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pwcan"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+<br><p><b>content-type:</b>application/json</p></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">int64</td>
+<td>withdrawal id. (withdraw request ID in Response Parameters of Withdrawal endpoint)</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">result</td>
+<td style="text-align: left">int</td>
+<td>result（cancel application result: 1 SUCCESS，0 FAIL）
+</td>
+</tr>
+</tbody></table>
+<h3 id='t-deposit_addr_info'>Query Deposit Address Information</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/deposit/address?api_key=XXXXXXXXXXXXXXXXXXX&amp;coin=LTC&amp;timestamp=1641789312824&amp;recv_window=50000&amp;sign=XXXXXXXXXXXXXXXXXXX' 
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LTC</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">chains</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">chain_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">address_deposit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">XXXXXXXXXXXXXXXXXXXX</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">tag_deposit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1641789383364</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">28</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1641789383364</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Rules: Sub-account can not deposit
+</p>
+
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=pdaddr>/asset/v1/private/deposit/address</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pdaddr"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Coin</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">result</td>
+<td style="text-align: left">Object</td>
+<td>result object</td>
+</tr>
+<tr>
+<td style="text-align: left">coin</td>
+<td style="text-align: left">string</td>
+<td>Coin</td>
+</tr>
+<tr>
+<td style="text-align: left">chains</td>
+<td style="text-align: left">List</td>
+<td>Object</td>
+</tr>
+<tr>
+<td style="text-align: left">chain_type</td>
+<td style="text-align: left">string</td>
+<td>chain type</td>
+</tr>
+<tr>
+<td style="text-align: left">address_deposit</td>
+<td style="text-align: left">string</td>
+<td>deposit address</td>
+</tr>
+<tr>
+<td style="text-align: left">tag_deposit</td>
+<td style="text-align: left">string</td>
+<td>deposit tag</td>
+</tr>
+</tbody></table>
 <h1 id='t-api'>API Data Endpoints</h1>
 <p>The following API data endpoints do not require authentication.</p>
 <h3 id='t-servertime'>Server Time</h3>
@@ -1701,6 +2799,9 @@ A subaccount can only be attributed to a parent account.
 </li>
 </ul>
 </p>
+<aside class="notice">
+Rate Limits For Withdraw and Deposit Endpoints counts and Rate Limits For Transfer Endpoints counts are separated.
+</aside>
 <h3 id='t-perendpointtransfer'>Rate Limits For Transfer Endpoints</h3>
 <table class="custom_table">
     <tr>
@@ -1731,6 +2832,47 @@ A subaccount can only be attributed to a parent account.
     <tr>
         <td rowspan="1">60/min</td>
         <td>/asset/v1/private/sub-member/transfer/list </td>
+        <td>1 / request</td>
+    </tr>
+</table>
+<h3 id='t-perendpointdepositwithdraw'>Rate Limits For Withdraw and Deposit Endpoints</h3>
+<table class="custom_table">
+    <tr>
+        <th>Limit</th>
+        <th>Path</th>
+        <th>Consume</th>
+    </tr>
+    <tr>
+        <td rowspan="1">3/min</td>
+        <td>/asset/v1/private/withdraw </td>
+        <td>1 / request</td>
+    </tr>
+    <tr>
+        <td rowspan="1">10/min</td>
+        <td>/asset/v1/private/withdraw/cancel </td>
+        <td>1 / request</td>
+    </tr>
+    <tr>
+        <td rowspan="1">30/min</td>
+        <td>/asset/v1/private/deposit/address </td>
+        <td>1 / request</td>
+    </tr>
+    <tr>
+        <td rowspan="2">60/min</td>
+        <td>/asset/v1/private/asset-info/query </td>
+        <td>1 / request</td>
+    </tr>
+    <tr>
+        <td>/asset/v1/private/deposit/record/query </td>
+        <td>1 / request</td>
+    </tr>
+    <tr>
+        <td rowspan="2">120/min</td>
+        <td>/asset/v1/private/withdraw/record/query </td>
+        <td>1 / request</td>
+    </tr>
+    <tr>
+        <td>/asset/v1/private/coin-info/query </td>
         <td>1 / request</td>
     </tr>
 </table>
@@ -1814,11 +2956,11 @@ A subaccount can only be attributed to a parent account.
 </tr>
 <tr>
 <td>10001</td>
-<td>Params Error</td>
+<td>Parameter error</td>
 </tr>
 <tr>
 <td>10016</td>
-<td>SvcErr</td>
+<td>service is not available</td>
 </tr>
 <tr>
 <td>38000</td>
@@ -1826,55 +2968,171 @@ A subaccount can only be attributed to a parent account.
 </tr>
 <tr>
 <td>38001</td>
-<td>AvailableBalanceRunningLow</td>
+<td>Insufficient available balance</td>
 </tr>
 <tr>
 <td>38002</td>
-<td>CannotBeTransfer</td>
+<td>Unable to transfer</td>
 </tr>
 <tr>
 <td>90001</td>
-<td>TransferAmountLessThanZero</td>
+<td>The transfer amount is less than 0</td>
 </tr>
 <tr>
 <td>90002</td>
-<td>TransferAmountScaleMore</td>
+<td>The transfer amount accuracy is greater than 8</td>
 </tr>
 <tr>
 <td>90003</td>
-<td>TransferLTVCheckError. (upper limit of transfer amount exceeded. please refer to <a href="https://help.bybit.com/hc/en-us/articles/4411635457177-Over-the-counter-OTC-Lending">Over the counter (OTC) Lending</a>)</td>
+<td>Transfer error, please contact customer service (upper limit of transfer amount exceeded. please refer to <a href="https://help.bybit.com/hc/en-us/articles/4411635457177-Over-the-counter-OTC-Lending">Over the counter (OTC) Lending</a>)</td>
 </tr>
 <tr>
 <td>90004</td>
-<td>AccountNotFound</td>
+<td>Account not found</td>
 </tr>
 <tr>
 <td>90005</td>
-<td>AccountNotFound</td>
+<td>Check balance error</td>
 </tr>
 <tr>
 <td>90006</td>
-<td>QueryTransferError</td>
+<td>Query transfer error</td>
 </tr>
 <tr>
 <td>90007</td>
-<td>QuerySubMemberTransferError</td>
+<td>Query sub-account transfer error</td>
 </tr>
 <tr>
 <td>90008</td>
-<td>QueryTransferIDRedisError</td>
+<td>Query transfer ID error</td>
 </tr>
 <tr>
 <td>90009</td>
-<td>TransferIDExist</td>
+<td>Transfer ID already exists</td>
 </tr>
 <tr>
 <td>90010</td>
-<td>AccountTypeError</td>
+<td>The transfer-in account type cannot be used as the transfer-out account type</td>
 </tr>
 <tr>
 <td>90011</td>
-<td>GetSubMemberRelationError</td>
+<td>Failed to get the list of sub-accounts</td>
+</tr>
+<tr>
+<td>90012</td>
+<td>Query withdrawal record error</td>
+</tr>
+<tr>
+<td>90013</td>
+<td>Query recharge record error</td>
+</tr>
+<tr>
+<td>90014</td>
+<td>Not support sub-accounts temporarily</td>
+</tr>
+<tr>
+<td>90015</td>
+<td>This currency cannot be topped up</td>
+</tr>
+<tr>
+<td>90016</td>
+<td>Recharge chain query error</td>
+</tr>
+<tr>
+<td>90029</td>
+<td>Users in the gray period are not on the whitelist</td>
+</tr>
+<tr>
+<td>90030</td>
+<td>The withdrawal address is not in the whitelist</td>
+</tr>
+<tr>
+<td>90031</td>
+<td>User status is abnormal</td>
+</tr>
+<tr>
+<td>90032</td>
+<td>User sensitive operation, withdrawal is prohibited within 24 hours</td>
+</tr>
+<tr>
+<td>90033</td>
+<td>The system is under maintenance</td>
+</tr>
+<tr>
+<td>90034</td>
+<td>Withdrawal of this currency has been closed</td>
+</tr>
+<tr>
+<td>90035</td>
+<td>The withdrawal amount is less than the lower limit of a single withdrawal</td>
+</tr>
+<tr>
+<td>90036</td>
+<td>The withdrawal amount is greater than the upper limit of a single withdrawal</td>
+</tr>
+<tr>
+<td>90037</td>
+<td>Exceeded the upper limit of the platform's withdrawal limit on the day</td>
+</tr>
+<tr>
+<td>90038</td>
+<td>Kyc limit exceeded</td>
+</tr>
+<tr>
+<td>90039</td>
+<td>Spot market makers withdraw excess cash</td>
+</tr>
+<tr>
+<td>90040</td>
+<td>Withdrawal is being processed</td>
+</tr>
+<tr>
+<td>90041</td>
+<td>Spot account does not exist</td>
+</tr>
+<tr>
+<td>90042</td>
+<td>Insufficient available balance in spot account</td>
+</tr>
+<tr>
+<td>90043</td>
+<td>Insufficient available balance in contract account</td>
+</tr>
+<tr>
+<td>90044</td>
+<td>Withdrawal failed</td>
+</tr>
+<tr>
+<td>90045</td>
+<td>The withdrawal record does not exist</td>
+</tr>
+<tr>
+<td>90046</td>
+<td>The withdrawal initiator is inconsistent</td>
+</tr>
+<tr>
+<td>90047</td>
+<td>Hot wallet status cannot be cancelled</td>
+</tr>
+<tr>
+<td>90048</td>
+<td>The withdrawal status does not allow cancellation</td>
+</tr>
+<tr>
+<td>90049</td>
+<td>Failed to cancel withdrawal and add money</td>
+</tr>
+<tr>
+<td>90050</td>
+<td>Blocked login status does not allow withdrawals</td>
+</tr>
+<tr>
+<td>90051</td>
+<td>User withdrawal is blocked</td>
+</tr>
+<tr>
+<td>90052</td>
+<td>Replay request denied</td>
 </tr>
 </tbody></table>
 
