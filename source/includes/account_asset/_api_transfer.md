@@ -698,25 +698,20 @@ curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/co
                 "remain_amount": "99999",
                 "chains": [
                     {
-                        "chain_type": "TRX",
-                        "confirmation": "100",
-                        "withdraw_fee": "1",
-                        "deposit_min": "1",
-                        "withdraw_min": "10"
-                    },
-                    {
                         "chain_type": "ETH",
                         "confirmation": "1",
                         "withdraw_fee": "10",
                         "deposit_min": "0.002",
-                        "withdraw_min": "20"
+                        "withdraw_min": "20",
+                        "chain": "ETH"
                     },
                     {
                         "chain_type": "OMNI",
                         "confirmation": "1",
                         "withdraw_fee": "",
                         "deposit_min": "1",
-                        "withdraw_min": ""
+                        "withdraw_min": "",
+                        "chain": "OMNI"
                     }
                 ]
             }
@@ -754,6 +749,7 @@ GET
 |withdraw_fee|string|t(:coin_info_withdraw_fee)|
 |deposit_min|string|t(:coin_info_deposit_min)|
 |withdraw_min|string|t(:coin_info_withdraw_min)|
+|chain|string|t(:deposit_response_chainname)|
 
 
 
@@ -954,7 +950,8 @@ curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/de
             {
                 "chain_type": "LTC",
                 "address_deposit": "XXXXXXXXXXXXXXXXXXXX",
-                "tag_deposit": ""
+                "tag_deposit": "",
+                "chain": "LTC"
             }
         ]
     },
@@ -984,6 +981,7 @@ GET
 |result|Object|result object|
 |coin |string |t(:coin_info_coin)|
 |chains|List|Object
-|chain_type|string|t(:coin_info_chain_type)
-|address_deposit|string|t(:deposit_address)
-|tag_deposit|string|t(:deposit_tag)
+|chain_type|string|t(:coin_info_chain_type)|
+|address_deposit|string|t(:deposit_address)|
+|tag_deposit|string|t(:deposit_tag)|
+|chain|string|t(:deposit_response_chainname)|
