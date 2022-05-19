@@ -24,6 +24,7 @@ en:
   column_comments: Comment
   row_comment_userID: UserID
   row_comment_side: Side
+  row_comment_side_taker: Side of taker order
   row_comment_symbol: Symbol
   row_comment_margin: margin
   row_comment_position_id: PositionID
@@ -56,6 +57,18 @@ en:
   row_comment_order_margin: Pre-occupied order margin
   row_comment_wallet_balance: Wallet balance
   row_comment_available_balance: Available balance = wallet balance - used margin
+  row_comment_http_available_balance: |
+    <p>In Isolated Margin Mode:</p>
+    <pre class="table-code">
+      available_balance = wallet_balance - (position_margin + occ_closing_fee + occ_funding_fee + order_margin)
+    </pre>
+    <p>In Cross Margin Mode:</p>
+    <pre class="table-code">
+      if unrealised_pnl > 0:
+          available_balance = wallet_balance - (position_margin + occ_closing_fee + occ_funding_fee + order_margin)
+      if unrealised_pnl < 0:
+          available_balance = wallet_balance - (position_margin + occ_closing_fee + occ_funding_fee + order_margin) + unrealised_pnl
+    </pre>
   row_comment_realised_pnl: Today's realised pnl
   row_comment_unrealised_pnl: unrealised pnl
   row_comment_cum_realised_pnl: Accumulated realised pnl (all-time total)
@@ -114,7 +127,7 @@ en:
   row_comment_lcp_self_ratio: Deprecated! Personal effective ratio
   row_comment_lcp_platform_ratio: Deprecated! Platform effective ratio
   row_comment_lcp_score: Liquidity contribution points
-  row_comment_created_at: Creation time
+  row_comment_created_at: Creation time (when the <a href="#order-status-order_status-stop_order_status"><code>order_status</code></a> was <code>Created</code>)
   row_comment_created_at_position: The account creation time
   row_comment_created_at_in_exchange: Exchange time
   row_comment_updated_at: Update time
@@ -281,6 +294,7 @@ en:
   row_comment_mode: Position mode,  <code>MergedSingle</code> or <code>BothSide</code>
   row_comment_taker_fee_rate: Taker fee rate
   row_comment_maker_fee_rate: Maker fee rate
+  row_comment_last_liquidity_ind: Only valid while <code>exec_type</code> is <code>Trade<\code>, <code>AdlTrade<\code>, <code>BustTrade</code>
 
 
   row_response_comment_price: Order price
@@ -294,7 +308,7 @@ en:
   row_response_comment_liq_execqty: Order quantity
   row_response_comment_name: Symbol name
   row_response_comment_alias: Symbol alias
-  row_response_comment_status: <a href="#contract-status-status">Symbol status</a>
+  row_response_comment_status: Symbol status
   row_response_close_on_trigger: Is close on trigger order
   row_response_comment_base_currency: Base currency
   row_response_comment_quote_currency: Quote currency
@@ -319,7 +333,7 @@ en:
   row_response_comment_trade_id: Trade ID
   row_response_comment_given_cash: Experience gold
   row_response_comment_service_cash: Service cash is used for user's service charge
-  row_comment_equity: User equity
+  row_comment_equity: User equity (wallet_balance + unrealised_pnl)
   row_comment_used_margin: Used margin
   row_comment_position_tick_direction: Direction of price change
   row_comment_from_coin: Exchange from coin
@@ -348,14 +362,15 @@ en:
   row_parameter_quantity: <a href="#quantity-qty">qty</a>
   row_parameter_price: <a href="#price-price">price</a>
   row_parameter_time_in_force: <a href="#time-in-force-time_in_force">time_in_force</a>
-  row_parameter_order_status: <a href="#order-status-order_status">order_status</a>
+  row_parameter_order_status: <a href="#order-status-order_status-stop_order_status">order_status</a>
   row_parameter_trigger_price: <a href="#trigger-price-type-trigger_by">trigger_by</a>
-  row_parameter_stop_order: <a href="#stop-order-status-stop_order_status">stop_order_status</a>
   row_parameter_order: <a href="#order-order">order</a>
   row_parameter_exec_type: <a href="#exec-type-exec_type">exec_type</a>
   row_parameter_last_liquidity_ind: <a href="#liquidity-type-last_liquidity_ind">last_liquidity_ind</a>
   row_parameter_tick_direction: <a href="#tick-direction-type-tick_direction">tick_direction</a>
   row_parameter_stop_order_type: <a href="#stop-order-type-stop_order_type">stop_order_type</a>
+  row_parameter_symbol_status: <a href="#contract-status-status">status</a>
+  row_parameter_withdraw_status: <a href="#withdraw-status-status">status</a>
 
   # Spot enum parameter table links
   row_parameter_type: <a href="#order-type-type-ordertypes">type</a>
@@ -366,15 +381,6 @@ en:
   row_parameter_ltOrderType: <a href="#lt-order-type-ordertype">orderType</a>
 
 
-  enum_withdraw_status_link: <a href="#withdraw-status-status">Withdraw Status Enum</a>
-  enum_coin_link: <a href="#currency-currency-coin">Coin Enum</a>
-  enum_side_link: <a href="#side-side">Side Enum</a>
-  enum_symbol_link: <a href="#symbol-symbol">Symbol Enum</a>
-  enum_contract_type_link: <a href="#contract-type-contract_type">Contract Type Enum</a>
-  enum_order_type_link: <a href="#order-type-order_type">Order Type Enum</a>
-  enum_exec_type_link: <a href="#exec-type-exec_type">Exec Type Enum</a>
-  enum_Liquidity_type_link: <a href="#liquidity-type-last_liquidity_ind">Liquidity Enum</a>, only valid while <code>exec_type</code> is <code>Trade, AdlTrade, BustTrade</code>
-  enum_stop_order_status_link: <a href="#stop-order-status-stop_order_status">Stop Order Status</a>
   stop_order_trigger_price: If <code>stop_order_type</code> is <code>TrailingProfit</code>, this field is the trailing stop active price.
   errorcode_meaning: Meaning
   resp_field_leverage: In Isolated Margin mode, the value is set by user. In Cross Margin mode, the value is the max leverage at current risk level
@@ -882,6 +888,7 @@ en:
   ### Closed Profit and Loss
   closedprofitandloss: Closed Profit and Loss
   row_response_closedPnlSide: Side of the closing order
+  row_response_closedPnlOrderId: Order ID of the closing order
 
   ## Risklimit
   risklimit: Risk Limit
@@ -965,7 +972,7 @@ en:
     <p>Bybit has different IP frequency limits for <code>GET</code> and <code>POST</code> method<span>:</span></p>
     <ul>
     <li>
-      <code>GET</code> method:
+      <code>GET</code> & <code>DELETE</code> method:
       <ul>
         <li>50 requests per second continuously for 2 minutes</li>
         <li>70 requests per second continuously for 5 seconds</li>
@@ -984,7 +991,7 @@ en:
     <p>Bybit has different IP frequency limits for <code>GET</code> and <code>POST</code> method<span>:</span></p>
     <ul>
     <li>
-      <code>GET</code> method:
+      <code>GET</code> & <code>DELETE</code> method:
       <ul>
         <li>12 requests per second continuously for 2 minutes</li>
         <li>18 requests per second continuously for 5 seconds</li>
@@ -1357,6 +1364,7 @@ en:
   websocket_execution_aside: This topic pushes all executions <i>except</i> <a href="#exec-type-exec_type"><code>Funding</code></a>.
   ### order
   websocketorder: order
+  websocketorder_row_comment_timestamp: Timestamp (when the <a href="#order-status-order_status-stop_order_status"><code>order_status</code></a> was <code>New</code>)
   ### stop_order
   websocketstoporder: stop_order
 
@@ -1459,8 +1467,6 @@ en:
   desc: ""
   asc:  ""
   ## Order status (`order_status`)
-  aside_orderStatusGet: |
-    These are the possible values for <code>order_status</code> as included in the response of a <b>Get Order</b> request. To see the options for <code>order_status</code> in the response for a Create Active/Conditional request, see <a href="#order-status-order_status-creation">here</a>.
   para_orderStatusGet: |
   #    Filter fetched orders by their order statuses. To filter by multiple statuses, separate with a comma like so: <code>Filled,New</code>
   created1:         "-  order has been accepted by the system but not yet put through the matching engine"
@@ -2051,7 +2057,7 @@ en:
   err_130126: No orders
   err_130023: Will be triggered Liq after order is completed
   err_130127: Take Profit, Stop Loss and Trailing Stop Loss are not modified
-  err_130137: Please check to see if your existing position and open orders (together, your <code>pz_value</code>) will exceed your risk limit (<code>risk_limit</code>)
+  err_130137: Please check to see if your existing position and open orders (together, your <code>pz_value</code>) will exceed your risk limit (<code>risk_limit</code>). You can change your risk limit with the <a href="#t-setrisklimit">Set Risk limit endpoint</a>.
   err_130145: Close order side is large than position's leaving qty
   err_130149: Order creation successful but SL/TP setting failed
   err_130150: Please try again later.
@@ -2182,7 +2188,7 @@ en:
   switchmode_aside: When set to Partial, TP/SL orders may have a quantity less than the position size. This is set with the <a href="#t-tradingstop">Trading-Stop endpoint</a>.
   addmargin: Add/Reduce Margin
   restapi_update_20200414: Updated <code>BTCUSDT</code> contract information
-  linear_private_trade_records: Get user's trading records. The results are ordered in descending order (the first item is the latest).
+  linear_private_trade_records: Get user's trading records. The results are ordered in descending order (the first item is the latest). Returns records up to 2 years old.
   linear_private_closed_pnl_records: Get user's closed profit and loss records. The results are ordered in descending order (the first item is the latest).
   linear_private_switchmode: Switch mode between Full or Partial
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
@@ -3152,7 +3158,7 @@ en:
   usdcOrderFilter: refer to  <a href="#order-filter-orderfilter">Order Filter</a>
   usdcReplaceOrderId: Order ID, required for Options
   usdcOrderLinkId: Either orderId or orderLinkId is required
-  cancelAllResponse: This is used to cancel all active orders . The real-time response indicates whether the request is successful, depending on retCode.
+  cancelAllResponse: This is used to cancel all active orders. The real-time response indicates whether the request is successful, depending on retCode.
   usdcSymbolInfo: Query for all if blank.
   symbolStatus: Status, can be WAITING_ONLINE, ONLINE, DELIVERING, or OFFLINE
 
