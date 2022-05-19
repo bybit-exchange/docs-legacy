@@ -427,6 +427,8 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/cancel-order \
 }
 ```
 
+t(:cancelAllResponse)
+
 <p class="fake_header">t(:httprequest)</p>
 POST
 <code><span id=uopvCancelAll>/option/usdc/openapi/private/v1/cancel-all</span></code>
@@ -446,9 +448,6 @@ POST
 |orderId|string|t(:usdcOrderId)|
 |orderLinkId|string|t(:orderLinkId)|
 
-<p>
-t(:cancelAllResponse)
-</p>
 
 ### t(:usdcQryUnOrPartFilled)
 
@@ -1478,8 +1477,8 @@ curl https://api-testnet.bytick.com/option/usdc/openapi/private/v1/get-mmp-state
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=uopvAsset>/option/usdc/openapi/private/v1/get-mmp-state</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvAsset"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+<code><span id=mmpState>/option/usdc/openapi/private/v1/get-mmp-state</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mmpState"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 

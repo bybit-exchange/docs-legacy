@@ -257,6 +257,8 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/cancel-orde
 }
 ```
 
+t(:cancelAllResponse)
+
 <p class="fake_header">t(:httprequest)</p>
 POST
 <code><span id=uopvCancelAll>/perpetual/usdc/openapi/private/v1/cancel-all</span></code>
@@ -269,9 +271,6 @@ POST
 |t(:row_parameter_symbol) |<b>true</b>|string|t(:usdcSymbol)|
 |orderFilter|<b>true</b>|string|t(:usdcOrderFilter)|
 
-<p>
-t(:cancelAllResponse)
-</p>
 
 ### t(:usdcQryUnOrPartFilled)
 
