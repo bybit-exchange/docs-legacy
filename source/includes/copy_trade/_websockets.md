@@ -1229,3 +1229,249 @@ while True:
 |:----- |:-----|----- |
 |wallet_balance |number |t(:row_comment_wallet_balance)  |
 |available_balance |number |t(:row_comment_available_balance)  |
+
+### t(:websocketcopytradeposition)
+> t(:codequote_subscribe)
+
+```javascript
+ws.send('{"op": "subscribe", "args": ["copyTradePosition"]}')
+```
+
+```python--pybit
+from pybit import WebSocket
+subs = [
+    "copyTradePosition"
+]
+ws = WebSocket(
+    "wss://stream-testnet.bybit.com/realtime_private",
+    subscriptions=subs,
+    api_key="", api_secret=""
+)
+while True:
+    data = ws.fetch(subs[0])
+    if data:
+        print(data)
+```
+
+> t(:codequote_responseExampleFormatAll)
+
+```javascript
+{
+  "topic":"copyTradePosition",
+    "data":[
+    {
+      "symbol":"ETHUSDT",
+      "positionIdx":"2",
+      "positionValue":"80.05065626",
+      "riskId":11,
+      "leverage":"10.000000",
+      "isIsolated":true,
+      "side":"Sell",
+      "size":"0.040000",
+      "unrealisedPnl":"1.62665626",
+      "liqPrice":"2191.350098",
+      "bustPrice":"2201.350098",
+      "entryPrice":"2001.26640650",
+      "positionMargin":"8.00506666",
+      "orderMargin":"0.00000000",
+      "occClosingFee":"0.05283240",
+      "cumRealisedPnl":"0.55284374",
+      "positionStatus":"Normal",
+      "positionSeq":0
+    }
+  ]
+}
+```
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
+|positionIdx |string |t(:copytrade_field_position_idx)  |
+|positionValue |string |t(:row_comment_position_value)  |
+|riskId |string |t(:row_comment_riskId)  |
+|leverage |string |t(:copytrade_field_leverage)  |
+|isolated |bool |t(:row_comment_isolated)  |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|size |string |t(:row_comment_position_size)  |
+|unrealisedPnl |string |t(:unrealisedPnl)  |
+|liqPrice |string |t(:row_comment_liq_price)  |
+|bustPrice |string |t(:row_comment_bust_price)  |
+|entryPrice |string |t(:row_comment_entry_price)  |
+|positionMargin |string |t(:row_comment_position_margin)  |
+|orderMargin |string |t(:row_comment_order_margin)  |
+|occClosingFee |string |t(:row_comment_occ_closing_fee)  |
+|cumRealisedPnl |string |t(:row_comment_cum_realised_pnl)  |
+|positionStatus |string |t(:row_comment_position_status)  |
+|positionSeq |number |t(:row_comment_position_seq)  |
+
+### t(:websocketcopytradeorder)
+> t(:codequote_subscribe)
+
+```javascript
+ws.send('{"op": "subscribe", "args": ["copyTradeOrder"]}')
+```
+
+```python--pybit
+from pybit import WebSocket
+subs = [
+    "copyTradeOrder"
+]
+ws = WebSocket(
+    "wss://stream-testnet.bybit.com/realtime_private",
+    subscriptions=subs,
+    api_key="", api_secret=""
+)
+while True:
+    data = ws.fetch(subs[0])
+    if data:
+        print(data)
+```
+
+> t(:codequote_responseExampleFormatAll)
+
+```javascript
+{
+  "topic":"copyTradeOrder",
+    "data":[
+    {
+      "orderId":"6d667921-3cf4-4efd-b93f-727bd10a3b62",
+      "orderLinkId":"w11a313223ddd132111",
+      "symbol":"ETHUSDT",
+      "orderType":"Market",
+      "price":"1863.250000",
+      "qty":"0.010000",
+      "side":"Sell",
+      "positionIdx":"2",
+      "cumExecFee":"0.01175970",
+      "cumExecValue":"19.59950000",
+      "lastExecPrice":"1959.949951",
+      "cumExecQty":"0.010000",
+      "createTime":1652932133873,
+      "updateTime":1652932133892,
+      "copyTradeOrderStatus":"OpenOrderFilled"
+    }
+  ]
+}
+```
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|orderId |string |t(:row_comment_order_id)  |
+|orderLinkId |string |t(:row_comment_orderLinkId)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_symbol)  |
+|orderType |string |t(:row_comment_stopOrderType) |
+|price |string |t(:row_comment_resp_price) |
+|qty |string |t(:row_comment_exec_qty)  |
+|side |string |t(:row_comment_side)  |
+|positionIdx |string |t(:copytrade_field_position_idx)  |
+|cumExecFee |string |t(:linear_resp_field_cum_exec_fee)  |
+|cumExecValue |string |t(:linear_resp_field_cum_exec_value)  |
+|lastExecPrice |string |t(:row_comment_last_exec_price)  |
+|cumExecQty |string |t(:linear_resp_field_cum_exec_qty)  |
+|createTime |string |t(:row_comment_timestamp)  |
+|updateTime |string |t(:row_comment_resp_update_time)  |
+|copyTradeOrderStatus |string |t(:copytrade_field_order_status)  |
+
+### t(:websocketcopytradeexecution)
+> t(:codequote_subscribe)
+
+```javascript
+ws.send('{"op": "subscribe", "args": ["copyTradeExecution"]}')
+```
+
+```python--pybit
+from pybit import WebSocket
+subs = [
+    "copyTradeExecution"
+]
+ws = WebSocket(
+    "wss://stream-testnet.bybit.com/realtime_private",
+    subscriptions=subs,
+    api_key="", api_secret=""
+)
+while True:
+    data = ws.fetch(subs[0])
+    if data:
+        print(data)
+```
+
+> t(:codequote_responseExampleFormatAll)
+
+```javascript
+{
+  "topic":"copyTradeExecution",
+    "data":[
+    {
+      "orderId":"6d667921-3cf4-4efd-b93f-727bd10a3b62",
+      "orderLinkId":"w11a313223ddd132111",
+      "symbol":"ETHUSDT",
+      "side":"Sell",
+      "execId":"0182b08b-a3ce-5038-a8be-5e1e9f862e90",
+      "execQty":"0.010000",
+      "execType":"Trade",
+      "execFee":"0.01175970",
+      "price":"1863.250000",
+      "orderQty":"0.010000",
+      "tradeTime":1652932133873
+    }
+  ]
+}
+```
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|orderId |string |t(:row_comment_order_id)  |
+|orderLinkId |string |t(:row_comment_orderLinkId)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_symbol)  |
+|side |string |t(:row_comment_side)  |
+|execId |string |t(:row_comment_exec_id) |
+|execQty |string |t(:row_comment_exec_qty) |
+|execType |string |t(:exec_type_pnl)  |
+|execFee |string |t(:row_comment_exec_fee)  |
+|price |string |t(:row_comment_exec_price)  |
+|orderQty |string |t(:row_comment_order_qty)  |
+|tradeTime |string |t(:row_comment_trade_time)  |
+
+### t(:websocketcopytradewallet)
+> t(:codequote_subscribe)
+
+```javascript
+ws.send('{"op": "subscribe", "args": ["copyTradeWallet"]}')
+```
+
+```python--pybit
+from pybit import WebSocket
+subs = [
+    "copyTradeWallet"
+]
+ws = WebSocket(
+    "wss://stream-testnet.bybit.com/realtime_private",
+    subscriptions=subs,
+    api_key="", api_secret=""
+)
+while True:
+    data = ws.fetch(subs[0])
+    if data:
+        print(data)
+```
+
+> t(:codequote_responseExampleFormatAll)
+
+```javascript
+{
+  "topic":"copyTradeWallet",
+    "data":{
+    "walletBalance":"14009.12164704",
+      "availableBalance":"13998.97749271"
+  }
+}
+```
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|walletBalance |number |t(:row_comment_wallet_balance)  |
+|availableBalance |number |t(:row_comment_available_balance)  |
