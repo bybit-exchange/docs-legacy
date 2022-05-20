@@ -2,7 +2,7 @@
 
 ## 2022-05-20
 ### REST API
-- [t(:spotCrossMarginTrading)](#t-spotcrossmargintrading) [t(:changelog_new)]
+- [t(:CrossMarginTrading)](#t-CrossMarginTrading) [t(:changelog_new)]
   - t(:restapi_update_20220520)
 
 

@@ -1,9 +1,9 @@
-# t(:spotCrossMarginTrading)
+# t(:CrossMarginTrading)
 <aside class="notice">
 t(:spotCrossMarginTradingDesc)
 </aside>
 
-### t(:spotEnableCrossMarginTrading)
+### t(:borrowmarginloan)
 > t(:codequote_curlExample)
 
 ```console
@@ -42,7 +42,7 @@ POST
 |result|integer|t(:spotResult)|
 
 
-### t(:spotRepayMarginLoan)
+### t(:RepayMarginLoan)
 > t(:codequote_curlExample)
 
 > t(:codequote_responseExample)
@@ -55,7 +55,7 @@ POST
     "ext_info": null,
     "result": 307
 }
-``` 
+```
 
 <p class="fake_header">t(:httprequest)</p>
 POST
@@ -75,7 +75,7 @@ POST
 |:----- |:-----|----- |
 |result|number|t(:spotResult)|
 
-### t(:spotQueryBorrowingInfo)
+### t(:QueryBorrowingInfo)
 > t(:codequote_curlExample)
 
 ```console
@@ -105,7 +105,7 @@ POST
         }
     ]
 }
-``` 
+```
 
 <p class="fake_header">t(:httprequest)</p>
 GET
@@ -138,7 +138,7 @@ GET
 |status|int|t(:spotCrossMarginOrderStatus)|
 
 
-### t(:spotQueryAccountInfo)
+### t(:QueryAccountInfo)
 > t(:codequote_curlExample)
 
 ```console
@@ -201,7 +201,7 @@ GET
         ]
     }
 }
-``` 
+```
 
 <p class="fake_header">t(:httprequest)</p>
 GET
@@ -229,7 +229,7 @@ GET
 |loan|string|t(:spotLiability)|
 |interest|string|t(:spotInterest)|
 
-### t(:spotQueryInterestQuota)
+### t(:QueryInterestQuota)
 > t(:codequote_curlExample)
 
 
@@ -248,7 +248,7 @@ GET
         "loanAbleAmount": "1414762.97401717124312"
     }
 }
-``` 
+```
 
 <p class="fake_header">t(:httprequest)</p>
 GET
@@ -271,7 +271,7 @@ GET
 |loanAbleAmount|string|t(:spotLoanableAmount)|
 
 
-### t(:spotQueryRepaymentHistory)
+### t(:QueryRepaymentHistory)
 > t(:codequote_curlExample)
 
 
@@ -303,7 +303,7 @@ GET
         }
     ]
 }
-``` 
+```
 
 <p class="fake_header">t(:httprequest)</p>
 GET
