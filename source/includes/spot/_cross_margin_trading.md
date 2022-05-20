@@ -1,4 +1,8 @@
 # t(:spotCrossMarginTrading)
+<aside class="notice">
+t(:spotCrossMarginTradingDesc)
+</aside>
+
 ### t(:spotEnableCrossMarginTrading)
 > t(:codequote_curlExample)
 
