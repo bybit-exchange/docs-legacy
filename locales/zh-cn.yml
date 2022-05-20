@@ -1460,6 +1460,41 @@ zh-cn:
   err_20014: API-key格式無效
   err_20015: 無效的API密鑰，IP或操作權限。.
   err_20016: 找不到該交易對的交易窗口。 嘗試改為24小時自動報價。
+
+  # Cross Margin Trading
+  err_6001: 查詢用戶還款歷史錯誤
+  err_6002: 查詢用戶賬號信息錯誤
+  err_6003: 查詢用戶貸款歷史錯誤
+  err_6004: 查詢訂單歷史開始時間超過結束時間
+  err_6005: 借款失敗
+  err_6006: 還款失敗
+  err_6007: 未找到借貸用戶
+  err_6008: 借貸用戶未開通全倉槓桿
+  err_6009: 借貸用戶未開啟全倉槓桿
+  err_6010: 未找到借貸幣種
+  err_6011: 幣種未開啟借貸
+  err_6012: 未找到交易幣對
+  err_6013: 交易幣對未開啟借貸
+  err_6014: 還款請求重複
+  err_6015: 還款賬戶餘額不足
+  err_6016: 無欠款、無需還款
+  err_6017: 還款金額超過欠款金額
+  err_6018: 用戶幣種已在還款中
+  err_6019: 用戶還款計息強平衝突
+  err_6020: 查詢不到還款記錄
+  err_6021: 借貸請求重複
+  err_6022: 借貸幣種全量未開放
+  err_6023: 交易對全量未開放
+  err_6024: 借貸用戶狀態非正常
+  err_6025: 借貸數量不能小於單次最小借貸量
+  err_6026: 借貸數量不能大於單次最大借貸量
+  err_6027: 借貸數量不能大於平台允許的單用戶最大借貸量
+  err_6028: 借款申請數量超過平台最大借貸量
+  err_6029: 借款申請數量超過用戶預估最大可藉貸量
+  err_6030: 查詢用戶貸款信息錯誤
+  err_6031: 借貸精度超過設置精度
+  err_6032: 還款精度過高
+
   err_4000: serialNum已使用過
   err_4001: 今日申購限額不足，請稍後再試
   err_4002: 申購訂單積壓較多，請稍後重試
@@ -1476,6 +1511,7 @@ zh-cn:
   err_4014: 申購入口暫時關閉
   err_4015: 贖回入口暫時關閉
   err_4016: 輸入值格式不符合要求：精度或長度超出
+
 
   err_20001: 訂單不存在
   err_20003: 缺少參數<code>side</code>
@@ -1841,7 +1877,11 @@ zh-cn:
   linear_private_switchmode: 切換止盈止損模式至全倉或部分
   linear_row_comment_limit: 每頁數量, 最大50. 默認每頁20條，最多50條每頁
   linear_row_comment_limit_50_200: 每頁數量, 最大200. 默認每頁50條，最多200條每頁
+
+  restapi_update_20220520: 新增 Cross Margin Trading 接口
+
   linear_row_comment_limit_100_100: 每頁數量, 最大100. 默認每頁100條，最多100條每頁
+
   restapi_update_20220420_2: 新增 lt public Topics
   restapi_update_20220420_1: 新增 Leveraged Token 接口
   restapi_update_20211228: 移除 <a href="#t-publictradingrecords">平臺交易歷史數據</a> 入參中的 <code>from</code> 字段。
@@ -3307,3 +3347,46 @@ zh-cn:
   spotLtQuoteBasket: 籃子
 
   perpUsdcReplaceOrderDesc: 活動訂單參數（如數量、價格）與止盈止損參數，無法同時在一個請求中修改，請分開請求進行修改。
+
+  # Cross Margin Trading
+  spotCrossMarginTradingDesc: 所有全倉槓桿交易接口都需要驗證。
+  spotCrossMarginTrading: 全倉槓桿接口
+  spotEnableCrossMarginTrading: 申請借幣
+  spotCurrency: 幣種
+  spotBorrowQty: 借幣數量
+  spotResult: 借款訂單id
+  spotRepayMarginLoan: 歸還借幣
+  spotRepayQty: 歸還數量
+  spotQueryBorrowingInfo: 查詢借幣訂單
+  spotCrossMarginOrderStatus: 狀態（0，全部  1，未還清  2，已還清）
+  spotCrossMarginLimit: 默認500，最大500
+  spotBorrowingId: 借幣ID
+  spotLoanAmount: 借幣本金總額
+  spotLoanBalance: 未還本金
+  spotInterestAmount: 利息總額
+  spotInterestBalance: 未還利息
+  spotCrossMarginCreatedTime: 借幣發起時間，精確到毫秒
+  spotCrossMarginType: 訂單類型（1，手動借貸 2，自動借貸）
+  spotQueryAccountInfo: 查詢借幣賬戶詳情
+  spotCrossMarginAccountStatus: 賬戶狀態（1:正常, 2:限制提幣/劃轉, 3:預警, 4:已爆倉, 5:已穿倉）
+  spotAcctBalanceSum: 總持有BTC折合
+  spotDebtBalanceSum: 总负债BTC折合
+  spotTokenId: Token Id
+  spotTotal: 合計
+  spotFree: 可用
+  spotLocked: 鎖定
+  spotLiability: 未還借幣
+  spotInterest: 未還利息
+  spotQueryInterestQuota: 查詢借幣利率及額度
+  spotInterestRate: 基礎日利率
+  spotMaxLoanAmount: 最大允許借幣金額
+  loanAbleAmount: 剩餘可藉金額
+  spotQueryRepaymentHistory: 查詢還款記錄
+  spotRepayMarginOrderId: 還幣單號
+  spotRepayId: 還幣交易ID
+  spotRepayTime: 還幣交易時間，精確到毫秒
+  spotRepaidAmount: 已還幣金額
+  spotRepaidSerialNumber: 借款訂單的還款單號
+  spotTransactId: 原始借幣交易ID
+  spotRepaidPrincipal: 該筆還幣交易已還本金
+  spotRepaidInterest: 該筆還幣交易已還利息

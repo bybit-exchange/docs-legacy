@@ -1730,6 +1730,40 @@ en:
 
 
 
+  # Cross Margin Trading
+  err_6001: Query user repay history error
+  err_6002: Query user account info error
+  err_6003: Query user loan history error
+  err_6004: Query order history start time exceeds end time
+  err_6005: Failed to borrow
+  err_6006: Repayment Failed
+  err_6007: User not found
+  err_6008: You haven't enabled Cross Margin Trading yet. To do so, please head to the PC trading site
+  err_6009: You haven't enabled Cross Margin Trading yet. To do so, please head to the PC trading site or the Bybit app
+  err_6010: Failed to locate the coins to borrow
+  err_6011: Cross Margin Trading not yet supported by the selected coin
+  err_6012: Pair not available
+  err_6013: Cross Margin Trading not yet supported by the selected pair
+  err_6014: Repeated repayment requests
+  err_6015: Insufficient available balance
+  err_6016: No repayment required
+  err_6017: Repayment amount has exceeded the total liability
+  err_6018: Settlement in progress
+  err_6019: Liquidation in progress
+  err_6020: Failed to locate repayment history
+  err_6021: Repeated borrowing requests
+  err_6022: Coins to borrow not generally available yet
+  err_6023: Pair to borrow not generally available yet
+  err_6024: Invalid user status
+  err_6025: Amount to borrow cannot be lower than the min. amount to borrow (per transaction)
+  err_6026: Amount to borrow cannot be larger than the max. amount to borrow (per transaction)
+  err_6027: Amount to borrow cannot be higher than the max. amount to borrow per user
+  err_6028: Amount to borrow has exceeded Bybit's max. amount to borrow
+  err_6029: Amount to borrow has exceeded the user's estimated max. amount to borrow
+  err_6030: Query user loan info error
+  err_6031: Loan precision has exceeded the maximum precision
+  err_6032: Number of decimals has exceeded the maximum precision
+
   err_20001: Order does not exist.
   err_20003: Missing parameter <code>side</code>
   err_20004: Invalid parameter <code>side</code>
@@ -2193,6 +2227,8 @@ en:
   linear_private_switchmode: Switch mode between Full or Partial
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
+
+  restapi_update_20220520: Add Cross Margin Trading Endpoints
   linear_row_comment_limit_100_100: Limit for data size per page, max size is 100. Default as showing 100 pieces of data per page.
   restapi_update_20220513: Add new response param <code>innovation</code>
   restapi_update_20220512: Add USDC Perpetual Funding API
@@ -3694,3 +3730,47 @@ en:
 
 
   perpUsdcReplaceOrderDesc: Active order parameters (such as quantity, price) and stop order parameters cannot be modified in one request at the same time. Please request modification separately.
+
+
+  # Cross Margin Trading
+  spotCrossMarginTradingDesc: All Cross Margin Trading endpoints require authentication.
+  spotCrossMarginTrading: Cross Margin Trading Endpoints
+  spotEnableCrossMarginTrading: Enable Cross Margin Trading
+  spotCurrency: currency
+  spotBorrowQty: Amount To Borrow
+  spotResult: Loan order id
+  spotRepayMarginLoan: Repay Margin Loan
+  spotRepayQty: Repayment Amount
+  spotQueryBorrowingInfo: Query Borrowing Info
+  spotCrossMarginOrderStatus: Status (0.Total 1.  Cleared 2. Not Cleared)
+  spotCrossMarginLimit: Default is 500; Maximum is 500
+  spotBorrowingId: Borrowing Id
+  spotLoanAmount: Principal Amount
+  spotLoanBalance: Outstanding Principal
+  spotInterestAmount: Total Interest
+  spotInterestBalance: Outstanding Interest
+  spotCrossMarginCreatedTime: Timestamp (Borrowing)，unit in millisecond
+  spotCrossMarginType: Order Type (1. Manual 2. Auto)
+  spotQueryAccountInfo: Query Account Info
+  spotCrossMarginAccountStatus: Status (1. Normal 2. Withdrawal/Transfer Restricted 3. Liquidation Alert Triggered 4. Liquidated 5. Negative Equity)
+  spotAcctBalanceSum: Total Equity (BTC)
+  spotDebtBalanceSum: Total Liability (BTC)
+  spotTokenId: Token Id
+  spotTotal: Total
+  spotFree: Available
+  spotLocked: Locked
+  spotLiability: Total Liability
+  spotInterest: Interest Left
+  spotQueryInterestQuota: Query Interest & Quota
+  spotInterestRate: Daily Interest Rate
+  spotMaxLoanAmount: Max. Amount to Borrow
+  loanAbleAmount: Available Amount to Borrow
+  spotQueryRepaymentHistory: Query Repayment History
+  spotRepayMarginOrderId: Repay Margin Order Id
+  spotRepayId: Repay Id
+  spotRepayTime: Timestamp，unit in millisecond
+  spotRepaidAmount: Total Amount Repaid
+  spotRepaidSerialNumber: Repayment No. (Borrowing Order)
+  spotTransactId: Transaction ID (Borrowing)
+  spotRepaidPrincipal: Total Principal Repaid
+  spotRepaidInterest: Total Interest Repaid
