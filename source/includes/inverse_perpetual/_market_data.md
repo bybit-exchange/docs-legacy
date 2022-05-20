@@ -24,25 +24,25 @@ print(session.orderbook(symbol="BTCUSD"))
 
 ```javascript
 {
-    "ret_code": 0,                              // return code
-    "ret_msg": "OK",                            // error message
-    "ext_code": "",                             // additional error code
-    "ext_info": "",                             // additional error info
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "ext_info": "",
     "result": [
         {
-            "symbol": "BTCUSD",                 // symbol
-            "price": "9487",                    // price
-            "size": 336241,                     // size (in USD contracts)
-            "side": "Buy"                       // side
+            "symbol": "BTCUSD",
+            "price": "9487",
+            "size": 336241,
+            "side": "Buy"
         },
         {
-            "symbol": "BTCUSD",                 // symbol
-            "price": "9487.5",                  // price
-            "size": 522147,                     // size (in USD contracts)
-            "side": "Sell"                      // side
+            "symbol": "BTCUSD",
+            "price": "9487.5",
+            "size": 522147,
+            "side": "Sell"
         }
     ],
-    "time_now": "1567108756.834357"             // UTC timestamp
+    "time_now": "1567108756.834357"
 }
 ```
 
@@ -66,7 +66,7 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 | t(:row_parameter_symbol) |string |t(:row_comment_symbol) |
-| price |string |t(:row_comment_resp_price) |
+| t(:row_parameter_price) |string |t(:row_comment_resp_price) |
 | size |integer |t(:row_comment_resp_size) |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 
@@ -148,7 +148,7 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 | t(:row_parameter_symbol) |string |t(:row_comment_symbol) |
-| interval |string |t(:row_comment_interval) |
+| <a href="#kline-interval-interval">interval</a> |string |t(:row_comment_interval) |
 | open_time |integer |t(:row_comment_resp_open_time) |
 | open |string |t(:row_comment_open) |
 | high |string |t(:row_comment_high) |
@@ -265,7 +265,7 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| symbol |string |t(:row_comment_symbol) |
+| t(:row_parameter_price) |string |t(:row_comment_symbol) |
 | bid_price |string |t(:row_comment_resp_bid_price) |
 | ask_price |string |t(:row_comment_resp_ask_price) |
 | last_price |string |t(:row_comment_resp_last_price) |
@@ -317,18 +317,18 @@ print(session.public_trading_records(
 
 ```javascript
 {
-    "ret_code": 0,                                   // error code 0 means success
-    "ret_msg": "OK",                                 // error message
+    "ret_code": 0,
+    "ret_msg": "OK",
     "ext_code": "",
     "ext_info": "",
     "result": [
         {
-            "id": 7724919,                                   // ID
-            "symbol": "BTCUSD",                             // contract type
-            "price": 9499.5,                                // execution price
-            "qty": 9500,                                    // execution quantity
-            "side": "Buy",                                  // side
-            "time": "2019-11-19T08:03:04.077Z"              // UTC time
+            "id": 7724919,
+            "symbol": "BTCUSD",
+            "price": 9499.5,
+            "qty": 9500,
+            "side": "Buy",
+            "time": "2019-11-19T08:03:04.077Z"
         }
     ],
     "time_now": "1567109419.049271"
@@ -353,9 +353,9 @@ GET
 |:----- |:-----|----- |
 |id |number |t(:row_response_comment_id)  |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
-|price |number |t(:row_response_comment_execprice)  |
+| t(:row_parameter_price) |number |t(:row_response_comment_execprice)  |
 |t(:row_parameter_quantity) |number |t(:row_response_comment_execqty)  |
-|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|t(:row_parameter_side) |string |t(:row_comment_side_taker)  |
 |time |string |t(:row_response_comment_time)  |
 
 
@@ -411,7 +411,8 @@ print(session.query_symbol())
             "lot_size_filter":{
                 "max_trading_qty":1000000,
                 "min_trading_qty":1,
-                "qty_step":1
+                "qty_step":1,
+                "post_only_max_trading_qty":"5000000"
             }
         },
         {
@@ -437,7 +438,8 @@ print(session.query_symbol())
             "lot_size_filter":{
                 "max_trading_qty":1000000,
                 "min_trading_qty":1,
-                "qty_step":1
+                "qty_step":1,
+                "post_only_max_trading_qty":"5000000"
             }
         },
         {
@@ -463,12 +465,13 @@ print(session.query_symbol())
             "lot_size_filter":{
                 "max_trading_qty":100,
                 "min_trading_qty":0.001,
-                "qty_step":0.001
+                "qty_step":0.001,
+                "post_only_max_trading_qty":"500"
             }
         },
         {
-            "name":"BTCUSDM21",
-            "alias":"BTCUSD0625",
+            "name":"BTCUSDM22",
+            "alias":"BTCUSD0624",
             "status":"Trading",
             "base_currency":"BTC",
             "quote_currency":"USD",
@@ -489,7 +492,8 @@ print(session.query_symbol())
             "lot_size_filter":{
                 "max_trading_qty":1000000,
                 "min_trading_qty":1,
-                "qty_step":1
+                "qty_step":1,
+                "post_only_max_trading_qty":"5000000"
             }
         }
     ],
@@ -513,12 +517,13 @@ GET
 |:----- |:-----|----- |
 |name |string |t(:row_response_comment_name)    |
 |alias |string |t(:row_response_comment_name)    |
-|status |string |t(:row_response_comment_status)    |
+|t(:row_parameter_symbol_status) |string |t(:row_response_comment_status)    |
 |base_currency |string |t(:row_response_comment_base_currency)    |
 |quote_currency |string |t(:row_response_comment_quote_currency)    |
 |price_scale |number |t(:row_response_comment_price_scale)    |
 |taker_fee |string |t(:row_response_comment_taker_fee)    |
 |maker_fee |string |t(:row_response_comment_maker_fee)    |
+|funding_interval |number |t(:row_response_funding_interval)    |
 |min_leverage |number |t(:row_response_comment_min_leverage)    |
 |max_leverage |number |t(:row_response_comment_public_max_leverage)    |
 |leverage_step |string |t(:row_response_comment_leverage_step)    |
@@ -528,7 +533,7 @@ GET
 |max_trading_qty |number |t(:row_response_comment_max_trading_qty)    |
 |min_trading_qty |number |t(:row_response_comment_min_trading_qty)    |
 |qty_step |number |t(:row_response_comment_qty_step)    |
-|funding_interval |number |t(:row_response_funding_interval)    |
+|post_only_max_trading_qty |string |t(:row_response_comment_post_only_max_trading_qty)    |
 
 
 ### t(:markpricekline)
@@ -599,7 +604,7 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| symbol |string |t(:row_comment_symbol) |
+| t(:row_parameter_price) |string |t(:row_comment_symbol) |
 | period |string |t(:row_comment_period) |
 | start_at |integer |t(:row_comment_startTime) |
 | open |integer |t(:row_comment_open) |
@@ -821,7 +826,7 @@ GET
 |:----- |:-----|----- |
 | open_interest |number |t(:row_comment_open_interest) |
 | timestamp |number |t(:row_comment_time_stamp) |
-| symbol |string |t(:row_comment_symbol) |
+| t(:row_parameter_price) |string |t(:row_comment_symbol) |
 
 
 ### t(:marketbigdeal)
@@ -888,7 +893,7 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| symbol |string |t(:row_comment_symbol) |
+| t(:row_parameter_price) |string |t(:row_comment_symbol) |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 | timestamp |number |t(:row_comment_time_stamp) |
 | value |number |t(:row_comment_value) |
@@ -962,7 +967,7 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| symbol |string |t(:row_comment_symbol) |
+| t(:row_parameter_price) |string |t(:row_comment_symbol) |
 | buy_ratio |number |t(:row_comment_buy_ratio) |
 | sell_ratio |number |t(:row_comment_sell_ratio) |
 | timestamp |number |t(:row_comment_time_stamp) |

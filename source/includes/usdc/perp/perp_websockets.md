@@ -215,9 +215,9 @@ t(:usdc_perp_websocket_para_orderbook)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|price |string |t(:row_comment_resp_price) |
-|symbol |string |t(:usdcSymbol)    |
-|side |string |t(:row_comment_side)  |
+|t(:row_parameter_price) |string |t(:row_comment_resp_price) |
+|t(:row_parameter_symbol) |string |t(:usdcSymbol)    |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
 |size |number |t(:row_comment_position_size)  |
 
 
@@ -260,10 +260,10 @@ t(:usdc_current_24_total_perp)
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 | tradeTime |string |t(:tradeTime) |
-| symbol |string |t(:usdcSymbol) |
-| side |string |t(:websocketTradeSide) |
+| t(:row_parameter_symbol) |string |t(:usdcSymbol) |
+| t(:row_parameter_side) |string |t(:websocketTradeSide) |
 | size |string |t(:row_comment_position_size) |
-| price |string |t(:row_comment_exec_price) |
+| t(:row_parameter_price) |string |t(:row_comment_exec_price) |
 | tradeId |string |t(:tradeId) |
 
 
@@ -359,7 +359,7 @@ t(:usdc_perp_lastest_symbol_info)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|symbol|string |t(:row_comment_symbol)    |
+|t(:row_parameter_symbol) |string |t(:row_comment_symbol)    |
 |t(:row_parameter_tick_direction) |string |t(:row_comment_position_tick_direction)  |
 |lastPrice |integer |t(:row_comment_resp_last_price)  |
 |prevPrice24h |integer |t(:row_comment_resp_prev_price_24h)  |
@@ -554,9 +554,9 @@ t(:usdc_perp_position_desc)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| symbol |string |t(:usdcSymbol) |
+| t(:row_parameter_symbol) |string |t(:usdcSymbol) |
 | positionStatus |string |t(:usdcPositionStatus) |
-| side |string |t(:side) |
+| t(:row_parameter_side) |string |t(:side) |
 | size |string |t(:usdcSize) |
 | entryPrice |string |t(:entryPrice) |
 | sessionAvgPrice |string |t(:perpSessionAvgPrice) |
@@ -629,8 +629,8 @@ t(:usdc_perp_trade_history)
 | orderId |string | t(:usdcOrderId) |
 | orderLinkId |string |t(:orderLinkId) |
 | tradeId |string |t(:tradeId)|
-| symbol |string |t(:usdcSymbol) |
-| side |string |t(:side) |
+| t(:row_parameter_symbol) |string |t(:usdcSymbol) |
+| t(:row_parameter_side) |string |t(:side) |
 | execPrice |string |t(:excPrice) |
 | execQty |string |t(:execQty) |
 | execFee |string |t(:execFee) |
@@ -725,10 +725,10 @@ t(:usdc_perp_active_order)
 | orderLinkId |string |t(:orderLinkId) |
 | createdAt |string |t(:row_comment_created_at) |
 | updatedAt |string |t(:row_comment_updated_at) |
-| symbol |string |t(:usdcSymbol) |
+| t(:row_parameter_symbol) |string |t(:usdcSymbol) |
 | orderStatus |string |t(:orderStatus) |
-| side |string |t(:side) |
-| price |string |t(:usdcOrderPrice) |
+| t(:row_parameter_side) |string |t(:side) |
+| t(:row_parameter_price) |string |t(:usdcOrderPrice) |
 | qty |string |t(:orderAllSize) |
 | cumExecQty |string |t(:cumExecQty) |
 | leavesQty |string |t(:usdc_unfilled_order_size) |

@@ -51,11 +51,11 @@ print(session.place_active_order(
         "qty": 0.01,
         "time_in_force": "GoodTillCancel",
         "order_status": "New",
-        "last_exec_price": 8083,    //t(:linear_resp_field_last_exec_price)
-        "cum_exec_qty": 0,          //t(:linear_resp_field_cum_exec_qty)
-        "cum_exec_value": 0,        //t(:linear_resp_field_cum_exec_value)
-        "cum_exec_fee": 0,          //t(:linear_resp_field_cum_exec_fee)
-        "reduce_only": false,       //t(:linear_resp_field_reduce_only)
+        "last_exec_price": 8083,
+        "cum_exec_qty": 0,
+        "cum_exec_value": 0,
+        "cum_exec_fee": 0,
+        "reduce_only": false,
         "close_on_trigger": false
         "order_link_id": "",
         "created_time": "2019-10-21T07:28:19.396246Z",
@@ -103,13 +103,13 @@ POST
 |:----- |:-----|----- |
 | order_id |string |t(:row_comment_order_id) |
 | user_id |number |t(:row_comment_userID) |
-|symbol|string |t(:row_comment_symbol)    |
-|side |string |t(:row_comment_side)  |
-|order_type |string |t(:row_comment_order_type)  |
-|price |number |t(:row_comment_resp_price)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_symbol)    |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|t(:row_parameter_order_type) |string |t(:row_comment_order_type)  |
+|t(:row_parameter_price) |number |t(:row_comment_resp_price)  |
 |qty |number |t(:row_response_comment_qty)  |
-|time_in_force |string |t(:row_comment_timeInForce)  |
-|order_status |string |t(:row_comment_orderStatus)  |
+|t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
+|t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
 |last_exec_price |number |t(:row_comment_last_exec_price)  |
 |cum_exec_qty |number |t(:linear_resp_field_cum_exec_qty)  |
 |cum_exec_value |number |t(:linear_resp_field_cum_exec_value)  |
@@ -201,7 +201,7 @@ GET
 |order_id |false |string |t(:account_row_comment_orderId) |
 |order_link_id |false |string |t(:row_comment_orderLinkId) |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
-|order |false |string |t(:row_comment_order)  |
+|t(:row_parameter_order) |false |string |t(:row_comment_order)  |
 |page |false |integer |t(:row_comment_page_max50) |
 |limit |false |integer |t(:row_comment_limit) |
 |t(:row_parameter_order_status) |false |string |t(:linear_account_row_comment_orderStatus) |
@@ -211,12 +211,12 @@ GET
 |:----- |:-----|----- |
 |order_id |string |t(:account_row_comment_orderId) |
 | user_id |number |t(:row_comment_userID) |
-| symbol |string |t(:row_comment_symbol) |
-| side |string |t(:row_comment_side) |
-| order_type |string |t(:row_comment_order_type) |
+| t(:row_parameter_symbol) |string |t(:row_comment_symbol) |
+| t(:row_parameter_side) |string |t(:row_comment_side) |
+| t(:row_parameter_order_type) |string |t(:row_comment_order_type) |
 | price  |number |t(:row_comment_resp_price) |
 | qty  |number |t(:row_response_comment_qty) |
-|time_in_force |string |t(:row_comment_timeInForce)  |
+|t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
 |t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
 |last_exec_price |number |t(:row_comment_last_exec_price)  |
 |cum_exec_qty |number |t(:linear_resp_field_cum_exec_qty)  |
@@ -394,14 +394,14 @@ print(session.replace_active_order(
 
 ```javascript
 {
-    "ret_code": 0,    //Error code,
-    "ret_msg": "ok",  //Error message,
+    "ret_code": 0,
+    "ret_msg": "ok",
     "ext_code": "",
     "result": {
         "order_id": "efa44157-c355-4a98-b6d6-1d846a936b93"
     },
-    "time_now": "1539778407.210858",    // UTC timestamp
-    "rate_limit_status": 99, // The remaining number of accesses in one minute
+    "time_now": "1539778407.210858",
+    "rate_limit_status": 99,
     "rate_limit_reset_ms": 1580885703683,
     "rate_limit": 100             
 }
@@ -579,13 +579,13 @@ GET
 |:----- |:-----|----- |
 | order_id |string |t(:row_comment_order_id) |
 | user_id |number |t(:row_comment_userID) |
-|symbol|string |t(:row_comment_symbol)    |
-|side |string |t(:row_comment_side)  |
-|order_type |string |t(:row_comment_order_type)  |
-|price |number |t(:row_comment_resp_price)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_symbol)    |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|t(:row_parameter_order_type) |string |t(:row_comment_order_type)  |
+|t(:row_parameter_price) |number |t(:row_comment_resp_price)  |
 |qty |number |t(:row_response_comment_qty)  |
-|time_in_force |string |t(:row_comment_timeInForce)  |
-|order_status |string |t(:row_comment_orderStatus)  |
+|t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
+|t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
 |last_exec_price |number |t(:row_comment_last_exec_price)  |
 |cum_exec_qty |number |t(:linear_resp_field_cum_exec_qty)  |
 |cum_exec_value |number |t(:linear_resp_field_cum_exec_value)  |
@@ -727,7 +727,7 @@ POST
 |t(:row_parameter_quantity) |number |t(:row_response_comment_qty)  |
 |t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
 |t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
-|trigger_price |number |t(:stop_order_trigger_price)  |
+|t(:row_parameter_trigger_price) |number |t(:stop_order_trigger_price)  |
 |order_link_id |string |t(:row_comment_orderLinkId) |
 |created_time |string |t(:row_comment_created_at)  |
 |updated_time |string |t(:row_comment_updated_at)  |
@@ -841,7 +841,7 @@ GET
 |stop_order_id |false |string |t(:row_comment_stopOrderId) |
 |order_link_id |false |string |t(:row_comment_orderLinkId)|
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
-|t(:row_parameter_stop_order) |false |string |t(:row_comment_stopOrderStatus)|
+|t(:row_parameter_order_status) |false |string |t(:row_comment_stopOrderStatus)|
 |t(:row_parameter_order) |false |string |t(:row_comment_order) |
 |page |false |integer |t(:row_comment_page_max50) |
 |limit |false |integer |t(:row_comment_limit) |
@@ -857,8 +857,8 @@ GET
 |t(:row_parameter_price) |number |t(:row_response_comment_price)  |
 |t(:row_parameter_quantity) |number |t(:row_response_comment_qty)  |
 |t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
-|order_status |string |t(:row_comment_stopOrderStatus)
-|trigger_price |number |t(:stop_order_trigger_price)  |
+|t(:row_parameter_order_status) |string |t(:row_comment_stopOrderStatus)
+|t(:row_parameter_trigger_price) |number |t(:stop_order_trigger_price)  |
 |order_link_id |string |t(:row_comment_orderLinkId) |
 |created_time |string |t(:row_comment_created_at)  |
 |updated_time |string |t(:row_comment_updated_at)  |
@@ -1212,7 +1212,7 @@ GET
 |t(:row_parameter_quantity) |number |t(:row_response_comment_qty)  |
 |t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
 |t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
-|trigger_price |number |t(:stop_order_trigger_price)  |
+|t(:row_parameter_trigger_price) |number |t(:stop_order_trigger_price)  |
 |order_link_id |string |t(:row_comment_orderLinkId)  |
 |created_time |string |t(:row_comment_created_at)  |
 |updated_time |string |t(:row_comment_updated_at)  |
@@ -1263,18 +1263,18 @@ print(session.my_position(
                "symbol":"BTCUSDT",
                "side":"Buy",
                "size":0,
-               "position_value":0,      //t(:linear_resp_field_position_value)
-               "entry_price":0,         //t(:linear_resp_field_entry_price)
-               "liq_price":1,           //t(:linear_resp_field_liq_price)
-               "bust_price":100,        //t(:linear_resp_field_bust_price)
+               "position_value":0,
+               "entry_price":0,
+               "liq_price":1,
+               "bust_price":100,
                "leverage":0,
                "is_isolated":true,
                "auto_add_margin": 0,
-               "position_margin":0,     //t(:linear_resp_field_position_margin)
-               "occ_closing_fee":0,     //t(:linear_resp_field_occ_closing_fee)
-               "realised_pnl":0,        //t(:linear_resp_field_realised_pnl)
-               "cum_realised_pnl":0,    //t(:linear_resp_field_cum_realised_pnl)
-               "free_qty": 30,          //t(:linear_resp_field_free_qty)
+               "position_margin":0,
+               "occ_closing_fee":0,
+               "realised_pnl":0,
+               "cum_realised_pnl":0,
+               "free_qty": 30,
                "tp_sl_mode": "Full",
                "unrealised_pnl": 0,
                "deleverage_indicator": 0,
@@ -1323,8 +1323,8 @@ print(session.my_position(
     "ext_info": "",
     "result": [
         {
-            "is_valid": true, //t(:resp_field_position_list_valid)
-            "data": { //t(:resp_field_position_list_data)
+            "is_valid": true,
+            "data": {
                 "user_id": 118921,
                 "symbol": "BTCUSDT",
                 "side": "Buy",
@@ -1351,8 +1351,8 @@ print(session.my_position(
             }
         },
         {
-            "is_valid": true, //t(:resp_field_position_list_valid)
-            "data": { //t(:resp_field_position_list_data)
+            "is_valid": true,
+            "data": {
                 "user_id": 118921,
                 "symbol": "BTCUSDT",
                 "side": "Sell",
@@ -1380,8 +1380,8 @@ print(session.my_position(
         },
         ...
         {
-            "is_valid": true, //t(:resp_field_position_list_valid)
-            "data": { //t(:resp_field_position_list_data)
+            "is_valid": true,
+            "data": {
                 "user_id": 118921,
                 "symbol": "XTZUSDT",
                 "side": "Buy",
@@ -1408,8 +1408,8 @@ print(session.my_position(
             }
         },
         {
-            "is_valid": true, //t(:resp_field_position_list_valid)
-            "data": { //t(:resp_field_position_list_data)
+            "is_valid": true,
+            "data": {
                 "user_id": 118921,
                 "symbol": "XTZUSDT",
                 "side": "Sell",
@@ -1641,7 +1641,7 @@ print(session.position_mode_switch(
 }
 ```
 
-t(:account_para_switchpositionmode)
+t(:account_para_switchpositionmode_withcoin)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
@@ -1651,7 +1651,8 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
+|t(:row_parameter_symbol) |false |string |t(:row_comment_symbol_with_coin)    |
+|<a href="#currency-currency-coin">coin</a> |false |string |t(:row_comment_coin_with_symbol) |
 |mode |<b>true</b> |string |t(:linear_comment_positionmode) |
 
 
@@ -1970,23 +1971,23 @@ print(session.user_trade_records(
                 {
                     "order_id": "7369b2f4-52f1-4698-abf7-368e4ba9aefa",
                     "order_link_id": "",
-                    "side": "Buy",  //t(:enum_side_link)
-                    "symbol": "BTCUSDT", //t(:enum_symbol_link)
+                    "side": "Buy",
+                    "symbol": "BTCUSDT",
                     "exec_id": "9b8216fa-98d7-55c0-b5fa-279db5727996",
-                    "price": 5894,//t(:comment_abandoned)
+                    "price": 5894
                     "order_price": 5894,
                     "order_qty": 0.001,
-                    "order_type": "Limit", //t(:enum_order_type_link)
+                    "order_type": "Limit",
                     "fee_rate": 0.00075,
                     "exec_price": 5894,
-                    "exec_type": "Trade", //t(:enum_exec_type_link)
+                    "exec_type": "Trade",
                     "exec_qty": 0.001,
                     "exec_fee": 0.0044205,
                     "exec_value": 5.894,
                     "leaves_qty": 0,
-                    "closed_size": 0, // t(:row_comment_closed_size)
-                    "last_liquidity_ind": "RemovedLiquidity",  //t(:enum_Liquidity_type_link)
-                    "trade_time": 1585547384,//t(:comment_abandoned)
+                    "closed_size": 0,
+                    "last_liquidity_ind": "RemovedLiquidity",
+                    "trade_time": 1585547384
                     "trade_time_ms": 1585547384847
                 }
             ]
@@ -2034,14 +2035,118 @@ GET
 |t(:row_parameter_order_type) |string |t(:row_comment_order_type)  |
 |fee_rate |number |t(:row_comment_fee_rate)  |
 |exec_price |number |t(:row_comment_exec_price)    |
-|t(:row_parameter_exec_type) |string |t(:enum_exec_type_link)  |
+|t(:row_parameter_exec_type) |string |t(:row_comment_exec_type) |
 |exec_qty |number |t(:row_comment_exec_qty)  |
 |exec_fee |number |t(:row_comment_exec_fee)    |
 |exec_value |number |t(:row_comment_exec_value)  |
 |leaves_qty |number |t(:row_comment_leaves_qty)  |
 |closed_size |number |t(:row_comment_closed_size)  |
-|t(:row_parameter_last_liquidity_ind) |string |t(:enum_Liquidity_type_link)  |
+|t(:row_parameter_last_liquidity_ind) |string |t(:row_comment_last_liquidity_ind) |
 |trade_time_ms |number |t(:row_comment_trade_time)  |
+
+
+
+### t(:userhistorytraderecords)
+> t(:codequote_curlExample)
+
+```console
+curl "https://api-testnet.bybit.com/private/linear/trade/execution/history-list?api_key={api_key}&symbol=BTCUSDT&timestamp={timestamp}&sign={sign}"
+```
+
+```python--pybit
+from pybit import HTTP
+session = HTTP("https://api-testnet.bybit.com",
+               api_key="", api_secret="")
+print(session.user_trade_records(
+    symbol="BTCUSDT"
+))
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "ext_info": "",
+    "result": {
+        "page_token": "",
+        "data": [
+            {
+                "order_id": "55bd3595-938d-4d7f-b1ab-7abd6a3ec1cb",
+                "order_link_id": "",
+                "side": "Sell",
+                "symbol": "BTCUSDT",
+                "exec_id": "730cc113-7f05-5f1e-82b5-432bba9dfeab",
+                "price": 39391,
+                "order_price": 39391,
+                "order_qty": 0.009,
+                "order_type": "Market",
+                "fee_rate": 0.0006,
+                "exec_price": 41469.5,
+                "exec_type": "Trade",
+                "exec_qty": 0.009,
+                "exec_fee": 0.2239353,
+                "exec_value": 373.2255,
+                "leaves_qty": 0,
+                "closed_size": 0.009,
+                "last_liquidity_ind": "RemovedLiquidity",
+                "trade_time": 1650444130,
+                "trade_time_ms": 1650444130065
+            }
+        ]
+    },
+    "time_now": "1651078431.113746",
+    "rate_limit_status": 117,
+    "rate_limit_reset_ms": 1651078431074,
+    "rate_limit": 120
+}
+```
+
+t(:linear_private_trade_records)
+
+<aside class="notice">
+t(:wallet_aside_tradeRecords)
+</aside>
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=plteHistoryList>/private/linear/trade/execution/history-list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#plteHistoryList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
+|start_time |false |integer |t(:row_comment_startTime_ms_2years) |
+|end_time |false |integer |t(:row_comment_endTime_ms_2years) |
+|t(:row_parameter_exec_type) |false |string |t(:linear_exec_type) |
+|page_token |false |string |t(:row_comment_page) |
+|limit |false |integer |t(:linear_row_comment_limit_100_100) |
+
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|order_id |string |t(:row_comment_order_id)  |
+|order_link_id |string |t(:row_comment_orderLinkId)  |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_symbol)  |
+|order_price |number |t(:row_comment_order_price)  |
+|order_qty |number |t(:row_comment_order_qty)  |
+|t(:row_parameter_order_type) |string |t(:row_comment_order_type)  |
+|fee_rate |number |t(:row_comment_fee_rate)  |
+|exec_price |number |t(:row_comment_exec_price)    |
+|t(:row_parameter_exec_type) |string |t(:row_comment_exec_type) |
+|exec_qty |number |t(:row_comment_exec_qty)  |
+|exec_fee |number |t(:row_comment_exec_fee)    |
+|exec_value |number |t(:row_comment_exec_value)  |
+|leaves_qty |number |t(:row_comment_leaves_qty)  |
+|closed_size |number |t(:row_comment_closed_size)  |
+|t(:row_parameter_last_liquidity_ind) |string |t(:row_comment_last_liquidity_ind) |
+|trade_time_ms |number |t(:row_comment_trade_time)  |
+
 
 
 ### t(:closedprofitandloss)
@@ -2087,13 +2192,13 @@ print(session.closed_profit_and_loss(
                  "order_price": 999999,
                  "order_type": "Market",
                  "exec_type": "Trade",
-                 "closed_size": 0.5,        //t(:linear_resp_field_closed_size)
-                 "cum_entry_value": 3000,   //t(:linear_resp_field_cum_entry_value)
-                 "avg_entry_price": 6000,   //t(:linear_resp_field_avg_entry_price)
-                 "cum_exit_value": 3000.5,  //t(:linear_resp_field_cum_exit_value)
-                 "avg_exit_price": 6001,    //t(:linear_resp_field_avg_exit_price)
-                 "closed_pnl": -5.000375,   //t(:linear_resp_field_closed_pnl)
-                 "fill_count": 1,           //t(:linear_resp_field_fill_count)
+                 "closed_size": 0.5,
+                 "cum_entry_value": 3000,
+                 "avg_entry_price": 6000,
+                 "cum_exit_value": 3000.5,
+                 "avg_exit_price": 6001,
+                 "closed_pnl": -5.000375,
+                 "fill_count": 1,
                  "leverage": 100,
                  "created_at": 1577480599
              }
@@ -2131,7 +2236,7 @@ GET
 |id |number |t(:row_comment_position_id)  |
 |user_id |number |t(:row_comment_userID)  |
 |t(:row_parameter_symbol) |string |t(:row_comment_symbol)    |
-|order_id |string |t(:row_comment_order_id)  |
+|order_id |string |t(:row_response_closedPnlOrderId)  |
 |t(:row_parameter_side) |string |t(:row_response_closedPnlSide)  |
 |t(:row_parameter_quantity) |number |t(:row_comment_order_qty)  |
 |order_price |number |t(:row_comment_order_price)  |
@@ -2305,7 +2410,7 @@ print(session.set_risk_limit(
 t(:account_para_setRisk)
 
 <aside class="notice">
-t(:account_para_setRisk)
+t(:account_aside_getRisk_linear)
 </aside>
 
 <p class="fake_header">t(:httprequest)</p>
@@ -2433,7 +2538,7 @@ print(session.my_last_funding_fee(
 }
 ```
 
-t(:market_para_records)
+t(:account_para_myLastFunding)
 
 <p class="fake_header">t(:httprequest)</p>
 GET

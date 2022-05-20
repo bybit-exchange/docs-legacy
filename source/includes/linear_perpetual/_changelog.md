@@ -1,6 +1,22 @@
 # t(:changelog)
-## 2021-12-28
+
+## 2022-04-29
 ### REST API
+- [t(:placeactive)](#t-placeactive) & [t(:querysymbol)](#t-querysymbol) [t(:changelog_update)]
+  - t(:restapi_update_20220429)
+
+## 2022-04-28
+### REST API
+- [t(:userhistorytraderecords)](#t-userhistorytraderecords) [t(:changelog_new)]
+  - t(:restapi_update_2022042501)
+- [t(:switchpositionmode)](#t-switchpositionmode) [t(:changelog_update)]
+  - t(:restapi_update_2022042801)
+
+
+
+## 2021
+### 2021-12-28
+#### REST API
 - [t(:switchpositionmode)](#t-switchpositionmode) [t(:changelog_new)]
 - [t(:placeactive)](#t-placeactive) [t(:changelog_update)]
   - t(:restapi_update_20211206)
@@ -16,8 +32,8 @@
   - t(:restapi_update_20211206_1)
 - [t(:myposition)](#t-myposition) [t(:changelog_update)]
   - t(:restapi_update_20211206_2)
-  
-### Websocket API
+
+#### Websocket API
 - [t(:websocketposition)](#t-websocketposition) [t(:changelog_update)]
   - t(:restapi_update_20211206_2)
 - [t(:websocketorder)](#t-websocketorder) [t(:changelog_update)]
@@ -25,71 +41,71 @@
 - [t(:websocketstoporder)](#t-websocketstoporder) [t(:changelog_update)]
   - t(:restapi_update_20211206_2)
 
-## 2021-10-13
-### REST API
+### 2021-10-13
+#### REST API
 - [t(:querysymbol)](#t-querysymbol) [t(:changelog_update)]
     - t(:restapi_update_2021101201)
 
-## 2021-09-17
-### Websocket API
+### 2021-09-17
+#### Websocket API
 - [t(:websocketliquidation)](#t-websocketliquidation) [t(:changelog_new)]
     - t(:restapi_update_20210917)
 
-## 2021-09-10
-### REST API
+### 2021-09-10
+#### REST API
 - [t(:usertraderecords)](#t-usertraderecords) [t(:changelog_update)]
    t(:restapi_update_20210910)
 
-## 2021-09-07
-### REST API
+### 2021-09-07
+#### REST API
 - [t(:closedprofitandloss)](#t-closedprofitandloss) [t(:changelog_update)]
   t(:restapi_update_20210907)
 
-## 2021-09-03
-### Websocket API
+### 2021-09-03
+#### Websocket API
 - [t(:websocketinstrumentInfo)](#t-websocketinstrumentinfo) [t(:changelog_update)]
   t(:restapi_update_20210902)
 
-## 2021-06-29
-### REST API
+### 2021-06-29
+#### REST API
 - t(:restapi_update_20210629) [t(:changelog_update)]
 
-## 2021-06-28
-### REST API
+### 2021-06-28
+#### REST API
 - [t(:myposition)](#t-position) [t(:changelog_update)]
     - t(:restapi_update_20210628)
 
-## 2021-06-02
-### REST API
+### 2021-06-02
+#### REST API
 - t(:restapi_update_20210602) [t(:changelog_update)]
 
-## 2021-05-13
-### REST API
+### 2021-05-13
+#### REST API
 - t(:restapi_update_20210513) [t(:changelog_update)]
 
-## 2021-04-30
-### REST API
+### 2021-04-30
+#### REST API
 - t(:restapi_update_20210430) [t(:changelog_update)]
 
-## 2021-04-07
-### REST API
+### 2021-04-07
+#### REST API
 - t(:restapi_update_20210407)
 
-## 2021-04-02
+### 2021-04-02
 
-### REST API
+#### REST API
 - t(:linear_restapi_update_20210402)
 
-## 2021-03-18
-### REST API
+### 2021-03-18
+#### REST API
 - t(:restapi_update_20210318_1) [t(:changelog_update)]
 - [t(:getrisklimit)](#t-getrisklimit) [t(:changelog_update)]
     - t(:restapi_update_20210318_2)
 
 
-## 2021-02-02
+### 2021-02-02
 
-### Websocket API
+#### Websocket API
 
 - Topic <a href="#t-websocketorder">order</a> [t(:changelog_update)]
     - t(:ws_update_20210202_2)
@@ -97,16 +113,18 @@
     - t(:ws_update_20210202_2)
 
 
-## 2021-02-01
-### REST API
+### 2021-02-01
+#### REST API
 
 - t(:restapi_update_20210201_0_1)
     - [t(:setrisklimit)](#t-setrisklimit) [t(:changelog_new)]
 
-## 2021-01-12
-### REST API
+### 2021-01-12
+#### REST API
 - [t(:queryindexpricekline)](#t-queryindexpricekline) [t(:changelog_new)]
 - [t(:querypremiumindexkline)](#t-querypremiumindexkline) [t(:changelog_new)]
+
+
 
 ## 2020
 ### 2020-12-14

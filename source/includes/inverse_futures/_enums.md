@@ -6,10 +6,10 @@ t(:ENUMs_para)
 * `Sell`
 
 ## Symbol (`symbol`)
-* `BTCUSDH21`  // H: t(:first_quarter);    21: 2021
-* `BTCUSDM21`  // M: t(:second_quarter);     21: 2021
-* `BTCUSDU21`  // U: t(:third_quarter);     21: 2021
-* `BTCUSDZ21`  // Z: t(:fourth_quarter);    21: 2021
+* `BTCUSDH21` - H: t(:first_quarter);    21: 2021
+* `BTCUSDM21` - M: t(:second_quarter);     21: 2021
+* `BTCUSDU21` - U: t(:third_quarter);     21: 2021
+* `BTCUSDZ21` - Z: t(:fourth_quarter);    21: 2021
 
 t(:trading_symbol_comment)
 
@@ -78,24 +78,23 @@ t(:para_order)
 * `desc` t(:desc)
 * `asc` t(:asc)
 
-## Order status (`order_status`)
+## Order status (`order_status`/`stop_order_status`)
 t(:para_orderStatusGet)
 
 * `Created` t(:created1)
-* `Rejected` t(:rejected1)
 * `New` t(:new1)
+* `Rejected` t(:rejected1)
 * `PartiallyFilled` t(:partiallyFilled1)
 * `Filled` t(:filled1)
-* `Cancelled` t(:cancelled1)
 * `PendingCancel` t(:pendingCancel1)
+* `Cancelled` t(:cancelled1)
 
-## Stop order status (`stop_order_status`)
-* `Active` t(:active)
+Only for conditional orders:
+
 * `Untriggered` t(:untriggered)
-* `Triggered` t(:triggered)
-* `Cancelled` t(:cancelled)
-* `Rejected` t(:rejected)
 * `Deactivated` t(:deactivated1)
+* `Triggered` t(:triggered)
+* `Active` t(:active)
 
 
 ## Cancel type (`cancel_type`)
