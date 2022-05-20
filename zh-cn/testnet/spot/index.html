@@ -915,25 +915,25 @@
               </ul>
           </li>
           <li>
-            <a href="#t-spotcrossmargintrading" class="toc-h1 toc-link" data-title="全倉槓桿接口">全倉槓桿接口</a>
+            <a href="#t-crossmargintrading" class="toc-h1 toc-link" data-title="全倉槓桿接口">全倉槓桿接口</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#t-spotenablecrossmargintrading" class="toc-h2 toc-link" data-title="申請借幣">申請借幣</a>
+                    <a href="#t-borrowmarginloan" class="toc-h2 toc-link" data-title="申請借幣">申請借幣</a>
                   </li>
                   <li>
-                    <a href="#t-spotrepaymarginloan" class="toc-h2 toc-link" data-title="歸還借幣">歸還借幣</a>
+                    <a href="#t-repaymarginloan" class="toc-h2 toc-link" data-title="歸還借幣">歸還借幣</a>
                   </li>
                   <li>
-                    <a href="#t-spotqueryborrowinginfo" class="toc-h2 toc-link" data-title="查詢借幣訂單">查詢借幣訂單</a>
+                    <a href="#t-queryborrowinginfo" class="toc-h2 toc-link" data-title="查詢借幣訂單">查詢借幣訂單</a>
                   </li>
                   <li>
-                    <a href="#t-spotqueryaccountinfo" class="toc-h2 toc-link" data-title="查詢借幣賬戶詳情">查詢借幣賬戶詳情</a>
+                    <a href="#t-queryaccountinfo" class="toc-h2 toc-link" data-title="查詢借幣賬戶詳情">查詢借幣賬戶詳情</a>
                   </li>
                   <li>
-                    <a href="#t-spotqueryinterestquota" class="toc-h2 toc-link" data-title="查詢借幣利率及額度">查詢借幣利率及額度</a>
+                    <a href="#t-queryinterestquota" class="toc-h2 toc-link" data-title="查詢借幣利率及額度">查詢借幣利率及額度</a>
                   </li>
                   <li>
-                    <a href="#t-spotqueryrepaymenthistory" class="toc-h2 toc-link" data-title="查詢還款記錄">查詢還款記錄</a>
+                    <a href="#t-queryrepaymenthistory" class="toc-h2 toc-link" data-title="查詢還款記錄">查詢還款記錄</a>
                   </li>
               </ul>
           </li>
@@ -1353,11 +1353,6 @@
                   <li>
                     <a href="#6032" class="toc-h2 toc-link" data-title="-6032">-6032</a>
                   </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#t-err_6032" class="toc-h1 toc-link" data-title="還款精度過高">還款精度過高</a>
-              <ul class="toc-list-h2">
                   <li>
                     <a href="#4000" class="toc-h2 toc-link" data-title="-4000">-4000</a>
                   </li>
@@ -1440,7 +1435,7 @@ clipboard.on('error', function(e) {
 <p><ul class="bybit-community"> <li><img src="../../../images/favicon-4f296779.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/zh-cn"><strong>幫助中心</strong></a> - <strong>在這裏了解現貨交易</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>官方Python SDK</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文討論群</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文討論群</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong> </ul></p>
 <h1 id='t-changelog'>更新日誌</h1><h2 id='2022-05-20'>2022-05-20</h2><h3 id='rest-api'>REST API</h3>
 <ul>
-<li><a href="#t-spotcrossmargintrading">全倉槓桿接口</a> [新增]
+<li><a href="#t-CrossMarginTrading">全倉槓桿接口</a> [新增]
 
 <ul>
 <li>新增 Cross Margin Trading 接口</li>
@@ -4814,11 +4809,11 @@ function copyStringToClipboard (endpoint) {
 <td>序列號</td>
 </tr>
 </tbody></table>
-<h1 id='t-spotcrossmargintrading'>全倉槓桿接口</h1>
+<h1 id='t-crossmargintrading'>全倉槓桿接口</h1>
 <aside class="notice">
 所有全倉槓桿交易接口都需要驗證。
 </aside>
-<h3 id='t-spotenablecrossmargintrading'>申請借幣</h3>
+<h3 id='t-borrowmarginloan'>申請借幣</h3>
 <blockquote>
 <p>請求示例</p>
 </blockquote>
@@ -4879,7 +4874,7 @@ function copyStringToClipboard (endpoint) {
 <td>借款訂單id</td>
 </tr>
 </tbody></table>
-<h3 id='t-spotrepaymarginloan'>歸還借幣</h3>
+<h3 id='t-repaymarginloan'>歸還借幣</h3>
 <blockquote>
 <p>請求示例</p>
 
@@ -4938,7 +4933,7 @@ function copyStringToClipboard (endpoint) {
 <td>借款訂單id</td>
 </tr>
 </tbody></table>
-<h3 id='t-spotqueryborrowinginfo'>查詢借幣訂單</h3>
+<h3 id='t-queryborrowinginfo'>查詢借幣訂單</h3>
 <blockquote>
 <p>請求示例</p>
 </blockquote>
@@ -5076,7 +5071,7 @@ function copyStringToClipboard (endpoint) {
 <td>狀態（0，全部  1，未還清  2，已還清）</td>
 </tr>
 </tbody></table>
-<h3 id='t-spotqueryaccountinfo'>查詢借幣賬戶詳情</h3>
+<h3 id='t-queryaccountinfo'>查詢借幣賬戶詳情</h3>
 <blockquote>
 <p>請求示例</p>
 </blockquote>
@@ -5222,7 +5217,7 @@ function copyStringToClipboard (endpoint) {
 <td>未還利息</td>
 </tr>
 </tbody></table>
-<h3 id='t-spotqueryinterestquota'>查詢借幣利率及額度</h3>
+<h3 id='t-queryinterestquota'>查詢借幣利率及額度</h3>
 <blockquote>
 <p>請求示例</p>
 
@@ -5295,7 +5290,7 @@ function copyStringToClipboard (endpoint) {
 <td>translation missing: zh-cn.spotLoanableAmount</td>
 </tr>
 </tbody></table>
-<h3 id='t-spotqueryrepaymenthistory'>查詢還款記錄</h3>
+<h3 id='t-queryrepaymenthistory'>查詢還款記錄</h3>
 <blockquote>
 <p>請求示例</p>
 
@@ -7854,7 +7849,9 @@ ELSE
 <p>查詢用戶貸款信息錯誤</p>
 <h2 id='6031'>-6031</h2>
 <p>借貸精度超過設置精度</p>
-<h2 id='6032'>-6032</h2><h1 id='t-err_6032'>還款精度過高</h1><h2 id='4000'>-4000</h2>
+<h2 id='6032'>-6032</h2>
+<p>還款精度過高</p>
+<h2 id='4000'>-4000</h2>
 <p>serialNum已使用過</p>
 <h2 id='4001'>-4001</h2>
 <p>今日申購限額不足，請稍後再試</p>
