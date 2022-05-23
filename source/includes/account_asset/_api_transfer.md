@@ -235,8 +235,8 @@ GET
 |transfer_id |false |string |t(:row_comment_transfer_id) |
 |<a href="#currency-currency-coin">coin</a> |false |string |t(:row_comment_currency) |
 |<a href="#transfer-status-status">status</a> |false |string |t(:row_comment_transferstatus) |
-|start_time |false |integer |t(:row_comment_startTime_ms) |
-|end_time |false |integer |t(:row_comment_endTime_ms) |
+|start_time |false |integer |t(:row_comment_startTime) |
+|end_time |false |integer |t(:row_comment_endTime) |
 |<a href="#page-direction-direction">direction</a> |false |string |t(:row_comment_pageaction) |
 |limit |false |integer |t(:row_comment_to_limit) |
 |cursor |false |string |t(:row_comment_cursor)|
@@ -345,8 +345,8 @@ GET
 |transfer_id |false |string |t(:row_comment_transfer_id) |
 |<a href="#currency-currency-coin">coin</a> |false |string |t(:row_comment_currency) |
 |<a href="#transfer-status-status">status</a> |false |string |t(:row_comment_transferstatus) |
-|start_time |false |integer |t(:row_comment_startTime_ms) |
-|end_time |false |integer |t(:row_comment_endTime_ms) |
+|start_time |false |integer |t(:row_comment_startTime) |
+|end_time |false |integer |t(:row_comment_endTime) |
 |<a href="#page-direction-direction">direction</a> |false |string |t(:row_comment_pageaction) |
 |limit |false |integer |t(:row_comment_to_limit) |
 |cursor |false |string |t(:row_comment_cursor)|
