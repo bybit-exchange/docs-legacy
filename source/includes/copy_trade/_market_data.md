@@ -28,7 +28,7 @@ print(session.symbol_list())
   "retCode": 0,
     "retMsg": "success",
     "result": {
-    "data": [
+    "list": [
       {
         "symbol": "BTCUSDT",
         "baseCurrency": "BTC",

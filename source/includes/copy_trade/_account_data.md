@@ -313,7 +313,7 @@ print(session.my_position(
   "retCode": 0,
     "retMsg": "success",
     "result": {
-    "data": [
+    "list": [
       {
         "symbol": "XRPUSDT",
         "side": "Buy",
