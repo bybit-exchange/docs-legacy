@@ -662,8 +662,8 @@
             <i class="fa fa-caret-down"></i>
           </button>
           <div class="dropdown-content">
-                <a href="/docs/zh-cn/testnet/usdc/option" >translation missing: zh-cn.usdc_option</a>
-                <a href="/docs/zh-cn/testnet/usdc/perpetual">translation missing: zh-cn.usdc_perpetual</a>
+                <a href="/docs/zh-cn/testnet/usdc/option" >Option</a>
+                <a href="/docs/zh-cn/testnet/usdc/perpetual">Perpetual</a>
           </div>
         </div>
     </li>
@@ -2781,7 +2781,25 @@ ACCOUNT_STATUS_UNSPECIFIED -- 不正常 </p>
 </thead><tbody>
 </tbody></table>
 <h1 id='t-ratelimits'>頻率限製</h1><h3 id='t-ipratelimits'>IP頻率限製</h3>
-<p>translation missing: zh-cn.ip_rate_para_understanding_testnet</p>
+<p><p>The IP limits are shared across all endpoints: futures, spot, and account asset.</p>
+<p>Bybit has different IP frequency limits for <code>GET</code> and <code>POST</code> method<span>:</span></p>
+<ul>
+<li>
+  <code>GET</code> & <code>DELETE</code> method:
+  <ul>
+    <li>12 requests per second continuously for 2 minutes</li>
+    <li>18 requests per second continuously for 5 seconds</li>
+  </ul>
+</li>
+<li>
+  <code>POST</code> method:
+  <ul>
+    <li>10 requests per second continuously for 2 minutes</li>
+    <li>15 requests per second continuously for 5 seconds</li>
+  </ul>
+</li>
+</ul>
+</p>
 <aside class="notice">
 充值與提現接口頻率限製和現貨劃轉相關接口頻率限製是分開計算的。
 </aside>
@@ -2866,7 +2884,7 @@ ACCOUNT_STATUS_UNSPECIFIED -- 不正常 </p>
 <li><code>CONTRACT</code>  期貨賬戶</li>
 <li><code>SPOT</code>      現貨賬戶</li>
 <li><code>INVESTMENT</code> 理財賬戶</li>
-<li><code>OPTION</code> translation missing: zh-cn.accountType_option</li>
+<li><code>OPTION</code> - USDC Account</li>
 </ul>
 <h2 id='currency-currency-coin'>Currency (<code>currency</code>/<code>coin</code>)</h2>
 <ul>
