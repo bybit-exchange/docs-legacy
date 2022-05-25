@@ -2739,23 +2739,45 @@ zh-cn:
   websocket_codequote_auth_usdc: |
     建立連接後發送auth請求驗證
   usdc_websocket_para_endpoint: |
-    Websocket服務器地址（期權）:
-    <ul>
-    <p>
-      <li>測試網:
-        公共Topics: <span id="testnet_address">wss://stream-testnet.bybit.com/trade/option/usdc/public/v1</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-        <br/>
-
-        私有Topics: <span id="testnet_address_2">wss://stream-testnet.bybit.com/trade/option/usdc/private/v1</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-      </li>
-    </p>
-    <p>
-
-    </p>
-    <p>所有private接口都需要認證，public 接口不需要認證.</p>
-    </ul>
+    Websocket服務器地址:
+        <ul>
+        <p>
+          <li>測試網公共topic地址:
+            <ul>
+              <li><span id="testnet_option_public_address">wss://stream-testnet.bybit.com/trade/option/usdc/public/v1</span>
+              <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_option_public_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button></li>
+            </ul>
+          </li>
+          <li>
+            測試網私有topic地址:
+            <ul>
+              <li><span id="testnet_option_private_address">wss://stream-testnet.bybit.com/trade/option/usdc/private/v1</span>
+              <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_option_private_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button></li>
+            </ul>
+          </li>
+        </p>
+        <p>
+          <li>主網公共topic地址(請根據您的網絡情況選擇以下任意一個地址使用):<br/>
+            <ul>
+              <li><span id="mainnet_option_public_address">wss://stream.bybit.com/trade/option/usdc/public/v1</span>
+              <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_option_public_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button></li>
+              <li><span id="mainnet_option_public_address_2">wss://stream.bytick.com/trade/option/usdc/public/v1</span>
+              <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_option_public_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button></li>
+            </ul>
+          </li>
+        </p>
+        <p>
+          <li>主網私有topic地址(請根據您的網絡情況選擇以下任意一個地址使用):<br/>
+            <ul>
+              <li><span id="mainnet_option_private_address">wss://stream.bybit.com/trade/option/usdc/private/v1</span>
+              <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_option_private_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+              <li><span id="mainnet_option_private_address_2">wss://stream.bytick.com/trade/option/usdc/private/v1</span>
+              <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_option_private_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button></li>
+            </ul>
+          </li>
+        </p>
+        <p>私有topic需要進行認證. 公共類topics不需要進行驗證.</p>
+        </ul>
 
   usdc_rate_para_understanding: |
     期权鑒權接口（即需要簽名的接口）的限頻規則是每秒不超過20次

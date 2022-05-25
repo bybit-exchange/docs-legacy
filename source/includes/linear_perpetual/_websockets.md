@@ -910,6 +910,8 @@ t(:websocket_execution_aside)
 |t(:row_parameter_exec_type) |string |t(:exec_type_pnl)  |
 |exec_qty |number |t(:row_comment_exec_qty)  |
 |exec_fee |string |t(:row_comment_exec_fee)    |
+|leaves_qty |number |t(:row_comment_leaves_qty) |
+|is_maker |boolean |t(:row_comment_is_maker) |
 |trade_time |string |t(:row_comment_trade_time)  |
 
 
