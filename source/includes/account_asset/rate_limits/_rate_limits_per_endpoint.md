@@ -1,3 +1,6 @@
+## t(:understandingratelimits)
+t(:rate_para_understanding)
+
 <aside class="notice">
 t(:assetRateLimitIntro)
 </aside>
