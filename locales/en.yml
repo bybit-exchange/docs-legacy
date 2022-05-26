@@ -964,34 +964,63 @@ en:
   api_para_announcement: Get Bybit OpenAPI announcements in the last 30 days in reverse order.
 
   # API Rate Limits
-  ratelimits: API Rate Limits
+  ratelimits: Rate Limits
+  rate_limits_aside: |
+    There are two types of rate limit: <a href="#t-ipratelimits">IP rate limit</a> (measured per second) and <a href="#t-understandingratelimits">API rate limit</a> (measured per minute). The IP rate limit will count all of your requests and the API rate limit will only count your authenticated requests.
   ### IP Rate Limit
   ipratelimits: IP Rate Limit
   ip_rate_para_understanding: |
-    <p>The IP limits are shared across all endpoints: futures and account asset but SPOT is separate from them. Mainnet and testnet IP limits are separate.</p>
-    <p>Bybit has different IP frequency limits for <code>GET</code> and <code>POST</code> method<span>:</span></p>
+    <aside class="warning">
+    If you receive an <b>HTTP 403</b> (Access Denied) response, your IP has been either temporarily or permanently banned. <b>You should immediately review the below guidelines to ensure your application does not continue to violate the limit.</b> If you are still banned after 30 minutes, you likely have a permanent ban.
+    </aside>
+    <p>Bybit has different IP frequency limits depending on the request method. We do not recommend running your application at the very edge of these limits in case abnormal network activity results in an unexpected violation.</p>
     <ul>
     <li>
-      <code>GET</code> & <code>DELETE</code> method:
+      <code>GET</code> & <code>DELETE</code> methods (shared):
       <ul>
-        <li>50 requests per second continuously for 2 minutes</li>
-        <li>70 requests per second continuously for 5 seconds</li>
+        <li>50 requests per second for 2 consecutive minutes</li>
+        <li>70 requests per second for 5 consecutive seconds</li>
       </ul>
     </li>
     <li>
       <code>POST</code> method:
       <ul>
-        <li>20 requests per second continuously for 2 minutes</li>
-        <li>50 requests per second continuously for 5 seconds</li>
+        <li>20 requests per second for 2 consecutive minutes</li>
+        <li>50 requests per second for 5 consecutive seconds</li>
       </ul>
     </li>
     </ul>
+    <p>This table shows how there are different IP rate limit counters depending on the API you are using.</p>
+    <table class="custom_table">
+      <tr>
+        <th>IP rate limit</th>
+        <th>API</th>
+        <th>Path</th>
+      </tr>
+      <tr>
+        <td rowspan="5">2mins 50/s;<br>5s 70/s</td>
+        <tr><td>Inverse Perpetual</td><td>/v2</td>
+        <tr><td>Inverse Futures</td><td>/futures</td>
+        <tr><td>Linear Perpetual</td><td>/public, /private</td>
+        <tr><td>Account Asset</td><td>/asset</td>
+      </tr>
+      <tr>
+        <td rowspan="2">2mins 50/s;<br>5s 70/s</td>
+        <tr><td>Spot</td><td>/spot</td>
+      </tr>
+      <tr>
+        <td rowspan="3">2mins 50/s;<br>5s 70/s</td>
+        <tr><td>USDC Options</td><td>/option</td>
+        <tr><td>USDC Perpetual</td><td>/perpetual</td>
+      </tr>
+    </table>
+    <p>After violating the limit your IP will be banned for a set period of time (usually 30 minutes). Continually violating the limit will result in a permanent ban. We cannot undo permanent bans or shorten temporary bans.</p>
   ip_rate_para_understanding_testnet: |
     <p>The IP limits are shared across all endpoints: futures, spot, and account asset.</p>
-    <p>Bybit has different IP frequency limits for <code>GET</code> and <code>POST</code> method<span>:</span></p>
+    <p>Bybit has different IP frequency limits depending on the request method. We do not recommend running your application at the very edge of these limits in case abnormal network activity results in an unexpected violation.</p>
     <ul>
     <li>
-      <code>GET</code> & <code>DELETE</code> method:
+      <code>GET</code> & <code>DELETE</code> methods (shared):
       <ul>
         <li>12 requests per second continuously for 2 minutes</li>
         <li>18 requests per second continuously for 5 seconds</li>
@@ -1009,9 +1038,12 @@ en:
   spot_ip_rate_para_understanding: |
         <p>Bybit has rate limits based on IP which is 200 per second</p>
   ### Account rate limit
-  understandingratelimits: Understanding Your Request Rate Limit
+  understandingratelimits: API Rate Limit
   rate_para_understanding: |
-    Bybit makes frequency limits based on <b>the rolling time window per minute and UID, and each symbol is independent</b>. Every request to the API returns the fields shown in the code panel:
+    <aside class="warning">
+    If you receive <a href="#10006"><code><b>"ret_msg": "Too many visits!"</b></code></a> in the JSON response, you have hit the API rate limit. The rate limit resets 60 seconds after your first request.
+    </aside>
+    <p>The API rate limit is based on <b>the rolling time window per minute and UID, and each symbol is independent</b>. In other words, it's per minute per UID per symbol. Every request to the API returns the fields shown in the code panel:</p>
   spot_rate_para_understanding: |
     For all endpoints that need authentication, the rate limit is 20 per second for each endpoint.
   rate_text_limitStatus_understanding: your remaining requests for current endpoint
@@ -1024,7 +1056,7 @@ en:
 
   ### Rate Limits For All Endpoints
   perendpoint: Rate Limits For All Private Endpoints
-  assetRateLimitIntro: Rate Limits For Withdraw and Deposit Endpoints counts and Rate Limits For Transfer Endpoints counts are separated.
+  assetRateLimitIntro: The rate limits for the Withdraw and Deposit Endpoints and Rate Limits For Transfer Endpoints are separate.
   perendpointtransfer: Rate Limits For Transfer Endpoints
 
   perendpointDepositWithdraw: Rate Limits For Withdraw and Deposit Endpoints
@@ -1567,7 +1599,7 @@ en:
   errors_intro: The Bybit API uses the following HTTP codes and error codes<span>:</span>
 
   http_200: Request is valid -- Your request is valid
-  http_403: Access denied -- You request too many times
+  http_403: Access denied -- You request too many times (refer to the <a href="#t-ipratelimits">IP rate limit</a>)
   http_404: Request path not found
   #spot
   spot_http_200: Request is valid
@@ -1648,7 +1680,7 @@ en:
   err_10003: Too many requests - please use WebSocket for live updates. Current limit is %s requests per minute.
   err_10004: Invalid sign
   err_10005: Permission denied for current apikey. API key was created without the correct permissions (e.g. doesn´t have Order permission, or it's set to read-only)
-  err_10006: System not responding. Request status unknown. Too many visits. Please contact live support.
+  err_10006: Too many visits. Refer to the <a href="#t-understandingratelimits">API rate limit</a>.
   err_10007: Response timeout from backend server. Delivery and request status unknown.
   err_10010: Request IP mismatch.
   err_10012: DB error
@@ -3583,25 +3615,6 @@ en:
     <li><code>40.001</code> - allowed</li>
     <li><code>-30.5</code> - not allowed</li>
     </ul>
-    </li>
-    </ul>
-  usdc_ip_rate_para_understanding: |
-    <p>The IP limits are shared across all endpoints.</p>
-    <p>Bybit has different IP frequency limits for <code>GET</code> and <code>POST</code> method<span>:</span></p>
-    <ul>
-    <li>
-      <code>GET</code> method:
-      <ul>
-        <li>50 requests per second continuously for 2 minutes</li>
-        <li>70 requests per second continuously for 5 seconds</li>
-      </ul>
-    </li>
-    <li>
-      <code>POST</code> method:
-      <ul>
-        <li>20 requests per second continuously for 2 minutes</li>
-        <li>50 requests per second continuously for 5 seconds</li>
-      </ul>
     </li>
     </ul>
   usdc_perp_websocket_para_endpoint: |
