@@ -1,7 +1,7 @@
 # t(:ratelimits)
-### t(:ipratelimits)
-t(:usdc_ip_rate_para_understanding)
 
+## t(:ipratelimits)
+t(:ip_rate_para_understanding)
 
 ### t(:perendpoint)
 <table class="custom_table">

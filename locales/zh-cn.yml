@@ -795,26 +795,76 @@ zh-cn:
 
   # API Rate Limits
   ratelimits: 頻率限製
+  rate_limits_aside: |
+    有兩種類型的頻率限製: <a href="#t-ipratelimits">IP 頻率限製</a> (每秒计算) and <a href="#t-understandingratelimits">API 頻率限製</a> (每分鐘计算). IP 頻率限制將計算您的所有請求，而 API 頻率限制僅計算您經過身份驗證的請求。
   ### IP Rate Limit
   ipratelimits: IP頻率限製
   ip_rate_para_understanding: |
-    <p> Bybit會基於請求IP做頻率限製，針對不同的請求方法有以下規則(現貨的IP用量是獨立計算的)：</p>
+    <aside class="warning">
+    如果您收到 <b>HTTP 403</b>（拒絕訪問）響應, 您的 IP 已被暫時或永久禁止。 <b>您應立即查看以下指南，以確保您的應用程序不會繼續違反限制。</b> 如果您在 30 分鐘後仍被禁止，則您可能會被永久禁止。
+    </aside>
+    <p>Bybit根據請求方式有不同的IP頻率限制。 我們不建議您在這些限制的邊緣運行您的應用程序，以防異常的網絡活動導致意外違規。</p>
     <ul>
     <li>
-      <code>GET</code>方法:
+      <code>GET</code> & <code>DELETE</code> 方法 (共享):
       <ul>
-        <li>連續2分鐘內每秒不超過50個請求</li>
-        <li>連續5秒內每秒不超過70個請求</li>
+        <li>連續 2 分鐘內每秒不超過 50 個請求</li>
+        <li>連續 5 秒內每秒不超過 70 個請求</li>
       </ul>
     </li>
     <li>
-      <code>POST</code>方法:
+      <code>POST</code> 方法:
       <ul>
-        <li>連續2分鐘內每秒不超過20個請求</li>
-        <li>連續5秒內每秒不超過50個請求</li>
+        <li>連續 2 分鐘內每秒不超過 20 個請求</li>
+        <li>連續 5 秒內每秒不超過 50 個請求</li>
       </ul>
     </li>
     </ul>
+    <p>此表顯示了根據您使用的 API 的不同 IP 頻率限制數。</p>
+    <table class="custom_table">
+      <tr>
+        <th>IP 頻率限制</th>
+        <th>API</th>
+        <th>Path</th>
+      </tr>
+      <tr>
+        <td rowspan="5">2mins 50/s;<br>5s 70/s</td>
+        <tr><td>反向永續</td><td>/v2</td>
+        <tr><td>反向交割</td><td>/futures</td>
+        <tr><td>USDT永續</td><td>/public, /private</td>
+        <tr><td>賬戶資產</td><td>/asset</td>
+      </tr>
+      <tr>
+        <td rowspan="2">2mins 50/s;<br>5s 70/s</td>
+        <tr><td>現貨</td><td>/spot</td>
+      </tr>
+      <tr>
+        <td rowspan="3">2mins 50/s;<br>5s 70/s</td>
+        <tr><td>USDC Options</td><td>/option</td>
+        <tr><td>USDC Perpetual</td><td>/perpetual</td>
+      </tr>
+    </table>
+    <p>違反限制後，您的 IP 將被禁止一段時間（通常為 30 分鐘）。 持續違反限制將導致永久禁止。 我們不能撤銷永久禁令或縮短臨時禁令。</p>
+  ip_rate_para_understanding_testnet: |
+    <p>IP 限制在所有接口之間共享：期貨、現貨和賬戶資產。</p>
+    <p>Bybit根據請求方式有不同的IP頻率限制。 我們不建議您在這些限制的邊緣運行您的應用程序，以防異常的網絡活動導致意外違規。</p>
+    <ul>
+    <li>
+      <code>GET</code> & <code>DELETE</code> 方法 (共享):
+      <ul>
+        <li>連續 2 分鐘內每秒不超過 12 個請求</li>
+        <li>連續 5 秒內每秒不超過 18 個請求</li>
+      </ul>
+    </li>
+    <li>
+      <code>POST</code> 方法:
+      <ul>
+        <li>連續 2 分鐘內每秒不超過 10 個請求</li>
+        <li>連續 5 秒內每秒不超過 15 個請求</li>
+      </ul>
+    </li>
+    </ul>
+
   spot_ip_rate_para_understanding: |
        <p> Bybit會基於請求IP做頻率限製，每秒不超過200次請求</p>
 
@@ -1331,7 +1381,8 @@ zh-cn:
   errors_intro: Bybit使用以下HTTP Code和錯誤碼：
 
   http_200: 請求有效
-  http_403: 拒絕訪問
+  http_403: 拒絕訪問 -- 您請求的次數過多（請參閱<a href="#t-ipratelimits">IP 頻率限制</a>）
+
   http_404: 訪問路徑不存在
   # spot
   spot_http_200: 請求有效
@@ -1404,7 +1455,7 @@ zh-cn:
   err_10003: 無效的apikey
   err_10004: 簽名錯誤
   err_10005: apikey權限不足
-  err_10006: 請求次數超限
+  err_10006: 請求次數超限。 請參閱<a href="#t-understandingratelimits">API 频率限制</a>。
   err_10007: 您的請求中沒有<code>api_key</code>
   err_10010: 請求ip不匹配
   err_10014: 不支持的訂單組合。
@@ -3251,24 +3302,6 @@ zh-cn:
     </li>
     </ul>
   usdc_perp_order_price: 訂單價格
-  usdc_ip_rate_para_understanding: |
-    <p> Bybit會基於請求IP做頻率限製，針對不同的請求方法有以下規則：</p>
-    <ul>
-    <li>
-      <code>GET</code>方法:
-      <ul>
-        <li>連續2分鐘內每秒不超過50個請求</li>
-        <li>連續5秒內每秒不超過70個請求</li>
-      </ul>
-    </li>
-    <li>
-      <code>POST</code>方法:
-      <ul>
-        <li>連續2分鐘內每秒不超過20個請求</li>
-        <li>連續5秒內每秒不超過50個請求</li>
-      </ul>
-    </li>
-    </ul>
   usdc_perp_order_type: 參考 <a href="#order-type-type-ordertypes">訂單類型</a>
   usdc_perp_active_order_delta_topic: |
     <p>訂閱此消息後，會收到新增的活動單数据</p>
@@ -3310,7 +3343,7 @@ zh-cn:
   lt_para: 以下LT接口都需要鑒權.
   ltInfo: LT 資產基礎信息查詢
   row_parameter_etpCode: LT資產名稱
-  spotLtCode: 想要查詢的LT資產名稱，從資產列表中獲取. 目前只有BTC3L,BTC3S,ETH3L,ETH3S
+  spotLtCode: 想要查詢的LT資產名稱，從資產列表中獲取. 目前只有BTC3L,BTC3S,ETH3L,ETH3S,XRP3L,XRP3S
   spotResLtCode: LT資產簡稱
   spotResLtName: LT資產全稱
   spotResMaxPurchase: 單次最大申購金額
