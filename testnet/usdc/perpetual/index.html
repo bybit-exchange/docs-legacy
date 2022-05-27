@@ -644,47 +644,67 @@
       $(function() { setupCodeCopy(); });
     </script>
   </head>
+
+
+
+  <!-- Navigation bar START -->
   <header class="top-nav">
-  <div class="top-menu">
-  <a href="https://bybit-exchange.github.io/docs/usdc/perpetual" class="logo-link" target="_self">
-    <img src="../../../images/logo-aed6448d.svg" class="logo" alt="" />
-  </a>
-  <ul class="con">
-	<li><a href="/docs/testnet/inverse">Inverse Perpetual</a></li>
-	<li><a href="/docs/testnet/linear">USDT Perpetual</a></li>
-	<li><a href="/docs/testnet/inverse_futures">Inverse Futures</a></li>
-	<li><a href="/docs/testnet/spot">Spot</a></li>
-	<li><a href="/docs/testnet/account_asset">Account Asset</a></li>
+    <div class="top-menu">
+        <a href="https://bybit-exchange.github.io/docs/usdc/perpetual" class="logo-link" target="_self">
+          <img src="../../../images/logo-aed6448d.svg" class="logo" alt="" />
+        </a>
 
-    <li>
-        <div class="dropdown">
-          <button class="dropbtn">USDC Contract
-            <i class="fa fa-caret-down"></i>
-          </button>
-          <div class="dropdown-content">
-                <a href="/docs/testnet/usdc/option" >Option</a>
-                <a href="/docs/testnet/usdc/perpetual" class="dropdown-content-selected">Perpetual</a>
+      <ul class="con">
+
+        <!-- Inverse Perpetual -->
+          	<li><a href="/docs/testnet/inverse">Inverse Perpetual</a></li>
+
+        <!-- USDT Perpetual -->
+          	<li><a href="/docs/testnet/linear">USDT Perpetual</a></li>
+
+        <!-- Inverse Futures -->
+          	<li><a href="/docs/testnet/inverse_futures">Inverse Futures</a></li>
+
+        <!-- Spot -->
+          	<li><a href="/docs/testnet/spot">Spot</a></li>
+
+        <!-- Inverse Futures -->
+          	<li><a href="/docs/testnet/account_asset">Account Asset</a></li>
+
+        <!-- USDC dropdown (Options, Perpetual) -->
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">USDC Contract
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                  <a href="/docs/testnet/usdc/option" >Option</a>
+                  <a href="/docs/testnet/usdc/perpetual" class="dropdown-content-selected">Perpetual</a>
+              </div>
+            </div>
+          </li>
+
+        <!-- Environment dropdown (Testnet, Mainnet) -->
+        <!-- It's very long because each button needs its own logic to link to testnet or mainnet depending on if the website is on testnet or mainnet. -->
+        <li>
+          <div class="dropdown">
+            <button class="dropbtn">Environment
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                  <a href=/docs/usdc/perpetual>Mainnet</a>
+                  <span class="dropdown-content-selected"><a href=/docs/testnet/usdc/perpetual>Testnet</a></span>
+            </div>
           </div>
-        </div>
-    </li>
+        </li>
+      </ul>
 
-  <li>
-    <div class="dropdown">
-      <button class="dropbtn">Environment
-        <i class="fa fa-caret-down"></i>
-      </button>
-      <div class="dropdown-content">
-
-            <a href=/docs/usdc/perpetual>Mainnet</a>
-            <span class="dropdown-content-selected"><a href=/docs/testnet/usdc/perpetual>Testnet</a></span>
-
-      </div>
     </div>
-  </li>
-  </ul>
-  </div>
-  <a class="international" id="international" href="javascript:void(0);">繁體中文</a>
+    <a class="international" id="international" href="javascript:void(0);">繁體中文</a>
   </header>
+  <!-- Navigation bar END -->
+
+
 
   <body class="testnet testnet_usdc testnet_usdc_perpetual testnet_usdc_perpetual_index" data-languages="[&quot;console&quot;,&quot;python&quot;]">
     <a href="#" id="nav-button">
@@ -877,13 +897,15 @@
               </ul>
           </li>
           <li>
-            <a href="#t-ratelimits" class="toc-h1 toc-link" data-title="API Rate Limits">API Rate Limits</a>
+            <a href="#t-ratelimits" class="toc-h1 toc-link" data-title="Rate Limits">Rate Limits</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#t-ipratelimits" class="toc-h2 toc-link" data-title="IP Rate Limit">IP Rate Limit</a>
-                  </li>
-                  <li>
-                    <a href="#t-perendpoint" class="toc-h2 toc-link" data-title="Rate Limits For All Private Endpoints">Rate Limits For All Private Endpoints</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#t-perendpoint" class="toc-h3 toc-link" data-title="Rate Limits For All Private Endpoints">Rate Limits For All Private Endpoints</a>
+                          </li>
+                      </ul>
                   </li>
               </ul>
           </li>
@@ -5067,25 +5089,52 @@ curl https://api-testnet.bybit.com/v2/public/time
 </tr>
 </thead><tbody>
 </tbody></table>
-<h1 id='t-ratelimits'>API Rate Limits</h1><h3 id='t-ipratelimits'>IP Rate Limit</h3>
-<p><p>The IP limits are shared across all endpoints.</p>
-<p>Bybit has different IP frequency limits for <code>GET</code> and <code>POST</code> method<span>:</span></p>
+<h1 id='t-ratelimits'>Rate Limits</h1><h2 id='t-ipratelimits'>IP Rate Limit</h2>
+<p><aside class="warning">
+If you receive an <b>HTTP 403</b> (Access Denied) response, your IP has been either temporarily or permanently banned. <b>You should immediately review the below guidelines to ensure your application does not continue to violate the limit.</b> If you are still banned after 30 minutes, you likely have a permanent ban.
+</aside>
+<p>Bybit has different IP frequency limits depending on the request method. We do not recommend running your application at the very edge of these limits in case abnormal network activity results in an unexpected violation.</p>
 <ul>
 <li>
-  <code>GET</code> method:
+  <code>GET</code> & <code>DELETE</code> methods (shared):
   <ul>
-    <li>50 requests per second continuously for 2 minutes</li>
-    <li>70 requests per second continuously for 5 seconds</li>
+    <li>50 requests per second for 2 consecutive minutes</li>
+    <li>70 requests per second for 5 consecutive seconds</li>
   </ul>
 </li>
 <li>
   <code>POST</code> method:
   <ul>
-    <li>20 requests per second continuously for 2 minutes</li>
-    <li>50 requests per second continuously for 5 seconds</li>
+    <li>20 requests per second for 2 consecutive minutes</li>
+    <li>50 requests per second for 5 consecutive seconds</li>
   </ul>
 </li>
 </ul>
+<p>This table shows how there are different IP rate limit counters depending on the API you are using.</p>
+<table class="custom_table">
+  <tr>
+    <th>IP rate limit</th>
+    <th>API</th>
+    <th>Path</th>
+  </tr>
+  <tr>
+    <td rowspan="5">2mins 50/s;<br>5s 70/s</td>
+    <tr><td>Inverse Perpetual</td><td>/v2</td>
+    <tr><td>Inverse Futures</td><td>/futures</td>
+    <tr><td>Linear Perpetual</td><td>/public, /private</td>
+    <tr><td>Account Asset</td><td>/asset</td>
+  </tr>
+  <tr>
+    <td rowspan="2">2mins 50/s;<br>5s 70/s</td>
+    <tr><td>Spot</td><td>/spot</td>
+  </tr>
+  <tr>
+    <td rowspan="3">2mins 50/s;<br>5s 70/s</td>
+    <tr><td>USDC Options</td><td>/option</td>
+    <tr><td>USDC Perpetual</td><td>/perpetual</td>
+  </tr>
+</table>
+<p>After violating the limit your IP will be banned for a set period of time (usually 30 minutes). Continually violating the limit will result in a permanent ban. We cannot undo permanent bans or shorten temporary bans.</p>
 </p>
 <h3 id='t-perendpoint'>Rate Limits For All Private Endpoints</h3>
 <table class="custom_table">

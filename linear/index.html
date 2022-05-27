@@ -644,47 +644,67 @@
       $(function() { setupCodeCopy(); });
     </script>
   </head>
+
+
+
+  <!-- Navigation bar START -->
   <header class="top-nav">
-  <div class="top-menu">
-  <a href="https://bybit-exchange.github.io/docs/inverse" class="logo-link" target="_self">
-    <img src="../images/logo-aed6448d.svg" class="logo" alt="" />
-  </a>
-  <ul class="con">
-	<li><a href="/docs/inverse">Inverse Perpetual</a></li>
-	<li><a href="/docs/linear" class="selected">USDT Perpetual</a></li>
-	<li><a href="/docs/inverse_futures">Inverse Futures</a></li>
-	<li><a href="/docs/spot">Spot</a></li>
-	<li><a href="/docs/account_asset">Account Asset</a></li>
+    <div class="top-menu">
+        <a href="https://bybit-exchange.github.io/docs/inverse" class="logo-link" target="_self">
+          <img src="../images/logo-aed6448d.svg" class="logo" alt="" />
+        </a>
 
-    <li>
-        <div class="dropdown">
-          <button class="dropbtn">USDC Contract
-            <i class="fa fa-caret-down"></i>
-          </button>
-          <div class="dropdown-content">
-                <a href="/docs/usdc/option">Option</a>
-                <a href="/docs/usdc/perpetual">Perpetual</a>
+      <ul class="con">
+
+        <!-- Inverse Perpetual -->
+          	<li><a href="/docs/inverse">Inverse Perpetual</a></li>
+
+        <!-- USDT Perpetual -->
+          	<li><a href="/docs/linear" class="selected">USDT Perpetual</a></li>
+
+        <!-- Inverse Futures -->
+          	<li><a href="/docs/inverse_futures">Inverse Futures</a></li>
+
+        <!-- Spot -->
+          	<li><a href="/docs/spot">Spot</a></li>
+
+        <!-- Inverse Futures -->
+          	<li><a href="/docs/account_asset">Account Asset</a></li>
+
+        <!-- USDC dropdown (Options, Perpetual) -->
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">USDC Contract
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                  <a href="/docs/usdc/option">Option</a>
+                  <a href="/docs/usdc/perpetual">Perpetual</a>
+              </div>
+            </div>
+          </li>
+
+        <!-- Environment dropdown (Testnet, Mainnet) -->
+        <!-- It's very long because each button needs its own logic to link to testnet or mainnet depending on if the website is on testnet or mainnet. -->
+        <li>
+          <div class="dropdown">
+            <button class="dropbtn">Environment
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                  <span class="dropdown-content-selected"><a href=/docs/linear>Mainnet</a></span>
+                  <a href=/docs/testnet/linear>Testnet</a>
+            </div>
           </div>
-        </div>
-    </li>
+        </li>
+      </ul>
 
-  <li>
-    <div class="dropdown">
-      <button class="dropbtn">Environment
-        <i class="fa fa-caret-down"></i>
-      </button>
-      <div class="dropdown-content">
-            <span class="dropdown-content-selected"><a href=/docs/linear>Mainnet</a></span>
-            <a href=/docs/testnet/linear>Testnet</a>
-
-
-      </div>
     </div>
-  </li>
-  </ul>
-  </div>
-  <a class="international" id="international" href="javascript:void(0);">繁體中文</a>
+    <a class="international" id="international" href="javascript:void(0);">繁體中文</a>
   </header>
+  <!-- Navigation bar END -->
+
+
 
   <body class="linear linear_index" data-languages="[&quot;console&quot;,&quot;python--pybit&quot;,&quot;python--old&quot;]">
     <a href="#" id="nav-button">
@@ -1311,16 +1331,18 @@
               </ul>
           </li>
           <li>
-            <a href="#t-ratelimits" class="toc-h1 toc-link" data-title="API Rate Limits">API Rate Limits</a>
+            <a href="#t-ratelimits" class="toc-h1 toc-link" data-title="Rate Limits">Rate Limits</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#t-ipratelimits" class="toc-h2 toc-link" data-title="IP Rate Limit">IP Rate Limit</a>
                   </li>
                   <li>
-                    <a href="#t-understandingratelimits" class="toc-h2 toc-link" data-title="Understanding Your Request Rate Limit">Understanding Your Request Rate Limit</a>
-                  </li>
-                  <li>
-                    <a href="#t-perendpoint" class="toc-h2 toc-link" data-title="Rate Limits For All Private Endpoints">Rate Limits For All Private Endpoints</a>
+                    <a href="#t-understandingratelimits" class="toc-h2 toc-link" data-title="API Rate Limit">API Rate Limit</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#t-perendpoint" class="toc-h3 toc-link" data-title="Rate Limits For All Private Endpoints">Rate Limits For All Private Endpoints</a>
+                          </li>
+                      </ul>
                   </li>
                   <li>
                     <a href="#t-orderlimits" class="toc-h2 toc-link" data-title="Order Limits">Order Limits</a>
@@ -8120,28 +8142,63 @@ Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles
 </tr>
 </thead><tbody>
 </tbody></table>
-<h1 id='t-ratelimits'>API Rate Limits</h1><h3 id='t-ipratelimits'>IP Rate Limit</h3>
-<p><p>The IP limits are shared across all endpoints: futures and account asset but SPOT is separate from them. Mainnet and testnet IP limits are separate.</p>
-<p>Bybit has different IP frequency limits for <code>GET</code> and <code>POST</code> method<span>:</span></p>
+<h1 id='t-ratelimits'>Rate Limits</h1>
+<aside class="notice">
+There are two types of rate limit: <a href="#t-ipratelimits">IP rate limit</a> (measured per second) and <a href="#t-understandingratelimits">API rate limit</a> (measured per minute). The IP rate limit will count all of your requests and the API rate limit will only count your authenticated requests.
+
+</aside>
+<h2 id='t-ipratelimits'>IP Rate Limit</h2>
+<p><aside class="warning">
+If you receive an <b>HTTP 403</b> (Access Denied) response, your IP has been either temporarily or permanently banned. <b>You should immediately review the below guidelines to ensure your application does not continue to violate the limit.</b> If you are still banned after 30 minutes, you likely have a permanent ban.
+</aside>
+<p>Bybit has different IP frequency limits depending on the request method. We do not recommend running your application at the very edge of these limits in case abnormal network activity results in an unexpected violation.</p>
 <ul>
 <li>
-  <code>GET</code> & <code>DELETE</code> method:
+  <code>GET</code> & <code>DELETE</code> methods (shared):
   <ul>
-    <li>50 requests per second continuously for 2 minutes</li>
-    <li>70 requests per second continuously for 5 seconds</li>
+    <li>50 requests per second for 2 consecutive minutes</li>
+    <li>70 requests per second for 5 consecutive seconds</li>
   </ul>
 </li>
 <li>
   <code>POST</code> method:
   <ul>
-    <li>20 requests per second continuously for 2 minutes</li>
-    <li>50 requests per second continuously for 5 seconds</li>
+    <li>20 requests per second for 2 consecutive minutes</li>
+    <li>50 requests per second for 5 consecutive seconds</li>
   </ul>
 </li>
 </ul>
+<p>This table shows how there are different IP rate limit counters depending on the API you are using.</p>
+<table class="custom_table">
+  <tr>
+    <th>IP rate limit</th>
+    <th>API</th>
+    <th>Path</th>
+  </tr>
+  <tr>
+    <td rowspan="5">2mins 50/s;<br>5s 70/s</td>
+    <tr><td>Inverse Perpetual</td><td>/v2</td>
+    <tr><td>Inverse Futures</td><td>/futures</td>
+    <tr><td>Linear Perpetual</td><td>/public, /private</td>
+    <tr><td>Account Asset</td><td>/asset</td>
+  </tr>
+  <tr>
+    <td rowspan="2">2mins 50/s;<br>5s 70/s</td>
+    <tr><td>Spot</td><td>/spot</td>
+  </tr>
+  <tr>
+    <td rowspan="3">2mins 50/s;<br>5s 70/s</td>
+    <tr><td>USDC Options</td><td>/option</td>
+    <tr><td>USDC Perpetual</td><td>/perpetual</td>
+  </tr>
+</table>
+<p>After violating the limit your IP will be banned for a set period of time (usually 30 minutes). Continually violating the limit will result in a permanent ban. We cannot undo permanent bans or shorten temporary bans.</p>
 </p>
-<h3 id='t-understandingratelimits'>Understanding Your Request Rate Limit</h3>
-<p>Bybit makes frequency limits based on <b>the rolling time window per minute and UID, and each symbol is independent</b>. Every request to the API returns the fields shown in the code panel:
+<h2 id='t-understandingratelimits'>API Rate Limit</h2>
+<p><aside class="warning">
+If you receive <a href="#10006"><code><b>"ret_msg": "Too many visits!"</b></code></a> in the JSON response, you have hit the API rate limit. The rate limit resets 60 seconds after your first request.
+</aside>
+<p>The API rate limit is based on <b>the rolling time window per minute and UID, and each symbol is independent</b>. In other words, it's per minute per UID per symbol. Every request to the API returns the fields shown in the code panel:</p>
 </p>
 <div class="highlight"><pre class="highlight plaintext"><code>"rate_limit_status": 119,
 "rate_limit_reset_ms": 1572114055663,
@@ -8207,7 +8264,7 @@ Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles
   </tr>
   <tr><td>/private/linear/funding/predicted-funding </td><td>1 / request</td></tr>
 </table>
-<h3 id='t-orderlimits'>Order Limits</h3>
+<h2 id='t-orderlimits'>Order Limits</h2>
 <p><p>Max. number of unfilled orders supported under each trading pair:</p>
 <ul>
 <li>Active orders: 500</li>
@@ -8215,7 +8272,7 @@ Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles
 </ul>
 <p>If you have reached the 500 active order limit, creating a new order will be successful, but the oldest existing order will be cancelled. However, if you have reached the 10 conditional order limit, creating a new order will result in an error, maintaining the existing 10 orders.</p>
 </p>
-<h3 id='t-raisemylimit'>How to Increase API Limits</h3>
+<h2 id='t-raisemylimit'>How to Increase API Limits</h2>
 <p><ul>
 <li>Please refer to <a href="#t-liquidity">Understanding Bybit&#39;s Liquidity System</a> regarding how our system automatically allocates rate limits for users who place over 2,000 orders per day.</li>
 <li>Please email <a href="mailto:api@bybit.com">api@bybit.com</a> with the following information. We will reply within 1-4 working days:</li>
@@ -8228,16 +8285,16 @@ Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles
   </ol>
 </ul>
 </p>
-<h3 id='t-liquidity'>Understanding Bybit's Liquidity System</h3>
+<h2 id='t-liquidity'>Understanding Bybit's Liquidity System</h2>
 <p><p>Bybit uses <code>Order Fill Ratio (OFR)</code> and <code>Liquidity Contribution Points (LCP)</code> to measure customers&#39; contribution to our executable liquidity.</p>
 <p>The <code>LCP</code> and <code>OFR</code> of different assets are calculated separately.</p>
 </p>
-<h4 id='t-ofrthreshold'>Order Fill Ratio (OFR) Threshold</h4>
+<h3 id='t-ofrthreshold'>Order Fill Ratio (OFR) Threshold</h3>
 <p>If you place more than <code>2000</code> orders per day on Bybit, please make sure that your 7-day OFR is above a <code>Minimum OFR threshold</code>. Otherwise, Bybit may reduce the rate limits for your API request.
 </p>
-<h5 id='t-ofrminimum'>Minimum OFR Threshold</h5>
+<h4 id='t-ofrminimum'>Minimum OFR Threshold</h4>
 <p>7-day OFR must be kept above 0.1%.</p>
-<h5 id='t-ofrratio'>Order Fill Ratio (OFR)</h5>
+<h4 id='t-ofrratio'>Order Fill Ratio (OFR)</h4>
 <p><ul>
 <li><code>Order Fill Ratio (OFR)</code>: <code>Orders Filled</code> to <code>Orders Submitted to Bybit</code> to Bybit.</li>
 <li><code>Orders Submitted to Bybit</code>: any order submitted to Bybit.</li>
@@ -8245,7 +8302,7 @@ Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles
 <li><code>OFR = (number of orders filled / number of orders submitted to Bybit)</code></li>
 </ul>
 </p>
-<h5 id='t-ofrratioexample'>Order Fill Ratio Example</h5>
+<h4 id='t-ofrratioexample'>Order Fill Ratio Example</h4>
 <pre class="center-column-nonindent">
 User A:
 Orders Filled = 2
@@ -8261,7 +8318,7 @@ Orders Submitted to Bybit = 1
 OFR = 1/1 = 100%
 
 </pre>
-<h4 id='t-frequencylimit'>Rate Limits for API Requests</h4>
+<h3 id='t-frequencylimit'>Rate Limits for API Requests</h3>
 <p>The rate limits for your API requests are based on your min. <code>Liquidity Contribution Points (LCP)</code> within <code>7</code> days.</p>
 
 <table><thead>
@@ -8291,12 +8348,12 @@ OFR = 1/1 = 100%
 <td>100 times per minute</td>
 </tr>
 </tbody></table>
-<h5 id='t-liquiditypoints'>Liquidity Contribution Points (LCP)</h5>
+<h4 id='t-liquiditypoints'>Liquidity Contribution Points (LCP)</h4>
 <p><ul>
 <li><code>Liquidity Contribution Points (LCP) = POU * POA * 100</code></li>
 </ul>
 </p>
-<h5 id='t-ratelimitsexplanation'>Explanation</h5><h6 id='t-pricerange'>Effective Price Range</h6>
+<h4 id='t-ratelimitsexplanation'>Explanation</h4><h5 id='t-pricerange'>Effective Price Range</h5>
 <p><ul>
 <li><p><code>effective price range</code>: order price that falls within the lower and upper price bounds.</p>
 </li>
@@ -8306,14 +8363,14 @@ OFR = 1/1 = 100%
 </li>
 </ul>
 </p>
-<h6 id='t-pricerangeexample'>Effective Price Range Example</h6>
+<h5 id='t-pricerangeexample'>Effective Price Range Example</h5>
 <pre class="center-column-nonindent">
 BTC best bid = 10000
 BTC best ask = 10001
 Effective Price Range: [(10000 + 10001) / 2 - 3* 0.5, (10000 + 10001) / 2 + 3* 0.5] = [9999,10002]
 
 </pre>
-<h6 id='t-pou'>POU</h6>
+<h5 id='t-pou'>POU</h5>
 <p><ul>
 <li><code>POU</code>: The size of your orders that fall within the <code>effective price range</code> in proportion to the total size of your orders in the order book.</li>
 </ul>
@@ -8326,13 +8383,13 @@ amount of all User C's orders = 2000 + 8000 = 10000
 POU = 8000 / 10000 = 0.8
 
 </pre>
-<h6 id='t-poa'>POA</h6>
+<h5 id='t-poa'>POA</h5>
 <p><ul>
 <li><code>POA</code>: the proportion of your orders within <code>effective price range</code> to all orders within <code>effective price range</code> in orderbook.</li>
 </ul>
 <p>Bybit calculates your amount of orders within <code>effective price range</code> / amount of all orders within <code>effective price range</code> in orderbook, and then performs a 1-Day Time-Weighted-Average over the series of seconds rates.</p>
 </p>
-<h6 id='t-poaexample'>POA example</h6>
+<h5 id='t-poaexample'>POA example</h5>
 <p>The size of user C's orders that fall within the effective price range is 8,000, while the total size of orders in the order book that fall within the effective price range is 200,000.</p>
 
 <pre class="center-column-nonindent">
@@ -10305,7 +10362,7 @@ ELSE
 </tr>
 <tr>
 <td>403</td>
-<td>Access denied -- You request too many times</td>
+<td>Access denied -- You request too many times (refer to the <a href="#t-ipratelimits">IP rate limit</a>)</td>
 </tr>
 <tr>
 <td>404</td>
@@ -10323,7 +10380,7 @@ ELSE
 <h2 id='10005'>10005</h2>
 <p>Permission denied for current apikey. API key was created without the correct permissions (e.g. doesn´t have Order permission, or it's set to read-only)</p>
 <h2 id='10006'>10006</h2>
-<p>System not responding. Request status unknown. Too many visits. Please contact live support.</p>
+<p>Too many visits. Refer to the <a href="#t-understandingratelimits">API rate limit</a>.</p>
 <h2 id='10007'>10007</h2>
 <p>Response timeout from backend server. Delivery and request status unknown.</p>
 <h2 id='10010'>10010</h2>

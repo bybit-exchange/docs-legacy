@@ -644,47 +644,67 @@
       $(function() { setupCodeCopy(); });
     </script>
   </head>
+
+
+
+  <!-- Navigation bar START -->
   <header class="top-nav">
-  <div class="top-menu">
-  <a href="https://bybit-exchange.github.io/docs/account_asset" class="logo-link" target="_self">
-    <img src="../../../images/logo-aed6448d.svg" class="logo" alt="" />
-  </a>
-  <ul class="con">
-	<li><a href="/docs/zh-cn/testnet/inverse">反向永續</a></li>
-	<li><a href="/docs/zh-cn/testnet/linear">USDT永續</a></li>
-	<li><a href="/docs/zh-cn/testnet/inverse_futures">反向交割</a></li>
-	<li><a href="/docs/zh-cn/testnet/spot">現貨</a></li>
-	<li><a href="/docs/zh-cn/testnet/account_asset" class="selected">賬戶資產</a></li>
+    <div class="top-menu">
+        <a href="https://bybit-exchange.github.io/docs/account_asset" class="logo-link" target="_self">
+          <img src="../../../images/logo-aed6448d.svg" class="logo" alt="" />
+        </a>
 
-    <li>
-        <div class="dropdown">
-          <button class="dropbtn">USDC合約
-            <i class="fa fa-caret-down"></i>
-          </button>
-          <div class="dropdown-content">
-                <a href="/docs/zh-cn/testnet/usdc/option" >Option</a>
-                <a href="/docs/zh-cn/testnet/usdc/perpetual">Perpetual</a>
+      <ul class="con">
+
+        <!-- Inverse Perpetual -->
+          	<li><a href="/docs/zh-cn/testnet/inverse">反向永續</a></li>
+
+        <!-- USDT Perpetual -->
+          	<li><a href="/docs/zh-cn/testnet/linear">USDT永續</a></li>
+
+        <!-- Inverse Futures -->
+          	<li><a href="/docs/zh-cn/testnet/inverse_futures">反向交割</a></li>
+
+        <!-- Spot -->
+          	<li><a href="/docs/zh-cn/testnet/spot">現貨</a></li>
+
+        <!-- Inverse Futures -->
+          	<li><a href="/docs/zh-cn/testnet/account_asset" class="selected">賬戶資產</a></li>
+
+        <!-- USDC dropdown (Options, Perpetual) -->
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">USDC合約
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                  <a href="/docs/zh-cn/testnet/usdc/option" >Option</a>
+                  <a href="/docs/zh-cn/testnet/usdc/perpetual">Perpetual</a>
+              </div>
+            </div>
+          </li>
+
+        <!-- Environment dropdown (Testnet, Mainnet) -->
+        <!-- It's very long because each button needs its own logic to link to testnet or mainnet depending on if the website is on testnet or mainnet. -->
+        <li>
+          <div class="dropdown">
+            <button class="dropbtn">Environment
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                  <a href=/docs/zh-cn/account_asset>Mainnet</a>
+                  <span class="dropdown-content-selected"><a href=/docs/zh-cn/testnet/account_asset>Testnet</a></span>
+            </div>
           </div>
-        </div>
-    </li>
+        </li>
+      </ul>
 
-  <li>
-    <div class="dropdown">
-      <button class="dropbtn">Environment
-        <i class="fa fa-caret-down"></i>
-      </button>
-      <div class="dropdown-content">
-                    <a href=/docs/zh-cn/account_asset>Mainnet</a>
-                    <span class="dropdown-content-selected"><a href=/docs/zh-cn/testnet/account_asset>Testnet</a></span>
-
-
-      </div>
     </div>
-  </li>
-  </ul>
-  </div>
-  <a class="international" id="international" href="javascript:void(0);">English</a>
+    <a class="international" id="international" href="javascript:void(0);">English</a>
   </header>
+  <!-- Navigation bar END -->
+
+
 
   <body class="zh-cn zh-cn_testnet zh-cn_testnet_account_asset zh-cn_testnet_account_asset_index" data-languages="[&quot;console&quot;,&quot;python--pybit&quot;,&quot;python--old&quot;]">
     <a href="#" id="nav-button">
@@ -811,10 +831,15 @@
                     <a href="#t-ipratelimits" class="toc-h2 toc-link" data-title="IP頻率限製">IP頻率限製</a>
                   </li>
                   <li>
-                    <a href="#t-perendpointtransfer" class="toc-h2 toc-link" data-title="現貨劃轉接口的頻率限製">現貨劃轉接口的頻率限製</a>
-                  </li>
-                  <li>
-                    <a href="#t-perendpointdepositwithdraw" class="toc-h2 toc-link" data-title="提現與充值接口的頻率限製">提現與充值接口的頻率限製</a>
+                    <a href="#t-understandingratelimits" class="toc-h2 toc-link" data-title="賬戶頻率限製">賬戶頻率限製</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#t-perendpointtransfer" class="toc-h3 toc-link" data-title="現貨劃轉接口的頻率限製">現貨劃轉接口的頻率限製</a>
+                          </li>
+                          <li>
+                            <a href="#t-perendpointdepositwithdraw" class="toc-h3 toc-link" data-title="提現與充值接口的頻率限製">提現與充值接口的頻率限製</a>
+                          </li>
+                      </ul>
                   </li>
               </ul>
           </li>
@@ -2781,25 +2806,29 @@ ACCOUNT_STATUS_UNSPECIFIED -- 不正常 </p>
 </thead><tbody>
 </tbody></table>
 <h1 id='t-ratelimits'>頻率限製</h1><h3 id='t-ipratelimits'>IP頻率限製</h3>
-<p><p>The IP limits are shared across all endpoints: futures, spot, and account asset.</p>
-<p>Bybit has different IP frequency limits for <code>GET</code> and <code>POST</code> method<span>:</span></p>
+<p><p>IP 限制在所有接口之間共享：期貨、現貨和賬戶資產。</p>
+<p>Bybit根據請求方式有不同的IP頻率限制。 我們不建議您在這些限制的邊緣運行您的應用程序，以防異常的網絡活動導致意外違規。</p>
 <ul>
 <li>
-  <code>GET</code> & <code>DELETE</code> method:
+  <code>GET</code> & <code>DELETE</code> 方法 (共享):
   <ul>
-    <li>12 requests per second continuously for 2 minutes</li>
-    <li>18 requests per second continuously for 5 seconds</li>
+    <li>連續 2 分鐘內每秒不超過 12 個請求</li>
+    <li>連續 5 秒內每秒不超過 18 個請求</li>
   </ul>
 </li>
 <li>
-  <code>POST</code> method:
+  <code>POST</code> 方法:
   <ul>
-    <li>10 requests per second continuously for 2 minutes</li>
-    <li>15 requests per second continuously for 5 seconds</li>
+    <li>連續 2 分鐘內每秒不超過 10 個請求</li>
+    <li>連續 5 秒內每秒不超過 15 個請求</li>
   </ul>
 </li>
 </ul>
 </p>
+<h2 id='t-understandingratelimits'>賬戶頻率限製</h2>
+<p>Bybit基於<b>每分鐘</b>的滾動時間窗口來做頻率限製，並且是按<b>賬戶</b>（uid）和交易對（symbol）來做劃分限製，每次請求API響應中都會包含如下字段：
+</p>
+
 <aside class="notice">
 充值與提現接口頻率限製和現貨劃轉相關接口頻率限製是分開計算的。
 </aside>

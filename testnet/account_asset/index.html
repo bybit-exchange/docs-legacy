@@ -644,47 +644,67 @@
       $(function() { setupCodeCopy(); });
     </script>
   </head>
+
+
+
+  <!-- Navigation bar START -->
   <header class="top-nav">
-  <div class="top-menu">
-  <a href="https://bybit-exchange.github.io/docs/account_asset" class="logo-link" target="_self">
-    <img src="../../images/logo-aed6448d.svg" class="logo" alt="" />
-  </a>
-  <ul class="con">
-	<li><a href="/docs/testnet/inverse">Inverse Perpetual</a></li>
-	<li><a href="/docs/testnet/linear">USDT Perpetual</a></li>
-	<li><a href="/docs/testnet/inverse_futures">Inverse Futures</a></li>
-	<li><a href="/docs/testnet/spot">Spot</a></li>
-	<li><a href="/docs/testnet/account_asset" class="selected">Account Asset</a></li>
+    <div class="top-menu">
+        <a href="https://bybit-exchange.github.io/docs/account_asset" class="logo-link" target="_self">
+          <img src="../../images/logo-aed6448d.svg" class="logo" alt="" />
+        </a>
 
-    <li>
-        <div class="dropdown">
-          <button class="dropbtn">USDC Contract
-            <i class="fa fa-caret-down"></i>
-          </button>
-          <div class="dropdown-content">
-                <a href="/docs/testnet/usdc/option" >Option</a>
-                <a href="/docs/testnet/usdc/perpetual">Perpetual</a>
+      <ul class="con">
+
+        <!-- Inverse Perpetual -->
+          	<li><a href="/docs/testnet/inverse">Inverse Perpetual</a></li>
+
+        <!-- USDT Perpetual -->
+          	<li><a href="/docs/testnet/linear">USDT Perpetual</a></li>
+
+        <!-- Inverse Futures -->
+          	<li><a href="/docs/testnet/inverse_futures">Inverse Futures</a></li>
+
+        <!-- Spot -->
+          	<li><a href="/docs/testnet/spot">Spot</a></li>
+
+        <!-- Inverse Futures -->
+          	<li><a href="/docs/testnet/account_asset" class="selected">Account Asset</a></li>
+
+        <!-- USDC dropdown (Options, Perpetual) -->
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">USDC Contract
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                  <a href="/docs/testnet/usdc/option" >Option</a>
+                  <a href="/docs/testnet/usdc/perpetual">Perpetual</a>
+              </div>
+            </div>
+          </li>
+
+        <!-- Environment dropdown (Testnet, Mainnet) -->
+        <!-- It's very long because each button needs its own logic to link to testnet or mainnet depending on if the website is on testnet or mainnet. -->
+        <li>
+          <div class="dropdown">
+            <button class="dropbtn">Environment
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                  <a href=/docs/account_asset>Mainnet</a>
+                  <span class="dropdown-content-selected"><a href=/docs/testnet/account_asset>Testnet</a></span>
+            </div>
           </div>
-        </div>
-    </li>
+        </li>
+      </ul>
 
-  <li>
-    <div class="dropdown">
-      <button class="dropbtn">Environment
-        <i class="fa fa-caret-down"></i>
-      </button>
-      <div class="dropdown-content">
-                    <a href=/docs/account_asset>Mainnet</a>
-                    <span class="dropdown-content-selected"><a href=/docs/testnet/account_asset>Testnet</a></span>
-
-
-      </div>
     </div>
-  </li>
-  </ul>
-  </div>
-  <a class="international" id="international" href="javascript:void(0);">繁體中文</a>
+    <a class="international" id="international" href="javascript:void(0);">繁體中文</a>
   </header>
+  <!-- Navigation bar END -->
+
+
 
   <body class="testnet testnet_account_asset testnet_account_asset_index" data-languages="[&quot;console&quot;,&quot;python--pybit&quot;,&quot;python--old&quot;]">
     <a href="#" id="nav-button">
@@ -805,16 +825,21 @@
               </ul>
           </li>
           <li>
-            <a href="#t-ratelimits" class="toc-h1 toc-link" data-title="API Rate Limits">API Rate Limits</a>
+            <a href="#t-ratelimits" class="toc-h1 toc-link" data-title="Rate Limits">Rate Limits</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#t-ipratelimits" class="toc-h2 toc-link" data-title="IP Rate Limit">IP Rate Limit</a>
                   </li>
                   <li>
-                    <a href="#t-perendpointtransfer" class="toc-h2 toc-link" data-title="Rate Limits For Transfer Endpoints">Rate Limits For Transfer Endpoints</a>
-                  </li>
-                  <li>
-                    <a href="#t-perendpointdepositwithdraw" class="toc-h2 toc-link" data-title="Rate Limits For Withdraw and Deposit Endpoints">Rate Limits For Withdraw and Deposit Endpoints</a>
+                    <a href="#t-understandingratelimits" class="toc-h2 toc-link" data-title="API Rate Limit">API Rate Limit</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#t-perendpointtransfer" class="toc-h3 toc-link" data-title="Rate Limits For Transfer Endpoints">Rate Limits For Transfer Endpoints</a>
+                          </li>
+                          <li>
+                            <a href="#t-perendpointdepositwithdraw" class="toc-h3 toc-link" data-title="Rate Limits For Withdraw and Deposit Endpoints">Rate Limits For Withdraw and Deposit Endpoints</a>
+                          </li>
+                      </ul>
                   </li>
               </ul>
           </li>
@@ -2785,12 +2810,12 @@ ACCOUNT_STATUS_UNSPECIFIED -- ABNORMAL </p>
 </tr>
 </thead><tbody>
 </tbody></table>
-<h1 id='t-ratelimits'>API Rate Limits</h1><h3 id='t-ipratelimits'>IP Rate Limit</h3>
+<h1 id='t-ratelimits'>Rate Limits</h1><h3 id='t-ipratelimits'>IP Rate Limit</h3>
 <p><p>The IP limits are shared across all endpoints: futures, spot, and account asset.</p>
-<p>Bybit has different IP frequency limits for <code>GET</code> and <code>POST</code> method<span>:</span></p>
+<p>Bybit has different IP frequency limits depending on the request method. We do not recommend running your application at the very edge of these limits in case abnormal network activity results in an unexpected violation.</p>
 <ul>
 <li>
-  <code>GET</code> & <code>DELETE</code> method:
+  <code>GET</code> & <code>DELETE</code> methods (shared):
   <ul>
     <li>12 requests per second continuously for 2 minutes</li>
     <li>18 requests per second continuously for 5 seconds</li>
@@ -2805,8 +2830,15 @@ ACCOUNT_STATUS_UNSPECIFIED -- ABNORMAL </p>
 </li>
 </ul>
 </p>
+<h2 id='t-understandingratelimits'>API Rate Limit</h2>
+<p><aside class="warning">
+If you receive <a href="#10006"><code><b>"ret_msg": "Too many visits!"</b></code></a> in the JSON response, you have hit the API rate limit. The rate limit resets 60 seconds after your first request.
+</aside>
+<p>The API rate limit is based on <b>the rolling time window per minute and UID, and each symbol is independent</b>. In other words, it's per minute per UID per symbol. Every request to the API returns the fields shown in the code panel:</p>
+</p>
+
 <aside class="notice">
-Rate Limits For Withdraw and Deposit Endpoints counts and Rate Limits For Transfer Endpoints counts are separated.
+The rate limits for the Withdraw and Deposit Endpoints and Rate Limits For Transfer Endpoints are separate.
 </aside>
 <h3 id='t-perendpointtransfer'>Rate Limits For Transfer Endpoints</h3>
 <table class="custom_table">

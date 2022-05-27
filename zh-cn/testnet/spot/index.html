@@ -644,47 +644,67 @@
       $(function() { setupCodeCopy(); });
     </script>
   </head>
+
+
+
+  <!-- Navigation bar START -->
   <header class="top-nav">
-  <div class="top-menu">
-  <a href="https://bybit-exchange.github.io/docs/spot" class="logo-link" target="_self">
-    <img src="../../../images/logo-aed6448d.svg" class="logo" alt="" />
-  </a>
-  <ul class="con">
-	<li><a href="/docs/zh-cn/testnet/inverse">反向永續</a></li>
-	<li><a href="/docs/zh-cn/testnet/linear">USDT永續</a></li>
-	<li><a href="/docs/zh-cn/testnet/inverse_futures">反向交割</a></li>
-	<li><a href="/docs/zh-cn/testnet/spot" class="selected">現貨</a></li>
-	<li><a href="/docs/zh-cn/testnet/account_asset">賬戶資產</a></li>
+    <div class="top-menu">
+        <a href="https://bybit-exchange.github.io/docs/spot" class="logo-link" target="_self">
+          <img src="../../../images/logo-aed6448d.svg" class="logo" alt="" />
+        </a>
 
-    <li>
-        <div class="dropdown">
-          <button class="dropbtn">USDC合約
-            <i class="fa fa-caret-down"></i>
-          </button>
-          <div class="dropdown-content">
-                <a href="/docs/zh-cn/testnet/usdc/option" >Option</a>
-                <a href="/docs/zh-cn/testnet/usdc/perpetual">Perpetual</a>
+      <ul class="con">
+
+        <!-- Inverse Perpetual -->
+          	<li><a href="/docs/zh-cn/testnet/inverse">反向永續</a></li>
+
+        <!-- USDT Perpetual -->
+          	<li><a href="/docs/zh-cn/testnet/linear">USDT永續</a></li>
+
+        <!-- Inverse Futures -->
+          	<li><a href="/docs/zh-cn/testnet/inverse_futures">反向交割</a></li>
+
+        <!-- Spot -->
+          	<li><a href="/docs/zh-cn/testnet/spot" class="selected">現貨</a></li>
+
+        <!-- Inverse Futures -->
+          	<li><a href="/docs/zh-cn/testnet/account_asset">賬戶資產</a></li>
+
+        <!-- USDC dropdown (Options, Perpetual) -->
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">USDC合約
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                  <a href="/docs/zh-cn/testnet/usdc/option" >Option</a>
+                  <a href="/docs/zh-cn/testnet/usdc/perpetual">Perpetual</a>
+              </div>
+            </div>
+          </li>
+
+        <!-- Environment dropdown (Testnet, Mainnet) -->
+        <!-- It's very long because each button needs its own logic to link to testnet or mainnet depending on if the website is on testnet or mainnet. -->
+        <li>
+          <div class="dropdown">
+            <button class="dropbtn">Environment
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                  <a href=/docs/zh-cn/spot>Mainnet</a>
+                  <span class="dropdown-content-selected"><a href=/docs/zh-cn/testnet/spot>Testnet</a></span>
+            </div>
           </div>
-        </div>
-    </li>
+        </li>
+      </ul>
 
-  <li>
-    <div class="dropdown">
-      <button class="dropbtn">Environment
-        <i class="fa fa-caret-down"></i>
-      </button>
-      <div class="dropdown-content">
-            <a href=/docs/zh-cn/spot>Mainnet</a>
-            <span class="dropdown-content-selected"><a href=/docs/zh-cn/testnet/spot>Testnet</a></span>
-
-
-      </div>
     </div>
-  </li>
-  </ul>
-  </div>
-  <a class="international" id="international" href="javascript:void(0);">English</a>
+    <a class="international" id="international" href="javascript:void(0);">English</a>
   </header>
+  <!-- Navigation bar END -->
+
+
 
   <body class="zh-cn zh-cn_testnet zh-cn_testnet_spot zh-cn_testnet_spot_index" data-languages="[&quot;console&quot;,&quot;python--pybit&quot;,&quot;python--old&quot;]">
     <a href="#" id="nav-button">
@@ -943,8 +963,18 @@
                   <li>
                     <a href="#t-ipratelimits" class="toc-h2 toc-link" data-title="IP頻率限製">IP頻率限製</a>
                   </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#t-ratelimits" class="toc-h1 toc-link" data-title="頻率限製">頻率限製</a>
+              <ul class="toc-list-h2">
                   <li>
-                    <a href="#t-perendpoint" class="toc-h2 toc-link" data-title="接口頻率限製表">接口頻率限製表</a>
+                    <a href="#t-ipratelimits" class="toc-h2 toc-link" data-title="IP頻率限製">IP頻率限製</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#t-perendpoint" class="toc-h3 toc-link" data-title="接口頻率限製表">接口頻率限製表</a>
+                          </li>
+                      </ul>
                   </li>
               </ul>
           </li>
@@ -4201,7 +4231,7 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">ltCode</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>想要查詢的LT資產名稱，從資產列表中獲取. 目前只有BTC3L,BTC3S,ETH3L,ETH3S</td>
+<td>想要查詢的LT資產名稱，從資產列表中獲取. 目前只有BTC3L,BTC3S,ETH3L,ETH3S,XRP3L,XRP3S</td>
 </tr>
 <tr>
 <td style="text-align: left">timestamp</td>
@@ -4356,7 +4386,7 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">ltCode</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>想要查詢的LT資產名稱，從資產列表中獲取. 目前只有BTC3L,BTC3S,ETH3L,ETH3S</td>
+<td>想要查詢的LT資產名稱，從資產列表中獲取. 目前只有BTC3L,BTC3S,ETH3L,ETH3S,XRP3L,XRP3S</td>
 </tr>
 </tbody></table>
 
@@ -4448,7 +4478,7 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">ltCode</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>想要查詢的LT資產名稱，從資產列表中獲取. 目前只有BTC3L,BTC3S,ETH3L,ETH3S</td>
+<td>想要查詢的LT資產名稱，從資產列表中獲取. 目前只有BTC3L,BTC3S,ETH3L,ETH3S,XRP3L,XRP3S</td>
 </tr>
 <tr>
 <td style="text-align: left">ltAmount</td>
@@ -4573,7 +4603,7 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">ltCode</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>想要查詢的LT資產名稱，從資產列表中獲取. 目前只有BTC3L,BTC3S,ETH3L,ETH3S</td>
+<td>想要查詢的LT資產名稱，從資產列表中獲取. 目前只有BTC3L,BTC3S,ETH3L,ETH3S,XRP3L,XRP3S</td>
 </tr>
 <tr>
 <td style="text-align: left">ltQuantity</td>
@@ -4698,7 +4728,7 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">ltCode</td>
 <td style="text-align: left"><b>false</b></td>
 <td style="text-align: left">string</td>
-<td>想要查詢的LT資產名稱，從資產列表中獲取. 目前只有BTC3L,BTC3S,ETH3L,ETH3S</td>
+<td>想要查詢的LT資產名稱，從資產列表中獲取. 目前只有BTC3L,BTC3S,ETH3L,ETH3S,XRP3L,XRP3S</td>
 </tr>
 <tr>
 <td style="text-align: left">orderId</td>
@@ -5435,24 +5465,71 @@ function copyStringToClipboard (endpoint) {
 </tr>
 </tbody></table>
 <h1 id='t-ratelimits'>頻率限製</h1><h3 id='t-ipratelimits'>IP頻率限製</h3>
-<p><p>The IP limits are shared across all endpoints: futures, spot, and account asset.</p>
-<p>Bybit has different IP frequency limits for <code>GET</code> and <code>POST</code> method<span>:</span></p>
+<p><p>IP 限制在所有接口之間共享：期貨、現貨和賬戶資產。</p>
+<p>Bybit根據請求方式有不同的IP頻率限制。 我們不建議您在這些限制的邊緣運行您的應用程序，以防異常的網絡活動導致意外違規。</p>
 <ul>
 <li>
-  <code>GET</code> & <code>DELETE</code> method:
+  <code>GET</code> & <code>DELETE</code> 方法 (共享):
   <ul>
-    <li>12 requests per second continuously for 2 minutes</li>
-    <li>18 requests per second continuously for 5 seconds</li>
+    <li>連續 2 分鐘內每秒不超過 12 個請求</li>
+    <li>連續 5 秒內每秒不超過 18 個請求</li>
   </ul>
 </li>
 <li>
-  <code>POST</code> method:
+  <code>POST</code> 方法:
   <ul>
-    <li>10 requests per second continuously for 2 minutes</li>
-    <li>15 requests per second continuously for 5 seconds</li>
+    <li>連續 2 分鐘內每秒不超過 10 個請求</li>
+    <li>連續 5 秒內每秒不超過 15 個請求</li>
   </ul>
 </li>
 </ul>
+</p>
+<h1 id='t-ratelimits'>頻率限製</h1><h2 id='t-ipratelimits'>IP頻率限製</h2>
+<p><aside class="warning">
+如果您收到 <b>HTTP 403</b>（拒絕訪問）響應, 您的 IP 已被暫時或永久禁止。 <b>您應立即查看以下指南，以確保您的應用程序不會繼續違反限制。</b> 如果您在 30 分鐘後仍被禁止，則您可能會被永久禁止。
+</aside>
+<p>Bybit根據請求方式有不同的IP頻率限制。 我們不建議您在這些限制的邊緣運行您的應用程序，以防異常的網絡活動導致意外違規。</p>
+<ul>
+<li>
+  <code>GET</code> & <code>DELETE</code> 方法 (共享):
+  <ul>
+    <li>連續 2 分鐘內每秒不超過 50 個請求</li>
+    <li>連續 5 秒內每秒不超過 70 個請求</li>
+  </ul>
+</li>
+<li>
+  <code>POST</code> 方法:
+  <ul>
+    <li>連續 2 分鐘內每秒不超過 20 個請求</li>
+    <li>連續 5 秒內每秒不超過 50 個請求</li>
+  </ul>
+</li>
+</ul>
+<p>此表顯示了根據您使用的 API 的不同 IP 頻率限制數。</p>
+<table class="custom_table">
+  <tr>
+    <th>IP 頻率限制</th>
+    <th>API</th>
+    <th>Path</th>
+  </tr>
+  <tr>
+    <td rowspan="5">2mins 50/s;<br>5s 70/s</td>
+    <tr><td>反向永續</td><td>/v2</td>
+    <tr><td>反向交割</td><td>/futures</td>
+    <tr><td>USDT永續</td><td>/public, /private</td>
+    <tr><td>賬戶資產</td><td>/asset</td>
+  </tr>
+  <tr>
+    <td rowspan="2">2mins 50/s;<br>5s 70/s</td>
+    <tr><td>現貨</td><td>/spot</td>
+  </tr>
+  <tr>
+    <td rowspan="3">2mins 50/s;<br>5s 70/s</td>
+    <tr><td>USDC Options</td><td>/option</td>
+    <tr><td>USDC Perpetual</td><td>/perpetual</td>
+  </tr>
+</table>
+<p>違反限制後，您的 IP 將被禁止一段時間（通常為 30 分鐘）。 持續違反限制將導致永久禁止。 我們不能撤銷永久禁令或縮短臨時禁令。</p>
 </p>
 <h3 id='t-perendpoint'>接口頻率限製表</h3>
 <table class="custom_table">

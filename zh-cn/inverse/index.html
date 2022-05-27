@@ -644,47 +644,67 @@
       $(function() { setupCodeCopy(); });
     </script>
   </head>
+
+
+
+  <!-- Navigation bar START -->
   <header class="top-nav">
-  <div class="top-menu">
-  <a href="https://bybit-exchange.github.io/docs/inverse" class="logo-link" target="_self">
-    <img src="../../images/logo-aed6448d.svg" class="logo" alt="" />
-  </a>
-  <ul class="con">
-	<li><a href="/docs/zh-cn/inverse" class="selected">反向永續</a></li>
-	<li><a href="/docs/zh-cn/linear">USDT永續</a></li>
-	<li><a href="/docs/zh-cn/inverse_futures">反向交割</a></li>
-	<li><a href="/docs/zh-cn/spot">現貨</a></li>
-	<li><a href="/docs/zh-cn/account_asset">賬戶資產</a></li>
+    <div class="top-menu">
+        <a href="https://bybit-exchange.github.io/docs/inverse" class="logo-link" target="_self">
+          <img src="../../images/logo-aed6448d.svg" class="logo" alt="" />
+        </a>
 
-    <li>
-        <div class="dropdown">
-          <button class="dropbtn">USDC合約
-            <i class="fa fa-caret-down"></i>
-          </button>
-          <div class="dropdown-content">
-                <a href="/docs/zh-cn/usdc/option">Option</a>
-                <a href="/docs/zh-cn/usdc/perpetual">Perpetual</a>
+      <ul class="con">
+
+        <!-- Inverse Perpetual -->
+          	<li><a href="/docs/zh-cn/inverse" class="selected">反向永續</a></li>
+
+        <!-- USDT Perpetual -->
+          	<li><a href="/docs/zh-cn/linear">USDT永續</a></li>
+
+        <!-- Inverse Futures -->
+          	<li><a href="/docs/zh-cn/inverse_futures">反向交割</a></li>
+
+        <!-- Spot -->
+          	<li><a href="/docs/zh-cn/spot">現貨</a></li>
+
+        <!-- Inverse Futures -->
+          	<li><a href="/docs/zh-cn/account_asset">賬戶資產</a></li>
+
+        <!-- USDC dropdown (Options, Perpetual) -->
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">USDC合約
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                  <a href="/docs/zh-cn/usdc/option">Option</a>
+                  <a href="/docs/zh-cn/usdc/perpetual">Perpetual</a>
+              </div>
+            </div>
+          </li>
+
+        <!-- Environment dropdown (Testnet, Mainnet) -->
+        <!-- It's very long because each button needs its own logic to link to testnet or mainnet depending on if the website is on testnet or mainnet. -->
+        <li>
+          <div class="dropdown">
+            <button class="dropbtn">Environment
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                  <span class="dropdown-content-selected"><a href=/docs/zh-cn/inverse>Mainnet</a></span>
+                  <a href=/docs/zh-cn/testnet/inverse>Testnet</a>
+            </div>
           </div>
-        </div>
-    </li>
+        </li>
+      </ul>
 
-  <li>
-    <div class="dropdown">
-      <button class="dropbtn">Environment
-        <i class="fa fa-caret-down"></i>
-      </button>
-      <div class="dropdown-content">
-            <span class="dropdown-content-selected"><a href=/docs/zh-cn/inverse>Mainnet</a></span>
-            <a href=/docs/zh-cn/testnet/inverse>Testnet</a>
-
-
-      </div>
     </div>
-  </li>
-  </ul>
-  </div>
-  <a class="international" id="international" href="javascript:void(0);">English</a>
+    <a class="international" id="international" href="javascript:void(0);">English</a>
   </header>
+  <!-- Navigation bar END -->
+
+
 
   <body class="zh-cn zh-cn_inverse zh-cn_inverse_index" data-languages="[&quot;console&quot;,&quot;python--pybit&quot;,&quot;python--old&quot;]">
     <a href="#" id="nav-button">
@@ -1449,9 +1469,11 @@
                   </li>
                   <li>
                     <a href="#t-understandingratelimits" class="toc-h2 toc-link" data-title="賬戶頻率限製">賬戶頻率限製</a>
-                  </li>
-                  <li>
-                    <a href="#t-perendpoint" class="toc-h2 toc-link" data-title="接口頻率限製表">接口頻率限製表</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#t-perendpoint" class="toc-h3 toc-link" data-title="接口頻率限製表">接口頻率限製表</a>
+                          </li>
+                      </ul>
                   </li>
                   <li>
                     <a href="#t-orderlimits" class="toc-h2 toc-link" data-title="下單限製">下單限製</a>
@@ -10522,26 +10544,59 @@ Deposit or withdrawal records which occurred after 2021-07-15 will not be shown 
 </tr>
 </thead><tbody>
 </tbody></table>
-<h1 id='t-ratelimits'>頻率限製</h1><h3 id='t-ipratelimits'>IP頻率限製</h3>
-<p><p> Bybit會基於請求IP做頻率限製，針對不同的請求方法有以下規則(現貨的IP用量是獨立計算的)：</p>
+<h1 id='t-ratelimits'>頻率限製</h1>
+<aside class="notice">
+有兩種類型的頻率限製: <a href="#t-ipratelimits">IP 頻率限製</a> (每秒计算) and <a href="#t-understandingratelimits">API 頻率限製</a> (每分鐘计算). IP 頻率限制將計算您的所有請求，而 API 頻率限制僅計算您經過身份驗證的請求。
+
+</aside>
+<h2 id='t-ipratelimits'>IP頻率限製</h2>
+<p><aside class="warning">
+如果您收到 <b>HTTP 403</b>（拒絕訪問）響應, 您的 IP 已被暫時或永久禁止。 <b>您應立即查看以下指南，以確保您的應用程序不會繼續違反限制。</b> 如果您在 30 分鐘後仍被禁止，則您可能會被永久禁止。
+</aside>
+<p>Bybit根據請求方式有不同的IP頻率限制。 我們不建議您在這些限制的邊緣運行您的應用程序，以防異常的網絡活動導致意外違規。</p>
 <ul>
 <li>
-  <code>GET</code>方法:
+  <code>GET</code> & <code>DELETE</code> 方法 (共享):
   <ul>
-    <li>連續2分鐘內每秒不超過50個請求</li>
-    <li>連續5秒內每秒不超過70個請求</li>
+    <li>連續 2 分鐘內每秒不超過 50 個請求</li>
+    <li>連續 5 秒內每秒不超過 70 個請求</li>
   </ul>
 </li>
 <li>
-  <code>POST</code>方法:
+  <code>POST</code> 方法:
   <ul>
-    <li>連續2分鐘內每秒不超過20個請求</li>
-    <li>連續5秒內每秒不超過50個請求</li>
+    <li>連續 2 分鐘內每秒不超過 20 個請求</li>
+    <li>連續 5 秒內每秒不超過 50 個請求</li>
   </ul>
 </li>
 </ul>
+<p>此表顯示了根據您使用的 API 的不同 IP 頻率限制數。</p>
+<table class="custom_table">
+  <tr>
+    <th>IP 頻率限制</th>
+    <th>API</th>
+    <th>Path</th>
+  </tr>
+  <tr>
+    <td rowspan="5">2mins 50/s;<br>5s 70/s</td>
+    <tr><td>反向永續</td><td>/v2</td>
+    <tr><td>反向交割</td><td>/futures</td>
+    <tr><td>USDT永續</td><td>/public, /private</td>
+    <tr><td>賬戶資產</td><td>/asset</td>
+  </tr>
+  <tr>
+    <td rowspan="2">2mins 50/s;<br>5s 70/s</td>
+    <tr><td>現貨</td><td>/spot</td>
+  </tr>
+  <tr>
+    <td rowspan="3">2mins 50/s;<br>5s 70/s</td>
+    <tr><td>USDC Options</td><td>/option</td>
+    <tr><td>USDC Perpetual</td><td>/perpetual</td>
+  </tr>
+</table>
+<p>違反限制後，您的 IP 將被禁止一段時間（通常為 30 分鐘）。 持續違反限制將導致永久禁止。 我們不能撤銷永久禁令或縮短臨時禁令。</p>
 </p>
-<h3 id='t-understandingratelimits'>賬戶頻率限製</h3>
+<h2 id='t-understandingratelimits'>賬戶頻率限製</h2>
 <p>Bybit基於<b>每分鐘</b>的滾動時間窗口來做頻率限製，並且是按<b>賬戶</b>（uid）和交易對（symbol）來做劃分限製，每次請求API響應中都會包含如下字段：
 </p>
 <div class="highlight"><pre class="highlight plaintext"><code>"rate_limit_status": 119,
@@ -10617,14 +10672,14 @@ Deposit or withdrawal records which occurred after 2021-07-15 will not be shown 
     <td>1 / request</td>
   </tr>
 </table>
-<h3 id='t-orderlimits'>下單限製</h3>
+<h2 id='t-orderlimits'>下單限製</h2>
 <p><p>每個交易對可以持有的訂單數量上限：</p>
 <ul>
 <li>活動單: 500</li>
 <li>條件單: 10</li>
 </ul>
 </p>
-<h3 id='t-raisemylimit'>如何提高頻率限製</h3>
+<h2 id='t-raisemylimit'>如何提高頻率限製</h2>
 <p><ul>
 <li>請先閱讀<a href="#t-raisemylimit">如何滿足提高頻率限製條件</a></li>
 <li>請發送郵件到 <a href="mailto:api@bybit.com">api@bybit.com</a>，我們會在 1-4 個工作日內答復。郵件內容必須包含以下內容：</li>
@@ -10637,16 +10692,16 @@ Deposit or withdrawal records which occurred after 2021-07-15 will not be shown 
 </ol>
 </ul>
 </p>
-<h3 id='t-liquidity'>Bybit流動性貢獻系統</h3>
+<h2 id='t-liquidity'>Bybit流動性貢獻系統</h2>
 <p><p>Bybit 使用<code>報單成交率</code> 和 <code>流動性貢獻打分</code>來評價用戶對改善bybit可執行流動性作出的貢獻。</p>
 <p>不同symbol的<code>貢獻分</code>和<code>報單成交率</code>是獨立計算的。</p>
 </p>
-<h4 id='t-ofrthreshold'>報單成交率</h4>
+<h3 id='t-ofrthreshold'>報單成交率</h3>
 <p>平臺上每天提交超過<code>2000</code>個報單的賬戶，需要保持<code>7天</code>的報單成交率高於<code>最小報單成交率門檻值</code>，違反此規則將會被降低頻率或禁用 API。
 </p>
-<h5 id='t-ofrminimum'>API 交易用戶最小報單成交率門檻</h5>
+<h4 id='t-ofrminimum'>API 交易用戶最小報單成交率門檻</h4>
 <p><code>7</code>日內API 交易用戶最小報單成交率門檻 0.1%</p>
-<h5 id='t-ofrratio'>報單成交率</h5>
+<h4 id='t-ofrratio'>報單成交率</h4>
 <p><ul>
 <li><code>報單成交率</code>: 定義為 一段時間段內，用戶已成交報單數量占該用戶已提交報單數量的比例</li>
 <li><code>已提交報單</code>: 是任何已成功發送到平臺的委托</li>
@@ -10654,7 +10709,7 @@ Deposit or withdrawal records which occurred after 2021-07-15 will not be shown 
 <li><code>報單成交率 = ( 一段時間內用戶的已成交報單數量 / 一段時間內已提交報單數量)</code></li>
 </ul>
 </p>
-<h5 id='t-ofrratioexample'>報單成交率舉例</h5>
+<h4 id='t-ofrratioexample'>報單成交率舉例</h4>
 <pre class="center-column-nonindent">
 A用戶：
 已成交報單數量 = 2
@@ -10670,7 +10725,7 @@ B用戶：
 報單成交率 = 1 / 1 = 100％
 
 </pre>
-<h4 id='t-frequencylimit'>API 交易用戶提高頻率的條件</h4>
+<h3 id='t-frequencylimit'>API 交易用戶提高頻率的條件</h3>
 <p>平臺會根據API用戶近<code>7</code>日掛單對<code>平臺流動性貢獻分</code>的最低值，對滿足條件的用戶進行提高頻率上限的獎勵</p>
 
 <table><thead>
@@ -10700,12 +10755,12 @@ B用戶：
 <td>100次 / 每分鐘</td>
 </tr>
 </tbody></table>
-<h5 id='t-liquiditypoints'>流動性貢獻打分</h5>
+<h4 id='t-liquiditypoints'>流動性貢獻打分</h4>
 <p><ul>
 <li><code>流動性貢獻打分 = 有效價格掛單自占比 * 有效價格掛單量平臺占比 * 100</code></li>
 </ul>
 </p>
-<h5 id='t-ratelimitsexplanation'>名詞解釋</h5><h6 id='t-pricerange'>有效價格掛單</h6>
+<h4 id='t-ratelimitsexplanation'>名詞解釋</h4><h5 id='t-pricerange'>有效價格掛單</h5>
 <p><ul>
 <li><p><code>有效價格掛單</code>: 定義為在距離盤口中間價較近的規定範圍內的掛單被定義為有效價格掛單.</p>
 </li>
@@ -10715,7 +10770,7 @@ B用戶：
 </li>
 </ul>
 </p>
-<h6 id='t-pricerangeexample'>有效價格範圍</h6>
+<h5 id='t-pricerangeexample'>有效價格範圍</h5>
 <pre class="center-column-nonindent">
 [最佳競價中間價 - 3 * 價格最小變動單位, 最佳競價中間價 + 3 * 價格最小變動單位]
 
@@ -10726,7 +10781,7 @@ B用戶：
  [(10000 + 10001) / 2 - 3* 0.5, (10000 + 10001) / 2 + 3* 0.5] = [9999,10002]
 
 </pre>
-<h6 id='t-pou'>有效價格掛單自占比</h6>
+<h5 id='t-pou'>有效價格掛單自占比</h5>
 <p><ul>
 <li><code>有效價格掛單自占比</code>: 定義為該用戶在 <code>有效價格 </code> 範圍內的掛單數量占該用戶在當前時間提交的掛單總數量的比例。</li>
 </ul>
@@ -10739,13 +10794,13 @@ B用戶：
 有效價格掛單自占比 = 8000 / 10000 = 0.8
 
 </pre>
-<h6 id='t-poa'>有效價格掛單平臺占比</h6>
+<h5 id='t-poa'>有效價格掛單平臺占比</h5>
 <p><ul>
 <li><code>有效價格掛單平臺占比</code>: 定義為該用戶在有效價格範圍內的掛單數量占平臺所有用戶在<code>有效價格</code>範圍內的掛單總數量的比例.</li>
 </ul>
 <p>每秒計算 該用戶在<code>有效價格</code>範圍內的掛單數量 / 平臺所有用戶在<code>有效價格</code>範圍內的掛單總數量，然後每日計算用戶當日占比的平均值。</p>
 </p>
-<h6 id='t-poaexample'>有效價格掛單平臺占比舉例：</h6>
+<h5 id='t-poaexample'>有效價格掛單平臺占比舉例：</h5>
 <p>某一秒，用戶在「有效價格」範圍：[9999, 10002] 內的掛單有8000張，全平臺的交易委托賬本在 [9999, 10002] 內的掛單總量為200000。</p>
 
 <pre class="center-column-nonindent">
@@ -12823,7 +12878,7 @@ ELSE
 </tr>
 <tr>
 <td>403</td>
-<td>拒絕訪問</td>
+<td>拒絕訪問 -- 您請求的次數過多（請參閱<a href="#t-ipratelimits">IP 頻率限制</a>）</td>
 </tr>
 <tr>
 <td>404</td>
@@ -12843,7 +12898,7 @@ ELSE
 <h2 id='10005'>10005</h2>
 <p>apikey權限不足</p>
 <h2 id='10006'>10006</h2>
-<p>請求次數超限</p>
+<p>請求次數超限。 請參閱<a href="#t-understandingratelimits">API 频率限制</a>。</p>
 <h2 id='10007'>10007</h2>
 <p>您的請求中沒有<code>api_key</code></p>
 <h2 id='10010'>10010</h2>
