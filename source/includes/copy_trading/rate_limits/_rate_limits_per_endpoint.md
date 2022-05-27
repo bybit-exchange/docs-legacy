@@ -16,7 +16,7 @@
     <td rowspan="5">100/min</td>  
   </tr>
  <tr><td>/derivatives/v3/copytrading/order/create </td><td>1 / request</td></tr>
-  <tr><td>/derivatives/v3/copytrading/order/close </td><td>1 / request</td></tr>
+  <tr><td>/derivatives/v3/copytrading/order/close </td><td>10 / request</td></tr>
   <tr><td>/derivatives/v3/copytrading/order/cancel  </td><td>1 / request</td></tr>
   <tr><td>/derivatives/v3/copytrading/order/list  </td><td>1 / request</td></tr>
 
