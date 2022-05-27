@@ -2,7 +2,7 @@
 t(:wallet_para)
 
 
-### t(:cpyt_trade_wallet_balance)
+### t(:ct_wallet_balance)
 > t(:codequote_curlExample)
 
 ```console
@@ -43,7 +43,7 @@ print(session.get_wallet_balance())
 }
 ```
 
-t(:cpyt_trade_wallet_balance)
+t(:ct_wallet_balance)
 
 
 <p class="fake_header">t(:httprequest)</p>
@@ -73,7 +73,7 @@ GET
 
 
 
-### t(:cpyt_trade_wallet_transfer)
+### t(:ct_wallet_transfer)
 > t(:codequote_curlExample)
 
 ```console
@@ -114,7 +114,7 @@ print(session.place_active_order(
 }
 ```
 
-t(:cpyt_trade_wallet_transfer)
+t(:ct_wallet_transfer)
 
 
 

@@ -2,16 +2,16 @@
 
 ## 2022-05-09
 ### REST API
-- [t(:copy_trade_symbol_list)](#t-copy_trade_symbol_list) [t(:changelog_new)]
-- [t(:copy_trade_order_list)](#t-copy_trade_order_list) [t(:changelog_new)]
-- [t(:copy_trade_create_order)](#t-copy_trade_create_order) [t(:changelog_new)]
-- [t(:copy_trade_close_order)](#t-copy_trade_close_order) [t(:changelog_new)]
-- [t(:copy_trade_cancel_order)](#t-copy_trade_cancel_order) [t(:changelog_new)]
-- [t(:copy_trade_positon_list)](#t-copy_trade_positon_list) [t(:changelog_new)]
-- [t(:copy_trade_positon_close)](#t-copy_trade_positon_close) [t(:changelog_new)]
-- [t(:cpyt_trade_wallet_balance)](#t-cpyt_trade_wallet_balance) [t(:changelog_new)]
-- [t(:cpyt_trade_wallet_transfer)](#t-cpyt_trade_wallet_transfer) [t(:changelog_new)]
-- [t(:copy_trade_set_leverage)](#t-copy_trade_set_leverage) [t(:changelog_new)]
+- [t(:ct_symbol_list)](#t-ct_symbol_list) [t(:changelog_new)]
+- [t(:ct_order_list)](#t-ct_order_list) [t(:changelog_new)]
+- [t(:ct_create_order)](#t-ct_create_order) [t(:changelog_new)]
+- [t(:ct_close_order)](#t-ct_close_order) [t(:changelog_new)]
+- [t(:ct_cancel_order)](#t-ct_cancel_order) [t(:changelog_new)]
+- [t(:ct_positon_list)](#t-ct_positon_list) [t(:changelog_new)]
+- [t(:ct_positon_close)](#t-ct_positon_close) [t(:changelog_new)]
+- [t(:ct_wallet_balance)](#t-ct_wallet_balance) [t(:changelog_new)]
+- [t(:ct_wallet_transfer)](#t-ct_wallet_transfer) [t(:changelog_new)]
+- [t(:ct_set_leverage)](#t-ct_set_leverage) [t(:changelog_new)]
 
     
 

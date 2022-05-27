@@ -1,8 +1,8 @@
 # t(:accountdata)
 t(:account_para)
 
-## t(:copy_trade_order)
-### t(:copy_trade_create_order)
+## t(:ct_order)
+### t(:ct_create_order)
 > t(:codequote_curlExample)
 
 ```console
@@ -44,7 +44,7 @@ print(session.place_active_order(
 }
 ```
 
-t(:copy_trade_create_order)
+t(:ct_create_order)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
@@ -69,7 +69,7 @@ POST
 |orderLinkId |string |t(:row_comment_orderLinkId)  |
 
 
-### t(:copy_trade_order_list)
+### t(:ct_order_list)
 > t(:codequote_curlExample)
 
 ```console
@@ -122,7 +122,7 @@ print(session.get_active_order(
 }
 ```
 
-t(:copy_trade_order_list)
+t(:ct_order_list)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
@@ -158,7 +158,7 @@ GET
 |createdTime |string |t(:row_comment_created_at)  |
 |updatedTime |string |t(:row_comment_updated_at)  |
 
-### t(:copy_trade_cancel_order)
+### t(:ct_cancel_order)
 > t(:codequote_curlExample)
 
 ```console
@@ -196,7 +196,7 @@ print(session.cancel_active_order(
 }
 ```
 
-t(:copy_trade_cancel_order)
+t(:ct_cancel_order)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
@@ -218,7 +218,7 @@ POST
 |orderLinkId |string |t(:row_comment_orderLinkId)  |
 
 
-### t(:copy_trade_close_order)
+### t(:ct_close_order)
 > t(:codequote_curlExample)
 
 ```console
@@ -256,7 +256,7 @@ print(session.cancel_all_active_orders(
 }
 ```
 
-t(:copy_trade_close_order)
+t(:ct_close_order)
 
 <aside class="notice">
 t(:account_aside_cancelAllActive)
@@ -284,7 +284,7 @@ POST
 
 
 ## t(:position)
-### t(:copy_trade_positon_list)
+### t(:ct_positon_list)
 > t(:codequote_curlExample)
 
 ```console
@@ -361,7 +361,7 @@ print(session.my_position(
 }
 ```
 
-t(:copy_trade_positon_list)
+t(:ct_positon_list)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
@@ -397,7 +397,7 @@ GET
 |updatedTime |string |t(:row_comment_updated_at)  |
 
 
-### t(:copy_trade_positon_close)
+### t(:ct_positon_close)
 > t(:codequote_curlExample)
 
 ```console
@@ -432,7 +432,7 @@ print(session.change_margin(
 }
 ```
 
-t(:copy_trade_positon_close)
+t(:ct_positon_close)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
@@ -452,7 +452,7 @@ POST
 
 
 
-### t(:copy_trade_set_leverage)
+### t(:ct_set_leverage)
 > t(:codequote_curlExample)
 
 ```console
@@ -487,7 +487,7 @@ print(session.set_leverage(
 }
 ```
 
-t(:copy_trade_set_leverage)
+t(:ct_set_leverage)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
