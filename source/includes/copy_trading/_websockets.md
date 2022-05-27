@@ -810,7 +810,7 @@ t(:websocket_query_liqrecords)
 
 
 ## t(:privatetopics)
-### t(:websocketcopytradeposition)
+### t(:websocketposition)
 > t(:codequote_subscribe)
 
 ```javascript
@@ -885,7 +885,7 @@ while True:
 |positionStatus |string |t(:row_comment_position_status)  |
 |positionSeq |number |t(:row_comment_position_seq)  |
 
-### t(:websocketcopytradeorder)
+### t(:websocketorder)
 > t(:codequote_subscribe)
 
 ```javascript
@@ -954,7 +954,7 @@ while True:
 |updateTime |string |t(:row_comment_resp_update_time)  |
 |copyTradeOrderStatus |string |t(:copytrade_field_order_status)  |
 
-### t(:websocketcopytradeexecution)
+### t(:websocketexecution)
 > t(:codequote_subscribe)
 
 ```javascript
@@ -1015,7 +1015,7 @@ while True:
 |orderQty |string |t(:row_comment_order_qty)  |
 |tradeTime |string |t(:row_comment_trade_time)  |
 
-### t(:websocketcopytradewallet)
+### t(:websocketwallet)
 > t(:codequote_subscribe)
 
 ```javascript
