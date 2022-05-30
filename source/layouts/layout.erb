@@ -221,6 +221,19 @@ under the License.
   <%= image_tag "logo.svg", class: 'logo' %>
 <% end %>
   <ul class="con">
+  <% if page_classes.end_with?("derivativesV3_index") %>
+	<% if page_classes.include?("testnet") %>
+	<li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/derivativesV3" class="selected"><%=t(:derivativesV3)%></a></li>
+	<% else %>
+	<li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/derivativesV3" class="selected"><%=t(:derivativesV3)%></a></li>
+  	<% end %>
+  <% else %>
+	<% if page_classes.include?("testnet") %>
+	<li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/derivativesV3"><%=t(:derivativesV3)%></a></li>
+	<% else %>
+	<li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/derivativesV3"><%=t(:derivativesV3)%></a></li>
+  	<% end %>
+  <% end %>
   <% if page_classes.end_with?("inverse_index") %>
 	<% if page_classes.include?("testnet") %>
 	<li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/inverse" class="selected"><%=t(:inverse_perpetual)%></a></li>
@@ -346,6 +359,15 @@ under the License.
         <i class="fa fa-caret-down"></i>
       </button>
       <div class="dropdown-content">
+        <% if page_classes.end_with?("derivativesV3_index") %>
+          <% if page_classes.include?("testnet") %>
+            <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/derivativesV3>Mainnet</a>
+            <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/derivativesV3>Testnet</a></span>
+          <% else %>
+            <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/derivativesV3>Mainnet</a></span>
+            <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/derivativesV3>Testnet</a>
+          <% end %>
+        <% end %>
         <% if page_classes.end_with?("inverse_index") %>
           <% if page_classes.include?("testnet") %>
             <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/inverse>Mainnet</a>

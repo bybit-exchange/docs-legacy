@@ -2637,7 +2637,7 @@ zh-cn:
   usdcLow24h: 24小時最低價
   usdcVolume24h: 24小時成交量
   usdcTurnover24h: 24小時成交額
-  usdcTotalVolume: 24小時成交額
+  usdcTotalVolume: 總成交量
 
   usdcTotalTurnover: 總成交額
   usdcPredictedDeliveryPrice: 預期交割價
@@ -3413,17 +3413,138 @@ zh-cn:
   spotRepaidPrincipal: 該筆還幣交易已還本金
   spotRepaidInterest: 該筆還幣交易已還利息
 
-  # Derivatives API v3
-  DerivativesV3: 衍生品v3
-  ## OrderbookV3
+#  Derivatives API v3
+  derivativesV3: 衍生品v3
+#  Market Data Endpoint
+#  Querykline_v3
+  row_comment_category_qk: 衍生品產品類型. 目前僅支持正向合約：<code>liner</code>
+#  row_comment_symbol: -> row_comment_symbol 合約類型
+#  row_comment_interval: K線時間粒度. 枚舉值：1 3 5 15 30 60 120 240 360 720 "D" "M" "W"
+#  row_comment_start: -> row_comment_startTime_ms 開始時間戳（單位毫秒）
+#  row_comment_end: -> row_comment_endTime_ms 結束時間戳（單位毫秒）
+#  row_comment_limit: -> row_comment_limit_200 每頁數量，最大200. 默認每頁200條
+  row_comment_resp_start_ms_v3: 開盤時間. 返回數據為毫秒
+#  row_comment_resp_open: -> row_comment_open 開始價格
+#  row_comment_resp_high: -> row_comment_high 最高價格
+#  row_comment_resp_low: -> row_comment_low 最低價格
+  row_comment_resp_close_v3: 結束價格（當前K線未結束的為最新價格）
+  row_comment_resp_volume_qk: 交易量. 數值為合約張數
+#  row_comment_resp_turnover: -> row_comment_resp_turnover 成交金額. 數值為計價貨幣的數量
+
+
+  ## Orderbook_v3
   market_para_orderbook_v3: 獲取Bybit當前Orderbook信息. 每邊的深度為25. v3版本新增500档位的OrderBook数据.
-  ## 參數註釋
-  row_comment_category: 衍生品產品類型，正向合約：linear；期權：option
-  row_comment_symbol_v3: 衍生品產品類型
-  row_comment_limit_v3: 默認25；可選值[25，500]
-  row_resp_comment_price: 委託價格
-  row_resp_comment_volume: 數量
-  row_resp_comment_bids: 買方，排序按照價格從小到大
-  row_resp_comment_asks: 賣方，排序按照價格從小到大
-  row_resp_comment_updateId: 表示數據連續性的id
-  row_resp_comment_timestamp: 時間戳，精度毫秒
+  row_comment_category: 衍生品產品類型
+  row_comment_symbol_v3: 衍生品名稱
+  row_comment_limit_25_500: 默認25. 可選值[25, 500]
+#  row_comment_resp_price: -> row_comment_resp_price, 委託價格
+  row_comment_resp_volume_ob: 數量
+  row_comment_resp_bids: 買方，排序按照價格從小到大
+  row_comment_resp_asks: 賣方，排序按照價格從小到大
+  row_comment_resp_updateId: 表示數據連續性的id
+  row_comment_resp_timestamp: 時間戳，精度毫秒
+
+#  LatestSymbolInfo_v3
+  latestsymbolinfo_v3: 所有產品最新行情資訊
+  market_para_symbol_v3: 所有衍生品產品最新行情資訊
+  row_comment_symbol_with_option: 合約類型. 當<code>category是<code>option</code>時, <code>symbol</code>必傳.
+  resp_field_option_list:  當入參<code>category</code>是<code>option</code>，返回結構如下：
+#  usdcAskIv: -> usdcAskIv 買價iv
+#  deliveryTime: -> deliveryTime, 響應中目前無該返回值
+#  row_comment_resp_price_24h_pcnt: -> row_comment_resp_price_24h_pcnt 市價相對24h變化百分比
+#  row_comment_resp_next_funding_time: -> row_comment_resp_next_funding_time 下次結算資金費用時間
+  row_comment_resp_predictedDeliveryPrice: 預期交割價. 僅交割合約有效category為期權時, 顯示期權的預估交割價格
+#  row_comment_resp_countdown_hour: -> row_comment_resp_countdown_hour 結算資金費用剩余時間, 響應中目前無該返回值
+#  row_comment_resp_index_price: -> row_comment_resp_index_price 指數價格
+#  row_comment_resp_prev_price_24h: -> row_comment_resp_prev_price_24h 24小時前的整點市價
+#  row_comment_resp_open_interest: -> row_comment_resp_open_interest 未平倉合約數量
+  row_comment_resp_openInterestValue: 未平倉合約價值
+#  usdcUnderlyingPrice: -> usdcUnderlyingPrice 底層資產
+#  row_comment_resp_volume_24h: -> row_comment_resp_volume_24h 最近 24 小時成交量
+#  row_comment_symbol: -> row_comment_symbol 合約類型
+#  row_comment_resp_last_price: 最新成交價
+#  vega: vega
+#  usdcTotalVolume: 總成交量
+#  row_comment_resp_bid_price: 第一筆掛單買入價
+#  usdcTotalTurnover: 總成交額
+#  usdcTurnover24h: 24小時成交額
+#  row_comment_category: 衍生品產品類型
+#  row_comment_resp_ask_price: 第一筆掛單賣出價
+#  row_comment_funding_rate: 資金費率
+#  usdcBidSize: 出價數量
+#  usdcBidIv: 出價對應iv
+#  row_comment_resp_high_price_24h: 最近 24 小時最高價
+#  delta: delta
+#  theta: theta
+#  usdcAskSize: 買價數量
+#  row_comment_resp_price_1h_pcnt: 市價相對1小時前變化百分比
+#  row_comment_resp_prev_price_1h: 1小時前的整點市價
+#  row_comment_resp_mark_price: 標記價格
+#  gamma: gamma
+  row_comment_resp_deliveryFeeRate: 交割費率. 僅交割合約有效category為期權時, 顯示期權的交割費率.
+#  row_comment_resp_low_price_24h: 最近 24 小時最低價
+#  usdcMarkPriceIv: 標記價iv
+#  row_comment_predicted_funding_rate: 預測資金費率
+
+# InstrumentsInfo(querySymbol)
+#  instrumentsinfo: 查詢產品交易規格參數
+  market_para_instrumentsInfo: 獲取可交易的衍生品信息列表
+  resp_field_option_list_instruinfo: 當入參<code>category</code>是<code>option</code>，返回結構如下：
+  row_comment_status: 合約狀態
+#  direction: 方向，向前/後翻頁, prev向前， next 向後
+#  row_comment_limit_500_1000: 返回數據最大500條. 默認返回100條
+#  cursor: 透傳數據
+  row_comment_resp_contractType: 合約類型
+  row_comment_resp_baseCoin: 交易貨幣幣種. 如BTC-USDT中的BTC. 僅適用於幣幣.
+  row_comment_resp_quoteCoin: 計價貨幣幣種. 如BTC-USDT中的USDT. 僅適用於幣幣.
+  row_comment_resp_settleCoin: 盈虧結算和保證金幣種. 如BTC僅適用於交割/永續/期權
+  row_comment_resp_optionsType: 期權類型. 枚舉值<code>Call</code>/<code>Put</code>
+  row_comment_resp_launchTime: 上線時間
+  row_comment_resp_deliveryTime: 到期日/交割/行權時間. 永續合約返回：perpetual
+#  deliveryFeeRate: 交割費率
+#  row_response_comment_price_scale: 價格範圍（可以提交價格的小數位數，儘管最終價格可能會四捨五入以符合 <code>價格最小增加或減少數量</code>）
+#  row_response_comment_min_leverage: 最小杠桿數
+#  row_response_comment_public_max_leverage: 最大杠桿數 (假設在最低風險限額設置時候的最大槓桿數)
+#  row_response_comment_leverage_step: 杠桿最小增加或減少數量
+#  row_response_comment_min_price: 最小價格
+#  row_response_comment_max_price: 最大價格
+#  row_response_comment_tick_size: 價格最小增加或減少數量
+  row_comment_resp_maxOrderQty: 單筆訂單最大下單數量
+  row_comment_resp_minOrderQty: 單筆訂單最小下單數量
+#  row_response_comment_qty_step: 合約數量最小單位
+  row_comment_resp_imBaseValue: 起始保證金基礎值
+  row_comment_resp_imIncrementValue: 起始保證金遞增值
+  row_comment_resp_mmBaseValue: 維持保證金基礎值
+  row_comment_resp_mmIncrementValue: 維持保證金遞增值
+  row_comment_resp_riskLimitBaseValue: 階梯保證金基礎值
+  row_comment_resp_riskLimitIncrementValue: 階梯保證金遞增值
+  row_comment_resp_positionLimitValue: 最多可開倉的數量. 僅適用於正向合約
+
+#  QueryMarkPricekline_v3
+  markpricekline_v3: 查詢標記價格K線數據
+#  linear_query_mark_price_kline: 查詢標記價格K線
+
+#  QueryIndexPricekline_v3
+
+# QueryHistoricFundingRate_v3
+  queryHistoryFundingRate: 查詢歷史資金費率
+  market_para_histFundRate: |
+    UTC時間每天<b>0點</b>、<b>8點</b>、<b>16點</b>產生一個資金費率。假設當前時間是UTC12點，則返回的是上一次結算即UTC<b>8點</b>產生的資金費率。
+
+# QueryRiskLimit_v3
+  riskLimitList: 查詢風險限額表
+  market_para_riskLimitList: 查詢風險限額表
+
+# QueryOptionDeliveryPrice_v3
+  optionDeliveryPrice: 查詢期權交割價格
+  market_para_optionDeliveryPrice: 查詢期權交割價格
+  row_comment_category_odp: 衍生品產品類型. 目前僅支持：<code>option</code>
+
+
+
+
+
+
+
+
+
