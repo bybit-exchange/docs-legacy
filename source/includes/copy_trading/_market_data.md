@@ -1,7 +1,7 @@
 # t(:marketdata)
 t(:market_para_auth)
 
-### t(:copy_trade_symbol_list)
+### t(:ct_symbol_list)
 > t(:codequote_curlExample)
 
 ```console
@@ -57,7 +57,7 @@ print(session.symbol_list())
 }
 ```
 
-t(:copy_trade_symbol_list)
+t(:ct_symbol_list)
 
 <p class="fake_header">t(:httprequest)</p>
 GET

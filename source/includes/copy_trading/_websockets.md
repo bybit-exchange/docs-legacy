@@ -810,7 +810,7 @@ t(:websocket_query_liqrecords)
 
 
 ## t(:privatetopics)
-### t(:websocketcopytradeposition)
+### t(:websocketposition)
 > t(:codequote_subscribe)
 
 ```javascript
@@ -867,7 +867,7 @@ while True:
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
-|positionIdx |string |t(:copytrade_field_position_idx)  |
+|positionIdx |string |t(:copy_trade_row_comment_position_idx)  |
 |positionValue |string |t(:row_comment_position_value)  |
 |riskId |string |t(:row_comment_riskId)  |
 |leverage |string |t(:copytrade_field_leverage)  |
@@ -885,7 +885,7 @@ while True:
 |positionStatus |string |t(:row_comment_position_status)  |
 |positionSeq |number |t(:row_comment_position_seq)  |
 
-### t(:websocketcopytradeorder)
+### t(:websocketorder)
 > t(:codequote_subscribe)
 
 ```javascript
@@ -945,7 +945,7 @@ while True:
 |price |string |t(:row_comment_resp_price) |
 |qty |string |t(:row_comment_exec_qty)  |
 |side |string |t(:row_comment_side)  |
-|positionIdx |string |t(:copytrade_field_position_idx)  |
+|positionIdx |string |t(:copy_trade_row_comment_position_idx)  |
 |cumExecFee |string |t(:linear_resp_field_cum_exec_fee)  |
 |cumExecValue |string |t(:linear_resp_field_cum_exec_value)  |
 |lastExecPrice |string |t(:row_comment_last_exec_price)  |
@@ -954,7 +954,7 @@ while True:
 |updateTime |string |t(:row_comment_resp_update_time)  |
 |copyTradeOrderStatus |string |t(:copytrade_field_order_status)  |
 
-### t(:websocketcopytradeexecution)
+### t(:websocketexecution)
 > t(:codequote_subscribe)
 
 ```javascript
@@ -1015,7 +1015,7 @@ while True:
 |orderQty |string |t(:row_comment_order_qty)  |
 |tradeTime |string |t(:row_comment_trade_time)  |
 
-### t(:websocketcopytradewallet)
+### t(:websocketwallet)
 > t(:codequote_subscribe)
 
 ```javascript
