@@ -90,9 +90,9 @@ ws.send('{"op":"ping"}');
 
 ```javascript
 {
-    "success": true, // Whether ping is successful
+    "success": true,
     "ret_msg": "pong",
-    "conn_id": "036e5d21-804c-4447-a92d-b65a44d00700",// current connection id
+    "conn_id": "036e5d21-804c-4447-a92d-b65a44d00700"
     "request": {
         "op": "ping",
         "args": null
@@ -157,10 +157,10 @@ t(:websocket_para_intervals)
 
 ```javascript
 {
-   "success": true, // Whether subscription is successful
-   "ret_msg": "",   // Successful subscription: "", otherwise it shows error message
-   "conn_id":"e0e10eee-4eff-4d21-881e-a0c55c25e2da",// current connection id
-   "request": {     // Request to your subscription
+   "success": true,
+   "ret_msg": "",
+   "conn_id":"e0e10eee-4eff-4d21-881e-a0c55c25e2da"
+   "request": {
        "op": "subscribe",
        "args": [
            "kline.BTCUSDT.1m"
@@ -286,7 +286,7 @@ t(:websocket_para_orderbook252)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| price |string |t(:row_comment_resp_price) |
+| t(:row_parameter_price) |string |t(:row_comment_resp_price) |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 |size |number |t(:row_comment_position_size)  |
@@ -390,7 +390,7 @@ t(:websocket_para_orderbook200)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| price |string |t(:row_comment_resp_price) |
+| t(:row_parameter_price) |string |t(:row_comment_resp_price) |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 |size |number |t(:row_comment_position_size)  |
@@ -444,7 +444,7 @@ t(:websocket_para_trade)
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
-|tick_direction |string |t(:row_comment_position_tick_direction)  |
+|t(:row_parameter_tick_direction) |string |t(:row_comment_position_tick_direction)  |
 |t(:row_parameter_price) |number |t(:row_response_comment_price)  |
 |size |number |t(:row_comment_position_size)  |
 |timestamp |string |t(:row_response_comment_time)  |
@@ -583,7 +583,7 @@ t(:websocket_aside_instrumentInfo2)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|symbol|string |t(:row_comment_symbol)    |
+|t(:row_parameter_symbol) |string |t(:row_comment_symbol)    |
 |last_price_e4 |integer |t(:row_comment_resp_last_price_e4)  |
 |t(:row_parameter_tick_direction) |string |t(:row_comment_position_tick_direction)  |
 |prev_price_24h_e4 |integer |t(:row_comment_resp_prev_price_24h_e4)  |
@@ -731,7 +731,7 @@ t(:websocket_query_liqrecords)
 |:----- |:-----|----- |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
 |t(:row_parameter_side)|string |t(:row_response_liq_record_side)    |
-|price|string |t(:row_comment_bust_price)    |
+|t(:row_parameter_price) |string |t(:row_comment_bust_price)    |
 |t(:row_parameter_quantity)|string |t(:row_response_comment_liq_execqty)    |
 |time|number |t(:row_response_comment_nill_time)    |
 
@@ -825,7 +825,7 @@ t(:account_para_myPosition)
 |cum_realised_pnl |string |t(:row_comment_cum_realised_pnl)  |
 |position_status |string |t(:row_comment_position_status)  |
 |position_seq |number |t(:row_comment_position_seq)  |
-|tp_sl_mode |string |t(:row_comment_tp_sl_mode)  |
+|t(:row_parameter_tp_sl_mode) |string |t(:row_comment_tp_sl_mode)  |
 |position_idx |number |t(:row_comment_position_idx)  |
 |mode |string |t(:row_comment_mode)  |
 |isolated |bool |t(:row_comment_isolated)  |
@@ -910,6 +910,8 @@ t(:websocket_execution_aside)
 |t(:row_parameter_exec_type) |string |t(:exec_type_pnl)  |
 |exec_qty |number |t(:row_comment_exec_qty)  |
 |exec_fee |string |t(:row_comment_exec_fee)    |
+|leaves_qty |number |t(:row_comment_leaves_qty) |
+|is_maker |boolean |t(:row_comment_is_maker) |
 |trade_time |string |t(:row_comment_trade_time)  |
 
 
@@ -1003,7 +1005,7 @@ while True:
 |reduce_only | bool | t(:row_comment_reduceOnly)|
 |close_on_trigger | bool | t(:row_comment_closeOnTrigger)|
 |position_idx |number |t(:row_comment_position_idx)  |
-|create_time |string |t(:row_comment_timestamp)  |
+|create_time |string |t(:websocketorder_row_comment_timestamp)  |
 |update_time |string |t(:row_comment_resp_update_time)  |
 
 ### t(:websocketstoporder)
@@ -1045,7 +1047,7 @@ while True:
             "price": "8584.5",
             "qty": 1,
             "time_in_force": "ImmediateOrCancel",
-            "order_status": "Untriggered", //t(:enum_stop_order_status_link)
+            "order_status": "Untriggered",
             "stop_order_type": "Stop",
             "trigger_by": "LastPrice",
             "trigger_price": "8584.5",
@@ -1065,16 +1067,16 @@ while True:
 |stop_order_id |string |t(:row_comment_stopOrderId) |
 |order_link_id |string |t(:row_comment_orderLinkId)  |
 |user_id |number |t(:row_comment_userID)  |
-|t(:row_parameter_symbol) |string |t(:enum_symbol_link)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_symbol)  |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
-|t(:row_parameter_order_type) |string |t(:enum_order_type_link)  |
-|price |string |t(:row_response_comment_price)    |
+|t(:row_parameter_order_type) |string |t(:row_comment_order_type) |
+|t(:row_parameter_price) |string |t(:row_response_comment_price)    |
 |qty |number |t(:row_response_comment_qty)  |
 |t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
 |t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
 |t(:row_parameter_stop_order_type) |string |t(:row_comment_stopOrderType)  |
 |trigger_by | string |t(:row_comment_triggerBy) |
-|trigger_price | string | t(:stop_order_trigger_price)|
+|t(:row_parameter_trigger_price) | string | t(:stop_order_trigger_price)|
 |reduce_only | bool | t(:row_comment_reduceOnly)|
 |close_on_trigger | bool | t(:row_comment_closeOnTrigger)|
 |position_idx |number |t(:row_comment_position_idx)  |

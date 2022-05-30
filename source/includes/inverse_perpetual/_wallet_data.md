@@ -32,30 +32,19 @@ print(session.get_wallet_balance(coin="BTC"))
     "ext_info": "",
     "result": {
         "BTC": {
-            "equity": 1002,                         //equity = wallet_balance + unrealised_pnl
-            "available_balance": 999.99987471,      //available_balance
-            //In Isolated Margin Mode:
-            // available_balance = wallet_balance - (position_margin + occ_closing_fee + occ_funding_fee + order_margin)
-            //In Cross Margin Mode:
-              //if unrealised_pnl > 0:
-              //available_balance = wallet_balance - (position_margin + occ_closing_fee + occ_funding_fee + order_margin)；
-              //if unrealised_pnl < 0:
-              //available_balance = wallet_balance - (position_margin + occ_closing_fee + occ_funding_fee + order_margin) + unrealised_pnl
-            "used_margin": 0.00012529,              //used_margin = wallet_balance - available_balance
-            "order_margin": 0.00012529,             //Used margin by order
-            "position_margin": 0,                   //position margin
-            "occ_closing_fee": 0,                   //position closing fee
-            "occ_funding_fee": 0,                   //funding fee
-            "wallet_balance": 1000,                 //wallet balance. When in Cross Margin mod, the number minus your unclosed loss is your real wallet balance.
-            "realised_pnl": 0,                      //daily realized profit and loss
-            "unrealised_pnl": 2,                    //unrealised profit and loss
-                //when side is sell:
-                // unrealised_pnl = size * (1.0 / mark_price -  1.0 / entry_price）
-                //when side is buy:
-                // unrealised_pnl = size * (1.0 / entry_price -  1.0 / mark_price）
-            "cum_realised_pnl": 0,                  //total relised profit and loss
-            "given_cash": 0,                        //given_cash
-            "service_cash": 0                       //service_cash
+            "equity": 1002,
+            "available_balance": 999.99987471,
+            "used_margin": 0.00012529,
+            "order_margin": 0.00012529,
+            "position_margin": 0,
+            "occ_closing_fee": 0,
+            "occ_funding_fee": 0,
+            "wallet_balance": 1000,
+            "realised_pnl": 0,
+            "unrealised_pnl": 2,
+            "cum_realised_pnl": 0,
+            "given_cash": 0,
+            "service_cash": 0
         }
     },
     "time_now": "1578284274.816029",
@@ -87,7 +76,7 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |equity |number |t(:row_comment_equity)  |
-|available_balance |number |t(:row_comment_available_balance)  |
+|available_balance |number |t(:row_comment_http_available_balance)  |
 |used_margin |number |t(:row_comment_used_margin)    |
 |order_margin|number |t(:row_comment_order_margin)    |
 |position_margin |number |t(:row_comment_position_margin)  |
@@ -242,8 +231,8 @@ print(session.withdraw_records())
       "data": [{
           "id": 137,                                        
           "user_id": 1,                                     
-          "coin": "XRP",  //t(:enum_coin_link)                                    
-          "status": "Pending" //t(:enum_withdraw_status_link)
+          "coin": "XRP",
+          "status": "Pending"
           "amount": "20.00000000",
           "fee": "0.25000000",
           "address": "rH7H595XYEVTEHU2FySYsWnmfACBnZS9zM",
@@ -279,7 +268,7 @@ GET
 |<a href="#date-start_date-end_date">start_date</a> |false |string |t(:row_comment_startDate) |
 |<a href="#date-start_date-end_date">end_date</a> |false |string |t(:row_comment_endDate) |
 |<a href="#currency-currency-coin">coin</a> |false |string |t(:row_comment_currency) |
-|<a href="#withdraw-status-status">status</a> |false |string |t(:enum_withdraw_status_link) |
+|t(:row_parameter_withdraw_status) |false |string |t(:row_comment_withdrawStatus) |
 |page |false |integer |t(:row_comment_page) |
 |limit |false |integer |t(:row_comment_limit) |
 
@@ -288,7 +277,7 @@ GET
 |:----- |:-----|----- |
 |user_id |number |t(:row_comment_userID)  |
 |coin |string |t(:row_comment_coin_type)  |
-|status |string |t(:enum_withdraw_status_link)  |
+|t(:row_parameter_withdraw_status) |string |t(:row_comment_withdrawStatus)  |
 |amount |string |t(:row_comment_fund_amount)  |
 |fee |string |t(:row_comment_fee_rate)  |
 |address |string |t(:row_comment_address)  |

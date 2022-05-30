@@ -36,7 +36,8 @@ print(session.query_symbol())
             "minPricePrecision": "0.01",
             "maxTradeQuantity": "2",
             "maxTradeAmount": "200",
-            "category": 1
+            "category": 1,
+            "innovation": false
         },
         {
             "name": "ETHUSDT",
@@ -50,7 +51,8 @@ print(session.query_symbol())
             "minPricePrecision": "0.01",
             "maxTradeQuantity": "2",
             "maxTradeAmount": "200",
-            "category": 1
+            "category": 1,
+            "innovation": false
         }
     ]
 }
@@ -84,6 +86,7 @@ GET
 | maxTradeQuantity | string |t(:spotmaxTradeQuantity)|
 | maxTradeAmount | string |t(:spotmaxTradeAmount)|
 | category | int  |t(:spotCategory)|
+| innovation | boolean |t(:spotInnovation)|
 
 
 ### t(:orderbook)
@@ -134,7 +137,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|<b>true</b>|string|t(:spotSymbol)|
+|t(:row_parameter_symbol) |<b>true</b>|string|t(:spotSymbol)|
 |limit| false | integer | t(:spot_depth_limit)
 
 
@@ -194,7 +197,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|<b>true</b>|string|t(:spotSymbol)|
+|t(:row_parameter_symbol) |<b>true</b>|string|t(:spotSymbol)|
 |scale|false|int|t(:spotOrderBookMergedScale)|
 |limit| false | integer | t(:spot_depth_limit)
 
@@ -259,14 +262,14 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|<b>true</b>|string|t(:spotSymbol)|
+|t(:row_parameter_symbol) |<b>true</b>|string|t(:spotSymbol)|
 |limit| false | integer | t(:spot_trades_limit_2)
 
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| price | float | t(:spot_OrderPrice) |
+| t(:row_parameter_price) | float | t(:spot_OrderPrice) |
 | time | long | t(:spot_trade_time) |
 | qty | float | t(:spotQty) |
 | isBuyerMaker | bool | t(:spot_is_buyer_maker) |
@@ -323,7 +326,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|<b>true</b>|string|t(:spotSymbol)|
+|t(:row_parameter_symbol) |<b>true</b>|string|t(:spotSymbol)|
 | <a href="#kline-interval-interval">interval</a> |<b>true</b> | string | t(:spot_kline_interval)|
 | limit | false | integer | t(:spot_trades_limit) |
 | startTime | false | number | t(:spot_orders_start_time) |
@@ -400,7 +403,7 @@ GET
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|false|string|t(:spotSymbol)|
+|t(:row_parameter_symbol) |false|string|t(:spotSymbol)|
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -408,7 +411,7 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |time| long | t(:spot_trade_time)|
-|symbol| string | t(:spotSymbol) |
+|t(:row_parameter_symbol) | string | t(:spotSymbol) |
 |bestBidPrice|float|t(:spot_best_bid_price)|
 |bestAskPrice|float|t(:spot_best_ask_price)
 |lastPrice|float|t(:spot_last_price)|
@@ -461,14 +464,14 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|false|string|t(:spotSymbol)|
+|t(:row_parameter_symbol) |false|string|t(:spotSymbol)|
 
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| symbol | string | t(:spotSymbol) |
-| price | float | t(:spotPrice) |
+| t(:row_parameter_symbol) | string | t(:spotSymbol) |
+| t(:row_parameter_price) | float | t(:spotPrice) |
 <aside class="notice">
 t(:spotTickerPriceRemark)
 </aside>
@@ -517,7 +520,7 @@ GET
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|false|string|t(:spotSymbol)|
+|t(:row_parameter_symbol) |false|string|t(:spotSymbol)|
 <aside class="notice">
 t(:spotBookTickerRemark)
 </aside>
@@ -526,7 +529,7 @@ t(:spotBookTickerRemark)
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| symbol | string | t(:spotSymbol) |
+| t(:row_parameter_symbol) | string | t(:spotSymbol) |
 | bidPrice| float | t(:spot_best_bid_price)|
 | bidQty | float | t(:spotBidQuantity)|
 | askPrice| float | t(:spot_best_ask_price)|

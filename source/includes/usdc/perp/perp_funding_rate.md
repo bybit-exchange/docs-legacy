@@ -40,14 +40,14 @@ POST
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|<b>true</b>|string|t(:usdcSymbol)|
+|t(:row_parameter_symbol) |<b>true</b>|string|t(:usdcSymbol)|
 
 
 <p class="fake_header">t(:responseparameters)</p>
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|symbol|string|t(:usdcSymbol)|
+|t(:row_parameter_symbol) |string|t(:usdcSymbol)|
 |fundingRate|string|t(:usdcPreFundingRate)|
 |fundingRateTimestamp|number|t(:fundingRateTimestamp)|
 
@@ -97,15 +97,15 @@ POST
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|<b>true</b>|string|t(:usdcSymbol)|
+|t(:row_parameter_symbol) |<b>true</b>|string|t(:usdcSymbol)|
 
 
 <p class="fake_header">t(:responseparameters)</p>
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|symbol|string|t(:usdcSymbol)|
-|side|string|t(:side)|
+|t(:row_parameter_symbol) |string|t(:usdcSymbol)|
+|t(:row_parameter_side) |string|t(:side)|
 |size|string|t(:usdcSize)|
 |fundingRate|string|t(:usdcPreFundingRate)|
 |execFee|string|t(:execFee)|
@@ -155,7 +155,7 @@ POST
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|<b>true</b>|string|t(:usdcSymbol)|
+|t(:row_parameter_symbol) |<b>true</b>|string|t(:usdcSymbol)|
 
 
 <p class="fake_header">t(:responseparameters)</p>

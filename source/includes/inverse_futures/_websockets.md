@@ -90,9 +90,9 @@ ws.send('{"op":"ping"}');
 
 ```javascript
 {
-    "success": true, // Whether ping is successful
+    "success": true,
     "ret_msg": "pong",
-    "conn_id": "036e5d21-804c-4447-a92d-b65a44d00700",// current connection id
+    "conn_id": "036e5d21-804c-4447-a92d-b65a44d00700"
     "request": {
         "op": "ping",
         "args": null
@@ -165,10 +165,10 @@ t(:websocket_para_intervals)
 
 ```javascript
 {
-   "success": true, // Whether subscription is successful
-   "ret_msg": "",   // Successful subscription: "", otherwise it shows error message
-   "conn_id":"e0e10eee-4eff-4d21-881e-a0c55c25e2da",// current connection id
-   "request": {     // Request to your subscription
+   "success": true,
+   "ret_msg": "",
+   "conn_id":"e0e10eee-4eff-4d21-881e-a0c55c25e2da"
+   "request": {
        "op": "subscribe",
        "args": [
            "kline.BTCUSDH21.1m"
@@ -292,7 +292,7 @@ t(:websocket_para_orderbook252)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| price |string |t(:row_comment_resp_price) |
+| t(:row_parameter_price) |string |t(:row_comment_resp_price) |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 |size |number |t(:row_comment_position_size)  |
@@ -398,7 +398,7 @@ t(:websocket_para_orderbook200)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| price |string |t(:row_comment_resp_price) |
+| t(:row_parameter_price) |string |t(:row_comment_resp_price) |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 |size |number |t(:row_comment_position_size)  |
@@ -452,7 +452,7 @@ while True:
     "data": [
         {
             "timestamp": "2020-01-12T16:59:59.000Z",
-            "trade_time_ms": 1582793344685, // trade time in millisecond
+            "trade_time_ms": 1582793344685,
             "symbol": "BTCUSDH21",
             "side": "Sell",
             "size": 328,
@@ -587,10 +587,10 @@ while True:
         "symbol":"BTCUSDM21",
         "symbol_name":"BTCUSD0625",
         "symbol_year":2021,
-        "contract_type":"InverseFutures",  // t(:enum_contract_type_link)             
+        "contract_type":"InverseFutures",
         "coin":"BTC",
         "quote_symbol":"BTCUSD",
-        "mode":"MergedSingle", // Supported position mode: MergedSingle - Single side position mode  BothSide - Both side mode
+        "mode":"MergedSingle",
         "is_up_borrowable":0,
         "import_time_e9":0,
         "start_trading_time_e9":1602732600000000000,
@@ -684,7 +684,7 @@ t(:websocket_aside_instrumentInfo2)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|symbol|string |t(:row_comment_symbol)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_symbol)  |
 |last_price_e4 |integer |t(:row_comment_resp_last_price_e4)  |
 |t(:row_parameter_tick_direction) |string |t(:row_comment_position_tick_direction)  |
 |prev_price_24h_e4 |integer |t(:row_comment_resp_prev_price_24h_e4)  |
@@ -742,21 +742,21 @@ while True:
 
 ```javascript
 {
-    "topic": "klineV2.1.BTCUSDH21",                //topic name
+    "topic": "klineV2.1.BTCUSDH21",
     "data": [{
-        "start": 1572425640,                    //start time of the candle
-        "end": 1572425700,                      //end time of the candle
-        "open": 9200,                           //open price
-        "close": 9202.5,                        //close price
-        "high": 9202.5,                         //max price
-        "low": 9196,                            //min price
-        "volume": 81790,                        //volume
-        "turnover": 8.889247899999999,          //turnover
-        "confirm": False,                       //snapshot flag
+        "start": 1572425640,
+        "end": 1572425700,
+        "open": 9200,
+        "close": 9202.5,
+        "high": 9202.5,
+        "low": 9196,
+        "volume": 81790,
+        "turnover": 8.889247899999999,
+        "confirm": False,
         "cross_seq": 297503466,                 
-        "timestamp": 1572425676958323           //cross time
+        "timestamp": 1572425676958323
     }],
-    "timestamp_e6": 1572425677047994            //server time
+    "timestamp_e6": 1572425677047994
 }
 ```
 
@@ -832,37 +832,37 @@ while True:
    "action": "update",
    "data": [
        {
-           "user_id":  1,                            // user ID
-           "symbol": "BTCUSDH21",                       // the contract for this position
+           "user_id":  1,
+           "symbol": "BTCUSDH21",
            "position_idx":1,
-           "size": 11,                               // the current position amount
-           "side": "Sell",                           // side
-           "mode": 0,                                // 0- merged single mode 3- both side mode
+           "size": 11,
+           "side": "Sell",
+           "mode": 0,
            "isolated":true,
-           "position_value": "0.00159252",           // positional value
-           "entry_price": "6907.291588174717",       // entry price
-           "liq_price": "7100.234",                  // liquidation price
-           "bust_price": "7088.1234",                // bankruptcy price
-           "leverage": "1",                           // leverage
-           "order_margin":  "1",                      // order margin
-           "position_margin":  "1",                   // position margin
-           "available_balance":  "2",                 // available balance
-           "take_profit": "0",                        // take profit price           
-           "tp_trigger_by":  "LastPrice",             // take profit trigger price, eg: LastPrice, IndexPrice. Conditional order only
-           "stop_loss": "0",                          // stop loss price
-           "sl_trigger_by":  "",                     // stop loss trigger price, eg: LastPrice, IndexPrice. Conditional order only
-           "realised_pnl":  "0.10",               // realised PNL
-           "trailing_stop": "0",                  // trailing stop points
-           "trailing_active": "0",                // trailing stop trigger price
-           "wallet_balance":  "4.12",             // wallet balance
+           "position_value": "0.00159252",
+           "entry_price": "6907.291588174717",
+           "liq_price": "7100.234",
+           "bust_price": "7088.1234",
+           "leverage": "1",
+           "order_margin":  "1",
+           "position_margin":  "1",
+           "available_balance":  "2",
+           "take_profit": "0",
+           "tp_trigger_by":  "LastPrice",
+           "stop_loss": "0",
+           "sl_trigger_by":  "",
+           "realised_pnl":  "0.10",
+           "trailing_stop": "0",
+           "trailing_active": "0",
+           "wallet_balance":  "4.12",
            "risk_id":  1,                       
-           "occ_closing_fee":  "0.1",             // position closing
-           "occ_funding_fee":  "0.1",             // funding fee
-           "auto_add_margin": 0,                  // auto margin replenishment switch
-           "cum_realised_pnl":  "0.12",           // Total realized profit and loss
-           "position_status": "Normal",           // status of position (Normal: normal Liq: in the process of liquidation Adl: in the process of Auto-Deleveraging)
-                        // Auto margin replenishment enabled (0: no 1: yes)
-           "position_seq": 14                     // position version number
+           "occ_closing_fee":  "0.1",
+           "occ_funding_fee":  "0.1",
+           "auto_add_margin": 0,
+           "cum_realised_pnl":  "0.12",
+           "position_status": "Normal",
+
+           "position_seq": 14
        }
    ]
 }
@@ -965,7 +965,7 @@ while True:
             "exec_fee": "0.00000009",
             "leaves_qty": 0,
             "is_maker": false,
-            "trade_time": "2020-01-14T14:07:23.629Z" // trade time
+            "trade_time": "2020-01-14T14:07:23.629Z"
         }
     ]
 }
@@ -1084,7 +1084,7 @@ while True:
 |cum_exec_qty |number |t(:linear_resp_field_cum_exec_qty)  |
 |cum_exec_value |string |t(:linear_resp_field_cum_exec_value)  |
 |cum_exec_fee |string |t(:linear_resp_field_cum_exec_fee)  |
-|timestamp |string |t(:row_comment_timestamp)  |
+|timestamp |string |t(:websocketorder_row_comment_timestamp)  |
 |take_profit |string |t(:row_comment_take_profit)  |
 |stop_loss |string |t(:row_comment_stop_loss)  |
 |trailing_stop |string |t(:row_comment_trailing_stop)  |
@@ -1134,10 +1134,10 @@ while True:
             "time_in_force": "ImmediateOrCancel",
             "create_type": "CreateByStopOrder",
             "cancel_type": "",
-            "order_status": "Untriggered", //t(:enum_stop_order_status_link)
+            "order_status": "Untriggered",
             "stop_order_type": "Stop",
             "trigger_by": "LastPrice",
-            "trigger_price": "8584.5", //t(:stop_order_trigger_price)
+            "trigger_price": "8584.5",
             "close_on_trigger": false,
             "timestamp": "2020-01-14T14:11:22.062Z"
         }
@@ -1151,10 +1151,10 @@ while True:
 |order_id |string |t(:row_comment_order_id)  |
 |order_link_id |string |t(:row_comment_orderLinkId)  |
 |user_id |number |t(:row_comment_userID)  |
-|t(:row_parameter_symbol) |string |t(:enum_symbol_link)  |
-|t(:row_parameter_order_type) |string |t(:enum_order_type_link)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_symbol)  |
+|t(:row_parameter_order_type) |string |t(:row_comment_order_type) |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
-|price |string |t(:row_response_comment_price)    |
+|t(:row_parameter_price) |string |t(:row_response_comment_price)    |
 |qty |number |t(:row_response_comment_qty)  |
 |t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
 |create_type |string |t(:row_comment_create_type)  |
@@ -1162,6 +1162,6 @@ while True:
 |t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
 |t(:row_parameter_stop_order_type) |string |t(:row_comment_stopOrderType)  |
 |trigger_by | string |t(:row_comment_triggerBy) |
-|trigger_price | string | t(:stop_order_trigger_price)|
+|t(:row_parameter_trigger_price) | string | t(:stop_order_trigger_price)|
 |close_on_trigger | bool | t(:row_comment_closeOnTrigger)|
 |timestamp |string |t(:row_response_comment_time)  |

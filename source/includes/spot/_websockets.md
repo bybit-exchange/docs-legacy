@@ -822,7 +822,7 @@ t(:spot_public_websocket_frequency_250_delay_300)
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| symbol | string | t(:spot_symbol) |
+| t(:row_parameter_symbol) | string | t(:spot_symbol) |
 | symbolName | string | t(:spot_symbol) |
 | binary | string | t(:spot_binary) |
 | t | number | t(:spot_timestamp2) |
@@ -900,7 +900,7 @@ t(:spot_public_websocket_frequency_near_realtime)
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| symbol | string | t(:spot_symbol) |
+| t(:row_parameter_symbol) | string | t(:spot_symbol) |
 | binary | string | t(:spot_binary) |
 | klineType | string | t(:spot_kline_type) |
 | symbolName | string | t(:spot_symbol) |
@@ -977,7 +977,7 @@ t(:spot_public_websocket_frequency_near_realtime)
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| symbol | string | t(:spot_symbol) |
+| t(:row_parameter_symbol) | string | t(:spot_symbol) |
 | binary | string | t(:spot_binary) |
 | symbolName | string | t(:spot_symbol) |
 | v | string | t(:spot_transactId) |
@@ -1050,7 +1050,7 @@ t(:spot_public_websocket_frequency_250_delay_300)
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| symbol | string | t(:spot_symbol) |
+| t(:row_parameter_symbol) | string | t(:spot_symbol) |
 | binary | string | t(:spot_binary) |
 | symbolName | string | t(:spot_symbol) |
 | bidPrice | string | t(:spot_buy_price) |
@@ -1127,7 +1127,7 @@ t(:spot_public_websocket_frequency_near_realtime)
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| symbol | string | t(:spot_symbol) |
+| t(:row_parameter_symbol) | string | t(:spot_symbol) |
 | binary | string | t(:spot_binary) |
 | symbolName | string | t(:spot_symbol) |
 | t | number | t(:spot_time) |
@@ -1280,7 +1280,7 @@ t(:spot_public_websocket_frequency_realtime)
 | A | string | t(:spot_match_account_id) |
 | C | boolean | t(:spot_is_close) |
 | v | string | t(:spot_leverage) |
-
+| d | string | t(:spot_liquidation_type) |
 
 ### t(:ticketInfo)
 > t(:spot_private_topics_auth_sub)

@@ -99,13 +99,13 @@ POST
 |:----- |:-----|----- |
 | user_id |number |t(:row_comment_userID) |
 | order_id |string |t(:row_comment_order_id) |
-|symbol|string |t(:row_comment_symbol)    |
-|side |string |t(:row_comment_side)  |
-|order_type |string |t(:row_comment_order_type)  |
-|price |number |t(:row_comment_resp_price)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_symbol)    |
+|t(:row_parameter_symbol) |string |t(:row_comment_side)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_order_type)  |
+|t(:row_parameter_symbol) |number |t(:row_comment_resp_price)  |
 |qty |number |t(:row_response_comment_qty)  |
-|time_in_force |string |t(:row_comment_timeInForce)  |
-|order_status |string |t(:row_comment_orderStatus)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_timeInForce)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_orderStatus)  |
 |last_exec_time |string |t(:row_comment_last_exec_time)  |
 |last_exec_price |string |t(:row_comment_last_exec_price)  |
 |leaves_qty |number |t(:row_comment_leaves_qty)  |
@@ -206,13 +206,13 @@ GET
 |:----- |:-----|----- |
 |user_id |integer |t(:row_comment_userID) |
 |position_idx |integer |t(:row_comment_position_idx)  |
-|symbol |string |t(:row_comment_symbol) |
-|side |string |t(:row_comment_side) |
-|order_type |string |t(:row_comment_order_type) |
+|t(:row_parameter_symbol) |string |t(:row_comment_symbol) |
+|t(:row_parameter_symbol) |string |t(:row_comment_side) |
+|t(:row_parameter_symbol) |string |t(:row_comment_order_type) |
 |price  |string |t(:row_comment_resp_price) |
 |qty  |string |t(:row_response_comment_qty) |
-|time_in_force |string |t(:row_comment_timeInForce)  |
-|order_status |string |t(:row_comment_orderStatus)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_timeInForce)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_orderStatus)  |
 |leaves_qty |string |t(:row_comment_leaves_qty) |
 |leaves_value |string |t(:row_comment_leaves_value) |
 |cum_exec_qty |string |t(:linear_resp_field_cum_exec_qty)  |
@@ -311,13 +311,13 @@ POST
 |:----- |:-----|----- |
 |user_id |number |t(:row_comment_userID)  |
 |order_id |string |t(:account_row_comment_orderId) |
-|symbol|string |t(:row_comment_symbol)    |
-|side |string |t(:row_comment_side)  |
-|order_type |string |t(:row_comment_order_type)  |
-|price |number |t(:row_comment_resp_price)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_symbol)    |
+|t(:row_parameter_symbol) |string |t(:row_comment_side)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_order_type)  |
+|t(:row_parameter_symbol) |number |t(:row_comment_resp_price)  |
 |qty |number |t(:row_response_comment_qty)  |
 |t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce) |
-|order_status |string |t(:row_comment_orderStatus)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_orderStatus)  |
 |last_exec_time |string |t(:row_comment_last_exec_time)  |
 |last_exec_price |string |t(:row_comment_last_exec_price)  |
 |leaves_qty |number |t(:row_comment_leaves_qty)  |
@@ -378,7 +378,7 @@ print(session.cancel_all_active_orders(
             "leaves_value": "0",                                
             "created_at": "2019-11-30T10:38:53.564428Z",        
             "updated_at": "2019-11-30T10:38:59.102589Z",        
-            "cross_status": "PendingCancel",  // `PendingCancel` means the matching engine received the cancellation but there is no guarantee that the cancellation will be successful.
+            "cross_status": "PendingCancel",
             "cross_seq": 387734027                              
         }
     ],
@@ -411,15 +411,15 @@ POST
 |:----- |:-----|----- |
 |clOrdID |string |t(:row_comment_clOrdID)  |
 |user_id |number |t(:row_comment_userID)  |
-|symbol|string |t(:row_comment_symbol)    |
-|side |string |t(:row_comment_side)  |
-|order_type |string |t(:row_comment_order_type)  |
-|price |number |t(:row_comment_resp_price)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_symbol)    |
+|t(:row_parameter_symbol) |string |t(:row_comment_side)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_order_type)  |
+|t(:row_parameter_symbol) |number |t(:row_comment_resp_price)  |
 |qty |number |t(:row_response_comment_qty)  |
 |t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce) |
 |create_type |string |t(:row_comment_create_type)  |
 |cancel_type |string |t(:row_comment_cancel_type)  |
-|order_status |string |t(:row_comment_orderStatus)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_orderStatus)  |
 |leaves_qty |number |t(:row_comment_leaves_qty)  |
 |leaves_value |number |t(:row_comment_leaves_value)  |
 |created_at |string |t(:row_comment_created_at)  |
@@ -456,14 +456,14 @@ print(session.replace_active_order(
 
 ```javascript
 {
-    "ret_code": 0,    //Error code,
-    "ret_msg": "ok",  //Error message,
+    "ret_code": 0,
+    "ret_msg": "ok",
     "ext_code": "",
     "result": {
         "order_id": "efa44157-c355-4a98-b6d6-1d846a936b93"
     },
-    "time_now": "1539778407.210858",    // UTC timestamp
-    "rate_limit_status": 99, // The remaining number of accesses in one minute
+    "time_now": "1539778407.210858",
+    "rate_limit_status": 99,
     "rate_limit_reset_ms": 1580885703683,
     "rate_limit": 100             
 }
@@ -654,13 +654,13 @@ GET
 |:----- |:-----|----- |
 |user_id |number |t(:row_comment_userID)  |
 |position_idx |integer |t(:row_comment_position_idx)  |
-|symbol|string |t(:row_comment_symbol)    |
-|side |string |t(:row_comment_side)  |
-|order_type |string |t(:row_comment_order_type)  |
-|price |number |t(:row_comment_resp_price)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_symbol)    |
+|t(:row_parameter_symbol) |string |t(:row_comment_side)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_order_type)  |
+|t(:row_parameter_symbol) |number |t(:row_comment_resp_price)  |
 |qty |number |t(:row_response_comment_qty)  |
-|time_in_force |string |t(:row_comment_timeInForce)  |
-|order_status |string |t(:row_comment_orderStatus)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_timeInForce)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_orderStatus)  |
 |ext_fields |json |t(:row_comment_ext_fields)  |
 |leaves_qty |number |t(:row_comment_leaves_qty)  |
 |leaves_value |number |t(:row_comment_leaves_value)  |
@@ -865,7 +865,7 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
-|t(:row_parameter_stop_order) |false |string |t(:account_row_comment_stopOrderStatus) |
+|t(:row_parameter_order_status) |false |string |t(:account_row_comment_stopOrderStatus) |
 |direction |false |string |t(:row_comment_cursor_direction) |
 |limit |false |integer |t(:row_comment_limit) |
 |cursor |false |string |t(:row_comment_cursor) |
@@ -875,7 +875,7 @@ GET
 |:----- |:-----|----- |
 |user_id |integer |t(:row_comment_userID)  |
 |position_idx |integer |t(:row_comment_position_idx)  |
-|t(:row_parameter_stop_order)|string |t(:row_comment_stopOrderStatus)    |
+|t(:row_parameter_order_status)|string |t(:row_comment_stopOrderStatus)    |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 |t(:row_parameter_order_type) |string |t(:row_comment_orderType)  |
@@ -1717,7 +1717,7 @@ POST
 |created_at |string |t(:row_comment_created_at)  |
 |updated_at |string |t(:row_comment_updated_at)  |
 |trailing_active |string |t(:row_comment_trailing_active)  |
-|sl_trigger_by |string |t(:row_comment_sl_trigger_by)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_sl_trigger_by)  |
 
 
 
@@ -2003,29 +2003,29 @@ print(session.user_trade_records(
     "ext_code": "",
     "ext_info": "",
     "result": {
-        "order_id": "t(:comment_abandoned)", // t(:comment_abandoned)
+        "order_id": "t(:comment_abandoned)",
         "trade_list": [
             {
-                "closed_size": 0, // t(:row_comment_closed_size)
+                "closed_size": 0,
                 "cross_seq": 277136382,
                 "exec_fee": "0.0000001",
                 "exec_id": "256e5ef8-abfe-5772-971b-f944e15e0d68",
                 "exec_price": "8178.5",
                 "exec_qty": 1,
-                "exec_time": "1571676941.70682",    //t(:comment_abandoned)
-                "exec_type": "Trade", //t(:enum_exec_type_link)
+                "exec_time": "1571676941.70682",
+                "exec_type": "Trade",
                 "exec_value": "0.00012227",
                 "fee_rate": "0.00075",
-                "last_liquidity_ind": "RemovedLiquidity", //t(:enum_Liquidity_type_link)
+                "last_liquidity_ind": "RemovedLiquidity",
                 "leaves_qty": 0,
                 "nth_fill": 2,
                 "order_id": "7ad50cb1-9ad0-4f74-804b-d82a516e1029",
                 "order_link_id": "",
                 "order_price": "8178",
                 "order_qty": 1,
-                "order_type": "Market", //t(:enum_order_type_link)
-                "side": "Buy", //t(:enum_side_link)
-                "symbol": "BTCUSDM21", //t(:enum_symbol_link)
+                "order_type": "Market",
+                "side": "Buy",
+                "symbol": "BTCUSDM21",
                 "user_id": 1,
                 "trade_time_ms": 1577480599000
             }
@@ -2068,19 +2068,19 @@ GET
 |exec_id |string |t(:row_comment_exec_id)  |
 |exec_price |number |t(:row_comment_exec_price)    |
 |exec_qty |number |t(:row_comment_exec_qty)  |
-|t(:row_parameter_exec_type) |string |t(:enum_exec_type_link)  |
+|t(:row_parameter_exec_type) |string |t(:row_comment_exec_type) |
 |exec_value |string |t(:row_comment_exec_value)  |
 |fee_rate |string |t(:row_comment_fee_rate)  |
-|last_liquidity_ind |string |t(:enum_Liquidity_type_link)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_exec_type) |
 |leaves_qty |number |t(:row_comment_leaves_qty)  |
 |nth_fill |number |t(:row_comment_nth_fill)  |
 |order_id |string |t(:row_comment_order_id)  |
 |order_link_id |string |t(:row_comment_orderLinkId)  |
 |order_price |string |t(:row_comment_order_price)  |
 |order_qty |string |t(:row_comment_order_qty)  |
-|t(:row_parameter_order_type) |string |t(:enum_order_type_link)  |
+|t(:row_parameter_order_type) |string |t(:row_comment_exec_type) |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
-|t(:row_parameter_symbol) |string |t(:enum_symbol_link)  |
+|t(:row_parameter_symbol) |string |t(:row_comment_symbol)  |
 |user_id |number |t(:row_comment_user_id)  |
 |trade_time_ms |number |t(:row_comment_trade_time)  |
 
@@ -2171,12 +2171,12 @@ GET
 |id |number |t(:row_comment_position_id)  |
 |user_id |number |t(:row_comment_userID)  |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
-|order_id |string |t(:row_comment_order_id) |
+|order_id |string |t(:row_response_closedPnlOrderId) |
 |t(:row_parameter_side) |string |t(:row_response_closedPnlSide)  |
 |t(:row_parameter_quantity) |number |t(:row_response_comment_qty)  |
 |order_price |number |t(:row_comment_order_price)  |
 |t(:row_parameter_order_type) |string |t(:row_comment_orderType)  |
-|t(:row_parameter_exec_type) |string |t(:enum_exec_type_link)  |
+|t(:row_parameter_exec_type) |string |t(:row_comment_exec_type) |
 |closed_size |number |t(:row_comment_closed_size)  |
 |cum_entry_value |number |t(:linear_resp_field_cum_entry_value)    |
 |avg_entry_price |number |t(:linear_resp_field_avg_entry_price)    |

@@ -174,8 +174,8 @@ t(:usdc_websocket_para_orderbook)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| price |string |t(:row_comment_resp_price) |
-|side |string |t(:row_comment_side)  |
+| t(:row_parameter_price) |string |t(:row_comment_resp_price) |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
 |size |number |t(:row_comment_position_size)  |
 
 
@@ -251,8 +251,8 @@ t(:usdcCommonDesc)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| price |string |t(:row_comment_resp_price) |
-|side |string |t(:row_comment_side)  |
+| t(:row_parameter_price) |string |t(:row_comment_resp_price) |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
 |size |number |t(:row_comment_position_size)  |
 
 
@@ -299,10 +299,10 @@ t(:usdc_current_24_total)
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 | tradeTime |string |t(:tradeTime) |
-| symbol |string |t(:usdcSymbol) |
-| side |string |t(:websocketTradeSide) |
+| t(:row_parameter_symbol) |string |t(:usdcSymbol) |
+| t(:row_parameter_side) |string |t(:websocketTradeSide) |
 | size |string |t(:row_comment_position_size) |
-| price |string |t(:row_comment_exec_price) |
+| t(:row_parameter_price) |string |t(:row_comment_exec_price) |
 | tradeId |string | t(:tradeId) |
 
 
@@ -366,7 +366,7 @@ t(:usdcLastestSymbolInfo)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| symbol |string |t(:usdcSymbol) |
+| t(:row_parameter_symbol) |string |t(:usdcSymbol) |
 | bidPrice |string |t(:bidPrice) |
 | bidIv |string |t(:bidIv) |
 | bidSize |string |t(:bidSize) |
@@ -512,8 +512,8 @@ t(:usdcCommonDesc)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| symbol |string |t(:usdcSymbol) |
-| side |string |t(:side) |
+| t(:row_parameter_symbol) |string |t(:usdcSymbol) |
+| t(:row_parameter_side) |string |t(:side) |
 | positionSize |string |t(:usdcSize) |
 | positionAvgPrice |string |t(:entryPrice) |
 | sessionAvgPrice |string |t(:sessionAvgPrice) |
@@ -575,8 +575,8 @@ t(:usdcFilledHistory)
 | orderId |string |  |
 | orderLinkId |string |t(:orderLinkId) |
 | tradeId |string |t(:usdcTradeId) |
-| symbol |string |t(:usdcSymbol) |
-| side |string |t(:side) |
+| t(:row_parameter_symbol) |string |t(:usdcSymbol) |
+| t(:row_parameter_side) |string |t(:side) |
 | execPrice |string |t(:excPrice) |
 | execQty |string |t(:execQty) |
 | execFee |string |t(:execFee) |
@@ -689,9 +689,9 @@ t(:usdcCommonDesc)
 |:----- |:-----|----- |
 | orderId |string |t(:usdcOrderId) |
 | orderLinkId |string |t(:orderLinkId) |
-| symbol |string |t(:usdcSymbol) |
+| t(:row_parameter_symbol) |string |t(:usdcSymbol) |
 | orderType|string |t(:usdcOrderType) |
-| side |string |t(:side) |
+| t(:row_parameter_side) |string |t(:side) |
 | orderAllSize |string |t(:orderAllSize) |
 | orderFilledSize |string |t(:orderFilledSize) |
 | orderPrice |string |t(:usdcOrderPrice) |

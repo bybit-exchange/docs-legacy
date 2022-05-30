@@ -15,7 +15,7 @@ t(:ENUMs_para)
 * `ETHUSDT`
 * ...
 
-t(:trading_symbol_comment)
+t(:spot_trading_symbol_comment)
 
 
 ## Order type (`type`/`orderTypes`)

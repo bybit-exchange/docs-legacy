@@ -65,7 +65,7 @@ POST
 |t(:row_parameter_side)|<b>true</b>|string|t(:spotSide)|
 |t(:row_parameter_type)|<b>true</b>|string|t(:spotOrderType)|
 |t(:row_parameter_timeInForce)|false|string|t(:row_comment_timeInForce)|
-|price|false|number|t(:spotPostOrderPrice)|
+|t(:row_parameter_price) |false|number|t(:spotPostOrderPrice)|
 |orderLinkId|false|string|t(:spotOrderLinkId)|
 
 
@@ -76,12 +76,12 @@ POST
 |:----- |:-----|----- |
 |orderId|integer|t(:spotOrderId)|
 |orderLinkId|string|t(:spotOrderLinkId)
-|symbol|string|t(:spotSymbol)|
+|t(:row_parameter_symbol) |string|t(:spotSymbol)|
 |transactTime|int|t(:spotTransactTime)|
-|price|float|t(:spotPrice)|
+|t(:row_parameter_price) |float|t(:spotPrice)|
 |origQty|float|t(:spotOriQty)|
 |<a href="#order-type-type-ordertypes">type</a>|string|t(:spotOrderType)|
-|side|string|t(:spotSide)|
+|t(:row_parameter_side) |string|t(:spotSide)|
 |t(:spot_row_parameter_orderStatus)|string|t(:spotStatus)|
 |t(:row_parameter_timeInForce)|string|t(:row_comment_timeInForce)|
 |accountId|long|t(:spotAccountId)|
@@ -157,11 +157,11 @@ GET
 |:----- |:-----|----- |
 |accountId|long |t(:spotAccountId)|
 |exchangeId|long|t(:spotOrderId)|
-|symbol|string|t(:spotSymbol)|
+|t(:row_parameter_symbol) |string|t(:spotSymbol)|
 |symbolName|string|t(:spotSymbol)|
 |orderLinkId|string|t(:spotOrderLinkId)|
 |orderId|long|t(:spotOrderId)|
-|price|float|t(:spotOPrice)|
+|t(:row_parameter_price) |float|t(:spotOPrice)|
 |origQty|float|t(:spotOriQty)|
 |executedQty|float|t(:spotExecQty2)|
 |cummulativeQuoteQty|float|t(:spotCummulativeQuoteQty)|
@@ -169,7 +169,7 @@ GET
 |t(:spot_row_parameter_orderStatus)|string|t(:spotStatus)|
 |t(:row_parameter_timeInForce)|string|t(:row_comment_timeInForce)|
 |<a href="#order-type-type-ordertypes">type</a>|string|t(:spotOrderType)|
-|side|string|t(:spotSide)|
+|t(:row_parameter_side) |string|t(:spotSide)|
 |stopPrice|float|t(:spotStopPrice)|
 |icebergQty|float|t(:spotIcebergQty)|
 |time|long|t(:spotTime)|
@@ -238,16 +238,16 @@ DELETE
 |:----- |:-----|----- |
 |orderId|integer|t(:spotOrderId)|
 |orderLinkId|string|t(:spotOrderLinkId)
-|symbol|string|t(:spotSymbol)|
+|t(:row_parameter_symbol) |string|t(:spotSymbol)|
 |t(:spot_row_parameter_orderStatus)|string|t(:spotStatus)|
 |accountId|long|t(:spotAccountId)|
 |transactTime|long|t(:spotTransactTime)|
-|price|float|t(:spotOPrice)|
+|t(:row_parameter_price) |float|t(:spotOPrice)|
 |origQty|float|t(:spotOriQty)|
 |executedQty|float|t(:spotExecQty2)|
 |t(:row_parameter_timeInForce)|string|t(:row_comment_timeInForce)|
 |t(:row_parameter_type)|string|t(:spotOrderType)|
-|side|string|t(:spotSide)|
+|t(:row_parameter_side) |string|t(:spotSide)|
 
 
 
@@ -351,8 +351,8 @@ DELETE
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|<b>true</b>|string|t(:spotSymbol)|
-|side|false|string|t(:spotSide)|
+|t(:row_parameter_symbol) |<b>true</b>|string|t(:spotSymbol)|
+|t(:row_parameter_side) |false|string|t(:spotSide)|
 |<a href="#order-type-type-ordertypes">orderTypes</a>|false|string|t(:batchcancel_spotOrderTypes)|
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -409,8 +409,8 @@ DELETE
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|<b>true</b>|string|t(:spotSymbol)|
-|side|false|string|t(:spotSide)|
+|t(:row_parameter_symbol) |<b>true</b>|string|t(:spotSymbol)|
+|t(:row_parameter_side) |false|string|t(:spotSide)|
 |orderTypes|fasle|string|t(:batchcancel_spotOrderTypes)|
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -562,7 +562,7 @@ GET
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|false|string|t(:spotSymbol)|
+|t(:row_parameter_symbol) |false|string|t(:spotSymbol)|
 |orderId|false|string|t(:spotOrderId4Pagination)|
 |limit|false|integer|t(:spot_order_list_limit)|
 
@@ -573,11 +573,11 @@ GET
 |:----- |:-----|----- |
 |accountId|long |t(:spotAccountId)|
 |exchangeId|long|t(:spotOrderId)|
-|symbol|string|t(:spotSymbol)|
+|t(:row_parameter_symbol) |string|t(:spotSymbol)|
 |symbolName|string|t(:spotSymbol)|
 |orderLinkId|string|t(:spotOrderLinkId)|
 |orderId|long|t(:spotOrderId)|
-|price|float|t(:spotOPrice)|
+|t(:row_parameter_price) |float|t(:spotOPrice)|
 |origQty|float|t(:spotOriQty)|
 |executedQty|float|t(:spotExecQty2)|
 |cummulativeQuoteQty|float|t(:spotCummulativeQuoteQty)|
@@ -585,7 +585,7 @@ GET
 |t(:spot_row_parameter_orderStatus)|string|t(:spotStatus)|
 |t(:row_parameter_timeInForce)|string|t(:row_comment_timeInForce)|
 |<a href="#order-type-type-ordertypes">type</a>|string|t(:spotOrderType)|
-|side|string|t(:spotSide)|
+|t(:row_parameter_side) |string|t(:spotSide)|
 |stopPrice|float|t(:spotStopPrice)|
 |icebergQty|float|t(:spotIcebergQty)|
 |time|long|t(:spotTime)|
@@ -658,7 +658,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|false|string|t(:spotSymbol)|
+|t(:row_parameter_symbol) |false|string|t(:spotSymbol)|
 |orderId|false|string|t(:spotOrderId4Pagination)|
 |limit|false|integer|t(:spot_order_list_limit)|
 |startTime|false|long|t(:spot_start_time)|
@@ -670,11 +670,11 @@ GET
 |:----- |:-----|----- |
 |accountId|long |t(:spotAccountId)|
 |exchangeId|long|t(:spotOrderId)|
-|symbol|string|t(:spotSymbol)|
+|t(:row_parameter_symbol) |string|t(:spotSymbol)|
 |symbolName|string|t(:spotSymbol)|
 |orderLinkId|string|t(:spotOrderLinkId)|
 |orderId|long|t(:spotOrderId)|
-|price|float|t(:spotPrice)|
+|t(:row_parameter_price) |float|t(:spotPrice)|
 |origQty|float|t(:spotOriQty)|
 |executedQty|float|t(:spotExecQty2)|
 |cummulativeQuoteQty|float|t(:spotCummulativeQuoteQty)|
@@ -682,7 +682,7 @@ GET
 |t(:spot_row_parameter_orderStatus)|string|t(:spotStatus)|
 |t(:row_parameter_timeInForce)|string|t(:row_comment_timeInForce)|
 |<a href="#order-type-type-ordertypes">type</a>|string|t(:spotOrderType)|
-|side|string|t(:spotSide)|
+|t(:row_parameter_side) |string|t(:spotSide)|
 |stopPrice|float|t(:spotStopPrice)|
 |icebergQty|float|t(:spotIcebergQty)|
 |time|long|t(:spotTime)|
@@ -755,7 +755,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|false|string|t(:spotSymbol)|
+|t(:row_parameter_symbol) |false|string|t(:spotSymbol)|
 |limit|false|integer|t(:spot_trades_history_limit)|
 |fromTicketId|false|integer|t(:spot_from_id)|
 |toTicketId|false|integer|t(:spot_to_id)|
@@ -767,11 +767,11 @@ GET
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|symbol|string|t(:spotSymbol)|
+|t(:row_parameter_symbol) |string|t(:spotSymbol)|
 |id| int |t(:spotId)|
 |orderId|integer|t(:spotOrderId)|
 |ticketId|integer|t(:spotTicketId)|
-|price|float|t(:spotPrice)|
+|t(:row_parameter_price) |float|t(:spotPrice)|
 |qty|float|t(:spotQty)|
 |commission|float|t(:spotCommission)|
 |commissionAsset|float|t(:spotCommissionAsset)|

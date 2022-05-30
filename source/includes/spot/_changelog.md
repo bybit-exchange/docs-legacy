@@ -1,4 +1,17 @@
 # t(:changelog)
+
+## 2022-05-20
+### REST API
+- [t(:CrossMarginTrading)](#t-CrossMarginTrading) [t(:changelog_new)]
+  - t(:restapi_update_20220520)
+
+
+## 2022-05-13
+### REST API
+- [t(:spot_querysymbol)](#t-spot_querysymbol) [t(:changelog_update)]
+  - t(:restapi_update_20220513)
+  
+
 ## 2022-04-20
 ### REST API
 - [t(:lt)](#t-lt) [t(:changelog_new)]

@@ -7,6 +7,7 @@ t(:ENUMs_para)
 * `INVESTMENT` t(:accountType_investment)
 * `OPTION` t(:accountType_option)
 
+
 ## Currency (`currency`/`coin`)
 * `BTC`
 * `ETH`

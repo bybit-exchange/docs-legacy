@@ -42,16 +42,16 @@ GET
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-| symbol | <b>true</b>| string | t(:usdcSymbol) |
+| t(:row_parameter_symbol) | <b>true</b>| string | t(:usdcSymbol) |
 
 
 <p class="fake_header">t(:responseparameters)</p>
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| price | string | t(:usdcPrice) |
+| t(:row_parameter_price) | string | t(:usdcPrice) |
 | size | string | t(:usdcSize)|
-| side | string | t(:usdcPerpOrderBookSide)|
+| t(:row_parameter_side) | string | t(:usdcPerpOrderBookSide)|
 
 
 
@@ -105,7 +105,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|false|string|t(:usdcSymbol)|
+|t(:row_parameter_symbol) |false|string|t(:usdcSymbol)|
 |direction|false|string|t(:direction)|
 |limit|false|string|t(:usdcLimit)|
 
@@ -114,7 +114,7 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| symbol | string | t(:usdcSymbol) |
+| t(:row_parameter_symbol) | string | t(:usdcSymbol) |
 | status | string | t(:symbolStatus) |
 | baseCoin | string | t(:usdcBaseCoin) |
 | quoteCoin | string | t(:usdcQuoteCoin) |
@@ -190,13 +190,13 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|<b>true</b>|string|t(:usdcSymbol)|
+|t(:row_parameter_symbol) |<b>true</b>|string|t(:usdcSymbol)|
 
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| symbol | string | t(:usdcSymbol) |
+| t(:row_parameter_symbol) | string | t(:usdcSymbol) |
 | bid | string | t(:usdcBid) |
 | bidSize | string | t(:usdcBidSize) |
 | ask | string | t(:usdcAsk) |
@@ -259,7 +259,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|<b>true</b>|string|t(:usdcSymbol)|
+|t(:row_parameter_symbol) |<b>true</b>|string|t(:usdcSymbol)|
 |period|<b>true</b>|string|t(:usdcPeriod)|
 |startTime|<b>true</b>|number|t(:usdcStartTime)|
 |limit| false | number | t(:usdcLimit)
@@ -269,7 +269,7 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 | volume | string | t(:usdcVolume) |
-| symbol | string | t(:usdcSymbol) |
+| t(:row_parameter_symbol) | string | t(:usdcSymbol) |
 | open | string | t(:usdcOpen) |
 | openTime | number | t(:usdcOpenTime) |
 | turnover | string | t(:usdcTurnover) |
@@ -321,7 +321,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|<b>true</b>|string|t(:usdcSymbol)|
+|t(:row_parameter_symbol) |<b>true</b>|string|t(:usdcSymbol)|
 |period|<b>true</b>|string|t(:usdcPeriod)|
 |limit|false|string|t(:usdcLimit)|
 |startTime|<b>true</b>|number|t(:startTime)|
@@ -331,7 +331,7 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| symbol | string | t(:usdcSymbol) |
+| t(:row_parameter_symbol) | string | t(:usdcSymbol) |
 | period | string | t(:usdcPeriod) |
 | openTime | number | t(:openTime) |
 | open | string | t(:open) |
@@ -380,7 +380,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|<b>true</b>|string|t(:usdcSymbol)|
+|t(:row_parameter_symbol) |<b>true</b>|string|t(:usdcSymbol)|
 |period|<b>true</b>|string|t(:usdcPeriod)|
 |limit|false|string|t(:usdcLimit)|
 |startTime|<b>true</b>|number|t(:startTime)|
@@ -390,7 +390,7 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| symbol | string | t(:usdcSymbol) |
+| t(:row_parameter_symbol) | string | t(:usdcSymbol) |
 | period | string | t(:usdcPeriod) |
 | openTime | number | t(:openTime) |
 | open | string | t(:open) |
@@ -441,7 +441,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|<b>true</b>|string|t(:usdcSymbol)|
+|t(:row_parameter_symbol) |<b>true</b>|string|t(:usdcSymbol)|
 |period|<b>true</b>|string|t(:usdcPeriod)|
 |limit|false|string|t(:usdcLimit)|
 |startTime|<b>true</b>|number|t(:startTime)|
@@ -451,7 +451,7 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| symbol | string | t(:usdcSymbol) |
+| t(:row_parameter_symbol) | string | t(:usdcSymbol) |
 | period | string | t(:usdcPeriod) |
 | openTime | number | t(:openTime) |
 | open | string | t(:open) |
@@ -502,14 +502,14 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|<b>true</b>|string|t(:usdcSymbol)|
+|t(:row_parameter_symbol) |<b>true</b>|string|t(:usdcSymbol)|
 |period|<b>true</b>|string|t(:usdcOpenInterestPeriod)|
 |limit|false|string|t(:usdcOpenInterestLimit)|
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| symbol | string | t(:usdcSymbol) |
+| t(:row_parameter_symbol) | string | t(:usdcSymbol) |
 | timestamp | number | t(:timestamp) |
 | openInterest | string | t(:marketopeninterest) |
 
@@ -558,15 +558,15 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|<b>true</b>|string|t(:usdcSymbol)|
+|t(:row_parameter_symbol) |<b>true</b>|string|t(:usdcSymbol)|
 |limit|false|string|t(:usdcBigDealLimit)|
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| symbol | string | t(:usdcSymbol) |
+| t(:row_parameter_symbol) | string | t(:usdcSymbol) |
 | timestamp | number | t(:timestamp) |
-| side | string | t(:side) |
+| t(:row_parameter_side) | string | t(:side) |
 | value | string | t(:usdcValue) |
 
 
@@ -615,14 +615,14 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|<b>true</b>|string|t(:usdcSymbol)|
+|t(:row_parameter_symbol) |<b>true</b>|string|t(:usdcSymbol)|
 |period|<b>true</b>|string|t(:usdcAccountRatioPeriod)|
 |limit|false|string|t(:usdcAccountRatioLimit)|
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| symbol | string | t(:usdcSymbol) |
+| t(:row_parameter_symbol) | string | t(:usdcSymbol) |
 | buyRatio | string | t(:buyRatio) |
 | sellRatio | string | t(:sellRatio) |
 | timestamp | number | t(:timestamp) |
@@ -679,7 +679,7 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |category|<b>true</b>|string|t(:usdcPerpCategory)|
-|symbol|false|string|t(:usdcSymbol)|
+|t(:row_parameter_symbol) |false|string|t(:usdcSymbol)|
 |limit|false|string|t(:usdcLimitMax500)|
 
 
@@ -695,9 +695,9 @@ GET
 |:----- |:-----|----- |
 |transactionTime|number|t(:transactionTime)|
 |id|string|ID
-|symbol|string|t(:usdcSymbol)|
+|t(:row_parameter_symbol) |string|t(:usdcSymbol)|
 |orderPrice|string|t(:usdcOrderPrice)|
 |orderQty|string|t(:usdcOrderQty)|
-|side|string|t(:side)|
+|t(:row_parameter_side) |string|t(:side)|
 |time|number|t(:time)|
 

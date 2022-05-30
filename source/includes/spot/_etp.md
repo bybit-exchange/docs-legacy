@@ -76,6 +76,10 @@ GET
 |total|string|t(:spotResTotal)|
 |netValue|string|t(:spotResNetValue)|
 
+<aside class="notice">
+t(:lt_para)
+</aside>
+
 ### t(:ltQuoteReference)
 > t(:codequote_curlExample)
 
@@ -119,10 +123,6 @@ GET
 |basket|string|t(:spotTotalPositionValue)|
 |leverage|string|t(:spotLeverage)|
 |circulation|string|t(:spotResCirculation)|
-
-<aside class="notice">
-t(:lt_para)
-</aside>
 
 ### t(:ltPurchase)
 > t(:codequote_curlExample)
@@ -235,7 +235,7 @@ POST
 |:----- |:-----|----- |
 |ltCode|string|t(:spotResLtCode)|
 |t(:row_parameter_ltOrderStatus)|string|t(:spotResOrderStatus)|
-|quantity|string|t(:spotResRedeemQuantity)|
+|t(:row_parameter_quantity) |string|t(:spotResRedeemQuantity)|
 |orderQuantity|string|t(:spotResRedeemOrderQuantity)|
 |orderAmount|string|t(:spotResRedeemOrderAmount)|
 |timestamp|long|t(:spot_timestamp)|
