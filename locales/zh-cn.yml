@@ -1046,6 +1046,12 @@ zh-cn:
       <li><a href="https://bybit-exchange.github.io/docs/linear/#t-websocketauthentication">USDT (正向) 永續</a></li>
       <li><a href="https://bybit-exchange.github.io/docs/spot/#t-websocketauthentication">現貨</a></li>
     </ul>
+  websocket_endpoints_aside_copytrading: |
+    <b>請注意，目前copytrading只支持正向永續，以下接口僅適用於 <i>正向永續</i></b>. 要監聽其他 websocket，請轉到:
+    <ul>
+      <li><a href="https://bybit-exchange.github.io/docs/inverse/#t-websocketauthentication">Inverse Perpetual</a></li>
+      <li><a href="https://bybit-exchange.github.io/docs/spot/#t-websocketauthentication">Spot</a></li>
+    </ul>
   websocket_para_endpoint: |
     <p>Websocket服務器地址:</p>
     <ul>
@@ -1212,6 +1218,9 @@ zh-cn:
   websocketorder: 活動單
   ### stop_order
   websocketstoporder: 條件單
+  ### copy_trade_field
+  copytrade_field_leverage: 逐倉模式下, 值為用戶設置的杠桿
+  copytrade_field_order_status: copy trade 訂單狀態
 
   # Archive Data
   archivedata: 歸檔數據
@@ -3403,6 +3412,37 @@ zh-cn:
 
   perpUsdcReplaceOrderDesc: 活動訂單參數（如數量、價格）與止盈止損參數，無法同時在一個請求中修改，請分開請求進行修改。
 
+
+
+  #copytrade
+  copy_trading: 跟單交易
+  ct_symbol_list: 交易員獲取可帶單合約
+  ct_order: 訂單
+  ct_order_list: 查詢交易員帶單訂單
+  ct_create_order: 交易員創建訂單
+  ct_cancel_order: 交易員取消訂單
+  ct_close_order: 交易員發起平倉-訂單
+  ct_positon_list: 交易員帶單匯總
+  ct_positon_close: 交易員一鍵平倉
+  ct_wallet_balance: 交易員獲取錢包余額
+  ct_wallet_transfer: 交易員劃轉資金
+  ct_set_leverage: 交易員設置帶單槓桿
+
+
+  accountType_copytrade: 跟單交易帳戶
+  copy_trade_row_comment_parentOrderIdNotparentOrderLinkId: 訂單ID。如果未填parent_order_link_id則為<b>必填</b>字段。
+  copy_trade_row_comment_parentOrderLinkIdNotOrderId: 機構ID。如果未填parent_order_id則為<b>必填</b>字段。
+  copy_trade_row_comment_order_type: 跟單交易記錄類型
+  copy_trade_comment_leverage: 全倉/逐倉切換，需要傳杠桿並且<code>buy_leverage</code>和<code>sell_leverage</code>必須傳入相同參數。
+  copy_trade_row_comment_position_idx: |
+      Position idx, 用於在不同倉位模式下標識倉位：<br/>1-雙向持倉Buy<br/> 2-雙向持倉Sell
+
+  copy_trade_rate_para_limits: |
+    <p>每個交易員可以持有的訂單數量上限：</p>
+    <ul>
+    <li>活動單: 50</li>
+    </ul>
+
   # Cross Margin Trading
   spotCrossMarginTradingDesc: 所有全倉槓桿交易接口都需要驗證。
   CrossMarginTrading: 全倉槓桿接口
@@ -3445,3 +3485,4 @@ zh-cn:
   spotTransactId: 原始借幣交易ID
   spotRepaidPrincipal: 該筆還幣交易已還本金
   spotRepaidInterest: 該筆還幣交易已還利息
+
