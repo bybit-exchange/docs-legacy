@@ -681,64 +681,16 @@
       </button>
       <div class="dropdown-content">
 
-    <div class="top-menu">
-        <a href="https://bybit-exchange.github.io/docs/usdc/option" class="logo-link" target="_self">
-          <img src="../../../images/logo-aed6448d.svg" class="logo" alt="" />
-        </a>
-
-      <ul class="con">
-
-        <!-- Inverse Perpetual -->
-          	<li><a href="/docs/zh-cn/inverse">反向永續</a></li>
-
-        <!-- USDT Perpetual -->
-          	<li><a href="/docs/zh-cn/linear">USDT永續</a></li>
-
-        <!-- Inverse Futures -->
-          	<li><a href="/docs/zh-cn/inverse_futures">反向交割</a></li>
-
-        <!-- Spot -->
-          	<li><a href="/docs/zh-cn/spot">現貨</a></li>
-
-        <!-- Inverse Futures -->
             <span class="dropdown-content-selected"><a href=/docs/zh-cn/usdc/option>Mainnet</a></span>
             <a href=/docs/zh-cn/testnet/usdc/option>Testnet</a>
-          	<li><a href="/docs/zh-cn/account_asset" class="selected">賬戶資產</a></li>
 
-        <!-- USDC dropdown (Options, Perpetual) -->
-          <li>
-            <div class="dropdown">
-              <button class="dropbtn">USDC合約
-                <i class="fa fa-caret-down"></i>
-              </button>
-              <div class="dropdown-content">
-                  <a href="/docs/zh-cn/usdc/option" class="dropdown-content-selected">Option</a>
-                  <a href="/docs/zh-cn/usdc/perpetual">Perpetual</a>
-              </div>
-            </div>
-          </li>
-
-        <!-- Environment dropdown (Testnet, Mainnet) -->
-        <!-- It's very long because each button needs its own logic to link to testnet or mainnet depending on if the website is on testnet or mainnet. -->
-        <li>
-          <div class="dropdown">
-            <button class="dropbtn">Environment
-              <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-                  <span class="dropdown-content-selected"><a href=/docs/zh-cn/usdc/option>Mainnet</a></span>
-                  <a href=/docs/zh-cn/testnet/usdc/option>Testnet</a>
-            </div>
-          </div>
-        </li>
-      </ul>
-
+      </div>
     </div>
-    <a class="international" id="international" href="javascript:void(0);">English</a>
+  </li>
+  </ul>
+  </div>
+  <a class="international" id="international" href="javascript:void(0);">English</a>
   </header>
-  <!-- Navigation bar END -->
-
-
 
   <body class="zh-cn zh-cn_usdc zh-cn_usdc_option zh-cn_usdc_option_index" data-languages="[&quot;console&quot;,&quot;python&quot;]">
     <a href="#" id="nav-button">
@@ -6237,11 +6189,9 @@ curl https://api-testnet.bybit.com/v2/public/time
           window.location=currentUrl.replace(/\/((?:testnet\/)?account_asset)/,"/zh-cn/$1");
         } else if(currentUrl.indexOf("linear") > -1) {
           window.location=currentUrl.replace(/\/((?:testnet\/)?linear)/,"/zh-cn/$1");
-        }else if(currentUrl.indexOf("copy_trading") > -1) {
-          window.location=currentUrl.replace(/\/((?:testnet\/)?copy_trading)/,"/zh-cn/$1");
         } else{
           window.location=currentUrl.replace(/\/((?:testnet\/)?usdc)/,"/zh-cn/$1");
-	      }
+          }
 
       }
     });
