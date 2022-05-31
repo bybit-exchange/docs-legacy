@@ -1,6 +1,6 @@
 # t(:changelog)   
 
-## 2022-05-30
+## 2022-05-31
 ### REST API
 - [t(:ct_symbol_list)](#t-ct_symbol_list) [t(:changelog_new)]
 - [t(:ct_order_list)](#t-ct_order_list) [t(:changelog_new)]
