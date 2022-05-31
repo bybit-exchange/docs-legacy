@@ -325,6 +325,15 @@ under the License.
             <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/spot>Testnet</a>
           <% end %>
         <% end %>
+        <% if page_classes.end_with?("copy_trading_index") %>
+          <% if page_classes.include?("testnet") %>
+            <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/copy_trading>Mainnet</a>
+            <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/copy_trading>Testnet</a></span>
+          <% else %>
+            <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/copy_trading>Mainnet</a></span>
+            <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/copy_trading>Testnet</a>
+          <% end %>
+        <% end %>
         <% if page_classes.end_with?("account_asset_index") %>
                   <% if page_classes.include?("testnet") %>
                     <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/account_asset>Mainnet</a>
