@@ -722,7 +722,7 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="更新日誌">更新日誌</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#2022-05-30" class="toc-h2 toc-link" data-title="2022-05-30">2022-05-30</a>
+                    <a href="#2022-05-31" class="toc-h2 toc-link" data-title="2022-05-31">2022-05-31</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#rest-api" class="toc-h3 toc-link" data-title="REST API">REST API</a>
@@ -1689,7 +1689,7 @@ clipboard.on('error', function(e) {
 <p><p>歡迎使用 <a href="https://www.bybit.com/">Bybit</a> APIs 和 Websocket官方文檔！</p> <p>如果您在使用API的過程中遇到問題需要幫助，請加入我們的 <a href="https://t.me/Bybitapi">官方Telegram API討論群</a>！</p></p>
 <h3 id='t-resources'>中文社區和參考資料</h3>
 <p><ul class="bybit-community"> <li><img src="../../../images/favicon-4f296779.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/zh-cn"><strong>幫助中心</strong></a> - <strong>在這裏了解合約交易</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>官方Python SDK</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文討論群</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文討論群</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong> </ul></p>
-<h1 id='t-changelog'>更新日誌</h1><h2 id='2022-05-30'>2022-05-30</h2><h3 id='rest-api'>REST API</h3>
+<h1 id='t-changelog'>更新日誌</h1><h2 id='2022-05-31'>2022-05-31</h2><h3 id='rest-api'>REST API</h3>
 <ul>
 <li><a href="#t-ct_symbol_list">交易員獲取可帶單合約</a> [新增]</li>
 <li><a href="#t-ct_order_list">查詢交易員帶單訂單</a> [新增]</li>
@@ -1828,87 +1828,39 @@ REST接口根URL:
 
 </aside>
 <h2 id='t-constructingtherequest'>構建請求</h2>
-<blockquote>
-<p>拼接參數示例（以修改槓桿率為例）：</p>
-</blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">param_str = "api_key=B2Rou0PLPpGqcU0Vu2&amp;leverage=100&amp;symbol=BTCUSD&amp;timestamp=1542434791747"
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">param_str</span> <span class="o">=</span> <span class="s">"api_key=B2Rou0PLPpGqcU0Vu2&amp;leverage=100&amp;symbol=BTCUSD&amp;timestamp=1542434791747"</span>
+<p><p>1. 参数为json格式</p>
+<p>2. 使用<code>HMAC_SHA256</code>算法對第1步中拼接的query string簽名，並轉換為16進製字符串，得出<code>sign</code>參數。</p></p>
 
-<span class="c1"># api_key=B2Rou0PLPpGqcU0Vu2&amp;
-# leverage=100&amp;
-# symbol=BTCUSD&amp;
-# timestamp=1542434791747
-</span></code></pre></div>
-<blockquote>
-<p>參數按照 <b>字母順序</b> 排列，然後計算<code>sign</code>。</p>
-</blockquote>
+<p>An example how to place an order:</p>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="kn">import</span> <span class="nn">hmac</span>
 
-<p><p>1. 所有參數按照字母順序排序，然後按照<a href="https://en.wikipedia.org/wiki/Query_string">query string</a>格式拼接。</p>
-<div></div></p>
+<span class="n">api_key</span><span class="o">=</span><span class="s">'API-KEY'</span>
+<span class="n">secret_key</span><span class="o">=</span><span class="s">'SECRET-KEY'</span>
+<span class="n">time_stamp</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">**</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">recv_window</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="mi">5000</span><span class="p">)</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api-testnet.bybit.com/derivatives/v3/copytrading/order/create"</span>
 
-<p><p>2. 使用<code>HMAC_SHA256</code>算法對第1步中拼接的query string簽名，並轉換為16進製字符串，得出<code>sign</code>參數。</p></p>
+<span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span><span class="s">"side"</span><span class="p">:</span><span class="s">"Sell"</span><span class="p">,</span><span class="s">"symbol"</span><span class="p">:</span><span class="s">"BTCUSDT"</span><span class="p">,</span><span class="s">"order_type"</span><span class="p">:</span><span class="s">"Market"</span><span class="p">,</span><span class="s">"qty"</span><span class="p">:</span><span class="s">"0.01"</span><span class="p">,</span><span class="s">"price"</span><span class="p">:</span><span class="s">"1"</span><span class="p">})</span>
 
-<blockquote>
-<p><b>GET</b>請求格式（查詢賬號余額）:
-</p>
-</blockquote>
-<div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v2/private/order?symbol=BTCUSD&amp;api_key=B2Rou0PLPpGqcU0Vu2&amp;timestamp=1542434791000&amp;sign=670e3e4aa32b243f2dedf1dafcec2fd17a440e71b05681550416507de591d908</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="p">:</span> <span class="s">api-testnet.bybit.com</span>
-</code></pre></div>
-<blockquote>
-<p><b>POST</b>請求格式（創建訂單）:
-</p>
-</blockquote>
-<div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/v2/private/order/cancel</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="p">:</span> <span class="s">api-testnet.bybit.com</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="n">param_str</span><span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">time_stamp</span><span class="p">)</span> <span class="o">+</span> <span class="n">api_key</span> <span class="o">+</span> <span class="n">recv_window</span> <span class="o">+</span> <span class="n">payload</span>
+<span class="nb">hash</span> <span class="o">=</span> <span class="n">hmac</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">secret_key</span><span class="p">,</span> <span class="s">"utf-8"</span><span class="p">),</span> <span class="n">param_str</span><span class="p">.</span><span class="n">encode</span><span class="p">(</span><span class="s">"utf-8"</span><span class="p">),</span><span class="n">hashlib</span><span class="p">.</span><span class="n">sha256</span><span class="p">)</span>
+<span class="n">signature</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">.</span><span class="n">hexdigest</span><span class="p">()</span>
 
-<span class="p">{</span><span class="w">
-    </span><span class="nl">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B2Rou0PLPpGqcU0Vu2"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTCUSD"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3bd1844f-f3c0-4e10-8c25-10fea03763f6"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1542434791000</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"sign"</span><span class="p">:</span><span class="w"> </span><span class="s2">"670e3e4aa32b243f2dedf1dafcec2fd17a440e71b05681550416507de591d908"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p><p>3. 將<code>sign</code>參數加到請求參數中即可；註意<code>GET</code>和<code>POST</code>請求參數格式不同，詳見右邊示例。</p></p>
-
-<aside class="notice">
-<a href="https://github.com/bybit-exchange/api-usage-examples">簽名計算示例</a>.
-</aside>
-
-<!--
-### Examples of the Signature Algorithm
-
-* [C#](https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/example/Encryption.cs)
-* [Python](https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/example/Encryption.py)
-* [C++](https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/example/Encryption.cpp)
-* [Go](https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/example/Encryption.go)
-* [PHP](https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/example/Encryption.php)
--->
-
-<script>
-function copyStringToClipboard (endpoint) {
-  var str = document.getElementById(endpoint).innerText;
-  // remove whitespace
-  var str = str.replace(/ /g,"");
-  // Create new element
-  var el = document.createElementranslation missing: zh-cn.textarea;
-  // Set value (string to be copied)
-  el.value = str;
-  // Set non-editable to avoid focus and move outside of view
-  el.setAttribute("readonly", "");
-  el.style = {position: "absolute", left: "-9999px"};
-  document.body.appendChild(el);
-  // Select text inside element
-  el.select();
-  // Copy text to clipboard
-  document.execCommand("copy");
-  // Remove temporary element
-  document.body.removeChild(el);
-}
-</script>
-<h1 id='t-marketdata'>行情接口</h1>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'X-BAPI-API-KEY'</span><span class="p">:</span> <span class="n">api_key</span><span class="p">,</span>
+  <span class="s">'X-BAPI-SIGN'</span><span class="p">:</span> <span class="n">signature</span><span class="p">,</span>
+  <span class="s">'X-BAPI-SIGN-TYPE'</span><span class="p">:</span> <span class="s">'2'</span><span class="p">,</span>
+  <span class="s">'X-BAPI-TIMESTAMP'</span><span class="p">:</span> <span class="n">time_stamp</span><span class="p">,</span>
+  <span class="s">'X-BAPI-RECV-WINDOW'</span><span class="p">:</span> <span class="n">recv_window</span><span class="p">,</span>
+  <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div><h1 id='t-marketdata'>行情接口</h1>
 <p>以下市場行情數據接口不需要驗權.</p>
 <h3 id='t-ct_symbol_list'>交易員獲取可帶單合約</h3>
 <blockquote>
