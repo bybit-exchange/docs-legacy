@@ -649,6 +649,38 @@
 
   <!-- Navigation bar START -->
   <header class="top-nav">
+
+  <div class="top-menu">
+  <a href="https://bybit-exchange.github.io/docs/usdc/option" class="logo-link" target="_self">
+    <img src="../../../images/logo-aed6448d.svg" class="logo" alt="" />
+  </a>
+  <ul class="con">
+    <li><a href="/docs/inverse">Inverse Perpetual</a></li>
+    <li><a href="/docs/linear">USDT Perpetual</a></li>
+    <li><a href="/docs/inverse_futures">Inverse Futures</a></li>
+  <li><a href="/docs/spot">Spot</a></li>
+  <li><a href="/docs/account_asset">Account Asset</a></li>
+  <li><a href="/docs/copy_trading">Copy Trading</a></li>
+
+    <li>
+        <div class="dropdown">
+          <button class="dropbtn">USDC Contract
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+                <a href="/docs/testnet/usdc/option">Option</a>
+                <a href="/docs/testnet/usdc/perpetual">Perpetual</a>
+          </div>
+        </div>
+    </li>
+
+  <li>
+    <div class="dropdown">
+      <button class="dropbtn">Environment
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+
     <div class="top-menu">
         <a href="https://bybit-exchange.github.io/docs/usdc/option" class="logo-link" target="_self">
           <img src="../../../images/logo-aed6448d.svg" class="logo" alt="" />
@@ -669,7 +701,9 @@
           	<li><a href="/docs/testnet/spot">Spot</a></li>
 
         <!-- Inverse Futures -->
-          	<li><a href="/docs/testnet/account_asset">Account Asset</a></li>
+            <a href=/docs/usdc/option>Mainnet</a>
+            <span class="dropdown-content-selected"><a href=/docs/testnet/usdc/option>Testnet</a></span>
+          	<li><a href="/docs/testnet/account_asset" class="selected">Account Asset</a></li>
 
         <!-- USDC dropdown (Options, Perpetual) -->
           <li>
@@ -6218,6 +6252,8 @@ At 0:00, 8:00, and 16:00 UTC+0, the insurance fund will be pushed.
           window.location=currentUrl.replace(/\/((?:testnet\/)?account_asset)/,"/zh-cn/$1");
         } else if(currentUrl.indexOf("linear") > -1) {
           window.location=currentUrl.replace(/\/((?:testnet\/)?linear)/,"/zh-cn/$1");
+        }else if(currentUrl.indexOf("copy_trading") > -1) {
+          window.location=currentUrl.replace(/\/((?:testnet\/)?copy_trading)/,"/zh-cn/$1");
         } else{
           window.location=currentUrl.replace(/\/((?:testnet\/)?usdc)/,"/zh-cn/$1");
 	      }
