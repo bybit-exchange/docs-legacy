@@ -20,84 +20,38 @@ t(:auth_aside_timestamp)
 </aside>
 
 ## t(:constructingtherequest)
-> t(:auth_codequote_construct1a)
-
-```console
-param_str = "api_key=B2Rou0PLPpGqcU0Vu2&leverage=100&symbol=BTCUSD&timestamp=1542434791747"
-```
-```python
-param_str = "api_key=B2Rou0PLPpGqcU0Vu2&leverage=100&symbol=BTCUSD&timestamp=1542434791747"
-
-# api_key=B2Rou0PLPpGqcU0Vu2&
-# leverage=100&
-# symbol=BTCUSD&
-# timestamp=1542434791747
-```
-
-> t(:auth_codequote_construct1b)
-
-t(:auth_para_construct1)
-<div></div>
-
+t(:usdc_auth_para_construct1)
 t(:auth_para_construct2)
-> t(:auth_codequote_construct2)
 
-```http
-GET /v2/private/order?symbol=BTCUSD&api_key=B2Rou0PLPpGqcU0Vu2&timestamp=1542434791000&sign=670e3e4aa32b243f2dedf1dafcec2fd17a440e71b05681550416507de591d908 HTTP/1.1
-Host: api-testnet.bybit.com
-```
+An example how to place an order:
 
-> t(:auth_codequote_construct3)
+```python
+import requests
+import json
+import time
+import hashlib
+import hmac
 
-```http
-POST /v2/private/order/cancel HTTP/1.1
-Host: api-testnet.bybit.com
-Content-Type: application/json
+api_key='API-KEY'
+secret_key='SECRET-KEY'
+time_stamp=str(int(time.time() * 10 ** 3))
+recv_window=str(5000)
+url = "https://api-testnet.bybit.com/derivatives/v3/copytrading/order/create"
 
-{
-    "api_key": "B2Rou0PLPpGqcU0Vu2",
-    "symbol": "BTCUSD",
-    "order_id": "3bd1844f-f3c0-4e10-8c25-10fea03763f6",
-    "timestamp": 1542434791000,
-    "sign": "670e3e4aa32b243f2dedf1dafcec2fd17a440e71b05681550416507de591d908"
+payload = json.dumps({"side":"Sell","symbol":"BTCUSDT","order_type":"Market","qty":"0.01","price":"1"})
+
+param_str= str(time_stamp) + api_key + recv_window + payload
+hash = hmac.new(bytes(secret_key, "utf-8"), param_str.encode("utf-8"),hashlib.sha256)
+signature = hash.hexdigest()
+
+headers = {
+  'X-BAPI-API-KEY': api_key,
+  'X-BAPI-SIGN': signature,
+  'X-BAPI-SIGN-TYPE': '2',
+  'X-BAPI-TIMESTAMP': time_stamp,
+  'X-BAPI-RECV-WINDOW': recv_window,
+  'Content-Type': 'application/json'
 }
+response = requests.request("POST", url, headers=headers, data=payload)
+print(response.text)
 ```
-
-t(:auth_para_construct3)
-
-<aside class="notice">
-t(:auth_aside_signature)
-</aside>
-
-<!--
-### Examples of the Signature Algorithm
-
-* [C#](https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/example/Encryption.cs)
-* [Python](https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/example/Encryption.py)
-* [C++](https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/example/Encryption.cpp)
-* [Go](https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/example/Encryption.go)
-* [PHP](https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/example/Encryption.php)
--->
-
-
-<script>
-function copyStringToClipboard (endpoint) {
-  var str = document.getElementById(endpoint).innerText;
-  // remove whitespace
-  var str = str.replace(/ /g,"");
-  // Create new element
-  var el = document.createElement("textarea");
-  // Set value (string to be copied)
-  el.value = str;
-  // Set non-editable to avoid focus and move outside of view
-  el.setAttribute("readonly", "");
-  el.style = {position: "absolute", left: "-9999px"};
-  document.body.appendChild(el);
-  // Select text inside element
-  el.select();
-  // Copy text to clipboard
-  document.execCommand("copy");
-  // Remove temporary element
-  document.body.removeChild(el);
-}
-</script>
