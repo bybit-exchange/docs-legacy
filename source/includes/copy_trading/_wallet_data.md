@@ -10,16 +10,11 @@ curl "https://api-testnet.bybit.com/derivatives/v3/copytrading/wallet/balance?ap
 ```
 
 ```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Wallet.Wallet_getBalance().result())
+
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.get_wallet_balance())
+
 ```
 
 > t(:codequote_responseExample)
@@ -79,27 +74,16 @@ GET
 ```console
 curl https://api-testnet.bybit.com/derivatives/v3/copytrading/wallet/transfer \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","transfer_id":"5f95de18-b10f-43be-9746-7b95c4a37d97","coin":"USDT","amount":"88.88","fromAccountType":"CONTRACT","toAccountType":"COPYTRADING","timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","transferId":"5f95de18-b10f-43be-9746-7b95c4a37d97","coin":"USDT","amount":"88.88","fromAccountType":"CONTRACT","toAccountType":"COPYTRADING","timestamp":{timestamp},"sign":"{sign}"}'
 
 ```
 
 ```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Order.Order_new(transfer_id="5f95de18-b10f-43be-9746-7b95c4a37d97",coin="USDT",amount="Market",fromAccountType="CONTRACT",toAccountType="COPYTRADING").result())
+
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.place_active_order(
-    transfer_id="5f95de18-b10f-43be-9746-7b95c4a37d97",
-    coin="USDT",
-    amount="Market",
-    fromAccountType="CONTRACT",
-    toAccountType="COPYTRADING"
-))
+
 ```
 
 > t(:codequote_responseExample)
@@ -126,11 +110,11 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|transfer_id |<b>true</b> |string |t(:row_comment_transfer_id) |
+|transferId |<b>true</b> |string |t(:row_comment_transfer_id) |
 |<a href="#currency-currency-coin">coin</a> |<b>true</b> |string |t(:row_comment_currency) |
 |amount |<b>true</b> |string |t(:row_comment_to_amount) |
-|<a href="#account-type-from_account_type-to_account_type">from_account_type</a> |<b>true</b> |string |t(:row_comment_accounttype) |
-|<a href="#account-type-from_account_type-to_account_type">to_account_type</a> |<b>true</b> |string |t(:row_comment_accounttype) |
+|<a href="#account-type-from_account_type-to_account_type">fromAccountType</a> |<b>true</b> |string |t(:row_comment_accounttype) |
+|<a href="#account-type-from_account_type-to_account_type">toAccountType</a> |<b>true</b> |string |t(:row_comment_accounttype) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|

@@ -8,26 +8,16 @@ t(:account_para)
 ```console
 curl https://api-testnet.bybit.com/derivatives/v3/copytrading/order/create \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","side":"Buy","symbol":"BTCUSDT","order_type":"Market","qty":"10","timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","side":"Buy","symbol":"BTCUSDT","orderType":"Market","qty":"10","timestamp":{timestamp},"sign":"{sign}"}'
 
 ```
 
 ```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Order.Order_new(side="Buy",symbol="BTCUSDT",order_type="Market",qty="10").result())
+
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.place_active_order(
-    symbol="BTCUSDT",
-    side="Buy",
-    order_type="Market",
-    qty="10",
-))
+
 ```
 
 
@@ -59,7 +49,7 @@ POST
 |t(:row_parameter_order_type) |<b>true</b> |string |t(:row_comment_activeOrderType)   |
 |t(:row_parameter_quantity) |<b>true</b> |string |t(:row_comment_qty) |
 |t(:row_parameter_price) |<b>true</b> |string |t(:row_comment_resp_price) |
-|order_link_id |false |string |t(:row_comment_orderLinkId) |
+|orderLinkId |false |string |t(:row_comment_orderLinkId) |
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -77,18 +67,11 @@ curl "https://api-testnet.bybit.com/derivatives/v3/copytrading/order/list?api_ke
 ```
 
 ```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Order.Order_getOrders(symbol="ETHUSDT").result())
+
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.get_active_order(
-    symbol="ETHUSDT",
-))
+
 ```
 
 > t(:codequote_responseExample)
@@ -133,15 +116,15 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |false |string |t(:row_comment_symbol) |
-|order_id |false |string ||
-|order_link_id |false |string | |
-|copy_trade_order_type |false |string | |
+|orderId |false |string |t(:row_comment_order_id)|
+|orderLinkId |false |string |t(:row_comment_orderLinkId)|
+|copyTradeOrderType |false |string |t(:row_comment_activeOrderType)|
 
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|orderId |string |t(:account_row_comment_orderId) |
+|orderId |string |t(:row_comment_order_id) |
 |orderLinkId |string |t(:row_comment_orderLinkId)  |
 |symbol |string |t(:row_comment_symbol) |
 |side |string |t(:row_comment_side) |
@@ -164,22 +147,15 @@ GET
 ```console
 curl https://api-testnet.bybit.com/derivatives/v3/copytrading/order/cancel \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","order_id":"419190fe-016c-469a-810e-936bef2f5d59","timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","orderId":"419190fe-016c-469a-810e-936bef2f5d59","timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
 ```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Order.Order_cancel(order_id="419190fe-016c-469a-810e-936bef2f5d59").result())
+
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.cancel_active_order(
-    order_id="419190fe-016c-469a-810e-936bef2f5d59"
-))
+
 ```
 
 
@@ -207,14 +183,14 @@ POST
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|order_id |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
-|order_link_id |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
+|orderId |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
+|orderLinkId |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
 
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|orderId |string |t(:account_row_comment_orderId) |
+|orderId |string |t(:row_comment_order_id) |
 |orderLinkId |string |t(:row_comment_orderLinkId)  |
 
 
@@ -224,23 +200,15 @@ POST
 ```console
 curl https://api-testnet.bybit.com/derivatives/v3/copytrading/order/close \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSDT","order_id":"419190fe-016c-469a-810e-936bef2f5d59","timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","symbol":"BTCUSDT","orderId":"419190fe-016c-469a-810e-936bef2f5d59","timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
 ```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Order.Order_cancelAll(symbol="BTCUSD",order_id=""order_id":"419190fe-016c-469a-810e-936bef2f5d59").result())
+
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.cancel_all_active_orders(
-    symbol="BTCUSD",
-    order_id=""order_id":"419190fe-016c-469a-810e-936bef2f5d59"
-))
+
 ```
 
 > t(:codequote_responseExample)
@@ -271,9 +239,9 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |false |string |t(:row_comment_symbol)   |
-|order_link_id |false |string |t(:row_comment_orderLinkId) |
-|parent_order_id |false |string |t(:copy_trade_row_comment_parentOrderIdNotparentOrderLinkId) |
-|parent_order_link_id |false |string |t(:copy_trade_row_comment_parentOrderLinkIdNotOrderId) |
+|orderLinkId |false |string |t(:row_comment_orderLinkId) |
+|parentOrderId |false |string |t(:copy_trade_row_comment_parentOrderIdNotparentOrderLinkId) |
+|parentOrderLinkId |false |string |t(:copy_trade_row_comment_parentOrderLinkIdNotOrderId) |
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -288,22 +256,15 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api-testnet.bybit.com/derivatives/v3/copytrading/position/list?api_key={api_key}&symbol=XRPUSDT&timestamp={timestamp}&sign={sign}"
+curl "https://api-testnet.bybit.com/derivatives/v3/copytrading/position/list?apiKey={api_key}&symbol=XRPUSDT&timestamp={timestamp}&sign={sign}"
 ```
 
 ```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Positions.Positions_myPosition(symbol="XRPUSDT").result())
+
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.my_position(
-    symbol="XRPUSDT"
-))
+
 ```
 
 > t(:codequote_responseExample)
@@ -403,23 +364,15 @@ GET
 ```console
 curl https://api-testnet.bybit.com/derivatives/v3/copytrading/position/close \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSDT",position_idx:"2","timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","symbol":"BTCUSDT",positionIdx:"2","timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
 ```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Positions.Positions_changeMargin(symbol="BTCUSDT", position_idx="2").result())
+
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.change_margin(
-    symbol="BTCUSDT",
-    position_idx="2"
-))
+
 ```
 
 > t(:codequote_responseExample)
@@ -443,7 +396,7 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
-|position_idx |<b>true</b>|string |t(:copy_trade_row_comment_position_idx)  |
+|positionIdx |<b>true</b>|string |t(:copy_trade_row_comment_position_idx)  |
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -462,19 +415,11 @@ curl https://api-testnet.bybit.com/derivatives/v3/copytrading/position/leverage-
 ```
 
 ```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Positions.Positions_saveLeverage(symbol="BTCUSDT", buyLeverage="14",sellLeverage="14").result())
+
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.set_leverage(
-    symbol="BTCUSD",
-    buyLeverage="14",
-    sellLeverage="14"))
+
 ```
 
 > t(:codequote_responseExample)
@@ -498,8 +443,8 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |symbol |<b>true</b> |string |t(:row_comment_symbol)    |
-|buy_leverage |<b>true</b> |string |t(:copy_trade_comment_leverage) |
-|sell_leverage |<b>true</b> |string |t(:copy_trade_comment_leverage) |
+|buyLeverage |<b>true</b> |string |t(:copy_trade_comment_leverage) |
+|sellLeverage |<b>true</b> |string |t(:copy_trade_comment_leverage) |
 
 
 <p class="fake_header">t(:responseparameters)</p>
