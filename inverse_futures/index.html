@@ -639,7 +639,6 @@
     <link href="../stylesheets/screen-995a21da.css" rel="stylesheet" media="screen" />
     <link href="../stylesheets/print-41ffbffc.css" rel="stylesheet" media="print" />
       <script src="../javascripts/all-52d563e0.js"></script>
-
     <script>
       $(function() { setupCodeCopy(); });
     </script>
@@ -649,47 +648,62 @@
 
   <!-- Navigation bar START -->
   <header class="top-nav">
+    <div class="top-menu">
+        <a href="https://bybit-exchange.github.io/docs/inverse" class="logo-link" target="_self">
+          <img src="../images/logo-aed6448d.svg" class="logo" alt="" />
+        </a>
 
-  <div class="top-menu">
-  <a href="https://bybit-exchange.github.io/docs/inverse" class="logo-link" target="_self">
-    <img src="../images/logo-aed6448d.svg" class="logo" alt="" />
-  </a>
-  <ul class="con">
-    <li><a href="/docs/inverse">Inverse Perpetual</a></li>
-    <li><a href="/docs/linear">USDT Perpetual</a></li>
-    <li><a href="/docs/inverse_futures" class="selected">Inverse Futures</a></li>
-  <li><a href="/docs/spot">Spot</a></li>
-  <li><a href="/docs/account_asset">Account Asset</a></li>
+      <ul class="con">
 
-    <li>
-        <div class="dropdown">
-          <button class="dropbtn">USDC Contract
-            <i class="fa fa-caret-down"></i>
-          </button>
-          <div class="dropdown-content">
-                <a href="/docs/testnet/usdc/option">Option</a>
-                <a href="/docs/testnet/usdc/perpetual">Perpetual</a>
+        <!-- Inverse Perpetual -->
+          	<li><a href="/docs/inverse">Inverse Perpetual</a></li>
+
+        <!-- USDT Perpetual -->
+          	<li><a href="/docs/linear">USDT Perpetual</a></li>
+
+        <!-- Inverse Futures -->
+          	<li><a href="/docs/inverse_futures" class="selected">Inverse Futures</a></li>
+
+        <!-- Spot -->
+          	<li><a href="/docs/spot">Spot</a></li>
+
+        <!-- Inverse Futures -->
+          	<li><a href="/docs/account_asset">Account Asset</a></li>
+
+        <!-- USDC dropdown (Options, Perpetual) -->
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">USDC Contract
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                  <a href="/docs/usdc/option">Option</a>
+                  <a href="/docs/usdc/perpetual">Perpetual</a>
+              </div>
+            </div>
+          </li>
+
+        <!-- Environment dropdown (Testnet, Mainnet) -->
+        <!-- It's very long because each button needs its own logic to link to testnet or mainnet depending on if the website is on testnet or mainnet. -->
+        <li>
+          <div class="dropdown">
+            <button class="dropbtn">Environment
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                  <span class="dropdown-content-selected"><a href=/docs/inverse_futures>Mainnet</a></span>
+                  <a href=/docs/testnet/inverse_futures>Testnet</a>
+            </div>
           </div>
-        </div>
-    </li>
+        </li>
+      </ul>
 
-  <li>
-    <div class="dropdown">
-      <button class="dropbtn">Environment
-        <i class="fa fa-caret-down"></i>
-      </button>
-      <div class="dropdown-content">
-            <span class="dropdown-content-selected"><a href=/docs/inverse_futures>Mainnet</a></span>
-            <a href=/docs/testnet/inverse_futures>Testnet</a>
-
-
-      </div>
     </div>
-  </li>
-  </ul>
-  </div>
-  <a class="international" id="international" href="javascript:void(0);">繁體中文</a>
+    <a class="international" id="international" href="javascript:void(0);">繁體中文</a>
   </header>
+  <!-- Navigation bar END -->
+
+
 
   <body class="inverse_futures inverse_futures_index" data-languages="[&quot;console&quot;,&quot;python--pybit&quot;,&quot;python--old&quot;]">
     <a href="#" id="nav-button">
@@ -9287,7 +9301,7 @@ ELSE
           window.location=currentUrl.replace(/\/((?:testnet\/)?linear)/,"/zh-cn/$1");
         } else{
           window.location=currentUrl.replace(/\/((?:testnet\/)?usdc)/,"/zh-cn/$1");
-          }
+	      }
 
       }
     });
