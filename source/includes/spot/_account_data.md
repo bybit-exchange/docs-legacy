@@ -738,7 +738,8 @@ print(session.user_trade_records(
             },
             "feeTokenId": "USDT",
             "feeAmount": "0.02000000001",
-            "makerRebate": "0"
+            "makerRebate": "0",
+            "spotExecutionTime":"1625836105899"
        }
     ]
 }
@@ -775,7 +776,7 @@ GET
 |qty|float|t(:spotQty)|
 |commission|float|t(:spotCommission)|
 |commissionAsset|float|t(:spotCommissionAsset)|
-|time|long|t(:spotTime)|
+|time|string|t(:spotTime)|
 |isBuyer|float|t(:spotIsBuyer)|
 |isMaker|float|t(:spotIsMaker)|
 |symbolName|string|t(:spotSymbolName)|
@@ -784,7 +785,7 @@ GET
 |feeTokenId|string|t(:spotFeeTokenId)|
 |feeAmount|float|t(:spot_fee)|
 |makerRebate|float|t(:spotMakerRebate)|
-
+|executionTime|string|t(:spotExecutionTime)|
 
 <p class="fake_header">fee object</p>
 
