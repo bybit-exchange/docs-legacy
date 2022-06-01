@@ -283,7 +283,7 @@ under the License.
         	<% end %>
         <% end %>
 
-        <!-- Inverse Futures -->
+        <!-- Account Asset -->
         <% if page_classes.end_with?("account_asset_index") %>
         	<% if page_classes.include?("testnet") %>
           	<li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/account_asset" class="selected"><%=t(:account_asset)%></a></li>
@@ -295,6 +295,21 @@ under the License.
           	<li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/account_asset"><%=t(:account_asset)%></a></li>
         	<% else %>
           	<li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/account_asset"><%=t(:account_asset)%></a></li>
+        	<% end %>
+        <% end %>
+
+        <!-- Copy Trading -->
+        <% if page_classes.end_with?("copy_trading_index") %>
+        	<% if page_classes.include?("testnet") %>
+          	<li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/copy_trading" class="selected"><%=t(:copy_trading)%></a></li>
+        	<% else %>
+          	<li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/copy_trading" class="selected"><%=t(:copy_trading)%></a></li>
+        	<% end %>
+        <% else %>
+        	<% if page_classes.include?("testnet") %>
+          	<li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/copy_trading"><%=t(:copy_trading)%></a></li>
+        	<% else %>
+          	<li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/copy_trading"><%=t(:copy_trading)%></a></li>
         	<% end %>
         <% end %>
 
@@ -403,6 +418,15 @@ under the License.
                 <% else %>
                   <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/account_asset>Mainnet</a></span>
                   <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/account_asset>Testnet</a>
+                <% end %>
+              <% end %>
+              <% if page_classes.end_with?("copy_trading_index") %>
+                <% if page_classes.include?("testnet") %>
+                  <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/copy_trading>Mainnet</a>
+                  <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/copy_trading>Testnet</a></span>
+                <% else %>
+                  <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/copy_trading>Mainnet</a></span>
+                  <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/copy_trading>Testnet</a>
                 <% end %>
               <% end %>
               <% if page_classes.include?("option") %>

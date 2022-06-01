@@ -6,7 +6,7 @@ t(:wallet_para)
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api-testnet.bybit.com/derivatives/v3/copytrading/wallet/balance?api_key={api_key}&timestamp={timestamp}&sign={sign}"
+curl "https://api-testnet.bybit.com/contract/v3/private/copytrading/wallet/balance?api_key={api_key}&timestamp={timestamp}&sign={sign}"
 ```
 
 ```python--old
@@ -43,7 +43,7 @@ t(:ct_wallet_balance)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpwBalance>/derivatives/v3/copytrading/wallet/balance</span></code>
+<code><span id=vpwBalance>/contract/v3/private/copytrading/wallet/balance</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpwBalance"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -72,7 +72,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/derivatives/v3/copytrading/wallet/transfer \
+curl https://api-testnet.bybit.com/contract/v3/private/copytrading/wallet/transfer \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","transferId":"5f95de18-b10f-43be-9746-7b95c4a37d97","coin":"USDT","amount":"88.88","fromAccountType":"CONTRACT","toAccountType":"COPYTRADING","timestamp":{timestamp},"sign":"{sign}"}'
 
@@ -104,7 +104,7 @@ t(:ct_wallet_transfer)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=oawwListNew>/derivatives/v3/copytrading/wallet/transfer</span></code>
+<code><span id=oawwListNew>/contract/v3/private/copytrading/wallet/transfer</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawwListNew"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
