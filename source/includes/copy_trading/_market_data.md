@@ -5,7 +5,7 @@ t(:market_para_auth)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/derivatives/v3/copytrading/symbol/list
+curl https://api-testnet.bybit.com/contract/v3/public/copytrading/symbol/list
 ```
 
 ```python--old
@@ -61,7 +61,7 @@ t(:ct_symbol_list)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpSymbols>/derivatives/v3/copytrading/symbol/list</span></code>
+<code><span id=vpSymbols>/contract/v3/public/copytrading/symbol/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpSymbols"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>

@@ -6,7 +6,7 @@ t(:account_para)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/derivatives/v3/copytrading/order/create \
+curl https://api-testnet.bybit.com/contract/v3/private/copytrading/order/create \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","side":"Buy","symbol":"BTCUSDT","orderType":"Market","qty":"10","timestamp":{timestamp},"sign":"{sign}"}'
 
@@ -38,7 +38,7 @@ t(:ct_create_order)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/derivatives/v3/copytrading/order/create</span></code>
+<code><span id=vpoCreate>/contract/v3/private/copytrading/order/create</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -63,7 +63,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api-testnet.bybit.com/derivatives/v3/copytrading/order/list?api_key={api_key}&timestamp={timestamp}&sign={sign}&symbol=ETHUSDT"
+curl "https://api-testnet.bybit.com/contract/v3/private/copytrading/order/list?api_key={api_key}&timestamp={timestamp}&sign={sign}&symbol=ETHUSDT"
 ```
 
 ```python--old
@@ -109,7 +109,7 @@ t(:ct_order_list)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpoList>/derivatives/v3/copytrading/order/list</span></code>
+<code><span id=vpoList>/contract/v3/private/copytrading/order/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -145,7 +145,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/derivatives/v3/copytrading/order/cancel \
+curl https://api-testnet.bybit.com/contract/v3/private/copytrading/order/cancel \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","orderId":"419190fe-016c-469a-810e-936bef2f5d59","timestamp":{timestamp},"sign":"{sign}"}'
 ```
@@ -176,7 +176,7 @@ t(:ct_cancel_order)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCancel>/derivatives/v3/copytrading/order/cancel</span></code>
+<code><span id=vpoCancel>/contract/v3/private/copytrading/order/cancel</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancel"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -198,7 +198,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/derivatives/v3/copytrading/order/close \
+curl https://api-testnet.bybit.com/contract/v3/private/copytrading/order/close \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDT","orderId":"419190fe-016c-469a-810e-936bef2f5d59","timestamp":{timestamp},"sign":"{sign}"}'
 ```
@@ -232,7 +232,7 @@ t(:account_aside_cancelAllActive)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCancelAll>/derivatives/v3/copytrading/order/close</span></code>
+<code><span id=vpoCancelAll>/contract/v3/private/copytrading/order/close</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancelAll"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -256,7 +256,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api-testnet.bybit.com/derivatives/v3/copytrading/position/list?apiKey={api_key}&symbol=XRPUSDT&timestamp={timestamp}&sign={sign}"
+curl "https://api-testnet.bybit.com/contract/v3/private/copytrading/position/list?apiKey={api_key}&symbol=XRPUSDT&timestamp={timestamp}&sign={sign}"
 ```
 
 ```python--old
@@ -326,7 +326,7 @@ t(:ct_positon_list)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=pList>/derivatives/v3/copytrading/position/list</span></code>
+<code><span id=pList>/contract/v3/private/copytrading/position/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -362,7 +362,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/derivatives/v3/copytrading/position/close \
+curl https://api-testnet.bybit.com/contract/v3/private/copytrading/position/close \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDT",positionIdx:"2","timestamp":{timestamp},"sign":"{sign}"}'
 ```
@@ -389,7 +389,7 @@ t(:ct_positon_close)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=pChangePositionMarginNew>/derivatives/v3/copytrading/position/close</span></code>
+<code><span id=pChangePositionMarginNew>/contract/v3/private/copytrading/position/close</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pChangePositionMarginNew"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -409,7 +409,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/derivatives/v3/copytrading/position/leverage-set \
+curl https://api-testnet.bybit.com/contract/v3/private/copytrading/position/set-leverage \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDT","buyLeverage":"14","sellLeverage":"14",timestamp":{timestamp},"sign":"{sign}"}'
 ```
@@ -436,7 +436,7 @@ t(:ct_set_leverage)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=ulSaveNew>/derivatives/v3/copytrading/position/leverage-set</span></code>
+<code><span id=ulSaveNew>/contract/v3/private/copytrading/position/set-leverage</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ulSaveNew"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
