@@ -667,8 +667,11 @@
         <!-- Spot -->
           	<li><a href="/docs/testnet/spot">Spot</a></li>
 
-        <!-- Inverse Futures -->
+        <!-- Account Asset -->
           	<li><a href="/docs/testnet/account_asset">Account Asset</a></li>
+
+        <!-- Copy Trading -->
+          	<li><a href="/docs/testnet/copy_trading" class="selected">Copy Trading</a></li>
 
         <!-- USDC dropdown (Options, Perpetual) -->
           <li>
@@ -691,6 +694,8 @@
               <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
+                  <a href=/docs/copy_trading>Mainnet</a>
+                  <span class="dropdown-content-selected"><a href=/docs/testnet/copy_trading>Testnet</a></span>
             </div>
           </div>
         </li>
@@ -733,10 +738,18 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#2022-05-31" class="toc-h2 toc-link" data-title="2022-05-31">2022-05-31</a>
+                    <a href="#2022-06-01" class="toc-h2 toc-link" data-title="2022-06-01">2022-06-01</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#rest-api" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2022-05-31" class="toc-h2 toc-link" data-title="2022-05-31">2022-05-31</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-2" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                           <li>
                             <a href="#websocket-api" class="toc-h3 toc-link" data-title="Websocket API">Websocket API</a>
@@ -1700,7 +1713,22 @@ clipboard.on('error', function(e) {
 <p><p><a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common errors.</p> <p>For further assistance or feedback, please join the <a href="https://t.me/BybitAPI">API Telegram chat</a>! API discussion group on Telegram.</p></p>
 <h3 id='t-resources'>Group And Bybit API Resources</h3>
 <p><ul class="bybit-community"> <li><img src="../../images/help_favicon-06f791dd.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>Official Python SDK</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> </ul></p>
-<h1 id='t-changelog'>Changelog</h1><h2 id='2022-05-31'>2022-05-31</h2><h3 id='rest-api'>REST API</h3>
+<h1 id='t-changelog'>Changelog</h1><h2 id='2022-06-01'>2022-06-01</h2><h3 id='rest-api'>REST API</h3>
+<ul>
+<li><a href="#t-ct_symbol_list">Symbol List</a> [update]</li>
+<li><a href="#t-ct_order_list">Order List</a> [update]</li>
+<li><a href="#t-ct_create_order">Create Order</a> [update]</li>
+<li><a href="#t-ct_close_order">Close Order</a> [update]</li>
+<li><a href="#t-ct_cancel_order">Cancel Order</a> [update]</li>
+<li><a href="#t-ct_positon_list">Position List</a> [update]</li>
+<li><a href="#t-ct_positon_close">Close Position</a> [update]</li>
+<li><a href="#t-ct_wallet_balance">Get Wallet Balance</a> [update]</li>
+<li><a href="#t-ct_wallet_transfer">Transfer</a> [update]</li>
+<li><a href="#t-ct_set_leverage">Set Leverage</a> [update] 
+<br/>
+URLs of the above copytrading endpoints are updated.</li>
+</ul>
+<h2 id='2022-05-31'>2022-05-31</h2><h3 id='rest-api-2'>REST API</h3>
 <ul>
 <li><a href="#t-ct_symbol_list">Symbol List</a> [new]</li>
 <li><a href="#t-ct_order_list">Order List</a> [new]</li>
@@ -1879,7 +1907,7 @@ Please make sure that the timestamp parameter adheres to the following rule: ser
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/derivatives/v3/copytrading/symbol/list
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/contract/v3/public/copytrading/symbol/list
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Symbol</span><span class="p">.</span><span class="n">Symbol_list</span><span class="p">().</span><span class="n">result</span><span class="p">())</span>
@@ -1927,7 +1955,7 @@ Please make sure that the timestamp parameter adheres to the following rule: ser
 <p class="fake_header">HTTP Request</p>
 
 <p>GET
-<code><span id=vpSymbols>/derivatives/v3/copytrading/symbol/list</span></code>
+<code><span id=vpSymbols>/contract/v3/public/copytrading/symbol/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpSymbols"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
@@ -2048,7 +2076,7 @@ Please make sure that the timestamp parameter adheres to the following rule: ser
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/derivatives/v3/copytrading/order/create \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/contract/v3/private/copytrading/order/create \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","side":"Buy","symbol":"BTCUSDT","orderType":"Market","qty":"10","timestamp":{timestamp},"sign":"{sign}"}'
 
@@ -2072,7 +2100,7 @@ Please make sure that the timestamp parameter adheres to the following rule: ser
 <p class="fake_header">HTTP Request</p>
 
 <p>POST
-<code><span id=vpoCreate>/derivatives/v3/copytrading/order/create</span></code>
+<code><span id=vpoCreate>/contract/v3/private/copytrading/order/create</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
@@ -2147,7 +2175,7 @@ Please make sure that the timestamp parameter adheres to the following rule: ser
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api-testnet.bybit.com/derivatives/v3/copytrading/order/list?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}&amp;symbol=ETHUSDT"
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api-testnet.bybit.com/contract/v3/private/copytrading/order/list?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}&amp;symbol=ETHUSDT"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
@@ -2186,7 +2214,7 @@ Please make sure that the timestamp parameter adheres to the following rule: ser
 <p class="fake_header">HTTP Request</p>
 
 <p>GET
-<code><span id=vpoList>/derivatives/v3/copytrading/order/list</span></code>
+<code><span id=vpoList>/contract/v3/private/copytrading/order/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoList"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
@@ -2319,7 +2347,7 @@ Please make sure that the timestamp parameter adheres to the following rule: ser
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/derivatives/v3/copytrading/order/cancel \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/contract/v3/private/copytrading/order/cancel \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","orderId":"419190fe-016c-469a-810e-936bef2f5d59","timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code>
@@ -2342,7 +2370,7 @@ Please make sure that the timestamp parameter adheres to the following rule: ser
 <p class="fake_header">HTTP Request</p>
 
 <p>POST
-<code><span id=vpoCancel>/derivatives/v3/copytrading/order/cancel</span></code>
+<code><span id=vpoCancel>/contract/v3/private/copytrading/order/cancel</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancel"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
@@ -2393,7 +2421,7 @@ Please make sure that the timestamp parameter adheres to the following rule: ser
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/derivatives/v3/copytrading/order/close \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/contract/v3/private/copytrading/order/close \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDT","orderId":"419190fe-016c-469a-810e-936bef2f5d59","timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code>
@@ -2420,7 +2448,7 @@ This endpoint's <code>rate_limit</code> will decrease by 10 per request; ie, one
 <p class="fake_header">HTTP Request</p>
 
 <p>POST
-<code><span id=vpoCancelAll>/derivatives/v3/copytrading/order/close</span></code>
+<code><span id=vpoCancelAll>/contract/v3/private/copytrading/order/close</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancelAll"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
@@ -2483,7 +2511,7 @@ This endpoint's <code>rate_limit</code> will decrease by 10 per request; ie, one
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api-testnet.bybit.com/derivatives/v3/copytrading/position/list?apiKey={api_key}&amp;symbol=XRPUSDT&amp;timestamp={timestamp}&amp;sign={sign}"
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api-testnet.bybit.com/contract/v3/private/copytrading/position/list?apiKey={api_key}&amp;symbol=XRPUSDT&amp;timestamp={timestamp}&amp;sign={sign}"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
@@ -2546,7 +2574,7 @@ This endpoint's <code>rate_limit</code> will decrease by 10 per request; ie, one
 <p class="fake_header">HTTP Request</p>
 
 <p>GET
-<code><span id=pList>/derivatives/v3/copytrading/position/list</span></code>
+<code><span id=pList>/contract/v3/private/copytrading/position/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pList"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
@@ -2678,7 +2706,7 @@ This endpoint's <code>rate_limit</code> will decrease by 10 per request; ie, one
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/derivatives/v3/copytrading/position/close \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/contract/v3/private/copytrading/position/close \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDT",positionIdx:"2","timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code>
@@ -2698,7 +2726,7 @@ This endpoint's <code>rate_limit</code> will decrease by 10 per request; ie, one
 <p class="fake_header">HTTP Request</p>
 
 <p>POST
-<code><span id=pChangePositionMarginNew>/derivatives/v3/copytrading/position/close</span></code>
+<code><span id=pChangePositionMarginNew>/contract/v3/private/copytrading/position/close</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pChangePositionMarginNew"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
@@ -2740,7 +2768,7 @@ This endpoint's <code>rate_limit</code> will decrease by 10 per request; ie, one
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/derivatives/v3/copytrading/position/leverage-set \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/contract/v3/private/copytrading/position/set-leverage \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDT","buyLeverage":"14","sellLeverage":"14",timestamp":{timestamp},"sign":"{sign}"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code>
@@ -2760,7 +2788,7 @@ This endpoint's <code>rate_limit</code> will decrease by 10 per request; ie, one
 <p class="fake_header">HTTP Request</p>
 
 <p>POST
-<code><span id=ulSaveNew>/derivatives/v3/copytrading/position/leverage-set</span></code>
+<code><span id=ulSaveNew>/contract/v3/private/copytrading/position/set-leverage</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ulSaveNew"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
@@ -2809,7 +2837,7 @@ This endpoint's <code>rate_limit</code> will decrease by 10 per request; ie, one
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api-testnet.bybit.com/derivatives/v3/copytrading/wallet/balance?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}"
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl "https://api-testnet.bybit.com/contract/v3/private/copytrading/wallet/balance?api_key={api_key}&amp;timestamp={timestamp}&amp;sign={sign}"
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
@@ -2838,7 +2866,7 @@ This endpoint's <code>rate_limit</code> will decrease by 10 per request; ie, one
 <p class="fake_header">HTTP Request</p>
 
 <p>GET
-<code><span id=vpwBalance>/derivatives/v3/copytrading/wallet/balance</span></code>
+<code><span id=vpwBalance>/contract/v3/private/copytrading/wallet/balance</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpwBalance"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
@@ -2917,7 +2945,7 @@ This endpoint's <code>rate_limit</code> will decrease by 10 per request; ie, one
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/derivatives/v3/copytrading/wallet/transfer \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/contract/v3/private/copytrading/wallet/transfer \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","transferId":"5f95de18-b10f-43be-9746-7b95c4a37d97","coin":"USDT","amount":"88.88","fromAccountType":"CONTRACT","toAccountType":"COPYTRADING","timestamp":{timestamp},"sign":"{sign}"}'
 
@@ -2940,7 +2968,7 @@ This endpoint's <code>rate_limit</code> will decrease by 10 per request; ie, one
 <p class="fake_header">HTTP Request</p>
 
 <p>POST
-<code><span id=oawwListNew>/derivatives/v3/copytrading/wallet/transfer</span></code>
+<code><span id=oawwListNew>/contract/v3/private/copytrading/wallet/transfer</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawwListNew"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
