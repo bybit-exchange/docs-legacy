@@ -540,7 +540,7 @@ POST
 |orderId|string|t(:usdcOrderId)|
 |orderLinkId|string|t(:orderLinkId)|
 |t(:row_parameter_symbol) |string|t(:usdcSymbol)|
-|orderType|string|t(:usdcOrderType)|
+|orderType|string|t(:row_comment_order_type)|
 |t(:row_parameter_side) |string|t(:side)|
 |qty|string|t(:usdcOrderQty)|
 |t(:row_parameter_price) |string|t(:usdcOrderPrice)|
@@ -654,7 +654,7 @@ POST
 |orderId|string|t(:usdcOrderId)|
 |orderLinkId|string|t(:orderLinkId)|
 |t(:row_parameter_symbol) |string|t(:usdcSymbol)|
-|orderType|string|t(:usdcOrderType)|
+|orderType|string|t(:row_comment_order_type)|
 |t(:row_parameter_side) |string|t(:side)|
 |qty|string|t(:usdcOrderQty)|
 |t(:row_parameter_price) |string|t(:usdcOrderPrice)|

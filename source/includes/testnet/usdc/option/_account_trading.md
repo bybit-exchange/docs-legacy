@@ -45,7 +45,7 @@ POST
 |t(:row_parameter_side) |<b>true</b>|string|t(:side)|
 |orderPrice|false|string|t(:usdcOptionPlaceOrderPrice_testnet)|
 |orderQty|<b>true</b>|string|t(:usdcOrderQty)|
-|iv|false|string|t(:optionIv)|
+|iv|false|string|t(:optionIv_testnet)|
 |t(:row_parameter_timeInForce)|false|string|t(:row_comment_timeInForce)|
 |orderLinkId|<b>true</b>|string|t(:orderLinkId)|
 |reduceOnly|false|bool|t(:reduceOnly)|
@@ -124,7 +124,7 @@ POST
 |t(:row_parameter_side) |<b>true</b>|string|t(:side)|
 |orderPrice|false|string|t(:usdcOptionPlaceOrderPrice_testnet)|
 |orderQty|<b>true</b>|string|t(:usdcOrderQty)|
-|iv|false|string|t(:optionIv)|
+|iv|false|string|t(:optionIv_testnet)|
 |t(:row_parameter_timeInForce)|false|string|t(:row_comment_timeInForce)|
 |orderLinkId|<b>true</b>|string|t(:orderLinkId)|
 |reduceOnly|false|bool|t(:reduceOnly)|
@@ -540,7 +540,7 @@ POST
 |orderId|string|t(:usdcOrderId)|
 |orderLinkId|string|t(:orderLinkId)|
 |t(:row_parameter_symbol) |string|t(:usdcSymbol)|
-|orderType|string|t(:usdcOptionOrderType_testnet)|
+|orderType|string|t(:row_comment_order_type)|
 |t(:row_parameter_side) |string|t(:side)|
 |qty|string|t(:usdcOrderQty)|
 |t(:row_parameter_price) |string|t(:usdcOrderPrice)|
@@ -654,7 +654,7 @@ POST
 |orderId|string|t(:usdcOrderId)|
 |orderLinkId|string|t(:orderLinkId)|
 |t(:row_parameter_symbol) |string|t(:usdcSymbol)|
-|orderType|string|t(:usdcOptionOrderType_testnet)|
+|orderType|string|t(:row_comment_order_type)|
 |t(:row_parameter_side) |string|t(:side)|
 |qty|string|t(:usdcOrderQty)|
 |t(:row_parameter_price) |string|t(:usdcOrderPrice)|
