@@ -1824,7 +1824,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">orderType</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>參考 <a href="#order-type-type-ordertypes">訂單類型</a> （期權暫時不支持市價委託）</td>
+<td>參考<a href="#order-type-type-ordertypes">下單類型</a>（市場目前僅支持IOC（ImmediateOrCancel）訂單）</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#side-side">side</a></td>
@@ -1836,7 +1836,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">orderPrice</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>訂單價格，如果是期貨業務，價格必傳，如果是期權業務，使用iv下單時，此字段無效，最終以iv反算的價格為訂單價格。</td>
+<td>下單價格。 對於期權，如果 placeType 為 2，則最終訂單價格將通過隱含波動率計算。 如果 orderType 是 Market，則不需要 orderPrice。</td>
 </tr>
 <tr>
 <td style="text-align: left">orderQty</td>
@@ -1848,7 +1848,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">iv</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>期權iv, 小數點後保留叁位小數</td>
+<td>隱含波動率。 如果 orderType 是 Market，iv 不能有值，否則訂單會失敗。</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#time-in-force-timeinforce">timeInForce</a></td>
@@ -1995,7 +1995,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">orderType</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>參考 <a href="#order-type-type-ordertypes">訂單類型</a> （期權暫時不支持市價委託）</td>
+<td>參考<a href="#order-type-type-ordertypes">下單類型</a>（市場目前僅支持IOC（ImmediateOrCancel）訂單）</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#side-side">side</a></td>
@@ -2007,7 +2007,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">orderPrice</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>訂單價格，如果是期貨業務，價格必傳，如果是期權業務，使用iv下單時，此字段無效，最終以iv反算的價格為訂單價格。</td>
+<td>下單價格。 對於期權，如果 placeType 為 2，則最終訂單價格將通過隱含波動率計算。 如果 orderType 是 Market，則不需要 orderPrice。</td>
 </tr>
 <tr>
 <td style="text-align: left">orderQty</td>
@@ -2019,7 +2019,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">iv</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>期權iv, 小數點後保留叁位小數</td>
+<td>隱含波動率。 如果 orderType 是 Market，iv 不能有值，否則訂單會失敗。</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#time-in-force-timeinforce">timeInForce</a></td>
@@ -2761,7 +2761,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <tr>
 <td style="text-align: left">orderType</td>
 <td style="text-align: left">string</td>
-<td>參考 <a href="#order-type-type-ordertypes">訂單類型</a> （期權暫時不支持市價委託）</td>
+<td>交易記錄類型</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#side-side">side</a></td>
@@ -3003,7 +3003,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 <tr>
 <td style="text-align: left">orderType</td>
 <td style="text-align: left">string</td>
-<td>參考 <a href="#order-type-type-ordertypes">訂單類型</a> （期權暫時不支持市價委託）</td>
+<td>交易記錄類型</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#side-side">side</a></td>

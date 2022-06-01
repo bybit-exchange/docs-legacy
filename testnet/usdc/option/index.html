@@ -1828,7 +1828,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">orderType</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>refer to <a href="#order-type-type-ordertypes">Order type</a> (MARKET is not supported currently for Options)</td>
+<td>refer to <a href="#order-type-type-ordertypes">Order type</a> (Market is only supported currently for IOC（ImmediateOrCancel）orders)</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#side-side">side</a></td>
@@ -1840,7 +1840,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">orderPrice</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Order price.For Perpetual, order price can not be empty. For option, if placeType is 2, the final order price will be calculated by Implied volatility</td>
+<td>Order price. For option, if placeType is 2, the final order price will be calculated by Implied volatility. If orderType is Market, orderPrice is not required.</td>
 </tr>
 <tr>
 <td style="text-align: left">orderQty</td>
@@ -1852,7 +1852,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">iv</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Implied volatility</td>
+<td>Implied volatility. If orderType is Market, iv can not have value, otherwise the order will fail.</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#time-in-force-timeinforce">timeInForce</a></td>
@@ -1999,7 +1999,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">orderType</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>refer to <a href="#order-type-type-ordertypes">Order type</a> (MARKET is not supported currently for Options)</td>
+<td>refer to <a href="#order-type-type-ordertypes">Order type</a> (Market is only supported currently for IOC（ImmediateOrCancel）orders)</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#side-side">side</a></td>
@@ -2011,7 +2011,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">orderPrice</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Order price.For Perpetual, order price can not be empty. For option, if placeType is 2, the final order price will be calculated by Implied volatility</td>
+<td>Order price. For option, if placeType is 2, the final order price will be calculated by Implied volatility. If orderType is Market, orderPrice is not required.</td>
 </tr>
 <tr>
 <td style="text-align: left">orderQty</td>
@@ -2023,7 +2023,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">iv</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Implied volatility</td>
+<td>Implied volatility. If orderType is Market, iv can not have value, otherwise the order will fail.</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#time-in-force-timeinforce">timeInForce</a></td>
@@ -2766,7 +2766,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <tr>
 <td style="text-align: left">orderType</td>
 <td style="text-align: left">string</td>
-<td>refer to <a href="#order-type-type-ordertypes">Order type</a> (MARKET is not supported currently for Options)</td>
+<td>Order type</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#side-side">side</a></td>
@@ -3009,7 +3009,7 @@ The endpoint only supports up to 30 days of queried records
 <tr>
 <td style="text-align: left">orderType</td>
 <td style="text-align: left">string</td>
-<td>refer to <a href="#order-type-type-ordertypes">Order type</a> (MARKET is not supported currently for Options)</td>
+<td>Order type</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#side-side">side</a></td>
