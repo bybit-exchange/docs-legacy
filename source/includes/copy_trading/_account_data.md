@@ -46,7 +46,7 @@ POST
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_side) |<b>true</b> |string |t(:row_comment_side)    |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)   |
-|t(:row_parameter_order_type) |<b>true</b> |string |t(:row_comment_activeOrderType)   |
+|t(:row_parameter_copytrading_order_type) |<b>true</b> |string |t(:row_comment_activeOrderType)   |
 |t(:row_parameter_quantity) |<b>true</b> |string |t(:row_comment_qty) |
 |t(:row_parameter_price) |<b>true</b> |string |t(:row_comment_resp_price) |
 |orderLinkId |false |string |t(:row_comment_orderLinkId) |
