@@ -1,12 +1,9 @@
 <%#
 Copyright 2008-2013 Concur Technologies, Inc.
-
 Licensed under the Apache License, Version 2.0 (the "License"); you may
 not use this file except in compliance with the License. You may obtain
 a copy of the License at
-
   http://www.apache.org/licenses/LICENSE-2.0
-
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
 WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
@@ -204,7 +201,6 @@ under the License.
     <% else %>
       <%= javascript_include_tag  "all_nosearch" %>
     <% end %>
-
     <% if current_page.data.code_clipboard %>
     <script>
       $(function() { setupCodeCopy(); });
@@ -302,7 +298,7 @@ under the License.
         	<% end %>
         <% end %>
 
-        <!-- Inverse Futures -->
+        <!-- Account Asset -->
         <% if page_classes.end_with?("account_asset_index") %>
         	<% if page_classes.include?("testnet") %>
           	<li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/account_asset" class="selected"><%=t(:account_asset)%></a></li>
@@ -314,6 +310,21 @@ under the License.
           	<li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/account_asset"><%=t(:account_asset)%></a></li>
         	<% else %>
           	<li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/account_asset"><%=t(:account_asset)%></a></li>
+        	<% end %>
+        <% end %>
+
+        <!-- Copy Trading -->
+        <% if page_classes.end_with?("copy_trading_index") %>
+        	<% if page_classes.include?("testnet") %>
+          	<li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/copy_trading" class="selected"><%=t(:copy_trading)%></a></li>
+        	<% else %>
+          	<li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/copy_trading" class="selected"><%=t(:copy_trading)%></a></li>
+        	<% end %>
+        <% else %>
+        	<% if page_classes.include?("testnet") %>
+          	<li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/copy_trading"><%=t(:copy_trading)%></a></li>
+        	<% else %>
+          	<li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/copy_trading"><%=t(:copy_trading)%></a></li>
         	<% end %>
         <% end %>
 
@@ -431,6 +442,15 @@ under the License.
                 <% else %>
                   <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/account_asset>Mainnet</a></span>
                   <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/account_asset>Testnet</a>
+                <% end %>
+              <% end %>
+              <% if page_classes.end_with?("copy_trading_index") %>
+                <% if page_classes.include?("testnet") %>
+                  <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/copy_trading>Mainnet</a>
+                  <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/copy_trading>Testnet</a></span>
+                <% else %>
+                  <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/copy_trading>Mainnet</a></span>
+                  <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/copy_trading>Testnet</a>
                 <% end %>
               <% end %>
               <% if page_classes.include?("option") %>

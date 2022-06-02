@@ -359,6 +359,7 @@ en:
   row_parameter_side: <a href="#side-side">side</a>
   row_parameter_tp_sl_mode:  <a href="#tp-sl-mode-tp_sl_mode">tp_sl_mode</a>
   row_parameter_order_type: <a href="#order-type-order_type">order_type</a>
+  row_parameter_copytrading_order_type: <a href="#order-type-order_type">orderType</a>
   row_parameter_quantity: <a href="#quantity-qty">qty</a>
   row_parameter_price: <a href="#price-price">price</a>
   row_parameter_time_in_force: <a href="#time-in-force-time_in_force">time_in_force</a>
@@ -383,7 +384,7 @@ en:
 
   stop_order_trigger_price: If <code>stop_order_type</code> is <code>TrailingProfit</code>, this field is the trailing stop active price.
   errorcode_meaning: Meaning
-  resp_field_leverage: In Isolated Margin mode, the value is set by user. In Cross Margin mode, the value is the max leverage at current risk level
+  resp_field_leverage: In Isolated Margin mode, the value is set by the user. In Cross Margin mode, the value is the max leverage at current risk level
   resp_field_effective_leverage: Effective Leverage.
     In Isolated Margin mode, its value equals `leverage`;
     In Cross Margin mode, The formula to calculate<span>:</span>
@@ -925,7 +926,7 @@ en:
   wallet_aside_walletRecords: |
     Find more detail for types <code>Withdraw</code> and <code>Refund</code> in the <a href="#t-withdrawrecords">Withdraw Records</a> endpoint.
   wallet_aside_walletRecords1: USDT records will not be returned unless you pass <code>USDT</code> with the <code>coin</code> parameter.
-  wallet_aside_walletRecords2: Deposit or withdrawal records which occurred after 2021-07-15 will not be shown by this endpoint. This is due to the introduction of the spot wallet at this time. New endpoints are being developed to show these missing records.
+  wallet_aside_walletRecords2: Deposit or withdrawal records which occurred after 2021-07-15 will not be shown by this endpoint. To fetch records after this date you should call the <a href="https://bybit-exchange.github.io/docs/account_asset/#t-depositsrecordquery">Query Deposit Records</a> and <a href="https://bybit-exchange.github.io/docs/account_asset/#t-withdrawrecordquery">Query Withdraw Records</a> endpoints. This is due to the introduction of the spot wallet at this time.
   ### Withdraw Records
   withdrawrecords: Withdraw Records
   wallet_para_withdrawRecords: |
@@ -1218,6 +1219,12 @@ en:
       <li><a href="https://bybit-exchange.github.io/docs/linear/#t-websocketauthentication">USDT (Linear) Perpetual</a></li>
       <li><a href="https://bybit-exchange.github.io/docs/spot/#t-websocketauthentication">Spot</a></li>
     </ul>
+  websocket_endpoints_aside_copytrading: |
+    <b>Note that currently Copy Trading only supports linear perpetual and the following endpoints only apply to <i>USDT (Linear) Perpetual</i></b>. To listen to other websockets, go to:
+    <ul>
+      <li><a href="https://bybit-exchange.github.io/docs/inverse/#t-websocketauthentication">Inverse Perpetual</a></li>
+      <li><a href="https://bybit-exchange.github.io/docs/spot/#t-websocketauthentication">Spot</a></li>
+    </ul>
   websocket_para_endpoint: |
     <p>Base endpoints:</p>
     <ul>
@@ -1399,6 +1406,9 @@ en:
   websocketorder_row_comment_timestamp: Timestamp (when the <a href="#order-status-order_status-stop_order_status"><code>order_status</code></a> was <code>New</code>)
   ### stop_order
   websocketstoporder: stop_order
+  ### copy_trade_field
+  copytrade_field_leverage: In Isolated Margin mode, the value is set by the user.
+  copytrade_field_order_status: Copy trade order status
 
   # Archive Data
   archivedata: Archive Data
@@ -2260,6 +2270,8 @@ en:
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
 
+  restapi_update_20220601_2: Add new response param <code>ExecutionTime</code> and Update response param <code>time</code>
+  restapi_update_20220601: URLs of the above copytrading endpoints are updated.
   restapi_update_20220520: Add Cross Margin Trading Endpoints
   linear_row_comment_limit_100_100: Limit for data size per page, max size is 100. Default as showing 100 pieces of data per page.
   restapi_update_20220513: Add new response param <code>innovation</code>
@@ -2540,7 +2552,8 @@ en:
   spotIcebergQty: Please ignore
   spotGetOrderRemark: At least one must be entered in the orderId field and the ordersLinkId field
   spot_kline_interval: Chart interval
-  spotTime: Order creation time
+  spotTime: Order created time in the match engine
+  spotExecutionTime: Order execution time
   spotFeeTokenId: Fee Token ID
   spotFeeTokenName: Fee token name
   spotFee: Fee of the trade.
@@ -3701,7 +3714,7 @@ en:
   lt_para: The following Leveraged Token endpoints require authentication.
   ltInfo: Asset Info
   row_parameter_etpCode: ETP Asset name
-  spotLtCode: Abbreviation of the LT. Actually only BTC3L,BTC3S,ETH3L,ETH3S,XRP3S,XRP3L available
+  spotLtCode: Abbreviation of the LT. Actually only BTC3L,BTC3S,ETH3L,ETH3S,XRP3S,XRP3L,SOL3L,SOL3S available
   spotResLtCode: Abbreviation of the LT
   spotResLtName: Full name of the LT
   spotResMaxPurchase: Max. purchase amount per transaction
@@ -3766,6 +3779,35 @@ en:
   perpUsdcReplaceOrderDesc: Active order parameters (such as quantity, price) and stop order parameters cannot be modified in one request at the same time. Please request modification separately.
 
 
+
+  #copytrade
+  copy_trading: Copy Trading
+  ct_symbol_list: Symbol List
+  ct_order: Order
+  ct_order_list: Order List
+  ct_create_order: Create Order
+  ct_close_order: Close Order
+  ct_cancel_order: Cancel Order
+  ct_positon_list: Position List
+  ct_positon_close: Close Position
+  ct_wallet_balance: Get Wallet Balance
+  ct_wallet_transfer: Transfer
+  ct_set_leverage: Set Leverage
+
+
+  accountType_copytrade: ""
+  copy_trade_row_comment_parentOrderIdNotparentOrderLinkId:  <b>Required</b> if not passing <code>parent_order_link_id</code>
+  copy_trade_row_comment_parentOrderLinkIdNotOrderId:  <b>Required</b> if not passing <code>parent_order_id</code>
+  copy_trade_row_comment_order_type: Copy trade order type
+  copy_trade_comment_leverage: The value of <code>buy_leverage</code> must be equal to <code>sell_leverage</code>.
+  copy_trade_row_comment_position_idx: |
+     Position idx, used to identify positions in different position modes<span>:</span> <br/>1-Buy side of both side mode <br/> 2-Sell side of both side mode
+  copy_trade_rate_para_limits: |
+    <p>Max. number of unfilled orders supported for each leader:</p>
+    <ul>
+    <li>Active orders: 50</li>
+    </ul>
+
   # Cross Margin Trading
   spotCrossMarginTradingDesc: All Cross Margin Trading endpoints require authentication.
   CrossMarginTrading: Cross Margin Trading Endpoints
@@ -3808,6 +3850,11 @@ en:
   spotTransactId: Transaction ID (Borrowing)
   spotRepaidPrincipal: Total Principal Repaid
   spotRepaidInterest: Total Interest Repaid
+
+  #testnet only
+  usdcOptionOrderType_testnet: refer to <a href="#order-type-type-ordertypes">Order type</a> (Market is only supported currently for IOC（ImmediateOrCancel）orders)
+  usdcOptionPlaceOrderPrice_testnet: Order price. For option, if placeType is 2, the final order price will be calculated by Implied volatility. If orderType is Market, orderPrice is not required.
+  optionIv_testnet: Implied volatility. If orderType is Market, iv can not have value, otherwise the order will fail.
 
   # Derivatives API v3
   derivativesV3: DerivativesV3
