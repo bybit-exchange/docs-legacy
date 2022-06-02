@@ -3449,8 +3449,12 @@ zh-cn:
 #  Derivatives API v3
   derivativesV3: 衍生品v3
 #  Market Data Endpoint
+  row_comment_category_includeInverseFuture: 衍生品產品類型. 目前支持正向合約：<code>liner</code>, 反向合約：<code>inverse</code>包含(反向期貨)
+  row_comment_category: 衍生品產品類型
+  row_comment_category_without_InverseFuture: 衍生品產品類型. 目前支持正向合約：<code>liner</code>, 反向合約：<code>inverse</code>
+  row_comment_category_optionOnly: 衍生品產品類型. 目前僅支持：<code>option</code>
 #  Querykline_v3
-  row_comment_category_qk: 衍生品產品類型. 目前僅支持正向合約：<code>liner</code>
+  row_comment_category_qk: 衍生品產品類型. 目前支持正向合約：<code>liner</code>, 反向合約：<code>inverse</code>包含(反向期貨)
 #  row_comment_symbol: -> row_comment_symbol 合約類型
 #  row_comment_interval: K線時間粒度. 枚舉值：1 3 5 15 30 60 120 240 360 720 "D" "M" "W"
 #  row_comment_start: -> row_comment_startTime_ms 開始時間戳（單位毫秒）
@@ -3467,7 +3471,6 @@ zh-cn:
 
   ## Orderbook_v3
   market_para_orderbook_v3: 獲取Bybit當前Orderbook信息. 每邊的深度為25. v3版本新增500档位的OrderBook数据.
-  row_comment_category: 衍生品產品類型
   row_comment_symbol_v3: 衍生品名稱
   row_comment_limit_25_500: 默認25. 可選值[25, 500]
 #  row_comment_resp_price: -> row_comment_resp_price, 委託價格
@@ -3480,7 +3483,7 @@ zh-cn:
 #  LatestSymbolInfo_v3
   latestsymbolinfo_v3: 所有產品最新行情資訊
   market_para_symbol_v3: 所有衍生品產品最新行情資訊
-  row_comment_symbol_with_option: 合約類型. 當<code>category是<code>option</code>時, <code>symbol</code>必傳.
+  row_comment_symbol_v3_with_option: 合約類型. 當<code>category是<code>option</code>時, <code>symbol</code>必傳.
   resp_field_option_list:  當入參<code>category</code>是<code>option</code>，返回結構如下：
 #  usdcAskIv: -> usdcAskIv 買價iv
 #  deliveryTime: -> deliveryTime, 響應中目前無該返回值
@@ -3518,11 +3521,12 @@ zh-cn:
 #  row_comment_resp_low_price_24h: 最近 24 小時最低價
 #  usdcMarkPriceIv: 標記價iv
 #  row_comment_predicted_funding_rate: 預測資金費率
+  row_comment_basisRate: 交易合約基差率
 
 # InstrumentsInfo(querySymbol)
 #  instrumentsinfo: 查詢產品交易規格參數
   market_para_instrumentsInfo: 獲取可交易的衍生品信息列表
-  resp_field_option_list_instruinfo: 當入參<code>category</code>是<code>option</code>，返回結構如下：
+#  resp_field_option_list: 當入參<code>category</code>是<code>option</code>，返回結構如下：
   row_comment_status: 合約狀態
 #  direction: 方向，向前/後翻頁, prev向前， next 向後
 #  row_comment_limit_500_1000: 返回數據最大500條. 默認返回100條
@@ -3571,7 +3575,14 @@ zh-cn:
 # QueryOptionDeliveryPrice_v3
   optionDeliveryPrice: 查詢期權交割價格
   market_para_optionDeliveryPrice: 查詢期權交割價格
-  row_comment_category_odp: 衍生品產品類型. 目前僅支持：<code>option</code>
+
+# QueryPublicTradingRecords_v3
+  row_comment_optionType: call or out, 僅期權
+  row_comment_resp_time: 成交時間戳(單位毫秒)
+  # 暂不启用
+  row_comment_resp_blockTradeId: 取Paradigm请求的批次ID；普通交易则为空
+
+
 
 
 

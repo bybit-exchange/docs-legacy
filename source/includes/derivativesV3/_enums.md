@@ -5,6 +5,11 @@ t(:ENUMs_para)
 * `Buy`
 * `Sell`
 
+## Category(`category`)
+* `linear`
+* `inverse`
+* `option`
+
 ## Symbol (`symbol`)
 * `BTCUSD`
 * `ETHUSD`
