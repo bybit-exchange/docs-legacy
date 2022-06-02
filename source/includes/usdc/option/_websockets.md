@@ -748,3 +748,40 @@ t(:udscGeeksDesc)
 | totalGamma |string |t(:gamma) |
 | totalVega|string |t(:vega) |
 | totalTheta |string |t(:theta) |
+
+
+### t(:userMmpEvent)
+
+> t(:codequote_subscribe)
+
+```javascript
+ws.send('{"op":"subscribe","id":"{100003}","args":["user.mmp.event"]}');
+
+```
+
+> t(:codequote_snapshot)
+
+```javascript
+{
+    "id":"1714254779362547",
+    "topic":"user.mmp.event",
+    "creationTime":1654138213982,
+    "data":{
+        "triggerStatus":"MMP_FREEZE",
+        "triggerTimestamp":"1654138213787",
+        "frozenPeriodMs":"9999999999999",
+        "baseCoin":"BTC"
+    }
+}
+
+```
+
+t(:usdcMmpEventDesc)
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| triggerStatus |string |t(:usdcMmpTriggerStatus) |
+| triggerTimestamp |string |t(:usdcMmpTriggerTimestamp) |
+| frozenPeriodMs |string |t(:usdcFrozenPeriodMs) |
+| baseCoin|string |t(:usdcBaseCoin) |

@@ -1938,6 +1938,7 @@ zh-cn:
   linear_private_switchmode: 切換止盈止損模式至全倉或部分
   linear_row_comment_limit: 每頁數量, 最大50. 默認每頁20條，最多50條每頁
   linear_row_comment_limit_50_200: 每頁數量, 最大200. 默認每頁50條，最多200條每頁
+  restapi_update_20220602: 新增USDC期權Websocket 私有topic <code>mmpevent</code>
   restapi_update_20220601_2: 新增返回參數 <code>ExecutionTime</code>, 更新返回參數 <code>time</code>
   restapi_update_20220601: 更新上述copytrading接口的URL。
   restapi_update_20220520: 新增 Cross Margin Trading 接口
@@ -3099,6 +3100,7 @@ zh-cn:
   userOrderHistory: 用戶訂單信息
   userConditionalOrders: 用戶條件單信息
   userGreeks: 用戶希臘字母信息
+  userMmpEvent: mmp觸發事件
   usdcLastestSymbolInfo: |
     <p>topic的格式:</p>
     <p>instrument_info.{symbol} , 比如instrument_info.BTC-19NOV21-58000-P</p>
@@ -3115,6 +3117,9 @@ zh-cn:
   udscGeeksDesc: |
     <p>topic:</p>
     <p>期權: user.openapi.greeks</p>
+  usdcMmpEventDesc: |
+    <p>topic:</p>
+    <p>期權: user.mmp.event</p>
   usdc_trading_symbol_comment: 您可以根據<a href="#t-querysymbolinfo">Query Symbol</a>接口獲取所有交易中的symbol
   usdcPriceRule:
     <ul>
@@ -3340,7 +3345,8 @@ zh-cn:
     <p>您可通過郵件Bybit【financial.inst@bybit.com】或聯繫對應的客戶經理申請開通。</p>
     <p></p>
   usdcMmpDefault: 開通後，MMP的默認配置為
-
+  usdcMmpTriggerStatus: MMP觸發狀態
+  usdcMmpTriggerTimestamp: MMP觸發時間戳
 
   column_default: 默認值
   usdcStopOrderType: 參考 <a href="#stop-order-type">Stop Order Type</a>
