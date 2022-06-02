@@ -738,6 +738,16 @@
           </li>
           <li>
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#2022-06-02" class="toc-h2 toc-link" data-title="2022-06-02">2022-06-02</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#websocket-api" class="toc-h3 toc-link" data-title="Websocket API">Websocket API</a>
+                          </li>
+                      </ul>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#t-authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
@@ -940,6 +950,9 @@
                           <li>
                             <a href="#t-usergreeks" class="toc-h3 toc-link" data-title="Greeks">Greeks</a>
                           </li>
+                          <li>
+                            <a href="#t-usermmpevent" class="toc-h3 toc-link" data-title="mmpevent">mmpevent</a>
+                          </li>
                       </ul>
                   </li>
               </ul>
@@ -1018,7 +1031,15 @@ clipboard.on('error', function(e) {
 </script>
 <h1 id='t-introduction'>Group And Resources</h1><h5 id='t-intro_para'><p><a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common errors.</p> <p>For further assistance or feedback, please join the <a href="https://t.me/BybitAPI">API Telegram chat</a>! API discussion group on Telegram.</p></h5><h3 id='t-resources'>Group And Bybit API Resources</h3>
 <p><ul class="bybit-community"> <li><img src="../../images/help_favicon-06f791dd.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>Official Python SDK</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> </ul></p>
-<h1 id='t-changelog'>Changelog</h1><h1 id='t-authentication'>Authentication</h1>
+<h1 id='t-changelog'>Changelog</h1><h2 id='2022-06-02'>2022-06-02</h2><h3 id='websocket-api'>Websocket API</h3>
+<ul>
+<li><a href="#t-usermmpevent">mmpevent</a> [new]
+
+<ul>
+<li>Add new USDC Option Websocket private topic <code>mmpevent</code></li>
+</ul></li>
+</ul>
+<h1 id='t-authentication'>Authentication</h1>
 <aside class="notice">
 Please visit Bybit's <a href="https://testnet.bybit.com/app/user/api-management"> <b>testnet</b></a> or <a href="https://www.bybit.com/app/user/api-management"> <b>mainnet</b></a> to generate an API key
 </aside>
@@ -5901,6 +5922,63 @@ At 0:00, 8:00, and 16:00 UTC+0, the insurance fund will be pushed.
 <td style="text-align: left">totalTheta</td>
 <td style="text-align: left">string</td>
 <td>Theta value</td>
+</tr>
+</tbody></table>
+<h3 id='t-usermmpevent'>mmpevent</h3>
+<blockquote>
+<p>How to Subscribe</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","id":"{100003}","args":["user.mmp.event"]}</span><span class="dl">'</span><span class="p">);</span>
+
+</code></pre></div>
+<blockquote>
+<p>Snapshot Response Example - format of the first response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1714254779362547</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">user.mmp.event</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1654138213982</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
+        <span class="dl">"</span><span class="s2">triggerStatus</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">MMP_FREEZE</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">triggerTimestamp</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1654138213787</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">frozenPeriodMs</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">9999999999999</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">baseCoin</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<p><p>topic:</p>
+<p>Option: user.mmp.event</p>
+</p>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">triggerStatus</td>
+<td style="text-align: left">string</td>
+<td>MMP trigger status</td>
+</tr>
+<tr>
+<td style="text-align: left">triggerTimestamp</td>
+<td style="text-align: left">string</td>
+<td>MMP trigger timestamp</td>
+</tr>
+<tr>
+<td style="text-align: left">frozenPeriodMs</td>
+<td style="text-align: left">string</td>
+<td>Frozen Period(Millisecond). (0 means the account will remain frozen until manually reset)</td>
+</tr>
+<tr>
+<td style="text-align: left">baseCoin</td>
+<td style="text-align: left">string</td>
+<td>Base currency</td>
 </tr>
 </tbody></table>
 <h1 id='t-enums'>Enums Definitions</h1>
