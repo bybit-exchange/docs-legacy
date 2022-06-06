@@ -53,8 +53,8 @@ POST
 |t(:row_parameter_category) |<b>true</b> |string |t(:row_comment_category)    |
 |t(:row_parameter_side) |<b>true</b> |string |t(:row_comment_position_idx_create_order)    |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol_v3)   |
-|positionIdx |false |string |t(:row_comment_symbol_v3)   |
-|t(:row_parameter_order_type) |<b>true</b> |string |t(:row_comment_activeOrderType)   |
+|positionIdx |false |string |t(:row_comment_positionIdx)   |
+|<a href="#order-type-order_type">orderType</a> |<b>true</b> |string |t(:row_comment_activeOrderType)   |
 |t(:row_parameter_quantity) |<b>true</b> |integer |t(:row_comment_qty_v3) |
 |t(:row_parameter_price) |false |number |t(:row_comment_resp_price) |
 |triggerSide |false |string |t(:row_comment_triggerSide) |
@@ -83,16 +83,18 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api-testnet.bybit.com/unified/v3/private/order/list?api_key={api_key}&timestamp={timestamp}&sign={sign}&symbol=BTCUSD"
+curl "https://api-testnet.bybit.com/unified/v3/private/order/list?category=linear&symbol=XRPUSDT&api_key={{bybit-api-key}}&timestamp={{timestamp}}&sign={{signature}}"
 ```
 
 ```python--old
+// change to v3
 import bybit
 client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
 print(client.Order.Order_getOrders(symbol="BTCUSD",order_status="New").result())
 ```
 
 ```python--pybit
+// change to v3
 from pybit import HTTP
 session = HTTP("https://api-testnet.bybit.com",
                api_key="", api_secret="")
@@ -106,39 +108,12 @@ print(session.get_active_order(
 
 ```javascript
 {
-    "ret_code": 0,
-    "ret_msg": "OK",
+  "ret_code": 10017,
+    "ret_msg": "path not fund, please check request path and method",
     "ext_code": "",
-    "ext_info": "",
-    "result": {
-        "data": [
-            {
-                "user_id": 160861,
-                "order_status": "Cancelled",
-                "symbol": "BTCUSD",
-                "side": "Buy",
-                "order_type": "Market",
-                "price": "9800",
-                "qty": "16737",
-                "time_in_force": "ImmediateOrCancel",
-                "order_link_id": "",
-                "order_id": "fead08d7-47c0-4d6a-b9e7-5c71d5df8ba1",
-                "created_at": "2020-07-24T08:22:30Z",
-                "updated_at": "2020-07-24T08:22:30Z",
-                "leaves_qty": "0",
-                "leaves_value": "0",
-                "cum_exec_qty": "0",
-                "cum_exec_value": "0",
-                "cum_exec_fee": "0",
-                "reject_reason": "EC_NoImmediateQtyToFill"
-            }
-        ],
-        "cursor": "w01XFyyZc8lhtCLl6NgAaYBRfsN9Qtpp1f2AUy3AS4+fFDzNSlVKa0od8DKCqgAn"
-    },
-    "time_now": "1604653633.173848",
-    "rate_limit_status": 599,
-    "rate_limit_reset_ms": 1604653633171,
-    "rate_limit": 600
+    "result": null,
+    "ext_info": null,
+    "time_now": "1654160527.252875"
 }
 ```
 
@@ -146,14 +121,18 @@ t(:account_para_getActive)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpoList>/v2/private/order/list</span></code>
+<code><span id=vpoList>/unified/v3/private/order/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
-|t(:row_parameter_order_status) |false |string |t(:account_row_comment_orderStatus) |
+|t(:row_parameter_category) |<b>true</b> |string |t(:row_comment_category) |
+|t(:row_parameter_symbol) |false |string |t(:row_comment_symbol_v3) |
+|orderId |false |string |t(:row_comment_order_id) |
+|orderLinkId |false |string |t(:row_comment_orderLinkId) |
+|<a href="#order-status-order_status-stop_order_status">orderStatus</a> |false |string |t(:account_row_comment_orderStatus) |
+|orderFilter |false |string |t(:row_comment_cursor_direction) |
 |direction |false |string |t(:row_comment_cursor_direction) |
 |limit |false |integer |t(:row_comment_limit) |
 |cursor |false |string |t(:row_comment_cursor) |
@@ -163,26 +142,33 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |user_id |integer |t(:row_comment_userID) |
-|t(:row_parameter_symbol) |string |t(:row_comment_symbol) |
+|t(:row_parameter_category) |<b>true</b> |string |t(:row_comment_category) |
+|t(:row_parameter_symbol) |string |t(:row_comment_symbol_v3) |
 |t(:row_parameter_side) |string |t(:row_comment_side) |
-|t(:row_parameter_order_type) |string |t(:row_comment_order_type) |
+|<a href="#order-type-order_type">orderType</a> |string |t(:row_comment_order_type) |
 |price  |string |t(:row_comment_resp_price) |
 |qty  |string |t(:row_response_comment_qty) |
-|t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
-|t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
-|leaves_qty |string |t(:row_comment_leaves_qty) |
-|leaves_value |string |t(:row_comment_leaves_value) |
-|cum_exec_qty |string |t(:linear_resp_field_cum_exec_qty)  |
-|cum_exec_value |string |t(:linear_resp_field_cum_exec_value)  |
-|cum_exec_fee |string |t(:linear_resp_field_cum_exec_fee)  |
-|reject_reason |string |t(:row_comment_reject_reason)  |
-|order_link_id |string |t(:row_comment_orderLinkId)  |
-|created_at |string |t(:row_comment_created_at)  |
-|order_id |string |t(:account_row_comment_orderId) |
-|take_profit |number |t(:row_comment_take_profit)  |
-|stop_loss |number |t(:row_comment_stop_loss)  |
-|t(:row_parameter_tp_trigger_by) |string |t(:account_row_comment_tp_trigger_by) |
-|t(:row_parameter_sl_trigger_by) |string |t(:account_row_comment_sl_trigger_by) |
+|iv  |string |隱含波動率Implied Volatility |
+|orderIM  |string |row_comment_resp_orderIM |
+|<a href="#time-in-force-time_in_force">timeInForce</a> |string |t(:row_comment_timeInForce)  |
+|<a href="#order-status-order_status-stop_order_status">orderStatus</a> |string |t(:row_comment_orderStatus)  |
+|leavesQty |string |t(:row_comment_leaves_qty) |
+|leavesValue |string |t(:row_comment_leaves_value) |
+|cumExecQty |string |t(:linear_resp_field_cum_exec_qty)  |
+|cumExecValue |string |t(:linear_resp_field_cum_exec_value)  |
+|cumExecFee |string |t(:linear_resp_field_cum_exec_fee)  |
+|basePrice |string |t(:row_comment_resp_basePrice)  |
+|rejectReason |string |t(:row_comment_reject_reason)  |
+|orderLinkId |string |t(:row_comment_orderLinkId)  |
+|createdTime |string |t(:row_comment_created_at)  |
+|updatedTime |string |t(:row_comment_updated_at)  |
+|orderId |string |t(:account_row_comment_orderId) |
+|stopOrderType |string |t(:row_comment_resp_stopOrderType) |
+|takeProfit |string |t(:row_comment_take_profit)  |
+|stopLoss |string |t(:row_comment_stop_loss) |
+|<a href="#trigger-price-type-trigger_by">tpTriggerBy</a> |string |t(:account_row_comment_tp_trigger_by) |
+|<a href="#trigger-price-type-trigger_by">slTriggerBy</a> |string |t(:account_row_comment_sl_trigger_by) |
+|closeOnTrigger |string |t(:row_response_close_on_trigger) |
 |cursor |string |t(:row_comment_resp_cursor) |
 
 
