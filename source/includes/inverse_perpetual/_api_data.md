@@ -15,9 +15,11 @@ print(client.Common.Common_getTime().result())
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com")
-print(session.server_time())  
+from pybit import inverse_perpetual
+session_unauth = inverse_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com"
+)
+print(session_unauth.server_time())  
 ```
 
 > t(:codequote_responseExample)
@@ -48,6 +50,14 @@ GET
 
 ```console
 curl https://api-testnet.bybit.com/v2/public/announcement
+```
+
+```python--pybit
+from pybit import inverse_perpetual
+session_unauth = inverse_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com"
+)
+print(session_unauth.announcement())  
 ```
 
 > t(:codequote_responseExample)
