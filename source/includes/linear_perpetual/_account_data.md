@@ -631,7 +631,7 @@ GET
 ```console
 curl https://api-testnet.bybit.com/private/linear/stop-order/create \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","order_type":"Limit","side":"Buy","symbol":"BTCUSD","qty":1,"price":8100,"base_price":8300,"stop_px":8150,"time_in_force":"GoodTillCancel","order_link_id":"cus_order_id_1","reduce_only":false,"close_on_trigger":false,"timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","order_type":"Limit","side":"Buy","symbol":"BTCUSD","qty":1,"price":8100,"base_price":8300,"stop_px":8150,"time_in_force":"GoodTillCancel","trigger_by"="LastPrice",order_link_id":"cus_order_id_1","reduce_only":false,"close_on_trigger":false,"timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
 ```python--old
@@ -641,10 +641,13 @@ print(client.LinearConditional.LinearConditional_new(order_type="Limit", side="B
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.place_conditional_order(
+from pybit import usdt_perpetual
+session_auth = usdt_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}"
+)
+print(session_auth.place_conditional_order(
     symbol="BTCUSDT",
     order_type="Limit",
     side="Buy",
@@ -653,6 +656,7 @@ print(session.place_conditional_order(
     base_price=16100,
     stop_px=8150,
     time_in_force="GoodTillCancel",
+    trigger_by="LastPrice"
     order_link_id="cus_order_id_1",
     reduce_only=False,
     close_on_trigger=False
@@ -723,7 +727,7 @@ POST
 |base_price |<b>true</b> |number | t(:linear_row_comment_basePrice) |
 |stop_px |<b>true</b> | number | t(:linear_row_comment_stopPx) |
 |t(:row_parameter_time_in_force) |<b>true</b> |string |t(:row_comment_timeInForce) |
-|t(:row_parameter_trigger_price) | false | string | t(:row_comment_triggerBy)|
+|t(:row_parameter_trigger_price) | <b>true</b> | string | t(:row_comment_linear_triggerBy)|
 |reduce_only |<b>true</b> |bool |t(:linear_row_comment_reduceOnly) |
 |close_on_trigger |<b>true</b> |bool |t(:row_comment_closeOnTrigger)
 |order_link_id |false |string |t(:row_comment_orderLinkId) |
@@ -773,10 +777,13 @@ print(client.LinearConditional.LinearConditional_getOrders(symbol="BTCUSDT").res
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.get_conditional_order(
+from pybit import usdt_perpetual
+session_auth = usdt_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}"
+)
+print(session_auth.get_conditional_order(
     symbol="BTCUSDT"
 ))
 ```
@@ -906,10 +913,13 @@ print(client.LinearConditional.LinearConditional_cancel(symbol="BTCUSDT", stop_o
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.cancel_conditional_order(
+from pybit import usdt_perpetual
+session_auth = usdt_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}"
+)
+print(session_auth.cancel_conditional_order(
     symbol="BTCUSDT",
     stop_order_id=""
 ))
@@ -969,10 +979,13 @@ print(client.LinearConditional.LinearConditional_cancelAll(symbol="BTCUSDT").res
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.cancel_all_conditional_orders(
+from pybit import usdt_perpetual
+session_auth = usdt_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}"
+)
+print(session_auth.cancel_all_conditional_orders(
     symbol="BTCUSDT"
 ))
 ```
@@ -1030,10 +1043,13 @@ print(client.LinearConditional.LinearConditional_replace(symbol="BTCUSDT", stop_
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.replace_conditional_order(
+from pybit import usdt_perpetual
+session_auth = usdt_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}"
+)
+print(session_auth.replace_conditional_order(
     symbol="BTCUSDT",
     stop_order_id="",
     p_r_qty=2
@@ -1103,10 +1119,13 @@ print(client.LinearConditional.LinearConditional_query(symbol="BTCUSDT", stop_or
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.query_conditional_order(
+from pybit import usdt_perpetual
+session_auth = usdt_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}"
+)
+print(session_auth.query_conditional_order(
     symbol="BTCUSDT"
 ))
 ```
