@@ -365,7 +365,7 @@ GET
 |cursor |string |t(:row_comment_cursor)|
 
 
-### t(:setTransferableSubmemberList)
+### t(:setTransferableSubaccountList)
 > t(:codequote_curlExample)
 
 ```console
@@ -414,7 +414,7 @@ POST
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 
-### t(:universeTransfer)
+### t(:createuniversaltransfer)
 > t(:codequote_curlExample)
 
 ```console
@@ -459,8 +459,8 @@ curl --location --request POST 'https://api-testnet.bybit.com/asset/v1/private/u
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=universeTransfer>/asset/v1/private/universal/transfer</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#universeTransfer"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=avpuTransfer>/asset/v1/private/universal/transfer</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#avpuTransfer"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -470,8 +470,8 @@ POST
 |amount |<b>true</b> |string |t(:row_comment_to_amount) |
 |from_member_id |<b>true</b> |string |t(:row_comment_from_memberId) |
 |to_member_id |<b>true</b> |string |t(:row_comment_to_memberId) |
-|from_account_type |<b>true</b> |string |t(:row_comment_from_accountType) |
-|to_account_type |<b>true</b> |string |t(:row_comment_to_accountType) |
+|<a href="#accounttype-type-accounttype">from_account_type</a> |<b>true</b> |string |t(:row_comment_from_accountType) |
+|<a href="#accounttype-type-accounttype">to_account_type</a> |<b>true</b> |string |t(:row_comment_to_accountType) |
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -795,7 +795,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/withdraw/record/query?api_key=XXXXXXXXXXX&coin=LTC&limit=1&timestamp=1641789839632&recv_window=50000&sign=XXXXXXXXXXX' 
+curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/withdraw/record/query?api_key=XXXXXXXXXXX&coin=LTC&limit=1&timestamp=1641789839632&recv_window=50000&sign=XXXXXXXXXXX'
 ```
 
 ```python--pybit
@@ -887,7 +887,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/coin-info/query?api_key=XXXXXXXXXXXXXXXXXXXXXXX&timestamp=1641793091931&recv_window=50000&sign=XXXXXXXXXXXXXXXXXXXXXXX' 
+curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/coin-info/query?api_key=XXXXXXXXXXXXXXXXXXXXXXX&timestamp=1641793091931&recv_window=50000&sign=XXXXXXXXXXXXXXXXXXXXXXX'
 ```
 
 ```python--pybit
@@ -953,7 +953,7 @@ GET
 |name|string|t(:coin_info_name)|
 |coin|string|t(:coin_info_coin)|
 |remain_amount|string|t(:coin_info_remain_amt)|
-|chains|List|Object|	
+|chains|List|Object|
 |chain_type|string|t(:coin_info_chain_type)|
 |confirmation|int|t(:coin_info_confirmation)|
 |withdraw_fee|string|t(:coin_info_withdraw_fee)|
@@ -967,7 +967,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/asset-info/query?api_key=XXXXXXXXXXXXXXX&coin=BIT&timestamp=1641790155961&recv_window=50000&sign=XXXXXXXXXXXXXXX' 
+curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/asset-info/query?api_key=XXXXXXXXXXXXXXX&coin=BIT&timestamp=1641790155961&recv_window=50000&sign=XXXXXXXXXXXXXXX'
 ```
 
 ```python--pybit
@@ -1141,7 +1141,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/deposit/address?api_key=XXXXXXXXXXXXXXXXXXX&coin=LTC&timestamp=1641789312824&recv_window=50000&sign=XXXXXXXXXXXXXXXXXXX' 
+curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/deposit/address?api_key=XXXXXXXXXXXXXXXXXXX&coin=LTC&timestamp=1641789312824&recv_window=50000&sign=XXXXXXXXXXXXXXXXXXX'
 ```
 
 ```python--pybit
