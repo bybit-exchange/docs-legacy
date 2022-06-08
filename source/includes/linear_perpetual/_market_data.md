@@ -18,9 +18,11 @@ print(client.LinearKline.LinearKline_get(symbol="BTCUSDT", interval="m", **{'fro
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com")
-print(session.query_kline(
+from pybit import usdt_perpetual
+session_unauth = usdt_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com"
+)
+print(session_unauth.query_kline(
     symbol="BTCUSDT",
     interval=1,
     limit=2,
@@ -108,9 +110,11 @@ print(client.LinearMarket.LinearMarket_trading().result())
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com")
-print(session.public_trading_records(
+from pybit import usdt_perpetual
+session_unauth = usdt_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com"
+)
+print(session_unauth.public_trading_records(
     symbol="BTCUSDT",
     limit=500
 ))
@@ -187,9 +191,11 @@ print(client.LinearFunding.LinearFunding_prevRate(symbol="BTCUSDT").result())
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com")
-print(session.get_the_last_funding_rate(
+from pybit import usdt_perpetual
+session_unauth = usdt_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com"
+)
+print(session_unauth.get_the_last_funding_rate(
     symbol="BTCUSDT"
 ))
 ```
@@ -255,15 +261,16 @@ print(client.LinearKline.LinearKline_markPrice(symbol="BTCUSDT", interval="m", l
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.query_mark_price_kline(
+from pybit import usdt_perpetual
+session_unauth = usdt_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com"
+)
+print(session_unauth.query_mark_price_kline(
     symbol="BTCUSDT",
     interval=1,
     limit=2,
     from_time=1581231260
-)
+))
 ```
 
 > t(:codequote_responseExample)
@@ -339,15 +346,16 @@ print(client.LinearKline.LinearKline_indexPrice().result())
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.query_index_price_kline(
+from pybit import usdt_perpetual
+session_unauth = usdt_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com"
+)
+print(session_unauth.query_index_price_kline(
     symbol="BTCUSDT",
     interval=1,
     limit=2,
     from_time=1581231260
-)
+))
 ```
 
 > t(:codequote_responseExample)
@@ -412,10 +420,12 @@ print(client.LinearKline.LinearKline_premiumIndexPrice().result())
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com")
-print(session.query_premium_index_kline(
-    symbol="BTCUSD",
+from pybit import usdt_perpetual
+session_unauth = usdt_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com"
+)
+print(session_unauth.query_premium_index_kline(
+    symbol="BTCUSDT",
     interval=1,
     limit=2,
     from_time=1581231260

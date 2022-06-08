@@ -16,10 +16,13 @@ print(client.Wallet.Wallet_getBalance(coin="BTC").result())
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.get_wallet_balance(coin="BTC"))
+from pybit import inverse_perpetual
+session_auth = inverse_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}"
+)
+print(session_auth.get_wallet_balance(coin="BTC"))
 ```
 
 > t(:codequote_responseExample)
@@ -104,10 +107,13 @@ print(client.Wallet.Wallet_getRecords().result())
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.wallet_fund_records())
+from pybit import inverse_perpetual
+session_auth = inverse_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}"
+)
+print(session_auth.wallet_fund_records())
 ```
 
 > t(:codequote_responseExample)
@@ -214,10 +220,13 @@ print(client.Wallet.Wallet_withdraw().result())
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.withdraw_records())
+from pybit import inverse_perpetual
+session_auth = inverse_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}"
+)
+print(session_auth.withdraw_records())
 ```
 
 > t(:codequote_responseExample)
@@ -293,10 +302,13 @@ curl "https://api-testnet.bybit.com/v2/private/exchange-order/list?api_key={api_
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.asset_exchange_records())
+from pybit import inverse_perpetual
+session_auth = inverse_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}"
+)
+print(session_auth.asset_exchange_records())
 ```
 
 > t(:codequote_responseExample)
