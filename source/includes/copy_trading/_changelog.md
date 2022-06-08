@@ -28,7 +28,7 @@ t(:restapi_update_20220601)
 - [t(:ct_wallet_transfer)](#t-ct_wallet_transfer) [t(:changelog_new)]
 - [t(:ct_set_leverage)](#t-ct_set_leverage) [t(:changelog_new)]  
 
-### Websocket API
+### WebSocket API
 - [t(:websocketposition)](#t-websocketposition) [t(:changelog_new)]
 - [t(:websocketorder)](#t-websocketorder) [t(:changelog_new)]
 - [t(:websocketexecution)](#t-websocketexecution) [t(:changelog_new)]

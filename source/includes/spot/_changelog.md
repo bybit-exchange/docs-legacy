@@ -1,12 +1,12 @@
 # t(:changelog)
 
 ## 2022-06-08
-### REST API
+### WebSocket API
 - [t(:websocketv2depth)](#t-websocketv2depth) (V2 WebSocket) [t(:changelog_update)]
   - t(:restapi_update_20220608)
 
 ## 2022-06-01
-### REST API
+### WebSocket API
 - [t(:tradehistory)](#t-tradehistory) [t(:changelog_update)]
   - t(:restapi_update_20220601_2)
 
@@ -27,7 +27,7 @@
 - [t(:lt)](#t-lt) [t(:changelog_new)]
   - t(:restapi_update_20220420_1)
 
-### Websocket API
+### WebSocket API
 - [t(:websocketLtNetvalue)](#t-websocketltnetvalue) [t(:changelog_new)]
   - t(:restapi_update_20220420_2)
 
@@ -49,7 +49,7 @@
   - t(:restapi_update_20220324_2)
 
 ## 2022-03-14
-### Websocket API
+### WebSocket API
 - [t(:ticketInfo)](#t-ticketinfo) [t(:changelog_update)]
   - t(:restapi_update_20220314)
 
