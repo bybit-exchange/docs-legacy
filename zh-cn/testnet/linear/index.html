@@ -2656,9 +2656,11 @@ function copyStringToClipboard (endpoint) {
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">LinearKline</span><span class="p">.</span><span class="n">LinearKline_get</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="s">"m"</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s">'from'</span><span class="p">:</span><span class="mi">1581231260</span><span class="p">}).</span><span class="n">result</span><span class="p">())</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
-<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">query_kline</span><span class="p">(</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">usdt_perpetual</span>
+<span class="n">session_unauth</span> <span class="o">=</span> <span class="n">usdt_perpetual</span><span class="p">.</span><span class="n">HTTP</span><span class="p">(</span>
+    <span class="n">endpoint</span><span class="o">=</span><span class="s">"https://api-testnet.bybit.com"</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session_unauth</span><span class="p">.</span><span class="n">query_kline</span><span class="p">(</span>
     <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">,</span>
     <span class="n">interval</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
     <span class="n">limit</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
@@ -2811,9 +2813,11 @@ function copyStringToClipboard (endpoint) {
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">LinearMarket</span><span class="p">.</span><span class="n">LinearMarket_trading</span><span class="p">().</span><span class="n">result</span><span class="p">())</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
-<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">public_trading_records</span><span class="p">(</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">usdt_perpetual</span>
+<span class="n">session_unauth</span> <span class="o">=</span> <span class="n">usdt_perpetual</span><span class="p">.</span><span class="n">HTTP</span><span class="p">(</span>
+    <span class="n">endpoint</span><span class="o">=</span><span class="s">"https://api-testnet.bybit.com"</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session_unauth</span><span class="p">.</span><span class="n">public_trading_records</span><span class="p">(</span>
     <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">,</span>
     <span class="n">limit</span><span class="o">=</span><span class="mi">500</span>
 <span class="p">))</span>
@@ -2929,9 +2933,11 @@ function copyStringToClipboard (endpoint) {
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">LinearFunding</span><span class="p">.</span><span class="n">LinearFunding_prevRate</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">).</span><span class="n">result</span><span class="p">())</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
-<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">get_the_last_funding_rate</span><span class="p">(</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">usdt_perpetual</span>
+<span class="n">session_unauth</span> <span class="o">=</span> <span class="n">usdt_perpetual</span><span class="p">.</span><span class="n">HTTP</span><span class="p">(</span>
+    <span class="n">endpoint</span><span class="o">=</span><span class="s">"https://api-testnet.bybit.com"</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session_unauth</span><span class="p">.</span><span class="n">get_the_last_funding_rate</span><span class="p">(</span>
     <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span>
 <span class="p">))</span>
 </code></pre></div>
@@ -3010,15 +3016,16 @@ function copyStringToClipboard (endpoint) {
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">LinearKline</span><span class="p">.</span><span class="n">LinearKline_markPrice</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="s">"m"</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s">'from'</span><span class="p">:</span><span class="mi">1</span><span class="p">}).</span><span class="n">result</span><span class="p">())</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
-<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
-               <span class="n">api_key</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">query_mark_price_kline</span><span class="p">(</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">usdt_perpetual</span>
+<span class="n">session_unauth</span> <span class="o">=</span> <span class="n">usdt_perpetual</span><span class="p">.</span><span class="n">HTTP</span><span class="p">(</span>
+    <span class="n">endpoint</span><span class="o">=</span><span class="s">"https://api-testnet.bybit.com"</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session_unauth</span><span class="p">.</span><span class="n">query_mark_price_kline</span><span class="p">(</span>
     <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">,</span>
     <span class="n">interval</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
     <span class="n">limit</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
     <span class="n">from_time</span><span class="o">=</span><span class="mi">1581231260</span>
-<span class="p">)</span>
+<span class="p">))</span>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -3148,15 +3155,16 @@ function copyStringToClipboard (endpoint) {
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">LinearKline</span><span class="p">.</span><span class="n">LinearKline_indexPrice</span><span class="p">().</span><span class="n">result</span><span class="p">())</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
-<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
-               <span class="n">api_key</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">""</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">query_index_price_kline</span><span class="p">(</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">usdt_perpetual</span>
+<span class="n">session_unauth</span> <span class="o">=</span> <span class="n">usdt_perpetual</span><span class="p">.</span><span class="n">HTTP</span><span class="p">(</span>
+    <span class="n">endpoint</span><span class="o">=</span><span class="s">"https://api-testnet.bybit.com"</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session_unauth</span><span class="p">.</span><span class="n">query_index_price_kline</span><span class="p">(</span>
     <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">,</span>
     <span class="n">interval</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
     <span class="n">limit</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
     <span class="n">from_time</span><span class="o">=</span><span class="mi">1581231260</span>
-<span class="p">)</span>
+<span class="p">))</span>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -3275,10 +3283,12 @@ function copyStringToClipboard (endpoint) {
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">LinearKline</span><span class="p">.</span><span class="n">LinearKline_premiumIndexPrice</span><span class="p">().</span><span class="n">result</span><span class="p">())</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
-<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">query_premium_index_kline</span><span class="p">(</span>
-    <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSD"</span><span class="p">,</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">usdt_perpetual</span>
+<span class="n">session_unauth</span> <span class="o">=</span> <span class="n">usdt_perpetual</span><span class="p">.</span><span class="n">HTTP</span><span class="p">(</span>
+    <span class="n">endpoint</span><span class="o">=</span><span class="s">"https://api-testnet.bybit.com"</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session_unauth</span><span class="p">.</span><span class="n">query_premium_index_kline</span><span class="p">(</span>
+    <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">,</span>
     <span class="n">interval</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
     <span class="n">limit</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
     <span class="n">from_time</span><span class="o">=</span><span class="mi">1581231260</span>
@@ -3724,7 +3734,7 @@ GET
 <td style="text-align: left"><a href="#quantity-qty">qty</a></td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">number</td>
-<td>委托數量(USDT)</td>
+<td>委托數量(加密貨幣)</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#price-price">price</a></td>
@@ -4848,7 +4858,7 @@ GET
 <td style="text-align: left"><a href="#quantity-qty">qty</a></td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">number</td>
-<td>委托數量(USDT)</td>
+<td>委托數量(加密貨幣)</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#price-price">price</a></td>
@@ -7094,7 +7104,7 @@ GET
 <tr>
 <td style="text-align: left"><a href="#liquidity-type-last_liquidity_ind">last_liquidity_ind</a></td>
 <td style="text-align: left">string</td>
-<td>只有當<code>exec_type</code>字段類型為<code>Trade<\code>、<code>AdlTrade<\code>、<code>BustTrade</code>時有效</td>
+<td>只有當<code>exec_type</code>字段類型為<code>Trade</code>、<code>AdlTrade</code>、<code>BustTrade</code>時有效</td>
 </tr>
 <tr>
 <td style="text-align: left">trade_time_ms</td>
@@ -7307,7 +7317,7 @@ GET
 <tr>
 <td style="text-align: left"><a href="#liquidity-type-last_liquidity_ind">last_liquidity_ind</a></td>
 <td style="text-align: left">string</td>
-<td>只有當<code>exec_type</code>字段類型為<code>Trade<\code>、<code>AdlTrade<\code>、<code>BustTrade</code>時有效</td>
+<td>只有當<code>exec_type</code>字段類型為<code>Trade</code>、<code>AdlTrade</code>、<code>BustTrade</code>時有效</td>
 </tr>
 <tr>
 <td style="text-align: left">trade_time_ms</td>
@@ -7994,9 +8004,11 @@ GET
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--old"><code><span class="kn">import</span> <span class="nn">bybit</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">bybit</span><span class="p">.</span><span class="n">bybit</span><span class="p">(</span><span class="n">test</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s">"api_key"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s">"api_secret"</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">Common</span><span class="p">.</span><span class="n">Common_getTime</span><span class="p">().</span><span class="n">result</span><span class="p">())</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
-<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">server_time</span><span class="p">())</span>  
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">inverse_perpetual</span>
+<span class="n">session_unauth</span> <span class="o">=</span> <span class="n">inverse_perpetual</span><span class="p">.</span><span class="n">HTTP</span><span class="p">(</span>
+    <span class="n">endpoint</span><span class="o">=</span><span class="s">"https://api-testnet.bybit.com"</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session_unauth</span><span class="p">.</span><span class="n">server_time</span><span class="p">())</span>  
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -8034,7 +8046,12 @@ GET
 <p>請求示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/v2/public/announcement
-</span></code></pre></div>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">inverse_perpetual</span>
+<span class="n">session_unauth</span> <span class="o">=</span> <span class="n">inverse_perpetual</span><span class="p">.</span><span class="n">HTTP</span><span class="p">(</span>
+    <span class="n">endpoint</span><span class="o">=</span><span class="s">"https://api-testnet.bybit.com"</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session_unauth</span><span class="p">.</span><span class="n">announcement</span><span class="p">())</span>  
+</code></pre></div>
 <blockquote>
 <p>響應示例</p>
 </blockquote>
