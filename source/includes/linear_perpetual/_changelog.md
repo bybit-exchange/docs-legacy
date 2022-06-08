@@ -33,7 +33,7 @@
 - [t(:myposition)](#t-myposition) [t(:changelog_update)]
   - t(:restapi_update_20211206_2)
 
-#### Websocket API
+#### WebSocket API
 - [t(:websocketposition)](#t-websocketposition) [t(:changelog_update)]
   - t(:restapi_update_20211206_2)
 - [t(:websocketorder)](#t-websocketorder) [t(:changelog_update)]
@@ -47,7 +47,7 @@
     - t(:restapi_update_2021101201)
 
 ### 2021-09-17
-#### Websocket API
+#### WebSocket API
 - [t(:websocketliquidation)](#t-websocketliquidation) [t(:changelog_new)]
     - t(:restapi_update_20210917)
 
@@ -62,7 +62,7 @@
   t(:restapi_update_20210907)
 
 ### 2021-09-03
-#### Websocket API
+#### WebSocket API
 - [t(:websocketinstrumentInfo)](#t-websocketinstrumentinfo) [t(:changelog_update)]
   t(:restapi_update_20210902)
 
@@ -105,7 +105,7 @@
 
 ### 2021-02-02
 
-#### Websocket API
+#### WebSocket API
 
 - Topic <a href="#t-websocketorder">order</a> [t(:changelog_update)]
     - t(:ws_update_20210202_2)
@@ -208,7 +208,7 @@
 - [t(:querycond)](#t-querycond) [t(:changelog_update)]
     - t(:restapi_update_20200826_3)
 
-#### Websocket API
+#### WebSocket API
 - [t(:ws_update_20200927_1)](#t-websocket) [t(:changelog_update)]
 
 ### 2020-09-15
@@ -272,7 +272,7 @@
 - [t(:key)](#t-key) [t(:changelog_bugfix)]
     - t(:restapi_update_20200429_2)
 
-#### Websocket API
+#### WebSocket API
 - [t(:websocketkline)](#t-websocketkline) [t(:changelog_new)]
 
 
@@ -348,7 +348,7 @@
 - [t(:getactive)](#t-getactive)
     - t(:linear_update_20200331)
 
-#### Websocket API
+#### WebSocket API
 - [t(:websocketwallet)](#t-websocketwallet) [t(:changelog_new)]
 - [t(:websockettrade)](#t-websockettrade) [t(:changelog_new)]
 - [t(:websocketorderbook25)](#t-websocketorderbook25)  [t(:changelog_update)]
@@ -360,7 +360,7 @@
 - [t(:placeactive)](#t-activeorders) [t(:changelog_new)]
 - [t(:myposition)](#t-position) [t(:changelog_new)]
 
-#### Websocket API
+#### WebSocket API
 - [t(:websocketorderbook25)](#t-websocketorderbook25) [t(:changelog_new)]
 - [t(:websocketorderbook200)](#t-websocketorderbook200) [t(:changelog_new)]
 - [t(:websocketinstrumentInfo)](#t-websocketinstrumentinfo) [t(:changelog_new)]
