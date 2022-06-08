@@ -1,7 +1,7 @@
 # t(:changelog)
 
 ## 2022-06-08
-### REST API
+### WebSocket API
 - [t(:websocketv2depth)](#t-websocketv2depth) (V2 WebSocket) [t(:changelog_update)]
   - t(:restapi_update_20220608)
 
