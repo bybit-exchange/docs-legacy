@@ -985,3 +985,269 @@ GET
 |address_deposit|string|t(:deposit_address)|
 |tag_deposit|string|t(:deposit_tag)|
 |chain|string|t(:deposit_response_chainname)|
+
+
+
+### t(:setTransferableSubmemberList)
+> t(:codequote_curlExample)
+
+```console
+curl --location --request POST 'https://api-testnet.bybit.com/asset/v1/private/transferable-subs/save' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "transferableSubIds":"303936,445310,445323,517292,532728,545366,554286",
+    "sign": "{{signature}}",
+    "timestamp": "{{timestamp}}",
+    "api_key": "{{bybit-api-key}}",
+    "recv_window": "5000"
+}'
+```
+
+```python--pybit
+
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "result": {},
+    "ext_info": null,
+    "time_now": 1654674238364,
+    "rate_limit_status": 19,
+    "rate_limit_reset_ms": 1654674238364,
+    "rate_limit": 1
+}
+```
+
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=stsl>/asset/v1/private/transferable-subs/save</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#stsl"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|transferable_sub_ids |false |string |t(:row_comment_transferable_sub_ids) |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+
+### t(:universeTransfer)
+> t(:codequote_curlExample)
+
+```console
+curl --location --request POST 'https://api-testnet.bybit.com/asset/v1/private/universal/transfer' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "fromAccountType": "SPOT",
+    "toAccountType": "CONTRACT",
+    "amount": "10",
+    "coin": "USDT",
+    "transferId": "21ff1b44-2d5d-4293-913d-4597c5ad2611",
+    "fromMemberId": "290118",
+    "toMemberId": "545366",
+    "sign": "{{signature}}",
+    "timestamp": "{{timestamp}}",
+    "api_key": "{{bybit-api-key}}",
+    "recv_window": "5000"
+}'
+```
+
+```python--pybit
+
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "result": {
+        "transfer_id": "21ff1b44-2d5d-4293-913d-4597c5ad2611"
+    },
+    "ext_info": null,
+    "time_now": 1654674912874,
+    "rate_limit_status": 18,
+    "rate_limit_reset_ms": 1654674912874,
+    "rate_limit": 2
+}
+```
+
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=universeTransfer>/asset/v1/private/universal/transfer</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#universeTransfer"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|transfer_id |<b>true</b> |string |t(:row_comment_transfer_id) |
+|<a href="#currency-currency-coin">coin</a> |<b>true</b> |string |t(:row_comment_currency) |
+|amount |<b>true</b> |string |t(:row_comment_to_amount) |
+|from_member_id |<b>true</b> |string |t(:row_comment_from_memberId) |
+|to_member_id |<b>true</b> |string |t(:row_comment_to_memberId) |
+|from_account_type |<b>true</b> |string |t(:row_comment_from_accountType) |
+|to_account_type |<b>true</b> |string |t(:row_comment_to_accountType) |
+
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|transfer_id |string |t(:row_comment_transfer_id) |
+
+
+### t(:getSubmemberIdList)
+> t(:codequote_curlExample)
+
+```console
+curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/sub-member/member-ids'
+```
+
+```python--pybit
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "result": {
+        "sub_user_id": [
+            303936,
+            445310,
+            445323,
+            517292,
+            532728,
+            545366,
+            554286,
+            572408
+        ],
+        "transferable_sub_ids": [
+            "303936",
+            "445310",
+            "445323",
+            "517292",
+            "532728",
+            "545366",
+            "554286"
+        ]
+    },
+    "ext_info": null,
+    "time_now": 1654676013343,
+    "rate_limit_status": 59,
+    "rate_limit_reset_ms": 1654676013343,
+    "rate_limit": 1
+}
+```
+
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=gsidlist>/asset/v1/private/sub-member/member-ids</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#gsidlist"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|sub_user_id |string Array |t(:row_comment_sub_user_id_list)|
+|transferable_sub_ids |string Array |t(:row_comment_transferable_sub_ids_list) |
+
+
+
+
+### t(:queryUniverseTransferList)
+> t(:codequote_curlExample)
+
+```console
+curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/universal/transfer/list'
+```
+
+```python--pybit
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "result": {
+        "list": [
+            {
+                "transfer_id": "21ff1b44-2d5d-4293-913d-4597c5ad2611",
+                "coin": "USDT",
+                "amount": "10",
+                "timestamp": "1654674913",
+                "status": "SUCCESS",
+                "fromAccountType": "SPOT",
+                "toAccountType": "CONTRACT",
+                "fromMemberId": "290118",
+                "toMemberId": "545366"
+            },
+            {
+                "transfer_id": "submember_transfer_7e51ba01-8f44-4c60-a780-5ab7fc578f22",
+                "coin": "USDT",
+                "amount": "10",
+                "timestamp": "1654665691",
+                "status": "SUCCESS",
+                "fromAccountType": "SPOT",
+                "toAccountType": "SPOT",
+                "fromMemberId": "290118",
+                "toMemberId": "572408"
+            }
+        ],
+        "cursor": "eyJtaW5JRCI6MjgxMzM1LCJtYXhJRCI6NDUzNzMwfQ=="
+    },
+    "ext_info": null,
+    "time_now": 1654676488240,
+    "rate_limit_status": 59,
+    "rate_limit_reset_ms": 1654676488240,
+    "rate_limit": 1
+}
+```
+
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=getuniversaltransferlist>/asset/v1/private/universal/transfer/list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#getuniversaltransferlist"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|transfer_id |false |string |t(:row_comment_transfer_id) |
+|<a href="#currency-currency-coin">coin</a> |false |string |t(:row_comment_currency) |
+|<a href="#transfer-status-status">status</a> |false |string |t(:row_comment_transferstatus) |
+|start_time |false |integer |t(:row_comment_startTime) |
+|end_time |false |integer |t(:row_comment_endTime) |
+|<a href="#page-direction-direction">direction</a> |false |string |t(:row_comment_pageaction) |
+|limit |false |integer |t(:row_comment_to_limit) |
+|cursor |false |string |t(:row_comment_cursor)|
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|transfer_id |string |t(:row_comment_transfer_id) |
+|<a href="#currency-currency-coin">coin</a> |string |t(:row_comment_currency) |
+|amount |string |t(:row_comment_to_amount) |
+|timestamp |integer |t(:row_comment_to_timestamp) |
+|<a href="#transfer-status-status">status</a> |string |t(:row_comment_transferstatus) |
+|<a href="#accounttype-type-accounttype">from_account_type</a> |string |t(:row_comment_accounttype) |
+|<a href="#accounttype-type-accounttype">to_account_type</a> |string |t(:row_comment_accounttype) |
+|from_member_id |string |t(:row_comment_from_memberId) |
+|to_member_id |string |t(:row_comment_to_memberId) |
+|cursor |string |t(:row_comment_cursor)|
