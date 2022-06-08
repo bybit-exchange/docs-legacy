@@ -15,8 +15,10 @@ print(client.Market.Market_orderbook(symbol="BTCUSD").result())
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com")
+from pybit import inverse_perpetual
+session_unauth = inverse_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com"
+)
 print(session.orderbook(symbol="BTCUSD"))
 ```
 
@@ -85,12 +87,14 @@ print(client.Kline.Kline_get(symbol="BTCUSD", interval="m", **{'from':1581231260
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com")
-print(session.query_kline(
+from pybit import inverse_perpetual
+session_unauth = inverse_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com"
+)
+print(session_unauth.query_kline(
     symbol="BTCUSD",
-    interval="m",
-    from_time=1581231260
+    interval="D",
+    from_time="1653408000"
 ))
 ```
 
@@ -171,9 +175,11 @@ print(client.Market.Market_symbolInfo().result())
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com")
-print(session.latest_information_for_symbol(
+from pybit import inverse_perpetual
+session_unauth = inverse_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com"
+)
+print(session_unauth.latest_information_for_symbol(
     symbol="BTCUSD"
 ))
 ```
@@ -305,9 +311,11 @@ print(client.Market.Market_tradingRecords(symbol="BTCUSD").result())
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com")
-print(session.public_trading_records(
+from pybit import inverse_perpetual
+session_unauth = inverse_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com"
+)
+print(session_unauth.public_trading_records(
     symbol="BTCUSD"
 ))
 ```
@@ -373,8 +381,10 @@ print(client.Symbol.Symbol_get().result())
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com")
+from pybit import inverse_perpetual
+session_unauth = inverse_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com"
+)
 print(session.query_symbol())
 ```
 
@@ -550,13 +560,10 @@ print(client.Kline.Kline_markPrice(symbol="BTCUSD", interval="30",limit=200, **{
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com")
-print(session.query_mark_price_kline(
+print(session_unauth.query_mark_price_kline(
     symbol="BTCUSD",
-    interval=30,
-    limit=200,
-    from_time=1600544880
+    interval="D",
+    from_time=1653408000
 ))
 ```
 
@@ -626,13 +633,14 @@ print(client.Kline.Kline_indexPrice(symbol="BTCUSD", interval="1", **{'from':161
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com")
-print(session.query_index_price_kline(
+from pybit import inverse_perpetual
+session_unauth = inverse_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com"
+)
+print(session_unauth.query_index_price_kline(
     symbol="BTCUSD",
-    interval=30,
-    limit=200,
-    from_time=1600544880
+    interval="D",
+    from_time=1653408000
 ))
 ```
 
@@ -700,13 +708,14 @@ print(client.Kline.Kline_premiumIndexPrice(symbol="BTCUSD", interval="1", **{'fr
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com")
-print(session.query_premium_index_kline(
+from pybit import inverse_perpetual
+session_unauth = inverse_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com"
+)
+print(session_unauth.query_premium_index_kline(
     symbol="BTCUSD",
-    interval=30,
-    limit=200,
-    from_time=1600544880
+    interval="D",
+    from_time=1653408000
 ))
 ```
 
@@ -774,12 +783,13 @@ print(client.Market.Market_openInterest(symbol="BTCUSD", limit=2, period="5min")
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com")
-print(session.open_interest(
+from pybit import inverse_perpetual
+session_unauth = inverse_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com"
+)
+print(session_unauth.open_interest(
     symbol="BTCUSD",
-    limit=2,
-    period="5min"
+    period="30min"
 ))
 ```
 
@@ -843,11 +853,13 @@ print(client.Market.Market_bigDeal(symbol="BTCUSD", limit=2).result())
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com")
-print(session.latest_big_deal(
+from pybit import inverse_perpetual
+session_unauth = inverse_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com"
+)
+print(session_unauth.latest_big_deal(
     symbol="BTCUSD",
-    limit=2
+    limit=10
 ))
 ```
 
@@ -915,9 +927,11 @@ print(client.Market.Market_accountRatio(symbol="BTCUSD", limit=2, period="5min")
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com")
-print(session.long_short_ratio(
+from pybit import inverse_perpetual
+session_unauth = inverse_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com"
+)
+print(session_unauth.long_short_ratio(
     symbol="BTCUSD",
     limit=2,
     period="5min"

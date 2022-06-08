@@ -147,6 +147,7 @@ zh-cn:
   row_comment_stopPx: 觸發價格. 如果您期望價格上漲时觸發您的條件訂單，請確保 stop_px > max(market price, base_price) 否則 stop_px < min(market price, base_price)
   row_comment_timeInForce: <a href="https://help.bybit.com/hc/zh-cn/articles/360039749233-%E4%BB%80%E4%B9%88%E6%98%AF%E8%AE%A2%E5%8D%95%E6%89%A7%E8%A1%8C%E7%AD%96%E7%95%A5-TIF-GTC-FOK-IOC-">執行策略</a>
   row_comment_triggerBy: 觸發價格類型. 默認為最新市價
+  row_comment_linear_triggerBy: 觸發價格類型
   row_comment_tp_size: 在部分止盈止損模式下，止盈合約數量
   row_comment_sl_size: 在部分止盈止損模式下，止損合約數量
   row_comment_takeProfit: 止盈價格，僅開倉時生效
@@ -278,7 +279,7 @@ zh-cn:
   row_comment_mode: 倉位模式，  <code>MergedSingle</code> or <code>BothSide</code>
   row_comment_taker_fee_rate: taker手續費
   row_comment_maker_fee_rate: maker手續費
-  row_comment_last_liquidity_ind: 只有當<code>exec_type</code>字段類型為<code>Trade<\code>、<code>AdlTrade<\code>、<code>BustTrade</code>時有效
+  row_comment_last_liquidity_ind: 只有當<code>exec_type</code>字段類型為<code>Trade</code>、<code>AdlTrade</code>、<code>BustTrade</code>時有效
 
   row_response_comment_price: 委托價格
   row_response_comment_qty: 委托數量
@@ -1832,7 +1833,7 @@ zh-cn:
     <p><b>止盈止損: 您僅能在開倉時設置止盈止損條件單，一旦持有倉位後提交活動委托時關聯的止盈止損則不會生效。如果不設置止盈止損觸發條件<code>trigger_by</code>則默認使用LastPrice</b></p>
     <p>委托數量: 表示您要購買/賣出的永續合約數，對於委托數量目前Bybit只允許提交正整數。增減最小單位請參考交易對接口響應中的<code>lot_size_filter</code>字段。</p>
     <p>委托價格: 如果是下<b>限價單</b>，該參數為<b>必填</b>. 在沒有倉位時，做多的委托價格需高於市價的10%、低於1百萬。如有倉位時則需優於強平價。價格增減最小單位請參考<a href="#t-querysymbol">交易對接口</a>響應中的<b>price_filter</b>字段。</p>
-    <p>自定義活动單ID: 您可以自定義活動委托訂單ID，我們會為您關聯到系統的訂單ID，並把系統的唯一訂單ID在活動委托創建成功後一並返回給您，您可以使用該訂單ID去取消活動委托，同時要求您傳遞的自定義訂單ID<code>最大長度不超過36個字段且唯一</code>。</p>
+    <p>自定義條件單ID: 您可以自定義活動委托訂單ID，我們會為您關聯到系統的訂單ID，並把系統的唯一訂單ID在活動委托創建成功後一並返回給您，您可以使用該訂單ID去取消活動委托，同時要求您傳遞的自定義訂單ID<code>最大長度不超過36個字段且唯一</code>。</p>
     <p><b>每個賬戶最多可同時持有500個活動訂單。這是針對合約的，因此可以允許出現例如：賬戶同時持有300個BTCUSDT的活動單、280個ETHUSDT合約的活動單。</b></p>
     <p><b>當您達到訂單上限的時候的時候，仍然可以下單設置了參數<code>reduce_only</code> 或 <code>close_on_trigger</code>的訂單。</b></p>
 
@@ -3378,7 +3379,7 @@ zh-cn:
   spotResManageFee: 管理費率
   spotResManageFeeTime: 收取資金管理費的時間
   spotResCirculation: 在二級市場流通的代幣數量
-  spotResValue: 平臺內部使用字段, 暫無實際意義, 可忽視
+  spotResValue: 平臺內部使用字段, 暫無實際意義, 可忽略
   spotResTotal: 平臺申購總量上限
   spotResNetValue: 當前淨值
 
