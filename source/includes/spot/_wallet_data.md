@@ -8,11 +8,13 @@ t(:wallet_para)
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="",
-               spot=True)
-print(session.get_wallet_balance())
+from pybit import spot
+session_auth = spot.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}"
+)
+print(session_auth.get_wallet_balance())
 ```
 
 > t(:codequote_responseExample)

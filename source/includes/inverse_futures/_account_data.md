@@ -19,10 +19,13 @@ print(client.FuturesOrder.FuturesOrder_new(side="Buy",symbol="BTCUSDM21",order_t
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.place_active_order(
+from pybit import inverse_futures
+session_auth = inverse_futures.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}"
+)
+print(session_auth.place_active_order(
     position_idx=1,
     symbol="BTCUSDM21",
     side="Buy",
@@ -135,10 +138,13 @@ print(client.FuturesOrder.FuturesOrder_getOrders(symbol="BTCUSDM21",order_status
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.get_active_order(
+from pybit import inverse_futures
+session_auth = inverse_futures.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}"
+)
+print(session_auth.get_active_order(
     symbol="BTCUSDM21"
 ))
 ```
@@ -245,10 +251,13 @@ print(client.FuturesOrder.FuturesOrder_cancel(symbol="BTCUSDM21", order_id="").r
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.cancel_active_order(
+from pybit import inverse_futures
+session_auth = inverse_futures.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}"
+)
+print(session_auth.cancel_active_order(
     symbol="BTCUSDM21",
     order_id=""
 ))
@@ -345,10 +354,13 @@ print(client.FuturesOrder.FuturesOrder_cancelAll(symbol="BTCUSDM21").result())
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.cancel_all_active_orders(
+from pybit import inverse_futures
+session_auth = inverse_futures.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}"
+)
+print(session_auth.cancel_all_active_orders(
     symbol="BTCUSDM21"
 ))
 ```
@@ -443,10 +455,13 @@ print(client.FuturesOrder.FuturesOrder_replace(symbol="BTCUSDM21", order_id="69b
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.replace_active_order(
+from pybit import inverse_futures
+session_auth = inverse_futures.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}"
+)
+print(session_auth.replace_active_order(
     symbol="BTCUSDM21",
     order_id=""
 ))
@@ -513,10 +528,13 @@ print(client.FuturesOrder.FuturesOrder_query(symbol="BTCUSDM21", order_id="").re
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.query_active_order(
+from pybit import inverse_futures
+session_auth = inverse_futures.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}"
+)
+print(session_auth.query_active_order(
     symbol="BTCUSDM21",
     order_id=""
 ))
@@ -695,10 +713,13 @@ print(client.FuturesConditional.FuturesConditional_new(order_type="Limit",side="
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.place_conditional_order(
+from pybit import inverse_futures
+session_auth = inverse_futures.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}"
+)
+print(session_auth.place_conditional_order(
     symbol="BTCUSDM21",
     side="Buy",
     order_type="Limit",
@@ -808,10 +829,13 @@ print(client.FuturesConditional.FuturesConditional_getOrders(symbol="BTCUSDM21",
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.get_active_order(
+from pybit import inverse_futures
+session_auth = inverse_futures.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}"
+)
+print(session_auth.get_active_order(
     symbol="BTCUSDM21"
 ))
 ```
@@ -913,10 +937,13 @@ print(client.FuturesConditional.FuturesConditional_cancel(symbol="BTCUSDM21", st
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.cancel_conditional_order(
+from pybit import inverse_futures
+session_auth = inverse_futures.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}"
+)
+print(session_auth.cancel_conditional_order(
     symbol="BTCUSDM21",
     stop_order_id=""
 ))
@@ -975,10 +1002,13 @@ print(client.FuturesConditional.FuturesConditional_cancelAll(symbol="BTCUSDM21")
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.cancel_all_conditional_orders(
+from pybit import inverse_futures
+session_auth = inverse_futures.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}"
+)
+print(session_auth.cancel_all_conditional_orders(
     symbol="BTCUSDM21"
 ))
 ```
@@ -1105,10 +1135,13 @@ print(client.FuturesConditional.FuturesConditional_replace(symbol="BTCUSDM21", s
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.replace_conditional_order(
+from pybit import inverse_futures
+session_auth = inverse_futures.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}"
+)
+print(session_auth.replace_conditional_order(
     symbol="BTCUSDM21",
     stop_order_id="",
     p_r_qty=2
@@ -1180,10 +1213,13 @@ print(client.FuturesConditional.FuturesConditional_query(symbol="BTCUSDM21", sto
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.query_conditional_order(
+from pybit import inverse_futures
+session_auth = inverse_futures.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}"
+)
+print(session_auth.query_conditional_order(
     symbol="BTCUSDM21"
 ))
 ```
@@ -1356,10 +1392,13 @@ print(client.FuturesPositions.FuturesPositions_myPosition(symbol="BTCUSDM21").re
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.my_position(
+from pybit import inverse_futures
+session_auth = inverse_futures.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}"
+)
+print(session_auth.my_position(
     symbol="BTCUSDM21"
 ))
 ```
@@ -1528,10 +1567,13 @@ print(client.FuturesPositions.FuturesPositions_changeMargin(symbol="BTCUSDM21", 
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.change_margin(
+from pybit import inverse_futures
+session_auth = inverse_futures.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}"
+)
+print(session_auth.change_margin(
     symbol="BTCUSDM21",
     margin=10
 ))
@@ -1595,10 +1637,13 @@ print(client.FuturesPositions.FuturesPositions_tradingStop(symbol="BTCUSDM21",ta
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.set_trading_stop(
+from pybit import inverse_futures
+session_auth = inverse_futures.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}"
+)
+print(session_auth.set_trading_stop(
     symbol="BTCUSDM21",
     stop_loss=7000
 ))
@@ -1737,10 +1782,13 @@ print(client.FuturesPositions.FuturesPositions_saveLeverage(symbol="BTCUSDM21", 
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.set_leverage(
+from pybit import inverse_futures
+session_auth = inverse_futures.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}"
+)
+print(session_auth.set_leverage(
     symbol="BTCUSDM21",
     buy_leverage=14,
     sell_leverage=14
@@ -1803,10 +1851,13 @@ print(client.FuturesPositions.FuturesPositions_switchPositionMode(symbol="BTCUSD
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.position_mode_switch(
+from pybit import inverse_futures
+session_auth = inverse_futures.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}"
+)
+print(session_auth.position_mode_switch(
     symbol="BTCUSDM21",
     mode=0
 ))
@@ -1855,10 +1906,13 @@ curl https://api-testnet.bybit.com/futures/private/tpsl/switch-mode \
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.full_partial_position_tp_sl_switch(
+from pybit import inverse_futures
+session_auth = inverse_futures.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}"
+)
+print(session_auth.full_partial_position_tp_sl_switch(
     symbol="BTCUSDM21",
     tp_sl_mode="Partial"
 ))
@@ -1926,10 +1980,13 @@ print(client.FuturesPositions.FuturesPositions_switchIsolated(symbol="BTCUSDM21"
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.cross_isolated_margin_switch(
+from pybit import inverse_futures
+session_auth = inverse_futures.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}"
+)
+print(session_auth.cross_isolated_margin_switch(
     symbol="BTCUSDM21",
     is_isolated=True,
     buy_leverage=1,
@@ -1986,10 +2043,13 @@ print(client.FuturesExecution.FuturesExecution_getTrades(symbol="BTCUSDM21").res
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.user_trade_records(
+from pybit import inverse_futures
+session_auth = inverse_futures.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}"
+)
+print(session_auth.user_trade_records(
     symbol="BTCUSDM21"
 ))
 ```
@@ -2099,10 +2159,13 @@ print(client.FuturesPositions.FuturesPositions_closePnlRecords(symbol="BTCUSDM21
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.closed_profit_and_loss(
+from pybit import inverse_futures
+session_auth = inverse_futures.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}"
+)
+print(session_auth.closed_profit_and_loss(
     symbol="BTCUSDM21"
 ))
 ```
@@ -2202,12 +2265,16 @@ curl https://api-testnet.bybit.com/futures/private/position/risk-limit \
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.set_risk_limit(
+from pybit import inverse_futures
+session_auth = inverse_futures.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}"
+)
+print(session_auth.set_risk_limit(
     symbol="BTCUSDM21",
-    risk_id=72
+    risk_id=72,
+    position_idx=2
 ))
 ```
 

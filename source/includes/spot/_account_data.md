@@ -11,11 +11,13 @@ curl https://api-testnet.bybit.com/spot/v1/order \
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="",
-               spot=True)
-print(session.place_active_order(
+from pybit import spot
+session_auth = spot.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}"
+)
+print(session_auth.place_active_order(
     symbol="ETHUSDT",
     side="Buy",
     type="MARKET",
@@ -95,11 +97,13 @@ POST
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="",
-               spot=True)
-print(session.get_active_order(
+from pybit import spot
+session_auth = spot.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}"
+)
+print(session_auth.get_active_order(
     orderId="889826641228952064"
 ))
 ```
@@ -185,11 +189,13 @@ GET
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="",
-               spot=True)
-print(session.cancel_active_order(
+from pybit import spot
+session_auth = spot.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}"
+)
+print(session_auth.cancel_active_order(
     orderId="889826641228952064"
 ))
 ```
@@ -258,11 +264,13 @@ DELETE
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="",
-               spot=True)
-print(session.fast_cancel_active_order(
+from pybit import spot
+session_auth = spot.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}"
+)
+print(session_auth.fast_cancel_active_order(
     symbolId="ETHUSDT",
     orderId="889826641228952064"
 ))
@@ -314,11 +322,13 @@ DELETE
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="",
-               spot=True)
-print(session.batch_cancel_active_order(
+from pybit import spot
+session_auth = spot.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}"
+)
+print(session_auth.batch_cancel_active_order(
     symbol="ETHUSDT",
     orderTypes="LIMIT,LIMIT_MAKER"
 ))
@@ -371,11 +381,13 @@ DELETE
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="",
-               spot=True)
-print(session.batch_fast_cancel_active_order(
+from pybit import spot
+session_auth = spot.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}"
+)
+print(session_auth.batch_fast_cancel_active_order(
     symbol="ETHUSDT",
     orderTypes="LIMIT,LIMIT_MAKER"
 ))
@@ -429,11 +441,13 @@ DELETE
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="",
-               spot=True)
-print(session.batch_cancel_active_order_by_ids(
+from pybit import spot
+session_auth = spot.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}"
+)
+print(session_auth.batch_cancel_active_order_by_ids(
     orderIds="889208273689997824,889826641228952064"
 ))
 ```
@@ -487,11 +501,13 @@ DELETE
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="",
-               spot=True)
-print(session.query_active_order(
+from pybit import spot
+session_auth = spot.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}"
+)
+print(session_auth.query_active_order(
     symbol="ETHUSDT"
 ))
 ```
@@ -603,11 +619,13 @@ GET
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="",
-               spot=True)
-print(session.query_active_order(
+from pybit import spot
+session_auth = spot.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}"
+)
+print(session_auth.get_active_order(
     symbol="ETHUSDT"
 ))
 ```
@@ -699,11 +717,13 @@ GET
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="",
-               spot=True)
-print(session.user_trade_records(
+from pybit import spot
+session_auth = spot.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}"
+)
+print(session_auth.user_trade_records(
     symbol="BTCUSDT"
 ))
 ```
