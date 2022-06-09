@@ -400,6 +400,10 @@ curl --location --request POST 'https://api-testnet.bybit.com/asset/v1/private/t
 }
 ```
 
+<aside class="notice">
+t(:setTransferableSubsNotice)
+</aside>
+
 <p class="fake_header">t(:httprequest)</p>
 POST
 <code><span id=stsl>/asset/v1/private/transferable-subs/save</span></code>
