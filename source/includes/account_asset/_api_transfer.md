@@ -53,7 +53,10 @@ print(session.create_internal_transfer(
 }
 ```
 
+
 t(:trigger_transfer)
+
+t(:universaltransfer_join_notice)
 
 <aside class="notice">
 t(:transfer_api_notice)
@@ -134,6 +137,8 @@ print(session.create_subaccount_transfer(
 ```
 
 t(:subMember_trigger_transfer)
+
+t(:universaltransfer_join_notice)
 
 <aside class="notice">
 t(:createsubaccounttransfer_api_notice)
@@ -464,8 +469,11 @@ curl --location --request POST 'https://api-testnet.bybit.com/asset/v1/private/t
 ```
 
 <aside class="notice">
-t(:enableuniversaltransfer_notice)
+t(:universaltransferunderstanding_notice)
 </aside>
+
+
+t(:enableuniversaltransfer_notice)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
