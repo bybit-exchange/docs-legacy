@@ -137,15 +137,19 @@ GET
 | status | string | t(:symbolStatus) |
 | baseCoin | string | t(:usdcBaseCoin) |
 | quoteCoin | string | t(:usdcQuoteCoin) |
-| takerFeeRate | string | t(:usdcTakerFeeRate) |
-| makerFeeRate | string | t(:usdcMakerFeeRate) |
-| minPrice | string | t(:minPrice) |
-| maxPrice | string | t(:maxPrice) |
+| settleCoin | string | t(:usdcSettleCoin) |
+| takerFee | string | t(:usdcTakerFee) |
+| makerFee | string | t(:usdcMakerFee) |
+| minLeverage | string | t(:minLeverage) |
+| maxLeverage | string | t(:maxLeverage) |
+| leverageStep | string | t(:leverageStep) |
+| minOrderPrice | string | t(:minPrice) |
+| maxOrderPrice | string | t(:maxPrice) |
+| minOrderSize | string | t(:minTradingQty) |
+| maxOrderSize | string | t(:maxTradingQty) |
 | tickSize | string | t(:tickSize) |
-| minTradingQty | string | t(:minTradingQty) |
-| maxTradingQty | string | t(:maxTradingQty) |
-| qtyStep | string | t(:qtyStep) |
-| deliveryFeeRate | string | t(:deliveryFeeRate) |
+| minOrderSizeIncrement ｜ string | t(:minOrderSizeIncrement) |
+| basicDeliveryFeeRate | string | t(:usdcBasicDeliveryFeeRate) |
 | deliveryTime | number | t(:deliveryTime) |
 | cursor | string | t(:cursor) |
 
