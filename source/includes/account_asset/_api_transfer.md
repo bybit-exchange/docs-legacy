@@ -365,6 +365,69 @@ GET
 |cursor |string |t(:row_comment_cursor)|
 
 
+### t(:querysubaccountlist)
+> t(:codequote_curlExample)
+
+```console
+curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/sub-member/member-ids'
+```
+
+```python--pybit
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "result": {
+        "sub_user_id": [
+            303936,
+            445310,
+            445323,
+            517292,
+            532728,
+            545366,
+            554286,
+            572408
+        ],
+        "transferable_sub_ids": [
+            "303936",
+            "445310",
+            "445323",
+            "517292",
+            "532728",
+            "545366",
+            "554286"
+        ]
+    },
+    "ext_info": null,
+    "time_now": 1654676013343,
+    "rate_limit_status": 59,
+    "rate_limit_reset_ms": 1654676013343,
+    "rate_limit": 1
+}
+```
+
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=gsidlist>/asset/v1/private/sub-member/member-ids</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#gsidlist"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|sub_user_id |Integer Array |t(:row_comment_sub_user_id_list)|
+|transferable_sub_ids |string Array |t(:row_comment_transferable_sub_ids_list) |
+
+
 ### t(:setTransferableSubaccountList)
 > t(:codequote_curlExample)
 
@@ -482,71 +545,6 @@ POST
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |transfer_id |string |t(:row_comment_transfer_id) |
-
-
-### t(:querysubaccountlist)
-> t(:codequote_curlExample)
-
-```console
-curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/sub-member/member-ids'
-```
-
-```python--pybit
-```
-
-> t(:codequote_responseExample)
-
-```javascript
-{
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
-    "result": {
-        "sub_user_id": [
-            303936,
-            445310,
-            445323,
-            517292,
-            532728,
-            545366,
-            554286,
-            572408
-        ],
-        "transferable_sub_ids": [
-            "303936",
-            "445310",
-            "445323",
-            "517292",
-            "532728",
-            "545366",
-            "554286"
-        ]
-    },
-    "ext_info": null,
-    "time_now": 1654676013343,
-    "rate_limit_status": 59,
-    "rate_limit_reset_ms": 1654676013343,
-    "rate_limit": 1
-}
-```
-
-
-<p class="fake_header">t(:httprequest)</p>
-GET
-<code><span id=gsidlist>/asset/v1/private/sub-member/member-ids</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#gsidlist"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|sub_user_id |Integer Array |t(:row_comment_sub_user_id_list)|
-|transferable_sub_ids |string Array |t(:row_comment_transferable_sub_ids_list) |
-
-
 
 
 ### t(:queryUniverseTransferList)
