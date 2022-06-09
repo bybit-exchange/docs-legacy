@@ -1317,24 +1317,54 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td>結算幣種</td>
 </tr>
 <tr>
-<td style="text-align: left">takerFeeRate</td>
+<td style="text-align: left">settleCoin</td>
 <td style="text-align: left">string</td>
-<td>taker手續費率</td>
+<td>結算貨幣</td>
 </tr>
 <tr>
-<td style="text-align: left">makerFeeRate</td>
+<td style="text-align: left">takerFee</td>
 <td style="text-align: left">string</td>
-<td>maker手續費率</td>
+<td>Taker 手續費</td>
 </tr>
 <tr>
-<td style="text-align: left">minPrice</td>
+<td style="text-align: left">makerFee</td>
+<td style="text-align: left">string</td>
+<td>Maker 手續費</td>
+</tr>
+<tr>
+<td style="text-align: left">minLeverage</td>
+<td style="text-align: left">string</td>
+<td>最小槓桿數</td>
+</tr>
+<tr>
+<td style="text-align: left">maxLeverage</td>
+<td style="text-align: left">string</td>
+<td>最大槓桿數</td>
+</tr>
+<tr>
+<td style="text-align: left">leverageStep</td>
+<td style="text-align: left">string</td>
+<td>槓桿增加或減少數量</td>
+</tr>
+<tr>
+<td style="text-align: left">minOrderPrice</td>
 <td style="text-align: left">string</td>
 <td>最小委託價格</td>
 </tr>
 <tr>
-<td style="text-align: left">maxPrice</td>
+<td style="text-align: left">maxOrderPrice</td>
 <td style="text-align: left">string</td>
 <td>最大委託價格</td>
+</tr>
+<tr>
+<td style="text-align: left">minOrderSize</td>
+<td style="text-align: left">string</td>
+<td>最小委託數量</td>
+</tr>
+<tr>
+<td style="text-align: left">maxOrderSize</td>
+<td style="text-align: left">string</td>
+<td>最大委託數量</td>
 </tr>
 <tr>
 <td style="text-align: left">tickSize</td>
@@ -1342,24 +1372,14 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td>價格最小變動單位</td>
 </tr>
 <tr>
-<td style="text-align: left">minTradingQty</td>
-<td style="text-align: left">string</td>
-<td>最小委託數量</td>
+<td style="text-align: left">minOrderSizeIncrement ｜ string</td>
+<td style="text-align: left">最小訂單增量</td>
+<td></td>
 </tr>
 <tr>
-<td style="text-align: left">maxTradingQty</td>
+<td style="text-align: left">basicDeliveryFeeRate</td>
 <td style="text-align: left">string</td>
-<td>最大委託數量</td>
-</tr>
-<tr>
-<td style="text-align: left">qtyStep</td>
-<td style="text-align: left">string</td>
-<td>合約數量最小單位</td>
-</tr>
-<tr>
-<td style="text-align: left">deliveryFeeRate</td>
-<td style="text-align: left">string</td>
-<td>交割費率</td>
+<td>結算費率</td>
 </tr>
 <tr>
 <td style="text-align: left">deliveryTime</td>
@@ -5411,32 +5431,31 @@ curl https://api-testnet.bybit.com/v2/public/time
 <p>快照推送示例 - 連接建立成功後首次推送</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">85e87d06-09ed-4b05-9188-4e5a3f072c98</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">b9f465ed-0552-45c2-a2d5-362af0bbf939</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">user.openapi.option.position</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1646192059408</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1654746065268</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
-      <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTC-24JUN22-25000-P</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">-10.0000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">entryPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">5915.50000000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">sessionAvgPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">5915.50000000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">markPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">positionIM</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">102764.97000000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">positionMM</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">42404.80581340</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">positionUPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">sessionUPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">50329.87108660</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">sessionRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">30353.63366693</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">createdAt</span><span class="dl">"</span><span class="p">:</span><span class="mi">1644910387920</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">updatedAt</span><span class="dl">"</span><span class="p">:</span><span class="mi">1644910387920</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">iv</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span>
-      <span class="p">}</span>
-    <span class="p">],</span>
-      <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">baseLine</span><span class="dl">"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">dataType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">NEW</span><span class="dl">"</span>
-  <span class="p">}</span>
+        <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTC-9JUN22-30500-C</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">positionStatus</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">-0.0100</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">entryPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">20.00000000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">sessionAvgPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">20.00000000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">markPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">62.2119183</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">positionIM</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">positionMM</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">sessionUPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">-0.422119183000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">sessionRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">createdAt</span><span class="dl">"</span><span class="p">:</span><span class="mi">1654745293038</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">updatedAt</span><span class="dl">"</span><span class="p">:</span><span class="mi">1654745293038</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">baseLine</span><span class="dl">"</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">dataType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">NEW</span><span class="dl">"</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <blockquote>
@@ -5444,29 +5463,29 @@ curl https://api-testnet.bybit.com/v2/public/time
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code>
 <span class="p">{</span>
-    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1d055293-3836-4d56-baf2-8dec79d351f5</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">70bd3a99-0e80-4713-8cd1-6b8e8befffd9</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">user.openapi.option.position</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1646213811719</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1654745293064</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
         <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:[</span>
             <span class="p">{</span>
-                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTC-4MAR22-25000-P</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">positionStatus</span><span class="dl">"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.8</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">entryPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">10</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">sessionAvgPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">10</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">markPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.00000364</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">positionIM</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">positionMM</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">sessionUPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">-7.999997088</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTC-9JUN22-30500-C</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">positionStatus</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">-0.01</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">entryPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">20.00000000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">sessionAvgPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">20.00000000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">markPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">65.2197913</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">positionIM</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">positionMM</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">sessionUPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">-0.452197913000</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">sessionRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">createdAt</span><span class="dl">"</span><span class="p">:</span><span class="mi">1646213811544</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">updatedAt</span><span class="dl">"</span><span class="p">:</span><span class="mi">1646213811544</span>
+                <span class="dl">"</span><span class="s2">createdAt</span><span class="dl">"</span><span class="p">:</span><span class="mi">1654745293038</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">updatedAt</span><span class="dl">"</span><span class="p">:</span><span class="mi">1654745293038</span>
             <span class="p">}</span>
         <span class="p">],</span>
-        <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">baseLine</span><span class="dl">"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">baseLine</span><span class="dl">"</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">dataType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">CHANGE</span><span class="dl">"</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -5496,17 +5515,22 @@ curl https://api-testnet.bybit.com/v2/public/time
 <td>合約名稱</td>
 </tr>
 <tr>
+<td style="text-align: left">positionStatus</td>
+<td style="text-align: left">string</td>
+<td>倉位狀態</td>
+</tr>
+<tr>
 <td style="text-align: left"><a href="#side-side">side</a></td>
 <td style="text-align: left">string</td>
 <td>買賣方向</td>
 </tr>
 <tr>
-<td style="text-align: left">positionSize</td>
+<td style="text-align: left">size</td>
 <td style="text-align: left">string</td>
 <td>倉位</td>
 </tr>
 <tr>
-<td style="text-align: left">positionAvgPrice</td>
+<td style="text-align: left">entryPrice</td>
 <td style="text-align: left">string</td>
 <td>平均入場價</td>
 </tr>
@@ -5521,11 +5545,6 @@ curl https://api-testnet.bybit.com/v2/public/time
 <td>標記價格</td>
 </tr>
 <tr>
-<td style="text-align: left">sessionUPL</td>
-<td style="text-align: left">string</td>
-<td>未實現損益</td>
-</tr>
-<tr>
 <td style="text-align: left">positionIM</td>
 <td style="text-align: left">string</td>
 <td>起始保證金</td>
@@ -5536,14 +5555,24 @@ curl https://api-testnet.bybit.com/v2/public/time
 <td>維持保證金</td>
 </tr>
 <tr>
-<td style="text-align: left">PNL</td>
+<td style="text-align: left">sessionUPL</td>
 <td style="text-align: left">string</td>
-<td>PNL</td>
+<td>未實現損益</td>
 </tr>
 <tr>
-<td style="text-align: left">ROI</td>
+<td style="text-align: left">sessionRPL</td>
 <td style="text-align: left">string</td>
-<td>ROI</td>
+<td>已實現損益</td>
+</tr>
+<tr>
+<td style="text-align: left">createdAt</td>
+<td style="text-align: left">number</td>
+<td>創建時間</td>
+</tr>
+<tr>
+<td style="text-align: left">updatedAt</td>
+<td style="text-align: left">number</td>
+<td>更新時間</td>
 </tr>
 </tbody></table>
 <h3 id='t-userfilledhistory'>用戶成交歷史記錄</h3>
