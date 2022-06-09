@@ -428,7 +428,7 @@ GET
 |transferable_sub_ids |string Array |t(:row_comment_transferable_sub_ids_list) |
 
 
-### t(:setTransferableSubaccountList)
+### t(:enableuniversaltransfer)
 > t(:codequote_curlExample)
 
 ```console
@@ -464,7 +464,7 @@ curl --location --request POST 'https://api-testnet.bybit.com/asset/v1/private/t
 ```
 
 <aside class="notice">
-t(:setTransferableSubsNotice)
+t(:enableuniversaltransfer_notice)
 </aside>
 
 <p class="fake_header">t(:httprequest)</p>
