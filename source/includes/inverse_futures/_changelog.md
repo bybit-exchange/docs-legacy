@@ -12,7 +12,7 @@
 
 ## 2021
 ### 2021-09-03
-#### Websocket API
+#### WebSocket API
 - [t(:websocketinstrumentInfo)](#t-websocketinstrumentinfo) [t(:changelog_update)]
   t(:restapi_update_20210902)
 
@@ -97,7 +97,7 @@
 #### REST API
 - t(:restapi_update_20210225)
 
-#### Websocket API
+#### WebSocket API
 - t(:ws_update_20210225)
 
 ### 2021-03-01
