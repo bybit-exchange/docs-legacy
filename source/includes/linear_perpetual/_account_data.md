@@ -8,7 +8,7 @@ t(:account_para)
 ```console
 curl https://api-testnet.bybit.com/private/linear/order/create \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","side"="Buy","symbol"="BTCUSD","order_type":"Market","qty":10,"time_in_force":"GoodTillCancel","timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","side":"Buy","symbol":"BTCUSD","order_type":"Market","qty":10,"time_in_force":"GoodTillCancel","timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
 ```python--old
@@ -631,7 +631,7 @@ GET
 ```console
 curl https://api-testnet.bybit.com/private/linear/stop-order/create \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","order_type":"Limit","side":"Buy","symbol":"BTCUSD","qty":1,"price":8100,"base_price":8300,"stop_px":8150,"time_in_force":"GoodTillCancel","trigger_by"="LastPrice",order_link_id":"cus_order_id_1","reduce_only":false,"close_on_trigger":false,"timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","order_type":"Limit","side":"Buy","symbol":"BTCUSD","qty":1,"price":8100,"base_price":8300,"stop_px":8150,"time_in_force":"GoodTillCancel","trigger_by":"LastPrice",order_link_id":"cus_order_id_1","reduce_only":false,"close_on_trigger":false,"timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
 ```python--old
