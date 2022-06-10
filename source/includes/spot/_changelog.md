@@ -1,4 +1,8 @@
 # t(:changelog)
+## 2022-06-10
+### WebSocket API
+- [t(:ticketinfo)](#t-ticketinfo) (V2 WebSocket) [t(:changelog_update)]
+  - t(:restapi_update_20220610)
 
 ## 2022-06-08
 ### WebSocket API

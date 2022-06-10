@@ -1314,7 +1314,8 @@ while True:
     "O":"899062000118679808",
     "a":"10043",
     "A":"10024",
-    "m":true
+    "m":true,
+    "S":"BUY"
   }
 ]
 ```
@@ -1340,3 +1341,4 @@ t(:spot_public_websocket_frequency_realtime)
 | a | string | t(:spot_account_id) |
 | A | string | t(:spot_match_account_id) |
 | m | boolean | t(:spot_ticket_info_maker) |
+| S | string | t(:spot_ticket_info_side) |
