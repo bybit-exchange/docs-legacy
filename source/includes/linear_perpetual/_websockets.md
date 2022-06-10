@@ -898,7 +898,7 @@ ws_linear = usdt_perpetual.WebSocket(
 )
 def handle_message(msg):
     print(msg)
-ws_linear.position_stream(
+ws_linear.execution_stream(
     handle_message
 )
 while True:

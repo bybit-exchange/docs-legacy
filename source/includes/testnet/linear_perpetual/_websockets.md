@@ -191,18 +191,23 @@ while True:
 ```
 
 ```python--pybit
-from pybit import WebSocket
-subs = [
-    "orderBookL2_25.BTCUSDT"
-]
-ws = WebSocket(
-    "wss://stream-testnet.bybit.com/realtime_public",
-    subscriptions=subs
+from time import sleep
+from pybit import usdt_perpetual
+ws_linear = usdt_perpetual.WebSocket(
+    test=True,
+    ping_interval=30,  # the default is 30
+    ping_timeout=10,  # the default is 10
+    domain="bybit"  # the default is "bybit"
+)
+def handle_message(msg):
+    print(msg)
+# To subscribe to multiple symbols,
+# pass a list: ["BTCUSDT", "ETHUSDT"]
+ws_linear.orderbook_25_stream(
+    handle_message, "XRPUSDT"
 )
 while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
+    sleep(1)
 ```
 
 > t(:codequote_snapshot)
@@ -301,18 +306,23 @@ ws.send('{"op": "subscribe", "args": ["orderBook_200.100ms.BTCUSDT"]}');
 ```
 
 ```python--pybit
-from pybit import WebSocket
-subs = [
-    "orderBook_200.100ms.BTCUSDT"
-]
-ws = WebSocket(
-    "wss://stream-testnet.bybit.com/realtime_public",
-    subscriptions=subs
+from time import sleep
+from pybit import usdt_perpetual
+ws_linear = usdt_perpetual.WebSocket(
+    test=True,
+    ping_interval=30,  # the default is 30
+    ping_timeout=10,  # the default is 10
+    domain="bybit"  # the default is "bybit"
+)
+def handle_message(msg):
+    print(msg)
+# To subscribe to multiple symbols,
+# pass a list: ["BTCUSDT", "ETHUSDT"]
+ws_linear.orderbook_200_stream(
+    handle_message, "EOSUSDT"
 )
 while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
+    sleep(1)
 ```
 
 > t(:codequote_snapshot)
@@ -404,18 +414,23 @@ ws.send('{"op": "subscribe", "args": ["trade.BTCUSDT"]}')
 ```
 
 ```python--pybit
-from pybit import WebSocket
-subs = [
-    "trade.BTCUSDT"
-]
-ws = WebSocket(
-    "wss://stream-testnet.bybit.com/realtime_public",
-    subscriptions=subs
+from time import sleep
+from pybit import usdt_perpetual
+ws_linear = usdt_perpetual.WebSocket(
+    test=True,
+    ping_interval=30,  # the default is 30
+    ping_timeout=10,  # the default is 10
+    domain="bybit"  # the default is "bybit"
+)
+def handle_message(msg):
+    print(msg)
+# To subscribe to multiple symbols,
+# pass a list: ["BTCUSDT", "ETHUSDT"]
+ws_linear.trade_stream(
+    handle_message, "EOSUSDT"
 )
 while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
+    sleep(1)
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -472,18 +487,23 @@ while True:
 ```
 
 ```python--pybit
-from pybit import WebSocket
-subs = [
-    "instrument_info.100ms.BTCUSDT"
-]
-ws = WebSocket(
-    "wss://stream-testnet.bybit.com/realtime_public",
-    subscriptions=subs
+from time import sleep
+from pybit import usdt_perpetual
+ws_linear = usdt_perpetual.WebSocket(
+    test=True,
+    ping_interval=30,  # the default is 30
+    ping_timeout=10,  # the default is 10
+    domain="bybit"  # the default is "bybit"
+)
+def handle_message(msg):
+    print(msg)
+# To subscribe to multiple symbols,
+# pass a list: ["BTCUSDT", "ETHUSDT"]
+ws_linear.instrument_info_stream(
+    handle_message, "BTCUSDT"
 )
 while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
+    sleep(1)
 ```
 
 > t(:codequote_snapshot)
@@ -625,18 +645,24 @@ ws.send('{"op":"subscribe","args":["candle.1.BTCUSDT"]}')
 ```
 
 ```python--pybit
-from pybit import WebSocket
-subs = [
-    "candle.1.BTCUSDT"
-]
-ws = WebSocket(
-    "wss://stream-testnet.bybit.com/realtime_public",
-    subscriptions=subs
+from time import sleep
+from pybit import usdt_perpetual
+ws_linear = usdt_perpetual.WebSocket(
+    test=True,
+    ping_interval=30,  # the default is 30
+    ping_timeout=10,  # the default is 10
+    domain="bybit"  # the default is "bybit"
+)
+def handle_message(msg):
+    print(msg)
+# To subscribe to multiple symbols,
+# pass a list: ["BTCUSDT", "ETHUSDT"]
+# pass an interval
+ws_linear.kline_stream(
+    handle_message, "DOTUSDT", "D"
 )
 while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
+    sleep(1)
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -694,18 +720,23 @@ ws.send('{"op":"subscribe","args":["liquidation.XRPUSDT"]}')
 ```
 
 ```python--pybit
-from pybit import WebSocket
-subs = [
-    "liquidation.XRPUSDT"
-]
-ws = WebSocket(
-    "wss://stream-testnet.bybit.com/realtime_public",
-    subscriptions=subs
+from time import sleep
+from pybit import usdt_perpetual
+ws_linear = usdt_perpetual.WebSocket(
+    test=True,
+    ping_interval=30,  # the default is 30
+    ping_timeout=10,  # the default is 10
+    domain="bybit"  # the default is "bybit"
+)
+def handle_message(msg):
+    print(msg)
+# To subscribe to multiple symbols,
+# pass a list: ["BTCUSDT", "ETHUSDT"]
+ws_linear.liquidation_stream(
+    handle_message, "DOTUSDT"
 )
 while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
+    sleep(1)
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -746,19 +777,23 @@ ws.send('{"op": "subscribe", "args": ["position"]}')
 ```
 
 ```python--pybit
-from pybit import WebSocket
-subs = [
-    "position"
-]
-ws = WebSocket(
-    "wss://stream-testnet.bybit.com/realtime_private",
-    subscriptions=subs,
-    api_key="", api_secret=""
+from time import sleep
+from pybit import usdt_perpetual
+ws_linear = usdt_perpetual.WebSocket(
+    test=True,
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}",
+    ping_interval=30,  # the default is 30
+    ping_timeout=10,  # the default is 10
+    domain="bybit"  # the default is "bybit"
+)
+def handle_message(msg):
+    print(msg)
+ws_linear.position_stream(
+    handle_message
 )
 while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
+    sleep(1)
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -849,19 +884,23 @@ while True:
 ```
 
 ```python--pybit
-from pybit import WebSocket
-subs = [
-    "execution"
-]
-ws = WebSocket(
-    "wss://stream-testnet.bybit.com/realtime_private",
-    subscriptions=subs,
-    api_key="", api_secret=""
+from time import sleep
+from pybit import usdt_perpetual
+ws_linear = usdt_perpetual.WebSocket(
+    test=True,
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}",
+    ping_interval=30,  # the default is 30
+    ping_timeout=10,  # the default is 10
+    domain="bybit"  # the default is "bybit"
+)
+def handle_message(msg):
+    print(msg)
+ws_linear.execution_stream(
+    handle_message
 )
 while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
+    sleep(1)
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -930,19 +969,23 @@ while True:
 ```
 
 ```python--pybit
-from pybit import WebSocket
-subs = [
-    "order"
-]
-ws = WebSocket(
-    "wss://stream-testnet.bybit.com/realtime_private",
-    subscriptions=subs,
-    api_key="", api_secret=""
+from time import sleep
+from pybit import usdt_perpetual
+ws_linear = usdt_perpetual.WebSocket(
+    test=True,
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}",
+    ping_interval=30,  # the default is 30
+    ping_timeout=10,  # the default is 10
+    domain="bybit"  # the default is "bybit"
+)
+def handle_message(msg):
+    print(msg)
+ws_linear.order_stream(
+    handle_message
 )
 while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
+    sleep(1)
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -1012,19 +1055,23 @@ ws.send('{"op": "subscribe", "args": ["stop_order"]}')
 ```
 
 ```python--pybit
-from pybit import WebSocket
-subs = [
-    "stop_order"
-]
-ws = WebSocket(
-    "wss://stream-testnet.bybit.com/realtime_private",
-    subscriptions=subs,
-    api_key="", api_secret=""
+from time import sleep
+from pybit import usdt_perpetual
+ws_linear = usdt_perpetual.WebSocket(
+    test=True,
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}",
+    ping_interval=30,  # the default is 30
+    ping_timeout=10,  # the default is 10
+    domain="bybit"  # the default is "bybit"
+)
+def handle_message(msg):
+    print(msg)
+ws_linear.stop_order_stream(
+    handle_message
 )
 while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
+    sleep(1)
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -1088,19 +1135,23 @@ ws.send('{"op": "subscribe", "args": ["wallet"]}')
 ```
 
 ```python--pybit
-from pybit import WebSocket
-subs = [
-    "wallet"
-]
-ws = WebSocket(
-    "wss://stream-testnet.bybit.com/realtime_private",
-    subscriptions=subs,
-    api_key="", api_secret=""
+from time import sleep
+from pybit import usdt_perpetual
+ws_linear = usdt_perpetual.WebSocket(
+    test=True,
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}",
+    ping_interval=30,  # the default is 30
+    ping_timeout=10,  # the default is 10
+    domain="bybit"  # the default is "bybit"
+)
+def handle_message(msg):
+    print(msg)
+ws_linear.wallet_stream(
+    handle_message
 )
 while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
+    sleep(1)
 ```
 
 > t(:codequote_responseExampleFormatAll)
