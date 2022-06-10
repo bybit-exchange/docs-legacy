@@ -139,26 +139,21 @@ t(:spot_websocket_para_response)
 ```
 
 ```python--pybit
-from pybit import WebSocket
-subs = [
-    """{
-        "topic": "trade",
-        "event": "sub",
-        "symbol": "BTCUSDT",
-        "params": {
-            "binary": false
-        }
-    }"""
-]
-ws = WebSocket(
-    "wss://stream.bybit.com/spot/quote/ws/v1",
-    subscriptions=subs
+from time import sleep
+from pybit import spot
+ws_spot = spot.WebSocket(
+    test=True,
+    ping_interval=30,  # the default is 30
+    ping_timeout=10,  # the default is 10
+    domain="bybit"  # the default is "bybit"
 )
-while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
-
+def handle_message(msg):
+    print(msg)
+# To subscribe to multiple symbols,
+# pass a list: ["BTCUSDT", "ETHUSDT"]
+ws_spot.trade_v1_stream(
+    handle_message, ["BTCUSDT", "ETHUSDT"]
+)
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -218,25 +213,23 @@ t(:spot_public_websocket_frequency_300_delay_400)
 ```
 
 ```python--pybit
-from pybit import WebSocket
-subs = [
-    """{
-        "topic": "realtimes",
-        "event": "sub",
-        "symbol": "BTCUSDT",
-        "params": {
-            "binary": false
-        }
-    }"""
-]
-ws = WebSocket(
-    "wss://stream.bybit.com/spot/quote/ws/v1",
-    subscriptions=subs
+from time import sleep
+from pybit import spot
+ws_spot = spot.WebSocket(
+    test=True,
+    ping_interval=30,  # the default is 30
+    ping_timeout=10,  # the default is 10
+    domain="bybit"  # the default is "bybit"
+)
+def handle_message(msg):
+    print(msg)
+# To subscribe to multiple symbols,
+# pass a list: ["BTCUSDT", "ETHUSDT"]
+ws_spot.realtimes_v1_stream(
+    handle_message, ["BTCUSDT", "ETHUSDT"]
 )
 while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
+    sleep(1)
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -301,25 +294,24 @@ t(:spot_public_websocket_frequency_300_delay_400)
 ```
 
 ```python--pybit
-from pybit import WebSocket
-subs = [
-    """{
-        "topic": "kline_1m",
-        "event": "sub",
-        "symbol": "BTCUSDT",
-        "params": {
-            "binary": false
-        }
-    }"""
-]
-ws = WebSocket(
-    "wss://stream.bybit.com/spot/quote/ws/v1",
-    subscriptions=subs
+from time import sleep
+from pybit import spot
+ws_spot = spot.WebSocket(
+    test=True,
+    ping_interval=30,  # the default is 30
+    ping_timeout=10,  # the default is 10
+    domain="bybit"  # the default is "bybit"
+)
+def handle_message(msg):
+    print(msg)
+# To subscribe to multiple symbols,
+# pass a list: ["BTCUSDT", "ETHUSDT"]
+# pass an inverval
+ws_spot.kline_v1_stream(
+    handle_message, ["BTCUSDT", "ETHUSDT"], "1h"
 )
 while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
+    sleep(1)
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -382,25 +374,23 @@ t(:spot_public_websocket_frequency_300_delay_400)
 ```
 
 ```python--pybit
-from pybit import WebSocket
-subs = [
-    """{
-        "topic": "depth",
-        "event": "sub",
-        "symbol": "BTCUSDT",
-        "params": {
-            "binary": false
-        }
-    }"""
-]
-ws = WebSocket(
-    "wss://stream.bybit.com/spot/quote/ws/v1",
-    subscriptions=subs
+from time import sleep
+from pybit import spot
+ws_spot = spot.WebSocket(
+    test=True,
+    ping_interval=30,  # the default is 30
+    ping_timeout=10,  # the default is 10
+    domain="bybit"  # the default is "bybit"
+)
+def handle_message(msg):
+    print(msg)
+# To subscribe to multiple symbols,
+# pass a list: ["BTCUSDT", "ETHUSDT"]
+ws_spot.depth_v1_stream(
+    handle_message, "ETHUSDT"
 )
 while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
+    sleep(1)
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -483,26 +473,24 @@ t(:spot_public_websocket_frequency_300_delay_650)
 ```
 
 ```python--pybit
-from pybit import WebSocket
-subs = [
-    """{
-        "topic": "mergedDepth",
-        "event": "sub",
-        "symbol": "BTCUSDT",
-        "params": {
-            "binary": false,
-            "dumpScale": 1
-        }
-    }"""
-]
-ws = WebSocket(
-    "wss://stream.bybit.com/spot/quote/ws/v1",
-    subscriptions=subs
+from time import sleep
+from pybit import spot
+ws_spot = spot.WebSocket(
+    test=True,
+    ping_interval=30,  # the default is 30
+    ping_timeout=10,  # the default is 10
+    domain="bybit"  # the default is "bybit"
+)
+def handle_message(msg):
+    print(msg)
+# To subscribe to multiple symbols,
+# pass a list: ["BTCUSDT", "ETHUSDT"]
+# pass dumpScale
+ws_spot.merged_depth_v1_stream(
+    handle_message, "ETHUSDT", 1
 )
 while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
+    sleep(1)
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -586,25 +574,23 @@ t(:spot_public_websocket_frequency_300_delay_650)
 ```
 
 ```python--pybit
-from pybit import WebSocket
-subs = [
-    """{
-        "topic": "diffDepth",
-        "event": "sub",
-        "symbol": "BTCUSDT",
-        "params": {
-            "binary": false
-        }
-    }"""
-]
-ws = WebSocket(
-    "wss://stream.bybit.com/spot/quote/ws/v1",
-    subscriptions=subs
+from time import sleep
+from pybit import spot
+ws_spot = spot.WebSocket(
+    test=True,
+    ping_interval=30,  # the default is 30
+    ping_timeout=10,  # the default is 10
+    domain="bybit"  # the default is "bybit"
+)
+def handle_message(msg):
+    print(msg)
+# To subscribe to multiple symbols,
+# pass a list: ["BTCUSDT", "ETHUSDT"]
+ws_spot.diff_depth_v1_stream(
+    handle_message, "ETHUSDT"
 )
 while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
+    sleep(1)
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -749,25 +735,23 @@ t(:spot_websocket_lt_nav_desc_v1)
 ```
 
 ```python--pybit
-from pybit import WebSocket
-subs = [
-    """{
-        "topic": "depth",
-        "event": "sub",
-        "params": {
-            "symbol": "BTCUSDT",
-            "binary": false
-        }
-    }"""
-]
-ws = WebSocket(
-    "wss://stream.bybit.com/spot/quote/ws/v2",
-    subscriptions=subs
+from time import sleep
+from pybit import spot
+ws_spot = spot.WebSocket(
+    test=True,
+    ping_interval=30,  # the default is 30
+    ping_timeout=10,  # the default is 10
+    domain="bybit"  # the default is "bybit"
+)
+def handle_message(msg):
+    print(msg)
+# To subscribe to multiple symbols,
+# pass a list: ["BTCUSDT", "ETHUSDT"]
+ws_spot.depth_v2_stream(
+    handle_message, "ETHUSDT"
 )
 while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
+    sleep(1)
 ```
 
 > t(:codequote_snapshot)
@@ -847,26 +831,24 @@ t(:spot_public_websocket_frequency_100)
 ```
 
 ```python--pybit
-from pybit import WebSocket
-subs = [
-    """{
-        "topic": "kline",
-        "event": "sub",
-        "params": {
-            "symbol": "BTCUSDT",
-            "klineType": "1m",
-            "binary": false
-        }
-    }"""
-]
-ws = WebSocket(
-    "wss://stream.bybit.com/spot/quote/ws/v2",
-    subscriptions=subs
+from time import sleep
+from pybit import spot
+ws_spot = spot.WebSocket(
+    test=True,
+    ping_interval=30,  # the default is 30
+    ping_timeout=10,  # the default is 10
+    domain="bybit"  # the default is "bybit"
+)
+def handle_message(msg):
+    print(msg)
+# To subscribe to multiple symbols,
+# pass a list: ["BTCUSDT", "ETHUSDT"]
+# pass an interval
+ws_spot.kline_v2_stream(
+    handle_message, "ETHUSDT", "1h"
 )
 while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
+    sleep(1)
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -928,25 +910,23 @@ t(:spot_public_websocket_frequency_near_realtime)
 ```
 
 ```python--pybit
-from pybit import WebSocket
-subs = [
-    """{
-        "topic": "trade",
-        "params": {
-            "symbol": "BTCUSDT",
-            "binary": false
-        },
-        "event": "sub"
-    }"""
-]
-ws = WebSocket(
-    "wss://stream.bybit.com/spot/quote/ws/v2",
-    subscriptions=subs
+from time import sleep
+from pybit import spot
+ws_spot = spot.WebSocket(
+    test=True,
+    ping_interval=30,  # the default is 30
+    ping_timeout=10,  # the default is 10
+    domain="bybit"  # the default is "bybit"
+)
+def handle_message(msg):
+    print(msg)
+# To subscribe to multiple symbols,
+# pass a list: ["BTCUSDT", "ETHUSDT"]
+ws_spot.trade_v2_stream(
+    handle_message, "ETHUSDT"
 )
 while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
+    sleep(1)
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -1001,25 +981,23 @@ t(:spot_public_websocket_frequency_near_realtime)
 ```
 
 ```python--pybit
-from pybit import WebSocket
-subs = [
-    """{
-        "topic": "bookTicker",
-        "event": "sub",
-        "params": {
-            "symbol": "BTCUSDT",
-            "binary": false
-        }
-    }"""
-]
-ws = WebSocket(
-    "wss://stream.bybit.com/spot/quote/ws/v2",
-    subscriptions=subs
+from time import sleep
+from pybit import spot
+ws_spot = spot.WebSocket(
+    test=True,
+    ping_interval=30,  # the default is 30
+    ping_timeout=10,  # the default is 10
+    domain="bybit"  # the default is "bybit"
+)
+def handle_message(msg):
+    print(msg)
+# To subscribe to multiple symbols,
+# pass a list: ["BTCUSDT", "ETHUSDT"]
+ws_spot.book_ticker_v2_stream(
+    handle_message, "ETHUSDT"
 )
 while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
+    sleep(1)
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -1075,25 +1053,23 @@ t(:spot_public_websocket_frequency_250_delay_300)
 ```
 
 ```python--pybit
-from pybit import WebSocket
-subs = [
-    """{
-        "topic": "realtimes",
-        "event": "sub",
-        "params": {
-            "symbol": "BTCUSDT",
-            "binary": false
-        }
-    }"""
-]
-ws = WebSocket(
-    "wss://stream.bybit.com/spot/quote/ws/v2",
-    subscriptions=subs
+from time import sleep
+from pybit import spot
+ws_spot = spot.WebSocket(
+    test=True,
+    ping_interval=30,  # the default is 30
+    ping_timeout=10,  # the default is 10
+    domain="bybit"  # the default is "bybit"
+)
+def handle_message(msg):
+    print(msg)
+# To subscribe to multiple symbols,
+# pass a list: ["BTCUSDT", "ETHUSDT"]
+ws_spot.realtimes_v2_stream(
+    handle_message, "ETHUSDT"
 )
 while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
+    sleep(1)
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -1149,15 +1125,23 @@ t(:spot_private_topics_auth_sub)
 > t(:spot_private_topics_auth_sub)
 
 ```python--pybit
-from pybit import WebSocket
-ws = WebSocket(
-    "wss://stream.bybit.com/spot/ws",
-    api_key="", api_secret=""
+from time import sleep
+from pybit import spot
+ws_spot = spot.WebSocket(
+    test=True,
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}",
+    ping_interval=30,  # the default is 30
+    ping_timeout=10,  # the default is 10
+    domain="bybit"  # the default is "bybit"
+)
+def handle_message(msg):
+    print(msg)
+ws_spot.outbound_account_info_stream(
+    handle_message
 )
 while True:
-    data = ws.fetch("outboundAccountInfo")
-    if data:
-        print(data)
+    sleep(1)
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -1203,15 +1187,23 @@ t(:spot_public_websocket_frequency_realtime)
 > t(:spot_private_topics_auth_sub)
 
 ```python--pybit
-from pybit import WebSocket
-ws = WebSocket(
-    "wss://stream.bybit.com/spot/ws",
-    api_key="", api_secret=""
+from time import sleep
+from pybit import spot
+ws_spot = spot.WebSocket(
+    test=True,
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}",
+    ping_interval=30,  # the default is 30
+    ping_timeout=10,  # the default is 10
+    domain="bybit"  # the default is "bybit"
+)
+def handle_message(msg):
+    print(msg)
+ws_spot.execution_report_stream(
+    handle_message
 )
 while True:
-    data = ws.fetch("executionReport")
-    if data:
-        print(data)
+    sleep(1)
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -1286,15 +1278,23 @@ t(:spot_public_websocket_frequency_realtime)
 > t(:spot_private_topics_auth_sub)
 
 ```python--pybit
-from pybit import WebSocket
-ws = WebSocket(
-    "wss://stream.bybit.com/spot/ws",
-    api_key="", api_secret=""
+from time import sleep
+from pybit import spot
+ws_spot = spot.WebSocket(
+    test=True,
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}",
+    ping_interval=30,  # the default is 30
+    ping_timeout=10,  # the default is 10
+    domain="bybit"  # the default is "bybit"
+)
+def handle_message(msg):
+    print(msg)
+ws_spot.ticket_info_stream(
+    handle_message
 )
 while True:
-    data = ws.fetch("ticketInfo")
-    if data:
-        print(data)
+    sleep(1)
 ```
 
 > t(:codequote_responseExampleFormatAll)

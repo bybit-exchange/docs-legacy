@@ -38,7 +38,8 @@ print(session_unauth.query_symbol())
             "maxTradeQuantity": "2",
             "maxTradeAmount": "200",
             "category": 1,
-            "innovation": false
+            "innovation": false,
+            "showStatus": true
         },
         {
             "name": "ETHUSDT",
@@ -53,7 +54,8 @@ print(session_unauth.query_symbol())
             "maxTradeQuantity": "2",
             "maxTradeAmount": "200",
             "category": 1,
-            "innovation": false
+            "innovation": false,
+            "showStatus": true
         }
     ]
 }
@@ -73,21 +75,23 @@ GET
 
 <p class="fake_header">t(:responseparameters)</p>
 
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-| name | string | t(:spotSymbol) |
-| alias | string | t(:spot_Alias)|
-| baseCurrency | string | t(:spotBaseCurrency)|
-| quoteCurrency | string | t(:spotQuoteCurrency)|
-| basePrecision | string |t(:spotBasePrecision)|
-| quotePrecision | string |t(:spotQuotePrecision)|
-| minTradeQuantity | string |t(:spotMinTradeQuantity)|
-| minTradeAmount | string |t(:spotMinTradeAmount)|
-| minPricePrecision | string |t(:spotMinPricePrecision)|
-| maxTradeQuantity | string |t(:spotmaxTradeQuantity)|
-| maxTradeAmount | string |t(:spotmaxTradeAmount)|
-| category | int  |t(:spotCategory)|
-| innovation | boolean |t(:spotInnovation)|
+| t(:column_parameter) |t(:column_type)|t(:column_comments)|
+|:---------------------|:-----|----- |
+| name                 | string | t(:spotSymbol) |
+| alias                | string | t(:spot_Alias)|
+| baseCurrency         | string | t(:spotBaseCurrency)|
+| quoteCurrency        | string | t(:spotQuoteCurrency)|
+| basePrecision        | string |t(:spotBasePrecision)|
+| quotePrecision       | string |t(:spotQuotePrecision)|
+| minTradeQuantity     | string |t(:spotMinTradeQuantity)|
+| minTradeAmount       | string |t(:spotMinTradeAmount)|
+| minPricePrecision    | string |t(:spotMinPricePrecision)|
+| maxTradeQuantity     | string |t(:spotmaxTradeQuantity)|
+| maxTradeAmount       | string |t(:spotmaxTradeAmount)|
+| category             | int  |t(:spotCategory)|
+| innovation           | boolean |t(:spotInnovation)|
+| showStatus           | boolean |t(:spotshowStatus)|
+
 
 
 ### t(:orderbook)
