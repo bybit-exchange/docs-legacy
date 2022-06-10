@@ -188,30 +188,24 @@ t(:websocket_para_response)
 ws.send('{"op": "subscribe", "args": ["orderBookL2_25.BTCUSD"]}');
 ```
 
-```python--old
-from BybitWebsocket import BybitWebsocket
-ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
-                    api_key=None, api_secret=None)
-ws.subscribe_orderBookL2(symbol="BTCUSD")
-while True:
-    data = ws.get_data("orderBookL2_25.BTCUSD")
-    if data:
-        print(data)
-```
-
 ```python--pybit
-from pybit import WebSocket
-subs = [
-    "orderBookL2_25.BTCUSD"
-]
-ws = WebSocket(
-    "wss://stream-testnet.bybit.com/realtime",
-    subscriptions=subs
+from time import sleep
+from pybit import inverse_perpetual
+ws_inverseP = inverse_perpetual.WebSocket(
+    test=True,
+    ping_interval=30,  # the default is 30
+    ping_timeout=10,  # the default is 10
+    domain="bybit"  # the default is "bybit"
+)
+def handle_message(msg):
+    print(msg)
+# To subscribe to multiple symbols,
+# pass a list: ["BTCUSD", "ETHUSD"]
+ws_inverseP.orderbook_25_stream(
+    handle_message, "XRPUSD"
 )
 while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
+    sleep(1)
 ```
 
 > t(:codequote_snapshot)
@@ -312,18 +306,23 @@ ws.send('{"op": "subscribe", "args": ["orderBook_200.100ms.BTCUSD"]}');
 ```
 
 ```python--pybit
-from pybit import WebSocket
-subs = [
-    "orderBook_200.100ms.BTCUSD"
-]
-ws = WebSocket(
-    "wss://stream-testnet.bybit.com/realtime",
-    subscriptions=subs
+from time import sleep
+from pybit import inverse_perpetual
+ws_inverseP = inverse_perpetual.WebSocket(
+    test=True,
+    ping_interval=30,  # the default is 30
+    ping_timeout=10,  # the default is 10
+    domain="bybit"  # the default is "bybit"
+)
+def handle_message(msg):
+    print(msg)
+# To subscribe to multiple symbols,
+# pass a list: ["BTCUSD", "ETHUSD"]
+ws_inverseP.orderbook_200_stream(
+    handle_message, "XRPUSD"
 )
 while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
+    sleep(1)
 ```
 
 > t(:codequote_snapshot)
@@ -412,30 +411,24 @@ t(:websocket_para_orderbook200)
 ws.send('{"op": "subscribe", "args": ["trade"]}')
 ```
 
-```python--old
-from BybitWebsocket import BybitWebsocket
-ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
-                    api_key=None, api_secret=None)
-ws.subscribe_trade()
-while True:
-    data = ws.get_data("trade.BTCUSD")
-    if data:
-        print(data)
-```
-
 ```python--pybit
-from pybit import WebSocket
-subs = [
-    "trade"
-]
-ws = WebSocket(
-    "wss://stream-testnet.bybit.com/realtime",
-    subscriptions=subs
+from time import sleep
+from pybit import inverse_perpetual
+ws_inverseP = inverse_perpetual.WebSocket(
+    test=True,
+    ping_interval=30,  # the default is 30
+    ping_timeout=10,  # the default is 10
+    domain="bybit"  # the default is "bybit"
+)
+def handle_message(msg):
+    print(msg)
+# To subscribe to multiple symbols,
+# pass a list: ["BTCUSD", "ETHUSD"]
+ws_inverseP.trade_stream(
+    handle_message, "ETHUSD"
 )
 while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
+    sleep(1)
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -482,30 +475,24 @@ t(:websocket_para_trade)
 ws.send('{"op": "subscribe", "args": ["insurance"]}')
 ```
 
-```python--old
-from BybitWebsocket import BybitWebsocket
-ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
-                    api_key=None, api_secret=None)
-ws.subscribe_insurance()
-while True:
-    data = ws.get_data("insurance.BTC")
-    if data:
-        print(data)
-```
-
 ```python--pybit
-from pybit import WebSocket
-subs = [
-    "insurance.BTC"
-]
-ws = WebSocket(
-    "wss://stream-testnet.bybit.com/realtime",
-    subscriptions=subs
+from time import sleep
+from pybit import inverse_perpetual
+ws_inverseP = inverse_perpetual.WebSocket(
+    test=True,
+    ping_interval=30,  # the default is 30
+    ping_timeout=10,  # the default is 10
+    domain="bybit"  # the default is "bybit"
+)
+def handle_message(msg):
+    print(msg)
+# To subscribe to multiple symbols,
+# pass a list: ["BTC", "ETH"]
+ws_inverseP.insurance_stream(
+    handle_message, "BTC"
 )
 while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
+    sleep(1)
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -544,30 +531,24 @@ t(:websocket_aside_insurance)
 ws.send('{"op": "subscribe", "args": ["instrument_info.100ms.BTCUSD"]}')
 ```
 
-```python--old
-from BybitWebsocket import BybitWebsocket
-ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
-                    api_key=None, api_secret=None)
-ws.subscribe_instrument_info(symbol="BTCUSD")
-while True:
-    data = ws.get_data("instrument_info.100ms.BTCUSD")
-    if data:
-        print(data)
-```
-
 ```python--pybit
-from pybit import WebSocket
-subs = [
-    "instrument_info.100ms.BTCUSD"
-]
-ws = WebSocket(
-    "wss://stream-testnet.bybit.com/realtime",
-    subscriptions=subs
+from time import sleep
+from pybit import inverse_perpetual
+ws_inverseP = inverse_perpetual.WebSocket(
+    test=True,
+    ping_interval=30,  # the default is 30
+    ping_timeout=10,  # the default is 10
+    domain="bybit"  # the default is "bybit"
+)
+def handle_message(msg):
+    print(msg)
+# To subscribe to multiple symbols,
+# pass a list: ["BTCUSD", "ETHUSD"]
+ws_inverseP.instrument_info_stream(
+    handle_message, "DOTUSD"
 )
 while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
+    sleep(1)
 ```
 
 > t(:codequote_snapshot)
@@ -705,18 +686,24 @@ ws.send('{"op":"subscribe","args":["klineV2.1.BTCUSD"]}')
 ```
 
 ```python--pybit
-from pybit import WebSocket
-subs = [
-    "klineV2.1.BTCUSD"
-]
-ws = WebSocket(
-    "wss://stream-testnet.bybit.com/realtime",
-    subscriptions=subs
+from time import sleep
+from pybit import inverse_perpetual
+ws_inverseP = inverse_perpetual.WebSocket(
+    test=True,
+    ping_interval=30,  # the default is 30
+    ping_timeout=10,  # the default is 10
+    domain="bybit"  # the default is "bybit"
+)
+def handle_message(msg):
+    print(msg)
+# To subscribe to multiple symbols,
+# pass a list: ["BTCUSD", "ETHUSD"]
+# pass an inverval
+ws_inverseP.kline_stream(
+    handle_message, "ETHUSD", "D"
 )
 while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
+    sleep(1)
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -769,18 +756,23 @@ ws.send('{"op":"subscribe","args":["liquidation"]}')
 ```
 
 ```python--pybit
-from pybit import WebSocket
-subs = [
-    "liquidation"
-]
-ws = WebSocket(
-    "wss://stream-testnet.bybit.com/realtime",
-    subscriptions=subs
+from time import sleep
+from pybit import inverse_perpetual
+ws_inverseP = inverse_perpetual.WebSocket(
+    test=True,
+    ping_interval=30,  # the default is 30
+    ping_timeout=10,  # the default is 10
+    domain="bybit"  # the default is "bybit"
+)
+def handle_message(msg):
+    print(msg)
+# To subscribe to multiple symbols,
+# pass a list: ["BTCUSD", "ETHUSD"]
+ws_inverseP.liquidation_stream(
+    handle_message, "ETHUSD"
 )
 while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
+    sleep(1)
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -818,31 +810,24 @@ t(:websocket_query_liqrecords)
 ws.send('{"op": "subscribe", "args": ["position"]}')
 ```
 
-```python--old
-from BybitWebsocket import BybitWebsocket
-ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
-                    api_key=api_key, api_secret=api_secret)
-ws.subscribe_position()
-while True:
-    data = ws.get_data("position")
-    if data:
-        print(data)
-```
-
 ```python--pybit
-from pybit import WebSocket
-subs = [
-    "position"
-]
-ws = WebSocket(
-    "wss://stream-testnet.bybit.com/realtime",
-    api_key="", api_secret="",
-    subscriptions=subs
+from time import sleep
+from pybit import inverse_perpetual
+ws_inverseP = inverse_perpetual.WebSocket(
+    test=True,
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}",
+    ping_interval=30,  # the default is 30
+    ping_timeout=10,  # the default is 10
+    domain="bybit"  # the default is "bybit"
+)
+def handle_message(msg):
+    print(msg)
+ws_inverseP.position_stream(
+    handle_message
 )
 while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
+    sleep(1)
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -936,31 +921,24 @@ t(:websocketposition_aside)
 ws.send('{"op": "subscribe", "args": ["execution"]}')
 ```
 
-```python--old
-from BybitWebsocket import BybitWebsocket
-ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
-                    api_key=api_key, api_secret=api_secret)
-ws.subscribe_execution()
-while True:
-    data = ws.get_data("execution")
-    if data:
-        print(data)
-```
-
 ```python--pybit
-from pybit import WebSocket
-subs = [
-    "execution"
-]
-ws = WebSocket(
-    "wss://stream-testnet.bybit.com/realtime",
-    api_key="", api_secret="",
-    subscriptions=subs
+from time import sleep
+from pybit import inverse_perpetual
+ws_inverseP = inverse_perpetual.WebSocket(
+    test=True,
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}",
+    ping_interval=30,  # the default is 30
+    ping_timeout=10,  # the default is 10
+    domain="bybit"  # the default is "bybit"
+)
+def handle_message(msg):
+    print(msg)
+ws_inverseP.execution_stream(
+    handle_message
 )
 while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
+    sleep(1)
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -1020,31 +998,24 @@ t(:websocket_execution_aside)
 ws.send('{"op": "subscribe", "args": ["order"]}')
 ```
 
-```python--old
-from BybitWebsocket import BybitWebsocket
-ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
-                    api_key=api_key, api_secret=api_secret)
-ws.subscribe_order()
-while True:
-    data = ws.get_data("order")
-    if data:
-        print(data)
-```
-
 ```python--pybit
-from pybit import WebSocket
-subs = [
-    "order"
-]
-ws = WebSocket(
-    "wss://stream-testnet.bybit.com/realtime",
-    api_key="", api_secret="",
-    subscriptions=subs
+from time import sleep
+from pybit import inverse_perpetual
+ws_inverseP = inverse_perpetual.WebSocket(
+    test=True,
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}",
+    ping_interval=30,  # the default is 30
+    ping_timeout=10,  # the default is 10
+    domain="bybit"  # the default is "bybit"
+)
+def handle_message(msg):
+    print(msg)
+ws_inverseP.order_stream(
+    handle_message
 )
 while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
+    sleep(1)
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -1118,19 +1089,23 @@ ws.send('{"op": "subscribe", "args": ["stop_order"]}')
 ```
 
 ```python--pybit
-from pybit import WebSocket
-subs = [
-    "stop_order"
-]
-ws = WebSocket(
-    "wss://stream-testnet.bybit.com/realtime",
-    api_key="", api_secret="",
-    subscriptions=subs
+from time import sleep
+from pybit import inverse_perpetual
+ws_inverseP = inverse_perpetual.WebSocket(
+    test=True,
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}",
+    ping_interval=30,  # the default is 30
+    ping_timeout=10,  # the default is 10
+    domain="bybit"  # the default is "bybit"
+)
+def handle_message(msg):
+    print(msg)
+ws_inverseP.stop_order_stream(
+    handle_message
 )
 while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
+    sleep(1)
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -1192,19 +1167,23 @@ ws.send('{"op": "subscribe", "args": ["wallet"]}')
 ```
 
 ```python--pybit
-from pybit import WebSocket
-subs = [
-    "wallet"
-]
-ws = WebSocket(
-    "wss://stream-testnet.bybit.com/realtime",
-    api_key="", api_secret="",
-    subscriptions=subs
+from time import sleep
+from pybit import inverse_perpetual
+ws_inverseP = inverse_perpetual.WebSocket(
+    test=True,
+    api_key="{{your api key}}",
+    api_secret="{{your api secret}}",
+    ping_interval=30,  # the default is 30
+    ping_timeout=10,  # the default is 10
+    domain="bybit"  # the default is "bybit"
+)
+def handle_message(msg):
+    print(msg)
+ws_inverseP.wallet_stream(
+    handle_message
 )
 while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
+    sleep(1)
 ```
 
 > t(:codequote_responseExampleFormatAll)

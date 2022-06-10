@@ -9,10 +9,11 @@ curl https://api-testnet.bybit.com/spot/v1/time
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               spot=True)
-print(session.server_time())
+from pybit import spot
+session_unauth = spot.HTTP(
+    endpoint="https://api-testnet.bybit.com"
+)
+print(session_unauth.server_time())
 ```
 
 > t(:codequote_responseExample)

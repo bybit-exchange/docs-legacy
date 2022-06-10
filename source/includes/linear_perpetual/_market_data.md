@@ -11,12 +11,6 @@ t(:market_para_auth)
 curl https://api-testnet.bybit.com/public/linear/kline?symbol=BTCUSDT&interval=1&limit=2&from=1581231260
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.LinearKline.LinearKline_get(symbol="BTCUSDT", interval="m", **{'from':1581231260}).result())
-```
-
 ```python--pybit
 from pybit import usdt_perpetual
 session_unauth = usdt_perpetual.HTTP(
@@ -103,12 +97,6 @@ GET
 curl https://api-testnet.bybit.com/public/linear/recent-trading-records?symbol=BTCUSDT&limit=500
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.LinearMarket.LinearMarket_trading().result())
-```
-
 ```python--pybit
 from pybit import usdt_perpetual
 session_unauth = usdt_perpetual.HTTP(
@@ -184,12 +172,6 @@ GET
 curl https://api-testnet.bybit.com/public/linear/funding/prev-funding-rate?symbol=BTCUSDT
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.LinearFunding.LinearFunding_prevRate(symbol="BTCUSDT").result())
-```
-
 ```python--pybit
 from pybit import usdt_perpetual
 session_unauth = usdt_perpetual.HTTP(
@@ -252,12 +234,6 @@ GET
 
 ```console
 curl https://api-testnet.bybit.com/public/linear/mark-price-kline?symbol=BTCUSDT&interval=1&limit=2&from=1581231260
-```
-
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.LinearKline.LinearKline_markPrice(symbol="BTCUSDT", interval="m", limit=10, **{'from':1}).result())
 ```
 
 ```python--pybit
@@ -339,12 +315,6 @@ GET
 curl "https://api-testnet.bybit.com/public/linear/index-price-kline?symbol=BTCUSDT&interval=1&limit=2&from=1581231260"
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.LinearKline.LinearKline_indexPrice().result())
-```
-
 ```python--pybit
 from pybit import usdt_perpetual
 session_unauth = usdt_perpetual.HTTP(
@@ -411,12 +381,6 @@ GET
 
 ```console
 curl "https://api-testnet.bybit.com/public/linear/premium-index-kline?symbol=BTCUSDT&interval=1&limit=2&from=1581231260"
-```
-
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.LinearKline.LinearKline_premiumIndexPrice().result())
 ```
 
 ```python--pybit
