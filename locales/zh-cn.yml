@@ -2507,7 +2507,10 @@ zh-cn:
     <p>請註意該接口入參<code>請求</code>數據中的<code>transfer_id</code>字段為<code>UUID</code>全局唯一。</p>
     <p>請註意該接口支持<code>期貨賬戶</code>、<code>現貨賬戶</code>、<code>理財賬戶</code>。</p>
     <p>轉入和轉出賬戶類型不能相同。</p>
+  universaltransferunderstanding_notice: 萬能轉賬使您可以在兩個子賬戶（而不是子 -> 主 -> 子）和任何<a href="#account-type-from_account_type-to_account_type">賬戶類型</a>（<code> 合同</code>、<code>SPOT</code>等）之間劃轉。
   enableuniversaltransfer_notice: 你需要通過這個接口來設置可互相劃轉的子賬號。如果不設置，這些賬戶之間不能互相劃轉
+  universaltransfer_join_notice: 要發送<a href="#account-type-from_account_type-to_account_type">賬戶類型</a>和父/子不可知的轉賬，請使用<a href="#t-createuniversaltransfer">創建萬能轉賬< /a> 接口。
+
   createsubaccounttransfer_api_notice:
     <p>請註意該接口入參<code>請求</code>數據中的<code>transfer_id</code>字段為<code>UUID</code>全局唯一。</p>
     <p>該接口只能用於母子賬號之間的劃轉。</p>
