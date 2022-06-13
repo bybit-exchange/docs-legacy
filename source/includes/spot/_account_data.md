@@ -14,8 +14,8 @@ curl https://api-testnet.bybit.com/spot/v1/order \
 from pybit import spot
 session_auth = spot.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.place_active_order(
     symbol="ETHUSDT",
@@ -100,8 +100,8 @@ POST
 from pybit import spot
 session_auth = spot.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.get_active_order(
     orderId="889826641228952064"
@@ -192,8 +192,8 @@ GET
 from pybit import spot
 session_auth = spot.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.cancel_active_order(
     orderId="889826641228952064"
@@ -267,8 +267,8 @@ DELETE
 from pybit import spot
 session_auth = spot.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.fast_cancel_active_order(
     symbolId="ETHUSDT",
@@ -325,8 +325,8 @@ DELETE
 from pybit import spot
 session_auth = spot.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.batch_cancel_active_order(
     symbol="ETHUSDT",
@@ -384,8 +384,8 @@ DELETE
 from pybit import spot
 session_auth = spot.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.batch_fast_cancel_active_order(
     symbol="ETHUSDT",
@@ -444,8 +444,8 @@ DELETE
 from pybit import spot
 session_auth = spot.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.batch_cancel_active_order_by_ids(
     orderIds="889208273689997824,889826641228952064"
@@ -504,8 +504,8 @@ DELETE
 from pybit import spot
 session_auth = spot.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.query_active_order(
     symbol="ETHUSDT"
@@ -622,8 +622,8 @@ GET
 from pybit import spot
 session_auth = spot.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.get_active_order(
     symbol="ETHUSDT"
@@ -720,8 +720,8 @@ GET
 from pybit import spot
 session_auth = spot.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.user_trade_records(
     symbol="BTCUSDT"

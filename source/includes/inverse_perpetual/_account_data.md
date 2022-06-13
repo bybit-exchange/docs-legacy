@@ -22,8 +22,8 @@ print(client.Order.Order_new(side="Buy",symbol="BTCUSD",order_type="Market",qty=
 from pybit import inverse_perpetual
 session_auth = inverse_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.place_active_order(
     symbol="BTCUSD",
@@ -140,8 +140,8 @@ print(client.Order.Order_getOrders(symbol="BTCUSD",order_status="New").result())
 from pybit import inverse_perpetual
 session_auth = inverse_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.get_active_order(
     symbol="BTCUSD",
@@ -252,8 +252,8 @@ print(client.Order.Order_cancel(symbol="BTCUSD", order_id="").result())
 from pybit import inverse_perpetual
 session_auth = inverse_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.cancel_active_order(
     symbol="BTCUSD",
@@ -360,8 +360,8 @@ print(client.Order.Order_cancelAll(symbol="BTCUSD").result())
 from pybit import inverse_perpetual
 session_auth = inverse_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.cancel_all_active_orders(
     symbol="BTCUSD"
@@ -461,8 +461,8 @@ print(client.Order.Order_replace(symbol="BTCUSD", order_id="").result())
 from pybit import inverse_perpetual
 session_auth = inverse_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.replace_active_order(
     symbol="BTCUSD",
@@ -534,8 +534,8 @@ print(client.Order.Order_query(symbol="BTCUSD", order_id="").result())
 from pybit import inverse_perpetual
 session_auth = inverse_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session.query_active_order(
     symbol="BTCUSD",
@@ -716,8 +716,8 @@ print(client.Conditional.Conditional_new(order_type="Limit",side="Buy",symbol="X
 from pybit import inverse_perpetual
 session_auth = inverse_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.place_conditional_order(
     symbol="BTCUSD",
@@ -831,8 +831,8 @@ print(client.Conditional.Conditional_getOrders(symbol="BTCUSD",stop_order_status
 from pybit import inverse_perpetual
 session_auth = inverse_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.get_conditional_order(
     symbol="BTCUSD",
@@ -938,8 +938,8 @@ print(client.Conditional.Conditional_cancel(symbol="BTCUSD", stop_order_id="").r
 from pybit import inverse_perpetual
 session_auth = inverse_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.cancel_conditional_order(
     symbol="BTCUSD",
@@ -1003,8 +1003,8 @@ print(client.Conditional.Conditional_cancelAll(symbol="BTCUSD").result())
 from pybit import inverse_perpetual
 session_auth = inverse_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.cancel_all_conditional_orders(
     symbol="BTCUSD"
@@ -1135,8 +1135,8 @@ print(client.Conditional.Conditional_replace(symbol="BTCUSD", stop_order_id="", 
 from pybit import inverse_perpetual
 session_auth = inverse_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.replace_conditional_order(
     symbol="BTCUSD",
@@ -1212,8 +1212,8 @@ print(client.Conditional.Conditional_query(symbol="BTCUSD", stop_order_id="").re
 from pybit import inverse_perpetual
 session_auth = inverse_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.query_conditional_order(
     symbol="BTCUSD",
@@ -1388,8 +1388,8 @@ print(client.Positions.Positions_myPosition(symbol="BTCUSD").result())
 from pybit import inverse_perpetual
 session_auth = inverse_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.my_position(
     symbol="BTCUSD"
@@ -1612,8 +1612,8 @@ print(client.Positions.Positions_changeMargin(symbol="BTCUSD", margin="10").resu
 from pybit import inverse_perpetual
 session_auth = inverse_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.change_margin(
     symbol="BTCUSD",
@@ -1681,8 +1681,8 @@ print(client.Positions.Positions_tradingStop(symbol="BTCUSD",stop_loss="7000").r
 from pybit import inverse_perpetual
 session_auth = inverse_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.set_trading_stop(
     symbol="BTCUSD",
@@ -1824,8 +1824,8 @@ print(client.Positions.Positions_saveLeverage(symbol="BTCUSD", leverage="14").re
 from pybit import inverse_perpetual
 session_auth = inverse_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.set_leverage(
     symbol="BTCUSD",
@@ -1893,8 +1893,8 @@ print(client.Execution.Execution_getTrades(symbol="BTCUSD").result())
 from pybit import inverse_perpetual
 session_auth = inverse_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.user_trade_records(
     symbol="BTCUSD"
@@ -2009,8 +2009,8 @@ print(client.Positions.Positions_closePnlRecords(symbol="BTCUSD").result())
 from pybit import inverse_perpetual
 session_auth = inverse_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.closed_profit_and_loss(
     symbol="BTCUSD"
@@ -2107,8 +2107,8 @@ GET
 from pybit import inverse_perpetual
 session_auth = inverse_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.full_partial_position_tp_sl_switch(
     symbol="BTCUSD",
@@ -2179,8 +2179,8 @@ curl https://api-testnet.bybit.com/v2/private/position/switch-isolated \
 from pybit import inverse_perpetual
 session_auth = inverse_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.cross_isolated_margin_switch(
     symbol="BTCUSD",
@@ -2233,8 +2233,8 @@ curl https://api.bybit.com/v2/private/position/fee-rate?api_key={api_key}&symbol
 from pybit import inverse_perpetual
 session_auth = inverse_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.query_trading_fee_rate(
     symbol="BTCUSD"
@@ -2408,8 +2408,8 @@ curl https://api-testnet.bybit.com/v2/private/position/risk-limit \
 from pybit import inverse_perpetual
 session_auth = inverse_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.set_risk_limit(
     symbol="BTCUSD",
@@ -2538,8 +2538,8 @@ print(client.Funding.Funding_myLastFee(symbol="BTCUSD").result())
 from pybit import inverse_perpetual
 session_auth = inverse_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.my_last_funding_fee(
     symbol="BTCUSD"
@@ -2609,8 +2609,8 @@ print(client.Funding.Funding_predicted(symbol="BTCUSD").result())
 from pybit import inverse_perpetual
 session_auth = inverse_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.predicted_funding_rate(
     symbol="BTCUSD"
@@ -2670,8 +2670,8 @@ print(client.APIkey.APIkey_info().result())
 from pybit import inverse_perpetual
 session_auth = inverse_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.api_key_info())
 ```
@@ -2750,8 +2750,8 @@ curl "https://api-testnet.bybit.com/v2/private/account/lcp?api_key={api_key}&sym
 from pybit import inverse_perpetual
 session_auth = inverse_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.lcp_info(
     symbol="BTCUSD"
