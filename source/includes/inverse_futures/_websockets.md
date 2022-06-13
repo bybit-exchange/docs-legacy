@@ -187,17 +187,6 @@ t(:websocket_para_response)
 ws.send('{"op": "subscribe", "args": ["orderBookL2_25.BTCUSDH21"]}');
 ```
 
-```python--old
-from BybitWebsocket import BybitWebsocket
-ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
-                    api_key=None, api_secret=None)
-ws.subscribe_orderBookL2(symbol="BTCUSDH21")
-while True:
-    data = ws.get_data("orderBookL2_25.BTCUSDH21")
-    if data:
-        print(data)
-```
-
 ```python--pybit
 from time import sleep
 from pybit import inverse_perpetual
@@ -421,17 +410,6 @@ t(:websocket_para_orderbook200)
 ws.send('{"op": "subscribe", "args": ["trade"]}')
 ```
 
-```python--old
-from BybitWebsocket import BybitWebsocket
-ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
-                    api_key=None, api_secret=None)
-ws.subscribe_trade()
-while True:
-    data = ws.get_data("trade.BTCUSDH21")
-    if data:
-        print(data)
-```
-
 ```python--pybit
 from time import sleep
 from pybit import inverse_perpetual
@@ -496,17 +474,6 @@ t(:websocket_para_trade)
 ws.send('{"op": "subscribe", "args": ["insurance"]}')
 ```
 
-```python--old
-from BybitWebsocket import BybitWebsocket
-ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
-                    api_key=None, api_secret=None)
-ws.subscribe_insurance()
-while True:
-    data = ws.get_data("insurance.BTC")
-    if data:
-        print(data)
-```
-
 ```python--pybit
 from time import sleep
 from pybit import inverse_perpetual
@@ -561,17 +528,6 @@ t(:websocket_aside_insurance)
 
 ```javascript
 ws.send('{"op": "subscribe", "args": ["instrument_info.100ms.BTCUSDH21"]}')
-```
-
-```python--old
-from BybitWebsocket import BybitWebsocket
-ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
-                    api_key=None, api_secret=None)
-ws.subscribe_instrument_info(symbol="BTCUSDH21")
-while True:
-    data = ws.get_data("instrument_info.100ms.BTCUSDH21")
-    if data:
-        print(data)
 ```
 
 ```python--pybit
@@ -821,17 +777,6 @@ t(:websocket_aside_push_trigger)
 ws.send('{"op": "subscribe", "args": ["position"]}')
 ```
 
-```python--old
-from BybitWebsocket import BybitWebsocket
-ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
-                    api_key=api_key, api_secret=api_secret)
-ws.subscribe_position()
-while True:
-    data = ws.get_data("position")
-    if data:
-        print(data)
-```
-
 ```python--pybit
 from time import sleep
 from pybit import inverse_perpetual
@@ -947,17 +892,6 @@ t(:websocketposition_aside)
 ws.send('{"op": "subscribe", "args": ["execution"]}')
 ```
 
-```python--old
-from BybitWebsocket import BybitWebsocket
-ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
-                    api_key=api_key, api_secret=api_secret)
-ws.subscribe_execution()
-while True:
-    data = ws.get_data("execution")
-    if data:
-        print(data)
-```
-
 ```python--pybit
 from time import sleep
 from pybit import inverse_perpetual
@@ -1033,17 +967,6 @@ t(:websocket_execution_aside)
 
 ```javascript
 ws.send('{"op": "subscribe", "args": ["order"]}')
-```
-
-```python--old
-from BybitWebsocket import BybitWebsocket
-ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
-                    api_key=api_key, api_secret=api_secret)
-ws.subscribe_order()
-while True:
-    data = ws.get_data("order")
-    if data:
-        print(data)
 ```
 
 ```python--pybit
