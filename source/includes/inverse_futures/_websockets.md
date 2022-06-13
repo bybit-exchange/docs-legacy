@@ -782,8 +782,8 @@ from time import sleep
 from pybit import inverse_perpetual
 ws_inverseF = inverse_perpetual.WebSocket(
     test=True,
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}",
+    api_key="your api key",
+    api_secret="your api secret",
     ping_interval=30,  # the default is 30
     ping_timeout=10,  # the default is 10
     domain="bybit"  # the default is "bybit"
@@ -897,8 +897,8 @@ from time import sleep
 from pybit import inverse_perpetual
 ws_inverseF = inverse_perpetual.WebSocket(
     test=True,
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}",
+    api_key="your api key",
+    api_secret="your api secret",
     ping_interval=30,  # the default is 30
     ping_timeout=10,  # the default is 10
     domain="bybit"  # the default is "bybit"
@@ -974,8 +974,8 @@ from time import sleep
 from pybit import inverse_perpetual
 ws_inverseF = inverse_perpetual.WebSocket(
     test=True,
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}",
+    api_key="your api key",
+    api_secret="your api secret",
     ping_interval=30,  # the default is 30
     ping_timeout=10,  # the default is 10
     domain="bybit"  # the default is "bybit"
@@ -1064,8 +1064,8 @@ from time import sleep
 from pybit import inverse_perpetual
 ws_inverseF = inverse_perpetual.WebSocket(
     test=True,
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}",
+    api_key="your api key",
+    api_secret="your api secret",
     ping_interval=30,  # the default is 30
     ping_timeout=10,  # the default is 10
     domain="bybit"  # the default is "bybit"

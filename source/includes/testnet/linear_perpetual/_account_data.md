@@ -15,8 +15,8 @@ curl https://api-testnet.bybit.com/private/linear/order/create \
 from pybit import usdt_perpetual
 session_auth = usdt_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="cCrMK2P55002rmQh1z",
-    api_secret="eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.place_active_order(
     symbol="BTCUSDT",
@@ -133,8 +133,8 @@ curl "https://api-testnet.bybit.com/private/linear/order/list?api_key={api_key}&
 from pybit import usdt_perpetual
 session_auth = usdt_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="cCrMK2P55002rmQh1z",
-    api_secret="eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.get_active_order(
     symbol="BTCUSDT"
@@ -239,8 +239,8 @@ curl https://api-testnet.bybit.com/private/linear/order/cancel \
 from pybit import usdt_perpetual
 session_auth = usdt_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="cCrMK2P55002rmQh1z",
-    api_secret="eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.cancel_active_order(
     symbol="BTCUSDT",
@@ -302,8 +302,8 @@ curl https://api-testnet.bybit.com/private/linear/order/cancel-all \
 from pybit import usdt_perpetual
 session_auth = usdt_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="cCrMK2P55002rmQh1z",
-    api_secret="eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.cancel_all_active_orders(
     symbol="BTCUSDT"
@@ -365,8 +365,8 @@ curl https://api-testnet.bybit.com/private/linear/order/replace \
 from pybit import usdt_perpetual
 session_auth = usdt_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="cCrMK2P55002rmQh1z",
-    api_secret="eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.replace_active_order(
     symbol="BTCUSDT",
@@ -434,8 +434,8 @@ curl "https://api-testnet.bybit.com/private/linear/order/search?api_key={api_key
 from pybit import usdt_perpetual
 session_auth = usdt_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="cCrMK2P55002rmQh1z",
-    api_secret="eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.query_active_order(
     symbol="BTCUSDT",
@@ -602,8 +602,8 @@ curl https://api-testnet.bybit.com/private/linear/stop-order/create \
 from pybit import usdt_perpetual
 session_auth = usdt_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="cCrMK2P55002rmQh1z",
-    api_secret="eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.place_conditional_order(
     symbol="BTCUSDT",
@@ -731,8 +731,8 @@ curl "https://api-testnet.bybit.com/private/linear/stop-order/list?api_key={api_
 from pybit import usdt_perpetual
 session_auth = usdt_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="cCrMK2P55002rmQh1z",
-    api_secret="eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.get_conditional_order(
     symbol="BTCUSDT"
@@ -861,8 +861,8 @@ curl https://api-testnet.bybit.com/private/linear/stop-order/cancel \
 from pybit import usdt_perpetual
 session_auth = usdt_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="cCrMK2P55002rmQh1z",
-    api_secret="eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.cancel_conditional_order(
     symbol="BTCUSDT",
@@ -921,8 +921,8 @@ curl https://api-testnet.bybit.com/private/linear/stop-order/cancel-all \
 from pybit import usdt_perpetual
 session_auth = usdt_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="cCrMK2P55002rmQh1z",
-    api_secret="eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.cancel_all_conditional_orders(
     symbol="BTCUSDT"
@@ -979,8 +979,8 @@ curl https://api-testnet.bybit.com/private/linear/stop-order/replace \
 from pybit import usdt_perpetual
 session_auth = usdt_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="cCrMK2P55002rmQh1z",
-    api_secret="eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.replace_conditional_order(
     symbol="BTCUSDT",
@@ -1049,8 +1049,8 @@ curl "https://api-testnet.bybit.com/private/linear/stop-order/search?api_key={ap
 from pybit import usdt_perpetual
 session_auth = usdt_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="cCrMK2P55002rmQh1z",
-    api_secret="eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.query_conditional_order(
     symbol="BTCUSDT"
@@ -1202,8 +1202,8 @@ curl https://api-testnet.bybit.com/private/linear/position/list?api_key={api_key
 from pybit import usdt_perpetual
 session_auth = usdt_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="cCrMK2P55002rmQh1z",
-    api_secret="eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.my_position(
     symbol="BTCUSDT"
@@ -1457,8 +1457,8 @@ curl https://api-testnet.bybit.com/private/linear/position/set-auto-add-margin \
 from pybit import usdt_perpetual
 session_auth = usdt_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="cCrMK2P55002rmQh1z",
-    api_secret="eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.set_auto_add_margin(
     symbol="BTCUSDT",
@@ -1512,8 +1512,8 @@ curl https://api-testnet.bybit.com/private/linear/position/switch-isolated \
 from pybit import usdt_perpetual
 session_auth = usdt_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="cCrMK2P55002rmQh1z",
-    api_secret="eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.cross_isolated_margin_switch(
     symbol="BTCUSDT",
@@ -1568,8 +1568,8 @@ curl https://api-testnet.bybit.com/private/linear/position/switch-mode \
 from pybit import usdt_perpetual
 session_auth = usdt_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="cCrMK2P55002rmQh1z",
-    api_secret="eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.position_mode_switch(
     symbol="BTCUSDT",
@@ -1614,8 +1614,8 @@ POST
 from pybit import usdt_perpetual
 session_auth = usdt_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="cCrMK2P55002rmQh1z",
-    api_secret="eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.full_partial_position_tp_sl_switch(
     symbol="BTCUSDT",
@@ -1690,8 +1690,8 @@ curl https://api-testnet.bybit.com \
 from pybit import usdt_perpetual
 session_auth = usdt_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="cCrMK2P55002rmQh1z",
-    api_secret="eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.add_reduce_margin(
     symbol="BTCUSDT",
@@ -1786,8 +1786,8 @@ curl https://api-testnet.bybit.com/private/linear/position/set-leverage \
 from pybit import usdt_perpetual
 session_auth = usdt_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="cCrMK2P55002rmQh1z",
-    api_secret="eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.set_leverage(
     symbol="BTCUSDT",
@@ -1840,8 +1840,8 @@ curl https://api-testnet.bybit.com/private/linear/position/trading-stop \
 from pybit import usdt_perpetual
 session_auth = usdt_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="cCrMK2P55002rmQh1z",
-    api_secret="eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.set_trading_stop(
     symbol="BTCUSDT",
@@ -1903,8 +1903,8 @@ curl "https://api-testnet.bybit.com/private/linear/trade/execution/list?api_key=
 from pybit import usdt_perpetual
 session_auth = usdt_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="cCrMK2P55002rmQh1z",
-    api_secret="eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.user_trade_records(
     symbol="BTCUSDT"
@@ -2011,8 +2011,8 @@ curl "https://api-testnet.bybit.com/private/linear/trade/execution/history-list?
 from pybit import usdt_perpetual
 session_auth = usdt_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="cCrMK2P55002rmQh1z",
-    api_secret="eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.user_trade_records(
     symbol="BTCUSDT"
@@ -2119,8 +2119,8 @@ curl https://api-testnet.bybit.com/private/linear/trade/closed-pnl/list?api_key=
 from pybit import usdt_perpetual
 session_auth = usdt_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="cCrMK2P55002rmQh1z",
-    api_secret="eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.closed_profit_and_loss(
     symbol="BTCUSDT"
@@ -2329,8 +2329,8 @@ curl https://api-testnet.bybit.com/private/linear/position/set-risk \
 from pybit import usdt_perpetual
 session_auth = usdt_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="cCrMK2P55002rmQh1z",
-    api_secret="eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.set_risk_limit(
     symbol="BTCUSDT",
@@ -2393,8 +2393,8 @@ curl "https://api-testnet.bybit.com/private/linear/funding/predicted-funding?api
 from pybit import usdt_perpetual
 session_auth = usdt_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="cCrMK2P55002rmQh1z",
-    api_secret="eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.predicted_funding_rate(
     symbol="BTCUSDT"
@@ -2450,8 +2450,8 @@ curl "https://api-testnet.bybit.com/private/linear/funding/prev-funding?api_key=
 from pybit import usdt_perpetual
 session_auth = usdt_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="cCrMK2P55002rmQh1z",
-    api_secret="eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.my_last_funding_fee(
     symbol="BTCUSDT"

@@ -26,8 +26,8 @@ from pybit import account_asset
 from uuid import uuid4
 session_auth = account_asset.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}")
+    api_key="your api key",
+    api_secret="your api secret")
 print(session_auth.create_internal_transfer(
     transfer_id=str(uuid4()),
     coin="BTC",
@@ -108,8 +108,8 @@ from pybit import account_asset
 from uuid import uuid4
 session_auth = account_asset.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}")
+    api_key="your api key",
+    api_secret="your api secret")
 print(session_auth.create_subaccount_transfer(
     transfer_id=str(uuid4()),
     coin="BTC",
@@ -177,8 +177,8 @@ from pybit import account_asset
 from uuid import uuid4
 session_auth = account_asset.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}")
+    api_key="your api key",
+    api_secret="your api secret")
 print(session_auth.query_transfer_list())
 ```
 
@@ -276,8 +276,8 @@ from pybit import account_asset
 from uuid import uuid4
 session_auth = account_asset.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}")
+    api_key="your api key",
+    api_secret="your api secret")
 print(session_auth.query_subaccount_transfer_list())
 ```
 
@@ -389,8 +389,8 @@ from pybit import account_asset
 from uuid import uuid4
 session_auth = account_asset.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}")
+    api_key="your api key",
+    api_secret="your api secret")
 print(session_auth.query_subaccount_list())
 ```
 

@@ -13,8 +13,8 @@ curl "https://api-testnet.bybit.com/v2/private/wallet/balance?api_key={api_key}&
 from pybit import inverse_perpetual
 session_auth = inverse_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.get_wallet_balance(coin="BTC"))
 ```
@@ -98,8 +98,8 @@ curl "https://api-testnet.bybit.com/v2/private/wallet/fund/records?api_key={api_
 from pybit import inverse_perpetual
 session_auth = inverse_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.wallet_fund_records())
 ```
@@ -205,8 +205,8 @@ curl "https://api-testnet.bybit.com/v2/private/wallet/withdraw/list?api_key={api
 from pybit import inverse_perpetual
 session_auth = inverse_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.withdraw_records())
 ```
@@ -287,8 +287,8 @@ curl "https://api-testnet.bybit.com/v2/private/exchange-order/list?api_key={api_
 from pybit import inverse_perpetual
 session_auth = inverse_perpetual.HTTP(
     endpoint="https://api-testnet.bybit.com",
-    api_key="{{your api key}}",
-    api_secret="{{your api secret}}"
+    api_key="your api key",
+    api_secret="your api secret"
 )
 print(session_auth.asset_exchange_records())
 ```
