@@ -70,7 +70,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/symbols?limit=1&status=ONLINE&status=OFFLINE'
+curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/symbols?symbol=BTC-30SEP22-400000-C&status=ONLINE'
 
 ```
 
@@ -81,34 +81,34 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/symbols?limit=
 
 ```javascript
 {
-  "retCode": 0,
+    "retCode": 0,
     "retMsg": "success",
     "result": {
-    "resultTotalSize": 1618,
-      "cursor": "0%2C1",
-      "dataList": [
-      {
-        "symbol": "BTC-28JAN22-250000-C",
-        "status": "ONLINE",
-        "baseCoin": "BTC",
-        "quoteCoin": "USD",
-        "settleCoin": "USDC",
-        "takerFee": "0.00025",
-        "makerFee": "0.00025",
-        "minLeverage": "",
-        "maxLeverage": "",
-        "leverageStep": "",
-        "minOrderPrice": "0.5",
-        "maxOrderPrice": "10000000",
-        "minOrderSize": "0.01",
-        "maxOrderSize": "1000",
-        "tickSize": "0.5",
-        "minOrderSizeIncrement": "0.01",
-        "basicDeliveryFeeRate": "0.00015",
-        "deliveryTime": "1643356800000"
-      }
-    ]
-  }
+        "resultTotalSize": 1,
+        "cursor": "",
+        "dataList": [
+            {
+                "symbol": "BTC-30SEP22-400000-C",
+                "status": "ONLINE",
+                "baseCoin": "BTC",
+                "quoteCoin": "USD",
+                "settleCoin": "USDC",
+                "takerFee": "0.0003",
+                "makerFee": "0.0003",
+                "minLeverage": "",
+                "maxLeverage": "",
+                "leverageStep": "",
+                "minOrderPrice": "5",
+                "maxOrderPrice": "10000000",
+                "minOrderSize": "0.01",
+                "maxOrderSize": "200",
+                "tickSize": "5",
+                "minOrderSizeIncrement": "0.01",
+                "basicDeliveryFeeRate": "0.00015",
+                "deliveryTime": "1664524800000"
+            }
+        ]
+    }
 }
 ```
 t(:usdcSymbolInfo)
@@ -148,7 +148,7 @@ GET
 | minOrderSize | string | t(:minTradingQty) |
 | maxOrderSize | string | t(:maxTradingQty) |
 | tickSize | string | t(:tickSize) |
-| minOrderSizeIncrement ｜ string | t(:minOrderSizeIncrement) |
+| minOrderSizeIncrement | string | t(:minOrderSizeIncrement) |
 | basicDeliveryFeeRate | string | t(:usdcBasicDeliveryFeeRate) |
 | deliveryTime | number | t(:deliveryTime) |
 | cursor | string | t(:cursor) |
@@ -310,21 +310,19 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/query-trade-la
 
 ```javascript
 {
-  "retCode": 0,
-    "retMsg": "Success.",
     "result": {
-    "resultTotalSize": 1,
-      "cursor": "",
-      "dataList": [
-      {
-        "id": "617f220d",
-        "symbol": "BTC-3DEC21-80000-P",
-        "orderPrice": "22775.50",
-        "orderQty": "1.000",
-        "time": "1638248170932"
-      }
-    ]
-  }
+        "resultTotalSize": 1,
+        "dataList": [
+            {
+                "symbol": "BTC-14JUN22-24500-C",
+                "orderQty": "0.300",
+                "orderPrice": "1540.00",
+                "time": "1655088048651"
+            }
+        ]
+    },
+    "retCode": 0,
+    "retMsg": "Success."
 }
 ```
 <p class="fake_header">t(:httprequest)</p>
@@ -346,13 +344,10 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |resultTotalSize|number|t(:resultTotalSize)|
-|cursor|string|t(:cursor)|
 |dataList|list|t(:dataList)|
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|transactionTime|number|t(:transactionTime)|
-|id|string|ID
 |t(:row_parameter_symbol) |string|t(:usdcSymbol)|
 |orderPrice|string|t(:usdcOrderPrice)|
 |orderQty|string|t(:usdcOrderQty)|

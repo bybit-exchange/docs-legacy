@@ -745,8 +745,7 @@ ws_spot = spot.WebSocket(
 )
 def handle_message(msg):
     print(msg)
-# To subscribe to multiple symbols,
-# pass a list: ["BTCUSDT", "ETHUSDT"]
+# v2 does not support to subscribe mutiple symbols
 ws_spot.depth_v2_stream(
     handle_message, "ETHUSDT"
 )
@@ -841,8 +840,7 @@ ws_spot = spot.WebSocket(
 )
 def handle_message(msg):
     print(msg)
-# To subscribe to multiple symbols,
-# pass a list: ["BTCUSDT", "ETHUSDT"]
+# v2 does not support to subscribe mutiple symbols
 # pass an interval
 ws_spot.kline_v2_stream(
     handle_message, "ETHUSDT", "1h"
@@ -991,8 +989,7 @@ ws_spot = spot.WebSocket(
 )
 def handle_message(msg):
     print(msg)
-# To subscribe to multiple symbols,
-# pass a list: ["BTCUSDT", "ETHUSDT"]
+# v2 does not support to subscribe mutiple symbols
 ws_spot.book_ticker_v2_stream(
     handle_message, "ETHUSDT"
 )
@@ -1063,8 +1060,7 @@ ws_spot = spot.WebSocket(
 )
 def handle_message(msg):
     print(msg)
-# To subscribe to multiple symbols,
-# pass a list: ["BTCUSDT", "ETHUSDT"]
+# v2 does not support to subscribe mutiple symbols
 ws_spot.realtimes_v2_stream(
     handle_message, "ETHUSDT"
 )
