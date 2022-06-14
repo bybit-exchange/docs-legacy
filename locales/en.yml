@@ -3246,10 +3246,10 @@ en:
 
 
 
-  usdcOrderType: refer to <a href="#order-type-type-ordertypes">Order type</a> (MARKET is not supported currently for Options)
-  usdcOptionOrderType: refer to <a href="#order-type-type-ordertypes">Order type</a> (Market is only supported currently for IOC（ImmediateOrCancel）orders)
-  usdcOptionPlaceOrderPrice: Order price. For option, if placeType is 2, the final order price will be calculated by Implied volatility. If orderType is Market, orderPrice is not required.
-  optionIv_order: Implied volatility. If orderType is Market, iv can not have value, otherwise the order will fail.
+  usdcOrderType: refer to <a href="#order-type-ordertype">Order type</a> (MARKET is not supported currently for Options)
+  usdcOptionOrderType: refer to <a href="#order-type-ordertype">Order type</a> (Market is only supported currently for IOC（ImmediateOrCancel）orders)
+  usdcOptionPlaceOrderPrice: Order price. For option, if iv has value, the final order price will be calculated by Implied volatility. If orderType is Market, orderPrice is not required.
+  optionIv_order: Implied volatility. If orderType is Market, iv is not required, otherwise the order will fail.
 
   optionIv: Implied volatility
   optionPlaceMode: Order mode, can be Advanced or Basic.For Perpetual, can be empty,But for Option, can not be empty.Number 1 is basic and number 2 is advanced.If 1, <code>orderQty</code> and <code>orderPrice</code> can not be empty. If 2, refer to <code>placeType</code>.
