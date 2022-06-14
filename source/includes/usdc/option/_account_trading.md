@@ -41,11 +41,11 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b>|string|t(:usdcSymbol)|
-|orderType|<b>true</b>|string|t(:usdcOrderType)|
+|orderType|<b>true</b>|string|t(:usdcOptionOrderType)|
 |t(:row_parameter_side) |<b>true</b>|string|t(:side)|
-|orderPrice|false|string|t(:usdcPlaceOrderPrice)|
+|orderPrice|false|string|t(:usdcOptionPlaceOrderPrice)|
 |orderQty|<b>true</b>|string|t(:usdcOrderQty)|
-|iv|false|string|t(:optionIv)|
+|iv|false|string|t(:optionIv_order)|
 |t(:row_parameter_timeInForce)|false|string|t(:row_comment_timeInForce)|
 |orderLinkId|<b>true</b>|string|t(:orderLinkId)|
 |reduceOnly|false|bool|t(:reduceOnly)|
@@ -120,11 +120,11 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b>|string|t(:usdcSymbol)|
-|orderType|<b>true</b>|string|t(:usdcOrderType)|
+|orderType|<b>true</b>|string|t(:usdcOptionOrderType)|
 |t(:row_parameter_side) |<b>true</b>|string|t(:side)|
-|orderPrice|false|string|t(:usdcPlaceOrderPrice)|
+|orderPrice|false|string|t(:usdcOptionPlaceOrderPrice)|
 |orderQty|<b>true</b>|string|t(:usdcOrderQty)|
-|iv|false|string|t(:optionIv)|
+|iv|false|string|t(:optionIv_order)|
 |t(:row_parameter_timeInForce)|false|string|t(:row_comment_timeInForce)|
 |orderLinkId|<b>true</b>|string|t(:orderLinkId)|
 |reduceOnly|false|bool|t(:reduceOnly)|
