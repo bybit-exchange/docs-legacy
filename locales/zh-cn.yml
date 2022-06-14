@@ -2898,6 +2898,10 @@ zh-cn:
 
 
   usdcOrderType: 參考 <a href="#order-type-type-ordertypes">訂單類型</a> （期權暫時不支持市價委託）
+  usdcOptionOrderType: 參考<a href="#order-type-type-ordertypes">下單類型</a>（市場目前僅支持IOC（ImmediateOrCancel）訂單）
+  usdcOptionPlaceOrderPrice: 下單價格。 對於期權，如果 placeType 為 2，則最終訂單價格將通過隱含波動率計算。 如果 orderType 是 Market，則不需要 orderPrice。
+  optionIv_order: 隱含波動率。 如果 orderType 是 Market，iv 不能有值，否則訂單會失敗。
+
   optionIv: 期權iv, 小數點後保留叁位小數
   optionPlaceMode: 期權下單模式，高級或者是基礎模式下單,期貨不需傳，期權需要。 1：基礎模式下單，2：高級模式下單。如果1，orderQty和orderPrice是必傳字段。如果是2， 參照 placeType.
   optionPlaceType: 期權下單類型，價格或者iv下單.1：價格下單，2：iv下單。如果是1，則orderQty和orderPrice是必傳字段，為2表示iv和orderQty為必傳字段。
@@ -3449,7 +3453,7 @@ zh-cn:
   ct_wallet_balance: 交易員獲取錢包余額
   ct_wallet_transfer: 交易員劃轉資金
   ct_set_leverage: 交易員設置帶單槓桿
-
+  ct_set_leverage_desc: 設置槓桿只能設置整數
 
   accountType_copytrade: 跟單交易帳戶
   copy_trade_row_comment_parentOrderIdNotparentOrderLinkId: 訂單ID。如果未填parent_order_link_id則為<b>必填</b>字段。
@@ -3509,6 +3513,3 @@ zh-cn:
   spotRepaidInterest: 該筆還幣交易已還利息
 
   #testnet only
-  usdcOptionOrderType_testnet: 參考<a href="#order-type-type-ordertypes">下單類型</a>（市場目前僅支持IOC（ImmediateOrCancel）訂單）
-  usdcOptionPlaceOrderPrice_testnet: 下單價格。 對於期權，如果 placeType 為 2，則最終訂單價格將通過隱含波動率計算。 如果 orderType 是 Market，則不需要 orderPrice。
-  optionIv_testnet: 隱含波動率。 如果 orderType 是 Market，iv 不能有值，否則訂單會失敗。

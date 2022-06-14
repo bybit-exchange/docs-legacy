@@ -404,7 +404,7 @@ curl https://api-testnet.bybit.com/contract/v3/private/copytrading/position/set-
 }
 ```
 
-t(:ct_set_leverage)
+t(:ct_set_leverage_desc)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
