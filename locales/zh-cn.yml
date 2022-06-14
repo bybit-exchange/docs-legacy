@@ -2896,6 +2896,10 @@ zh-cn:
   usdc_order_book_path: 期權業務：category=option, 期貨業務：category=perpetual
   usdc_order_book_desc: 獲取Bybit當前Orderbook信息，買/賣側各25檔.
   usdc_tick_desc: 該接口僅限期權使用
+  usdcExtMap: 當失敗時，map中返回具體錯誤內容
+  usdcErrorCode: 錯誤碼. <code>0</code>表示成功
+  usdcErrorDesc: 錯誤描述資訊
+  outRequestId: 系統內部使用字段，無實際意義，請忽略
 
 
 
@@ -3082,6 +3086,7 @@ zh-cn:
   leavesQty: 剩餘委託數量
   createType: 下單操作的觸發場景
   cancelType: 取消操作的觸發場景
+  usdcCrossSeq: 系統內部使用字段，無實際意義，請忽略
 
   platFormOrderHistory: 平台歷史交易數據
   querySymbolInfo: 查詢合約信息
@@ -3103,7 +3108,7 @@ zh-cn:
   usdcLimitMax500: 默認500
 
   websocket_aside_heartbeat_option: |
-    <p>客戶端需要定時發送"ping"給Bybit，Bybit服務器返回heartbeat"pong"來顯示客戶端和服務器之間的連接正常。建議至少每30s發送一次。</p>
+    <p>客戶端需要定時發送"ping"給Bybit，Bybit服務器返回heartbeat"pong"來顯示客戶端和服務器之間的連接正常。建議至少每20s發送一次，最長每30s發送一次。</p>
     <p>如果客戶端沒有正常收到heartbeat的反饋，則需要檢查網絡連接狀態，並重新連接服務器。</p>
     <p>如Bybit服務器，超過3分鐘沒有收到客戶端的"ping"，則服務器會判定客戶端已斷開鏈接（如實際未斷開，此時Bybit服務端也會主動斷開鏈接）。</p>
     <p>如果服務器判定並斷開鏈接，且客戶處於開啟"斷線保護"的狀態，則客戶所有的Active order也會被自動全部取消。</p>

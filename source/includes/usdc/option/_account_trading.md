@@ -143,6 +143,9 @@ POST
 |orderQty|string|t(:usdcOrderQty)|
 |orderType|string|t(:uscdOrderType)|
 |t(:row_parameter_side) |string|t(:side)|
+|extMap |map|t(:usdcExtMap)|
+|errorCode |string|t(:usdcErrorCode)|
+|errorDesc |string|t(:usdcErrorDesc)|
 
 ### t(:usdcReplaceOrder)
 
@@ -197,7 +200,7 @@ POST
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|outRequestId|string|t(:optionOutRequestId)|
+|outRequestId|string|t(:outRequestId)|
 |symbol|string|t(:usdcSymbol)|
 |orderId|string|t(:usdcOrderId)|
 |orderLinkId|string|t(:orderLinkId)|
@@ -266,11 +269,13 @@ POST
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|outRequestId|string|t(:optionOutRequestId)|
+|outRequestId|string|t(:outRequestId)|
 |symbol|string|t(:usdcSymbol)|
 |orderId|string|t(:usdcOrderId)|
 |orderLinkId|string|t(:orderLinkId)|
-
+|extMap |map|t(:usdcExtMap)|
+|errorCode |string|t(:usdcErrorCode)|
+|errorDesc |string|t(:usdcErrorDesc)|
 
 
 ### t(:usdcCancelOrder)
@@ -322,7 +327,7 @@ POST
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|outRequestId|string|t(:optionOutRequestId)|
+|outRequestId|string|t(:outRequestId)|
 |symbol|string|t(:usdcSymbol)|
 |orderId|string|t(:usdcOrderId)|
 |orderLinkId|string|t(:orderLinkId)|
@@ -385,11 +390,12 @@ POST
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|outRequestId|string|t(:optionOutRequestId)|
+|outRequestId|string|t(:outRequestId)|
 |symbol|string|t(:usdcSymbol)|
 |orderId|string|t(:usdcOrderId)|
 |orderLinkId|string|t(:orderLinkId)|
-
+|errorCode |string|t(:usdcErrorCode)|
+|errorDesc |string|t(:usdcErrorDesc)|
 
 
 ### t(:usdcCancelAll)
@@ -443,7 +449,7 @@ POST
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|outRequestId|string|t(:optionOutRequestId)|
+|outRequestId|string|t(:outRequestId)|
 |symbol|string|t(:usdcSymbol)|
 |orderId|string|t(:usdcOrderId)|
 |orderLinkId|string|t(:orderLinkId)|

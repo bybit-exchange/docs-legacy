@@ -149,7 +149,7 @@ t(:spot_websocket_para_response)
   "topic":"orderbook100.BTC-12NOV21-40000-P",
   "creationTime":1636454548726,
   "data":{
-    "orderBooks":[
+    "orderBook":[
     {
       "price":"1764.5",
       "size":"997.99",
@@ -304,6 +304,7 @@ t(:usdc_current_24_total)
 | size |string |t(:row_comment_position_size) |
 | t(:row_parameter_price) |string |t(:row_comment_exec_price) |
 | tradeId |string | t(:tradeId) |
+| crossSeq |string | t(:usdcCrossSeq) |
 
 
 

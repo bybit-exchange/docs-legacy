@@ -449,7 +449,7 @@ t(:websocket_aside_klineV2)
 | volume |string |t(:usdcvolume) |
 | turnover |string |t(:usdcturnover) |
 | confirm |string |t(:usdcconfirm) |
-| crossSeq |string |crossSeq |
+| crossSeq |string |t(:row_comment_cross_seq) |
 | timestamp |string |t(:timestamp) |
 
 ### t(:websocketinsurance)
