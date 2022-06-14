@@ -231,6 +231,7 @@ zh-cn:
   row_comment_resp_prev_price_1h_e4: （已廢棄）1小時前的整點市價 * 10^4
   row_comment_resp_price_1h_pcnt: 市價相對1小時前變化百分比
   row_comment_resp_price_1h_pcnt_e6: 市價相對1小時前變化百分比 * 10^6
+  row_comment_resp_price_24h_pcnt_e6: 市價相對24小時前變化百分比 * 10^6
   row_comment_resp_mark_price: 標記價格
   row_comment_resp_mark_price_e4: （已廢棄）標記價格 * 10^4
   row_comment_resp_index_price: 指數價格
@@ -247,6 +248,7 @@ zh-cn:
   row_comment_resp_total_volume: 總交易量
   row_comment_resp_total_volume_e8: 總交易量 * 10^8
   row_comment_resp_volume_24h: 最近 24 小時成交量
+  row_comment_resp_volume_24h_e8: 最近 24 小時成交量 * 10^8
   row_comment_resp_funding_rate: 資金費率
   row_comment_resp_funding_rate_e6: 資金費率 * 10^6
   row_comment_resp_predicted_funding_rate: 預測資金費率
@@ -2707,7 +2709,7 @@ zh-cn:
   usdcLow24h: 24小時最低價
   usdcVolume24h: 24小時成交量
   usdcTurnover24h: 24小時成交額
-  usdcTotalVolume: 24小時成交額
+  usdcTotalVolume: 總成交量
 
   usdcTotalTurnover: 總成交額
   usdcPredictedDeliveryPrice: 預期交割價
@@ -2939,6 +2941,8 @@ zh-cn:
   orderStatus: <a href="#order-status-status">訂單狀態</a>
   lastExecPrice: 最近一次成交價
   basePrice: 下單時市價
+  perpBasePrice: |
+    下單時市價. <code>orderFilter</code>為StopOrder時必傳. 用於和triggerPrice值進行比較，確定當前條件委托是看空到triggerPrice時觸發還是看多到triggerPrice觸發。主要是用來標識當前條件單預期的方向
   createdAt: 創建時間
   cashFlow: 現金流
   realisedPnl: 平倉累計損益

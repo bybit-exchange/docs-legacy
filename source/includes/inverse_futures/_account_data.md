@@ -687,7 +687,8 @@ print(session_auth.place_conditional_order(
     stop_px=8150,
     time_in_force="GoodTillCancel",
     order_link_id="cus_order_id_1"
-))```
+))
+```
 
 > t(:codequote_responseExample)
 

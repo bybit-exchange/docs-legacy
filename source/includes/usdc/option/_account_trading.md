@@ -546,7 +546,7 @@ POST
 |takeProfit |string|t(:takeProfit)|
 |cumExecValue |string|t(:cumExecValue)|
 |createdAt |number|t(:createdAt)|
-|orderPnl |string| Order PNL|
+|orderPnl |string|t(:usdcOrderPnl)|
 |t(:row_parameter_price) |string|t(:usdcOrderPrice)|
 |tpTriggerBy |string|t(:usdcTptriggerby)
 |t(:row_parameter_timeInForce)|string|t(:row_comment_timeInForce)|
@@ -671,7 +671,7 @@ POST
 |orderStatus |string|t(:orderStatus)|
 |takeProfit |string|t(:takeProfit)|
 |createdAt|number|t(:createdAt)|
-|orderPnl |string| Order PNL|
+|orderPnl |string|t(:usdcOrderPnl)|
 |t(:row_parameter_price) |string|t(:usdcOrderPrice)|
 |tpTriggerBy |string|t(:usdcTptriggerby)
 |t(:row_parameter_timeInForce)|string|t(:row_comment_timeInForce)|
@@ -942,8 +942,8 @@ POST
 |:----- |:-----|----- |
 |walletBalance|string|t(:cashBalance)
 |accountMM|string|t(:accountMm)|
-|accountMM|string|t(:accountMm)|
 |bonus|string|t(:bonus)|
+|accountIM|string|t(:accountIm)|
 |totalSessionRPL|string|t(:totalSessionRpl)|
 |equity|number|t(:equity)|
 |totalRPL|string|t(:totalRpl)|

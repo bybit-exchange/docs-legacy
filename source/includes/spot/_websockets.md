@@ -918,8 +918,7 @@ ws_spot = spot.WebSocket(
 )
 def handle_message(msg):
     print(msg)
-# To subscribe to multiple symbols,
-# pass a list: ["BTCUSDT", "ETHUSDT"]
+# v2 does not support to subscribe mutiple symbols
 ws_spot.trade_v2_stream(
     handle_message, "ETHUSDT"
 )

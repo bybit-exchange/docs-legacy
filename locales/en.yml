@@ -250,6 +250,7 @@ en:
   row_comment_resp_prev_price_1h_e4: (Deprecated) Hourly market price an hour ago * 10^4
   row_comment_resp_price_1h_pcnt: Percentage change of market price relative to 1 hour ago
   row_comment_resp_price_1h_pcnt_e6: Percentage change of market price relative to 1 hour ago * 10^6
+  row_comment_resp_price_24h_pcnt_e6: Percentage change of market price relative to 24 hour ago * 10^6
   row_comment_resp_mark_price: Mark price
   row_comment_resp_mark_price_e4: (Deprecated) Mark price * 10^4
   row_comment_resp_index_price: Index_price
@@ -3287,6 +3288,8 @@ en:
   orderStatus: <a href="#order-status-status">Order status</a>
   lastExecPrice: Filled price
   basePrice: Market price during order placement
+  perpBasePrice: |
+    When <code>OrderFilter</code> is StopOrder REQUIRED. It will be used to compare with the value of <code>triggerPrice</code>, to decide whether your stop order will be triggered by crossing trigger price from upper side or lower side. Mainly used to identify the expected direction of the current stop order.
   createdAt: Creation time
   cashFlow: Cash flow
   realisedPnl: Closed P&L
