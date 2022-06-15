@@ -991,19 +991,6 @@
               </ul>
           </li>
           <li>
-            <a href="#t-ratelimits" class="toc-h1 toc-link" data-title="頻率限製">頻率限製</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#t-ipratelimits" class="toc-h2 toc-link" data-title="IP頻率限製">IP頻率限製</a>
-                      <ul class="toc-list-h3">
-                          <li>
-                            <a href="#t-perendpoint" class="toc-h3 toc-link" data-title="接口頻率限製表">接口頻率限製表</a>
-                          </li>
-                      </ul>
-                  </li>
-              </ul>
-          </li>
-          <li>
             <a href="#t-websocket" class="toc-h1 toc-link" data-title="WebSocket接口">WebSocket接口</a>
               <ul class="toc-list-h2">
                   <li>
@@ -5577,70 +5564,6 @@ function copyStringToClipboard (endpoint) {
 </li>
 </ul>
 </p>
-<h1 id='t-ratelimits'>頻率限製</h1><h2 id='t-ipratelimits'>IP頻率限製</h2>
-<p><aside class="warning">
-如果您收到 <b>HTTP 403</b>（拒絕訪問）響應, 您的 IP 已被暫時或永久禁止。 <b>您應立即查看以下指南，以確保您的應用程序不會繼續違反限制。</b> 如果您在 30 分鐘後仍被禁止，則您可能會被永久禁止。
-</aside>
-<p>Bybit根據請求方式有不同的IP頻率限制。 我們不建議您在這些限制的邊緣運行您的應用程序，以防異常的網絡活動導致意外違規。</p>
-<ul>
-<li>
-  <code>GET</code> & <code>DELETE</code> 方法 (共享):
-  <ul>
-    <li>連續 2 分鐘內每秒不超過 50 個請求</li>
-    <li>連續 5 秒內每秒不超過 70 個請求</li>
-  </ul>
-</li>
-<li>
-  <code>POST</code> 方法:
-  <ul>
-    <li>連續 2 分鐘內每秒不超過 20 個請求</li>
-    <li>連續 5 秒內每秒不超過 50 個請求</li>
-  </ul>
-</li>
-</ul>
-<p>此表顯示了根據您使用的 API 的不同 IP 頻率限制數。</p>
-<table class="custom_table">
-  <tr>
-    <th>IP 頻率限制</th>
-    <th>API</th>
-    <th>Path</th>
-  </tr>
-  <tr>
-    <td rowspan="5">2mins 50/s;<br>5s 70/s</td>
-    <tr><td>反向永續</td><td>/v2</td>
-    <tr><td>反向交割</td><td>/futures</td>
-    <tr><td>USDT永續</td><td>/public, /private</td>
-    <tr><td>賬戶資產</td><td>/asset</td>
-  </tr>
-  <tr>
-    <td rowspan="2">2mins 50/s;<br>5s 70/s</td>
-    <tr><td>現貨</td><td>/spot</td>
-  </tr>
-  <tr>
-    <td rowspan="3">2mins 50/s;<br>5s 70/s</td>
-    <tr><td>USDC Options</td><td>/option</td>
-    <tr><td>USDC Perpetual</td><td>/perpetual</td>
-  </tr>
-</table>
-<p>違反限制後，您的 IP 將被禁止一段時間（通常為 30 分鐘）。 持續違反限制將導致永久禁止。 我們不能撤銷永久禁令或縮短臨時禁令。</p>
-</p>
-<h3 id='t-perendpoint'>接口頻率限製表</h3>
-<table class="custom_table">
-  <tr>
-    <th>頻率限製</th>
-    <th>請求路徑</th>
-  </tr>
-  <tr>
-    <td rowspan="1">5 requests/second</td>
-    <td>Cross Margin Trading Endpoints</td>
-  </tr>
-  <tr>
-    <td rowspan="1">20 requests/second</td>
-    <td>All other private endpoints</td>
-  </tr>
-</table>
-
-<p>每個接口的頻率限製是單獨分開計算的。</p>
 <h1 id='t-websocket'>WebSocket接口</h1><h2 id='t-websocketauthentication'>鑒權/認證</h2>
 <blockquote>
 <p><p>建立連接後發送auth請求驗證</p>

@@ -903,6 +903,9 @@
               <ul class="toc-list-h2">
                   <li>
                     <a href="#t-ipratelimits" class="toc-h2 toc-link" data-title="IP Rate Limit">IP Rate Limit</a>
+                  </li>
+                  <li>
+                    <a href="#t-understandingratelimits" class="toc-h2 toc-link" data-title="API Rate Limit">API Rate Limit</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#t-perendpoint" class="toc-h3 toc-link" data-title="Rate Limits For All Private Endpoints">Rate Limits For All Private Endpoints</a>
@@ -2447,6 +2450,8 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal?sy
     <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Success.</span><span class="dl">"</span>
 <span class="p">}</span>
 </code></pre></div>
+<p>Returned records are <b>Taker Buy</b> in default.</p>
+
 <p class="fake_header">HTTP Request</p>
 
 <p>GET
@@ -5393,7 +5398,7 @@ If you receive an <b>HTTP 403</b> (Access Denied) response, your IP has been eit
 </table>
 <p>After violating the limit your IP will be banned for a set period of time (usually 30 minutes). Continually violating the limit will result in a permanent ban. We cannot undo permanent bans or shorten temporary bans.</p>
 </p>
-<h3 id='t-perendpoint'>Rate Limits For All Private Endpoints</h3>
+<h2 id='t-understandingratelimits'>API Rate Limit</h2><h3 id='t-perendpoint'>Rate Limits For All Private Endpoints</h3>
 <table class="custom_table">
   <tr>
     <th>Limit</th>
@@ -5541,7 +5546,7 @@ Due to network complexity, your may get disconnected at any time. Please follow 
 To avoid networks or program issues, we recommend that you send the <code>ping</code> heartbeat packet every 30 seconds to maintain the WebSocket connection.
 </aside>
 
-<p><p>The client needs to periodically send a "ping" to Bybit, and the Bybit server returns a heartbeat "pong" to show that the connection between the client and the server is normal. It is recommended to send at least every 30s.</p>
+<p><p>The client needs to periodically send a "ping" to Bybit, and the Bybit server returns a heartbeat "pong" to show that the connection between the client and the server is normal. It is recommended to send at least every 20s.</p>
 <p>If the client does not receive the heartbeat feedback normally, it needs to check the network connection status and reconnect to the server.</p>
 <p>If the Bybit server does not receive a "ping" from the client for more than 3 minutes, the server will determine that the client has been disconnected (if it is not disconnected, the Bybit server will also actively disconnect at this time).</p>
 <p>If the server determines and disconnects the link, and the client is in the state of "disconnection protection", all open orders of the client will be automatically cancelled.</p>

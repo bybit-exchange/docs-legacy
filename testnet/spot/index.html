@@ -991,19 +991,6 @@
               </ul>
           </li>
           <li>
-            <a href="#t-ratelimits" class="toc-h1 toc-link" data-title="Rate Limits">Rate Limits</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#t-ipratelimits" class="toc-h2 toc-link" data-title="IP Rate Limit">IP Rate Limit</a>
-                      <ul class="toc-list-h3">
-                          <li>
-                            <a href="#t-perendpoint" class="toc-h3 toc-link" data-title="Rate Limits For All Private Endpoints">Rate Limits For All Private Endpoints</a>
-                          </li>
-                      </ul>
-                  </li>
-              </ul>
-          </li>
-          <li>
             <a href="#t-websocket" class="toc-h1 toc-link" data-title="WebSocket Data">WebSocket Data</a>
               <ul class="toc-list-h2">
                   <li>
@@ -5579,70 +5566,6 @@ All Cross Margin Trading endpoints require authentication.
 </li>
 </ul>
 </p>
-<h1 id='t-ratelimits'>Rate Limits</h1><h2 id='t-ipratelimits'>IP Rate Limit</h2>
-<p><aside class="warning">
-If you receive an <b>HTTP 403</b> (Access Denied) response, your IP has been either temporarily or permanently banned. <b>You should immediately review the below guidelines to ensure your application does not continue to violate the limit.</b> If you are still banned after 30 minutes, you likely have a permanent ban.
-</aside>
-<p>Bybit has different IP frequency limits depending on the request method. We do not recommend running your application at the very edge of these limits in case abnormal network activity results in an unexpected violation.</p>
-<ul>
-<li>
-  <code>GET</code> & <code>DELETE</code> methods (shared):
-  <ul>
-    <li>50 requests per second for 2 consecutive minutes</li>
-    <li>70 requests per second for 5 consecutive seconds</li>
-  </ul>
-</li>
-<li>
-  <code>POST</code> method:
-  <ul>
-    <li>20 requests per second for 2 consecutive minutes</li>
-    <li>50 requests per second for 5 consecutive seconds</li>
-  </ul>
-</li>
-</ul>
-<p>This table shows how there are different IP rate limit counters depending on the API you are using.</p>
-<table class="custom_table">
-  <tr>
-    <th>IP rate limit</th>
-    <th>API</th>
-    <th>Path</th>
-  </tr>
-  <tr>
-    <td rowspan="5">2mins 50/s;<br>5s 70/s</td>
-    <tr><td>Inverse Perpetual</td><td>/v2</td>
-    <tr><td>Inverse Futures</td><td>/futures</td>
-    <tr><td>Linear Perpetual</td><td>/public, /private</td>
-    <tr><td>Account Asset</td><td>/asset</td>
-  </tr>
-  <tr>
-    <td rowspan="2">2mins 50/s;<br>5s 70/s</td>
-    <tr><td>Spot</td><td>/spot</td>
-  </tr>
-  <tr>
-    <td rowspan="3">2mins 50/s;<br>5s 70/s</td>
-    <tr><td>USDC Options</td><td>/option</td>
-    <tr><td>USDC Perpetual</td><td>/perpetual</td>
-  </tr>
-</table>
-<p>After violating the limit your IP will be banned for a set period of time (usually 30 minutes). Continually violating the limit will result in a permanent ban. We cannot undo permanent bans or shorten temporary bans.</p>
-</p>
-<h3 id='t-perendpoint'>Rate Limits For All Private Endpoints</h3>
-<table class="custom_table">
-  <tr>
-    <th>Limit</th>
-    <th>Path</th>
-  </tr>
-  <tr>
-    <td rowspan="1">5 requests/second</td>
-    <td>Cross Margin Trading Endpoints</td>
-  </tr>
-  <tr>
-    <td rowspan="1">20 requests/second</td>
-    <td>All other private endpoints</td>
-  </tr>
-</table>
-
-<p>The rate limits for each private endpoint should be considered separately.</p>
 <h1 id='t-websocket'>WebSocket Data</h1><h2 id='t-websocketauthentication'>Authentication</h2>
 <blockquote>
 <p><p>Apply for authentication when establishing a connection.</p>
