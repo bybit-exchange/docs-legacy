@@ -1493,7 +1493,7 @@ clipboard.on('error', function(e) {
 <li><a href="#t-ticketinfo">ticketInfo</a> (V2 WebSocket) [update]
 
 <ul>
-<li>Add <code>S</code> field which indicates the trade side</li>
+<li>Universal Transfer released!</li>
 </ul></li>
 </ul>
 <h2 id='2022-06-08'>2022-06-08</h2><h3 id='websocket-api-2'>WebSocket API</h3>
@@ -2206,6 +2206,10 @@ function copyStringToClipboard (endpoint) {
 <code><span id=sqvKline>/spot/quote/v1/kline</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvKline"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
+<aside class="notice">
+It only returns the results from latest 3500 candles regardless of what interval is specified
+</aside>
+
 <p class="fake_header">Request Parameters</p>
 
 <table><thead>
@@ -2247,10 +2251,6 @@ function copyStringToClipboard (endpoint) {
 <td>End time, unit in millisecond</td>
 </tr>
 </tbody></table>
-
-<aside class="notice">
-It only returns the results from latest 3500 candles regardless of what interval is specified
-</aside>
 
 <p class="fake_header">Response Parameters</p>
 

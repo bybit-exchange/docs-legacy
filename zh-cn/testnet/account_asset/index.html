@@ -737,7 +737,7 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="更新日誌">更新日誌</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#2022-05-19" class="toc-h2 toc-link" data-title="2022-05-19">2022-05-19</a>
+                    <a href="#2022-06-10" class="toc-h2 toc-link" data-title="2022-06-10">2022-06-10</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#rest-api" class="toc-h3 toc-link" data-title="REST API">REST API</a>
@@ -745,10 +745,18 @@
                       </ul>
                   </li>
                   <li>
-                    <a href="#2021-08-26" class="toc-h2 toc-link" data-title="2021-08-26">2021-08-26</a>
+                    <a href="#2022-05-19" class="toc-h2 toc-link" data-title="2022-05-19">2022-05-19</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#rest-api-2" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2021-08-26" class="toc-h2 toc-link" data-title="2021-08-26">2021-08-26</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-3" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                       </ul>
                   </li>
@@ -782,6 +790,15 @@
                   </li>
                   <li>
                     <a href="#t-querysubaccountlist" class="toc-h2 toc-link" data-title="查詢子賬號列表">查詢子賬號列表</a>
+                  </li>
+                  <li>
+                    <a href="#t-enableuniversaltransfer" class="toc-h2 toc-link" data-title="配置可互相劃轉的子賬號列表">配置可互相劃轉的子賬號列表</a>
+                  </li>
+                  <li>
+                    <a href="#t-createuniversaltransfer" class="toc-h2 toc-link" data-title="萬能劃轉">萬能劃轉</a>
+                  </li>
+                  <li>
+                    <a href="#t-queryuniversetransferlist" class="toc-h2 toc-link" data-title="查詢萬能劃轉記錄">查詢萬能劃轉記錄</a>
                   </li>
               </ul>
           </li>
@@ -899,12 +916,21 @@ clipboard.on('error', function(e) {
 <p><p>歡迎使用 <a href="https://www.bybit.com/">Bybit</a> APIs 和 Websocket官方文檔！</p> <p>如果您在使用API的過程中遇到問題需要幫助，請加入我們的 <a href="https://t.me/Bybitapi">官方Telegram API討論群</a>！</p></p>
 <h3 id='t-resources'>中文社區和參考資料</h3>
 <p><ul class="bybit-community"> <li><img src="../../../images/favicon-4f296779.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/zh-cn"><strong>幫助中心</strong></a> - <strong>在這裏了解合約交易</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>官方Python SDK</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文討論群</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文討論群</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong> </ul></p>
-<h1 id='t-changelog'>更新日誌</h1><h2 id='2022-05-19'>2022-05-19</h2><h3 id='rest-api'>REST API</h3>
+<h1 id='t-changelog'>更新日誌</h1><h2 id='2022-06-10'>2022-06-10</h2><h3 id='rest-api'>REST API</h3>
+<ul>
+<li><a href="#t-querysubaccountlist">查詢子賬號列表</a> [更新]</li>
+<li><a href="#t-enableuniversaltransfer">配置可互相劃轉的子賬號列表</a> [新增]</li>
+<li><a href="#t-createuniversaltransfer">萬能劃轉</a> [新增]</li>
+<li><a href="#t-queryuniversetransferlist">查詢萬能劃轉記錄</a> [新增]
+<br>
+萬能劃轉API發布</li>
+</ul>
+<h2 id='2022-05-19'>2022-05-19</h2><h3 id='rest-api-2'>REST API</h3>
 <ul>
 <li><a href="#t-withdraw_and_deposit">充值與提現接口</a> [新增]
 提現與充值API發布</li>
 </ul>
-<h2 id='2021-08-26'>2021-08-26</h2><h3 id='rest-api-2'>REST API</h3>
+<h2 id='2021-08-26'>2021-08-26</h2><h3 id='rest-api-3'>REST API</h3>
 <ul>
 <li>資產劃轉API發布</li>
 </ul>
@@ -1050,6 +1076,8 @@ REST接口根URL:
 </code></pre></div>
 <p>觸發劃轉動作</p>
 
+<p>要發送<a href="#account-type-from_account_type-to_account_type">賬戶類型</a>和父子不可知的轉賬，請使用<a href="#t-createuniversaltransfer">創建萬能轉賬</a> 接口。</p>
+
 <aside class="notice">
 <p>請註意該接口入參<code>請求</code>數據中的<code>transfer_id</code>字段為<code>UUID</code>全局唯一。</p> <p>請註意該接口支持<code>期貨賬戶</code>、<code>現貨賬戶</code>、<code>理財賬戶</code>。</p> <p>轉入和轉出賬戶類型不能相同。</p>
 </aside>
@@ -1166,6 +1194,8 @@ REST接口根URL:
 <span class="p">}</span>
 </code></pre></div>
 <p>觸發子母劃轉動作</p>
+
+<p>要發送<a href="#account-type-from_account_type-to_account_type">賬戶類型</a>和父子不可知的轉賬，請使用<a href="#t-createuniversaltransfer">創建萬能轉賬</a> 接口。</p>
 
 <aside class="notice">
 <p>請註意該接口入參<code>請求</code>數據中的<code>transfer_id</code>字段為<code>UUID</code>全局唯一。</p> <p>該接口只能用於母子賬號之間的劃轉。</p> <p>一個子賬號只會歸屬給一個母賬號。</p>
@@ -1624,21 +1654,37 @@ REST接口根URL:
     <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
         <span class="dl">"</span><span class="s2">sub_user_id</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
-            <span class="mi">251711</span>
+            <span class="mi">303936</span><span class="p">,</span>
+            <span class="mi">445310</span><span class="p">,</span>
+            <span class="mi">445323</span><span class="p">,</span>
+            <span class="mi">517292</span><span class="p">,</span>
+            <span class="mi">532728</span><span class="p">,</span>
+            <span class="mi">545366</span><span class="p">,</span>
+            <span class="mi">554286</span><span class="p">,</span>
+            <span class="mi">572408</span>
+        <span class="p">],</span>
+        <span class="dl">"</span><span class="s2">transferable_sub_ids</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="dl">"</span><span class="s2">303936</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">445310</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">445323</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">517292</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">532728</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">545366</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">554286</span><span class="dl">"</span>
         <span class="p">]</span>
     <span class="p">},</span>
     <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1629979703311</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1654676013343</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">59</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1629979703311</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1654676013343</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
 <span class="p">}</span>
 </code></pre></div>
 <p class="fake_header">HTTP 請求</p>
 
 <p>GET
-<code><span id=oawwListNew>/asset/v1/private/sub-member/member-ids</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawwListNew"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<code><span id=gsidlist>/asset/v1/private/sub-member/member-ids</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#gsidlist"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">請求參數</p>
 
@@ -1663,8 +1709,369 @@ REST接口根URL:
 </thead><tbody>
 <tr>
 <td style="text-align: left">sub_user_id</td>
+<td style="text-align: left">Integer Array</td>
+<td>所有子賬號列表</td>
+</tr>
+<tr>
+<td style="text-align: left">transferable_sub_ids</td>
+<td style="text-align: left">string Array</td>
+<td>所有可互相劃轉的子賬號列表</td>
+</tr>
+</tbody></table>
+<h3 id='t-enableuniversaltransfer'>配置可互相劃轉的子賬號列表</h3>
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/asset/v1/private/transferable-subs/save' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "transferableSubIds":"303936,445310,445323,517292,532728,545366,554286",
+    "sign": "{{signature}}",
+    "timestamp": "{{timestamp}}",
+    "api_key": "{{bybit-api-key}}",
+    "recv_window": "5000"
+}'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
+</code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1654674238364</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">19</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1654674238364</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</code></pre></div>
+<aside class="notice">
+萬能轉賬使您可以在兩個子賬戶（而不是子 -> 主 -> 子）和任何<a href="#account-type-from_account_type-to_account_type">賬戶類型</a>（<code> 合同</code>、<code>SPOT</code>等）之間劃轉。
+</aside>
+
+<p>你需要通過這個接口來設置可互相劃轉的子賬號。如果不設置，這些賬戶之間不能互相劃轉</p>
+
+<p class="fake_header">HTTP 請求</p>
+
+<p>POST
+<code><span id=stsl>/asset/v1/private/transferable-subs/save</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#stsl"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">transferable_sub_ids</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>逗號隔開的id列表，例：123,45,14,26,46</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+<h3 id='t-createuniversaltransfer'>萬能劃轉</h3>
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/asset/v1/private/universal/transfer' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "fromAccountType": "SPOT",
+    "toAccountType": "CONTRACT",
+    "amount": "10",
+    "coin": "USDT",
+    "transferId": "21ff1b44-2d5d-4293-913d-4597c5ad2611",
+    "fromMemberId": "290118",
+    "toMemberId": "545366",
+    "sign": "{{signature}}",
+    "timestamp": "{{timestamp}}",
+    "api_key": "{{bybit-api-key}}",
+    "recv_window": "5000"
+}'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
+</code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">transfer_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">21ff1b44-2d5d-4293-913d-4597c5ad2611</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1654674912874</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1654674912874</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP 請求</p>
+
+<p>POST
+<code><span id=avpuTransfer>/asset/v1/private/universal/transfer</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#avpuTransfer"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">transfer_id</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>UUID,全局唯一</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>幣種類型</td>
+</tr>
+<tr>
+<td style="text-align: left">amount</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>兌入數量</td>
+</tr>
+<tr>
+<td style="text-align: left">from_member_id</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>劃出的賬號uid</td>
+</tr>
+<tr>
+<td style="text-align: left">to_member_id</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>劃入的賬號uid</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#accounttype-type-accounttype">from_account_type</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>劃出賬戶類型，目前只支持："SPOT"、"CONTRACT"</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#accounttype-type-accounttype">to_account_type</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>劃入賬戶類型，目前只支持："SPOT"、"CONTRACT"</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">transfer_id</td>
+<td style="text-align: left">string</td>
+<td>UUID,全局唯一</td>
+</tr>
+</tbody></table>
+<h3 id='t-queryuniversetransferlist'>查詢萬能劃轉記錄</h3>
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/universal/transfer/list'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">transfer_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">21ff1b44-2d5d-4293-913d-4597c5ad2611</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1654674913</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCESS</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">fromAccountType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SPOT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">toAccountType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">CONTRACT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">fromMemberId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">290118</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">toMemberId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">545366</span><span class="dl">"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">transfer_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">submember_transfer_7e51ba01-8f44-4c60-a780-5ab7fc578f22</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1654665691</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCESS</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">fromAccountType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SPOT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">toAccountType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SPOT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">fromMemberId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">290118</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">toMemberId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">572408</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="dl">"</span><span class="s2">cursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">eyJtaW5JRCI6MjgxMzM1LCJtYXhJRCI6NDUzNzMwfQ==</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1654676488240</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">59</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1654676488240</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP 請求</p>
+
+<p>GET
+<code><span id=getuniversaltransferlist>/asset/v1/private/universal/transfer/list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#getuniversaltransferlist"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">transfer_id</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>UUID,全局唯一</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>幣種類型</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#transfer-status-status">status</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>劃轉狀態</td>
+</tr>
+<tr>
+<td style="text-align: left">start_time</td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">integer</td>
-<td>子賬戶</td>
+<td>開始時間戳（秒）</td>
+</tr>
+<tr>
+<td style="text-align: left">end_time</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>結束時間戳（秒）</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#page-direction-direction">direction</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>翻頁</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>記錄條數</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>翻頁標記,請使用返回的cursor,簽名時使用返回的原始數據，發送request時請進行urlencode</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">transfer_id</td>
+<td style="text-align: left">string</td>
+<td>UUID,全局唯一</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left">string</td>
+<td>幣種類型</td>
+</tr>
+<tr>
+<td style="text-align: left">amount</td>
+<td style="text-align: left">string</td>
+<td>兌入數量</td>
+</tr>
+<tr>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left">integer</td>
+<td>時間戳</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#transfer-status-status">status</a></td>
+<td style="text-align: left">string</td>
+<td>劃轉狀態</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#accounttype-type-accounttype">from_account_type</a></td>
+<td style="text-align: left">string</td>
+<td>賬戶類型</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#accounttype-type-accounttype">to_account_type</a></td>
+<td style="text-align: left">string</td>
+<td>賬戶類型</td>
+</tr>
+<tr>
+<td style="text-align: left">from_member_id</td>
+<td style="text-align: left">string</td>
+<td>劃出的賬號uid</td>
+</tr>
+<tr>
+<td style="text-align: left">to_member_id</td>
+<td style="text-align: left">string</td>
+<td>劃入的賬號uid</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">string</td>
+<td>翻頁標記,請使用返回的cursor,簽名時使用返回的原始數據，發送request時請進行urlencode</td>
 </tr>
 </tbody></table>
 <h1 id='t-withdraw_and_deposit'>充值與提現接口</h1>
@@ -1999,7 +2406,7 @@ api_key=XXXXXXXXXXX&amp;coin=LTC&amp;timestamp=1641534660578&amp;recv_window=500
 <blockquote>
 <p>請求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/withdraw/record/query?api_key=XXXXXXXXXXX&amp;coin=LTC&amp;limit=1&amp;timestamp=1641789839632&amp;recv_window=50000&amp;sign=XXXXXXXXXXX' 
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/withdraw/record/query?api_key=XXXXXXXXXXX&amp;coin=LTC&amp;limit=1&amp;timestamp=1641789839632&amp;recv_window=50000&amp;sign=XXXXXXXXXXX'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -2213,7 +2620,7 @@ api_key=XXXXXXXXXXX&amp;coin=LTC&amp;timestamp=1641534660578&amp;recv_window=500
 <blockquote>
 <p>請求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/coin-info/query?api_key=XXXXXXXXXXXXXXXXXXXXXXX&amp;timestamp=1641793091931&amp;recv_window=50000&amp;sign=XXXXXXXXXXXXXXXXXXXXXXX' 
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/coin-info/query?api_key=XXXXXXXXXXXXXXXXXXXXXXX&amp;timestamp=1641793091931&amp;recv_window=50000&amp;sign=XXXXXXXXXXXXXXXXXXXXXXX'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -2347,7 +2754,7 @@ api_key=XXXXXXXXXXX&amp;coin=LTC&amp;timestamp=1641534660578&amp;recv_window=500
 <blockquote>
 <p>請求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/asset-info/query?api_key=XXXXXXXXXXXXXXX&amp;coin=BIT&amp;timestamp=1641790155961&amp;recv_window=50000&amp;sign=XXXXXXXXXXXXXXX' 
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/asset-info/query?api_key=XXXXXXXXXXXXXXX&amp;coin=BIT&amp;timestamp=1641790155961&amp;recv_window=50000&amp;sign=XXXXXXXXXXXXXXX'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -2627,7 +3034,7 @@ ACCOUNT_STATUS_UNSPECIFIED -- 不正常 </p>
 <blockquote>
 <p>請求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/deposit/address?api_key=XXXXXXXXXXXXXXXXXXX&amp;coin=LTC&amp;timestamp=1641789312824&amp;recv_window=50000&amp;sign=XXXXXXXXXXXXXXXXXXX' 
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/deposit/address?api_key=XXXXXXXXXXXXXXXXXXX&amp;coin=LTC&amp;timestamp=1641789312824&amp;recv_window=50000&amp;sign=XXXXXXXXXXXXXXXXXXX'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
 <blockquote>
 <p>響應示例</p>

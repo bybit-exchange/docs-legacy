@@ -1493,7 +1493,7 @@ clipboard.on('error', function(e) {
 <li><a href="#t-ticketinfo">ticketInfo</a> (V2 WebSocket) [更新]
 
 <ul>
-<li>新增 <code>S</code> 字段展示該筆交易成交方向</li>
+<li>萬能劃轉API發布</li>
 </ul></li>
 </ul>
 <h2 id='2022-06-08'>2022-06-08</h2><h3 id='websocket-api-2'>WebSocket API</h3>
@@ -2204,6 +2204,10 @@ function copyStringToClipboard (endpoint) {
 <code><span id=sqvKline>/spot/quote/v1/kline</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvKline"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
+<aside class="notice">
+返回指定的時間間隔最近 3500 根的K線結果
+</aside>
+
 <p class="fake_header">請求參數</p>
 
 <table><thead>
@@ -2245,10 +2249,6 @@ function copyStringToClipboard (endpoint) {
 <td>最後一條返回的時間戳(毫秒)</td>
 </tr>
 </tbody></table>
-
-<aside class="notice">
-返回指定的時間間隔最近 3500 根的K線結果
-</aside>
 
 <p class="fake_header">返回參數</p>
 

@@ -737,7 +737,7 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#2022-05-19" class="toc-h2 toc-link" data-title="2022-05-19">2022-05-19</a>
+                    <a href="#2022-06-10" class="toc-h2 toc-link" data-title="2022-06-10">2022-06-10</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#rest-api" class="toc-h3 toc-link" data-title="REST API">REST API</a>
@@ -745,10 +745,18 @@
                       </ul>
                   </li>
                   <li>
-                    <a href="#2021-08-26" class="toc-h2 toc-link" data-title="2021-08-26">2021-08-26</a>
+                    <a href="#2022-05-19" class="toc-h2 toc-link" data-title="2022-05-19">2022-05-19</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#rest-api-2" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2021-08-26" class="toc-h2 toc-link" data-title="2021-08-26">2021-08-26</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-3" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                       </ul>
                   </li>
@@ -782,6 +790,15 @@
                   </li>
                   <li>
                     <a href="#t-querysubaccountlist" class="toc-h2 toc-link" data-title="Query Subaccount List">Query Subaccount List</a>
+                  </li>
+                  <li>
+                    <a href="#t-enableuniversaltransfer" class="toc-h2 toc-link" data-title="Enable Universal Transfer">Enable Universal Transfer</a>
+                  </li>
+                  <li>
+                    <a href="#t-createuniversaltransfer" class="toc-h2 toc-link" data-title="Create Universal Transfer">Create Universal Transfer</a>
+                  </li>
+                  <li>
+                    <a href="#t-queryuniversetransferlist" class="toc-h2 toc-link" data-title="Query Universal Transfer List">Query Universal Transfer List</a>
                   </li>
               </ul>
           </li>
@@ -899,12 +916,21 @@ clipboard.on('error', function(e) {
 <p><p><a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common errors.</p> <p>For further assistance or feedback, please join the <a href="https://t.me/BybitAPI">API Telegram chat</a>! API discussion group on Telegram.</p></p>
 <h3 id='t-resources'>Group And Bybit API Resources</h3>
 <p><ul class="bybit-community"> <li><img src="../images/help_favicon-06f791dd.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>Official Python SDK</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> </ul></p>
-<h1 id='t-changelog'>Changelog</h1><h2 id='2022-05-19'>2022-05-19</h2><h3 id='rest-api'>REST API</h3>
+<h1 id='t-changelog'>Changelog</h1><h2 id='2022-06-10'>2022-06-10</h2><h3 id='rest-api'>REST API</h3>
+<ul>
+<li><a href="#t-querysubaccountlist">Query Subaccount List</a> [update]</li>
+<li><a href="#t-enableuniversaltransfer">Enable Universal Transfer</a> [new]</li>
+<li><a href="#t-createuniversaltransfer">Create Universal Transfer</a> [new]</li>
+<li><a href="#t-queryuniversetransferlist">Query Universal Transfer List</a> [new]
+<br>
+Universal Transfer released!</li>
+</ul>
+<h2 id='2022-05-19'>2022-05-19</h2><h3 id='rest-api-2'>REST API</h3>
 <ul>
 <li><a href="#t-withdraw_and_deposit">Withdraw and Deposit Endpoints</a> [new]
 Withdraw and Deposit Endpoints released!</li>
 </ul>
-<h2 id='2021-08-26'>2021-08-26</h2><h3 id='rest-api-2'>REST API</h3>
+<h2 id='2021-08-26'>2021-08-26</h2><h3 id='rest-api-3'>REST API</h3>
 <ul>
 <li>Asset Transfer API released!</li>
 </ul>
@@ -1050,7 +1076,9 @@ Please make sure that the timestamp parameter adheres to the following rule: ser
     <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">3</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Transfers funds between the different sections of an individuals account (<i>not</i> between subaccounts). For example, between the spot and derivatives accounts.</p>
+<p>Transfers funds between the different sections of an individual's account (<i>not</i> between subaccounts). For example, between the spot and derivatives accounts.</p>
+
+<p>To send a transfer which is <a href="#account-type-from_account_type-to_account_type">account type</a> & parent/sub agnostic, use the <a href="#t-createuniversaltransfer">Create Universal Transfer</a> endpoint.</p>
 
 <aside class="notice">
 Please note that this interface supports Futures Account, Spot Account, Investment Account.
@@ -1170,6 +1198,8 @@ The <code>transfer_in</code> and <code>transfer_out</code> account types cannot 
 <span class="p">}</span>
 </code></pre></div>
 <p>Transfers funds between the parent and child (sub) accounts.</p>
+
+<p>To send a transfer which is <a href="#account-type-from_account_type-to_account_type">account type</a> & parent/sub agnostic, use the <a href="#t-createuniversaltransfer">Create Universal Transfer</a> endpoint.</p>
 
 <aside class="notice">
 A subaccount can only be attributed to a parent account.
@@ -1629,21 +1659,37 @@ A subaccount can only be attributed to a parent account.
     <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
         <span class="dl">"</span><span class="s2">sub_user_id</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
-            <span class="mi">251711</span>
+            <span class="mi">303936</span><span class="p">,</span>
+            <span class="mi">445310</span><span class="p">,</span>
+            <span class="mi">445323</span><span class="p">,</span>
+            <span class="mi">517292</span><span class="p">,</span>
+            <span class="mi">532728</span><span class="p">,</span>
+            <span class="mi">545366</span><span class="p">,</span>
+            <span class="mi">554286</span><span class="p">,</span>
+            <span class="mi">572408</span>
+        <span class="p">],</span>
+        <span class="dl">"</span><span class="s2">transferable_sub_ids</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="dl">"</span><span class="s2">303936</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">445310</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">445323</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">517292</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">532728</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">545366</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">554286</span><span class="dl">"</span>
         <span class="p">]</span>
     <span class="p">},</span>
     <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1629979703311</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1654676013343</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">59</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1629979703311</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1654676013343</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
 <span class="p">}</span>
 </code></pre></div>
 <p class="fake_header">HTTP Request</p>
 
 <p>GET
-<code><span id=oawwListNew>/asset/v1/private/sub-member/member-ids</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawwListNew"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<code><span id=gsidlist>/asset/v1/private/sub-member/member-ids</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#gsidlist"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
 
@@ -1668,8 +1714,369 @@ A subaccount can only be attributed to a parent account.
 </thead><tbody>
 <tr>
 <td style="text-align: left">sub_user_id</td>
+<td style="text-align: left">Integer Array</td>
+<td>List of all subaccounts</td>
+</tr>
+<tr>
+<td style="text-align: left">transferable_sub_ids</td>
+<td style="text-align: left">string Array</td>
+<td>List of subaccounts that are universal transfer-enabled</td>
+</tr>
+</tbody></table>
+<h3 id='t-enableuniversaltransfer'>Enable Universal Transfer</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/asset/v1/private/transferable-subs/save' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "transferableSubIds":"303936,445310,445323,517292,532728,545366,554286",
+    "sign": "{{signature}}",
+    "timestamp": "{{timestamp}}",
+    "api_key": "{{bybit-api-key}}",
+    "recv_window": "5000"
+}'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
+</code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1654674238364</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">19</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1654674238364</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</code></pre></div>
+<aside class="notice">
+A universal transfer enables you to transfer funds directly between two subaccounts (rather than sub -> master -> sub) and any <a href="#account-type-from_account_type-to_account_type">account type</a> (<code>CONTRACT</code>, <code>SPOT</code>, etc).
+</aside>
+
+<p>Use this endpoint to enable subaccounts to take part in a universal transfer. It is a one-time switch which, once thrown, enables a subaccount permanently. If not set, your subaccounts cannot use universal tranfers.</p>
+
+<p class="fake_header">HTTP Request</p>
+
+<p>POST
+<code><span id=stsl>/asset/v1/private/transferable-subs/save</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#stsl"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">transferable_sub_ids</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>A comma-separated list of subaccount UIDs, for example "123,45,14,26,46"</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+<h3 id='t-createuniversaltransfer'>Create Universal Transfer</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/asset/v1/private/universal/transfer' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "fromAccountType": "SPOT",
+    "toAccountType": "CONTRACT",
+    "amount": "10",
+    "coin": "USDT",
+    "transferId": "21ff1b44-2d5d-4293-913d-4597c5ad2611",
+    "fromMemberId": "290118",
+    "toMemberId": "545366",
+    "sign": "{{signature}}",
+    "timestamp": "{{timestamp}}",
+    "api_key": "{{bybit-api-key}}",
+    "recv_window": "5000"
+}'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
+</code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">transfer_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">21ff1b44-2d5d-4293-913d-4597c5ad2611</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1654674912874</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1654674912874</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>POST
+<code><span id=avpuTransfer>/asset/v1/private/universal/transfer</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#avpuTransfer"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">transfer_id</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>UUID, which is unique across the platform</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Currency type</td>
+</tr>
+<tr>
+<td style="text-align: left">amount</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Exchange to amount</td>
+</tr>
+<tr>
+<td style="text-align: left">from_member_id</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>From UID</td>
+</tr>
+<tr>
+<td style="text-align: left">to_member_id</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>To UID</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#accounttype-type-accounttype">from_account_type</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>From account type. Currently supports <code>SPOT</code> and <code>CONTRACT</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#accounttype-type-accounttype">to_account_type</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>To account type. Currently supports <code>SPOT</code> and <code>CONTRACT</code></td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">transfer_id</td>
+<td style="text-align: left">string</td>
+<td>UUID, which is unique across the platform</td>
+</tr>
+</tbody></table>
+<h3 id='t-queryuniversetransferlist'>Query Universal Transfer List</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/universal/transfer/list'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">transfer_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">21ff1b44-2d5d-4293-913d-4597c5ad2611</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1654674913</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCESS</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">fromAccountType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SPOT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">toAccountType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">CONTRACT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">fromMemberId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">290118</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">toMemberId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">545366</span><span class="dl">"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">transfer_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">submember_transfer_7e51ba01-8f44-4c60-a780-5ab7fc578f22</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1654665691</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCESS</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">fromAccountType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SPOT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">toAccountType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SPOT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">fromMemberId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">290118</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">toMemberId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">572408</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="dl">"</span><span class="s2">cursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">eyJtaW5JRCI6MjgxMzM1LCJtYXhJRCI6NDUzNzMwfQ==</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1654676488240</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">59</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1654676488240</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=getuniversaltransferlist>/asset/v1/private/universal/transfer/list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#getuniversaltransferlist"><img src="../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">transfer_id</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>UUID, which is unique across the platform</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Currency type</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#transfer-status-status">status</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Transfer status</td>
+</tr>
+<tr>
+<td style="text-align: left">start_time</td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">integer</td>
-<td>Subaccount</td>
+<td>Start timestamp point for result, in seconds</td>
+</tr>
+<tr>
+<td style="text-align: left">end_time</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>End timestamp point for result, in seconds</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#page-direction-direction">direction</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Turn page</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>Number of records</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Page turning mark. Use return <code>cursor</code>. Sign using origin data, in request please use urlencode</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">transfer_id</td>
+<td style="text-align: left">string</td>
+<td>UUID, which is unique across the platform</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left">string</td>
+<td>Currency type</td>
+</tr>
+<tr>
+<td style="text-align: left">amount</td>
+<td style="text-align: left">string</td>
+<td>Exchange to amount</td>
+</tr>
+<tr>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left">integer</td>
+<td>timestamp</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#transfer-status-status">status</a></td>
+<td style="text-align: left">string</td>
+<td>Transfer status</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#accounttype-type-accounttype">from_account_type</a></td>
+<td style="text-align: left">string</td>
+<td>Account type</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#accounttype-type-accounttype">to_account_type</a></td>
+<td style="text-align: left">string</td>
+<td>Account type</td>
+</tr>
+<tr>
+<td style="text-align: left">from_member_id</td>
+<td style="text-align: left">string</td>
+<td>From UID</td>
+</tr>
+<tr>
+<td style="text-align: left">to_member_id</td>
+<td style="text-align: left">string</td>
+<td>To UID</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">string</td>
+<td>Page turning mark. Use return <code>cursor</code>. Sign using origin data, in request please use urlencode</td>
 </tr>
 </tbody></table>
 <h1 id='t-withdraw_and_deposit'>Withdraw and Deposit Endpoints</h1>
@@ -2004,7 +2411,7 @@ api_key=XXXXXXXXXXX&amp;coin=LTC&amp;timestamp=1641534660578&amp;recv_window=500
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/withdraw/record/query?api_key=XXXXXXXXXXX&amp;coin=LTC&amp;limit=1&amp;timestamp=1641789839632&amp;recv_window=50000&amp;sign=XXXXXXXXXXX' 
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/withdraw/record/query?api_key=XXXXXXXXXXX&amp;coin=LTC&amp;limit=1&amp;timestamp=1641789839632&amp;recv_window=50000&amp;sign=XXXXXXXXXXX'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -2218,7 +2625,7 @@ api_key=XXXXXXXXXXX&amp;coin=LTC&amp;timestamp=1641534660578&amp;recv_window=500
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/coin-info/query?api_key=XXXXXXXXXXXXXXXXXXXXXXX&amp;timestamp=1641793091931&amp;recv_window=50000&amp;sign=XXXXXXXXXXXXXXXXXXXXXXX' 
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/coin-info/query?api_key=XXXXXXXXXXXXXXXXXXXXXXX&amp;timestamp=1641793091931&amp;recv_window=50000&amp;sign=XXXXXXXXXXXXXXXXXXXXXXX'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -2352,7 +2759,7 @@ api_key=XXXXXXXXXXX&amp;coin=LTC&amp;timestamp=1641534660578&amp;recv_window=500
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/asset-info/query?api_key=XXXXXXXXXXXXXXX&amp;coin=BIT&amp;timestamp=1641790155961&amp;recv_window=50000&amp;sign=XXXXXXXXXXXXXXX' 
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/asset-info/query?api_key=XXXXXXXXXXXXXXX&amp;coin=BIT&amp;timestamp=1641790155961&amp;recv_window=50000&amp;sign=XXXXXXXXXXXXXXX'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -2632,7 +3039,7 @@ ACCOUNT_STATUS_UNSPECIFIED -- ABNORMAL </p>
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/deposit/address?api_key=XXXXXXXXXXXXXXXXXXX&amp;coin=LTC&amp;timestamp=1641789312824&amp;recv_window=50000&amp;sign=XXXXXXXXXXXXXXXXXXX' 
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/deposit/address?api_key=XXXXXXXXXXXXXXXXXXX&amp;coin=LTC&amp;timestamp=1641789312824&amp;recv_window=50000&amp;sign=XXXXXXXXXXXXXXXXXXX'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -3101,7 +3508,7 @@ The rate limits for the Withdraw and Deposit Endpoints and Rate Limits For Trans
 </tr>
 <tr>
 <td>90011</td>
-<td>Failed to get the list of sub-accounts</td>
+<td>Failed to get the list of subaccounts</td>
 </tr>
 <tr>
 <td>90012</td>
@@ -3113,7 +3520,7 @@ The rate limits for the Withdraw and Deposit Endpoints and Rate Limits For Trans
 </tr>
 <tr>
 <td>90014</td>
-<td>Not support sub-accounts temporarily</td>
+<td>Not support subaccounts temporarily</td>
 </tr>
 <tr>
 <td>90015</td>
