@@ -1079,8 +1079,34 @@ REST接口根URL:
 <p><p>1. 参数为json格式</p>
 <p>2. 使用<code>HMAC_SHA256</code>算法對第1步中拼接的query string簽名，並轉換為16進製字符串，得出<code>sign</code>參數。</p></p>
 
-<p>An example how to place an order:</p>
-<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<p>An example how to place an order(see python):</p>
+
+<aside class="notice">
+<a href="https://github.com/bybit-exchange/api-usage-examples">簽名計算示例</a>.
+</aside>
+
+<blockquote>
+<p><b>POST</b>請求格式（創建訂單）:
+</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">POST 'https://api.bybit.com/option/usdc/openapi/private/v1/place-order'
+X-BAPI-API-KEY: your api key
+X-BAPI-SIGN: 6c864f0f0d332133b79de911387c6408ae0d189609c485b9a132fd5ec3beb2ee'
+X-BAPI-SIGN-TYPE: 2
+X-BAPI-TIMESTAMP: 1655197818844
+X-BAPI-RECV-WINDOW: 5000
+Content-Type: application/json
+
+{
+    "side": "Buy",
+    "symbol": "BTC-14JUN22-24500-C",
+    "orderType": "Market",
+    "orderQty": "0.5",
+    "orderPrice": "500",
+    "orderLinkId": "option10005",
+    "reduce_only": false
+}
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">hashlib</span>
@@ -1554,7 +1580,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <tr>
 <td style="text-align: left">totalVolume</td>
 <td style="text-align: left">string</td>
-<td>24小時成交額</td>
+<td>總成交量</td>
 </tr>
 <tr>
 <td style="text-align: left">totalTurnover</td>
@@ -1864,7 +1890,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">orderType</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>參考 <a href="#order-type-type-ordertypes">訂單類型</a> （期權暫時不支持市價委託）</td>
+<td>參考<a href="#order-type-ordertype">下單類型</a>（市場目前僅支持IOC（ImmediateOrCancel）訂單）</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#side-side">side</a></td>
@@ -1876,7 +1902,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">orderPrice</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>訂單價格，如果是期貨業務，價格必傳，如果是期權業務，使用iv下單時，此字段無效，最終以iv反算的價格為訂單價格。</td>
+<td>下單價格。 對於期權，如果 iv有值，則最終訂單價格將通過隱含波動率計算。 如果 orderType 是 Market，則不需要 orderPrice。</td>
 </tr>
 <tr>
 <td style="text-align: left">orderQty</td>
@@ -1888,7 +1914,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">iv</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>期權iv, 小數點後保留叁位小數</td>
+<td>隱含波動率。 如果 orderType 是 Market，iv 不能有值，否則訂單會失敗。</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#time-in-force-timeinforce">timeInForce</a></td>
@@ -2035,7 +2061,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">orderType</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>參考 <a href="#order-type-type-ordertypes">訂單類型</a> （期權暫時不支持市價委託）</td>
+<td>參考<a href="#order-type-ordertype">下單類型</a>（市場目前僅支持IOC（ImmediateOrCancel）訂單）</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#side-side">side</a></td>
@@ -2047,7 +2073,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">orderPrice</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>訂單價格，如果是期貨業務，價格必傳，如果是期權業務，使用iv下單時，此字段無效，最終以iv反算的價格為訂單價格。</td>
+<td>下單價格。 對於期權，如果 iv有值，則最終訂單價格將通過隱含波動率計算。 如果 orderType 是 Market，則不需要 orderPrice。</td>
 </tr>
 <tr>
 <td style="text-align: left">orderQty</td>
@@ -2059,7 +2085,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">iv</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>期權iv, 小數點後保留叁位小數</td>
+<td>隱含波動率。 如果 orderType 是 Market，iv 不能有值，否則訂單會失敗。</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#time-in-force-timeinforce">timeInForce</a></td>
@@ -2130,6 +2156,21 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left"><a href="#side-side">side</a></td>
 <td style="text-align: left">string</td>
 <td>買賣方向</td>
+</tr>
+<tr>
+<td style="text-align: left">extMap</td>
+<td style="text-align: left">map</td>
+<td>當失敗時，map中返回具體錯誤內容</td>
+</tr>
+<tr>
+<td style="text-align: left">errorCode</td>
+<td style="text-align: left">string</td>
+<td>錯誤碼. <code>0</code>表示成功</td>
+</tr>
+<tr>
+<td style="text-align: left">errorDesc</td>
+<td style="text-align: left">string</td>
+<td>錯誤描述訊息</td>
 </tr>
 </tbody></table>
 <h3 id='t-usdcreplaceorder'>單筆修改訂單</h3><div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/replace-order \
@@ -2222,7 +2263,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <tr>
 <td style="text-align: left">outRequestId</td>
 <td style="text-align: left">string</td>
-<td>外部訂單號，用作冪等， 期權場景必填，最大不成超過32位</td>
+<td>系統內部使用字段，無實際意義，請忽略</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -2351,7 +2392,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <tr>
 <td style="text-align: left">outRequestId</td>
 <td style="text-align: left">string</td>
-<td>外部訂單號，用作冪等， 期權場景必填，最大不成超過32位</td>
+<td>系統內部使用字段，無實際意義，請忽略</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -2367,6 +2408,21 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">orderLinkId</td>
 <td style="text-align: left">string</td>
 <td>關聯訂單號，最大不成超過32位</td>
+</tr>
+<tr>
+<td style="text-align: left">extMap</td>
+<td style="text-align: left">map</td>
+<td>當失敗時，map中返回具體錯誤內容</td>
+</tr>
+<tr>
+<td style="text-align: left">errorCode</td>
+<td style="text-align: left">string</td>
+<td>錯誤碼. <code>0</code>表示成功</td>
+</tr>
+<tr>
+<td style="text-align: left">errorDesc</td>
+<td style="text-align: left">string</td>
+<td>錯誤描述訊息</td>
 </tr>
 </tbody></table>
 <h3 id='t-usdccancelorder'>單筆取消</h3><div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/cancel-order \
@@ -2438,7 +2494,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <tr>
 <td style="text-align: left">outRequestId</td>
 <td style="text-align: left">string</td>
-<td>外部訂單號，用作冪等， 期權場景必填，最大不成超過32位</td>
+<td>系統內部使用字段，無實際意義，請忽略</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -2546,7 +2602,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <tr>
 <td style="text-align: left">outRequestId</td>
 <td style="text-align: left">string</td>
-<td>外部訂單號，用作冪等， 期權場景必填，最大不成超過32位</td>
+<td>系統內部使用字段，無實際意義，請忽略</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -2563,8 +2619,18 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">string</td>
 <td>關聯訂單號，最大不成超過32位</td>
 </tr>
+<tr>
+<td style="text-align: left">errorCode</td>
+<td style="text-align: left">string</td>
+<td>錯誤碼. <code>0</code>表示成功</td>
+</tr>
+<tr>
+<td style="text-align: left">errorDesc</td>
+<td style="text-align: left">string</td>
+<td>錯誤描述訊息</td>
+</tr>
 </tbody></table>
-<h3 id='t-usdccancelall'>取消全部活動單</h3><div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/cancel-order \
+<h3 id='t-usdccancelall'>取消全部活動單</h3><div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/cancel-all \
 -H "Content-Type: application/json" \
 -D '{}'
 
@@ -2622,7 +2688,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <tr>
 <td style="text-align: left">outRequestId</td>
 <td style="text-align: left">string</td>
-<td>外部訂單號，用作冪等， 期權場景必填，最大不成超過32位</td>
+<td>系統內部使用字段，無實際意義，請忽略</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -2638,6 +2704,16 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">orderLinkId</td>
 <td style="text-align: left">string</td>
 <td>關聯訂單號，最大不成超過32位</td>
+</tr>
+<tr>
+<td style="text-align: left">errorCode</td>
+<td style="text-align: left">string</td>
+<td>錯誤碼. <code>0</code>表示成功</td>
+</tr>
+<tr>
+<td style="text-align: left">errorDesc</td>
+<td style="text-align: left">string</td>
+<td>錯誤描述訊息</td>
 </tr>
 </tbody></table>
 <h3 id='t-usdcqryunorpartfilled'>查詢未成交/部分成交訂單</h3><div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-active-orders \
@@ -2831,7 +2907,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <tr>
 <td style="text-align: left">orderPnl</td>
 <td style="text-align: left">string</td>
-<td>Order PNL</td>
+<td>該筆訂單的總的交易損益總和</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#price-price">price</a></td>
@@ -3128,7 +3204,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 <tr>
 <td style="text-align: left">orderPnl</td>
 <td style="text-align: left">string</td>
-<td>Order PNL</td>
+<td>該筆訂單的總的交易損益總和</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#price-price">price</a></td>
@@ -3724,14 +3800,14 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 <td>賬戶維持保證金</td>
 </tr>
 <tr>
-<td style="text-align: left">accountMM</td>
-<td style="text-align: left">string</td>
-<td>賬戶維持保證金</td>
-</tr>
-<tr>
 <td style="text-align: left">bonus</td>
 <td style="text-align: left">string</td>
 <td>奖金</td>
+</tr>
+<tr>
+<td style="text-align: left">accountIM</td>
+<td style="text-align: left">string</td>
+<td>賬戶初始保證金</td>
 </tr>
 <tr>
 <td style="text-align: left">totalSessionRPL</td>
@@ -5048,7 +5124,7 @@ curl https://api-testnet.bybit.com/v2/public/time
 由於網絡或者程序不穩定,我們強烈建議您使用 <code>ping</code> 心跳包來維持連接. 心跳包建議每30秒發送一次.
 </aside>
 
-<p><p>客戶端需要定時發送"ping"給Bybit，Bybit服務器返回heartbeat"pong"來顯示客戶端和服務器之間的連接正常。建議至少每30s發送一次。</p>
+<p><p>客戶端需要定時發送"ping"給Bybit，Bybit服務器返回heartbeat"pong"來顯示客戶端和服務器之間的連接正常。建議至少每20s發送一次，最長每30s發送一次。</p>
 <p>如果客戶端沒有正常收到heartbeat的反饋，則需要檢查網絡連接狀態，並重新連接服務器。</p>
 <p>如Bybit服務器，超過3分鐘沒有收到客戶端的"ping"，則服務器會判定客戶端已斷開鏈接（如實際未斷開，此時Bybit服務端也會主動斷開鏈接）。</p>
 <p>如果服務器判定並斷開鏈接，且客戶處於開啟"斷線保護"的狀態，則客戶所有的Active order也會被自動全部取消。</p>
@@ -5102,7 +5178,7 @@ curl https://api-testnet.bybit.com/v2/public/time
   <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">orderbook100.BTC-12NOV21-40000-P</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1636454548726</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
-    <span class="dl">"</span><span class="s2">orderBooks</span><span class="dl">"</span><span class="p">:[</span>
+    <span class="dl">"</span><span class="s2">orderBook</span><span class="dl">"</span><span class="p">:[</span>
     <span class="p">{</span>
       <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1764.5</span><span class="dl">"</span><span class="p">,</span>
       <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">997.99</span><span class="dl">"</span><span class="p">,</span>
@@ -5314,6 +5390,11 @@ curl https://api-testnet.bybit.com/v2/public/time
 <td style="text-align: left">tradeId</td>
 <td style="text-align: left">string</td>
 <td>交易id</td>
+</tr>
+<tr>
+<td style="text-align: left">crossSeq</td>
+<td style="text-align: left">string</td>
+<td>系統內部使用字段，無實際意義，請忽略</td>
 </tr>
 </tbody></table>
 <h3 id='t-latestsymbolinfo'>最新合约信息</h3>
@@ -6194,6 +6275,7 @@ curl https://api-testnet.bybit.com/v2/public/time
 <h2 id='order-type-ordertype'>Order type (<code>orderType</code>)</h2>
 <ul>
 <li><code>Limit</code></li>
+<li><code>Market</code></li>
 </ul>
 <h2 id='currency-currency-coin'>Currency (<code>currency</code>/<code>coin</code>)</h2>
 <ul>

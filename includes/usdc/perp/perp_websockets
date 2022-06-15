@@ -256,19 +256,19 @@ t(:websocket_para_limit)
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">tradeTime</td>
-<td style="text-align: left">string</td>
-<td>t(:tradeTime)</td>
-</tr>
-<tr>
 <td style="text-align: left">t(:row_parameter_symbol)</td>
 <td style="text-align: left">string</td>
 <td>t(:usdcSymbol)</td>
 </tr>
 <tr>
-<td style="text-align: left">t(:row_parameter_side)</td>
+<td style="text-align: left">tickDirection</td>
 <td style="text-align: left">string</td>
-<td>t(:websocketTradeSide)</td>
+<td>t(:row_comment_position_tick_direction)</td>
+</tr>
+<tr>
+<td style="text-align: left">t(:row_parameter_price)</td>
+<td style="text-align: left">string</td>
+<td>t(:row_comment_exec_price)</td>
 </tr>
 <tr>
 <td style="text-align: left">size</td>
@@ -276,9 +276,19 @@ t(:websocket_para_limit)
 <td>t(:row_comment_position_size)</td>
 </tr>
 <tr>
-<td style="text-align: left">t(:row_parameter_price)</td>
+<td style="text-align: left">timestamp</td>
 <td style="text-align: left">string</td>
-<td>t(:row_comment_exec_price)</td>
+<td>t(:row_comment_to_timestamp)</td>
+</tr>
+<tr>
+<td style="text-align: left">tradeTimeMs</td>
+<td style="text-align: left">string</td>
+<td>t(:tradeTime)</td>
+</tr>
+<tr>
+<td style="text-align: left">t(:row_parameter_side)</td>
+<td style="text-align: left">string</td>
+<td>t(:websocketTradeSide)</td>
 </tr>
 <tr>
 <td style="text-align: left">tradeId</td>
@@ -385,83 +395,128 @@ t(:websocket_para_limit)
 <td>t(:row_comment_symbol)</td>
 </tr>
 <tr>
-<td style="text-align: left">t(:row_parameter_tick_direction)</td>
+<td style="text-align: left">lastPriceE4</td>
+<td style="text-align: left">string</td>
+<td>t(:row_comment_resp_last_price_e4)</td>
+</tr>
+<tr>
+<td style="text-align: left">lastPrice</td>
+<td style="text-align: left">string</td>
+<td>t(:row_comment_resp_last_price)</td>
+</tr>
+<tr>
+<td style="text-align: left">lastTickDirection</td>
 <td style="text-align: left">string</td>
 <td>t(:row_comment_position_tick_direction)</td>
 </tr>
 <tr>
-<td style="text-align: left">lastPrice</td>
-<td style="text-align: left">integer</td>
-<td>t(:row_comment_resp_last_price)</td>
+<td style="text-align: left">prevPrice24hE4</td>
+<td style="text-align: left">string</td>
+<td>t(:row_comment_resp_prev_price_24h_e4)</td>
 </tr>
 <tr>
 <td style="text-align: left">prevPrice24h</td>
-<td style="text-align: left">integer</td>
+<td style="text-align: left">string</td>
 <td>t(:row_comment_resp_prev_price_24h)</td>
 </tr>
 <tr>
+<td style="text-align: left">price24hPcntE6</td>
+<td style="text-align: left">string</td>
+<td>t(:row_comment_resp_price_24h_pcnt_e6)</td>
+</tr>
+<tr>
+<td style="text-align: left">highPrice24hE4</td>
+<td style="text-align: left">string</td>
+<td>t(:row_comment_resp_high_price_24h_e4)</td>
+</tr>
+<tr>
 <td style="text-align: left">highPrice24h</td>
-<td style="text-align: left">integer</td>
+<td style="text-align: left">string</td>
 <td>t(:row_comment_resp_high_price_24h)</td>
 </tr>
 <tr>
+<td style="text-align: left">lowPrice24hE4</td>
+<td style="text-align: left">string</td>
+<td>t(:row_comment_resp_low_price_24h_e4)</td>
+</tr>
+<tr>
 <td style="text-align: left">lowPrice24h</td>
-<td style="text-align: left">integer</td>
+<td style="text-align: left">string</td>
 <td>t(:row_comment_resp_low_price_24h)</td>
 </tr>
 <tr>
+<td style="text-align: left">prevPrice1hE4</td>
+<td style="text-align: left">string</td>
+<td>t(:row_comment_resp_prev_price_1h_e4)</td>
+</tr>
+<tr>
 <td style="text-align: left">prevPrice1h</td>
-<td style="text-align: left">integer</td>
+<td style="text-align: left">string</td>
 <td>t(:row_comment_resp_prev_price_1h)</td>
 </tr>
 <tr>
+<td style="text-align: left">price1hPcntE6</td>
+<td style="text-align: left">string</td>
+<td>t(:row_comment_resp_price_1h_pcnt_e6)</td>
+</tr>
+<tr>
+<td style="text-align: left">markPriceE4</td>
+<td style="text-align: left">string</td>
+<td>t(:row_comment_resp_mark_price_e4)</td>
+</tr>
+<tr>
 <td style="text-align: left">markPrice</td>
-<td style="text-align: left">integer</td>
+<td style="text-align: left">string</td>
 <td>t(:row_comment_resp_mark_price)</td>
 </tr>
 <tr>
+<td style="text-align: left">indexPriceE4</td>
+<td style="text-align: left">string</td>
+<td>t(:row_comment_resp_index_price_e4)</td>
+</tr>
+<tr>
 <td style="text-align: left">indexPrice</td>
-<td style="text-align: left">integer</td>
+<td style="text-align: left">string</td>
 <td>t(:row_comment_resp_index_price)</td>
 </tr>
 <tr>
 <td style="text-align: left">openInterestE8</td>
-<td style="text-align: left">integer</td>
+<td style="text-align: left">string</td>
 <td>t(:row_comment_resp_open_interest_e8). t(:row_comment_slow_update)</td>
 </tr>
 <tr>
 <td style="text-align: left">totalTurnoverE8</td>
-<td style="text-align: left">integer</td>
+<td style="text-align: left">string</td>
 <td>t(:row_comment_resp_total_turnover_e8)</td>
 </tr>
 <tr>
 <td style="text-align: left">turnover24hE8</td>
-<td style="text-align: left">integer</td>
+<td style="text-align: left">string</td>
 <td>t(:row_comment_resp_turnover_24h_e8)</td>
 </tr>
 <tr>
 <td style="text-align: left">totalVolumeE8</td>
-<td style="text-align: left">integer</td>
+<td style="text-align: left">string</td>
 <td>t(:row_comment_resp_total_volume_e8)</td>
 </tr>
 <tr>
 <td style="text-align: left">volume24hE8</td>
-<td style="text-align: left">integer</td>
+<td style="text-align: left">string</td>
 <td>t(:row_comment_resp_volume_24h_e8)</td>
 </tr>
 <tr>
 <td style="text-align: left">fundingRateE6</td>
-<td style="text-align: left">integer</td>
+<td style="text-align: left">string</td>
 <td>t(:row_comment_resp_funding_rate_e6)</td>
 </tr>
 <tr>
 <td style="text-align: left">predictedFundingRateE6</td>
-<td style="text-align: left">integer</td>
+<td style="text-align: left">string</td>
 <td>t(:row_comment_resp_predicted_funding_rate_e6)</td>
 </tr>
 <tr>
 <td style="text-align: left">crossSeq</td>
-<td style="text-align: left">integer</td>
+<td style="text-align: left">string</td>
 <td>t(:row_comment_cross_seq)</td>
 </tr>
 <tr>
@@ -481,17 +536,27 @@ t(:websocket_para_limit)
 </tr>
 <tr>
 <td style="text-align: left">countDownHour</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>t(:row_comment_resp_countdown_hour)</td>
 </tr>
 <tr>
+<td style="text-align: left">bid1PriceE4</td>
+<td style="text-align: left">string</td>
+<td>t(:row_comment_bid1_price_e4)</td>
+</tr>
+<tr>
 <td style="text-align: left">bid1Price</td>
-<td style="text-align: left">integer</td>
+<td style="text-align: left">string</td>
 <td>t(:row_comment_bid1_price)</td>
 </tr>
 <tr>
+<td style="text-align: left">ask1PriceE4</td>
+<td style="text-align: left">string</td>
+<td>t(:row_comment_ask1_price_e4)</td>
+</tr>
+<tr>
 <td style="text-align: left">ask1Price</td>
-<td style="text-align: left">integer</td>
+<td style="text-align: left">string</td>
 <td>t(:row_comment_ask1_price)</td>
 </tr>
 </tbody></table>
@@ -591,7 +656,7 @@ t(:websocket_aside_klineV2)
 <tr>
 <td style="text-align: left">crossSeq</td>
 <td style="text-align: left">string</td>
-<td>crossSeq</td>
+<td>t(:row_comment_cross_seq)</td>
 </tr>
 <tr>
 <td style="text-align: left">timestamp</td>
@@ -738,7 +803,7 @@ t(:websocket_usdc_platform_insurance)
 <tr>
 <td style="text-align: left">positionStatus</td>
 <td style="text-align: left">string</td>
-<td>t(:usdcPositionStatus)</td>
+<td>t(:positionStatus)</td>
 </tr>
 <tr>
 <td style="text-align: left">t(:row_parameter_side)</td>
@@ -811,6 +876,11 @@ t(:websocket_usdc_platform_insurance)
 <td>t(:sessionUpl)</td>
 </tr>
 <tr>
+<td style="text-align: left">sessionRPL</td>
+<td style="text-align: left">string</td>
+<td>t(:sessionRpl)</td>
+</tr>
+<tr>
 <td style="text-align: left">createdAt</td>
 <td style="text-align: left">string</td>
 <td>t(:row_comment_created_at)</td>
@@ -846,11 +916,6 @@ t(:websocket_usdc_platform_insurance)
 <td>t(:stopLoss)</td>
 </tr>
 <tr>
-<td style="text-align: left">positionStatus</td>
-<td style="text-align: left">string</td>
-<td>t(:positionStatus)</td>
-</tr>
-<tr>
 <td style="text-align: left">deleverageIndicator</td>
 <td style="text-align: left">string</td>
 <td>t(:deleverageIndicator)</td>
@@ -881,7 +946,7 @@ t(:websocket_usdc_platform_insurance)
                 <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">tradeId</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">9ae8aad2-0dae-583f-bff1-89aef6f88cd2</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">'</span><span class="s1">side</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Buy</span><span class="dl">'</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">execPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">44277</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">execQty</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.001</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">execFee</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.03320775</span><span class="dl">"</span><span class="p">,</span>

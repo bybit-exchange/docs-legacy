@@ -2395,9 +2395,9 @@ function copyStringToClipboard (endpoint) {
 </thead><tbody>
 <tr>
 <td style="text-align: left">position_idx</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">integer</td>
-<td>Position idx, used to identify positions in different position modes<span>:</span> <br/>0-One-Way Mode <br/>1-Buy side of both side mode <br/> 2-Sell side of both side mode
+<td>Position idx, used to identify positions in different position modes. <b>Required</b>if you are under Hedge Mode<span>:</span> <br/>0-One-Way Mode <br/>1-Buy side of both side mode <br/> 2-Sell side of both side mode
 </td>
 </tr>
 <tr>
@@ -3680,34 +3680,34 @@ Please note that only orders that are unfilled or partially filled can be modifi
     <span class="n">stop_px</span><span class="o">=</span><span class="mi">8150</span><span class="p">,</span>
     <span class="n">time_in_force</span><span class="o">=</span><span class="s">"GoodTillCancel"</span><span class="p">,</span>
     <span class="n">order_link_id</span><span class="o">=</span><span class="s">"cus_order_id_1"</span>
-<span class="p">))</span><span class="sb">``</span><span class="err">`</span>
-
-<span class="o">&gt;</span> <span class="n">t</span><span class="p">(:</span><span class="n">codequote_responseExample</span><span class="p">)</span>
-
-<span class="sb">``</span><span class="err">`</span><span class="n">javascript</span>
-<span class="p">{</span>
-    <span class="s">"ret_code"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-    <span class="s">"ret_msg"</span><span class="p">:</span><span class="s">"OK"</span><span class="p">,</span>
-    <span class="s">"ext_code"</span><span class="p">:</span><span class="s">""</span><span class="p">,</span>
-    <span class="s">"ext_info"</span><span class="p">:</span><span class="s">""</span><span class="p">,</span>
-    <span class="s">"result"</span><span class="p">:{</span>
-        <span class="s">"user_id"</span><span class="p">:</span><span class="mi">160880</span><span class="p">,</span>
-        <span class="s">"symbol"</span><span class="p">:</span><span class="s">"BTCUSDM21"</span><span class="p">,</span>
-        <span class="s">"side"</span><span class="p">:</span><span class="s">"Buy"</span><span class="p">,</span>
-        <span class="s">"order_type"</span><span class="p">:</span><span class="s">"Limit"</span><span class="p">,</span>
-        <span class="s">"price"</span><span class="p">:</span><span class="s">"8100"</span><span class="p">,</span>
-        <span class="s">"qty"</span><span class="p">:</span><span class="s">"1"</span><span class="p">,</span>
-        <span class="s">"time_in_force"</span><span class="p">:</span><span class="s">"GoodTillCancel"</span><span class="p">,</span>
-        <span class="s">"remark"</span><span class="p">:</span><span class="s">"127.0.0.1"</span><span class="p">,</span>
-        <span class="s">"leaves_qty"</span><span class="p">:</span><span class="s">"2"</span><span class="p">,</span>
-        <span class="s">"leaves_value"</span><span class="p">:</span><span class="s">"0"</span><span class="p">,</span>
-        <span class="s">"stop_px"</span><span class="p">:</span><span class="s">"8150"</span><span class="p">,</span>
-        <span class="s">"reject_reason"</span><span class="p">:</span><span class="s">"EC_NoError"</span><span class="p">,</span>
-        <span class="s">"stop_order_id"</span><span class="p">:</span><span class="s">"eaf205ac-9dcc-44f6-8731-734e2101e61b"</span><span class="p">,</span>
-        <span class="s">"created_at"</span><span class="p">:</span><span class="s">"2020-11-06T07:48:43.940Z"</span><span class="p">,</span>
-        <span class="s">"updated_at"</span><span class="p">:</span><span class="s">"2020-11-06T07:48:43.940Z"</span>
+<span class="p">))</span>
+</code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:{</span>
+        <span class="dl">"</span><span class="s2">user_id</span><span class="dl">"</span><span class="p">:</span><span class="mi">160880</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDM21</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">order_type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Limit</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">8100</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">time_in_force</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">GoodTillCancel</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">remark</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">127.0.0.1</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">leaves_qty</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">leaves_value</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">stop_px</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">8150</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">reject_reason</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">EC_NoError</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">stop_order_id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">eaf205ac-9dcc-44f6-8731-734e2101e61b</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">created_at</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2020-11-06T07:48:43.940Z</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">updated_at</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2020-11-06T07:48:43.940Z</span><span class="dl">"</span>
     <span class="p">},</span>
-    <span class="s">"time_now"</span><span class="p">:</span><span class="s">"1604648923.942177"</span>
+    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1604648923.942177</span><span class="dl">"</span>
 <span class="p">}</span>
 </code></pre></div>
 <p><p>Market price conditional order: A traditional market price order, will be filled at the best available price. <code>price</code> is not required for this type of order.</p>
@@ -3741,9 +3741,9 @@ Take profit/Stop loss is not supported in placing conditional orders. One can on
 </thead><tbody>
 <tr>
 <td style="text-align: left">position_idx</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">integer</td>
-<td>Position idx, used to identify positions in different position modes<span>:</span> <br/>0-One-Way Mode <br/>1-Buy side of both side mode <br/> 2-Sell side of both side mode
+<td>Position idx, used to identify positions in different position modes. <b>Required</b>if you are under Hedge Mode<span>:</span> <br/>0-One-Way Mode <br/>1-Buy side of both side mode <br/> 2-Sell side of both side mode
 </td>
 </tr>
 <tr>

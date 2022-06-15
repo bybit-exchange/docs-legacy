@@ -231,6 +231,16 @@
 <td style="text-align: left">string</td>
 <td>t(:qtyStep)</td>
 </tr>
+<tr>
+<td style="text-align: left">deliveryFeeRate</td>
+<td style="text-align: left">string</td>
+<td>t(:deliveryFeeRate)</td>
+</tr>
+<tr>
+<td style="text-align: left">deliveryTime</td>
+<td style="text-align: left">string</td>
+<td>t(:deliveryTime)</td>
+</tr>
 </tbody></table>
 <h3 id='t-usdctickerinfo'>t(:usdcTickerInfo)</h3>
 <blockquote>
@@ -321,6 +331,11 @@
 <td>t(:usdcBid)</td>
 </tr>
 <tr>
+<td style="text-align: left">bidIv</td>
+<td style="text-align: left">string</td>
+<td>t(:bidIv)</td>
+</tr>
+<tr>
 <td style="text-align: left">bidSize</td>
 <td style="text-align: left">string</td>
 <td>t(:usdcBidSize)</td>
@@ -329,6 +344,11 @@
 <td style="text-align: left">ask</td>
 <td style="text-align: left">string</td>
 <td>t(:usdcAsk)</td>
+</tr>
+<tr>
+<td style="text-align: left">askIv</td>
+<td style="text-align: left">string</td>
+<td>t(:askIv)</td>
 </tr>
 <tr>
 <td style="text-align: left">askSize</td>
@@ -354,6 +374,11 @@
 <td style="text-align: left">markPrice</td>
 <td style="text-align: left">string</td>
 <td>t(:usdcMarkPrice)</td>
+</tr>
+<tr>
+<td style="text-align: left">markPriceIv</td>
+<td style="text-align: left">string</td>
+<td>t(:markPriceIv)</td>
 </tr>
 <tr>
 <td style="text-align: left">change24h</td>
@@ -391,9 +416,54 @@
 <td>t(:usdcTotalTurnover)</td>
 </tr>
 <tr>
+<td style="text-align: left">fundingRate</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcFundingRate)</td>
+</tr>
+<tr>
+<td style="text-align: left">predictedFundingRate</td>
+<td style="text-align: left">string</td>
+<td>t(:predictedFundingRate)</td>
+</tr>
+<tr>
+<td style="text-align: left">nextFundingTime</td>
+<td style="text-align: left">string</td>
+<td>t(:row_comment_resp_next_funding_time)</td>
+</tr>
+<tr>
+<td style="text-align: left">countdownHour</td>
+<td style="text-align: left">string</td>
+<td>t(:row_comment_resp_countdown_hour)</td>
+</tr>
+<tr>
+<td style="text-align: left">predictedDeliveryPrice</td>
+<td style="text-align: left">string</td>
+<td>t(:predictedDeliveryPrice)</td>
+</tr>
+<tr>
 <td style="text-align: left">underlyingPrice</td>
 <td style="text-align: left">string</td>
 <td>t(:usdcUnderlyingPrice)</td>
+</tr>
+<tr>
+<td style="text-align: left">delta</td>
+<td style="text-align: left">string</td>
+<td>t(:delta)</td>
+</tr>
+<tr>
+<td style="text-align: left">gamma</td>
+<td style="text-align: left">string</td>
+<td>t(:gamma)</td>
+</tr>
+<tr>
+<td style="text-align: left">vega</td>
+<td style="text-align: left">string</td>
+<td>t(:vega)</td>
+</tr>
+<tr>
+<td style="text-align: left">theta</td>
+<td style="text-align: left">string</td>
+<td>t(:theta)</td>
 </tr>
 </tbody></table>
 <h3 id='t-querykline'>t(:querykline)</h3>
@@ -477,29 +547,14 @@
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">volume</td>
-<td style="text-align: left">string</td>
-<td>t(:usdcVolume)</td>
-</tr>
-<tr>
 <td style="text-align: left">t(:row_parameter_symbol)</td>
 <td style="text-align: left">string</td>
 <td>t(:usdcSymbol)</td>
 </tr>
 <tr>
-<td style="text-align: left">open</td>
+<td style="text-align: left">volume</td>
 <td style="text-align: left">string</td>
-<td>t(:usdcOpen)</td>
-</tr>
-<tr>
-<td style="text-align: left">openTime</td>
-<td style="text-align: left">number</td>
-<td>t(:usdcOpenTime)</td>
-</tr>
-<tr>
-<td style="text-align: left">turnover</td>
-<td style="text-align: left">string</td>
-<td>t(:usdcTurnover)</td>
+<td>t(:usdcVolume)</td>
 </tr>
 <tr>
 <td style="text-align: left">period</td>
@@ -507,9 +562,14 @@
 <td>t(:usdcPeriod)</td>
 </tr>
 <tr>
-<td style="text-align: left">low</td>
+<td style="text-align: left">openTime</td>
+<td style="text-align: left">number</td>
+<td>t(:usdcOpenTime)</td>
+</tr>
+<tr>
+<td style="text-align: left">open</td>
 <td style="text-align: left">string</td>
-<td>t(:usdcLow)</td>
+<td>t(:usdcOpen)</td>
 </tr>
 <tr>
 <td style="text-align: left">high</td>
@@ -517,9 +577,19 @@
 <td>t(:usdcHigh)</td>
 </tr>
 <tr>
+<td style="text-align: left">low</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcLow)</td>
+</tr>
+<tr>
 <td style="text-align: left">close</td>
 <td style="text-align: left">string</td>
 <td>t(:usdcClose)</td>
+</tr>
+<tr>
+<td style="text-align: left">turnover</td>
+<td style="text-align: left">string</td>
+<td>t(:usdcTurnover)</td>
 </tr>
 </tbody></table>
 <h3 id='t-markkline'>t(:markKLine)</h3>
@@ -1149,30 +1219,25 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal?sy
 <p>t(:codequote_responseExample)</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Success.</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">"</span><span class="s2">resultTotalSize</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">cursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">dataList</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
-      <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">3caaa0ca</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">58445.00</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.010</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1638275679673</span><span class="dl">"</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10cc3064</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">58477.50</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.010</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1638275670702</span><span class="dl">"</span>
-      <span class="p">}</span>
-    <span class="p">]</span>
-  <span class="p">}</span>
+        <span class="dl">"</span><span class="s2">resultTotalSize</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">dataList</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.157</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">22359.00</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1655189065841</span><span class="dl">"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.052</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">22340.00</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1655189059840</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Success.</span><span class="dl">"</span>
 <span class="p">}</span>
 </code></pre></div>
 <p class="fake_header">t(:httprequest)</p>
@@ -1245,24 +1310,9 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal?sy
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">transactionTime</td>
-<td style="text-align: left">number</td>
-<td>t(:transactionTime)</td>
-</tr>
-<tr>
-<td style="text-align: left">id</td>
-<td style="text-align: left">string</td>
-<td>ID</td>
-</tr>
-<tr>
 <td style="text-align: left">t(:row_parameter_symbol)</td>
 <td style="text-align: left">string</td>
 <td>t(:usdcSymbol)</td>
-</tr>
-<tr>
-<td style="text-align: left">orderPrice</td>
-<td style="text-align: left">string</td>
-<td>t(:usdcOrderPrice)</td>
 </tr>
 <tr>
 <td style="text-align: left">orderQty</td>
@@ -1270,9 +1320,9 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal?sy
 <td>t(:usdcOrderQty)</td>
 </tr>
 <tr>
-<td style="text-align: left">t(:row_parameter_side)</td>
+<td style="text-align: left">orderPrice</td>
 <td style="text-align: left">string</td>
-<td>t(:side)</td>
+<td>t(:usdcOrderPrice)</td>
 </tr>
 <tr>
 <td style="text-align: left">time</td>

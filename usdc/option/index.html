@@ -1081,8 +1081,34 @@ Please make sure that the timestamp parameter adheres to the following rule: ser
 <p><p>1.The parameters are in json format</p>
 <p>2. Use the HMAC_SHA256 algorithm to sign the query string in step 1, and convert it to a hex string to obtain the sign parameter.</p></p>
 
-<p>An example how to place an order:</p>
-<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<p>An example how to place an order(see python):</p>
+
+<aside class="notice">
+Example signature algorithms can be found <a href="https://github.com/bybit-exchange/api-usage-examples">here</a>.
+</aside>
+
+<blockquote>
+<p>Message format for <b>POST</b> requests:
+</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">POST 'https://api.bybit.com/option/usdc/openapi/private/v1/place-order'
+X-BAPI-API-KEY: your api key
+X-BAPI-SIGN: 6c864f0f0d332133b79de911387c6408ae0d189609c485b9a132fd5ec3beb2ee'
+X-BAPI-SIGN-TYPE: 2
+X-BAPI-TIMESTAMP: 1655197818844
+X-BAPI-RECV-WINDOW: 5000
+Content-Type: application/json
+
+{
+    "side": "Buy",
+    "symbol": "BTC-14JUN22-24500-C",
+    "orderType": "Market",
+    "orderQty": "0.5",
+    "orderPrice": "500",
+    "orderLinkId": "option10005",
+    "reduce_only": false
+}
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">hashlib</span>
@@ -1868,7 +1894,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">orderType</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>refer to <a href="#order-type-type-ordertypes">Order type</a> (MARKET is not supported currently for Options)</td>
+<td>refer to <a href="#order-type-ordertype">Order type</a> (Market is only supported currently for IOC（ImmediateOrCancel）orders)</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#side-side">side</a></td>
@@ -1880,7 +1906,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">orderPrice</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Order price.For Perpetual, order price can not be empty. For option, if placeType is 2, the final order price will be calculated by Implied volatility</td>
+<td>Order price. For option, if iv has value, the final order price will be calculated by Implied volatility. If orderType is Market, orderPrice is not required.</td>
 </tr>
 <tr>
 <td style="text-align: left">orderQty</td>
@@ -1892,7 +1918,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">iv</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Implied volatility</td>
+<td>Implied volatility. If orderType is Market, iv is not required, otherwise the order will fail.</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#time-in-force-timeinforce">timeInForce</a></td>
@@ -2039,7 +2065,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">orderType</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>refer to <a href="#order-type-type-ordertypes">Order type</a> (MARKET is not supported currently for Options)</td>
+<td>refer to <a href="#order-type-ordertype">Order type</a> (Market is only supported currently for IOC（ImmediateOrCancel）orders)</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#side-side">side</a></td>
@@ -2051,7 +2077,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">orderPrice</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Order price.For Perpetual, order price can not be empty. For option, if placeType is 2, the final order price will be calculated by Implied volatility</td>
+<td>Order price. For option, if iv has value, the final order price will be calculated by Implied volatility. If orderType is Market, orderPrice is not required.</td>
 </tr>
 <tr>
 <td style="text-align: left">orderQty</td>
@@ -2063,7 +2089,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">iv</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Implied volatility</td>
+<td>Implied volatility. If orderType is Market, iv is not required, otherwise the order will fail.</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#time-in-force-timeinforce">timeInForce</a></td>
@@ -2134,6 +2160,21 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left"><a href="#side-side">side</a></td>
 <td style="text-align: left">string</td>
 <td>Direction</td>
+</tr>
+<tr>
+<td style="text-align: left">extMap</td>
+<td style="text-align: left">map</td>
+<td>Map has specific error details when failed, else null.</td>
+</tr>
+<tr>
+<td style="text-align: left">errorCode</td>
+<td style="text-align: left">string</td>
+<td>Error code. <code>0</code>means success.</td>
+</tr>
+<tr>
+<td style="text-align: left">errorDesc</td>
+<td style="text-align: left">string</td>
+<td>Error description</td>
 </tr>
 </tbody></table>
 <h3 id='t-usdcreplaceorder'>Modify Order</h3><div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/replace-order \
@@ -2226,7 +2267,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <tr>
 <td style="text-align: left">outRequestId</td>
 <td style="text-align: left">string</td>
-<td>ID used for idempotence with a max. of 32 characters, required for Options</td>
+<td>System internal param. Just ignore</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -2355,7 +2396,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <tr>
 <td style="text-align: left">outRequestId</td>
 <td style="text-align: left">string</td>
-<td>ID used for idempotence with a max. of 32 characters, required for Options</td>
+<td>System internal param. Just ignore</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -2371,6 +2412,21 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">orderLinkId</td>
 <td style="text-align: left">string</td>
 <td>Custom ID used for cross-platform strategy remarks; a max. of 32 characters</td>
+</tr>
+<tr>
+<td style="text-align: left">extMap</td>
+<td style="text-align: left">map</td>
+<td>Map has specific error details when failed, else null.</td>
+</tr>
+<tr>
+<td style="text-align: left">errorCode</td>
+<td style="text-align: left">string</td>
+<td>Error code. <code>0</code>means success.</td>
+</tr>
+<tr>
+<td style="text-align: left">errorDesc</td>
+<td style="text-align: left">string</td>
+<td>Error description</td>
 </tr>
 </tbody></table>
 <h3 id='t-usdccancelorder'>Cancel Order</h3><div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/cancel-order \
@@ -2442,7 +2498,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <tr>
 <td style="text-align: left">outRequestId</td>
 <td style="text-align: left">string</td>
-<td>ID used for idempotence with a max. of 32 characters, required for Options</td>
+<td>System internal param. Just ignore</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -2550,7 +2606,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <tr>
 <td style="text-align: left">outRequestId</td>
 <td style="text-align: left">string</td>
-<td>ID used for idempotence with a max. of 32 characters, required for Options</td>
+<td>System internal param. Just ignore</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -2567,8 +2623,18 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">string</td>
 <td>Custom ID used for cross-platform strategy remarks; a max. of 32 characters</td>
 </tr>
+<tr>
+<td style="text-align: left">errorCode</td>
+<td style="text-align: left">string</td>
+<td>Error code. <code>0</code>means success.</td>
+</tr>
+<tr>
+<td style="text-align: left">errorDesc</td>
+<td style="text-align: left">string</td>
+<td>Error description</td>
+</tr>
 </tbody></table>
-<h3 id='t-usdccancelall'>Cancel All Active Orders</h3><div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/cancel-order \
+<h3 id='t-usdccancelall'>Cancel All Active Orders</h3><div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/cancel-all \
 -H "Content-Type: application/json" \
 -D '{}'
 
@@ -2626,7 +2692,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <tr>
 <td style="text-align: left">outRequestId</td>
 <td style="text-align: left">string</td>
-<td>ID used for idempotence with a max. of 32 characters, required for Options</td>
+<td>System internal param. Just ignore</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -2642,6 +2708,16 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">orderLinkId</td>
 <td style="text-align: left">string</td>
 <td>Custom ID used for cross-platform strategy remarks; a max. of 32 characters</td>
+</tr>
+<tr>
+<td style="text-align: left">errorCode</td>
+<td style="text-align: left">string</td>
+<td>Error code. <code>0</code>means success.</td>
+</tr>
+<tr>
+<td style="text-align: left">errorDesc</td>
+<td style="text-align: left">string</td>
+<td>Error description</td>
 </tr>
 </tbody></table>
 <h3 id='t-usdcqryunorpartfilled'>Query Unfilled/Partially Filled Orders</h3><div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-active-orders \
@@ -2836,7 +2912,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <tr>
 <td style="text-align: left">orderPnl</td>
 <td style="text-align: left">string</td>
-<td>Order PNL</td>
+<td>The total trade profit and loss for this order</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#price-price">price</a></td>
@@ -3134,7 +3210,7 @@ The endpoint only supports up to 30 days of queried records
 <tr>
 <td style="text-align: left">orderPnl</td>
 <td style="text-align: left">string</td>
-<td>Order PNL</td>
+<td>The total trade profit and loss for this order</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#price-price">price</a></td>
@@ -3732,14 +3808,14 @@ The endpoint only supports up to 30 days of queried records. An error will be re
 <td>Maintenance margin</td>
 </tr>
 <tr>
-<td style="text-align: left">accountMM</td>
-<td style="text-align: left">string</td>
-<td>Maintenance margin</td>
-</tr>
-<tr>
 <td style="text-align: left">bonus</td>
 <td style="text-align: left">string</td>
 <td>Bonus</td>
+</tr>
+<tr>
+<td style="text-align: left">accountIM</td>
+<td style="text-align: left">string</td>
+<td>Initial margin</td>
 </tr>
 <tr>
 <td style="text-align: left">totalSessionRPL</td>
@@ -5115,7 +5191,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
   <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">orderbook100.BTC-12NOV21-40000-P</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1636454548726</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
-    <span class="dl">"</span><span class="s2">orderBooks</span><span class="dl">"</span><span class="p">:[</span>
+    <span class="dl">"</span><span class="s2">orderBook</span><span class="dl">"</span><span class="p">:[</span>
     <span class="p">{</span>
       <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1764.5</span><span class="dl">"</span><span class="p">,</span>
       <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">997.99</span><span class="dl">"</span><span class="p">,</span>
@@ -5329,6 +5405,11 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <td style="text-align: left">tradeId</td>
 <td style="text-align: left">string</td>
 <td>Transaction ID</td>
+</tr>
+<tr>
+<td style="text-align: left">crossSeq</td>
+<td style="text-align: left">string</td>
+<td>System internal param. Just ignore</td>
 </tr>
 </tbody></table>
 <h3 id='t-latestsymbolinfo'>latestsymbolinfo</h3>
@@ -6209,6 +6290,7 @@ At 0:00, 8:00, and 16:00 UTC+0, the insurance fund will be pushed.
 <h2 id='order-type-ordertype'>Order type (<code>orderType</code>)</h2>
 <ul>
 <li><code>Limit</code></li>
+<li><code>Market</code></li>
 </ul>
 <h2 id='currency-currency-coin'>Currency (<code>currency</code>/<code>coin</code>)</h2>
 <ul>
