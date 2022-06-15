@@ -75,7 +75,7 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|position_idx |<b>true</b>|integer |t(:row_comment_position_idx)  |
+|position_idx |false|integer |t(:row_comment_position_idx_create_order_inverse_futures)  |
 |t(:row_parameter_side) |<b>true</b> |string |t(:row_comment_side)    |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)   |
 |t(:row_parameter_order_type) |<b>true</b> |string |t(:row_comment_activeOrderType)   |
@@ -733,7 +733,7 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|position_idx |<b>true</b>|integer |t(:row_comment_position_idx)  |
+|position_idx |false|integer |t(:row_comment_position_idx_create_order_inverse_futures)  |
 |t(:row_parameter_side) |<b>true</b> |string |t(:row_comment_side)    |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
 |t(:row_parameter_order_type) |<b>true</b> |string |t(:row_comment_stopOrderType) |
