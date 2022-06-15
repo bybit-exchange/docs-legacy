@@ -32,6 +32,8 @@ en:
     Position idx, used to identify positions in different position modes<span>:</span> <br/>0-One-Way Mode <br/>1-Buy side of both side mode <br/> 2-Sell side of both side mode
   row_comment_position_idx_create_order: |
     Position idx, used to identify positions in different position modes. <b>Required</b> if you are under One-Way Mode<span>:</span> <br/>0-One-Way Mode <br/>1-Buy side of both side mode <br/> 2-Sell side of both side mode
+  row_comment_position_idx_create_order_inverse_futures: |
+    Position idx, used to identify positions in different position modes. <b>Required</b>if you are under Hedge Mode<span>:</span> <br/>0-One-Way Mode <br/>1-Buy side of both side mode <br/> 2-Sell side of both side mode
   row_comment_position_idx_leverage: Deprecated!! Position idx
   row_comment_position_mode: Position mode
   row_comment_position_size: Position qty
@@ -250,6 +252,7 @@ en:
   row_comment_resp_prev_price_1h_e4: (Deprecated) Hourly market price an hour ago * 10^4
   row_comment_resp_price_1h_pcnt: Percentage change of market price relative to 1 hour ago
   row_comment_resp_price_1h_pcnt_e6: Percentage change of market price relative to 1 hour ago * 10^6
+  row_comment_resp_price_24h_pcnt_e6: Percentage change of market price relative to 24 hour ago * 10^6
   row_comment_resp_mark_price: Mark price
   row_comment_resp_mark_price_e4: (Deprecated) Mark price * 10^4
   row_comment_resp_index_price: Index_price
@@ -2270,6 +2273,8 @@ en:
   linear_private_switchmode: Switch mode between Full or Partial
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
+  restapi_update_20220610: Add <code>S</code> field which indicates the trade side
+  restapi_update_20220608: Increase the push frequency from every 250ms (max. 300ms) to every 100ms
   restapi_update_20220602: Add new USDC Option Websocket private topic <code>mmpevent</code>
   restapi_update_20220601_2: Add new response param <code>ExecutionTime</code> and Update response param <code>time</code>
   restapi_update_20220601: URLs of the above copytrading endpoints are updated.
@@ -2539,6 +2544,7 @@ en:
   spotmaxTradeAmount: Max. order value (It is ignored when you place an order with order type LIMIT_MAKER)
   spotCategory:  Category
   spotInnovation: True indicates that the price of this currency is relatively volatile
+  spotshowStatus: True indicates that the symbol open for trading
   spot_trading_symbol_comment: You can get all symbols with the <a href="#t-spot_querysymbol">Query Symbol</a> endpoint.
   spotSymbol: Name of the trading pair
   spotId: Irrelevant for API usage. This field reflects the "Transaction ID" from the <a href="https://www.bybit.com/user/assets/order/spot-history/active">Trade History</a> section of the website
@@ -2718,6 +2724,7 @@ en:
 
   spot_public_websocket_frequency_realtime: Pushes data in <b>real-time</b>.
 
+  spot_public_websocket_frequency_100: Pushes data at a frequency of <b>100ms</b>.
   spot_public_websocket_frequency_300_delay_400: Pushes data at a frequency of <b>300ms</b>. Message received with a maximum delay of <b>400ms</b>.
   spot_public_websocket_frequency_300_delay_650: Pushes data at a frequency of <b>300ms</b>. Message received with a maximum delay of <b>650ms</b>.
   spot_public_websocket_frequency_250_delay_300: Pushes data at a frequency of <b>250ms</b>. Message received with a maximum delay of <b>300ms</b>.
@@ -2797,7 +2804,7 @@ en:
   ticketInfo_para: |
     Pushes data about your trades (fills). When an order is filled, you will receive two messages: one from <code>ticketInfo</code>, and one from <code>executionReport</code>
   spot_ticket_info_maker: Is MAKER. true=maker, false=taker
-
+  spot_ticket_info_side: BUY or SELL
   spotLtSymbolNav: Please make sure to add "NAV" as a suffix to the name of the pair you're querying
   spotTotalPositionValue: Total position value = basket value * total circulation
   spotLoan: Basket loan
@@ -3076,6 +3083,11 @@ en:
   usdcAccountInfo: Wallet Info
 
   usdcQuoteCoin: Quote currency
+  usdcSettleCoin: Settle Coin
+  usdcTakerFee: Taker fee
+  usdcMakerFee: Maker fee
+  minOrderSizeIncrement: Min. order size increment
+  usdcBasicDeliveryFeeRate: Basic Delivery Fee Rate
   usdcTakerFeeRate: Taker fee rate
   usdcMakerFeeRate: Maker fee rate
   minLeverage: Min. leverage
@@ -3248,10 +3260,18 @@ en:
   usdc_order_book_path: Options：category=option, Perpetual：category=perpetual
   usdc_order_book_desc: Query order book info. Each side has a depth of 25 orders.
   usdc_tick_desc: (Options only)
+  usdcExtMap: Map has specific error details when failed, else null.
+  usdcErrorCode: Error code. <code>0</code>means success.
+  usdcErrorDesc: Error description
+  outRequestId: System internal param. Just ignore
 
 
 
-  usdcOrderType: refer to <a href="#order-type-type-ordertypes">Order type</a> (MARKET is not supported currently for Options)
+  usdcOrderType: refer to <a href="#order-type-ordertype">Order type</a> (MARKET is not supported currently for Options)
+  usdcOptionOrderType: refer to <a href="#order-type-ordertype">Order type</a> (Market is only supported currently for IOC（ImmediateOrCancel）orders)
+  usdcOptionPlaceOrderPrice: Order price. For option, if iv has value, the final order price will be calculated by Implied volatility. If orderType is Market, orderPrice is not required.
+  optionIv_order: Implied volatility. If orderType is Market, iv is not required, otherwise the order will fail.
+
   optionIv: Implied volatility
   optionPlaceMode: Order mode, can be Advanced or Basic.For Perpetual, can be empty,But for Option, can not be empty.Number 1 is basic and number 2 is advanced.If 1, <code>orderQty</code> and <code>orderPrice</code> can not be empty. If 2, refer to <code>placeType</code>.
   optionPlaceType: Order type, can be price or implied volatility.Number 1 is price and number 2 is implied volatility. If 1,orderQty and orderPrice can not be empty. If 2, <code>iv</code> and <code>orderQty</code> can not be empty.
@@ -3293,6 +3313,8 @@ en:
   orderStatus: <a href="#order-status-status">Order status</a>
   lastExecPrice: Filled price
   basePrice: Market price during order placement
+  perpBasePrice: |
+    When <code>OrderFilter</code> is StopOrder REQUIRED. It will be used to compare with the value of <code>triggerPrice</code>, to decide whether your stop order will be triggered by crossing trigger price from upper side or lower side. Mainly used to identify the expected direction of the current stop order.
   createdAt: Creation time
   cashFlow: Cash flow
   realisedPnl: Closed P&L
@@ -3313,6 +3335,7 @@ en:
 
 
   equity: Equity
+  bonus: Bonus
   availableBalance: Available balance
   marginBalance: Margin balance
   accountIm: Initial margin
@@ -3408,6 +3431,7 @@ en:
   volume24h: 24-hour trading volume
   turnover24h: 24-hour turnover
   totalVolume: Total trading volume
+  totalTurnOver: Total turnover
   predictedDeliveryPrice: Est. delivery price
   underlying: Underlying
 
@@ -3426,6 +3450,7 @@ en:
   leavesQty: Unfilled quantity
   createType: Order placement
   cancelType: Order cancelation
+  usdcCrossSeq: System internal param. Just ignore
 
   platFormOrderHistory: platform order history
   querySymbolInfo: Contract Info
@@ -3737,7 +3762,7 @@ en:
   lt_para: The following Leveraged Token endpoints require authentication.
   ltInfo: Asset Info
   row_parameter_etpCode: ETP Asset name
-  spotLtCode: Abbreviation of the LT. Actually only BTC3L,BTC3S,ETH3L,ETH3S,XRP3S,XRP3L,SOL3L,SOL3S available
+  spotLtCode: Abbreviation of the LT. Actually only BTC3L,BTC3S,ETH3L,ETH3S,XRP3S,XRP3L,SOL3L,SOL3S,DOT3L,DOT3S available
   spotResLtCode: Abbreviation of the LT
   spotResLtName: Full name of the LT
   spotResMaxPurchase: Max. purchase amount per transaction
@@ -3816,7 +3841,7 @@ en:
   ct_wallet_balance: Get Wallet Balance
   ct_wallet_transfer: Transfer
   ct_set_leverage: Set Leverage
-
+  ct_set_leverage_desc: Only integers can be set to set the leverage
 
   accountType_copytrade: ""
   copy_trade_row_comment_parentOrderIdNotparentOrderLinkId:  <b>Required</b> if not passing <code>parent_order_link_id</code>
@@ -3875,6 +3900,3 @@ en:
   spotRepaidInterest: Total Interest Repaid
 
   #testnet only
-  usdcOptionOrderType_testnet: refer to <a href="#order-type-type-ordertypes">Order type</a> (Market is only supported currently for IOC（ImmediateOrCancel）orders)
-  usdcOptionPlaceOrderPrice_testnet: Order price. For option, if placeType is 2, the final order price will be calculated by Implied volatility. If orderType is Market, orderPrice is not required.
-  optionIv_testnet: Implied volatility. If orderType is Market, iv can not have value, otherwise the order will fail.

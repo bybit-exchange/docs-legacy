@@ -12,10 +12,6 @@ curl https://api-testnet.bybit.com/contract/v3/private/copytrading/order/create 
 
 ```
 
-```python--old
-
-```
-
 ```python--pybit
 
 ```
@@ -64,10 +60,6 @@ POST
 
 ```console
 curl "https://api-testnet.bybit.com/contract/v3/private/copytrading/order/list?api_key={api_key}&timestamp={timestamp}&sign={sign}&symbol=ETHUSDT"
-```
-
-```python--old
-
 ```
 
 ```python--pybit
@@ -150,10 +142,6 @@ curl https://api-testnet.bybit.com/contract/v3/private/copytrading/order/cancel 
 -d '{"api_key":"{api_key}","orderId":"419190fe-016c-469a-810e-936bef2f5d59","timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
-```python--old
-
-```
-
 ```python--pybit
 
 ```
@@ -201,10 +189,6 @@ POST
 curl https://api-testnet.bybit.com/contract/v3/private/copytrading/order/close \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDT","orderId":"419190fe-016c-469a-810e-936bef2f5d59","timestamp":{timestamp},"sign":"{sign}"}'
-```
-
-```python--old
-
 ```
 
 ```python--pybit
@@ -257,10 +241,6 @@ POST
 
 ```console
 curl "https://api-testnet.bybit.com/contract/v3/private/copytrading/position/list?apiKey={api_key}&symbol=XRPUSDT&timestamp={timestamp}&sign={sign}"
-```
-
-```python--old
-
 ```
 
 ```python--pybit
@@ -367,10 +347,6 @@ curl https://api-testnet.bybit.com/contract/v3/private/copytrading/position/clos
 -d '{"api_key":"{api_key}","symbol":"BTCUSDT",positionIdx:"2","timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
-```python--old
-
-```
-
 ```python--pybit
 
 ```
@@ -414,10 +390,6 @@ curl https://api-testnet.bybit.com/contract/v3/private/copytrading/position/set-
 -d '{"api_key":"{api_key}","symbol":"BTCUSDT","buyLeverage":"14","sellLeverage":"14",timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
-```python--old
-
-```
-
 ```python--pybit
 
 ```
@@ -432,7 +404,7 @@ curl https://api-testnet.bybit.com/contract/v3/private/copytrading/position/set-
 }
 ```
 
-t(:ct_set_leverage)
+t(:ct_set_leverage_desc)
 
 <p class="fake_header">t(:httprequest)</p>
 POST

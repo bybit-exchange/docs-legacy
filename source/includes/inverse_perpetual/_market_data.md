@@ -8,12 +8,6 @@ t(:market_para_auth)
 curl https://api-testnet.bybit.com/v2/public/orderBook/L2?symbol=BTCUSD
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Market.Market_orderbook(symbol="BTCUSD").result())
-```
-
 ```python--pybit
 from pybit import inverse_perpetual
 session_unauth = inverse_perpetual.HTTP(
@@ -78,12 +72,6 @@ GET
 
 ```console
 curl https://api-testnet.bybit.com/v2/public/kline/list?symbol=BTCUSD&interval=1&limit=2&from=1581231260
-```
-
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Kline.Kline_get(symbol="BTCUSD", interval="m", **{'from':1581231260}).result())
 ```
 
 ```python--pybit
@@ -166,12 +154,6 @@ GET
 
 ```console
 curl https://api-testnet.bybit.com/v2/public/tickers
-```
-
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Market.Market_symbolInfo().result())
 ```
 
 ```python--pybit
@@ -304,12 +286,6 @@ GET
 curl https://api-testnet.bybit.com/v2/public/trading-records?symbol=BTCUSD
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Market.Market_tradingRecords(symbol="BTCUSD").result())
-```
-
 ```python--pybit
 from pybit import inverse_perpetual
 session_unauth = inverse_perpetual.HTTP(
@@ -372,12 +348,6 @@ GET
 
 ```console
 curl https://api-testnet.bybit.com/v2/public/symbols
-```
-
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Symbol.Symbol_get().result())
 ```
 
 ```python--pybit
@@ -553,12 +523,6 @@ GET
 curl "https://api-testnet.bybit.com/v2/public/mark-price-kline?symbol=BTCUSD&interval=1&limit=2&from=1581231260"
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Kline.Kline_markPrice(symbol="BTCUSD", interval="30",limit=200, **{'from':1600544880}).result())
-```
-
 ```python--pybit
 print(session_unauth.query_mark_price_kline(
     symbol="BTCUSD",
@@ -624,12 +588,6 @@ GET
 
 ```console
 curl "https://api-testnet.bybit.com/v2/public/index-price-kline?symbol=BTCUSD&interval=1&limit=2&from=1581231260"
-```
-
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Kline.Kline_indexPrice(symbol="BTCUSD", interval="1", **{'from':1615067084}).result())
 ```
 
 ```python--pybit
@@ -701,12 +659,6 @@ GET
 curl "https://api-testnet.bybit.com/v2/public/premium-index-kline?symbol=BTCUSD&interval=1&limit=2&from=1581231260"
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Kline.Kline_premiumIndexPrice(symbol="BTCUSD", interval="1", **{'from':1615067084}).result())
-```
-
 ```python--pybit
 from pybit import inverse_perpetual
 session_unauth = inverse_perpetual.HTTP(
@@ -776,12 +728,6 @@ GET
 curl https://api-testnet.bybit.com/v2/public/open-interest?symbol=BTCUSD&period=5min
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Market.Market_openInterest(symbol="BTCUSD", limit=2, period="5min").result())
-```
-
 ```python--pybit
 from pybit import inverse_perpetual
 session_unauth = inverse_perpetual.HTTP(
@@ -844,12 +790,6 @@ GET
 
 ```console
 curl https://api-testnet.bybit.com/v2/public/big-deal?symbol=BTCUSD
-```
-
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Market.Market_bigDeal(symbol="BTCUSD", limit=2).result())
 ```
 
 ```python--pybit
@@ -918,12 +858,6 @@ GET
 
 ```console
 curl https://api-testnet.bybit.com/v2/public/account-ratio?symbol=BTCUSD&period=5min
-```
-
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Market.Market_accountRatio(symbol="BTCUSD", limit=2, period="5min").result())
 ```
 
 ```python--pybit

@@ -31,7 +31,7 @@
   - t(:restapi_update_20210924)
 
 ### 2021-09-14
-#### Websocket API
+#### WebSocket API
 - [t(:websocketliquidation)](#t-websocketliquidation) [t(:changelog_new)]
   - t(:restapi_update_2021091402)
 
@@ -40,7 +40,7 @@
   - t(:restapi_update_2021091401)
 
 ### 2021-09-03
-#### Websocket API
+#### WebSocket API
 - [t(:websocketinstrumentInfo)](#t-websocketinstrumentinfo) [t(:changelog_update)]
   t(:restapi_update_20210902)
 
@@ -155,7 +155,7 @@
 
 ### 2021-02-02
 
-#### Websocket API
+#### WebSocket API
 
 - Topic <a href="#t-websocketorder">order</a> [t(:changelog_update)]
     - t(:ws_update_20210202_0)
@@ -232,7 +232,7 @@
 
 ### 2020-11-10
 
-#### Websocket API
+#### WebSocket API
 
 ##### t(:restapi_update_20201111_2)
 - Topic <a href="https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/websocket.md#public-topic">orderBook25</a> [t(:changelog_delete)]
@@ -297,7 +297,7 @@
 - [t(:replacecond)](#t-replacecond) [t(:changelog_update)]
      - t(:restapi_update_20200927_1)
 
-#### Websocket API
+#### WebSocket API
 - [t(:ws_update_20200927_1)](#t-websocket) [t(:changelog_update)]
 
 ### 2020-09-15
@@ -401,7 +401,7 @@
 
 ### 2020-03-02
 
-#### Websocket API
+#### WebSocket API
 - [t(:websockettrade)](#t-websockettrade) [t(:changelog_update)]
     - t(:trade___20200302)
 
@@ -435,7 +435,7 @@
 #### REST API
 - [t(:myposition)](#t-myposition) [t(:changelog_new)]
 
-#### Websocket API
+#### WebSocket API
 - [t(:websocketorderbook200)](#t-websocketorderbook200) [t(:changelog_new)]
 
 
@@ -485,7 +485,7 @@
 	- t(:update___20191104)
 	- t(:update____20191104)
 
-#### Websocket API
+#### WebSocket API
 - [t(:websocketklineV2)](#t-websocketklinev2) [t(:changelog_new)]
 - [t(:websocketstoporder)](#t-websocketstoporder) [t(:changelog_new)]
 
@@ -495,7 +495,7 @@
 #### REST API
 - [t(:queryactive)](#t-queryactive) [t(:changelog_new)]
 
-#### Websocket API
+#### WebSocket API
 - [t(:websocketposition)](#t-websocketposition) [t(:changelog_update)]
     - t(:position__20191022)
 - [t(:websockettrade)](#t-websockettrade) [t(:changelog_update)]

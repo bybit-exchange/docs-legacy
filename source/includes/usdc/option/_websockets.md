@@ -149,7 +149,7 @@ t(:spot_websocket_para_response)
   "topic":"orderbook100.BTC-12NOV21-40000-P",
   "creationTime":1636454548726,
   "data":{
-    "orderBooks":[
+    "orderBook":[
     {
       "price":"1764.5",
       "size":"997.99",
@@ -304,6 +304,7 @@ t(:usdc_current_24_total)
 | size |string |t(:row_comment_position_size) |
 | t(:row_parameter_price) |string |t(:row_comment_exec_price) |
 | tradeId |string | t(:tradeId) |
+| crossSeq |string | t(:usdcCrossSeq) |
 
 
 
@@ -368,28 +369,29 @@ t(:usdcLastestSymbolInfo)
 |:----- |:-----|----- |
 | t(:row_parameter_symbol) |string |t(:usdcSymbol) |
 | bidPrice |string |t(:bidPrice) |
-| bidIv |string |t(:bidIv) |
-| bidSize |string |t(:bidSize) |
 | askPrice |string |t(:askPrice) |
+| bidIv |string |t(:bidIv) |
 | askIv |string |t(:askIv) |
+| bidSize |string |t(:bidSize) |
 | askSize |string |t(:askSize) |
-| lastPrice |string |t(:lastPrice) |
-| openInterest |string |t(:openInterest) |
-| indexPrice |string |t(:indexPrice) |
-| markPrice |string |t(:markPrice) |
+| markPrice |string |t(:usdcMarkPrice) |
 | markPriceIv |string |t(:markPriceIv) |
-| price24Pcnt |string |t(:price24Pcnt) |
-| highPrice24h |string |t(:highPrice24h) |
-| lowPrice24h |string |t(:lowPrice24h) |
-| volume24h |string |t(:volume24h) |
-| turnover24h |string |t(:turnover24h) |
-| totalVolume |string |t(:totalVolume) |
-| predictedDeliveryPrice |string |t(:predictedDeliveryPrice) |
-| underlying |string |t(:underlying) |
+| indexPrice |string |t(:usdcIndexPrice) |
+| underlyingPrice |string |t(:underlying) |
+| lastPrice |string |t(:usdcLastPrice) |
 | delta |string |t(:delta) |
 | gamma |string |t(:gamma) |
-| vega |string |t(:vega) |
 | theta |string |t(:theta) |
+| vega |string |t(:vega) |
+| change24h |string |t(:price24Pcnt) |
+| volume24h |string |t(:volume24h) |
+| turnover24h |string |t(:turnover24h) |
+| high24h |string |t(:highPrice24h) |
+| low24h |string |t(:lowPrice24h) |
+| totalVolume |string |t(:totalVolume) |
+| totalTurnOver |string |t(:totalTurnOver) |
+| openInterest |string |t(:openInterest) |
+| predictedDeliveryPrice |string |t(:predictedDeliveryPrice) |
 
 ### t(:websocketinsurance)
 > t(:codequote_subscribe)
@@ -440,32 +442,31 @@ ws.send('{"op":"subscribe","id":"{100002}","args":["user.openapi.option.position
 
 ```javascript
 {
-  "id":"85e87d06-09ed-4b05-9188-4e5a3f072c98",
+    "id":"b9f465ed-0552-45c2-a2d5-362af0bbf939",
     "topic":"user.openapi.option.position",
-    "creationTime":1646192059408,
+    "creationTime":1654746065268,
     "data":{
-    "result":[
-      {
-        "symbol":"BTC-24JUN22-25000-P",
-        "side":"Sell",
-        "size":"-10.0000",
-        "entryPrice":"5915.50000000",
-        "sessionAvgPrice":"5915.50000000",
-        "markPrice":"",
-        "positionIM":"102764.97000000",
-        "positionMM":"42404.80581340",
-        "positionUPL":"",
-        "sessionUPL":"50329.87108660",
-        "sessionRPL":"30353.63366693",
-        "createdAt":1644910387920,
-        "updatedAt":1644910387920,
-        "iv":"0.0000"
-      }
-    ],
-      "version":1,
-      "baseLine":3,
-      "dataType":"NEW"
-  }
+        "result":[
+            {
+                "symbol":"BTC-9JUN22-30500-C",
+                "positionStatus":"",
+                "side":"Sell",
+                "size":"-0.0100",
+                "entryPrice":"20.00000000",
+                "sessionAvgPrice":"20.00000000",
+                "markPrice":"62.2119183",
+                "positionIM":"",
+                "positionMM":"",
+                "sessionUPL":"-0.422119183000",
+                "sessionRPL":"",
+                "createdAt":1654745293038,
+                "updatedAt":1654745293038
+            }
+        ],
+        "version":2,
+        "baseLine":15,
+        "dataType":"NEW"
+    }
 }
 ```
 
@@ -474,29 +475,29 @@ ws.send('{"op":"subscribe","id":"{100002}","args":["user.openapi.option.position
 ```javascript
 
 {
-    "id":"1d055293-3836-4d56-baf2-8dec79d351f5",
+    "id":"70bd3a99-0e80-4713-8cd1-6b8e8befffd9",
     "topic":"user.openapi.option.position",
-    "creationTime":1646213811719,
+    "creationTime":1654745293064,
     "data":{
         "result":[
             {
-                "symbol":"BTC-4MAR22-25000-P",
-                "positionStatus":null,
-                "side":"Buy",
-                "size":"0.8",
-                "entryPrice":"10",
-                "sessionAvgPrice":"10",
-                "markPrice":"0.00000364",
-                "positionIM":"0",
-                "positionMM":"0",
-                "sessionUPL":"-7.999997088",
+                "symbol":"BTC-9JUN22-30500-C",
+                "positionStatus":"",
+                "side":"Sell",
+                "size":"-0.01",
+                "entryPrice":"20.00000000",
+                "sessionAvgPrice":"20.00000000",
+                "markPrice":"65.2197913",
+                "positionIM":"",
+                "positionMM":"",
+                "sessionUPL":"-0.452197913000",
                 "sessionRPL":"",
-                "createdAt":1646213811544,
-                "updatedAt":1646213811544
+                "createdAt":1654745293038,
+                "updatedAt":1654745293038
             }
         ],
-        "version":6,
-        "baseLine":2,
+        "version":2,
+        "baseLine":15,
         "dataType":"CHANGE"
     }
 }
@@ -513,17 +514,18 @@ t(:usdcCommonDesc)
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 | t(:row_parameter_symbol) |string |t(:usdcSymbol) |
+| positionStatus |string |t(:usdcPositionStatus) |
 | t(:row_parameter_side) |string |t(:side) |
-| positionSize |string |t(:usdcSize) |
-| positionAvgPrice |string |t(:entryPrice) |
+| size |string |t(:usdcSize) |
+| entryPrice |string |t(:entryPrice) |
 | sessionAvgPrice |string |t(:sessionAvgPrice) |
-| markPrice |string |t(:markPrice) |
-| sessionUPL |string |t(:sessionUpl) |
+| markPrice |string |t(:usdcMarkPrice) |
 | positionIM |string |t(:im) |
 | positionMM |string |t(:usdcMm) |
-| PNL |string |PNL |
-| ROI |string |ROI |
-
+| sessionUPL |string |t(:sessionUpl) |
+| sessionRPL |string |t(:sessionRpl) |
+| createdAt |number |t(:createdAt) |
+| updatedAt |number |t(:updatedAt) |
 
 ### t(:userFilledHistory)
 > t(:codequote_subscribe)
@@ -547,7 +549,7 @@ ws.send('{"op":"subscribe","id":"{100002}","args":["user.openapi.option.trade"]}
                 "orderLinkId":"",
                 "tradeId":"55565169-2da0-5cb3-9dc8-6669c6d777c9",
                 "symbol":"BTC-4MAR22-42000-P",
-                'side': 'Sell',
+                "side": "Sell",
                 "execPrice":"840",
                 "execQty":"0.04",
                 "execFee":"0.52943604",
@@ -571,8 +573,7 @@ t(:usdcFilledHistory)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| tradeTime|number |t(:tradeTime) |
-| orderId |string |  |
+| orderId |string | t(:usdcOrderId)|
 | orderLinkId |string |t(:orderLinkId) |
 | tradeId |string |t(:usdcTradeId) |
 | t(:row_parameter_symbol) |string |t(:usdcSymbol) |
@@ -580,6 +581,9 @@ t(:usdcFilledHistory)
 | execPrice |string |t(:excPrice) |
 | execQty |string |t(:execQty) |
 | execFee |string |t(:execFee) |
+| feeRate|string |t(:feeRate) |
+| tradeTime|number |t(:tradeTime) |
+| lastLiquidityInd|string |t(:lastLiquidityInd) |
 | execType |string |t(:execType) |
 
 ### t(:activeOrders)
@@ -687,22 +691,28 @@ t(:usdcCommonDesc)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| orderId |string |t(:usdcOrderId) |
-| orderLinkId |string |t(:orderLinkId) |
-| t(:row_parameter_symbol) |string |t(:usdcSymbol) |
-| orderType|string |t(:usdcOrderType) |
-| t(:row_parameter_side) |string |t(:side) |
-| orderAllSize |string |t(:orderAllSize) |
-| orderFilledSize |string |t(:orderFilledSize) |
-| orderPrice |string |t(:usdcOrderPrice) |
-| iv |string |t(:optionIv) |
-| t(:row_parameter_timeInForce) |string |t(:row_comment_timeInForce) |
-| cumExecQty |string |t(:cumExecQty) |
-| cumExecFee |string |t(:cumExecFee) |
-| orderIM |string |t(:im) |
-| orderStatus |string |t(:orderStatus) |
-| reduceOnly |number |t(:reduceOnly) |
-| basePrice |string |t(:basePrice) |
+|orderId|string |t(:usdcOrderId)|
+|orderLinkId |string|t(:orderLinkId)|
+|createdAt|number|t(:createdAt)|
+|updatedAt|number|t(:updatedAt)|
+|t(:row_parameter_symbol) |string|t(:usdcSymbol)|
+|orderStatus |string|t(:orderStatus)|
+|t(:row_parameter_side) |string|t(:side)|
+|t(:row_parameter_price) |string|t(:usdcOrderPrice)|
+|cashFlow|string|t(:cashFlow)|
+|realisedPnl|string|t(:realisedPnl)|
+|qty|string|t(:usdcOrderQty)|
+|cumExecQty |string|t(:cumExecQty)|
+|leavesQty |string|t(:row_comment_leaves_qty)|
+|orderIM |string|t(:im)|
+|orderType |string|t(:row_comment_order_type)|
+|reduceOnly |number|t(:reduceOnly)|
+|t(:row_parameter_timeInForce)|string|t(:row_comment_timeInForce)|
+|cumExecFee |string|t(:cumExecFee)|
+|iv |string|t(:optionIv)|
+|orderPnl |string| Order PNL|
+|cumExecValue |string|t(:cumExecValue)|
+|cancelType|string|t(:usdcCancelType)|
 
 ### t(:userGreeks)
 

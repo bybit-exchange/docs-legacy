@@ -9,10 +9,11 @@ t(:market_para_auth)
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               spot=True)
-print(session.query_symbol())
+from pybit import spot
+session_unauth = spot.HTTP(
+    endpoint="https://api-testnet.bybit.com"
+)
+print(session_unauth.query_symbol())
 ```
 
 > t(:codequote_responseExample)
@@ -37,7 +38,8 @@ print(session.query_symbol())
             "maxTradeQuantity": "2",
             "maxTradeAmount": "200",
             "category": 1,
-            "innovation": false
+            "innovation": false,
+            "showStatus": true
         },
         {
             "name": "ETHUSDT",
@@ -52,7 +54,8 @@ print(session.query_symbol())
             "maxTradeQuantity": "2",
             "maxTradeAmount": "200",
             "category": 1,
-            "innovation": false
+            "innovation": false,
+            "showStatus": true
         }
     ]
 }
@@ -72,21 +75,23 @@ GET
 
 <p class="fake_header">t(:responseparameters)</p>
 
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-| name | string | t(:spotSymbol) |
-| alias | string | t(:spot_Alias)|
-| baseCurrency | string | t(:spotBaseCurrency)|
-| quoteCurrency | string | t(:spotQuoteCurrency)|
-| basePrecision | string |t(:spotBasePrecision)|
-| quotePrecision | string |t(:spotQuotePrecision)|
-| minTradeQuantity | string |t(:spotMinTradeQuantity)|
-| minTradeAmount | string |t(:spotMinTradeAmount)|
-| minPricePrecision | string |t(:spotMinPricePrecision)|
-| maxTradeQuantity | string |t(:spotmaxTradeQuantity)|
-| maxTradeAmount | string |t(:spotmaxTradeAmount)|
-| category | int  |t(:spotCategory)|
-| innovation | boolean |t(:spotInnovation)|
+| t(:column_parameter) |t(:column_type)|t(:column_comments)|
+|:---------------------|:-----|----- |
+| name                 | string | t(:spotSymbol) |
+| alias                | string | t(:spot_Alias)|
+| baseCurrency         | string | t(:spotBaseCurrency)|
+| quoteCurrency        | string | t(:spotQuoteCurrency)|
+| basePrecision        | string |t(:spotBasePrecision)|
+| quotePrecision       | string |t(:spotQuotePrecision)|
+| minTradeQuantity     | string |t(:spotMinTradeQuantity)|
+| minTradeAmount       | string |t(:spotMinTradeAmount)|
+| minPricePrecision    | string |t(:spotMinPricePrecision)|
+| maxTradeQuantity     | string |t(:spotmaxTradeQuantity)|
+| maxTradeAmount       | string |t(:spotmaxTradeAmount)|
+| category             | int  |t(:spotCategory)|
+| innovation           | boolean |t(:spotInnovation)|
+| showStatus           | boolean |t(:spotshowStatus)|
+
 
 
 ### t(:orderbook)
@@ -96,10 +101,11 @@ GET
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               spot=True)
-print(session.orderbook(symbol="BTCUSDT"))
+from pybit import spot
+session_unauth = spot.HTTP(
+    endpoint="https://api-testnet.bybit.com"
+)
+print(session_unauth.orderbook(symbol="BTCUSDT"))
 ```
 
 > t(:codequote_responseExample)
@@ -156,10 +162,11 @@ GET
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               spot=True)
-print(session.merged_orderbook(symbol="BTCUSDT"))
+from pybit import spot
+session_unauth = spot.HTTP(
+    endpoint="https://api-testnet.bybit.com"
+)
+print(session_unauth.merged_orderbook(symbol="BTCUSDT"))
 ```
 
 > t(:codequote_responseExample)
@@ -216,10 +223,11 @@ GET
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               spot=True)
-print(session.public_trading_records(symbol="BTCUSDT"))
+from pybit import spot
+session_unauth = spot.HTTP(
+    endpoint="https://api-testnet.bybit.com"
+)
+print(session_unauth.public_trading_records(symbol="BTCUSDT"))
 ```
 
 > t(:codequote_responseExample)
@@ -282,10 +290,11 @@ GET
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               spot=True)
-print(session.query_kline(
+from pybit import spot
+session_unauth = spot.HTTP(
+    endpoint="https://api-testnet.bybit.com"
+)
+print(session_unauth.query_kline(
     symbol="BTCUSDT",
     interval="1m"
 ))
@@ -363,10 +372,11 @@ t(:spotKlineTimeRemark)
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               spot=True)
-print(session.latest_information_for_symbol(
+from pybit import spot
+session_unauth = spot.HTTP(
+    endpoint="https://api-testnet.bybit.com"
+)
+print(session_unauth.latest_information_for_symbol(
     symbol="BTCUSDT"
 ))
 ```
@@ -433,10 +443,11 @@ t(:spotTicker24hrRemark)
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               spot=True)
-print(session.last_traded_price(
+from pybit import spot
+session_unauth = spot.HTTP(
+    endpoint="https://api-testnet.bybit.com"
+)
+print(session_unauth.last_traded_price(
     symbol="BTCUSDT"
 ))
 ```
@@ -484,10 +495,11 @@ t(:spotTickerPriceRemark)
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               spot=True)
-print(session.best_bid_ask_price(
+from pybit import spot
+session_unauth = spot.HTTP(
+    endpoint="https://api-testnet.bybit.com"
+)
+print(session_unauth.best_bid_ask_price(
     symbol="BTCUSDT"
 ))
 ```

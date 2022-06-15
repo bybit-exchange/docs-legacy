@@ -9,10 +9,6 @@ t(:wallet_para)
 curl "https://api-testnet.bybit.com/contract/v3/private/copytrading/wallet/balance?api_key={api_key}&timestamp={timestamp}&sign={sign}"
 ```
 
-```python--old
-
-```
-
 ```python--pybit
 
 ```
@@ -75,10 +71,6 @@ GET
 curl https://api-testnet.bybit.com/contract/v3/private/copytrading/wallet/transfer \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","transferId":"5f95de18-b10f-43be-9746-7b95c4a37d97","coin":"USDT","amount":"88.88","fromAccountType":"CONTRACT","toAccountType":"COPYTRADING","timestamp":{timestamp},"sign":"{sign}"}'
-
-```
-
-```python--old
 
 ```
 
