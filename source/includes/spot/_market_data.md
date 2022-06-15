@@ -332,6 +332,10 @@ GET
 <code><span id=sqvKline>/spot/quote/v1/kline</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvKline"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
+<aside class="notice">
+t(:spot_kline_latest_records)
+</aside>
+
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
@@ -341,9 +345,6 @@ GET
 | startTime | false | number | t(:spot_orders_start_time) |
 | endTime | false | number | t(:spot_orders_end_time) |
 
-<aside class="notice">
-t(:spot_kline_latest_records)
-</aside>
 
 <p class="fake_header">t(:responseparameters)</p>
 

@@ -1641,10 +1641,10 @@ en:
   account_asset_err_90008: Query transfer ID error
   account_asset_err_90009: Transfer ID already exists
   account_asset_err_90010: The transfer-in account type cannot be used as the transfer-out account type
-  account_asset_err_90011: Failed to get the list of sub-accounts
+  account_asset_err_90011: Failed to get the list of subaccounts
   account_asset_err_90012: Query withdrawal record error
   account_asset_err_90013: Query recharge record error
-  account_asset_err_90014: Not support sub-accounts temporarily
+  account_asset_err_90014: Not support subaccounts temporarily
   account_asset_err_90015: This currency cannot be topped up
   account_asset_err_90016: Recharge chain query error
   account_asset_err_90029: Users in the gray period are not on the whitelist
@@ -2469,7 +2469,7 @@ en:
   restapi_update_20210823: |
     Add additional enums for <code><a href="#wallet-fund-type-wallet_fund_type-type">wallet_fund_type</a></code>: <code>ReturnServiceCash</code>, <code>Insurance</code>, <code>SubMember</code> <code>Coupon</code>, <code>AccountTransfer</code>, <code>CashBack</code>
   restapi_update_20210826: Asset Transfer API released!
-
+  restapi_update_20220610: Universal Transfer released!
   restapi_update_20220519: Withdraw and Deposit Endpoints released!
 
   restapi_update_20220324_1: Add request parameters <code>fromTicketId</code>, <code>toTicketId</code>, <code>orderId</code>
@@ -2847,10 +2847,13 @@ en:
   transfer_api: Transfer Data Endpoints
   transfer_para: The following API data endpoints require authentication.
   createinternaltransfer: Create Internal Transfer
-  trigger_transfer: Transfers funds between the different sections of an individuals account (<i>not</i> between subaccounts). For example, between the spot and derivatives accounts.
+  trigger_transfer: Transfers funds between the different sections of an individual's account (<i>not</i> between subaccounts). For example, between the spot and derivatives accounts.
   transfer_api_notice: |
     Please note that this interface supports Futures Account, Spot Account, Investment Account.
     The <code>transfer_in</code> and <code>transfer_out</code> account types cannot be the same.
+  universaltransferunderstanding_notice: A universal transfer enables you to transfer funds directly between two subaccounts (rather than sub -> master -> sub) and any <a href="#account-type-from_account_type-to_account_type">account type</a> (<code>CONTRACT</code>, <code>SPOT</code>, etc).
+  enableuniversaltransfer_notice: Use this endpoint to enable subaccounts to take part in a universal transfer. It is a one-time switch which, once thrown, enables a subaccount permanently. If not set, your subaccounts cannot use universal tranfers.
+  universaltransfer_join_notice: To send a transfer which is <a href="#account-type-from_account_type-to_account_type">account type</a> & parent/sub agnostic, use the <a href="#t-createuniversaltransfer">Create Universal Transfer</a> endpoint.
   row_comment_transfer_id: UUID, which is unique across the platform
   row_comment_accounttype: Account type
 
@@ -2876,6 +2879,18 @@ en:
   accountType_investment: "- ByFi Account"
 
   accountType_usdc: "- USDC Derivatives Account"
+
+  enableuniversaltransfer: Enable Universal Transfer
+  row_comment_transferable_sub_ids: A comma-separated list of subaccount UIDs, for example "123,45,14,26,46"
+  createuniversaltransfer: Create Universal Transfer
+  row_comment_from_memberId: From UID
+  row_comment_to_memberId: To UID
+  row_comment_from_accountType: From account type. Currently supports <code>SPOT</code> and <code>CONTRACT</code>
+  row_comment_to_accountType: To account type. Currently supports <code>SPOT</code> and <code>CONTRACT</code>
+  getSubmemberIdList: Get Submember Id List
+  queryUniverseTransferList: Query Universal Transfer List
+  row_comment_sub_user_id_list: List of all subaccounts
+  row_comment_transferable_sub_ids_list: List of subaccounts that are universal transfer-enabled
 
   #Withdraw/Deposit API Data Endpoints -- start
   withdraw_and_deposit: Withdraw and Deposit Endpoints

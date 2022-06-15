@@ -2048,7 +2048,7 @@ zh-cn:
   restapi_update_20210712: 優化部分接口出參入參
   restapi_update_20220314: 在<code>ticketInfo</code> topic中增加 <code>m</code> (是 maker)標誌
   restapi_update_20210826: 資產劃轉API發布
-
+  restapi_update_20220610: 萬能劃轉API發布
   restapi_update_20220519: 提現與充值API發布
 
 
@@ -2516,6 +2516,10 @@ zh-cn:
     <p>請註意該接口入參<code>請求</code>數據中的<code>transfer_id</code>字段為<code>UUID</code>全局唯一。</p>
     <p>請註意該接口支持<code>期貨賬戶</code>、<code>現貨賬戶</code>、<code>理財賬戶</code>。</p>
     <p>轉入和轉出賬戶類型不能相同。</p>
+  universaltransferunderstanding_notice: 萬能轉賬使您可以在兩個子賬戶（而不是子 -> 主 -> 子）和任何<a href="#account-type-from_account_type-to_account_type">賬戶類型</a>（<code> 合同</code>、<code>SPOT</code>等）之間劃轉。
+  enableuniversaltransfer_notice: 你需要通過這個接口來設置可互相劃轉的子賬號。如果不設置，這些賬戶之間不能互相劃轉
+  universaltransfer_join_notice: 要發送<a href="#account-type-from_account_type-to_account_type">賬戶類型</a>和父子不可知的轉賬，請使用<a href="#t-createuniversaltransfer">創建萬能轉賬</a> 接口。
+
   createsubaccounttransfer_api_notice:
     <p>請註意該接口入參<code>請求</code>數據中的<code>transfer_id</code>字段為<code>UUID</code>全局唯一。</p>
     <p>該接口只能用於母子賬號之間的劃轉。</p>
@@ -2542,6 +2546,18 @@ zh-cn:
   accountType_contract: 期貨賬戶
   accountType_investment: 理財賬戶
   accountType_usdc: "- USDC衍生品賬戶"
+
+  enableuniversaltransfer: 配置可互相劃轉的子賬號列表
+  row_comment_transferable_sub_ids: 逗號隔開的id列表，例：123,45,14,26,46
+  createuniversaltransfer: 萬能劃轉
+  row_comment_from_memberId: 劃出的賬號uid
+  row_comment_to_memberId: 劃入的賬號uid
+  row_comment_from_accountType: 劃出賬戶類型，目前只支持："SPOT"、"CONTRACT"
+  row_comment_to_accountType: 劃入賬戶類型，目前只支持："SPOT"、"CONTRACT"
+  getSubmemberIdList: 查詢子賬戶列表
+  queryUniverseTransferList: 查詢萬能劃轉記錄
+  row_comment_sub_user_id_list: 所有子賬號列表
+  row_comment_transferable_sub_ids_list: 所有可互相劃轉的子賬號列表
 
 #充值/提現API數據接口 -- 開始
   withdraw_and_deposit: 充值與提現接口
