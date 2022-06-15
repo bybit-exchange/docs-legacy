@@ -401,7 +401,7 @@ POST
 ### t(:usdcCancelAll)
 
 ```console
-curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/cancel-order \
+curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/cancel-all \
 -H "Content-Type: application/json" \
 -D '{}'
 
@@ -453,6 +453,8 @@ POST
 |symbol|string|t(:usdcSymbol)|
 |orderId|string|t(:usdcOrderId)|
 |orderLinkId|string|t(:orderLinkId)|
+|errorCode |string|t(:usdcErrorCode)|
+|errorDesc |string|t(:usdcErrorDesc)|
 
 
 ### t(:usdcQryUnOrPartFilled)

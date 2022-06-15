@@ -23,9 +23,6 @@ t(:spot_auth_aside_timestamp)
 t(:usdc_auth_para_construct1)
 t(:auth_para_construct2)
 
-<aside class="notice">
-t(:auth_aside_signature)
-</aside>
 > t(:auth_codequote_construct3)
 
 ```console
@@ -82,6 +79,10 @@ print(response.text)
 
 
 t(:auth_para_construct3)
+
+<aside class="notice">
+t(:auth_aside_signature)
+</aside>
 
 
 <!--
