@@ -325,6 +325,8 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/query-trade-la
     "retMsg": "Success."
 }
 ```
+t(:usdcLast500TradeDesc)
+
 <p class="fake_header">t(:httprequest)</p>
 GET
 <code><span id=usdcTradeLastest>/option/usdc/openapi/public/v1/query-trade-latest</span></code>
