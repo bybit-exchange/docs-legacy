@@ -41,11 +41,11 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b>|string|t(:usdcSymbol)|
-|orderType|<b>true</b>|string|t(:usdcOrderType)|
+|orderType|<b>true</b>|string|t(:usdcOptionOrderType)|
 |t(:row_parameter_side) |<b>true</b>|string|t(:side)|
-|orderPrice|false|string|t(:usdcPlaceOrderPrice)|
+|orderPrice|false|string|t(:usdcOptionPlaceOrderPrice)|
 |orderQty|<b>true</b>|string|t(:usdcOrderQty)|
-|iv|false|string|t(:optionIv)|
+|iv|false|string|t(:optionIv_order)|
 |t(:row_parameter_timeInForce)|false|string|t(:row_comment_timeInForce)|
 |orderLinkId|<b>true</b>|string|t(:orderLinkId)|
 |reduceOnly|false|bool|t(:reduceOnly)|
@@ -120,11 +120,11 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b>|string|t(:usdcSymbol)|
-|orderType|<b>true</b>|string|t(:usdcOrderType)|
+|orderType|<b>true</b>|string|t(:usdcOptionOrderType)|
 |t(:row_parameter_side) |<b>true</b>|string|t(:side)|
-|orderPrice|false|string|t(:usdcPlaceOrderPrice)|
+|orderPrice|false|string|t(:usdcOptionPlaceOrderPrice)|
 |orderQty|<b>true</b>|string|t(:usdcOrderQty)|
-|iv|false|string|t(:optionIv)|
+|iv|false|string|t(:optionIv_order)|
 |t(:row_parameter_timeInForce)|false|string|t(:row_comment_timeInForce)|
 |orderLinkId|<b>true</b>|string|t(:orderLinkId)|
 |reduceOnly|false|bool|t(:reduceOnly)|
@@ -143,6 +143,9 @@ POST
 |orderQty|string|t(:usdcOrderQty)|
 |orderType|string|t(:uscdOrderType)|
 |t(:row_parameter_side) |string|t(:side)|
+|extMap |map|t(:usdcExtMap)|
+|errorCode |string|t(:usdcErrorCode)|
+|errorDesc |string|t(:usdcErrorDesc)|
 
 ### t(:usdcReplaceOrder)
 
@@ -197,7 +200,7 @@ POST
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|outRequestId|string|t(:optionOutRequestId)|
+|outRequestId|string|t(:outRequestId)|
 |symbol|string|t(:usdcSymbol)|
 |orderId|string|t(:usdcOrderId)|
 |orderLinkId|string|t(:orderLinkId)|
@@ -266,11 +269,13 @@ POST
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|outRequestId|string|t(:optionOutRequestId)|
+|outRequestId|string|t(:outRequestId)|
 |symbol|string|t(:usdcSymbol)|
 |orderId|string|t(:usdcOrderId)|
 |orderLinkId|string|t(:orderLinkId)|
-
+|extMap |map|t(:usdcExtMap)|
+|errorCode |string|t(:usdcErrorCode)|
+|errorDesc |string|t(:usdcErrorDesc)|
 
 
 ### t(:usdcCancelOrder)
@@ -322,7 +327,7 @@ POST
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|outRequestId|string|t(:optionOutRequestId)|
+|outRequestId|string|t(:outRequestId)|
 |symbol|string|t(:usdcSymbol)|
 |orderId|string|t(:usdcOrderId)|
 |orderLinkId|string|t(:orderLinkId)|
@@ -385,17 +390,18 @@ POST
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|outRequestId|string|t(:optionOutRequestId)|
+|outRequestId|string|t(:outRequestId)|
 |symbol|string|t(:usdcSymbol)|
 |orderId|string|t(:usdcOrderId)|
 |orderLinkId|string|t(:orderLinkId)|
-
+|errorCode |string|t(:usdcErrorCode)|
+|errorDesc |string|t(:usdcErrorDesc)|
 
 
 ### t(:usdcCancelAll)
 
 ```console
-curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/cancel-order \
+curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/cancel-all \
 -H "Content-Type: application/json" \
 -D '{}'
 
@@ -443,10 +449,12 @@ POST
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|outRequestId|string|t(:optionOutRequestId)|
+|outRequestId|string|t(:outRequestId)|
 |symbol|string|t(:usdcSymbol)|
 |orderId|string|t(:usdcOrderId)|
 |orderLinkId|string|t(:orderLinkId)|
+|errorCode |string|t(:usdcErrorCode)|
+|errorDesc |string|t(:usdcErrorDesc)|
 
 
 ### t(:usdcQryUnOrPartFilled)
@@ -546,7 +554,7 @@ POST
 |takeProfit |string|t(:takeProfit)|
 |cumExecValue |string|t(:cumExecValue)|
 |createdAt |number|t(:createdAt)|
-|orderPnl |string| Order PNL|
+|orderPnl |string|t(:usdcOrderPnl)|
 |t(:row_parameter_price) |string|t(:usdcOrderPrice)|
 |tpTriggerBy |string|t(:usdcTptriggerby)
 |t(:row_parameter_timeInForce)|string|t(:row_comment_timeInForce)|
@@ -671,7 +679,7 @@ POST
 |orderStatus |string|t(:orderStatus)|
 |takeProfit |string|t(:takeProfit)|
 |createdAt|number|t(:createdAt)|
-|orderPnl |string| Order PNL|
+|orderPnl |string|t(:usdcOrderPnl)|
 |t(:row_parameter_price) |string|t(:usdcOrderPrice)|
 |tpTriggerBy |string|t(:usdcTptriggerby)
 |t(:row_parameter_timeInForce)|string|t(:row_comment_timeInForce)|
@@ -942,8 +950,8 @@ POST
 |:----- |:-----|----- |
 |walletBalance|string|t(:cashBalance)
 |accountMM|string|t(:accountMm)|
-|accountMM|string|t(:accountMm)|
 |bonus|string|t(:bonus)|
+|accountIM|string|t(:accountIm)|
 |totalSessionRPL|string|t(:totalSessionRpl)|
 |equity|number|t(:equity)|
 |totalRPL|string|t(:totalRpl)|

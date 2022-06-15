@@ -75,7 +75,7 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|position_idx |<b>true</b>|integer |t(:row_comment_position_idx)  |
+|position_idx |false|integer |t(:row_comment_position_idx_create_order_inverse_futures)  |
 |t(:row_parameter_side) |<b>true</b> |string |t(:row_comment_side)    |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)   |
 |t(:row_parameter_order_type) |<b>true</b> |string |t(:row_comment_activeOrderType)   |
@@ -687,7 +687,8 @@ print(session_auth.place_conditional_order(
     stop_px=8150,
     time_in_force="GoodTillCancel",
     order_link_id="cus_order_id_1"
-))```
+))
+```
 
 > t(:codequote_responseExample)
 
@@ -732,7 +733,7 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|position_idx |<b>true</b>|integer |t(:row_comment_position_idx)  |
+|position_idx |false|integer |t(:row_comment_position_idx_create_order_inverse_futures)  |
 |t(:row_parameter_side) |<b>true</b> |string |t(:row_comment_side)    |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
 |t(:row_parameter_order_type) |<b>true</b> |string |t(:row_comment_stopOrderType) |

@@ -32,6 +32,8 @@ zh-cn:
   row_comment_position_idx: Position idx, 用於在不同倉位模式下標識倉位：<br/>0-單向持倉 <br/>1-雙向持倉Buy<br/> 2-雙向持倉Sell
   row_comment_position_idx_create_order: |
     Position idx, 用於在不同倉位模式下標識倉位。 如果是<b>單向持倉</b>模式， 該參數為<b>必填</b><span>:</span> <br/>0-單向持倉 <br/>1-雙向持倉Buy<br/> 2-雙向持倉Sell
+  row_comment_position_idx_create_order_inverse_futures: |
+    Position idx, 用於在不同倉位模式下標識倉位。 如果是<b>雙向持倉</b>模式， 該參數為<b>必填</b><span>:</span> <br/>0-單向持倉 <br/>1-雙向持倉Buy<br/> 2-雙向持倉Sell
   row_comment_position_idx_leverage: 已廢棄!! Position idx
   row_comment_position_mode: 倉位模式
   row_comment_position_size: 倉位數量
@@ -231,6 +233,7 @@ zh-cn:
   row_comment_resp_prev_price_1h_e4: （已廢棄）1小時前的整點市價 * 10^4
   row_comment_resp_price_1h_pcnt: 市價相對1小時前變化百分比
   row_comment_resp_price_1h_pcnt_e6: 市價相對1小時前變化百分比 * 10^6
+  row_comment_resp_price_24h_pcnt_e6: 市價相對24小時前變化百分比 * 10^6
   row_comment_resp_mark_price: 標記價格
   row_comment_resp_mark_price_e4: （已廢棄）標記價格 * 10^4
   row_comment_resp_index_price: 指數價格
@@ -247,6 +250,7 @@ zh-cn:
   row_comment_resp_total_volume: 總交易量
   row_comment_resp_total_volume_e8: 總交易量 * 10^8
   row_comment_resp_volume_24h: 最近 24 小時成交量
+  row_comment_resp_volume_24h_e8: 最近 24 小時成交量 * 10^8
   row_comment_resp_funding_rate: 資金費率
   row_comment_resp_funding_rate_e6: 資金費率 * 10^6
   row_comment_resp_predicted_funding_rate: 預測資金費率
@@ -2707,7 +2711,7 @@ zh-cn:
   usdcLow24h: 24小時最低價
   usdcVolume24h: 24小時成交量
   usdcTurnover24h: 24小時成交額
-  usdcTotalVolume: 24小時成交額
+  usdcTotalVolume: 總成交量
 
   usdcTotalTurnover: 總成交額
   usdcPredictedDeliveryPrice: 預期交割價
@@ -2894,10 +2898,18 @@ zh-cn:
   usdc_order_book_path: 期權業務：category=option, 期貨業務：category=perpetual
   usdc_order_book_desc: 獲取Bybit當前Orderbook信息，買/賣側各25檔.
   usdc_tick_desc: 該接口僅限期權使用
+  usdcExtMap: 當失敗時，map中返回具體錯誤內容
+  usdcErrorCode: 錯誤碼. <code>0</code>表示成功
+  usdcErrorDesc: 錯誤描述訊息
+  outRequestId: 系統內部使用字段，無實際意義，請忽略
 
 
 
-  usdcOrderType: 參考 <a href="#order-type-type-ordertypes">訂單類型</a> （期權暫時不支持市價委託）
+  usdcOrderType: 參考 <a href="#order-type-ordertype">訂單類型</a> （期權暫時不支持市價委託）
+  usdcOptionOrderType: 參考<a href="#order-type-ordertype">下單類型</a>（市場目前僅支持IOC（ImmediateOrCancel）訂單）
+  usdcOptionPlaceOrderPrice: 下單價格。 對於期權，如果 iv有值，則最終訂單價格將通過隱含波動率計算。 如果 orderType 是 Market，則不需要 orderPrice。
+  optionIv_order: 隱含波動率。 如果 orderType 是 Market，iv 不能有值，否則訂單會失敗。
+
   optionIv: 期權iv, 小數點後保留叁位小數
   optionPlaceMode: 期權下單模式，高級或者是基礎模式下單,期貨不需傳，期權需要。 1：基礎模式下單，2：高級模式下單。如果1，orderQty和orderPrice是必傳字段。如果是2， 參照 placeType.
   optionPlaceType: 期權下單類型，價格或者iv下單.1：價格下單，2：iv下單。如果是1，則orderQty和orderPrice是必傳字段，為2表示iv和orderQty為必傳字段。
@@ -2939,6 +2951,8 @@ zh-cn:
   orderStatus: <a href="#order-status-status">訂單狀態</a>
   lastExecPrice: 最近一次成交價
   basePrice: 下單時市價
+  perpBasePrice: |
+    下單時市價. <code>orderFilter</code>為StopOrder時必傳. 用於和triggerPrice值進行比較，確定當前條件委托是看空到triggerPrice時觸發還是看多到triggerPrice觸發。主要是用來標識當前條件單預期的方向
   createdAt: 創建時間
   cashFlow: 現金流
   realisedPnl: 平倉累計損益
@@ -3074,6 +3088,7 @@ zh-cn:
   leavesQty: 剩餘委託數量
   createType: 下單操作的觸發場景
   cancelType: 取消操作的觸發場景
+  usdcCrossSeq: 系統內部使用字段，無實際意義，請忽略
 
   platFormOrderHistory: 平台歷史交易數據
   querySymbolInfo: 查詢合約信息
@@ -3095,7 +3110,7 @@ zh-cn:
   usdcLimitMax500: 默認500
 
   websocket_aside_heartbeat_option: |
-    <p>客戶端需要定時發送"ping"給Bybit，Bybit服務器返回heartbeat"pong"來顯示客戶端和服務器之間的連接正常。建議至少每30s發送一次。</p>
+    <p>客戶端需要定時發送"ping"給Bybit，Bybit服務器返回heartbeat"pong"來顯示客戶端和服務器之間的連接正常。建議至少每20s發送一次，最長每30s發送一次。</p>
     <p>如果客戶端沒有正常收到heartbeat的反饋，則需要檢查網絡連接狀態，並重新連接服務器。</p>
     <p>如Bybit服務器，超過3分鐘沒有收到客戶端的"ping"，則服務器會判定客戶端已斷開鏈接（如實際未斷開，此時Bybit服務端也會主動斷開鏈接）。</p>
     <p>如果服務器判定並斷開鏈接，且客戶處於開啟"斷線保護"的狀態，則客戶所有的Active order也會被自動全部取消。</p>
@@ -3449,7 +3464,7 @@ zh-cn:
   ct_wallet_balance: 交易員獲取錢包余額
   ct_wallet_transfer: 交易員劃轉資金
   ct_set_leverage: 交易員設置帶單槓桿
-
+  ct_set_leverage_desc: 設置槓桿只能設置整數
 
   accountType_copytrade: 跟單交易帳戶
   copy_trade_row_comment_parentOrderIdNotparentOrderLinkId: 訂單ID。如果未填parent_order_link_id則為<b>必填</b>字段。
@@ -3509,6 +3524,3 @@ zh-cn:
   spotRepaidInterest: 該筆還幣交易已還利息
 
   #testnet only
-  usdcOptionOrderType_testnet: 參考<a href="#order-type-type-ordertypes">下單類型</a>（市場目前僅支持IOC（ImmediateOrCancel）訂單）
-  usdcOptionPlaceOrderPrice_testnet: 下單價格。 對於期權，如果 placeType 為 2，則最終訂單價格將通過隱含波動率計算。 如果 orderType 是 Market，則不需要 orderPrice。
-  optionIv_testnet: 隱含波動率。 如果 orderType 是 Market，iv 不能有值，否則訂單會失敗。

@@ -75,3 +75,11 @@ t(:usdc_perp_price_rule)
 
 ## Exec Type (`execType`)
 * `TRADE`
+
+## Tick Direction(`tickDirection`)
+t(:tick_direction)
+
+* `PlusTick` t(:plusTick)
+* `ZeroPlusTick` t(:zeroPlusTick)
+* `MinusTick` t(:minusTick)
+* `ZeroMinusTick` t(:zeroMinusTick)

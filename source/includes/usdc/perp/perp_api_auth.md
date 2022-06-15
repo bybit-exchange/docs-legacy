@@ -23,6 +23,28 @@ t(:spot_auth_aside_timestamp)
 t(:usdc_auth_para_construct1)
 t(:auth_para_construct2)
 
+> t(:auth_codequote_construct3)
+
+```console
+POST 'https://api.bybit.com/option/usdc/openapi/private/v1/place-order'
+X-BAPI-API-KEY: your api key
+X-BAPI-SIGN: 6c864f0f0d332133b79de911387c6408ae0d189609c485b9a132fd5ec3beb2ee'
+X-BAPI-SIGN-TYPE: 2
+X-BAPI-TIMESTAMP: 1655197818844
+X-BAPI-RECV-WINDOW: 5000
+Content-Type: application/json
+
+{
+    "side": "Buy",
+    "symbol": "BTC-14JUN22-24500-C",
+    "orderType": "Market",
+    "orderQty": "0.5",
+    "orderPrice": "500",
+    "orderLinkId": "option10005",
+    "reduce_only": false
+}
+```
+
 ```python
 import requests
 import json
@@ -57,6 +79,10 @@ print(response.text)
 
 
 t(:auth_para_construct3)
+
+<aside class="notice">
+t(:auth_aside_signature)
+</aside>
 
 
 <!--

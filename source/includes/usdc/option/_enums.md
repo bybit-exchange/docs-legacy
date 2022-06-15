@@ -17,6 +17,7 @@ t(:usdc_trading_symbol_comment)
 
 ## Order type (`orderType`)
 * `Limit`
+* `Market`
 
 
 ## Currency (`currency`/`coin`)

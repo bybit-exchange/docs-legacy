@@ -32,6 +32,8 @@ en:
     Position idx, used to identify positions in different position modes<span>:</span> <br/>0-One-Way Mode <br/>1-Buy side of both side mode <br/> 2-Sell side of both side mode
   row_comment_position_idx_create_order: |
     Position idx, used to identify positions in different position modes. <b>Required</b> if you are under One-Way Mode<span>:</span> <br/>0-One-Way Mode <br/>1-Buy side of both side mode <br/> 2-Sell side of both side mode
+  row_comment_position_idx_create_order_inverse_futures: |
+    Position idx, used to identify positions in different position modes. <b>Required</b>if you are under Hedge Mode<span>:</span> <br/>0-One-Way Mode <br/>1-Buy side of both side mode <br/> 2-Sell side of both side mode
   row_comment_position_idx_leverage: Deprecated!! Position idx
   row_comment_position_mode: Position mode
   row_comment_position_size: Position qty
@@ -250,6 +252,7 @@ en:
   row_comment_resp_prev_price_1h_e4: (Deprecated) Hourly market price an hour ago * 10^4
   row_comment_resp_price_1h_pcnt: Percentage change of market price relative to 1 hour ago
   row_comment_resp_price_1h_pcnt_e6: Percentage change of market price relative to 1 hour ago * 10^6
+  row_comment_resp_price_24h_pcnt_e6: Percentage change of market price relative to 24 hour ago * 10^6
   row_comment_resp_mark_price: Mark price
   row_comment_resp_mark_price_e4: (Deprecated) Mark price * 10^4
   row_comment_resp_index_price: Index_price
@@ -3242,10 +3245,18 @@ en:
   usdc_order_book_path: Options：category=option, Perpetual：category=perpetual
   usdc_order_book_desc: Query order book info. Each side has a depth of 25 orders.
   usdc_tick_desc: (Options only)
+  usdcExtMap: Map has specific error details when failed, else null.
+  usdcErrorCode: Error code. <code>0</code>means success.
+  usdcErrorDesc: Error description
+  outRequestId: System internal param. Just ignore
 
 
 
-  usdcOrderType: refer to <a href="#order-type-type-ordertypes">Order type</a> (MARKET is not supported currently for Options)
+  usdcOrderType: refer to <a href="#order-type-ordertype">Order type</a> (MARKET is not supported currently for Options)
+  usdcOptionOrderType: refer to <a href="#order-type-ordertype">Order type</a> (Market is only supported currently for IOC（ImmediateOrCancel）orders)
+  usdcOptionPlaceOrderPrice: Order price. For option, if iv has value, the final order price will be calculated by Implied volatility. If orderType is Market, orderPrice is not required.
+  optionIv_order: Implied volatility. If orderType is Market, iv is not required, otherwise the order will fail.
+
   optionIv: Implied volatility
   optionPlaceMode: Order mode, can be Advanced or Basic.For Perpetual, can be empty,But for Option, can not be empty.Number 1 is basic and number 2 is advanced.If 1, <code>orderQty</code> and <code>orderPrice</code> can not be empty. If 2, refer to <code>placeType</code>.
   optionPlaceType: Order type, can be price or implied volatility.Number 1 is price and number 2 is implied volatility. If 1,orderQty and orderPrice can not be empty. If 2, <code>iv</code> and <code>orderQty</code> can not be empty.
@@ -3287,6 +3298,8 @@ en:
   orderStatus: <a href="#order-status-status">Order status</a>
   lastExecPrice: Filled price
   basePrice: Market price during order placement
+  perpBasePrice: |
+    When <code>OrderFilter</code> is StopOrder REQUIRED. It will be used to compare with the value of <code>triggerPrice</code>, to decide whether your stop order will be triggered by crossing trigger price from upper side or lower side. Mainly used to identify the expected direction of the current stop order.
   createdAt: Creation time
   cashFlow: Cash flow
   realisedPnl: Closed P&L
@@ -3422,6 +3435,7 @@ en:
   leavesQty: Unfilled quantity
   createType: Order placement
   cancelType: Order cancelation
+  usdcCrossSeq: System internal param. Just ignore
 
   platFormOrderHistory: platform order history
   querySymbolInfo: Contract Info
@@ -3812,7 +3826,7 @@ en:
   ct_wallet_balance: Get Wallet Balance
   ct_wallet_transfer: Transfer
   ct_set_leverage: Set Leverage
-
+  ct_set_leverage_desc: Only integers can be set to set the leverage
 
   accountType_copytrade: ""
   copy_trade_row_comment_parentOrderIdNotparentOrderLinkId:  <b>Required</b> if not passing <code>parent_order_link_id</code>
@@ -3871,6 +3885,3 @@ en:
   spotRepaidInterest: Total Interest Repaid
 
   #testnet only
-  usdcOptionOrderType_testnet: refer to <a href="#order-type-type-ordertypes">Order type</a> (Market is only supported currently for IOC（ImmediateOrCancel）orders)
-  usdcOptionPlaceOrderPrice_testnet: Order price. For option, if placeType is 2, the final order price will be calculated by Implied volatility. If orderType is Market, orderPrice is not required.
-  optionIv_testnet: Implied volatility. If orderType is Market, iv can not have value, otherwise the order will fail.
