@@ -740,6 +740,14 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#2022-06-16" class="toc-h2 toc-link" data-title="2022-06-16">2022-06-16</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
                     <a href="#2022-06-02" class="toc-h2 toc-link" data-title="2022-06-02">2022-06-02</a>
                       <ul class="toc-list-h3">
                           <li>
@@ -829,6 +837,9 @@
                           </li>
                           <li>
                             <a href="#t-assetinfo" class="toc-h3 toc-link" data-title="Asset Info">Asset Info</a>
+                          </li>
+                          <li>
+                            <a href="#t-setmarginmode" class="toc-h3 toc-link" data-title="Set Margin Mode">Set Margin Mode</a>
                           </li>
                           <li>
                             <a href="#t-querymarginmode" class="toc-h3 toc-link" data-title="Query Margin Mode">Query Margin Mode</a>
@@ -1034,7 +1045,15 @@ clipboard.on('error', function(e) {
 </script>
 <h1 id='t-introduction'>Group And Resources</h1><h5 id='t-intro_para'><p><a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common errors.</p> <p>For further assistance or feedback, please join the <a href="https://t.me/BybitAPI">API Telegram chat</a>! API discussion group on Telegram.</p></h5><h3 id='t-resources'>Group And Bybit API Resources</h3>
 <p><ul class="bybit-community"> <li><img src="../../images/help_favicon-06f791dd.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>Official Python SDK</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> </ul></p>
-<h1 id='t-changelog'>Changelog</h1><h2 id='2022-06-02'>2022-06-02</h2><h3 id='websocket-api'>WebSocket API</h3>
+<h1 id='t-changelog'>Changelog</h1><h2 id='2022-06-16'>2022-06-16</h2><h3 id='rest-api'>REST API</h3>
+<ul>
+<li><a href="#t-setmarginmode">Set Margin Mode</a> [new]
+
+<ul>
+<li>Add Set Margin Mode API for USDC</li>
+</ul></li>
+</ul>
+<h2 id='2022-06-02'>2022-06-02</h2><h3 id='websocket-api'>WebSocket API</h3>
 <ul>
 <li><a href="#t-usermmpevent">mmpevent</a> [new]
 
@@ -3990,6 +4009,65 @@ The endpoint only supports up to 30 days of queried records. An error will be re
 <td>Maintenance margin</td>
 </tr>
 </tbody></table>
+<h3 id='t-setmarginmode'>Set Margin Mode</h3>
+<aside class="notice">
+If USDC derivatives account balance is greater than X, you can open PORTFOLIO_MARGIN, and if it is less than Y, it will automatically close PORTFOLIO_MARGIN and change back to REGULAR_MARGIN. X and Y will be adjusted according to operational requirements.
+</aside>
+
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">
+curl https://api-testnet.bybit.com/option/usdc/private/asset/account/setMarginMode \
+-H "Content-Type: application/json" \
+-D '{"setMarginMode":"PORTFOLIO_MARGIN"}'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+</code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Request accepted</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">reasons</span><span class="dl">"</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>POST
+<code><span id=setMarginMode>/option/usdc/private/asset/account/setMarginMode</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#setMarginMode"><img src="../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">setMarginMode</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Margin mode <a href="#margin-mode-marginmode">Margin Mode</a></td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+</tbody></table>
 <h3 id='t-querymarginmode'>Query Margin Mode</h3>
 <p>For USDC ACCOUNT.</p>
 
@@ -6550,6 +6628,18 @@ At 0:00, 8:00, and 16:00 UTC+0, the insurance fund will be pushed.
 <tr>
 <td>3200200</td>
 <td>Insufficient margin balance.</td>
+</tr>
+<tr>
+<td>3400001</td>
+<td>Please ensure that there are no positions in your USDC account, including USDC perpetual and options</td>
+</tr>
+<tr>
+<td>3400002</td>
+<td>Please ensure that there are no active orders in your USDC account, including Limit, Market and Conditional orders</td>
+</tr>
+<tr>
+<td>3400005</td>
+<td>Set margin mode failed</td>
 </tr>
 <tr>
 <td>3400015</td>
