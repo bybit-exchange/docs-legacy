@@ -3541,3 +3541,211 @@ zh-cn:
   spotRepaidInterest: 該筆還幣交易已還利息
 
   #testnet only
+
+  # Derivatives V3
+  derivativesV3: 衍生品v3
+  # public param comment used in v3
+  dv3_category: 衍生品產品類型.
+  dv3_categorySuffix_1: 目前僅支持正向合約：linear; 反向合約：inverse(包含inverse futures)
+  dv3_categorySuffix_2: 目前僅支持正向合約：linear; 反向合約：inverse; 期權：option
+  dv3_categorySuffix_3: 目前僅支持正向合約：linear; 反向合約：inverse
+  dv3_categorySuffix_4: 目前僅支持正向合約：linear; 期權：option
+  dv3_categorySuffix_5: 目前僅支持正向合約：linear; 期權：option。只能傳一個參數
+  dv3_categorySuffix_6: 目前僅支持正向合約：linearUSDC, linearUSDT; 反向合約：inverse; 期權：option
+  dv3_categorySuffix_7: 目前僅支持正向合約：linear
+  dv3_categorySuffix_8: 目前僅支持期權：option
+  dv3_categorySuffix_9: 目前僅支持正向合約：linear，且僅支持USDC Perpetual
+
+  ## Market
+  # kline
+  # reqParam
+  dv3_klineInterval: K線時間粒度. 枚舉值： 1 3 5 15 30 60 120 240 360 720 "D" "M" "W"
+
+  # respParam
+
+  dv3_klineRespStart: 開盤時間(單位毫秒)
+  dv3_klineRespClose: 結束價格(當前K線未結束的為最新價格)
+  dv3_klineRespVolume: 交易量, 單位為合約張數
+  dv3_klineRespTurnover: 成交金額, 單位為計價貨幣數量
+
+  # markPriceKline
+  # reqParam
+
+  # respParam
+
+  # indexPriceKline
+  # reqParam
+  # respParam
+
+
+  # orderbook
+  # reqParam
+  dv3_orderbookPara: 增加500檔位的OrderBook數據
+  dv3_orderbookLimit: 默認25. 可選值25和500
+  # respParam
+
+  dv3_orderbookBids: 買方. 排序按照價格從小到大
+  dv3_orderbookAsks: 賣方. 排序按照價格從小到大
+  dv3_orderbookUpdateId: 表示數據連續性的id
+  dv3_orderbookTimeStamp: 時間戳, 精度毫秒
+
+  # instrumentsInfo
+  dv3_instrHead: 查询衍生品交易规格
+  dv3_marketInstrPara: 獲取可交易的衍生品信息列表
+  # reqParam
+
+  dv3_pageDirection: 翻頁方向, prev向前， next向後
+  dv3_cursor: API pass-through
+  # respParam
+  dv3_instrContractType: 合約類型. 正向合約：linear;反向合約：inverse. 僅適用於交割/永續
+  dv3_instrBaseCoin: 交易貨幣幣種, 如BTC-USDT中的BTC. 僅適用於幣幣
+  dv3_instrQuoteCoin: 計價貨幣幣種, 如BTC-USDT中的USDT. 僅適用於幣幣
+  dv3_instrSettleCoin: 盈虧結算和保證金幣種, 如BTC. 僅適用交割/永續/期權
+  dv3_OptionType: 期權類型. Call/Put
+  dv3_instrLaunchTime: 上線時間
+  dv3_instrDeliveryTime: 到期日/交割/行權時間. 永續合約返回<code>perpetual</code>
+  dv3_instrPriceScale: 價格範圍
+
+  dv3_instrMaxOrderQty: 單筆訂單最大交易數量
+  dv3_instrMinOrderQty: 單筆訂單最小交易數量
+
+
+  # tickers
+  dv3_tickerHead: 衍生品最新行情信息
+  dv3_marketTickerPara: 所有衍生品產品最新行情信息
+  # reqParam:
+  dv3_tickerSymbol: 合約類型. 若category是<code>option</code>則必傳
+  # respParam
+
+  dv3_tickPredictedDeliveryPrice: 預期交割價, 僅交割合約. category為期權時, 顯示期權的預估交割價格
+
+  dv3_openInterestRespValue: 未平倉合約價值
+
+  dv3_tickDeliveryFeeRate: 交割費率, 僅交割合約有效. category為期權時, 顯示期權的交割費率
+
+  dv3_tickBasisRate: 交割合約基差率
+
+  # historyFundingRate
+  dv3_historyFundingRateHead: 查詢歷史資金費率
+  # reqParam
+
+  # respParam
+
+
+  # rateLimit
+  # reqParam
+  dv3_riskLimitHead: 查詢風險限額表
+
+  # respParam
+
+  dv3_riskInitialMargin: 起始保證金
+
+
+  # optionDeliveryPrice
+  dv3_optionDeliveryHead: 查詢期權價格交割時間
+  dv3_market_option_para: 查詢期權價格交割時間
+  # reqParam
+
+  # respParam
+
+
+  # recentTrade
+  # reqParam
+
+  # respParam
+  dv3_recentExecId: 最新數據ID
+  dv3_recentPrice: 交易價格
+  dv3_recentSide: 方向. buy：買; sell：賣
+  dv3_recentTime: 成交時間戳(單位毫秒)
+  dv3_recentBlockTradeId: 取Paradigm請求的批次ID; 普通交易則為空
+
+  # openInterest
+  # reqParam
+  dv3_openInterInterval: 數據紀錄週期. 5min 15min 30min 1h 4h 1d
+  dv3_openInterStartTime: 紀錄查詢的開始時間
+  dv3_openInterEndTime: 紀錄查詢的結束時間
+  # respParam
+  dv3_openInterTimestamp: 數據產生時間, 精確到毫秒
+
+    # User
+      # apiKeyInfo
+
+      # createSubMembers
+
+      # createSubMembersApiKey
+
+      # DeleteSubMembersApiKey
+
+    # Asset
+      # exchangeHistory
+
+      # transfer
+
+    # UnifiedMarginAccount
+      # Order
+        # createActiveOrder
+        # modifyOrder
+        # cancelOrder
+        # getActiveOrder
+        # queryOrder
+
+      # Position
+        # queryPosition(realtime)
+        # modifyLeverage
+        # tp/slModeSwitch
+        # setRiskLimit
+        # setTP/SL
+        # queryLast7DaysTradeHistory
+        # queryOptionDeliveryRecords
+        # querySettlementRecords
+
+      # Account
+        # queryWalletBalance
+        # upgradeUMAC
+        # queryTradeLog
+        # transfer(v2)
+
+    # Contract Account
+      # Order
+        # createOrder
+        # modifyOrder
+        # cancelOrder
+        # getActiveOrder
+        # cancelAllOrders
+        # queryOrder
+      # Position
+        # queryPosition(realtime)
+        # crossIsolatedModeSwitch
+        # positionModeSwitch
+        # modifyLeverage
+        # tp/slModeSwitch
+        # setRiskLimit
+        # setTP/SL
+        # autoAddMargin
+        # queryLast7DaysTradeHistory
+        # queryLast2YearsTradeHistory
+        # queryCloseProfitLoss
+      # Account
+        # queryWalletBalance
+        # queryFeeRate
+        # queryFundingRecords
+
+    # WebSocket
+      # Subscribe method
+      # unSubscribe method
+      # authenticate
+
+      # Websocket Public
+        # orderBookDepth
+        # Trading
+        # market
+        # kline
+
+      # WebSocket Private(UMAC)
+        # position
+        # trade
+        # orders
+        # wallet
+        # greece character (optionOnly)
+
+
