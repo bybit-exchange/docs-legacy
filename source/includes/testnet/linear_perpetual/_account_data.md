@@ -8,20 +8,17 @@ t(:account_para)
 ```console
 curl https://api-testnet.bybit.com/private/linear/order/create \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","side"="Buy","symbol"="BTCUSD","order_type":"Market","qty":10,"time_in_force":"GoodTillCancel","timestamp":{timestamp},"sign":"{sign}"}'
-```
-
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.LinearOrder.LinearOrder_new(side="Sell",symbol="BTCUSDT",order_type="Limit",qty=0.01,price=8083,time_in_force="GoodTillCancel",reduce_only=False, close_on_trigger=False).result())
+-d '{"api_key":"{api_key}","side":"Buy","symbol":"BTCUSD","order_type":"Market","qty":10,"time_in_force":"GoodTillCancel","timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.place_active_order(
+from pybit import usdt_perpetual
+session_auth = usdt_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="your api key",
+    api_secret="your api secret"
+)
+print(session_auth.place_active_order(
     symbol="BTCUSDT",
     side="Sell",
     order_type="Limit",
@@ -132,17 +129,14 @@ POST
 curl "https://api-testnet.bybit.com/private/linear/order/list?api_key={api_key}&timestamp={timestamp}&sign={sign}&symbol=BTCUSDT"
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.LinearOrder.LinearOrder_getOrders(symbol="BTCUSDT").result())
-```
-
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.get_active_order(
+from pybit import usdt_perpetual
+session_auth = usdt_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="your api key",
+    api_secret="your api secret"
+)
+print(session_auth.get_active_order(
     symbol="BTCUSDT"
 ))
 ```
@@ -241,17 +235,14 @@ curl https://api-testnet.bybit.com/private/linear/order/cancel \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.LinearOrder.LinearOrder_cancel(symbol="BTCUSDT", order_id="").result())
-```
-
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.cancel_active_order(
+from pybit import usdt_perpetual
+session_auth = usdt_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="your api key",
+    api_secret="your api secret"
+)
+print(session_auth.cancel_active_order(
     symbol="BTCUSDT",
     order_id=""
 ))
@@ -307,17 +298,14 @@ curl https://api-testnet.bybit.com/private/linear/order/cancel-all \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDT","timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.LinearOrder.LinearOrder_cancelAll(symbol="BTCUSDT").result())
-```
-
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.cancel_all_active_orders(
+from pybit import usdt_perpetual
+session_auth = usdt_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="your api key",
+    api_secret="your api secret"
+)
+print(session_auth.cancel_all_active_orders(
     symbol="BTCUSDT"
 ))
 ```
@@ -373,17 +361,14 @@ curl https://api-testnet.bybit.com/private/linear/order/replace \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDT","order_id":"","p_r_qty":2,"timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.LinearOrder.LinearOrder_replace(symbol="BTCUSDT", order_id="").result())
-```
-
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.replace_active_order(
+from pybit import usdt_perpetual
+session_auth = usdt_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="your api key",
+    api_secret="your api secret"
+)
+print(session_auth.replace_active_order(
     symbol="BTCUSDT",
     order_id="",
     p_r_qty=2
@@ -445,17 +430,14 @@ POST
 curl "https://api-testnet.bybit.com/private/linear/order/search?api_key={api_key}&symbol=BTCUSDT&timestamp={timestamp}order_id={order_id}&sign={sign}"
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.LinearOrder.LinearOrder_query(symbol="BTCUSDT", order_id="87d8a4ed-dc9d-41c9-8dac-6e3c51356645").result())
-```
-
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.query_active_order(
+from pybit import usdt_perpetual
+session_auth = usdt_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="your api key",
+    api_secret="your api secret"
+)
+print(session_auth.query_active_order(
     symbol="BTCUSDT",
     order_id=""
 ))
@@ -616,17 +598,14 @@ curl https://api-testnet.bybit.com/private/linear/stop-order/create \
 -d '{"api_key":"{api_key}","order_type":"Limit","side":"Buy","symbol":"BTCUSD","qty":1,"price":8100,"base_price":8300,"stop_px":8150,"time_in_force":"GoodTillCancel","order_link_id":"cus_order_id_1","reduce_only":false,"close_on_trigger":false,"timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.LinearConditional.LinearConditional_new(order_type="Limit", side="Buy", symbol="BTCUSD", qty=1, price=8100, base_price=16100, stop_px=8150, time_in_force="GoodTillCancel", order_link_id="cus_order_id_1", reduce_only=False, close_on_trigger=False).result())
-```
-
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.place_conditional_order(
+from pybit import usdt_perpetual
+session_auth = usdt_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="your api key",
+    api_secret="your api secret"
+)
+print(session_auth.place_conditional_order(
     symbol="BTCUSDT",
     order_type="Limit",
     side="Buy",
@@ -748,17 +727,14 @@ POST
 curl "https://api-testnet.bybit.com/private/linear/stop-order/list?api_key={api_key}&timestamp={timestamp}&sign={sign}"
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.LinearConditional.LinearConditional_getOrders(symbol="BTCUSDT").result())
-```
-
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.get_conditional_order(
+from pybit import usdt_perpetual
+session_auth = usdt_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="your api key",
+    api_secret="your api secret"
+)
+print(session_auth.get_conditional_order(
     symbol="BTCUSDT"
 ))
 ```
@@ -841,7 +817,7 @@ GET
 |stop_order_id |false |string |t(:row_comment_stopOrderId) |
 |order_link_id |false |string |t(:row_comment_orderLinkId)|
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
-|t(:row_parameter_order_status) |false |string |t(:row_comment_stopOrderStatus)|
+|<a href="#order-status-order_status-stop_order_status">stop_order_status</a> |false |string |t(:row_comment_stopOrderStatus)|
 |t(:row_parameter_order) |false |string |t(:row_comment_order) |
 |page |false |integer |t(:row_comment_page_max50) |
 |limit |false |integer |t(:row_comment_limit) |
@@ -881,17 +857,14 @@ curl https://api-testnet.bybit.com/private/linear/stop-order/cancel \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDT","stop_order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.LinearConditional.LinearConditional_cancel(symbol="BTCUSDT", stop_order_id="52095ff7-b080-498e-b3a4-8b3e76c42f5e").result())
-```
-
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.cancel_conditional_order(
+from pybit import usdt_perpetual
+session_auth = usdt_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="your api key",
+    api_secret="your api secret"
+)
+print(session_auth.cancel_conditional_order(
     symbol="BTCUSDT",
     stop_order_id=""
 ))
@@ -944,17 +917,14 @@ curl https://api-testnet.bybit.com/private/linear/stop-order/cancel-all \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDT","timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.LinearConditional.LinearConditional_cancelAll(symbol="BTCUSDT").result())
-```
-
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.cancel_all_conditional_orders(
+from pybit import usdt_perpetual
+session_auth = usdt_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="your api key",
+    api_secret="your api secret"
+)
+print(session_auth.cancel_all_conditional_orders(
     symbol="BTCUSDT"
 ))
 ```
@@ -1005,17 +975,14 @@ curl https://api-testnet.bybit.com/private/linear/stop-order/replace \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDT","stop_order_id":"","p_r_qty":2,"timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.LinearConditional.LinearConditional_replace(symbol="BTCUSDT", stop_order_id="").result())
-```
-
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.replace_conditional_order(
+from pybit import usdt_perpetual
+session_auth = usdt_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="your api key",
+    api_secret="your api secret"
+)
+print(session_auth.replace_conditional_order(
     symbol="BTCUSDT",
     stop_order_id="",
     p_r_qty=2
@@ -1078,17 +1045,14 @@ POST
 curl "https://api-testnet.bybit.com/private/linear/stop-order/search?api_key={api_key}&symbol=BTCUSDT&timestamp={timestamp}&sign={sign}"
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.LinearConditional.LinearConditional_query(symbol="BTCUSDT", stop_order_id="").result())
-```
-
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.query_conditional_order(
+from pybit import usdt_perpetual
+session_auth = usdt_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="your api key",
+    api_secret="your api secret"
+)
+print(session_auth.query_conditional_order(
     symbol="BTCUSDT"
 ))
 ```
@@ -1234,17 +1198,14 @@ GET
 curl https://api-testnet.bybit.com/private/linear/position/list?api_key={api_key}&symbol=BTCUSDT&timestamp={timestamp}&sign={sign}"
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.LinearPositions.LinearPositions_myPosition(symbol="BTCUSDT").result())
-```
-
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.my_position(
+from pybit import usdt_perpetual
+session_auth = usdt_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="your api key",
+    api_secret="your api secret"
+)
+print(session_auth.my_position(
     symbol="BTCUSDT"
 ))
 ```
@@ -1492,17 +1453,14 @@ curl https://api-testnet.bybit.com/private/linear/position/set-auto-add-margin \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDT","side":"Sell","auto_add_margin":false,"timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.LinearPositions.LinearPositions_setAutoAddMargin(symbol="BTCUSDT", side="Sell", auto_add_margin=False).result())
-```
-
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.set_auto_add_margin(
+from pybit import usdt_perpetual
+session_auth = usdt_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="your api key",
+    api_secret="your api secret"
+)
+print(session_auth.set_auto_add_margin(
     symbol="BTCUSDT",
     side="Sell",
     auto_add_margin=False
@@ -1550,17 +1508,14 @@ curl https://api-testnet.bybit.com/private/linear/position/switch-isolated \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDT","is_isolated":true,"buy_leverage":1,"sell_leverage":1,"timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.LinearPositions.LinearPositions_switchIsolated(symbol="BTCUSDT", is_isolated=True, buy_leverage=1, sell_leverage=1).result())
-```
-
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.cross_isolated_margin_switch(
+from pybit import usdt_perpetual
+session_auth = usdt_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="your api key",
+    api_secret="your api secret"
+)
+print(session_auth.cross_isolated_margin_switch(
     symbol="BTCUSDT",
     is_isolated=True,
     buy_leverage=1,
@@ -1609,17 +1564,14 @@ curl https://api-testnet.bybit.com/private/linear/position/switch-mode \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDT","mode":"MergedSingle","timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.LinearPositions.LinearPositions_switchPositionMode(symbol="BTCUSDT",mode="MergedSingle").result())
-```
-
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.position_mode_switch(
+from pybit import usdt_perpetual
+session_auth = usdt_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="your api key",
+    api_secret="your api secret"
+)
+print(session_auth.position_mode_switch(
     symbol="BTCUSDT",
     mode="MergedSingle"
 ))
@@ -1657,6 +1609,20 @@ POST
 
 
 ### t(:switchmode)
+
+```python--pybit
+from pybit import usdt_perpetual
+session_auth = usdt_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="your api key",
+    api_secret="your api secret"
+)
+print(session_auth.full_partial_position_tp_sl_switch(
+    symbol="BTCUSDT",
+    tp_sl_mode="Partial"
+))
+```
+
 > t(:codequote_responseExample)
 
 ```javascript
@@ -1720,17 +1686,14 @@ curl https://api-testnet.bybit.com \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDT","side":"Buy","margin":0.01","timestamp":{timestamp},"sign":"{sign}"}'
 ```
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.LinearPositions.LinearPositions_changeMargin(symbol="BTCUSDT", side="Buy", margin=0.01).result())
-```
-
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.add_reduce_margin(
+from pybit import usdt_perpetual
+session_auth = usdt_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="your api key",
+    api_secret="your api secret"
+)
+print(session_auth.add_reduce_margin(
     symbol="BTCUSDT",
     side="Buy",
     margin=0.01
@@ -1819,17 +1782,14 @@ curl https://api-testnet.bybit.com/private/linear/position/set-leverage \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDT","buy_leverage":10,"sell_leverage":10"sign":"{sign}"}'
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.LinearPositions.LinearPositions_saveLeverage(symbol="BTCUSDT", buy_leverage=10, sell_leverage=10).result())
-```
-
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.set_leverage(
+from pybit import usdt_perpetual
+session_auth = usdt_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="your api key",
+    api_secret="your api secret"
+)
+print(session_auth.set_leverage(
     symbol="BTCUSDT",
     buy_leverage=10,
     sell_leverage=10
@@ -1876,17 +1836,14 @@ curl https://api-testnet.bybit.com/private/linear/position/trading-stop \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDT","side":"Buy","take_profit":10,"timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.LinearPositions.LinearPositions_tradingStop(symbol="BTCUSDT", side="Buy", take_profit=10).result())
-```
-
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.set_trading_stop(
+from pybit import usdt_perpetual
+session_auth = usdt_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="your api key",
+    api_secret="your api secret"
+)
+print(session_auth.set_trading_stop(
     symbol="BTCUSDT",
     side="Buy",
     take_profit=10
@@ -1942,17 +1899,14 @@ POST
 curl "https://api-testnet.bybit.com/private/linear/trade/execution/list?api_key={api_key}&symbol=BTCUSDT&timestamp={timestamp}&sign={sign}"
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.LinearExecution.LinearExecution_getTrades(symbol="BTCUSDT").result())
-```
-
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.user_trade_records(
+from pybit import usdt_perpetual
+session_auth = usdt_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="your api key",
+    api_secret="your api secret"
+)
+print(session_auth.user_trade_records(
     symbol="BTCUSDT"
 ))
 ```
@@ -2053,17 +2007,14 @@ GET
 curl "https://api-testnet.bybit.com/private/linear/trade/execution/history-list?api_key={api_key}&symbol=BTCUSDT&timestamp={timestamp}&sign={sign}"
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.LinearExecution.LinearExecution_getTrades(symbol="BTCUSDT").result())
-```
-
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.user_trade_records(
+from pybit import usdt_perpetual
+session_auth = usdt_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="your api key",
+    api_secret="your api secret"
+)
+print(session_auth.user_trade_records(
     symbol="BTCUSDT"
 ))
 ```
@@ -2164,17 +2115,14 @@ GET
 curl https://api-testnet.bybit.com/private/linear/trade/closed-pnl/list?api_key={api_key}&symbol=BTCUSDT&timestamp={timestamp}&sign={sign}
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.LinearPositions.LinearPositions_closePnlRecords(symbol="BTCUSDT").result())
-```
-
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.closed_profit_and_loss(
+from pybit import usdt_perpetual
+session_auth = usdt_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="your api key",
+    api_secret="your api secret"
+)
+print(session_auth.closed_profit_and_loss(
     symbol="BTCUSDT"
 ))
 ```
@@ -2269,17 +2217,13 @@ GET
 curl "https://api-testnet.bybit.com/public/linear/risk-limit?symbol=BTCUSDT"
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.LinearWallet.LinearWallet_getRiskLimit(symbol="BTCUSDT").result())
-```
-
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com")
-print(session.get_risk_limit(
+from pybit import usdt_perpetual
+session_unauth = usdt_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com"
+)
+print(session_unauth.get_risk_limit(
     symbol="BTCUSDT"
 ))
 ```
@@ -2381,17 +2325,14 @@ curl https://api-testnet.bybit.com/private/linear/position/set-risk \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDT","risk_id":2,"timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.LinearPositions.LinearPositions_setRiskLimit(symbol="BTCUSDT", side="Buy",risk_id=1).result())
-```
-
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.set_risk_limit(
+from pybit import usdt_perpetual
+session_auth = usdt_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="your api key",
+    api_secret="your api secret"
+)
+print(session_auth.set_risk_limit(
     symbol="BTCUSDT",
     side="Buy",
     risk_id=1
@@ -2448,17 +2389,14 @@ POST
 curl "https://api-testnet.bybit.com/private/linear/funding/predicted-funding?api_key={api_key}&symbol=BTCUSDT&timestamp={timestamp}&sign={sign}"
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.LinearFunding.LinearFunding_predicted(symbol="BTCUSDT").result())
-```
-
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.predicted_funding_rate(
+from pybit import usdt_perpetual
+session_auth = usdt_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="your api key",
+    api_secret="your api secret"
+)
+print(session_auth.predicted_funding_rate(
     symbol="BTCUSDT"
 ))
 ```
@@ -2508,17 +2446,14 @@ GET
 curl "https://api-testnet.bybit.com/private/linear/funding/prev-funding?api_key={api_key}&symbolt=BTCUSDT&timestamp={timestamp}&sign={sign}"
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.LinearFunding.LinearFunding_prevRate(symbol="BTCUSDT").result())
-```
-
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.my_last_funding_fee(
+from pybit import usdt_perpetual
+session_auth = usdt_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="your api key",
+    api_secret="your api secret"
+)
+print(session_auth.my_last_funding_fee(
     symbol="BTCUSDT"
 ))
 ```

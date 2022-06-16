@@ -8,12 +8,6 @@ t(:api_para)
 curl https://api-testnet.bybit.com/v2/public/time
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Common.Common_getTime().result())
-```
-
 ```python--pybit
 from pybit import inverse_perpetual
 session_unauth = inverse_perpetual.HTTP(

@@ -129,6 +129,8 @@ GET
 | minTradingQty | string | t(:minTradingQty) |
 | maxTradingQty | string | t(:maxTradingQty) |
 | qtyStep | string | t(:qtyStep) |
+| deliveryFeeRate | string | t(:deliveryFeeRate) |
+| deliveryTime | string | t(:deliveryTime) |
 
 
 
@@ -198,13 +200,16 @@ GET
 |:----- |:-----|----- |
 | t(:row_parameter_symbol) | string | t(:usdcSymbol) |
 | bid | string | t(:usdcBid) |
+| bidIv | string | t(:bidIv) |
 | bidSize | string | t(:usdcBidSize) |
 | ask | string | t(:usdcAsk) |
+| askIv | string | t(:askIv) |
 | askSize | string | t(:usdcAskSize) |
 | lastPrice | string | t(:usdcLastPrice) |
 | openInterest | string | t(:usdcOpenInterest) |
 | indexPrice | string | t(:usdcIndexPrice) |
 | markPrice | string | t(:usdcMarkPrice) |
+| markPriceIv | string | t(:markPriceIv) |
 | change24h | string | t(:usdcChange24h) |
 | high24h | string | t(:usdcHigh24h) |
 | low24h | string | t(:usdcLow24h) |
@@ -212,7 +217,16 @@ GET
 | turnover24h | string | t(:usdcTurnover24h) |
 | totalVolume | string | t(:usdcTotalVolume) |
 | totalTurnover | string | t(:usdcTotalTurnover) |
+| fundingRate | string | t(:usdcFundingRate) |
+| predictedFundingRate | string | t(:predictedFundingRate) |
+| nextFundingTime | string | t(:row_comment_resp_next_funding_time) |
+| countdownHour | string | t(:row_comment_resp_countdown_hour) |
+| predictedDeliveryPrice | string | t(:predictedDeliveryPrice) |
 | underlyingPrice | string | t(:usdcUnderlyingPrice) |
+| delta | string | t(:delta) |
+| gamma | string | t(:gamma) |
+| vega | string | t(:vega) |
+| theta | string | t(:theta) |
 
 
 ### t(:querykline)
@@ -268,15 +282,15 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| volume | string | t(:usdcVolume) |
 | t(:row_parameter_symbol) | string | t(:usdcSymbol) |
-| open | string | t(:usdcOpen) |
-| openTime | number | t(:usdcOpenTime) |
-| turnover | string | t(:usdcTurnover) |
+| volume | string | t(:usdcVolume) |
 | period | string | t(:usdcPeriod) |
-| low | string | t(:usdcLow) |
+| openTime | number | t(:usdcOpenTime) |
+| open | string | t(:usdcOpen) |
 | high | string | t(:usdcHigh) |
+| low | string | t(:usdcLow) |
 | close | string | t(:usdcClose) |
+| turnover | string | t(:usdcTurnover) |
 
 
 
@@ -644,32 +658,29 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/query-trade-la
 
 ```javascript
 {
-  "retCode": 0,
-    "retMsg": "Success.",
     "result": {
-    "resultTotalSize": 2,
-      "cursor": "",
-      "dataList": [
-      {
-        "id": "3caaa0ca",
-        "symbol": "BTCPERP",
-        "orderPrice": "58445.00",
-        "orderQty": "0.010",
-        "side": "Buy",
-        "time": "1638275679673"
-      },
-      {
-        "id": "10cc3064",
-        "symbol": "BTCPERP",
-        "orderPrice": "58477.50",
-        "orderQty": "0.010",
-        "side": "Buy",
-        "time": "1638275670702"
-      }
-    ]
-  }
+        "resultTotalSize": 2,
+        "dataList": [
+            {
+                "symbol": "BTCPERP",
+                "orderQty": "0.157",
+                "orderPrice": "22359.00",
+                "time": "1655189065841"
+            },
+            {
+                "symbol": "BTCPERP",
+                "orderQty": "0.052",
+                "orderPrice": "22340.00",
+                "time": "1655189059840"
+            }
+        ]
+    },
+    "retCode": 0,
+    "retMsg": "Success."
 }
 ```
+t(:usdcLast500TradeDesc)
+
 <p class="fake_header">t(:httprequest)</p>
 GET
 <code><span id=usdcTradeLastest>/option/usdc/openapi/public/v1/query-trade-latest</span></code>
@@ -693,11 +704,8 @@ GET
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|transactionTime|number|t(:transactionTime)|
-|id|string|ID
 |t(:row_parameter_symbol) |string|t(:usdcSymbol)|
-|orderPrice|string|t(:usdcOrderPrice)|
 |orderQty|string|t(:usdcOrderQty)|
-|t(:row_parameter_side) |string|t(:side)|
+|orderPrice|string|t(:usdcOrderPrice)|
 |time|number|t(:time)|
 

@@ -8,12 +8,6 @@ t(:market_para_auth)
 curl https://api-testnet.bybit.com/contract/v3/public/copytrading/symbol/list
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Symbol.Symbol_list().result())
-```
-
 ```python--pybit
 from pybit import HTTP
 session = HTTP("https://api-testnet.bybit.com")

@@ -32,6 +32,8 @@ zh-cn:
   row_comment_position_idx: Position idx, 用於在不同倉位模式下標識倉位：<br/>0-單向持倉 <br/>1-雙向持倉Buy<br/> 2-雙向持倉Sell
   row_comment_position_idx_create_order: |
     Position idx, 用於在不同倉位模式下標識倉位。 如果是<b>單向持倉</b>模式， 該參數為<b>必填</b><span>:</span> <br/>0-單向持倉 <br/>1-雙向持倉Buy<br/> 2-雙向持倉Sell
+  row_comment_position_idx_create_order_inverse_futures: |
+    Position idx, 用於在不同倉位模式下標識倉位。 如果是<b>雙向持倉</b>模式， 該參數為<b>必填</b><span>:</span> <br/>0-單向持倉 <br/>1-雙向持倉Buy<br/> 2-雙向持倉Sell
   row_comment_position_idx_leverage: 已廢棄!! Position idx
   row_comment_position_mode: 倉位模式
   row_comment_position_size: 倉位數量
@@ -231,6 +233,7 @@ zh-cn:
   row_comment_resp_prev_price_1h_e4: （已廢棄）1小時前的整點市價 * 10^4
   row_comment_resp_price_1h_pcnt: 市價相對1小時前變化百分比
   row_comment_resp_price_1h_pcnt_e6: 市價相對1小時前變化百分比 * 10^6
+  row_comment_resp_price_24h_pcnt_e6: 市價相對24小時前變化百分比 * 10^6
   row_comment_resp_mark_price: 標記價格
   row_comment_resp_mark_price_e4: （已廢棄）標記價格 * 10^4
   row_comment_resp_index_price: 指數價格
@@ -247,6 +250,7 @@ zh-cn:
   row_comment_resp_total_volume: 總交易量
   row_comment_resp_total_volume_e8: 總交易量 * 10^8
   row_comment_resp_volume_24h: 最近 24 小時成交量
+  row_comment_resp_volume_24h_e8: 最近 24 小時成交量 * 10^8
   row_comment_resp_funding_rate: 資金費率
   row_comment_resp_funding_rate_e6: 資金費率 * 10^6
   row_comment_resp_predicted_funding_rate: 預測資金費率
@@ -1197,7 +1201,7 @@ zh-cn:
     <p>目前所支持的周期:</p>
     <ul>
     <li>1 3 5 15 30</li>
-    <li>60 120 240 360</li>
+    <li>60 120 240 360 720</li>
     <li>D</li>
     <li>W</li>
     <li>M</li>
@@ -1824,7 +1828,7 @@ zh-cn:
   err_130090: 風險限額無效
 
   ### LinearPosition
-  linear_row_comment_qty: 委托數量(USDT)
+  linear_row_comment_qty: 委托數量(加密貨幣)
   linear_row_comment_reduceOnly:  <a href="https://help.bybit.com/hc/zh-cn/articles/360039260574-%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%AA%E5%87%8F%E4%BB%93-"> 什麽是 reduce-only order?</a>,true-平倉 false-開倉,ture時止盈止損設置不生效
   linear_row_comment_closeOnTrigger: <a href="https://help.bybit.com/hc/zh-cn/articles/360039260534-%E4%BB%80%E4%B9%88%E6%98%AF%E8%A7%A6%E5%8F%91%E5%90%8E%E5%B9%B3%E4%BB%93-"> 什麽是 close on trigger order?</a>只會減少您的倉位而不會增加您的倉位。如果當平倉委托被觸發時，賬戶上的余額不足，那麽該合約的其他委托將被取消或者降低委托數量。使用此選項可以確保您的止損單被用於減倉而非加倉。
   linear_account_para_placeActive: |
@@ -1939,6 +1943,8 @@ zh-cn:
   linear_private_switchmode: 切換止盈止損模式至全倉或部分
   linear_row_comment_limit: 每頁數量, 最大50. 默認每頁20條，最多50條每頁
   linear_row_comment_limit_50_200: 每頁數量, 最大200. 默認每頁50條，最多200條每頁
+  restapi_update_20220610: 新增 <code>S</code> 字段展示該筆交易成交方向
+  restapi_update_20220608: 提升推送頻率從每250ms（最大延遲300ms）到100ms
   restapi_update_20220602: 新增USDC期權Websocket 私有topic <code>mmpevent</code>
   restapi_update_20220601_2: 新增返回參數 <code>ExecutionTime</code>, 更新返回參數 <code>time</code>
   restapi_update_20220601: 更新上述copytrading接口的URL。
@@ -2042,7 +2048,7 @@ zh-cn:
   restapi_update_20210712: 優化部分接口出參入參
   restapi_update_20220314: 在<code>ticketInfo</code> topic中增加 <code>m</code> (是 maker)標誌
   restapi_update_20210826: 資產劃轉API發布
-
+  restapi_update_20220610: 萬能劃轉API發布
   restapi_update_20220519: 提現與充值API發布
 
 
@@ -2185,6 +2191,7 @@ zh-cn:
   spotmaxTradeAmount: 最大成交額（當您下訂單類型為 LIMIT_MAKER 時將被忽略）
   spotCategory: symbol 所在分區:1主類別
   spotInnovation: True 表示創新區：這個幣種價格波動比較大
+  spotshowStatus: True 表示該現貨開放交易
   spot_trading_symbol_comment: 您可以根據<a href="#t-spot_querysymbol">Query Symbol</a>接口獲取所有交易中的symbol。
   spotQuoteAssetVolume: 行情資產數量
   spotOrderLocked: 鎖定數量（如果為0，則說明該筆訂單的資金已完成結算）
@@ -2438,6 +2445,7 @@ zh-cn:
   executionReport_desc: 訂單信息推送. Z/z 等於成交均價
   ticketInfo_para: 成交信息推送
   spot_ticket_info_maker: 是否為MAKER。true為maker, false為taker
+  spot_ticket_info_side: 買入 或者 賣出
   spot_public_websocket_frequency_realtime: 實時推送
   spotLtSymbolNav: 查詢的交易對名稱，為避免重複，幣對後綴一律添加"NAV"
   spotTotalPositionValue: 名義持倉（總籃子 = 籃子頭寸*發行量)
@@ -2493,6 +2501,7 @@ zh-cn:
   spot_websocket_symbol_ticker_v2: symbol的Ticker
   spot_websocket_symbol_ticker_desc_v2: 交易對的 24 小時統計數據。
 
+  spot_public_websocket_frequency_100: <b>300ms</b>推送一次。
   spot_public_websocket_frequency_300_delay_400: <b>300ms</b>推送一次，最大延遲<b>400ms</b>。
   spot_public_websocket_frequency_300_delay_650: <b>300ms</b>推送一次，最大延遲<b>650ms</b>。
   spot_public_websocket_frequency_250_delay_300: <b>250ms</b>推送一次，最大延遲<b>300ms</b>。
@@ -2507,6 +2516,10 @@ zh-cn:
     <p>請註意該接口入參<code>請求</code>數據中的<code>transfer_id</code>字段為<code>UUID</code>全局唯一。</p>
     <p>請註意該接口支持<code>期貨賬戶</code>、<code>現貨賬戶</code>、<code>理財賬戶</code>。</p>
     <p>轉入和轉出賬戶類型不能相同。</p>
+  universaltransferunderstanding_notice: 萬能轉賬使您可以在兩個子賬戶（而不是子 -> 主 -> 子）和任何<a href="#account-type-from_account_type-to_account_type">賬戶類型</a>（<code> 合同</code>、<code>SPOT</code>等）之間劃轉。
+  enableuniversaltransfer_notice: 你需要通過這個接口來設置可互相劃轉的子賬號。如果不設置，這些賬戶之間不能互相劃轉
+  universaltransfer_join_notice: 要發送<a href="#account-type-from_account_type-to_account_type">賬戶類型</a>和父子不可知的轉賬，請使用<a href="#t-createuniversaltransfer">創建萬能轉賬</a> 接口。
+
   createsubaccounttransfer_api_notice:
     <p>請註意該接口入參<code>請求</code>數據中的<code>transfer_id</code>字段為<code>UUID</code>全局唯一。</p>
     <p>該接口只能用於母子賬號之間的劃轉。</p>
@@ -2533,6 +2546,18 @@ zh-cn:
   accountType_contract: 期貨賬戶
   accountType_investment: 理財賬戶
   accountType_usdc: "- USDC衍生品賬戶"
+
+  enableuniversaltransfer: 配置可互相劃轉的子賬號列表
+  row_comment_transferable_sub_ids: 逗號隔開的id列表，例：123,45,14,26,46
+  createuniversaltransfer: 萬能劃轉
+  row_comment_from_memberId: 劃出的賬號uid
+  row_comment_to_memberId: 劃入的賬號uid
+  row_comment_from_accountType: 劃出賬戶類型，目前只支持："SPOT"、"CONTRACT"
+  row_comment_to_accountType: 劃入賬戶類型，目前只支持："SPOT"、"CONTRACT"
+  getSubmemberIdList: 查詢子賬戶列表
+  queryUniverseTransferList: 查詢萬能劃轉記錄
+  row_comment_sub_user_id_list: 所有子賬號列表
+  row_comment_transferable_sub_ids_list: 所有可互相劃轉的子賬號列表
 
 #充值/提現API數據接口 -- 開始
   withdraw_and_deposit: 充值與提現接口
@@ -2702,7 +2727,7 @@ zh-cn:
   usdcLow24h: 24小時最低價
   usdcVolume24h: 24小時成交量
   usdcTurnover24h: 24小時成交額
-  usdcTotalVolume: 24小時成交額
+  usdcTotalVolume: 總成交量
 
   usdcTotalTurnover: 總成交額
   usdcPredictedDeliveryPrice: 預期交割價
@@ -2717,6 +2742,11 @@ zh-cn:
   usdcBaseCoin: 標的幣種
 
   usdcQuoteCoin: 結算幣種
+  usdcSettleCoin: 結算貨幣
+  usdcTakerFee: Taker 手續費
+  usdcMakerFee: Maker 手續費
+  minOrderSizeIncrement: 最小訂單增量
+  usdcBasicDeliveryFeeRate: 結算費率
   usdcTakerFeeRate: taker手續費率
   usdcMakerFeeRate: maker手續費率
   minLeverage: 最小槓桿數
@@ -2884,10 +2914,19 @@ zh-cn:
   usdc_order_book_path: 期權業務：category=option, 期貨業務：category=perpetual
   usdc_order_book_desc: 獲取Bybit當前Orderbook信息，買/賣側各25檔.
   usdc_tick_desc: 該接口僅限期權使用
+  usdcExtMap: 當失敗時，map中返回具體錯誤內容
+  usdcErrorCode: 錯誤碼. <code>0</code>表示成功
+  usdcErrorDesc: 錯誤描述訊息
+  outRequestId: 系統內部使用字段，無實際意義，請忽略
+  usdcLast500TradeDesc: 響應內容默認為<b>吃單方買入</b>數據
 
 
 
-  usdcOrderType: 參考 <a href="#order-type-type-ordertypes">訂單類型</a> （期權暫時不支持市價委託）
+  usdcOrderType: 參考 <a href="#order-type-ordertype">訂單類型</a> （期權暫時不支持市價委託）
+  usdcOptionOrderType: 參考<a href="#order-type-ordertype">下單類型</a>（市場目前僅支持IOC（ImmediateOrCancel）訂單）
+  usdcOptionPlaceOrderPrice: 下單價格。 對於期權，如果 iv有值，則最終訂單價格將通過隱含波動率計算。 如果 orderType 是 Market，則不需要 orderPrice。
+  optionIv_order: 隱含波動率。 如果 orderType 是 Market，iv 不能有值，否則訂單會失敗。
+
   optionIv: 期權iv, 小數點後保留叁位小數
   optionPlaceMode: 期權下單模式，高級或者是基礎模式下單,期貨不需傳，期權需要。 1：基礎模式下單，2：高級模式下單。如果1，orderQty和orderPrice是必傳字段。如果是2， 參照 placeType.
   optionPlaceType: 期權下單類型，價格或者iv下單.1：價格下單，2：iv下單。如果是1，則orderQty和orderPrice是必傳字段，為2表示iv和orderQty為必傳字段。
@@ -2929,6 +2968,8 @@ zh-cn:
   orderStatus: <a href="#order-status-status">訂單狀態</a>
   lastExecPrice: 最近一次成交價
   basePrice: 下單時市價
+  perpBasePrice: |
+    下單時市價. <code>orderFilter</code>為StopOrder時必傳. 用於和triggerPrice值進行比較，確定當前條件委托是看空到triggerPrice時觸發還是看多到triggerPrice觸發。主要是用來標識當前條件單預期的方向
   createdAt: 創建時間
   cashFlow: 現金流
   realisedPnl: 平倉累計損益
@@ -2949,6 +2990,7 @@ zh-cn:
 
 
   equity: 淨資產
+  bonus: 奖金
   availableBalance: 可用餘額
   marginBalance: 保證金餘額
   accountIm: 賬戶初始保證金
@@ -3044,6 +3086,7 @@ zh-cn:
   volume24h: 24小時成交量
   turnover24h: 24小時成交額
   totalVolume: 總成交量
+  totalTurnOver: 總成交額
   predictedDeliveryPrice: 預估交割價
   underlying: 底層資產
 
@@ -3062,6 +3105,7 @@ zh-cn:
   leavesQty: 剩餘委託數量
   createType: 下單操作的觸發場景
   cancelType: 取消操作的觸發場景
+  usdcCrossSeq: 系統內部使用字段，無實際意義，請忽略
 
   platFormOrderHistory: 平台歷史交易數據
   querySymbolInfo: 查詢合約信息
@@ -3083,7 +3127,7 @@ zh-cn:
   usdcLimitMax500: 默認500
 
   websocket_aside_heartbeat_option: |
-    <p>客戶端需要定時發送"ping"給Bybit，Bybit服務器返回heartbeat"pong"來顯示客戶端和服務器之間的連接正常。建議至少每30s發送一次。</p>
+    <p>客戶端需要定時發送"ping"給Bybit，Bybit服務器返回heartbeat"pong"來顯示客戶端和服務器之間的連接正常。建議至少每20s發送一次，最長每30s發送一次。</p>
     <p>如果客戶端沒有正常收到heartbeat的反饋，則需要檢查網絡連接狀態，並重新連接服務器。</p>
     <p>如Bybit服務器，超過3分鐘沒有收到客戶端的"ping"，則服務器會判定客戶端已斷開鏈接（如實際未斷開，此時Bybit服務端也會主動斷開鏈接）。</p>
     <p>如果服務器判定並斷開鏈接，且客戶處於開啟"斷線保護"的狀態，則客戶所有的Active order也會被自動全部取消。</p>
@@ -3362,7 +3406,7 @@ zh-cn:
   lt_para: 以下LT接口都需要鑒權.
   ltInfo: LT 資產基礎信息查詢
   row_parameter_etpCode: LT資產名稱
-  spotLtCode: 想要查詢的LT資產名稱，從資產列表中獲取. 目前只有BTC3L,BTC3S,ETH3L,ETH3S,XRP3L,XRP3S,SOL3L,SOL3S
+  spotLtCode: 想要查詢的LT資產名稱，從資產列表中獲取. 目前只有BTC3L,BTC3S,ETH3L,ETH3S,XRP3L,XRP3S,SOL3L,SOL3S,DOT3L,DOT3S
   spotResLtCode: LT資產簡稱
   spotResLtName: LT資產全稱
   spotResMaxPurchase: 單次最大申購金額
@@ -3437,7 +3481,7 @@ zh-cn:
   ct_wallet_balance: 交易員獲取錢包余額
   ct_wallet_transfer: 交易員劃轉資金
   ct_set_leverage: 交易員設置帶單槓桿
-
+  ct_set_leverage_desc: 設置槓桿只能設置整數
 
   accountType_copytrade: 跟單交易帳戶
   copy_trade_row_comment_parentOrderIdNotparentOrderLinkId: 訂單ID。如果未填parent_order_link_id則為<b>必填</b>字段。
@@ -3497,159 +3541,3 @@ zh-cn:
   spotRepaidInterest: 該筆還幣交易已還利息
 
   #testnet only
-  usdcOptionOrderType_testnet: 參考<a href="#order-type-type-ordertypes">下單類型</a>（市場目前僅支持IOC（ImmediateOrCancel）訂單）
-  usdcOptionPlaceOrderPrice_testnet: 下單價格。 對於期權，如果 placeType 為 2，則最終訂單價格將通過隱含波動率計算。 如果 orderType 是 Market，則不需要 orderPrice。
-  optionIv_testnet: 隱含波動率。 如果 orderType 是 Market，iv 不能有值，否則訂單會失敗。
-
-#  Derivatives API v3
-  derivativesV3: 衍生品v3
-#  Market Data Endpoint
-  row_comment_category_includeInverseFuture: 衍生品產品類型. 目前支持正向合約：<code>liner</code>, 反向合約：<code>inverse</code>包含(反向期貨)
-  row_comment_category: 衍生品產品類型
-  row_comment_category_without_InverseFuture: 衍生品產品類型. 目前支持正向合約：<code>liner</code>, 反向合約：<code>inverse</code>
-  row_comment_category_optionOnly: 衍生品產品類型. 目前僅支持：<code>option</code>
-#  Querykline_v3
-  row_comment_category_qk: 衍生品產品類型. 目前支持正向合約：<code>liner</code>, 反向合約：<code>inverse</code>包含(反向期貨)
-#  row_comment_symbol: -> row_comment_symbol 合約類型
-#  row_comment_interval: K線時間粒度. 枚舉值：1 3 5 15 30 60 120 240 360 720 "D" "M" "W"
-#  row_comment_start: -> row_comment_startTime_ms 開始時間戳（單位毫秒）
-#  row_comment_end: -> row_comment_endTime_ms 結束時間戳（單位毫秒）
-#  row_comment_limit: -> row_comment_limit_200 每頁數量，最大200. 默認每頁200條
-  row_comment_resp_start_ms_v3: 開盤時間. 返回數據為毫秒
-#  row_comment_resp_open: -> row_comment_open 開始價格
-#  row_comment_resp_high: -> row_comment_high 最高價格
-#  row_comment_resp_low: -> row_comment_low 最低價格
-  row_comment_resp_close_v3: 結束價格（當前K線未結束的為最新價格）
-  row_comment_resp_volume_qk: 交易量. 數值為合約張數
-#  row_comment_resp_turnover: -> row_comment_resp_turnover 成交金額. 數值為計價貨幣的數量
-
-
-  ## Orderbook_v3
-  market_para_orderbook_v3: 獲取Bybit當前Orderbook信息. 每邊的深度為25. v3版本新增500档位的OrderBook数据.
-  row_comment_symbol_v3: 衍生品名稱
-  row_comment_limit_25_500: 默認25. 可選值[25, 500]
-#  row_comment_resp_price: -> row_comment_resp_price, 委託價格
-  row_comment_resp_volume_ob: 數量
-  row_comment_resp_bids: 買方，排序按照價格從小到大
-  row_comment_resp_asks: 賣方，排序按照價格從小到大
-  row_comment_resp_updateId: 表示數據連續性的id
-  row_comment_resp_timestamp: 時間戳，精度毫秒
-
-#  LatestSymbolInfo_v3
-  latestsymbolinfo_v3: 所有產品最新行情資訊
-  market_para_symbol_v3: 所有衍生品產品最新行情資訊
-  row_comment_symbol_v3_with_option: 合約類型. 當<code>category是<code>option</code>時, <code>symbol</code>必傳.
-  resp_field_option_list:  當入參<code>category</code>是<code>option</code>，返回結構如下：
-#  usdcAskIv: -> usdcAskIv 買價iv
-#  deliveryTime: -> deliveryTime, 響應中目前無該返回值
-#  row_comment_resp_price_24h_pcnt: -> row_comment_resp_price_24h_pcnt 市價相對24h變化百分比
-#  row_comment_resp_next_funding_time: -> row_comment_resp_next_funding_time 下次結算資金費用時間
-  row_comment_resp_predictedDeliveryPrice: 預期交割價. 僅交割合約有效category為期權時, 顯示期權的預估交割價格
-#  row_comment_resp_countdown_hour: -> row_comment_resp_countdown_hour 結算資金費用剩余時間, 響應中目前無該返回值
-#  row_comment_resp_index_price: -> row_comment_resp_index_price 指數價格
-#  row_comment_resp_prev_price_24h: -> row_comment_resp_prev_price_24h 24小時前的整點市價
-#  row_comment_resp_open_interest: -> row_comment_resp_open_interest 未平倉合約數量
-  row_comment_resp_openInterestValue: 未平倉合約價值
-#  usdcUnderlyingPrice: -> usdcUnderlyingPrice 底層資產
-#  row_comment_resp_volume_24h: -> row_comment_resp_volume_24h 最近 24 小時成交量
-#  row_comment_symbol: -> row_comment_symbol 合約類型
-#  row_comment_resp_last_price: 最新成交價
-#  vega: vega
-#  usdcTotalVolume: 總成交量
-#  row_comment_resp_bid_price: 第一筆掛單買入價
-#  usdcTotalTurnover: 總成交額
-#  usdcTurnover24h: 24小時成交額
-#  row_comment_category: 衍生品產品類型
-#  row_comment_resp_ask_price: 第一筆掛單賣出價
-#  row_comment_funding_rate: 資金費率
-#  usdcBidSize: 出價數量
-#  usdcBidIv: 出價對應iv
-#  row_comment_resp_high_price_24h: 最近 24 小時最高價
-#  delta: delta
-#  theta: theta
-#  usdcAskSize: 買價數量
-#  row_comment_resp_price_1h_pcnt: 市價相對1小時前變化百分比
-#  row_comment_resp_prev_price_1h: 1小時前的整點市價
-#  row_comment_resp_mark_price: 標記價格
-#  gamma: gamma
-  row_comment_resp_deliveryFeeRate: 交割費率. 僅交割合約有效category為期權時, 顯示期權的交割費率.
-#  row_comment_resp_low_price_24h: 最近 24 小時最低價
-#  usdcMarkPriceIv: 標記價iv
-#  row_comment_predicted_funding_rate: 預測資金費率
-  row_comment_basisRate: 交易合約基差率
-
-# InstrumentsInfo(querySymbol)
-#  instrumentsinfo: 查詢產品交易規格參數
-  market_para_instrumentsInfo: 獲取可交易的衍生品信息列表
-#  resp_field_option_list: 當入參<code>category</code>是<code>option</code>，返回結構如下：
-  row_comment_status: 合約狀態
-#  direction: 方向，向前/後翻頁, prev向前， next 向後
-#  row_comment_limit_500_1000: 返回數據最大500條. 默認返回100條
-#  cursor: 透傳數據
-  row_comment_resp_contractType: 合約類型
-  row_comment_resp_baseCoin: 交易貨幣幣種. 如BTC-USDT中的BTC. 僅適用於幣幣.
-  row_comment_resp_quoteCoin: 計價貨幣幣種. 如BTC-USDT中的USDT. 僅適用於幣幣.
-  row_comment_resp_settleCoin: 盈虧結算和保證金幣種. 如BTC僅適用於交割/永續/期權
-  row_comment_resp_optionsType: 期權類型. 枚舉值<code>Call</code>/<code>Put</code>
-  row_comment_resp_launchTime: 上線時間
-  row_comment_resp_deliveryTime: 到期日/交割/行權時間. 永續合約返回：perpetual
-#  deliveryFeeRate: 交割費率
-#  row_response_comment_price_scale: 價格範圍（可以提交價格的小數位數，儘管最終價格可能會四捨五入以符合 <code>價格最小增加或減少數量</code>）
-#  row_response_comment_min_leverage: 最小杠桿數
-#  row_response_comment_public_max_leverage: 最大杠桿數 (假設在最低風險限額設置時候的最大槓桿數)
-#  row_response_comment_leverage_step: 杠桿最小增加或減少數量
-#  row_response_comment_min_price: 最小價格
-#  row_response_comment_max_price: 最大價格
-#  row_response_comment_tick_size: 價格最小增加或減少數量
-  row_comment_resp_maxOrderQty: 單筆訂單最大下單數量
-  row_comment_resp_minOrderQty: 單筆訂單最小下單數量
-#  row_response_comment_qty_step: 合約數量最小單位
-  row_comment_resp_imBaseValue: 起始保證金基礎值
-  row_comment_resp_imIncrementValue: 起始保證金遞增值
-  row_comment_resp_mmBaseValue: 維持保證金基礎值
-  row_comment_resp_mmIncrementValue: 維持保證金遞增值
-  row_comment_resp_riskLimitBaseValue: 階梯保證金基礎值
-  row_comment_resp_riskLimitIncrementValue: 階梯保證金遞增值
-  row_comment_resp_positionLimitValue: 最多可開倉的數量. 僅適用於正向合約
-
-#  QueryMarkPricekline_v3
-  markpricekline_v3: 查詢標記價格K線數據
-#  linear_query_mark_price_kline: 查詢標記價格K線
-
-#  QueryIndexPricekline_v3
-
-# QueryHistoricFundingRate_v3
-  queryHistoryFundingRate: 查詢歷史資金費率
-  market_para_histFundRate: |
-    UTC時間每天<b>0點</b>、<b>8點</b>、<b>16點</b>產生一個資金費率。假設當前時間是UTC12點，則返回的是上一次結算即UTC<b>8點</b>產生的資金費率。
-
-# QueryRiskLimit_v3
-  riskLimitList: 查詢風險限額表
-  market_para_riskLimitList: 查詢風險限額表
-
-# QueryOptionDeliveryPrice_v3
-  optionDeliveryPrice: 查詢期權交割價格
-  market_para_optionDeliveryPrice: 查詢期權交割價格
-
-# QueryPublicTradingRecords_v3
-  row_comment_optionType: call or out, 僅期權
-  row_comment_resp_time: 成交時間戳(單位毫秒)
-  # 暂不启用
-  row_comment_resp_blockTradeId: 取Paradigm请求的批次ID；普通交易则为空
-
-#  Unified Margin Account Data
-  unified_margin_account_data: 統一保證金帳戶/交易接口
-  unified_margin_account_para: 以下統一保證金帳戶/交易接口都需要鑒權
-  row_comment_qty_v3: 委託數量
-  row_comment_triggerSide: |
-    用於當前條件委託是看空到stop_px時觸發還是看多到stop_px觸發。主要是用來標識當前條件單預期的方向：0為<stop_px時觸發，1為>stop_px時觸發。
-  row_comment_triggerPrice: 觸發價格
-  row_comment_triggerBy_v3: 觸發價格類型：市價/標記價格
-  row_comment_iv: 僅期權, 隱含波動率Implied Volatility. 按實際值傳參, 如10%, 則傳0.1
-  row_comment_mmp: Make market protection. true表示此訂單為做市商保護訂單
-  row_comment_positionIdx: |
-    用於在不同倉位模式下標識倉位：0-單向持倉; 1-雙向持倉Buy; 2-雙向持倉Sell. linear必傳. inverse和option不傳.
-  row_comment_orderFilter: 條件單或活動單
-  row_comment_resp_orderIM: 初始保證金
-  row_comment_resp_basePrice: 下單時的市價
-  row_comment_resp_stopOrderType: 條件單類型

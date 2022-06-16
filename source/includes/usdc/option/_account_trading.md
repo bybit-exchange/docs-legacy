@@ -41,11 +41,11 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b>|string|t(:usdcSymbol)|
-|orderType|<b>true</b>|string|t(:usdcOrderType)|
+|orderType|<b>true</b>|string|t(:usdcOptionOrderType)|
 |t(:row_parameter_side) |<b>true</b>|string|t(:side)|
-|orderPrice|false|string|t(:usdcPlaceOrderPrice)|
+|orderPrice|false|string|t(:usdcOptionPlaceOrderPrice)|
 |orderQty|<b>true</b>|string|t(:usdcOrderQty)|
-|iv|false|string|t(:optionIv)|
+|iv|false|string|t(:optionIv_order)|
 |t(:row_parameter_timeInForce)|false|string|t(:row_comment_timeInForce)|
 |orderLinkId|<b>true</b>|string|t(:orderLinkId)|
 |reduceOnly|false|bool|t(:reduceOnly)|
@@ -120,11 +120,11 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b>|string|t(:usdcSymbol)|
-|orderType|<b>true</b>|string|t(:usdcOrderType)|
+|orderType|<b>true</b>|string|t(:usdcOptionOrderType)|
 |t(:row_parameter_side) |<b>true</b>|string|t(:side)|
-|orderPrice|false|string|t(:usdcPlaceOrderPrice)|
+|orderPrice|false|string|t(:usdcOptionPlaceOrderPrice)|
 |orderQty|<b>true</b>|string|t(:usdcOrderQty)|
-|iv|false|string|t(:optionIv)|
+|iv|false|string|t(:optionIv_order)|
 |t(:row_parameter_timeInForce)|false|string|t(:row_comment_timeInForce)|
 |orderLinkId|<b>true</b>|string|t(:orderLinkId)|
 |reduceOnly|false|bool|t(:reduceOnly)|
@@ -143,6 +143,9 @@ POST
 |orderQty|string|t(:usdcOrderQty)|
 |orderType|string|t(:uscdOrderType)|
 |t(:row_parameter_side) |string|t(:side)|
+|extMap |map|t(:usdcExtMap)|
+|errorCode |string|t(:usdcErrorCode)|
+|errorDesc |string|t(:usdcErrorDesc)|
 
 ### t(:usdcReplaceOrder)
 
@@ -197,7 +200,7 @@ POST
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|outRequestId|string|t(:optionOutRequestId)|
+|outRequestId|string|t(:outRequestId)|
 |symbol|string|t(:usdcSymbol)|
 |orderId|string|t(:usdcOrderId)|
 |orderLinkId|string|t(:orderLinkId)|
@@ -266,11 +269,13 @@ POST
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|outRequestId|string|t(:optionOutRequestId)|
+|outRequestId|string|t(:outRequestId)|
 |symbol|string|t(:usdcSymbol)|
 |orderId|string|t(:usdcOrderId)|
 |orderLinkId|string|t(:orderLinkId)|
-
+|extMap |map|t(:usdcExtMap)|
+|errorCode |string|t(:usdcErrorCode)|
+|errorDesc |string|t(:usdcErrorDesc)|
 
 
 ### t(:usdcCancelOrder)
@@ -322,7 +327,7 @@ POST
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|outRequestId|string|t(:optionOutRequestId)|
+|outRequestId|string|t(:outRequestId)|
 |symbol|string|t(:usdcSymbol)|
 |orderId|string|t(:usdcOrderId)|
 |orderLinkId|string|t(:orderLinkId)|
@@ -385,17 +390,18 @@ POST
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|outRequestId|string|t(:optionOutRequestId)|
+|outRequestId|string|t(:outRequestId)|
 |symbol|string|t(:usdcSymbol)|
 |orderId|string|t(:usdcOrderId)|
 |orderLinkId|string|t(:orderLinkId)|
-
+|errorCode |string|t(:usdcErrorCode)|
+|errorDesc |string|t(:usdcErrorDesc)|
 
 
 ### t(:usdcCancelAll)
 
 ```console
-curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/cancel-order \
+curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/cancel-all \
 -H "Content-Type: application/json" \
 -D '{}'
 
@@ -443,10 +449,12 @@ POST
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|outRequestId|string|t(:optionOutRequestId)|
+|outRequestId|string|t(:outRequestId)|
 |symbol|string|t(:usdcSymbol)|
 |orderId|string|t(:usdcOrderId)|
 |orderLinkId|string|t(:orderLinkId)|
+|errorCode |string|t(:usdcErrorCode)|
+|errorDesc |string|t(:usdcErrorDesc)|
 
 
 ### t(:usdcQryUnOrPartFilled)
@@ -454,7 +462,7 @@ POST
 ```console
 curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-active-orders \
 -H "Content-Type: application/json" \
--D '{"category":"option"}'
+-D '{"category": "OPTION", "symbol": "BTC-14JUN22-24500-C"}'
 
 ```
 
@@ -467,43 +475,43 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-active-o
 
 ```javascript
 {
-  "result": {
-    "cursor": "c0769523-61f9-4cb2-b448-336cf314ca1d%3A1640843809216%2Cc0769523-61f9-4cb2-b448-336cf314ca1d%3A1640843809216",
-      "resultTotalSize": 1,
-      "dataList": [
-      {
-        "symbol": "BTC-31DEC21-18000-P",
-        "orderType": "Limit",
-        "orderLinkId": "test2021122417000220",
-        "orderId": "c0769523-61f9-4cb2-b448-336cf314ca1d",
-        "stopOrderType": "UNKNOWN",
-        "orderStatus": "New",
-        "takeProfit": "",
-        "cumExecValue": "0.0000",
-        "createdAt": "1640843809216",
-        "orderPnl": "-",
-        "price": "1.0",
-        "tpTriggerBy": "",
-        "timeInForce": "GoodTillCancel",
-        "basePrice": "",
-        "side": "Buy",
-        "triggerPrice": "",
-        "cumExecFee": "0.0000",
-        "leavesQty": "0.010",
-        "slTriggerBy": "",
-        "iv": "5.2820",
-        "closeOnTrigger": "",
-        "cumExecQty": "0.000",
-        "reduceOnly": 0,
-        "qty": "0.010",
-        "stopLoss": "",
-        "lastExecPrice": "",
-        "triggerBy": "",
-        "orderIM": "0.0110"
-      }
-    ]
-  },
-  "retCode": 0,
+    "result": {
+        "cursor": "9843d39e-dd8f-4499-bd8e-988f4c597980%3A1655092443445%2C9843d39e-dd8f-4499-bd8e-988f4c597980%3A1655092443445",
+        "resultTotalSize": 1,
+        "dataList": [
+            {
+                "symbol": "BTC-14JUN22-24500-C",
+                "orderType": "Limit",
+                "orderLinkId": "option10006",
+                "orderId": "9843d39e-dd8f-4499-bd8e-988f4c597980",
+                "stopOrderType": "UNKNOWN",
+                "orderStatus": "New",
+                "takeProfit": "",
+                "cumExecValue": "0.0000",
+                "createdAt": "1655092443445",
+                "orderPnl": "",
+                "price": "600.0",
+                "tpTriggerBy": "",
+                "timeInForce": "GoodTillCancel",
+                "basePrice": "",
+                "side": "Buy",
+                "triggerPrice": "",
+                "cumExecFee": "0.0000",
+                "leavesQty": "0.220",
+                "slTriggerBy": "",
+                "iv": "0.000",
+                "closeOnTrigger": "",
+                "cumExecQty": "0.000",
+                "reduceOnly": 0,
+                "qty": "0.220",
+                "stopLoss": "",
+                "lastExecPrice": "",
+                "triggerBy": "",
+                "orderIM": "133.6895"
+            }
+        ]
+    },
+    "retCode": 0,
     "retMsg": "Success."
 }
 ```
@@ -537,23 +545,34 @@ POST
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|orderId|string|t(:usdcOrderId)|
-|orderLinkId|string|t(:orderLinkId)|
 |t(:row_parameter_symbol) |string|t(:usdcSymbol)|
-|orderType|string|t(:row_comment_order_type)|
-|t(:row_parameter_side) |string|t(:side)|
-|qty|string|t(:usdcOrderQty)|
+|orderType |string|t(:row_comment_order_type)|
+|orderLinkId |string|t(:orderLinkId)|
+|orderId|string |t(:usdcOrderId)|
+|stopOrderType |string|t(:usdcStopOrderType)|
+|orderStatus |string|t(:orderStatus)|
+|takeProfit |string|t(:takeProfit)|
+|cumExecValue |string|t(:cumExecValue)|
+|createdAt |number|t(:createdAt)|
+|orderPnl |string|t(:usdcOrderPnl)|
 |t(:row_parameter_price) |string|t(:usdcOrderPrice)|
-|iv|string|t(:optionIv)|
+|tpTriggerBy |string|t(:usdcTptriggerby)
 |t(:row_parameter_timeInForce)|string|t(:row_comment_timeInForce)|
-|orderPnl|string| Order PNL|
-|cumExecQty|string|t(:cumExecQty)|
-|cumExecValue|string|t(:cumExecValue)|
-|cumExecFee|string|t(:cumExecFee)|
-|orderIM|string|t(:im)|
-|orderStatus|string|t(:orderStatus)|
-|reduceOnly|string|t(:reduceOnly)|
-|createdAt|number|t(:createdAt)|
+|basePrice |string|t(:basePrice)|
+|t(:row_parameter_side) |string|t(:side)|
+|triggerPrice |string|t(:triggerPrice)|
+|cumExecFee |string|t(:cumExecFee)|
+|leavesQty |string|t(:row_comment_leaves_qty)|
+|slTriggerBy |string|t(:usdcSlTriggerBy)|
+|iv |string|t(:optionIv)|
+|closeOnTrigger |bool|t(:closeOnTrigger)|
+|cumExecQty |string|t(:cumExecQty)|
+|reduceOnly |number|t(:reduceOnly)|
+|qty|string|t(:usdcOrderQty)|
+|stopLoss|string|t(:stopLoss)|
+|lastExecPrice |string|t(:lastExecPrice)|
+|triggerBy |string|t(:triggerBy)|
+|orderIM |string|t(:im)|
 
 
 ### t(:usdcQryOrderHistory)
@@ -651,28 +670,36 @@ POST
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|orderId|string|t(:usdcOrderId)|
-|orderLinkId|string|t(:orderLinkId)|
 |t(:row_parameter_symbol) |string|t(:usdcSymbol)|
-|orderType|string|t(:row_comment_order_type)|
-|t(:row_parameter_side) |string|t(:side)|
-|qty|string|t(:usdcOrderQty)|
-|t(:row_parameter_price) |string|t(:usdcOrderPrice)|
-|iv|string|t(:optionIv)|
-|t(:row_parameter_timeInForce)|string|t(:row_comment_timeInForce)|
-|leavesValue|string|t(:leavesValue)|
-|cumExecQty|string|t(:cumExecQty)|
-|cumExecFee|string|t(:cumExecFee)|
-|orderIM|string|t(:im)|
-|cashFlow|string|t(:cashFlow)|
-|realisedPnl|string|t(:realisedPnl)|
-|orderStatus|string|t(:orderStatus)|
-|orderPnl|string| Order PNL|
-|basePrice|string|t(:basePrice)|
-|reduceOnly|bool|t(:reduceOnly)|
+|orderType |string|t(:row_comment_order_type)|
+|orderLinkId |string|t(:orderLinkId)|
+|orderId|string |t(:usdcOrderId)|
 |cancelType|string|t(:usdcCancelType)|
+|stopOrderType |string|t(:usdcStopOrderType)|
+|orderStatus |string|t(:orderStatus)|
+|takeProfit |string|t(:takeProfit)|
 |createdAt|number|t(:createdAt)|
+|orderPnl |string|t(:usdcOrderPnl)|
+|t(:row_parameter_price) |string|t(:usdcOrderPrice)|
+|tpTriggerBy |string|t(:usdcTptriggerby)
+|t(:row_parameter_timeInForce)|string|t(:row_comment_timeInForce)|
 |updatedAt|number|t(:updatedAt)|
+|basePrice |string|t(:basePrice)|
+|realisedPnl|string|t(:realisedPnl)|
+|t(:row_parameter_side) |string|t(:side)|
+|triggerPrice |string|t(:triggerPrice)|
+|cumExecFee |string|t(:cumExecFee)|
+|leavesQty |string|t(:row_comment_leaves_qty)|
+|cashFlow|string|t(:cashFlow)|
+|slTriggerBy |string|t(:usdcSlTriggerBy)|
+|iv |string|t(:optionIv)|
+|closeOnTrigger |bool|t(:closeOnTrigger)|
+|cumExecQty |string|t(:cumExecQty)|
+|reduceOnly |number|t(:reduceOnly)|
+|qty|string|t(:usdcOrderQty)|
+|stopLoss|string|t(:stopLoss)|
+|triggerBy |string|t(:triggerBy)|
+|orderIM |string|t(:im)|
 
 
 ### t(:usdcTradeHistory)
@@ -755,16 +782,18 @@ POST
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |t(:row_parameter_symbol) |string|t(:usdcSymbol)|
-|orderId|string|t(:usdcOrderId)|
+|tradeTime|string|t(:tradeTime)|
 |orderLinkId|string|t(:orderLinkId)|
 |t(:row_parameter_side) |string|t(:side)|
-|tradeId|string|t(:usdcTradeId)|
+|orderId|string|t(:usdcOrderId)|
 |execPrice|string|t(:tradePrice)|
+|lastLiquidityInd|string|t(:lastLiquidityInd)|
+|execValue|string|t(:execValue)|
+|execType|string|t(:execType)|
 |execQty|string|t(:uscdSize)|
 |execFee|string|t(:fee)|
 |feeRate|string|t(:feeRate)|
-|tradeTime|string|t(:tradeTime)|
-|execType|string|t(:execType)|
+|tradeId|string|t(:usdcTradeId)|
 
 
 ## t(:account_wallet)
@@ -854,7 +883,7 @@ POST
 |t(:row_parameter_symbol) |string|t(:usdcSymbol)
 |type|string|t(:usdcType)|
 |t(:row_parameter_side) |string|t(:side)|
-|orderQty|string|t(:usdcOrderQty)|
+|qty|string|t(:usdcOrderQty)|
 |size|string|t(:uscdSize)|
 |tradePrice|string|t(:tradePrice)|
 |funding|string|t(:usdcFunding)|
@@ -877,6 +906,8 @@ For USDC Account.
 
 ```console
 curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-wallet-balance \
+-H "Content-Type: application/json" \
+-D '{}'
 
 ```
 
@@ -889,20 +920,20 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-wallet-b
 
 ```javascript
 {
-    "retCode": 0,
-    "retMsg": "",
-    "extCode": null,
-    "extInfo": null,
     "result": {
-        "equity": "1",
-        "walletBalance": "1",
-        "availableBalance": "1",
-        "accountIM": "162073788655749",
-        "accountMM": "100",
-        "totalRPL": "1620737886573",
-        "totalSessionUPL": "1620737886573",
-        "totalSessionRPL": "1620737886573"
-    }
+        "walletBalance": "1000.0000",
+        "accountMM": "0.0000",
+        "bonus": "0.0000",
+        "accountIM": "133.6697",
+        "totalSessionRPL": "0.0000",
+        "equity": "1000.0000",
+        "totalRPL": "0.0000",
+        "marginBalance": "1000.0000",
+        "availableBalance": "866.3303",
+        "totalSessionUPL": "0.0000"
+    },
+    "retCode": 0,
+    "retMsg": "Success."
 }
 ```
 
@@ -917,15 +948,16 @@ POST
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|equity|number|t(:equity)|
 |walletBalance|string|t(:cashBalance)
-|availableBalance|string|t(:availableBalance)|
-|marginBalance|string|t(:marginBalance)|
-|accountIM|string|t(:accountIm)|
 |accountMM|string|t(:accountMm)|
-|totalRPL|string|t(:totalRpl)|
-|totalSessionUPL|string|t(:totalSessionUpl)|
+|bonus|string|t(:bonus)|
+|accountIM|string|t(:accountIm)|
 |totalSessionRPL|string|t(:totalSessionRpl)|
+|equity|number|t(:equity)|
+|totalRPL|string|t(:totalRpl)|
+|marginBalance|string|t(:marginBalance)|
+|availableBalance|string|t(:availableBalance)|
+|totalSessionUPL|string|t(:totalSessionUpl)|
 
 
 ### t(:assetInfo)
@@ -991,11 +1023,11 @@ POST
 |totalGamma|string|t(:totalGamma)|
 |totalVega|string|t(:totalVega)|
 |totalTheta|string|t(:totalTheta)|
-|im|string|t(:usdcIm)|
-|mm|string|t(:usdcMm)|
 |totalRpl|string|t(:totalRpl)|
 |sessionUpl|string|t(:sessionUpl)|
 |sessionRpl|string|t(:sessionRpl)|
+|im|string|t(:usdcIm)|
+|mm|string|t(:usdcMm)|
 
 
 
@@ -1132,25 +1164,33 @@ POST
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|riskId|string|riskId|
 |t(:row_parameter_symbol) |string|t(:usdcSymbol)|
-|t(:row_parameter_side) |string|t(:side)|
-|size|string|t(:uscdSize)
-|entryPrice|string|t(:entryPrice)
-|sessionAvgPrice|string|t(:sessionAvgPrice)|
-|markPrice|string|t(:markPrice)|
-|sessionUPL|string|t(:sessionUpl)|
-|sessionRPL|string|t(:sessionRpl)|
-|positionIM|string|t(:usdcIm)|
-|positionMM|string|t(:usdcMm)|
-|createdAt|string|t(:createdAt)|
-|updatedAt|string|t(:updatedAt)|
-|positionValue|string|t(:positionValue)|
+|leverage |string|t(:usdcSymbol)|
+|occClosingFee |string|t(:occClosingFee)|
 |liqPrice|string|t(:liqPrice)|
-|bustPrice|string|t(:bustPrice)|
-|positionStatus|string|t(:positionStatus)|
+|positionValue|string|t(:positionValue)|
+|takeProfit|string|t(:trakeProfit)|
+|riskId|string|riskId|
+|trailingStop|string|t(:trailingStop)|
 |unrealisedPnl|string|t(:unrealisedPnl)|
+|createdAt|string|t(:createdAt)|
+|markPrice|string|t(:usdcMarkPrice)|
 |cumRealisedPnl|string|t(:cumRealisedPnl)|
+|positionMM|string|t(:usdcMm)|
+|positionIM|string|t(:usdcIm)|
+|updatedAt|string|t(:updatedAt)|
+|tpSLMode|string|t(:tpSlMode)|
+|t(:row_parameter_side) |string|t(:side)|
+|bustPrice|string|t(:bustPrice)|
+|deleverageIndicator|integer|t(:deleverageIndicator)|
+|entryPrice|string|t(:entryPrice)
+|size|string|t(:uscdSize)
+|sessionRPL|string|t(:sessionRpl)|
+|positionStatus|string|t(:positionStatus)|
+|sessionUPL|string|t(:sessionUpl)|
+|stopLoss|string|t(:stopLoss)|
+|orderMargin|string|t(:orderMargin)|
+|sessionAvgPrice|string|t(:sessionAvgPrice)|
 
 ### t(:queryDeliveryLog)
 
@@ -1313,10 +1353,10 @@ POST
 |expDate|string|t(:expDate)|
 |pnl|string|t(:pnl)|
 |totalRpl|string|t(:totalRpl)|
-|sessionUpl|string|t(:sessionUpl)|
-|sessionRpl|string|t(:sessionRpl)|
 |im|string|t(:usdcIm)|
 |mm|string|t(:usdcMm)|
+|sessionRpl|string|t(:sessionRpl)|
+|sessionUpl|string|t(:sessionUpl)|
 
 
 
