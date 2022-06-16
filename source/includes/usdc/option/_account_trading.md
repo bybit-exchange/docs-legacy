@@ -1070,7 +1070,7 @@ POST
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|marginMode|<b>true</b>|string|t(:usdcMarginMode)|
+|setMarginMode|<b>true</b>|string|t(:usdcMarginMode)|
 
 <p class="fake_header">t(:responseparameters)</p>
 
