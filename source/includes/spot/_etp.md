@@ -167,7 +167,7 @@ POST
 |ltCode|<b>true</b>|string|t(:spotLtCode)|
 |ltAmount|<b>true</b>|number|t(:spotLtAmount)|
 |timestamp|<b>true</b>|number|t(:spot_timestamp)|
-|serialNo|<b>false</b>|string|t(:spotLtSerialNo)|
+|serialNo|false|string|t(:spotLtSerialNo)|
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -208,7 +208,8 @@ curl https://api-testnet.bybit.com/spot/lt/v1/redeem \
       "orderAmount": "123.12345678",
       "timestamp": 1620917160000,
       "id": 1,
-      "valueCoin": "USDT"
+      "valueCoin": "USDT",
+      "serialNo": "0a65e75f165543122947310021"
   },
   "ext_code": null, 
   "ext_info": null
@@ -227,7 +228,7 @@ POST
 |ltCode|<b>true</b>|string|t(:spotLtCode)|
 |ltQuantity|<b>true</b>|number|t(:spotLtQuantity)|
 |timestamp|<b>true</b>|number|t(:spot_timestamp)|
-|serialNo|<b>false</b>|string|t(:spotLtSerialNo)|
+|serialNo|false|string|t(:spotLtSerialNo)|
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -236,7 +237,7 @@ POST
 |:----- |:-----|----- |
 |ltCode|string|t(:spotResLtCode)|
 |t(:row_parameter_ltOrderStatus)|string|t(:spotResOrderStatus)|
-|t(:row_parameter_quantity) |string|t(:spotResRedeemQuantity)|
+|<a href="#quantity-qty">quantity</a> |string|t(:spotResRedeemQuantity)|
 |orderQuantity|string|t(:spotResRedeemOrderQuantity)|
 |orderAmount|string|t(:spotResRedeemOrderAmount)|
 |timestamp|long|t(:spot_timestamp)|
