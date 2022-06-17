@@ -190,12 +190,17 @@ t(:spot_public_websocket_frequency_300_delay_400)
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
+| t(:row_parameter_symbol) | string | t(:spot_symbol) |
+| symbolName | string | t(:spot_symbol) |
+| topic | string | t(:spot_topic) |
+| binary | string | t(:spot_binary) |
 | v | string | t(:spot_transactId) |
 | t | string | t(:spot_time) |
 | p | string | t(:spot_price)|
 | q | boolean | t(:spot_quantity) |
 | m | boolean | t(:spot_sMessage) |
 | f | boolean | t(:spot_first) |
+| sendTime | string | t(:spot_sendTime) |
 
 
 ### t(:websocketrealtimes)
@@ -265,6 +270,9 @@ t(:spot_public_websocket_frequency_300_delay_400)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
+| t(:row_parameter_symbol) | string | t(:spot_symbol) |
+| symbolName | string | t(:spot_symbol) |
+| topic | string | t(:spot_topic) |
 | t | number | t(:spot_time) |
 | s | string | t(:spot_symbol) |
 | sn | string | t(:spot_symbol) |
@@ -277,6 +285,7 @@ t(:spot_public_websocket_frequency_300_delay_400)
 | m | string | t(:spot_gains)|
 | e | number | t(:spotExchangeId)|
 | f | boolean | t(:spot_first) |
+| sendTime | string | t(:spot_sendTime) |
 
 
 ### t(:websocketkline)
@@ -349,6 +358,11 @@ t(:spot_public_websocket_frequency_300_delay_400)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
+| t(:row_parameter_symbol) | string | t(:spot_symbol) |
+| symbolName | string | t(:spot_symbol) |
+| topic | string | t(:spot_topic) |
+| klineType | string | t(:spot_kline_type) |
+| binary | string | t(:spot_binary) |
 | t | number | t(:row_comment_resp_open_time) |
 | s | string | t(:spot_symbol) |
 | sn | string | t(:spot_symbol) |
@@ -358,6 +372,8 @@ t(:spot_public_websocket_frequency_300_delay_400)
 | o | string | t(:spot_open)|
 | v | string | t(:spot_volume)|
 | f | boolean | t(:spot_first) |
+| sendTime | string | t(:spot_sendTime) |
+
 
 ### t(:websocketdepth)
 > t(:codequote_subscribe)
@@ -448,6 +464,10 @@ t(:spot_public_websocket_frequency_300_delay_650)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:----- |----- |
+| t(:row_parameter_symbol) | string | t(:spot_symbol) |
+| symbolName | string | t(:spot_symbol) |
+| topic | string | t(:spot_topic) |
+| binary | string | t(:spot_binary) |
 | e | number | t(:spotExchangeId) |
 | t | number | t(:spot_timestamp2) |
 | s | string | t(:spot_symbol) |
@@ -456,6 +476,7 @@ t(:spot_public_websocket_frequency_300_delay_650)
 | a | array | t(:spot_sells) |
 | f | boolean | t(:spot_first) |
 | o | number | t(:spotIgnore) |
+| sendTime | string | t(:spot_sendTime) |
 
 ### t(:websocketmergeddepth)
 > t(:codequote_subscribe)
@@ -552,12 +573,19 @@ t(:spot_public_websocket_frequency_300_delay_650)
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:----- |----- |
+| t(:row_parameter_symbol) | string | t(:spot_symbol) |
+| symbolName | string | t(:spot_symbol) |
+| topic | string | t(:spot_topic) |
+| dumpScale | string | t(:spot_dumpScale) |
+| binary | string | t(:spot_binary) |
+| e | number | t(:spotExchangeId) |
 | t | number | t(:spot_timestamp2) |
 | s | string | t(:spot_symbol) |
 | v | string | t(:spot_version) |
 | b | array | t(:spot_buys) |
 | a | array | t(:spot_sells) |
 | f | boolean | t(:spot_first) |
+| sendTime | string | t(:spot_sendTime) |
 
 ### t(:websocketdiffdepth)
 > t(:codequote_subscribe)
@@ -648,6 +676,10 @@ t(:spot_public_websocket_frequency_300_delay_650)
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
+| t(:row_parameter_symbol) | string | t(:spot_symbol) |
+| symbolName | string | t(:spot_symbol) |
+| topic | string | t(:spot_topic) |
+| binary | string | t(:spot_binary) |
 | e | number | t(:spotExchangeId) |
 | t | number | t(:spot_timestamp2) |
 | s | string | t(:spot_symbol) |
@@ -656,6 +688,7 @@ t(:spot_public_websocket_frequency_300_delay_650)
 | a | array | t(:spot_sells) |
 | f | boolean | t(:spot_first) |
 | o | number | t(:spotIgnore) |
+| sendTime | string | t(:spot_sendTime) |
 
 
 ### t(:websocketLtNetvalue)
@@ -667,7 +700,7 @@ t(:spot_public_websocket_frequency_300_delay_650)
     "symbol": "BTC3LUSDTNAV",
     "event": "sub",
     "params": {
-        "binary": False
+        "binary": false
     }
 }
 ```
@@ -709,6 +742,10 @@ t(:spot_websocket_lt_nav_desc_v1)
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
+| t(:row_parameter_symbol) | string | t(:spot_symbol) |
+| symbolName | string | t(:spot_symbol) |
+| topic | string | t(:spot_topic) |
+| binary | string | t(:spot_binary) |
 | t | number | t(:spot_timestamp) |
 | s | string | t(:spotLtSymbolNav) |
 | nav | string | t(:spotResNetValue) |
@@ -717,6 +754,7 @@ t(:spot_websocket_lt_nav_desc_v1)
 | loan | string | t(:spotLoan) |
 | ti | string | t(:spotResCirculation) |
 | n | string | t(:spotTotalPositionValue) |
+| sendTime | string | t(:spot_sendTime) |
 
 
 ## t(:publictopics_v2)
@@ -805,6 +843,7 @@ t(:spot_public_websocket_frequency_100)
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
+| topic | string | t(:spot_topic) |
 | t(:row_parameter_symbol) | string | t(:spot_symbol) |
 | symbolName | string | t(:spot_symbol) |
 | binary | string | t(:spot_binary) |
@@ -880,6 +919,7 @@ t(:spot_public_websocket_frequency_near_realtime)
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
+| topic | string | t(:spot_topic) |
 | t(:row_parameter_symbol) | string | t(:spot_symbol) |
 | binary | string | t(:spot_binary) |
 | klineType | string | t(:spot_kline_type) |
@@ -954,6 +994,7 @@ t(:spot_public_websocket_frequency_near_realtime)
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
+| topic | string | t(:spot_topic) |
 | t(:row_parameter_symbol) | string | t(:spot_symbol) |
 | binary | string | t(:spot_binary) |
 | symbolName | string | t(:spot_symbol) |
@@ -1024,6 +1065,7 @@ t(:spot_public_websocket_frequency_250_delay_300)
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
+| topic | string | t(:spot_topic) |
 | t(:row_parameter_symbol) | string | t(:spot_symbol) |
 | binary | string | t(:spot_binary) |
 | symbolName | string | t(:spot_symbol) |
@@ -1098,6 +1140,7 @@ t(:spot_public_websocket_frequency_near_realtime)
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
+| topic | string | t(:spot_topic) |
 | t(:row_parameter_symbol) | string | t(:spot_symbol) |
 | binary | string | t(:spot_binary) |
 | symbolName | string | t(:spot_symbol) |
@@ -1146,9 +1189,9 @@ while True:
     {
         "e":"outboundAccountInfo",
         "E":"1629969654753",
-        "T":True,
-        "W":True,
-        "D":True,
+        "T":true,
+        "W":true,
+        "D":true,
         "B":[
             {
                 "a":"BTC",

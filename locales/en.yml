@@ -2699,6 +2699,9 @@ en:
   spot_sells: Ask prices & quantities in ascending order (best price first)
   spot_binary: Compressed or not. Defaults to <code>false</code>
   spot_kline_type: Interval
+  spot_topic: Topic name
+  spot_dumpScale: Dump scale
+  spot_sendTime: Timestamp of data sent
   spot_buy_price: Best bid price
   spot_buy_qty: Bid quantity
   spot_sell_price: Best ask price
@@ -3475,11 +3478,17 @@ en:
 #  platFormOrderLatest500: 平台歷史交易數據（最近500條）
   usdcLimitMax500: default 500
 
+  usdc_websocket_aside_heartbeat: To avoid networks or program issues, we recommend that you send the <code>ping</code> heartbeat packet every <b>20</b> seconds to maintain the WebSocket connection.
   websocket_aside_heartbeat_option: |
-    <p>The client needs to periodically send a "ping" to Bybit, and the Bybit server returns a heartbeat "pong" to show that the connection between the client and the server is normal. It is recommended to send at least every 20s.</p>
+    <p>The client needs to periodically send a "ping" to Bybit, and the Bybit server returns a heartbeat "pong" to show that the connection between the client and the server is normal. It is recommended to send at least every <b>20s</b>. WSS will actively trigger to break the connection without heartbeat "ping" received in 30s.</p>
     <p>If the client does not receive the heartbeat feedback normally, it needs to check the network connection status and reconnect to the server.</p>
-    <p>If the Bybit server does not receive a "ping" from the client for more than 3 minutes, the server will determine that the client has been disconnected (if it is not disconnected, the Bybit server will also actively disconnect at this time).</p>
-    <p>If the server determines and disconnects the link, and the client is in the state of "disconnection protection", all open orders of the client will be automatically cancelled.</p>
+
+  usdc_disconnect_protection: Disconnection Protection
+  usdc_disconnect_protection_para: ONLY VIP clients are allowed to turn on/off DCP
+  websocket_aside_dcp_usdc: |
+    <p>Based on the heartbeat mechanism, Bybit provides disconnection protection function. If you need to turn it on/off, you can contact your client manager for consultation and application.</p>
+    <p>The timing starts from the first disconnection. If the Bybit server does not receive the reconnection from the client for more than 3 minutes and resumes the heartbeat "ping", and the client is in the state of "disconnection protection", all the active orders of the client will be canceled all automatically.</p>
+    <p>If within 3 minutes, the client reconnects and resumes the heartbeat "ping", the timing will be reset and restarted at the next disconnection.</p>
 
   usdc_auth_para_construct1: <p>1.The parameters are in json format</p>
   resultTotalSize: length of dataList
