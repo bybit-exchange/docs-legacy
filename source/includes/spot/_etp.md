@@ -127,8 +127,6 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |ltCode|<b>true</b>|string|t(:spotLtCode)|
-|timestamp|<b>false</b>|number|t(:spot_timestamp)|
-
 
 <p class="fake_header">t(:responseparameters)</p>
 
