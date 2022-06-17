@@ -2343,6 +2343,9 @@ zh-cn:
   spot_sell: 賣一價、數量
   spot_binary: 是否壓縮 true壓縮, false未壓縮（默認）
   spot_kline_type: k線間隔
+  spot_topic: topic名稱
+  spot_sendTime: 數據推送時間
+  spot_dumpScale: 合並精度
   spot_buy_price: 買一價價格
   spot_buy_qty: 買一價數量
   spot_sell_price: 賣一價價格
@@ -2404,7 +2407,7 @@ zh-cn:
     <p>這個訂閱會推送全量深度信息，因此數據量大。如果想要推送評率更快，請訂閱合並深度。</p>
 
   spot_websocket_orderbook_merge_v1: 訂單簿(合並深度)
-  spot_websocket_orderbook_merge_desc_v1: ｜
+  spot_websocket_orderbook_merge_desc_v1: |
     <p>聚合訂單簿數據推送</p>
     <p>這個訂閱必須傳dumpScale（合並精度）這個參數。dumpScale不能大於ticker的精度。你可以在brokerInfo這個端點查詢ticker的精度信息。</p>
     <p>举例：<code>1</code> -> <code>50000.5</code>; <code>0</code> -> <code>50000</code>.</p>
