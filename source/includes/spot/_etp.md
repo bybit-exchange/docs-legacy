@@ -147,7 +147,8 @@ curl https://api-testnet.bybit.com/spot/lt/v1/purchase \
         "amount": "123.12345678",
         "timestamp": 1620917160000,
         "id": 1,
-        "valueCoin": "USDT"
+        "valueCoin": "USDT",
+        "serialNo": "0a65e75f165543103539010011"
     },
     "ext_code": null,
     "ext_info": null
