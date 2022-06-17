@@ -9,13 +9,14 @@ curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/publ
 ```
 
 ```python--old
-//TODO: change to v3
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Market.Market_orderbook(symbol="BTCUSD").result())
+
 ```
 
 ```python--pybit
+
+```
+
+> t(:codequote_responseExample)
 
 ```javascript
 {
@@ -49,8 +50,8 @@ print(client.Market.Market_orderbook(symbol="BTCUSD").result())
 }
 ```
 
-t(:market_para_orderbook)
-t(:dv3_orderbookPara)
+t(:market_para_orderbook)  
+t(:dv_orderbookPara)
 
 <aside class="notice">
 t(:market_aside_orderbook)
@@ -58,25 +59,25 @@ t(:market_aside_orderbook)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=v3obL2>/derivatives/v3/public/order-book/L2</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#v3obL2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=dvorderbook>/derivatives/v3/public/order-book/L2</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#dvorderbook"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|------ |
-|category |<b>true</b>|string |t(:dv3_category)|
+|category |<b>true</b>|string |t(:dv_category)t(:dv_categorySuffix_2)|
 |symbol |<b>true</b> |string |t(:row_comment_symbol) |
-|limit |false |int |t(:dv3_orderbookLimit) |
+|limit |false |int |t(:dv_orderbookLimit) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |p |string |t(:row_comment_resp_price) |
 |v |string |t(:row_comment_resp_volume) |
-|b |Arrays |t(:dv3_orderbookBids) |
-|a |Arrays |t(:dv3_orderbookAsks) |
-|u |string |t(:dv3_orderbookUpdateId) |
-|ts |int |t(:dv3_orderbookTimeStamp) |
+|b |Arrays |t(:dv_orderbookBids) |
+|a |Arrays |t(:dv_orderbookAsks) |
+|u |string |t(:dv_orderbookUpdateId) |
+|ts |int |t(:dv_orderbookTimeStamp) |
 
 
 ### t(:querykline)
@@ -124,15 +125,15 @@ t(:market_para_querykline)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=dv3kList>/derivatives/v3/public/kline</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#dv3kList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=dvkline>/derivatives/v3/public/kline</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#dvkline"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:dv3_category) |
+|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_1) |
 |symbol |<b>true</b> |string |t(:row_comment_symbol) |
-|<a href="#kline-interval-interval">interval</a> |<b>true</b> |string |t(:dv3_klineInterval) |
+|<a href="#kline-interval-interval">interval</a> |<b>true</b> |string |t(:dv_klineInterval) |
 |start |<b>true</b> |integer |t(:row_comment_startTime_ms) |
 |end |<b>true</b> |integer |t(:row_comment_endTime_ms) |
 |limit |false |integer |t(:row_comment_limit_200) |
@@ -140,18 +141,19 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|category |string |t(:dv3_category) |
+|category |string |t(:dv_category)t(:dv_categorySuffix_1) |
 |symbol |string |t(:row_comment_symbol) |
 |<a href="#kline-interval-interval">interval</a> |string |t(:row_comment_interval) |
-|start |integer |t(:dv3_klineRespStart) |
+|start |integer |t(:dv_klineRespStart) |
 |open |string |t(:row_comment_open) |
 |high |string |t(:row_comment_high) |
 |low |string |t(:row_comment_low) |
-|close |string |t(:dv3_klineRespClose) |
-|volume |string |t(:dv3_klineRespVolume) |
-|turnover |string |t(:dv3_klineRespTurnover) |
+|close |string |t(:dv_klineRespClose) |
+|volume |string |t(:dv_klineRespVolume) |
+|turnover |string |t(:dv_klineRespTurnover) |
 
-### t(:dv3_tickerHead)
+
+### t(:dv_tickerHead)
 > t(:codequote_curlExample)
 
 ```console
@@ -160,11 +162,9 @@ curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/publ
 
 ```python--old
 
-
 ```
 
 ```python--pybit
-
 
 ```
 
@@ -234,34 +234,34 @@ curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/publ
 }
 ```
 
-t(:dv3_marketTickerPara)
+t(:dv_marketTickerPara)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=dv3Tickers>/derivatives/v3/public/tickers</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#dv3Tickers"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=dvtickers>/derivatives/v3/public/tickers</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#dvtickers"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:derivativesV3) |
-|symbol |false |string |t(:dv3_tickerSymbol) |
+|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_2) |
+|symbol |false |string |t(:dv_tickerSymbol) |
 
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| category |string |t(:derivativesV3) |
+| category |string |t(:dv_category)t(:dv_categorySuffix_7) |
 | askIv |string |t(:askIv) |
 | deliveryTime |string |t(:deliveryTime) |
 | price24hPcnt |string |t(:row_comment_resp_price_24h_pcnt) |
 | nextFundingTime |string |t(:row_comment_resp_next_funding_time) |
-| predictedDeliveryPrice |string |t(:dv3_tickPredictedDeliveryPrice) |
+| predictedDeliveryPrice |string |t(:dv_tickPredictedDeliveryPrice) |
 | countdownHour |number |t(:row_comment_resp_countdown_hour) |
 | indexPrice |string |t(:row_comment_resp_index_price) |
 | prevPrice24h |string |t(:row_comment_resp_prev_price_24h) |
 | openInterest |string |t(:row_comment_resp_open_interest) |
-| openInterestValue |string |t(:dv3_openInterestRespValue) |
+| openInterestValue |string |t(:dv_openInterestRespValue) |
 | underlyingPrice |string |t(:usdcUnderlyingPrice) |
 | volume24h |number |t(:row_comment_resp_volume_24h) |
 | symbol |string |t(:row_comment_symbol) |
@@ -283,14 +283,14 @@ GET
 | prevPrice1h |string |t(:row_comment_resp_prev_price_1h) |
 | markPrice |string |t(:row_comment_resp_mark_price) |
 | gamma |string |t(:gamma) |
-| deliveryFeeRate |string |t(:dv3_tickDeliveryFeeRate) |
+| deliveryFeeRate |string |t(:dv_tickDeliveryFeeRate) |
 | lowPrice24h |string |t(:row_comment_resp_low_price_24h) |
 | markPriceIv |string |t(:markPriceIv) |
 | predictedFundingRate |string |t(:row_comment_predicted_funding_rate) |
-| basisRate |string |t(:dv3_tickBasisRate) |
+| basisRate |string |t(:dv_tickBasisRate) |
 
 
-### t(:dv3_instrHead)
+### t(:dv_instrHead)
 > t(:codequote_curlExample)
 
 ```console
@@ -299,11 +299,9 @@ curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/publ
 
 ```python--old
 
-
 ```
 
 ```python--pybit
-
 
 ```
 
@@ -382,48 +380,48 @@ curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/publ
 }
 ```
 
-t(:dv3_marketInstrPara)
+t(:dv_marketInstrPara)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=dv3Symbols>/derivatives/v3/public/instruments-info</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#dv3Symbols"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=dvinstru>/derivatives/v3/public/instruments-info</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#dvinstru"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|catetory |<b>true</b> |string |t(:dv3_category) |
+|catetory |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_2) |
 |symbol |false |string |t(:row_comment_symbol) |
 |status |false |string |t(:row_response_comment_status) |
-|direction |false |string |t(:dv3_pageDirection) |
+|direction |false |string |t(:dv_pageDirection) |
 |limit |false |string |t(:row_comment_limit_500_1000) |
-|cursor |false |string |t(:dv3_cursor) |
+|cursor |false |string |t(:dv_cursor) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|catetory |<b>true</b> |string |t(:dv3_category) |
+|catetory |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_2) |
 |symbol |string |t(:row_comment_symbol) |
-|contractType |string |t(:dv3_instrContractType) |
+|contractType |string |t(:dv_instrContractType) |
 |status |string |t(:row_response_comment_status) |
-|baseCoin |string |t(:dv3_instrBaseCoin) |
-|quoteCoin |string |t(:dv3_instrQuoteCoin) |
-|settleCoin |string |t(:dv3_instrSettleCoin) |
-|optionsType |string |t(:dv3_OptionType) |
-|launchTime |number |t(:dv3_instrLaunchTime) |
-|deliveryTime |number |t(:dv3_instrDeliveryTime) |
+|baseCoin |string |t(:dv_instrBaseCoin) |
+|quoteCoin |string |t(:dv_instrQuoteCoin) |
+|settleCoin |string |t(:dv_instrSettleCoin) |
+|optionsType |string |t(:dv_OptionType) |
+|launchTime |number |t(:dv_instrLaunchTime) |
+|deliveryTime |number |t(:dv_instrDeliveryTime) |
 |deliveryFeeRate |number |t(:deliveryFeeRate) |
-|priceScale |number |t(:dv3_instrPriceScale) |
+|priceScale |number |t(:dv_instrPriceScale) |
 |minLeverage |number |t(:minLeverage) |
 |maxLeverage |number |t(:maxLeverage) |
 |leverageStep |string |t(:leverageStep) |
 |minPrice |string |t(:minPrice) |
 |maxPrice |string |t(:maxPrice) |
 |tickSize |string |t(:tickSize) |
-|maxOrderQty |number |t(:dv3_instrMaxOrderQty) |
-|minOrderQty |number |t(:dv3_instrMinOrderQty) |
+|maxOrderQty |number |t(:dv_instrMaxOrderQty) |
+|minOrderQty |number |t(:dv_instrMinOrderQty) |
 |qtyStep |number |t(:qtyStep) |
-|nextPageCursor |string |t(:dv3_cursor) |
+|nextPageCursor |string |t(:dv_cursor) |
 
 
 ### t(:markpricekline)
@@ -438,7 +436,6 @@ curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/publ
 ```
 
 ```python--pybit
-
 
 ```
 
@@ -458,42 +455,6 @@ curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/publ
                 "close": "31015.33",
                 "symbol": "BTCUSDT",
                 "interval": "D"
-            },
-            {
-                "start": "1652227200000",
-                "open": "31015.33",
-                "high": "32157.68",
-                "low": "27801",
-                "close": "29110.61",
-                "symbol": "BTCUSDT",
-                "interval": "D"
-            },
-            {
-                "start": "1652313600000",
-                "open": "29110.61",
-                "high": "30211.67",
-                "low": "26731.37",
-                "close": "29026.97",
-                "symbol": "BTCUSDT",
-                "interval": "D"
-            },
-            {
-                "start": "1652400000000",
-                "open": "29026.97",
-                "high": "31062.67",
-                "low": "28762.55",
-                "close": "29291.4",
-                "symbol": "BTCUSDT",
-                "interval": "D"
-            },
-            {
-                "start": "1652486400000",
-                "open": "29291.4",
-                "high": "30327.13",
-                "low": "28641.42",
-                "close": "30088.12",
-                "symbol": "BTCUSDT",
-                "interval": "D"
             }
         ],
         "category": "linear"
@@ -505,15 +466,15 @@ t(:linear_query_mark_price_kline)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=dv3mpk>/derivatives/v3/public/mark-price-kline</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#dv3mpk"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=dvmarkkline>/derivatives/v3/public/mark-price-kline</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#dvmarkkline"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:dv3_category) |
+|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_1) |
 |symbol |<b>true</b> |string |t(:row_comment_symbol) |
-|<a href="#kline-interval-interval">interval</a> |<b>true</b> |string |t(:dv3_klineInterval) |
+|<a href="#kline-interval-interval">interval</a> |<b>true</b> |string |t(:dv_klineInterval) |
 |start |<b>true</b> |integer |t(:row_comment_startTime_ms) |
 |end |<b>true</b> |integer |t(:row_comment_endTime_ms) |
 |limit |false |integer |t(:row_comment_limit_200) |
@@ -521,14 +482,14 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|category |<b>true</b> |string |t(:dv3_category) |
+|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_1) |
 |symbol |<b>true</b> |string |t(:row_comment_symbol) |
 | <a href="#kline-interval-interval">interval</a> |string |t(:row_comment_interval) |
-| start |integer |t(:dv3_klineRespStart) |
+| start |integer |t(:dv_klineRespStart) |
 | open |string |t(:row_comment_open) |
 | high |string |t(:row_comment_high) |
 | low |string |t(:row_comment_low) |
-| close |string |t(:dv3_klineRespClose) |
+| close |string |t(:dv_klineRespClose) |
 
 ### t(:queryindexpricekline)
 > t(:codequote_curlExample)
@@ -571,15 +532,15 @@ t(:queryindexpricekline)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=dv3IndexPriceKline>/derivatives/v3/public/index-price-kline</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#dv3IndexPriceKline"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=dvindexkline>/derivatives/v3/public/index-price-kline</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#dvindexkline"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:dv3_category) |
+|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_1) |
 |symbol |<b>true</b> |string |t(:row_comment_symbol) |
-|<a href="#kline-interval-interval">interval</a> |<b>true</b> |string |t(:dv3_klineInterval) |
+|<a href="#kline-interval-interval">interval</a> |<b>true</b> |string |t(:dv_klineInterval) |
 |start |<b>true</b> |integer |t(:row_comment_startTime_ms) |
 |end |<b>true</b> |integer |t(:row_comment_endTime_ms) |
 |limit |false |integer |t(:row_comment_limit_200) |
@@ -587,17 +548,18 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|category |<b>true</b> |string |t(:dv3_category) |
-|symbol |<b>true</b> |string |t(:row_comment_symbol) |
+|category |string |t(:dv_category)t(:dv_categorySuffix_1) |
+|symbol |string |t(:row_comment_symbol) |
 | <a href="#kline-interval-interval">interval</a> |string |t(:row_comment_interval) |
-| start |integer |t(:dv3_klineRespStart) |
+| start |integer |t(:dv_klineRespStart) |
 | open |string |t(:row_comment_open) |
 | high |string |t(:row_comment_high) |
 | low |string |t(:row_comment_low) |
-| close |string |t(:dv3_klineRespClose) |
+| close |string |t(:dv_klineRespClose) |
 
 
-### t(:dv3_historyFundingRateHead)
+
+### t(:dv_historyFundingRateHead)
 > t(:codequote_curlExample)
 
 ```console
@@ -629,16 +591,6 @@ curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/publ
         "symbol": "BTCUSDT",
         "fundingRate": "0.0001",
         "fundingRateTimestamp": "1652169600000"
-      },
-      {
-        "symbol": "BTCUSDT",
-        "fundingRate": "0.0001",
-        "fundingRateTimestamp": "1652140800000"
-      },
-      {
-        "symbol": "BTCUSDT",
-        "fundingRate": "0.0001",
-        "fundingRateTimestamp": "1652112000000"
       }
     ],
       "category": "linear"
@@ -649,28 +601,29 @@ t(:market_para_fundingRate)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=dv3hfr>/derivatives/v3/public/funding/history-funding-rate</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#dv3hfr"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=dvhistfundrate>/derivatives/v3/public/funding/history-funding-rate</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#dvhistfundrate"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:dv3_category) |
+|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_3) |
 |symbol |<b>true</b> |string |t(:row_comment_symbol) |
 |startTime |false |integer |t(:row_comment_from_timestamp) |
 |endTime |false |integer |t(:row_comment_endTime) |
 |limit |false |integer |t(:row_comment_limit_200) |
 
+
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|category |string |t(:dv3_category) |
+|category |string |t(:dv_category)t(:dv_categorySuffix_1) |
 |t(:row_parameter_symbol) |string |t(:row_comment_symbol) |
 |fundingRate |string |t(:row_comment_funding_rate) |
 |fundingRateTimestamp |number |t(:row_comment_funding_rate_timestamp) |
 
 
-### t(:dv3_riskLimitHead)
+### t(:dv_riskLimitHead)
 > t(:codequote_curlExample)
 
 ```console
@@ -689,39 +642,38 @@ curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/publ
 
 ```javascript
 
-
 ```
 
-t(:dv3_riskLimitHead)
+t(:dv_riskLimitHead)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=dv3risklimit>/derivatives/v3/public/position/risk-limit/list</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#dv3risklimit"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=dvrisklimit>/derivatives/v3/public/position/risk-limit/list</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#dvrisklimit"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:dv3_category) |
+|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_1) |
 |symbol |<b>true</b> |string |t(:row_comment_symbol) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|category |string |t(:dv3_category) |
+|category |string |t(:dv_category)t(:dv_categorySuffix_1) |
 |id |number |t(:row_comment_riskId)  |
-|symbol|string |t(:row_comment_symbol)   |
-|limit |string |t(:risklimit)    |
-|maintainMargin |number |t(:row_comment_maintain_margin)  |
-|initialMargin |number |t(:dv3_riskInitialMargin)  |
-|section |string |t(:row_comment_section)  |
-|isLowestRisk |number |t(:row_comment_is_lowest_risk)    |
-|createdTime |string |t(:row_comment_created_at)  |
-|updatedTime |string |t(:row_comment_updated_at)  |
-|maxLeverage |string |t(:row_comment_max_leverage)  |
+|symbol|string |t(:row_comment_symbol) |
+|limit |string |t(:risklimit) |
+|maintainMargin |number |t(:row_comment_maintain_margin) |
+|initialMargin |number |t(:dv_riskInitialMargin)  |
+|section |string |t(:row_comment_section) |
+|isLowestRisk |number |t(:row_comment_is_lowest_risk) |
+|createdTime |string |t(:row_comment_created_at) |
+|updatedTime |string |t(:row_comment_updated_at) |
+|maxLeverage |string |t(:row_comment_max_leverage) |
 
 
-### t(:dv3_optionDeliveryHead)
+### t(:dv_optionDeliveryHead)
 > t(:codequote_curlExample)
 
 ```console
@@ -742,30 +694,30 @@ curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/publ
 
 ```
 
-t(:dv3_market_option_para)
+t(:dv_market_option_para)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=dv3optdepr>/derivatives/v3/public/delivery-price</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#dv3optdepr"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=dvdeliveryprice>/derivatives/v3/public/delivery-price</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#dvdeliveryprice"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:dv3_category) |
+|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_8) |
 |symbol |<b>true</b> |string |t(:row_comment_symbol) |
-|direction|false |string |t(:dv3_pageDirection) |
+|direction|false |string |t(:dv_pageDirection) |
 |limit|false |string |t(:row_comment_limit_50_200) |
-|cursor|false |string |t(:cursor) |
+|cursor|false |string |t(:dv_cursor) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|t(:row_parameter_category) |t(:row_comment_category_optionOnly) |
+|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_8) |
 |symbol |string |t(:row_comment_symbol) |
 |deliveryPrice |string |t(:deliveryPrice) |
 |deliveryTime |number |t(:deliveryTime) |
-|cursor |string |t(:cursor) |
+|nextPageCursor |string |t(:dv_cursor) |
 
 
 ### t(:publictradingrecords)
@@ -781,7 +733,6 @@ curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/publ
 
 ```python--pybit
 
-
 ```
 
 
@@ -795,29 +746,29 @@ t(:market_para_records)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=dv3retr>/derivatives/v3/public/recent-trade</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#dv3retr"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=dvrecentrades>/derivatives/v3/public/recent-trade</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#dvrecentrades"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:dv3_category) |
+|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_2) |
 |symbol |<b>true</b> |string |t(:row_comment_symbol) |
-|optionType |false |string |t(:dv3_OptionType) |
+|optionType |false |string |t(:dv_OptionType) |
 |from |false |int |t(:row_comment_from)|
 |limit |false |int |t(:row_comment_limit_500_1000)|
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|category |string |t(:dv3_category) |
-|execId |string |t(:dv3_recentExecId)  |
+|category |string |t(:dv_category)t(:dv_categorySuffix_2) |
+|execId |string |t(:dv_recentExecId)  |
 |symbol |string |t(:row_comment_symbol) |
-|price |number |t(:dv3_recentPrice) |
+|price |number |t(:dv_recentPrice) |
 |size |number |t(:row_response_comment_execqty) |
-|t(:row_parameter_side) |string |t(:dv3_recentSide) |
-|time |string |t(:dv3_recentTime) |
-|blocktradeId |string |t(:dv3_recentBlockTradeId) |
+|t(:row_parameter_side) |string |t(:dv_recentSide) |
+|time |string |t(:dv_recentTime) |
+|blocktradeId |string |t(:dv_recentBlockTradeId) |
 
 
 ### t(:marketopeninterest)
@@ -838,30 +789,48 @@ curl https://api-testnet.bybit.com/derivatives/v3/public/open-interest?symbol=BT
 > t(:codequote_responseExample)
 
 ```javascript
-
+{
+    "ret_code":0,
+    "ret_msg":"OK",
+    "ext_code":"",
+    "ext_info":"",
+    "result":[
+        {
+            "open_interest":371491978,
+            "timestamp":1597658100,
+            "symbol":"BTCUSD"
+        },
+        {
+            "open_interest":370696076,
+            "timestamp":1597657800,
+            "symbol":"BTCUSD"
+        }
+    ],
+    "time_now":"1597658304.938839"
+}
 ```
 
 t(:market_para_marketopeninterest)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=dv3MarketOpenInterest>/derivatives/v3/public/open-interest</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#dv3MarketOpenInterest"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=dvopeninterest>/derivatives/v3/public/open-interest</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#dvopeninterest"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(dv3_category) |
+|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_3) |
 |symbol |<b>true</b> |string |t(:row_comment_symbol) |
-|interval |<b>true</b> |string |t(:dv3_openInterInterval) |
-|startTime |false |string |t(:dv3_openInterStartTime) |
-|endTime |false |string |t(:dv3_openInterEndTime) |
+|interval |<b>true</b> |string |t(:dv_openInterInterval) |
+|startTime |false |string |t(:dv_openInterStartTime) |
+|endTime |false |string |t(:dv_openInterEndTime) |
 |limit |false |integer |t(:row_comment_limit_50_200) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|category |string |t(dv3_category) |
+|category |string |t(:dv_category)t(:dv_categorySuffix_3) |
 |openInterest |number |t(:row_comment_resp_open_interest) |
-|openInterestValue |string |t(:dv3_openInterestRespValue) |
-|timestamp |string |t(:dv3_openInterTimestamp) |
+|openInterestValue |string |t(:dv_openInterestRespValue) |
+|timestamp |string |t(:dv_openInterTimestamp) |
