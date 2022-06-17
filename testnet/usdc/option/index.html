@@ -916,6 +916,9 @@
                     <a href="#t-heartbeat" class="toc-h2 toc-link" data-title="How to Send Heartbeat Packet">How to Send Heartbeat Packet</a>
                   </li>
                   <li>
+                    <a href="#t-usdc_disconnect_protection" class="toc-h2 toc-link" data-title="Disconnection Protection">Disconnection Protection</a>
+                  </li>
+                  <li>
                     <a href="#t-subscribe" class="toc-h2 toc-link" data-title="How to Subscribe to Topics">How to Subscribe to Topics</a>
                       <ul class="toc-list-h3">
                           <li>
@@ -5217,19 +5220,26 @@ Due to network complexity, your may get disconnected at any time. Please follow 
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span><span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">pong</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">args</span><span class="dl">"</span><span class="p">:[</span><span class="dl">"</span><span class="s2">1535975085152</span><span class="dl">"</span><span class="p">]}</span>
 </code></pre></div>
 <aside class="warning">
-To avoid networks or program issues, we recommend that you send the <code>ping</code> heartbeat packet every 30 seconds to maintain the WebSocket connection.
+To avoid networks or program issues, we recommend that you send the <code>ping</code> heartbeat packet every <b>20</b> seconds to maintain the WebSocket connection.
 </aside>
 
-<p><p>The client needs to periodically send a "ping" to Bybit, and the Bybit server returns a heartbeat "pong" to show that the connection between the client and the server is normal. It is recommended to send at least every 20s.</p>
+<p><p>The client needs to periodically send a "ping" to Bybit, and the Bybit server returns a heartbeat "pong" to show that the connection between the client and the server is normal. It is recommended to send at least every <b>20s</b>. WSS will actively trigger to break the connection without heartbeat "ping" received in 30s.</p>
 <p>If the client does not receive the heartbeat feedback normally, it needs to check the network connection status and reconnect to the server.</p>
-<p>If the Bybit server does not receive a "ping" from the client for more than 3 minutes, the server will determine that the client has been disconnected (if it is not disconnected, the Bybit server will also actively disconnect at this time).</p>
-<p>If the server determines and disconnects the link, and the client is in the state of "disconnection protection", all open orders of the client will be automatically cancelled.</p>
 </p>
 
 <!-- 连接数限制
 ## Rate Limits
 
 -->
+<h2 id='t-usdc_disconnect_protection'>Disconnection Protection</h2>
+<aside class="notice">
+ONLY VIP clients are allowed to turn on/off DCP
+</aside>
+
+<p><p>Based on the heartbeat mechanism, Bybit provides disconnection protection function. If you need to turn it on/off, you can contact your client manager for consultation and application.</p>
+<p>The timing starts from the first disconnection. If the Bybit server does not receive the reconnection from the client for more than 3 minutes and resumes the heartbeat "ping", and the client is in the state of "disconnection protection", all the active orders of the client will be canceled all automatically.</p>
+<p>If within 3 minutes, the client reconnects and resumes the heartbeat "ping", the timing will be reset and restarted at the next disconnection.</p>
+</p>
 <h2 id='t-subscribe'>How to Subscribe to Topics</h2><h3 id='t-websocketfilters'>Understanding Websocket Filters</h3>
 <blockquote>
 <p>How to subscribe with a filter</p>

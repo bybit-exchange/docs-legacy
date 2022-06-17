@@ -924,6 +924,9 @@
                     <a href="#t-heartbeat" class="toc-h2 toc-link" data-title="心跳包/Ping">心跳包/Ping</a>
                   </li>
                   <li>
+                    <a href="#t-usdc_disconnect_protection" class="toc-h2 toc-link" data-title="斷線保護機制">斷線保護機制</a>
+                  </li>
+                  <li>
                     <a href="#t-subscribe" class="toc-h2 toc-link" data-title="訂閱方式">訂閱方式</a>
                       <ul class="toc-list-h3">
                           <li>
@@ -5529,19 +5532,26 @@ curl https://api-testnet.bybit.com/v2/public/time
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span><span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">pong</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">args</span><span class="dl">"</span><span class="p">:[</span><span class="dl">"</span><span class="s2">1535975085152</span><span class="dl">"</span><span class="p">]}</span>
 </code></pre></div>
 <aside class="warning">
-由於網絡或者程序不穩定,我們強烈建議您使用 <code>ping</code> 心跳包來維持連接. 心跳包建議每30秒發送一次.
+由於網絡或者程序不穩定,我們強烈建議您使用 <code>ping</code> 心跳包來維持連接. 心跳包建議每<b>20</b>秒發送一次.
 </aside>
 
-<p><p>客戶端需要定時發送"ping"給Bybit，Bybit服務器返回heartbeat"pong"來顯示客戶端和服務器之間的連接正常。建議至少每20s發送一次，最長每30s發送一次。</p>
+<p><p>客戶端需要定時發送"ping"給Bybit，Bybit服務器返回heartbeat"pong"來顯示客戶端和服務器之間的連接正常。建議至少每<b>20s</b>發送一次，30s內收不到心跳WSS會自動觸發斷連。</p>
 <p>如果客戶端沒有正常收到heartbeat的反饋，則需要檢查網絡連接狀態，並重新連接服務器。</p>
-<p>如Bybit服務器，超過3分鐘沒有收到客戶端的"ping"，則服務器會判定客戶端已斷開鏈接（如實際未斷開，此時Bybit服務端也會主動斷開鏈接）。</p>
-<p>如果服務器判定並斷開鏈接，且客戶處於開啟"斷線保護"的狀態，則客戶所有的Active order也會被自動全部取消。</p>
 </p>
 
 <!-- 连接数限制
 ## 頻率限製
 註意，每個api_key最多可以保持20個Websocket連接.超過20個連接後的新連接會被服務器拒絕.
 -->
+<h2 id='t-usdc_disconnect_protection'>斷線保護機制</h2>
+<aside class="notice">
+DCP的開和關, 僅限機構類型用戶
+</aside>
+
+<p><p>基於心跳機制，Bybit提供斷線保護功能，如需要開啟/關閉，可聯絡您的客戶經理進行諮詢申請。</p>
+<p>從第一次斷連開始計時，如Bybit服務器連續超過3分鐘沒有收到客戶端的重新建連並恢復心跳"ping"，且客戶處於開啟"斷線保護"的狀態，則客戶所有的Active order會被自動全部取消。</p>
+<p>如果在3分鐘內，客戶端重新建連並恢復心跳"ping"，則計時會被重置，在下一次斷連時重新開始計時。</p>
+</p>
 <h2 id='t-subscribe'>訂閱方式</h2><h3 id='t-websocketfilters'>Websocket訂閱方式</h3>
 <blockquote>
 <p>直接訂閱</p>
