@@ -1943,6 +1943,7 @@ zh-cn:
   linear_private_switchmode: 切換止盈止損模式至全倉或部分
   linear_row_comment_limit: 每頁數量, 最大50. 默認每頁20條，最多50條每頁
   linear_row_comment_limit_50_200: 每頁數量, 最大200. 默認每頁50條，最多200條每頁
+  restapi_update_20220616: 新增USDC設置保證金模式
   restapi_update_20220610: 新增 <code>S</code> 字段展示該筆交易成交方向
   restapi_update_20220608: 提升推送頻率從每250ms（最大延遲300ms）到100ms
   restapi_update_20220602: 新增USDC期權Websocket 私有topic <code>mmpevent</code>
@@ -2048,7 +2049,7 @@ zh-cn:
   restapi_update_20210712: 優化部分接口出參入參
   restapi_update_20220314: 在<code>ticketInfo</code> topic中增加 <code>m</code> (是 maker)標誌
   restapi_update_20210826: 資產劃轉API發布
-  restapi_update_20220610: 萬能劃轉API發布
+  restapi_update_20220610_2: 萬能劃轉API發布
   restapi_update_20220519: 提現與充值API發布
 
 
@@ -2342,6 +2343,9 @@ zh-cn:
   spot_sell: 賣一價、數量
   spot_binary: 是否壓縮 true壓縮, false未壓縮（默認）
   spot_kline_type: k線間隔
+  spot_topic: topic名稱
+  spot_sendTime: 數據推送時間
+  spot_dumpScale: 合並精度
   spot_buy_price: 買一價價格
   spot_buy_qty: 買一價數量
   spot_sell_price: 賣一價價格
@@ -2403,7 +2407,7 @@ zh-cn:
     <p>這個訂閱會推送全量深度信息，因此數據量大。如果想要推送評率更快，請訂閱合並深度。</p>
 
   spot_websocket_orderbook_merge_v1: 訂單簿(合並深度)
-  spot_websocket_orderbook_merge_desc_v1: ｜
+  spot_websocket_orderbook_merge_desc_v1: |
     <p>聚合訂單簿數據推送</p>
     <p>這個訂閱必須傳dumpScale（合並精度）這個參數。dumpScale不能大於ticker的精度。你可以在brokerInfo這個端點查詢ticker的精度信息。</p>
     <p>举例：<code>1</code> -> <code>50000.5</code>; <code>0</code> -> <code>50000</code>.</p>
@@ -2807,6 +2811,7 @@ zh-cn:
   usdcAccountInfo: 錢包信息
   assetInfo: 資產信息
   setMarginMode: 設置保證金模式
+  setMarginModeNotice: 如果USDC衍生品賬戶餘額大於X，可以開啟PORTFOLIO_MARGIN，如果小於Y，會自動關閉PORTFOLIO_MARGIN，改回REGULAR_MARGIN。 X 和 Y 將根據运营要求会進行調整。
   queryMarginMode: 查詢保證金模式
   queryMMPState: 查詢 MMP 狀態
 
@@ -3126,11 +3131,17 @@ zh-cn:
   platFormOrderLatest500: 平台歷史交易數據（最近500條）
   usdcLimitMax500: 默認500
 
+  usdc_websocket_aside_heartbeat: 由於網絡或者程序不穩定,我們強烈建議您使用 <code>ping</code> 心跳包來維持連接. 心跳包建議每<b>20</b>秒發送一次.
   websocket_aside_heartbeat_option: |
-    <p>客戶端需要定時發送"ping"給Bybit，Bybit服務器返回heartbeat"pong"來顯示客戶端和服務器之間的連接正常。建議至少每20s發送一次，最長每30s發送一次。</p>
+    <p>客戶端需要定時發送"ping"給Bybit，Bybit服務器返回heartbeat"pong"來顯示客戶端和服務器之間的連接正常。建議至少每<b>20s</b>發送一次，30s內收不到心跳WSS會自動觸發斷連。</p>
     <p>如果客戶端沒有正常收到heartbeat的反饋，則需要檢查網絡連接狀態，並重新連接服務器。</p>
-    <p>如Bybit服務器，超過3分鐘沒有收到客戶端的"ping"，則服務器會判定客戶端已斷開鏈接（如實際未斷開，此時Bybit服務端也會主動斷開鏈接）。</p>
-    <p>如果服務器判定並斷開鏈接，且客戶處於開啟"斷線保護"的狀態，則客戶所有的Active order也會被自動全部取消。</p>
+
+  usdc_disconnect_protection: 斷線保護機制
+  usdc_disconnect_protection_para: DCP的開和關, 僅限機構類型用戶
+  websocket_aside_dcp_usdc: |
+    <p>基於心跳機制，Bybit提供斷線保護功能，如需要開啟/關閉，可聯絡您的客戶經理進行諮詢申請。</p>
+    <p>從第一次斷連開始計時，如Bybit服務器連續超過3分鐘沒有收到客戶端的重新建連並恢復心跳"ping"，且客戶處於開啟"斷線保護"的狀態，則客戶所有的Active order會被自動全部取消。</p>
+    <p>如果在3分鐘內，客戶端重新建連並恢復心跳"ping"，則計時會被重置，在下一次斷連時重新開始計時。</p>
 
   usdc_auth_para_construct1: <p>1. 参数为json格式</p>
   resultTotalSize: 條數

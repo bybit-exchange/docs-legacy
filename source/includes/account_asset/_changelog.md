@@ -1,12 +1,12 @@
 # t(:changelog)
-## 2022-06-10
+## 2022-06-15
 ### REST API
 - [t(:querysubaccountlist)](#t-querysubaccountlist) [t(:changelog_update)]
 - [t(:enableuniversaltransfer)](#t-enableuniversaltransfer) [t(:changelog_new)]
 - [t(:createuniversaltransfer)](#t-createuniversaltransfer) [t(:changelog_new)]
 - [t(:queryUniverseTransferList)](#t-queryuniversetransferlist) [t(:changelog_new)]
   <br>
-  t(:restapi_update_20220610)
+  t(:restapi_update_20220610_2)
   
 ## 2022-05-19
 ### REST API

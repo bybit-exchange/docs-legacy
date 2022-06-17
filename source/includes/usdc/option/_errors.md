@@ -54,6 +54,9 @@ Return Code | t(:errorcode_meaning)
 3200300	 |   Insufficient margin balance.
 3200304	 |   The number of active orders exceeds the upper limit.
 3200200	 |   Insufficient margin balance.
+3400001  |   Please ensure that there are no positions in your USDC account, including USDC perpetual and options
+3400002  |   Please ensure that there are no active orders in your USDC account, including Limit, Market and Conditional orders
+3400005  |   Set margin mode failed
 3400015	 |   System error. Please try again later.
 3500001	 |   System error. Please try again later.
 3500040	 |   System error. Please try again later.

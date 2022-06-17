@@ -97,7 +97,7 @@ ws.send('{"op":"ping","args":["1535975085152"]}');
 
 
 <aside class="warning">
-t(:websocket_aside_heartbeat)
+t(:usdc_websocket_aside_heartbeat)
 </aside>
 
 t(:websocket_aside_heartbeat_option)
@@ -107,6 +107,12 @@ t(:websocket_aside_heartbeat_option)
 t(:websocket_para_limit)
 -->
 
+## t(:usdc_disconnect_protection)
+<aside class="notice">
+t(:usdc_disconnect_protection_para)
+</aside>
+
+t(:websocket_aside_dcp_usdc)
 
 ## t(:subscribe)
 ### t(:websocketfilters)

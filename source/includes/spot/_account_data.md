@@ -117,26 +117,27 @@ print(session_auth.get_active_order(
     "ext_code": null,
     "ext_info": null,
     "result": {
-        "accountId": "1054",
+        "accountId": "533287",
         "exchangeId": "301",
-        "symbol": "ETHUSDT",
-        "symbolName": "ETHUSDT",
-        "orderLinkId": "162081160171552",
-        "orderId": "889826641228952064",
-        "price": "20000",
-        "origQty": "10",
-        "executedQty": "0",
-        "cummulativeQuoteQty": "0",
-        "avgPrice": "0",
-        "status": "NEW",
+        "symbol": "DOGEUSDT",
+        "symbolName": "DOGEUSDT",
+        "orderLinkId": "spotDOGE0003",
+        "orderId": "1180228509291857152",
+        "price": "0",
+        "origQty": "15",
+        "executedQty": "25.4",
+        "cummulativeQuoteQty": "14.9606",
+        "avgPrice": "0.589",
+        "status": "CANCELED",
         "timeInForce": "GTC",
-        "type": "LIMIT",
+        "type": "MARKET",
         "side": "BUY",
         "stopPrice": "0.0",
         "icebergQty": "0.0",
-        "time": "1620811601728",
-        "updateTime": "1620811601743",
-        "isWorking": true
+        "time": "1655430202103",
+        "updateTime": "1655430202331",
+        "isWorking": true,
+        "locked": "0"
     }
 }
 ```
@@ -737,30 +738,30 @@ print(session_auth.user_trade_records(
     "ext_code": null,
     "ext_info": null,
     "result": [
-       {
-            "id": "931975237315196160",
-            "symbol": "BTCUSDT",
-            "symbolName": "BTCUSDT",
-            "orderId": "931975236946097408",
-            "ticketId": "1057753175328833537",
-            "matchOrderId": "931975113180558592",
-            "price": "20000.00001",
-            "qty": "0.01",
-            "commission": "0.02000000001",
-            "commissionAsset": "USDT",
-            "time": "1625836105890",
-            "isBuyer": false,
+        {
+            "id": "1178938734438029312",
+            "symbol": "BTC3SUSDT",
+            "symbolName": "BTC3SUSDT",
+            "orderId": "1178938734052153344",
+            "ticketId": "2120000000000690997",
+            "matchOrderId": "1178936255335987114",
+            "price": "38.8404",
+            "qty": "1",
+            "commission": "0.001",
+            "commissionAsset": "BTC3S",
+            "time": "1655276448918",
+            "isBuyer": true,
             "isMaker": false,
             "fee": {
-                "feeTokenId": "USDT",
-                "feeTokenName": "USDT",
-                "fee": "0.02000000001"
+                "feeTokenId": "BTC3S",
+                "feeTokenName": "BTC3S",
+                "fee": "0.001"
             },
-            "feeTokenId": "USDT",
-            "feeAmount": "0.02000000001",
+            "feeTokenId": "BTC3S",
+            "feeAmount": "0.001",
             "makerRebate": "0",
-            "spotExecutionTime":"1625836105899"
-       }
+            "executionTime": "1655276448956"
+        }
     ]
 }
 ```
