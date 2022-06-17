@@ -738,30 +738,30 @@ print(session_auth.user_trade_records(
     "ext_code": null,
     "ext_info": null,
     "result": [
-       {
-            "id": "931975237315196160",
-            "symbol": "BTCUSDT",
-            "symbolName": "BTCUSDT",
-            "orderId": "931975236946097408",
-            "ticketId": "1057753175328833537",
-            "matchOrderId": "931975113180558592",
-            "price": "20000.00001",
-            "qty": "0.01",
-            "commission": "0.02000000001",
-            "commissionAsset": "USDT",
-            "time": "1625836105890",
-            "isBuyer": false,
+        {
+            "id": "1178938734438029312",
+            "symbol": "BTC3SUSDT",
+            "symbolName": "BTC3SUSDT",
+            "orderId": "1178938734052153344",
+            "ticketId": "2120000000000690997",
+            "matchOrderId": "1178936255335987114",
+            "price": "38.8404",
+            "qty": "1",
+            "commission": "0.001",
+            "commissionAsset": "BTC3S",
+            "time": "1655276448918",
+            "isBuyer": true,
             "isMaker": false,
             "fee": {
-                "feeTokenId": "USDT",
-                "feeTokenName": "USDT",
-                "fee": "0.02000000001"
+                "feeTokenId": "BTC3S",
+                "feeTokenName": "BTC3S",
+                "fee": "0.001"
             },
-            "feeTokenId": "USDT",
-            "feeAmount": "0.02000000001",
+            "feeTokenId": "BTC3S",
+            "feeAmount": "0.001",
             "makerRebate": "0",
-            "spotExecutionTime":"1625836105899"
-       }
+            "executionTime": "1655276448956"
+        }
     ]
 }
 ```
