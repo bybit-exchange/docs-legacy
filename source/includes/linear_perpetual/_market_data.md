@@ -43,7 +43,7 @@ print(session_unauth.query_kline(
         "high": 999999,
         "low": 0.5,
         "close": 6000,
-        "interval": 1,
+        "interval": "1",
         "open_time": 1577836800,
         "turnover": 2.4343353100000003,
 	}],
@@ -77,7 +77,7 @@ GET
 | high |integer |t(:row_comment_high) |
 | low |number |t(:row_comment_low) |
 | close |integer |t(:row_comment_close) |
-| interval |integer |t(:row_comment_period) |
+| interval |string |t(:row_comment_period) |
 | open_time |integer |t(:row_comment_resp_open_time) |
 | turnover |number |t(:row_comment_resp_turnover) |
 

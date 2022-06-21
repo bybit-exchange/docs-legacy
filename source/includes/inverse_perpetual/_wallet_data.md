@@ -185,6 +185,7 @@ GET
 |:----- |:-----|----- |
 |user_id |number |t(:row_comment_userID)  |
 |coin |string |t(:row_comment_coin_type)  |
+|wallet_id |number |t(:row_comment_wallet_id)  |
 |type |string |t(:row_comment_fund_type)  |
 |amount |string |t(:row_comment_fund_amount)  |
 |tx_id |string |t(:row_comment_tx_id)  |

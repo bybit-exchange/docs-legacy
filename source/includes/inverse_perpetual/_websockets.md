@@ -648,22 +648,26 @@ t(:websocket_aside_instrumentInfo2)
 |:----- |:-----|----- |
 |t(:row_parameter_symbol) |string |t(:row_comment_symbol)  |
 |last_price_e4 |integer |t(:row_comment_resp_last_price_e4)  |
-|t(:row_parameter_tick_direction) |string |t(:row_comment_position_tick_direction)  |
+|last_price |integer |t(:row_comment_resp_last_price)  |
+|bid1_price_e4 |integer |t(:row_comment_bid1_price_e4)  |
+|bid1_price |string |t(:row_comment_bid1_price)  |
+|ask1_price_e4 |integer |t(:row_comment_ask1_price_e4)  |
+|ask1_price |string |t(:row_comment_ask1_price)  |
+|<a href="#tick-direction-type-tick_direction">last_tick_direction</a> |string |t(:row_comment_position_tick_direction)  |
 |prev_price_24h_e4 |integer |t(:row_comment_resp_prev_price_24h_e4)  |
+|prev_price_24h |string |t(:row_comment_resp_prev_price_24h)  |
 |price_24h_pcnt_e6 |integer |t(:row_comment_resp_price_24h_pcnt_e4)  |
 |high_price_24h_e4 |integer |t(:row_comment_resp_high_price_24h_e4)  |
+|high_price_24h |string |t(:row_comment_resp_high_price_24h)  |
 |low_price_24h_e4 |integer |t(:row_comment_resp_low_price_24h_e4)  |
+|low_price_24h |string |t(:row_comment_resp_low_price_24h)  |
 |prev_price_1h_e4 |integer |t(:row_comment_resp_prev_price_1h_e4)  |
+|prev_price_1h |string |t(:row_comment_resp_prev_price_1h)  |
 |price_1h_pcnt_e6 |integer |t(:row_comment_resp_price_1h_pcnt_e6)  |
 |mark_price_e4 |integer |t(:row_comment_resp_mark_price_e4)  |
+|mark_price |string |t(:row_comment_resp_mark_price)  |
 |index_price_e4 |integer |t(:row_comment_resp_index_price_e4)  |
-|last_price |integer |t(:row_comment_resp_last_price)  |
-|prev_price_24h |integer |t(:row_comment_resp_prev_price_24h)  |
-|high_price_24h |integer |t(:row_comment_resp_high_price_24h)  |
-|low_price_24h |integer |t(:row_comment_resp_low_price_24h)  |
-|prev_price_1h |integer |t(:row_comment_resp_prev_price_1h)  |
-|mark_price |integer |t(:row_comment_resp_mark_price)  |
-|index_price |integer |t(:row_comment_resp_index_price)  |
+|index_price |string |t(:row_comment_resp_index_price)  |
 |open_interest |integer |t(:row_comment_resp_open_interest). t(:row_comment_slow_update)  |
 |open_value_e8 |integer |t(:row_comment_resp_open_value_e8). t(:row_comment_slow_update)  |
 |total_turnover_e8 |integer |t(:row_comment_resp_total_turnover_e8)  |
@@ -720,7 +724,7 @@ while True:
         "low": 9196,
         "volume": 81790,
         "turnover": 8.889247899999999,
-        "confirm": False,
+        "confirm": false,
         "cross_seq": 297503466,                 
         "timestamp": 1572425676958323
     }],
@@ -834,39 +838,44 @@ while True:
 
 ```javascript
 {
-   "topic": "position",
-   "action": "update",
-   "data": [
-       {
-           "user_id":  1,
-           "symbol": "BTCUSD",
-           "size": 11,
-           "side": "Sell",
-           "position_value": "0.00159252",
-           "entry_price": "6907.291588174717",
-           "liq_price": "7100.234",
-           "bust_price": "7088.1234",
-           "leverage": "1",
-           "order_margin":  "1",
-           "position_margin":  "1",
-           "available_balance":  "2",
-           "take_profit": "0",
-           "tp_trigger_by":  "LastPrice",
-           "stop_loss": "0",
-           "sl_trigger_by":  "",
-           "realised_pnl":  "0.10",
-           "trailing_stop": "0",
-           "trailing_active": "0",
-           "wallet_balance":  "4.12",
-           "risk_id":  1,                       
-           "occ_closing_fee":  "0.1",
-           "occ_funding_fee":  "0.1",
-           "auto_add_margin": 0,
-           "cum_realised_pnl":  "0.12",
-           "position_status": "Normal",
-           "position_seq": 14
-       }
-   ]
+    "topic": "position",
+    "data": [
+        {
+            "user_id": 533285,
+            "symbol": "BTCUSD",
+            "size": 200,
+            "side": "Buy",
+            "position_value": "0.0099975",
+            "entry_price": "20005.00125031",
+            "liq_price": "489",
+            "bust_price": "489",
+            "leverage": "5",
+            "order_margin": "0",
+            "position_margin": "0.39929535",
+            "available_balance": "0.39753405",
+            "take_profit": "0",
+            "stop_loss": "0",
+            "realised_pnl": "0.00055631",
+            "trailing_stop": "0",
+            "trailing_active": "0",
+            "wallet_balance": "0.40053971",
+            "risk_id": 1,
+            "occ_closing_fee": "0.0002454",
+            "occ_funding_fee": "0",
+            "auto_add_margin": 1,
+            "cum_realised_pnl": "0.00055105",
+            "position_status": "Normal",
+            "position_seq": 0,
+            "Isolated": false,
+            "mode": 0,
+            "position_idx": 0,
+            "tp_sl_mode": "Partial",
+            "tp_order_num": 0,
+            "sl_order_num": 0,
+            "tp_free_size_x": 200,
+            "sl_free_size_x": 200
+        }
+    ]
 }
 ```
 
@@ -881,8 +890,8 @@ t(:websocketposition_aside)
 |:----- |:-----|----- |
 |user_id |number |t(:row_comment_userID)  |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
-|t(:row_parameter_side) |string |t(:row_comment_side)  |
 |size |number |t(:row_comment_position_size)  |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
 |position_value |string |t(:row_comment_position_value)  |
 |entry_price |string |t(:row_comment_entry_price)  |
 |liq_price |string |t(:row_comment_liq_price)  |
@@ -892,21 +901,26 @@ t(:websocketposition_aside)
 |position_margin |string |t(:row_comment_position_margin)  |
 |available_balance |string |t(:row_comment_available_balance)  |
 |take_profit |string |t(:row_comment_take_profit)  |
-|t(:row_parameter_tp_trigger_by) |string |t(:account_row_comment_tp_trigger_by) |
 |stop_loss |string |t(:row_comment_stop_loss)  |
-|t(:row_parameter_sl_trigger_by) |string |t(:account_row_comment_sl_trigger_by) |
 |realised_pnl |string |t(:row_comment_realised_pnl)  |
 |trailing_stop |string |t(:row_comment_trailing_stop)  |
 |trailing_active |string |t(:row_comment_trailing_active)  |
 |wallet_balance |string |t(:row_comment_wallet_balance)  |
 |risk_id |number |t(:row_comment_riskId)  |
-|is_isolated | bool | t(:row_comment_isolated) |
 |occ_closing_fee |string |t(:row_comment_occ_closing_fee)  |
 |occ_funding_fee |string |t(:row_comment_occ_funding_fee)  |
 |auto_add_margin |number |t(:row_comment_auto_add_margin)  |
 |cum_realised_pnl |string |t(:row_comment_cum_realised_pnl)  |
 |position_status |string |t(:row_comment_position_status)  |
 |position_seq |number |t(:row_comment_position_seq)  |
+|Isolated | bool | t(:row_comment_isolated) |
+|mode | number | t(:row_comment_position_mode) |
+|position_idx | number | t(:positionIdx) |
+|tp_sl_mode | string | t(:row_comment_tp_sl_mode) |
+|tp_order_num | number | t(:row_comment_tp_order_num) |
+|sl_order_num | number | t(:row_comment_sl_order_num) |
+|tp_free_size_x |number |t(:row_comment_tp_free_size_x) |
+|sl_free_size_x |number |t(:row_comment_sl_free_size_x) |
 
 
 
@@ -1025,27 +1039,28 @@ while True:
     "topic": "order",
     "data": [
         {
-            "order_id": "xxxxxxxx-xxxx-xxxx-9a8f-4a973eb5c418",
-            "order_link_id": "",
+            "order_id": "1640b725-75e9-407d-bea9-aae4fc666d33",
+            "order_link_id": "IPBTC00005",
             "symbol": "BTCUSD",
             "side": "Sell",
             "order_type": "Market",
-            "price": "8579.5",
-            "qty": 1,
+            "price": "20564",
+            "qty": 200,
             "time_in_force": "ImmediateOrCancel",
-            "create_type": "CreateByClosing",
+            "create_type": "CreateByUser",
             "cancel_type": "",
             "order_status": "Filled",
             "leaves_qty": 0,
-            "cum_exec_qty": 1,
-            "cum_exec_value": "0.00011655",
-            "cum_exec_fee": "0.00000009",
-            "timestamp": "2020-01-14T14:09:31.778Z",
-            "take_profit": "0",
-            "stop_loss": "0",
+            "cum_exec_qty": 200,
+            "cum_exec_value": "0.00943552",
+            "cum_exec_fee": "0.00000567",
+            "timestamp": "2022-06-21T07:35:56.505Z",
+            "take_profit": "18500",
+            "tp_trigger_by": "LastPrice",
+            "stop_loss": "22000",
+            "sl_trigger_by": "LastPrice",
             "trailing_stop": "0",
-            "trailing_active": "0",
-            "last_exec_price": "8580",
+            "last_exec_price": "21196.5",
             "reduce_only": false,
             "close_on_trigger": false
         }
@@ -1074,9 +1089,10 @@ while True:
 |cum_exec_fee |string |t(:linear_resp_field_cum_exec_fee)  |
 |timestamp |string |t(:websocketorder_row_comment_timestamp)  |
 |take_profit |string |t(:row_comment_take_profit)  |
+|t(:row_parameter_tp_trigger_by) |string |t(:row_comment_tp_trigger_by)  |
 |stop_loss |string |t(:row_comment_stop_loss)  |
+|t(:row_parameter_sl_trigger_by) |string |t(:row_comment_sl_trigger_by)  |
 |trailing_stop |string |t(:row_comment_trailing_stop)  |
-|trailing_active |string |t(:row_comment_trailing_active)  |
 |last_exec_price |string |t(:row_comment_last_exec_price)  |
 |reduce_only | bool | t(:row_comment_reduceOnly)|
 |close_on_trigger | bool | t(:row_comment_closeOnTrigger)|
@@ -1205,5 +1221,7 @@ while True:
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|wallet_balance |number |t(:row_comment_wallet_balance)  |
-|available_balance |number |t(:row_comment_available_balance)  |
+|user_id |number |t(:row_comment_user_id)  |
+|coin |string |t(:row_comment_coin_type)  |
+|wallet_balance |string |t(:row_comment_wallet_balance)  |
+|available_balance |string |t(:row_comment_available_balance)  |

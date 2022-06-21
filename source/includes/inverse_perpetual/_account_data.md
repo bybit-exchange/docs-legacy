@@ -38,29 +38,33 @@ print(session_auth.place_active_order(
     "ext_code": "",
     "ext_info": "",
     "result": {
-        "user_id": 1,
-        "order_id": "335fd977-e5a5-4781-b6d0-c772d5bfb95b",
+        "user_id": 533285,
+        "order_id": "a1904030-f99c-4e35-9217-111591f08493",
         "symbol": "BTCUSD",
         "side": "Buy",
-        "order_type": "Market",
-        "price": 8800,
-        "qty": 1,
+        "order_type": "Limit",
+        "price": 20010,
+        "qty": 200,
         "time_in_force": "GoodTillCancel",
         "order_status": "Created",
         "last_exec_time": 0,
         "last_exec_price": 0,
-        "leaves_qty": 1,
+        "leaves_qty": 200,
         "cum_exec_qty": 0,
         "cum_exec_value": 0,
         "cum_exec_fee": 0,
-        "reject_reason": "",
+        "reject_reason": "EC_NoError",
         "order_link_id": "",
-        "created_at": "2019-11-30T11:03:43.452Z",
-        "updated_at": "2019-11-30T11:03:43.455Z"
+        "created_at": "2022-06-20T06:56:22.070Z",
+        "updated_at": "2022-06-20T06:56:22.070Z",
+        "take_profit": "22000.00",
+        "stop_loss": "19000.00",
+        "tp_trigger_by": "MarkPrice",
+        "sl_trigger_by": "MarkPrice"
     },
-    "time_now": "1575111823.458705",
-    "rate_limit_status": 98,
-    "rate_limit_reset_ms": 1580885703683,
+    "time_now": "1655708182.071362",
+    "rate_limit_status": 99,
+    "rate_limit_reset_ms": 1655708182068,
     "rate_limit": 100
 }
 ```
@@ -112,8 +116,8 @@ POST
 |order_link_id |string |t(:row_comment_orderLinkId)  |
 |created_at |string |t(:row_comment_created_at)  |
 |updated_at |string |t(:row_comment_updated_at)  |
-|take_profit |number |t(:row_comment_take_profit)  |
-|stop_loss |number |t(:row_comment_stop_loss)  |
+|take_profit |string |t(:row_comment_take_profit)  |
+|stop_loss |string |t(:row_comment_stop_loss)  |
 |t(:row_parameter_tp_trigger_by) |string |t(:account_row_comment_tp_trigger_by)  |
 |t(:row_parameter_sl_trigger_by) |string |t(:account_row_comment_sl_trigger_by)  |
 
@@ -148,31 +152,36 @@ print(session_auth.get_active_order(
     "result": {
         "data": [
             {
-                "user_id": 160861,
-                "order_status": "Cancelled",
+                "user_id": 533285,
+                "position_idx": 0,
+                "order_status": "New",
                 "symbol": "BTCUSD",
                 "side": "Buy",
-                "order_type": "Market",
-                "price": "9800",
-                "qty": "16737",
-                "time_in_force": "ImmediateOrCancel",
+                "order_type": "Limit",
+                "price": "20010",
+                "qty": "200",
+                "time_in_force": "GoodTillCancel",
                 "order_link_id": "",
-                "order_id": "fead08d7-47c0-4d6a-b9e7-5c71d5df8ba1",
-                "created_at": "2020-07-24T08:22:30Z",
-                "updated_at": "2020-07-24T08:22:30Z",
-                "leaves_qty": "0",
-                "leaves_value": "0",
+                "order_id": "a1904030-f99c-4e35-9217-111591f08493",
+                "created_at": "2022-06-20T06:56:22.070Z",
+                "updated_at": "2022-06-20T06:56:22.075Z",
+                "leaves_qty": "200",
+                "leaves_value": "0.009995",
                 "cum_exec_qty": "0",
                 "cum_exec_value": "0",
                 "cum_exec_fee": "0",
-                "reject_reason": "EC_NoImmediateQtyToFill"
+                "reject_reason": "EC_NoError",
+                "take_profit": "22000.0000",
+                "stop_loss": "19000.0000",
+                "tp_trigger_by": "MarkPrice",
+                "sl_trigger_by": "MarkPrice"
             }
         ],
-        "cursor": "w01XFyyZc8lhtCLl6NgAaYBRfsN9Qtpp1f2AUy3AS4+fFDzNSlVKa0od8DKCqgAn"
+        "cursor": "/oIljKFOerbXfuWAmnc33qCc1649q+xLuuagMYyoYh6pV+BShVJ8ph439Xw8ywSp"
     },
-    "time_now": "1604653633.173848",
+    "time_now": "1655708401.042813",
     "rate_limit_status": 599,
-    "rate_limit_reset_ms": 1604653633171,
+    "rate_limit_reset_ms": 1655708401039,
     "rate_limit": 600
 }
 ```
@@ -198,22 +207,24 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |user_id |integer |t(:row_comment_userID) |
+|position_idx |integer |t(:row_comment_position_idx) |
+|t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
 |t(:row_parameter_symbol) |string |t(:row_comment_symbol) |
 |t(:row_parameter_side) |string |t(:row_comment_side) |
 |t(:row_parameter_order_type) |string |t(:row_comment_order_type) |
 |price  |string |t(:row_comment_resp_price) |
 |qty  |string |t(:row_response_comment_qty) |
 |t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
-|t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
+|order_link_id |string |t(:row_comment_orderLinkId)  |
+|order_id |string |t(:account_row_comment_orderId) |
+|created_at |string |t(:row_comment_created_at)  |
+|updated_at |string |t(:row_comment_updated_at)  |
 |leaves_qty |string |t(:row_comment_leaves_qty) |
 |leaves_value |string |t(:row_comment_leaves_value) |
 |cum_exec_qty |string |t(:linear_resp_field_cum_exec_qty)  |
 |cum_exec_value |string |t(:linear_resp_field_cum_exec_value)  |
 |cum_exec_fee |string |t(:linear_resp_field_cum_exec_fee)  |
 |reject_reason |string |t(:row_comment_reject_reason)  |
-|order_link_id |string |t(:row_comment_orderLinkId)  |
-|created_at |string |t(:row_comment_created_at)  |
-|order_id |string |t(:account_row_comment_orderId) |
 |take_profit |number |t(:row_comment_take_profit)  |
 |stop_loss |number |t(:row_comment_stop_loss)  |
 |t(:row_parameter_tp_trigger_by) |string |t(:account_row_comment_tp_trigger_by) |
@@ -253,29 +264,33 @@ print(session_auth.cancel_active_order(
     "ext_code": "",
     "ext_info": "",
     "result": {
-        "user_id": 1,
-        "order_id": "3bd1844f-f3c0-4e10-8c25-10fea03763f6",
+        "user_id": 533285,
+        "order_id": "bab79185-7759-48f3-a5f4-206808b6f1ec",
         "symbol": "BTCUSD",
         "side": "Buy",
         "order_type": "Limit",
-        "price": 8800,
-        "qty": 1,
+        "price": 19500,
+        "qty": 100,
         "time_in_force": "GoodTillCancel",
         "order_status": "New",
-        "last_exec_time": 0,
+        "last_exec_time": 1655711524.37661,
         "last_exec_price": 0,
-        "leaves_qty": 1,
+        "leaves_qty": 100,
         "cum_exec_qty": 0,
         "cum_exec_value": 0,
         "cum_exec_fee": 0,
-        "reject_reason": "",
-        "order_link_id": "",
-        "created_at": "2019-11-30T11:17:18.396Z",
-        "updated_at": "2019-11-30T11:18:01.811Z"
+        "reject_reason": "EC_NoError",
+        "order_link_id": "IPBTC00001",
+        "created_at": "2022-06-20T07:52:04.376Z",
+        "updated_at": "2022-06-20T07:54:35.339Z",
+        "take_profit": "",
+        "stop_loss": "",
+        "tp_trigger_by": "",
+        "sl_trigger_by": ""
     },
-    "time_now": "1575112681.814760",
-    "rate_limit_status": 98,
-    "rate_limit_reset_ms": 1580885703683,
+    "time_now": "1655711675.340162",
+    "rate_limit_status": 99,
+    "rate_limit_reset_ms": 1655711675338,
     "rate_limit": 100
 }
 ```
@@ -348,34 +363,35 @@ print(session_auth.cancel_all_active_orders(
 
 ```javascript
 {
-    "ret_code": 0,      
-    "ret_msg": "OK",    
-    "ext_code": "",     
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
     "ext_info": "",
     "result": [
         {
-            "clOrdID": "89a38056-80f1-45b2-89d3-4d8e3a203a79",  
-            "user_id": 1,                                  
-            "symbol": "BTCUSD",                                
-            "side": "Buy",                                      
-            "order_type": "Limit",                              
-            "price": "7693.5",                                  
-            "qty": 1,                                           
-            "time_in_force": "GoodTillCancel",                  
-            "create_type": "CreateByUser",                     
-            "cancel_type": "CancelByUser",                      
-            "order_status": "",                                 
-            "leaves_qty": 1,                                    
-            "leaves_value": "0",                                
-            "created_at": "2019-11-30T10:38:53.564428Z",        
-            "updated_at": "2019-11-30T10:38:59.102589Z",        
+            "clOrdID": "89f67ac2-8f51-4463-b5c1-75d0d8aca185",
+            "order_link_id": "IPBTC00003",
+            "user_id": 533285,
+            "symbol": "BTCUSD",
+            "side": "Buy",
+            "order_type": "Limit",
+            "price": "17000",
+            "qty": 100,
+            "time_in_force": "GoodTillCancel",
+            "create_type": "CreateByUser",
+            "cancel_type": "CancelByUser",
+            "order_status": "",
+            "leaves_qty": 100,
+            "leaves_value": "0",
+            "created_at": "2022-06-21T02:05:30.430491295Z",
+            "updated_at": "2022-06-21T04:34:46.3745089Z",
             "cross_status": "PendingCancel",
-            "cross_seq": 387734027                              
+            "cross_seq": 5208583955
         }
     ],
-    "time_now": "1575110339.105675",
-    "rate_limit_status": 98,
-    "rate_limit_reset_ms": 1580885703683,
+    "time_now": "1655786086.374891",
+    "rate_limit_status": 80,
+    "rate_limit_reset_ms": 1655786086373,
     "rate_limit": 100
 }
 ```
@@ -401,18 +417,19 @@ POST
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |clOrdID |string |t(:row_comment_clOrdID)  |
+|order_link_id |string |t(:orderLinkId)  |
 |user_id |number |t(:row_comment_userID)  |
 |t(:row_parameter_symbol) |string |t(:row_comment_symbol)    |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 |t(:row_parameter_order_type) |string |t(:row_comment_order_type)  |
-|t(:row_parameter_price) |number |t(:row_comment_resp_price)  |
+|t(:row_parameter_price) |string |t(:row_comment_resp_price)  |
 |qty |number |t(:row_response_comment_qty)  |
 |t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce) |
 |create_type |string |t(:row_comment_create_type)  |
 |cancel_type |string |t(:row_comment_cancel_type)  |
 |t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
 |leaves_qty |number |t(:row_comment_leaves_qty)  |
-|leaves_value |number |t(:row_comment_leaves_value)  |
+|leaves_value |string |t(:row_comment_leaves_value)  |
 |created_at |string |t(:row_comment_created_at)  |
 |updated_at |string |t(:row_comment_updated_at)  |
 |cross_status |string |t(:row_comment_cross_status)  |
@@ -516,102 +533,38 @@ print(session.query_active_order(
     "ext_code": "",
     "ext_info": "",
     "result": {
-        "user_id": 106958,
+        "user_id": 533285,
+        "position_idx": 0,
         "symbol": "BTCUSD",
         "side": "Buy",
         "order_type": "Limit",
-        "price": "11756.5",
-        "qty": 1,
-        "time_in_force": "PostOnly",
-        "order_status": "Filled",
+        "price": "20000",
+        "qty": 200,
+        "time_in_force": "GoodTillCancel",
+        "order_status": "New",
         "ext_fields": {
-            "o_req_num": -68948112492,
-            "xreq_type": "x_create"
+            "o_req_num": 1240101436
         },
-        "last_exec_time": "1596304897.847944",
-        "last_exec_price": "11756.5",
-        "leaves_qty": 0,
-        "leaves_value": "0",
-        "cum_exec_qty": 1,
-        "cum_exec_value": "0.00008505",
-        "cum_exec_fee": "-0.00000002",
-        "reject_reason": "",
-        "cancel_type": "",
-        "order_link_id": "",
-        "created_at": "2020-08-01T18:00:26Z",
-        "updated_at": "2020-08-01T18:01:37Z",
-        "order_id": "e66b101a-ef3f-4647-83b5-28e0f38dcae0"
+        "last_exec_time": "1655716503.5852108",
+        "leaves_qty": 200,
+        "leaves_value": "0.01",
+        "cum_exec_qty": 0,
+        "cum_exec_value": null,
+        "cum_exec_fee": null,
+        "reject_reason": "EC_NoError",
+        "cancel_type": "UNKNOWN",
+        "order_link_id": "IPBTC000002",
+        "created_at": "2022-06-20T09:15:03.585128212Z",
+        "updated_at": "2022-06-20T09:15:03.590398174Z",
+        "order_id": "2b1d811c-8ff0-4ef0-92ed-b4ed5fd6de34",
+        "take_profit": "23000.00",
+        "stop_loss": "18000.00",
+        "tp_trigger_by": "MarkPrice",
+        "sl_trigger_by": "MarkPrice"
     },
-    "time_now": "1597171013.867068",
-    "rate_limit_status": 599,
-    "rate_limit_reset_ms": 1597171013861,
-    "rate_limit": 600
-}
-
-//t(:resp_field_order_list)
-{
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
-    "ext_info": "",
-    "result": [
-        {
-            "user_id": 100228,
-            "symbol": "BTCUSD",
-            "side": "Sell",
-            "order_type": "Limit",
-            "price": "17740",
-            "qty": 10,
-            "time_in_force": "GoodTillCancel",
-            "order_status": "New",
-            "ext_fields": {
-                "o_req_num": 434743,
-                "xreq_type": "x_create"
-            },
-            "last_exec_time": "1608193181.827761",
-            "leaves_qty": 10,
-            "leaves_value": "0.00056369",
-            "cum_exec_qty": 0,
-            "cum_exec_value": "0.00008505",
-            "cum_exec_fee": "-0.00000002",
-            "reject_reason": "EC_NoError",
-            "cancel_type": "UNKNOWN",
-            "order_link_id": "",
-            "created_at": "2020-12-17T08:19:41.827637283Z",
-            "updated_at": "2020-12-17T08:19:41.827761Z",
-            "order_id": "d570d931-771e-4911-a24e-cdeddedb5b0e"
-        },
-        ...
-        {
-            "user_id": 100228,
-            "symbol": "BTCUSD",
-            "side": "Sell",
-            "order_type": "Limit",
-            "price": "17740",
-            "qty": 10,
-            "time_in_force": "GoodTillCancel",
-            "order_status": "New",
-            "ext_fields": {
-                "o_req_num": 434728,
-                "xreq_type": "x_create"
-            },
-            "last_exec_time": "1608193178.955412",
-            "leaves_qty": 10,
-            "leaves_value": "0.00056369",
-            "cum_exec_qty": 0,
-            "cum_exec_value": "0.00008505",
-            "cum_exec_fee": "-0.00000002",
-            "reject_reason": "EC_NoError",
-            "cancel_type": "UNKNOWN",
-            "order_link_id": "",
-            "created_at": "2020-12-17T08:19:38.955297869Z",
-            "updated_at": "2020-12-17T08:19:38.955412Z",
-            "order_id": "88b91101-7ac1-40af-90b8-72d53fe23622"
-        }
-    ],
-    "time_now": "1608193190.911073",
-    "rate_limit_status": 599,
-    "rate_limit_reset_ms": 1608193190909,
+    "time_now": "1655718311.123686",
+    "rate_limit_status": 597,
+    "rate_limit_reset_ms": 1655718311122,
     "rate_limit": 600
 }
 
@@ -635,14 +588,16 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |user_id |number |t(:row_comment_userID)  |
+|position_idx |integer |t(:row_comment_position_idx)  |
 |t(:row_parameter_symbol) |string |t(:row_comment_symbol)    |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 |t(:row_parameter_order_type) |string |t(:row_comment_order_type)  |
-|t(:row_parameter_price) |number |t(:row_comment_resp_price)  |
+|t(:row_parameter_price) |string |t(:row_comment_resp_price)  |
 |qty |number |t(:row_response_comment_qty)  |
 |t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
 |t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
-|ext_fields |json |t(:row_comment_ext_fields)  |
+|ext_fields |map |t(:row_comment_ext_fields)  |
+|last_exec_time |string |t(:row_comment_last_exec_time)  |
 |leaves_qty |number |t(:row_comment_leaves_qty)  |
 |leaves_value |number |t(:row_comment_leaves_value)  |
 |cum_exec_qty |number |t(:linear_resp_field_cum_exec_qty)  |
@@ -693,28 +648,38 @@ print(session_auth.place_conditional_order(
 
 ```javascript
 {
-    "ret_code":0,
-    "ret_msg":"OK",
-    "ext_code":"",
-    "ext_info":"",
-    "result":{
-        "user_id":160880,
-        "symbol":"BTCUSD",
-        "side":"Buy",
-        "order_type":"Limit",
-        "price":"9003",
-        "qty":"2",
-        "time_in_force":"GoodTillCancel",
-        "remark":"127.0.0.1",
-        "leaves_qty":"2",
-        "leaves_value":"0",
-        "stop_px":"8232",
-        "reject_reason":"EC_NoError",
-        "stop_order_id":"eaf205ac-9dcc-44f6-8731-734e2101e61b",
-        "created_at":"2020-11-06T07:48:43.940Z",
-        "updated_at":"2020-11-06T07:48:43.940Z"
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "ext_info": "",
+    "result": {
+        "user_id": 533285,
+        "symbol": "BTCUSD",
+        "side": "Buy",
+        "order_type": "Limit",
+        "price": "19000.00",
+        "qty": "100",
+        "time_in_force": "GoodTillCancel",
+        "remark": "172.104.71.120",
+        "leaves_qty": "100",
+        "leaves_value": "0.00526315",
+        "stop_px": "19500.00",
+        "reject_reason": "EC_NoError",
+        "stop_order_id": "6e6a003f-fda3-4513-b944-3f41dabd2866",
+        "order_link_id": "IPCOND0001",
+        "trigger_by": "MarkPrice",
+        "base_price": "20000.00",
+        "created_at": "2022-06-21T02:19:46.052Z",
+        "updated_at": "2022-06-21T02:19:46.052Z",
+        "tp_trigger_by": "LastPrice",
+        "sl_trigger_by": "LastPrice",
+        "take_profit": "22000.00",
+        "stop_loss": "17500.00"
     },
-    "time_now":"1604648923.942177"
+    "time_now": "1655777986.053050",
+    "rate_limit_status": 99,
+    "rate_limit_reset_ms": 1655777986051,
+    "rate_limit": 100
 }
 ```
 
@@ -758,18 +723,21 @@ POST
 |t(:row_parameter_price) |string |t(:row_response_comment_price)  |
 |t(:row_parameter_quantity) |string |t(:row_response_comment_qty)  |
 |t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
+|remark |string |t(:row_comment_remark)  |
+|leaves_qty |number |t(:row_comment_leaves_qty)  |
+|leaves_value |number |t(:row_comment_leaves_value)  |
+|stop_px |string |t(:linear_row_comment_stopPx)  |
+|reject_reason |string |t(:row_comment_reject_reason)  |
+|stop_order_id |string |t(:row_comment_stopOrderId) |
+|order_link_id |string |t(:row_comment_orderLinkId)  |
 |t(:row_parameter_trigger_price) |string |t(:row_comment_triggerBy)  |
 |base_price |string |t(:row_response_comment_basePrice)  |
-|remark |string |t(:row_comment_remark)  |
-|reject_reason |string |t(:row_comment_reject_reason)  |
-|stop_px |string |t(:linear_row_comment_stopPx)  |
-|stop_order_id |string |t(:row_comment_stopOrderId) |
 |created_at |string |t(:row_comment_created_at)  |
-|order_link_id |string |t(:row_comment_orderLinkId)  |
-|take_profit |number |t(:row_comment_take_profit)  |
-|stop_loss |number |t(:row_comment_stop_loss)  |
+|updated_at |string |t(:row_comment_updated_at)  |
 |t(:row_parameter_tp_trigger_by) |string |t(:account_row_comment_tp_trigger_by)  |
 |t(:row_parameter_sl_trigger_by) |string |t(:account_row_comment_sl_trigger_by)  |
+|take_profit |string |t(:row_comment_take_profit)  |
+|stop_loss |string |t(:row_comment_stop_loss)  |
 
 
 ### t(:getcond)
@@ -803,28 +771,34 @@ print(session_auth.get_conditional_order(
     "result": {
         "data": [
             {
-                "user_id": 160861,
-                "stop_order_status": "Active",
-                "symbol": "ETHUSD",
+                "user_id": 533285,
+                "position_idx": 0,
+                "stop_order_status": "Deactivated",
+                "symbol": "BTCUSD",
                 "side": "Buy",
-                "order_type": "Market",
-                "stop_order_type": "TakeProfit",
-                "price": "220",
-                "qty": "120",
-                "time_in_force": "ImmediateOrCancel",
-                "base_price": "258",
-                "order_link_id": "",
-                "created_at": "2019-08-02T07:37:24Z",
-                "updated_at": "2019-08-02T07:38:40Z",
-                "stop_px": "224.3",
-                "stop_order_id": "6d0dec74-f516-4d95-81f1-c85e60c9a331"
+                "order_type": "Limit",
+                "stop_order_type": "Stop",
+                "price": "19000",
+                "qty": "100",
+                "time_in_force": "GoodTillCancel",
+                "base_price": "20000",
+                "order_link_id": "IPCOND0001",
+                "created_at": "2022-06-21T02:19:46.052Z",
+                "updated_at": "2022-06-21T02:37:13.05Z",
+                "stop_px": "19500",
+                "stop_order_id": "6e6a003f-fda3-4513-b944-3f41dabd2866",
+                "trigger_by": "MarkPrice",
+                "take_profit": "22000.0000",
+                "stop_loss": "17500.0000",
+                "tp_trigger_by": "LastPrice",
+                "sl_trigger_by": "LastPrice"
             }
         ],
-        "cursor": "zZtvOJ0gc3UOxZOwotsJSZyMTOgyC9tj1DmFyUU6eNHUL0X4NLwZvo8iqI6ltPIc"
+        "cursor": "/oIljKFOerbXfuWAmnc33spA0KcdXr8norz1Mo+W758A5ScFhXQfNDZlY39W83UV"
     },
-    "time_now": "1604653512.292878",
+    "time_now": "1655780730.372912",
     "rate_limit_status": 599,
-    "rate_limit_reset_ms": 1604653512287,
+    "rate_limit_reset_ms": 1655780730369,
     "rate_limit": 600
 }
 ```
@@ -840,7 +814,7 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
-|t(:row_parameter_order_status) |false |string |t(:account_row_comment_req_stopOrderStatus) |
+|<a href="#order-status-order_status-stop_order_status">stop_order_status</a> |false |string |t(:account_row_comment_req_stopOrderStatus) |
 |direction |false |string |t(:row_comment_cursor_direction) |
 |limit |false |integer |t(:row_comment_limit) |
 |cursor |false |string |t(:row_comment_cursor) |
@@ -848,24 +822,25 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|user_id |integer |t(:row_comment_userID)  |
-|t(:row_parameter_order_status)|string |t(:row_comment_stopOrderStatus)    |
-|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
-|t(:row_parameter_side) |string |t(:row_comment_side)  |
-|t(:row_parameter_order_type) |string |t(:row_comment_orderType)  |
-|t(:row_parameter_price) |number |t(:row_response_comment_price)  |
-|t(:row_parameter_quantity) |number |t(:row_response_comment_qty)  |
+|user_id |integer |t(:row_comment_userID) |
+|position_idx |integer |t(:row_comment_position_idx) |
+|<a href="#order-status-order_status-stop_order_status">stop_order_status</a>|string |t(:row_comment_stopOrderStatus) |
+|t(:row_parameter_symbol)|string |t(:row_comment_symbol) |
+|t(:row_parameter_side) |string |t(:row_comment_side) |
+|t(:row_parameter_order_type) |string |t(:row_comment_orderType) |
+|t(:row_parameter_price) |string |t(:row_response_comment_price) |
+|t(:row_parameter_quantity) |string |t(:row_response_comment_qty)  |
 |t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
 |t(:row_parameter_stop_order_type) |string |t(:row_comment_stopOrderType)  |
 |t(:row_parameter_trigger_price) |string |t(:row_response_comment_triggerBy)  |
-|base_price |number |t(:row_response_comment_basePrice)  |
+|base_price |string |t(:row_response_comment_basePrice)  |
 |order_link_id |string |t(:row_comment_orderLinkId)  |
 |created_at |string |t(:row_comment_created_at)  |
 |updated_at |string |t(:row_comment_updated_at)  |
-|stop_px |number |t(:linear_row_comment_stopPx)  |
+|stop_px |string |t(:linear_row_comment_stopPx)  |
 |stop_order_id |string |t(:row_comment_stopOrderId) |
-|take_profit |number |t(:row_comment_take_profit)  |
-|stop_loss |number |t(:row_comment_stop_loss)  |
+|take_profit |string |t(:row_comment_take_profit)  |
+|stop_loss |string |t(:row_comment_stop_loss)  |
 |t(:row_parameter_tp_trigger_by) |string |t(:account_row_comment_tp_trigger_by) |
 |t(:row_parameter_sl_trigger_by) |string |t(:account_row_comment_sl_trigger_by) |
 |cursor |string |t(:row_comment_resp_cursor) |
@@ -961,55 +936,56 @@ print(session_auth.cancel_all_conditional_orders(
     "ext_info": "",
     "result": [
         {
-            "clOrdID": "dea89649-9492-459d-a8c4-c298b87b3d26",
-            "user_id": 1,
-            "symbol": "BTCUSD",
-            "side": "Sell",
-            "order_type": "Limit",
-            "price": "999999",
-            "qty": 1,
-            "time_in_force": "PostOnly",
-            "create_type": "CreateByUser",
-            "cancel_type": "CancelByUser",
-            "order_status": "",
-            "leaves_qty": 1,
-            "leaves_value": "0",
-            "created_at": "2019-12-17T12:13:20Z",
-            "updated_at": "2019-12-27T13:56:33.793799Z",
-            "cross_status": "Deactivated",
-            "cross_seq": -1,
-            "stop_order_type": "Stop",
-            "trigger_by": "LastPrice",
-            "base_price": "6910.5",
-            "expected_direction": "Rising"
-        },
-        {
-            "clOrdID": "a85cd1c0-a9a4-49d3-a1bd-bab5ebe946d5",
-            "user_id": 1,
+            "clOrdID": "c692f699-5e41-49a0-a87f-666ae66e47c7",
+            "order_link_id": "IPCOND0002",
+            "user_id": 533285,
             "symbol": "BTCUSD",
             "side": "Buy",
-            "order_type": "Limit",
-            "price": "8000",
-            "qty": 1,
-            "time_in_force": "GoodTillCancel",
+            "order_type": "Market",
+            "price": "0",
+            "qty": 100,
+            "time_in_force": "ImmediateOrCancel",
             "create_type": "CreateByStopOrder",
             "cancel_type": "CancelByUser",
             "order_status": "",
-            "leaves_qty": 1,
             "leaves_value": "0",
-            "created_at": "2019-12-27T12:48:24.339323Z",
-            "updated_at": "2019-12-27T13:56:33.793802Z",
+            "created_at": "2022-06-21T03:32:58.42058148Z",
+            "updated_at": "2022-06-21T04:34:11.689866649Z",
             "cross_status": "Deactivated",
             "cross_seq": -1,
             "stop_order_type": "Stop",
+            "trigger_by": "MarkPrice",
+            "base_price": "20000",
+            "trail_value": "0",
+            "expected_direction": "Falling"
+        },
+        {
+            "clOrdID": "d46d5544-a2a9-4eb7-a4a2-be4855bb3873",
+            "user_id": 533285,
+            "symbol": "BTCUSD",
+            "side": "Sell",
+            "order_type": "Market",
+            "price": "0",
+            "qty": 400,
+            "time_in_force": "ImmediateOrCancel",
+            "create_type": "CreateByTakeProfit",
+            "cancel_type": "CancelByUser",
+            "order_status": "",
+            "leaves_value": "0",
+            "created_at": "2022-06-21T04:08:10.185138102Z",
+            "updated_at": "2022-06-21T04:34:11.689871755Z",
+            "cross_status": "Deactivated",
+            "cross_seq": -1,
+            "stop_order_type": "TakeProfit",
             "trigger_by": "LastPrice",
-            "base_price": "7000",
+            "base_price": "20636",
+            "trail_value": "0",
             "expected_direction": "Rising"
         }
     ],
-    "time_now": "1577454993.799912",
+    "time_now": "1655786051.690280",
     "rate_limit_status": 90,
-    "rate_limit_reset_ms": 1580885703683,
+    "rate_limit_reset_ms": 1655786051688,
     "rate_limit": 100
 }
 ```
@@ -1034,25 +1010,26 @@ POST
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |clOrdID |string |t(:row_comment_clOrdID)  |
+|order_link_id |string |t(:orderLinkId)  |
 |user_id |number |t(:row_comment_userID)  |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 |t(:row_parameter_order_type) |string |t(:row_comment_orderType)  |
-|t(:row_parameter_price) |number |t(:row_response_comment_price)  |
+|t(:row_parameter_price) |string |t(:row_response_comment_price)  |
 |t(:row_parameter_quantity) |number |t(:row_response_comment_qty)  |
 |t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
 |create_type |string |t(:row_comment_create_type)  |
 |cancel_type |string |t(:row_comment_cancel_type)  |
 |t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
 |leaves_qty |number |t(:row_comment_leaves_qty)  |
-|leaves_value |number |t(:row_comment_leaves_value)  |
+|leaves_value |string |t(:row_comment_leaves_value)  |
 |created_at |string |t(:row_comment_created_at)  |
 |updated_at |string |t(:row_comment_updated_at)  |
 |cross_status |string |t(:row_comment_cross_status)  |
 |cross_seq |number |t(:row_comment_cross_seq)  |
 |t(:row_parameter_stop_order_type) |string |t(:row_comment_stopOrderType)  |
 |t(:row_parameter_trigger_price) |string |t(:row_comment_triggerBy)  |
-|base_price |number |t(:row_response_comment_basePrice)  |
+|base_price |string |t(:row_response_comment_basePrice)  |
 |expected_direction |string |t(:row_comment_expected_direction)  |
 
 
@@ -1157,95 +1134,43 @@ print(session_auth.query_conditional_order(
     "ret_msg": "OK",
     "ext_code": "",
     "ext_info": "",
-    "result": {
-        "user_id": 1,
-        "symbol": "BTCUSD",
-        "side": "Buy",
-        "order_type": "Limit",
-        "price": "8000",
-        "qty": 1,
-        "time_in_force": "GoodTillCancel",
-        "order_status": "Untriggered",
-        "ext_fields": {},
-        "leaves_qty": 1,
-        "leaves_value": "0.00013333",
-        "cum_exec_qty": 0,
-        "cum_exec_value": null,
-        "cum_exec_fee": null,
-        "reject_reason": "",
-        "order_link_id": "",
-        "created_at": "2019-12-27T19:56:24.052194Z",
-        "updated_at": "2019-12-27T19:56:24.052194Z",
-        "order_id": "378a1bbc-a93a-4e75-87f4-502ea754ba36"
-    },
-    "time_now": "1577476584.386958",
-    "rate_limit_status": 99,
-    "rate_limit_reset_ms": 1580885703683,
-    "rate_limit": 100
-}
-
-//t(:resp_field_order_list)
-{
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
-    "ext_info": "",
     "result": [
         {
-            "user_id": 100328,
-            "symbol": "EOSUSD",
-            "side": "Sell",
-            "order_type": "Limit",
-            "price": "2.7",
-            "qty": 1,
-            "stop_px": "2.0000",
-            "base_price": "2.7000",
-            "time_in_force": "GoodTillCancel",
+            "user_id": 533285,
+            "position_idx": 0,
+            "symbol": "BTCUSD",
+            "side": "Buy",
+            "order_type": "Market",
+            "price": "0",
+            "qty": 100,
+            "stop_px": "19500.00",
+            "base_price": "20000.00",
+            "time_in_force": "ImmediateOrCancel",
             "order_status": "Untriggered",
-            "ext_fields": {},
-            "leaves_qty": 1,
-            "leaves_value": "0.37037037",
+            "ext_fields": {
+                "o_req_num": 1328284913
+            },
+            "leaves_qty": 100,
+            "leaves_value": "0",
             "cum_exec_qty": 0,
             "cum_exec_value": null,
             "cum_exec_fee": null,
             "reject_reason": "EC_NoError",
             "cancel_type": "UNKNOWN",
-            "order_link_id": "",
-            "created_at": "2020-12-17T08:21:15.246331281Z",
-            "updated_at": "2020-12-17T08:21:15.246331281Z",
-            "order_id": "a0dee45e-ae2a-4eb4-8205-9739075a7a81",
-            "trigger_by": "MarkPrice"
-        },
-        ...
-        {
-            "user_id": 100328,
-            "symbol": "EOSUSD",
-            "side": "Sell",
-            "order_type": "Limit",
-            "price": "2.6",
-            "qty": 1,
-            "stop_px": "2.0000",
-            "base_price": "2.7000",
-            "time_in_force": "GoodTillCancel",
-            "order_status": "Untriggered",
-            "ext_fields": {},
-            "leaves_qty": 1,
-            "leaves_value": "0.38461538",
-            "cum_exec_qty": 0,
-            "cum_exec_value": null,
-            "cum_exec_fee": null,
-            "reject_reason": "EC_NoError",
-            "cancel_type": "UNKNOWN",
-            "order_link_id": "",
-            "created_at": "2020-12-17T08:21:10.924193413Z",
-            "updated_at": "2020-12-17T08:21:10.924193413Z",
-            "order_id": "51d048ba-a71f-40ef-b4c4-897e94590b80",
-            "trigger_by": "MarkPrice"
+            "order_link_id": "IPCOND0002",
+            "created_at": "2022-06-21T03:32:58.42058148Z",
+            "updated_at": "2022-06-21T03:32:58.42058148Z",
+            "order_id": "c692f699-5e41-49a0-a87f-666ae66e47c7",
+            "trigger_by": "MarkPrice",
+            "take_profit": "22000.00",
+            "stop_loss": "17500.00",
+            "tp_trigger_by": "LastPrice",
+            "sl_trigger_by": "LastPrice"
         }
     ],
-    "time_now": "1608193281.690286",
-    "rate_limit_status": 599,
-    "rate_limit_reset_ms": 1608193281687,
+    "time_now": "1655782431.042082",
+    "rate_limit_status": 597,
+    "rate_limit_reset_ms": 1655782431039,
     "rate_limit": 600
 }
 ```
@@ -1271,16 +1196,19 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |user_id |number |t(:row_comment_userID)  |
+|position_idx |integer |t(:row_comment_position_idx)  |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 |t(:row_parameter_order_type) |string |t(:row_comment_orderType)  |
 |t(:row_parameter_price) |number |t(:row_response_comment_price)  |
 |t(:row_parameter_quantity) |number |t(:row_response_comment_qty)  |
+|stop_px |string |t(:linear_row_comment_stopPx)  |
+|base_price |string |t(:row_response_comment_basePrice)  |
 |t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
 |t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
-|ext_fields |json |t(:row_comment_ext_fields)  |
+|ext_fields |map |t(:row_comment_ext_fields)  |
 |leaves_qty |number |t(:row_comment_leaves_qty)  |
-|leaves_value |number |t(:row_comment_leaves_value)  |
+|leaves_value |string |t(:row_comment_leaves_value)  |
 |cum_exec_qty |number |t(:linear_resp_field_cum_exec_qty)  |
 |cum_exec_value |number |t(:linear_resp_field_cum_exec_value)  |
 |cum_exec_fee |number |t(:linear_resp_field_cum_exec_fee)  |
@@ -1289,11 +1217,9 @@ GET
 |created_at |string |t(:row_comment_created_at)  |
 |updated_at |string |t(:row_comment_updated_at)  |
 |order_id |string |t(:row_comment_order_id)  |
-|base_price |string |t(:row_response_comment_basePrice)  |
-|stop_px |string |t(:linear_row_comment_stopPx)  |
 |t(:row_parameter_trigger_price) |string |t(:row_response_comment_triggerBy)  |
-|take_profit |number |t(:row_comment_take_profit)  |
-|stop_loss |number |t(:row_comment_stop_loss)  |
+|take_profit |string |t(:row_comment_take_profit)  |
+|stop_loss |string |t(:row_comment_stop_loss)  |
 |t(:row_parameter_tp_trigger_by) |string |t(:account_row_comment_tp_trigger_by)  |
 |t(:row_parameter_sl_trigger_by) |string |t(:account_row_comment_sl_trigger_by)  |
 
@@ -1605,50 +1531,51 @@ print(session_auth.set_trading_stop(
 ```javascript
 {
     "ret_code": 0,
-    "ret_msg": "ok",
+    "ret_msg": "OK",
     "ext_code": "",
+    "ext_info": "",
     "result": {
-        "id": 27913,
-        "user_id": 1,
+        "id": 0,
+        "user_id": 533285,
         "symbol": "BTCUSD",
         "side": "Buy",
-        "size": 5,
-        "position_value": 0.0006947,
-        "entry_price": 7197.35137469,
+        "size": 400,
+        "position_value": 0.019995,
+        "entry_price": 20005.00125031,
         "risk_id": 1,
         "auto_add_margin": 0,
-        "leverage": 6.95,
-        "position_margin": 9.996e-05,
-        "liq_price": 6320,
-        "bust_price": 6292.5,
-        "occ_closing_fee": 6e-07,
+        "leverage": 2,
+        "position_margin": 0.0099975,
+        "liq_price": 13381.5,
+        "bust_price": 13337,
+        "occ_closing_fee": 0.000018,
         "occ_funding_fee": 0,
-        "take_profit": 0,
-        "stop_loss": 7000,
+        "take_profit": 26000,
+        "stop_loss": 14000,
         "trailing_stop": 0,
         "position_status": "Normal",
-        "deleverage_indicator": 5,
-        "oc_calc_data": "{\"blq\":2,\"blv\":\"0.0002941\",\"slq\":0,\"bmp\":6800.408,\"smp\":0,\"fq\":-5,\"fc\":-0.00004279,\"bv2c\":0.14549282,\"sv2c\":0.14527699}",
-        "order_margin": 4.279e-05,
-        "wallet_balance": 0.03000227,
-        "realised_pnl": -1.26e-06,
-        "cum_realised_pnl": -1.306e-05,
+        "deleverage_indicator": 4,
+        "oc_calc_data": "{\"blq\":100,\"blv\":\"0.00588235\",\"slq\":0,\"bmp\":17000.0085,\"smp\":0,\"fq\":-400,\"fc\":-0.00295,\"bv2c\":0.5015,\"sv2c\":0.5009}",
+        "order_margin": 0.00295,
+        "wallet_balance": 0.3999834,
+        "realised_pnl": 0,
+        "cum_realised_pnl": -0.00000526,
         "cum_commission": 0,
-        "cross_seq": 444081383,
-        "position_seq": 287176872,
-        "created_at": "2019-10-19T17:04:55.000Z",
-        "updated_at": "2019-12-27T21:17:27.000Z",
+        "cross_seq": 5208583955,
+        "position_seq": 0,
+        "created_at": "2022-06-09T07:14:33.264474461Z",
+        "updated_at": "2022-06-21T04:08:10.185159763Z",
         "ext_fields": {
-            "trailing_active":"9000",
+            "trailing_active": "0",
             "sl_trigger_by": "LastPrice",
-            "v": 221,
+            "tp_trigger_by": "LastPrice",
+            "v": 10151,
             "mm": 0
         }
     },
-    "ext_info": null,
-    "time_now": "1577481447.436689",
-    "rate_limit_status": 73,
-    "rate_limit_reset_ms": 1577481447443,
+    "time_now": "1655784490.185727",
+    "rate_limit_status": 74,
+    "rate_limit_reset_ms": 1655784490182,
     "rate_limit": 75
 }
 ```
@@ -1685,26 +1612,26 @@ POST
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 |size |number |t(:row_comment_position_size)  |
-|position_value |string |t(:row_comment_position_value)  |
-|entry_price |string |t(:row_comment_entry_price)  |
+|position_value |number |t(:row_comment_position_value)  |
+|entry_price |number |t(:row_comment_entry_price)  |
 |risk_id |number |t(:row_comment_riskId)  |
 |auto_add_margin |number |t(:row_comment_auto_add_margin)  |
-|leverage |string |t(:resp_field_leverage)  |
-|position_margin |string |t(:row_comment_position_margin)  |
-|liq_price |string |t(:row_comment_liq_price)  |
-|bust_price |string |t(:row_comment_bust_price)  |
-|occ_closing_fee |string |t(:row_comment_occ_closing_fee)  |
-|occ_funding_fee |string |t(:row_comment_occ_funding_fee)  |
-|take_profit |string |t(:row_comment_take_profit)  |
-|stop_loss |string |t(:row_comment_stop_loss)  |
-|trailing_stop |string |t(:row_comment_trailing_stop)  |
+|leverage |number |t(:resp_field_leverage)  |
+|position_margin |number |t(:row_comment_position_margin)  |
+|liq_price |number |t(:row_comment_liq_price)  |
+|bust_price |number |t(:row_comment_bust_price)  |
+|occ_closing_fee |number |t(:row_comment_occ_closing_fee)  |
+|occ_funding_fee |number |t(:row_comment_occ_funding_fee)  |
+|take_profit |number |t(:row_comment_take_profit)  |
+|stop_loss |number |t(:row_comment_stop_loss)  |
+|trailing_stop |number |t(:row_comment_trailing_stop)  |
 |position_status |string |t(:row_comment_position_status)  |
 |deleverage_indicator |number |t(:row_comment_deleverage_indicator)  |
-|oc_calc_data |string |t(:row_comment_oc_calc_data)  |
-|order_margin |string |t(:row_comment_order_margin)  |
-|wallet_balance |string |t(:row_comment_wallet_balance)  |
-|realised_pnl |string |t(:row_comment_realised_pnl)  |
-|cum_realised_pnl |string |t(:row_comment_cum_realised_pnl)  |
+|oc_calc_data |map |t(:row_comment_oc_calc_data)  |
+|order_margin |number |t(:row_comment_order_margin)  |
+|wallet_balance |number |t(:row_comment_wallet_balance)  |
+|realised_pnl |number |t(:row_comment_realised_pnl)  |
+|cum_realised_pnl |number |t(:row_comment_cum_realised_pnl)  |
 |cum_commission |number |t(:row_comment_cum_commission)  |
 |cross_seq |number |t(:row_comment_cross_seq)  |
 |position_seq |number |t(:row_comment_position_seq)  |
@@ -1712,6 +1639,7 @@ POST
 |updated_at |string |t(:row_comment_updated_at)  |
 |trailing_active |string |t(:row_comment_trailing_active)  |
 |t(:row_parameter_sl_trigger_by) |string |t(:row_comment_sl_trigger_by)  |
+|t(:row_parameter_tp_trigger_by) |string |t(:row_comment_tp_trigger_by)  |
 
 
 
@@ -1871,8 +1799,9 @@ GET
 |cross_seq |number |t(:row_comment_cross_seq)  |
 |exec_fee |string |t(:row_comment_exec_fee)    |
 |exec_id |string |t(:row_comment_exec_id)  |
-|exec_price |number |t(:row_comment_exec_price)    |
+|exec_price |string |t(:row_comment_exec_price)    |
 |exec_qty |number |t(:row_comment_exec_qty)  |
+|exec_time |number |t(:row_comment_exec_timestamp)  |
 |t(:row_parameter_exec_type) |string |t(:row_comment_exec_type) |
 |exec_value |string |t(:row_comment_exec_value)  |
 |fee_rate |string |t(:row_comment_fee_rate)  |
@@ -1882,12 +1811,12 @@ GET
 |order_id |string |t(:row_comment_order_id)  |
 |order_link_id |string |t(:row_comment_orderLinkId)  |
 |order_price |string |t(:row_comment_order_price)  |
-|order_qty |string |t(:row_comment_order_qty)  |
+|order_qty |number |t(:row_comment_order_qty)  |
 |t(:row_parameter_order_type) |string |t(:row_comment_order_type) |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 |t(:row_parameter_symbol) |string |t(:row_comment_symbol)  |
-|user_id |number |t(:row_comment_user_id)  |
 |trade_time_ms |number |t(:row_comment_trade_time)  |
+|user_id |number |t(:row_comment_user_id)  |
 
 
 ### t(:closedprofitandloss)
