@@ -75,3 +75,6 @@ t(:usdcPriceRule)
 * `CancelByDelivery`
 * `CancelByMmpTriggered`
 
+## LastLiquidityInd (`LastLiquidityInd`)
+* `TAKER`
+* `MAKER`

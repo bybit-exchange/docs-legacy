@@ -284,6 +284,10 @@ zh-cn:
   row_comment_taker_fee_rate: taker手續費
   row_comment_maker_fee_rate: maker手續費
   row_comment_last_liquidity_ind: 只有當<code>exec_type</code>字段類型為<code>Trade</code>、<code>AdlTrade</code>、<code>BustTrade</code>時有效
+  row_comment_tp_order_num: 當前已設置止盈的訂單數量
+  row_comment_sl_order_num: 當前已設置止損的訂單數量
+  row_comment_tp_free_size_x: 當前還可設置止盈的合約數量
+  row_comment_sl_free_size_x: 當前還可設置止損的合約數量
 
   row_response_comment_price: 委托價格
   row_response_comment_qty: 委托數量
@@ -331,6 +335,7 @@ zh-cn:
   row_response_comment_service_cash: 抵扣金
   row_comment_fund_type: 資金類型
   row_comment_fund_amount: 資金總量
+  row_comment_wallet_id: 錢包ID
   row_comment_tx_id: 交易哈希ID
   row_comment_address: 地址
   row_comment_submited_at: 提交時間
@@ -366,7 +371,7 @@ zh-cn:
   spot_resources: 中文社區和參考資料
   intro_para_resources:
     <ul class="bybit-community">
-      <li><img src="/images/favicon.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/zh-cn"><strong>幫助中心</strong></a> - <strong>在這裏了解合約交易</strong>
+      <li><img src="/images/favicon.ico" height="14", width="14"> <a href="https://www.bybit.com/zh-TW/help-center/?language=zh_TW"><strong>幫助中心</strong></a> - <strong>在這裏了解合約交易</strong>
       <li><img src="/images/github_logo_icon.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>官方Python SDK</strong>
       <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文討論群</strong>
       <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文討論群</strong>
@@ -375,7 +380,7 @@ zh-cn:
 
   spot_intro_para_resources:
     <ul class="bybit-community">
-    <li><img src="/images/favicon.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/zh-cn"><strong>幫助中心</strong></a> - <strong>在這裏了解現貨交易</strong>
+    <li><img src="/images/favicon.ico" height="14", width="14"> <a href="https://www.bybit.com/zh-TW/help-center/?language=zh_TW"><strong>幫助中心</strong></a> - <strong>在這裏了解現貨交易</strong>
     <li><img src="/images/github_logo_icon.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>官方Python SDK</strong>
     <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文討論群</strong>
     <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文討論群</strong>
@@ -2945,9 +2950,9 @@ zh-cn:
 
 
   triggerPrice: 觸發價格
-  triggerBy: 觸發價格類型，默認為LastPrice， (暫時不支持條件單)
+  triggerBy: 觸發價格類型，默認為LastPrice
   positionIdx: 期貨時使用 0-One-Way Mode 1-Buy side of both side mode 2-Sell side of both side mode
-  mmp: 僅在功能開啟後生效。true表示此訂單為mmp訂單（目前還未上線）
+  mmp: 僅在功能開啟後生效。true表示此訂單為mmp訂單
   reduceOnly: 只減倉
   closeOnTrigger: 觸發後平倉. 如果下平倉單，請設置為true，避免因為保證金不足而導致下單失敗
   takeProfit: 止盈價格
@@ -2972,6 +2977,8 @@ zh-cn:
   cumExecFee: 累計成交手續費
   im: 起始保證金
   orderStatus: <a href="#order-status-status">訂單狀態</a>
+  usdcOptionOrderStatus: <a href="#order-status-orderstatus">訂單狀態</a>
+
   lastExecPrice: 最近一次成交價
   basePrice: 下單時市價
   perpBasePrice: |
@@ -3406,8 +3413,8 @@ zh-cn:
   usdcMmpTriggerTimestamp: MMP觸發時間戳
 
   column_default: 默認值
-  usdcStopOrderType: 參考 <a href="#stop-order-type">Stop Order Type</a>
-  usdcCancelType: 參考 <a href="#cancel-type">Cancel Type</a>
+  usdcStopOrderType: 參考 <a href="#stop-order-type-stopordertype">Stop Order Type</a>
+  usdcCancelType: 參考 <a href="#cancel-type-canceltype">Cancel Type</a>
   usdcTradeId: Trade Id
   usdcQueryLimit: 該接口僅支持最多30天的查詢記錄
   usdcQueryLimitWithInput: 該接口僅支持最多30天的查詢記錄。如果入參日期超出30天將報錯。

@@ -253,11 +253,11 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| t(:row_parameter_price) |string |t(:row_comment_symbol) |
+| t(:row_parameter_symbol) |string |t(:row_comment_symbol) |
 | bid_price |string |t(:row_comment_resp_bid_price) |
 | ask_price |string |t(:row_comment_resp_ask_price) |
 | last_price |string |t(:row_comment_resp_last_price) |
-|t(:row_parameter_tick_direction) |string |t(:row_comment_position_tick_direction) |
+|<a href="#tick-direction-type-tick_direction">last_tick_direction</a> |string |t(:row_comment_position_tick_direction) |
 | prev_price_24h |string |t(:row_comment_resp_prev_price_24h) |
 | price_24h_pcnt |string |t(:row_comment_resp_price_24h_pcnt) |
 | high_price_24h |string |t(:row_comment_resp_high_price_24h) |
