@@ -1923,7 +1923,7 @@ clipboard.on('error', function(e) {
 <h1 id='t-introduction'>Group And Resources</h1>
 <p><p><a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common errors.</p> <p>For further assistance or feedback, please join the <a href="https://t.me/BybitAPI">API Telegram chat</a>! API discussion group on Telegram.</p></p>
 <h3 id='t-resources'>Group And Bybit API Resources</h3>
-<p><ul class="bybit-community"> <li><img src="../../images/help_favicon-06f791dd.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>Official Python SDK</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> </ul></p>
+<p><ul class="bybit-community"> <li><img src="../../images/help_favicon-06f791dd.ico" height="14", width="14"> <a href="https://www.bybit.com/en-US/help-center/?language=en_US"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>Official Python SDK</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> </ul></p>
 <h1 id='t-changelog'>Changelog</h1><h2 id='2022-04-29'>2022-04-29</h2><h3 id='rest-api'>REST API</h3>
 <ul>
 <li><a href="#t-placeactive">Place Active Order</a> &amp; <a href="#t-querysymbol">Query Symbol</a> [update]
@@ -3256,7 +3256,6 @@ This endpoint's <code>rate_limit</code> will decrease by 10 per request; ie, one
 <span class="p">}</span>
 </code></pre></div>
 <p><p>Replace order can modify/amend your active orders.</p>
-<p><code>p_r_qty</code> and <code>p_r_price</code> are the modified price and quantity. If these two fields are not provided, nothing will be modified.</p>
 </p>
 
 <aside class="notice">
@@ -3313,13 +3312,13 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <td style="text-align: left">take_profit</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">number</td>
-<td>New take_profit price, also known as stop_px. Do not pass this field if you don't want modify it</td>
+<td>New take_profit price. Do not pass this field if you don't want modify it</td>
 </tr>
 <tr>
 <td style="text-align: left">stop_loss</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">number</td>
-<td>New stop_loss price, also known as stop_px. Do not pass this field if you don't want modify it</td>
+<td>New stop_loss price. Do not pass this field if you don't want modify it</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>
@@ -4522,7 +4521,7 @@ This endpoint's <code>rate_limit</code> will decrease by 10 per request; ie, one
     <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">100</span><span class="dl">"</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><p>Replace conditional order can modify/amend your conditional orders.</p> <p><code>order_id</code> and <code>symbol</code> are required for identifying a conditional order.</p> <p><code>p_r_qty</code>, <code>p_r_price</code> and <code>p_r_trigger_price</code> can be set for your conditional order. If these fields are not provided, nothing will be modified.</p></p>
+<p><p>Replace conditional order can modify/amend your conditional orders.</p> <p><code>order_id</code> and <code>symbol</code> are required for identifying a conditional order.</p></p>
 
 <aside class="notice">
 Please note that you can only modify untriggered conditional orders.
@@ -4585,13 +4584,13 @@ Please note that you can only modify untriggered conditional orders.
 <td style="text-align: left">take_profit</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">number</td>
-<td>New take_profit price, also known as stop_px. Do not pass this field if you don't want modify it</td>
+<td>New take_profit price. Do not pass this field if you don't want modify it</td>
 </tr>
 <tr>
 <td style="text-align: left">stop_loss</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">number</td>
-<td>New stop_loss price, also known as stop_px. Do not pass this field if you don't want modify it</td>
+<td>New stop_loss price. Do not pass this field if you don't want modify it</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">tp_trigger_by</a></td>

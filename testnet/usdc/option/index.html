@@ -1016,6 +1016,9 @@
                   <li>
                     <a href="#cancel-type-canceltype" class="toc-h2 toc-link" data-title="Cancel Type (cancelType)">Cancel Type (<code>cancelType</code>)</a>
                   </li>
+                  <li>
+                    <a href="#lastliquidityind-lastliquidityind" class="toc-h2 toc-link" data-title="LastLiquidityInd (LastLiquidityInd)">LastLiquidityInd (<code>LastLiquidityInd</code>)</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -1047,7 +1050,7 @@ clipboard.on('error', function(e) {
 });
 </script>
 <h1 id='t-introduction'>Group And Resources</h1><h5 id='t-intro_para'><p><a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common errors.</p> <p>For further assistance or feedback, please join the <a href="https://t.me/BybitAPI">API Telegram chat</a>! API discussion group on Telegram.</p></h5><h3 id='t-resources'>Group And Bybit API Resources</h3>
-<p><ul class="bybit-community"> <li><img src="../../../images/help_favicon-06f791dd.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>Official Python SDK</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> </ul></p>
+<p><ul class="bybit-community"> <li><img src="../../../images/help_favicon-06f791dd.ico" height="14", width="14"> <a href="https://www.bybit.com/en-US/help-center/?language=en_US"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>Official Python SDK</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> </ul></p>
 <h1 id='t-changelog'>Changelog</h1><h2 id='2022-06-16'>2022-06-16</h2><h3 id='rest-api'>REST API</h3>
 <ul>
 <li><a href="#t-setmarginmode">Set Margin Mode</a> [new]
@@ -1969,7 +1972,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">mmp</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Market maker protection; false not enabled (default) and true means enabled (not avaiable yet)</td>
+<td>Market maker protection; false not enabled (default) and true means enabled.</td>
 </tr>
 </tbody></table>
 
@@ -2140,7 +2143,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">mmp</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Market maker protection; false not enabled (default) and true means enabled (not avaiable yet)</td>
+<td>Market maker protection; false not enabled (default) and true means enabled.</td>
 </tr>
 </tbody></table>
 
@@ -2914,12 +2917,12 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <tr>
 <td style="text-align: left">stopOrderType</td>
 <td style="text-align: left">string</td>
-<td>refer to <a href="#stop-order-type">Stop Order Type</a></td>
+<td>refer to <a href="#stop-order-type-stopordertype">Stop Order Type</a></td>
 </tr>
 <tr>
 <td style="text-align: left">orderStatus</td>
 <td style="text-align: left">string</td>
-<td><a href="#order-status-status">Order status</a></td>
+<td><a href="#order-status-orderstatus">Order status</a></td>
 </tr>
 <tr>
 <td style="text-align: left">takeProfit</td>
@@ -3024,7 +3027,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <tr>
 <td style="text-align: left">triggerBy</td>
 <td style="text-align: left">string</td>
-<td>Trigger price type (For conditional order, not available yet)</td>
+<td>Trigger price type</td>
 </tr>
 <tr>
 <td style="text-align: left">orderIM</td>
@@ -3133,7 +3136,7 @@ The endpoint only supports up to 30 days of queried records
 <td style="text-align: left">orderStatus</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td><a href="#order-status-status">Order status</a></td>
+<td><a href="#order-status-orderstatus">Order status</a></td>
 </tr>
 <tr>
 <td style="text-align: left">direction</td>
@@ -3212,17 +3215,17 @@ The endpoint only supports up to 30 days of queried records
 <tr>
 <td style="text-align: left">cancelType</td>
 <td style="text-align: left">string</td>
-<td>refer to <a href="#cancel-type">Cancel Type</a></td>
+<td>refer to <a href="#cancel-type-canceltype">Cancel Type</a></td>
 </tr>
 <tr>
 <td style="text-align: left">stopOrderType</td>
 <td style="text-align: left">string</td>
-<td>refer to <a href="#stop-order-type">Stop Order Type</a></td>
+<td>refer to <a href="#stop-order-type-stopordertype">Stop Order Type</a></td>
 </tr>
 <tr>
 <td style="text-align: left">orderStatus</td>
 <td style="text-align: left">string</td>
-<td><a href="#order-status-status">Order status</a></td>
+<td><a href="#order-status-orderstatus">Order status</a></td>
 </tr>
 <tr>
 <td style="text-align: left">takeProfit</td>
@@ -3332,7 +3335,7 @@ The endpoint only supports up to 30 days of queried records
 <tr>
 <td style="text-align: left">triggerBy</td>
 <td style="text-align: left">string</td>
-<td>Trigger price type (For conditional order, not available yet)</td>
+<td>Trigger price type</td>
 </tr>
 <tr>
 <td style="text-align: left">orderIM</td>
@@ -6234,7 +6237,7 @@ At 0:00, 8:00, and 16:00 UTC+0, the insurance fund will be pushed.
 <tr>
 <td style="text-align: left">cancelType</td>
 <td style="text-align: left">string</td>
-<td>refer to <a href="#cancel-type">Cancel Type</a></td>
+<td>refer to <a href="#cancel-type-canceltype">Cancel Type</a></td>
 </tr>
 </tbody></table>
 <h3 id='t-usergreeks'>Greeks</h3>
@@ -6441,6 +6444,11 @@ At 0:00, 8:00, and 16:00 UTC+0, the insurance fund will be pushed.
 <li><code>CancelByAccountBlocking</code></li>
 <li><code>CancelByDelivery</code></li>
 <li><code>CancelByMmpTriggered</code></li>
+</ul>
+<h2 id='lastliquidityind-lastliquidityind'>LastLiquidityInd (<code>LastLiquidityInd</code>)</h2>
+<ul>
+<li><code>TAKER</code></li>
+<li><code>MAKER</code></li>
 </ul>
 <h1 id='t-errors'>Errors</h1>
 <p>The Bybit API uses the following HTTP codes and error codes<span>:</span></p>

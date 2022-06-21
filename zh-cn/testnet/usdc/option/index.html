@@ -1016,6 +1016,9 @@
                   <li>
                     <a href="#cancel-type-canceltype" class="toc-h2 toc-link" data-title="Cancel Type (cancelType)">Cancel Type (<code>cancelType</code>)</a>
                   </li>
+                  <li>
+                    <a href="#lastliquidityind-lastliquidityind" class="toc-h2 toc-link" data-title="LastLiquidityInd (LastLiquidityInd)">LastLiquidityInd (<code>LastLiquidityInd</code>)</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -1047,7 +1050,7 @@ clipboard.on('error', function(e) {
 });
 </script>
 <h1 id='t-introduction'>中文社區和參考資料</h1><h5 id='t-intro_para'><p>歡迎使用 <a href="https://www.bybit.com/">Bybit</a> APIs 和 Websocket官方文檔！</p> <p>如果您在使用API的過程中遇到問題需要幫助，請加入我們的 <a href="https://t.me/Bybitapi">官方Telegram API討論群</a>！</p></h5><h3 id='t-resources'>中文社區和參考資料</h3>
-<p><ul class="bybit-community"> <li><img src="../../../../images/favicon-4f296779.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/zh-cn"><strong>幫助中心</strong></a> - <strong>在這裏了解合約交易</strong> <li><img src="../../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>官方Python SDK</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文討論群</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文討論群</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong> </ul></p>
+<p><ul class="bybit-community"> <li><img src="../../../../images/favicon-4f296779.ico" height="14", width="14"> <a href="https://www.bybit.com/zh-TW/help-center/?language=zh_TW"><strong>幫助中心</strong></a> - <strong>在這裏了解合約交易</strong> <li><img src="../../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>官方Python SDK</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文討論群</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文討論群</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong> </ul></p>
 <h1 id='t-changelog'>更新日誌</h1><h2 id='2022-06-16'>2022-06-16</h2><h3 id='rest-api'>REST API</h3>
 <ul>
 <li><a href="#t-setmarginmode">設置保證金模式</a> [新增]
@@ -1965,7 +1968,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">mmp</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>僅在功能開啟後生效。true表示此訂單為mmp訂單（目前還未上線）</td>
+<td>僅在功能開啟後生效。true表示此訂單為mmp訂單</td>
 </tr>
 </tbody></table>
 
@@ -2136,7 +2139,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">mmp</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>僅在功能開啟後生效。true表示此訂單為mmp訂單（目前還未上線）</td>
+<td>僅在功能開啟後生效。true表示此訂單為mmp訂單</td>
 </tr>
 </tbody></table>
 
@@ -2909,12 +2912,12 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <tr>
 <td style="text-align: left">stopOrderType</td>
 <td style="text-align: left">string</td>
-<td>參考 <a href="#stop-order-type">Stop Order Type</a></td>
+<td>參考 <a href="#stop-order-type-stopordertype">Stop Order Type</a></td>
 </tr>
 <tr>
 <td style="text-align: left">orderStatus</td>
 <td style="text-align: left">string</td>
-<td><a href="#order-status-status">訂單狀態</a></td>
+<td><a href="#order-status-orderstatus">訂單狀態</a></td>
 </tr>
 <tr>
 <td style="text-align: left">takeProfit</td>
@@ -3019,7 +3022,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <tr>
 <td style="text-align: left">triggerBy</td>
 <td style="text-align: left">string</td>
-<td>觸發價格類型，默認為LastPrice， (暫時不支持條件單)</td>
+<td>觸發價格類型，默認為LastPrice</td>
 </tr>
 <tr>
 <td style="text-align: left">orderIM</td>
@@ -3128,7 +3131,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 <td style="text-align: left">orderStatus</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td><a href="#order-status-status">訂單狀態</a></td>
+<td><a href="#order-status-orderstatus">訂單狀態</a></td>
 </tr>
 <tr>
 <td style="text-align: left">direction</td>
@@ -3206,17 +3209,17 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 <tr>
 <td style="text-align: left">cancelType</td>
 <td style="text-align: left">string</td>
-<td>參考 <a href="#cancel-type">Cancel Type</a></td>
+<td>參考 <a href="#cancel-type-canceltype">Cancel Type</a></td>
 </tr>
 <tr>
 <td style="text-align: left">stopOrderType</td>
 <td style="text-align: left">string</td>
-<td>參考 <a href="#stop-order-type">Stop Order Type</a></td>
+<td>參考 <a href="#stop-order-type-stopordertype">Stop Order Type</a></td>
 </tr>
 <tr>
 <td style="text-align: left">orderStatus</td>
 <td style="text-align: left">string</td>
-<td><a href="#order-status-status">訂單狀態</a></td>
+<td><a href="#order-status-orderstatus">訂單狀態</a></td>
 </tr>
 <tr>
 <td style="text-align: left">takeProfit</td>
@@ -3326,7 +3329,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 <tr>
 <td style="text-align: left">triggerBy</td>
 <td style="text-align: left">string</td>
-<td>觸發價格類型，默認為LastPrice， (暫時不支持條件單)</td>
+<td>觸發價格類型，默認為LastPrice</td>
 </tr>
 <tr>
 <td style="text-align: left">orderIM</td>
@@ -6219,7 +6222,7 @@ DCP的開和關, 僅限機構類型用戶
 <tr>
 <td style="text-align: left">cancelType</td>
 <td style="text-align: left">string</td>
-<td>參考 <a href="#cancel-type">Cancel Type</a></td>
+<td>參考 <a href="#cancel-type-canceltype">Cancel Type</a></td>
 </tr>
 </tbody></table>
 <h3 id='t-usergreeks'>用戶希臘字母信息</h3>
@@ -6426,6 +6429,11 @@ DCP的開和關, 僅限機構類型用戶
 <li><code>CancelByAccountBlocking</code></li>
 <li><code>CancelByDelivery</code></li>
 <li><code>CancelByMmpTriggered</code></li>
+</ul>
+<h2 id='lastliquidityind-lastliquidityind'>LastLiquidityInd (<code>LastLiquidityInd</code>)</h2>
+<ul>
+<li><code>TAKER</code></li>
+<li><code>MAKER</code></li>
 </ul>
 <h1 id='t-errors'>錯誤碼</h1>
 <p>Bybit使用以下HTTP Code和錯誤碼：</p>
