@@ -1169,8 +1169,8 @@ while True:
 |cancel_type |string |t(:row_comment_cancel_type)  |
 |t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
 |t(:row_parameter_stop_order_type) |string |t(:row_comment_stopOrderType)  |
-|trigger_by | string |t(:row_comment_triggerBy) |
-|t(:row_parameter_trigger_price) | string | t(:stop_order_trigger_price)|
+|t(:row_parameter_trigger_price) | string |t(:row_comment_triggerBy) |
+|trigger_price | string | t(:stop_order_trigger_price)|
 |close_on_trigger | bool | t(:row_comment_closeOnTrigger)|
 |timestamp |string |t(:row_response_comment_time)  |
 
