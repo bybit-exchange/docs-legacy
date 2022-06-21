@@ -647,7 +647,7 @@ GET
 |leaves_value |number |t(:row_comment_leaves_value)  |
 |cum_exec_qty |number |t(:linear_resp_field_cum_exec_qty)  |
 |cum_exec_value |number |t(:linear_resp_field_cum_exec_value)  |
-|cum_exec_fee |order_link_id |string |t(:linear_resp_field_cum_exec_fee)  |
+|cum_exec_fee |string |t(:linear_resp_field_cum_exec_fee)  |
 |reject_reason |string |t(:row_comment_reject_reason)  |
 |cancel_type |string |t(:row_comment_cancel_type)  |
 |order_link_id |string |t(:row_comment_orderLinkId)  |
