@@ -459,42 +459,6 @@ t(:websocket_aside_klineV2)
 | crossSeq |string |t(:row_comment_cross_seq) |
 | timestamp |string |t(:timestamp) |
 
-### t(:websocketinsurance)
-> t(:codequote_subscribe)
-
-```javascript
-ws.send('{"op":"subscribe","args":["platform.insurance.USDC"]}')
-
-```
-> t(:codequote_responseExampleFormatAll)
-
-```javascript
-{
-	'id': 'd5249692-c34b-48f0-9db5-d693a30bce09', 
-	'topic': 'platform.insurance.USDC', 
-	'creationTime': 1649750400693, 
-	'data': 
-		{
-			'insuranceBalance': '1180144.86587280', 
-			'baseCoin': 'USDC', 
-			'timestamp': '1649750400693'
-		}
-}
-```
-t(:usdc_platform_insurance)
-
-<aside class="notice">
-t(:websocket_usdc_platform_insurance)
-</aside>
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-| insuranceBalance |string |t(:usdcInsuranceBalance) |
-| baseCoin |string |t(:usdcBaseCoin) |
-| timestamp |string |t(:timestamp) |
-
-
 ## t(:privatetopics)
 ### t(:websocketposition)
 > t(:codequote_subscribe)
