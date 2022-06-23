@@ -659,35 +659,55 @@ t(:websocket_aside_instrumentInfo2)
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |t(:row_parameter_symbol) |string |t(:row_comment_symbol)  |
+|symbol_name |string |t(:row_comment_symbol_name)  |
+|symbol_year |number |t(:row_comment_symbol_year)  |
+|contract_type |string |t(:row_comment_contract_type)  |
+|coin |string |t(:row_comment_coin_type)  |
+|quote_symbol |string |t(:row_comment_quote_symbol)  |
+|mode |string |t(:row_comment_positionmode)  |
+|is_up_borrowable |number |t(:row_comment_isUpBorrowable)  |
+|import_time_e9 |number |t(:row_comment_import_time_e9)  |
+|start_trading_time_e9 |number |t(:row_comment_start_trading_time_e9)  |
+|time_to_settle |number |t(:row_comment_time_to_settle)  |
+|settle_time_e9 |number |t(:row_comment_settle_time_e9)  |
+|settle_fee_rate_e8 |number |t(:row_comment_settle_fee_rate_e8)  |
+|t(:row_comment_contract_status) |string |t(:row_comment_resp_contract_status)  |
+|system_subsidy_e8 |number |t(:row_comment_system_subsidy_e8)  |
+|last_price |string |t(:row_comment_resp_last_price)  |
 |last_price_e4 |integer |t(:row_comment_resp_last_price_e4)  |
-|t(:row_parameter_tick_direction) |string |t(:row_comment_position_tick_direction)  |
+|<a href="#tick-direction-type-tick_direction">last_tick_direction</a> |string |t(:row_comment_position_tick_direction)  |
+|bid1_price |string |t(:row_comment_bid1_price)  |
+|bid1_price_e4 |string |t(:row_comment_bid1_price_e4)  |
+|ask1_price |string |t(:row_comment_ask1_price)  |
+|ask1_price_e4 |string |t(:row_comment_ask1_price_e4)  |
+|prev_price_24h |integer |t(:row_comment_resp_prev_price_24h)  |
 |prev_price_24h_e4 |integer |t(:row_comment_resp_prev_price_24h_e4)  |
-|price_24h_pcnt_e6 |integer |t(:row_comment_resp_price_24h_pcnt_e4)  |
+|price_24h_pcnt_e6 |integer |t(:row_comment_resp_price_24h_pcnt_e6)  |
+|high_price_24h |integer |t(:row_comment_resp_high_price_24h)  |
 |high_price_24h_e4 |integer |t(:row_comment_resp_high_price_24h_e4)  |
+|low_price_24h |integer |t(:row_comment_resp_low_price_24h)  |
 |low_price_24h_e4 |integer |t(:row_comment_resp_low_price_24h_e4)  |
+|prev_price_1h |integer |t(:row_comment_resp_prev_price_1h)  |
 |prev_price_1h_e4 |integer |t(:row_comment_resp_prev_price_1h_e4)  |
 |price_1h_pcnt_e6 |integer |t(:row_comment_resp_price_1h_pcnt_e6)  |
-|mark_price_e4 |integer |t(:row_comment_resp_mark_price_e4)  |
-|index_price_e4 |integer |t(:row_comment_resp_index_price_e4)  |
-|last_price |integer |t(:row_comment_resp_last_price)  |
-|prev_price_24h |integer |t(:row_comment_resp_prev_price_24h)  |
-|high_price_24h |integer |t(:row_comment_resp_high_price_24h)  |
-|low_price_24h |integer |t(:row_comment_resp_low_price_24h)  |
-|prev_price_1h |integer |t(:row_comment_resp_prev_price_1h)  |
 |mark_price |integer |t(:row_comment_resp_mark_price)  |
+|mark_price_e4 |integer |t(:row_comment_resp_mark_price_e4)  |
 |index_price |integer |t(:row_comment_resp_index_price)  |
+|index_price_e4 |integer |t(:row_comment_resp_index_price_e4)  |
 |open_interest |integer |t(:row_comment_resp_open_interest). t(:row_comment_slow_update)  |
 |open_value_e8 |integer |t(:row_comment_resp_open_value_e8). t(:row_comment_slow_update)  |
 |total_turnover_e8 |integer |t(:row_comment_resp_total_turnover_e8)  |
 |turnover_24h_e8 |integer |t(:row_comment_resp_turnover_24h_e8)  |
 |total_volume |integer |t(:row_comment_resp_total_volume)  |
 |volume_24h |integer |t(:row_comment_resp_volume_24h)  |
-|predicted_funding_rate_e6 |integer |t(:row_comment_resp_predicted_funding_rate_e6)  |
+|fair_basis_e8 |integer |t(:row_comment_fair_basis_e8)  |
+|fair_basis_rate_e8 |integer |t(:row_comment_fair_basis_rate_e8)  |
+|basis_in_year_e8 |integer |t(:row_comment_basis_in_year_e8)  |
+|expect_price |string |t(:row_comment_expect_price)  |
+|expect_price_e4 |integer |t(:row_comment_expect_price_e4)  |
 |cross_seq |integer |t(:row_comment_cross_seq)  |
 |created_at |string |t(:row_comment_created_at)  |
 |updated_at |string |t(:row_comment_updated_at)  |
-|next_funding_time |string |t(:row_comment_resp_next_funding_time)  |
-|countdown_hour |integer |t(:row_comment_resp_countdown_hour)  |
 
 
 ### t(:websocketklineV2)
@@ -801,43 +821,44 @@ while True:
 
 ```javascript
 {
-   "topic": "position",
-   "action": "update",
-   "data": [
-       {
-           "user_id":  1,
-           "symbol": "BTCUSDH21",
-           "position_idx":1,
-           "size": 11,
-           "side": "Sell",
-           "mode": 0,
-           "isolated":true,
-           "position_value": "0.00159252",
-           "entry_price": "6907.291588174717",
-           "liq_price": "7100.234",
-           "bust_price": "7088.1234",
-           "leverage": "1",
-           "order_margin":  "1",
-           "position_margin":  "1",
-           "available_balance":  "2",
-           "take_profit": "0",
-           "tp_trigger_by":  "LastPrice",
-           "stop_loss": "0",
-           "sl_trigger_by":  "",
-           "realised_pnl":  "0.10",
-           "trailing_stop": "0",
-           "trailing_active": "0",
-           "wallet_balance":  "4.12",
-           "risk_id":  1,                       
-           "occ_closing_fee":  "0.1",
-           "occ_funding_fee":  "0.1",
-           "auto_add_margin": 0,
-           "cum_realised_pnl":  "0.12",
-           "position_status": "Normal",
-
-           "position_seq": 14
-       }
-   ]
+    "topic": "position",
+    "data": [
+        {
+            "user_id": 533285,
+            "symbol": "BTCUSDZ22",
+            "size": 1000,
+            "side": "Sell",
+            "position_value": "0.04837285",
+            "entry_price": "20672.75341436",
+            "liq_price": "999999",
+            "bust_price": "999999",
+            "leverage": "10",
+            "order_margin": "0",
+            "position_margin": "0.39749844",
+            "available_balance": "0.39263074",
+            "take_profit": "0",
+            "stop_loss": "0",
+            "realised_pnl": "-0.00002904",
+            "trailing_stop": "0",
+            "trailing_active": "0",
+            "wallet_balance": "0.4005047",
+            "risk_id": 131,
+            "occ_closing_fee": "0.0000006",
+            "occ_funding_fee": "0",
+            "auto_add_margin": 0,
+            "cum_realised_pnl": "-0.00002904",
+            "position_status": "Normal",
+            "position_seq": 0,
+            "Isolated": False,
+            "mode": 3,
+            "position_idx": 2,
+            "tp_sl_mode": "Partial",
+            "tp_order_num": 2,
+            "sl_order_num": 2,
+            "tp_free_size_x": 0,
+            "sl_free_size_x": 0
+        }
+    ]
 }
 ```
 
@@ -853,8 +874,8 @@ t(:websocketposition_aside)
 |:----- |:-----|----- |
 |user_id |number |t(:row_comment_userID)  |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
-|t(:row_parameter_side) |string |t(:row_comment_side)  |
 |size |number |t(:row_comment_position_size)  |
+|t(:row_parameter_side) |string |t(:row_comment_side)  |
 |position_value |string |t(:row_comment_position_value)  |
 |entry_price |string |t(:row_comment_entry_price)  |
 |liq_price |string |t(:row_comment_liq_price)  |
@@ -864,9 +885,7 @@ t(:websocketposition_aside)
 |position_margin |string |t(:row_comment_position_margin)  |
 |available_balance |string |t(:row_comment_available_balance)  |
 |take_profit |string |t(:row_comment_take_profit)  |
-|t(:row_parameter_tp_trigger_by) |string |t(:account_row_comment_tp_trigger_by) |
 |stop_loss |string |t(:row_comment_stop_loss)  |
-|t(:row_parameter_sl_trigger_by) |string |t(:account_row_comment_sl_trigger_by) |
 |realised_pnl |string |t(:row_comment_realised_pnl)  |
 |trailing_stop |string |t(:row_comment_trailing_stop)  |
 |trailing_active |string |t(:row_comment_trailing_active)  |
@@ -878,6 +897,14 @@ t(:websocketposition_aside)
 |cum_realised_pnl |string |t(:row_comment_cum_realised_pnl)  |
 |position_status |string |t(:row_comment_position_status)  |
 |position_seq |number |t(:row_comment_position_seq)  |
+|Isolated | bool | t(:row_comment_isolated) |
+|mode | number | t(:row_comment_position_mode) |
+|position_idx | number | t(:positionIdx) |
+|tp_sl_mode | string | t(:row_comment_tp_sl_mode) |
+|tp_order_num | number | t(:row_comment_tp_order_num) |
+|sl_order_num | number | t(:row_comment_sl_order_num) |
+|tp_free_size_x |number |t(:row_comment_tp_free_size_x) |
+|sl_free_size_x |number |t(:row_comment_sl_free_size_x) |
 
 
 
@@ -1045,9 +1072,10 @@ while True:
 |cum_exec_fee |string |t(:linear_resp_field_cum_exec_fee)  |
 |timestamp |string |t(:websocketorder_row_comment_timestamp)  |
 |take_profit |string |t(:row_comment_take_profit)  |
+|t(:row_parameter_tp_trigger_by) |string |t(:row_comment_tp_trigger_by)  |
 |stop_loss |string |t(:row_comment_stop_loss)  |
+|t(:row_parameter_sl_trigger_by) |string |t(:row_comment_sl_trigger_by)  |
 |trailing_stop |string |t(:row_comment_trailing_stop)  |
-|trailing_active |string |t(:row_comment_trailing_active)  |
 |last_exec_price |string |t(:row_comment_last_exec_price)  |
 |reduce_only | bool | t(:row_comment_reduceOnly)|
 |close_on_trigger | bool | t(:row_comment_closeOnTrigger)|
