@@ -2770,9 +2770,19 @@ function copyStringToClipboard (endpoint) {
 <td>Data recording period. <code>5min</code>, <code>15min</code>, <code>30min</code>, <code>1h</code>, <code>4h</code>, <code>1d</code></td>
 </tr>
 <tr>
+<td style="text-align: left">interval</td>
+<td style="text-align: left">string</td>
+<td>Data recording period. <code>5min</code>, <code>15min</code>, <code>30min</code>, <code>1h</code>, <code>4h</code>, <code>1d</code></td>
+</tr>
+<tr>
 <td style="text-align: left">start_at</td>
 <td style="text-align: left">integer</td>
 <td>Start timestamp point for result, in seconds</td>
+</tr>
+<tr>
+<td style="text-align: left">open_time</td>
+<td style="text-align: left">integer</td>
+<td>Starting time</td>
 </tr>
 <tr>
 <td style="text-align: left">volume</td>
@@ -2798,16 +2808,6 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">close</td>
 <td style="text-align: left">integer</td>
 <td>Closing price</td>
-</tr>
-<tr>
-<td style="text-align: left">interval</td>
-<td style="text-align: left">string</td>
-<td>Data recording period. <code>5min</code>, <code>15min</code>, <code>30min</code>, <code>1h</code>, <code>4h</code>, <code>1d</code></td>
-</tr>
-<tr>
-<td style="text-align: left">open_time</td>
-<td style="text-align: left">integer</td>
-<td>Starting time</td>
 </tr>
 <tr>
 <td style="text-align: left">turnover</td>
@@ -2912,7 +2912,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left"><a href="#quantity-qty">qty</a></td>
 <td style="text-align: left">number</td>
-<td>Order quantity in USD</td>
+<td>Order quantity in cryptocurrency</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#side-side">side</a></td>
@@ -3742,7 +3742,7 @@ Please note:
 <td style="text-align: left"><a href="#time-in-force-time_in_force">time_in_force</a></td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td><a href="https://help.bybit.com/hc/en-us/articles/360039749233-What-Are-Time-In-Force-TIF-GTC-IOC-FOK-">Time in force</a></td>
+<td><a href="https://www.bybit.com/en-US/help-center/bybitHC_Article?language=en_US&id=000001044">Time in force</a></td>
 </tr>
 <tr>
 <td style="text-align: left">reduce_only</td>
@@ -3844,7 +3844,7 @@ Please note:
 <tr>
 <td style="text-align: left"><a href="#time-in-force-time_in_force">time_in_force</a></td>
 <td style="text-align: left">string</td>
-<td><a href="https://help.bybit.com/hc/en-us/articles/360039749233-What-Are-Time-In-Force-TIF-GTC-IOC-FOK-">Time in force</a></td>
+<td><a href="https://www.bybit.com/en-US/help-center/bybitHC_Article?language=en_US&id=000001044">Time in force</a></td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#order-status-order_status-stop_order_status">order_status</a></td>
@@ -4091,7 +4091,7 @@ Please note:
 <tr>
 <td style="text-align: left"><a href="#time-in-force-time_in_force">time_in_force</a></td>
 <td style="text-align: left">string</td>
-<td><a href="https://help.bybit.com/hc/en-us/articles/360039749233-What-Are-Time-In-Force-TIF-GTC-IOC-FOK-">Time in force</a></td>
+<td><a href="https://www.bybit.com/en-US/help-center/bybitHC_Article?language=en_US&id=000001044">Time in force</a></td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#order-status-order_status-stop_order_status">order_status</a></td>
@@ -4666,7 +4666,7 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <tr>
 <td style="text-align: left"><a href="#time-in-force-time_in_force">time_in_force</a></td>
 <td style="text-align: left">string</td>
-<td><a href="https://help.bybit.com/hc/en-us/articles/360039749233-What-Are-Time-In-Force-TIF-GTC-IOC-FOK-">Time in force</a></td>
+<td><a href="https://www.bybit.com/en-US/help-center/bybitHC_Article?language=en_US&id=000001044">Time in force</a></td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#order-status-order_status-stop_order_status">order_status</a></td>
@@ -4890,7 +4890,7 @@ Please note:
 <td style="text-align: left"><a href="#time-in-force-time_in_force">time_in_force</a></td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td><a href="https://help.bybit.com/hc/en-us/articles/360039749233-What-Are-Time-In-Force-TIF-GTC-IOC-FOK-">Time in force</a></td>
+<td><a href="https://www.bybit.com/en-US/help-center/bybitHC_Article?language=en_US&id=000001044">Time in force</a></td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#trigger-price-type-trigger_by">trigger_by</a></td>
@@ -4998,7 +4998,7 @@ Please note:
 <tr>
 <td style="text-align: left"><a href="#time-in-force-time_in_force">time_in_force</a></td>
 <td style="text-align: left">string</td>
-<td><a href="https://help.bybit.com/hc/en-us/articles/360039749233-What-Are-Time-In-Force-TIF-GTC-IOC-FOK-">Time in force</a></td>
+<td><a href="https://www.bybit.com/en-US/help-center/bybitHC_Article?language=en_US&id=000001044">Time in force</a></td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#order-status-order_status-stop_order_status">order_status</a></td>
@@ -5262,7 +5262,7 @@ Please note:
 <tr>
 <td style="text-align: left"><a href="#time-in-force-time_in_force">time_in_force</a></td>
 <td style="text-align: left">string</td>
-<td><a href="https://help.bybit.com/hc/en-us/articles/360039749233-What-Are-Time-In-Force-TIF-GTC-IOC-FOK-">Time in force</a></td>
+<td><a href="https://www.bybit.com/en-US/help-center/bybitHC_Article?language=en_US&id=000001044">Time in force</a></td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#order-status-order_status-stop_order_status">order_status</a></td>
@@ -5816,7 +5816,7 @@ Please note that you can only modify untriggered conditional orders.
 <tr>
 <td style="text-align: left"><a href="#time-in-force-time_in_force">time_in_force</a></td>
 <td style="text-align: left">string</td>
-<td><a href="https://help.bybit.com/hc/en-us/articles/360039749233-What-Are-Time-In-Force-TIF-GTC-IOC-FOK-">Time in force</a></td>
+<td><a href="https://www.bybit.com/en-US/help-center/bybitHC_Article?language=en_US&id=000001044">Time in force</a></td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#order-status-order_status-stop_order_status">order_status</a></td>
@@ -9825,7 +9825,7 @@ This topic pushes all executions <i>except</i> <a href="#exec-type-exec_type"><c
 <tr>
 <td style="text-align: left"><a href="#time-in-force-time_in_force">time_in_force</a></td>
 <td style="text-align: left">string</td>
-<td><a href="https://help.bybit.com/hc/en-us/articles/360039749233-What-Are-Time-In-Force-TIF-GTC-IOC-FOK-">Time in force</a></td>
+<td><a href="https://www.bybit.com/en-US/help-center/bybitHC_Article?language=en_US&id=000001044">Time in force</a></td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#order-status-order_status-stop_order_status">order_status</a></td>
@@ -9983,7 +9983,7 @@ This topic pushes all executions <i>except</i> <a href="#exec-type-exec_type"><c
 <tr>
 <td style="text-align: left"><a href="#time-in-force-time_in_force">time_in_force</a></td>
 <td style="text-align: left">string</td>
-<td><a href="https://help.bybit.com/hc/en-us/articles/360039749233-What-Are-Time-In-Force-TIF-GTC-IOC-FOK-">Time in force</a></td>
+<td><a href="https://www.bybit.com/en-US/help-center/bybitHC_Article?language=en_US&id=000001044">Time in force</a></td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#order-status-order_status-stop_order_status">order_status</a></td>
