@@ -10312,7 +10312,18 @@ This topic pushes all executions <i>except</i> <a href="#exec-type-exec_type"><c
 <tr>
 <td style="text-align: left">available_balance</td>
 <td style="text-align: left">number</td>
-<td>Available balance = wallet balance - used margin</td>
+<td><p>In Isolated Margin Mode:</p>
+<pre class="table-code">
+  available_balance = wallet_balance - (position_margin + occ_closing_fee + occ_funding_fee + order_margin)
+</pre>
+<p>In Cross Margin Mode:</p>
+<pre class="table-code">
+  if unrealised_pnl > 0:
+      available_balance = wallet_balance - (position_margin + occ_closing_fee + occ_funding_fee + order_margin)
+  if unrealised_pnl < 0:
+      available_balance = wallet_balance - (position_margin + occ_closing_fee + occ_funding_fee + order_margin) + unrealised_pnl
+</pre>
+</td>
 </tr>
 </tbody></table>
 <h1 id='t-archivedata'>Archive Data</h1><h3 id='t-historicalmarketdata'>Historical Market Data</h3>
