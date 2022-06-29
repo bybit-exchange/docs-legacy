@@ -1224,4 +1224,4 @@ while True:
 |user_id |number |t(:row_comment_user_id)  |
 |coin |string |t(:row_comment_coin_type)  |
 |wallet_balance |string |t(:row_comment_wallet_balance)  |
-|available_balance |string |t(:row_comment_available_balance)  |
+|available_balance |string |t(:row_comment_http_available_balance)  |
