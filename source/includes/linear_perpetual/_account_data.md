@@ -2069,14 +2069,14 @@ GET
 |start_time |false |integer |t(:row_comment_startTime_ms_2years) |
 |end_time |false |integer |t(:row_comment_endTime_ms_2years) |
 |t(:row_parameter_exec_type) |false |string |t(:linear_exec_type) |
-|page_token |false |string |t(:row_comment_spot_page) |
+|page_token |false |string |t(:row_comment_linear_page) |
 |limit |false |integer |t(:linear_row_comment_limit_100_100) |
 
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|page_token |string |t(:row_comment_spot_page) |
+|page_token |string |t(:row_comment_linear_page) |
 |data |ArrayList |
 |order_id |string |t(:row_comment_order_id)  |
 |order_link_id |string |t(:row_comment_orderLinkId)  |
