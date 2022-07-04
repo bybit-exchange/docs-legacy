@@ -2018,29 +2018,29 @@ print(session_auth.extended_user_trade_records(
     "ext_code": "",
     "ext_info": "",
     "result": {
-        "page_token": "",
+        "page_token": "OVFyd2RLQ051UDhlZXNGa1RRNWEwM0FNWWZLdk9LVS95RnIzbThKa3EzUVJpc0ZiNGt2Z2NzdWxJb2h6QTZ3MHBZdmRnNlZSWFpKY0h3V1RpY0ZqcER5RlZNbGRjbGh4N2VYdXpZcUduZm9lWkFsNjFnVTJrLzdYSy9TNC9BcjhsRlRNY3NWM0x1MFdrQ05hSlFObW8yUjdpZXZyRHd3MWlvTzdmb0tWdmFwSEhqQUs0MG4wSXlsV1VZTlpWWVpla08vVGYzRWJEbVJhY2t0RmE3TDhKMCtuRnZ2ZDFuVmZQZXB6SWNGVitiZDlmSFNkazRZb1hlcXRPYzdLS040OGJVMnpER0Mzd1lFcURDTCs3SC9pRGl0UW9JZC9xSGZlNENUSW1hVHBGcUhSVlNVYzBRL3dtVVhmRXNTN2NkOHZGVGU5NThlWlRGZGp0UWxaWnhybzJmcis5UTZuYWpXTFBtVVYrQlo1VkVNPQ==",
         "data": [
             {
-                "order_id": "55bd3595-938d-4d7f-b1ab-7abd6a3ec1cb",
+                "order_id": "ad263e18-ce2f-4e7c-9077-5db8d2186051",
                 "order_link_id": "",
                 "side": "Sell",
                 "symbol": "BTCUSDT",
-                "exec_id": "730cc113-7f05-5f1e-82b5-432bba9dfeab",
-                "price": 39391,
-                "order_price": 39391,
-                "order_qty": 0.009,
+                "exec_id": "43514fa8-8948-5649-9854-704bae563c16",
+                "price": 20284,
+                "order_price": 20284,
+                "order_qty": 0.32,
                 "order_type": "Market",
                 "fee_rate": 0.0006,
-                "exec_price": 41469.5,
+                "exec_price": 21348.5,
                 "exec_type": "Trade",
-                "exec_qty": 0.009,
-                "exec_fee": 0.2239353,
-                "exec_value": 373.2255,
+                "exec_qty": 0.32,
+                "exec_fee": 4.098912,
+                "exec_value": 6831.52,
                 "leaves_qty": 0,
-                "closed_size": 0.009,
+                "closed_size": 0.32,
                 "last_liquidity_ind": "RemovedLiquidity",
-                "trade_time": 1650444130,
-                "trade_time_ms": 1650444130065
+                "trade_time": 1656316742,
+                "trade_time_ms": 1656316742722
             }
         ]
     },
@@ -2069,13 +2069,15 @@ GET
 |start_time |false |integer |t(:row_comment_startTime_ms_2years) |
 |end_time |false |integer |t(:row_comment_endTime_ms_2years) |
 |t(:row_parameter_exec_type) |false |string |t(:linear_exec_type) |
-|page_token |false |string |t(:row_comment_page) |
+|page_token |false |string |t(:row_comment_linear_page) |
 |limit |false |integer |t(:linear_row_comment_limit_100_100) |
 
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
+|page_token |string |t(:row_comment_linear_page) |
+|data |ArrayList |
 |order_id |string |t(:row_comment_order_id)  |
 |order_link_id |string |t(:row_comment_orderLinkId)  |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
