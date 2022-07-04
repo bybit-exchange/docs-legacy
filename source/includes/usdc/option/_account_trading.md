@@ -765,9 +765,9 @@ POST
 |t(:row_parameter_symbol) |false|string|t(:usdcSymbol)|
 |orderId|false|string|t(:usdcOrderId)|
 |orderLinkId|false|string|t(:usdcOrderLinkId)|
-|startTime|<b>true</b>|string|t(:usdcStartTime)|
+|startTime|false|string|t(:usdcStartTime_ms)|
 |direction|false|string|t(:direction)|
-|limit|<b>true</b>|string|t(:row_comment_limit)|
+|limit|false|string|t(:row_comment_limit)|
 |cursor|false|string|t(:cursor)|
 
 
@@ -862,10 +862,10 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |type|<b>true</b>|string|t(:usdcTransactionType)|
-|startTime|<b>true</b>|string|t(:usdcStartTime)|
-|endTime|<b>true</b>|string|t(:usdcEndTime)|
+|startTime|false|string|t(:usdcStartTime_ms)|
+|endTime|false|string|t(:usdcEndTime)|
 |direction|false|string|t(:direction)|
-|limit|<b>true</b>|string|t(:row_comment_limit)|
+|limit|false|string|t(:row_comment_limit)|
 |cursor|false|string|t(:cursor)|
 |category|false|string|t(:usdcCategory)|
 
