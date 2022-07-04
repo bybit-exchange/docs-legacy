@@ -1128,4 +1128,4 @@ while True:
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |wallet_balance |number |t(:row_comment_wallet_balance)  |
-|available_balance |number |t(:row_comment_available_balance)  |
+|available_balance |number |t(:row_comment_http_available_balance)  |
