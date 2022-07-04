@@ -182,3 +182,8 @@ t(:date)
 * `StopLoss`
 * `TrailingStop`
 * `Stop`
+
+## CopyTrading order type (`copy_trading_order_type`)
+* `ACTIVE` t(:copy_trading_order_type_active)
+* `TPSLCONDITIONAL` t(:copy_trading_order_type_tpslconditional)
+* `OPENFILLED` t(:copy_trading_order_type_openfilled)
