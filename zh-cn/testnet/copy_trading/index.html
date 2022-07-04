@@ -1073,6 +1073,9 @@
                   <li>
                     <a href="#stop-order-type-stop_order_type" class="toc-h2 toc-link" data-title="Stop order type (stop_order_type)">Stop order type (<code>stop_order_type</code>)</a>
                   </li>
+                  <li>
+                    <a href="#copytrading-order-type-copy_trading_order_type" class="toc-h2 toc-link" data-title="CopyTrading order type (copy_trading_order_type)">CopyTrading order type (<code>copy_trading_order_type</code>)</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -2241,7 +2244,7 @@ REST接口根URL:
 <td style="text-align: left">copyTradeOrderType</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>委托單價格類型</td>
+<td><a href="#copytrading-order-type-copy_trading_order_type">跟單交易委托單類型</a></td>
 </tr>
 </tbody></table>
 
@@ -5049,6 +5052,12 @@ ELSE
 <li><code>TrailingStop</code></li>
 <li><code>Stop</code></li>
 </ul>
+<h2 id='copytrading-order-type-copy_trading_order_type'>CopyTrading order type (<code>copy_trading_order_type</code>)</h2>
+<ul>
+<li><code>ACTIVE</code> - 活動，當前掛單</li>
+<li><code>TPSLCONDITIONAL</code> - 止盈止損單</li>
+<li><code>OPENFILLED</code> - 當前帶單-明細</li>
+</ul>
 <h1 id='t-errors'>錯誤碼</h1>
 <p>Bybit使用以下HTTP Code和錯誤碼：</p>
 
@@ -5503,6 +5512,8 @@ ELSE
           window.location=currentUrl.replace(/\/((?:testnet\/)?account_asset)/,"/zh-cn/$1");
         } else if(currentUrl.indexOf("linear") > -1) {
           window.location=currentUrl.replace(/\/((?:testnet\/)?linear)/,"/zh-cn/$1");
+        } else if(currentUrl.indexOf("copy_trading") > -1) {
+          window.location=currentUrl.replace(/\/((?:testnet\/)?copy_trading)/,"/zh-cn/$1");
         } else{
           window.location=currentUrl.replace(/\/((?:testnet\/)?usdc)/,"/zh-cn/$1");
 	      }
