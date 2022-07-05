@@ -253,11 +253,11 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| t(:row_parameter_price) |string |t(:row_comment_symbol) |
+| t(:row_parameter_symbol) |string |t(:row_comment_symbol) |
 | bid_price |string |t(:row_comment_resp_bid_price) |
 | ask_price |string |t(:row_comment_resp_ask_price) |
 | last_price |string |t(:row_comment_resp_last_price) |
-|t(:row_parameter_tick_direction) |string |t(:row_comment_position_tick_direction) |
+|<a href="#tick-direction-type-tick_direction">last_tick_direction</a> |string |t(:row_comment_position_tick_direction) |
 | prev_price_24h |string |t(:row_comment_resp_prev_price_24h) |
 | price_24h_pcnt |string |t(:row_comment_resp_price_24h_pcnt) |
 | high_price_24h |string |t(:row_comment_resp_high_price_24h) |
@@ -575,7 +575,7 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| t(:row_parameter_price) |string |t(:row_comment_symbol) |
+| t(:row_parameter_symbol) |string |t(:row_comment_symbol) |
 | period |string |t(:row_comment_period) |
 | start_at |integer |t(:row_comment_startTime) |
 | open |integer |t(:row_comment_open) |
@@ -782,7 +782,7 @@ GET
 |:----- |:-----|----- |
 | open_interest |number |t(:row_comment_open_interest) |
 | timestamp |number |t(:row_comment_time_stamp) |
-| t(:row_parameter_price) |string |t(:row_comment_symbol) |
+| t(:row_parameter_symbol) |string |t(:row_comment_symbol) |
 
 
 ### t(:marketbigdeal)
@@ -845,7 +845,7 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| t(:row_parameter_price) |string |t(:row_comment_symbol) |
+| t(:row_parameter_symbol) |string |t(:row_comment_symbol) |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 | timestamp |number |t(:row_comment_time_stamp) |
 | value |number |t(:row_comment_value) |
@@ -915,7 +915,7 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| t(:row_parameter_price) |string |t(:row_comment_symbol) |
+| t(:row_parameter_symbol) |string |t(:row_comment_symbol) |
 | buy_ratio |number |t(:row_comment_buy_ratio) |
 | sell_ratio |number |t(:row_comment_sell_ratio) |
 | timestamp |number |t(:row_comment_time_stamp) |

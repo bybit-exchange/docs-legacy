@@ -1,4 +1,81 @@
 # t(:lt)
+
+### t(:ltInfos)
+> t(:codequote_curlExample)
+
+```console
+curl https://api-testnet.bybit.com/spot/lt/v1/infos?ltCode=BTC3S \
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "",
+    "ext_code": null,
+    "ext_info": null,
+    "result": [
+        {
+            "ltCode": "BTC3S",
+            "ltName": "3X Short",
+            "maxPurchase": "1000000",
+            "minPurchase": "10",
+            "maxPurchaseDaily": "200000",
+            "maxRedeem": "1000",
+            "minRedeem": "100",
+            "maxRedeemDaily": "5000",
+            "purchaseFeeRate": "0.01",
+            "redeemFeeRate": "0.01",
+            "status": "1",
+            "fundFee": "-263.9050275",
+            "fundFeeTime": "1655452800000",
+            "manageFeeRate": "0.0001",
+            "manageFeeTime": "1655481787000",
+            "value": "549750319.6491748121231980105",
+            "total": "5000000",
+            "netValue": "39.350964984796264668"
+        }
+    ]
+}
+```
+
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=ltInfos>/spot/lt/v1/infos</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ltInfos"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|ltCode|false|string|t(:spotLtCode)|
+
+
+<p class="fake_header">t(:responseparameters)</p>
+
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|ltCode|string|t(:spotResLtCode)|
+|ltName|string|t(:spotResLtName)|
+|maxPurchase|string|t(:spotResMaxPurchase)|
+|minPurchase|string|t(:spotResMinPurchase)|
+|maxPurchaseDaily|string|t(:spotResMaxPurchaseDaily)|
+|maxRedeem|string|t(:spotResMaxRedeem)|
+|minRedeem|string|t(:spotResMinRedeem)|
+|maxRedeemDaily|string|t(:spotResMaxRedeemDaily)|
+|purchaseFeeRate|string|t(:spotResPurchaseFee)|
+|redeemFeeRate|string|t(:spotResRedeemFee)|
+|t(:row_parameter_ltStatus)|string|t(:spotResLtStatus)|
+|fundFee|string|t(:spotResFundFee)|
+|fundFeeTime|long|t(:spotResFundFeeTime)|
+|manageFeeRate|string|t(:spotResManageFee)|
+|manageFeeTime|long|t(:spotResManageFeeTime)|
+|value|string|t(:spotResValue)|
+|total|string|t(:spotResTotal)|
+|netValue|string|t(:spotResNetValue)|
+
 ### t(:ltInfo)
 > t(:codequote_curlExample)
 
@@ -50,8 +127,6 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |ltCode|<b>true</b>|string|t(:spotLtCode)|
-|timestamp|<b>false</b>|number|t(:spot_timestamp)|
-
 
 <p class="fake_header">t(:responseparameters)</p>
 

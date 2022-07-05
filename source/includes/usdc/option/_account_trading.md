@@ -550,7 +550,7 @@ POST
 |orderLinkId |string|t(:orderLinkId)|
 |orderId|string |t(:usdcOrderId)|
 |stopOrderType |string|t(:usdcStopOrderType)|
-|orderStatus |string|t(:orderStatus)|
+|orderStatus |string|t(:usdcOptionOrderStatus)|
 |takeProfit |string|t(:takeProfit)|
 |cumExecValue |string|t(:cumExecValue)|
 |createdAt |number|t(:createdAt)|
@@ -654,7 +654,7 @@ POST
 |t(:row_parameter_symbol) |false|string|t(:usdcSymbol)|
 |orderId|false|string|t(:usdcOrderId)|
 |orderLinkId|false|string|t(:orderLinkId)|
-|orderStatus|false|string|t(:orderStatus)|
+|orderStatus|false|string|t(:usdcOptionOrderStatus)|
 |direction|false|string|t(:direction)|
 |limit|false|number|t(:row_comment_limit)|
 |cursor|false|string|t(:cursor)|
@@ -676,7 +676,7 @@ POST
 |orderId|string |t(:usdcOrderId)|
 |cancelType|string|t(:usdcCancelType)|
 |stopOrderType |string|t(:usdcStopOrderType)|
-|orderStatus |string|t(:orderStatus)|
+|orderStatus |string|t(:usdcOptionOrderStatus)|
 |takeProfit |string|t(:takeProfit)|
 |createdAt|number|t(:createdAt)|
 |orderPnl |string|t(:usdcOrderPnl)|

@@ -39,28 +39,33 @@ print(session_auth.place_active_order(
     "ext_code": "",
     "ext_info": "",
     "result": {
-        "order_id":"bd1844f-f3c0-4e10-8c25-10fea03763f6",
-        "user_id": 1,
-        "symbol": "BTCUSDT",
+        "order_id": "a6c64aa0-c80b-4865-ae35-99be5fab3535",
+        "user_id": 533285,
+        "symbol": "MANAUSDT",
         "side": "Sell",
         "order_type": "Limit",
-        "price": 8083,
-        "qty": 0.01,
+        "price": 0.8,
+        "qty": 100,
         "time_in_force": "GoodTillCancel",
-        "order_status": "New",
-        "last_exec_price": 8083,
+        "order_status": "Created",
+        "last_exec_price": 0,
         "cum_exec_qty": 0,
         "cum_exec_value": 0,
         "cum_exec_fee": 0,
         "reduce_only": false,
-        "close_on_trigger": false
-        "order_link_id": "",
-        "created_time": "2019-10-21T07:28:19.396246Z",
-        "updated_time": "2019-10-21T07:28:19.396246Z",
+        "close_on_trigger": false,
+        "order_link_id": "Mactive001",
+        "created_time": "2022-06-22T01:46:11Z",
+        "updated_time": "2022-06-22T01:46:11Z",
+        "take_profit": 0.65,
+        "stop_loss": 0.99,
+        "tp_trigger_by": "MarkPrice",
+        "sl_trigger_by": "LastPrice",
+        "position_idx": 2
     },
-    "time_now": "1575111823.458705",
-    "rate_limit_status": 98,
-    "rate_limit_reset_ms": 1580885703683,
+    "time_now": "1655862371.660491",
+    "rate_limit_status": 99,
+    "rate_limit_reset_ms": 1655862371657,
     "rate_limit": 100
 }
 ```
@@ -146,39 +151,42 @@ print(session_auth.get_active_order(
 ```javascript
 {
     "ret_code": 0,
-    "ret_msg": "ok",
+    "ret_msg": "OK",
     "ext_code": "",
+    "ext_info": "",
     "result": {
         "current_page": 1,
-        "last_page": 6,
         "data": [
             {
-                "order_id":"bd1844f-f3c0-4e10-8c25-10fea03763f6",
-                "user_id": 1,
-                "symbol": "BTCUSDT",
+                "order_id": "a6c64aa0-c80b-4865-ae35-99be5fab3535",
+                "user_id": 533285,
+                "symbol": "MANAUSDT",
                 "side": "Sell",
                 "order_type": "Limit",
-                "price": 8083,
-                "qty": 10,
+                "price": 0.8,
+                "qty": 100,
                 "time_in_force": "GoodTillCancel",
-                "order_status": "New",
-                "last_exec_price": 8083,
-                "cum_exec_qty": 0,
-                "cum_exec_value": 0,
-                "cum_exec_fee": 0,
-                "order_link_id": "",
+                "order_status": "Filled",
+                "last_exec_price": 0.8315,
+                "cum_exec_qty": 100,
+                "cum_exec_value": 83.15,
+                "cum_exec_fee": 0.04989,
                 "reduce_only": false,
                 "close_on_trigger": false,
-                "created_time": "2019-10-21T07:28:19.396246Z",
-                "updated_time": "2019-10-21T07:28:19.396246Z",
+                "order_link_id": "Mactive001",
+                "created_time": "2022-06-22T01:46:11Z",
+                "updated_time": "2022-06-22T01:46:11Z",
+                "take_profit": 0.65,
+                "stop_loss": 0.99,
+                "tp_trigger_by": "MarkPrice",
+                "sl_trigger_by": "LastPrice"
             }
         ]
     },
-    "ext_info": null,
-    "time_now": "1577448922.437871",
-    "rate_limit_status": 98,
-    "rate_limit_reset_ms": 1580885703683,
-    "rate_limit": 100
+    "time_now": "1655862613.007213",
+    "rate_limit_status": 598,
+    "rate_limit_reset_ms": 1655862613003,
+    "rate_limit": 600
 }
 ```
 
@@ -209,7 +217,7 @@ GET
 | t(:row_parameter_side) |string |t(:row_comment_side) |
 | t(:row_parameter_order_type) |string |t(:row_comment_order_type) |
 | price  |number |t(:row_comment_resp_price) |
-| qty  |number |t(:row_response_comment_qty) |
+| qty  |number |t(:linear_row_comment_qty) |
 |t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
 |t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
 |last_exec_price |number |t(:row_comment_last_exec_price)  |
@@ -451,29 +459,35 @@ print(session_auth.query_active_order(
     "ret_msg": "OK",
     "ext_code": "",
     "ext_info": "",
-    "result": {
-        "order_id": "e3f7662b-8b94-42e2-8d46-dead09dd2a52",
-        "user_id": 106958,
-        "symbol": "BTCUSDT",
-        "side": "Sell",
-        "order_type": "Market",
-        "price": 11775,
-        "qty": 0.001,
-        "time_in_force": "ImmediateOrCancel",
-        "order_status": "Filled",
-        "last_exec_price": 11874.5,
-        "cum_exec_qty": 0.001,
-        "cum_exec_value": 11.8745,
-        "cum_exec_fee": 0.00890588,
-        "order_link_id": "",
-        "reduce_only": false,
-        "close_on_trigger": false,
-        "created_time": "2020-08-10T19:28:56Z",
-        "updated_time": "2020-08-10T19:28:57Z"
-    },
-    "time_now": "1597171508.869341",
-    "rate_limit_status": 598,
-    "rate_limit_reset_ms": 1597171508867,
+    "result": [
+        {
+            "order_id": "8e7d1cd2-d7b3-4c61-87a9-a85a6e59cef8",
+            "user_id": 533285,
+            "symbol": "BITUSDT",
+            "side": "Buy",
+            "order_type": "Limit",
+            "price": 0.3,
+            "qty": 100,
+            "time_in_force": "GoodTillCancel",
+            "order_status": "New",
+            "last_exec_price": 0,
+            "cum_exec_qty": 0,
+            "cum_exec_value": 0,
+            "cum_exec_fee": 0,
+            "order_link_id": "Bactive001",
+            "reduce_only": false,
+            "close_on_trigger": false,
+            "created_time": "2022-06-22T02:11:49Z",
+            "updated_time": "2022-06-22T02:11:49Z",
+            "take_profit": 0.7,
+            "stop_loss": 0.1,
+            "tp_trigger_by": "LastPrice",
+            "sl_trigger_by": "LastPrice"
+        }
+    ],
+    "time_now": "1655863947.736147",
+    "rate_limit_status": 599,
+    "rate_limit_reset_ms": 1655863947734,
     "rate_limit": 600
 }
 
@@ -565,7 +579,7 @@ GET
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 |t(:row_parameter_order_type) |string |t(:row_comment_order_type)  |
 |t(:row_parameter_price) |number |t(:row_comment_resp_price)  |
-|qty |number |t(:row_response_comment_qty)  |
+|qty |number |t(:linear_row_comment_qty)  |
 |t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
 |t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
 |last_exec_price |number |t(:row_comment_last_exec_price)  |
@@ -627,34 +641,37 @@ print(session_auth.place_conditional_order(
 ```javascript
 {
     "ret_code": 0,
-    "ret_msg": "ok",
+    "ret_msg": "OK",
     "ext_code": "",
+    "ext_info": "",
     "result": {
-       "stop_order_id":"bd1844f-f3c0-4e10-8c25-10fea03763f6",
-       "user_id": 1,
-       "symbol": "BTCUSDT",
-       "side": "Sell",
-       "order_type": "Limit",
-       "price": 8083,
-       "qty": 10,
-       "time_in_force": "GoodTillCancel",
-       "order_status": "New",
-       "base_price": "16100.0000",
-       "trigger_by": "LastPrice",
-       "trigger_price": 8003,
-       "order_link_id": "",
-       "reduce_only": false,
-       "close_on_trigger": false,
-       "created_time": "2019-10-21T07:28:19.396246Z",
-       "updated_time": "2019-10-21T07:28:19.396246Z",
-       "tp_trigger_by": "UNKNOWN",
-       "sl_trigger_by": "UNKNOWN",
+        "user_id": 533285,
+        "stop_order_id": "37c2f5ac-3c87-4853-a7c6-29070d4b9c4f",
+        "symbol": "XRPUSDT",
+        "side": "Buy",
+        "order_type": "Limit",
+        "price": 0.25,
+        "qty": 100,
+        "time_in_force": "GoodTillCancel",
+        "order_status": "Untriggered",
+        "trigger_price": 0.35,
+        "order_link_id": "Xcond001",
+        "created_time": "2022-06-22T02:20:47Z",
+        "updated_time": "2022-06-22T02:20:47Z",
+        "base_price": "0.3000",
+        "trigger_by": "MarkPrice",
+        "tp_trigger_by": "IndexPrice",
+        "sl_trigger_by": "MarkPrice",
+        "take_profit": 0.5,
+        "stop_loss": 0.12,
+        "reduce_only": false,
+        "close_on_trigger": false,
+        "position_idx": 1
     },
-    "ext_info": null,
-    "time_now": "1577450904.327654",
+    "time_now": "1655864447.252259",
     "rate_limit_status": 99,
-    "rate_limit_reset_ms": 1577450904335,
-    "rate_limit": "100"
+    "rate_limit_reset_ms": 1655864447248,
+    "rate_limit": 100
 }
 ```
 
@@ -704,19 +721,19 @@ POST
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 |t(:row_parameter_order_type) |string |t(:row_comment_orderType)  |
 |t(:row_parameter_price) |number |t(:row_response_comment_price)  |
-|t(:row_parameter_quantity) |number |t(:row_response_comment_qty)  |
+|t(:row_parameter_quantity) |number |t(:linear_row_comment_qty)  |
 |t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
 |t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
-|t(:row_parameter_trigger_price) |number |t(:stop_order_trigger_price)  |
+|trigger_price |number |t(:stop_order_trigger_price)  |
 |order_link_id |string |t(:row_comment_orderLinkId) |
 |created_time |string |t(:row_comment_created_at)  |
 |updated_time |string |t(:row_comment_updated_at)  |
-|take_profit |number |t(:row_comment_take_profit)  |
-|stop_loss |number |t(:row_comment_stop_loss)  |
-|t(:row_parameter_tp_trigger_by) |string |t(:account_row_comment_tp_trigger_by)  |
-|t(:row_parameter_sl_trigger_by) |string |t(:account_row_comment_sl_trigger_by)  |
 |base_price |string |t(:row_response_comment_basePrice)  |
 |t(:row_parameter_trigger_price) |string |t(:row_comment_triggerBy)  |
+|t(:row_parameter_tp_trigger_by) |string |t(:account_row_comment_tp_trigger_by)  |
+|t(:row_parameter_sl_trigger_by) |string |t(:account_row_comment_sl_trigger_by)  |
+|take_profit |number |t(:row_comment_take_profit)  |
+|stop_loss |number |t(:row_comment_stop_loss)  |
 |reduce_only |bool |t(:linear_resp_field_reduce_only)  |
 |close_on_trigger |bool |t(:row_response_close_on_trigger)  |
 |position_idx |integer |t(:row_comment_position_idx)  |
@@ -832,19 +849,19 @@ GET
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 |t(:row_parameter_order_type) |string |t(:row_comment_orderType)  |
 |t(:row_parameter_price) |number |t(:row_response_comment_price)  |
-|t(:row_parameter_quantity) |number |t(:row_response_comment_qty)  |
+|t(:row_parameter_quantity) |number |t(:linear_row_comment_qty)  |
 |t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
 |t(:row_parameter_order_status) |string |t(:row_comment_stopOrderStatus)
-|t(:row_parameter_trigger_price) |number |t(:stop_order_trigger_price)  |
+|trigger_price |number |t(:stop_order_trigger_price)  |
 |order_link_id |string |t(:row_comment_orderLinkId) |
 |created_time |string |t(:row_comment_created_at)  |
 |updated_time |string |t(:row_comment_updated_at)  |
 |take_profit |number |t(:row_comment_take_profit)  |
 |stop_loss |number |t(:row_comment_stop_loss)  |
+|t(:row_parameter_trigger_price) |string |t(:row_comment_triggerBy)  |
+|base_price |string |t(:row_response_comment_basePrice)  |
 |t(:row_parameter_tp_trigger_by) |string |t(:account_row_comment_tp_trigger_by)  |
 |t(:row_parameter_sl_trigger_by) |string |t(:account_row_comment_sl_trigger_by)  |
-|base_price |string |t(:row_response_comment_basePrice)  |
-|t(:row_parameter_trigger_price) |string |t(:row_comment_triggerBy)  |
 |reduce_only |bool |t(:linear_resp_field_reduce_only)  |
 |close_on_trigger |bool |t(:row_response_close_on_trigger)  |
 
@@ -1174,10 +1191,11 @@ GET
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 |t(:row_parameter_order_type) |string |t(:row_comment_orderType)  |
 |t(:row_parameter_price) |number |t(:row_response_comment_price)  |
-|t(:row_parameter_quantity) |number |t(:row_response_comment_qty)  |
+|t(:row_parameter_quantity) |number |t(:linear_row_comment_qty)  |
 |t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
 |t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
-|t(:row_parameter_trigger_price) |number |t(:stop_order_trigger_price)  |
+|trigger_price |number |t(:stop_order_trigger_price)  |
+|base_price |string |t(:row_response_comment_basePrice)  |
 |order_link_id |string |t(:row_comment_orderLinkId)  |
 |created_time |string |t(:row_comment_created_at)  |
 |updated_time |string |t(:row_comment_updated_at)  |
@@ -1185,7 +1203,6 @@ GET
 |stop_loss |number |t(:row_comment_stop_loss)  |
 |t(:row_parameter_tp_trigger_by) |string |t(:account_row_comment_tp_trigger_by)  |
 |t(:row_parameter_sl_trigger_by) |string |t(:account_row_comment_sl_trigger_by)  |
-|base_price |string |t(:row_response_comment_basePrice)  |
 |t(:row_parameter_trigger_price) |string |t(:row_comment_triggerBy)  |
 |reduce_only |bool |t(:linear_resp_field_reduce_only)  |
 |close_on_trigger |bool |t(:row_response_close_on_trigger)  |
@@ -1220,60 +1237,66 @@ print(session_auth.my_position(
     "ext_code": "",
     "ext_info": "",
     "result": [
-       {
-               "user_id":100004,
-               "symbol":"BTCUSDT",
-               "side":"Buy",
-               "size":0,
-               "position_value":0,
-               "entry_price":0,
-               "liq_price":1,
-               "bust_price":100,
-               "leverage":0,
-               "is_isolated":true,
-               "auto_add_margin": 0,
-               "position_margin":0,
-               "occ_closing_fee":0,
-               "realised_pnl":0,
-               "cum_realised_pnl":0,
-               "free_qty": 30,
-               "tp_sl_mode": "Full",
-               "unrealised_pnl": 0,
-               "deleverage_indicator": 0,
-               "risk_id": 0,
-               "stop_loss": 0,
-               "take_profit": 0,
-               "trailing_stop": 0
-           },
-           {
-               "user_id":100004,
-               "symbol":"BTCUSDT",
-               "side":"Sell",
-               "size":0,
-               "position_value":0,
-               "entry_price":0,
-               "liq_price":1,
-               "bust_price":100,
-               "leverage":0,
-               "is_isolated":true,
-               "auto_add_margin": 0,
-               "position_margin":0,
-               "occ_closing_fee":0,
-               "realised_pnl":0,
-               "cum_realised_pnl":0,
-               "free_qty": 30,
-               "tp_sl_mode": "Full",
-               "unrealised_pnl": 0,
-               "deleverage_indicator": 0,
-               "risk_id": 0,
-               "stop_loss": 0,
-               "take_profit": 0,
-               "trailing_stop": 0
-           }
+        {
+            "user_id": 533285,
+            "symbol": "XRPUSDT",
+            "side": "Buy",
+            "size": 0,
+            "position_value": 0,
+            "entry_price": 0,
+            "liq_price": 0,
+            "bust_price": 0,
+            "leverage": 5,
+            "auto_add_margin": 0,
+            "is_isolated": true,
+            "position_margin": 0,
+            "occ_closing_fee": 0,
+            "realised_pnl": 0,
+            "cum_realised_pnl": -16.35115218,
+            "free_qty": 0,
+            "tp_sl_mode": "Full",
+            "unrealised_pnl": 0,
+            "deleverage_indicator": 0,
+            "risk_id": 41,
+            "stop_loss": 0,
+            "take_profit": 0,
+            "trailing_stop": 0,
+            "position_idx": 1,
+            "mode": "BothSide"
+        },
+        {
+            "user_id": 533285,
+            "symbol": "XRPUSDT",
+            "side": "Sell",
+            "size": 50,
+            "position_value": 19.58,
+            "entry_price": 0.3916,
+            "liq_price": 0.4529,
+            "bust_price": 0.4568,
+            "leverage": 6,
+            "auto_add_margin": 0,
+            "is_isolated": true,
+            "position_margin": 3.2633354,
+            "occ_closing_fee": 0.013704,
+            "realised_pnl": 0,
+            "cum_realised_pnl": 0.90620182,
+            "free_qty": 50,
+            "tp_sl_mode": "Full",
+            "unrealised_pnl": 3.395,
+            "deleverage_indicator": 2,
+            "risk_id": 41,
+            "stop_loss": 0.5,
+            "take_profit": 0.28,
+            "trailing_stop": 0,
+            "tp_trigger_by": 1,
+            "sl_trigger_by": 1,
+            "position_idx": 2,
+            "mode": "BothSide"
+        }
     ],
-    "time_now": "1577480599.097287",
+    "time_now": "1655868796.293226",
     "rate_limit_status": 119,
-    "rate_limit_reset_ms": 1580885703683,
+    "rate_limit_reset_ms": 1655868796290,
     "rate_limit": 120
 }
 
@@ -1285,76 +1308,49 @@ print(session_auth.my_position(
     "ext_info": "",
     "result": [
         {
-            "is_valid": true,
             "data": {
-                "user_id": 118921,
-                "symbol": "BTCUSDT",
-                "side": "Buy",
-                "size": 0.009,
-                "position_value": 117.6845,
-                "entry_price": 13076.05555555,
-                "liq_price": 11834,
-                "bust_price": 11768.5,
-                "leverage": 10,
-                "is_isolated":true,
-                "auto_add_margin": 0,
-                "position_margin": 11.84788704,
-                "occ_closing_fee": 0.07943738,
-                "realised_pnl": 0,
-                "cum_realised_pnl": -1.50755354,
-                "free_qty": 0.009,
-                "tp_sl_mode": "Full",
-                "unrealised_pnl": 0,
-                "deleverage_indicator": 0,
-                "risk_id": 0,
-                "stop_loss": 0,
-                "take_profit": 0,
-                "trailing_stop": 0
-            }
-        },
-        {
-            "is_valid": true,
-            "data": {
-                "user_id": 118921,
-                "symbol": "BTCUSDT",
+                "user_id": 533285,
+                "symbol": "10000NFTUSDT",
                 "side": "Sell",
-                "size": 0.001,
-                "position_value": 13.078,
-                "entry_price": 13078,
-                "liq_price": 14320,
-                "bust_price": 14385.5,
+                "size": 0,
+                "position_value": 0,
+                "entry_price": 0,
+                "liq_price": 0,
+                "bust_price": 0,
                 "leverage": 10,
-                "is_isolated":true,
                 "auto_add_margin": 0,
-                "position_margin": 1.31858935,
-                "occ_closing_fee": 0.01078913,
+                "is_isolated": false,
+                "position_margin": 0,
+                "occ_closing_fee": 0,
                 "realised_pnl": 0,
-                "cum_realised_pnl": 164.30402588,
-                "free_qty": 0.001,
+                "cum_realised_pnl": 0,
+                "free_qty": 0,
                 "tp_sl_mode": "Full",
                 "unrealised_pnl": 0,
                 "deleverage_indicator": 0,
-                "risk_id": 0,
+                "risk_id": 1,
                 "stop_loss": 0,
                 "take_profit": 0,
-                "trailing_stop": 0
-            }
+                "trailing_stop": 0,
+                "position_idx": 2,
+                "mode": "BothSide"
+            },
+            "is_valid": true
         },
         ...
         {
-            "is_valid": true,
             "data": {
-                "user_id": 118921,
-                "symbol": "XTZUSDT",
+                "user_id": 533285,
+                "symbol": "10000NFTUSDT",
                 "side": "Buy",
                 "size": 0,
                 "position_value": 0,
                 "entry_price": 0,
                 "liq_price": 0,
                 "bust_price": 0,
-                "leverage": 25,
-                "is_isolated":true,
+                "leverage": 10,
                 "auto_add_margin": 0,
+                "is_isolated": false,
                 "position_margin": 0,
                 "occ_closing_fee": 0,
                 "realised_pnl": 0,
@@ -1363,39 +1359,14 @@ print(session_auth.my_position(
                 "tp_sl_mode": "Full",
                 "unrealised_pnl": 0,
                 "deleverage_indicator": 0,
-                "risk_id": 0,
+                "risk_id": 1,
                 "stop_loss": 0,
                 "take_profit": 0,
-                "trailing_stop": 0
-            }
-        },
-        {
-            "is_valid": true,
-            "data": {
-                "user_id": 118921,
-                "symbol": "XTZUSDT",
-                "side": "Sell",
-                "size": 0,
-                "position_value": 0,
-                "entry_price": 0,
-                "liq_price": 0,
-                "bust_price": 0,
-                "leverage": 25,
-                "is_isolated":true,
-                "auto_add_margin": 0,
-                "position_margin": 0,
-                "occ_closing_fee": 0,
-                "realised_pnl": 0,
-                "cum_realised_pnl": 0,
-                "free_qty": 0,
-                "tp_sl_mode": "Full",
-                "unrealised_pnl": 0,
-                "deleverage_indicator": 0,
-                "risk_id": 0,
-                "stop_loss": 0,
-                "take_profit": 0,
-                "trailing_stop": 0
-            }
+                "trailing_stop": 0,
+                "position_idx": 1,
+                "mode": "BothSide"
+            },
+            "is_valid": true
         }
     ],
     "time_now": "1604302080.356538",
@@ -1440,10 +1411,11 @@ GET
 |deleverage_indicator |number |t(:row_comment_deleverage_indicator)  |
 |unrealised_pnl |number |t(:row_comment_unrealised_pnl)  |
 |risk_id  |integer |t(:row_comment_riskId) |
-|take_profit |string |t(:row_comment_take_profit)  |
-|stop_loss |string |t(:row_comment_stop_loss)  |
-|trailing_stop |string |t(:row_comment_trailing_stop)  |
+|take_profit |number |t(:row_comment_take_profit)  |
+|stop_loss |number |t(:row_comment_stop_loss)  |
+|trailing_stop |number |t(:row_comment_trailing_stop)  |
 |position_idx |integer |t(:row_comment_position_idx)  |
+|mode |string |t(:linear_comment_positionmode) |
 
 ### t(:setautoaddmargin)
 > t(:codequote_curlExample)
@@ -1667,18 +1639,6 @@ POST
 |t(:row_parameter_tp_sl_mode) |string |t(:linear_resp_tp_sl_mode)  |
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 ### t(:addmargin)
 > t(:codequote_curlExample)
 
@@ -1711,28 +1671,41 @@ print(session_auth.add_reduce_margin(
     "ext_info": "",
     "result": {
         "PositionListResult": {
-            "user_id": 160815,
-            "symbol": "BTCUSDT",
-            "side": "Buy",
-            "size": 3.14,
-            "position_value": 18843.14,
-            "entry_price": 6001,
-            "liq_price": 5428,
-            "bust_price": 5398,
+            "user_id": 533285,
+            "symbol": "XRPUSDT",
+            "side": "Sell",
+            "size": 50,
+            "position_value": 19.58,
+            "entry_price": 0.3916,
+            "liq_price": 0.5267,
+            "bust_price": 0.5307,
             "leverage": 10,
-            "position_margin": 1907.0331195,
-            "occ_closing_fee": 12.71229,
-            "realised_pnl": 3052.20905294,
-            "cum_realised_pnl": 75628.40815795,
-            "free_qty": 0
+            "auto_add_margin": 0,
+            "is_isolated": true,
+            "position_margin": 6.9550018,
+            "occ_closing_fee": 0.015921,
+            "realised_pnl": 0,
+            "cum_realised_pnl": 0.90620182,
+            "free_qty": 50,
+            "tp_sl_mode": "Full",
+            "unrealised_pnl": 3.475,
+            "deleverage_indicator": 2,
+            "risk_id": 41,
+            "stop_loss": 0.5,
+            "take_profit": 0.28,
+            "trailing_stop": 0,
+            "tp_trigger_by": 1,
+            "sl_trigger_by": 1,
+            "position_idx": 2,
+            "mode": "BothSide"
         },
-        "wallet_balance": 68738.01696765,
-        "available_balance": 66830.98384815
+        "wallet_balance": 2108.58165689,
+        "available_balance": 2091.03640109
     },
-     "time_now": "1577480599.097287",
-     "rate_limit_status": 119,
-     "rate_limit_reset_ms": 1580885703683,
-     "rate_limit": 120
+    "time_now": "1655870135.180074",
+    "rate_limit_status": 73,
+    "rate_limit_reset_ms": 1655870135178,
+    "rate_limit": 75
 }
 ```
 
@@ -1765,11 +1738,24 @@ POST
 |liq_price |number |t(:linear_resp_field_liq_price)  |
 |bust_price |number |t(:linear_resp_field_bust_price)  |
 |leverage |number |t(:resp_field_leverage)  |
+|auto_add_margin |number |t(:row_comment_auto_add_margin)  |
+|is_isolated |bool |t(:isIsolated)  |
 |position_margin |number |t(:linear_resp_field_position_margin)  |
 |occ_closing_fee |number |t(:linear_resp_field_occ_closing_fee)  |
 |realised_pnl |number |t(:linear_resp_field_realised_pnl)  |
 |cum_realised_pnl |number |t(:linear_resp_field_cum_realised_pnl)  |
 |free_qty |number |t(:linear_resp_field_free_qty)  |
+|t(:row_parameter_tp_sl_mode) |string |t(:linear_resp_tp_sl_mode)  |
+|unrealised_pnl |number |t(:row_comment_unrealised_pnl)  |
+|deleverage_indicator |number |t(:row_comment_deleverage_indicator)  |
+|risk_id |number |t(:row_comment_riskId)  |
+|stop_loss |number |t(:row_comment_stop_loss)  |
+|take_profit |number |t(:row_comment_take_profit)  |
+|trailing_stop |number |t(:row_comment_trailing_stop)  |
+|t(:row_parameter_tp_trigger_by) |string |t(:account_row_comment_tp_trigger_by)  |
+|t(:row_parameter_sl_trigger_by) |string |t(:account_row_comment_sl_trigger_by)  |
+|position_idx |integer |t(:row_comment_position_idx)  |
+|mode |string |t(:linear_comment_positionmode) |
 |wallet_balance |number |t(:row_comment_wallet_balance)  |
 |available_balance |number |t(:row_comment_available_balance)  |
 
@@ -1985,6 +1971,8 @@ GET
 |order_link_id |string |t(:row_comment_orderLinkId)  |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 |t(:row_parameter_symbol) |string |t(:row_comment_symbol)  |
+|exec_id |string |t(:row_comment_exec_id)  |
+|price |number |t(:row_comment_order_price)  |
 |order_price |number |t(:row_comment_order_price)  |
 |order_qty |number |t(:row_comment_order_qty)  |
 |t(:row_parameter_order_type) |string |t(:row_comment_order_type)  |
@@ -1997,7 +1985,8 @@ GET
 |leaves_qty |number |t(:row_comment_leaves_qty)  |
 |closed_size |number |t(:row_comment_closed_size)  |
 |t(:row_parameter_last_liquidity_ind) |string |t(:row_comment_last_liquidity_ind) |
-|trade_time_ms |number |t(:row_comment_trade_time)  |
+|trade_time |number |t(:row_comment_trade_tims_sec) |
+|trade_time_ms |number |t(:row_comment_trade_time_ms)  |
 
 
 
@@ -2029,29 +2018,29 @@ print(session_auth.extended_user_trade_records(
     "ext_code": "",
     "ext_info": "",
     "result": {
-        "page_token": "",
+        "page_token": "OVFyd2RLQ051UDhlZXNGa1RRNWEwM0FNWWZLdk9LVS95RnIzbThKa3EzUVJpc0ZiNGt2Z2NzdWxJb2h6QTZ3MHBZdmRnNlZSWFpKY0h3V1RpY0ZqcER5RlZNbGRjbGh4N2VYdXpZcUduZm9lWkFsNjFnVTJrLzdYSy9TNC9BcjhsRlRNY3NWM0x1MFdrQ05hSlFObW8yUjdpZXZyRHd3MWlvTzdmb0tWdmFwSEhqQUs0MG4wSXlsV1VZTlpWWVpla08vVGYzRWJEbVJhY2t0RmE3TDhKMCtuRnZ2ZDFuVmZQZXB6SWNGVitiZDlmSFNkazRZb1hlcXRPYzdLS040OGJVMnpER0Mzd1lFcURDTCs3SC9pRGl0UW9JZC9xSGZlNENUSW1hVHBGcUhSVlNVYzBRL3dtVVhmRXNTN2NkOHZGVGU5NThlWlRGZGp0UWxaWnhybzJmcis5UTZuYWpXTFBtVVYrQlo1VkVNPQ==",
         "data": [
             {
-                "order_id": "55bd3595-938d-4d7f-b1ab-7abd6a3ec1cb",
+                "order_id": "ad263e18-ce2f-4e7c-9077-5db8d2186051",
                 "order_link_id": "",
                 "side": "Sell",
                 "symbol": "BTCUSDT",
-                "exec_id": "730cc113-7f05-5f1e-82b5-432bba9dfeab",
-                "price": 39391,
-                "order_price": 39391,
-                "order_qty": 0.009,
+                "exec_id": "43514fa8-8948-5649-9854-704bae563c16",
+                "price": 20284,
+                "order_price": 20284,
+                "order_qty": 0.32,
                 "order_type": "Market",
                 "fee_rate": 0.0006,
-                "exec_price": 41469.5,
+                "exec_price": 21348.5,
                 "exec_type": "Trade",
-                "exec_qty": 0.009,
-                "exec_fee": 0.2239353,
-                "exec_value": 373.2255,
+                "exec_qty": 0.32,
+                "exec_fee": 4.098912,
+                "exec_value": 6831.52,
                 "leaves_qty": 0,
-                "closed_size": 0.009,
+                "closed_size": 0.32,
                 "last_liquidity_ind": "RemovedLiquidity",
-                "trade_time": 1650444130,
-                "trade_time_ms": 1650444130065
+                "trade_time": 1656316742,
+                "trade_time_ms": 1656316742722
             }
         ]
     },
@@ -2080,17 +2069,21 @@ GET
 |start_time |false |integer |t(:row_comment_startTime_ms_2years) |
 |end_time |false |integer |t(:row_comment_endTime_ms_2years) |
 |t(:row_parameter_exec_type) |false |string |t(:linear_exec_type) |
-|page_token |false |string |t(:row_comment_page) |
+|page_token |false |string |t(:row_comment_linear_page) |
 |limit |false |integer |t(:linear_row_comment_limit_100_100) |
 
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
+|page_token |string |t(:row_comment_linear_page) |
+|data |ArrayList |
 |order_id |string |t(:row_comment_order_id)  |
 |order_link_id |string |t(:row_comment_orderLinkId)  |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 |t(:row_parameter_symbol) |string |t(:row_comment_symbol)  |
+|exec_id |string |t(:row_comment_exec_id)  |
+|price |number |t(:row_comment_order_price)  |
 |order_price |number |t(:row_comment_order_price)  |
 |order_qty |number |t(:row_comment_order_qty)  |
 |t(:row_parameter_order_type) |string |t(:row_comment_order_type)  |
@@ -2103,6 +2096,7 @@ GET
 |leaves_qty |number |t(:row_comment_leaves_qty)  |
 |closed_size |number |t(:row_comment_closed_size)  |
 |t(:row_parameter_last_liquidity_ind) |string |t(:row_comment_last_liquidity_ind) |
+|trade_time |number |t(:row_comment_trade_tims_sec) |
 |trade_time_ms |number |t(:row_comment_trade_time)  |
 
 

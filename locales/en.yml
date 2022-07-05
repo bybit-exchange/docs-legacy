@@ -98,6 +98,8 @@ en:
   row_comment_order_price: Order price
   row_comment_order_qty: Order qty
   row_comment_trade_time: Transaction timestamp
+  row_comment_trade_tims_sec: Trade timestamp in seconds
+  row_comment_trade_time_ms: Trade timestamp in milliseconds
   row_comment_coin_type: Coin type
   row_comment_risk_limit: Risk limit
   row_comment_maintain_margin: Maintain margin
@@ -163,7 +165,7 @@ en:
   row_comment_stopOrderPrice: Execution price for conditional order. <b>Required</b> if you make limit price order
   row_comment_basePrice: It will be used to compare with the value of <code>stop_px</code>, to decide whether your conditional order will be triggered by crossing trigger price from upper side or lower side. Mainly used to identify the expected direction of the current conditional order.
   row_comment_stopPx: Trigger price. If you're expecting the price to rise to trigger your conditional order, make sure stop_px > max(market price, base_price) else, stop_px < min(market price, base_price)
-  row_comment_timeInForce: <a href="https://help.bybit.com/hc/en-us/articles/360039749233-What-Are-Time-In-Force-TIF-GTC-IOC-FOK-">Time in force</a>
+  row_comment_timeInForce: <a href="https://www.bybit.com/en-US/help-center/bybitHC_Article?language=en_US&id=000001044">Time in force</a>
   row_comment_triggerBy: Trigger price type. Default <code>LastPrice</code>
   row_comment_linear_triggerBy: Trigger price type
   row_comment_tp_size: Take profit quantity (when in <a href="#t-switchmode">partial mode</a>)
@@ -174,15 +176,16 @@ en:
   row_comment_reduceOnly: <a href="https://help.bybit.com/hc/en-us/articles/360039260574-What-is-a-reduce-only-order-"> What is a reduce-only order?</a> True means your position can only reduce in size if this order is triggered
   row_comment_closeOnTrigger: <a href="https://help.bybit.com/hc/en-us/articles/360039260534-What-is-a-close-on-trigger-Order-">  What is a close on trigger order?</a> For a closing order. It can only reduce your position, not increase it. If the account has insufficient available balance when the closing order is triggered, then other active orders of similar contracts will be cancelled or reduced. It can be used to ensure your stop loss reduces your position regardless of current available margin.
   row_comment_orderLinkId: Unique user-set order ID. Maximum length of 36 characters
-  row_comment_page: Page. By default, gets first page of data
+  row_comment_page: Page. By default, gets first page of data.
   row_comment_page_max50: Page. By default, gets first page of data. Maximum of 50 pages
+  row_comment_linear_page: Page. By default, gets first page of data. If you want to get second page of data, you need to take the page_token returned by the first page as the input parameter.
   row_comment_order: Sort orders by creation date. Defaults to <code>asc</code>
   row_comment_stopOrderId: Conditional order ID. Once triggered, the conditional order creates an active order with the same ID (<code>order_id</code>)
   row_comment_pRQty: New order quantity. Do not pass this field if you don't want modify it
   row_comment_pRPrice: New order price. Do not pass this field if you don't want modify it
   row_comemnt_pRTriggerPrice: New conditional order's trigger price or TP/SL order price, also known as stop_px. Do not pass this field if you don't want modify it
-  row_comemnt_replace_take_profit: New take_profit price, also known as stop_px. Do not pass this field if you don't want modify it
-  row_comemnt_replace_stop_loss: New stop_loss price, also known as stop_px. Do not pass this field if you don't want modify it
+  row_comemnt_replace_take_profit: New take_profit price. Do not pass this field if you don't want modify it
+  row_comemnt_replace_stop_loss: New stop_loss price. Do not pass this field if you don't want modify it
   row_comment_leverage_old: Must be greater than 0 and less than the <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>. If you need to switch to cross margin please see the <a href="#t-marginswitch">Cross/Isolated Margin Switch</a> endpoint
   row_comment_leverage_only: Use this parameter to set leverage while in cross margin mode.
     <br>If this field is set to <code>false</code>, when <code>leverage</code> is equal to <code>0</code> the position will use cross margin; when <code>leverage</code> is greater than <code>0</code> the position will use isolated margin.
@@ -298,7 +301,30 @@ en:
   row_comment_mode: Position mode,  <code>MergedSingle</code> or <code>BothSide</code>
   row_comment_taker_fee_rate: Taker fee rate
   row_comment_maker_fee_rate: Maker fee rate
-  row_comment_last_liquidity_ind: Only valid while <code>exec_type</code> is <code>Trade<\code>, <code>AdlTrade<\code>, <code>BustTrade</code>
+  row_comment_last_liquidity_ind: Only valid while <code>exec_type</code> is <code>Trade</code>, <code>AdlTrade</code>, <code>BustTrade</code>
+  row_comment_tp_order_num: The qty of take profit orders
+  row_comment_sl_order_num: The qty of stop loss orders
+  row_comment_tp_free_size_x: The available size to set take profit
+  row_comment_sl_free_size_x: The available size to set stop loss
+  row_comment_timestamp_e6: Data sent timestamp in seconds * 10^6
+  row_comment_symbol_name: Symbol name alias
+  row_comment_symbol_year: The year of symbol
+  row_comment_contract_type: Contract type
+  row_comment_quote_symbol: Quote symbol
+  row_comment_isUpBorrowable: Support float profit open position or not
+  row_comment_import_time_e9: Symbol import timestamp * 10^9
+  row_comment_start_trading_time_e9: Enable trading timestamp for symbol * 10^9
+  row_comment_time_to_settle: Rest time until settled in seconds
+  row_comment_settle_time_e9: Delivery timestamp * 10^9
+  row_comment_settle_fee_rate_e8: Delivery fee rate * 10^8
+  row_comment_contract_status: <a href="#contract-status-status">contract_status</a>
+  row_comment_resp_contract_status: Contract status
+  row_comment_system_subsidy_e8: Quantity of subsidy from trading platform in BTC * 10^8
+  row_comment_fair_basis_e8: Fair basis * 10^8
+  row_comment_fair_basis_rate_e8: Fair basis rate * 10^8
+  row_comment_basis_in_year_e8: Basis in year * 10^8
+  row_comment_expect_price_e4: Expected settlement price * 10^4
+  row_comment_expect_price: Expected settlement price
 
 
   row_response_comment_price: Order price
@@ -348,6 +374,7 @@ en:
   row_comment_exchange_rate: Exchange exchange rate
   row_comment_fund_type: Fund type
   row_comment_fund_amount: Fund amount
+  row_comment_wallet_id: Wallet ID
   row_comment_tx_id: Transaction hash ID
   row_comment_address: Address
   row_comment_submited_at: Submit time
@@ -376,6 +403,12 @@ en:
   row_parameter_stop_order_type: <a href="#stop-order-type-stop_order_type">stop_order_type</a>
   row_parameter_symbol_status: <a href="#contract-status-status">status</a>
   row_parameter_withdraw_status: <a href="#withdraw-status-status">status</a>
+  row_parameter_copytrading_order_type_query: <a href="#copytrading-order-type-copy_trading_order_type">CopyTrading order type</a>
+
+  # copytrading order type enum
+  copy_trading_order_type_active: "- active orders"
+  copy_trading_order_type_tpslconditional: "- take profit or stop loss conditional orders"
+  copy_trading_order_type_openfilled: "- filled orders"
 
   # Spot enum parameter table links
   row_parameter_type: <a href="#order-type-type-ordertypes">type</a>
@@ -418,7 +451,7 @@ en:
   spot_resources: API Resources and Support Channels
   intro_para_resources:
     <ul class="bybit-community">
-    <li><img src="/images/help_favicon.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong>
+    <li><img src="/images/help_favicon.ico" height="14", width="14"> <a href="https://www.bybit.com/en-US/help-center/?language=en_US"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong>
     <li><img src="/images/github_logo_icon.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>Official Python SDK</strong>
     <li><img src="/images/telegram_logo_icon.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong>
     <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong>
@@ -426,7 +459,7 @@ en:
     </ul>
   spot_intro_para_resources:
     <ul class="bybit-community">
-    <li><img src="/images/help_favicon.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/en-us"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong>
+    <li><img src="/images/help_favicon.ico" height="14", width="14"> <a href="https://www.bybit.com/en-US/help-center/?language=en_US"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong>
     <li><img src="/images/github_logo_icon.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>Official Python SDK</strong>
     <li><img src="/images/telegram_logo_icon.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong>
     <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong>
@@ -788,7 +821,7 @@ en:
   a_replaceactive: Replace Active Order
   account_para_replaceActive: |
     <p>Replace order can modify/amend your active orders.</p>
-    <p><code>p_r_qty</code> and <code>p_r_price</code> are the modified price and quantity. If these two fields are not provided, nothing will be modified.</p>
+#    <p><code>p_r_qty</code> and <code>p_r_price</code> are the modified price and quantity. If these two fields are not provided, nothing will be modified.</p>
 
   account_aside_replaceActive:
     Please note that only orders that are unfilled or partially filled can be modified by the replace-order API.
@@ -848,7 +881,7 @@ en:
   account_para_replaceCond:
     <p>Replace conditional order can modify/amend your conditional orders.</p>
     <p><code>order_id</code> and <code>symbol</code> are required for identifying a conditional order.</p>
-    <p><code>p_r_qty</code>, <code>p_r_price</code> and <code>p_r_trigger_price</code> can be set for your conditional order. If these fields are not provided, nothing will be modified.</p>
+#    <p><code>p_r_qty</code>, <code>p_r_price</code> and <code>p_r_trigger_price</code> can be set for your conditional order. If these fields are not provided, nothing will be modified.</p>
   account_aside_replaceCond: |
     Please note that you can only modify untriggered conditional orders.
   ### Query Conditional Order (real-time)
@@ -2273,6 +2306,8 @@ en:
   linear_private_switchmode: Switch mode between Full or Partial
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
+  restapi_update_20220630: Add <code>page_token</code> field in response parameters.
+  restapi_update_20220617: Add LT All Asset Infos Query
   restapi_update_20220616: Add Set Margin Mode API for USDC
   restapi_update_20220610: Add <code>S</code> field which indicates the trade side
   restapi_update_20220608: Increase the push frequency from every 250ms (max. 300ms) to every 100ms
@@ -3291,9 +3326,9 @@ en:
 
 
   triggerPrice: Trigger price
-  triggerBy: Trigger price type (For conditional order, not available yet)
+  triggerBy: Trigger price type
   positionIdx: 0-One-Way Mode, 1-Buy side of both side mode, 2-Sell side of both side mode (Perpetual)
-  mmp: Market maker protection; false not enabled (default) and true means enabled (not avaiable yet)
+  mmp: Market maker protection; false not enabled (default) and true means enabled.
   reduceOnly: Reduce-only
   closeOnTrigger: Close on trigger, please set it to true for a close order
   takeProfit: Take-profit price (Perpetual)
@@ -3318,6 +3353,7 @@ en:
   cumExecFee: Total trading fees
   im: Initial margin
   orderStatus: <a href="#order-status-status">Order status</a>
+  usdcOptionOrderStatus: <a href="#order-status-orderstatus">Order status</a>
   lastExecPrice: Filled price
   basePrice: Market price during order placement
   perpBasePrice: |
@@ -3764,8 +3800,8 @@ en:
   usdcMmpTriggerStatus: MMP trigger status
   usdcMmpTriggerTimestamp: MMP trigger timestamp
   column_default: default value
-  usdcStopOrderType: refer to <a href="#stop-order-type">Stop Order Type</a>
-  usdcCancelType: refer to <a href="#cancel-type">Cancel Type</a>
+  usdcStopOrderType: refer to <a href="#stop-order-type-stopordertype">Stop Order Type</a>
+  usdcCancelType: refer to <a href="#cancel-type-canceltype">Cancel Type</a>
   usdcTradeId: Trade Id
   usdcQueryLimit: The endpoint only supports up to 30 days of queried records
   usdcQueryLimitWithInput: The endpoint only supports up to 30 days of queried records. An error will be returned if startTime is more than 30 days.
@@ -3774,8 +3810,9 @@ en:
   lt_notice: Not fully released
   lt_para: The following Leveraged Token endpoints require authentication.
   ltInfo: Asset Info
+  ltInfos: All Asset Infos
   row_parameter_etpCode: ETP Asset name
-  spotLtCode: Abbreviation of the LT. Actually only BTC3L,BTC3S,ETH3L,ETH3S,XRP3S,XRP3L,SOL3L,SOL3S,DOT3L,DOT3S available
+  spotLtCode: Abbreviation of the LT.
   spotResLtCode: Abbreviation of the LT
   spotResLtName: Full name of the LT
   spotResMaxPurchase: Max. purchase amount per transaction

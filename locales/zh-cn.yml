@@ -82,6 +82,8 @@ zh-cn:
   row_comment_order_price: 訂單價格
   row_comment_order_qty: 訂單數量
   row_comment_trade_time: 交易時間
+  row_comment_trade_tims_sec: 秒級交易時間戳
+  row_comment_trade_time_ms: 毫秒級交易時間戳
   row_comment_margin_id:
   row_comment_coin_type: 幣種
   row_comment_risk_limit: 風險限額
@@ -104,6 +106,7 @@ zh-cn:
   row_comment_updated_at: 更新時間
   row_comment_margin_result: 倉位保證金
   row_comment_order_type: 交易記錄類型
+  row_comment_exec_type: 執行類型
   row_comment_activeOrderType: 委托單價格類型
   row_comment_stopOrderType: 委托單價格類型
   row_comment_stopOrderStatus: 條件單狀態
@@ -147,7 +150,7 @@ zh-cn:
   row_comment_stopOrderPrice: 條件委托執行價格。如果條件委托是限價單，則price為必傳字段
   row_comment_basePrice: 當前市價。用於和stop_px值進行比較，確定當前條件委托是看空到<code>stop_px</code>時觸發還是看多到stop_px觸發。主要是用來標識當前條件單預期的方向
   row_comment_stopPx: 觸發價格. 如果您期望價格上漲时觸發您的條件訂單，請確保 stop_px > max(market price, base_price) 否則 stop_px < min(market price, base_price)
-  row_comment_timeInForce: <a href="https://help.bybit.com/hc/zh-cn/articles/360039749233-%E4%BB%80%E4%B9%88%E6%98%AF%E8%AE%A2%E5%8D%95%E6%89%A7%E8%A1%8C%E7%AD%96%E7%95%A5-TIF-GTC-FOK-IOC-">執行策略</a>
+  row_comment_timeInForce: <a href="https://www.bybit.com/zh-TW/help-center/bybitHC_Article?language=zh_TW&id=000001044">執行策略</a>
   row_comment_triggerBy: 觸發價格類型. 默認為最新市價
   row_comment_linear_triggerBy: 觸發價格類型
   row_comment_tp_size: 在部分止盈止損模式下，止盈合約數量
@@ -160,7 +163,8 @@ zh-cn:
   row_comment_orderLinkId: 機構自定義訂單ID, 最大長度36位，且同一機構下自定義ID不可重復
   row_comment_page: 頁碼.默認取第一頁
   row_comment_page_max50: 頁碼.默認取第一頁,最大50
-  row_comment_stopOrderId: 條件委托訂單ID。
+  row_comment_linear_page: 默認情況下，獲取第一頁數據。如果要獲取第二頁數據，需要將第一頁返回的page_token作為入參。
+  row_comment_stopOrderId: 條件委托訂單ID
   row_comment_pRQty: 修改後的訂單數量。如果是未完全成交訂單，則表示修改剩余未成交的部分。如果不修改這個字段，請不要傳這個參數。
   row_comment_pRPrice: 修改後的訂單價格。如果不修改這個字段，請不要傳這個參數。
   row_comemnt_pRTriggerPrice: 修改後的條件單的觸發價格或止盈止損的價格。如果不修改這個字段，請不要傳這個參數。
@@ -284,6 +288,28 @@ zh-cn:
   row_comment_taker_fee_rate: taker手續費
   row_comment_maker_fee_rate: maker手續費
   row_comment_last_liquidity_ind: 只有當<code>exec_type</code>字段類型為<code>Trade</code>、<code>AdlTrade</code>、<code>BustTrade</code>時有效
+  row_comment_tp_order_num: 當前已設置止盈的訂單數量
+  row_comment_sl_order_num: 當前已設置止損的訂單數量
+  row_comment_tp_free_size_x: 當前還可設置止盈的合約數量
+  row_comment_sl_free_size_x: 當前還可設置止損的合約數量
+  row_comment_timestamp_e6: 數據發送時間（秒級）* 10^6
+  row_comment_symbol_name: 交割合約名稱
+  row_comment_symbol_year: 交割合約所屬年限
+  row_comment_contract_type: 合約類型
+  row_comment_quote_symbol: 報價交割合約名稱
+  row_comment_isUpBorrowable: 是否支持浮盈開倉
+  row_comment_import_time_e9: 交割合約導入時間戳 * 10^9
+  row_comment_start_trading_time_e9: 交割合約允許交易開始時間戳 * 10^9
+  row_comment_time_to_settle: 距離合約到期剩餘時間（單位：秒）
+  row_comment_settle_time_e9: 交割時間戳 * 10^9
+  row_comment_settle_fee_rate_e8: 交割費率 * 10^8
+  row_comment_resp_contract_status: 合約狀態
+  row_comment_system_subsidy_e8: 穿倉後獲得平台補貼的貨幣數量 * 10^8
+  row_comment_fair_basis_e8: 合理基差 * 10^8
+  row_comment_fair_basis_rate_e8: 合理基差率 * 10^8
+  row_comment_basis_in_year_e8: 年化基差率 * 10^8
+  row_comment_expect_price_e4: 預期結算價格 * 10^4
+  row_comment_expect_price: 預期結算價格
 
   row_response_comment_price: 委托價格
   row_response_comment_qty: 委托數量
@@ -331,6 +357,7 @@ zh-cn:
   row_response_comment_service_cash: 抵扣金
   row_comment_fund_type: 資金類型
   row_comment_fund_amount: 資金總量
+  row_comment_wallet_id: 錢包ID
   row_comment_tx_id: 交易哈希ID
   row_comment_address: 地址
   row_comment_submited_at: 提交時間
@@ -366,7 +393,7 @@ zh-cn:
   spot_resources: 中文社區和參考資料
   intro_para_resources:
     <ul class="bybit-community">
-      <li><img src="/images/favicon.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/zh-cn"><strong>幫助中心</strong></a> - <strong>在這裏了解合約交易</strong>
+      <li><img src="/images/favicon.ico" height="14", width="14"> <a href="https://www.bybit.com/zh-TW/help-center/?language=zh_TW"><strong>幫助中心</strong></a> - <strong>在這裏了解合約交易</strong>
       <li><img src="/images/github_logo_icon.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>官方Python SDK</strong>
       <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文討論群</strong>
       <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文討論群</strong>
@@ -375,7 +402,7 @@ zh-cn:
 
   spot_intro_para_resources:
     <ul class="bybit-community">
-    <li><img src="/images/favicon.ico" height="14", width="14"> <a href="https://help.bybit.com/hc/zh-cn"><strong>幫助中心</strong></a> - <strong>在這裏了解現貨交易</strong>
+    <li><img src="/images/favicon.ico" height="14", width="14"> <a href="https://www.bybit.com/zh-TW/help-center/?language=zh_TW"><strong>幫助中心</strong></a> - <strong>在這裏了解現貨交易</strong>
     <li><img src="/images/github_logo_icon.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>官方Python SDK</strong>
     <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文討論群</strong>
     <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文討論群</strong>
@@ -1222,6 +1249,7 @@ zh-cn:
   websocket_execution_aside: 本主題推送所有執行 <i>除了</i> <a href="#exec-type-exec_type"><code>Funding</code></a>。
   ### order
   websocketorder: 活動單
+  websocketorder_row_comment_timestamp: <a href="#order-status-order_status-stop_order_status"><code>order_status</code></a>為<code>New</code>時的時間戳
   ### stop_order
   websocketstoporder: 條件單
   ### copy_trade_field
@@ -1943,6 +1971,8 @@ zh-cn:
   linear_private_switchmode: 切換止盈止損模式至全倉或部分
   linear_row_comment_limit: 每頁數量, 最大50. 默認每頁20條，最多50條每頁
   linear_row_comment_limit_50_200: 每頁數量, 最大200. 默認每頁50條，最多200條每頁
+  restapi_update_20220630: 新增返回參數 <code>page_token</code>。
+  restapi_update_20220617: 新增LT 全量資產基礎信息查詢
   restapi_update_20220616: 新增USDC設置保證金模式
   restapi_update_20220610: 新增 <code>S</code> 字段展示該筆交易成交方向
   restapi_update_20220608: 提升推送頻率從每250ms（最大延遲300ms）到100ms
@@ -2944,9 +2974,9 @@ zh-cn:
 
 
   triggerPrice: 觸發價格
-  triggerBy: 觸發價格類型，默認為LastPrice， (暫時不支持條件單)
+  triggerBy: 觸發價格類型，默認為LastPrice
   positionIdx: 期貨時使用 0-One-Way Mode 1-Buy side of both side mode 2-Sell side of both side mode
-  mmp: 僅在功能開啟後生效。true表示此訂單為mmp訂單（目前還未上線）
+  mmp: 僅在功能開啟後生效。true表示此訂單為mmp訂單
   reduceOnly: 只減倉
   closeOnTrigger: 觸發後平倉. 如果下平倉單，請設置為true，避免因為保證金不足而導致下單失敗
   takeProfit: 止盈價格
@@ -2971,6 +3001,8 @@ zh-cn:
   cumExecFee: 累計成交手續費
   im: 起始保證金
   orderStatus: <a href="#order-status-status">訂單狀態</a>
+  usdcOptionOrderStatus: <a href="#order-status-orderstatus">訂單狀態</a>
+
   lastExecPrice: 最近一次成交價
   basePrice: 下單時市價
   perpBasePrice: |
@@ -3405,8 +3437,8 @@ zh-cn:
   usdcMmpTriggerTimestamp: MMP觸發時間戳
 
   column_default: 默認值
-  usdcStopOrderType: 參考 <a href="#stop-order-type">Stop Order Type</a>
-  usdcCancelType: 參考 <a href="#cancel-type">Cancel Type</a>
+  usdcStopOrderType: 參考 <a href="#stop-order-type-stopordertype">Stop Order Type</a>
+  usdcCancelType: 參考 <a href="#cancel-type-canceltype">Cancel Type</a>
   usdcTradeId: Trade Id
   usdcQueryLimit: 該接口僅支持最多30天的查詢記錄
   usdcQueryLimitWithInput: 該接口僅支持最多30天的查詢記錄。如果入參日期超出30天將報錯。
@@ -3416,8 +3448,9 @@ zh-cn:
   lt_notice: 沒有完全開放
   lt_para: 以下LT接口都需要鑒權.
   ltInfo: LT 資產基礎信息查詢
+  ltInfos: LT 全量資產基礎信息查詢
   row_parameter_etpCode: LT資產名稱
-  spotLtCode: 想要查詢的LT資產名稱，從資產列表中獲取. 目前只有BTC3L,BTC3S,ETH3L,ETH3S,XRP3L,XRP3S,SOL3L,SOL3S,DOT3L,DOT3S
+  spotLtCode: 想要查詢的LT資產名稱，從資產列表中獲取.
   spotResLtCode: LT資產簡稱
   spotResLtName: LT資產全稱
   spotResMaxPurchase: 單次最大申購金額
@@ -3507,6 +3540,12 @@ zh-cn:
     <ul>
     <li>活動單: 50</li>
     </ul>
+
+  row_parameter_copytrading_order_type_query: <a href="#copytrading-order-type-copy_trading_order_type">跟單交易委托單類型</a>
+  # copytrading order type enum跟單交易
+  copy_trading_order_type_active: "- 活動，當前掛單"
+  copy_trading_order_type_tpslconditional: "- 止盈止損單"
+  copy_trading_order_type_openfilled: "- 當前帶單-明細"
 
   # Cross Margin Trading
   spotCrossMarginTradingDesc: 所有全倉槓桿交易接口都需要驗證。

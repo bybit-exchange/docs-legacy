@@ -110,7 +110,7 @@ GET
 |t(:row_parameter_symbol) |false |string |t(:row_comment_symbol) |
 |orderId |false |string |t(:row_comment_order_id)|
 |orderLinkId |false |string |t(:row_comment_orderLinkId)|
-|copyTradeOrderType |false |string |t(:row_comment_activeOrderType)|
+|copyTradeOrderType |false |string |t(:row_parameter_copytrading_order_type_query)|
 
 
 <p class="fake_header">t(:responseparameters)</p>

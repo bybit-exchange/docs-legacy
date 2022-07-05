@@ -43,7 +43,7 @@ print(session_unauth.query_kline(
         "high": 999999,
         "low": 0.5,
         "close": 6000,
-        "interval": 1,
+        "interval": "1",
         "open_time": 1577836800,
         "turnover": 2.4343353100000003,
 	}],
@@ -71,14 +71,14 @@ GET
 |:----- |:-----|----- |
 | t(:row_parameter_symbol)  |string |t(:row_comment_symbol) |
 | period |string |t(:row_comment_period) |
+| interval |string |t(:row_comment_period) |
 | start_at |integer |t(:row_comment_startTime) |
+| open_time |integer |t(:row_comment_resp_open_time) |
 | volume |number |t(:row_comment_resp_volume) |
 | open |integer |t(:row_comment_open) |
 | high |integer |t(:row_comment_high) |
 | low |number |t(:row_comment_low) |
 | close |integer |t(:row_comment_close) |
-| interval |integer |t(:row_comment_period) |
-| open_time |integer |t(:row_comment_resp_open_time) |
 | turnover |number |t(:row_comment_resp_turnover) |
 
 
@@ -150,7 +150,7 @@ GET
 |id |string |t(:row_response_comment_id)  |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
 |t(:row_parameter_price) |number |t(:row_response_comment_execprice)  |
-|t(:row_parameter_quantity) |number |t(:row_response_comment_execqty)  |
+|t(:row_parameter_quantity) |number |t(:linear_row_comment_qty)  |
 |t(:row_parameter_side) |string |t(:row_comment_side_taker)  |
 |time |string |t(:row_response_comment_time)  |
 |trade_time_ms |number |t(:row_response_comment_nill_time)  |
