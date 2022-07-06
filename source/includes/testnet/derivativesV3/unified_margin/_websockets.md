@@ -145,6 +145,8 @@ t(:websocket_para_filters1)
 
 t(:websocket_para_filters2)
 
+### t(:websocketfilters_unified)
+
 ### t(:websocketunsubfilters)
 > t(:websocket_codequote_unsubfilters)
 
@@ -157,6 +159,7 @@ t(:websocket_para_unsubfilters)
 
 `ws.send('{"op": "unsubscribe", "args": ["topic.filter", "topic.filter"]}');`
 
+### t(:websocketunsubfilters_unified)
 
 ### t(:intervals)
 t(:websocket_para_intervals)
@@ -180,229 +183,10 @@ t(:websocket_para_intervals)
 
 t(:websocket_para_response)
 
+
+
 ## t(:publictopics)
-### t(:websocketorderbook25)
-> t(:codequote_subscribe)
-
-```javascript
-ws.send('{"op": "subscribe", "args": ["orderBookL2_25.BTCUSD"]}');
-```
-
-```python--old
-from BybitWebsocket import BybitWebsocket
-ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
-                    api_key=None, api_secret=None)
-ws.subscribe_orderBookL2(symbol="BTCUSD")
-while True:
-    data = ws.get_data("orderBookL2_25.BTCUSD")
-    if data:
-        print(data)
-```
-
-```python--pybit
-from pybit import WebSocket
-subs = [
-    "orderBookL2_25.BTCUSD"
-]
-ws = WebSocket(
-    "wss://stream-testnet.bybit.com/realtime",
-    subscriptions=subs
-)
-while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
-```
-
-> t(:codequote_snapshot)
-
-```javascript
-{
-     "topic": "orderBookL2_25.BTCUSD",
-     "type": "snapshot",
-     "data": [
-        {
-            "price": "2999.00",
-            "symbol": "BTCUSD",
-            "id": 29990000,
-            "side": "Buy",
-            "size": 9
-        },
-        {
-            "price": "3001.00",
-            "symbol": "BTCUSD",
-            "id": 30010000,
-            "side": "Sell",
-            "size": 10
-        }
-     ],
-     "cross_seq": 11518,
-     "timestamp_e6": 1555647164875373
-}
-```
-
-> t(:codequote_delta)
-
-```javascript
-{
-     "topic": "orderBookL2_25.BTCUSD",
-     "type": "delta",
-     "data": {
-          "delete": [
-             {
-                   "price": "3001.00",
-                   "symbol": "BTCUSD",
-                   "id": 30010000,
-                   "side": "Sell"
-             }
-          ],
-          "update": [
-             {
-                   "price": "2999.00",
-                   "symbol": "BTCUSD",
-                   "id": 29990000,
-                   "side": "Buy",
-                   "size": 8
-             }
-          ],
-          "insert": [
-             {
-                   "price": "2998.00",
-                   "symbol": "BTCUSD",
-                   "id": 29980000,
-                   "side": "Buy",
-                   "size": 8
-             }
-          ],
-          "transactTimeE6": 0
-     },
-     "cross_seq": 11519,
-     "timestamp_e6": 1555647221331673
-}
-```
-
-t(:websocket_para_orderbook251)
-
-<aside class="notice">
-t(:orderbookL2_200_link)
-</aside>
-
-t(:websocket_para_orderbook252)
-
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-| t(:row_parameter_price) |string |t(:row_comment_resp_price) |
-|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
-|t(:row_parameter_side) |string |t(:row_comment_side)  |
-|size |number |t(:row_comment_position_size)  |
-
-
-
-
-
-
-### t(:websocketorderbook200)
-
-> t(:codequote_subscribe)
-
-```javascript
-ws.send('{"op": "subscribe", "args": ["orderBook_200.100ms.BTCUSD"]}');
-```
-
-```python--pybit
-from pybit import WebSocket
-subs = [
-    "orderBook_200.100ms.BTCUSD"
-]
-ws = WebSocket(
-    "wss://stream-testnet.bybit.com/realtime",
-    subscriptions=subs
-)
-while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
-```
-
-> t(:codequote_snapshot)
-
-```javascript
-{
-     "topic": "orderBook_200.100ms.BTCUSD",
-     "type": "snapshot",
-     "data": [
-        {
-            "price": "2999.00",
-            "symbol": "BTCUSD",
-            "id": 29990000,
-            "side": "Buy",
-            "size": 9
-        },
-        {
-            "price": "3001.00",
-            "symbol": "BTCUSD",
-            "id": 30010000,
-            "side": "Sell",
-            "size": 10
-        }
-     ],
-     "cross_seq": 11518,
-     "timestamp_e6": 1555647164875373
-}
-```
-
-> t(:codequote_delta)
-
-```javascript
-{
-     "topic": "orderBook_200.100ms.BTCUSD",
-     "type": "delta",
-     "data": {
-          "delete": [
-             {
-                   "price": "3001.00",
-                   "symbol": "BTCUSD",
-                   "id": 30010000,
-                   "side": "Sell"
-             }
-          ],
-          "update": [
-             {
-                   "price": "2999.00",
-                   "symbol": "BTCUSD",
-                   "id": 29990000,
-                   "side": "Buy",
-                   "size": 8
-             }
-          ],
-          "insert": [
-             {
-                   "price": "2998.00",
-                   "symbol": "BTCUSD",
-                   "id": 29980000,
-                   "side": "Buy",
-                   "size": 8
-             }
-          ],
-          "transactTimeE6": 0
-     },
-     "cross_seq": 11519,
-     "timestamp_e6": 1555647221331673
-}
-```
-
-t(:websocket_para_orderbook200)
-
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-| t(:row_parameter_price) |string |t(:row_comment_resp_price) |
-|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
-|t(:row_parameter_side) |string |t(:row_comment_side)  |
-|size |number |t(:row_comment_position_size)  |
+### t(:websocketOrderBookDepth)
 
 
 ### t(:websockettrade)
@@ -475,66 +259,6 @@ t(:websocket_para_trade)
 |cross_seq |number |t(:row_comment_cross_seq)  |
 
 
-### t(:websocketinsurance)
-> t(:codequote_subscribe)
-
-```javascript
-ws.send('{"op": "subscribe", "args": ["insurance"]}')
-```
-
-```python--old
-from BybitWebsocket import BybitWebsocket
-ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
-                    api_key=None, api_secret=None)
-ws.subscribe_insurance()
-while True:
-    data = ws.get_data("insurance.BTC")
-    if data:
-        print(data)
-```
-
-```python--pybit
-from pybit import WebSocket
-subs = [
-    "insurance.BTC"
-]
-ws = WebSocket(
-    "wss://stream-testnet.bybit.com/realtime",
-    subscriptions=subs
-)
-while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
-```
-
-> t(:codequote_responseExampleFormatAll)
-
-```javascript
-{
-    "topic": "insurance.BTC",
-    "data": [
-        {
-            "currency": "BTC",
-            "timestamp": "2020-01-11T20:00:00Z",
-            "wallet_balance": 98786916569
-        }
-    ]
-}
-```
-
-t(:websocket_para_insurance)
-
-<aside class="notice">
-t(:websocket_aside_insurance)
-</aside>
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|currency |string |t(:row_comment_currency)  |
-|timestamp |string |t(:row_response_comment_time)  |
-|wallet_balance |number |t(:row_comment_wallet_balance)  |
 
 
 ### t(:websocketinstrumentInfo)
@@ -760,56 +484,7 @@ t(:websocket_para_klineV2)
 |timestamp|integer |t(:row_comment_endTime)    |
 
 
-
-### t(:websocketliquidation)
-> t(:codequote_subscribe)
-
-```javascript
-ws.send('{"op":"subscribe","args":["liquidation"]}')
-```
-
-```python--pybit
-from pybit import WebSocket
-subs = [
-    "liquidation"
-]
-ws = WebSocket(
-    "wss://stream-testnet.bybit.com/realtime",
-    subscriptions=subs
-)
-while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
-```
-
-> t(:codequote_responseExampleFormatAll)
-
-```javascript
-{
-    "topic":"liquidation.ETHUSD",
-    "data": {
-        "symbol":"ETHUSD",
-        "side":"Sell",
-        "price":"3384.15",
-        "qty":"3655",
-        "time":1631608881954
-    }
-}
-```
-t(:websocket_query_liqrecords)
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
-|t(:row_parameter_side)|string |t(:row_response_liq_record_side)    |
-|t(:row_parameter_price) |string |t(:row_comment_bust_price)    |
-|t(:row_parameter_quantity)|string |t(:row_response_comment_execqty)    |
-|time|number |t(:row_response_comment_nill_time)    |
-
-
-## t(:privatetopics)
+## t(:privatetopics_unified)
 ### t(:websocketposition)
 > t(:codequote_subscribe)
 
@@ -929,9 +604,6 @@ t(:websocketposition_aside)
 ### t(:websocketexecution)
 > t(:codequote_subscribe)
 
-
-
-
 ```javascript
 ws.send('{"op": "subscribe", "args": ["execution"]}')
 ```
@@ -1013,7 +685,7 @@ t(:websocket_execution_aside)
 
 
 
-### t(:websocketorder)
+### t(:websocketOrder)
 > t(:codequote_subscribe)
 
 ```javascript
@@ -1110,79 +782,6 @@ while True:
 |reduce_only | bool | t(:row_comment_reduceOnly)|
 |close_on_trigger | bool | t(:row_comment_closeOnTrigger)|
 
-### t(:websocketstoporder)
-> t(:codequote_subscribe)
-
-```javascript
-ws.send('{"op": "subscribe", "args": ["stop_order"]}')
-```
-
-```python--pybit
-from pybit import WebSocket
-subs = [
-    "stop_order"
-]
-ws = WebSocket(
-    "wss://stream-testnet.bybit.com/realtime",
-    api_key="", api_secret="",
-    subscriptions=subs
-)
-while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
-```
-
-> t(:codequote_responseExampleFormatAll)
-
-```javascript
-{
-    "topic": "stop_order",
-    "data": [
-        {
-            "order_id": "xxxxxxxx-xxxx-xxxx-98fb-335aaa6c613b",
-            "order_link_id": "",
-            "user_id": 1,
-            "symbol": "BTCUSD",
-            "side": "Buy",
-            "order_type": "Limit",
-            "price": "8584.5",
-            "qty": 1,
-            "time_in_force": "ImmediateOrCancel",
-            "create_type": "CreateByStopOrder",
-            "cancel_type": "",
-            "order_status": "Untriggered",
-            "stop_order_type": "Stop",
-            "trigger_by": "LastPrice",
-            "trigger_price": "8584.5",
-            "close_on_trigger": false,
-            "timestamp": "2020-01-14T14:11:22.062Z"
-        }
-    ]
-}
-```
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|order_id |string |t(:row_comment_order_id)  |
-|order_link_id |string |t(:row_comment_orderLinkId)  |
-|user_id |number |t(:row_comment_userID)  |
-|t(:row_parameter_symbol) |string |t(:row_comment_symbol)  |
-|t(:row_parameter_order_type) |string |t(:row_comment_order_type) |
-|t(:row_parameter_side) |string |t(:row_comment_side)  |
-|t(:row_parameter_price) |string |t(:row_response_comment_price)    |
-|qty |number |t(:row_response_comment_qty)  |
-|t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
-|create_type |string |t(:row_comment_create_type)  |
-|cancel_type |string |t(:row_comment_cancel_type)  |
-|t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
-|t(:row_parameter_stop_order_type) |string |t(:row_comment_stopOrderType)  |
-|trigger_by | string |t(:row_comment_triggerBy) |
-|t(:row_parameter_trigger_price) | string | t(:stop_order_trigger_price)|
-|close_on_trigger | bool | t(:row_comment_closeOnTrigger)|
-|timestamp |string |t(:row_response_comment_time)  |
-
 
 ### t(:websocketwallet)
 > t(:codequote_subscribe)
@@ -1228,3 +827,48 @@ while True:
 |:----- |:-----|----- |
 |wallet_balance |number |t(:row_comment_wallet_balance)  |
 |available_balance |number |t(:row_comment_available_balance)  |
+
+### t(:greeksOption)
+
+> t(:codequote_subscribe)
+
+```javascript
+ws.send('{"op":"subscribe","id":"{100003}","args":["user.openapi.greeks"]}');
+
+```
+
+> t(:codequote_snapshot)
+
+```javascript
+
+{
+    "id":"b3666f79-abf0-45a6-9c6d-ff4d41912b57",
+    "topic":"user.openapi.greeks",
+    "creationTime":1646274372152,
+    "data":{
+        "result":[
+            {
+                "coin":"BTC",
+                "totalDelta":"0.0006714372",
+                "totalGamma":"-0.0000000654",
+                "totalVega":"-0.3207237154",
+                "totalTheta":"0.1142353260"
+            }
+        ],
+        "version":3984,
+        "baseLine":1
+    }
+}
+
+```
+
+t(:udscGeeksDesc)
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| coin |string |t(:usdcBaseCoin) |
+| totalDelta |string |t(:delta) |
+| totalGamma |string |t(:gamma) |
+| totalVega|string |t(:vega) |
+| totalTheta |string |t(:theta) |
