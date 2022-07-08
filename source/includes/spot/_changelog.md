@@ -1,8 +1,8 @@
 # t(:changelog)
-## 2022-06-10
+## 2022-07-08
 ### WebSocket API
 - [t(:websocketauthentication)](#t-websocketauthentication) (V2 WebSocket) [t(:changelog_update)]
-  - t(:restapi_update_20220610)
+  - t(:restapi_update_20220708)
 
 ## 2022-06-17
 ### REST API
