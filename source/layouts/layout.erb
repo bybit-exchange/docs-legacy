@@ -654,8 +654,10 @@ under the License.
       if ($this.text() == 'English') {
         window.location=currentUrl.replace(/\/zh-cn/,"");
       } else {
-        if (currentUrl.indexOf("inverse") > -1) {
-            window.location=currentUrl.replace(/\/((?:testnet\/)?inverse)/,"/zh-cn/$1");
+        if (currentUrl.indexOf("futuresV2") > -1) {
+	        window.location=currentUrl.replace(/\/((?:testnet\/)?futuresV2)/,"/zh-cn/$1");
+        } else if (currentUrl.indexOf("inverse") > -1) {
+          window.location=currentUrl.replace(/\/((?:testnet\/)?inverse)/,"/zh-cn/$1");
         } else if(currentUrl.indexOf("spot") > -1) {
           window.location=currentUrl.replace(/\/((?:testnet\/)?spot)/,"/zh-cn/$1");
         } else if(currentUrl.indexOf("account_asset") > -1) {
@@ -668,8 +670,6 @@ under the License.
           window.location=currentUrl.replace(/\/((?:testnet\/)?usdc)/,"/zh-cn/$1");
 	      } else if(currentUrl.indexOf("derivativesV3") > -1) {
 	        window.location=currentUrl.replace(/\/((?:testnet\/)?derivativesV3)/,"/zh-cn/$1");
-	      } else if(currentUrl.indexOf("futuresV2") > -1){
-	        window.location=currentUrl.replace(/\/((?:testnet\/)?futuresV2)/,"/zh-cn/$1");
 	      }
       }
     });
