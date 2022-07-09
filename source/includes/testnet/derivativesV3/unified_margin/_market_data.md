@@ -101,22 +101,20 @@ curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/publ
 ```javascript
 {
   "retCode": 0,
-    "retMsg": "success",
-    "result": {
-    "list": [
-      {
-        "start": "1652140800000",
-        "open": "30043.5",
-        "high": "32700",
-        "low": "29601",
-        "close": "30982.5",
-        "volume": "12705.051",
-        "turnover": "398739881.4375",
-        "symbol": "BTCUSDT",
-        "interval": "D"
-      }
-    ],
-      "category": "linear"
+    "retMsg":"success",
+    "result":{
+      "category":"linear",
+      "symbol":"BTCUSDT",
+      "interval":"1",
+      "list":[
+      "1621162800",
+      "49592.43",
+      "49644.91",
+      "49342.37",
+      "49349.42",
+      "1451.59",
+      "2.4343353100000003"
+    ]
   }
 }
 ```
@@ -143,14 +141,7 @@ GET
 |:----- |:-----|----- |
 |category |string |t(:dv_category)t(:dv_categorySuffix_1) |
 |symbol |string |t(:row_comment_symbol) |
-|<a href="#kline-interval-interval">interval</a> |string |t(:row_comment_interval) |
-|start |integer |t(:dv_klineRespStart) |
-|open |string |t(:row_comment_open) |
-|high |string |t(:row_comment_high) |
-|low |string |t(:row_comment_low) |
-|close |string |t(:dv_klineRespClose) |
-|volume |string |t(:dv_klineRespVolume) |
-|turnover |string |t(:dv_klineRespTurnover) |
+|list |[]string |t(:row_comment_kline_list) |
 
 
 ### t(:dv_tickerHead)
@@ -392,8 +383,6 @@ GET
 |:----- |:-------|:-----|----- |
 |catetory |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_2) |
 |symbol |false |string |t(:row_comment_symbol) |
-|status |false |string |t(:row_response_comment_status) |
-|direction |false |string |t(:dv_pageDirection) |
 |limit |false |string |t(:row_comment_limit_500_1000) |
 |cursor |false |string |t(:dv_cursor) |
 
@@ -443,22 +432,20 @@ curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/publ
 
 ```javascript
 {
-    "retCode": 0,
-    "retMsg": "success",
-    "result": {
-        "list": [
-            {
-                "start": "1652140800000",
-                "open": "30090.77",
-                "high": "32642.46",
-                "low": "29752.23",
-                "close": "31015.33",
-                "symbol": "BTCUSDT",
-                "interval": "D"
-            }
-        ],
-        "category": "linear"
-    }
+  "retCode": 0,
+    "retMsg":"success",
+    "result":{
+     "category":"linear",
+      "symbol":"BTCUSDT",
+      "interval":"1",
+      "list":[
+      "1621162800",
+      "49592.43",
+      "49644.91",
+      "49342.37",
+      "49349.42",
+    ]
+  }
 }
 ```
 
@@ -482,14 +469,9 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_1) |
-|symbol |<b>true</b> |string |t(:row_comment_symbol) |
-| <a href="#kline-interval-interval">interval</a> |string |t(:row_comment_interval) |
-| start |integer |t(:dv_klineRespStart) |
-| open |string |t(:row_comment_open) |
-| high |string |t(:row_comment_high) |
-| low |string |t(:row_comment_low) |
-| close |string |t(:dv_klineRespClose) |
+|category |string |t(:dv_category)t(:dv_categorySuffix_1) |
+|symbol |string |t(:row_comment_symbol) |
+|list |[]string |t(:row_comment_mark_kline_list) |
 
 ### t(:queryindexpricekline)
 > t(:codequote_curlExample)
@@ -511,20 +493,20 @@ curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/publ
 ```javascript
 {
   "retCode": 0,
-    "retMsg": "success",
-    "result": {
-    "list": [
-      {
-        "start": "1652140800000",
-        "open": "30081.75",
-        "high": "32647.98",
-        "low": "29749.37",
-        "close": "31015.33",
-        "symbol": "BTCUSDT",
-        "interval": "D"
-      }
-    ],
-      "category": "linear"
+    "retMsg":"success",
+    "result":{
+      "category":"linear",
+      "symbol":"BTCUSDT",
+      "interval":"1",
+      "list":[
+      "1621162800",
+      "49592.43",
+      "49644.91",
+      "49342.37",
+      "49349.42",
+      "1451.59",
+      "2.4343353100000003"
+    ]
   }
 }
 ```
@@ -550,12 +532,7 @@ GET
 |:----- |:-----|----- |
 |category |string |t(:dv_category)t(:dv_categorySuffix_1) |
 |symbol |string |t(:row_comment_symbol) |
-| <a href="#kline-interval-interval">interval</a> |string |t(:row_comment_interval) |
-| start |integer |t(:dv_klineRespStart) |
-| open |string |t(:row_comment_open) |
-| high |string |t(:row_comment_high) |
-| low |string |t(:row_comment_low) |
-| close |string |t(:dv_klineRespClose) |
+|list |[]string |t(:row_comment_kline_list) |
 
 
 
@@ -648,7 +625,7 @@ t(:dv_riskLimitHead)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=dvrisklimit>/derivatives/v3/public/position/risk-limit/list</span></code>
+<code><span id=dvrisklimit>/derivatives/v3/public/risk-limit/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#dvrisklimit"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -706,7 +683,6 @@ GET
 |:----- |:-------|:-----|----- |
 |category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_8) |
 |symbol |<b>true</b> |string |t(:row_comment_symbol) |
-|direction|false |string |t(:dv_pageDirection) |
 |limit|false |string |t(:row_comment_limit_50_200) |
 |cursor|false |string |t(:dv_cursor) |
 
@@ -755,7 +731,6 @@ GET
 |category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_2) |
 |symbol |<b>true</b> |string |t(:row_comment_symbol) |
 |optionType |false |string |t(:dv_OptionType) |
-|from |false |int |t(:row_comment_from)|
 |limit |false |int |t(:row_comment_limit_500_1000)|
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -831,6 +806,6 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |category |string |t(:dv_category)t(:dv_categorySuffix_3) |
+|symbol |string |t(:row_comment_symbol) |
 |openInterest |number |t(:row_comment_resp_open_interest) |
-|openInterestValue |string |t(:dv_openInterestRespValue) |
 |timestamp |string |t(:dv_openInterTimestamp) |
