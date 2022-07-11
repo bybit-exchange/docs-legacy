@@ -12,6 +12,7 @@ en:
   httprequest: HTTP Request
   requestparameters: Request Parameters
   responseparameters: Response Parameters
+  resonoferror: Reason of Error
   codequote_responseExample: Response Example
   codequote_responseExampleFormatAll: Response Example - format of all responses
   codequote_curlExample: Request Example
@@ -152,6 +153,188 @@ en:
   row_comment_cancel_type: Trigger scenario for cancel operation
   row_comment_cross_status: The state of initiating a matchmaking request
   row_comment_ext_fields: Extension field
+
+
+  # 统保下面v3接口字段定义区间开始
+  row_comment_triggerPrice_replace_v3: Modify trigger price
+  row_comment_qty_replace_v3: Order quantity after modification. For orders that are not completely filled, only the remaining orders not filled can be modified. If this field is not modified, please do not pass this parameter.
+  row_comment_price_replace_v3: Order price after modification. If this field is not modified, please do not pass this parameter.
+  row_comment_takeProfit_replace_v3: Take-profit price after modification. If this field is not modified, please do not pass this parameter.
+  row_comment_stopLoss_replace_v3: Stop-loss price after modification. If this field is not modified, please do not pass this parameter.
+
+
+  row_comment_category_v3: |
+    Type of derivatives product: linear or option.
+  row_comment_symbol_v3: Name of Contract
+  row_comment_positionIdx_v3: <p>Position idx, used to identify positions in different position modes. Required if you are under One-Way Mode:</p>
+    <p>0-One-Way Mode</p>
+    <p>1-Buy side of both side mode</p>
+    <p>2-Sell side of both side mode</p>
+  row_comment_side_v3: Directions<span>:</span> Buy, Sell
+  row_comment_qty_v3: Order quantity
+  row_comment_orderType_v3: Order price type
+  row_comment_triggerSide: |
+    Used for the current conditional order to be triggered when the price increases or declines to stop_px. Mainly used to mark the expected direction of the current conditional order: 0 - triggered when < stop_px; 1 - triggered when > stop_px.
+  row_comment_triggerPrice: Trigger price
+  row_comment_triggerBy_v3: |
+    Trigger price type: Market price/Mark price
+  row_comment_iv_v3: Implied volatility, for options only; parameters are passed according to the real value; for example, for 10%, 0.1 is passed
+  row_comment_timeInForce_v3: Time in force
+  row_comment_orderLinkId_v3: |
+    Institutional customized order ID. A max of 36 characters. In addition, for customized IDs of the same institution, the ID cannot be repeated. Combinations of numbers, letters (upper and lower cases), dashes, and underscores are supported. Not required for futures, but required for options.
+  row_comment_takeProfit_v3: Take-profit price, only valid when positions are opened.
+  row_comment_stopLoss_v3: Stop-loss price, only valid when positions are opened.
+  account_row_comment_tp_trigger_by_v3: Type of take-profit activation price, LastPrice by default.
+  account_row_comment_sl_trigger_by_v3: Type of stop-loss activation price, LastPrice by default.
+  row_comment_reduceOnly_v3: Reduce-Only
+  row_comment_closeOnTrigger_v3: |
+    Close on trigger. To place a closing order, please set it as true, otherwise, the order might not be placed due to lack of margins
+  row_comment_mmp_v3: Market maker protection, "true" means this order is a market maker protection order.
+  row_comment_orderLinkId_response_v3: Strategy linked order ID
+  row_comment_orderFilter_v3: |
+    Conditional order or active order. For linear<span>/</span>inverse, parameters must be passed. For option, parameters are not passed.
+  row_comment_direction_v3: |
+   prev<span>:</span> prev, next<span>:</span> next.
+  row_comment_limit_v3: |
+    Data quantity per page<span>:</span> Max data value per page is 50, and default value at 20.
+  row_comment_cursor_v3: |
+    API pass-through. accountType + category + cursor +. If inconsistent, the following should be returned<span>:</span> The account type does not match the service inquiry.
+  row_comment_buyLeverage_v3: 0 < leverage < leverage of the corresponding risk limit
+  row_comment_sellLeverage_v3: 0 < leverage < leverage of the corresponding risk limit
+  row_comment_tpSlMode_v3: TP/SL mode   Full<span>:</span> 1, Partial<span>:</span> 0
+  row_comment_riskId_v3: Risk limit ID
+  row_comment_tpSize_v3: Quantity of take-profit orders with the TP/SL mode on selected positions.
+  account_row_comment_slSize_v3: Quantity of stop-loss orders with the TP/SL mode on selected positions.
+  account_row_comment_activePrice_v3: Trailing stop trigger price. Trailing stop will only be triggered when this price is touched (trailing stop will be immediately triggered by default).
+  account_row_comment_slTriggerBy_v3: Type of stop-loss activation price, LastPrice by default.
+  account_row_comment_tpTriggerBy_v3: Type of take-profit activation price, LastPrice by default.
+  account_row_comment_trailingStop_v3: ≥ 0, if = 0, cancel trailing stop (TS)
+  account_row_comment_stopLoss_v3: ≥ 0, if = 0, cancel stop-loss (SL)
+  account_row_comment_takeProfit_v3: ≥ 0, if = 0, cancel take-profit (TP)
+  row_comment_execType_v3: Exec type (exec_type) Trade AdlTrade Funding BustTrade. Valid for USDT Perps, Inverse Perps, and Inverse Futures only.
+  row_comment_startTime_v3: Starting timestamp (unit<span>:</span> ms)
+  row_comment_endTime_v3: Ending timestamp (unit<span>:</span> ms)
+
+
+  # 统保查询字段定义
+  row_comment_query_side_v3: Direction
+  row_comment_query_orderType_v3: Order type
+  row_comment_query_stopOrderType_v3: Conditional order type
+  row_comment_query_price_v3: Order price
+  row_comment_query_qty_v3: Order quantity
+  row_comment_query_iv_v3: Implied volatility
+  row_comment_query_orderIM_v3: Initial margin of an order.
+  row_comment_query_timeInForce_v3: Time in force
+  row_comment_query_orderStatus_v3: Order status
+  row_comment_query_triggerPrice_v3: |
+    If the stop_order_type is TrailingProfit, it is the activation price, otherwise, it is the trigger price.
+  row_comment_query_orderLinkId_v3: Institutional customized order ID
+  row_comment_query_createdTime_v3: Time of Creation
+  row_comment_query_updatedTime_v3: Time of Update
+  row_comment_query_takeProfit_v3: Take-profit price
+  row_comment_query_stopLoss_v3: Stop-loss price
+  row_comment_query_tpTriggerBy_v3: Type of take-profit activation price, LastPrice by default.
+  row_comment_query_slTriggerBy_v3: Type of stop-loss activation price, LastPrice by default.
+  row_comment_query_basePrice_v3: Market price when the order is placed
+  row_comment_query_triggerBy_v3: Type of trigger price, latest market price by default.
+  row_comment_query_reduceOnly_v3: Close position? True – close position, false – open position
+  row_comment_query_closeOnTrigger_v3: Closed order? True – close order   false – open order
+  row_comment_query_nextPageCursor_v3: API pass-through
+  row_comment_orderStatus_v3: |
+    Enquiring list of orders in designated states. If this parameter is not passed, the orders in all states shall be enquired by default. This parameter supports multi-state inquiry. States should be separated with English commas.
+  row_comment_query_leavesQty_v3: Remaining order quantity
+  row_comment_query_leavesValue_v3: Estimated value of the corresponding remaining maker order quantity
+  row_comment_query_cumExecQty_v3: Accumulative trading volume
+  row_comment_query_cumExecValue_v3: Accumulative trading value
+  row_comment_query_cumExecFee_v3: Accumulative trading fees
+  row_comment_query_rejectReason_v3: Reason order is rejected
+  row_comment_query_positionIdx_v3: |
+    The position idx is used to mark the position with different position modes: 0 - one-way mode; 1 - hedged position buy; 2 - hedged position sell.
+  row_comment_query_isIsolated_v3: |
+    Position mode. False: Cross margin; True: Isolated margin. Under the unified margin mode, return as false.
+  row_comment_query_riskId_v3: Risk limit ID
+  row_comment_query_size_v3: Position size
+  row_comment_query_entryPrice_v3: Average entry value
+  row_comment_query_sessionAvgPrice_v3: Settlement price, for USDC perps only
+  row_comment_query_leverage_v3: |
+    Under the  isolated margin mode, the value should be the leverage set by the user. Under the cross margin mode, the value should be the maximum leverage under the current risk limit. For contracts only, and not for options.
+  row_comment_query_markPrice_v3: Mark price
+  row_comment_query_sessionUPL_v3: Session UPL, for USDC only
+  row_comment_query_sessionRPL_v3: Session RPL, for USDC only
+  row_comment_query_positionIM_v3: Initial margin
+  row_comment_query_positionMM_v3: Maintenance margin
+  row_comment_query_trailingStop_v3: Trailing stop
+  row_comment_query_positionStatus_v3: Position status<span>:</span> Normal, Liquidation, and Deleveraging.
+  row_comment_query_positionValue_v3: Position value
+  row_comment_query_unrealisedPnl_v3: Unrealized P&L
+  row_comment_query_cumRealisedPnl_v3: Accumulatively realized P&L
+  row_comment_query_tpslMode_v3: TP/SL mode
+  row_comment_query_set_leverage_v3: User’s leverage
+  row_comment_query_execFee_v3: Trading fee
+  row_comment_query_execId_v3: Trading ID
+  row_comment_query_execPrice_v3: Executed price
+  row_comment_query_execQty_v3: Executed quantity
+  row_comment_query_execType_v3: Trading type enum
+  row_comment_query_execValue_v3: Trading value
+  row_comment_query_feeRate_v3: Fee rate
+  row_comment_query_lastLiquidityInd_v3: Liquidity type enum, only valid when the exec_type field type is Trade, AdlTrade, or BustTrade.
+  row_comment_query_execTime_v3: Time of trade (unit<span>:</span> ms)
+  row_comment_expDate_v3: Date of Expiry<span>:</span> dd<span>/</span>mm<span>/</span>yy. All by default, parameter format<span>:</span> 25MAR22
+
+
+  row_comment_deliveryTime_v3: Time and date
+  row_comment_query_position_v3: The executed size of the settlement history
+  row_comment_query_deliveryPrice_v3: Settlement price and margin<span>:</span> exec_price, asset tradePrice
+  row_comment_query_strike_v3: Exercise price
+  row_comment_query_fee_v3:Trading fee: The fee to collect the asset. A positive number means that the user pays a trading fee of xx, while a negative number denotes that the user earns the fee.
+  row_comment_query_deliveryRpl_v3: P&L has been realized for the settlement
+  row_comment_coin_v3: Currency alias. If the parameter coin is not passed, all wallet balance will be returned. Multiple parameters can be passed, which should be separated using commas, such as USDC, USDT.
+
+
+  row_comment_query_accountIMRate_v3: Initial margin rate<span>:</span> Account Total Initial Margin Base Coin / Account Margin Balance Base Coin
+  row_comment_query_accountMMRate_v3: Maintenance margin rate<span>:</span> Account Total Maintenance Margin Base Coin / Account Margin Balance Base Coin
+  row_comment_query_totalEquity_v3: Equity of the account converted into USD<span>:</span> Account Margin Balance Base Coin + Account Option Value Base Coin
+  row_comment_query_totalWalletBalance_v3: Wallet balance of the account converted into USD<span>:</span> ∑ Asset Wallet Balance Base Coin
+  row_comment_query_totalMarginBalance_v3: Margin balance of the account converted into USD<span>:</span> Account Wallet Balance Base Coin + Account Perp UPL Base Coin
+  row_comment_query_totalAvailableBalance_v3: Available balance of the account converted into USD<span>:</span> RM<span>:</span> Account Margin Balance Base Coin - Account Initial Margin Base Coin
+  row_comment_query_totalPerpUPL_v3: Perpetual floating P&L of the account converted into USD<span>:</span> ∑ Asset Perp UPL Base Coin
+  row_comment_query_totalInitialMargin_v3: Total initial margin of the account converted into USD<span>:</span> ∑ Asset Total Initial Margin Base Coin
+  row_comment_query_totalMaintenanceMargin_v3: Total maintenance margin of the account converted into USD<span>:</span> ∑ Asset Total Maintenance Margin Base Coin
+
+  row_comment_query_coin_coin_v3: Name of coin in wallet, such as BTC, ETH, USDT, and USDC.
+  row_comment_query_coin_equity_v3: User assets
+  row_comment_query_coin_usdValue_v3: Value converted into USD
+  row_comment_query_coin_walletBalance_v3: Wallet balance
+  row_comment_query_coin_marginBalance_v3: MB from other assets + the actual MB balance from the current assets
+
+  row_comment_query_coin_availableBalance_v3: AB from other assets + the actual AB balance from the current assets (cannot be negative)
+  row_comment_query_coin_marginBalanceWithoutConvert_v3: Margin balance
+  row_comment_query_coin_availableBalanceWithoutConvert_v3: Available balance, Margin Balance - Total Initial Margin
+  row_comment_query_coin_borrowSize_v3: Lending amount used. For USDC and USDT only. For BTC and ETH, return 0.
+  row_comment_query_coin_availableToBorrow_v3: Lending amount available. For USDC and USDT only. For BTC and ETH, return 0.
+
+  row_comment_query_coin_accruedInterest_v3: Accrued interest of an asset
+  row_comment_query_coin_totalOrderIM_v3: Order margin pre-occupied
+  row_comment_query_coin_totalPositionIM_v3: ∑ Initial margin of all positions + pre-occupied trading fee for closing positions
+  row_comment_query_coin_totalPositionMM_v3: ∑ Maintenance margin of all positions
+  row_comment_query_coin_unrealisedPnl_v3: Unrealized P&L
+  row_comment_query_coin_cumRealisedPnl_v3: Accumulatively realized P&L
+
+  row_comment_query_result_v3: User account upgrade status. 1. Processing   2. Successfully upgraded   3. Upgrade failed   4. Rejected
+  row_comment_query_msg_v3: Error information returned
+
+  row_comment_query_ThereisUSDCbeingtransferred_v3: update account failed. there are orders in the process of transferring in USDC Account. please wait until the transfer is completed
+  row_comment_query_ThereisUSDTbeingtransferred_v3: update account failed. there are orders in the process of transferring in USDT Account. please wait until the transfer is completed
+  row_comment_query_ThereareUSDCperpetualpositionholdings_v3: update account failed. Please close the usdc perpetual positions in USDC Account.
+  row_comment_query_ThereareUSDCoptionspositionholdings_v3: update account failed. Please close the usdc option positions in USDC Account.
+  row_comment_query_ThereareUSDTperpetualpositionholdings_v3: update account failed. Please close the usdt perpetual positions in USDC Account.
+  row_comment_query_ThereareUSDCperpetualorders_v3: update account failed. Please cancel the usdc perpetual open orders in USDC Account.
+  row_comment_query_ThereareUSDCoptionorders_v3: update account failed. Please cancel the usdc option open orders in USDC Account.
+  row_comment_query_ThereareUSDTperpetualorders_v3: update account failed. Please cancel the usdt perpetual open orders in USDC Account.
+
+
+  # 统保下面v3接口字段定义区间结束
+
 
   row_comment_from: |
     From ID. Default: return latest data
@@ -796,6 +979,96 @@ en:
     <p>Order price: If it is a conditional order, this parameter is required. When there is no position, the price should be 10% higher than the market price and less than 1 million. For the minimum unit of price movement, please refer to the price_filter field in the <a href="#t-querysymbol">Query Symbol</a> endpoint. This must modulo by 0.5 (20 and 21.5 are accepted, but 16.1 or 16.15 are not).</p>
     <p>Custom order ID: You may customise order IDs for active orders. We will link it to the system order ID, and return the unique system order ID to you after the active order is created successfully. You may use this order ID or your custom order ID to cancel your active order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
     <p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSD instrument and 280 active orders on the ETHUSD instrument.</b></p>
+
+
+  account_para_placeActive_v3: |
+    <p><p><b>Interface:</b></p>
+    <p>Market active orders: A traditional market order, which will be filled at the current optimal price. Only when the market order is selected,
+    can the price be null! To protect the market order from serious slippage, Bybit will convert the market order into a limit order with the buy order price higher than the optimal selling price, and the sell order price lower than the optimal buying price. Both the limit price and the executed price can be queried through the user’s transaction history interface.</p>
+    <p>Limit active orders: You can set an executed price for your order. When the market price touches the price you set, the system will fill the order for you.</p>
+    <p></b>TP/SL: You can only set TP/SL conditional orders while opening positions. Once you have held positions, the TP/SL linked when you submit active orders will not take effect.</b></p>
+    <p>Order quantity: The quantity of perpetual contracts you are going to buy/sell. For the order quantity, Bybit only supports positive integers at present.</p>
+    <p>Order price: If you are going to place a limit order, this parameter is required. When you have no position, the long order price should be higher than 10% of the market price and lower than 1 million. When you have positions, the price should be higher than the liquidation price. For the minimum unit of the price change, please refer to the price_filter field in the trading pair interface response.</p>
+    <p>Custom conditional order ID: You can customize the active order ID. We can link this ID to the order ID in the system. Once the active order is successfully created, we will send the unique order ID in the system to you. Then, you can use this order ID to cancel active orders. Meanwhile, your customized order ID should be no longer than 36 characters and should be unique.</p>
+    <p>Each account can hold a maximum of 500 active orders simultaneously. This is contract-specific, so the following situation is allowed: The same account can hold 300 BTCUSD active orders and 280 ETHUSD active orders at the same time.</p>
+    <p>When the upper limit of orders is reached, you can still place orders with parameters of reduce_only or closeOnTrigger.</p></p>
+
+  account_para_replaceActive_v3: |
+    <p><p><b>Interface:</b></p>
+    <p>You can modify the information of your active orders through this interface.</p>
+    <p>Please note that only orders not filled or not completely filled can be modified.</p></p>
+
+  account_para_cancelActive_v3: |
+    <p><p><b>Interface:</b></p>
+    <p>For all active orders canceled,order_id or order_link_id is required. </p>
+    <p>order_id - Once you have successfully created an active order, the system will send you the unique 36-character order ID.</p>
+    <p>You can cancel active orders not filled or not completely filled. You cannot cancel active orders that are completely filled.</p></p>
+
+  account_para_queryActive_v3: |
+    <p><p><b>Interface:</b></p>
+    <p>Enquiring active orders in real time.</p>
+    <p>When either of the two parameters,orderId or orderLinkId, is passed, data of the order will be returned. However,when neither of them is passed, at most 500 unfilled orders will be returned.</p>
+    <p>They will be ranked by the createdTime from newest to oldest.</p></p>
+
+  account_para_getActive_v3: |
+    <p><p><b>Interface:</b></p>
+    <p>Access my active order list.</p>
+    <p>As order creation/cancellation is asynchronous, the data returned from the interface may be delayed. To access order information in real time, call the interface Enquiring Information on Active Orders in Real Time.</p></p>
+
+  account_para_myPosition_v3: |
+    <p><p><b>Interface:</b></p>
+    <p>Accessing personal list of positions. Users can access their position holding information through this interface, such as the number of position holdings and wallet balance.</p></p>
+
+  linear_account_para_setLeverage_v3: |
+    <p><p><b>Interface:</b></p>
+    <p>Leverage setting.</p></p>
+
+  linear_private_switchmode_v3: |
+    <p><b>Interface:</b></p>
+    <p>Switching the TP/SL mode to the cross margin mode or selected positions.</p>
+    <p>When you set the TP/SL mode on the selected positions, the quantity of take-profit or stop-loss orders can be smaller than the position size. Please use Trading-Stop endpoint.</p>
+
+  linear_private_setrisklimit_v3: |
+    <p><b>Interface:</b></p>
+    <p>For risk limit, click here to learn more.</p></p>
+
+  account_para_tradingStop_v3: |
+    <p><b>Interface:</b></p>
+    <p>Set position TP/SL and trailing stop.</p>
+    <p>Pass the following parameters, then the system will create conditional orders. If the position is closed, the system will cancel these orders, and adjust the position size.</p></p>
+
+  wallet_para_tradeRecords_v3: |
+    <p><b>Interface:</b></p>
+    <p>Access the user’s filled history, ranked by time in descending order.</p>
+    <p>There might be multiple filled histories for an order.</p></p>
+
+  wallet_para_delivery_record_v3: |
+    <p><b>Interface:</b></p>
+    <p>Accessing the settlement history, ranked by time in descending order.</p></p>
+
+  wallet_para_settlement_record_v3: |
+    <p><b>Interface:</b></p>
+    <p>Query session settlement records</p>
+    <p>Only for USDC Perpetual</p></p>
+
+  wallet_para_walletBalance_v3: |
+    <p><b>Interface:</b></p>
+    <p>Accessing wallet balance</p></p>
+
+  wallet_para_upgradeUnifiedMarginAccount_v3: |
+    <p><p><b>Upgrading Unified Margin Account</b></p>
+    <p><b>Interface:</b></p>
+    <p>Upgrading unified margin account</p></p>
+
+  wallet_para_tradingHistory_v3: |
+    <p><b>Interface:</b></p>
+    <p>Enquiring trading history</p></p>
+
+  wallet_para_transfers_v3: |
+    <p><b>Interface:</b></p>
+    <p>Fund transfer between accounts</p></p>
+
+
   ### Get Active Order
   getactive: Get Active Order
   a_getactive: Get Active Order
@@ -954,6 +1227,7 @@ en:
   ### Wallet Balance
   balance: Get Wallet Balance
   wallet_para_walletBalance: Get wallet balance info.
+  wallet_para_tradingHistory: Enquiring Trading History.
   wallet_aside_walletBalance: |
     <code>position_margin</code> in this endpoint is not same as <a href="https://www.bybit.com/app/wallet/money">position margin on website</a>
     <p>The formula of position margin on website: <code>position_margin</code> + <code>occ_funding_fee</code> + loss(when your <code>available_balance</code> is insufficient)</p>
@@ -972,9 +1246,15 @@ en:
     <p>This endpoint provides one withdrawal operation per record, and you can check the current withdrawal state with the <code>status</code> field.</p>
     <p>Once you have submitted a withdrawal application, there will be a record with type <code>Withdraw</code>, and if the application is <code>CancelByUser</code>, <code>Reject</code> or <code>Expire</code> in the <a href="#t-walletrecords">Wallet Fund Records</a> endpoint, with a corresponding record with type <code>Refund</code>.</p>
 
+  wallet_para_upgradeUnifiedMarginAccount: Upgrade Unified Margin Account
+
+
+
   ### Assets Exchange Records
   assetexchangerecords: Asset Exchange Records
   wallet_para_assetexchangerecords: Get asset exchange records.
+
+  wallet_para_interestBillStatement:
 
   ### User Trade Records
   usertraderecords: User Trade Records
@@ -3089,7 +3369,7 @@ en:
   usdcHigh: 24-hour high
   usdcClose: 24-hour high
   usdcPrice: price
-  category: Type .OPTION or PERPETUAL
+  category: Type of derivatives product. linear or option.
   usdcBid: Best bid price
   usdcBidIv: Implied volatility for best bid
   usdcBidSize: Bid quantity
@@ -3953,16 +4233,31 @@ en:
   #testnet only
   futuresV2: Futures v2
 
-# Derivatives V3
+# Derivatives V3 interface define
   derivativesV3: Derivatives v3
   dv_unifiedMargin: Unified Margin
   dv_contract: Contract
   unified_margin_account_data: Unified Margin Account
   order: Order
   unified_margin_account_para: The following account data endpoints require authentication.
-  placeOrder: Place Order
-  replaceOrder: Replace Order
-  cancelOrder: Cancel Order
+  placeOrderV3: Creating Orders
+  replaceOrderV3: Modifying Order Information
+  cancelOrderV3: Canceling Orders
+  queryOrderRealtimeV3: Enquiring Orders in Real Time
+  getOrderV3: Enquiring Orders
+  mypositionV3: Accessing Position Holdings (Real-time)
+  setleverageV3: Modifying Leverage
+  switchmodeV3: Switching TP/SL mode
+  setrisklimitV3: Setting Risk Limit
+  tradingstopV3: Setting TP/SL
+  userTradeRecords7DayV3: Enquiring 7-day Transaction History
+  queryOptionDeliveryLogV3 : Enquiring Settlement History for Options
+  querySettleLogsV3: Enquiring Settlement History
+  balanceV3: Accessing Wallet Balance
+  upgradeUnifiedAccountV3: Upgrading Unified Margin Account
+  queryTransactionLogsV3: Enquiring Trading History
+  transferV3: Transfers (V2)
+
   queryOrderRealtime: Get Order(real-time)
   getOrder: Get Order
   batchPlaceOrder: Batch Place Orders

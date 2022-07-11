@@ -2,7 +2,7 @@
 t(:unified_margin_account_para)
 
 ## t(:order)
-### t(:placeOrder)
+### t(:placeOrderV3)
 > t(:codequote_curlExample)
 
 ```console
@@ -27,46 +27,46 @@ curl https://api-testnet.bybit.com/derivatives/unified/v3/private/order/create \
 
 ```
 
-t(:account_para_placeActive)
+t(:account_para_placeActive_v3)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>derivatives/unified/v3/private/order/create</span></code>
+<code><span id=vpoCreate>/unified/v3/private/order/create</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|t(:row_parameter_category) |<b>true</b> |string |t(:row_comment_category)    |
-|t(:row_parameter_side) |<b>true</b> |string |t(:row_comment_position_idx_create_order)    |
-|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol_v3)   |
-|positionIdx |false |string |t(:row_comment_positionIdx)   |
-|<a href="#order-type-order_type">orderType</a> |<b>true</b> |string |t(:row_comment_activeOrderType)   |
-|t(:row_parameter_quantity) |<b>true</b> |integer |t(:row_comment_qty_v3) |
-|t(:row_parameter_price) |false |number |t(:row_comment_resp_price) |
-|triggerSide |false |string |t(:row_comment_triggerSide) |
-|triggerPrice |false |int |t(:row_comment_triggerPrice) |
-|<a href="#trigger-price-type-trigger_by">triggerBy</a>> |false |string |t(:row_comment_triggerBy_v3) |
-|iv |<b>true</b> |string |t(:row_comment_iv) |
-|<a href="#time-in-force-time_in_force">timeInForce</a>) |<b>true</b> |string |t(:row_comment_timeInForce) |
-|closeOnTrigger |false |bool |t(:row_comment_closeOnTrigger)
-|orderLinkId |false |string |t(:row_comment_orderLinkId) |
-|takeProfit |false |number |t(:row_comment_takeProfit) |
-|stopLoss |false |number |t(:row_comment_stopLoss) |
-|t(:row_parameter_tp_trigger_by) |false |string |t(:account_row_comment_tp_trigger_by) |
-|t(:row_parameter_sl_trigger_by) |false |string |t(:account_row_comment_sl_trigger_by) |
-|reduceOnly |false |bool |t(:row_comment_reduceOnly) |
-|mmp |false |bool |t(:row_comment_mmp) |
+|category |<b>true</b> |string |t(:row_comment_category_v3)    |
+|symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
+|t(:row_parameter_side) |<b>true</b> |string |t(:row_comment_side_v3)    |
+|positionIdx |false |string |t(:row_comment_positionIdx_v3)   |
+|<a href="#order-type-order_type">orderType</a> |<b>true</b> |string |t(:row_comment_orderType_v3)   |
+|t(:row_parameter_quantity) |<b>true</b> |string |t(:row_comment_qty_v3) |
+|t(:row_parameter_price) |false |string |t(:row_comment_resp_price) |
+|triggerSide |false |number |t(:row_comment_triggerSide) |
+|triggerPrice |false |string |t(:row_comment_triggerPrice) |
+|<a href="#trigger-price-type-trigger_by">triggerBy</a> |false |string |t(:row_comment_triggerBy_v3) |
+|iv |false |string |t(:row_comment_iv_v3) |
+|<a href="#time-in-force-time_in_force">timeInForce</a> |<b>true</b> |string |t(:row_comment_timeInForce_v3) |
+|orderLinkId |false |string |t(:row_comment_orderLinkId_v3) |
+|takeProfit |false |number |t(:row_comment_takeProfit_v3) |
+|stopLoss |false |number |t(:row_comment_stopLoss_v3) |
+|tpTriggerBy |false |string |t(:account_row_comment_tp_trigger_by_v3) |
+|slTriggerBy |false |string |t(:account_row_comment_sl_trigger_by_v3) |
+|reduceOnly |false |bool |t(:row_comment_reduceOnly_v3) |
+|closeOnTrigger |false |bool |t(:row_comment_closeOnTrigger_v3) |
+|mmp |false |bool |t(:row_comment_mmp_v3) |
 
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments) |
 |:----- |:-----|----- |
-|t(:row_parameter_category) |string |t(:row_comment_category) |
+|category |string |t(:row_comment_category_v3) |
 |orderId |string |t(:row_comment_order_id) |
-|orderLinkId |string |t(:row_comment_orderLinkId) |
+|orderLinkId |string |t(:row_comment_orderLinkId_response_v3) |
 
-### t(:replaceOrder)
+### t(:replaceOrderV3)
 > t(:codequote_curlExample)
 
 ```console
@@ -108,38 +108,40 @@ print(session.replace_active_order(
 }
 ```
 
-t(:account_para_replaceActive)
-
-<aside class="notice">
-t(:account_aside_replaceActive)
-</aside>
+t(:account_para_replaceActive_v3)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoReplace>/v2/private/order/replace</span></code>
+<code><span id=vpoReplace>/unified/v3/private/order/replace</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoReplace"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|order_id |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
-|order_link_id |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
-|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol). |
-|p_r_qty |false |integer |t(:row_comment_pRQty) |
-|p_r_price |false |string |t(:row_comment_pRPrice) |
-|take_profit |false |number |t(:row_comemnt_replace_take_profit)  |
-|stop_loss |false |number |t(:row_comemnt_replace_stop_loss)  |
-|t(:row_parameter_tp_trigger_by) |false |string |t(:account_row_comment_tp_trigger_by) |
-|t(:row_parameter_sl_trigger_by) |false |string |t(:account_row_comment_sl_trigger_by) |
-
+|category |<b>true</b> |string |t(:row_comment_category_v3)    |
+|symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
+|orderId |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
+|orderLinkId |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
+|orderFilter |false |string |t(:row_comment_orderFilter_v3)   |
+|iv |false |string |t(:row_comment_iv_v3) |
+|triggerPrice |false |string |t(:row_comment_triggerPrice_replace_v3) |
+|t(:row_parameter_quantity) |false |string |t(:row_comment_qty_replace_v3) |
+|t(:row_parameter_price) |false |string |t(:row_comment_price_replace_v3) |
+|takeProfit |false |number |t(:row_comment_takeProfit_replace_v3) |
+|stopLoss |false |number |t(:row_comment_stopLoss_replace_v3) |
+|tpTriggerBy |false |string |t(:account_row_comment_tp_trigger_by_v3) |
+|slTriggerBy |false |string |t(:account_row_comment_sl_trigger_by_v3) |
+|<a href="#trigger-price-type-trigger_by">triggerBy</a> |false |string |t(:row_comment_triggerBy_v3) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|order_id |string |t(:account_row_comment_orderId) |
+|category |string |t(:row_comment_category_v3) |
+|orderId |string |t(:row_comment_order_id) |
+|orderLinkId |string |t(:row_comment_orderLinkId_response_v3) |
 
 
-### t(:cancelOrder)
+### t(:cancelOrderV3)
 > t(:codequote_curlExample)
 
 ```console
@@ -171,51 +173,33 @@ print(session.cancel_active_order(
 
 ```
 
-t(:account_para_cancelActive)
+t(:account_para_cancelActive_v3)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCancel>/v2/private/order/cancel</span></code>
+<code><span id=vpoCancel>/unified/v3/private/order/cancel</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancel"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
-|order_id |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
-|order_link_id |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
+|category |<b>true</b> |string |t(:row_comment_category_v3)    |
+|symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
+|orderId |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
+|orderLinkId |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
+|orderFilter |false |string |t(:row_comment_orderFilter_v3)   |
 
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|user_id |number |t(:row_comment_userID)  |
-|order_id |string |t(:account_row_comment_orderId) |
-|t(:row_parameter_symbol) |string |t(:row_comment_symbol)    |
-|t(:row_parameter_side) |string |t(:row_comment_side)  |
-|t(:row_parameter_order_type) |string |t(:row_comment_order_type)  |
-|t(:row_parameter_price) |number |t(:row_comment_resp_price)  |
-|qty |number |t(:row_response_comment_qty)  |
-|t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce) |
-|t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
-|last_exec_time |string |t(:row_comment_last_exec_time)  |
-|last_exec_price |string |t(:row_comment_last_exec_price)  |
-|leaves_qty |number |t(:row_comment_leaves_qty)  |
-|cum_exec_qty |number |t(:linear_resp_field_cum_exec_qty)  |
-|cum_exec_value |number |t(:linear_resp_field_cum_exec_value)  |
-|cum_exec_fee |number |t(:linear_resp_field_cum_exec_fee)  |
-|reject_reason |string |t(:row_comment_reject_reason)  |
-|order_link_id |string |t(:row_comment_orderLinkId)  |
-|created_at |string |t(:row_comment_created_at)  |
-|updated_at |string |t(:row_comment_updated_at)  |
-|take_profit |number |t(:row_comment_take_profit)  |
-|stop_loss |number |t(:row_comment_stop_loss)  |
-|t(:row_parameter_tp_trigger_by) |string |t(:account_row_comment_tp_trigger_by) |
-|t(:row_parameter_sl_trigger_by) |string |t(:account_row_comment_sl_trigger_by) |
+|category |string |t(:row_comment_category_v3) |
+|orderId |string |t(:row_comment_order_id) |
+|orderLinkId |string |t(:row_comment_orderLinkId_response_v3) |
 
 
-### t(:queryOrderRealtime)
+### t(:queryOrderRealtimeV3)
 > t(:codequote_curlExample)
 
 ```console
@@ -235,50 +219,57 @@ curl "https://api-testnet.bybit.com/v2/private/order?api_key={api_key}&symbol=BT
 ```javascript
 
 ```
-t(:account_para_queryActive)
+t(:account_para_queryActive_v3)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpOrder>/v2/private/order</span></code>
+<code><span id=vpOrder>/unified/v3/private/order/unfilled-orders</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
-|order_id |false |string | t(:row_comment_order_id)|
-|order_link_id |false |string |t(:row_comment_orderLinkId) |
+|category |<b>true</b> |string |t(:row_comment_category_v3)    |
+|symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
+|orderId |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
+|orderLinkId |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
+|orderFilter |false |string |t(:row_comment_orderFilter_v3)   |
+|direction |false |string |t(:row_comment_direction_v3)   |
+|limit |false |number |t(:row_comment_limit_v3)   |
+|cursor |false |string |t(:row_comment_cursor_v3)   |
 
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|user_id |number |t(:row_comment_userID)  |
-|t(:row_parameter_symbol) |string |t(:row_comment_symbol)    |
-|t(:row_parameter_side) |string |t(:row_comment_side)  |
-|t(:row_parameter_order_type) |string |t(:row_comment_order_type)  |
-|t(:row_parameter_price) |number |t(:row_comment_resp_price)  |
-|qty |number |t(:row_response_comment_qty)  |
-|t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
-|t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
-|ext_fields |json |t(:row_comment_ext_fields)  |
-|leaves_qty |number |t(:row_comment_leaves_qty)  |
-|leaves_value |number |t(:row_comment_leaves_value)  |
-|cum_exec_qty |number |t(:linear_resp_field_cum_exec_qty)  |
-|cum_exec_value |number |t(:linear_resp_field_cum_exec_value)  |
-|cum_exec_fee |order_link_id |string |t(:linear_resp_field_cum_exec_fee)  |
-|reject_reason |string |t(:row_comment_reject_reason)  |
-|cancel_type |string |t(:row_comment_cancel_type)  |
-|order_link_id |string |t(:row_comment_orderLinkId)  |
-|created_at |string |t(:row_comment_created_at)  |
-|updated_at |string |t(:row_comment_updated_at)  |
-|order_id |string |t(:row_comment_order_id)  |
-|take_profit |number |t(:row_comment_take_profit)  |
-|stop_loss |number |t(:row_comment_stop_loss)  |
-|t(:row_parameter_tp_trigger_by) |string |t(:account_row_comment_tp_trigger_by)  |
-|t(:row_parameter_sl_trigger_by) |string |t(:account_row_comment_sl_trigger_by)  |
+|category |string |t(:row_comment_category_v3)    |
+|list> symbol |string |t(:row_comment_symbol_v3)   |
+|list> orderId |string |t(:row_comment_query_orderId_v3) |
+|list> side |string |t(:row_comment_query_side_v3)  |
+|list> orderType |string |t(:row_comment_query_orderType_v3)  |
+|list> stopOrderType |string |t(:row_comment_query_stopOrderType_v3)  |
+|list> price |string |t(:row_comment_query_price_v3)  |
+|list> qty |string |t(:row_comment_query_qty_v3)  |
+|list> iv |string |t(:row_comment_query_iv_v3)  |
+|list > orderIM |string |t(:row_comment_query_orderIM_v3)  |
+|list > timeInForce |string |t(:row_comment_query_timeInForce_v3)  |
+|list > orderStatus |string |t(:row_comment_query_orderStatus_v3)  |
+|list > triggerPrice |string |t(:row_comment_query_triggerPrice_v3)  |
+|list > orderLinkId |string |t(:row_comment_query_orderLinkId_v3)  |
+|list > createdTime |number |t(:row_comment_query_createdTime_v3)  |
+|list > updatedTime |number |t(:row_comment_query_updatedTime_v3)  |
+|list > takeProfit |string |t(:row_comment_query_takeProfit_v3)  |
+|list > stopLoss |string |t(:row_comment_query_stopLoss_v3)  |
+|list > tpTriggerBy |string |t(:row_comment_query_tpTriggerBy_v3)  |
+|list > slTriggerBy |string |t(:row_comment_query_slTriggerBy_v3)  |
+|list > basePrice |string |t(:row_comment_query_basePrice_v3)  |
+|list > triggerBy |string |t(:row_comment_query_triggerBy_v3)  |
+|list > reduceOnly |bool |t(:row_comment_query_reduceOnly_v3)  |
+|list > closeOnTrigger |bool |t(:row_comment_query_closeOnTrigger_v3)  |
+|nextPageCursor |string |t(:row_comment_query_nextPageCursor_v3)  |
 
-### t(:getOrder)
+
+### t(:getOrderV3)
 > t(:codequote_curlExample)
 
 ```console
@@ -316,7 +307,7 @@ print(session.get_active_order(
 }
 ```
 
-t(:account_para_getActive)
+t(:account_para_getActive_v3)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
@@ -326,49 +317,50 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|t(:row_parameter_category) |<b>true</b> |string |t(:row_comment_category) |
-|t(:row_parameter_symbol) |false |string |t(:row_comment_symbol_v3) |
-|orderId |false |string |t(:row_comment_order_id) |
-|orderLinkId |false |string |t(:row_comment_orderLinkId) |
-|<a href="#order-status-order_status-stop_order_status">orderStatus</a> |false |string |t(:account_row_comment_orderStatus) |
-|orderFilter |false |string |t(:row_comment_cursor_direction) |
-|direction |false |string |t(:row_comment_cursor_direction) |
-|limit |false |integer |t(:row_comment_limit) |
-|cursor |false |string |t(:row_comment_cursor) |
+|category |<b>true</b> |string |t(:row_comment_category_v3)    |
+|symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
+|orderId |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
+|orderLinkId |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
+|orderStatus |false |string |t(:row_comment_orderStatus_v3)   |
+|orderFilter |false |string |t(:row_comment_orderFilter_v3)   |
+|direction |false |string |t(:row_comment_direction_v3)   |
+|limit |false |number |t(:row_comment_limit_v3)   |
+|cursor |false |string |t(:row_comment_cursor_v3)   |
 
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|user_id |integer |t(:row_comment_userID) |
-|t(:row_parameter_category) |<b>true</b> |string |t(:row_comment_category) |
-|t(:row_parameter_symbol) |string |t(:row_comment_symbol_v3) |
-|t(:row_parameter_side) |string |t(:row_comment_side) |
-|<a href="#order-type-order_type">orderType</a> |string |t(:row_comment_order_type) |
-|price  |string |t(:row_comment_resp_price) |
-|qty  |string |t(:row_response_comment_qty) |
-|iv  |string |隱含波動率Implied Volatility |
-|orderIM  |string |row_comment_resp_orderIM |
-|<a href="#time-in-force-time_in_force">timeInForce</a> |string |t(:row_comment_timeInForce)  |
-|<a href="#order-status-order_status-stop_order_status">orderStatus</a> |string |t(:row_comment_orderStatus)  |
-|leavesQty |string |t(:row_comment_leaves_qty) |
-|leavesValue |string |t(:row_comment_leaves_value) |
-|cumExecQty |string |t(:linear_resp_field_cum_exec_qty)  |
-|cumExecValue |string |t(:linear_resp_field_cum_exec_value)  |
-|cumExecFee |string |t(:linear_resp_field_cum_exec_fee)  |
-|basePrice |string |t(:row_comment_resp_basePrice)  |
-|rejectReason |string |t(:row_comment_reject_reason)  |
-|orderLinkId |string |t(:row_comment_orderLinkId)  |
-|createdTime |string |t(:row_comment_created_at)  |
-|updatedTime |string |t(:row_comment_updated_at)  |
-|orderId |string |t(:account_row_comment_orderId) |
-|stopOrderType |string |t(:row_comment_resp_stopOrderType) |
-|takeProfit |string |t(:row_comment_take_profit)  |
-|stopLoss |string |t(:row_comment_stop_loss) |
-|<a href="#trigger-price-type-trigger_by">tpTriggerBy</a> |string |t(:account_row_comment_tp_trigger_by) |
-|<a href="#trigger-price-type-trigger_by">slTriggerBy</a> |string |t(:account_row_comment_sl_trigger_by) |
-|closeOnTrigger |string |t(:row_response_close_on_trigger) |
-|cursor |string |t(:row_comment_resp_cursor) |
+|category |string |t(:row_comment_category_v3)    |
+|list> symbol |string |t(:row_comment_symbol_v3)   |
+|list> side |string |t(:row_comment_query_side_v3)  |
+|list> orderType |string |t(:row_comment_query_orderType_v3)  |
+|list> price |string |t(:row_comment_query_price_v3)  |
+|list> qty |string |t(:row_comment_query_qty_v3)  |
+|list> iv |string |t(:row_comment_query_iv_v3)  |
+|list > orderIM |string |t(:row_comment_query_orderIM_v3)  |
+|list > reduceOnly |bool |t(:row_comment_query_reduceOnly_v3)  |
+|list > timeInForce |string |t(:row_comment_query_timeInForce_v3)  |
+|list > orderStatus |string |t(:row_comment_query_orderStatus_v3)  |
+|list > leavesQty |string |t(:row_comment_query_leavesQty_v3)  |
+|list > leavesValue |string |t(:row_comment_query_leavesValue_v3)  |
+|list > cumExecQty |string |t(:row_comment_query_cumExecQty_v3)  |
+|list > cumExecValue |string |t(:row_comment_query_cumExecValue_v3)  |
+|list > cumExecFee |string |t(:row_comment_query_cumExecFee_v3)  |
+|list > basePrice |string |t(:row_comment_query_basePrice_v3)  |
+|list > rejectReason |string |t(:row_comment_query_rejectReason_v3)  |
+|list > orderLinkId |string |t(:row_comment_query_orderLinkId_v3)  |
+|list > createdTime |number |t(:row_comment_query_createdTime_v3)  |
+|list > updatedTime |number |t(:row_comment_query_updatedTime_v3)  |
+|list> orderId |string |t(:row_comment_query_orderId_v3) |
+|list> stopOrderType |string |t(:row_comment_query_stopOrderType_v3)  |
+|list > takeProfit |string |t(:row_comment_query_takeProfit_v3)  |
+|list > stopLoss |string |t(:row_comment_query_stopLoss_v3)  |
+|list > triggerPrice |string |t(:row_comment_query_triggerPrice_v3)  |
+|list > tpTriggerBy |string |t(:row_comment_query_tpTriggerBy_v3)  |
+|list > slTriggerBy |string |t(:row_comment_query_slTriggerBy_v3)  |
+|list > closeOnTrigger |bool |t(:row_comment_query_closeOnTrigger_v3)  |
+|nextPageCursor |string |t(:row_comment_query_nextPageCursor_v3)  |
 
 ### t(:batchPlaceOrder)
 
@@ -688,7 +680,7 @@ POST
 
 
 ## t(:position)
-### t(:myposition)
+### t(:mypositionV3)
 > t(:codequote_curlExample)
 
 ```console
@@ -716,59 +708,54 @@ print(session.my_position(
 
 ```
 
-t(:account_para_myPosition)
+t(:account_para_myPosition_v3)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=pList>/v2/private/position/list</span></code>
+<code><span id=pList>/unified/v3/private/position/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |false |string |t(:row_comment_symbol)    |
+|category |<b>true</b> |string |t(:row_comment_category_v3)    |
+|symbol |false |string |t(:row_comment_symbol_v3)   |
+|direction |false |string |t(:row_comment_direction_v3)   |
+|limit |false |number |t(:row_comment_limit_v3)   |
+|cursor |false |string |t(:row_comment_cursor_v3)   |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|id |number |t(:row_comment_position_id)  |
-|position_idx |integer |t(:row_comment_position_idx)  |
-|mode |number |t(:row_comment_position_mode)  |
-|user_id |number |t(:row_comment_userID)  |
-|risk_id |number |t(:row_comment_riskId)  |
-|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
-|t(:row_parameter_side) |string |t(:row_comment_side)  |
-|size |number |t(:row_comment_position_size)  |
-|position_value |string |t(:row_comment_position_value)  |
-|entry_price |string |t(:row_comment_entry_price)  |
-|is_isolated | bool | t(:row_comment_isolated) |
-|auto_add_margin |number |t(:row_comment_auto_add_margin)  |
-|leverage |string |t(:resp_field_leverage)  |
-|effective_leverage |string |t(:row_comment_effective_leverage)  |
-|position_margin |string |t(:row_comment_position_margin)  |
-|liq_price |string |t(:row_comment_liq_price)  |
-|bust_price |string |t(:row_comment_bust_price)  |
-|occ_closing_fee |string |t(:row_comment_occ_closing_fee)  |
-|occ_funding_fee |string |t(:row_comment_occ_funding_fee)  |
-|take_profit |string |t(:row_comment_take_profit)  |
-|stop_loss |string |t(:row_comment_stop_loss)  |
-|trailing_stop |string |t(:row_comment_trailing_stop)  |
-|position_status |string |t(:row_comment_position_status)  |
-|deleverage_indicator |number |t(:row_comment_deleverage_indicator)  |
-|oc_calc_data |string |t(:row_comment_oc_calc_data)  |
-|order_margin |string |t(:row_comment_order_margin)  |
-|wallet_balance |string |t(:row_comment_wallet_balance)  |
-|realised_pnl |string |t(:row_comment_realised_pnl)  |
-|unrealised_pnl |number |t(:row_comment_unrealised_pnl)  |
-|cum_realised_pnl |string |t(:row_comment_cum_realised_pnl)  |
-|cross_seq |number |t(:row_comment_cross_seq)  |
-|position_seq |number |t(:row_comment_position_seq)  |
-|created_at |string |t(:row_comment_created_at_position)  |
-|updated_at |string |t(:row_comment_updated_at)  |
-|t(:row_parameter_tp_sl_mode) |string |t(:linear_resp_tp_sl_mode)  |
+|category |string |t(:row_comment_category_v3)    |
+|list> positionIdx |string |t(:row_comment_query_positionIdx_v3)   |
+|list> isIsolated |bool |t(:row_comment_query_isIsolated_v3)   |
+|list> riskId |bool |t(:row_comment_query_riskId_v3)   |
+|list> symbol |string |t(:row_comment_symbol_v3)   |
+|list> side |string |t(:row_comment_query_side_v3)  |
+|list> size |string |t(:row_comment_query_size_v3)  |
+|list> entryPrice |string |t(:row_comment_query_entryPrice_v3)  |
+|list> sessionAvgPrice |string |t(:row_comment_query_sessionAvgPrice_v3)  |
+|list> leverage |string |t(:row_comment_query_leverage_v3)  |
+|list> markPrice |string |t(:row_comment_query_markPrice_v3)  |
+|list> sessionUPL |string |t(:row_comment_query_sessionUPL_v3)  |
+|list> sessionRPL |string |t(:row_comment_query_sessionRPL_v3)  |
+|list> positionIM |string |t(:row_comment_query_positionIM_v3)  |
+|list> positionMM |string |t(:row_comment_query_positionMM_v3)  |
+|list > takeProfit |string |t(:row_comment_query_takeProfit_v3)  |
+|list > stopLoss |string |t(:row_comment_query_stopLoss_v3)  |
+|list > trailingStop |string |t(:row_comment_query_trailingStop_v3)  |
+|list > positionStatus |string |t(:row_comment_query_positionStatus_v3)  |
+|list > positionValue |string |t(:row_comment_query_positionValue_v3)  |
+|list > unrealisedPnl |string |t(:row_comment_query_unrealisedPnl_v3)  |
+|list > cumRealisedPnl |string |t(:row_comment_query_cumRealisedPnl_v3)  |
+|list > createdTime |number |t(:row_comment_query_createdTime_v3)  |
+|list > updatedTime |number |t(:row_comment_query_updatedTime_v3)  |
+|list > tpslMode |string |t(:row_comment_query_tpslMode_v3)  |
+|nextPageCursor |string |t(:row_comment_query_nextPageCursor_v3)  |
 
 
-### t(:setleverage)
+### t(:setleverageV3)
 > t(:codequote_curlExample)
 
 ```console
@@ -809,34 +796,27 @@ print(session.set_leverage(
 }
 ```
 
-t(:linear_account_para_setLeverage)
-
-<aside class="notice">
-t(:account_aside_setleverage)
-</aside>
+t(:linear_account_para_setLeverage_v3)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=ulSaveNew>/v2/private/position/leverage/save</span></code>
+<code><span id=ulSaveNew>/unified/v3/private/position/leverage/save</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ulSaveNew"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
-|leverage |<b>true</b> |number |t(:row_comment_leverage_old) |
-|leverage_only |false |bool |t(:row_comment_leverage_only) |
-<!--
-|buy_leverage |<b>true</b> |number |t(:futures_row_comment_leverage) |
-|sell_leverage |<b>true</b> |number |t(:futures_row_comment_leverage) |
--->
+|category |<b>true</b> |string |t(:row_comment_category_v3)    |
+|symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
+|buyLeverage |<b>true</b> |number |t(:row_comment_buyLeverage_v3)    |
+|sellLeverage |<b>true</b> |number |t(:row_comment_sellLeverage_v3)   |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|result |number |t(:row_comment_leverage_result)  |
+|leverage |number |t(:row_comment_query_set_leverage_v3)  |
 
-### t(:switchmode)
+### t(:switchmodeV3)
 
 > t(:codequote_curlExample)
 
@@ -868,30 +848,27 @@ print(session.full_partial_position_tp_sl_switch(
 }
 ```
 
-t(:linear_private_switchmode)
-
-<aside class="notice">
-t(:switchmode_aside)
-</aside>
+t(:linear_private_switchmode_v3)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vptSwitchMode>/v2/private/tpsl/switch-mode</span></code>
+<code><span id=vptSwitchMode>/unified/v3/private/position/tpsl/switch-mode</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vptSwitchMode"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
-|t(:row_parameter_tp_sl_mode) |<b>true</b> |string |t(:linear_resp_tp_sl_mode)  |
+|category |<b>true</b> |string |t(:row_comment_category_v3)    |
+|symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
+|tpSlMode |<b>true</b> |number |t(:row_comment_tpSlMode_v3)    |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|t(:row_parameter_tp_sl_mode) |string |t(:linear_resp_tp_sl_mode)  |
+|tpSlMode |string |t(:row_comment_query_tpslMode_v3)  |
 
 
-### t(:setrisklimit)
+### t(:setrisklimitV3)
 > t(:codequote_curlExample)
 
 ```console
@@ -926,27 +903,28 @@ print(session.set_risk_limit(
 }
 ```
 
-<aside class="notice">
-t(:account_aside_getRisk_inverse)
-</aside>
+t(:linear_private_setrisklimit_v3)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=oawrlList>/v2/private/position/risk-limit</span></code>
+<code><span id=oawrlList>/unified/v3/private/position/set-risk-limit</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oawrlList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
-|risk_id |<b>true</b> |integer |t(:row_comment_riskId) |
+|category |<b>true</b> |string |t(:row_comment_category_v3)    |
+|symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
+|riskId |<b>true</b> |number |t(:row_comment_riskId_v3)  |
+|positionIdx |<b>true</b> |number |t(:row_comment_positionIdx_v3)  |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|risk_id |number |t(:row_comment_riskId)  |
+|category |string |t(:row_comment_category_v3)    |
+|riskId |number |t(:row_comment_riskId_v3)  |
 
-### t(:tradingstop)
+### t(:tradingstopV3)
 > t(:codequote_curlExample)
 
 ```console
@@ -1024,67 +1002,30 @@ print(session.set_trading_stop(
 }
 ```
 
-t(:account_para_tradingStop)
-
-<aside class="notice">
-t(:account_aside_tradingStop)
-</aside>
+t(:account_para_tradingStop_v3)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=oapTradingStopNew>/v2/private/position/trading-stop</span></code>
+<code><span id=oapTradingStopNew>/unified/v3/private/position/trading-stop</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oapTradingStopNew"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
-|take_profit |false |number |t(:account_row_comment_takeProfit) |
-|stop_loss |false |number |t(:account_row_comment_stopLoss) |
-|trailing_stop |false |number |t(:account_row_comment_trailingStop) |
-|t(:row_parameter_tp_trigger_by) | false | string | t(:account_row_comment_tp_trigger_by)
-|t(:row_parameter_sl_trigger_by) | false | string | t(:account_row_comment_sl_trigger_by)
-|new_trailing_active |false |number |t(:account_row_comment_trailingStop_active) |
-|sl_size |false |number |t(:row_comment_sl_size) |
-|tp_size |false |number |t(:row_comment_tp_size) |
+|category |<b>true</b> |string |t(:row_comment_category_v3)    |
+|symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
+|takeProfit |false |string |t(:account_row_comment_takeProfit_v3) |
+|stopLoss |false |string |t(:account_row_comment_stopLoss_v3) |
+|trailingStop |false |string |t(:account_row_comment_trailingStop_v3) |
+|tpTriggerBy |false |string |t(:account_row_comment_tpTriggerBy_v3) |
+|slTriggerBy |false |string |t(:account_row_comment_slTriggerBy_v3) |
+|activePrice |false |string |t(:account_row_comment_activePrice_v3) |
+|slSize |false |string |t(:account_row_comment_slSize_v3) |
+|tpSize |false |string |t(:account_row_comment_tpSize_v3) |
+|positionIdx |false |string |t(:row_comment_positionIdx_v3) |
 
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|id |number |t(:row_comment_position_id)  |
-|user_id |number |t(:row_comment_userID)  |
-|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
-|t(:row_parameter_side) |string |t(:row_comment_side)  |
-|size |number |t(:row_comment_position_size)  |
-|position_value |string |t(:row_comment_position_value)  |
-|entry_price |string |t(:row_comment_entry_price)  |
-|risk_id |number |t(:row_comment_riskId)  |
-|auto_add_margin |number |t(:row_comment_auto_add_margin)  |
-|leverage |string |t(:resp_field_leverage)  |
-|position_margin |string |t(:row_comment_position_margin)  |
-|liq_price |string |t(:row_comment_liq_price)  |
-|bust_price |string |t(:row_comment_bust_price)  |
-|occ_closing_fee |string |t(:row_comment_occ_closing_fee)  |
-|occ_funding_fee |string |t(:row_comment_occ_funding_fee)  |
-|take_profit |string |t(:row_comment_take_profit)  |
-|stop_loss |string |t(:row_comment_stop_loss)  |
-|trailing_stop |string |t(:row_comment_trailing_stop)  |
-|position_status |string |t(:row_comment_position_status)  |
-|deleverage_indicator |number |t(:row_comment_deleverage_indicator)  |
-|oc_calc_data |string |t(:row_comment_oc_calc_data)  |
-|order_margin |string |t(:row_comment_order_margin)  |
-|wallet_balance |string |t(:row_comment_wallet_balance)  |
-|realised_pnl |string |t(:row_comment_realised_pnl)  |
-|cum_realised_pnl |string |t(:row_comment_cum_realised_pnl)  |
-|cum_commission |number |t(:row_comment_cum_commission)  |
-|cross_seq |number |t(:row_comment_cross_seq)  |
-|position_seq |number |t(:row_comment_position_seq)  |
-|created_at |string |t(:row_comment_created_at)  |
-|updated_at |string |t(:row_comment_updated_at)  |
-|trailing_active |string |t(:row_comment_trailing_active)  |
-|t(:row_parameter_sl_trigger_by) |string |t(:row_comment_sl_trigger_by)  |
 
-### t(:userTradeRecords7Day)
+### t(:userTradeRecords7DayV3)
 > t(:codequote_curlExample)
 
 ```console
@@ -1150,53 +1091,54 @@ print(session.user_trade_records(
 }
 ```
 
-t(:wallet_para_tradeRecords)
-
-<aside class="notice">
-t(:wallet_aside_tradeRecords)
-</aside>
+t(:wallet_para_tradeRecords_v3)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpeList>/v2/private/execution/list</span></code>
+<code><span id=vpeList>/unified/v3/private/execution/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpeList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|order_id |false |string |t(:wallet_row_comment_orderId) |
-|t(:row_parameter_symbol) |<b>true</b> |string |t(:misc_row_comment_symbolNotOrderId) |
-|start_time |false |int |t(:row_comment_startTime_ms) |
-|page |false |integer |t(:row_comment_page_max50) |
-|limit |false |integer |t(:row_comment_limit_50_200) |
-|<a href="#order-order">order</a> |false |string |t(:row_comment_order) |
+|category |<b>true</b> |string |t(:row_comment_category_v3)    |
+|symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
+|orderId |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
+|orderLinkId |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
+|orderFilter |false |string |t(:row_comment_orderFilter_v3)   |
+|startTime |false |number |t(:row_comment_startTime_v3)   |
+|endTime |false |number |t(:row_comment_endTime_v3)   |
+|direction |false |string |t(:row_comment_direction_v3)   |
+|limit |false |number |t(:row_comment_limit_v3)   |
+|cursor |false |string |t(:row_comment_cursor_v3)   |
+|execType |false |string |t(:row_comment_execType_v3)   |
+
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|closed_size |number |t(:row_comment_closed_size)  |
-|cross_seq |number |t(:row_comment_cross_seq)  |
-|exec_fee |string |t(:row_comment_exec_fee)    |
-|exec_id |string |t(:row_comment_exec_id)  |
-|exec_price |number |t(:row_comment_exec_price)    |
-|exec_qty |number |t(:row_comment_exec_qty)  |
-|t(:row_parameter_exec_type) |string |t(:row_comment_exec_type) |
-|exec_value |string |t(:row_comment_exec_value)  |
-|fee_rate |string |t(:row_comment_fee_rate)  |
-|t(:row_parameter_last_liquidity_ind) |string |t(:row_comment_last_liquidity_ind) |
-|leaves_qty |number |t(:row_comment_leaves_qty)  |
-|nth_fill |number |t(:row_comment_nth_fill)  |
-|order_id |string |t(:row_comment_order_id)  |
-|order_link_id |string |t(:row_comment_orderLinkId)  |
-|order_price |string |t(:row_comment_order_price)  |
-|order_qty |string |t(:row_comment_order_qty)  |
-|t(:row_parameter_order_type) |string |t(:row_comment_order_type) |
-|t(:row_parameter_side) |string |t(:row_comment_side)  |
-|t(:row_parameter_symbol) |string |t(:row_comment_symbol)  |
-|user_id |number |t(:row_comment_user_id)  |
-|trade_time_ms |number |t(:row_comment_trade_time)  |
+|category |string |t(:row_comment_category_v3)    |
+|list> symbol |string |t(:row_comment_symbol_v3)   |
+|list> execFee |string |t(:row_comment_query_execFee_v3)  |
+|list> execId |string |t(:row_comment_query_execId_v3)  |
+|list> execPrice |string |t(:row_comment_query_execPrice_v3)  |
+|list> execQty |string |t(:row_comment_query_execQty_v3)  |
+|list> execType |string |t(:row_comment_query_execType_v3)  |
+|list> execValue |string |t(:row_comment_query_execValue_v3)  |
+|list> feeRate |string |t(:row_comment_query_feeRate_v3)  |
+|list> lastLiquidityInd |string |t(:row_comment_query_lastLiquidityInd_v3)  |
+|list > leavesQty |string |t(:row_comment_query_leavesQty_v3)  |
+|list> orderId |string |t(:misc_row_comment_query_orderId_v3) |
+|list > orderLinkId |string |t(:row_comment_query_orderLinkId_v3)  |
+|list> orderPrice |string |t(:row_comment_query_price_v3)  |
+|list> orderQty |string |t(:row_comment_query_qty_v3)  |
+|list> orderType |string |t(:row_comment_query_orderType_v3)  |
+|list> stopOrderType |string |t(:row_comment_query_stopOrderType_v3)  |
+|list> side |string |t(:row_comment_query_side_v3)  |
+|list> execTime |number |t(:row_comment_query_execTime_v3)  |
+|nextPageCursor |string |t(:row_comment_query_nextPageCursor_v3)  |
 
-### t(:queryOptionDeliveryLog)
+### t(:queryOptionDeliveryLogV3)
 
 > t(:codequote_curlExample)
 
@@ -1236,46 +1178,42 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-delivery
 }
 ```
 
-<aside class="notice">
-t(:usdcQueryLimit)
-</aside>
+t(:wallet_para_delivery_record_v3)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=uopvQueryDelivery>/option/usdc/openapi/private/v1/query-delivery-list</span></code>
+<code><span id=uopvQueryDelivery>/unified/v3/private/delivery-record</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvQueryDelivery"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |<b>true</b>|string|t(:usdcSymbol)|
-|expDate|false|string|t(:usdcExpDateRepsonse)|
-|direction|false|string|t(:direction)|
-|limit|false|number|t(:usdcMax50Min20)|
-|cursor|false|string|t(:cursor)|
+|category |<b>true</b> |string |t(:row_comment_category_v3)    |
+|symbol |false |string |t(:row_comment_symbol_v3)   |
+|expDate |false |string |t(:row_comment_expDate_v3)   |
+|direction |false |string |t(:row_comment_direction_v3)   |
+|limit |false |number |t(:row_comment_limit_v3)   |
+|cursor |false |string |t(:row_comment_cursor_v3)   |
 
 
 <p class="fake_header">t(:responseparameters)</p>
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|resultTotalSize|number|t(:resultTotalSize)|
-|cursor|string|t(:cursor)|
-|dataList|list|t(:dataList)|
+|category |string |t(:row_comment_category_v3)    |
+|list> deliveryTime |number |t(:row_comment_deliveryTime_v3)   |
+|list> symbol |string |t(:row_comment_symbol_v3)   |
+|list> side |string |t(:row_comment_query_side_v3)  |
+|list> position |string |t(:row_comment_query_position_v3)  |
+|list> deliveryPrice |string |t(:row_comment_query_deliveryPrice_v3)  |
+|list> strike |string |t(:row_comment_query_strike_v3)  |
+|list> fee |string |t(:row_comment_query_fee_v3)  |
+|list> deliveryRpl |string |t(:row_comment_query_deliveryRpl_v3)  |
+|nextPageCursor |string |t(:row_comment_query_nextPageCursor_v3)  |
 
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|deliveryTime|number|t(:usdcDeliveryTime)|
-|t(:row_parameter_symbol) |string|t(:usdcSymbol)|
-|t(:row_parameter_side) |string|t(:side)|
-|position|string|t(:usdcPosition)|
-|deliveryPrice|string|t(:usdcDeliveryPrice)|
-|strike|string|t(:usdcStrike)|
-|fee|string|t(:fee)|
-|deliveryRpl|string|t(:usdcDeliveryRpl)|
 
-### t(:querySettleLogs)
+### t(:querySettleLogsV3)
 > t(:codequote_curlExample)
 
 ```console
@@ -1314,48 +1252,43 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/session-settle
 }
 ```
 
-<aside class="notice">
-t(:usdcQueryLimit)
-</aside>
+t(:wallet_para_settlement_record_v3)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=upovSession>/option/usdc/openapi/private/v1/session-settlement</span></code>
+<code><span id=upovSession>/unified/v3/private/settlement-record</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#upovSession"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |<b>true</b>|string|t(:usdcSymbol)|
-|direction|false|string|t(:direction)|
-|limit|false|number|t(:usdcMax50Min20)|
-|cursor|false|string|t(:cursor)|
+|category |<b>true</b> |string |t(:row_comment_category_v3)    |
+|symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
+|expDate |false |string |t(:row_comment_expDate_v3)   |
+|direction |false |string |t(:row_comment_direction_v3)   |
+|limit |false |number |t(:row_comment_limit_v3)   |
+|cursor |false |string |t(:row_comment_cursor_v3)   |
 
 
 <p class="fake_header">t(:responseparameters)</p>
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|resultTotalSize|number|t(:resultTotalSize)|
-|cursor|string|t(:cursor)|
-|dataList|list|t(:dataList)|
-
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|time|number|t(:settlementTime)|
-|t(:row_parameter_symbol) |string|t(:usdcSymbol)|
-|t(:row_parameter_side) |string|t(:side)|
-|size|string|t(:usdcSize)|
-|sessionAvgPrice|string|t(:sessionAvgPrice)|
-|markPrice|string|t(:usdcMarkPrice)|
-|sessionRpl|string|t(:sessionRpl)|
+|category |string |t(:row_comment_category_v3)    |
+|list> symbol |string |t(:row_comment_symbol_v3)   |
+|list> side |string |t(:row_comment_query_side_v3)  |
+|list> size |string |t(:row_comment_query_size_v3)  |
+|list> sessionAvgPrice |string |t(:row_comment_query_sessionAvgPrice_v3)  |
+|list> markPrice |string |t(:row_comment_query_markPrice_v3)  |
+|list> sessionRpl |string |t(:row_comment_query_sessionRpl_v3)  |
+|nextPageCursor |string |t(:row_comment_query_nextPageCursor_v3)  |
 
 ## t(:account)
 t(:wallet_para)
 
 
-### t(:balance)
+### t(:balanceV3)
 > t(:codequote_curlExample)
 
 ```console
@@ -1407,45 +1340,150 @@ print(session.get_wallet_balance(coin="BTC"))
 }
 ```
 
-t(:wallet_para_walletBalance)
-
-<aside class="notice">
-t(:wallet_aside_walletBalance)
-</aside>
+t(:wallet_para_walletBalance_v3)
 
 <p class="fake_header">t(:httprequest)</p>
-GET
-<code><span id=vpwBalance>/v2/private/wallet/balance</span></code>
+POST
+<code><span id=vpwBalance>/unified/v3/private/account/wallet/balance</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpwBalance"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#currency-currency-coin">coin</a> |false |string |t(:row_comment_coin_false) |
-
+|coin |false |string |t(:row_comment_coin_v3)    |
 
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|equity |number |t(:row_comment_equity)  |
-|available_balance |number |t(:row_comment_http_available_balance)  |
-|used_margin |number |t(:row_comment_used_margin)    |
-|order_margin|number |t(:row_comment_order_margin)    |
-|position_margin |number |t(:row_comment_position_margin)  |
-|occ_closing_fee |number |t(:row_comment_occ_closing_fee)  |
-|occ_funding_fee |number |t(:row_comment_occ_funding_fee)  |
-|wallet_balance |number |t(:row_comment_wallet_balance)  |
-|realised_pnl |number |t(:row_comment_realised_pnl)  |
-|unrealised_pnl |number |t(:row_comment_unrealised_pnl)  |
-|cum_realised_pnl|number |t(:row_comment_cum_realised_pnl)  |
-|given_cash |number |t(:row_response_comment_given_cash)  |
-|service_cash |number |t(:row_response_comment_service_cash)  |
+|accountIMRate |string |t(:row_comment_query_accountIMRate_v3)    |
+|accountMMRate |string |t(:row_comment_query_accountMMRate_v3)    |
+|totalEquity |string |t(:row_comment_query_totalEquity_v3)    |
+|totalWalletBalance |string |t(:row_comment_query_totalWalletBalance_v3)    |
+|totalMarginBalance |string |t(:row_comment_query_totalMarginBalance_v3)    |
+|totalAvailableBalance |string |t(:row_comment_query_totalAvailableBalance_v3)    |
+|totalPerpUPL |string |t(:row_comment_query_totalPerpUPL_v3)    |
+|totalInitialMargin |string |t(:row_comment_query_totalInitialMargin_v3)    |
+|totalMaintenanceMargin |string |t(:row_comment_query_totalMaintenanceMargin_v3)    |
+|Coin> coin |string |t(:row_comment_query_coin_coin_v3)    |
+|Coin> equity |string |t(:row_comment_query_coin_equity_v3)    |
+|Coin> usdValue |string |t(:row_comment_query_coin_usdValue_v3)    |
+|Coin> walletBalance |string |t(:row_comment_query_coin_walletBalance_v3)    |
+|Coin> marginBalance |string |t(:row_comment_query_coin_marginBalance_v3)    |
+|Coin> availableBalance |string |t(:row_comment_query_coin_availableBalance_v3)    |
+|Coin> marginBalanceWithoutConvert |string |t(:row_comment_query_coin_marginBalanceWithoutConvert_v3)    |
+|Coin> availableBalanceWithoutConvert |string |t(:row_comment_query_coin_availableBalanceWithoutConvert_v3)    |
+|Coin> borrowSize |string |t(:row_comment_query_coin_borrowSize_v3)    |
+|Coin> availableToBorrow |string |t(:row_comment_query_coin_availableToBorrow_v3)    |
+|Coin> accruedInterest |string |t(:row_comment_query_coin_accruedInterest_v3)    |
+|Coin> totalOrderIM |string |t(:row_comment_query_coin_totalOrderIM_v3)    |
+|Coin> totalPositionIM |string |t(:row_comment_query_coin_totalPositionIM_v3)    |
+|Coin> totalPositionMM |string |t(:row_comment_query_coin_totalPositionMM_v3)    |
+|Coin> unrealisedPnl |string |t(:row_comment_query_coin_unrealisedPnl_v3)    |
+|Coin> cumRealisedPnl |string |t(:row_comment_query_coin_cumRealisedPnl_v3)    |
 
 
-### t(:upgradeUnifiedAccount)
-### t(:queryTransactionLogs)
-### t(:transferV2)
+### t(:upgradeUnifiedAccountV3)
+t(:wallet_para_upgradeUnifiedMarginAccount_v3)
+
+
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=vpeOrder>/unified/v3/private/account/upgrade-unified-account</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpeOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|result |string |t(:row_comment_query_result_v3) |
+|msg |string |t(:row_comment_query_msg_v3)  |
+
+<p class="fake_header">t(:resonoferror)</p>
+|t(:column_parameter)|t(:column_comments)|
+|:----- |:-----|----- |
+|There is USDC being transferred |t(:row_comment_query_ThereisUSDCbeingtransferred_v3) |
+|There is USDT being transferred |t(:row_comment_query_ThereisUSDTbeingtransferred_v3) |
+|There are USDC perpetual position holdings |t(:row_comment_query_ThereareUSDCperpetualpositionholdings_v3) |
+|There are USDC options position holdings |t(:row_comment_query_ThereareUSDCoptionspositionholdings_v3) |
+|There are USDT perpetual position holdings |t(:row_comment_query_ThereareUSDTperpetualpositionholdings_v3) |
+|There are USDC perpetual orders |t(:row_comment_query_ThereareUSDCperpetualorders_v3) |
+|There are USDC option orders |t(:row_comment_query_ThereareUSDCoptionorders_v3) |
+|There are USDT perpetual orders |t(:row_comment_query_ThereareUSDTperpetualorders_v3) |
+
+### t(:queryTransactionLogsV3)
+t(:wallet_para_tradingHistory_v3)
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=vpwBalance>/unified/v3/private/account/transaction-log</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpwBalance"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|category |<b>true</b> |string |t(:row_comment_category_v3)    |
+|currency |<b>true</b> |string |t(:row_comment_currency_v3)   |
+|baseCoin |false |string |t(:row_comment_baseCoin_v3)   |
+|type |false |string |t(:row_comment_type_v3)   |
+|startTime |false |number |t(:row_comment_startTime_v3)   |
+|endTime |false |string |t(:row_comment_endTime_v3)   |
+|direction |false |string |t(:row_comment_direction_v3)   |
+|limit |false |number |t(:row_comment_limit_v3)   |
+|cursor |false |string |t(:row_comment_cursor_v3)   |
+
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|category |string |t(:row_comment_category_v3)    |
+|currency |string |t(:row_comment_query_currency_v3)    |
+|list> transactionTime |string |t(:row_comment_query_transactionTime_v3)   |
+|list> type |string |t(:row_comment_query_type_v3)  |
+|list> symbol |string |t(:row_comment_query_symbol_v3)  |
+|list> side |string |t(:row_comment_query_side_v3)  |
+|list> qty |string |t(:row_comment_query_qty_v3)  |
+|list> size |string |t(:row_comment_query_size_v3)  |
+|list> tradePrice |string |t(:row_comment_query_tradePrice_v3)  |
+|list> funding |string |t(:row_comment_query_funding_v3)  |
+|list> fee |string |t(:row_comment_query_fee_v3)  |
+|list> cashFlow |string |t(:row_comment_query_cashFlow_v3)  |
+|list> change |string |t(:row_comment_query_change_v3)  |
+|list> cashBalance |string |t(:row_comment_query_cashBalance_v3)  |
+|list> feeRate |string |t(:row_comment_query_feeRate_v3)  |
+|list> tradeId |string |t(:row_comment_query_tradeId_v3)  |
+|list> orderId |string |t(:row_comment_query_orderId_v3)  |
+|list> orderLinkId |string |t(:row_comment_query_orderLinkId_v3)  |
+|nextPageCursor |string |t(:row_comment_query_nextPageCursor_v3)  |
+
+
+
+### t(:transferV3)
+t(:wallet_para_transfers_v3)
+
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=vpwBalance>/asset/v1/private/transfer</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpwBalance"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|transfer_id |<b>true</b> |string |t(:row_comment_transfer_id_v3)    |
+|amount |<b>true</b> |string |t(:row_comment_amount_v3)    |
+|coin |<b>true</b> |string |t(:row_comment_coin_v3)   |
+|from_account_type |<b>true</b> |string |t(:row_comment_from_account_type_v3)   |
+|to_account_type |<b>true</b> |string |t(:row_comment_to_account_type_v3)   |
+
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|transfer_id |string |t(:row_comment_query_transfer_id_v3)    |
+
 
 ### t(:queryExchangeRecords)
 > t(:codequote_curlExample)
@@ -1504,27 +1542,88 @@ t(:wallet_para_assetexchangerecords)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpeOrder>/v2/private/exchange-order/list</span></code>
+<code><span id=vpeOrder>/asset/v2/private/exchange/exchange-order-all</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpeOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|limit |false |integer |t(:row_comment_limit) |
-|from |false |integer |t(:row_comment_from_id) |
-|direction |false |string |t(:row_comment_direction) |
+|fromCoin |false |string |t(:row_comment_fromCoin_v3) |
+|toCoin |false |string |t(:row_comment_toCoin_v3) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|from_coin |string |t(:row_comment_from_coin) |
-|from_amount |number |t(:row_comment_from_amount)  |
-|to_coin|string |t(:row_comment_to_coin)    |
-|to_amount |number |t(:row_comment_to_amount)  |
-|exchange_rate |number |t(:row_comment_exchange_rate) |
-|from_fee |number |t(:row_comment_from_fee)  |
-|created_at |string |t(:row_comment_created_at_in_exchange)  |
+|totalCount |number |t(:row_comment_query_totalCount_v3) |
+|list > fromCoin |string |t(:row_comment_query_fromCoin_v3)  |
+|list > fromAmount |string |t(:row_comment_query_fromAmount_v3)  |
+|list > toCoin |string |t(:row_comment_query_toCoin_v3)  |
+|list > toAmount |string |t(:row_comment_query_toAmount_v3)  |
+|list > exchangeRate |string |t(:row_comment_query_exchangeRate_v3)  |
+|list > createdAt |string |t(:row_comment_query_createdAt_v3)  |
+|list > exchangeTxId |string |t(:row_comment_query_exchangeTxId_v3)  |
 
 ### t(:interestBillStatement)
+t(:wallet_para_interestBillStatement)
+
+<aside class="notice">
+t(:wallet_para_interestBillStatement)
+</aside>
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=vpwBalance>/unified/v3/private/account/borrow-history</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpwBalance"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|currency |<b>false</b> |string |t(:row_comment_currency_v3)   |
+|startTime |<b>false</b> |number |t(:row_comment_startTime_v3)   |
+|endTime |<b>false</b> |string |t(:row_comment_endTime_v3)   |
+|direction |<b>false</b> |string |t(:row_comment_direction_v3)   |
+|limit |<b>false</b> |number |t(:row_comment_limit_v3)   |
+|cursor |<b>false</b> |string |t(:row_comment_cursor_v3)   |
+
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|list> currency |string |t(:row_comment_query_currency_v3)   |
+|list> createdTime |number |t(:row_comment_query_createdTime_v3)  |
+|list> borrowCost |string |t(:row_comment_query_borrowCost_v3)  |
+|list> hourlyBorrowRate |string |t(:row_comment_query_hourlyBorrowRate_v3)  |
+|list> borrowSize |string |t(:row_comment_query_borrowSize_v3)  |
+|list> costExemption |string |t(:row_comment_query_costExemption_v3)  |
+
+
+
+# 借贷利率查询
 ### t(:queryLoanInterest)
+
+t(:wallet_para_queryLoanInterest)
+
+<aside class="notice">
+t(:wallet_para_queryLoanInterest)
+</aside>
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=vpwBalance>/unified/v3/private/account/borrow-rate</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpwBalance"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|currency |<b>false</b> |string |t(:row_comment_currency_v3)   |
+
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|list> currency |string |t(:row_comment_query_currency_v3)   |
+|list> hourlyBorrowRate |string |t(:row_comment_query_hourlyBorrowRate_v3)  |
+|list> maxBorrowingAmount |string |t(:row_comment_query_maxBorrowingAmount_v3)  |
+|list> freeBorrowingAmount |string |t(:row_comment_query_freeBorrowingAmount_v3)  |
+
 
