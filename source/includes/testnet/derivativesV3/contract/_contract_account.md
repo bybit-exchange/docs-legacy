@@ -6,7 +6,7 @@ t(:unified_margin_account_para)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/derivatives/unified/v3/private/order/create \
+curl https://api-testnet.bybit.com/unified/v3/private/order/create \
 {
   }
 
@@ -44,24 +44,24 @@ t(:account_para_placeActive)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>derivatives/unified/v3/private/order/create</span></code>
+<code><span id=vpoCreate>/unified/v3/private/order/create</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|t(:row_parameter_category) |<b>true</b> |string |t(:row_comment_category)    |
+|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_1) |
 |t(:row_parameter_side) |<b>true</b> |string |t(:row_comment_position_idx_create_order)    |
-|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol_v3)   |
-|positionIdx |false |string |t(:row_comment_positionIdx)   |
+|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)   |
+|positionIdx |false |string |t(:row_comment_position_idx)   |
 |<a href="#order-type-order_type">orderType</a> |<b>true</b> |string |t(:row_comment_activeOrderType)   |
 |t(:row_parameter_quantity) |<b>true</b> |integer |t(:row_comment_qty_v3) |
 |t(:row_parameter_price) |false |number |t(:row_comment_resp_price) |
-|triggerSide |false |string |t(:row_comment_triggerSide) |
+|basePrice |false |string |t(:row_comment_basePrice) |
 |triggerPrice |false |int |t(:row_comment_triggerPrice) |
-|<a href="#trigger-price-type-trigger_by">triggerBy</a>> |false |string |t(:row_comment_triggerBy_v3) |
+|<a href="#trigger-price-type-trigger_by">triggerBy</a> |false |string |t(:row_comment_triggerBy) |
 |iv |<b>true</b> |string |t(:row_comment_iv) |
-|<a href="#time-in-force-time_in_force">timeInForce</a>) |<b>true</b> |string |t(:row_comment_timeInForce) |
+|<a href="#time-in-force-time_in_force">timeInForce</a> |<b>true</b> |string |t(:row_comment_timeInForce) |
 |closeOnTrigger |false |bool |t(:row_comment_closeOnTrigger)
 |orderLinkId |false |string |t(:row_comment_orderLinkId) |
 |takeProfit |false |number |t(:row_comment_takeProfit) |
@@ -176,7 +176,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/v2/private/order/cancel \
+curl https://api-testnet.bybit.com/unified/v3/private/order/cancel \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
 ```
@@ -238,7 +238,7 @@ t(:account_para_cancelActive)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCancel>/v2/private/order/cancel</span></code>
+<code><span id=vpoCancel>/unified/v3/private/order/cancel</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancel"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -281,7 +281,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/v2/private/order/cancelAll \
+curl https://api-testnet.bybit.com/unified/v3/private/order/cancel-all \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","timestamp":{timestamp},"sign":"{sign}"}'
 ```
@@ -345,7 +345,7 @@ t(:account_aside_cancelAllActive)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCancelAll>/v2/private/order/cancelAll</span></code>
+<code><span id=vpoCancelAll>/unified/v3/private/order/cancel-all</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancelAll"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -379,7 +379,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/v2/private/order/replace \
+curl https://api-testnet.bybit.com/unified/v3/private/order/replace \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
 ```
@@ -425,7 +425,7 @@ t(:account_aside_replaceActive)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoReplace>/v2/private/order/replace</span></code>
+<code><span id=vpoReplace>/unified/v3/private/order/replace</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoReplace"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -844,7 +844,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/v2/private/stop-order/cancel \
+curl https://api-testnet.bybit.com/unified/v3/private/order/cancel \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","stop_order_id":"xxx","timestamp":{timestamp},"sign":"{sign}"}'
 ```
@@ -887,7 +887,7 @@ t(:account_para_cancelCond)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpsoCancel>/v2/private/stop-order/cancel</span></code>
+<code><span id=vpsoCancel>/unified/v3/private/order/cancel</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpsoCancel"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
