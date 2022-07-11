@@ -50,18 +50,18 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|t(:row_parameter_category) |<b>true</b> |string |t(:row_comment_category)    |
+|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_1) |
 |t(:row_parameter_side) |<b>true</b> |string |t(:row_comment_position_idx_create_order)    |
-|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol_v3)   |
-|positionIdx |false |string |t(:row_comment_positionIdx)   |
+|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)   |
+|positionIdx |false |string |t(:row_comment_position_idx)   |
 |<a href="#order-type-order_type">orderType</a> |<b>true</b> |string |t(:row_comment_activeOrderType)   |
 |t(:row_parameter_quantity) |<b>true</b> |integer |t(:row_comment_qty_v3) |
 |t(:row_parameter_price) |false |number |t(:row_comment_resp_price) |
-|triggerSide |false |string |t(:row_comment_triggerSide) |
+|basePrice |false |string |t(:row_comment_basePrice) |
 |triggerPrice |false |int |t(:row_comment_triggerPrice) |
-|<a href="#trigger-price-type-trigger_by">triggerBy</a>> |false |string |t(:row_comment_triggerBy_v3) |
+|<a href="#trigger-price-type-trigger_by">triggerBy</a> |false |string |t(:row_comment_triggerBy) |
 |iv |<b>true</b> |string |t(:row_comment_iv) |
-|<a href="#time-in-force-time_in_force">timeInForce</a>) |<b>true</b> |string |t(:row_comment_timeInForce) |
+|<a href="#time-in-force-time_in_force">timeInForce</a> |<b>true</b> |string |t(:row_comment_timeInForce) |
 |closeOnTrigger |false |bool |t(:row_comment_closeOnTrigger)
 |orderLinkId |false |string |t(:row_comment_orderLinkId) |
 |takeProfit |false |number |t(:row_comment_takeProfit) |
