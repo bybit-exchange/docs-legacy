@@ -231,8 +231,8 @@ GET
 |:----- |:-------|:-----|----- |
 |category |<b>true</b> |string |t(:row_comment_category_v3)    |
 |symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
-|orderId |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
-|orderLinkId |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
+|orderId |false |string |t(:row_comment__query_orderId_v3) |
+|orderLinkId |false |string |t(:row_comment_query_orderLinkId_v3) |
 |orderFilter |false |string |t(:row_comment_orderFilter_v3)   |
 |direction |false |string |t(:row_comment_direction_v3)   |
 |limit |false |number |t(:row_comment_limit_v3)   |
