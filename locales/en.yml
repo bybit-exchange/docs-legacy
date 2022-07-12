@@ -289,7 +289,7 @@ en:
   row_comment_query_position_v3: The executed size of the settlement history
   row_comment_query_deliveryPrice_v3: Settlement price and margin<span>:</span> exec_price, asset tradePrice
   row_comment_query_strike_v3: Exercise price
-  row_comment_query_fee_v3:Trading fee: The fee to collect the asset. A positive number means that the user pays a trading fee of xx, while a negative number denotes that the user earns the fee.
+  row_comment_query_fee_v3: Trading fee<span>:</span> The fee to collect the asset. A positive number means that the user pays a trading fee of xx, while a negative number denotes that the user earns the fee.
   row_comment_query_deliveryRpl_v3: P&L has been realized for the settlement
   row_comment_coin_v3: Currency alias. If the parameter coin is not passed, all wallet balance will be returned. Multiple parameters can be passed, which should be separated using commas, such as USDC, USDT.
 
@@ -326,15 +326,52 @@ en:
   row_comment_query_result_v3: User account upgrade status. 1. Processing   2. Successfully upgraded   3. Upgrade failed   4. Rejected
   row_comment_query_msg_v3: Error information returned
 
+  row_comment_query_ThereisUSDCbeingtransferred_v3_code: There is USDC being transferred
   row_comment_query_ThereisUSDCbeingtransferred_v3: update account failed. there are orders in the process of transferring in USDC Account. please wait until the transfer is completed
+
+  row_comment_query_ThereisUSDTbeingtransferred_v3_code: There is USDT being transferred
   row_comment_query_ThereisUSDTbeingtransferred_v3: update account failed. there are orders in the process of transferring in USDT Account. please wait until the transfer is completed
+
+  row_comment_query_ThereareUSDCperpetualpositionholdings_v3_code: There are USDC perpetual position holdings
   row_comment_query_ThereareUSDCperpetualpositionholdings_v3: update account failed. Please close the usdc perpetual positions in USDC Account.
+
+  row_comment_query_ThereareUSDCoptionspositionholdings_v3_code: There are USDC options position holdings
   row_comment_query_ThereareUSDCoptionspositionholdings_v3: update account failed. Please close the usdc option positions in USDC Account.
+
+  row_comment_query_ThereareUSDTperpetualpositionholdings_v3_code: There are USDT perpetual position holdings
   row_comment_query_ThereareUSDTperpetualpositionholdings_v3: update account failed. Please close the usdt perpetual positions in USDC Account.
+
+  row_comment_query_ThereareUSDCperpetualorders_v3_code: There are USDC perpetual orders
   row_comment_query_ThereareUSDCperpetualorders_v3: update account failed. Please cancel the usdc perpetual open orders in USDC Account.
+
+  row_comment_query_ThereareUSDCoptionorders_v3_code: There are USDC option orders
   row_comment_query_ThereareUSDCoptionorders_v3: update account failed. Please cancel the usdc option open orders in USDC Account.
+
+  row_comment_query_ThereareUSDTperpetualorders_v3_code: There are USDT perpetual orders
   row_comment_query_ThereareUSDTperpetualorders_v3: update account failed. Please cancel the usdt perpetual open orders in USDC Account.
 
+  row_comment_currency_v3: USDC, USDT, BTC, and ETH
+  row_comment_baseCoin_v3: For example<span>:</span> The base coin of USDC is BTC, and the base coin of USDT is the enum of the current trading coin. For example<span>:</span> The base coin of BTCUSDT is BTC. If both do not match, it shall be returned as null.
+  row_comment_type_v3: All trading history (except transfer) of the category should be returned by default. Transfer_in, Transfer_out, Trade, Settlement, Delivery, Liquidation, Insurance fund (the first phase of the unified margin account does not have this service), Fee refund (the first phase of the unified margin account does not have this service), Interest, Currency_buy, Currency_sell. Please note that to inquire about the transfer-in and transfer-out history, pass type=TRANSFER_IN and type=TRANSFER_OUT, otherwise, the transfer history cannot be accessed.
+
+  row_comment_query_currency_v3: USDC, USDT, BTC, and ETH
+  row_comment_query_transactionTime_v3: Timestamp (unit<span>:</span> ms)
+  row_comment_query_type_v3: Type (fetch the interest enum)
+  row_comment_query_symbol_v3: Name of Contract
+  row_comment_query_tradePrice_v3: Trading price
+  row_comment_query_funding_v3: Funding
+  row_comment_query_cashFlow_v3: Cash flow
+  row_comment_query_change_v3: Change
+  row_comment_query_cashBalance_v3: Balance (current coin)
+  row_comment_query_tradeId_v3: Trade ID
+
+  row_comment_transfer_id_v3: UUID, globally unique
+  row_comment_amount_v3: Exchanged amount
+  row_comment_from_account_type_v3: Account type<span>:</span> Futures contract account; spot account; investment earn account; option account; new<span>:</span> unified margin account.
+  row_comment_to_account_type_v3: Account type<span>:</span> Futures contract account; spot account; investment earn account; option account; new<span>:</span> unified margin account
+  row_comment_query_transfer_id_v3 : UUID, globally unique
+
+  comments_v3: Comment
 
   # 统保下面v3接口字段定义区间结束
 
@@ -1059,8 +1096,7 @@ en:
     <p>Accessing wallet balance</p></p>
 
   wallet_para_upgradeUnifiedMarginAccount_v3: |
-    <p><p><b>Upgrading Unified Margin Account</b></p>
-    <p><b>Interface:</b></p>
+    <p><p><b>Interface:</b></p>
     <p>Upgrading unified margin account</p></p>
 
   wallet_para_tradingHistory_v3: |

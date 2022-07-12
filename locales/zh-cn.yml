@@ -370,6 +370,227 @@ zh-cn:
   row_comment_max_leverage: 最大杠桿
 
 
+  # 统保下面v3接口字段定义区间开始
+
+  row_parameter_side: <a href="#side-side">side</a>
+  row_parameter_quantity: <a href="#quantity-qty">qty</a>
+  row_parameter_price: <a href="#price-price">price</a>
+
+  row_comment_triggerPrice_replace_v3: 修改触发价格
+  row_comment_qty_replace_v3: 修改后的订单数量。如果是未完全成交订单，则表示修改剩余未成交的部分。如果不修改这个字段，请不要传这个参数。
+  row_comment_price_replace_v3: 修改后的订单价格。如果不修改这个字段，请不要传这个参数。
+  row_comment_takeProfit_replace_v3: 修改后的止盈价格。如果不修改这个字段，请不要传这个参数。
+  row_comment_stopLoss_replace_v3: 修改后的止损价格。如果不修改这个字段，请不要传这个参数。
+
+  row_comment_category_v3: |
+      衍生品产品类型，正向合约：linear；期权：option。
+  row_comment_symbol_v3: 合约名称
+  row_comment_positionIdx_v3: Position idx, 用于在不同仓位模式下标识仓位：0-单向持仓；1-双向持仓Buy；2-双向持仓Sell. Linear 必传。Inverse，Options 不传。
+  row_comment_side_v3: 方向：Buy，Sell
+  row_comment_orderType_v3: 委托单价格类型
+  row_comment_triggerSide: 用于当前条件委托是看空到stop_px时触发还是看多到stop_px触发。主要是用来标识当前条件单预期的方向：0为 < stop_px 时触发，1 为 > stop_px 时触发。
+  row_comment_triggerSide_v3: |
+      用于当前条件委托是看空到stop_px时触发还是看多到stop_px触发。主要是用来标识当前条件单预期的方向：0为 < stop_px 时触发，1 为 > stop_px 时触发。
+  row_comment_triggerPrice_v3: 触发价格
+  row_comment_triggerBy_v3: |
+      触发价格类型：市价/标记价格
+  row_comment_iv_v3: 隐含波动率 Implied volatility，仅期权; 按照实际值传惨，如10%，则传0.1
+  row_comment_timeInForce_v3: 执行策略
+  row_comment_orderLinkId_v3: |
+      机构自定义订单ID, 最大长度36位，且同一机构下自定义ID不可重复支持数字、字母（大小写）、中划线、下划线这些字符的组合。期货业务非必填，期权业务必填。
+  row_comment_takeProfit_v3: 止盈价格，仅开仓时生效
+  row_comment_stopLoss_v3: 止损价格，仅开仓时生效
+  account_row_comment_tp_trigger_by_v3: 止盈激活价格类型，默认为LastPrice
+  account_row_comment_sl_trigger_by_v3: 止损激活价格类型，默认为LastPrice
+  row_comment_reduceOnly_v3: 只减仓
+  row_comment_closeOnTrigger_v3: |
+      What is a close on trigger order? For a closing order. It can only reduce your position, not increase it. If the account has insufficient available balance when the closing order is triggered, then other active orders of similar contracts will be cancelled or reduced. It can be used to ensure your stop loss reduces your position regardless of current available margin.
+  row_comment_mmp_v3: Market maker protection，true表示此订单为做市商保护订单
+  row_comment_orderLinkId_response_v3: 策略关联订单号
+  row_comment_orderFilter_v3: |
+      条件单或是活动单。linear/inverse 必传。option 非必传。
+  row_comment_direction_v3: |
+      搜索方向：prev:上一页,next:下一页,默认为 next
+  row_comment_limit_v3: |
+      每页数量, 最大50. 默认每页20条
+  row_comment_cursor_v3: |
+      翻页标记,请使用返回的cursor,签名时使用返回的原始数据，发送request时请进行urlencode
+  row_comment_buyLeverage_v3: 杠杆大于0，小于风险限额对应的杠杆
+  row_comment_sellLeverage_v3: 杠杆大于0，小于风险限额对应的杠杆
+  row_comment_tpSlMode_v3: 止盈止损模式Full ：1 ，Partial ：2
+  row_comment_riskId_v3: 风险限额ID
+  row_comment_tpSize_v3: 在部分止盈止损模式下，止盈合约数量
+  account_row_comment_slSize_v3: 在部分止盈止损模式下，止损合约数量
+  account_row_comment_activePrice_v3: 追踪止损触发价格。追踪止损会在到达该价格后才会触发（追踪止损默认立即触发）。
+  account_row_comment_slTriggerBy_v3: 止损激活价格类型，默认为LastPrice
+  account_row_comment_tpTriggerBy_v3: 止盈激活价格类型，默认为LastPrice
+  account_row_comment_trailingStop_v3: 不小于0,如果等于0则是取消追踪止损(TS)
+  account_row_comment_stopLoss_v3: 不小于0,如果等于0则是取消止损(SL)
+  account_row_comment_takeProfit_v3: 不小于0,如果等于0则是取消止盈(TP)
+  row_comment_execType_v3: Exec type (exec_type) Trade AdlTrade Funding BustTrade 。（仅 USDT Perps ，Inverse Perps，Inverse Futures）生效
+  row_comment_startTime_v3: 开始时间戳（毫秒）
+  row_comment_endTime_v3: 结束时间戳（毫秒）
+
+
+  # 统保查询字段定义
+  row_comment_query_orderId_v3: 订单 ID
+  row_comment_query_side_v3: 方向
+  row_comment_query_orderType_v3: 订单类型枚举
+  row_comment_query_stopOrderType_v3: Stop order type 枚举：
+  row_comment_query_price_v3: 订单价格
+  row_comment_query_qty_v3: 订单数量
+  row_comment_query_iv_v3: 隐含波动率
+  row_comment_query_orderIM_v3: 订单初始保证金
+  row_comment_query_timeInForce_v3: 执行策略
+  row_comment_query_orderStatus_v3: 订单状态
+  row_comment_query_triggerPrice_v3: |
+      如果stop_order_type为TrailingProfit时，为激活价格，否则为触发价格。
+  row_comment_query_orderLinkId_v3: 机构自定义订单 ID
+  row_comment_query_createdTime_v3: 创建时间
+  row_comment_query_updatedTime_v3: 更新时间
+  row_comment_query_takeProfit_v3: 止盈价格
+  row_comment_query_stopLoss_v3: 止损价格
+  row_comment_query_tpTriggerBy_v3: 止盈激活价格类型，默认为LastPrice
+  row_comment_query_slTriggerBy_v3: 止损激活价格类型，默认为LastPrice
+  row_comment_query_basePrice_v3: 下单时市价
+  row_comment_query_triggerBy_v3: 触发价格类型，默认为市价
+  row_comment_query_reduceOnly_v3: 是否平仓单 true-平仓 false-开仓
+  row_comment_query_closeOnTrigger_v3: 是否平仓委托 true-平仓 false-开仓
+  row_comment_query_nextPageCursor_v3: 翻页标记
+  row_comment_orderStatus_v3: |
+      指定订单状态查询订单列表。不传该参数则默认查询所有状态订单。该参数支持多状态查询，状态之间用英文逗号分割。
+  row_comment_query_leavesQty_v3: 剩余委托数量
+  row_comment_query_leavesValue_v3: 剩余挂单数量对应的预估价值
+  row_comment_query_cumExecQty_v3: 累计成交数量
+  row_comment_query_cumExecValue_v3: 累计成交价值
+  row_comment_query_cumExecFee_v3: 累计成交手续费
+  row_comment_query_rejectReason_v3: 被拒单的原因
+  row_comment_query_positionIdx_v3: |
+      Position idx, 用于在不同仓位模式下标识仓位：0-单向持仓；1-双向持仓Buy；2-双向持仓Sell. Linear 必传。Inverse，Options 不传。
+  row_comment_query_isIsolated_v3: |
+      仓位模式：false ：全仓；true：逐仓；统保模式下返回：false
+  row_comment_query_riskId_v3: 风险限额ID
+  row_comment_query_size_v3: 仓位数量
+  row_comment_query_entryPrice_v3: 平均入场价
+  row_comment_query_sessionAvgPrice_v3: Settlement price，仅USDC perps
+  row_comment_query_leverage_v3: |
+      逐仓模式下, 值为用户设置的杠杆；全仓模式下，值为当前风险限额下最大杠杆；仅适用于合约，不适用于期权
+  row_comment_query_markPrice_v3: 标记价格
+  row_comment_query_sessionUPL_v3: Session UPL, for USDC only
+  row_comment_query_sessionRPL_v3: Session RPL, for USDC only
+  row_comment_query_positionIM_v3: Initial margin
+  row_comment_query_positionMM_v3: Maintenance margin
+  row_comment_query_trailingStop_v3: 追踪止损
+  row_comment_query_positionStatus_v3: 仓位状态，正常，强平，减仓
+  row_comment_query_positionValue_v3: Position value
+  row_comment_query_unrealisedPnl_v3: 未结盈亏
+  row_comment_query_cumRealisedPnl_v3: 累计已结盈亏
+  row_comment_query_tpslMode_v3: 止盈止损模式
+  row_comment_query_set_leverage_v3: User’s leverage
+  row_comment_query_execFee_v3: 交易手续费
+  row_comment_query_execId_v3: 成交ID
+  row_comment_query_execPrice_v3: 成交价格
+  row_comment_query_execQty_v3: 成交数量
+  row_comment_query_execType_v3: 交易类型枚举
+  row_comment_query_execValue_v3: 成交价值
+  row_comment_query_feeRate_v3: 手续费率
+  row_comment_query_lastLiquidityInd_v3: 流动性类型枚举, 只有当exec_type字段类型为Trade、AdlTrade、BustTrade时有效
+  row_comment_query_execTime_v3: 交易时间，精确到毫秒
+  row_comment_expDate_v3: 到期日，年月日。默认为全部， 参数格式为：25MAR22
+
+  row_comment_deliveryTime_v3: 年月日时分秒
+  row_comment_query_position_v3: 该笔交割记录对应的exec size数量
+  row_comment_query_deliveryPrice_v3: 交割价.保证金：exec_price， 资产tradePrice
+  row_comment_query_strike_v3: 行权价
+  row_comment_query_fee_v3: 手续费，取资产的fee，正数表示用户付出xx手续费，负数表示赚取
+  row_comment_query_deliveryRpl_v3: 交割已实现盈亏
+  row_comment_coin_v3: currency alias，如果不传参数coin，将返回所有钱包余额。允许传多个，用逗号分隔，例如：USDC,USDT
+
+
+  row_comment_query_accountIMRate_v3: 起始保证金比率：Account Total Initial Margin Base Coin / Account Margin Balance Base Coin
+  row_comment_query_accountMMRate_v3: 维持保证金比率：Account Total Maintenance Margin Base Coin / Account Margin Balance Base Coin
+  row_comment_query_totalEquity_v3: 账户维度换算成usd的资产净值：Account Margin Balance Base Coin + Account Option Value Base Coin
+  row_comment_query_totalWalletBalance_v3: 账户维度换算成usd的产钱包余额：∑ Asset Wallet Balance Base Coin
+  row_comment_query_totalMarginBalance_v3: 账户维度换算成usd的保证金余额：Account Wallet Balance Base Coin + Account Perp UPL Base Coin
+  row_comment_query_totalAvailableBalance_v3: 账户维度换算成usd的可用余额：RM：Account Margin Balance Base Coin - Account Initial Margin Base Coin
+  row_comment_query_totalPerpUPL_v3: 账户维度换算成usd的永续浮动盈亏：∑ Asset Perp UPL Base Coin
+  row_comment_query_totalInitialMargin_v3: 账户维度换算成usd的总初始保证金：∑ Asset Total Initial Margin Base Coin
+  row_comment_query_totalMaintenanceMargin_v3: 账户维度换算成usd的总维持保证金： ∑ Asset Total Maintenance Margin Base Coin
+
+  row_comment_query_coin_coin_v3: 钱包币种的名称，例如 BTC，ETH，USDT，USDC
+  row_comment_query_coin_equity_v3: 用户资产
+  row_comment_query_coin_usdValue_v3: 折算成 usd 的价值
+  row_comment_query_coin_walletBalance_v3: 钱包余额
+  row_comment_query_coin_marginBalance_v3: 其余资产贡献的MB+当前资产真实剩余的MB
+
+  row_comment_query_coin_availableBalance_v3: 其余资产贡献的AB+当前资产真实剩余的AB（不能为负）
+  row_comment_query_coin_marginBalanceWithoutConvert_v3: 保证金余额
+  row_comment_query_coin_availableBalanceWithoutConvert_v3: 可用余额, Margin Balance - Total Initial Margin
+  row_comment_query_coin_borrowSize_v3: 已用借贷额度。只有 USDC，USDT 有。BTC 和 ETH 则返回为 0；
+  row_comment_query_coin_availableToBorrow_v3: 可用借贷额度。只有 USDC，USDT 有。BTC 和 ETH 则返回为 0；
+
+  row_comment_query_coin_accruedInterest_v3: 某资产应计利息
+  row_comment_query_coin_totalOrderIM_v3: 订单委托预占用保证金
+  row_comment_query_coin_totalPositionIM_v3: 所有仓位起始保证金求和 + 预占用平仓手续费
+  row_comment_query_coin_totalPositionMM_v3: 所有仓位维持保证金求和
+  row_comment_query_coin_unrealisedPnl_v3: 未结盈亏
+  row_comment_query_coin_cumRealisedPnl_v3: 累计已结盈亏
+
+  row_comment_query_result_v3: 用户账户的升级状态。1.处理中 2.升级成功 3.升级失败 4.拒绝
+  row_comment_query_msg_v3: 返回的错误信息
+
+
+  row_comment_query_ThereisUSDCbeingtransferred_v3_code: USDC有划转中记录
+  row_comment_query_ThereisUSDCbeingtransferred_v3: update account failed. there are orders in the process of transferring in USDC Account. please wait until the transfer is completed
+
+  row_comment_query_ThereisUSDTbeingtransferred_v3_code: USDT有划转中记录
+  row_comment_query_ThereisUSDTbeingtransferred_v3: update account failed. there are orders in the process of transferring in USDT Account. please wait until the transfer is completed
+
+  row_comment_query_ThereareUSDCperpetualpositionholdings_v3_code: USDC永续有持仓
+  row_comment_query_ThereareUSDCperpetualpositionholdings_v3: update account failed. Please close the usdc perpetual positions in USDC Account.
+
+  row_comment_query_ThereareUSDCoptionspositionholdings_v3_code: USDC期权有持仓
+  row_comment_query_ThereareUSDCoptionspositionholdings_v3: update account failed. Please close the usdc option positions in USDC Account.
+
+  row_comment_query_ThereareUSDTperpetualpositionholdings_v3_code: USDT永续有持仓
+  row_comment_query_ThereareUSDTperpetualpositionholdings_v3: update account failed. Please close the usdt perpetual positions in USDC Account.
+
+  row_comment_query_ThereareUSDCperpetualorders_v3_code: USDC永续有订单
+  row_comment_query_ThereareUSDCperpetualorders_v3: update account failed. Please cancel the usdc perpetual open orders in USDC Account.
+
+  row_comment_query_ThereareUSDCoptionorders_v3_code: USDC期权有订单
+  row_comment_query_ThereareUSDCoptionorders_v3: update account failed. Please cancel the usdc option open orders in USDC Account.
+
+  row_comment_query_ThereareUSDTperpetualorders_v3_code: USDT永续有订单
+  row_comment_query_ThereareUSDTperpetualorders_v3: update account failed. Please cancel the usdt perpetual open orders in USDC Account.
+
+  row_comment_currency_v3: USDC、USDT、BTC、ETH
+  row_comment_baseCoin_v3: 例如： USDC就是BTC；USDT就是现在现有的交易币种枚举，例如： BTCUSDT 的 baseCoin 是 BTC 不匹配时已确认返回空
+  row_comment_type_v3: 默认返回该category下所有交易日志（除划转外） TRANSFER_IN 转入 TRANSFER_OUT 转出 TRADE 交易 SETTLEMENT 结算 DELIVERY 交割 Liquidation 强平（统保一期无该业务） Insurance fund 体验金领取（统保一期无该业务） Fee Refund 手续费返还（统保一期无该业务） INTEREST 利息 注意：查询转入转出日志，必须要传 type=TRANSFER_IN，type=TRANSFER_OUT，否则查不到划转日志
+
+  row_comment_query_currency_v3: USDC, USDT, BTC, and ETH
+  row_comment_query_transactionTime_v3: 时间戳（毫秒）
+  row_comment_query_type_v3: 类型（新增 Interest 枚举值）
+  row_comment_query_symbol_v3: 合约名称
+  row_comment_query_tradePrice_v3: 交易价格
+  row_comment_query_funding_v3: 资金费用
+  row_comment_query_cashFlow_v3: 现金流
+  row_comment_query_change_v3: 变更
+  row_comment_query_cashBalance_v3: 余额（当前币种）
+  row_comment_query_tradeId_v3: 交易id
+
+  row_comment_transfer_id_v3: UUID,全局唯一
+  row_comment_amount_v3: 兑入数量
+  row_comment_from_account_type_v3: 账户类型，Account type： CONTRACT 期货账户；SPOT 现货账户； INVESTMENT 理财账户；OPTION 期权账户；新增：UNIFIED 统一保证金账户
+  row_comment_to_account_type_v3: 账户类型，Account type： CONTRACT 期货账户；SPOT 现货账户； INVESTMENT 理财账户；OPTION 期权账户；新增：UNIFIED 统一保证金账户
+  row_comment_query_transfer_id_v3 : UUID,全局唯一
+
+  resonoferror: 错误原因
+  comments_v3: Comment
+
+  # 统保下面v3接口字段定义区间结束
+
+
 
 
   default: 默認
@@ -820,6 +1041,97 @@ zh-cn:
   ## Set Risk Limit
   setrisklimit: 設置風險限額
   account_para_setRisk: 設置風險限額。
+
+
+  account_para_placeActive_v3: |
+    <p><p><b>接口说明：</b></p>
+    <p>市价活动委托: 一个传统的市场价格订单,会以当前的最优价格为您成交订单。当且仅当选择市价单时，
+    price可为空！为了保护市价单遭遇严重的滑点，Bybit将市价单转为限价单进入撮合，买单价格高于最优卖价，卖单价格低于最优买价。限价价格和成交价格均可通过用户成交记录接口查询。</p>
+    <p>限价活动委托: 您可以为您的订单设置一个执行价格，当市场价格达到您的设置价格时，系统会为您成交订单。</p>
+    <p>止盈止损: 您仅能在开仓时设置止盈止损条件单，一旦持有仓位后提交活动委托时关联的止盈止损则不会生效。</p>
+    <p>委托数量: 表示您要购买/卖出的永续合约数，对于委托数量目前Bybit只允许提交正整数。</p>
+    <p>委托价格: 如果是下限价单，该参数为必填. 在没有仓位时，做多的委托价格需高于市价的10%、低于1百万。如有仓位时则需优于强平价。价格增减最小单位请参考交易对接口响应中的price_filter字段。</p>
+    <p>自定义条件单ID: 您可以自定义活动委托订单ID，我们会为您关联到系统的订单ID，并把系统的唯一订单ID在活动委托创建成功后一并返回给您，您可以使用该订单ID去取消活动委托，同时要求您传递的自定义订单ID
+    最大长度不超过36个字段且唯一。</p>
+    <p>每个账户最多可同时持有500个活动订单。这是针对合约的，因此可以允许出现例如：账户同时持有300个BTCUSD的活动单、280个ETHUSD合约的活动单。当您达到订单上限的时候的时候，仍然可以下单设置了参数reduce_only 或 closeOnTrigger的订单。</p></p>
+
+  account_para_replaceActive_v3: |
+    <p><p><b>接口说明：</b></p>
+    <p>本接口可以修改您的活动单信息.</p>
+    <p>请注意，只有未成交或未完全成交的订单才可以被修改。</p></p>
+
+  account_para_cancelActive_v3: |
+    <p><p><b>接口说明：</b></p>
+    <p>所有撤销活动委托都必须填写
+    order_id或
+    order_link_id。 </p>
+    <p>order_id - 当您成功创建了活动委托时会为您返回36位唯一的订单ID。</p>
+    <p>您可以撤销未成交、部分成交的活动委托单。但全部成交的活动委托不可取消。</p></p>
+
+  account_para_queryActive_v3: |
+    <p><p><b>接口说明：</b></p>
+    <p>实时查询活动委托。</p>
+    <p>当传递参数orderId或orderLinkId其中任意一个时，将返回单条订单数据，如果参数
+    orderId和orderLinkId都不传递时，将返回所有未成交的订单，最多500条。</p>
+    <p>按照createdTime从近到远排序<p><p>
+
+  account_para_getActive_v3: |
+    <p><p><b>接口说明：</b></p>
+    <p>获取我的活动委托单列表。</p>
+    <p>创建/取消订单是异步的，因此该接口可能返回的数据可能会有延迟。如果要获取订单的实时信息，可以调用接口实时查询活动单信息。</p></p>
+
+  account_para_myPosition_v3: |
+    <p><p><b>接口说明：</b></p>
+    <p>获取我的仓位列表。通过该接口可以获取当前用户的持仓信息，如持仓数量、账户余额等信息。</p>
+    <p>如果传symbol，则无论symbol下是否有持仓，都返回该symbol下的数据。如果不传symbol，dataFilter为full ，则返回所有symbol的持仓数据。如果dataFilter为valid，则仅返回有持仓的数据。</p></p>
+
+  linear_account_para_setLeverage_v3: |
+    <p><p><b>接口说明：</b></p>
+    <p>设置杠杆</p></p>
+
+  linear_private_switchmode_v3: |
+    <p><p><b>接口说明：</b></p>
+    <p>切换止盈止损模式至全仓或部分</p>
+    <p>当设置部分止盈止损模式时，止盈或者止损的订单数量可以小于仓位大小, 请使用Trading-Stop endpoint。</p></p>
+
+  linear_private_setrisklimit_v3: |
+    <p><p><b>接口说明：</b></p>
+    <p>关于风险限额，点击这里了解更多。</p></p>
+
+  account_para_tradingStop_v3: |
+    <p><p><b>接口说明：</b></p>
+    <p>设置仓位止盈止损、追踪止损。</p>
+    <p>传递以下参数后将会由系统创建条件单。如果仓位关闭，系统将会取消这些订单，同时调整开仓的仓位数量。</p></p>
+
+  wallet_para_tradeRecords_v3: |
+    <p><p><b>接口说明：</b></p>
+    <p>获取用户成交记录，按时间降序排列。</p>
+    <p>一个订单可能有多笔成交记录。</p></p>
+
+  wallet_para_delivery_record_v3: |
+    <p><p><b>接口说明：</b></p>
+    <p>获取交割记录，按时间降序排列。</p></p>
+
+  wallet_para_settlement_record_v3: |
+    <p><p><b>接口说明：</b></p>
+    <p>Query session settlement records</p>
+    <p>Only for USDC Perpetual</p></p>
+
+  wallet_para_walletBalance_v3: |
+    <p><p><b>接口说明：</b></p>
+    <p>获取钱包余额</p></p>
+
+  wallet_para_upgradeUnifiedMarginAccount_v3: |
+    <p><p><b>接口说明：</b></p>
+    <p>升级统一保证金账户</p></p>
+
+  wallet_para_tradingHistory_v3: |
+    <p><p><b>接口说明：</b></p>
+    <p>查询交易日志</p></p>
+
+  wallet_para_transfers_v3: |
+    <p><p><b>接口说明：</b></p>
+    <p>各个账户内资金划转</p></p>
 
   # API Data Endpoints
   api: 通用數據接口
@@ -3600,6 +3912,7 @@ zh-cn:
   futuresV2: 期货v2
 
   # Derivatives V3
+
   derivativesV3: 衍生品v3
   dv_unifiedMargin: 統一保證金
   dv_contract: 合約
@@ -3621,6 +3934,26 @@ zh-cn:
   upgradeUnifiedAccount: 升級統一保證金帳戶
   queryTransactionLogs: 查詢交易日誌
   transferV2: 劃轉v2
+
+  # Derivatives V3 interface define
+  placeOrderV3: 创建委托订单
+  replaceOrderV3: 修改訂單信息
+  cancelOrderV3: 撤销委托单
+  queryOrderRealtimeV3: 实时查询委托
+  getOrderV3: 查询订单
+  mypositionV3: 获取持仓（实时）
+  setleverageV3: 修改杠杆
+  switchmodeV3: 切换止盈止损模式
+  setrisklimitV3: 设置风险限额
+  tradingstopV3: 设置止盈止损
+  userTradeRecords7DayV3: 查询7日成交记录
+  queryOptionDeliveryLogV3: 查询期权交割记录
+  querySettleLogsV3: 查询结算记录
+  balanceV3: 获取钱包余额
+  upgradeUnifiedAccountV3: 升级统一保证金账户
+  queryTransactionLogsV3: 查询交易日志
+  transferV3: 划转(V2)
+
   queryExchangeRecords: 獲取幣幣兌換紀錄
   interestBillStatement: 利息帳單
   queryLoanInterest: 查詢借貸利率

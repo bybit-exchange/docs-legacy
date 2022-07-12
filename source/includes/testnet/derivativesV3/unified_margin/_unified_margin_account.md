@@ -230,8 +230,8 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |category |<b>true</b> |string |t(:row_comment_category_v3)    |
-|symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
-|orderId |false |string |t(:row_comment__query_orderId_v3) |
+|symbol |false |string |t(:row_comment_symbol_v3)   |
+|orderId |false |string |t(:row_comment_query_orderId_v3) |
 |orderLinkId |false |string |t(:row_comment_query_orderLinkId_v3) |
 |orderFilter |false |string |t(:row_comment_orderFilter_v3)   |
 |direction |false |string |t(:row_comment_direction_v3)   |
@@ -251,7 +251,6 @@ GET
 |list> price |string |t(:row_comment_query_price_v3)  |
 |list> qty |string |t(:row_comment_query_qty_v3)  |
 |list> iv |string |t(:row_comment_query_iv_v3)  |
-|list > orderIM |string |t(:row_comment_query_orderIM_v3)  |
 |list > timeInForce |string |t(:row_comment_query_timeInForce_v3)  |
 |list > orderStatus |string |t(:row_comment_query_orderStatus_v3)  |
 |list > triggerPrice |string |t(:row_comment_query_triggerPrice_v3)  |
@@ -729,7 +728,6 @@ GET
 |:----- |:-----|----- |
 |category |string |t(:row_comment_category_v3)    |
 |list> positionIdx |string |t(:row_comment_query_positionIdx_v3)   |
-|list> isIsolated |bool |t(:row_comment_query_isIsolated_v3)   |
 |list> riskId |bool |t(:row_comment_query_riskId_v3)   |
 |list> symbol |string |t(:row_comment_symbol_v3)   |
 |list> side |string |t(:row_comment_query_side_v3)  |
@@ -1021,7 +1019,7 @@ POST
 |slTriggerBy |false |string |t(:account_row_comment_slTriggerBy_v3) |
 |activePrice |false |string |t(:account_row_comment_activePrice_v3) |
 |slSize |false |string |t(:account_row_comment_slSize_v3) |
-|tpSize |false |string |t(:account_row_comment_tpSize_v3) |
+|tpSize |false |string |t(:row_comment_tpSize_v3) |
 |positionIdx |false |string |t(:row_comment_positionIdx_v3) |
 
 
@@ -1128,7 +1126,7 @@ GET
 |list> feeRate |string |t(:row_comment_query_feeRate_v3)  |
 |list> lastLiquidityInd |string |t(:row_comment_query_lastLiquidityInd_v3)  |
 |list > leavesQty |string |t(:row_comment_query_leavesQty_v3)  |
-|list> orderId |string |t(:misc_row_comment_query_orderId_v3) |
+|list> orderId |string |t(:row_comment_query_orderId_v3) |
 |list > orderLinkId |string |t(:row_comment_query_orderLinkId_v3)  |
 |list> orderPrice |string |t(:row_comment_query_price_v3)  |
 |list> orderQty |string |t(:row_comment_query_qty_v3)  |
@@ -1403,16 +1401,16 @@ POST
 |msg |string |t(:row_comment_query_msg_v3)  |
 
 <p class="fake_header">t(:resonoferror)</p>
-|t(:column_parameter)|t(:column_comments)|
+|t(:resonoferror)|t(:comments_v3)|
 |:----- |:-----|----- |
-|There is USDC being transferred |t(:row_comment_query_ThereisUSDCbeingtransferred_v3) |
-|There is USDT being transferred |t(:row_comment_query_ThereisUSDTbeingtransferred_v3) |
-|There are USDC perpetual position holdings |t(:row_comment_query_ThereareUSDCperpetualpositionholdings_v3) |
-|There are USDC options position holdings |t(:row_comment_query_ThereareUSDCoptionspositionholdings_v3) |
-|There are USDT perpetual position holdings |t(:row_comment_query_ThereareUSDTperpetualpositionholdings_v3) |
-|There are USDC perpetual orders |t(:row_comment_query_ThereareUSDCperpetualorders_v3) |
-|There are USDC option orders |t(:row_comment_query_ThereareUSDCoptionorders_v3) |
-|There are USDT perpetual orders |t(:row_comment_query_ThereareUSDTperpetualorders_v3) |
+|t(:row_comment_query_ThereisUSDCbeingtransferred_v3_code) |t(:row_comment_query_ThereisUSDCbeingtransferred_v3) |
+|t(:row_comment_query_ThereisUSDTbeingtransferred_v3_code) |t(:row_comment_query_ThereisUSDTbeingtransferred_v3) |
+|t(:row_comment_query_ThereareUSDCperpetualpositionholdings_v3_code) |t(:row_comment_query_ThereareUSDCperpetualpositionholdings_v3) |
+|t(:row_comment_query_ThereareUSDCoptionspositionholdings_v3_code) |t(:row_comment_query_ThereareUSDCoptionspositionholdings_v3) |
+|t(:row_comment_query_ThereareUSDTperpetualpositionholdings_v3_code) |t(:row_comment_query_ThereareUSDTperpetualpositionholdings_v3) |
+|t(:row_comment_query_ThereareUSDCperpetualorders_v3_code) |t(:row_comment_query_ThereareUSDCperpetualorders_v3) |
+|t(:row_comment_query_ThereareUSDCoptionorders_v3_code) |t(:row_comment_query_ThereareUSDCoptionorders_v3) |
+|t(:row_comment_query_ThereareUSDTperpetualorders_v3_code) |t(:row_comment_query_ThereareUSDTperpetualorders_v3) |
 
 ### t(:queryTransactionLogsV3)
 t(:wallet_para_tradingHistory_v3)
