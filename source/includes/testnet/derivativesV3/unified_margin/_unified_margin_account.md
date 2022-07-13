@@ -91,7 +91,7 @@ POST
 curl 'https://api-testnet.bybit.com/unified/v3/private/order/replace' \
 -H "Content-Type: application/json" \
 -d '{
-	"api_key":"{api_key}",
+	  "api_key":"{api_key}",
     "timestamp":{timestamp},
     "sign":"{sign}",
     "category": "option",
@@ -122,7 +122,7 @@ print(session.replace_active_order(
 
 ```javascript
 {
-  "retCode": 0,
+    "retCode": 0,
     "retMsg": "OK",
     "result": {
     "orderId": "42c86d66331e41998d12c2440ce90c1a", 
@@ -240,7 +240,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl 'https://api-testnet.bybit.com/unified/v3/private/order/unfilled-orders?category=option&symbol=&orderId=&orderLinkId=&orderFilter=&cursor=&direction=&limit=10&api_key={api_key}&timestamp={timestamp}&sign={sign}'
+curl 'https://api-testnet.bybit.com/unified/v3/private/order/unfilled-orders?category=linear&symbol=&orderId=&orderLinkId=&orderFilter=&cursor=&direction=&limit=10&api_key={api_key}&timestamp={timestamp}&sign={sign}'
 ```
 
 ```python--old
@@ -309,7 +309,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api-testnet.bybit.com/unified/v3/private/order/list?category=linear&symbol=XRPUSDT&api_key={{bybit-api-key}}&timestamp={{timestamp}}&sign={{signature}}"
+curl 'https://api-testnet.bybit.com/unified/v3/private/order/list?category=linear&symbol=&orderStatus=&orderId=&orderLinkId=&orderFilter=&cursor=&direction=&limit=10&timestamp={timestamp}&sign={sign}'
 ```
 
 ```python--old
@@ -401,11 +401,34 @@ GET
 ### t(:batchPlaceOrderV3)
 
 ```console
-curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-place-orders \
--H "Content-Type: application/json" \
--D '{"orderRequest":[{"symbol":"BTC-26NOV21-58000-P","orderType":"Limit","side":"Buy","orderQty":"1","orderPrice":"1","timeInForce":"GoodTillCancel"}]}'
-
-
+curl 'https://api-testnet.bybit.com/unified/v3/private/order/create-batch' \
+-H 'Content-Type: application/json' \
+-d '{
+    "api_key":"{api_key}",
+    "timestamp":{timestamp},
+    "sign":"{sign}",
+    "category": "option",
+    "list": [
+        {
+        "symbol": "BTC-24JUN22-45000-P",
+        "orderType": "Limit",
+        "side": "Buy",
+        "qty": "0.01",
+        "price": "140",
+        "timeInForce": "GoodTillCancel",
+        "orderLinkId": "5cee727a-2af8-430e-a293-42895e594d18"
+        },
+        {
+        "symbol": "BTC-26AUG22-44000-C",
+        "orderType": "Limit",
+        "side": "Sell",
+        "qty": "0.01",
+        "price": "140",
+        "timeInForce": "GoodTillCancel",
+        "orderLinkId": "5cee727a-2af8-430e-a293-42895e594d18"
+        }
+    ]
+}'
 ```
 
 ```python
@@ -417,23 +440,33 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-place-or
 
 ```javascript
 {
-    "retCode": 0,
+    "retCode": 0, 
     "retMsg": "OK",
-    "result": [
-        {
-            "orderId": "fa6cd740-56ed-477d-9385-90ccbfee49ca",
-            "orderLinkId": "AAAAA4112",
-            "symbol": "BTC-13MAY22-40000-C",
-            "orderType": "Limit",
-            "side": "Buy",
-            "orderQty": "0.01",
-            "orderPrice": "5",
-            "extMap": {},
-            "errorCode": 0,
-            "errorDesc": ""
-        }
-    ],
-    "retExtMap": {}
+    "result": {
+    "list": [{
+      "category": "option",
+      "symbol": "BTC-24JUN22-45000-P",
+      "orderId": "",
+      "orderLinkId": "ac4e3b34-d64d-4b60-8188-438fbea4c552",
+      "createAt": "0"
+      }, {
+      "category": "option",
+      "symbol": "BTC-26AUG22-44000-C",
+      "orderId": "",
+      "orderLinkId": "5cee727a-2af8-430e-a293-42895e594d18",
+      "createAt": "0"
+      }]
+    },
+     "retExtInfo": {
+     "list": [{
+        "code": 10001,
+        "msg": "BTC-24JUN22-45000-P does not exist."
+      }, {
+        "code": 10001,
+        "msg": "Invalid order direction."
+      }]
+      },
+     "time": 1657200736570
 }
 ```
 
@@ -486,11 +519,26 @@ POST
 t(:usdcBatchReplaceOrdersDescV3)
 
 ```console
-curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-replace-orders \
--H "Content-Type: application/json" \
--D '{"replaceOrderRequest":[{"symbol":"BTC-26NOV21-58000-P","orderId":"be6c87be-da18-4876-9a64-6b7ccc859071","orderQty":"1","orderPrice":"1"}]}'
-
-
+curl 'https://api-testnet.bybit.com/unified/v3/private/order/replace-batch' \
+-H 'Content-Type: application/json' \
+-d '{
+    "api_key":"{api_key}",
+    "timestamp":{timestamp},
+    "sign":"{sign}",
+    "category": "option",
+    "list": [
+        {
+        "symbol": "BTC-24JUN22-45000-P",
+        "qty": "0.02",
+        "orderLinkId": "5cee727a-2af8-430e-a293-42895e594d18"
+        },
+        {
+        "symbol": "BTC-26AUG22-44000-C",
+        "price": "145",
+        "orderLinkId": "5cee727a-2af8-430e-a293-42895e594d18"
+        }
+    ]
+}'
 ```
 
 ```python
@@ -504,18 +552,29 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-replace-
 {
     "retCode": 0,
     "retMsg": "OK",
-    "result": [
-        {
-            "outRequestId": "",
-            "symbol": "BTC-13MAY22-40000-C",
-            "orderId": "8c65df91-91fc-461d-9b14-786379ef138c",
-            "extMap": {},
-            "errorCode": 0,
-            "errorDesc": "",
-            "orderLinkId": "AAAAA41133"
-        }
-    ],
-    "retExtMap": {}
+    "result": {
+    "list": [{
+      "category": "option",
+      "symbol": "BTC-24JUN22-45000-P",
+      "orderId": "bd5f3b34-d64d-4b60-8188-438fbea4c552",
+      "orderLinkId": "ac4e3b34-d64d-4b60-8188-438fbea4c552",
+      }, {
+      "category": "option",
+      "symbol": "BTC-26AUG22-44000-C",
+      "orderId": "4ddd727a-2af8-430e-a293-42895e594d18",
+      "orderLinkId": "5cee727a-2af8-430e-a293-42895e594d18",
+      }]
+    },
+    "retExtInfo": {
+      "list": [{
+        "code": 0,
+        "msg": "OK"
+      }, {
+        "code": 0,
+        "msg": "OK"
+      }]
+    },
+    "time": 1657200736570
 }
 ```
 
@@ -551,11 +610,24 @@ POST
 t(:usdcBatchCancelOrdersDescV3)
 
 ```console
-curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-cancel-orders \
--H "Content-Type: application/json" \
--D '{"cancelRequest":[{"symbol":"BTC-26NOV21-58000-P","orderId":"1a69653f-c3c7-40b4-a492-17316a2086a2"}]}'
-
-
+curl 'https://api-testnet.bybit.com/unified/v3/private/order/cancel-batch' \
+-H 'Content-Type: application/json' \
+-d '{
+    "api_key":"{api_key}",
+    "timestamp":{timestamp},
+    "sign":"{sign}",
+    "category": "option",
+    "list": [
+        {
+        "symbol": "BTC-24JUN22-45000-P",
+        "orderLinkId": "5cee727a-2af8-430e-a293-42895e594d18"
+        },
+        {
+        "symbol": "BTC-26AUG22-44000-C",
+        "orderLinkId": "5cee727a-2af8-430e-a293-42895e594d18"
+        }
+    ]
+}'
 ```
 
 ```python
@@ -569,23 +641,35 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-cancel-o
 {
     "retCode": 0,
     "retMsg": "OK",
-    "retExtMap": {},
-    "result": [
-        {
-            "outRequestId": "",
-            "symbol": "BTC-13MAY22-40000-C",
-            "orderId": "720b97b4-8e7c-44c9-8417-1160ed82f990",
-            "orderLinkId": "AAAAA41134",
-            "errorCode": 0,
-            "errorDesc": ""
-        }
-    ]
+    "result": {
+    "list": [{
+      "category": "option",
+      "symbol": "BTC-24JUN22-45000-P",
+      "orderId": "bd5f3b34-d64d-4b60-8188-438fbea4c552",
+      "orderLinkId": "ac4e3b34-d64d-4b60-8188-438fbea4c552",
+      }, {
+      "category": "option",
+      "symbol": "BTC-26AUG22-44000-C",
+      "orderId": "4ddd727a-2af8-430e-a293-42895e594d18",
+      "orderLinkId": "5cee727a-2af8-430e-a293-42895e594d18",
+      }]
+     },
+    "retExtInfo": {
+      "list": [{
+        "code": 0,
+        "msg": "OK"
+      }, {
+        "code": 0,
+        "msg": "OK"
+      }]
+    },
+    "time": 1657200736570
 }
 ```
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=uopvBatchCancel>/option/usdc/openapi/private/v1/batch-cancel-orders</span></code>
+<code><span id=uopvBatchCancel>/unified/v3/private/order/cancel-batch</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvBatchCancel"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -612,9 +696,15 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/v2/private/order/cancelAll \
--H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSD","timestamp":{timestamp},"sign":"{sign}"}'
+curl 'https://api-testnet.bybit.com/unified/v3/private/order/cancel-all' \
+-H 'Content-Type: application/json' \
+-d '{
+    "api_key":"{api_key}",
+    "timestamp":{timestamp},
+    "sign":"{sign}",
+    "category": "option",
+    "symbol": "BTC-24JUN22-45000-P"
+}'
 ```
 
 ```python--old
@@ -636,35 +726,31 @@ print(session.cancel_all_active_orders(
 
 ```javascript
 {
-    "ret_code": 0,      
-    "ret_msg": "OK",    
-    "ext_code": "",     
-    "ext_info": "",
-    "result": [
-        {
-            "clOrdID": "89a38056-80f1-45b2-89d3-4d8e3a203a79",  
-            "user_id": 1,                                  
-            "symbol": "BTCUSD",                                
-            "side": "Buy",                                      
-            "order_type": "Limit",                              
-            "price": "7693.5",                                  
-            "qty": 1,                                           
-            "time_in_force": "GoodTillCancel",                  
-            "create_type": "CreateByUser",                     
-            "cancel_type": "CancelByUser",                      
-            "order_status": "",                                 
-            "leaves_qty": 1,                                    
-            "leaves_value": "0",                                
-            "created_at": "2019-11-30T10:38:53.564428Z",        
-            "updated_at": "2019-11-30T10:38:59.102589Z",        
-            "cross_status": "PendingCancel",
-            "cross_seq": 387734027                              
-        }
-    ],
-    "time_now": "1575110339.105675",
-    "rate_limit_status": 98,
-    "rate_limit_reset_ms": 1580885703683,
-    "rate_limit": 100
+    "retCode": 0,
+    "retMsg": "OK",
+    "result": {
+    "list": [{
+      "category": "option",
+      "symbol": "BTC-24JUN22-45000-P",
+      "orderId": "bd5f3b34-d64d-4b60-8188-438fbea4c552",
+      "orderLinkId": "ac4e3b34-d64d-4b60-8188-438fbea4c552",
+      }, {
+      "category": "option",
+      "symbol": "BTC-24JUN22-45000-P",
+      "orderId": "4ddd727a-2af8-430e-a293-42895e594d18",
+      "orderLinkId": "5cee727a-2af8-430e-a293-42895e594d18",
+      }]
+    },
+    "retExtInfo": {
+      "list": [{
+        "code": 0,
+        "msg": "OK"
+      }, {
+        "code": 0,
+        "msg": "OK"
+      }]
+    },
+    "time": 1657200736570
 }
 ```
 
@@ -698,7 +784,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api-testnet.bybit.com/v2/private/position/list?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}&sign={sign}"
+curl 'https://api-testnet.bybit.com/unified/v3/private/position/list?category=linear&symbol=&cursor=&direction=&limit=10&timestamp={timestamp}&sign={sign}'
 ```
 
 ```python--old
@@ -772,9 +858,14 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/v2/private/position/leverage/save \
--H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSD","leverage":14,"timestamp":{timestamp},"sign":"{sign}"}'
+curl 'https://api-testnet.bybit.com/unified/v3/private/position/set-leverage' \
+-H 'Content-Type: application/json' \
+-d '{
+    "category": "linear",
+    "symbol":"BTCUSDT",
+    "buyLeverage":"5",
+    "sellLeverage":"5"
+}'
 ```
 
 ```python--old
@@ -833,6 +924,16 @@ POST
 
 > t(:codequote_curlExample)
 
+```console
+curl 'https://api-testnet.bybit.com/unified/v3/private/position/tpsl/switch-mode' \
+-H 'Content-Type: application/json' \
+-d '{
+    "category": "linear",
+    "symbol":"BCHUSDT",
+    "tpSlMode":"Partial"
+}'
+```
+
 ```python--pybit
 from pybit import HTTP
 session = HTTP("https://api-testnet.bybit.com",
@@ -885,9 +986,14 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/v2/private/position/risk-limit \
--H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSD","risk_id":2,"timestamp":{timestamp},"sign":"{sign}"}'
+curl 'https://api-testnet.bybit.com/unified/v3/private/position/set-risk-limit' \
+-H 'Content-Type: application/json' \
+-d '{
+    "category": "linear",
+    "symbol":"BTCPERP",
+    "riskId":10010,
+    "positionIdx":0
+}'
 ```
 
 ```python--pybit
@@ -941,9 +1047,21 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/v2/private/position/trading-stop \
--H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSD","stop_loss":7000,"timestamp":{timestamp},"sign":"{sign}"}'
+curl 'https://api-testnet.bybit.com/unified/v3/private/position/trading-stop' \
+-H 'Content-Type: application/json' \
+-d '{
+    "category": "linear",
+    "symbol":"BTCUSDT",
+    "takeProfit":"45000",
+    "stopLoss":"40000",
+    "tpTriggerBy":"LastPrice",
+    "slTriggerBy":"LastPrice",
+    "trailingStop":"",
+    "activePrice":"",
+    "slSize":"",
+    "tpSize":"",
+    "positionIdx":0
+}'
 ```
 
 ```python--old
@@ -1042,7 +1160,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api-testnet.bybit.com/v2/private/execution/list?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}&sign={sign}"
+curl 'https://api-testnet.bybit.com/unified/v3/private/execution/list?category=option&orderFilter=&symbol=BTC-15OCT21-30000-P&timestamp={timestamp}&sign={sign}'
 ```
 
 ```python--old
@@ -1156,9 +1274,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-delivery-list \
--H "Content-Type: application/json" \
--d '{"symbol":"BTC-22OCT21-45000-C"}'
+curl 'https://api-testnet.bybit.com/unified/v3/private/delivery-record?category=option&symbol=&expDate=&cursor=&direction=&limit=10&timestamp={timestamp}&sign={sign}'
 ```
 
 ```python
@@ -1230,10 +1346,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/session-settlement \
--H "Content-Type: application/json" \
--d '{"symbol":"BTCPERP"}'
-
+curl 'https://api-testnet.bybit.com/unified/v3/private/settlement-record?category=option&symbol=BTC-15OCT21-30000-P&timestamp={timestamp}&sign={sign}'
 ```
 
 ```python
@@ -1305,7 +1418,7 @@ t(:wallet_para)
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api-testnet.bybit.com/v2/private/wallet/balance?api_key={api_key}&coin=BTC&timestamp={timestamp}&sign={sign}"
+curl 'https://api-testnet.bybit.com/unified/v3/private/account/wallet/balance?coin=ETH&timestamp={timestamp}&sign={sign}'
 ```
 
 ```python--old
@@ -1401,7 +1514,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api-testnet.bybit.com/v2/private/wallet/balance?api_key={api_key}&coin=BTC&timestamp={timestamp}&sign={sign}"
+curl 'https://api-testnet.bybit.com/unified/v3/private/account/upgrade-unified-account&timestamp={timestamp}&sign={sign}'
 ```
 
 ```python--old
@@ -1483,6 +1596,45 @@ POST
 ### t(:queryTransactionLogsV3)
 t(:wallet_para_tradingHistory_v3)
 
+> t(:codequote_curlExample)
+
+```console
+curl 'https://api-testnet.bybit.com/unified/v3/private/account/transaction-log?category=option&type=&currency=USDC&baseCoin=&startTime=0&endTime=0&cursor=&direction=&limit=10'&timestamp={timestamp}&sign={sign}'
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "ext_info": "",
+    "result": {
+        "BTC": {
+            "equity": 1002,
+            "available_balance": 999.99987471,
+            "used_margin": 0.00012529,
+            "order_margin": 0.00012529,
+            "position_margin": 0,
+            "occ_closing_fee": 0,
+            "occ_funding_fee": 0,
+            "wallet_balance": 1000,
+            "realised_pnl": 0,
+            "unrealised_pnl": 2,
+            "cum_realised_pnl": 0,
+            "given_cash": 0,
+            "service_cash": 0
+        }
+    },
+    "time_now": "1578284274.816029",
+    "rate_limit_status": 98,
+    "rate_limit_reset_ms": 1580885703683,
+    "rate_limit": 100
+}
+```
+
+
 <p class="fake_header">t(:httprequest)</p>
 GET
 <code><span id=vpwBalance>/unified/v3/private/account/transaction-log</span></code>
@@ -1529,6 +1681,21 @@ GET
 
 ### t(:transferV3)
 t(:wallet_para_transfers_v3)
+> t(:codequote_curlExample)
+
+```console
+curl 'https://api-testnet.bybit.com/asset/v1/private/transfer?timestamp={timestamp}&sign={sign}' \
+-H 'Content-Type: application/json' \
+-d '{
+    "fromAccountType": "UNIFIED",
+    "toAccountType": "INVESTMENT",
+    "amount": "19000",
+    "coin": "USDT",
+    "transferId": "23af1256-1210-0113-915d-0010c5ad2332"
+}'
+```
+
+
 
 <p class="fake_header">t(:httprequest)</p>
 POST
