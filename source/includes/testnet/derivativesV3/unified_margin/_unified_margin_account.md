@@ -861,6 +861,9 @@ GET
 curl 'https://api-testnet.bybit.com/unified/v3/private/position/set-leverage' \
 -H 'Content-Type: application/json' \
 -d '{
+    "api_key":"{api_key}",
+    "timestamp":{timestamp},
+    "sign":"{sign}",
     "category": "linear",
     "symbol":"BTCUSDT",
     "buyLeverage":"5",
@@ -928,6 +931,9 @@ POST
 curl 'https://api-testnet.bybit.com/unified/v3/private/position/tpsl/switch-mode' \
 -H 'Content-Type: application/json' \
 -d '{
+    "api_key":"{api_key}",
+    "timestamp":{timestamp},
+    "sign":"{sign}",
     "category": "linear",
     "symbol":"BCHUSDT",
     "tpSlMode":"Partial"
@@ -989,6 +995,9 @@ POST
 curl 'https://api-testnet.bybit.com/unified/v3/private/position/set-risk-limit' \
 -H 'Content-Type: application/json' \
 -d '{
+    "api_key":"{api_key}",
+    "timestamp":{timestamp},
+    "sign":"{sign}",
     "category": "linear",
     "symbol":"BTCPERP",
     "riskId":10010,
@@ -1050,6 +1059,9 @@ POST
 curl 'https://api-testnet.bybit.com/unified/v3/private/position/trading-stop' \
 -H 'Content-Type: application/json' \
 -d '{
+    "api_key":"{api_key}",
+    "timestamp":{timestamp},
+    "sign":"{sign}",
     "category": "linear",
     "symbol":"BTCUSDT",
     "takeProfit":"45000",
@@ -1684,9 +1696,12 @@ t(:wallet_para_transfers_v3)
 > t(:codequote_curlExample)
 
 ```console
-curl 'https://api-testnet.bybit.com/asset/v1/private/transfer?timestamp={timestamp}&sign={sign}' \
+curl 'https://api-testnet.bybit.com/asset/v1/private/transfer' \
 -H 'Content-Type: application/json' \
 -d '{
+    "api_key":"{api_key}",
+    "timestamp":{timestamp},
+    "sign":"{sign}",
     "fromAccountType": "UNIFIED",
     "toAccountType": "INVESTMENT",
     "amount": "19000",
