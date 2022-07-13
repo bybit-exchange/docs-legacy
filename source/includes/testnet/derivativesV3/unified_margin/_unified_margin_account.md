@@ -448,13 +448,13 @@ curl 'https://api-testnet.bybit.com/unified/v3/private/order/create-batch' \
       "symbol": "BTC-24JUN22-45000-P",
       "orderId": "",
       "orderLinkId": "ac4e3b34-d64d-4b60-8188-438fbea4c552",
-      "createAt": "0"
+      "createAt": 0
       }, {
       "category": "option",
       "symbol": "BTC-26AUG22-44000-C",
       "orderId": "",
       "orderLinkId": "5cee727a-2af8-430e-a293-42895e594d18",
-      "createAt": "0"
+      "createAt": 0
       }]
     },
      "retExtInfo": {
