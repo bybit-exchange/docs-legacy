@@ -371,6 +371,13 @@ zh-cn:
 
 
   # 统保下面v3接口字段定义区间开始
+  row_comment_settleCoin_v3: category=option时，本参数无效
+  row_comment_cancelAll_baseCoin_v3: |
+    <p>资产币种</p>
+    <p>- 不传入，则撤销所有baseCoin的全部active orders</p>
+    <p>- 若只传入baseCoin，未传入symbol，则撤销所有传入baseCoin下的全部active orders</p>
+    <p>- 若传入了symbol，则忽略baseCoin，只撤销该symbol下的全部active orders</p>
+  row_comment_cancelAll_orderFilter_v3: 条件单或是活动单。仅期货有效，期权下该参数无效。
 
   row_parameter_side: <a href="#side-side">side</a>
   row_parameter_quantity: <a href="#quantity-qty">qty</a>
@@ -431,6 +438,7 @@ zh-cn:
   row_comment_startTime_v3: 开始时间戳（毫秒）
   row_comment_endTime_v3: 结束时间戳（毫秒）
 
+  row_comment_createAt_response_v3: 创建时间
 
   # 统保查询字段定义
   row_comment_query_orderId_v3: 订单 ID
@@ -1100,6 +1108,14 @@ zh-cn:
     <p>获取我的活动委托单列表。</p>
     <p>创建/取消订单是异步的，因此该接口可能返回的数据可能会有延迟。如果要获取订单的实时信息，可以调用接口实时查询活动单信息。</p></p>
 
+  usdcBatchOrdersDescV3: |
+    <p><p><b>接口说明：</b></p>
+    <p>本API提供了交易保证金账户下的合约批量下单模式。</p>
+    <p>下单时需保证账户内有足够的资金。一旦下单，根据订单所需资金，您的账户资金将在订单生命周期内冻结相应额度，被冻结的资金额度取决于订单指定的参数。</p>
+    <p>同一个请求中只能包含同一种合约的订单，期权、期货不可同时下单。仅支持Limit / Market order，不支持条件单。</p>
+    <p>如果期货和期权的订单都在一个请求里 ，则根据category的类型，仅会操作symbol与category相匹配的订单。</p>
+    <p>每个请求包含的订单数最大10笔订单。</p></p>
+
   account_para_myPosition_v3: |
     <p><p><b>接口说明：</b></p>
     <p>获取我的仓位列表。通过该接口可以获取当前用户的持仓信息，如持仓数量、账户余额等信息。</p>
@@ -1164,6 +1180,20 @@ zh-cn:
   wallet_para_queryLoanInterest_v3: |
     <p><p><b>接口说明：</b></p>
     <p>获取当前统一保证金账户的借贷利率。</p></p>
+
+  usdcBatchReplaceOrdersDescV3: |
+    <p><p><b>接口说明：</b></p>
+    <p>本接口可以批量修改活动单信息. 暂时不支持修改条件单信息。</p>
+    <p>请注意，只有未成交或未完全成交的订单才可以被修改。</p>
+    <p>如果期货和期权的订单都在一个请求里，则根据category的类型，仅会操作与category相匹配的订单</p></p>
+
+  usdcBatchCancelOrdersDescV3: |
+    <p><p><b>接口说明：</b></p>
+    <p>本API提供了交易统一保证金账户下的批量撤销订单，期货和期权的订单撤销无法同时在一次请求里同时撤单。如果期货和期权的订单都在一个请求里，则根据category的类型，仅会操作与category相匹配的订单。</p></p>
+
+  account_para_cancelAllActive_v3: |
+    <p><p><b>接口说明：</b></p>
+    <p>本API提供了交易统一保证金账户下的撤销全部活动委托单，期货和期权的订单撤销无法同时在一次请求里同时撤单。如果期货和期权的订单都在一个请求里，则根据category的类型，仅会操作与category相匹配的订单。</p></p>
 
 
   # API Data Endpoints
@@ -3990,6 +4020,10 @@ zh-cn:
   interestBillStatementV3: 利息帳單
   queryLoanInterestV3: 借贷利率查询
 
+  batchPlaceOrderV3: 批量创建订单
+  batchReplaceOrdersV3: 批量修改订单信息
+  batchCancelOrdersV3: 批量撤销订单
+  cancelAllOrdersV3: 撤销全部订单
 
 
   queryExchangeRecords: 獲取幣幣兌換紀錄

@@ -398,9 +398,7 @@ GET
 |list > closeOnTrigger |bool |t(:row_comment_query_closeOnTrigger_v3)  |
 |nextPageCursor |string |t(:row_comment_query_nextPageCursor_v3)  |
 
-### t(:batchPlaceOrder)
-
-t(:usdcBatchOrdersDesc)
+### t(:batchPlaceOrderV3)
 
 ```console
 curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-place-orders \
@@ -439,49 +437,53 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-place-or
 }
 ```
 
+t(:usdcBatchOrdersDescV3)
+
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=uopvBatchPlace>/option/usdc/openapi/private/v1/batch-place-orders</span></code>
+<code><span id=uopvBatchPlace>/unified/v3/private/order/create-batch</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvBatchPlace"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|orderRequest|<b>true</b>|list|t(:usdcList)|
-
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |<b>true</b>|string|t(:usdcSymbol)|
-|orderType|<b>true</b>|string|t(:usdcOptionOrderType)|
-|t(:row_parameter_side) |<b>true</b>|string|t(:side)|
-|orderPrice|false|string|t(:usdcOptionPlaceOrderPrice)|
-|orderQty|<b>true</b>|string|t(:usdcOrderQty)|
-|iv|false|string|t(:optionIv_order)|
-|t(:row_parameter_timeInForce)|false|string|t(:row_comment_timeInForce)|
-|orderLinkId|<b>true</b>|string|t(:orderLinkId)|
-|reduceOnly|false|bool|t(:reduceOnly)|
-|mmp|false|string|t(:mmp)|
+|category |<b>true</b> |string |t(:row_comment_category_v3)    |
+|list> symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
+|list> t(:row_parameter_side) |<b>true</b> |string |t(:row_comment_side_v3)    |
+|list> positionIdx |false |string |t(:row_comment_positionIdx_v3)   |
+|list> <a href="#order-type-order_type">orderType</a> |<b>true</b> |string |t(:row_comment_orderType_v3)   |
+|list> t(:row_parameter_quantity) |<b>true</b> |string |t(:row_comment_qty_v3) |
+|list> t(:row_parameter_price) |false |string |t(:row_comment_resp_price) |
+|list> triggerSide |false |number |t(:row_comment_triggerSide) |
+|list> triggerPrice |false |string |t(:row_comment_triggerPrice) |
+|list> <a href="#trigger-price-type-trigger_by">triggerBy</a> |false |string |t(:row_comment_triggerBy_v3) |
+|list> iv |false |string |t(:row_comment_iv_v3) |
+|list> <a href="#time-in-force-time_in_force">timeInForce</a> |<b>true</b> |string |t(:row_comment_timeInForce_v3) |
+|list> orderLinkId |false |string |t(:row_comment_orderLinkId_v3) |
+|list> takeProfit |false |number |t(:row_comment_takeProfit_v3) |
+|list> stopLoss |false |number |t(:row_comment_stopLoss_v3) |
+|list> tpTriggerBy |false |string |t(:account_row_comment_tp_trigger_by_v3) |
+|list> slTriggerBy |false |string |t(:account_row_comment_sl_trigger_by_v3) |
+|list> reduceOnly |false |bool |t(:row_comment_reduceOnly_v3) |
+|list> closeOnTrigger |false |bool |t(:row_comment_closeOnTrigger_v3) |
+|list> mmp |false |bool |t(:row_comment_mmp_v3) |
 
 
 <p class="fake_header">t(:responseparameters)</p>
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|orderId|string|t(:usdcOrderId)|
-|orderLinkId|string|t(:orderLinkId)
-|t(:row_parameter_symbol) |string|t(:usdcSymbol)|
-|orderPrice|string|t(:usdcOrderPrice)|
-|orderQty|string|t(:usdcOrderQty)|
-|orderType|string|t(:uscdOrderType)|
-|t(:row_parameter_side) |string|t(:side)|
-|extMap |map|t(:usdcExtMap)|
-|errorCode |string|t(:usdcErrorCode)|
-|errorDesc |string|t(:usdcErrorDesc)|
+|list> category |string |t(:row_comment_category_v3) |
+|list> symbol |string |t(:row_comment_symbol_v3) |
+|list> orderId |string |t(:row_comment_query_orderId_v3) |
+|list> orderLinkId |string |t(:row_comment_orderLinkId_response_v3) |
+|list> createAt |number |t(:row_comment_createAt_response_v3) |
 
-### t(:batchReplaceOrders)
 
-t(:usdcBatchOrdersDesc)
+### t(:batchReplaceOrdersV3)
+
+t(:usdcBatchReplaceOrdersDescV3)
 
 ```console
 curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-replace-orders \
@@ -519,39 +521,34 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-replace-
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=uopvBatchReplace>/option/usdc/openapi/private/v1/batch-replace-orders</span></code>
+<code><span id=uopvBatchReplace>/unified/v3/private/order/replace-batch</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvBatchReplace"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|replaceOrderRequest|<b>true</b>|list|t(:usdcList)|
-
-
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |<b>true</b>|string|t(:usdcSymbol)|
-|orderId|false|string|t(:usdcOrderLinkId)|
-|orderLinkId|false|string|t(:usdcOrderLinkId)|
-|orderPrice|false|string|t(:usdcOrderPrice)|
-|orderQty|false|string|t(:usdcOrderQty)|
-|iv|false|string|t(:optionIv)|
+|category |<b>true</b> |string |t(:row_comment_category_v3)    |
+|list> symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
+|list> orderId |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
+|list> orderLinkId |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
+|list> iv |false |string |t(:row_comment_iv_v3) |
+|list> t(:row_parameter_quantity) |false |string |t(:row_comment_qty_replace_v3) |
+|list> t(:row_parameter_price) |false |string |t(:row_comment_price_replace_v3) |
 
 
 <p class="fake_header">t(:responseparameters)</p>
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|outRequestId|string|t(:outRequestId)|
-|symbol|string|t(:usdcSymbol)|
-|orderId|string|t(:usdcOrderId)|
-|orderLinkId|string|t(:orderLinkId)|
-|extMap |map|t(:usdcExtMap)|
-|errorCode |string|t(:usdcErrorCode)|
-|errorDesc |string|t(:usdcErrorDesc)|
+|list> category |string |t(:row_comment_category_v3) |
+|list> symbol |string |t(:row_comment_symbol_v3) |
+|list> orderId |string |t(:row_comment_query_orderId_v3) |
+|list> orderLinkId |string |t(:row_comment_orderLinkId_response_v3) |
 
-### t(:batchCancelOrders)
+### t(:batchCancelOrdersV3)
+
+t(:usdcBatchCancelOrdersDescV3)
 
 ```console
 curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/batch-cancel-orders \
@@ -595,28 +592,23 @@ POST
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|cancelRequest|<b>true</b>|list|t(:usdcList)|
-
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |<b>true</b>|string|t(:usdcSymbol)|
-|orderId|false|string|t(:usdcOrderLinkId)|
-|orderLinkId|false|string|t(:usdcOrderLinkId)|
+|category |<b>true</b> |string |t(:row_comment_category_v3)    |
+|list> symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
+|list> orderId |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
+|list> orderLinkId |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
 
 
 <p class="fake_header">t(:responseparameters)</p>
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|outRequestId|string|t(:outRequestId)|
-|symbol|string|t(:usdcSymbol)|
-|orderId|string|t(:usdcOrderId)|
-|orderLinkId|string|t(:orderLinkId)|
-|errorCode |string|t(:usdcErrorCode)|
-|errorDesc |string|t(:usdcErrorDesc)|
+|list> category |string |t(:row_comment_category_v3) |
+|list> symbol |string |t(:row_comment_symbol_v3) |
+|list> orderId |string |t(:row_comment_query_orderId_v3) |
+|list> orderLinkId |string |t(:row_comment_orderLinkId_response_v3) |
 
 
-### t(:cancelAllOrders)
+### t(:cancelAllOrdersV3)
 > t(:codequote_curlExample)
 
 ```console
@@ -676,43 +668,29 @@ print(session.cancel_all_active_orders(
 }
 ```
 
-t(:account_para_cancelAllActive)
-
-<aside class="notice">
-t(:account_aside_cancelAllActive)
-</aside>
+t(:account_para_cancelAllActive_v3)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCancelAll>/v2/private/order/cancelAll</span></code>
+<code><span id=vpoCancelAll>/unified/v3/private/order/cancel-all</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancelAll"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |<b>true</b> |string | t(:row_comment_symbol) |
-
+|category |<b>true</b> |string |t(:row_comment_category_v3)    |
+|baseCoin |false |string |t(:row_comment_cancelAll_baseCoin_v3)   |
+|settleCoin |false |string |t(:row_comment_settleCoin_v3) |
+|symbol |false |string |t(:row_comment_symbol_v3) |
+|orderFilter |false |string |t(:row_comment_cancelAll_orderFilter_v3) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|clOrdID |string |t(:row_comment_clOrdID)  |
-|user_id |number |t(:row_comment_userID)  |
-|t(:row_parameter_symbol) |string |t(:row_comment_symbol)    |
-|t(:row_parameter_side) |string |t(:row_comment_side)  |
-|t(:row_parameter_order_type) |string |t(:row_comment_order_type)  |
-|t(:row_parameter_price) |number |t(:row_comment_resp_price)  |
-|qty |number |t(:row_response_comment_qty)  |
-|t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce) |
-|create_type |string |t(:row_comment_create_type)  |
-|cancel_type |string |t(:row_comment_cancel_type)  |
-|t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
-|leaves_qty |number |t(:row_comment_leaves_qty)  |
-|leaves_value |number |t(:row_comment_leaves_value)  |
-|created_at |string |t(:row_comment_created_at)  |
-|updated_at |string |t(:row_comment_updated_at)  |
-|cross_status |string |t(:row_comment_cross_status)  |
-|cross_seq |number |t(:row_comment_cross_seq)  |
+|list> category |string |t(:row_comment_category_v3) |
+|list> symbol |string |t(:row_comment_symbol_v3) |
+|list> orderId |string |t(:row_comment_query_orderId_v3) |
+|list> orderLinkId |string |t(:row_comment_orderLinkId_response_v3) |
 
 
 ## t(:position)
