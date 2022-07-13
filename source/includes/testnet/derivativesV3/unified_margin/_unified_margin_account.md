@@ -6,10 +6,21 @@ t(:unified_margin_account_para)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/derivatives/unified/v3/private/order/create \
-{
-  }
-
+curl 'https://api-testnet.bybit.com/unified/v3/private/order/create' \
+-H "Content-Type: application/json" \
+-d '{
+  "api_key":"{api_key}",
+  "timestamp":{timestamp},
+  "sign":"{sign}",
+  "category": "option",
+  "symbol": "BTC-20MAR22-32000-P",
+  "orderType": "Limit",
+  "side": "Buy",
+  "qty": "0.01",
+  "price": "140",
+  "timeInForce": "GoodTillCancel",
+  "orderLinkId": "e80d558e-ed"
+}'
 ```
 
 ```python--old
@@ -24,7 +35,14 @@ curl https://api-testnet.bybit.com/derivatives/unified/v3/private/order/create \
 > t(:codequote_responseExample)
 
 ```javascript
-
+{
+    "retCode": 0,
+    "retMsg": "OK",
+    "result": {
+        "orderId": "42c86d66331e41998d12c2440ce90c1a",
+        "orderLinkId": "e80d558e-ed"
+    }
+}
 ```
 
 t(:account_para_placeActive_v3)
@@ -70,9 +88,18 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/v2/private/order/replace \
+curl 'https://api-testnet.bybit.com/unified/v3/private/order/replace' \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSD","order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
+-d '{
+	"api_key":"{api_key}",
+    "timestamp":{timestamp},
+    "sign":"{sign}",
+    "category": "option",
+    "symbol":"BTC-20MAR22-32000-P",
+    "orderLinkId": "e80d558e-ed"
+    "price":"45000",
+    "qty":"0.03"
+}'
 ```
 
 ```python--old
@@ -95,16 +122,12 @@ print(session.replace_active_order(
 
 ```javascript
 {
-    "ret_code": 0,
-    "ret_msg": "ok",
-    "ext_code": "",
+  "retCode": 0,
+    "retMsg": "OK",
     "result": {
-        "order_id": "efa44157-c355-4a98-b6d6-1d846a936b93"
-    },
-    "time_now": "1539778407.210858",
-    "rate_limit_status": 99,
-    "rate_limit_reset_ms": 1580885703683,
-    "rate_limit": 100             
+    "orderId": "42c86d66331e41998d12c2440ce90c1a", 
+    "orderLinkId": "e80d558e-ed"
+  }
 }
 ```
 
@@ -145,9 +168,16 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/v2/private/order/cancel \
+curl 'https://api-testnet.bybit.com/unified/v3/private/order/cancel' \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSD","order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
+-d '{
+  "api_key":"{api_key}",
+  "timestamp":{timestamp},
+  "sign":"{sign}",
+  "category": "option",
+  "orderLinkId": "e80d558e-ed",
+  "symbol": "BTC-18MAR22-25000-C"
+}'
 ```
 
 ```python--old
@@ -170,7 +200,14 @@ print(session.cancel_active_order(
 > t(:codequote_responseExample)
 
 ```javascript
-
+{
+    "retCode": 0,
+    "retMsg": "OK",
+    "result": {
+        "orderId": "42c86d66331e41998d12c2440ce90c1a",
+        "orderLinkId": "e80d558e-ed"
+    }
+}
 ```
 
 t(:account_para_cancelActive_v3)
@@ -203,7 +240,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api-testnet.bybit.com/v2/private/order?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}order_id={order_id}&sign={sign}"
+curl 'https://api-testnet.bybit.com/unified/v3/private/order/unfilled-orders?category=option&symbol=&orderId=&orderLinkId=&orderFilter=&cursor=&direction=&limit=10&api_key={api_key}&timestamp={timestamp}&sign={sign}'
 ```
 
 ```python--old
@@ -798,7 +835,7 @@ t(:linear_account_para_setLeverage_v3)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=ulSaveNew>/unified/v3/private/position/leverage/save</span></code>
+<code><span id=ulSaveNew>/unified/v3/private/position/set-leverage</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ulSaveNew"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -1382,6 +1419,59 @@ POST
 
 
 ### t(:upgradeUnifiedAccountV3)
+
+> t(:codequote_curlExample)
+
+```console
+curl "https://api-testnet.bybit.com/v2/private/wallet/balance?api_key={api_key}&coin=BTC&timestamp={timestamp}&sign={sign}"
+```
+
+```python--old
+import bybit
+client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+print(client.Wallet.Wallet_getBalance(coin="BTC").result())
+```
+
+```python--pybit
+from pybit import HTTP
+session = HTTP("https://api-testnet.bybit.com",
+               api_key="", api_secret="")
+print(session.get_wallet_balance(coin="BTC"))
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "ext_info": "",
+    "result": {
+        "BTC": {
+            "equity": 1002,
+            "available_balance": 999.99987471,
+            "used_margin": 0.00012529,
+            "order_margin": 0.00012529,
+            "position_margin": 0,
+            "occ_closing_fee": 0,
+            "occ_funding_fee": 0,
+            "wallet_balance": 1000,
+            "realised_pnl": 0,
+            "unrealised_pnl": 2,
+            "cum_realised_pnl": 0,
+            "given_cash": 0,
+            "service_cash": 0
+        }
+    },
+    "time_now": "1578284274.816029",
+    "rate_limit_status": 98,
+    "rate_limit_reset_ms": 1580885703683,
+    "rate_limit": 100
+}
+```
+
+
 t(:wallet_para_upgradeUnifiedMarginAccount_v3)
 
 
@@ -1483,7 +1573,7 @@ POST
 |transfer_id |string |t(:row_comment_query_transfer_id_v3)    |
 
 
-### t(:queryExchangeRecords)
+### t(:queryExchangeRecordsV3)
 > t(:codequote_curlExample)
 
 ```console
@@ -1535,7 +1625,7 @@ print(session.asset_exchange_records())
 
 ```
 
-t(:wallet_para_assetexchangerecords)
+t(:wallet_para_assetexchangerecords_v3)
 
 
 <p class="fake_header">t(:httprequest)</p>
@@ -1561,12 +1651,9 @@ GET
 |list > createdAt |string |t(:row_comment_query_createdAt_v3)  |
 |list > exchangeTxId |string |t(:row_comment_query_exchangeTxId_v3)  |
 
-### t(:interestBillStatement)
-t(:wallet_para_interestBillStatement)
+### t(:interestBillStatementV3)
+t(:wallet_para_interestBillStatement_v3)
 
-<aside class="notice">
-t(:wallet_para_interestBillStatement)
-</aside>
 
 <p class="fake_header">t(:httprequest)</p>
 GET
@@ -1578,11 +1665,10 @@ GET
 |:----- |:-------|:-----|----- |
 |currency |<b>false</b> |string |t(:row_comment_currency_v3)   |
 |startTime |<b>false</b> |number |t(:row_comment_startTime_v3)   |
-|endTime |<b>false</b> |string |t(:row_comment_endTime_v3)   |
+|endTime |<b>false</b> |number |t(:row_comment_endTime_v3)   |
 |direction |<b>false</b> |string |t(:row_comment_direction_v3)   |
 |limit |<b>false</b> |number |t(:row_comment_limit_v3)   |
 |cursor |<b>false</b> |string |t(:row_comment_cursor_v3)   |
-
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -1594,16 +1680,9 @@ GET
 |list> borrowSize |string |t(:row_comment_query_borrowSize_v3)  |
 |list> costExemption |string |t(:row_comment_query_costExemption_v3)  |
 
+### t(:queryLoanInterestV3)
 
-
-# 借贷利率查询
-### t(:queryLoanInterest)
-
-t(:wallet_para_queryLoanInterest)
-
-<aside class="notice">
-t(:wallet_para_queryLoanInterest)
-</aside>
+t(:wallet_para_queryLoanInterest_v3)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
@@ -1614,7 +1693,6 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |currency |<b>false</b> |string |t(:row_comment_currency_v3)   |
-
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|

@@ -588,6 +588,25 @@ zh-cn:
   resonoferror: 错误原因
   comments_v3: Comment
 
+  row_comment_fromCoin_v3: 兑出币种，比如 BTC
+  row_comment_toCoin_v3: 兑入币种，比如 USDT
+  row_comment_query_totalCount_v3: 返回数据总和
+  row_comment_query_fromCoin_v3: 兑出的币种
+  row_comment_query_fromAmount_v3: 兑出数量/金额
+  row_comment_query_toCoin_v3: 兑入币种
+  row_comment_query_toAmount_v3: 兑入数量/金额
+  row_comment_query_exchangeRate_v3: 兑换的汇率
+  row_comment_query_createdAt_v3: 兑换记录创建时间
+  row_comment_query_exchangeTxId_v3: 兑换订单号
+
+  row_comment_query_borrowCost_v3: 利息
+  row_comment_query_borrowSize_v3: 计息借款
+  row_comment_query_costExemption_v3: 豁免计息成本
+
+  row_comment_query_hourlyBorrowRate_v3: 每小时借款利率
+  row_comment_query_maxBorrowingAmount_v3: 最大可借贷额度
+  row_comment_query_freeBorrowingAmount_v3: 免息借贷额度
+
   # 统保下面v3接口字段定义区间结束
 
 
@@ -1043,6 +1062,7 @@ zh-cn:
   account_para_setRisk: 設置風險限額。
 
 
+  ## 统保
   account_para_placeActive_v3: |
     <p><p><b>接口说明：</b></p>
     <p>市价活动委托: 一个传统的市场价格订单,会以当前的最优价格为您成交订单。当且仅当选择市价单时，
@@ -1119,19 +1139,32 @@ zh-cn:
 
   wallet_para_walletBalance_v3: |
     <p><p><b>接口说明：</b></p>
-    <p>获取钱包余额</p></p>
+    <p>获取钱包余额。</p></p>
 
   wallet_para_upgradeUnifiedMarginAccount_v3: |
     <p><p><b>接口说明：</b></p>
-    <p>升级统一保证金账户</p></p>
+    <p>升级统一保证金账户。</p></p>
 
   wallet_para_tradingHistory_v3: |
     <p><p><b>接口说明：</b></p>
-    <p>查询交易日志</p></p>
+    <p>查询交易日志。</p></p>
 
   wallet_para_transfers_v3: |
     <p><p><b>接口说明：</b></p>
-    <p>各个账户内资金划转</p></p>
+    <p>各个账户内资金划转。</p></p>
+
+  wallet_para_assetexchangerecords_v3: |
+    <p><p><b>接口说明：</b></p>
+    <p>获取当前统一保证金账户的币币兑换记录，兑换记录查询（全量）, 不支持分页。只能查询最近 500 条。按照创建时间倒序排序。</p></p>
+
+  wallet_para_interestBillStatement_v3: |
+    <p><p><b>接口说明：</b></p>
+    <p>获取利息记录，按照创建时间倒叙排列。</p></p>
+
+  wallet_para_queryLoanInterest_v3: |
+    <p><p><b>接口说明：</b></p>
+    <p>获取当前统一保证金账户的借贷利率。</p></p>
+
 
   # API Data Endpoints
   api: 通用數據接口
@@ -3935,7 +3968,7 @@ zh-cn:
   queryTransactionLogs: 查詢交易日誌
   transferV2: 劃轉v2
 
-  # Derivatives V3 interface define
+  # 统保 Derivatives V3 interface define
   placeOrderV3: 创建委托订单
   replaceOrderV3: 修改訂單信息
   cancelOrderV3: 撤销委托单
@@ -3953,6 +3986,11 @@ zh-cn:
   upgradeUnifiedAccountV3: 升级统一保证金账户
   queryTransactionLogsV3: 查询交易日志
   transferV3: 划转(V2)
+  queryExchangeRecordsV3: 獲取幣幣兌換紀錄查询
+  interestBillStatementV3: 利息帳單
+  queryLoanInterestV3: 借贷利率查询
+
+
 
   queryExchangeRecords: 獲取幣幣兌換紀錄
   interestBillStatement: 利息帳單
