@@ -1737,7 +1737,8 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api-testnet.bybit.com/v2/private/exchange-order/list?api_key={api_key}&timestamp={timestamp}&sign={sign}"
+
+curl 'https://api-testnet.bybit.com/asset/v2/private/exchange/exchange-order-all?fromCoin=BTC&toCoin=ETH&api_key={api_key}&timestamp={timestamp}&sign={sign}'
 ```
 
 ```python--pybit
@@ -1751,36 +1752,29 @@ print(session.asset_exchange_records())
 
 ```javascript
 {
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
-    "ext_info": "",
-    "result": [
-        {
-            "id": 31,
-            "exchange_rate": 40.57202774,
-            "from_coin": "BTC",
-            "to_coin": "ETH",
-            "to_amount": 4.05720277,
-            "from_fee": 0.0005,
-            "from_amount": 0.1,
-            "created_at": "2020-06-15 03:32:52"
-        },
-        {
-            "id": 30,
-            "exchange_rate": 39.92359901,
-            "from_coin": "BTC",
-            "to_coin": "ETH",
-            "to_amount": 39.923599,
-            "from_fee": 0.0005,
-            "from_amount": 1,
-            "created_at": "2020-06-12 08:27:51"
-        }
-    ],
-    "time_now": "1592554785.486414",
-    "rate_limit_status": 119,
-    "rate_limit_reset_ms": 1592554785484,
-    "rate_limit": 120
+    "retCode": 0,
+    "retMsg": "OK",
+    "totalCount" 2,
+    "list": [
+    {
+      "exchangeTxId": "7ad50cb1-9ad0-4f74-804b-d82a516e1029",
+      "exchangeRate": "40.57202774",
+      "fromCoin": "BTC",
+      "fromAmount": "0.1",
+      "toCoin": "ETH",
+      "toAmount": "4.05720277",
+      "createdAt": "2020-06-15 03:32:52"
+    },
+    {
+      "exchangeTxId": "8be60cb1-9ad0-4f74-804b-d82a516e1029",
+      "exchangeRate": "39.92359901",
+      "fromCoin": "BTC",
+      "toCoin": "ETH",
+      "toAmount": "39.923599",
+      "fromAmount": "1",
+      "createdAt": "2020-06-12 08:27:51"
+     }
+    ]
 }
 
 ```
@@ -1812,6 +1806,53 @@ GET
 |list > exchangeTxId |string |t(:row_comment_query_exchangeTxId_v3)  |
 
 ### t(:interestBillStatementV3)
+> t(:codequote_curlExample)
+
+```console
+curl 'https://api-testnet.bybit.com/unified/v3/private/account/borrow-history?currency=&startTime=&endTime=&direction=&limit=2&cursor=&api_key={api_key}&timestamp={timestamp}&sign={sign}'
+```
+
+```python--pybit
+from pybit import HTTP
+session = HTTP("https://api-testnet.bybit.com",
+               api_key="", api_secret="")
+print(session.asset_exchange_records())
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+
+{
+  "retCode": 0,
+  "retMsg": "Success",
+  "result": {
+  "nextPageCursor": "540%3A0%2C539%3A0",
+    "currency": null,
+    "list": [
+    {
+      "createTime": 1657713900286,
+      "costExemption": "0.00000000",
+      "InterestBearingBorrowSize": "3073.3902403",
+      "currency": "USDT",
+      "hourlyBorrowRate": "0.000003630137",
+      "borrowCost": "0.01115682"
+    },
+    {
+      "createTime": 1657710300225,
+      "costExemption": "0.00000000",
+      "InterestBearingBorrowSize": "3088.3130293",
+      "currency": "USDT",
+      "hourlyBorrowRate": "0.000003630137",
+      "borrowCost": "0.01121099"
+    }
+   ]
+  },
+  "time": 1657714596804
+}
+
+```
+
 t(:wallet_para_interestBillStatement_v3)
 
 
@@ -1841,6 +1882,47 @@ GET
 |list> costExemption |string |t(:row_comment_query_costExemption_v3)  |
 
 ### t(:queryLoanInterestV3)
+> t(:codequote_curlExample)
+
+```console
+curl 'https://api-testnet.bybit.com/unified/v3/private/account/borrow-rate?currency=USDC%2CUSDT&api_key={api_key}&timestamp={timestamp}&sign={sign}'
+```
+
+```python--pybit
+from pybit import HTTP
+session = HTTP("https://api-testnet.bybit.com",
+               api_key="", api_secret="")
+print(session.asset_exchange_records())
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+
+{
+  "retCode": 0,
+  "retMsg": "Success",
+  "result": {
+  "list": [
+    {
+      "freeBorrowingAmount": "2000.0",
+      "currency": "USDT",
+      "maxBorrowingAmount": "10000.0",
+      "hourlyBorrowRate": "0.000003630137"
+    },
+    {
+      "freeBorrowingAmount": "2000.0",
+      "currency": "USDC",
+      "maxBorrowingAmount": "10000.0",
+      "hourlyBorrowRate": "0.000003630137"
+    }
+   ]
+  },
+  "time": 1657714557086
+}
+
+```
+
 
 t(:wallet_para_queryLoanInterest_v3)
 
