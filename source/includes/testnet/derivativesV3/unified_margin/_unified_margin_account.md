@@ -240,7 +240,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl 'https://api-testnet.bybit.com/unified/v3/private/order/unfilled-orders?category=linear&symbol=&orderId=&orderLinkId=&orderFilter=&cursor=&direction=&limit=10&api_key={api_key}&timestamp={timestamp}&sign={sign}'
+curl 'https://api-testnet.bybit.com/unified/v3/private/order/unfilled-orders?category=option&symbol=&orderId=&orderLinkId=&orderFilter=&cursor=&direction=&limit=10&api_key={api_key}&timestamp={timestamp}&sign={sign}'
 ```
 
 ```python--old
@@ -254,6 +254,36 @@ curl 'https://api-testnet.bybit.com/unified/v3/private/order/unfilled-orders?cat
 > t(:codequote_responseExample)
 
 ```javascript
+
+{
+    "retCode": 0,
+    "retMsg": "Success",
+    "result": {
+        "nextPageCursor": "ddd0ec73-eb66-40b7-8fb3-0438dbc3f98d%3A1657714143666%2Cddd0ec73-eb66-40b7-8fb3-0438dbc3f98d%3A1657714143666",
+        "category": "option",
+        "list": [
+            {
+                "symbol": "BTC-14JUL22-17500-C",
+                "orderType": "Limit",
+                "updatedTime": 1657714143680,
+                "side": "Buy",
+                "orderLinkId": "188889689-yuanzhen-551998998898",
+                "orderId": "ddd0ec73-eb66-40b7-8fb3-0438dbc3f98d",
+                "orderStatus": "New",
+                "iv": "0.00000000",
+                "blockTradeId": "",
+                "reduceOnly": false,
+                "price": "1360.00000000",
+                "qty": "0.0200",
+                "createdTime": 1657714143666,
+                "timeInForce": "GoodTillCancel",
+                "orderIM": "27.31897412",
+                "basePrice": ""
+            }
+        ]
+    },
+    "time": 1657714155151
+}
 
 ```
 t(:account_para_queryActive_v3)
@@ -333,14 +363,50 @@ print(session.get_active_order(
 > t(:codequote_responseExample)
 
 ```javascript
+
 {
-  "ret_code": 10017,
-    "ret_msg": "path not fund, please check request path and method",
-    "ext_code": "",
-    "result": null,
-    "ext_info": null,
-    "time_now": "1654160527.252875"
+  "retCode": 0,
+  "retMsg": "Success",
+  "result": {
+  "nextPageCursor": "7d17d359-4e38-4d3a-9a31-29791ef2dfd7%3A1657711949928%2C7d17d359-4e38-4d3a-9a31-29791ef2dfd7%3A1657711949928",
+    "category": "linear",
+    "list": [
+    {
+      "symbol": "ETHUSDT",
+      "orderType": "Market",
+      "orderLinkId": "",
+      "orderId": "7d17d359-4e38-4d3a-9a31-29791ef2dfd7",
+      "stopOrderType": "UNKNOWN",
+      "orderStatus": "Filled",
+      "takeProfit": "",
+      "cumExecValue": "536.92500000",
+      "blockTradeId": "",
+      "rejectReason": "EC_NoError",
+      "price": "1127.10000000",
+      "createdTime": 1657711949928,
+      "tpTriggerBy": "UNKNOWN",
+      "timeInForce": "ImmediateOrCancel",
+      "basePrice": "",
+      "leavesValue": "0.00000000",
+      "updatedTime": 1657711949945,
+      "side": "Buy",
+      "triggerPrice": "",
+      "cumExecFee": "0.32215500",
+      "slTriggerBy": "UNKNOWN",
+      "leavesQty": "0.0000",
+      "closeOnTrigger": false,
+      "cumExecQty": "0.5000",
+      "reduceOnly": false,
+      "qty": "0.5000",
+      "stopLoss": "",
+      "triggerBy": "UNKNOWN",
+      "orderIM": ""
+    }
+  ]
+},
+  "time": 1657713451741
 }
+
 ```
 
 t(:account_para_getActive_v3)
@@ -439,6 +505,7 @@ curl 'https://api-testnet.bybit.com/unified/v3/private/order/create-batch' \
 > t(:codequote_responseExample)
 
 ```javascript
+
 {
     "retCode": 0, 
     "retMsg": "OK",
@@ -468,6 +535,7 @@ curl 'https://api-testnet.bybit.com/unified/v3/private/order/create-batch' \
       },
      "time": 1657200736570
 }
+
 ```
 
 t(:usdcBatchOrdersDescV3)
@@ -549,6 +617,7 @@ curl 'https://api-testnet.bybit.com/unified/v3/private/order/replace-batch' \
 > t(:codequote_responseExample)
 
 ```javascript
+
 {
     "retCode": 0,
     "retMsg": "OK",
@@ -576,6 +645,7 @@ curl 'https://api-testnet.bybit.com/unified/v3/private/order/replace-batch' \
     },
     "time": 1657200736570
 }
+
 ```
 
 <p class="fake_header">t(:httprequest)</p>
@@ -638,6 +708,7 @@ curl 'https://api-testnet.bybit.com/unified/v3/private/order/cancel-batch' \
 > t(:codequote_responseExample)
 
 ```javascript
+
 {
     "retCode": 0,
     "retMsg": "OK",
@@ -665,6 +736,7 @@ curl 'https://api-testnet.bybit.com/unified/v3/private/order/cancel-batch' \
     },
     "time": 1657200736570
 }
+
 ```
 
 <p class="fake_header">t(:httprequest)</p>
@@ -725,6 +797,7 @@ print(session.cancel_all_active_orders(
 > t(:codequote_responseExample)
 
 ```javascript
+
 {
     "retCode": 0,
     "retMsg": "OK",
@@ -752,6 +825,7 @@ print(session.cancel_all_active_orders(
     },
     "time": 1657200736570
 }
+
 ```
 
 t(:account_para_cancelAllActive_v3)
@@ -805,6 +879,40 @@ print(session.my_position(
 > t(:codequote_responseExample)
 
 ```javascript
+
+{
+    "retCode": 0,
+    "retMsg": "Success",
+    "result": {
+        "nextPageCursor": "0%3A1657711949945%2C0%3A1657711949945",
+        "category": "linear",
+        "list": [
+            {
+                "symbol": "ETHUSDT",
+                "leverage": "10",
+                "updatedTime": 1657711949945,
+                "side": "Buy",
+                "positionValue": "536.92500000",
+                "takeProfit": "",
+                "tpslMode": "Full",
+                "riskId": 11,
+                "trailingStop": "",
+                "entryPrice": "1073.85000000",
+                "unrealisedPnl": "",
+                "markPrice": "1080.65000000",
+                "size": "0.5000",
+                "positionStatus": "normal",
+                "stopLoss": "",
+                "cumRealisedPnl": "-0.32215500",
+                "positionMM": "2.97456450",
+                "createdTime": 1657711949928,
+                "positionIdx": 0,
+                "positionIM": "53.98243950"
+            }
+        ]
+    },
+    "time": 1657713693182
+}
 
 ```
 
@@ -890,17 +998,14 @@ print(session.set_leverage(
 > t(:codequote_responseExample)
 
 ```javascript
+
 {
-    "ret_code": 0,
-    "ret_msg": "ok",
-    "ext_code": "",
-    "result": 2,
-    "ext_info": null,
-    "time_now": "1577477968.175013",
-    "rate_limit_status": 74,
-    "rate_limit_reset_ms": 1577477968183,
-    "rate_limit": 75
+    "retCode": 0,
+    "retMsg": "OK",
+    "result": {},
+    "time": 1657720329368
 }
+
 ```
 
 t(:linear_account_para_setLeverage_v3)
@@ -953,19 +1058,14 @@ print(session.full_partial_position_tp_sl_switch(
 > t(:codequote_responseExample)
 
 ```javascript
+
 {
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
-    "ext_info": "",
-    "result": {
-        "tp_sl_mode": "Partial"
-    },
-    "time_now": "1598266294.610276",
-    "rate_limit_status": 72,
-    "rate_limit_reset_ms": 1598266294607,
-    "rate_limit": 75
+    "retCode": 0,
+    "retMsg": "OK",
+    "result": {},
+    "time": 1657720268433
 }
+
 ```
 
 t(:linear_private_switchmode_v3)
@@ -1018,17 +1118,14 @@ print(session.set_risk_limit(
 > t(:codequote_responseExample)
 
 ```javascript
+
 {
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
-    "ext_info": "",
-    "result": {
-        "risk_id": 2
-    },
-    "time_now": "1620283810.393787",
-    "token": null
+    "retCode": 0,
+    "retMsg": "OK",
+    "result": {},
+    "time": 1657720329368
 }
+
 ```
 
 t(:linear_private_setrisklimit_v3)
@@ -1095,54 +1192,14 @@ print(session.set_trading_stop(
 > t(:codequote_responseExample)
 
 ```javascript
+
 {
-    "ret_code": 0,
-    "ret_msg": "ok",
-    "ext_code": "",
-    "result": {
-        "id": 27913,
-        "user_id": 1,
-        "symbol": "BTCUSD",
-        "side": "Buy",
-        "size": 5,
-        "position_value": 0.0006947,
-        "entry_price": 7197.35137469,
-        "risk_id": 1,
-        "auto_add_margin": 0,
-        "leverage": 6.95,
-        "position_margin": 9.996e-05,
-        "liq_price": 6320,
-        "bust_price": 6292.5,
-        "occ_closing_fee": 6e-07,
-        "occ_funding_fee": 0,
-        "take_profit": 0,
-        "stop_loss": 7000,
-        "trailing_stop": 0,
-        "position_status": "Normal",
-        "deleverage_indicator": 5,
-        "oc_calc_data": "{\"blq\":2,\"blv\":\"0.0002941\",\"slq\":0,\"bmp\":6800.408,\"smp\":0,\"fq\":-5,\"fc\":-0.00004279,\"bv2c\":0.14549282,\"sv2c\":0.14527699}",
-        "order_margin": 4.279e-05,
-        "wallet_balance": 0.03000227,
-        "realised_pnl": -1.26e-06,
-        "cum_realised_pnl": -1.306e-05,
-        "cum_commission": 0,
-        "cross_seq": 444081383,
-        "position_seq": 287176872,
-        "created_at": "2019-10-19T17:04:55.000Z",
-        "updated_at": "2019-12-27T21:17:27.000Z",
-        "ext_fields": {
-            "trailing_active":"9000",
-            "sl_trigger_by": "LastPrice",
-            "v": 221,
-            "mm": 0
-        }
-    },
-    "ext_info": null,
-    "time_now": "1577481447.436689",
-    "rate_limit_status": 73,
-    "rate_limit_reset_ms": 1577481447443,
-    "rate_limit": 75
+    "retCode": 0,
+    "retMsg": "OK",
+    "result": {},
+    "time": 1657720116299
 }
+
 ```
 
 t(:account_para_tradingStop_v3)
@@ -1172,7 +1229,8 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl 'https://api-testnet.bybit.com/unified/v3/private/execution/list?category=option&orderFilter=&symbol=BTC-15OCT21-30000-P&timestamp={timestamp}&sign={sign}'
+
+curl 'https://api-testnet.bybit.com/unified/v3/private/execution/list?category=option&orderFilter=&symbol=BTC-14JUL22-17500-C&timestamp={timestamp}&sign={sign}'
 ```
 
 ```python--old
@@ -1193,45 +1251,39 @@ print(session.user_trade_records(
 > t(:codequote_responseExample)
 
 ```javascript
+
 {
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
-    "ext_info": "",
+  "retCode": 0,
+    "retMsg": "Success",
     "result": {
-        "order_id": "t(:comment_abandoned)",
-        "trade_list": [
-            {
-                "closed_size": 0,
-                "cross_seq": 277136382,
-                "exec_fee": "0.0000001",
-                "exec_id": "256e5ef8-abfe-5772-971b-f944e15e0d68",
-                "exec_price": "8178.5",
-                "exec_qty": 1,
-                "exec_time": "1571676941.70682",
-                "exec_type": "Trade",
-                "exec_value": "0.00012227",
-                "fee_rate": "0.00075",
-                "last_liquidity_ind": "RemovedLiquidity",
-                "leaves_qty": 0,
-                "nth_fill": 2,
-                "order_id": "7ad50cb1-9ad0-4f74-804b-d82a516e1029",
-                "order_link_id": "",
-                "order_price": "8178",
-                "order_qty": 1,
-                "order_type": "Market",
-                "side": "Buy",
-                "symbol": "BTCUSD",
-                "user_id": 1,
-                "trade_time_ms": 1577480599000
-            }
-        ]
-    },
-    "time_now": "1577483699.281488",
-    "rate_limit_status": 118,
-    "rate_limit_reset_ms": 1577483699244737,
-    "rate_limit": 120
+    "nextPageCursor": "1565%3A0%2C1565%3A0",
+      "category": "option",
+      "list": [
+      {
+        "orderType": "Limit",
+        "symbol": "BTC-14JUL22-17500-C",
+        "orderLinkId": "188889689-yuanzhen-558998998898",
+        "side": "Buy",
+        "orderId": "09c5836f-81ef-4208-a5b4-43135d3e02a2",
+        "leavesQty": "0.0000",
+        "execTime": 1657714122417,
+        "execFee": "0.11897082",
+        "feeRate": "0.000300",
+        "execId": "6e492560-78b4-5d2b-b331-22921d3173c9",
+        "blockTradeId": "",
+        "execPrice": "2360.00000000",
+        "lastLiquidityInd": "TAKER",
+        "orderQty": "0.0200",
+        "orderPrice": "2360.00000000",
+        "execValue": "47.20000000",
+        "execType": "Trade",
+        "execQty": "0.0200"
+      }
+    ]
+  },
+  "time": 1657714292783
 }
+
 ```
 
 t(:wallet_para_tradeRecords_v3)
@@ -1286,7 +1338,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl 'https://api-testnet.bybit.com/unified/v3/private/delivery-record?category=option&symbol=&expDate=&cursor=&direction=&limit=10&timestamp={timestamp}&sign={sign}'
+curl 'https://api-testnet.bybit.com/unified/v3/private/delivery-record?category=option&symbol=BTC-23JUN22-18500-P&expDate=&cursor=&direction=&limit=10&timestamp={timestamp}&sign={sign}'
 ```
 
 ```python
@@ -1297,26 +1349,29 @@ curl 'https://api-testnet.bybit.com/unified/v3/private/delivery-record?category=
 > t(:codequote_responseExample)
 
 ```javascript
+
 {
-  "retCode":0,
-    "retMsg":"OK",
-    "result":{
-    "resultTotalSize":1,
-      "cursor":"ccc62b1a-e1a0-42b6-86b5-3570e22cfbdf%3A1634284800789%2Cb09397d8-4da1-4d32-b70f-c59efd381f66%3A1634284800769",
-      "dataList":[
+  "retCode": 0,
+    "retMsg": "Success",
+    "result": {
+    "nextPageCursor": "784%3A0%2C784%3A0",
+      "category": "option",
+      "list": [
       {
-        "deliveryTime":"1634284800789",
-        "symbol":"BTC-15OCT21-30000-P",
-        "side":"Buy",
-        "position":"0.00",
-        "deliveryPrice":"59307.0",
-        "strike":"30000",
-        "fee":"0.0000",
-        "deliveryRpl":"0.0000"
+        "symbol": "BTC-23JUN22-18500-P",
+        "side": "Sell",
+        "deliveryTime": 1655971201376,
+        "strike": "18500",
+        "fee": "0.00000000",
+        "position": "15.0000",
+        "deliveryPrice": "20454.54294250",
+        "deliveryRpl": "0.00000000"
       }
     ]
-  }
+  },
+  "time": 1657716373514
 }
+
 ```
 
 t(:wallet_para_delivery_record_v3)
@@ -1358,7 +1413,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl 'https://api-testnet.bybit.com/unified/v3/private/settlement-record?category=option&symbol=BTC-15OCT21-30000-P&timestamp={timestamp}&sign={sign}'
+curl 'https://api-testnet.bybit.com/unified/v3/private/settlement-record?category=linear&symbol=BTCPERP&timestamp={timestamp}&sign={sign}'
 ```
 
 ```python
@@ -1370,23 +1425,24 @@ curl 'https://api-testnet.bybit.com/unified/v3/private/settlement-record?categor
 
 ```javascript
 {
-    "retCode": 0,
-    "retMsg": "Success.",
+  "retCode": 0,
+    "retMsg": "Success",
     "result": {
-        "resultTotalSize": 20,
-        "cursor": "4327:0,4286:0",
-        "dataList": [
-            {
-                "time": "1650240000000",
-                "symbol": "BTCPERP",
-                "side": "Buy",
-                "size": "0.001",
-                "sessionAvgPrice": "39685.53",
-                "markPrice": "39686.28",
-                "sessionRpl": "-0.7730"
-            }
-        ]
-    }
+    "nextPageCursor": "2248%3A0%2C2248%3A0",
+      "category": "linear",
+      "list": [
+      {
+        "symbol": "BTCPERP",
+        "side": "Sell",
+        "markPrice": "19691.22000000",
+        "size": "-0.0100",
+        "sessionRpl": "-3.80370000",
+        "time": "1657699200000",
+        "sessionAvgPrice": "19691.22000000"
+      }
+    ]
+  },
+  "time": 1657716316682
 }
 ```
 
@@ -1450,31 +1506,41 @@ print(session.get_wallet_balance(coin="BTC"))
 
 ```javascript
 {
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
-    "ext_info": "",
+    "retCode": 0,
+    "retMsg": "Success",
     "result": {
-        "BTC": {
-            "equity": 1002,
-            "available_balance": 999.99987471,
-            "used_margin": 0.00012529,
-            "order_margin": 0.00012529,
-            "position_margin": 0,
-            "occ_closing_fee": 0,
-            "occ_funding_fee": 0,
-            "wallet_balance": 1000,
-            "realised_pnl": 0,
-            "unrealised_pnl": 2,
-            "cum_realised_pnl": 0,
-            "given_cash": 0,
-            "service_cash": 0
-        }
-    },
-    "time_now": "1578284274.816029",
-    "rate_limit_status": 98,
-    "rate_limit_reset_ms": 1580885703683,
-    "rate_limit": 100
+      "totalEquity": "112.21267421",
+      "accountIMRate": "0.6895",
+      "totalMarginBalance": "80.37711012",
+      "totalInitialMargin": "55.42180254",
+      "totalAvailableBalance": "24.95530758",
+      "accountMMRate": "0.0459",
+      "totalPerpUPL": "-16.69586570",
+      "totalWalletBalance": "97.07311619",
+      "totalMaintenanceMargin": "3.68580537",
+      "coin": [
+      {
+        "currencyCoin": "ETH",
+        "availableToBorrow": "0.00000000",
+        "borrowSize": "0.00000000",
+        "bonus": "0.00000000",
+        "accruedInterest": "0.00000000",
+        "availableBalanceWithoutConvert": "0.00000000",
+        "totalOrderIM": "",
+        "equity": "0.00000000",
+        "totalPositionMM": "",
+        "usdValue": "0.00000000",
+        "availableBalance": "0.02441165",
+        "unrealisedPnl": "",
+        "totalPositionIM": "",
+        "marginBalanceWithoutConvert": "0.00000000",
+        "walletBalance": "0.00000000",
+        "cumRealisedPnl": "",
+        "marginBalance": "0.07862610"
+      }
+    ]
+  },
+    "time": 1657716037033
 }
 ```
 
@@ -1526,7 +1592,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl 'https://api-testnet.bybit.com/unified/v3/private/account/upgrade-unified-account&timestamp={timestamp}&sign={sign}'
+curl 'https://api-testnet.bybit.com/unified/v3/private/account/upgrade-unified-account?timestamp={timestamp}&sign={sign}'
 ```
 
 ```python--old
@@ -1546,31 +1612,13 @@ print(session.get_wallet_balance(coin="BTC"))
 
 ```javascript
 {
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
-    "ext_info": "",
+  "retCode": 0,
+    "retMsg": "SUCCESS",
     "result": {
-        "BTC": {
-            "equity": 1002,
-            "available_balance": 999.99987471,
-            "used_margin": 0.00012529,
-            "order_margin": 0.00012529,
-            "position_margin": 0,
-            "occ_closing_fee": 0,
-            "occ_funding_fee": 0,
-            "wallet_balance": 1000,
-            "realised_pnl": 0,
-            "unrealised_pnl": 2,
-            "cum_realised_pnl": 0,
-            "given_cash": 0,
-            "service_cash": 0
-        }
-    },
-    "time_now": "1578284274.816029",
-    "rate_limit_status": 98,
-    "rate_limit_reset_ms": 1580885703683,
-    "rate_limit": 100
+    "status": "SUCCESS",
+      "relieveLimitBizResponse": []
+  },
+  "time": 1657716101461
 }
 ```
 
@@ -1618,31 +1666,34 @@ curl 'https://api-testnet.bybit.com/unified/v3/private/account/transaction-log?c
 
 ```javascript
 {
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
-    "ext_info": "",
+  "retCode": 0,
+    "retMsg": "Success",
     "result": {
-        "BTC": {
-            "equity": 1002,
-            "available_balance": 999.99987471,
-            "used_margin": 0.00012529,
-            "order_margin": 0.00012529,
-            "position_margin": 0,
-            "occ_closing_fee": 0,
-            "occ_funding_fee": 0,
-            "wallet_balance": 1000,
-            "realised_pnl": 0,
-            "unrealised_pnl": 2,
-            "cum_realised_pnl": 0,
-            "given_cash": 0,
-            "service_cash": 0
-        }
-    },
-    "time_now": "1578284274.816029",
-    "rate_limit_status": 98,
-    "rate_limit_reset_ms": 1580885703683,
-    "rate_limit": 100
+    "nextPageCursor": "1563%3A0%2C1563%3A0",
+      "currency": "USDT",
+      "category": "linear",
+      "list": [
+      {
+        "symbol": "ETHUSDT",
+        "side": "Buy",
+        "funding": "",
+        "orderLinkId": "",
+        "orderId": "7d17d359-4e38-4d3a-9a31-29791ef2dfd7",
+        "fee": "0.32215500",
+        "change": "-0.32215500",
+        "cashFlow": "0.00000000",
+        "transactionTime": 1657711949931,
+        "type": "TRADE",
+        "feeRate": "0.000600",
+        "size": "0.5000",
+        "qty": "0.5000",
+        "cashBalance": "-0.32215500",
+        "tradePrice": "1073.85000000",
+        "tradeId": "f306ca09-de6b-56a1-8893-71f0fecd2384"
+      }
+    ]
+  },
+  "time": 1657714367010
 }
 ```
 
