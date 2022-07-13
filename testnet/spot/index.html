@@ -12,7 +12,7 @@
       gtag('config', 'UA-158616893-1');
     </script>
 
-    <link href="../../images/favicon-4f296779.ico" rel="icon" type="image/ico" />
+    <link href="../../images/favicon-014c3ae6.ico" rel="icon" type="image/ico" />
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -1493,18 +1493,18 @@ clipboard.on('error', function(e) {
 });
 </script>
 <h1 id='t-introduction'>Group And Resources</h1><h5 id='t-intro_para'><p><a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common errors.</p> <p>For further assistance or feedback, please join the <a href="https://t.me/BybitAPI">API Telegram chat</a>! API discussion group on Telegram.</p></h5><h3 id='t-resources'>Group And Bybit API Resources</h3>
-<p><ul class="bybit-community"> <li><img src="../../images/help_favicon-06f791dd.ico" height="14", width="14"> <a href="https://www.bybit.com/en-US/help-center/?language=en_US"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>Official Python SDK</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> </ul></p>
+<p><ul class="bybit-community"> <li><img src="../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/en-US/help-center/?language=en_US"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>Official Python SDK</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> </ul></p>
 <h1 id='t-changelog'>Changelog</h1><h2 id='2022-07-08'>2022-07-08</h2><h3 id='websocket-api'>WebSocket API</h3>
 <ul>
-<li><a href="#t-websocketauthentication">Authentication</a> (V2 WebSocket) [update]
+<li><a href="#t-websocketauthentication">Authentication</a> [update]
 
 <ul>
-<li>Add notice that an ip can connect maximum 50 websockets connections at the same time for spot private topic</li>
+<li>Add notice that an IP can connect to a maximum of 50 private spot websocket connections simultaneously</li>
 </ul></li>
 </ul>
 <h2 id='2022-06-17'>2022-06-17</h2><h3 id='rest-api'>REST API</h3>
 <ul>
-<li><a href="#t-ltinfos">All Asset Infos</a> (V2 WebSocket) [new]
+<li><a href="#t-ltinfos">All Asset Infos</a> [new]
 
 <ul>
 <li>Add LT All Asset Infos Query</li>
@@ -1512,7 +1512,7 @@ clipboard.on('error', function(e) {
 </ul>
 <h2 id='2022-06-10'>2022-06-10</h2><h3 id='websocket-api-2'>WebSocket API</h3>
 <ul>
-<li><a href="#t-ticketinfo">ticketInfo</a> (V2 WebSocket) [update]
+<li><a href="#t-ticketinfo">ticketInfo</a> [update]
 
 <ul>
 <li>Add <code>S</code> field which indicates the trade side</li>
@@ -1520,7 +1520,7 @@ clipboard.on('error', function(e) {
 </ul>
 <h2 id='2022-06-08'>2022-06-08</h2><h3 id='websocket-api-3'>WebSocket API</h3>
 <ul>
-<li><a href="#t-websocketv2depth">depth</a> (V2 WebSocket) [update]
+<li><a href="#t-websocketv2depth">depth</a> [update]
 
 <ul>
 <li>Increase the push frequency from every 250ms (max. 300ms) to every 100ms</li>
@@ -5848,7 +5848,9 @@ All Cross Margin Trading endpoints require authentication.
 <b>Public</b> topics do not require authentication. The following section applies to <b>private</b> topics only.
 </aside>
 
-<p>Authentication examples are shown in code block.</p>
+<p>Authentication examples are shown in the code block.</p>
+
+<p>An IP can connect to a maximum of 50 private spot websocket connections simultaneously.</p>
 
 <aside class="notice">
 Example signature algorithms can be found <a href="https://github.com/bybit-exchange/api-usage-examples">here</a>.
@@ -5856,10 +5858,6 @@ Example signature algorithms can be found <a href="https://github.com/bybit-exch
 
 <aside class="warning">
 Due to network complexity, your may get disconnected at any time. Please follow the instructions below to ensure that you receive WebSocket messages on time:</span> <p>1. Keep connection alive by <a href="#t-heartbeat">sending heartbeat packet</a></p> <p>2. Reconnect as soon as possible if disconnected</p>
-</aside>
-
-<aside class="notice">
-An ip can connect maximum 50 websocket connections at the same time for spot private topic.
 </aside>
 <h2 id='t-heartbeat'>How to Send Heartbeat Packet</h2>
 <blockquote>

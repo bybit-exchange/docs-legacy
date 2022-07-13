@@ -12,7 +12,7 @@
       gtag('config', 'UA-158616893-1');
     </script>
 
-    <link href="../../images/favicon-4f296779.ico" rel="icon" type="image/ico" />
+    <link href="../../images/favicon-014c3ae6.ico" rel="icon" type="image/ico" />
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -1907,7 +1907,7 @@ clipboard.on('error', function(e) {
 <h1 id='t-introduction'>Group And Resources</h1>
 <p><p><a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common errors.</p> <p>For further assistance or feedback, please join the <a href="https://t.me/BybitAPI">API Telegram chat</a>! API discussion group on Telegram.</p></p>
 <h3 id='t-resources'>Group And Bybit API Resources</h3>
-<p><ul class="bybit-community"> <li><img src="../../images/help_favicon-06f791dd.ico" height="14", width="14"> <a href="https://www.bybit.com/en-US/help-center/?language=en_US"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>Official Python SDK</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> </ul></p>
+<p><ul class="bybit-community"> <li><img src="../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/en-US/help-center/?language=en_US"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>Official Python SDK</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> </ul></p>
 <h1 id='t-changelog'>Changelog</h1><h2 id='2022-06-30'>2022-06-30</h2><h3 id='rest-api'>REST API</h3>
 <ul>
 <li><a href="#t-userhistorytraderecords">Extended User Trade Records</a> [update]
@@ -2501,7 +2501,7 @@ clipboard.on('error', function(e) {
 </ul>
 <h1 id='t-faq'>FAQ</h1><h2 id='t-faq_reduce_only'><code>reduce_only</code> and <code>close_on_trigger</code> - what's the difference?</h2>
 <p><ul>
-<li>To close your position, specify <b><code>reduce_only</code> to <code>true</code></b>. <code>close_on_trigger</code> is not strictly applicable here, but you can also set it to <code>true</code> if it's required.</li>
+<li>To close your position, submit <a href="#t-placeactive">an order</a> and specify <b><code>reduce_only</code> to <code>true</code></b>. <code>close_on_trigger</code> is not strictly applicable here, but you can also set it to <code>true</code> if it's required.</li>
 <li><code>reduce_only</code> is the one that really matters for closing position, and we will improve the interface in the future.</li>
 <li>Be careful when you specify <code>close_on_trigger</code> to <code>true</code> as it could cause conflict when <code>reduce_only</code> is <code>false</code>.</li>
 </ul>
@@ -8601,7 +8601,7 @@ Prior notice will be given via the website if we update this mechanism.
 <b>Public</b> topics do not require authentication. The following section applies to <b>private</b> topics only.
 </aside>
 
-<p>Authentication examples are shown in code block.</p>
+<p>Authentication examples are shown in the code block.</p>
 
 <aside class="notice">
 Example signature algorithms can be found <a href="https://github.com/bybit-exchange/api-usage-examples">here</a>.
@@ -8684,7 +8684,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
    <span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
        <span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">subscribe</span><span class="dl">"</span><span class="p">,</span>
        <span class="dl">"</span><span class="s2">args</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
-           <span class="dl">"</span><span class="s2">kline.BTCUSDT.1m</span><span class="dl">"</span>
+           <span class="dl">"</span><span class="s2">candle.BTCUSDT.1m</span><span class="dl">"</span>
        <span class="p">]</span>
    <span class="p">}</span>
 <span class="p">}</span>

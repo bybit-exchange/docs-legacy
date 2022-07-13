@@ -12,7 +12,7 @@
       gtag('config', 'UA-158616893-1');
     </script>
 
-    <link href="../../images/favicon-4f296779.ico" rel="icon" type="image/ico" />
+    <link href="../../images/favicon-014c3ae6.ico" rel="icon" type="image/ico" />
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -1501,10 +1501,10 @@ clipboard.on('error', function(e) {
 });
 </script>
 <h1 id='t-introduction'>中文社區和參考資料</h1><h5 id='t-intro_para'><p>歡迎使用 <a href="https://www.bybit.com/">Bybit</a> APIs 和 Websocket官方文檔！</p> <p>如果您在使用API的過程中遇到問題需要幫助，請加入我們的 <a href="https://t.me/Bybitapi">官方Telegram API討論群</a>！</p></h5><h3 id='t-resources'>中文社區和參考資料</h3>
-<p><ul class="bybit-community"> <li><img src="../../images/favicon-4f296779.ico" height="14", width="14"> <a href="https://www.bybit.com/zh-TW/help-center/?language=zh_TW"><strong>幫助中心</strong></a> - <strong>在這裏了解現貨交易</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>官方Python SDK</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文討論群</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文討論群</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong> </ul></p>
+<p><ul class="bybit-community"> <li><img src="../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/zh-TW/help-center/?language=zh_TW"><strong>幫助中心</strong></a> - <strong>在這裏了解現貨交易</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>官方Python SDK</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文討論群</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文討論群</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong> </ul></p>
 <h1 id='t-changelog'>更新日誌</h1><h2 id='2022-07-08'>2022-07-08</h2><h3 id='websocket-api'>WebSocket API</h3>
 <ul>
-<li><a href="#t-websocketauthentication">鑒權/認證</a> (V2 WebSocket) [更新]
+<li><a href="#t-websocketauthentication">鑒權/認證</a> [更新]
 
 <ul>
 <li>添加註意，对於spot private topic，一個ip最多可以同時連接50個websockets連接，</li>
@@ -1512,7 +1512,7 @@ clipboard.on('error', function(e) {
 </ul>
 <h2 id='2022-06-17'>2022-06-17</h2><h3 id='rest-api'>REST API</h3>
 <ul>
-<li><a href="#t-ltinfos">LT 全量資產基礎信息查詢</a> (V2 WebSocket) [新增]
+<li><a href="#t-ltinfos">LT 全量資產基礎信息查詢</a> [新增]
 
 <ul>
 <li>新增LT 全量資產基礎信息查詢</li>
@@ -1520,7 +1520,7 @@ clipboard.on('error', function(e) {
 </ul>
 <h2 id='2022-06-10'>2022-06-10</h2><h3 id='websocket-api-2'>WebSocket API</h3>
 <ul>
-<li><a href="#t-ticketinfo">ticketInfo</a> (V2 WebSocket) [更新]
+<li><a href="#t-ticketinfo">ticketInfo</a> [更新]
 
 <ul>
 <li>新增 <code>S</code> 字段展示該筆交易成交方向</li>
@@ -1528,7 +1528,7 @@ clipboard.on('error', function(e) {
 </ul>
 <h2 id='2022-06-08'>2022-06-08</h2><h3 id='websocket-api-3'>WebSocket API</h3>
 <ul>
-<li><a href="#t-websocketv2depth">depth</a> (V2 WebSocket) [更新]
+<li><a href="#t-websocketv2depth">depth</a> [更新]
 
 <ul>
 <li>提升推送頻率從每250ms（最大延遲300ms）到100ms</li>
@@ -5893,16 +5893,14 @@ function copyStringToClipboard (endpoint) {
 
 <p>驗證示例如右側代碼區所示</p>
 
+<p>單個IP同時最多50個websocket私有topic鏈接</p>
+
 <aside class="notice">
 點擊查看 <a href="https://github.com/bybit-exchange/api-usage-examples">示例加密算法</a>.
 </aside>
 
 <aside class="warning">
 由於網絡的復雜性，您和Bybit的websocket鏈接隨時可能會斷開，為了保證您能及時收到websocket推送消息，強烈建議您按照以下建議處理網絡異常： <p>1. 通過<a href="#t-heartbeat">發送心跳包</a>保持連接</p> <p>2. 一旦發現連接斷開，應該立刻重新建立連接。</p>
-</aside>
-
-<aside class="notice">
-單個IP同時最多50個websocket私有topic鏈接
 </aside>
 <h2 id='t-heartbeat'>心跳包/Ping</h2>
 <blockquote>
