@@ -49,6 +49,8 @@ t(:websocket_aside_auth)
 
 t(:websocket_para_methods)
 
+t(:websocket_max_50_connection)
+
 <aside class="notice">
 t(:websocket_aside_signature)
 </aside>
@@ -57,9 +59,6 @@ t(:websocket_aside_signature)
 t(:websocket_best_practices)
 </aside>
 
-<aside class="notice">
-t(:websocket_max_50_connection)
-</aside>
 
 ## t(:heartbeat)
 > t(:websocket_codequote_heartbeat)
