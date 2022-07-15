@@ -5,11 +5,7 @@ t(:market_para_auth)
 > t(:codequote_curlExample)
 
 ```console
-curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/public/order-book/L2?category=linear&symbol=BTCUSDT'
-```
-
-```python--old
-
+curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/order-book/L2?category=linear&symbol=BTCUSDT'
 ```
 
 ```python--pybit
@@ -59,8 +55,8 @@ t(:market_aside_orderbook)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=dvorderbook>/derivatives/v3/public/order-book/L2</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#dvorderbook"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=dvOrderbook>/derivatives/v3/public/order-book/L2</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#dvOrderbook"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -72,29 +68,23 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|p |string |t(:row_comment_resp_price) |
-|v |string |t(:row_comment_resp_volume) |
-|b |Arrays |t(:dv_orderbookBids) |
-|a |Arrays |t(:dv_orderbookAsks) |
+|s |string |t(:row_comment_symbol) |
+|b |array |t(:dv_orderbookBids) |
+|a |array |t(:dv_orderbookAsks) |
+|ts |integer |t(:dv_orderbookTimeStamp) |
 |u |string |t(:dv_orderbookUpdateId) |
-|ts |int |t(:dv_orderbookTimeStamp) |
 
 
 ### t(:querykline)
 > t(:codequote_curlExample)
 
 ```console
-curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/public/kline?category=linear&symbol=BTCUSDT&interval=D&start=1652112000000&end=1652544000000'
-```
-
-```python--old
-
+curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/kline?category=linear&symbol=BTCUSDT&interval=D&start=1652112000000&end=1652544000000'
 ```
 
 ```python--pybit
 
 ```
-
 
 > t(:codequote_responseExample)
 
@@ -141,18 +131,14 @@ GET
 |:----- |:-----|----- |
 |category |string |t(:dv_category)t(:dv_categorySuffix_1) |
 |symbol |string |t(:row_comment_symbol) |
-|list |[]string |t(:row_comment_kline_list) |
+|list |string[] |t(:row_comment_kline_list) |
 
 
 ### t(:dv_tickerHead)
 > t(:codequote_curlExample)
 
 ```console
-curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/public/tickers?category=linear&symbol=BTCUSDT'
-```
-
-```python--old
-
+curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/tickers?category=linear&symbol=BTCUSDT'
 ```
 
 ```python--pybit
@@ -163,66 +149,73 @@ curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/publ
 
 ```javascript
 {
-  "retCode": 0,
-    "retMsg": "success",
+    "retCode": 0,
+    "retMsg": "OK",
     "result": {
-    "list": [
-      {
-        "symbol": "BTCUSDT",
-        "bidPrice": "28880",
-        "askPrice": "28880.5",
-        "lastPrice": "28868.50",
-        "lastTickDirection": "ZeroPlusTick",
-        "prevPrice24h": "29065.00",
-        "price24hPcnt": "-0.00676",
-        "highPrice24h": "29550.00",
-        "lowPrice24h": "28232.50",
-        "prevPrice1h": "28814.00",
-        "markPrice": "28883.26",
-        "indexPrice": "28880.64",
-        "openInterest": "9559.45",
-        "turnover24h": "253089983.0199994",
-        "volume24h": "8782.69399999",
-        "fundingRate": "0.0001",
-        "predictedFundingRate": "0.0001",
-        "nextFundingTime": "2022-05-28T16:00:00Z"
-      }
-    ]
-  }
+        "category": "linear",
+        "list": [
+            {
+                "symbol": "BTCUSDT",
+                "bidPrice": "20254.5",
+                "askPrice": "20256.5",
+                "lastPrice": "20260.00",
+                "lastTickDirection": "PlusTick",
+                "prevPrice24h": "19517.00",
+                "price24hPcnt": "0.038069",
+                "highPrice24h": "20498.00",
+                "lowPrice24h": "18899.00",
+                "prevPrice1h": "20282.00",
+                "markPrice": "20260.00",
+                "indexPrice": "20266.13",
+                "openInterest": "15523.054",
+                "turnover24h": "367014108.36799973",
+                "volume24h": "18674.032",
+                "fundingRate": "0.0001",
+                "nextFundingTime": "2022-07-14T08:00:00Z",
+                "predictedDeliveryPrice": "",
+                "basisRate": "0",
+                "deliveryFeeRate": "0",
+                "deliveryTime": ""
+            }
+        ]
+    },
+    "time": 1657769883695
 }
-//t(:resp_field_option_list)
+// option response
 {
-  "retCode": 0,
-  "retMsg": "SUCCESS",
-  "result": {
-  "category": "option",
-    "symbol": "BTC-30SEP22-400000-C",
-    "bidPrice": "0",
-    "bidSize": "0",
-    "bidIv": "0",
-    "askPrice": "20",
-    "askSize": "1.1",
-    "askIv": "1.4315",
-    "lastPrice": "5",
-    "highPrice24h": "0",
-    "lowPrice24h": "0",
-    "markPrice": "0.17190116",
-    "indexPrice": "28770.26",
-    "markPriceIv": "1.0629",
-    "underlyingPrice": "29069.3",
-    "openInterest": "3.31",
-    "turnover24h": "0",
-    "volume24h": "0",
-    "totalVolume": "6",
-    "totalTurnover": "43",
-    "delta": "0.00004702",
-    "gamma": "0.00000001",
-    "vega": "0.03306874",
-    "theta": "-0.0140667",
-    "predictedDeliveryPrice": "0",
-    "change24h": "0"
+    "retCode": 0,
+    "retMsg": "SUCCESS",
+    "result": {
+        "category": "option",
+        "symbol": "BTC-30SEP22-35000-P",
+        "bidPrice": "14600",
+        "bidSize": "0.3",
+        "bidIv": "0",
+        "askPrice": "15180",
+        "askSize": "25.6",
+        "askIv": "0.8958",
+        "lastPrice": "14260",
+        "highPrice24h": "0",
+        "lowPrice24h": "0",
+        "markPrice": "14884.94173491",
+        "indexPrice": "20236.14",
+        "markPriceIv": "0.7185",
+        "underlyingPrice": "20301.31",
+        "openInterest": "1824.98",
+        "turnover24h": "0",
+        "volume24h": "0",
+        "totalVolume": "40712",
+        "totalTurnover": "280958807",
+        "delta": "-0.92947392",
+        "gamma": "0.00002001",
+        "vega": "12.68819848",
+        "theta": "-5.82971932",
+        "predictedDeliveryPrice": "0",
+        "change24h": "0"
+    },
+    "time": 1657770000604
 }
-}
+
 ```
 
 t(:dv_marketTickerPara)
@@ -242,26 +235,24 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| category |string |t(:dv_category)t(:dv_categorySuffix_7) |
+| category |string |t(:dv_category) |
 | askIv |string |t(:askIv) |
 | deliveryTime |string |t(:deliveryTime) |
 | price24hPcnt |string |t(:row_comment_resp_price_24h_pcnt) |
 | nextFundingTime |string |t(:row_comment_resp_next_funding_time) |
 | predictedDeliveryPrice |string |t(:dv_tickPredictedDeliveryPrice) |
-| countdownHour |number |t(:row_comment_resp_countdown_hour) |
 | indexPrice |string |t(:row_comment_resp_index_price) |
 | prevPrice24h |string |t(:row_comment_resp_prev_price_24h) |
 | openInterest |string |t(:row_comment_resp_open_interest) |
-| openInterestValue |string |t(:dv_openInterestRespValue) |
 | underlyingPrice |string |t(:usdcUnderlyingPrice) |
-| volume24h |number |t(:row_comment_resp_volume_24h) |
+| volume24h |string |t(:row_comment_resp_volume_24h) |
 | symbol |string |t(:row_comment_symbol) |
-| vega |number |t(:vega) |
+| vega |string |t(:vega) |
 | lastPrice |string |t(:row_comment_resp_last_price) |
 | totalVolume |string |t(:row_comment_resp_total_volume) |
 | bidPrice |string |t(:bidPrice) |
-| totalTurnover |number |t(:row_comment_resp_total_turnover) |
-| turnover24h |number |t(:row_comment_resp_turnover_24h) |
+| totalTurnover |string |t(:row_comment_resp_total_turnover) |
+| turnover24h |string |t(:row_comment_resp_turnover_24h) |
 | askPrice |string |t(:askPrice) |
 | fundingRate |string |t(:row_comment_funding_rate) |
 | bidSize |string |t(:bidSize) |
@@ -277,7 +268,6 @@ GET
 | deliveryFeeRate |string |t(:dv_tickDeliveryFeeRate) |
 | lowPrice24h |string |t(:row_comment_resp_low_price_24h) |
 | markPriceIv |string |t(:markPriceIv) |
-| predictedFundingRate |string |t(:row_comment_predicted_funding_rate) |
 | basisRate |string |t(:dv_tickBasisRate) |
 
 
@@ -285,89 +275,87 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/public/instruments-info?category=linear&symbol=BTCUSDT'
-```
-
-```python--old
-
+curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/instruments-info?category=linear&symbol=BTCUSDT'
 ```
 
 ```python--pybit
 
 ```
 
-
 > t(:codequote_responseExample)
 
 ```javascript
 {
-  "retCode": 0,
-    "retMsg": "success",
+    "retCode": 0,
+    "retMsg": "OK",
     "result": {
-    "list": [
-      {
-        "symbol": "BTCUSDT",
-        "contractType": "LinearPerpetual",
-        "status": "ONLINE",
-        "baseCoin": "BTC",
-        "quoteCoin": "USDT",
-        "priceScale": "2",
-        "leverageFilter": {
-          "minLeverage": "1",
-          "maxLeverage": "100",
-          "leverageStep": "0.01"
-        },
-        "priceFilter": {
-          "minPrice": "0.50",
-          "maxPrice": "999999.00",
-          "tickSize": "0.50"
-        },
-        "lotSizeFilter": {
-          "maxTradingQty": "20.000",
-          "minTradingQty": "0.001",
-          "qtyStep": "0.001",
-          "postOnlyMaxTradingQty": "100.000"
-        },
         "category": "linear",
-        "launchTime": "1585526400000"
-      }
-    ],
-      "cursor": "eyJmaXJzdF9zeW1ib2xfaW5fcGFnZSI6IkJUQ1VTRFQiLCJsYXN0X3N5bWJvbF9pbl9wYWdlIjoiQlRDVVNEVCJ9"
-  }
+        "list": [
+            {
+                "symbol": "BTCUSDT",
+                "contractType": "CONTRACT_TYPE_LINEAR_PERPETUAL",
+                "status": "CONTRACT_STATUS_TRADING",
+                "baseCoin": "BTC",
+                "quoteCoin": "USDT",
+                "launchTime": "1585526400000",
+                "deliveryTime": "0",
+                "deliveryFeeRate": "",
+                "priceScale": "2",
+                "leverageFilter": {
+                    "minLeverage": "1",
+                    "maxLeverage": "100",
+                    "leverageStep": "0.01"
+                },
+                "priceFilter": {
+                    "minPrice": "0.50",
+                    "maxPrice": "999999.00",
+                    "tickSize": "0.50"
+                },
+                "lotSizeFilter": {
+                    "maxTradingQty": "100000.000",
+                    "minTradingQty": "0.001",
+                    "qtyStep": "0.001"
+                }
+            }
+        ],
+        "nextPageCursor": ""
+    },
+    "time": 1657777080564
 }
 
-//t(:resp_field_option_list)
+// option response
 {
-  "retCode": 0,
-  "retMsg": "success",
-  "result": {
-  "resultTotalSize": 1,
-    "cursor": "",
-    "dataList": [
-    {
-      "category": "option",
-      "symbol": "BTC-30SEP22-400000-C",
-      "status": "ONLINE",
-      "baseCoin": "BTC",
-      "quoteCoin": "USD",
-      "settleCoin": "USDC",
-      "optionsType": "Call",
-      "launchTime": "1649923200000",
-      "deliveryTime": "1664524800000",
-      "deliveryFeeRate": "0.00015",
-      "priceFilter": {
-        "minPrice": "5",
-        "maxPrice": "10000000",
-        "tickSize": "5"
-      },
-      "lotSizeFilter": {
-        "maxOrderQty": "200",
-        "minOrderQty": "0.01",
-        "qtyStep": "0.01"
-      }
-    }
-  ]
-}
+    "retCode": 0,
+    "retMsg": "success",
+    "result": {
+        "resultTotalSize": 1,
+        "cursor": "",
+        "dataList": [
+            {
+                "category": "option",
+                "symbol": "BTC-30SEP22-35000-P",
+                "status": "ONLINE",
+                "baseCoin": "BTC",
+                "quoteCoin": "USD",
+                "settleCoin": "USDC",
+                "optionsType": "Put",
+                "launchTime": "1649923200000",
+                "deliveryTime": "1664524800000",
+                "deliveryFeeRate": "0.00015",
+                "priceFilter": {
+                    "minPrice": "5",
+                    "maxPrice": "10000000",
+                    "tickSize": "5"
+                },
+                "lotSizeFilter": {
+                    "maxOrderQty": "200",
+                    "minOrderQty": "0.01",
+                    "qtyStep": "0.01"
+                }
+            }
+        ]
+    },
+    "time": 1657777124431
 }
 ```
 
@@ -381,7 +369,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|catetory |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_2) |
+|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_2) |
 |symbol |false |string |t(:row_comment_symbol) |
 |limit |false |string |t(:row_comment_limit_500_1000) |
 |cursor |false |string |t(:dv_cursor) |
@@ -389,7 +377,7 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|catetory |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_2) |
+|category |string |t(:dv_category)t(:dv_categorySuffix_2) |
 |symbol |string |t(:row_comment_symbol) |
 |contractType |string |t(:dv_instrContractType) |
 |status |string |t(:row_response_comment_status) |
@@ -397,19 +385,19 @@ GET
 |quoteCoin |string |t(:dv_instrQuoteCoin) |
 |settleCoin |string |t(:dv_instrSettleCoin) |
 |optionsType |string |t(:dv_OptionType) |
-|launchTime |number |t(:dv_instrLaunchTime) |
-|deliveryTime |number |t(:dv_instrDeliveryTime) |
-|deliveryFeeRate |number |t(:deliveryFeeRate) |
-|priceScale |number |t(:dv_instrPriceScale) |
-|minLeverage |number |t(:minLeverage) |
-|maxLeverage |number |t(:maxLeverage) |
-|leverageStep |string |t(:leverageStep) |
-|minPrice |string |t(:minPrice) |
-|maxPrice |string |t(:maxPrice) |
-|tickSize |string |t(:tickSize) |
-|maxOrderQty |number |t(:dv_instrMaxOrderQty) |
-|minOrderQty |number |t(:dv_instrMinOrderQty) |
-|qtyStep |number |t(:qtyStep) |
+|launchTime |string |t(:dv_instrLaunchTime) |
+|deliveryTime |string |t(:dv_instrDeliveryTime) |
+|deliveryFeeRate |string |t(:deliveryFeeRate) |
+|priceScale |string |t(:dv_instrPriceScale) |
+|leverageFilter> minLeverage |string |t(:minLeverage) |
+|leverageFilter> maxLeverage |string |t(:maxLeverage) |
+|leverageFilter> leverageStep |string |t(:leverageStep) |
+|priceFilter> minPrice |string |t(:minPrice) |
+|priceFilter> maxPrice |string |t(:maxPrice) |
+|priceFilter> tickSize |string |t(:tickSize) |
+|lotSizeFilter> maxOrderQty |string |t(:dv_instrMaxOrderQty) |
+|lotSizeFilter> minOrderQty |string |t(:dv_instrMinOrderQty) |
+|lotSizeFilter> qtyStep |string |t(:qtyStep) |
 |nextPageCursor |string |t(:dv_cursor) |
 
 
@@ -418,10 +406,6 @@ GET
 
 ```console
 curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/public/mark-price-kline?category=linear&symbol=BTCUSDT&interval=D&start=1652112000000&end=1652544000000'
-```
-
-```python--old
-
 ```
 
 ```python--pybit
@@ -471,17 +455,13 @@ GET
 |:----- |:-----|----- |
 |category |string |t(:dv_category)t(:dv_categorySuffix_1) |
 |symbol |string |t(:row_comment_symbol) |
-|list |[]string |t(:row_comment_mark_kline_list) |
+|list |string[] |t(:row_comment_mark_kline_list) |
 
 ### t(:queryindexpricekline)
 > t(:codequote_curlExample)
 
 ```console
 curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/public/index-price-kline?category=linear&symbol=BTCUSDT&interval=D&start=1652112000000&end=1652544000000'
-```
-
-```python--old
-
 ```
 
 ```python--pybit
@@ -532,7 +512,7 @@ GET
 |:----- |:-----|----- |
 |category |string |t(:dv_category)t(:dv_categorySuffix_1) |
 |symbol |string |t(:row_comment_symbol) |
-|list |[]string |t(:row_comment_kline_list) |
+|list |string[] |t(:row_comment_kline_list) |
 
 
 
@@ -540,11 +520,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/public/funding/history-funding-rate?category=linear&symbol=BTCUSDT&startTime=1652112000000&endTime=1652198400000'
-```
-
-```python--old
-
+curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/funding/history-funding-rate?category=linear&symbol=BTCUSDT&startTime=1652112000000&endTime=1652198400000'
 ```
 
 ```python--pybit
@@ -555,23 +531,24 @@ curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/publ
 
 ```javascript
 {
-  "retCode": 0,
-    "retMsg": "success",
+    "retCode": 0,
+    "retMsg": "OK",
     "result": {
-    "list": [
-      {
-        "symbol": "BTCUSDT",
-        "fundingRate": "0.0001",
-        "fundingRateTimestamp": "1652198400000"
-      },
-      {
-        "symbol": "BTCUSDT",
-        "fundingRate": "0.0001",
-        "fundingRateTimestamp": "1652169600000"
-      }
-    ],
-      "category": "linear"
-  }
+        "category": "linear",
+        "list": [
+            {
+                "symbol": "BTCUSDT",
+                "fundingRate": "0.0001",
+                "fundingRateTimestamp": "1657728000000"
+            },
+            {
+                "symbol": "BTCUSDT",
+                "fundingRate": "0.0001",
+                "fundingRateTimestamp": "1657699200000"
+            }
+        ]
+    },
+    "time": 1657782323371
 }
 ```
 t(:market_para_fundingRate)
@@ -586,29 +563,25 @@ GET
 |:----- |:-------|:-----|----- |
 |category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_3) |
 |symbol |<b>true</b> |string |t(:row_comment_symbol) |
-|startTime |false |integer |t(:row_comment_from_timestamp) |
-|endTime |false |integer |t(:row_comment_endTime) |
+|startTime |false |integer |t(:row_comment_startTime_ms) |
+|endTime |false |integer |t(:row_comment_endTime_ms) |
 |limit |false |integer |t(:row_comment_limit_200) |
 
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|category |string |t(:dv_category)t(:dv_categorySuffix_1) |
-|t(:row_parameter_symbol) |string |t(:row_comment_symbol) |
+|category |string |t(:dv_category)t(:dv_categorySuffix_3) |
+|symbol |string |t(:row_comment_symbol) |
 |fundingRate |string |t(:row_comment_funding_rate) |
-|fundingRateTimestamp |number |t(:row_comment_funding_rate_timestamp) |
+|fundingRateTimestamp |string |t(:row_comment_funding_rate_timestamp) |
 
 
 ### t(:dv_riskLimitHead)
 > t(:codequote_curlExample)
 
 ```console
-curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/public/risk-limit/list?category=linear&symbol=BTCUSDT'
-```
-
-```python--old
-
+curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/risk-limit/list?category=linear&symbol=BTCUSDT'
 ```
 
 ```python--pybit
@@ -618,7 +591,36 @@ curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/publ
 > t(:codequote_responseExample)
 
 ```javascript
-
+{
+    "retCode": 0,
+    "retMsg": "OK",
+    "result": {
+        "category": "linear",
+        "list": [
+            {
+                "id": 1,
+                "symbol": "BTCUSDT",
+                "limit": "2000000",
+                "maintainMargin": "0.005",
+                "initialMargin": "0.01",
+                "section": [
+                    "1",
+                    "3",
+                    "5",
+                    "10",
+                    "25",
+                    "50",
+                    "80"
+                ],
+                "isLowestRisk": 1,
+                "createdTime": "0",
+                "updatedTime": "0",
+                "maxLeverage": "100.00"
+            }
+        ]
+    },
+    "time": 1657797260220
+}
 ```
 
 t(:dv_riskLimitHead)
@@ -641,8 +643,8 @@ GET
 |id |number |t(:row_comment_riskId)  |
 |symbol|string |t(:row_comment_symbol) |
 |limit |string |t(:risklimit) |
-|maintainMargin |number |t(:row_comment_maintain_margin) |
-|initialMargin |number |t(:dv_riskInitialMargin)  |
+|maintainMargin |string |t(:row_comment_maintain_margin) |
+|initialMargin |string |t(:dv_riskInitialMargin)  |
 |section |string |t(:row_comment_section) |
 |isLowestRisk |number |t(:row_comment_is_lowest_risk) |
 |createdTime |string |t(:row_comment_created_at) |
@@ -654,11 +656,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/public/delivery-price?category=option&symbol=BTC-30SEP22-400000-C'
-```
-
-```python--old
-
+curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/delivery-price?symbol=BTC-14JUL22-18000-C&category=option'
 ```
 
 ```python--pybit
@@ -668,7 +666,23 @@ curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/publ
 > t(:codequote_responseExample)
 
 ```javascript
-
+{
+    "retCode": 0,
+    "retMsg": "success",
+    "result": {
+        "resultTotalSize": 1,
+        "cursor": "",
+        "dataList": [
+            {
+                "category": "option",
+                "symbol": "BTC-14JUL22-18000-C",
+                "deliveryPrice": "19967.372502790",
+                "deliveryTime": "1657785600000"
+            }
+        ]
+    },
+    "time": 1657797556994
+}
 ```
 
 t(:dv_market_option_para)
@@ -682,29 +696,26 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_8) |
-|symbol |<b>true</b> |string |t(:row_comment_symbol) |
+|symbol |false |string |t(:row_comment_symbol) |
+|direction |false |string |t(:row_comment_direction_v3) |
 |limit|false |string |t(:row_comment_limit_50_200) |
 |cursor|false |string |t(:dv_cursor) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_8) |
+|category |string |t(:dv_category)t(:dv_categorySuffix_8) |
 |symbol |string |t(:row_comment_symbol) |
 |deliveryPrice |string |t(:deliveryPrice) |
-|deliveryTime |number |t(:deliveryTime) |
-|nextPageCursor |string |t(:dv_cursor) |
+|deliveryTime |string |t(:deliveryTime) |
+|cursor |string |t(:dv_cursor) |
 
 
 ### t(:publictradingrecords)
 > t(:codequote_curlExample)
 
 ```console
-curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/public/recent-trade?category=option&symbol=BTC-30SEP22-400000-C'
-```
-
-```python--old
-
+curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/recent-trade?category=option&symbol=BTC-30SEP22-400000-C'
 ```
 
 ```python--pybit
@@ -715,7 +726,23 @@ curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/publ
 > t(:codequote_responseExample)
 
 ```javascript
-
+{
+    "retCode": 0,
+    "retMsg": "success",
+    "result": {
+        "resultTotalSize": 1,
+        "cursor": "",
+        "dataList": [
+            {
+                "category": "option",
+                "symbol": "BTC-14JUL22-18000-C",
+                "deliveryPrice": "19967.372502790",
+                "deliveryTime": "1657785600000"
+            }
+        ]
+    },
+    "time": 1657797556994
+}
 ```
 
 t(:market_para_records)
@@ -750,11 +777,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/derivatives/v3/public/open-interest?symbol=BTCUSD&period=5min
-```
-
-```python--old
-
+curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/open-interest?category=linear&symbol=BTCUSDT&interval=1h&startTime=1657555200000&endTime=1657641600000'
 ```
 
 ```python--pybit
@@ -765,23 +788,23 @@ curl https://api-testnet.bybit.com/derivatives/v3/public/open-interest?symbol=BT
 
 ```javascript
 {
-    "ret_code":0,
-    "ret_msg":"OK",
-    "ext_code":"",
-    "ext_info":"",
-    "result":[
-        {
-            "open_interest":371491978,
-            "timestamp":1597658100,
-            "symbol":"BTCUSD"
-        },
-        {
-            "open_interest":370696076,
-            "timestamp":1597657800,
-            "symbol":"BTCUSD"
-        }
-    ],
-    "time_now":"1597658304.938839"
+    "retCode": 0,
+    "retMsg": "OK",
+    "result": {
+        "symbol": "BTCUSDT",
+        "category": "linear",
+        "list": [
+            {
+                "openInterest": "15350.60700000",
+                "timestamp": "1657641600000"
+            },
+            {
+                "openInterest": "15605.74100000",
+                "timestamp": "1657638000000"
+            }
+        ]
+    },
+    "time": 1657797822839
 }
 ```
 
@@ -795,17 +818,17 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_3) |
+|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_1) |
 |symbol |<b>true</b> |string |t(:row_comment_symbol) |
 |interval |<b>true</b> |string |t(:dv_openInterInterval) |
-|startTime |false |string |t(:dv_openInterStartTime) |
-|endTime |false |string |t(:dv_openInterEndTime) |
+|startTime |false |integer |t(:row_comment_startTime_ms) |
+|endTime |false |integer |t(:row_comment_endTime_ms) |
 |limit |false |integer |t(:row_comment_limit_50_200) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|category |string |t(:dv_category)t(:dv_categorySuffix_3) |
+|category |string |t(:dv_category)t(:dv_categorySuffix_1) |
 |symbol |string |t(:row_comment_symbol) |
-|openInterest |number |t(:row_comment_resp_open_interest) |
+|openInterest |string |t(:row_comment_resp_open_interest) |
 |timestamp |string |t(:dv_openInterTimestamp) |
