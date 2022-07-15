@@ -250,7 +250,7 @@ en:
   row_comment_query_closeOnTrigger_v3: Closed order? True – close order   false – open order
   row_comment_query_nextPageCursor_v3: API pass-through
   row_comment_orderStatus_v3: |
-    Enquiring list of orders in designated states. If this parameter is not passed, the orders in all states shall be enquired by default. This parameter supports multi-state inquiry. States should be separated with English commas.
+    Query list of orders in designated states. If this parameter is not passed, the orders in all states shall be enquired by default. This parameter supports multi-state inquiry. States should be separated with English commas.
   row_comment_query_leavesQty_v3: Remaining order quantity
   row_comment_query_leavesValue_v3: Estimated value of the corresponding remaining maker order quantity
   row_comment_query_cumExecQty_v3: Accumulative trading volume
@@ -1071,7 +1071,7 @@ en:
 
   account_para_queryActive_v3: |
     <p><p><b>Interface:</b></p>
-    <p>Enquiring active orders in real time.</p>
+    <p>Query unfilled orders in real time.</p>
     <p>When either of the two parameters,orderId or orderLinkId, is passed, data of the order will be returned. However,when neither of them is passed, at most 500 unfilled orders will be returned.</p>
     <p>They will be ranked by the createdTime from newest to oldest.</p></p>
 
@@ -1081,16 +1081,16 @@ en:
     <p>As order creation/cancellation is asynchronous, the data returned from the interface may be delayed. To access order information in real time, call the interface Enquiring Information on Active Orders in Real Time.</p></p>
 
   usdcBatchOrdersDescV3: |
-    Waiting for API team to translate
+    Place Batch Orders
 
   usdcBatchReplaceOrdersDescV3: |
-    Waiting for API team to translate
+    Replace Batch Orders
 
   usdcBatchCancelOrdersDescV3: |
-    Waiting for API team to translate
+    Cancel Batch Orders
 
   account_para_cancelAllActive_v3: |
-    Waiting for API team to translate
+    Cancel All Orders
 
   account_para_myPosition_v3: |
     <p><p><b>Interface:</b></p>
@@ -1121,7 +1121,7 @@ en:
 
   wallet_para_delivery_record_v3: |
     <p><b>Interface:</b></p>
-    <p>Accessing the settlement history, ranked by time in descending order.</p></p>
+    <p>Query the settlement history, ranked by time in descending order.</p></p>
 
   wallet_para_settlement_record_v3: |
     <p><b>Interface:</b></p>
@@ -1130,7 +1130,7 @@ en:
 
   wallet_para_walletBalance_v3: |
     <p><b>Interface:</b></p>
-    <p>Accessing wallet balance</p></p>
+    <p>Query wallet balance</p></p>
 
   wallet_para_upgradeUnifiedMarginAccount_v3: |
     <p><p><b>Interface:</b></p>
@@ -1138,14 +1138,14 @@ en:
 
   wallet_para_tradingHistory_v3: |
     <p><b>Interface:</b></p>
-    <p>Enquiring trading history</p></p>
+    <p>Query trading history</p></p>
 
   wallet_para_transfers_v3: |
     <p><b>Interface:</b></p>
     <p>Fund transfer between accounts</p></p>
 
   wallet_para_assetexchangerecords_v3: |
-    <br><Waiting for API team to translate></br>
+    <br><Exchange Order></br>
 
   wallet_para_interestBillStatement_v3: |
     <br><Waiting for API team to translate><br>
@@ -1311,7 +1311,7 @@ en:
   ### Wallet Balance
   balance: Get Wallet Balance
   wallet_para_walletBalance: Get wallet balance info.
-  wallet_para_tradingHistory: Enquiring Trading History.
+  wallet_para_tradingHistory: Query Trading History.
   wallet_aside_walletBalance: |
     <code>position_margin</code> in this endpoint is not same as <a href="https://www.bybit.com/app/wallet/money">position margin on website</a>
     <p>The formula of position margin on website: <code>position_margin</code> + <code>occ_funding_fee</code> + loss(when your <code>available_balance</code> is insufficient)</p>
@@ -4324,30 +4324,30 @@ en:
   unified_margin_account_data: Unified Margin Account
   order: Order
   unified_margin_account_para: The following account data endpoints require authentication.
-  placeOrderV3: Creating Orders
+  placeOrderV3: Place Orders
   replaceOrderV3: Modifying Order Information
   cancelOrderV3: Canceling Orders
-  queryOrderRealtimeV3: Enquiring Orders in Real Time
-  getOrderV3: Enquiring Orders
-  mypositionV3: Accessing Position Holdings (Real-time)
+  queryOrderRealtimeV3: Query Unfilled-Orders in Real Time
+  getOrderV3: Query Orders
+  mypositionV3: Position Holdings (Real-time)
   setleverageV3: Modifying Leverage
   switchmodeV3: Switching TP/SL mode
   setrisklimitV3: Setting Risk Limit
   tradingstopV3: Setting TP/SL
-  userTradeRecords7DayV3: Enquiring 7-day Transaction History
-  queryOptionDeliveryLogV3 : Enquiring Settlement History for Options
-  querySettleLogsV3: Enquiring Settlement History
-  balanceV3: Accessing Wallet Balance
+  userTradeRecords7DayV3: Query 7-day Transaction History
+  queryOptionDeliveryLogV3 : Query Settlement History for Options
+  querySettleLogsV3: Query Settlement History
+  balanceV3: Query Wallet Balance
   upgradeUnifiedAccountV3: Upgrading Unified Margin Account
-  queryTransactionLogsV3: Enquiring Trading History
+  queryTransactionLogsV3: Query Trading History
   transferV3: Transfers (V2)
-  queryExchangeRecordsV3: Waiting for API team to translate
-  interestBillStatementV3: Waiting for API team to translate
-  queryLoanInterestV3: Waiting for API team to translate
-  batchPlaceOrderV3: Waiting for API team to translate
-  batchReplaceOrdersV3: Waiting for API team to translate
-  batchCancelOrdersV3: Waiting for API team to translate
-  cancelAllOrdersV3: Waiting for API team to translate
+  queryExchangeRecordsV3: Exchange Order
+  interestBillStatementV3: Borrow History
+  queryLoanInterestV3: Borrow Rate
+  batchPlaceOrderV3: Place Batch Orders
+  batchReplaceOrdersV3: Replace Batch Orders
+  batchCancelOrdersV3: Cancel Batch Orders
+  cancelAllOrdersV3: Cancel All Orders
 
   queryOrderRealtime: Get Order(real-time)
   getOrder: Get Order
