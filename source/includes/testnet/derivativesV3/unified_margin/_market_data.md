@@ -613,8 +613,6 @@ curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/risk-limit/list?ca
                     "80"
                 ],
                 "isLowestRisk": 1,
-                "createdTime": "0",
-                "updatedTime": "0",
                 "maxLeverage": "100.00"
             }
         ]
@@ -647,8 +645,6 @@ GET
 |initialMargin |string |t(:dv_riskInitialMargin)  |
 |section |string |t(:row_comment_section) |
 |isLowestRisk |number |t(:row_comment_is_lowest_risk) |
-|createdTime |string |t(:row_comment_created_at) |
-|updatedTime |string |t(:row_comment_updated_at) |
 |maxLeverage |string |t(:row_comment_max_leverage) |
 
 
@@ -715,7 +711,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/recent-trade?category=option&symbol=BTC-30SEP22-400000-C'
+curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/recent-trade?category=linear&symbol=BTCUSDT&limit=1'
 ```
 
 ```python--pybit
@@ -728,20 +724,21 @@ curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/recent-trade?categ
 ```javascript
 {
     "retCode": 0,
-    "retMsg": "success",
+    "retMsg": "OK",
     "result": {
-        "resultTotalSize": 1,
-        "cursor": "",
-        "dataList": [
+        "category": "linear",
+        "list": [
             {
-                "category": "option",
-                "symbol": "BTC-14JUL22-18000-C",
-                "deliveryPrice": "19967.372502790",
-                "deliveryTime": "1657785600000"
+                "execId": "da66abbc-f358-5864-8d34-84ef7274d853",
+                "symbol": "BTCUSDT",
+                "price": "20802.50",
+                "size": "0.200",
+                "side": "Sell",
+                "time": "1657870316630"
             }
         ]
     },
-    "time": 1657797556994
+    "time": 1657870326247
 }
 ```
 

@@ -6,25 +6,22 @@ t(:unified_margin_account_para)
 > t(:codequote_curlExample)
 
 ```console
-curl 'https://api-testnet.bybit.com/unified/v3/private/order/create' \
--H "Content-Type: application/json" \
--d '{
-  "api_key":"{api_key}",
-  "timestamp":{timestamp},
-  "sign":"{sign}",
-  "category": "option",
-  "symbol": "BTC-20MAR22-32000-P",
-  "orderType": "Limit",
-  "side": "Buy",
-  "qty": "0.01",
-  "price": "140",
-  "timeInForce": "GoodTillCancel",
-  "orderLinkId": "e80d558e-ed"
+curl --location --request POST 'https://api-testnet.bybit.com/unified/v3/private/order/create' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-SIGN: 27ecc5cca2aec6a779c9f5ef828275a3e9ccaf392a030820911c52d6085c34db' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1657871228347' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "symbol": "BTCUSDT",
+    "orderType": "Limit",
+    "side": "Buy",
+    "qty": "0.01",
+    "price": "20002",
+    "timeInForce": "GoodTillCancel",
+    "category": "linear"
 }'
-```
-
-```python--old
-
 ```
 
 ```python--pybit
@@ -88,34 +85,23 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl 'https://api-testnet.bybit.com/unified/v3/private/order/replace' \
--H "Content-Type: application/json" \
--d '{
-	  "api_key":"{api_key}",
-    "timestamp":{timestamp},
-    "sign":"{sign}",
-    "category": "option",
-    "symbol":"BTC-20MAR22-32000-P",
-    "orderLinkId": "e80d558e-ed"
-    "price":"45000",
-    "qty":"0.03"
+curl --location --request POST 'https://api-testnet.bybit.com/unified/v3/private/order/replace' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-SIGN: 27ecc5cca2aec6a779c9f5ef828275a3e9ccaf392a030820911c52d6085c34db' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1657871228347' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "category": "linear",
+    "symbol":"BTCUSDT",
+    "orderId":"1a1ae001-2034-4a6b-8b25-45aa9100b1ec",
+    "price":"35000"
 }'
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Order.Order_replace(symbol="BTCUSD", order_id="").result())
-```
-
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.replace_active_order(
-    symbol="BTCUSD",
-    order_id="efa44157-c355-4a98-b6d6-1d846a936b93"
-))
+
 ```
 
 > t(:codequote_responseExample)
@@ -168,32 +154,22 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl 'https://api-testnet.bybit.com/unified/v3/private/order/cancel' \
--H "Content-Type: application/json" \
--d '{
-  "api_key":"{api_key}",
-  "timestamp":{timestamp},
-  "sign":"{sign}",
-  "category": "option",
-  "orderLinkId": "e80d558e-ed",
-  "symbol": "BTC-18MAR22-25000-C"
+curl --location --request POST 'https://api-testnet.bybit.com/unified/v3/private/order/cancel' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-SIGN: 27ecc5cca2aec6a779c9f5ef828275a3e9ccaf392a030820911c52d6085c34db' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1657871228347' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "category": "linear",
+  "orderId": "4c51a45f-7795-4b38-9b66-3c306b73f112",
+  "symbol": "BTCUSDT"
 }'
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Order.Order_cancel(symbol="BTCUSD", order_id="").result())
-```
-
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.cancel_active_order(
-    symbol="BTCUSD",
-    order_id="3bd1844f-f3c0-4e10-8c25-10fea03763f6"
-))
+
 ```
 
 
@@ -240,11 +216,14 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl 'https://api-testnet.bybit.com/unified/v3/private/order/unfilled-orders?category=option&symbol=&orderId=&orderLinkId=&orderFilter=&cursor=&direction=&limit=10&api_key={api_key}&timestamp={timestamp}&sign={sign}'
-```
-
-```python--old
-
+curl --location --request GET 'https://api-testnet.bybit.com/unified/v3/private/order/unfilled-orders?category=linear' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-SIGN: 27ecc5cca2aec6a779c9f5ef828275a3e9ccaf392a030820911c52d6085c34db' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1657871228347' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'Content-Type: application/json' \
+--data-raw ''
 ```
 
 ```python--pybit
@@ -339,25 +318,18 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl 'https://api-testnet.bybit.com/unified/v3/private/order/list?category=linear&symbol=&orderStatus=&orderId=&orderLinkId=&orderFilter=&cursor=&direction=&limit=10&timestamp={timestamp}&sign={sign}'
-```
-
-```python--old
-// change to v3
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Order.Order_getOrders(symbol="BTCUSD",order_status="New").result())
+curl --location --request GET 'https://api-testnet.bybit.com/unified/v3/private/order/list?category=linear&symbol=BTCUSDT&limit=10' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-SIGN: 27ecc5cca2aec6a779c9f5ef828275a3e9ccaf392a030820911c52d6085c34db' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1657871228347' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'Content-Type: application/json' \
+--data-raw ''
 ```
 
 ```python--pybit
-// change to v3
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.get_active_order(
-    symbol="BTCUSD",
-    order_status="New"
-))
+
 ```
 
 > t(:codequote_responseExample)
@@ -467,40 +439,38 @@ GET
 ### t(:batchPlaceOrderV3)
 
 ```console
-curl 'https://api-testnet.bybit.com/unified/v3/private/order/create-batch' \
--H 'Content-Type: application/json' \
--d '{
-    "api_key":"{api_key}",
-    "timestamp":{timestamp},
-    "sign":"{sign}",
-    "category": "option",
-    "list": [
-        {
-        "symbol": "BTC-24JUN22-45000-P",
+curl --location --request POST 'https://api-testnet.bybit.com/unified/v3/private/order/create-batch' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-SIGN: 27ecc5cca2aec6a779c9f5ef828275a3e9ccaf392a030820911c52d6085c34db' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1657871228347' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'Content-Type: application/json' \
+--data-raw '[
+    {
+        "symbol": "BTCUSDT",
         "orderType": "Limit",
         "side": "Buy",
         "qty": "0.01",
-        "price": "140",
+        "price": "20002",
         "timeInForce": "GoodTillCancel",
-        "orderLinkId": "5cee727a-2af8-430e-a293-42895e594d18"
-        },
-        {
-        "symbol": "BTC-26AUG22-44000-C",
+        "category": "linear"
+    },
+    {
+        "symbol": "BTCUSDT",
         "orderType": "Limit",
-        "side": "Sell",
+        "side": "Buy",
         "qty": "0.01",
-        "price": "140",
+        "price": "20002",
         "timeInForce": "GoodTillCancel",
-        "orderLinkId": "5cee727a-2af8-430e-a293-42895e594d18"
-        }
-    ]
-}'
+        "category": "linear"
+    }
+]'
 ```
 
 ```python
 
 ```
-
 
 > t(:codequote_responseExample)
 
@@ -587,26 +557,27 @@ POST
 t(:usdcBatchReplaceOrdersDescV3)
 
 ```console
-curl 'https://api-testnet.bybit.com/unified/v3/private/order/replace-batch' \
--H 'Content-Type: application/json' \
--d '{
-    "api_key":"{api_key}",
-    "timestamp":{timestamp},
-    "sign":"{sign}",
-    "category": "option",
-    "list": [
-        {
-        "symbol": "BTC-24JUN22-45000-P",
-        "qty": "0.02",
-        "orderLinkId": "5cee727a-2af8-430e-a293-42895e594d18"
-        },
-        {
-        "symbol": "BTC-26AUG22-44000-C",
-        "price": "145",
-        "orderLinkId": "5cee727a-2af8-430e-a293-42895e594d18"
-        }
-    ]
-}'
+curl --location --request POST 'https://api-testnet.bybit.com/unified/v3/private/order/replace-batch' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-SIGN: 27ecc5cca2aec6a779c9f5ef828275a3e9ccaf392a030820911c52d6085c34db' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1657871228347' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'Content-Type: application/json' \
+--data-raw '[
+    {
+        "category": "linear",
+        "symbol": "BTCUSDT",
+        "orderId": "1a1ae001-2034-4a6b-8b25-45aa9100b1ec",
+        "price": "35000"
+    },
+    {
+        "category": "linear",
+        "symbol": "BTCUSDT",
+        "orderId": "1a1ae001-2034-4a6b-8b25-45aa9100b1ec",
+        "price": "35000"
+    }
+]'
 ```
 
 ```python
@@ -680,24 +651,25 @@ POST
 t(:usdcBatchCancelOrdersDescV3)
 
 ```console
-curl 'https://api-testnet.bybit.com/unified/v3/private/order/cancel-batch' \
--H 'Content-Type: application/json' \
--d '{
-    "api_key":"{api_key}",
-    "timestamp":{timestamp},
-    "sign":"{sign}",
-    "category": "option",
-    "list": [
-        {
-        "symbol": "BTC-24JUN22-45000-P",
-        "orderLinkId": "5cee727a-2af8-430e-a293-42895e594d18"
-        },
-        {
-        "symbol": "BTC-26AUG22-44000-C",
-        "orderLinkId": "5cee727a-2af8-430e-a293-42895e594d18"
-        }
-    ]
-}'
+curl --location --request POST 'https://api-testnet.bybit.com/unified/v3/private/order/cancel-batch' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-SIGN: 27ecc5cca2aec6a779c9f5ef828275a3e9ccaf392a030820911c52d6085c34db' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1657871228347' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'Content-Type: application/json' \
+--data-raw '[
+    {
+        "category": "linear",
+        "orderId": "4c51a45f-7795-4b38-9b66-3c306b73f112",
+        "symbol": "BTCUSDT"
+    },
+    {
+        "category": "linear",
+        "orderId": "4c51a45f-7795-4b38-9b66-3c306b73f112",
+        "symbol": "BTCUSDT"
+    }
+]'
 ```
 
 ```python
@@ -768,30 +740,21 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl 'https://api-testnet.bybit.com/unified/v3/private/order/cancel-all' \
--H 'Content-Type: application/json' \
--d '{
-    "api_key":"{api_key}",
-    "timestamp":{timestamp},
-    "sign":"{sign}",
-    "category": "option",
-    "symbol": "BTC-24JUN22-45000-P"
+curl --location --request POST 'https://api-testnet.bybit.com/unified/v3/private/order/cancel-all' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-SIGN: 27ecc5cca2aec6a779c9f5ef828275a3e9ccaf392a030820911c52d6085c34db' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1657871228347' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "category": "linear",
+  "symbol": "BTCUSDT"
 }'
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Order.Order_cancelAll(symbol="BTCUSD").result())
-```
-
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.cancel_all_active_orders(
-    symbol="BTCUSD"
-))
+
 ```
 
 > t(:codequote_responseExample)
@@ -858,22 +821,18 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl 'https://api-testnet.bybit.com/unified/v3/private/position/list?category=linear&symbol=&cursor=&direction=&limit=10&timestamp={timestamp}&sign={sign}'
-```
-
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Positions.Positions_myPosition(symbol="BTCUSD").result())
+curl --location --request GET 'https://api-testnet.bybit.com/unified/v3/private/position/list?category=linear&symbol=BTCUSDT' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-SIGN: 1793ee8a0d7b077550faef8d6676565f817302cbdc4dece80e263f78927212ea' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1657872232349' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'Content-Type: application/json' \
+--data-raw ''
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.my_position(
-    symbol="BTCUSD"
-))
+
 ```
 
 > t(:codequote_responseExample)
@@ -966,33 +925,23 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl 'https://api-testnet.bybit.com/unified/v3/private/position/set-leverage' \
--H 'Content-Type: application/json' \
--d '{
-    "api_key":"{api_key}",
-    "timestamp":{timestamp},
-    "sign":"{sign}",
+curl --location --request POST 'https://api-testnet.bybit.com/unified/v3/private/position/set-leverage' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-SIGN: 1793ee8a0d7b077550faef8d6676565f817302cbdc4dece80e263f78927212ea' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1657872232349' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'Content-Type: application/json' \
+--data-raw '{
     "category": "linear",
     "symbol":"BTCUSDT",
-    "buyLeverage":"5",
-    "sellLeverage":"5"
+    "buyLeverage":"11",
+    "sellLeverage":"11"
 }'
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Positions.Positions_saveLeverage(symbol="BTCUSD", leverage="14").result())
-```
-
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.set_leverage(
-    symbol="BTCUSD",
-    leverage=2
-))
+
 ```
 
 > t(:codequote_responseExample)
@@ -1033,26 +982,22 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl 'https://api-testnet.bybit.com/unified/v3/private/position/tpsl/switch-mode' \
--H 'Content-Type: application/json' \
--d '{
-    "api_key":"{api_key}",
-    "timestamp":{timestamp},
-    "sign":"{sign}",
+curl --location --request POST 'https://api-testnet.bybit.com/unified/v3/private/position/tpsl/switch-mode' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-SIGN: 1793ee8a0d7b077550faef8d6676565f817302cbdc4dece80e263f78927212ea' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1657872232349' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'Content-Type: application/json' \
+--data-raw '{
     "category": "linear",
     "symbol":"BCHUSDT",
-    "tpSlMode":"Partial"
+    "tpSlMode":"Full"
 }'
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.full_partial_position_tp_sl_switch(
-    symbol="BTCUSD",
-    tp_sl_mode="Partial"
-))
+
 ```
 
 > t(:codequote_responseExample)
@@ -1092,27 +1037,23 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl 'https://api-testnet.bybit.com/unified/v3/private/position/set-risk-limit' \
--H 'Content-Type: application/json' \
--d '{
-    "api_key":"{api_key}",
-    "timestamp":{timestamp},
-    "sign":"{sign}",
+curl --location --request POST 'https://api-testnet.bybit.com/unified/v3/private/position/set-risk-limit' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-SIGN: 1793ee8a0d7b077550faef8d6676565f817302cbdc4dece80e263f78927212ea' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1657872232349' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'Content-Type: application/json' \
+--data-raw '{
     "category": "linear",
-    "symbol":"BTCPERP",
-    "riskId":10010,
+    "symbol":"BTCUSDT",
+    "riskId":2,
     "positionIdx":0
 }'
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.set_risk_limit(
-    symbol="BTCUSD",
-    risk_id=2
-))
+
 ```
 
 > t(:codequote_responseExample)
@@ -1153,12 +1094,14 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl 'https://api-testnet.bybit.com/unified/v3/private/position/trading-stop' \
--H 'Content-Type: application/json' \
--d '{
-    "api_key":"{api_key}",
-    "timestamp":{timestamp},
-    "sign":"{sign}",
+curl --location --request POST 'https://api-testnet.bybit.com/unified/v3/private/position/trading-stop' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-SIGN: 1793ee8a0d7b077550faef8d6676565f817302cbdc4dece80e263f78927212ea' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1657872232349' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'Content-Type: application/json' \
+--data-raw '{
     "category": "linear",
     "symbol":"BTCUSDT",
     "takeProfit":"45000",
@@ -1173,20 +1116,8 @@ curl 'https://api-testnet.bybit.com/unified/v3/private/position/trading-stop' \
 }'
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Positions.Positions_tradingStop(symbol="BTCUSD",stop_loss="7000").result())
-```
-
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.set_trading_stop(
-    symbol="BTCUSD",
-    stop_loss=7000
-))
+
 ```
 
 > t(:codequote_responseExample)
@@ -1229,23 +1160,18 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-
-curl 'https://api-testnet.bybit.com/unified/v3/private/execution/list?category=option&orderFilter=&symbol=BTC-14JUL22-17500-C&timestamp={timestamp}&sign={sign}'
-```
-
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Execution.Execution_getTrades(symbol="BTCUSD").result())
+curl --location --request GET 'https://api-testnet.bybit.com/unified/v3/private/execution/list?category=linear&orderFilter=order' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-SIGN: 1793ee8a0d7b077550faef8d6676565f817302cbdc4dece80e263f78927212ea' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1657872232349' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'Content-Type: application/json' \
+--data-raw ''
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.user_trade_records(
-    symbol="BTCUSD"
-))
+
 ```
 
 > t(:codequote_responseExample)
@@ -1338,13 +1264,18 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl 'https://api-testnet.bybit.com/unified/v3/private/delivery-record?category=option&symbol=BTC-23JUN22-18500-P&expDate=&cursor=&direction=&limit=10&timestamp={timestamp}&sign={sign}'
+curl --location --request GET 'https://api-testnet.bybit.com/unified/v3/private/delivery-record?category=option&limit=10' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-SIGN: 1793ee8a0d7b077550faef8d6676565f817302cbdc4dece80e263f78927212ea' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1657872232349' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'Content-Type: application/json'```
 ```
 
-```python
+``` python--pybit
 
 ```
-
 
 > t(:codequote_responseExample)
 
@@ -1413,10 +1344,16 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl 'https://api-testnet.bybit.com/unified/v3/private/settlement-record?category=linear&symbol=BTCPERP&timestamp={timestamp}&sign={sign}'
+curl --location --request GET 'https://api-testnet.bybit.com/unified/v3/private/settlement-record?category=linear' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-SIGN: 1793ee8a0d7b077550faef8d6676565f817302cbdc4dece80e263f78927212ea' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1657872232349' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'Content-Type: application/json'
 ```
 
-```python
+```python--pybit
 
 ```
 
@@ -1486,14 +1423,16 @@ t(:wallet_para)
 > t(:codequote_curlExample)
 
 ```console
-curl 'https://api-testnet.bybit.com/unified/v3/private/account/wallet/balance?coin=ETH&timestamp={timestamp}&sign={sign}'
+curl --location --request GET 'https://api-testnet.bybit.com/unified/v3/private/account/wallet/balance' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-SIGN: 1793ee8a0d7b077550faef8d6676565f817302cbdc4dece80e263f78927212ea' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1657872232349' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'Content-Type: application/json' \
+--data-raw ''
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Wallet.Wallet_getBalance(coin="BTC").result())
-```
 
 ```python--pybit
 from pybit import HTTP
@@ -1592,13 +1531,14 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl 'https://api-testnet.bybit.com/unified/v3/private/account/upgrade-unified-account?timestamp={timestamp}&sign={sign}'
-```
-
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Wallet.Wallet_getBalance(coin="BTC").result())
+curl --location --request POST 'https://api-testnet.bybit.com/unified/v3/private/account/upgrade-unified-account' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-SIGN: 1793ee8a0d7b077550faef8d6676565f817302cbdc4dece80e263f78927212ea' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1657872232349' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'Content-Type: application/json' \
+--data-raw '{}'
 ```
 
 ```python--pybit
@@ -1659,7 +1599,14 @@ t(:wallet_para_tradingHistory_v3)
 > t(:codequote_curlExample)
 
 ```console
-curl 'https://api-testnet.bybit.com/unified/v3/private/account/transaction-log?category=option&type=&currency=USDC&baseCoin=&startTime=0&endTime=0&cursor=&direction=&limit=10'&timestamp={timestamp}&sign={sign}'
+curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/private/account/transaction-log?category=linear&type=&currency=USDT&baseCoin=&limit=10' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-SIGN: 1793ee8a0d7b077550faef8d6676565f817302cbdc4dece80e263f78927212ea' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1657872232349' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'Content-Type: application/json' \
+--data-raw ''
 ```
 
 > t(:codequote_responseExample)
@@ -1700,8 +1647,8 @@ curl 'https://api-testnet.bybit.com/unified/v3/private/account/transaction-log?c
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpwBalance>/unified/v3/private/account/transaction-log</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpwBalance"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=vpTranLog>/unified/v3/private/account/transaction-log</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpTranLog"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -1747,26 +1694,21 @@ t(:wallet_para_transfers_v3)
 > t(:codequote_curlExample)
 
 ```console
-curl 'https://api-testnet.bybit.com/asset/v1/private/transfer' \
--H 'Content-Type: application/json' \
--d '{
-    "api_key":"{api_key}",
-    "timestamp":{timestamp},
-    "sign":"{sign}",
-    "fromAccountType": "UNIFIED",
-    "toAccountType": "INVESTMENT",
-    "amount": "19000",
-    "coin": "USDT",
-    "transferId": "23af1256-1210-0113-915d-0010c5ad2332"
-}'
+curl --location --request GET 'https://api-testnet.bybit.com/asset/v2/private/exchange/exchange-order-all' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-SIGN: 1793ee8a0d7b077550faef8d6676565f817302cbdc4dece80e263f78927212ea' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1657872232349' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'Content-Type: application/json' \
+--data-raw ''
 ```
-
 
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpwBalance>/asset/v1/private/transfer</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpwBalance"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=vpTransfer>/asset/v1/private/transfer</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpTransfer"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -1788,15 +1730,18 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-
-curl 'https://api-testnet.bybit.com/asset/v2/private/exchange/exchange-order-all?fromCoin=BTC&toCoin=ETH&api_key={api_key}&timestamp={timestamp}&sign={sign}'
+curl --location --request GET 'https://api-testnet.bybit.com/asset/v2/private/exchange/exchange-order-all' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-SIGN: 7d52a4dd60ba912747f5401fa1c9a1dc8de76d5354f380b5973a86d9744a9c38' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1657873597617' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'Content-Type: application/json' \
+--data-raw ''
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.asset_exchange_records())
+
 ```
 
 > t(:codequote_responseExample)
@@ -1835,8 +1780,8 @@ t(:wallet_para_assetexchangerecords_v3)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpeOrder>/asset/v2/private/exchange/exchange-order-all</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpeOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=vpExchangeOrder>/asset/v2/private/exchange/exchange-order-all</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpExchangeOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -1860,14 +1805,18 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl 'https://api-testnet.bybit.com/unified/v3/private/account/borrow-history?currency=&startTime=&endTime=&direction=&limit=2&cursor=&api_key={api_key}&timestamp={timestamp}&sign={sign}'
+curl --location --request GET 'https://api-testnet.bybit.com/unified/v3/private/account/borrow-history' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-SIGN: 7d52a4dd60ba912747f5401fa1c9a1dc8de76d5354f380b5973a86d9744a9c38' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1657873597617' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'Content-Type: application/json' \
+--data-raw ''
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.asset_exchange_records())
+
 ```
 
 > t(:codequote_responseExample)
@@ -1909,8 +1858,8 @@ t(:wallet_para_interestBillStatement_v3)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpwBalance>/unified/v3/private/account/borrow-history</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpwBalance"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=vpBorHis>/unified/v3/private/account/borrow-history</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpBorHis"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -1936,14 +1885,18 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl 'https://api-testnet.bybit.com/unified/v3/private/account/borrow-rate?currency=USDC%2CUSDT&api_key={api_key}&timestamp={timestamp}&sign={sign}'
+curl --location --request GET 'https://api-testnet.bybit.com/unified/v3/private/account/borrow-rate' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-SIGN: 7d52a4dd60ba912747f5401fa1c9a1dc8de76d5354f380b5973a86d9744a9c38' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1657873597617' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'Content-Type: application/json' \
+--data-raw ''
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.asset_exchange_records())
+
 ```
 
 > t(:codequote_responseExample)
@@ -1979,8 +1932,8 @@ t(:wallet_para_queryLoanInterest_v3)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpwBalance>/unified/v3/private/account/borrow-rate</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpwBalance"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=vpBorRate>/unified/v3/private/account/borrow-rate</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpBorRate"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
