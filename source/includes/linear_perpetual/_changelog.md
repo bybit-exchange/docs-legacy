@@ -5,7 +5,7 @@
 - [t(:latestsymbolinfo)](#t-latestsymbolinfo) [t(:changelog_update)]
   - t(:restapi_update_20220718_2)
 
-### Websocket API
+### WebSocket API
 - [t(:latestsymbolinfo)](#t-latestsymbolinfo) [t(:changelog_update)]
   - t(:restapi_update_20220718_1)
 
