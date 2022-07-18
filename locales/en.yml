@@ -1332,7 +1332,8 @@ en:
   ## How to Send the Heartbeat Packet
   heartbeat: How to Send Heartbeat Packet
   websocket_codequote_heartbeat: How to Send
-  websocket_aside_heartbeat: To avoid networks or program issues, we recommend that you send the <code>ping</code> heartbeat packet every 30 seconds to maintain the WebSocket connection.
+  websocket_aside_heartbeat: To avoid networks or program issues, we recommend that you send the <code>ping</code> heartbeat packet every <b>20</b> seconds to maintain the WebSocket connection.
+
   ## Rate Limits
   websocketlimit: Rate Limits
   websocket_para_limit: ""
@@ -3519,7 +3520,6 @@ en:
 #  platFormOrderLatest500: 平台歷史交易數據（最近500條）
   usdcLimitMax500: default 500
 
-  usdc_websocket_aside_heartbeat: To avoid networks or program issues, we recommend that you send the <code>ping</code> heartbeat packet every <b>20</b> seconds to maintain the WebSocket connection.
   websocket_aside_heartbeat_option: |
     <p>The client needs to periodically send a "ping" to Bybit, and the Bybit server returns a heartbeat "pong" to show that the connection between the client and the server is normal. It is recommended to send at least every <b>20s</b>. WSS will actively trigger to break the connection without heartbeat "ping" received in 30s.</p>
     <p>If the client does not receive the heartbeat feedback normally, it needs to check the network connection status and reconnect to the server.</p>
