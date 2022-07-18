@@ -248,6 +248,7 @@ GET
 | volume24h |string |t(:row_comment_resp_volume_24h) |
 | symbol |string |t(:row_comment_symbol) |
 | vega |string |t(:vega) |
+| lastTickDirection | string |t(:row_comment_tick_direction) |
 | lastPrice |string |t(:row_comment_resp_last_price) |
 | totalVolume |string |t(:row_comment_resp_total_volume) |
 | bidPrice |string |t(:bidPrice) |
