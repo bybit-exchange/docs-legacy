@@ -381,6 +381,14 @@ en:
   row_response_liq_record_side: Liquidated position's side
   row_comment_max_leverage: Max leverage
   request_disable: This endpoint is no longer recommended!
+  usdcOrderAllSize: Total size of order
+  usdcOrderFilledSize: Filled size of order
+  usdcOrderTime: Order time
+  usdcExecType: Execution type
+  usdcVersion: version
+  usdcUserId: uid
+  usdcPlayMode: Please ignore
+  usdcPlayType: Please ignore
 
 
 
@@ -3185,6 +3193,12 @@ en:
   usdcBatchCancelOrders: Batch Cancel Orders
   usdcCancelAll: Cancel All Active Orders
   usdcQryUnOrPartFilled: Query Unfilled/Partially Filled Orders
+  usdcQryUnOrPartFilled_new: Query Unfilled/Partially Filled Orders(real-time)
+  usdcQryUnOrPartFilled_new_para: |
+    <p>This is <b>GET</b> request, and pass <code>orderLinkId</code> could only query current active orders.<p>
+    <p>If passes <code>orderId</code>, it could query last 7 days orders. It is recommended that save your data to database after querying.<p>
+    <p>Query priority: orderId > orderLinkId > both null.</p>
+    <p>When the first time to query, cursor could be null. However, when need next page data, you should pass cursor which the value got from last response.</p>
   usdcQryOrderHistory: Query Order History
   usdcFundingApi: Funding API
 
@@ -3640,6 +3654,7 @@ en:
     <p>topic:</p>
     <p>Option: user.option.orderHistory</p>
   activeOrders: Orders
+  activeOrders_new: Orders(delta only)
   usdcActiveOrder: |
     <p>topic:</p>
     <p>Option: user.openapi.option.order</p>
@@ -3648,6 +3663,14 @@ en:
     <p>When the link is established successfully, a full package will be added first. If you place an order again, you will receive an incremental data package.</p>
     <p>-If the dataType is NEW, full data will be pushed  </p>
     <p>-if the dataType is CHANGE, incremental data will be pushed  </p>
+
+  usdcWssOrderNew: |
+    <p>topic: user.order</p>
+
+  usdcWssOrderNewDesc: |
+    <p>This topic reflects an order lifecycle.</p>
+    <p>It only pushes delta data packages. So make sure you've subscribed the topic before placing an order</p>
+    <p>It sometimes might push duplicate messages, so please ensure idempotent process.
 
   usdcPerpCategory: Type. PERPETUAL
   usdcPerpOrderType: <a href="#order-type-ordertypes">Order Type</a>

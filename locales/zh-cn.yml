@@ -283,6 +283,15 @@ zh-cn:
   row_comment_buy_ratio: 多倉人數占比
   row_comment_sell_ratio: 空倉人數占比
   request_disable: 此接口不再推薦使用!
+  usdcOrderAllSize: 訂單總數量
+  usdcOrderFilledSize: 成交數量
+  usdcOrderTime: 訂單時間
+  usdcExecType: 執行類型
+  usdcVersion: 版本
+  usdcUserId: 用戶ID
+  usdcPlayMode: 請忽略
+  usdcPlayType: 請忽略
+
   row_comment_tp_sl_mode: 止盈止損模式 <code>Full</code> or <code>Partial</code>
   row_comment_mode: 倉位模式，  <code>MergedSingle</code> or <code>BothSide</code>
   row_comment_taker_fee_rate: taker手續費
@@ -2838,6 +2847,20 @@ zh-cn:
   usdcBatchCancelOrders: 批量取消
   usdcCancelAll: 取消全部活動單
   usdcQryUnOrPartFilled: 查詢未成交/部分成交訂單
+  usdcQryUnOrPartFilled_new: 查詢未成交/部分成交訂單(實時)
+  usdcQryUnOrPartFilled_new_para: |
+    <p>這是<b>GET</b>請求, 傳入<code>orderLinkId</code>僅能查詢當前的活動單。<p>
+    <p>如果有傳入<code>orderId</code>可查詢7天內的訂單數據（包括已完結的歷史訂單）, 建議用戶查詢到後保存到自己數據庫。<p>
+    <p>查詢優先級: orderId > orderLinkId > 兩個字段都不傳。</p>
+    <p>第一次查詢時, cursor字段可為空; 但需要翻頁時, 則將response裏的cursor響應字段保持不變的回傳。</p>
+
+  usdcWssOrderNew: |
+    <p>topic: user.order</p>
+
+  usdcWssOrderNewDesc: |
+    <p>该topic反应的是一个订单的变化周期.</p>
+    <p>这是一个增量推送, 即有新的活动单时才会推送该topic.数据可能会重复推送, 请做好幂等处理.</p>
+    <p>如果使用这个topic, 建议是先订阅这个topic,然后再进行交易相关操作.</p>
   usdcQryOrderHistory: 查詢單筆/全部訂單歷史
   usdcFundingApi: 資金費率
 
@@ -3281,6 +3304,7 @@ zh-cn:
   usdcTradeHistory: 成交記錄
   usdcTransactionType:  <a href="#transaction-type-type">Transaction type</a>
   activeOrders: 訂單
+  activeOrders_new: 訂單(純增量)
   usdcActiveOrder: |
     <p>topic:</p>
     <p>user.openapi.option.order</p>
