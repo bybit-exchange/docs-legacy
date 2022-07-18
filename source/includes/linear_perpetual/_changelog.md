@@ -1,9 +1,18 @@
 # t(:changelog)
+
+## 2022-07-18
+### REST API
+- [t(:latestsymbolinfo)](#t-latestsymbolinfo) [t(:changelog_update)]
+  - t(:restapi_update_20220718_2)
+
+### Websocket API
+- [t(:latestsymbolinfo)](#t-latestsymbolinfo) [t(:changelog_update)]
+  - t(:restapi_update_20220718_1)
+
 ## 2022-06-30
 ### REST API
 - [t(:userhistorytraderecords)](#t-userhistorytraderecords) [t(:changelog_update)]
   - t(:restapi_update_20220630)
-  
 
 ## 2022-04-29
 ### REST API
