@@ -58,5 +58,6 @@ Return Code | t(:errorcode_meaning)
 3400002  |   Please ensure that there are no active orders in your USDC account, including Limit, Market and Conditional orders
 3400005  |   Set margin mode failed
 3400015	 |   System error. Please try again later.
+3400045	 |   Set margin mode failed. The error will be triggerd when your account is in the upgrade of unified margin account, then you request set margin mode endpoint in the mean time.
 3500001	 |   System error. Please try again later.
 3500040	 |   System error. Please try again later.
