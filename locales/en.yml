@@ -3198,10 +3198,10 @@ en:
   usdcQryUnOrPartFilled: Query Unfilled/Partially Filled Orders
   usdcQryUnOrPartFilled_new: Query Unfilled/Partially Filled Orders(real-time)
   usdcQryUnOrPartFilled_new_para: |
-    <p>This is <b>GET</b> request, and pass <code>orderLinkId</code> could only query current active orders.<p>
-    <p>If passes <code>orderId</code>, it could query last 7 days orders. It is recommended that save your data to database after querying.<p>
-    <p>Query priority: orderId > orderLinkId > both null.</p>
-    <p>When the first time to query, cursor could be null. However, when need next page data, you should pass cursor which the value got from last response.</p>
+    <p>This is <code><b>GET</b></code> request, and pass <code>orderLinkId</code> could only query current active orders.<p>
+    <p>It's able to query orders in last 7 days including fulfilled historical orders if <code>orderId</code> is passed. We recommend you save queried data to database.<p>
+    <p>Query priority: <code>orderId</code> > <code>orderLinkId</code> > both null.</p>
+    <p><code>cursor</code> is not necessary when do first querying. However, it must be passed with the exact same value from response while getting next page.</p>
   usdcQryOrderHistory: Query Order History
   usdcFundingApi: Funding API
 
