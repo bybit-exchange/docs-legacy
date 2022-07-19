@@ -163,7 +163,7 @@ t(:websocket_para_intervals)
    "request": {
        "op": "subscribe",
        "args": [
-           "kline.BTCUSDT.1m"
+           "candle.BTCUSDT.1m"
        ]
    }
 }

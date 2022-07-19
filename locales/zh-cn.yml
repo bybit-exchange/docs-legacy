@@ -294,6 +294,15 @@ zh-cn:
   row_comment_buy_ratio: 多倉人數占比
   row_comment_sell_ratio: 空倉人數占比
   request_disable: 此接口不再推薦使用!
+  usdcOrderAllSize: 訂單總數量
+  usdcOrderFilledSize: 成交數量
+  usdcOrderTime: 訂單時間
+  usdcExecType: 執行類型
+  usdcVersion: 版本
+  usdcUserId: 用戶ID
+  usdcPlayMode: 請忽略
+  usdcPlayType: 請忽略
+
   row_comment_tp_sl_mode: 止盈止損模式 <code>Full</code> or <code>Partial</code>
   row_comment_mode: 倉位模式，  <code>MergedSingle</code> or <code>BothSide</code>
   row_comment_taker_fee_rate: taker手續費
@@ -659,6 +668,7 @@ zh-cn:
     <ul class="bybit-community">
       <li><img src="/images/favicon.ico" height="14", width="14"> <a href="https://www.bybit.com/zh-TW/help-center/?language=zh_TW"><strong>幫助中心</strong></a> - <strong>在這裏了解合約交易</strong>
       <li><img src="/images/github_logo_icon.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>官方Python SDK</strong>
+      <li><img src="/images/github_logo_icon.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman接口集合</strong>
       <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文討論群</strong>
       <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文討論群</strong>
       <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong>
@@ -668,6 +678,7 @@ zh-cn:
     <ul class="bybit-community">
     <li><img src="/images/favicon.ico" height="14", width="14"> <a href="https://www.bybit.com/zh-TW/help-center/?language=zh_TW"><strong>幫助中心</strong></a> - <strong>在這裏了解現貨交易</strong>
     <li><img src="/images/github_logo_icon.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>官方Python SDK</strong>
+    <li><img src="/images/github_logo_icon.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman接口集合</strong>
     <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文討論群</strong>
     <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文討論群</strong>
     <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong>
@@ -1568,11 +1579,12 @@ zh-cn:
   websocket_best_practices: 由於網絡的復雜性，您和Bybit的websocket鏈接隨時可能會斷開，為了保證您能及時收到websocket推送消息，強烈建議您按照以下建議處理網絡異常：
     <p>1. 通過<a href="#t-heartbeat">發送心跳包</a>保持連接</p>
     <p>2. 一旦發現連接斷開，應該立刻重新建立連接。</p>
+  websocket_max_50_connection: 單個IP同時最多50個websocket私有topic鏈接
   ## How to Send the Heartbeat Packet
   heartbeat: 心跳包/Ping
   websocket_codequote_heartbeart: 發送心跳包
   websocket_codequote_heartbeat: 如何發送心跳包
-  websocket_aside_heartbeat: 由於網絡或者程序不穩定,我們強烈建議您使用 <code>ping</code> 心跳包來維持連接. 心跳包建議每30秒發送一次.
+  websocket_aside_heartbeat: 由於網絡或者程序不穩定,我們強烈建議您使用 <code>ping</code> 心跳包來維持連接. 心跳包建議每<b>20</b>秒發送一次.
   ## Rate Limits
   websocketlimit: 頻率限製
   websocket_para_limit: 註意，每個api_key最多可以保持20個Websocket連接.超過20個連接後的新連接會被服務器拒絕.
@@ -1594,6 +1606,8 @@ zh-cn:
     <p>您還可以使用匹配符號(<code>*</code>)來匹配多個topic，具體用法見右側代碼欄</p>
   websocket_para_filters3: |
     <p>您可以使用管道符號(<code>|</code>)來分割多個參數，前提是這些參數都是合法的, 具體用法見右側代碼欄</p>
+  websocket_para_filter_resp: |
+    <p>響應結果(ret_msg為失敗原因，訂閱成功該字段則為空)：{"success":true,"ret_msg":"","conn_id": "{conn_id}"}
   websocketunsubfilters: Websocket取消訂閱方式
   websocket_codequote_unsubfilters: 取消訂閱
   websocket_para_unsubfilters: |
@@ -2399,6 +2413,7 @@ zh-cn:
   linear_private_switchmode: 切換止盈止損模式至全倉或部分
   linear_row_comment_limit: 每頁數量, 最大50. 默認每頁20條，最多50條每頁
   linear_row_comment_limit_50_200: 每頁數量, 最大200. 默認每頁50條，最多200條每頁
+  restapi_update_20220708: 添加註意，对於spot private topic，一個ip最多可以同時連接50個websockets連接，
   restapi_update_20220630: 新增返回參數 <code>page_token</code>。
   restapi_update_20220617: 新增LT 全量資產基礎信息查詢
   restapi_update_20220616: 新增USDC設置保證金模式
@@ -3262,6 +3277,20 @@ zh-cn:
   usdcBatchCancelOrders: 批量取消
   usdcCancelAll: 取消全部活動單
   usdcQryUnOrPartFilled: 查詢未成交/部分成交訂單
+  usdcQryUnOrPartFilled_new: 查詢未成交/部分成交訂單(實時)
+  usdcQryUnOrPartFilled_new_para: |
+    <p>這是<b>GET</b>請求, 傳入<code>orderLinkId</code>僅能查詢當前的活動單。<p>
+    <p>如果有傳入<code>orderId</code>可查詢7天內的訂單數據（包括已完結的歷史訂單）, 建議用戶查詢到後保存到自己數據庫。<p>
+    <p>查詢優先級: orderId > orderLinkId > 兩個字段都不傳。</p>
+    <p>第一次查詢時, cursor字段可為空; 但需要翻頁時, 則將response裏的cursor響應字段保持不變的回傳。</p>
+
+  usdcWssOrderNew: |
+    <p>topic: user.order</p>
+
+  usdcWssOrderNewDesc: |
+    <p>该topic反应的是一个订单的变化周期.</p>
+    <p>这是一个增量推送, 即有新的活动单时才会推送该topic.数据可能会重复推送, 请做好幂等处理.</p>
+    <p>如果使用这个topic, 建议是先订阅这个topic,然后再进行交易相关操作.</p>
   usdcQryOrderHistory: 查詢單筆/全部訂單歷史
   usdcFundingApi: 資金費率
 
@@ -3592,7 +3621,6 @@ zh-cn:
   platFormOrderLatest500: 平台歷史交易數據（最近500條）
   usdcLimitMax500: 默認500
 
-  usdc_websocket_aside_heartbeat: 由於網絡或者程序不穩定,我們強烈建議您使用 <code>ping</code> 心跳包來維持連接. 心跳包建議每<b>20</b>秒發送一次.
   websocket_aside_heartbeat_option: |
     <p>客戶端需要定時發送"ping"給Bybit，Bybit服務器返回heartbeat"pong"來顯示客戶端和服務器之間的連接正常。建議至少每<b>20s</b>發送一次，30s內收不到心跳WSS會自動觸發斷連。</p>
     <p>如果客戶端沒有正常收到heartbeat的反饋，則需要檢查網絡連接狀態，並重新連接服務器。</p>
@@ -3705,6 +3733,7 @@ zh-cn:
   usdcTradeHistory: 成交記錄
   usdcTransactionType:  <a href="#transaction-type-type">Transaction type</a>
   activeOrders: 訂單
+  activeOrders_new: 訂單(純增量)
   usdcActiveOrder: |
     <p>topic:</p>
     <p>user.openapi.option.order</p>
@@ -4215,3 +4244,36 @@ zh-cn:
   dv_openInterEndTime: 紀錄查詢的結束時間
   # respParam
   dv_openInterTimestamp: 數據產生時間, 精確到毫秒
+
+  # websocket
+  websocket_para_endpoint_v3: |
+    <p>Websocket服務器地址:</p>
+    <ul>
+    <p>
+    <li>測試網:<br/>
+        <span id="usdt_testnet_address">USDT合約: wss://stream-testnet.bybit.com/contract/usdt/public/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdt_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <br/>
+        <span id="usdc_testnet_address">USDC合約: wss://stream-testnet.bybit.com/contract/usdc/public/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdc_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <br/>
+        <span id="inverse_testnet_address">反向合約: wss://stream-testnet.bybit.com/contract/inverse/public/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#inverse_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+    </li>
+     </p>
+    </ul>
+
+  websocketOrderBook_v3: |
+    <b>說明: </b>
+    獲取25,500檔orderbook數據.<br>
+    訂閱成功後，會立即得到一個當前快照包的推送消息. orderbook數據按訂單價格升序排序，從最低價格的買單到最高價格的賣單.
+    快照包之後，每當orderbook發生變化，websocket將會繼續推送這些增量數據. 收到snapshot的報文，就需要重置本地的orderbook.<br><br>
+    <b>type</b>: <code>snapshot</code>=完整的報文，<code>delta</code>=增量報文<br>
+    如果因為Bybit服務原因，會重新發送snapshot報文，該報文已保證是最新且準確的.<br><br>
+    25檔數據，推送頻率 <b>20ms</b> <br>
+    500檔數據，推送頻率 <b>100ms</b> <br>
+    <br>
+    <b>Topic: (備註：Option只有25和100檔)</b><br>
+    <code>orderBook25.{symbol}</code><br>
+    <code>orderBook100.{symbol}</code>(<b>僅期權)</b><br>
+    <code>orderBook500.{symbol}</code><br>

@@ -49,6 +49,8 @@ t(:websocket_aside_auth)
 
 t(:websocket_para_methods)
 
+t(:websocket_max_50_connection)
+
 <aside class="notice">
 t(:websocket_aside_signature)
 </aside>
