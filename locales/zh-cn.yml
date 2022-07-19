@@ -1575,6 +1575,8 @@ zh-cn:
     <p>您還可以使用匹配符號(<code>*</code>)來匹配多個topic，具體用法見右側代碼欄</p>
   websocket_para_filters3: |
     <p>您可以使用管道符號(<code>|</code>)來分割多個參數，前提是這些參數都是合法的, 具體用法見右側代碼欄</p>
+  websocket_para_filter_resp: |
+    <p>響應結果(ret_msg為失敗原因，訂閱成功該字段則為空)：{"success":true,"ret_msg":"","conn_id": "{conn_id}"}
   websocketunsubfilters: Websocket取消訂閱方式
   websocket_codequote_unsubfilters: 取消訂閱
   websocket_para_unsubfilters: |
@@ -4211,3 +4213,36 @@ zh-cn:
   dv_openInterEndTime: 紀錄查詢的結束時間
   # respParam
   dv_openInterTimestamp: 數據產生時間, 精確到毫秒
+
+  # websocket
+  websocket_para_endpoint_v3: |
+    <p>Websocket服務器地址:</p>
+    <ul>
+    <p>
+    <li>測試網:<br/>
+        <span id="usdt_testnet_address">USDT合約: wss://stream-testnet.bybit.com/contract/usdt/public/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdt_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <br/>
+        <span id="usdc_testnet_address">USDC合約: wss://stream-testnet.bybit.com/contract/usdc/public/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdc_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <br/>
+        <span id="inverse_testnet_address">反向合約: wss://stream-testnet.bybit.com/contract/inverse/public/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#inverse_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+    </li>
+     </p>
+    </ul>
+
+  websocketOrderBook_v3: |
+    <b>說明: </b>
+    獲取25,500檔orderbook數據.<br>
+    訂閱成功後，會立即得到一個當前快照包的推送消息. orderbook數據按訂單價格升序排序，從最低價格的買單到最高價格的賣單.
+    快照包之後，每當orderbook發生變化，websocket將會繼續推送這些增量數據. 收到snapshot的報文，就需要重置本地的orderbook.<br><br>
+    <b>type</b>: <code>snapshot</code>=完整的報文，<code>delta</code>=增量報文<br>
+    如果因為Bybit服務原因，會重新發送snapshot報文，該報文已保證是最新且準確的.<br><br>
+    25檔數據，推送頻率 <b>20ms</b> <br>
+    500檔數據，推送頻率 <b>100ms</b> <br>
+    <br>
+    <b>Topic: (備註：Option只有25和100檔)</b><br>
+    <code>orderBook25.{symbol}</code><br>
+    <code>orderBook100.{symbol}</code>(<b>僅期權)</b><br>
+    <code>orderBook500.{symbol}</code><br>

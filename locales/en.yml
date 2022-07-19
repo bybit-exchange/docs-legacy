@@ -1760,6 +1760,8 @@ en:
     <p>Finally, to subscribe to the topic without filters please use the <code>*</code> wildcard.</p>
   websocket_para_filters3: |
     <p>It is possible to use multiple filters for the same topic by splitting them with a pipe (<code>|</code>) - of course, these filters must all be applicable to the selected <code>topic</code>.</p>
+  websocket_para_filter_resp: |
+    <p>Response(<code>ret_msg</code> the reason of failure，but it keeps null with successful subscription)：{"success":true,"ret_msg":"","conn_id": "{conn_id}"}
   websocketunsubfilters: Unsubscribing From Websocket Topics
   websocket_codequote_unsubfilters: How to unsubscribe with a filter
   websocket_para_unsubfilters: |
@@ -4565,3 +4567,35 @@ en:
   dv_openInterEndTime: End time
   # respParam
   dv_openInterTimestamp: Timestamp(ms) of data generation.
+  # websocket
+  websocket_para_endpoint_v3: |
+    <p>Base endpoints:</p>
+    <ul>
+    <p>
+    <li>Testnet:<br/>
+        <span id="usdt_testnet_address">USDT contract: wss://stream-testnet.bybit.com/contract/usdt/public/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdt_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <br/>
+        <span id="usdc_testnet_address">USDC contract: wss://stream-testnet.bybit.com/contract/usdc/public/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdc_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <br/>
+        <span id="inverse_testnet_address">Inverse contract: wss://stream-testnet.bybit.com/contract/inverse/public/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#inverse_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+    </li>
+     </p>
+    </ul>
+
+  websocketOrderBook_v3: |
+    <b>instruction: </b>
+    Get 25, 500 level data.<br>
+    Once subscribe successfully, you will receive a snapshot. The data is ordered by order price, which from lowest buy order to highest sell order.
+    Websocket will keep pushing delta message when orderbook is changed. If you receive a new snapshot data, it's necessary to reset your local orderbook.<br><br>
+    <b>type</b>: <code>snapshot</code>=Full orderbook，<code>delta</code>=delta orderbook<br>
+    If there is a problem in bybit end, it will re-send a snapshot, which is promised the latest and accurate.<br><br>
+    25 level data, push frequency: <b>20ms</b> <br>
+    500 level data, push frequency: <b>100ms</b> <br>
+    <br>
+    <b>Topic: (ps. option has 25 & 100 level only)</b><br>
+    <code>orderBook25.{symbol}</code><br>
+    <code>orderBook100.{symbol}</code>(<b>option only)</b><br>
+    <code>orderBook500.{symbol}</code><br>

@@ -57,11 +57,7 @@ ws.send(
 )
 ```
 
-<aside class="notice">
-t(:websocket_endpoints_aside)
-</aside>
-
-t(:websocket_para_endpoint)
+t(:websocket_para_endpoint_v3)
 
 <aside class="notice">
 t(:websocket_aside_auth)
@@ -137,8 +133,7 @@ t(:websocket_para_filters1)
 `ws.send('{"op": "subscribe", "args": ["topic.filter", "topic.filter"]}');`
 
 t(:websocket_para_filters3)
-
-### t(:websocketfilters_unified)
+t(:websocket_para_filter_resp)
 
 ### t(:websocketunsubfilters)
 > t(:websocket_codequote_unsubfilters)
@@ -151,8 +146,6 @@ ws.send('{"op":"unsubscribe","args":["trade.ETHUSD"]}')
 t(:websocket_para_unsubfilters)
 
 `ws.send('{"op": "unsubscribe", "args": ["topic.filter", "topic.filter"]}');`
-
-### t(:websocketunsubfilters_unified)
 
 ### t(:intervals)
 t(:websocket_para_intervals)
@@ -259,15 +252,7 @@ ws.send('{"op": "subscribe", "args": ["orderBook25.BTCUSDT",orderBook500.BTCUSDT
 }
 ```
 
-- orderBook25.[symbol]
-  - t(:market_para_orderbook)
-  - [Push frequency]:20ms
-
-<br>
-
-- orderBook500.[symbol] <br>
-  - t(:market_para_orderbook_500)
-  - [Push frequency]:100ms
+t(:websocketOrderBook_v3)
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
