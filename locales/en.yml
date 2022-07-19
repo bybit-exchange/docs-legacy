@@ -630,6 +630,14 @@ en:
   row_response_liq_record_side: Liquidated position's side
   row_comment_max_leverage: Max leverage
   request_disable: This endpoint is no longer recommended!
+  usdcOrderAllSize: Total size of order
+  usdcOrderFilledSize: Filled size of order
+  usdcOrderTime: Order time
+  usdcExecType: Execution type
+  usdcVersion: version
+  usdcUserId: uid
+  usdcPlayMode: Please ignore
+  usdcPlayType: Please ignore
 
 
 
@@ -700,16 +708,18 @@ en:
   spot_resources: API Resources and Support Channels
   intro_para_resources:
     <ul class="bybit-community">
-    <li><img src="/images/help_favicon.ico" height="14", width="14"> <a href="https://www.bybit.com/en-US/help-center/?language=en_US"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong>
+    <li><img src="/images/favicon.ico" height="14", width="14"> <a href="https://www.bybit.com/en-US/help-center/?language=en_US"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong>
     <li><img src="/images/github_logo_icon.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>Official Python SDK</strong>
+    <li><img src="/images/github_logo_icon.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman API Collection</strong>
     <li><img src="/images/telegram_logo_icon.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong>
     <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong>
     <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong>
     </ul>
   spot_intro_para_resources:
     <ul class="bybit-community">
-    <li><img src="/images/help_favicon.ico" height="14", width="14"> <a href="https://www.bybit.com/en-US/help-center/?language=en_US"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong>
+    <li><img src="/images/favicon.ico" height="14", width="14"> <a href="https://www.bybit.com/en-US/help-center/?language=en_US"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong>
     <li><img src="/images/github_logo_icon.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>Official Python SDK</strong>
+    <li><img src="/images/github_logo_icon.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman API Collection</strong>
     <li><img src="/images/telegram_logo_icon.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong>
     <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong>
     <li><img src="/images/telegram_logo_icon.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong>
@@ -774,7 +784,7 @@ en:
   faq_reduce_only: <code>reduce_only</code> and <code>close_on_trigger</code> - what's the difference?
   faq_reduce_only_para: |
     <ul>
-    <li>To close your position, specify <b><code>reduce_only</code> to <code>true</code></b>. <code>close_on_trigger</code> is not strictly applicable here, but you can also set it to <code>true</code> if it's required.</li>
+    <li>To close your position, submit <a href="#t-placeactive">an order</a> and specify <b><code>reduce_only</code> to <code>true</code></b>. <code>close_on_trigger</code> is not strictly applicable here, but you can also set it to <code>true</code> if it's required.</li>
     <li><code>reduce_only</code> is the one that really matters for closing position, and we will improve the interface in the future.</li>
     <li>Be careful when you specify <code>close_on_trigger</code> to <code>true</code> as it could cause conflict when <code>reduce_only</code> is <code>false</code>.</li>
     </ul>
@@ -1687,16 +1697,18 @@ en:
     </ul>
   websocket_aside_auth: <b>Public</b> topics do not require authentication. The following section applies to <b>private</b> topics only.
   websocket_aside_push_trigger: Typically, websocket messages will only be pushed when a change occurs. You won't receive a snapshot message immediately upon subscription unless otherwise stated. This means that when subscribing to your <code>position</code>, you won't receive any position messages until (for example) your position size changes.
-  websocket_para_methods: Authentication examples are shown in code block.
+  websocket_para_methods: Authentication examples are shown in the code block.
   spot_websocket_para_methods: There are two authentication methods. Example of signing algorithms can be found here.
   websocket_aside_signature: Example signature algorithms can be found <a href="https://github.com/bybit-exchange/api-usage-examples">here</a>.
   websocket_best_practices: Due to network complexity, your may get disconnected at any time. Please follow the instructions below to ensure that you receive WebSocket messages on time:</span>
     <p>1. Keep connection alive by <a href="#t-heartbeat">sending heartbeat packet</a></p>
     <p>2. Reconnect as soon as possible if disconnected</p>
+  websocket_max_50_connection: An IP can connect to a maximum of 50 private spot websocket connections simultaneously.
   ## How to Send the Heartbeat Packet
   heartbeat: How to Send Heartbeat Packet
   websocket_codequote_heartbeat: How to Send
-  websocket_aside_heartbeat: To avoid networks or program issues, we recommend that you send the <code>ping</code> heartbeat packet every 30 seconds to maintain the WebSocket connection.
+  websocket_aside_heartbeat: To avoid networks or program issues, we recommend that you send the <code>ping</code> heartbeat packet every <b>20</b> seconds to maintain the WebSocket connection.
+
   ## Rate Limits
   websocketlimit: Rate Limits
   websocket_para_limit: ""
@@ -2671,6 +2683,9 @@ en:
   linear_private_switchmode: Switch mode between Full or Partial
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
+  restapi_update_20220718_2: Abandon response field <code>total_turnover</code>.
+  restapi_update_20220718_1: Abandon response field <code>total_turnover_e8</code>.
+  restapi_update_20220708: Add notice that an IP can connect to a maximum of 50 private spot websocket connections simultaneously
   restapi_update_20220630: Add <code>page_token</code> field in response parameters.
   restapi_update_20220617: Add LT All Asset Infos Query
   restapi_update_20220616: Add Set Margin Mode API for USDC
@@ -3546,6 +3561,12 @@ en:
   usdcBatchCancelOrders: Batch Cancel Orders
   usdcCancelAll: Cancel All Active Orders
   usdcQryUnOrPartFilled: Query Unfilled/Partially Filled Orders
+  usdcQryUnOrPartFilled_new: Query Unfilled/Partially Filled Orders(real-time)
+  usdcQryUnOrPartFilled_new_para: |
+    <p>This is <code><b>GET</b></code> request, and pass <code>orderLinkId</code> could only query current active orders.<p>
+    <p>It's able to query orders in last 7 days including fully/partial filled & cancelled orders if <code>orderId</code> is passed. We recommend to save the response into your database.<p>
+    <p>Query priority: <code>orderId</code> > <code>orderLinkId</code> > both null.</p>
+    <p><code>cursor</code> is not necessary when do first querying. However, it must be passed with the exact same value from response while getting next page.</p>
   usdcQryOrderHistory: Query Order History
   usdcFundingApi: Funding API
 
@@ -3880,7 +3901,6 @@ en:
 #  platFormOrderLatest500: 平台歷史交易數據（最近500條）
   usdcLimitMax500: default 500
 
-  usdc_websocket_aside_heartbeat: To avoid networks or program issues, we recommend that you send the <code>ping</code> heartbeat packet every <b>20</b> seconds to maintain the WebSocket connection.
   websocket_aside_heartbeat_option: |
     <p>The client needs to periodically send a "ping" to Bybit, and the Bybit server returns a heartbeat "pong" to show that the connection between the client and the server is normal. It is recommended to send at least every <b>20s</b>. WSS will actively trigger to break the connection without heartbeat "ping" received in 30s.</p>
     <p>If the client does not receive the heartbeat feedback normally, it needs to check the network connection status and reconnect to the server.</p>
@@ -4001,6 +4021,7 @@ en:
     <p>topic:</p>
     <p>Option: user.option.orderHistory</p>
   activeOrders: Orders
+  activeOrders_new: Orders(delta only)
   usdcActiveOrder: |
     <p>topic:</p>
     <p>Option: user.openapi.option.order</p>
@@ -4009,6 +4030,14 @@ en:
     <p>When the link is established successfully, a full package will be added first. If you place an order again, you will receive an incremental data package.</p>
     <p>-If the dataType is NEW, full data will be pushed  </p>
     <p>-if the dataType is CHANGE, incremental data will be pushed  </p>
+
+  usdcWssOrderNew: |
+    <p>topic: user.order</p>
+
+  usdcWssOrderNewDesc: |
+    <p>This topic reflects an order lifecycle.</p>
+    <p>It only pushes delta data packages. So make sure you've subscribed the topic before placing an order</p>
+    <p>It sometimes might push duplicate messages, so please ensure idempotent process.
 
   usdcPerpCategory: Type. PERPETUAL
   usdcPerpOrderType: <a href="#order-type-ordertypes">Order Type</a>

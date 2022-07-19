@@ -97,7 +97,7 @@ ws.send('{"op":"ping","args":["1535975085152"]}');
 
 
 <aside class="warning">
-t(:websocket_aside_heartbeat)
+t(:usdc_websocket_aside_heartbeat)
 </aside>
 
 t(:websocket_aside_heartbeat_option)
@@ -592,6 +592,76 @@ t(:usdcFilledHistory)
 | lastLiquidityInd|string |t(:lastLiquidityInd) |
 | execType |string |t(:execType) |
 
+
+### t(:activeOrders_new)
+
+> t(:codequote_subscribe)
+
+```javascript
+ ws.send('{"op":"subscribe", "args":["user.order"]}');
+```
+
+> t(:codequote_snapshot)
+
+```javascript
+{
+    "id": "0feb2c52-d10c-4f25-a60c-59e0b6755bbb17195215-6820-4d50-abf8-7c98f9e00570",
+    "topic": "user.order",
+    "creationTime": 1658123196619,
+    "data": {
+        "orderId": "0feb2c52-d10c-4f25-a60c-59e0b6755bbb",
+        "symbol": "BTC-30SEP22-28000-C",
+        "orderStatus": "New",
+        "side": "Buy",
+        "orderPrice": "460",
+        "orderAllSize": "1",
+        "orderFilledSize": "0",
+        "orderRemainingSize": "1",
+        "orderType": "Limit",
+        "orderTime": "1658123196611",
+        "timeInForce": "GoodTillCancel",
+        "createTimeStamp": "1658123196611",
+        "updateTimeStamp": "1658123196617",
+        "orderLinkId": "option0008",
+        "execType": "newed",
+        "iv": "0.0",
+        "version": "286819574",
+        "placeMode": "basic",
+        "placeType": "price",
+        "userId": "533285"
+    }
+}
+```
+
+t(:usdcWssOrderNew)
+t(:usdcWssOrderNewDesc)
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|orderId|string |t(:usdcOrderId)|
+|t(:row_parameter_symbol) |string|t(:usdcSymbol)|
+|orderStatus |string|t(:orderStatus)|
+|t(:row_parameter_side) |string|t(:side)|
+|<a href="#price-price">order_price</a> |string|t(:usdcOrderPrice)|
+|orderAllSize |string|t(:usdcOrderAllSize)|
+|orderFilledSize |string|t(:usdcOrderFilledSize)|
+|orderRemainingSize |string|t(:row_comment_leaves_qty)|
+|orderType |string|t(:row_comment_order_type)|
+|orderTime |string|t(:usdcOrderTime)|
+|t(:row_parameter_timeInForce)|string|t(:row_comment_timeInForce)|
+|createTimeStamp|string|t(:createdAt)|
+|updateTimeStamp|string|t(:updatedAt)|
+|orderLinkId |string|t(:orderLinkId)|
+|execType |string|t(:usdcExecType)|
+|iv |string|t(:optionIv)|
+|version |string|t(:usdcVersion)|
+|cancelType|string|t(:usdcCancelType)|
+|userId|string|t(:usdcUserId)|
+|placeMode |string|t(:usdcPlayMode)|
+|placeType |string|t(:usdcPlayType)|
+
+
 ### t(:activeOrders)
 
 > t(:codequote_subscribe)
@@ -641,10 +711,7 @@ t(:usdcFilledHistory)
 }
 }
 
-
-
 ```
-
 
 > t(:codequote_delta)
 
