@@ -545,114 +545,82 @@ t(:websocket_para_klineV2)
 
 
 ```javascript
-ws.send('{"op": "subscribe", "args": ["position"]}')
-```
-
-```python--old
-from BybitWebsocket import BybitWebsocket
-ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
-                    api_key=api_key, api_secret=api_secret)
-ws.subscribe_position()
-while True:
-    data = ws.get_data("position")
-    if data:
-        print(data)
-```
-
-```python--pybit
-from pybit import WebSocket
-subs = [
-    "position"
-]
-ws = WebSocket(
-    "wss://stream-testnet.bybit.com/realtime",
-    api_key="", api_secret="",
-    subscriptions=subs
-)
-while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
+ws.send('{"op":"subscribe","args":["user.position.unifiedAccount"]}');
 ```
 
 > t(:codequote_responseExampleFormatAll)
 
 ```javascript
+
 {
-   "topic": "position",
-   "action": "update",
-   "data": [
-       {
-           "user_id":  1,
-           "symbol": "BTCUSD",
-           "size": 11,
-           "side": "Sell",
-           "position_value": "0.00159252",
-           "entry_price": "6907.291588174717",
-           "liq_price": "7100.234",
-           "bust_price": "7088.1234",
-           "leverage": "1",
-           "order_margin":  "1",
-           "position_margin":  "1",
-           "available_balance":  "2",
-           "take_profit": "0",
-           "tp_trigger_by":  "LastPrice",
-           "stop_loss": "0",
-           "sl_trigger_by":  "",
-           "realised_pnl":  "0.10",
-           "trailing_stop": "0",
-           "trailing_active": "0",
-           "wallet_balance":  "4.12",
-           "risk_id":  1,                       
-           "occ_closing_fee":  "0.1",
-           "occ_funding_fee":  "0.1",
-           "auto_add_margin": 0,
-           "cum_realised_pnl":  "0.12",
-           "position_status": "Normal",
-           "position_seq": 14
-       }
-   ]
+	"id": "c2b38e12-067f-4adc-b5ae-3806112d9461",
+	"topic": "user.position.unifiedAccount",
+	"ts": 1649150255792,
+	"data": {
+		"result": [{
+			"positionIdx": 0,
+			"isIsolated": false,
+			"riskId": "1",
+			"symbol": "BTCUSDT",
+			"side": "None",
+			"size": "0.0000",
+			"entryPrice": "0.00000000",
+			"sessionAvgPrice": "0.00000000",
+			"leverage": "10",
+			"positionMargin": "0.00000000",
+			"markPrice": "46475.00000000",
+			"sessionUPL": "0.00000000",
+			"sessionRPL": "",
+			"positionIM": "0.00000000",
+			"positionMM": "0.00000000",
+			"takeProfit": "",
+			"stopLoss": "",
+			"trailingStop": "",
+			"positionStatus": "normal",
+			"positionValue": "0.00000000",
+			"unrealisedPnl": "0.00000000",
+			"cumRealisedPnl": "0.00000000",
+			"createdTime": 1649150255603,
+			"updatedTime": 1649150255666,
+			"tpslMode": "Full"
+		}],
+		"version": 18
+	},
+	"type": "snapshot"
 }
+
 ```
 
-t(:account_para_myPosition)
 
-<aside class="notice">
-t(:websocketposition_aside)
-</aside>
+t(:websocketpositionV3)
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|user_id |number |t(:row_comment_userID)  |
-|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
-|t(:row_parameter_side) |string |t(:row_comment_side)  |
-|size |number |t(:row_comment_position_size)  |
-|position_value |string |t(:row_comment_position_value)  |
-|entry_price |string |t(:row_comment_entry_price)  |
-|liq_price |string |t(:row_comment_liq_price)  |
-|bust_price |string |t(:row_comment_bust_price)  |
-|leverage |string |t(:resp_field_leverage)  |
-|order_margin |string |t(:row_comment_order_margin)  |
-|position_margin |string |t(:row_comment_position_margin)  |
-|available_balance |string |t(:row_comment_available_balance)  |
-|take_profit |string |t(:row_comment_take_profit)  |
-|t(:row_parameter_tp_trigger_by) |string |t(:account_row_comment_tp_trigger_by) |
-|stop_loss |string |t(:row_comment_stop_loss)  |
-|t(:row_parameter_sl_trigger_by) |string |t(:account_row_comment_sl_trigger_by) |
-|realised_pnl |string |t(:row_comment_realised_pnl)  |
-|trailing_stop |string |t(:row_comment_trailing_stop)  |
-|trailing_active |string |t(:row_comment_trailing_active)  |
-|wallet_balance |string |t(:row_comment_wallet_balance)  |
-|risk_id |number |t(:row_comment_riskId)  |
-|is_isolated | bool | t(:row_comment_isolated) |
-|occ_closing_fee |string |t(:row_comment_occ_closing_fee)  |
-|occ_funding_fee |string |t(:row_comment_occ_funding_fee)  |
-|auto_add_margin |number |t(:row_comment_auto_add_margin)  |
-|cum_realised_pnl |string |t(:row_comment_cum_realised_pnl)  |
-|position_status |string |t(:row_comment_position_status)  |
-|position_seq |number |t(:row_comment_position_seq)  |
-
+|positionIdx |number |t(:row_comment_query_positionIdx_v3)  |
+|isIsolated|bool |t(:row_comment_query_isIsolated_v3)    |
+|riskId |string |t(:row_comment_riskId)  |
+|symbol |string |t(:row_comment_symbol_v3)  |
+|side |string |t(:row_comment_query_side_v3)  |
+|size |string |t(:row_comment_query_size_v3)  |
+|entryPrice |string |t(:row_comment_query_entryPrice_v3)  |
+|sessionAvgPrice |string |t(:row_comment_query_sessionAvgPrice_v3)  |
+|leverage |string |t(:row_comment_query_leverage_v3)  |
+|positionMargin |string |t(:row_comment_query_positionMargin_v3)  |
+|markPrice |string |t(:row_comment_query_markPrice_v3)  |
+|sessionUPL |string |t(:row_comment_query_sessionUPL_v3)  |
+|sessionRPL |string |t(:row_comment_query_sessionRPL_v3)  |
+|positionIM |string |t(:row_comment_query_positionIM_v3)  |
+|positionMM |string |t(:row_comment_query_positionMM_v3)  |
+|takeProfit |string |t(:row_comment_query_takeProfit_v3)  |
+|stopLoss |string |t(:row_comment_query_stopLoss_v3)  |
+|trailingStop |string |t(:row_comment_query_trailingStop_v3)  |
+|positionValue |string |t(:row_comment_query_positionValue_v3)  |
+|unrealisedPnl |string |t(:row_comment_query_unrealisedPnl_v3)  |
+|cumRealisedPnl |string |t(:row_comment_query_cumRealisedPnl_v3)  |
+|createdTime |number |t(:row_comment_query_createdTime_v3)  |
+|updatedTime |number |t(:row_comment_query_updatedTime_v3)  |
+|tpslMode |string |t(:row_comment_query_tpslMode_v3)  |
 
 
 
@@ -660,83 +628,69 @@ t(:websocketposition_aside)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op": "subscribe", "args": ["execution"]}')
-```
-
-```python--old
-from BybitWebsocket import BybitWebsocket
-ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
-                    api_key=api_key, api_secret=api_secret)
-ws.subscribe_execution()
-while True:
-    data = ws.get_data("execution")
-    if data:
-        print(data)
-```
-
-```python--pybit
-from pybit import WebSocket
-subs = [
-    "execution"
-]
-ws = WebSocket(
-    "wss://stream-testnet.bybit.com/realtime",
-    api_key="", api_secret="",
-    subscriptions=subs
-)
-while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
+ws.send('{"op":"subscribe","args":["user.execution.unifiedAccount"]}');
 ```
 
 > t(:codequote_responseExampleFormatAll)
 
 ```javascript
+
 {
-    "topic": "execution",
-    "data": [
-        {
-            "symbol": "BTCUSD",
-            "side": "Buy",
-            "order_id": "xxxxxxxx-xxxx-xxxx-9a8f-4a973eb5c418",
-            "exec_id": "xxxxxxxx-xxxx-xxxx-8b66-c3d2fcd352f6",
-            "order_link_id": "",
-            "price": "8300",
-            "order_qty": 1,
-            "exec_type": "Trade",
-            "exec_qty": 1,
-            "exec_fee": "0.00000009",
-            "leaves_qty": 0,
-            "is_maker": false,
-            "trade_time": "2020-01-14T14:07:23.629Z"
-        }
-    ]
+	"id": "1e035d63-4d82-4f5c-acfa-32412573d891",
+	"topic": "user.execution.unifiedAccount",
+	"ts": 1649127768339,
+	"data": {
+		"result": [{
+			"symbol": "BTCUSDT",
+			"side": "Buy",
+			"orderId": "0c06343d-02df-46e8-92c7-508a008b030a",
+			"execId": "b1d29ebf-3696-5668-a005-5fdf16343d15",
+			"orderLinkId": "lin-sit-perp-1040",
+			"execPrice": "43100.00000000",
+			"orderQty": "0.0500",
+			"execType": "Trade",
+			"execQty": "0.0500",
+			"leavesQty": "0.0000",
+			"execFee": "-0.53875000",
+			"execTime": 1649127768215,
+			"feeRate": "-0.000250",
+			"execValue": "2155.00000000",
+			"lastLiquidityInd": "MAKER",
+			"orderPrice": "43100.00000000",
+			"orderType": "Limit",
+			"stopOrderType": "UNKNOWN"
+		}],
+		"version": 10
+	},
+	"type": "snapshot"
 }
+
 ```
 
-t(:wallet_para_tradeRecords)
+t(:websocketexecutionV3)
 
-<aside class="notice">
-t(:websocket_execution_aside)
-</aside>
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|t(:row_parameter_symbol) |string |t(:row_comment_symbol)  |
-|t(:row_parameter_side) |string |t(:row_comment_side)  |
-|order_id |string |t(:row_comment_order_id)  |
-|exec_id |string |t(:row_comment_exec_id)  |
-|order_link_id |string |t(:row_comment_orderLinkId)  |
-|t(:row_parameter_price) |string |t(:row_comment_exec_price)    |
-|order_qty |number |t(:row_comment_order_qty)  |
-|t(:row_parameter_exec_type) |string |t(:exec_type_pnl)  |
-|exec_qty |number |t(:row_comment_exec_qty)  |
-|exec_fee |string |t(:row_comment_exec_fee)    |
-|leaves_qty |number |t(:row_comment_leaves_qty)  |
-|is_maker |bool |t(:row_comment_is_maker)  |
-|trade_time |string |t(:row_comment_trade_time)  |
+|symbol |string |t(:row_comment_symbol_v3)   |
+|execFee |string |t(:row_comment_query_execFee_v3)  |
+|execId |string |t(:row_comment_query_execId_v3)  |
+|execPrice |string |t(:row_comment_query_execPrice_v3)  |
+|execQty |string |t(:row_comment_query_execQty_v3)  |
+|execType |string |t(:row_comment_query_execType_v3)  |
+|execValue |string |t(:row_comment_query_execValue_v3)  |
+|feeRate |string |t(:row_comment_query_feeRate_v3)  |
+|lastLiquidityInd |string |t(:row_comment_query_lastLiquidityInd_v3)  |
+|leavesQty |string |t(:row_comment_query_leavesQty_v3)  |
+|orderId |string |t(:row_comment_query_orderId_v3) |
+|orderLinkId |string |t(:row_comment_query_orderLinkId_v3)  |
+|orderPrice |string |t(:row_comment_query_price_v3)  |
+|orderQty |string |t(:row_comment_query_qty_v3)  |
+|orderType |string |t(:row_comment_query_orderType_v3)  |
+|stopOrderType |string |t(:row_comment_query_stopOrderType_v3)  |
+|side |string |t(:row_comment_query_side_v3)  |
+|execTime |number |t(:row_comment_query_execTime_v3)  |
 
 
 
@@ -744,151 +698,168 @@ t(:websocket_execution_aside)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op": "subscribe", "args": ["order"]}')
+ws.send('{"op":"subscribe","args":["user.order.unifiedAccount"]}');
 ```
 
-```python--old
-from BybitWebsocket import BybitWebsocket
-ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
-                    api_key=api_key, api_secret=api_secret)
-ws.subscribe_order()
-while True:
-    data = ws.get_data("order")
-    if data:
-        print(data)
-```
-
-```python--pybit
-from pybit import WebSocket
-subs = [
-    "order"
-]
-ws = WebSocket(
-    "wss://stream-testnet.bybit.com/realtime",
-    api_key="", api_secret="",
-    subscriptions=subs
-)
-while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
-```
 
 > t(:codequote_responseExampleFormatAll)
 
 ```javascript
+
 {
-    "topic": "order",
-    "data": [
-        {
-            "order_id": "xxxxxxxx-xxxx-xxxx-9a8f-4a973eb5c418",
-            "order_link_id": "",
-            "symbol": "BTCUSD",
-            "side": "Sell",
-            "order_type": "Market",
-            "price": "8579.5",
-            "qty": 1,
-            "time_in_force": "ImmediateOrCancel",
-            "create_type": "CreateByClosing",
-            "cancel_type": "",
-            "order_status": "Filled",
-            "leaves_qty": 0,
-            "cum_exec_qty": 1,
-            "cum_exec_value": "0.00011655",
-            "cum_exec_fee": "0.00000009",
-            "timestamp": "2020-01-14T14:09:31.778Z",
-            "take_profit": "0",
-            "stop_loss": "0",
-            "trailing_stop": "0",
-            "trailing_active": "0",
-            "last_exec_price": "8580",
-            "reduce_only": false,
-            "close_on_trigger": false
-        }
-    ]
+	"id": "2f81572c-e0fa-4370-b080-1a1ee0e43174",
+	"topic": "user.order.unifiedAccount",
+	"ts": 1649150255791,
+	"data": {
+		"result": [{
+			"orderId": "cc171fdb-d189-4ade-a098-9205e2b7a25e",
+			"orderLinkId": "lin-sit-perp-1046",
+			"symbol": "BTCUSDT",
+			"side": "Sell",
+			"orderType": "Limit",
+			"price": "47000.00000000",
+			"qty": "0.0500",
+			"timeInForce": "GoodTillCancel",
+			"orderStatus": "New",
+			"stopOrderType": "UNKNOWN",
+			"triggerBy": "UNKNOWN",
+			"triggerPrice": "",
+			"reduceOnly": false,
+			"closeOnTrigger": "false",
+			"createdTime": 1649150255604,
+			"updatedTime": 1649150255666,
+			"iv": "",
+			"orderIM": "",
+			"takeProfit": "",
+			"stopLoss": "",
+			"tpTriggerBy": "UNKNOWN",
+			"slTriggerBy": "UNKNOWN",
+			"basePrice": ""
+		}],
+		"version": 18
+	},
+	"type": "snapshot"
 }
+
 ```
+
+t(:websocketOrderV3)
 
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|order_id |string |t(:row_comment_order_id)  |
-|order_link_id |string |t(:row_comment_orderLinkId)  |
-|t(:row_parameter_symbol) |string |t(:row_comment_symbol)  |
-|t(:row_parameter_side) |string |t(:row_comment_side)  |
-|t(:row_parameter_order_type) |string |t(:row_comment_stopOrderType) |
-|t(:row_parameter_price) |string |t(:row_comment_resp_price) |
-|qty |number |t(:row_comment_exec_qty)  |
-|t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce) |
-|create_type |string |t(:row_comment_create_type) |
-|cancel_type |string |t(:row_comment_cancel_type) |
-|t(:row_parameter_order_status) |string | t(:row_comment_orderStatus) |
-|leaves_qty |number |t(:row_comment_leaves_qty)  |
-|cum_exec_qty |number |t(:linear_resp_field_cum_exec_qty)  |
-|cum_exec_value |string |t(:linear_resp_field_cum_exec_value)  |
-|cum_exec_fee |string |t(:linear_resp_field_cum_exec_fee)  |
-|timestamp |string |t(:websocketorder_row_comment_timestamp)  |
-|take_profit |string |t(:row_comment_take_profit)  |
-|stop_loss |string |t(:row_comment_stop_loss)  |
-|trailing_stop |string |t(:row_comment_trailing_stop)  |
-|trailing_active |string |t(:row_comment_trailing_active)  |
-|last_exec_price |string |t(:row_comment_last_exec_price)  |
-|reduce_only | bool | t(:row_comment_reduceOnly)|
-|close_on_trigger | bool | t(:row_comment_closeOnTrigger)|
+|symbol |string |t(:row_comment_symbol_v3)   |
+|orderId |string |t(:row_comment_query_orderId_v3) |
+|side |string |t(:row_comment_query_side_v3)  |
+|orderType |string |t(:row_comment_query_orderType_v3)  |
+|stopOrderType |string |t(:row_comment_query_stopOrderType_v3)  |
+|price |string |t(:row_comment_query_price_v3)  |
+|qty |string |t(:row_comment_query_qty_v3)  |
+|iv |string |t(:row_comment_query_iv_v3)  |
+|timeInForce |string |t(:row_comment_query_timeInForce_v3)  |
+|orderStatus |string |t(:row_comment_query_orderStatus_v3)  |
+|triggerPrice |string |t(:row_comment_query_triggerPrice_v3)  |
+|orderLinkId |string |t(:row_comment_query_orderLinkId_v3)  |
+|createdTime |number |t(:row_comment_query_createdTime_v3)  |
+|updatedTime |number |t(:row_comment_query_updatedTime_v3)  |
+|takeProfit |string |t(:row_comment_query_takeProfit_v3)  |
+|stopLoss |string |t(:row_comment_query_stopLoss_v3)  |
+|tpTriggerBy |string |t(:row_comment_query_tpTriggerBy_v3)  |
+|slTriggerBy |string |t(:row_comment_query_slTriggerBy_v3)  |
+|basePrice |string |t(:row_comment_query_basePrice_v3)  |
+|triggerBy |string |t(:row_comment_query_triggerBy_v3)  |
+|reduceOnly |bool |t(:row_comment_query_reduceOnly_v3)  |
+|closeOnTrigger |bool |t(:row_comment_query_closeOnTrigger_v3)  |
 
 
 ### t(:websocketwallet)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op": "subscribe", "args": ["wallet"]}')
-```
-
-```python--pybit
-from pybit import WebSocket
-subs = [
-    "wallet"
-]
-ws = WebSocket(
-    "wss://stream-testnet.bybit.com/realtime",
-    api_key="", api_secret="",
-    subscriptions=subs
-)
-while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
+ws.send('{"op": "subscribe", "args": ["user.wallet.unifiedAccount"]}')
 ```
 
 > t(:codequote_responseExampleFormatAll)
 
 ```javascript
+
 {
-    "topic": "wallet",
-    "data": [
-        {
-            "user_id": 738713,
-            "coin": "BTC",
-            "available_balance": "1.50121026",
-            "wallet_balance": "1.50121261"
-        }
-    ]
+	"id": "46bd0430-1d03-48f7-a503-c6c020d07536",
+	"topic": "user.wallet.unifiedAccount",
+	"ts": 1649150852199,
+	"data": {
+		"result": {
+			"accountIMRate": "0.0002",
+			"accountMMRate": "0.0000",
+			"totalEquity": "510444.50000000",
+			"totalWalletBalance": "510444.50000000",
+			"totalMarginBalance": "510444.50000000",
+			"totalAvailableBalance": "510333.52491801",
+			"totalPerpUPL": "0.00000000",
+			"totalInitialMargin": "110.97508199",
+			"totalMaintenanceMargin": "9.13733489",
+			"coin": [{
+				"currencyCoin": "USDC",
+				"equity": "0.00000000",
+				"usdValue": "0.00000000",
+				"walletBalance": "0.00000000",
+				"marginBalance": "510444.50000000",
+				"availableBalance": "510333.52491801",
+				"marginBalanceWithoutConvert": "0.00000000",
+				"availableBalanceWithoutConvert": "0.00000000",
+				"borrowSize": "0.00000000",
+				"availableToBorrow": "200000.00000000",
+				"accruedInterest": "0.00000000",
+				"totalOrderIM": "0.00000000",
+				"totalPositionIM": "0.00000000",
+				"totalPositionMM": "0.00000000"
+			}]
+		},
+		"version": 19
+	},
+	"type": "snapshot"
 }
+
 ```
+
+t(:websocketwalletV3)
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|wallet_balance |number |t(:row_comment_wallet_balance)  |
-|available_balance |number |t(:row_comment_available_balance)  |
+|accountIMRate |string |t(:row_comment_query_accountIMRate_v3)    |
+|accountMMRate |string |t(:row_comment_query_accountMMRate_v3)    |
+|totalEquity |string |t(:row_comment_query_totalEquity_v3)    |
+|totalWalletBalance |string |t(:row_comment_query_totalWalletBalance_v3)    |
+|totalMarginBalance |string |t(:row_comment_query_totalMarginBalance_v3)    |
+|totalAvailableBalance |string |t(:row_comment_query_totalAvailableBalance_v3)    |
+|totalPerpUPL |string |t(:row_comment_query_totalPerpUPL_v3)    |
+|totalInitialMargin |string |t(:row_comment_query_totalInitialMargin_v3)    |
+|totalMaintenanceMargin |string |t(:row_comment_query_totalMaintenanceMargin_v3)    |
+|Coin> coin |string |t(:row_comment_query_coin_coin_v3)    |
+|Coin> equity |string |t(:row_comment_query_coin_equity_v3)    |
+|Coin> usdValue |string |t(:row_comment_query_coin_usdValue_v3)    |
+|Coin> walletBalance |string |t(:row_comment_query_coin_walletBalance_v3)    |
+|Coin> marginBalance |string |t(:row_comment_query_coin_marginBalance_v3)    |
+|Coin> availableBalance |string |t(:row_comment_query_coin_availableBalance_v3)    |
+|Coin> marginBalanceWithoutConvert |string |t(:row_comment_query_coin_marginBalanceWithoutConvert_v3)    |
+|Coin> availableBalanceWithoutConvert |string |t(:row_comment_query_coin_availableBalanceWithoutConvert_v3)    |
+|Coin> borrowSize |string |t(:row_comment_query_coin_borrowSize_v3)    |
+|Coin> availableToBorrow |string |t(:row_comment_query_coin_availableToBorrow_v3)    |
+|Coin> accruedInterest |string |t(:row_comment_query_coin_accruedInterest_v3)    |
+|Coin> totalOrderIM |string |t(:row_comment_query_coin_totalOrderIM_v3)    |
+|Coin> totalPositionIM |string |t(:row_comment_query_coin_totalPositionIM_v3)    |
+|Coin> totalPositionMM |string |t(:row_comment_query_coin_totalPositionMM_v3)    |
+|Coin> unrealisedPnl |string |t(:row_comment_query_coin_unrealisedPnl_v3)    |
+|Coin> cumRealisedPnl |string |t(:row_comment_query_coin_cumRealisedPnl_v3)    |
 
 ### t(:greeksOption)
 
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op":"subscribe","id":"{100003}","args":["user.openapi.greeks"]}');
+ws.send('{"op":"subscribe","args":["user.greeks.unifiedAccount"]}');
 
 ```
 
@@ -897,27 +868,25 @@ ws.send('{"op":"subscribe","id":"{100003}","args":["user.openapi.greeks"]}');
 ```javascript
 
 {
-    "id":"b3666f79-abf0-45a6-9c6d-ff4d41912b57",
-    "topic":"user.openapi.greeks",
-    "creationTime":1646274372152,
-    "data":{
-        "result":[
-            {
-                "coin":"BTC",
-                "totalDelta":"0.0006714372",
-                "totalGamma":"-0.0000000654",
-                "totalVega":"-0.3207237154",
-                "totalTheta":"0.1142353260"
-            }
-        ],
-        "version":3984,
-        "baseLine":1
-    }
+	"id": "6fa06656-141c-4197-b4bc-ef1a89bdef88",
+	"topic": "user.greeks.unifiedAccount",
+	"ts": 1649241177474,
+	"data": {
+		"result": [{
+			"coin": "BTC",
+			"totalDelta": "0.0500",
+			"totalGamma": "0.00001",
+			"totalVega": "0.0001",
+			"totalTheta": "-0.0001"
+		}],
+		"version": 49
+	},
+	"type": "snapshot"
 }
 
 ```
 
-t(:udscGeeksDesc)
+t(:udscGeeksDescV3)
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|

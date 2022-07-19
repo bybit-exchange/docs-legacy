@@ -226,6 +226,10 @@ en:
 
 
   # 统保查询字段定义
+  row_comment_query_effectiveLeverage_v3: Effective leverage
+  row_comment_query_positionMargin_v3: Position margin
+  row_comment_query_positionSeq_v3: Version number (changes in position)
+
   row_comment_query_orderId_v3: Order ID
   row_comment_query_side_v3: Direction
   row_comment_query_orderType_v3: Order type
@@ -1160,6 +1164,33 @@ en:
 
   wallet_para_queryLoanInterest_v3: |
     <br><Waiting for API team to translate><br>
+
+  websocketpositionV3: |
+    <p><p><b>說明：</b></p>
+    <p>Pushing the incremental volume only</p>
+    <p>Accessing personal position list. Current user’s position holding information can be accessed through this interface, such as the quantity of position holdings and wallet balance.</p>
+    <p><b>Topic：</b></p>
+    <p>user.position.unifiedAccount</p></p>
+
+  websocketexecutionV3: |
+    <p><p><b>Notice:</b></p>
+    <p>Accessing the user’s filled history ranked by time in ascending order.</p>
+    <p><b>Topic：</b></p>
+    <p>user.execution.unifiedAccount</p></p>
+
+  websocketOrderV3: |
+    <p><p><b>Notice:</b></p>
+    <p>Pushing incremental orders only. Merged with conditional orders into one topic.</p>
+    <p><b>Topic：</b></p>
+    <p>user.order.unifiedAccount</p></p>
+
+  websocketwalletV3: |
+    <p><b>Topic：</b></p>
+    <p>user.wallet.unifiedAccount</p></p>
+
+  udscGeeksDescV3: |
+    <p><b>Topic：</b></p>
+    <p>user.greeks.unifiedAccount</p></p>
 
   ### Get Active Order
   getactive: Get Active Order
@@ -2374,7 +2405,6 @@ en:
   err_34025: Increase in leverage has failed.
   err_34026: The new limit is equal to the old limit (no change).
   err_34027: Cannot adjust leverage.
-  err_32009: Any adjustments made will trigger immediate liquidation.
   err_34028: ReCalc Funding Fee Failed.
   err_34030: positionInfo not sync with current exec_rpt.
   err_34033: Realized PNL already rotated.
