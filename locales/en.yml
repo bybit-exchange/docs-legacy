@@ -1342,7 +1342,8 @@ en:
   ## How to Send the Heartbeat Packet
   heartbeat: How to Send Heartbeat Packet
   websocket_codequote_heartbeat: How to Send
-  websocket_aside_heartbeat: To avoid networks or program issues, we recommend that you send the <code>ping</code> heartbeat packet every 30 seconds to maintain the WebSocket connection.
+  websocket_aside_heartbeat: To avoid networks or program issues, we recommend that you send the <code>ping</code> heartbeat packet every <b>20</b> seconds to maintain the WebSocket connection.
+
   ## Rate Limits
   websocketlimit: Rate Limits
   websocket_para_limit: ""
@@ -2317,6 +2318,8 @@ en:
   linear_private_switchmode: Switch mode between Full or Partial
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
+  restapi_update_20220718_2: Abandon response field <code>total_turnover</code>.
+  restapi_update_20220718_1: Abandon response field <code>total_turnover_e8</code>.
   restapi_update_20220708: Add notice that an IP can connect to a maximum of 50 private spot websocket connections simultaneously
   restapi_update_20220630: Add <code>page_token</code> field in response parameters.
   restapi_update_20220617: Add LT All Asset Infos Query
@@ -3533,7 +3536,6 @@ en:
 #  platFormOrderLatest500: 平台歷史交易數據（最近500條）
   usdcLimitMax500: default 500
 
-  usdc_websocket_aside_heartbeat: To avoid networks or program issues, we recommend that you send the <code>ping</code> heartbeat packet every <b>20</b> seconds to maintain the WebSocket connection.
   websocket_aside_heartbeat_option: |
     <p>The client needs to periodically send a "ping" to Bybit, and the Bybit server returns a heartbeat "pong" to show that the connection between the client and the server is normal. It is recommended to send at least every <b>20s</b>. WSS will actively trigger to break the connection without heartbeat "ping" received in 30s.</p>
     <p>If the client does not receive the heartbeat feedback normally, it needs to check the network connection status and reconnect to the server.</p>
