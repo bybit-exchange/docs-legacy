@@ -816,6 +816,9 @@
                             <a href="#t-usdccancelall" class="toc-h3 toc-link" data-title="取消全部活動單">取消全部活動單</a>
                           </li>
                           <li>
+                            <a href="#t-usdcqryunorpartfilled_new" class="toc-h3 toc-link" data-title="查詢未成交/部分成交訂單(實時)">查詢未成交/部分成交訂單(實時)</a>
+                          </li>
+                          <li>
                             <a href="#t-usdcqryunorpartfilled" class="toc-h3 toc-link" data-title="查詢未成交/部分成交訂單">查詢未成交/部分成交訂單</a>
                           </li>
                           <li>
@@ -962,6 +965,9 @@
                             <a href="#t-userfilledhistory" class="toc-h3 toc-link" data-title="用戶成交歷史記錄">用戶成交歷史記錄</a>
                           </li>
                           <li>
+                            <a href="#t-activeorders_new" class="toc-h3 toc-link" data-title="訂單(純增量)">訂單(純增量)</a>
+                          </li>
+                          <li>
                             <a href="#t-activeorders" class="toc-h3 toc-link" data-title="訂單">訂單</a>
                           </li>
                           <li>
@@ -1050,7 +1056,7 @@ clipboard.on('error', function(e) {
 });
 </script>
 <h1 id='t-introduction'>中文社區和參考資料</h1><h5 id='t-intro_para'><p>歡迎使用 <a href="https://www.bybit.com/">Bybit</a> APIs 和 Websocket官方文檔！</p> <p>如果您在使用API的過程中遇到問題需要幫助，請加入我們的 <a href="https://t.me/Bybitapi">官方Telegram API討論群</a>！</p></h5><h3 id='t-resources'>中文社區和參考資料</h3>
-<p><ul class="bybit-community"> <li><img src="../../../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/zh-TW/help-center/?language=zh_TW"><strong>幫助中心</strong></a> - <strong>在這裏了解合約交易</strong> <li><img src="../../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>官方Python SDK</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文討論群</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文討論群</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong> </ul></p>
+<p><ul class="bybit-community"> <li><img src="../../../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/zh-TW/help-center/?language=zh_TW"><strong>幫助中心</strong></a> - <strong>在這裏了解合約交易</strong> <li><img src="../../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>官方Python SDK</strong> <li><img src="../../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman接口集合</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文討論群</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文討論群</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong> </ul></p>
 <h1 id='t-changelog'>更新日誌</h1><h2 id='2022-06-16'>2022-06-16</h2><h3 id='rest-api'>REST API</h3>
 <ul>
 <li><a href="#t-setmarginmode">設置保證金模式</a> [新增]
@@ -2744,6 +2750,189 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">errorDesc</td>
 <td style="text-align: left">string</td>
 <td>錯誤描述訊息</td>
+</tr>
+</tbody></table>
+<h3 id='t-usdcqryunorpartfilled_new'>查詢未成交/部分成交訂單(實時)</h3>
+<p><p>這是<b>GET</b>請求, 傳入<code>orderLinkId</code>僅能查詢當前的活動單。<p>
+<p>如果有傳入<code>orderId</code>可查詢7天內的訂單數據（包括已完結的歷史訂單）, 建議用戶查詢到後保存到自己數據庫。<p>
+<p>查詢優先級: orderId > orderLinkId > 兩個字段都不傳。</p>
+<p>第一次查詢時, cursor字段可為空; 但需要翻頁時, 則將response裏的cursor響應字段保持不變的回傳。</p>
+</p>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/option/usdc/openapi/private/v1/trade/query-active-orders?orderLinkId=option0005&amp;symbol=BTC-30SEP22-28000-C' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-SIGN: c657feac222cc8b66d6162802c707c0df47592ee7532a060cb613679aad174f7' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-TIMESTAMP: 1658126609521' \
+--header 'X-BAPI-RECV-WINDOW: 10000' \
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+</code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">resultTotalSize</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">cursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">id%3D1657785223205%23cd05e436-1e04-4391-94db-82b660638364</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">dataList</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">bd4a5ce3-cefd-455c-ac8d-1eaf2ae76b24</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1426a049-f999-0000026</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC-14JUL22-10000-P</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">New</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.2</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">remainingQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Limit</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">cd05e436-1e04-4391-94db-82b660638364</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1426a049-f999-0000027</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC-14JUL22-10000-P</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">New</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.2</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">remainingQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Limit</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP 請求</p>
+
+<p>GET
+<code><span id=uopvQueryActiveNew>/option/usdc/openapi/private/v1/trade/query-active-orders</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvQueryActiveNew"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>平台生成的訂單號</td>
+</tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>關聯訂單號，最大不成超過32位</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>合約名稱</td>
+</tr>
+<tr>
+<td style="text-align: left">direction</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>方向，向前/後翻頁, prev向前， next 向後</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">number</td>
+<td>每頁數量, 最大50. 默認每頁20條</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>透傳數據</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">resultTotalSize</td>
+<td style="text-align: left">number</td>
+<td>條數</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">string</td>
+<td>透傳數據</td>
+</tr>
+<tr>
+<td style="text-align: left">dataList</td>
+<td style="text-align: left">list</td>
+<td>返回結果list，參考如下的字段</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">string</td>
+<td>平台生成的訂單號</td>
+</tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">string</td>
+<td>關聯訂單號，最大不成超過32位</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
+<td style="text-align: left">string</td>
+<td>合約名稱</td>
+</tr>
+<tr>
+<td style="text-align: left">orderStatus</td>
+<td style="text-align: left">string</td>
+<td><a href="#order-status-orderstatus">訂單狀態</a></td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#price-price">price</a></td>
+<td style="text-align: left">string</td>
+<td>訂單價格</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#side-side">side</a></td>
+<td style="text-align: left">string</td>
+<td>買賣方向</td>
+</tr>
+<tr>
+<td style="text-align: left">remainingQty</td>
+<td style="text-align: left">string</td>
+<td>剩余委托數量</td>
+</tr>
+<tr>
+<td style="text-align: left">orderType</td>
+<td style="text-align: left">string</td>
+<td>訂單類型</td>
+</tr>
+<tr>
+<td style="text-align: left">qty</td>
+<td style="text-align: left">string</td>
+<td>訂單數量</td>
 </tr>
 </tbody></table>
 <h3 id='t-usdcqryunorpartfilled'>查詢未成交/部分成交訂單</h3><div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-active-orders \
@@ -5210,7 +5399,7 @@ curl https://api-testnet.bybit.com/v2/public/time
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span><span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">pong</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">args</span><span class="dl">"</span><span class="p">:[</span><span class="dl">"</span><span class="s2">1535975085152</span><span class="dl">"</span><span class="p">]}</span>
 </code></pre></div>
 <aside class="warning">
-由於網絡或者程序不穩定,我們強烈建議您使用 <code>ping</code> 心跳包來維持連接. 心跳包建議每<b>20</b>秒發送一次.
+translation missing: zh-cn.usdc_websocket_aside_heartbeat
 </aside>
 
 <p><p>客戶端需要定時發送"ping"給Bybit，Bybit服務器返回heartbeat"pong"來顯示客戶端和服務器之間的連接正常。建議至少每<b>20s</b>發送一次，30s內收不到心跳WSS會自動觸發斷連。</p>
@@ -6004,6 +6193,165 @@ DCP的開和關, 僅限機構類型用戶
 <td><a href="#exec-type-exectype">交易類型</a></td>
 </tr>
 </tbody></table>
+<h3 id='t-activeorders_new'>訂單(純增量)</h3>
+<blockquote>
+<p>請求訂閱</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code> <span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe", "args":["user.order"]}</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div>
+<blockquote>
+<p>快照推送示例 - 連接建立成功後首次推送</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0feb2c52-d10c-4f25-a60c-59e0b6755bbb17195215-6820-4d50-abf8-7c98f9e00570</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">user.order</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1658123196619</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0feb2c52-d10c-4f25-a60c-59e0b6755bbb</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC-30SEP22-28000-C</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">New</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">460</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderAllSize</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderFilledSize</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderRemainingSize</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Limit</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1658123196611</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GoodTillCancel</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">createTimeStamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1658123196611</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">updateTimeStamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1658123196617</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">option0008</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">execType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">newed</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">iv</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">286819574</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">placeMode</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">basic</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">placeType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">userId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">533285</span><span class="dl">"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><p>topic: user.order</p>
+
+<p>该topic反应的是一个订单的变化周期.</p>
+<p>这是一个增量推送, 即有新的活动单时才会推送该topic.数据可能会重复推送, 请做好幂等处理.</p>
+<p>如果使用这个topic, 建议是先订阅这个topic,然后再进行交易相关操作.</p>
+</p>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">string</td>
+<td>平台生成的訂單號</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
+<td style="text-align: left">string</td>
+<td>合約名稱</td>
+</tr>
+<tr>
+<td style="text-align: left">orderStatus</td>
+<td style="text-align: left">string</td>
+<td><a href="#order-status-status">訂單狀態</a></td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#side-side">side</a></td>
+<td style="text-align: left">string</td>
+<td>買賣方向</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#price-price">order_price</a></td>
+<td style="text-align: left">string</td>
+<td>訂單價格</td>
+</tr>
+<tr>
+<td style="text-align: left">orderAllSize</td>
+<td style="text-align: left">string</td>
+<td>訂單總數量</td>
+</tr>
+<tr>
+<td style="text-align: left">orderFilledSize</td>
+<td style="text-align: left">string</td>
+<td>成交數量</td>
+</tr>
+<tr>
+<td style="text-align: left">orderRemainingSize</td>
+<td style="text-align: left">string</td>
+<td>剩余委托數量</td>
+</tr>
+<tr>
+<td style="text-align: left">orderType</td>
+<td style="text-align: left">string</td>
+<td>交易記錄類型</td>
+</tr>
+<tr>
+<td style="text-align: left">orderTime</td>
+<td style="text-align: left">string</td>
+<td>訂單時間</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#time-in-force-timeinforce">timeInForce</a></td>
+<td style="text-align: left">string</td>
+<td><a href="https://www.bybit.com/zh-TW/help-center/bybitHC_Article?language=zh_TW&id=000001044">執行策略</a></td>
+</tr>
+<tr>
+<td style="text-align: left">createTimeStamp</td>
+<td style="text-align: left">string</td>
+<td>創建時間</td>
+</tr>
+<tr>
+<td style="text-align: left">updateTimeStamp</td>
+<td style="text-align: left">string</td>
+<td>更新時間</td>
+</tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">string</td>
+<td>關聯訂單號，最大不成超過32位</td>
+</tr>
+<tr>
+<td style="text-align: left">execType</td>
+<td style="text-align: left">string</td>
+<td>執行類型</td>
+</tr>
+<tr>
+<td style="text-align: left">iv</td>
+<td style="text-align: left">string</td>
+<td>期權iv, 小數點後保留叁位小數</td>
+</tr>
+<tr>
+<td style="text-align: left">version</td>
+<td style="text-align: left">string</td>
+<td>版本</td>
+</tr>
+<tr>
+<td style="text-align: left">cancelType</td>
+<td style="text-align: left">string</td>
+<td>參考 <a href="#cancel-type-canceltype">Cancel Type</a></td>
+</tr>
+<tr>
+<td style="text-align: left">userId</td>
+<td style="text-align: left">string</td>
+<td>用戶ID</td>
+</tr>
+<tr>
+<td style="text-align: left">placeMode</td>
+<td style="text-align: left">string</td>
+<td>請忽略</td>
+</tr>
+<tr>
+<td style="text-align: left">placeType</td>
+<td style="text-align: left">string</td>
+<td>請忽略</td>
+</tr>
+</tbody></table>
 <h3 id='t-activeorders'>訂單</h3>
 <blockquote>
 <p>請求訂閱</p>
@@ -6050,8 +6398,6 @@ DCP的開和關, 僅限機構類型用戶
     <span class="dl">"</span><span class="s2">dataType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">NEW</span><span class="dl">"</span>
 <span class="p">}</span>
 <span class="p">}</span>
-
-
 
 </code></pre></div>
 <blockquote>
