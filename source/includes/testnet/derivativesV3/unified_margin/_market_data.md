@@ -61,7 +61,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|------ |
-|category |<b>true</b>|string |t(:dv_category)t(:dv_categorySuffix_2)|
+|category |false|string |t(:dv_category)t(:dv_categorySuffix_2)|
 |symbol |<b>true</b> |string |t(:row_comment_symbol) |
 |limit |false |int |t(:dv_orderbookLimit) |
 
