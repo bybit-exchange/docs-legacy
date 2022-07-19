@@ -441,31 +441,36 @@ GET
 ```console
 curl --location --request POST 'https://api-testnet.bybit.com/unified/v3/private/order/create-batch' \
 --header 'X-BAPI-SIGN-TYPE: 2' \
---header 'X-BAPI-SIGN: 27ecc5cca2aec6a779c9f5ef828275a3e9ccaf392a030820911c52d6085c34db' \
+--header 'X-BAPI-SIGN: c5cab33771ca6ccfcddb27e1cd41ffd355929b1a5025a4fc218030decca8f9b9' \
 --header 'X-BAPI-API-KEY: {api key}' \
---header 'X-BAPI-TIMESTAMP: 1657871228347' \
+--header 'X-BAPI-TIMESTAMP: 1658210743423' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
---header 'Content-Type: application/json' \
---data-raw '[
-    {
-        "symbol": "BTCUSDT",
-        "orderType": "Limit",
-        "side": "Buy",
-        "qty": "0.01",
-        "price": "20002",
-        "timeInForce": "GoodTillCancel",
-        "category": "linear"
-    },
-    {
-        "symbol": "BTCUSDT",
-        "orderType": "Limit",
-        "side": "Buy",
-        "qty": "0.01",
-        "price": "20002",
-        "timeInForce": "GoodTillCancel",
-        "category": "linear"
-    }
-]'
+--header 'Content-Type: application/json \
+--data-raw '{
+    "category": "option",
+    "request": [
+        {
+            "symbol": "BTC-19JUL22-25000-C",
+            "orderType": "Limit",
+            "side": "Buy",
+            "qty": "0.01",
+            "price": "5",
+            "timeInForce": "GoodTillCancel",
+            "orderLinkId": "316732a14",
+            "reduceOnly": false
+        },
+        {
+            "symbol": "BTC-19JUL22-25000-C",
+            "orderType": "Limit",
+            "side": "Buy",
+            "qty": "0.01",
+            "price": "5",
+            "timeInForce": "GoodTillCancel",
+            "orderLinkId": "316732a15",
+            "reduceOnly": false
+        }
+    ]
+}'
 ```
 
 ```python
@@ -516,10 +521,10 @@ POST
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvBatchPlace"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
-
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:row_comment_category_v3)    |
+|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_8)    |
+|request |<b>true</b> |array |    |
 |list> symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
 |list> t(:row_parameter_side) |<b>true</b> |string |t(:row_comment_side_v3)    |
 |list> positionIdx |false |string |t(:row_comment_positionIdx_v3)   |
@@ -545,7 +550,7 @@ POST
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|list> category |string |t(:row_comment_category_v3) |
+|list> category |string |t(:dv_category)t(:dv_categorySuffix_8) |
 |list> symbol |string |t(:row_comment_symbol_v3) |
 |list> orderId |string |t(:row_comment_query_orderId_v3) |
 |list> orderLinkId |string |t(:row_comment_orderLinkId_response_v3) |
@@ -564,26 +569,30 @@ curl --location --request POST 'https://api-testnet.bybit.com/unified/v3/private
 --header 'X-BAPI-TIMESTAMP: 1657871228347' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
 --header 'Content-Type: application/json' \
---data-raw '[
-    {
-        "category": "linear",
-        "symbol": "BTCUSDT",
-        "orderId": "1a1ae001-2034-4a6b-8b25-45aa9100b1ec",
-        "price": "35000"
-    },
-    {
-        "category": "linear",
-        "symbol": "BTCUSDT",
-        "orderId": "1a1ae001-2034-4a6b-8b25-45aa9100b1ec",
-        "price": "35000"
-    }
-]'
+--data-raw '{
+    "category": "option",
+    "request": [
+        {
+            "symbol": "BTC-24JUN22-45000-P",
+            "orderId": "bd5f3b34-d64d-4b60-8188-438fbea4c552",
+            "iv": "0.2",
+            "qty": 5,
+            "price": "25000"
+        },
+        {
+            "symbol": "BTC-26AUG22-44000-C",
+            "orderId": "4ddd727a-2af8-430e-a293-42895e594d18",
+            "iv": "0.3",
+            "qty": 4,
+            "price": "24000"
+        }
+    ]
+}'
 ```
 
 ```python
 
 ```
-
 
 > t(:codequote_responseExample)
 
@@ -625,10 +634,10 @@ POST
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvBatchReplace"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
-
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:row_comment_category_v3)    |
+|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_8)    |
+|request |<b>true</b> |array |    |
 |list> symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
 |list> orderId |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
 |list> orderLinkId |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
@@ -638,10 +647,9 @@ POST
 
 
 <p class="fake_header">t(:responseparameters)</p>
-
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|list> category |string |t(:row_comment_category_v3) |
+|list> category |string |t(:dv_category)t(:dv_categorySuffix_8) |
 |list> symbol |string |t(:row_comment_symbol_v3) |
 |list> orderId |string |t(:row_comment_query_orderId_v3) |
 |list> orderLinkId |string |t(:row_comment_orderLinkId_response_v3) |
@@ -658,18 +666,19 @@ curl --location --request POST 'https://api-testnet.bybit.com/unified/v3/private
 --header 'X-BAPI-TIMESTAMP: 1657871228347' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
 --header 'Content-Type: application/json' \
---data-raw '[
-    {
-        "category": "linear",
-        "orderId": "4c51a45f-7795-4b38-9b66-3c306b73f112",
-        "symbol": "BTCUSDT"
-    },
-    {
-        "category": "linear",
-        "orderId": "4c51a45f-7795-4b38-9b66-3c306b73f112",
-        "symbol": "BTCUSDT"
-    }
-]'
+--data-raw '{
+    "category": "option",
+    "request": [
+        {
+            "symbol": "BTC-24JUN22-45000-P",
+            "orderId": "bd5f3b34-d64d-4b60-8188-438fbea4c552"
+        },
+        {
+            "symbol": "BTC-26AUG22-44000-C",
+            "orderId": "4ddd727a-2af8-430e-a293-42895e594d18"
+        }
+    ]
+}'
 ```
 
 ```python
@@ -717,20 +726,19 @@ POST
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvBatchCancel"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
-
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:row_comment_category_v3)    |
+|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_8)    |
+|request |<b>true</b> |array |    |
 |list> symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
 |list> orderId |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
 |list> orderLinkId |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
 
 
 <p class="fake_header">t(:responseparameters)</p>
-
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|list> category |string |t(:row_comment_category_v3) |
+|list> category |string |t(:dv_category)t(:dv_categorySuffix_8) |
 |list> symbol |string |t(:row_comment_symbol_v3) |
 |list> orderId |string |t(:row_comment_query_orderId_v3) |
 |list> orderLinkId |string |t(:row_comment_orderLinkId_response_v3) |
@@ -748,8 +756,7 @@ curl --location --request POST 'https://api-testnet.bybit.com/unified/v3/private
 --header 'X-BAPI-RECV-WINDOW: 5000' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-  "category": "linear",
-  "symbol": "BTCUSDT"
+  "category": "option"
 }'
 ```
 
@@ -801,7 +808,7 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:row_comment_category_v3)    |
+|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_8)    |
 |baseCoin |false |string |t(:row_comment_cancelAll_baseCoin_v3)   |
 |settleCoin |false |string |t(:row_comment_settleCoin_v3) |
 |symbol |false |string |t(:row_comment_symbol_v3) |
@@ -810,7 +817,7 @@ POST
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|list> category |string |t(:row_comment_category_v3) |
+|category |string |t(:dv_category)t(:dv_categorySuffix_8)    |
 |list> symbol |string |t(:row_comment_symbol_v3) |
 |list> orderId |string |t(:row_comment_query_orderId_v3) |
 |list> orderLinkId |string |t(:row_comment_orderLinkId_response_v3) |
