@@ -138,6 +138,7 @@ en:
   row_comment_created_at_position: The account creation time
   row_comment_created_at_in_exchange: Exchange time
   row_comment_updated_at: Update time
+  row_comment_updated_id: Update id
   row_comment_margin_result: User margin
   row_comment_activeOrderType: Active order type
   row_comment_stopOrderType: Conditional order type
@@ -488,8 +489,12 @@ en:
   row_comment_resp_open_time: Starting time
   row_comment_resp_volume: Trading volume
   row_comment_resp_turnover: <a href="#t-faq_turnover">Turnover</a>
+  row_comment_resp_bid: buyer
+  row_comment_resp_ask: seller
   row_comment_resp_bid_price: Purchase price of the first order
+  row_comment_resp_bid_size: Purchase size of the first order
   row_comment_resp_ask_price: Selling price of the first order
+  row_comment_resp_ask_size: Selling size of the first order
   row_comment_resp_last_price: Latest transaction price
   row_comment_resp_last_price_e4: (Deprecated) Latest transaction price 10^4
   row_comment_resp_prev_price_24h: Price of 24 hours ago
@@ -572,6 +577,7 @@ en:
   row_comment_fair_basis_e8: Fair basis * 10^8
   row_comment_fair_basis_rate_e8: Fair basis rate * 10^8
   row_comment_basis_in_year_e8: Basis in year * 10^8
+  row_comment_basis_in_year: Basis in year
   row_comment_expect_price_e4: Expected settlement price * 10^4
   row_comment_expect_price: Expected settlement price
 
@@ -974,7 +980,8 @@ en:
 
   ### Orderbook
   orderbook: Order Book
-  market_para_orderbook: Get the orderbook. Each side has a depth of 25.
+  market_para_orderbook: Get the orderbook. Each side has a depth of 25.<br>
+  market_para_orderbook_500: Get the orderbook. Each side has a depth of 500.<br>
   market_aside_orderbook: The response is in the snapshot format.
   ### Query Kline
   querykline: Query Kline
@@ -1643,6 +1650,28 @@ en:
         </ul>
       </li>
     </ul>
+
+    <p>Base endpoints:</p>
+       <ul>
+       <p>
+       <li>TestNet:<br/>
+           <span id="usdt_testnet_address">USDT Perpetual: wss://stream-testnet.bybit.com/contract/usdt/public/v3</span>
+           <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdt_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+           <br/>
+           <span id="inverse_testnet_address">inverse Perpetual: wss://stream-testnet.bybit.com/contract/inverse/public/v3</span>
+           <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#inverse_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+       </li>
+       </p>
+       <p>
+         <li>MainNet:<br/>
+           <span id="usdt_mainnet_address">USDT Perpetual: wss://stream.bybit.com/contract/usdt/public/v3</span>
+           <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdt_mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+           <br/>
+           <span id="inverse_mainnet_address">inverse Perpetual: wss://stream.bytick.com/contract/inverse/public/v3</span>
+           <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#inverse_mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+         </li>
+       </p>
+       </ul>
   spot_websocket_endpoints_aside: |
     <b>Note that the following endpoints only apply to <i>Spot</i></b>. To listen to other websockets, go to:
     <ul>
@@ -1717,6 +1746,8 @@ en:
   websocket_para_filters2: |
     <p>It is possible to use multiple filters for the same topic by splitting them with a pipe (<code>|</code>) - of course, these filters must all be applicable to the selected <code>topic</code>.</p>
     <p>Finally, to subscribe to the topic without filters please use the <code>*</code> wildcard.</p>
+  websocket_para_filters3: |
+    <p>It is possible to use multiple filters for the same topic by splitting them with a pipe (<code>|</code>) - of course, these filters must all be applicable to the selected <code>topic</code>.</p>
   websocketunsubfilters: Unsubscribing From Websocket Topics
   websocket_codequote_unsubfilters: How to unsubscribe with a filter
   websocket_para_unsubfilters: |
@@ -1755,6 +1786,8 @@ en:
   websocketTradeSide: Direction of taker
   websocket_para_trade: |
     <p>Push frequency: <b>100ms</b></p>
+  websocket_para_trade_ud: |
+    <p>Push frequency: <b>real time</b></p>
   ### insurance
   websocketinsurance: insurance
   websocket_para_insurance: |
@@ -1771,6 +1804,8 @@ en:
     This topic only utilises the <code>update</code> field. Both the <code>delete</code> and <code>insert</code> fields are null. If a key is not found in the <code>update</code> field, its value has not changed.
   websocket_aside_instrumentInfo2: |
     Some values use scientific notation. This is indicated by that value's key, which will be appended with, for example, <code>e6</code>. If the key is <code>last_price_e4</code> and the value is <code>81585000</code>, then to find the true value we can do <code>81585000 / 10^4</code>, which equals <code>8158.5</code>.
+  websocket_aside_instrumentInfo_ud: |
+    This topic will utilises the <code>snapshot</code> field and  <code>delta</code> fields. If a key is not found in the field, its value has not changed.
   ### klineV2
   websocketklineV2: klineV2
   websocket_para_klineV2: |

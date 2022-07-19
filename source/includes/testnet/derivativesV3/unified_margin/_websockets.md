@@ -128,13 +128,6 @@ ws.send('{"op":"subscribe","args":["trade.BTCUSD|XRPUSD"]}')
 ```
 
 
-> t(:websocket_codequote_filters3)
-
-```javascript
-// Example: Subscribing to the trade data for all symbols
-ws.send('{"op": "subscribe", "args": ["trade.*"]}')
-```
-
 t(:websocket_para_filters)
 
 `ws.send('{"op": "subscribe", "args": ["topic.filter"]}');`
@@ -143,7 +136,7 @@ t(:websocket_para_filters1)
 
 `ws.send('{"op": "subscribe", "args": ["topic.filter", "topic.filter"]}');`
 
-t(:websocket_para_filters2)
+t(:websocket_para_filters3)
 
 ### t(:websocketfilters_unified)
 
@@ -188,12 +181,110 @@ t(:websocket_para_response)
 ## t(:publictopics)
 ### t(:websocketOrderBookDepth)
 
-
-### t(:websockettrade)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op": "subscribe", "args": ["trade"]}')
+ws.send('{"op": "subscribe", "args": ["orderBook25.BTCUSDT",orderBook500.BTCUSDT]}')
+```
+> t(:codequote_snapshot)
+
+```javascript
+{
+  "topic":"orderBook25.BTCUSDT",
+    "type":"snapshot",
+    "ts":1658200820646,
+    "data":{
+    "s":"BTCUSDT",
+      "b":[
+      [
+        "22220.00",
+        "1.300"
+      ],
+      [
+        "22221.00",
+        "1.150"
+      ]
+    ],
+      "a":[
+      [
+        "22236.00",
+        "18.194"
+      ],
+      [
+        "22236.50",
+        "0.602"
+      ]
+    ],
+      "u":3566050
+  }
+}
+```
+
+
+> t(:codequote_delta)
+
+```javascript
+{
+  "topic":"orderBook25.BTCUSDT",
+    "type":"delta",
+    "ts":1658200820655,
+    "data":{
+    "s":"BTCUSDT",
+      "b":[
+      [
+        "22224.00",
+        "0.001"
+      ]
+    ],
+      "a":[
+      [
+        "22247.00",
+        "1.406"
+      ],
+      [
+        "22240.50",
+        "9.046"
+      ],
+      [
+        "22236.00",
+        "18.195"
+      ],
+      [
+        "22244.50",
+        "0.397"
+      ]
+    ],
+      "u":3566051
+  }
+}
+```
+
+- orderBook25.[symbol]
+  - t(:market_para_orderbook)
+  - [Push frequency]:20ms
+
+<br>
+
+- orderBook500.[symbol] <br>
+  - t(:market_para_orderbook_500)
+  - [Push frequency]:100ms
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|s |string |t(:row_comment_symbol)  |
+|b|string array |t(:row_comment_resp_bid)    |
+|a |string array|t(:row_comment_resp_ask)  |
+|u |number |t(:row_comment_updated_id)  |
+
+
+
+### t(:websockettrade)
+
+> t(:codequote_subscribe)
+
+```javascript
+ws.send('{"op": "subscribe", "args": ["trade.BTCUSDT"]}')
 ```
 
 ```python--old
@@ -224,48 +315,44 @@ while True:
 
 > t(:codequote_responseExampleFormatAll)
 
+
 ```javascript
 {
-    "topic": "trade.BTCUSD",
-    "data": [
-        {
-            "timestamp": "2020-01-12T16:59:59.000Z",
-            "trade_time_ms": 1582793344685,
-            "symbol": "BTCUSD",
-            "side": "Sell",
-            "size": 328,
-            "price": 8098,
-            "tick_direction": "MinusTick",
-            "trade_id": "00c706e1-ba52-5bb0-98d0-bf694bdc69f7",
-            "cross_seq": 1052816407
-        }
-    ]
+  "topic":"trade.BTCUSDT",
+    "type":"snapshot",
+    "ts":1658143402593,
+    "data":[
+    {
+      "T":1658143402590,
+      "s":"BTCUSDT",
+      "S":"Buy",
+      "v":"0.001",
+      "p":"23337.00",
+      "L":"PlusTick",
+      "i":"83010f18-4476-55c0-84ab-ebd243e156cf"
+    }
+  ]
 }
 ```
 
-t(:websocket_para_trade)
+t(:websocket_para_trade_ud)
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|timestamp |string |t(:row_response_comment_time)  |
-|trade_time_ms |number |t(:row_response_comment_nill_time)  |
-|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
-|t(:row_parameter_side) |string |t(:websocketTradeSide)  |
-|size |number |t(:row_comment_position_size)  |
-|t(:row_parameter_price) |number |t(:row_response_comment_price)  |
-|t(:row_parameter_tick_direction) |string |t(:row_comment_position_tick_direction)  |
-|trade_id |string |t(:row_response_comment_trade_id)  |
-|cross_seq |number |t(:row_comment_cross_seq)  |
-
-
-
+|T |number |t(:row_response_comment_time)  |
+|s |string |t(:row_comment_symbol)  |
+|S|string |t(:websocketTradeSide)    |
+|v |string |t(:row_comment_position_size)  |
+|p |string |t(:row_response_comment_price)  |
+|L |string |t(:row_comment_position_tick_direction)  |
+|i|string |t(:row_response_comment_trade_id)  |
 
 ### t(:websocketinstrumentInfo)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op": "subscribe", "args": ["instrument_info.100ms.BTCUSD"]}')
+ws.send('{"op": "subscribe", "args": ["instrument_info.BTCUSDT"]}')
 ```
 
 ```python--old
@@ -274,7 +361,7 @@ ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
                     api_key=None, api_secret=None)
 ws.subscribe_instrument_info(symbol="BTCUSD")
 while True:
-    data = ws.get_data("instrument_info.100ms.BTCUSD")
+    data = ws.get_data("instrument_info.BTCUSDT")
     if data:
         print(data)
 ```
@@ -298,50 +385,33 @@ while True:
 
 ```javascript
 {
-    "topic":"instrument_info.100ms.BTCUSD",
+  "topic":"instrumentInfo.BTCUSDT",
     "type":"snapshot",
-    "data": {
-         "id": 1,
-         "symbol": "BTCUSD",
-         "last_price_e4": 81165000,
-         "last_price": "81165000",  
-         "bid1_price_e4":400025000,
-         "bid1_price":"400025000",
-         "ask1_price_e4":475450000,
-         "ask1_price":"475450000",
-         "last_tick_direction": "ZeroPlusTick",
-         "prev_price_24h_e4": 81585000,
-         "prev_price_24h": "81585000",
-         "price_24h_pcnt_e6": -5148,
-         "high_price_24h_e4": 82900000,
-         "high_price_24h": "82900000",
-         "low_price_24h_e4": 79655000,
-         "low_price_24h": "79655000",
-         "prev_price_1h_e4": 81395000,
-         "prev_price_1h": "81395000",
-         "price_1h_pcnt_e6": -2825,
-         "mark_price_e4": 81178500,
-         "mark_price": "81178500",
-         "index_price_e4": 81172800,
-         "index_price": "81172800",
-         "open_interest": 154418471,
-         "open_value_e8": 1997561103030,
-         "total_turnover_e8": 2029370141961401,
-         "turnover_24h_e8": 9072939873591,
-         "total_volume": 175654418740,
-         "volume_24h": 735865248,
-         "funding_rate_e6": 100,
-         "predicted_funding_rate_e6": 100,
-         "cross_seq": 1053192577,
-         "created_at": "2018-11-14T16:33:26Z",         
-         "updated_at": "2020-01-12T18:25:16Z",         
-         "next_funding_time": "2020-01-13T00:00:00Z",
-
-         "countdown_hour": 6,
-         "funding_rate_interval": 8
-         },
-    "cross_seq":9267002,
-    "timestamp_e6":1615794861826248
+    "data":{
+    "symbol":"BTCUSDT",
+      "tickDirection":"ZeroMinusTick",
+      "price24hPcnt":"0.032786",
+      "lastPrice":"22019.00",
+      "prevPrice24h":"21320.00",
+      "highPrice24h":"22522.00",
+      "lowPrice24h":"20745.00",
+      "prevPrice1h":"22186.50",
+      "markPrice":"22010.11",
+      "indexPrice":"22009.01",
+      "openInterest":"44334.438",
+      "turnover24h":"4609010554.786498",
+      "volume24h":"213532.606",
+      "fundingRate":"0.0001",
+      "nextFundingTime":"2022-07-18T16:00:00Z",
+      "bid1Price":"22019.00",
+      "bid1Size":"41.530",
+      "ask1Price":"22019.50",
+      "ask1Size":"7.041",
+      "basisRate":"0",
+      "deliveryFeeRate":"0"
+  },
+  "cs":14236992078,
+    "ts":1658145103785070
 }
 ```
 
@@ -349,83 +419,65 @@ while True:
 
 ```javascript
 {
-    "topic": "instrument_info.100ms.BTCUSD",
-    "type": "delta",
-    "data": {
-        "delete": [],
-        "update": [
-            {
-                "id": 1,
-                "symbol": "BTCUSD",
-                "prev_price_24h_e4": 81565000,
-                "prev_price_24h": "81565000",
-                "price_24h_pcnt_e6": -4904,
-                "open_value_e8": 2000479681106,
-                "total_turnover_e8": 2029370495672976,
-                "turnover_24h_e8": 9066215468687,
-                "volume_24h": 735316391,
-                "cross_seq": 1053192657,
-                "created_at": "2018-11-14T16:33:26Z",
-                "updated_at": "2020-01-12T18:25:25Z"
-            }
-        ],
-        "insert": []
-    },
-    "cross_seq": 1053192657,
-    "timestamp_e6": 1578853525691123
+  "topic":"instrumentInfo.BTCUSDT",
+    "type":"delta",
+    "data":{
+    "symbol":"BTCUSDT",
+      "tickDirection":"PlusTick",
+      "price24hPcnt":"0.032621",
+      "lastPrice":"22015.50",
+      "turnover24h":"4609049418.106998",
+      "volume24h":"213534.371",
+      "fundingRate":"0.0001",
+      "nextFundingTime":"2022-07-18T16:00:00Z",
+      "bid1Price":"22019.00",
+      "bid1Size":"41.530",
+      "ask1Price":"22019.50",
+      "ask1Size":"7.041"
+  },
+  "cs":14236992274, 
+    "ts":1658145103883091
 }
+
 ```
 
 t(:websocket_para_instrumentInfo)
 
 <aside class="warning">
-t(:websocket_aside_instrumentInfo1)
+t(:websocket_aside_instrumentInfo_ud)
 </aside>
 
-<aside class="notice">
-t(:websocket_aside_instrumentInfo2)
-</aside>
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|t(:row_parameter_symbol) |string |t(:row_comment_symbol)  |
-|last_price_e4 |integer |t(:row_comment_resp_last_price_e4)  |
-|t(:row_parameter_tick_direction) |string |t(:row_comment_position_tick_direction)  |
-|prev_price_24h_e4 |integer |t(:row_comment_resp_prev_price_24h_e4)  |
-|price_24h_pcnt_e6 |integer |t(:row_comment_resp_price_24h_pcnt_e4)  |
-|high_price_24h_e4 |integer |t(:row_comment_resp_high_price_24h_e4)  |
-|low_price_24h_e4 |integer |t(:row_comment_resp_low_price_24h_e4)  |
-|prev_price_1h_e4 |integer |t(:row_comment_resp_prev_price_1h_e4)  |
-|price_1h_pcnt_e6 |integer |t(:row_comment_resp_price_1h_pcnt_e6)  |
-|mark_price_e4 |integer |t(:row_comment_resp_mark_price_e4)  |
-|index_price_e4 |integer |t(:row_comment_resp_index_price_e4)  |
-|last_price |integer |t(:row_comment_resp_last_price)  |
-|prev_price_24h |integer |t(:row_comment_resp_prev_price_24h)  |
-|high_price_24h |integer |t(:row_comment_resp_high_price_24h)  |
-|low_price_24h |integer |t(:row_comment_resp_low_price_24h)  |
-|prev_price_1h |integer |t(:row_comment_resp_prev_price_1h)  |
-|mark_price |integer |t(:row_comment_resp_mark_price)  |
-|index_price |integer |t(:row_comment_resp_index_price)  |
-|open_interest |integer |t(:row_comment_resp_open_interest). t(:row_comment_slow_update)  |
-|open_value_e8 |integer |t(:row_comment_resp_open_value_e8). t(:row_comment_slow_update)  |
-|total_turnover_e8 |integer |t(:row_comment_resp_total_turnover_e8)  |
-|turnover_24h_e8 |integer |t(:row_comment_resp_turnover_24h_e8)  |
-|total_volume |integer |t(:row_comment_resp_total_volume)  |
-|volume_24h |integer |t(:row_comment_resp_volume_24h)  |
-|predicted_funding_rate_e6 |integer |t(:row_comment_resp_predicted_funding_rate_e6)  |
-|cross_seq |integer |t(:row_comment_cross_seq)  |
-|created_at |string |t(:row_comment_created_at)  |
-|updated_at |string |t(:row_comment_updated_at)  |
-|next_funding_time |string |t(:row_comment_resp_next_funding_time)  |
-|countdown_hour |integer |t(:row_comment_resp_countdown_hour)  |
-|funding_rate_interval |integer |t(:row_comment_resp_funding_rate_interval) |
+|symbol |string |t(:row_comment_symbol)  |
+|tickDirection|string |t(:row_comment_position_tick_direction)  |
+|price24hPcnt|string|t(:row_comment_resp_price_24h_pcnt) |
+|lastPrice |string |t(:row_comment_resp_last_price)  |
+|prevPrice24h |string |t(:row_comment_resp_prev_price_24h)  |
+|highPrice24h |string |t(:row_comment_resp_high_price_24h)  |
+|lowPrice24h |string |t(:row_comment_resp_low_price_24h)  |
+|prevPrice1h |string |t(:row_comment_resp_prev_price_1h)  |
+|markPrice |string |t(:row_comment_resp_mark_price)  |
+|indexPrice |string |t(:row_comment_resp_index_price)  |
+|openInterest |string |t(:row_comment_resp_open_interest). t(:row_comment_slow_update)  |
+|turnover24h |string |t(:row_comment_resp_turnover_24h)  |
+|volume_24h |string |t(:row_comment_resp_volume_24h)  |
+|fundingRate |string |t(:row_comment_resp_funding_rate) |
+|nextFundingTime |string |t(:row_comment_resp_next_funding_time)  |
+|bid1Price|string|t(:row_comment_resp_bid_price) |
+|bid1Size|string|t(:row_comment_resp_bid_size) |
+|ask1Price|string|t(:row_comment_resp_ask_price) |
+|ask1Size|string|t(:row_comment_resp_ask_size) |
+|basisRate|string|t(:row_comment_basis_in_year) |
+|deliveryFeeRate|string|t(:row_comment_resp_delivery_fee_rate) |
 
-### t(:websocketklineV2)
+### t(:websocketkline)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op":"subscribe","args":["klineV2.1.BTCUSD"]}')
+ws.send('{"op":"subscribe","args":["candle.1.BTCUSDT"]}')
 ```
 
 ```python--pybit
@@ -447,21 +499,24 @@ while True:
 
 ```javascript
 {
-    "topic": "klineV2.1.BTCUSD",
-    "data": [{
-        "start": 1572425640,
-        "end": 1572425700,
-        "open": 9200,
-        "close": 9202.5,
-        "high": 9202.5,
-        "low": 9196,
-        "volume": 81790,
-        "turnover": 8.889247899999999,
-        "confirm": False,
-        "cross_seq": 297503466,                 
-        "timestamp": 1572425676958323
-    }],
-    "timestamp_e6": 1572425677047994
+  "topic":"candle.1.BTCUSDT",
+    "data":[
+    {
+      "start":1658150220000,
+      "end":1658150279999,
+      "interval":"1",
+      "open":"22212",
+      "close":"22214",
+      "high":"22214.5",
+      "low":"22212",
+      "volume":"5.456",
+      "turnover":"121193.36",
+      "confirm":false,
+      "timestamp":1658150224542
+    }
+  ],
+    "ts":1658150224542,
+    "type":"snapshot"
 }
 ```
 
@@ -473,14 +528,14 @@ t(:websocket_para_klineV2)
 |:----- |:-----|----- |
 |start|integer |t(:row_comment_startTime)    |
 |end|integer |t(:row_comment_endTime)    |
-|open|number |t(:row_comment_open)    |
-|close|number |t(:row_comment_close)    |
-|high|number |t(:row_comment_high)    |
-|low|number |t(:row_comment_low)    |
-|volume|number |t(:row_comment_resp_volume)    |
-|turnover|number |t(:row_comment_resp_turnover)    |
+|interval|string|t(:row_comment_interval) |
+|open|string |t(:row_comment_open)    |
+|close|string |t(:row_comment_close)    |
+|high|string |t(:row_comment_high)    |
+|low|string |t(:row_comment_low)    |
+|volume|string |t(:row_comment_resp_volume)    |
+|turnover|string |t(:row_comment_resp_turnover)    |
 |confirm|bool |t(:row_comment_confirm)    |
-|cross_seq|integer |t(:row_comment_cross_seq)    |
 |timestamp|integer |t(:row_comment_endTime)    |
 
 
