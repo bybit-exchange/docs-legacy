@@ -1,7 +1,7 @@
 # t(:marketdata)
 t(:market_para_auth)
 
-### t(:orderbook)
+### t(:dv_orderbook)
 > t(:codequote_curlExample)
 
 ```console
@@ -707,7 +707,7 @@ GET
 |cursor |string |t(:dv_cursor) |
 
 
-### t(:publictradingrecords)
+### t(:dv_publictradingrecords)
 > t(:codequote_curlExample)
 
 ```console
@@ -770,7 +770,7 @@ GET
 |blocktradeId |string |t(:dv_recentBlockTradeId) |
 
 
-### t(:marketopeninterest)
+### t(:dv_marketopeninterest)
 > t(:codequote_curlExample)
 
 ```console

@@ -994,6 +994,7 @@ en:
 
   ### Orderbook
   orderbook: Order Book
+  dv_orderbook: Query Order Book
   market_para_orderbook: Get the orderbook. Each side has a depth of 25.<br>
   market_para_orderbook_500: Get the orderbook. Each side has a depth of 500.<br>
   market_aside_orderbook: The response is in the snapshot format.
@@ -1013,6 +1014,7 @@ en:
   market_para_symbol: Get the latest information for symbol.
   ### Public Trading Records
   publictradingrecords: Public Trading Records
+  dv_publictradingrecords: Query Public Trading Records
   market_para_records: Get recent trades. You can find a complete history of trades on Bybit <a href="https://public.bybit.com">here</a>.
   ### Get the Last Funding Rate
   fundingRate: Get the Last Funding Rate
@@ -1034,6 +1036,7 @@ en:
   market_para_marketfundingrate: Get Bybit's recent funding rates.
   #### Market Open Interest
   marketopeninterest: Open Interest
+  dv_marketopeninterest: Query Open Interest
   market_para_marketopeninterest: Gets the total amount of unsettled contracts. In other words, the total number of contracts held in open positions.
   #### Market Account Ratio
   marketaccountratio: Long-Short Ratio
@@ -4428,29 +4431,29 @@ en:
   unified_margin_account_data: Unified Margin Account
   order: Order
   unified_margin_account_para: The following account data endpoints require authentication.
-  placeOrderV3: Place Orders
-  replaceOrderV3: Modifying Order Information
-  cancelOrderV3: Canceling Orders
-  queryOrderRealtimeV3: Query Unfilled-Orders in Real Time
+  placeOrderV3: Place Order
+  replaceOrderV3: Replace Order
+  cancelOrderV3: Cancel Order
+  queryOrderRealtimeV3: Query Open Orders
   getOrderV3: Query Orders
-  mypositionV3: Position Holdings (Real-time)
-  setleverageV3: Modifying Leverage
-  switchmodeV3: Switching TP/SL mode
-  setrisklimitV3: Setting Risk Limit
-  tradingstopV3: Setting TP/SL
+  mypositionV3: Query Position (real-time)
+  setleverageV3: Modify Leverage
+  switchmodeV3: Switch TP/SL Mode
+  setrisklimitV3: Set Risk Limit
+  tradingstopV3: Set TP/SL
   userTradeRecords7DayV3: Query 7-day Transaction History
-  queryOptionDeliveryLogV3 : Query Settlement History for Options
-  querySettleLogsV3: Query Settlement History
+  queryOptionDeliveryLogV3 : Query Settlement History (Options)
+  querySettleLogsV3: Query Settlement History (Perpetual)
   balanceV3: Query Wallet Balance
-  upgradeUnifiedAccountV3: Upgrading Unified Margin Account
+  upgradeUnifiedAccountV3: Upgrade to Unified Margin Account
   queryTransactionLogsV3: Query Trading History
-  transferV3: Transfers (V2)
-  queryExchangeRecordsV3: Exchange Order
-  interestBillStatementV3: Borrow History
-  queryLoanInterestV3: Borrow Rate
-  batchPlaceOrderV3: Place Batch Orders
-  batchReplaceOrdersV3: Replace Batch Orders
-  batchCancelOrdersV3: Cancel Batch Orders
+  transferV3: Transfer Funds (V2)
+  queryExchangeRecordsV3: Exchange Coins
+  interestBillStatementV3: Query Borrow History
+  queryLoanInterestV3: Query Borrow Rate
+  batchPlaceOrderV3: Batch Place Orders
+  batchReplaceOrdersV3: Batch Replace Orders
+  batchCancelOrdersV3: Batch Cancel Orders
   cancelAllOrdersV3: Cancel All Orders
 
   queryOrderRealtime: Get Order(real-time)
@@ -4549,7 +4552,7 @@ en:
 
 
   # tickers
-  dv_tickerHead: Latest Information For Symbol
+  dv_tickerHead: Query Latest Information For Symbol
   dv_marketTickerPara: Query all latest information for symbol
   # reqParam:
   dv_tickerSymbol: Name of the trading pair. If category is <code>option</code> REQUIRED
