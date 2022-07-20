@@ -107,6 +107,8 @@ Only for conditional orders:
 * `CreateByStopOrder`
 * `CreateByTakeProfit`
 * `CreateByStopLoss`
+* `CreateByPartialTakeProfit`
+* `CreateByPartialStopLoss`
 * `CreateByTrailingStop`
 * `CreateByLiq` - Created by partial liquidation
 * `CreateByAdl_PassThrough` - Created by ADL
