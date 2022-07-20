@@ -1645,7 +1645,12 @@ zh-cn:
   websocket_para_trade: |
     <p>推送頻率：<b>100ms</b></p>
   websocket_para_trade_ud: |
-    <p>推送頻率：<b>實時</b></p>
+    <b>說明:</b><br>
+    獲取Bybit平臺最近成交數據<br>
+    從用戶訂閱開始, 實時推送增量交易歷史, 有成交數據就推送.<br><br>
+    推送頻率：<b>實時</b><br><br>
+    <b>Topic:</b><br>
+    <code>trade.{symbol}</code>
   ### insurance
   websocketinsurance: 保險基金
   websocket_para_insurance: |
@@ -1656,7 +1661,9 @@ zh-cn:
   websocketinstrumentInfo: 行情
   websocket_para_instrumentInfo: |
     <p>獲取合約的最新數據.</p>
-    <p>Push frequency: <b>100ms</b></p>
+    <p>推送頻率: <b>100ms</b></p>
+    <p><b>Topic:</b></p>
+    <p><code>instrumentInfo.{symbol}</code></p>
   websocket_aside_instrumentInfo1: |
     註意，該topic只會推送<code>update</code>數據. <code>delete</code>和<code>insert</code>數據都為空. 如果<code>update</code>數據也為空,則表明信息沒有發生變化.
   websocket_aside_instrumentInfo2: |
@@ -1676,6 +1683,8 @@ zh-cn:
     <li>M</li>
     </ul>
     <p>推送頻率：<b>1-60s</b></p>
+    <p><b>Topic:</b></p>
+    <p><code>candle.{周期}.{symbol}</code></p>
   websocket_aside_klineV2: |
     註意如果字段<code>confirm</code>為<code>True</code>, 則表明這是這根K線的最後一個tick；否則，這只是一個快照數據，即中間價格
   websocketkline: K線
@@ -4109,7 +4118,7 @@ zh-cn:
   websocketfilters_unified: Websocket訂閱方式 - 統保
   websocketunsubfilters_unified: Websocket取消訂閱方式 - 統保
   websocketOrderBookDepth: OrderBook 深度
-  privatetopics_unified: 私有 Topics - 統保
+  privatetopics_unified: 私有 Topics
   websocketOrder: 訂單
   greeksOption: 用戶希臘字母信息（僅期權）
   user_data: 用戶接口
@@ -4251,14 +4260,17 @@ zh-cn:
     <ul>
     <p>
     <li>測試網:<br/>
-        <span id="usdt_testnet_address">USDT合約: wss://stream-testnet.bybit.com/contract/usdt/public/v3</span>
+        USDT合約: <span id="usdt_testnet_address">wss://stream-testnet.bybit.com/contract/usdt/public/v3</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdt_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
         <br/>
-        <span id="usdc_testnet_address">USDC合約: wss://stream-testnet.bybit.com/contract/usdc/public/v3</span>
+        USDC永續: <span id="usdc_testnet_address">wss://stream-testnet.bybit.com/contract/usdc/public/v3</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdc_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
         <br/>
-        <span id="inverse_testnet_address">反向合約: wss://stream-testnet.bybit.com/contract/inverse/public/v3</span>
+        反向合約: <span id="inverse_testnet_address">wss://stream-testnet.bybit.com/contract/inverse/public/v3</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#inverse_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <br/>
+        USDC期權: <span id="option_testnet_address">wss://stream-testnet.bybit.com/option/usdc/public/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#option_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
     </li>
      </p>
     </ul>
@@ -4277,3 +4289,15 @@ zh-cn:
     <code>orderBook25.{symbol}</code><br>
     <code>orderBook100.{symbol}</code>(<b>僅期權)</b><br>
     <code>orderBook500.{symbol}</code><br>
+
+  predicatedFundingRate_v3: 預測資金費率. usdt永續、反向永續、反向交割為<code>""</code>
+  row_comment_resp_next_funding_time_v3: 下次結算資金費用時間. 反向交割為<code>""</code>
+  row_comment_resp_funding_rate_v3: 資金費率. 反向交割為<code>""</code>
+  futuresResponseParameters: 期貨返回參數
+  optionResponseParameters: 期權返回參數
+  codequote_option: 以下為期權的快照數據推送
+  basisRate_v3: 交割合约基差率
+  row_comment_resp_delivery_fee_rate_v3: 交割费率，仅交割合约有效
+  row_comment_resp_prev_price_1h_v3: 市价相对1小时前变化百分比
+  deliveryTime_v3: 交割时间
+  predicatedDeliveryPrice_v3: 预期交割价，仅交割合约有效

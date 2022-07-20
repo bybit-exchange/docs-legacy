@@ -177,7 +177,7 @@ t(:websocket_para_response)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op": "subscribe", "args": ["orderBook25.BTCUSDT",orderBook500.BTCUSDT]}')
+ws.send('{"op": "subscribe", "args": ["orderBook25.BTCUSDT","orderBook500.BTCUSDT"]}')
 ```
 > t(:codequote_snapshot)
 
@@ -258,8 +258,8 @@ t(:websocketOrderBook_v3)
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |s |string |t(:row_comment_symbol)  |
-|b|string array |t(:row_comment_resp_bid)    |
-|a |string array|t(:row_comment_resp_ask)  |
+|b|array |t(:row_comment_resp_bid)    |
+|a |array|t(:row_comment_resp_ask)  |
 |u |number |t(:row_comment_updated_id)  |
 
 
@@ -272,30 +272,8 @@ t(:websocketOrderBook_v3)
 ws.send('{"op": "subscribe", "args": ["trade.BTCUSDT"]}')
 ```
 
-```python--old
-from BybitWebsocket import BybitWebsocket
-ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
-                    api_key=None, api_secret=None)
-ws.subscribe_trade()
-while True:
-    data = ws.get_data("trade.BTCUSD")
-    if data:
-        print(data)
-```
-
 ```python--pybit
-from pybit import WebSocket
-subs = [
-    "trade"
-]
-ws = WebSocket(
-    "wss://stream-testnet.bybit.com/realtime",
-    subscriptions=subs
-)
-while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
+
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -337,33 +315,11 @@ t(:websocket_para_trade_ud)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op": "subscribe", "args": ["instrument_info.BTCUSDT"]}')
-```
-
-```python--old
-from BybitWebsocket import BybitWebsocket
-ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
-                    api_key=None, api_secret=None)
-ws.subscribe_instrument_info(symbol="BTCUSD")
-while True:
-    data = ws.get_data("instrument_info.BTCUSDT")
-    if data:
-        print(data)
+ws.send('{"op": "subscribe", "args": ["instrumentInfo.BTCUSDT"]}')
 ```
 
 ```python--pybit
-from pybit import WebSocket
-subs = [
-    "instrument_info.100ms.BTCUSD"
-]
-ws = WebSocket(
-    "wss://stream-testnet.bybit.com/realtime",
-    subscriptions=subs
-)
-while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
+
 ```
 
 > t(:codequote_snapshot)
@@ -426,6 +382,45 @@ while True:
 
 ```
 
+> t(:codequote_option)
+
+```javascript
+{
+    "id": "instrumentInfo.BTC-29JUL22-26000-C-335648950-1658284651212",
+    "topic": "instrumentInfo.BTC-29JUL22-26000-C",
+    "ts": 1658284651212,
+    "data": {
+        "symbol": "BTC-29JUL22-26000-C",
+        "bidPrice": "360",
+        "bidSize": "36.7",
+        "bidIv": "0.7828",
+        "askPrice": "380",
+        "askSize": "0.7",
+        "askIv": "0.8005",
+        "lastPrice": "160",
+        "highPrice24h": "0",
+        "lowPrice24h": "0",
+        "markPrice": "412.017195",
+        "indexPrice": "23479.75",
+        "markPriceIv": "0.8283",
+        "underlyingPrice": "23494.15",
+        "openInterest": "305.89",
+        "turnover24h": "0",
+        "volume24h": "0",
+        "totalVolume": "2884",
+        "totalTurnover": "12808823",
+        "delta": "0.24076634",
+        "gamma": "0.00010067",
+        "vega": "11.63078846",
+        "theta": "-52.22100976",
+        "predictedDeliveryPrice": "0",
+        "change24h": "0"
+    },
+    "type": "snapshot"
+}
+
+```
+
 t(:websocket_para_instrumentInfo)
 
 <aside class="warning">
@@ -433,7 +428,7 @@ t(:websocket_aside_instrumentInfo_ud)
 </aside>
 
 
-<p class="fake_header">t(:responseparameters)</p>
+<p class="fake_header">t(:futuresResponseParameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |symbol |string |t(:row_comment_symbol)  |
@@ -443,20 +438,53 @@ t(:websocket_aside_instrumentInfo_ud)
 |prevPrice24h |string |t(:row_comment_resp_prev_price_24h)  |
 |highPrice24h |string |t(:row_comment_resp_high_price_24h)  |
 |lowPrice24h |string |t(:row_comment_resp_low_price_24h)  |
-|prevPrice1h |string |t(:row_comment_resp_prev_price_1h)  |
 |markPrice |string |t(:row_comment_resp_mark_price)  |
 |indexPrice |string |t(:row_comment_resp_index_price)  |
 |openInterest |string |t(:row_comment_resp_open_interest). t(:row_comment_slow_update)  |
 |turnover24h |string |t(:row_comment_resp_turnover_24h)  |
-|volume_24h |string |t(:row_comment_resp_volume_24h)  |
-|fundingRate |string |t(:row_comment_resp_funding_rate) |
-|nextFundingTime |string |t(:row_comment_resp_next_funding_time)  |
+|volume24h |string |t(:row_comment_resp_volume_24h)  |
+|nextFundingTime |string |t(:row_comment_resp_next_funding_time_v3)  |
+|fundingRate |string |t(:row_comment_resp_funding_rate_v3) |
+|predicatedFundingRate |string |t(:predicatedFundingRate_v3) |
 |bid1Price|string|t(:row_comment_resp_bid_price) |
 |bid1Size|string|t(:row_comment_resp_bid_size) |
 |ask1Price|string|t(:row_comment_resp_ask_price) |
 |ask1Size|string|t(:row_comment_resp_ask_size) |
-|basisRate|string|t(:row_comment_basis_in_year) |
-|deliveryFeeRate|string|t(:row_comment_resp_delivery_fee_rate) |
+|basisRate|string|t(:basisRate_v3) |
+|deliveryFeeRate|string|t(:row_comment_resp_delivery_fee_rate_v3) |
+|prevPrice1h |string |t(:row_comment_resp_prev_price_1h_v3)  |
+|deliveryTime |string |t(:deliveryTime_v3)  |
+|predicatedDeliveryPrice |string |t(:predicatedDeliveryPrice_v3)  |
+
+<p class="fake_header">t(:optionResponseParameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| t(:row_parameter_symbol) |string |t(:usdcSymbol) |
+| bidPrice |string |t(:bidPrice) |
+| bidSize |string |t(:bidSize) |
+| bidIv |string |t(:bidIv) |
+| askPrice |string |t(:askPrice) |
+| askSize |string |t(:askSize) |
+| askIv |string |t(:askIv) |
+| lastPrice |string |t(:usdcLastPrice) |
+| highPrice24h |string |t(:highPrice24h) |
+| lowPrice24h |string |t(:lowPrice24h) |
+| markPrice |string |t(:usdcMarkPrice) |
+| indexPrice |string |t(:usdcIndexPrice) |
+| markPriceIv |string |t(:markPriceIv) |
+| underlyingPrice |string |t(:underlying) |
+| openInterest |string |t(:openInterest) |
+| turnover24h |string |t(:turnover24h) |
+| volume24h |string |t(:volume24h) |
+| totalVolume |string |t(:totalVolume) |
+| totalTurnOver |string |t(:totalTurnOver) |
+| delta |string |t(:delta) |
+| gamma |string |t(:gamma) |
+| theta |string |t(:theta) |
+| vega |string |t(:vega) |
+| predictedDeliveryPrice |string |t(:predictedDeliveryPrice) |
+| change24h |string |t(:price24Pcnt) |
+
 
 ### t(:websocketkline)
 > t(:codequote_subscribe)
@@ -466,18 +494,7 @@ ws.send('{"op":"subscribe","args":["candle.1.BTCUSDT"]}')
 ```
 
 ```python--pybit
-from pybit import WebSocket
-subs = [
-    "klineV2.1.BTCUSD"
-]
-ws = WebSocket(
-    "wss://stream-testnet.bybit.com/realtime",
-    subscriptions=subs
-)
-while True:
-    data = ws.fetch(subs[0])
-    if data:
-        print(data)
+
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -507,6 +524,9 @@ while True:
 
 t(:websocket_para_klineV2)
 
+<aside class="notice">
+t(:websocket_aside_klineV2)
+</aside>
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
