@@ -7,12 +7,6 @@
 curl https://api-testnet.bybit.com/v2/public/liq-records?symbol=BTCUSD
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Market.Market_liqRecords(symbol="BTCUSD").result())
-```
-
 > t(:codequote_responseExample)
 
 ```javascript
@@ -72,12 +66,6 @@ GET
 curl "https://api-testnet.bybit.com/user/leverage?api_key={api_key}&timestamp={timestamp}&sign={sign}"
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Positions.userLeverage())
-```
-
 > t(:codequote_responseExample)
 
 ```javascript
@@ -132,12 +120,6 @@ GET
 
 ```console
 curl "https://api-testnet.bybit.com/open-api/order/list?api_key={api_key}&timestamp={timestamp}&sign={sign}&symbol=BTCUSD"
-```
-
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Order.Order_getOrders().result())
 ```
 
 > t(:codequote_responseExample)
@@ -249,12 +231,6 @@ GET
 curl "https://api-testnet.bybit.com/open-api/stop-order/list?api_key={api_key}&timestamp={timestamp}&sign={sign}"
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Conditional.Conditional_getOrders().result())
-```
-
 > t(:codequote_responseExample)
 
 ```javascript
@@ -358,12 +334,6 @@ GET
 curl https://api-testnet.bybit.com/open-api/stop-order/create \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","order_type":"Limit","side":"Buy","symbol":"BTCUSD","qty":1,"price":8100,"base_price":8300,"stop_px":8150,"time_in_force":"GoodTillCancel","order_link_id":"cus_order_id_1","timestamp":{timestamp},"sign":"{sign}"}'
-```
-
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Conditional.Conditional_new(order_type="Limit",side="Buy",symbol="BTCUSD",qty=1,price=8100,base_price=8300,stop_px=8150,time_in_force="GoodTillCancel", order_link_id="cus_order_id_1").result())
 ```
 
 > t(:codequote_responseExample)
@@ -477,12 +447,6 @@ curl https://api-testnet.bybit.com/open-api/stop-order/cancel \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Conditional.Conditional_cancel(symbol="BTCUSD", order_id="").result())
-```
-
 > t(:codequote_responseExample)
 
 ```javascript
@@ -561,12 +525,6 @@ curl https://api-testnet.bybit.com/open-api/stop-order/replace \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","stop_order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Conditional.Conditional_replace(symbol="BTCUSD", stop_order_id="").result())
-```
-
 > t(:codequote_responseExample)
 
 ```javascript
@@ -622,12 +580,6 @@ curl https://api-testnet.bybit.com/open-api/order/replace \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Order.Order_Replace(symbol="BTCUSD", order_id="").result())
-```
-
 > t(:codequote_responseExample)
 
 ```javascript
@@ -677,12 +629,6 @@ POST
 
 ```console
 curl "https://api-testnet.bybit.com/open-api/wallet/risk-limit/list?api_key={api_key}&timestamp={timestamp}&sign={sign}"
-```
-
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Wallet.Wallet_getRiskLimit().result())
 ```
 
 > t(:codequote_responseExample)
@@ -785,12 +731,6 @@ GET
 curl https://api-testnet.bybit.com/open-api/wallet/risk-limit \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","risk_id":2,"timestamp":{timestamp},"sign":"{sign}"}'
-```
-
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Wallet.Wallet_setRiskLimit(symbol="BTCUSD", risk_id=2).result())
 ```
 
 > t(:codequote_responseExample)

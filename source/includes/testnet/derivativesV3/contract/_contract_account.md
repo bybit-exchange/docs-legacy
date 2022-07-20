@@ -12,13 +12,6 @@ curl https://api-testnet.bybit.com/unified/v3/private/order/create \
 
 ```
 
-```python--old
-// change to v3
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Order.Order_new(side="Buy",symbol="BTCUSD",order_type="Market",qty=1,time_in_force="GoodTillCancel").result())
-```
-
 ```python--pybit
 // change to v3
 from pybit import HTTP
@@ -84,13 +77,6 @@ POST
 
 ```console
 curl "https://api-testnet.bybit.com/unified/v3/private/order/list?category=linear&symbol=XRPUSDT&api_key={{bybit-api-key}}&timestamp={{timestamp}}&sign={{signature}}"
-```
-
-```python--old
-// change to v3
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Order.Order_getOrders(symbol="BTCUSD",order_status="New").result())
 ```
 
 ```python--pybit
@@ -179,12 +165,6 @@ GET
 curl https://api-testnet.bybit.com/unified/v3/private/order/cancel \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
-```
-
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Order.Order_cancel(symbol="BTCUSD", order_id="").result())
 ```
 
 ```python--pybit
@@ -286,12 +266,6 @@ curl https://api-testnet.bybit.com/unified/v3/private/order/cancel-all \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Order.Order_cancelAll(symbol="BTCUSD").result())
-```
-
 ```python--pybit
 from pybit import HTTP
 session = HTTP("https://api-testnet.bybit.com",
@@ -384,12 +358,6 @@ curl https://api-testnet.bybit.com/unified/v3/private/order/replace \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Order.Order_replace(symbol="BTCUSD", order_id="").result())
-```
-
 ```python--pybit
 from pybit import HTTP
 session = HTTP("https://api-testnet.bybit.com",
@@ -452,12 +420,6 @@ POST
 
 ```console
 curl "https://api-testnet.bybit.com/v2/private/order?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}order_id={order_id}&sign={sign}"
-```
-
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Order.Order_query(symbol="BTCUSD", order_id="").result())
 ```
 
 ```python--pybit
@@ -633,12 +595,6 @@ curl https://api-testnet.bybit.com/v2/private/stop-order/create \
 -d '{"api_key":"{api_key}","order_type":"Limit","side":"Buy","symbol":"BTCUSD","qty":1,"price":8100,"base_price":8300,"stop_px":8150,"time_in_force":"GoodTillCancel","order_link_id":"cus_order_id_1","timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Conditional.Conditional_new(order_type="Limit",side="Buy",symbol="XRPUSD",qty="1",price="0.2569",base_price="15700",stop_px="0.2119",time_in_force="GoodTillCancel").result())
-```
-
 ```python--pybit
 from pybit import HTTP
 session = HTTP("https://api-testnet.bybit.com",
@@ -745,12 +701,6 @@ POST
 curl "https://api-testnet.bybit.com/v2/private/stop-order/list?api_key={api_key}&timestamp={timestamp}&sign={sign}"
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Conditional.Conditional_getOrders(symbol="BTCUSD",stop_order_status="Untriggered").result())
-```
-
 ```python--pybit
 from pybit import HTTP
 session = HTTP("https://api-testnet.bybit.com",
@@ -849,12 +799,6 @@ curl https://api-testnet.bybit.com/unified/v3/private/order/cancel \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","stop_order_id":"xxx","timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Conditional.Conditional_cancel(symbol="BTCUSD", stop_order_id="").result())
-```
-
 ```python--pybit
 from pybit import HTTP
 session = HTTP("https://api-testnet.bybit.com",
@@ -909,12 +853,6 @@ POST
 curl https://api-testnet.bybit.com/v2/private/stop-order/cancelAll \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","timestamp":{timestamp},"sign":"{sign}"}'
-```
-
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Conditional.Conditional_cancelAll(symbol="BTCUSD").result())
 ```
 
 ```python--pybit
@@ -1040,12 +978,6 @@ curl https://api-testnet.bybit.com/v2/private/stop-order/replace \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","stop_order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Conditional.Conditional_replace(symbol="BTCUSD", stop_order_id="", p_r_trigger_price="16003").result())
-```
-
 ```python--pybit
 from pybit import HTTP
 session = HTTP("https://api-testnet.bybit.com",
@@ -1114,12 +1046,6 @@ POST
 ```console
 curl "https://api-testnet.bybit.com/v2/private/stop-order?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}order_id={order_id}&sign={sign}"
 ```
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Conditional.Conditional_query(symbol="BTCUSD", stop_order_id="").result())
-```
-
 ```python--pybit
 from pybit import HTTP
 session = HTTP("https://api-testnet.bybit.com",
@@ -1285,12 +1211,6 @@ GET
 
 ```console
 curl "https://api-testnet.bybit.com/v2/private/position/list?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}&sign={sign}"
-```
-
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Positions.Positions_myPosition(symbol="BTCUSD").result())
 ```
 
 ```python--pybit
@@ -1508,12 +1428,6 @@ curl https://api-testnet.bybit.com/v2/private/position/change-position-margin \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD",margin:"10","timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Positions.Positions_changeMargin(symbol="BTCUSD", margin="10").result())
-```
-
 ```python--pybit
 from pybit import HTTP
 session = HTTP("https://api-testnet.bybit.com",
@@ -1572,12 +1486,6 @@ POST
 curl https://api-testnet.bybit.com/v2/private/position/trading-stop \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","stop_loss":7000,"timestamp":{timestamp},"sign":"{sign}"}'
-```
-
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Positions.Positions_tradingStop(symbol="BTCUSD",stop_loss="7000").result())
 ```
 
 ```python--pybit
@@ -1714,12 +1622,6 @@ curl https://api-testnet.bybit.com/v2/private/position/leverage/save \
 -d '{"api_key":"{api_key}","symbol":"BTCUSD","leverage":14,"timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Positions.Positions_saveLeverage(symbol="BTCUSD", leverage="14").result())
-```
-
 ```python--pybit
 from pybit import HTTP
 session = HTTP("https://api-testnet.bybit.com",
@@ -1778,12 +1680,6 @@ POST
 
 ```console
 curl "https://api-testnet.bybit.com/v2/private/execution/list?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}&sign={sign}"
-```
-
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Execution.Execution_getTrades(symbol="BTCUSD").result())
 ```
 
 ```python--pybit
@@ -1891,12 +1787,6 @@ GET
 
 ```console
 curl "https://api-testnet.bybit.com/v2/private/trade/closed-pnl/list?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}&sign={sign}"
-```
-
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Positions.Positions_closePnlRecords(symbol="BTCUSD").result())
 ```
 
 ```python--pybit
@@ -2163,12 +2053,6 @@ GET
 curl "https://api-testnet.bybit.com/v2/public/risk-limit/list?symbol=BTCUSD"
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Wallet.Wallet_getRiskLimit().result())
-```
-
 ```python--pybit
 from pybit import HTTP
 session = HTTP("https://api-testnet.bybit.com")
@@ -2330,12 +2214,6 @@ POST
 curl "https://api-testnet.bybit.com/v2/public/funding/prev-funding-rate?symbol=BTCUSD"
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Funding.Funding_prevRate(symbol="BTCUSD").result())
-```
-
 ```python--pybit
 from pybit import HTTP
 session = HTTP("https://api-testnet.bybit.com")
@@ -2392,12 +2270,6 @@ GET
 
 ```console
 curl "https://api-testnet.bybit.com/v2/private/funding/prev-funding?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}&sign={sign}"
-```
-
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Funding.Funding_myLastFee(symbol="BTCUSD").result())
 ```
 
 ```python--pybit
@@ -2461,12 +2333,6 @@ GET
 curl "https://api-testnet.bybit.com/v2/private/funding/predicted-funding?api_key={api_key}&symbol=BTCUSD&timestamp={timestamp}&sign={sign}"
 ```
 
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Funding.Funding_predicted(symbol="BTCUSD").result())
-```
-
 ```python--pybit
 from pybit import HTTP
 session = HTTP("https://api-testnet.bybit.com",
@@ -2517,12 +2383,6 @@ GET
 
 ```console
 curl "https://api-testnet.bybit.com/v2/private/account/api-key?api_key={api_key}&timestamp={timestamp}&sign={sign}"
-```
-
-```python--old
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.APIkey.APIkey_info().result())
 ```
 
 ```python--pybit

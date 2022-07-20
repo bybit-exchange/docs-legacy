@@ -8,10 +8,6 @@ t(:market_para_auth)
 curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/public/order-book/L2?category=linear&symbol=BTCUSDT'
 ```
 
-```python--old
-
-```
-
 ```python--pybit
 
 ```
@@ -87,10 +83,6 @@ GET
 curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/public/kline?category=linear&symbol=BTCUSDT&interval=D&start=1652112000000&end=1652544000000'
 ```
 
-```python--old
-
-```
-
 ```python--pybit
 
 ```
@@ -158,10 +150,6 @@ GET
 
 ```console
 curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/public/tickers?category=linear&symbol=BTCUSDT'
-```
-
-```python--old
-
 ```
 
 ```python--pybit
@@ -297,10 +285,6 @@ GET
 curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/public/instruments-info?category=linear&symbol=BTCUSDT'
 ```
 
-```python--old
-
-```
-
 ```python--pybit
 
 ```
@@ -431,10 +415,6 @@ GET
 curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/public/mark-price-kline?category=linear&symbol=BTCUSDT&interval=D&start=1652112000000&end=1652544000000'
 ```
 
-```python--old
-
-```
-
 ```python--pybit
 
 ```
@@ -496,10 +476,6 @@ GET
 
 ```console
 curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/public/index-price-kline?category=linear&symbol=BTCUSDT&interval=D&start=1652112000000&end=1652544000000'
-```
-
-```python--old
-
 ```
 
 ```python--pybit
@@ -566,10 +542,6 @@ GET
 curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/public/funding/history-funding-rate?category=linear&symbol=BTCUSDT&startTime=1652112000000&endTime=1652198400000'
 ```
 
-```python--old
-
-```
-
 ```python--pybit
 
 ```
@@ -630,10 +602,6 @@ GET
 curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/public/risk-limit/list?category=linear&symbol=BTCUSDT'
 ```
 
-```python--old
-
-```
-
 ```python--pybit
 
 ```
@@ -680,10 +648,6 @@ GET
 curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/public/delivery-price?category=option&symbol=BTC-30SEP22-400000-C'
 ```
 
-```python--old
-
-```
-
 ```python--pybit
 
 ```
@@ -725,10 +689,6 @@ GET
 
 ```console
 curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/public/recent-trade?category=option&symbol=BTC-30SEP22-400000-C'
-```
-
-```python--old
-
 ```
 
 ```python--pybit
@@ -776,10 +736,6 @@ GET
 
 ```console
 curl https://api-testnet.bybit.com/derivatives/v3/public/open-interest?symbol=BTCUSD&period=5min
-```
-
-```python--old
-
 ```
 
 ```python--pybit

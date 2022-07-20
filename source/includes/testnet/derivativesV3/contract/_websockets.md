@@ -188,17 +188,6 @@ t(:websocket_para_response)
 ws.send('{"op": "subscribe", "args": ["orderBookL2_25.BTCUSD"]}');
 ```
 
-```python--old
-from BybitWebsocket import BybitWebsocket
-ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
-                    api_key=None, api_secret=None)
-ws.subscribe_orderBookL2(symbol="BTCUSD")
-while True:
-    data = ws.get_data("orderBookL2_25.BTCUSD")
-    if data:
-        print(data)
-```
-
 ```python--pybit
 from pybit import WebSocket
 subs = [
@@ -412,17 +401,6 @@ t(:websocket_para_orderbook200)
 ws.send('{"op": "subscribe", "args": ["trade"]}')
 ```
 
-```python--old
-from BybitWebsocket import BybitWebsocket
-ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
-                    api_key=None, api_secret=None)
-ws.subscribe_trade()
-while True:
-    data = ws.get_data("trade.BTCUSD")
-    if data:
-        print(data)
-```
-
 ```python--pybit
 from pybit import WebSocket
 subs = [
@@ -482,17 +460,6 @@ t(:websocket_para_trade)
 ws.send('{"op": "subscribe", "args": ["insurance"]}')
 ```
 
-```python--old
-from BybitWebsocket import BybitWebsocket
-ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
-                    api_key=None, api_secret=None)
-ws.subscribe_insurance()
-while True:
-    data = ws.get_data("insurance.BTC")
-    if data:
-        print(data)
-```
-
 ```python--pybit
 from pybit import WebSocket
 subs = [
@@ -542,17 +509,6 @@ t(:websocket_aside_insurance)
 
 ```javascript
 ws.send('{"op": "subscribe", "args": ["instrument_info.100ms.BTCUSD"]}')
-```
-
-```python--old
-from BybitWebsocket import BybitWebsocket
-ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
-                    api_key=None, api_secret=None)
-ws.subscribe_instrument_info(symbol="BTCUSD")
-while True:
-    data = ws.get_data("instrument_info.100ms.BTCUSD")
-    if data:
-        print(data)
 ```
 
 ```python--pybit
@@ -818,17 +774,6 @@ t(:websocket_query_liqrecords)
 ws.send('{"op": "subscribe", "args": ["position"]}')
 ```
 
-```python--old
-from BybitWebsocket import BybitWebsocket
-ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
-                    api_key=api_key, api_secret=api_secret)
-ws.subscribe_position()
-while True:
-    data = ws.get_data("position")
-    if data:
-        print(data)
-```
-
 ```python--pybit
 from pybit import WebSocket
 subs = [
@@ -936,17 +881,6 @@ t(:websocketposition_aside)
 ws.send('{"op": "subscribe", "args": ["execution"]}')
 ```
 
-```python--old
-from BybitWebsocket import BybitWebsocket
-ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
-                    api_key=api_key, api_secret=api_secret)
-ws.subscribe_execution()
-while True:
-    data = ws.get_data("execution")
-    if data:
-        print(data)
-```
-
 ```python--pybit
 from pybit import WebSocket
 subs = [
@@ -1018,17 +952,6 @@ t(:websocket_execution_aside)
 
 ```javascript
 ws.send('{"op": "subscribe", "args": ["order"]}')
-```
-
-```python--old
-from BybitWebsocket import BybitWebsocket
-ws = BybitWebsocket(wsURL="wss://stream-testnet.bybit.com/realtime",
-                    api_key=api_key, api_secret=api_secret)
-ws.subscribe_order()
-while True:
-    data = ws.get_data("order")
-    if data:
-        print(data)
 ```
 
 ```python--pybit
