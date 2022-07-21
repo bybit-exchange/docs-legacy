@@ -1865,12 +1865,12 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|currency |<b>false</b> |string |t(:row_comment_currency_v3)   |
-|startTime |<b>false</b> |number |t(:row_comment_startTime_v3)   |
-|endTime |<b>false</b> |number |t(:row_comment_endTime_v3)   |
-|direction |<b>false</b> |string |t(:row_comment_direction_v3)   |
-|limit |<b>false</b> |number |t(:row_comment_limit_v3)   |
-|cursor |<b>false</b> |string |t(:row_comment_cursor_v3)   |
+|currency |false |string |t(:row_comment_currency_v3)   |
+|startTime |false |number |t(:row_comment_startTime_v3)   |
+|endTime |false |number |t(:row_comment_endTime_v3)   |
+|direction |false |string |t(:row_comment_direction_v3)   |
+|limit |false |number |t(:row_comment_limit_v3)   |
+|cursor |false |string |t(:row_comment_cursor_v3)   |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -1939,7 +1939,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|currency |<b>false</b> |string |t(:row_comment_currency_v3)   |
+|currency |false |string |t(:row_comment_currency_v3)   |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
