@@ -54,6 +54,12 @@ Return Code | t(:errorcode_meaning)
 3200300	 |   Insufficient margin balance.
 3200304	 |   The number of active orders exceeds the upper limit.
 3200200	 |   Insufficient margin balance.
+3303001	 |   No corresponding command execution authority.
+3303004	 |   Instruction execution exception.
+3303005	 |   Repeat signature verification.
+3303006	 |   Sign verification failed.
+3303007	 |   Single connection execution command frequency overrun.
+3303008	 |   The number of websocket connections established by a single uid exceeds the limit.
 3400001  |   Please ensure that there are no positions in your USDC account, including USDC perpetual and options
 3400002  |   Please ensure that there are no active orders in your USDC account, including Limit, Market and Conditional orders
 3400005  |   Set margin mode failed
@@ -61,3 +67,4 @@ Return Code | t(:errorcode_meaning)
 3400045	 |   Set margin mode failed. The error will be triggerd when your account is in the upgrade of unified margin account, then you request set margin mode endpoint in the mean time.
 3500001	 |   System error. Please try again later.
 3500040	 |   System error. Please try again later.
+
