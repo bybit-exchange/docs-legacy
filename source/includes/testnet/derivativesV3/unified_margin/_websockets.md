@@ -340,13 +340,15 @@ t(:websocket_para_trade_ud)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|T |number |t(:row_response_comment_time)  |
+|T |number |t(:row_response_comment_timestamp)  |
 |s |string |t(:row_comment_symbol)  |
 |S|string |t(:websocketTradeSide)    |
 |v |string |t(:row_comment_position_size)  |
 |p |string |t(:row_response_comment_price)  |
 |L |string |t(:row_comment_position_tick_direction)  |
 |i|string |t(:row_response_comment_trade_id)  |
+|ts|string |t(:row_response_comment_time)  |
+|BT|bool |t(:row_response_comment_blocktrade)  |
 
 ### t(:websocketinstrumentInfo)
 > t(:codequote_subscribe)
