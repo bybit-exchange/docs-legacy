@@ -2,7 +2,7 @@
 t(:unified_margin_account_para)
 
 ## t(:order)
-### t(:placeOrderV3)
+### t(:dv_placeOrder)
 > t(:codequote_curlExample)
 
 ```console
@@ -81,7 +81,7 @@ POST
 |orderId |string |t(:row_comment_order_id) |
 |orderLinkId |string |t(:row_comment_orderLinkId_response_v3) |
 
-### t(:replaceOrderV3)
+### t(:dv_replaceOrder)
 > t(:codequote_curlExample)
 
 ```console
@@ -150,7 +150,7 @@ POST
 |orderLinkId |string |t(:row_comment_orderLinkId_response_v3) |
 
 
-### t(:cancelOrderV3)
+### t(:dv_cancelOrder)
 > t(:codequote_curlExample)
 
 ```console
@@ -212,7 +212,7 @@ POST
 |orderLinkId |string |t(:row_comment_orderLinkId_response_v3) |
 
 
-### t(:queryOrderRealtimeV3)
+### t(:dv_queryOrderRealtime)
 > t(:codequote_curlExample)
 
 ```console
@@ -314,7 +314,7 @@ GET
 |nextPageCursor |string |t(:row_comment_query_nextPageCursor_v3)  |
 
 
-### t(:getOrderV3)
+### t(:dv_getOrder)
 > t(:codequote_curlExample)
 
 ```console
@@ -436,7 +436,7 @@ GET
 |list > closeOnTrigger |bool |t(:row_comment_query_closeOnTrigger_v3)  |
 |nextPageCursor |string |t(:row_comment_query_nextPageCursor_v3)  |
 
-### t(:batchPlaceOrderV3)
+### t(:dv_batchPlaceOrder)
 
 ```console
 curl --location --request POST 'https://api-testnet.bybit.com/unified/v3/private/order/create-batch' \
@@ -557,7 +557,7 @@ POST
 |list> createAt |number |t(:row_comment_createAt_response_v3) |
 
 
-### t(:batchReplaceOrdersV3)
+### t(:dv_batchReplaceOrders)
 
 t(:usdcBatchReplaceOrdersDescV3)
 
@@ -654,7 +654,7 @@ POST
 |list> orderId |string |t(:row_comment_query_orderId_v3) |
 |list> orderLinkId |string |t(:row_comment_orderLinkId_response_v3) |
 
-### t(:batchCancelOrdersV3)
+### t(:dv_batchCancelOrders)
 
 t(:usdcBatchCancelOrdersDescV3)
 
@@ -744,7 +744,7 @@ POST
 |list> orderLinkId |string |t(:row_comment_orderLinkId_response_v3) |
 
 
-### t(:cancelAllOrdersV3)
+### t(:dv_cancelAllOrders)
 > t(:codequote_curlExample)
 
 ```console
@@ -824,7 +824,7 @@ POST
 
 
 ## t(:position)
-### t(:mypositionV3)
+### t(:dv_myposition)
 > t(:codequote_curlExample)
 
 ```console
@@ -928,7 +928,7 @@ GET
 |nextPageCursor |string |t(:row_comment_query_nextPageCursor_v3)  |
 
 
-### t(:setleverageV3)
+### t(:dv_setleverage)
 > t(:codequote_curlExample)
 
 ```console
@@ -984,7 +984,7 @@ POST
 |:----- |:-----|----- |
 |leverage |number |t(:row_comment_query_set_leverage_v3)  |
 
-### t(:switchmodeV3)
+### t(:dv_switchmode)
 
 > t(:codequote_curlExample)
 
@@ -1040,7 +1040,7 @@ POST
 |tpSlMode |string |t(:row_comment_query_tpslMode_v3)  |
 
 
-### t(:setrisklimitV3)
+### t(:dv_setrisklimit)
 > t(:codequote_curlExample)
 
 ```console
@@ -1097,7 +1097,7 @@ POST
 |category |string |t(:row_comment_category_v3)    |
 |riskId |number |t(:row_comment_riskId_v3)  |
 
-### t(:tradingstopV3)
+### t(:dv_tradingstop)
 > t(:codequote_curlExample)
 
 ```console
@@ -1163,7 +1163,7 @@ POST
 |positionIdx |false |string |t(:row_comment_positionIdx_v3) |
 
 
-### t(:userTradeRecords7DayV3)
+### t(:dv_userTradeRecords7Day)
 > t(:codequote_curlExample)
 
 ```console
@@ -1266,7 +1266,7 @@ GET
 |list> execTime |number |t(:row_comment_query_execTime_v3)  |
 |nextPageCursor |string |t(:row_comment_query_nextPageCursor_v3)  |
 
-### t(:queryOptionDeliveryLogV3)
+### t(:dv_queryOptionDeliveryLog)
 
 > t(:codequote_curlExample)
 
@@ -1345,7 +1345,7 @@ POST
 |nextPageCursor |string |t(:row_comment_query_nextPageCursor_v3)  |
 
 
-### t(:querySettleLogsV3)
+### t(:dv_querySettleLogs)
 > t(:codequote_curlExample)
 
 ```console
@@ -1422,7 +1422,7 @@ POST
 t(:wallet_para)
 
 
-### t(:balanceV3)
+### t(:dv_balance)
 > t(:codequote_curlExample)
 
 ```console
@@ -1438,10 +1438,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/unified/v3/private/
 
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.get_wallet_balance(coin="BTC"))
+
 ```
 
 > t(:codequote_responseExample)
@@ -1529,7 +1526,7 @@ POST
 |Coin> cumRealisedPnl |string |t(:row_comment_query_coin_cumRealisedPnl_v3)    |
 
 
-### t(:upgradeUnifiedAccountV3)
+### t(:dv_upgradeUnifiedAccount)
 
 > t(:codequote_curlExample)
 
@@ -1545,10 +1542,7 @@ curl --location --request POST 'https://api-testnet.bybit.com/unified/v3/private
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.get_wallet_balance(coin="BTC"))
+
 ```
 
 > t(:codequote_responseExample)
@@ -1596,7 +1590,7 @@ POST
 |t(:row_comment_query_ThereareUSDCoptionorders_v3_code) |t(:row_comment_query_ThereareUSDCoptionorders_v3) |
 |t(:row_comment_query_ThereareUSDTperpetualorders_v3_code) |t(:row_comment_query_ThereareUSDTperpetualorders_v3) |
 
-### t(:queryTransactionLogsV3)
+### t(:dv_queryTransactionLogs)
 t(:wallet_para_tradingHistory_v3)
 
 > t(:codequote_curlExample)
@@ -1610,6 +1604,10 @@ curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/priv
 --header 'X-BAPI-RECV-WINDOW: 5000' \
 --header 'Content-Type: application/json' \
 --data-raw ''
+```
+
+```python--pybit
+
 ```
 
 > t(:codequote_responseExample)
@@ -1692,7 +1690,7 @@ GET
 
 
 
-### t(:transferV3)
+### t(:dv_transfer)
 t(:wallet_para_transfers_v3)
 > t(:codequote_curlExample)
 
@@ -1729,7 +1727,7 @@ POST
 |transfer_id |string |t(:row_comment_query_transfer_id_v3)    |
 
 
-### t(:queryExchangeRecordsV3)
+### t(:dv_queryExchangeRecords)
 > t(:codequote_curlExample)
 
 ```console
@@ -1804,7 +1802,7 @@ GET
 |list > createdAt |string |t(:row_comment_query_createdAt_v3)  |
 |list > exchangeTxId |string |t(:row_comment_query_exchangeTxId_v3)  |
 
-### t(:interestBillStatementV3)
+### t(:dv_interestBillStatement)
 > t(:codequote_curlExample)
 
 ```console
@@ -1884,7 +1882,7 @@ GET
 |list> borrowSize |string |t(:row_comment_query_borrowSize_v3)  |
 |list> costExemption |string |t(:row_comment_query_costExemption_v3)  |
 
-### t(:queryLoanInterestV3)
+### t(:dv_queryLoanInterest)
 > t(:codequote_curlExample)
 
 ```console
