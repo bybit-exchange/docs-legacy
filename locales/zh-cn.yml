@@ -814,10 +814,14 @@ zh-cn:
   constructingtherequest: 構建請求
   auth_codequote_construct1a:
     拼接參數示例（以修改槓桿率為例）：
+  auth_codequote_construct1a_v3:
+    拼接參數示例：
   auth_codequote_construct1b:
     參數按照 <b>字母順序</b> 排列，然後計算<code>sign</code>。
   auth_codequote_construct2: |
     <b>GET</b>請求格式（查詢賬號余額）:
+  auth_codequote_construct2_v3: |
+    <b>GET</b>請求格式（查詢訂單）:
   auth_codequote_construct3: |
     <b>POST</b>請求格式（創建訂單）:
   auth_para_construct1:
@@ -843,16 +847,19 @@ zh-cn:
 
   ### Orderbook
   orderbook: Orderbook
+  dv_orderbook: 查詢Order Book
   market_para_orderbook: 獲取Bybit當前Orderbook信息. 每邊的深度為25<br>
   market_para_orderbook_500: 獲取Bybit當前Orderbook信息. 每邊的深度為500<br>
   market_aside_orderbook: 響應數據是當前時間的切片數據.
   ### Query Kline
   querykline: 查詢K線數據
+  dv_querykline: 查詢K線數據
   market_para_querykline: 查詢K線數據
   linear_market_para_querykline: |
     <p>查詢標記價格K線數據, 請瀏覽<a href="#t-markpricekline">Mark Price Kline</a> 接口</p>
   ### Query Index Price Kline
   queryindexpricekline: 查詢指數價格K線數據
+  dv_indexpricekline: 查詢指數價格K線數據
   ### Query Premium Index Kline
   querypremiumindexkline: 查詢溢價K線數據
   ### Latest Information for Symbol
@@ -861,6 +868,7 @@ zh-cn:
   market_para_symbol: 獲取Bybit的最新合約信息
   ### Public Trading Recordsmarketfundingrate
   publictradingrecords: 平臺交易歷史數據
+  dv_publictradingrecords: 平臺交易歷史數據
   market_para_records: 獲取Bybit的最近成交數據。如果您想獲取歷史所有的成交記錄，請通過<a href="https://public.bybit.com">這裏</a>下載歷史行情。
   ### Get the Last Funding Rate
   fundingRate: 查詢上個周期的資金費率
@@ -883,6 +891,7 @@ zh-cn:
   market_para_marketfundingrate: 獲取Bybit近一個月的資金費率。
   #### Market Open Interest
   marketopeninterest: 未平合約持倉數量
+  dv_marketopeninterest: 未平合約持倉數量
   market_para_marketopeninterest: 獲取Bybit各個合約的持倉數量
   #### Market Account Ratio
   marketaccountratio: 用戶多空持倉比率
@@ -2608,11 +2617,13 @@ zh-cn:
   restapi_update_20220413: 返回參數中新增加 <code>locked</code>。
   restapi_update_20220429: <code>PostOnly</code> 類型的訂單，單筆訂單可下單數量提高上限，數值參見 <a href="#t-querysymbol">合約信息</a>接口中新增的參數<code>post_only_max_trading_qty</code>。
   markpricekline: 標記價格K線
+  dv_markpricekline: 查詢標記價格K線
   websocketliquidation: 平臺強平推送
   websocket_query_liqrecords: |
     <p>查詢平臺強平推送.</p>
     <p>推送頻率：<b>實時的</b></p>
   linear_query_mark_price_kline: 查詢標記價格K線
+  linear_query_mark_price_kline_v3: 查詢標記價格K線
   linear_resp_field_last_exec_price: 最近成交價格
   linear_resp_field_cum_exec_qty: 累計成交數量
   linear_resp_field_cum_exec_value: 累計成交價值
@@ -4141,7 +4152,7 @@ zh-cn:
 #  dv_categorySuffix_6: 目前僅支持正向合約：linearUSDC, linearUSDT; 反向合約：inverse; 期權：option
   dv_categorySuffix_7: 目前支持正向合約：linear
   dv_categorySuffix_8: 目前支持期權：option
-#  dv_categorySuffix_9: 目前僅支持正向合約：linear，且僅支持USDC Perpetual
+  dv_categorySuffix_9: 目前僅支持正向合約：linear，且僅支持USDC perp
 
 
 
@@ -4232,7 +4243,7 @@ zh-cn:
 
   # optionDeliveryPrice
   dv_optionDeliveryHead: 查詢期權價格交割時間
-  dv_market_option_para: 查詢期權價格交割時間
+  dv_market_option_para: 期權價格交割時間
   # reqParam
 
   # respParam

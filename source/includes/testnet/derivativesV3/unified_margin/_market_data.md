@@ -75,7 +75,7 @@ GET
 |u |string |t(:dv_orderbookUpdateId) |
 
 
-### t(:querykline)
+### t(:dv_querykline)
 > t(:codequote_curlExample)
 
 ```console
@@ -401,7 +401,7 @@ GET
 |nextPageCursor |string |t(:dv_cursor) |
 
 
-### t(:markpricekline)
+### t(:dv_markpricekline)
 > t(:codequote_curlExample)
 
 ```console
@@ -433,7 +433,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/publ
 }
 ```
 
-t(:linear_query_mark_price_kline)
+t(:linear_query_mark_price_kline_v3)
 
 <p class="fake_header">t(:httprequest)</p>
 GET

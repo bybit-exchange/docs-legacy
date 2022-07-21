@@ -1030,7 +1030,7 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:row_comment_category_v3)    |
+|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_7)    |
 |symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
 |tpSlMode |<b>true</b> |number |t(:row_comment_tpSlMode_v3)    |
 
@@ -1150,7 +1150,7 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:row_comment_category_v3)    |
+|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_7)    |
 |symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
 |takeProfit |false |string |t(:account_row_comment_takeProfit_v3) |
 |stopLoss |false |string |t(:account_row_comment_stopLoss_v3) |
@@ -1320,10 +1320,9 @@ POST
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvQueryDelivery"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
-
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:row_comment_category_v3)    |
+|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_8)    |
 |symbol |false |string |t(:row_comment_symbol_v3)   |
 |expDate |false |string |t(:row_comment_expDate_v3)   |
 |direction |false |string |t(:row_comment_direction_v3)   |
@@ -1332,7 +1331,6 @@ POST
 
 
 <p class="fake_header">t(:responseparameters)</p>
-
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |category |string |t(:row_comment_category_v3)    |
@@ -1398,10 +1396,9 @@ POST
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#upovSession"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
-
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:row_comment_category_v3)    |
+|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_9)    |
 |symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
 |expDate |false |string |t(:row_comment_expDate_v3)   |
 |direction |false |string |t(:row_comment_direction_v3)   |
@@ -1410,7 +1407,6 @@ POST
 
 
 <p class="fake_header">t(:responseparameters)</p>
-
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |category |string |t(:row_comment_category_v3)    |

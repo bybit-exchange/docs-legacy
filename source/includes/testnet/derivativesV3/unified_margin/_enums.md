@@ -11,10 +11,14 @@ t(:ENUMs_para)
 * `option`
 
 ## Symbol (`symbol`)
-* `BTCUSD`
+* `BTCUSDT`
 * `ETHUSD`
-* `EOSUSD`
-* `XRPUSD`
+* `BTCPERP`
+* `BTC-30DEC22-25000-P`
+* `BTCUSDU22`
+* `ETHUSDT`
+* `BTCUSD`
+* `XRPUSDT`
 * `DOTUSD`
 
 t(:trading_symbol_comment)

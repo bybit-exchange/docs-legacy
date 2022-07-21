@@ -968,9 +968,13 @@ en:
   constructingtherequest: Create A Request
   auth_codequote_construct1a:
     An example for adjusting leverage
+  auth_codequote_construct1a_v3: |
+    An example for how to generate string for signature
   auth_codequote_construct1b:
     Note how the parameters are ordered in <b>alphabetical</b> order, with api_key first followed by leverage, then symbol, then timestamp.
   auth_codequote_construct2: |
+    Different requests need different message formats. Message format for <b>GET</b> requests:
+  auth_codequote_construct2_v3: |
     Different requests need different message formats. Message format for <b>GET</b> requests:
   auth_codequote_construct3: |
     Message format for <b>POST</b> requests:
@@ -996,15 +1000,17 @@ en:
 
   ### Orderbook
   orderbook: Order Book
-  dv_orderbook: Query Order Book
+  dv_orderbook: Get Order Book
   market_para_orderbook: Get the orderbook. Each side has a depth of 25.<br>
   market_para_orderbook_500: Get the orderbook. Each side has a depth of 500.<br>
   market_aside_orderbook: The response is in the snapshot format.
   ### Query Kline
   querykline: Query Kline
+  dv_querykline: Get Kline
   market_para_querykline: Get kline.
   ### Query Index Price Kline
   queryindexpricekline: Query Index Price Kline
+  dv_indexpricekline: Get Index Price Kline
   ### Query Premium Index Kline
   querypremiumindexkline: Query Premium Index Kline
   linear_market_para_querykline: |
@@ -1016,7 +1022,7 @@ en:
   market_para_symbol: Get the latest information for symbol.
   ### Public Trading Records
   publictradingrecords: Public Trading Records
-  dv_publictradingrecords: Query Public Trading Records
+  dv_publictradingrecords: Get Public Trading Records
   market_para_records: Get recent trades. You can find a complete history of trades on Bybit <a href="https://public.bybit.com">here</a>.
   ### Get the Last Funding Rate
   fundingRate: Get the Last Funding Rate
@@ -1038,7 +1044,7 @@ en:
   market_para_marketfundingrate: Get Bybit's recent funding rates.
   #### Market Open Interest
   marketopeninterest: Open Interest
-  dv_marketopeninterest: Query Open Interest
+  dv_marketopeninterest: Get Open Interest
   market_para_marketopeninterest: Gets the total amount of unsettled contracts. In other words, the total number of contracts held in open positions.
   #### Market Account Ratio
   marketaccountratio: Long-Short Ratio
@@ -2975,7 +2981,9 @@ en:
   restapi_update_20220429: Increase maximum trading qty for <code>PostOnly</code> orders. Please refer to <code>post_only_max_trading_qty</code> in <a href="#t-querysymbol">Query Symbol</a> endpoint
 
   markpricekline: Query Mark Price Kline
+  dv_markpricekline: Get Mark Price Kline
   linear_query_mark_price_kline: Query mark price kline (like <a href="#t-querykline">Query Kline</a> but for <a href="https://help.bybit.com/hc/en-us/articles/360039261074-What-is-Dual-Price-mechanism-">mark price</a>).
+  linear_query_mark_price_kline_v3: Query mark price kline (like <a href="#t-dv_querykline">Query Kline</a> but for <a href="https://help.bybit.com/hc/en-us/articles/360039261074-What-is-Dual-Price-mechanism-">mark price</a>).
   linear_resp_field_last_exec_price: Last execution price
   linear_resp_field_cum_exec_qty: Cumulative qty of trading
   linear_resp_field_cum_exec_value: Cumulative value of trading
@@ -4489,15 +4497,15 @@ en:
   transfer: Transfer
   # public param comment used in v3
   dv_category: Derivatives products category.
-  dv_categorySuffix_1: For now, <code>linear</code> <code>inverse</code> including inverse futures are supported
-  dv_categorySuffix_2: For now, <code>linear</code> <code>inverse</code> <code>option</code> are supported
-  dv_categorySuffix_3: For now, <code>linear</code> <code>inverse</code> are supported
-  dv_categorySuffix_4: For now, <code>linear</code> <code>option</code> are supported
+  dv_categorySuffix_1: For now, <code>linear</code> <code>inverse</code> including inverse futures are available
+  dv_categorySuffix_2: For now, <code>linear</code> <code>inverse</code> <code>option</code> are available
+  dv_categorySuffix_3: For now, <code>linear</code> <code>inverse</code> are available
+  dv_categorySuffix_4: For now, <code>linear</code> <code>option</code> are available
 #  dv_categorySuffix_5: 目前僅支持正向合約：linear; 期權：option。只能傳一個參數
 #  dv_categorySuffix_6: 目前僅支持正向合約：linearUSDC, linearUSDT; 反向合約：inverse; 期權：option
-  dv_categorySuffix_7: For now, <code>linear</code> is supported
-  dv_categorySuffix_8: For now, <code>option</code> is supported
-#  dv_categorySuffix_9: 目前僅支持正向合約：linear，且僅支持USDC Perpetual
+  dv_categorySuffix_7: For now, <code>linear</code> is available
+  dv_categorySuffix_8: For now, <code>option</code> is available
+  dv_categorySuffix_9: For now, <code>linear</code> is available and ONLY for USDC perp
 
   ## Market
   # kline
@@ -4533,7 +4541,7 @@ en:
   dv_orderbookTimeStamp: Timestamp(ms)
 
   # instrumentsInfo
-  dv_instrHead: Query Instrument Info
+  dv_instrHead: Get Instrument Info
   dv_marketInstrPara: Query launched instruments info list
   # reqParam
 
@@ -4554,8 +4562,8 @@ en:
 
 
   # tickers
-  dv_tickerHead: Query Latest Information For Symbol
-  dv_marketTickerPara: Query all latest information for symbol
+  dv_tickerHead: Get Latest Information For Symbol
+  dv_marketTickerPara: Get all latest information for symbol
   # reqParam:
   dv_tickerSymbol: Name of the trading pair. If category is <code>option</code> REQUIRED
   # respParam
@@ -4569,7 +4577,7 @@ en:
   dv_tickBasisRate: Basis rate for futures.
 
   # historyFundingRate
-  dv_historyFundingRateHead: Query History Funding Rate
+  dv_historyFundingRateHead: Get History Funding Rate
   # reqParam
 
   # respParam
@@ -4577,7 +4585,7 @@ en:
 
   # rateLimit
   # reqParam
-  dv_riskLimitHead: Query Risk Limit
+  dv_riskLimitHead: Get Risk Limit
 
   # respParam
 
@@ -4585,8 +4593,8 @@ en:
 
 
   # optionDeliveryPrice
-  dv_optionDeliveryHead: Query Option Delivery Price
-  dv_market_option_para: Query option delivery price
+  dv_optionDeliveryHead: Get Option Delivery Price
+  dv_market_option_para: Get option delivery price
   # reqParam
 
   # respParam
