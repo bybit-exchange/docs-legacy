@@ -457,7 +457,7 @@ GET
 |symbol |string |t(:row_comment_symbol) |
 |list |string[] |t(:row_comment_mark_kline_list) |
 
-### t(:queryindexpricekline)
+### t(:dv_indexpricekline)
 > t(:codequote_curlExample)
 
 ```console

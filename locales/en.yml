@@ -1022,7 +1022,7 @@ en:
   market_para_symbol: Get the latest information for symbol.
   ### Public Trading Records
   publictradingrecords: Public Trading Records
-  dv_publictradingrecords: Get Public Trading Records
+  dv_publictradingrecords: Get Public Trading History
   market_para_records: Get recent trades. You can find a complete history of trades on Bybit <a href="https://public.bybit.com">here</a>.
   ### Get the Last Funding Rate
   fundingRate: Get the Last Funding Rate
@@ -1187,7 +1187,7 @@ en:
     <br><Waiting for API team to translate><br>
 
   websocketpositionV3: |
-    <p><p><b>說明：</b></p>
+    <p><p><b>instruction:</b></p>
     <p>Pushing the incremental volume only</p>
     <p>Accessing personal position list. Current user’s position holding information can be accessed through this interface, such as the quantity of position holdings and wallet balance.</p>
     <p><b>Topic：</b></p>
@@ -1856,8 +1856,11 @@ en:
     <p>Push frequency: <b>20:00 UTC / day</b></p>
   websocket_aside_insurance: The <code>wallet_balance</code> is in Satoshis, with one Satoshi being 100 millionth (<code>100000000</code>) of one Bitcoin.
   ### instrument_info
-  websocketinstrumentInfo: instrument_info
+  websocketinstrumentInfo: instrumentInfo
   websocket_para_instrumentInfo: |
+    <p>Get latest information for symbol.</p>
+    <p>Push frequency: <b>100ms</b></p>
+  websocket_para_instrumentInfo_v3: |
     <p>Get latest information for symbol.</p>
     <p>Push frequency: <b>100ms</b></p>
     <p><b>Topic:</b></p>
@@ -1871,6 +1874,16 @@ en:
   ### klineV2
   websocketklineV2: klineV2
   websocket_para_klineV2: |
+    <p>Currently supported intervals:</p>
+    <ul>
+    <li>1 3 5 15 30</li>
+    <li>60 120 240 360 720</li>
+    <li>D</li>
+    <li>W</li>
+    <li>M</li>
+    </ul>
+    <p>Push frequency: <b>1-60s</b></p>
+  websocket_para_klineV2_v3: |
     <p>Currently supported intervals:</p>
     <ul>
     <li>1 3 5 15 30</li>
@@ -4451,7 +4464,7 @@ en:
   dv_switchmode: Switch TP/SL Mode
   dv_setrisklimit: Set Risk Limit
   dv_tradingstop: Set TP/SL
-  dv_userTradeRecords7Day: Get 7-day Transaction History
+  dv_userTradeRecords7Day: Get 7-day Trading History
   dv_queryOptionDeliveryLog : Get Settlement History (Options)
   dv_querySettleLogs: Get Settlement History (Perpetual)
   dv_balance: Get Wallet Balance
@@ -4483,10 +4496,10 @@ en:
   queryLoanInterest: Query Loan Interest Rate
   websocketfilters_unified: Understanding Websocket Filters (Unified Account)
   websocketunsubfilters_unified: Unsubscribing From Websocket Topics (Unfied Account)
-  websocketOrderBookDepth: OrderBook Depth
+  websocketOrderBookDepth: orderBook
   privatetopics_unified: Private Topics
-  websocketOrder: Order
-  greeksOption: Greeks (Option)
+  websocketOrder: order
+  greeksOption: greeks
   user_data: User Data Endpoints
   api_key_info: Api Key Info
   create_sub_members: Create Sub Member Account
@@ -4577,7 +4590,7 @@ en:
   dv_tickBasisRate: Basis rate for futures.
 
   # historyFundingRate
-  dv_historyFundingRateHead: Get History Funding Rate
+  dv_historyFundingRateHead: Get Funding Rate History
   # reqParam
 
   # respParam

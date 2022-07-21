@@ -378,7 +378,7 @@ ws.send('{"op": "subscribe", "args": ["instrumentInfo.BTCUSDT"]}')
       "ask1Price":"22019.50",
       "ask1Size":"7.041"
   },
-  "cs":14236992274, 
+  "cs":14236992274,
     "ts":1658145103883091
 }
 
@@ -423,7 +423,7 @@ ws.send('{"op": "subscribe", "args": ["instrumentInfo.BTCUSDT"]}')
 
 ```
 
-t(:websocket_para_instrumentInfo)
+t(:websocket_para_instrumentInfo_v3)
 
 <aside class="warning">
 t(:websocket_aside_instrumentInfo_ud)
@@ -524,7 +524,7 @@ ws.send('{"op":"subscribe","args":["candle.1.BTCUSDT"]}')
 }
 ```
 
-t(:websocket_para_klineV2)
+t(:websocket_para_klineV2_v3)
 
 <aside class="notice">
 t(:websocket_aside_klineV2)
