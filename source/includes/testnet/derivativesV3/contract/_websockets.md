@@ -61,7 +61,7 @@ ws.send(
 t(:websocket_endpoints_aside)
 </aside>
 
-t(:websocket_para_endpoint)
+t(:websocket_para_endpoint_dv3)
 
 <aside class="notice">
 t(:websocket_aside_auth)
