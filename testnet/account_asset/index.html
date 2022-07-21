@@ -655,14 +655,38 @@
 
       <ul class="con">
 
+        <!-- Derivatives V3 -->
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn">Derivatives v3
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="/docs/testnet/derivativesV3/unified_margin" >Unified Margin</a>
+                </div>
+              </div>
+            </li>
+
+        <!-- Futures V2(USDT perp, Inverse Perp, Inverse Futures) -->
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn">Futures v2
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="/docs/testnet/futuresV2/inverse" >Inverse Perpetual</a>
+                    <a href="/docs/testnet/futuresV2/linear" >USDT Perpetual</a>
+                    <a href="/docs/testnet/futuresV2/inverse_futures" >Inverse Futures</a>
+                </div>
+              </div>
+            </li>
+
         <!-- Inverse Perpetual -->
-          	<li><a href="/docs/testnet/inverse">Inverse Perpetual</a></li>
+
 
         <!-- USDT Perpetual -->
-          	<li><a href="/docs/testnet/linear">USDT Perpetual</a></li>
 
         <!-- Inverse Futures -->
-          	<li><a href="/docs/testnet/inverse_futures">Inverse Futures</a></li>
 
         <!-- Spot -->
           	<li><a href="/docs/testnet/spot">Spot</a></li>
@@ -3617,20 +3641,23 @@ The rate limits for the Withdraw and Deposit Endpoints and Rate Limits For Trans
       if ($this.text() == 'English') {
         window.location=currentUrl.replace(/\/zh-cn/,"");
       } else {
-        if (currentUrl.indexOf("inverse") > -1) {
-            window.location=currentUrl.replace(/\/((?:testnet\/)?inverse)/,"/zh-cn/$1");
+        if (currentUrl.indexOf("futuresV2") > -1) {
+	        window.location=currentUrl.replace(/\/((?:testnet\/)?futuresV2)/,"/zh-cn/$1");
+        } else if (currentUrl.indexOf("inverse") > -1) {
+          window.location=currentUrl.replace(/\/((?:testnet\/)?inverse)/,"/zh-cn/$1");
         } else if(currentUrl.indexOf("spot") > -1) {
           window.location=currentUrl.replace(/\/((?:testnet\/)?spot)/,"/zh-cn/$1");
-        }else if(currentUrl.indexOf("account_asset") > -1) {
+        } else if(currentUrl.indexOf("account_asset") > -1) {
           window.location=currentUrl.replace(/\/((?:testnet\/)?account_asset)/,"/zh-cn/$1");
         } else if(currentUrl.indexOf("linear") > -1) {
           window.location=currentUrl.replace(/\/((?:testnet\/)?linear)/,"/zh-cn/$1");
         } else if(currentUrl.indexOf("copy_trading") > -1) {
           window.location=currentUrl.replace(/\/((?:testnet\/)?copy_trading)/,"/zh-cn/$1");
-        } else{
+        } else if(currentUrl.indexOf("usdc") > -1) {
           window.location=currentUrl.replace(/\/((?:testnet\/)?usdc)/,"/zh-cn/$1");
+	      } else if(currentUrl.indexOf("derivativesV3") > -1) {
+	        window.location=currentUrl.replace(/\/((?:testnet\/)?derivativesV3)/,"/zh-cn/$1");
 	      }
-
       }
     });
 </script>

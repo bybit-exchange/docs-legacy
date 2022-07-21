@@ -655,14 +655,38 @@
 
       <ul class="con">
 
+        <!-- Derivatives V3 -->
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn">Derivatives v3
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="/docs/testnet/derivativesV3/unified_margin" >Unified Margin</a>
+                </div>
+              </div>
+            </li>
+
+        <!-- Futures V2(USDT perp, Inverse Perp, Inverse Futures) -->
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn">Futures v2
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="/docs/testnet/futuresV2/inverse" >Inverse Perpetual</a>
+                    <a href="/docs/testnet/futuresV2/linear" >USDT Perpetual</a>
+                    <a href="/docs/testnet/futuresV2/inverse_futures" >Inverse Futures</a>
+                </div>
+              </div>
+            </li>
+
         <!-- Inverse Perpetual -->
-          	<li><a href="/docs/testnet/inverse">Inverse Perpetual</a></li>
+
 
         <!-- USDT Perpetual -->
-          	<li><a href="/docs/testnet/linear">USDT Perpetual</a></li>
 
         <!-- Inverse Futures -->
-          	<li><a href="/docs/testnet/inverse_futures">Inverse Futures</a></li>
 
         <!-- Spot -->
           	<li><a href="/docs/testnet/spot">Spot</a></li>
@@ -6995,6 +7019,30 @@ At 0:00, 8:00, and 16:00 UTC+0, the insurance fund will be pushed.
 <td>Insufficient margin balance.</td>
 </tr>
 <tr>
+<td>3303001</td>
+<td>No corresponding command execution authority.</td>
+</tr>
+<tr>
+<td>3303004</td>
+<td>Instruction execution exception.</td>
+</tr>
+<tr>
+<td>3303005</td>
+<td>Repeat signature verification.</td>
+</tr>
+<tr>
+<td>3303006</td>
+<td>Sign verification failed.</td>
+</tr>
+<tr>
+<td>3303007</td>
+<td>Single connection execution command frequency overrun.</td>
+</tr>
+<tr>
+<td>3303008</td>
+<td>The number of websocket connections established by a single uid exceeds the limit.</td>
+</tr>
+<tr>
 <td>3400001</td>
 <td>Please ensure that there are no positions in your USDC account, including USDC perpetual and options</td>
 </tr>
@@ -7009,6 +7057,10 @@ At 0:00, 8:00, and 16:00 UTC+0, the insurance fund will be pushed.
 <tr>
 <td>3400015</td>
 <td>System error. Please try again later.</td>
+</tr>
+<tr>
+<td>3400045</td>
+<td>Set margin mode failed. The error will be triggerd when your account is in the upgrade of unified margin account, then you request set margin mode endpoint in the mean time.</td>
 </tr>
 <tr>
 <td>3500001</td>
@@ -7041,20 +7093,23 @@ At 0:00, 8:00, and 16:00 UTC+0, the insurance fund will be pushed.
       if ($this.text() == 'English') {
         window.location=currentUrl.replace(/\/zh-cn/,"");
       } else {
-        if (currentUrl.indexOf("inverse") > -1) {
-            window.location=currentUrl.replace(/\/((?:testnet\/)?inverse)/,"/zh-cn/$1");
+        if (currentUrl.indexOf("futuresV2") > -1) {
+	        window.location=currentUrl.replace(/\/((?:testnet\/)?futuresV2)/,"/zh-cn/$1");
+        } else if (currentUrl.indexOf("inverse") > -1) {
+          window.location=currentUrl.replace(/\/((?:testnet\/)?inverse)/,"/zh-cn/$1");
         } else if(currentUrl.indexOf("spot") > -1) {
           window.location=currentUrl.replace(/\/((?:testnet\/)?spot)/,"/zh-cn/$1");
-        }else if(currentUrl.indexOf("account_asset") > -1) {
+        } else if(currentUrl.indexOf("account_asset") > -1) {
           window.location=currentUrl.replace(/\/((?:testnet\/)?account_asset)/,"/zh-cn/$1");
         } else if(currentUrl.indexOf("linear") > -1) {
           window.location=currentUrl.replace(/\/((?:testnet\/)?linear)/,"/zh-cn/$1");
         } else if(currentUrl.indexOf("copy_trading") > -1) {
           window.location=currentUrl.replace(/\/((?:testnet\/)?copy_trading)/,"/zh-cn/$1");
-        } else{
+        } else if(currentUrl.indexOf("usdc") > -1) {
           window.location=currentUrl.replace(/\/((?:testnet\/)?usdc)/,"/zh-cn/$1");
+	      } else if(currentUrl.indexOf("derivativesV3") > -1) {
+	        window.location=currentUrl.replace(/\/((?:testnet\/)?derivativesV3)/,"/zh-cn/$1");
 	      }
-
       }
     });
 </script>

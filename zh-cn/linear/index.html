@@ -655,11 +655,16 @@
 
       <ul class="con">
 
+        <!-- Derivatives V3 -->
+
+        <!-- Futures V2(USDT perp, Inverse Perp, Inverse Futures) -->
+
         <!-- Inverse Perpetual -->
           	<li><a href="/docs/zh-cn/inverse">反向永續</a></li>
 
+
         <!-- USDT Perpetual -->
-          	<li><a href="/docs/zh-cn/linear" class="selected">USDT永續</a></li>
+            <li><a href="/docs/zh-cn/linear" class="selected">USDT永續</a></li>
 
         <!-- Inverse Futures -->
           	<li><a href="/docs/zh-cn/inverse_futures">反向交割</a></li>
@@ -695,7 +700,7 @@
             </button>
             <div class="dropdown-content">
                   <span class="dropdown-content-selected"><a href=/docs/zh-cn/linear>Mainnet</a></span>
-                  <a href=/docs/zh-cn/testnet/linear>Testnet</a>
+                  <a href=/docs/zh-cn/testnet/futuresV2/linear>Testnet</a>
             </div>
           </div>
         </li>
@@ -3508,7 +3513,7 @@ curl https://api-testnet.bybit.com/v2/public/orderBook/L2?symbol=BTCUSD
 }
 ```
 
-獲取Bybit當前Orderbook信息. 每邊的深度為25
+獲取Bybit當前Orderbook信息. 每邊的深度為25<br>
 
 <aside class="notice">
 響應數據是當前時間的切片數據.
@@ -10792,20 +10797,23 @@ ELSE
       if ($this.text() == 'English') {
         window.location=currentUrl.replace(/\/zh-cn/,"");
       } else {
-        if (currentUrl.indexOf("inverse") > -1) {
-            window.location=currentUrl.replace(/\/((?:testnet\/)?inverse)/,"/zh-cn/$1");
+        if (currentUrl.indexOf("futuresV2") > -1) {
+	        window.location=currentUrl.replace(/\/((?:testnet\/)?futuresV2)/,"/zh-cn/$1");
+        } else if (currentUrl.indexOf("inverse") > -1) {
+          window.location=currentUrl.replace(/\/((?:testnet\/)?inverse)/,"/zh-cn/$1");
         } else if(currentUrl.indexOf("spot") > -1) {
           window.location=currentUrl.replace(/\/((?:testnet\/)?spot)/,"/zh-cn/$1");
-        }else if(currentUrl.indexOf("account_asset") > -1) {
+        } else if(currentUrl.indexOf("account_asset") > -1) {
           window.location=currentUrl.replace(/\/((?:testnet\/)?account_asset)/,"/zh-cn/$1");
         } else if(currentUrl.indexOf("linear") > -1) {
           window.location=currentUrl.replace(/\/((?:testnet\/)?linear)/,"/zh-cn/$1");
         } else if(currentUrl.indexOf("copy_trading") > -1) {
           window.location=currentUrl.replace(/\/((?:testnet\/)?copy_trading)/,"/zh-cn/$1");
-        } else{
+        } else if(currentUrl.indexOf("usdc") > -1) {
           window.location=currentUrl.replace(/\/((?:testnet\/)?usdc)/,"/zh-cn/$1");
+	      } else if(currentUrl.indexOf("derivativesV3") > -1) {
+	        window.location=currentUrl.replace(/\/((?:testnet\/)?derivativesV3)/,"/zh-cn/$1");
 	      }
-
       }
     });
 </script>

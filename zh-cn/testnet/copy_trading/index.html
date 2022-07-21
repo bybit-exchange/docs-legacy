@@ -655,14 +655,38 @@
 
       <ul class="con">
 
+        <!-- Derivatives V3 -->
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn">衍生品v3
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="/docs/zh-cn/testnet/derivativesV3/unified_margin" >統一保證金</a>
+                </div>
+              </div>
+            </li>
+
+        <!-- Futures V2(USDT perp, Inverse Perp, Inverse Futures) -->
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn">期货v2
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="/docs/zh-cn/testnet/futuresV2/inverse" >反向永續</a>
+                    <a href="/docs/zh-cn/testnet/futuresV2/linear" >USDT永續</a>
+                    <a href="/docs/zh-cn/testnet/futuresV2/inverse_futures" >反向交割</a>
+                </div>
+              </div>
+            </li>
+
         <!-- Inverse Perpetual -->
-          	<li><a href="/docs/zh-cn/testnet/inverse">反向永續</a></li>
+
 
         <!-- USDT Perpetual -->
-          	<li><a href="/docs/zh-cn/testnet/linear">USDT永續</a></li>
 
         <!-- Inverse Futures -->
-          	<li><a href="/docs/zh-cn/testnet/inverse_futures">反向交割</a></li>
 
         <!-- Spot -->
           	<li><a href="/docs/zh-cn/testnet/spot">現貨</a></li>
@@ -5504,20 +5528,23 @@ ELSE
       if ($this.text() == 'English') {
         window.location=currentUrl.replace(/\/zh-cn/,"");
       } else {
-        if (currentUrl.indexOf("inverse") > -1) {
-            window.location=currentUrl.replace(/\/((?:testnet\/)?inverse)/,"/zh-cn/$1");
+        if (currentUrl.indexOf("futuresV2") > -1) {
+	        window.location=currentUrl.replace(/\/((?:testnet\/)?futuresV2)/,"/zh-cn/$1");
+        } else if (currentUrl.indexOf("inverse") > -1) {
+          window.location=currentUrl.replace(/\/((?:testnet\/)?inverse)/,"/zh-cn/$1");
         } else if(currentUrl.indexOf("spot") > -1) {
           window.location=currentUrl.replace(/\/((?:testnet\/)?spot)/,"/zh-cn/$1");
-        }else if(currentUrl.indexOf("account_asset") > -1) {
+        } else if(currentUrl.indexOf("account_asset") > -1) {
           window.location=currentUrl.replace(/\/((?:testnet\/)?account_asset)/,"/zh-cn/$1");
         } else if(currentUrl.indexOf("linear") > -1) {
           window.location=currentUrl.replace(/\/((?:testnet\/)?linear)/,"/zh-cn/$1");
         } else if(currentUrl.indexOf("copy_trading") > -1) {
           window.location=currentUrl.replace(/\/((?:testnet\/)?copy_trading)/,"/zh-cn/$1");
-        } else{
+        } else if(currentUrl.indexOf("usdc") > -1) {
           window.location=currentUrl.replace(/\/((?:testnet\/)?usdc)/,"/zh-cn/$1");
+	      } else if(currentUrl.indexOf("derivativesV3") > -1) {
+	        window.location=currentUrl.replace(/\/((?:testnet\/)?derivativesV3)/,"/zh-cn/$1");
 	      }
-
       }
     });
 </script>

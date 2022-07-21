@@ -655,11 +655,16 @@
 
       <ul class="con">
 
+        <!-- Derivatives V3 -->
+
+        <!-- Futures V2(USDT perp, Inverse Perp, Inverse Futures) -->
+
         <!-- Inverse Perpetual -->
           	<li><a href="/docs/inverse" class="selected">Inverse Perpetual</a></li>
 
+
         <!-- USDT Perpetual -->
-          	<li><a href="/docs/linear">USDT Perpetual</a></li>
+            <li><a href="/docs/linear">USDT Perpetual</a></li>
 
         <!-- Inverse Futures -->
           	<li><a href="/docs/inverse_futures">Inverse Futures</a></li>
@@ -695,7 +700,7 @@
             </button>
             <div class="dropdown-content">
                   <span class="dropdown-content-selected"><a href=/docs/inverse>Mainnet</a></span>
-                  <a href=/docs/testnet/inverse>Testnet</a>
+                  <a href=/docs/testnet/futuresV2/inverse>Testnet</a>
             </div>
           </div>
         </li>
@@ -1556,7 +1561,7 @@
                             <a href="#t-websocketinsurance" class="toc-h3 toc-link" data-title="insurance">insurance</a>
                           </li>
                           <li>
-                            <a href="#t-websocketinstrumentinfo" class="toc-h3 toc-link" data-title="instrument_info">instrument_info</a>
+                            <a href="#t-websocketinstrumentinfo" class="toc-h3 toc-link" data-title="instrumentInfo">instrumentInfo</a>
                           </li>
                           <li>
                             <a href="#t-websocketklinev2" class="toc-h3 toc-link" data-title="klineV2">klineV2</a>
@@ -2401,7 +2406,7 @@ clipboard.on('error', function(e) {
 </ul>
 <h3 id='2021-09-03'>2021-09-03</h3><h4 id='websocket-api-2'>WebSocket API</h4>
 <ul>
-<li><a href="#t-websocketinstrumentinfo">instrument_info</a> [update]
+<li><a href="#t-websocketinstrumentinfo">instrumentInfo</a> [update]
 <ul>
 <li>Deprecate <code>prev_price_24h_e4</code> in favour of <code>prev_price_24h</code>
 <li>Deprecate <code>high_price_24h_e4</code> in favour of <code>high_price_24h</code>
@@ -2746,7 +2751,7 @@ clipboard.on('error', function(e) {
 <li>Topic <a href="https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/websocket.md#public-topic">instrument</a> [abandoned]
 
 <ul>
-<li>please replace with <a href="#t-websocketinstrumentinfo">instrument_info</a></li>
+<li>please replace with <a href="#t-websocketinstrumentinfo">instrumentInfo</a></li>
 </ul></li>
 </ul>
 <h4 id='rest-api-25'>REST API</h4><h5 id='t-restapi_update_20201111_1'>The following REST API will be upgraded. The abandoned endpoints will be deprecated on December 10, 2020. Effective immediately, the rate limit will be reduced by half before being completely removed from service on December 17, 2020.</h5>
@@ -3369,7 +3374,7 @@ function copyStringToClipboard (endpoint) {
     <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1567108756.834357</span><span class="dl">"</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Get the orderbook. Each side has a depth of 25.</p>
+<p>Get the orderbook. Each side has a depth of 25.<br></p>
 
 <aside class="notice">
 The response is in the snapshot format.
@@ -11489,7 +11494,7 @@ The <code>wallet_balance</code> is in Satoshis, with one Satoshi being 100 milli
 <td>Wallet balance</td>
 </tr>
 </tbody></table>
-<h3 id='t-websocketinstrumentinfo'>instrument_info</h3>
+<h3 id='t-websocketinstrumentinfo'>instrumentInfo</h3>
 <blockquote>
 <p>How to Subscribe</p>
 </blockquote>
@@ -15279,20 +15284,23 @@ Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles
       if ($this.text() == 'English') {
         window.location=currentUrl.replace(/\/zh-cn/,"");
       } else {
-        if (currentUrl.indexOf("inverse") > -1) {
-            window.location=currentUrl.replace(/\/((?:testnet\/)?inverse)/,"/zh-cn/$1");
+        if (currentUrl.indexOf("futuresV2") > -1) {
+	        window.location=currentUrl.replace(/\/((?:testnet\/)?futuresV2)/,"/zh-cn/$1");
+        } else if (currentUrl.indexOf("inverse") > -1) {
+          window.location=currentUrl.replace(/\/((?:testnet\/)?inverse)/,"/zh-cn/$1");
         } else if(currentUrl.indexOf("spot") > -1) {
           window.location=currentUrl.replace(/\/((?:testnet\/)?spot)/,"/zh-cn/$1");
-        }else if(currentUrl.indexOf("account_asset") > -1) {
+        } else if(currentUrl.indexOf("account_asset") > -1) {
           window.location=currentUrl.replace(/\/((?:testnet\/)?account_asset)/,"/zh-cn/$1");
         } else if(currentUrl.indexOf("linear") > -1) {
           window.location=currentUrl.replace(/\/((?:testnet\/)?linear)/,"/zh-cn/$1");
         } else if(currentUrl.indexOf("copy_trading") > -1) {
           window.location=currentUrl.replace(/\/((?:testnet\/)?copy_trading)/,"/zh-cn/$1");
-        } else{
+        } else if(currentUrl.indexOf("usdc") > -1) {
           window.location=currentUrl.replace(/\/((?:testnet\/)?usdc)/,"/zh-cn/$1");
+	      } else if(currentUrl.indexOf("derivativesV3") > -1) {
+	        window.location=currentUrl.replace(/\/((?:testnet\/)?derivativesV3)/,"/zh-cn/$1");
 	      }
-
       }
     });
 </script>
