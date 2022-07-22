@@ -199,7 +199,7 @@ en:
   row_comment_mmp_v3: Market maker protection, "true" means this order is a market maker protection order.
   row_comment_orderLinkId_response_v3: Strategy linked order ID
   row_comment_orderFilter_v3: |
-    Conditional order or active order. For linear, parameters must be passed. For option, parameters are not passed.
+    Conditional order or active order
   row_comment_direction_v3: |
    prev<span>:</span> prev, next<span>:</span> next.
   row_comment_limit_v3: |
@@ -361,10 +361,11 @@ en:
   row_comment_query_ThereareUSDTperpetualorders_v3_code: There are USDT perpetual orders
   row_comment_query_ThereareUSDTperpetualorders_v3: update account failed. Please cancel the usdt perpetual open orders in USDC Account.
 
-  row_comment_currency_v3: USDC, USDT, BTC, and ETH
+  row_comment_currency_v3: Only for UDDC, USDT. If not passed, USDT&USDC interests are returned. You could pass multiple currency separated by comma, e.a USDC,USDT.
   row_comment_baseCoin_v3: For example<span>:</span> The base coin of USDC is BTC, and the base coin of USDT is the enum of the current trading coin. For example<span>:</span> The base coin of BTCUSDT is BTC. If both do not match, it shall be returned as null.
   row_comment_type_v3: All trading history (except transfer) of the category should be returned by default. Transfer_in, Transfer_out, Trade, Settlement, Delivery, Liquidation, Insurance fund (the first phase of the unified margin account does not have this service), Fee refund (the first phase of the unified margin account does not have this service), Interest, Currency_buy, Currency_sell. Please note that to inquire about the transfer-in and transfer-out history, pass type=TRANSFER_IN and type=TRANSFER_OUT, otherwise, the transfer history cannot be accessed.
 
+  row_comment_query_transType_v3: <a href="#transaction-log-type-type">type</a>
   row_comment_query_currency_v3: USDC, USDT, BTC, and ETH
   row_comment_query_transactionTime_v3: Timestamp (unit<span>:</span> ms)
   row_comment_query_type_v3: Type (fetch the interest enum)
@@ -384,24 +385,24 @@ en:
 
   comments_v3: Comment
 
-  row_comment_fromCoin_v3: <Waiting for API team to translate>
-  row_comment_toCoin_v3: <Waiting for API team to translate>
-  row_comment_query_totalCount_v3: <Waiting for API team to translate>
-  row_comment_query_fromCoin_v3: <Waiting for API team to translate>
-  row_comment_query_fromAmount_v3: <Waiting for API team to translate>
-  row_comment_query_toCoin_v3: <Waiting for API team to translate>
-  row_comment_query_toAmount_v3: <Waiting for API team to translate>
-  row_comment_query_exchangeRate_v3: <Waiting for API team to translate>
-  row_comment_query_createdAt_v3: <Waiting for API team to translate>
-  row_comment_query_exchangeTxId_v3: <Waiting for API team to translate>
+  row_comment_fromCoin_v3: From coin
+  row_comment_toCoin_v3: To coin
+  row_comment_query_totalCount_v3: Total records returned
+  row_comment_query_fromCoin_v3: From coin
+  row_comment_query_fromAmount_v3: From amount
+  row_comment_query_toCoin_v3: To coin
+  row_comment_query_toAmount_v3: To amount
+  row_comment_query_exchangeRate_v3: Exchange rate
+  row_comment_query_createdAt_v3: Create time
+  row_comment_query_exchangeTxId_v3: Exchange transaction id
 
-  row_comment_query_borrowCost_v3: <Waiting for API team to translate>
-  row_comment_query_borrowSize_v3: <Waiting for API team to translate>
-  row_comment_query_costExemption_v3: <Waiting for API team to translate>
+  row_comment_query_borrowCost_v3: Interests
+  row_comment_query_InterestBearingBorrowSize_v3: Interest bearing loan size
+  row_comment_query_costExemption_v3: Waiver of interest-bearing costs
 
-  row_comment_query_hourlyBorrowRate_v3: <Waiting for API team to translate>
-  row_comment_query_maxBorrowingAmount_v3: <Waiting for API team to translate>
-  row_comment_query_freeBorrowingAmount_v3: <Waiting for API team to translate>
+  row_comment_query_hourlyBorrowRate_v3: Hourly interest rate
+  row_comment_query_maxBorrowingAmount_v3: Max loan amount
+  row_comment_query_freeBorrowingAmount_v3: The free interest of loan amount
 
   # 统保下面v3接口字段定义区间结束
 
@@ -2134,6 +2135,18 @@ en:
   etpOrderType_1: "- Purchase"
   etpOrderType_2: "- Redemption"
 
+  ## Transaction-log Type (`type`)
+  transfer_in: ""
+  transfer_out: ""
+  trade: ""
+  settlement: ""
+  delivery: ""
+  liquidation: ""
+  insurance_fund: ""
+  fee_refund: ""
+  interest: ""
+  bonusEnum: ""
+
   # Error Code
   errors_intro: The Bybit API uses the following HTTP codes and error codes<span>:</span>
 
@@ -2496,9 +2509,9 @@ en:
   err_38101: Replacement of order will result in the breach of user's limit according to open interest.
 
   # Misc.
-  misc_row_comment_orderLinkIdNotOrderId: Unique user-set order ID. <b>Required</b> if not passing <code>order_id</code>
+  misc_row_comment_orderLinkIdNotOrderId: Unique user-set order ID
   misc_row_comment_orderLinkIdNotStopOrderId: Unique user-set order ID. <b>Required</b> if not passing <code>stop_order_id</code>
-  misc_row_comment_orderIdNotOrderLinkId: Order ID. <b>Required</b> if not passing <code>order_link_id</code>
+  misc_row_comment_orderIdNotOrderLinkId: Order ID
   misc_row_comment_orderLinkIdNotOrderId_spot: Unique user-set order ID. <b>Required</b> if not passing <code>orderId</code>
   misc_row_comment_orderIdNotOrderLinkId_spot: Order ID. <b>Required</b> if not passing <code>orderLinkId</code>
 

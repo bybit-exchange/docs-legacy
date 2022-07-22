@@ -194,7 +194,6 @@ POST
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancel"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
-
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |category |<b>true</b> |string |t(:row_comment_category_v3)    |
@@ -392,7 +391,7 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |category |<b>true</b> |string |t(:row_comment_category_v3)    |
-|symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
+|symbol |false |string |t(:row_comment_symbol_v3)   |
 |orderId |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
 |orderLinkId |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
 |orderStatus |false |string |t(:row_comment_orderStatus_v3)   |
@@ -547,7 +546,6 @@ POST
 
 
 <p class="fake_header">t(:responseparameters)</p>
-
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |list> category |string |t(:dv_category)t(:dv_categorySuffix_8) |
@@ -903,7 +901,7 @@ GET
 |:----- |:-----|----- |
 |category |string |t(:row_comment_category_v3)    |
 |list> positionIdx |string |t(:row_comment_query_positionIdx_v3)   |
-|list> riskId |bool |t(:row_comment_query_riskId_v3)   |
+|list> riskId |number |t(:row_comment_query_riskId_v3)   |
 |list> symbol |string |t(:row_comment_symbol_v3)   |
 |list> side |string |t(:row_comment_query_side_v3)  |
 |list> size |string |t(:row_comment_query_size_v3)  |
@@ -1230,7 +1228,7 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |category |<b>true</b> |string |t(:row_comment_category_v3)    |
-|symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
+|symbol |false |string |t(:row_comment_symbol_v3)   |
 |orderId |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
 |orderLinkId |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
 |orderFilter |false |string |t(:row_comment_orderFilter_v3)   |
@@ -1261,7 +1259,7 @@ GET
 |list> orderPrice |string |t(:row_comment_query_price_v3)  |
 |list> orderQty |string |t(:row_comment_query_qty_v3)  |
 |list> orderType |string |t(:row_comment_query_orderType_v3)  |
-|list> stopOrderType |string |t(:row_comment_query_stopOrderType_v3)  |
+|list> <a href="#stop-order-type-stop_order_type">stopOrderType</a> |string |t(:row_comment_query_stopOrderType_v3)  |
 |list> side |string |t(:row_comment_query_side_v3)  |
 |list> execTime |number |t(:row_comment_query_execTime_v3)  |
 |nextPageCursor |string |t(:row_comment_query_nextPageCursor_v3)  |
@@ -1399,8 +1397,7 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_9)    |
-|symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
-|expDate |false |string |t(:row_comment_expDate_v3)   |
+|symbol |false |string |t(:row_comment_symbol_v3)   |
 |direction |false |string |t(:row_comment_direction_v3)   |
 |limit |false |number |t(:row_comment_limit_v3)   |
 |cursor |false |string |t(:row_comment_cursor_v3)   |
@@ -1416,6 +1413,7 @@ POST
 |list> sessionAvgPrice |string |t(:row_comment_query_sessionAvgPrice_v3)  |
 |list> markPrice |string |t(:row_comment_query_markPrice_v3)  |
 |list> sessionRpl |string |t(:row_comment_query_sessionRpl_v3)  |
+|list> time |string |t(:settlementTime)  |
 |nextPageCursor |string |t(:row_comment_query_nextPageCursor_v3)  |
 
 ## t(:account)
@@ -1655,11 +1653,11 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |category |<b>true</b> |string |t(:row_comment_category_v3)    |
-|currency |<b>true</b> |string |t(:row_comment_currency_v3)   |
+|currency |<b>true</b> |string |t(:row_comment_query_currency_v3)   |
 |baseCoin |false |string |t(:row_comment_baseCoin_v3)   |
-|type |false |string |t(:row_comment_type_v3)   |
+|t(:row_comment_query_transType_v3) |false |string |t(:row_comment_type_v3)   |
 |startTime |false |number |t(:row_comment_startTime_v3)   |
-|endTime |false |string |t(:row_comment_endTime_v3)   |
+|endTime |false |number |t(:row_comment_endTime_v3)   |
 |direction |false |string |t(:row_comment_direction_v3)   |
 |limit |false |number |t(:row_comment_limit_v3)   |
 |cursor |false |string |t(:row_comment_cursor_v3)   |
@@ -1670,7 +1668,7 @@ GET
 |:----- |:-----|----- |
 |category |string |t(:row_comment_category_v3)    |
 |currency |string |t(:row_comment_query_currency_v3)    |
-|list> transactionTime |string |t(:row_comment_query_transactionTime_v3)   |
+|list> transactionTime |number |t(:row_comment_query_transactionTime_v3)   |
 |list> type |string |t(:row_comment_query_type_v3)  |
 |list> symbol |string |t(:row_comment_query_symbol_v3)  |
 |list> side |string |t(:row_comment_query_side_v3)  |
@@ -1865,7 +1863,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|currency |false |string |t(:row_comment_currency_v3)   |
+|currency |false |string |t(:row_comment_query_currency_v3)   |
 |startTime |false |number |t(:row_comment_startTime_v3)   |
 |endTime |false |number |t(:row_comment_endTime_v3)   |
 |direction |false |string |t(:row_comment_direction_v3)   |
@@ -1879,7 +1877,7 @@ GET
 |list> createdTime |number |t(:row_comment_query_createdTime_v3)  |
 |list> borrowCost |string |t(:row_comment_query_borrowCost_v3)  |
 |list> hourlyBorrowRate |string |t(:row_comment_query_hourlyBorrowRate_v3)  |
-|list> borrowSize |string |t(:row_comment_query_borrowSize_v3)  |
+|list> InterestBearingBorrowSize |string |t(:row_comment_query_InterestBearingBorrowSize_v3)  |
 |list> costExemption |string |t(:row_comment_query_costExemption_v3)  |
 
 ### t(:dv_queryLoanInterest)
@@ -1944,7 +1942,7 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|list> currency |string |t(:row_comment_query_currency_v3)   |
+|list> currency |string |t(:row_comment_currency_v3)   |
 |list> hourlyBorrowRate |string |t(:row_comment_query_hourlyBorrowRate_v3)  |
 |list> maxBorrowingAmount |string |t(:row_comment_query_maxBorrowingAmount_v3)  |
 |list> freeBorrowingAmount |string |t(:row_comment_query_freeBorrowingAmount_v3)  |
