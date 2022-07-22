@@ -185,3 +185,15 @@ t(:date)
 * `StopLoss`
 * `TrailingStop`
 * `Stop`
+
+## Transaction-Log Type (`type`)
+* `TRANSFER_IN` t(:transfer_in)
+* `TRANSFER_OUT` t(:transfer_out)
+* `TRADE` t(:trade)
+* `SETTLEMENT` t(:settlement)
+* `DELIEVRY` t(:delivery)
+* `LIQUIDATION` t(:liquidation)
+* `INSURANCE_FUND` t(:insurance_fund)
+* `FEE_REFUND` t(:fee_refund)
+* `INTEREST` t(:interest)
+* `BONUS` t(:bonusEnum)

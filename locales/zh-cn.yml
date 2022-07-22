@@ -434,7 +434,7 @@ zh-cn:
   row_comment_orderLinkId_response_v3: 策略關聯訂單號
 
   row_comment_orderFilter_v3: |
-    條件單或是活動單。linear 必傳。option 非必傳。
+    條件單或是活動單
   row_comment_direction_v3: |
     搜索方向：prev:上一頁,next:下一頁,默認為 next
   row_comment_limit_v3: |
@@ -467,7 +467,7 @@ zh-cn:
   row_comment_query_orderId_v3: 訂單 ID
   row_comment_query_side_v3: 方向
   row_comment_query_orderType_v3: 訂單類型枚舉
-  row_comment_query_stopOrderType_v3: Stop order type 枚舉：
+  row_comment_query_stopOrderType_v3: 條件單類型
   row_comment_query_price_v3: 訂單價格
   row_comment_query_qty_v3: 訂單數量
   row_comment_query_iv_v3: 隱含波動率
@@ -595,7 +595,7 @@ zh-cn:
   row_comment_query_ThereareUSDTperpetualorders_v3_code: USDT永續有訂單
   row_comment_query_ThereareUSDTperpetualorders_v3: update account failed. Please cancel the usdt perpetual open orders in USDC Account.
 
-  row_comment_currency_v3: USDC、USDT、BTC、ETH
+  row_comment_currency_v3: 僅支持USDC、USDT. 如果不傳參數<code>currency</code>, 將返回USDT、USDC的利率. 允許傳多個，用逗號分隔，例如：USDC,USDT
   row_comment_baseCoin_v3: 例如： USDC就是BTC；USDT就是現在現有的交易幣種枚舉，例如： BTCUSDT 的 baseCoin 是 BTC 不匹配時已確認返回空
   row_comment_type_v3: 默認返回該category下所有交易日誌（除劃轉外） TRANSFER_IN 轉入 TRANSFER_OUT 轉出 TRADE 交易 SETTLEMENT 結算 DELIVERY 交割 Liquidation 強平（統保一期無該業務） Insurance fund 體驗金領取（統保一期無該業務） Fee Refund 手續費返還（統保一期無該業務） INTEREST 利息 註意：查詢轉入轉出日誌，必須要傳 type=TRANSFER_IN，type=TRANSFER_OUT，否則查不到劃轉日誌
 
@@ -1914,6 +1914,19 @@ zh-cn:
   etpOrderType_1: "- 申购"
   etpOrderType_2: "- 赎回"
 
+  ## Transaction-log Type (`type`)
+  transfer_in: 轉入
+  transfer_out: 轉出
+  trade: 交易
+  settlement: 結算
+  delivery: 交割
+  liquidation: 強平
+  insurance_fund: 保險費用
+  fee_refund: 手續費返還
+  interest: 利息
+  bonusEnum: 體驗金領區
+
+
   # Error Code
   errors_intro: Bybit使用以下HTTP Code和錯誤碼：
 
@@ -2177,9 +2190,9 @@ zh-cn:
   err_35014: 下單數量超過上限
 
   # Misc.
-  misc_row_comment_orderLinkIdNotOrderId: 機構ID。如果未填order_id則為<b>必填</b>字段。
+  misc_row_comment_orderLinkIdNotOrderId: 自定義機構ID
   misc_row_comment_orderLinkIdNotStopOrderId: 機構ID。如果未填stop_order_id則為<b>必填</b>字段。
-  misc_row_comment_orderIdNotOrderLinkId: 訂單ID。如果未填order_link_id則為<b>必填</b>字段。
+  misc_row_comment_orderIdNotOrderLinkId: 訂單ID
   misc_row_comment_symbolNotOrderId: 交易對 <b>必填</b>
 
   # fix problem of nested common subheadings
