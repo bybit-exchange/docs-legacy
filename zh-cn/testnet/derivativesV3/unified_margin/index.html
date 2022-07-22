@@ -1082,6 +1082,9 @@
                   <li>
                     <a href="#stop-order-type-stop_order_type" class="toc-h2 toc-link" data-title="Stop order type (stop_order_type)">Stop order type (<code>stop_order_type</code>)</a>
                   </li>
+                  <li>
+                    <a href="#transaction-log-type-type" class="toc-h2 toc-link" data-title="Transaction-Log Type (type)">Transaction-Log Type (<code>type</code>)</a>
+                  </li>
               </ul>
           </li>
       </ul>
@@ -3189,19 +3192,19 @@ price可為空！為了保護市價單遭遇嚴重的滑點，Bybit將市價單�
 <td style="text-align: left">orderId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>訂單ID。如果未填order_link_id則為<b>必填</b>字段。</td>
+<td>訂單ID</td>
 </tr>
 <tr>
 <td style="text-align: left">orderLinkId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>機構ID。如果未填order_id則為<b>必填</b>字段。</td>
+<td>自定義機構ID</td>
 </tr>
 <tr>
 <td style="text-align: left">orderFilter</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>條件單或是活動單。linear 必傳。option 非必傳。
+<td>條件單或是活動單
 </td>
 </tr>
 <tr>
@@ -3358,19 +3361,19 @@ order_link_id。 </p>
 <td style="text-align: left">orderId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>訂單ID。如果未填order_link_id則為<b>必填</b>字段。</td>
+<td>訂單ID</td>
 </tr>
 <tr>
 <td style="text-align: left">orderLinkId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>機構ID。如果未填order_id則為<b>必填</b>字段。</td>
+<td>自定義機構ID</td>
 </tr>
 <tr>
 <td style="text-align: left">orderFilter</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>條件單或是活動單。linear 必傳。option 非必傳。
+<td>條件單或是活動單
 </td>
 </tr>
 </tbody></table>
@@ -3502,7 +3505,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <td style="text-align: left">orderFilter</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>條件單或是活動單。linear 必傳。option 非必傳。
+<td>條件單或是活動單
 </td>
 </tr>
 <tr>
@@ -3566,7 +3569,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <tr>
 <td style="text-align: left">list&gt; stopOrderType</td>
 <td style="text-align: left">string</td>
-<td>Stop order type 枚舉：</td>
+<td>條件單類型</td>
 </tr>
 <tr>
 <td style="text-align: left">list&gt; price</td>
@@ -3752,7 +3755,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>合約名稱</td>
 </tr>
@@ -3760,13 +3763,13 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <td style="text-align: left">orderId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>訂單ID。如果未填order_link_id則為<b>必填</b>字段。</td>
+<td>訂單ID</td>
 </tr>
 <tr>
 <td style="text-align: left">orderLinkId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>機構ID。如果未填order_id則為<b>必填</b>字段。</td>
+<td>自定義機構ID</td>
 </tr>
 <tr>
 <td style="text-align: left">orderStatus</td>
@@ -3779,7 +3782,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <td style="text-align: left">orderFilter</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>條件單或是活動單。linear 必傳。option 非必傳。
+<td>條件單或是活動單
 </td>
 </tr>
 <tr>
@@ -3928,7 +3931,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <tr>
 <td style="text-align: left">list&gt; stopOrderType</td>
 <td style="text-align: left">string</td>
-<td>Stop order type 枚舉：</td>
+<td>條件單類型</td>
 </tr>
 <tr>
 <td style="text-align: left">list &gt; takeProfit</td>
@@ -4331,13 +4334,13 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <td style="text-align: left">list&gt; orderId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>訂單ID。如果未填order_link_id則為<b>必填</b>字段。</td>
+<td>訂單ID</td>
 </tr>
 <tr>
 <td style="text-align: left">list&gt; orderLinkId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>機構ID。如果未填order_id則為<b>必填</b>字段。</td>
+<td>自定義機構ID</td>
 </tr>
 <tr>
 <td style="text-align: left">list&gt; iv</td>
@@ -4486,13 +4489,13 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <td style="text-align: left">list&gt; orderId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>訂單ID。如果未填order_link_id則為<b>必填</b>字段。</td>
+<td>訂單ID</td>
 </tr>
 <tr>
 <td style="text-align: left">list&gt; orderLinkId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>機構ID。如果未填order_id則為<b>必填</b>字段。</td>
+<td>自定義機構ID</td>
 </tr>
 </tbody></table>
 
@@ -4794,7 +4797,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 </tr>
 <tr>
 <td style="text-align: left">list&gt; riskId</td>
-<td style="text-align: left">bool</td>
+<td style="text-align: left">number</td>
 <td>風險限額ID</td>
 </tr>
 <tr>
@@ -5394,7 +5397,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>合約名稱</td>
 </tr>
@@ -5402,19 +5405,19 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <td style="text-align: left">orderId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>訂單ID。如果未填order_link_id則為<b>必填</b>字段。</td>
+<td>訂單ID</td>
 </tr>
 <tr>
 <td style="text-align: left">orderLinkId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>機構ID。如果未填order_id則為<b>必填</b>字段。</td>
+<td>自定義機構ID</td>
 </tr>
 <tr>
 <td style="text-align: left">orderFilter</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>條件單或是活動單。linear 必傳。option 非必傳。
+<td>條件單或是活動單
 </td>
 </tr>
 <tr>
@@ -5549,9 +5552,9 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <td>訂單類型枚舉</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; stopOrderType</td>
+<td style="text-align: left">list&gt; <a href="#stop-order-type-stop_order_type">stopOrderType</a></td>
 <td style="text-align: left">string</td>
-<td>Stop order type 枚舉：</td>
+<td>條件單類型</td>
 </tr>
 <tr>
 <td style="text-align: left">list&gt; side</td>
@@ -5797,15 +5800,9 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">string</td>
-<td>合約名稱</td>
-</tr>
-<tr>
-<td style="text-align: left">expDate</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>到期日，年月日。默認為全部， 參數格式為：25MAR22</td>
+<td>合約名稱</td>
 </tr>
 <tr>
 <td style="text-align: left">direction</td>
@@ -5874,6 +5871,11 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <td style="text-align: left">list&gt; sessionRpl</td>
 <td style="text-align: left">string</td>
 <td>translation missing: zh-cn.row_comment_query_sessionRpl_v3</td>
+</tr>
+<tr>
+<td style="text-align: left">list&gt; time</td>
+<td style="text-align: left">string</td>
+<td>結算時間,精確到毫秒</td>
 </tr>
 <tr>
 <td style="text-align: left">nextPageCursor</td>
@@ -6291,7 +6293,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <td style="text-align: left">currency</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>USDC、USDT、BTC、ETH</td>
+<td>USDC, USDT, BTC, and ETH</td>
 </tr>
 <tr>
 <td style="text-align: left">baseCoin</td>
@@ -6300,7 +6302,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <td>例如： USDC就是BTC；USDT就是現在現有的交易幣種枚舉，例如： BTCUSDT 的 baseCoin 是 BTC 不匹配時已確認返回空</td>
 </tr>
 <tr>
-<td style="text-align: left">type</td>
+<td style="text-align: left"><a href="#transaction-log-type-type">type</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>默認返回該category下所有交易日誌（除劃轉外） TRANSFER_IN 轉入 TRANSFER_OUT 轉出 TRADE 交易 SETTLEMENT 結算 DELIVERY 交割 Liquidation 強平（統保一期無該業務） Insurance fund 體驗金領取（統保一期無該業務） Fee Refund 手續費返還（統保一期無該業務） INTEREST 利息 註意：查詢轉入轉出日誌，必須要傳 type=TRANSFER_IN，type=TRANSFER_OUT，否則查不到劃轉日誌</td>
@@ -6314,7 +6316,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <tr>
 <td style="text-align: left">endTime</td>
 <td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
+<td style="text-align: left">number</td>
 <td>結束時間戳（毫秒）</td>
 </tr>
 <tr>
@@ -6362,7 +6364,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 </tr>
 <tr>
 <td style="text-align: left">list&gt; transactionTime</td>
-<td style="text-align: left">string</td>
+<td style="text-align: left">number</td>
 <td>時間戳（毫秒）</td>
 </tr>
 <tr>
@@ -6725,7 +6727,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <td style="text-align: left">currency</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>USDC、USDT、BTC、ETH</td>
+<td>USDC, USDT, BTC, and ETH</td>
 </tr>
 <tr>
 <td style="text-align: left">startTime</td>
@@ -6792,9 +6794,9 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <td>每小時借款利率</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; borrowSize</td>
+<td style="text-align: left">list&gt; InterestBearingBorrowSize</td>
 <td style="text-align: left">string</td>
-<td>計息借款</td>
+<td>Interest bearing loan size</td>
 </tr>
 <tr>
 <td style="text-align: left">list&gt; costExemption</td>
@@ -6867,7 +6869,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <td style="text-align: left">currency</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>USDC、USDT、BTC、ETH</td>
+<td>僅支持USDC、USDT. 如果不傳參數<code>currency</code>, 將返回USDT、USDC的利率. 允許傳多個，用逗號分隔，例如：USDC,USDT</td>
 </tr>
 </tbody></table>
 
@@ -6883,7 +6885,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <tr>
 <td style="text-align: left">list&gt; currency</td>
 <td style="text-align: left">string</td>
-<td>USDC, USDT, BTC, and ETH</td>
+<td>僅支持USDC、USDT. 如果不傳參數<code>currency</code>, 將返回USDT、USDC的利率. 允許傳多個，用逗號分隔，例如：USDC,USDT</td>
 </tr>
 <tr>
 <td style="text-align: left">list&gt; hourlyBorrowRate</td>
@@ -8196,7 +8198,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <tr>
 <td style="text-align: left">stopOrderType</td>
 <td style="text-align: left">string</td>
-<td>Stop order type 枚舉：</td>
+<td>條件單類型</td>
 </tr>
 <tr>
 <td style="text-align: left">side</td>
@@ -8293,7 +8295,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <tr>
 <td style="text-align: left">stopOrderType</td>
 <td style="text-align: left">string</td>
-<td>Stop order type 枚舉：</td>
+<td>條件單類型</td>
 </tr>
 <tr>
 <td style="text-align: left">price</td>
@@ -8866,6 +8868,19 @@ ELSE
 <li><code>StopLoss</code></li>
 <li><code>TrailingStop</code></li>
 <li><code>Stop</code></li>
+</ul>
+<h2 id='transaction-log-type-type'>Transaction-Log Type (<code>type</code>)</h2>
+<ul>
+<li><code>TRANSFER_IN</code> 轉入</li>
+<li><code>TRANSFER_OUT</code> 轉出</li>
+<li><code>TRADE</code> 交易</li>
+<li><code>SETTLEMENT</code> 結算</li>
+<li><code>DELIEVRY</code> 交割</li>
+<li><code>LIQUIDATION</code> 強平</li>
+<li><code>INSURANCE_FUND</code> 保險費用</li>
+<li><code>FEE_REFUND</code> 手續費返還</li>
+<li><code>INTEREST</code> 利息</li>
+<li><code>BONUS</code> 體驗金領區</li>
 </ul>
 
       </div>
