@@ -2,7 +2,7 @@
 t(:unified_margin_account_para)
 
 ## t(:order)
-### t(:placeOrderV3)
+### t(:dv_placeOrder)
 > t(:codequote_curlExample)
 
 ```console
@@ -81,7 +81,7 @@ POST
 |orderId |string |t(:row_comment_order_id) |
 |orderLinkId |string |t(:row_comment_orderLinkId_response_v3) |
 
-### t(:replaceOrderV3)
+### t(:dv_replaceOrder)
 > t(:codequote_curlExample)
 
 ```console
@@ -150,7 +150,7 @@ POST
 |orderLinkId |string |t(:row_comment_orderLinkId_response_v3) |
 
 
-### t(:cancelOrderV3)
+### t(:dv_cancelOrder)
 > t(:codequote_curlExample)
 
 ```console
@@ -194,7 +194,6 @@ POST
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancel"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
-
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |category |<b>true</b> |string |t(:row_comment_category_v3)    |
@@ -212,7 +211,7 @@ POST
 |orderLinkId |string |t(:row_comment_orderLinkId_response_v3) |
 
 
-### t(:queryOrderRealtimeV3)
+### t(:dv_queryOrderRealtime)
 > t(:codequote_curlExample)
 
 ```console
@@ -314,7 +313,7 @@ GET
 |nextPageCursor |string |t(:row_comment_query_nextPageCursor_v3)  |
 
 
-### t(:getOrderV3)
+### t(:dv_getOrder)
 > t(:codequote_curlExample)
 
 ```console
@@ -392,7 +391,7 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |category |<b>true</b> |string |t(:row_comment_category_v3)    |
-|symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
+|symbol |false |string |t(:row_comment_symbol_v3)   |
 |orderId |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
 |orderLinkId |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
 |orderStatus |false |string |t(:row_comment_orderStatus_v3)   |
@@ -436,36 +435,41 @@ GET
 |list > closeOnTrigger |bool |t(:row_comment_query_closeOnTrigger_v3)  |
 |nextPageCursor |string |t(:row_comment_query_nextPageCursor_v3)  |
 
-### t(:batchPlaceOrderV3)
+### t(:dv_batchPlaceOrder)
 
 ```console
 curl --location --request POST 'https://api-testnet.bybit.com/unified/v3/private/order/create-batch' \
 --header 'X-BAPI-SIGN-TYPE: 2' \
---header 'X-BAPI-SIGN: 27ecc5cca2aec6a779c9f5ef828275a3e9ccaf392a030820911c52d6085c34db' \
+--header 'X-BAPI-SIGN: c5cab33771ca6ccfcddb27e1cd41ffd355929b1a5025a4fc218030decca8f9b9' \
 --header 'X-BAPI-API-KEY: {api key}' \
---header 'X-BAPI-TIMESTAMP: 1657871228347' \
+--header 'X-BAPI-TIMESTAMP: 1658210743423' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
---header 'Content-Type: application/json' \
---data-raw '[
-    {
-        "symbol": "BTCUSDT",
-        "orderType": "Limit",
-        "side": "Buy",
-        "qty": "0.01",
-        "price": "20002",
-        "timeInForce": "GoodTillCancel",
-        "category": "linear"
-    },
-    {
-        "symbol": "BTCUSDT",
-        "orderType": "Limit",
-        "side": "Buy",
-        "qty": "0.01",
-        "price": "20002",
-        "timeInForce": "GoodTillCancel",
-        "category": "linear"
-    }
-]'
+--header 'Content-Type: application/json \
+--data-raw '{
+    "category": "option",
+    "request": [
+        {
+            "symbol": "BTC-19JUL22-25000-C",
+            "orderType": "Limit",
+            "side": "Buy",
+            "qty": "0.01",
+            "price": "5",
+            "timeInForce": "GoodTillCancel",
+            "orderLinkId": "316732a14",
+            "reduceOnly": false
+        },
+        {
+            "symbol": "BTC-19JUL22-25000-C",
+            "orderType": "Limit",
+            "side": "Buy",
+            "qty": "0.01",
+            "price": "5",
+            "timeInForce": "GoodTillCancel",
+            "orderLinkId": "316732a15",
+            "reduceOnly": false
+        }
+    ]
+}'
 ```
 
 ```python
@@ -485,13 +489,13 @@ curl --location --request POST 'https://api-testnet.bybit.com/unified/v3/private
       "symbol": "BTC-24JUN22-45000-P",
       "orderId": "",
       "orderLinkId": "ac4e3b34-d64d-4b60-8188-438fbea4c552",
-      "createAt": 0
+      "createAt": "0"
       }, {
       "category": "option",
       "symbol": "BTC-26AUG22-44000-C",
       "orderId": "",
       "orderLinkId": "5cee727a-2af8-430e-a293-42895e594d18",
-      "createAt": 0
+      "createAt": "0"
       }]
     },
      "retExtInfo": {
@@ -516,10 +520,10 @@ POST
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvBatchPlace"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
-
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:row_comment_category_v3)    |
+|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_8)    |
+|request |<b>true</b> |array |    |
 |list> symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
 |list> t(:row_parameter_side) |<b>true</b> |string |t(:row_comment_side_v3)    |
 |list> positionIdx |false |string |t(:row_comment_positionIdx_v3)   |
@@ -542,17 +546,16 @@ POST
 
 
 <p class="fake_header">t(:responseparameters)</p>
-
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|list> category |string |t(:row_comment_category_v3) |
+|list> category |string |t(:dv_category)t(:dv_categorySuffix_8) |
 |list> symbol |string |t(:row_comment_symbol_v3) |
 |list> orderId |string |t(:row_comment_query_orderId_v3) |
 |list> orderLinkId |string |t(:row_comment_orderLinkId_response_v3) |
-|list> createAt |number |t(:row_comment_createAt_response_v3) |
+|list> createAt |string |t(:row_comment_createAt_response_v3) |
 
 
-### t(:batchReplaceOrdersV3)
+### t(:dv_batchReplaceOrders)
 
 t(:usdcBatchReplaceOrdersDescV3)
 
@@ -564,26 +567,30 @@ curl --location --request POST 'https://api-testnet.bybit.com/unified/v3/private
 --header 'X-BAPI-TIMESTAMP: 1657871228347' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
 --header 'Content-Type: application/json' \
---data-raw '[
-    {
-        "category": "linear",
-        "symbol": "BTCUSDT",
-        "orderId": "1a1ae001-2034-4a6b-8b25-45aa9100b1ec",
-        "price": "35000"
-    },
-    {
-        "category": "linear",
-        "symbol": "BTCUSDT",
-        "orderId": "1a1ae001-2034-4a6b-8b25-45aa9100b1ec",
-        "price": "35000"
-    }
-]'
+--data-raw '{
+    "category": "option",
+    "request": [
+        {
+            "symbol": "BTC-24JUN22-45000-P",
+            "orderId": "bd5f3b34-d64d-4b60-8188-438fbea4c552",
+            "iv": "0.2",
+            "qty": 5,
+            "price": "25000"
+        },
+        {
+            "symbol": "BTC-26AUG22-44000-C",
+            "orderId": "4ddd727a-2af8-430e-a293-42895e594d18",
+            "iv": "0.3",
+            "qty": 4,
+            "price": "24000"
+        }
+    ]
+}'
 ```
 
 ```python
 
 ```
-
 
 > t(:codequote_responseExample)
 
@@ -625,10 +632,10 @@ POST
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvBatchReplace"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
-
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:row_comment_category_v3)    |
+|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_8)    |
+|request |<b>true</b> |array |    |
 |list> symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
 |list> orderId |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
 |list> orderLinkId |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
@@ -638,15 +645,14 @@ POST
 
 
 <p class="fake_header">t(:responseparameters)</p>
-
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|list> category |string |t(:row_comment_category_v3) |
+|list> category |string |t(:dv_category)t(:dv_categorySuffix_8) |
 |list> symbol |string |t(:row_comment_symbol_v3) |
 |list> orderId |string |t(:row_comment_query_orderId_v3) |
 |list> orderLinkId |string |t(:row_comment_orderLinkId_response_v3) |
 
-### t(:batchCancelOrdersV3)
+### t(:dv_batchCancelOrders)
 
 t(:usdcBatchCancelOrdersDescV3)
 
@@ -658,18 +664,19 @@ curl --location --request POST 'https://api-testnet.bybit.com/unified/v3/private
 --header 'X-BAPI-TIMESTAMP: 1657871228347' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
 --header 'Content-Type: application/json' \
---data-raw '[
-    {
-        "category": "linear",
-        "orderId": "4c51a45f-7795-4b38-9b66-3c306b73f112",
-        "symbol": "BTCUSDT"
-    },
-    {
-        "category": "linear",
-        "orderId": "4c51a45f-7795-4b38-9b66-3c306b73f112",
-        "symbol": "BTCUSDT"
-    }
-]'
+--data-raw '{
+    "category": "option",
+    "request": [
+        {
+            "symbol": "BTC-24JUN22-45000-P",
+            "orderId": "bd5f3b34-d64d-4b60-8188-438fbea4c552"
+        },
+        {
+            "symbol": "BTC-26AUG22-44000-C",
+            "orderId": "4ddd727a-2af8-430e-a293-42895e594d18"
+        }
+    ]
+}'
 ```
 
 ```python
@@ -717,26 +724,25 @@ POST
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvBatchCancel"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
-
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:row_comment_category_v3)    |
+|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_8)    |
+|request |<b>true</b> |array |    |
 |list> symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
 |list> orderId |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
 |list> orderLinkId |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
 
 
 <p class="fake_header">t(:responseparameters)</p>
-
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|list> category |string |t(:row_comment_category_v3) |
+|list> category |string |t(:dv_category)t(:dv_categorySuffix_8) |
 |list> symbol |string |t(:row_comment_symbol_v3) |
 |list> orderId |string |t(:row_comment_query_orderId_v3) |
 |list> orderLinkId |string |t(:row_comment_orderLinkId_response_v3) |
 
 
-### t(:cancelAllOrdersV3)
+### t(:dv_cancelAllOrders)
 > t(:codequote_curlExample)
 
 ```console
@@ -748,8 +754,7 @@ curl --location --request POST 'https://api-testnet.bybit.com/unified/v3/private
 --header 'X-BAPI-RECV-WINDOW: 5000' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-  "category": "linear",
-  "symbol": "BTCUSDT"
+  "category": "option"
 }'
 ```
 
@@ -801,7 +806,7 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:row_comment_category_v3)    |
+|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_8)    |
 |baseCoin |false |string |t(:row_comment_cancelAll_baseCoin_v3)   |
 |settleCoin |false |string |t(:row_comment_settleCoin_v3) |
 |symbol |false |string |t(:row_comment_symbol_v3) |
@@ -810,14 +815,14 @@ POST
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|list> category |string |t(:row_comment_category_v3) |
+|category |string |t(:dv_category)t(:dv_categorySuffix_8)    |
 |list> symbol |string |t(:row_comment_symbol_v3) |
 |list> orderId |string |t(:row_comment_query_orderId_v3) |
 |list> orderLinkId |string |t(:row_comment_orderLinkId_response_v3) |
 
 
 ## t(:position)
-### t(:mypositionV3)
+### t(:dv_myposition)
 > t(:codequote_curlExample)
 
 ```console
@@ -896,7 +901,7 @@ GET
 |:----- |:-----|----- |
 |category |string |t(:row_comment_category_v3)    |
 |list> positionIdx |string |t(:row_comment_query_positionIdx_v3)   |
-|list> riskId |bool |t(:row_comment_query_riskId_v3)   |
+|list> riskId |number |t(:row_comment_query_riskId_v3)   |
 |list> symbol |string |t(:row_comment_symbol_v3)   |
 |list> side |string |t(:row_comment_query_side_v3)  |
 |list> size |string |t(:row_comment_query_size_v3)  |
@@ -921,7 +926,7 @@ GET
 |nextPageCursor |string |t(:row_comment_query_nextPageCursor_v3)  |
 
 
-### t(:setleverageV3)
+### t(:dv_setleverage)
 > t(:codequote_curlExample)
 
 ```console
@@ -977,7 +982,7 @@ POST
 |:----- |:-----|----- |
 |leverage |number |t(:row_comment_query_set_leverage_v3)  |
 
-### t(:switchmodeV3)
+### t(:dv_switchmode)
 
 > t(:codequote_curlExample)
 
@@ -1023,7 +1028,7 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:row_comment_category_v3)    |
+|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_7)    |
 |symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
 |tpSlMode |<b>true</b> |number |t(:row_comment_tpSlMode_v3)    |
 
@@ -1033,7 +1038,7 @@ POST
 |tpSlMode |string |t(:row_comment_query_tpslMode_v3)  |
 
 
-### t(:setrisklimitV3)
+### t(:dv_setrisklimit)
 > t(:codequote_curlExample)
 
 ```console
@@ -1090,7 +1095,7 @@ POST
 |category |string |t(:row_comment_category_v3)    |
 |riskId |number |t(:row_comment_riskId_v3)  |
 
-### t(:tradingstopV3)
+### t(:dv_tradingstop)
 > t(:codequote_curlExample)
 
 ```console
@@ -1143,7 +1148,7 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:row_comment_category_v3)    |
+|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_7)    |
 |symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
 |takeProfit |false |string |t(:account_row_comment_takeProfit_v3) |
 |stopLoss |false |string |t(:account_row_comment_stopLoss_v3) |
@@ -1156,7 +1161,7 @@ POST
 |positionIdx |false |string |t(:row_comment_positionIdx_v3) |
 
 
-### t(:userTradeRecords7DayV3)
+### t(:dv_userTradeRecords7Day)
 > t(:codequote_curlExample)
 
 ```console
@@ -1223,7 +1228,7 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |category |<b>true</b> |string |t(:row_comment_category_v3)    |
-|symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
+|symbol |false |string |t(:row_comment_symbol_v3)   |
 |orderId |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
 |orderLinkId |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
 |orderFilter |false |string |t(:row_comment_orderFilter_v3)   |
@@ -1254,12 +1259,12 @@ GET
 |list> orderPrice |string |t(:row_comment_query_price_v3)  |
 |list> orderQty |string |t(:row_comment_query_qty_v3)  |
 |list> orderType |string |t(:row_comment_query_orderType_v3)  |
-|list> stopOrderType |string |t(:row_comment_query_stopOrderType_v3)  |
+|list> <a href="#stop-order-type-stop_order_type">stopOrderType</a> |string |t(:row_comment_query_stopOrderType_v3)  |
 |list> side |string |t(:row_comment_query_side_v3)  |
 |list> execTime |number |t(:row_comment_query_execTime_v3)  |
 |nextPageCursor |string |t(:row_comment_query_nextPageCursor_v3)  |
 
-### t(:queryOptionDeliveryLogV3)
+### t(:dv_queryOptionDeliveryLog)
 
 > t(:codequote_curlExample)
 
@@ -1313,10 +1318,9 @@ POST
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvQueryDelivery"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
-
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:row_comment_category_v3)    |
+|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_8)    |
 |symbol |false |string |t(:row_comment_symbol_v3)   |
 |expDate |false |string |t(:row_comment_expDate_v3)   |
 |direction |false |string |t(:row_comment_direction_v3)   |
@@ -1325,7 +1329,6 @@ POST
 
 
 <p class="fake_header">t(:responseparameters)</p>
-
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |category |string |t(:row_comment_category_v3)    |
@@ -1340,7 +1343,7 @@ POST
 |nextPageCursor |string |t(:row_comment_query_nextPageCursor_v3)  |
 
 
-### t(:querySettleLogsV3)
+### t(:dv_querySettleLogs)
 > t(:codequote_curlExample)
 
 ```console
@@ -1391,19 +1394,16 @@ POST
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#upovSession"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
-
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:row_comment_category_v3)    |
-|symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
-|expDate |false |string |t(:row_comment_expDate_v3)   |
+|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_9)    |
+|symbol |false |string |t(:row_comment_symbol_v3)   |
 |direction |false |string |t(:row_comment_direction_v3)   |
 |limit |false |number |t(:row_comment_limit_v3)   |
 |cursor |false |string |t(:row_comment_cursor_v3)   |
 
 
 <p class="fake_header">t(:responseparameters)</p>
-
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |category |string |t(:row_comment_category_v3)    |
@@ -1413,13 +1413,14 @@ POST
 |list> sessionAvgPrice |string |t(:row_comment_query_sessionAvgPrice_v3)  |
 |list> markPrice |string |t(:row_comment_query_markPrice_v3)  |
 |list> sessionRpl |string |t(:row_comment_query_sessionRpl_v3)  |
+|list> time |string |t(:settlementTime)  |
 |nextPageCursor |string |t(:row_comment_query_nextPageCursor_v3)  |
 
 ## t(:account)
 t(:wallet_para)
 
 
-### t(:balanceV3)
+### t(:dv_balance)
 > t(:codequote_curlExample)
 
 ```console
@@ -1435,10 +1436,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/unified/v3/private/
 
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.get_wallet_balance(coin="BTC"))
+
 ```
 
 > t(:codequote_responseExample)
@@ -1526,7 +1524,7 @@ POST
 |Coin> cumRealisedPnl |string |t(:row_comment_query_coin_cumRealisedPnl_v3)    |
 
 
-### t(:upgradeUnifiedAccountV3)
+### t(:dv_upgradeUnifiedAccount)
 
 > t(:codequote_curlExample)
 
@@ -1542,10 +1540,7 @@ curl --location --request POST 'https://api-testnet.bybit.com/unified/v3/private
 ```
 
 ```python--pybit
-from pybit import HTTP
-session = HTTP("https://api-testnet.bybit.com",
-               api_key="", api_secret="")
-print(session.get_wallet_balance(coin="BTC"))
+
 ```
 
 > t(:codequote_responseExample)
@@ -1593,7 +1588,7 @@ POST
 |t(:row_comment_query_ThereareUSDCoptionorders_v3_code) |t(:row_comment_query_ThereareUSDCoptionorders_v3) |
 |t(:row_comment_query_ThereareUSDTperpetualorders_v3_code) |t(:row_comment_query_ThereareUSDTperpetualorders_v3) |
 
-### t(:queryTransactionLogsV3)
+### t(:dv_queryTransactionLogs)
 t(:wallet_para_tradingHistory_v3)
 
 > t(:codequote_curlExample)
@@ -1607,6 +1602,10 @@ curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/priv
 --header 'X-BAPI-RECV-WINDOW: 5000' \
 --header 'Content-Type: application/json' \
 --data-raw ''
+```
+
+```python--pybit
+
 ```
 
 > t(:codequote_responseExample)
@@ -1654,11 +1653,11 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |category |<b>true</b> |string |t(:row_comment_category_v3)    |
-|currency |<b>true</b> |string |t(:row_comment_currency_v3)   |
+|currency |<b>true</b> |string |t(:row_comment_query_currency_v3)   |
 |baseCoin |false |string |t(:row_comment_baseCoin_v3)   |
-|type |false |string |t(:row_comment_type_v3)   |
+|t(:row_comment_query_transType_v3) |false |string |t(:row_comment_type_v3)   |
 |startTime |false |number |t(:row_comment_startTime_v3)   |
-|endTime |false |string |t(:row_comment_endTime_v3)   |
+|endTime |false |number |t(:row_comment_endTime_v3)   |
 |direction |false |string |t(:row_comment_direction_v3)   |
 |limit |false |number |t(:row_comment_limit_v3)   |
 |cursor |false |string |t(:row_comment_cursor_v3)   |
@@ -1669,7 +1668,7 @@ GET
 |:----- |:-----|----- |
 |category |string |t(:row_comment_category_v3)    |
 |currency |string |t(:row_comment_query_currency_v3)    |
-|list> transactionTime |string |t(:row_comment_query_transactionTime_v3)   |
+|list> transactionTime |number |t(:row_comment_query_transactionTime_v3)   |
 |list> type |string |t(:row_comment_query_type_v3)  |
 |list> symbol |string |t(:row_comment_query_symbol_v3)  |
 |list> side |string |t(:row_comment_query_side_v3)  |
@@ -1689,7 +1688,7 @@ GET
 
 
 
-### t(:transferV3)
+### t(:dv_transfer)
 t(:wallet_para_transfers_v3)
 > t(:codequote_curlExample)
 
@@ -1726,7 +1725,7 @@ POST
 |transfer_id |string |t(:row_comment_query_transfer_id_v3)    |
 
 
-### t(:queryExchangeRecordsV3)
+### t(:dv_queryExchangeRecords)
 > t(:codequote_curlExample)
 
 ```console
@@ -1801,7 +1800,7 @@ GET
 |list > createdAt |string |t(:row_comment_query_createdAt_v3)  |
 |list > exchangeTxId |string |t(:row_comment_query_exchangeTxId_v3)  |
 
-### t(:interestBillStatementV3)
+### t(:dv_interestBillStatement)
 > t(:codequote_curlExample)
 
 ```console
@@ -1864,12 +1863,12 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|currency |<b>false</b> |string |t(:row_comment_currency_v3)   |
-|startTime |<b>false</b> |number |t(:row_comment_startTime_v3)   |
-|endTime |<b>false</b> |number |t(:row_comment_endTime_v3)   |
-|direction |<b>false</b> |string |t(:row_comment_direction_v3)   |
-|limit |<b>false</b> |number |t(:row_comment_limit_v3)   |
-|cursor |<b>false</b> |string |t(:row_comment_cursor_v3)   |
+|currency |false |string |t(:row_comment_query_currency_v3)   |
+|startTime |false |number |t(:row_comment_startTime_v3)   |
+|endTime |false |number |t(:row_comment_endTime_v3)   |
+|direction |false |string |t(:row_comment_direction_v3)   |
+|limit |false |number |t(:row_comment_limit_v3)   |
+|cursor |false |string |t(:row_comment_cursor_v3)   |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -1878,10 +1877,10 @@ GET
 |list> createdTime |number |t(:row_comment_query_createdTime_v3)  |
 |list> borrowCost |string |t(:row_comment_query_borrowCost_v3)  |
 |list> hourlyBorrowRate |string |t(:row_comment_query_hourlyBorrowRate_v3)  |
-|list> borrowSize |string |t(:row_comment_query_borrowSize_v3)  |
+|list> InterestBearingBorrowSize |string |t(:row_comment_query_InterestBearingBorrowSize_v3)  |
 |list> costExemption |string |t(:row_comment_query_costExemption_v3)  |
 
-### t(:queryLoanInterestV3)
+### t(:dv_queryLoanInterest)
 > t(:codequote_curlExample)
 
 ```console
@@ -1938,12 +1937,12 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|currency |<b>false</b> |string |t(:row_comment_currency_v3)   |
+|currency |false |string |t(:row_comment_currency_v3)   |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|list> currency |string |t(:row_comment_query_currency_v3)   |
+|list> currency |string |t(:row_comment_currency_v3)   |
 |list> hourlyBorrowRate |string |t(:row_comment_query_hourlyBorrowRate_v3)  |
 |list> maxBorrowingAmount |string |t(:row_comment_query_maxBorrowingAmount_v3)  |
 |list> freeBorrowingAmount |string |t(:row_comment_query_freeBorrowingAmount_v3)  |

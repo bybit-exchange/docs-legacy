@@ -11,10 +11,14 @@ t(:ENUMs_para)
 * `option`
 
 ## Symbol (`symbol`)
-* `BTCUSD`
+* `BTCUSDT`
 * `ETHUSD`
-* `EOSUSD`
-* `XRPUSD`
+* `BTCPERP`
+* `BTC-30DEC22-25000-P`
+* `BTCUSDU22`
+* `ETHUSDT`
+* `BTCUSD`
+* `XRPUSDT`
 * `DOTUSD`
 
 t(:trading_symbol_comment)
@@ -181,3 +185,15 @@ t(:date)
 * `StopLoss`
 * `TrailingStop`
 * `Stop`
+
+## Transaction-Log Type (`type`)
+* `TRANSFER_IN` t(:transfer_in)
+* `TRANSFER_OUT` t(:transfer_out)
+* `TRADE` t(:trade)
+* `SETTLEMENT` t(:settlement)
+* `DELIEVRY` t(:delivery)
+* `LIQUIDATION` t(:liquidation)
+* `INSURANCE_FUND` t(:insurance_fund)
+* `FEE_REFUND` t(:fee_refund)
+* `INTEREST` t(:interest)
+* `BONUS` t(:bonusEnum)
