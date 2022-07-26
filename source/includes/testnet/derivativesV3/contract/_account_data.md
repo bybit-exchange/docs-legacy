@@ -6,9 +6,9 @@ t(:account_para)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/private/linear/order/create \
+curl https://api-testnet.bybit.com/contract/v3/private/order/create \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","side":"Buy","symbol":"BTCUSD","order_type":"Market","qty":10,"time_in_force":"GoodTillCancel","timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","side":"Buy","symbol":"BTCUSD","orderType":"Market","qty":10,"timeInForce":"GoodTillCancel","timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
 ```python--pybit
@@ -34,39 +34,14 @@ print(session_auth.place_active_order(
 
 ```javascript
 {
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
-    "ext_info": "",
-    "result": {
-        "order_id": "a6c64aa0-c80b-4865-ae35-99be5fab3535",
-        "user_id": 533285,
-        "symbol": "MANAUSDT",
-        "side": "Sell",
-        "order_type": "Limit",
-        "price": 0.8,
-        "qty": 100,
-        "time_in_force": "GoodTillCancel",
-        "order_status": "Created",
-        "last_exec_price": 0,
-        "cum_exec_qty": 0,
-        "cum_exec_value": 0,
-        "cum_exec_fee": 0,
-        "reduce_only": false,
-        "close_on_trigger": false,
-        "order_link_id": "Mactive001",
-        "created_time": "2022-06-22T01:46:11Z",
-        "updated_time": "2022-06-22T01:46:11Z",
-        "take_profit": 0.65,
-        "stop_loss": 0.99,
-        "tp_trigger_by": "MarkPrice",
-        "sl_trigger_by": "LastPrice",
-        "position_idx": 2
-    },
-    "time_now": "1655862371.660491",
-    "rate_limit_status": 99,
-    "rate_limit_reset_ms": 1655862371657,
-    "rate_limit": 100
+    "retCode":0,
+    "retMsg":"OK",
+    "result":{
+        "orderId":"a09a43f1-7a65-4255-8758-034103447a4e",
+        "orderLinkId":""
+  },
+    "retExtInfo":null,
+    "time":1658850321861
 }
 ```
 
@@ -84,54 +59,37 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)   |
-|t(:row_parameter_side) |<b>true</b> |string |t(:row_comment_side)    |
-|t(:row_parameter_order_type) |<b>true</b> |string |t(:row_comment_activeOrderType)   |
-|t(:row_parameter_quantity) |<b>true</b> |number |t(:linear_row_comment_qty) |
-|t(:row_parameter_price) |false |number |t(:row_comment_price) |
-|t(:row_parameter_time_in_force) |<b>true</b> |string |t(:row_comment_timeInForce) |
-|reduce_only |<b>true</b> |bool |t(:linear_row_comment_reduceOnly) |
-|close_on_trigger |<b>true</b> |bool |t(:linear_row_comment_closeOnTrigger)
-|order_link_id |false |string |t(:row_comment_orderLinkId) |
-|take_profit |false |number |t(:row_comment_takeProfit) |
-|stop_loss |false |number |t(:row_comment_stopLoss) |
-|t(:row_parameter_tp_trigger_by) |false |string |t(:account_row_comment_tp_trigger_by) |
-|t(:row_parameter_sl_trigger_by) |false |string |t(:account_row_comment_sl_trigger_by) |
-|position_idx |false |integer |t(:row_comment_position_idx_create_order)  |
+|symbol |<b>true</b> |string |t(:row_comment_symbol)   |
+|side |<b>true</b> |string |t(:row_comment_side)    |
+|positionIdx |false |integer |t(:row_comment_position_idx_create_order)  |
+|orderType |<b>true</b> |string |t(:row_comment_activeOrderType)   |
+|qty |<b>true</b> |number |t(:linear_row_comment_qty) |
+|price |false |number |t(:row_comment_price) |
+|triggerDirection |false |number |t(:row_comment_takeProfit) |
+|triggerPrice |false |string |t(:row_comment_takeProfit) |
+|triggerBy |false |string |t(:account_row_comment_sl_trigger_by) |
+|tpTriggerBy |false |string |t(:account_row_comment_tp_trigger_by) |
+|slTriggerBy |false |string |t(:account_row_comment_sl_trigger_by) |
+|timeInForce |<b>true</b> |string |t(:row_comment_timeInForce) |
+|orderLinkId |false |string |t(:row_comment_orderLinkId) |
+|takeProfit |false |number |t(:row_comment_takeProfit) |
+|stopLoss |false |number |t(:row_comment_stopLoss) |
+|reduceOnly |<b>true</b> |bool |t(:linear_row_comment_reduceOnly) |
+|closeOnTrigger |<b>true</b> |bool |t(:linear_row_comment_closeOnTrigger)
 
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| order_id |string |t(:row_comment_order_id) |
-| user_id |number |t(:row_comment_userID) |
-|t(:row_parameter_symbol) |string |t(:row_comment_symbol)    |
-|t(:row_parameter_side) |string |t(:row_comment_side)  |
-|t(:row_parameter_order_type) |string |t(:row_comment_order_type)  |
-|t(:row_parameter_price) |number |t(:row_comment_resp_price)  |
-|qty |number |t(:row_response_comment_qty)  |
-|t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
-|t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
-|last_exec_price |number |t(:row_comment_last_exec_price)  |
-|cum_exec_qty |number |t(:linear_resp_field_cum_exec_qty)  |
-|cum_exec_value |number |t(:linear_resp_field_cum_exec_value)  |
-|cum_exec_fee |number |t(:linear_resp_field_cum_exec_fee)  |
-|reduce_only |bool |t(:linear_resp_field_reduce_only)  |
-|close_on_trigger |bool |t(:row_response_close_on_trigger)  |
-|order_link_id |string |t(:row_comment_orderLinkId)  |
-|created_time |string |t(:row_comment_created_at)  |
-|updated_time |string |t(:row_comment_updated_at)  |
-|take_profit |number |t(:row_comment_take_profit)  |
-|stop_loss |number |t(:row_comment_stop_loss)  |
-|t(:row_parameter_tp_trigger_by) |string |t(:account_row_comment_tp_trigger_by)  |
-|t(:row_parameter_sl_trigger_by) |string |t(:account_row_comment_sl_trigger_by)  |
-|position_idx |integer |t(:row_comment_position_idx)  |
+| orderId |string |t(:row_comment_order_id) |
+|orderLinkId |string |t(:row_comment_orderLinkId)  |
+
 
 ### t(:getactive)
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api-testnet.bybit.com/private/linear/order/list?api_key={api_key}&timestamp={timestamp}&sign={sign}&symbol=BTCUSDT"
+curl "https://api-testnet.bybit.com/contract/v3/private/order/list?api_key={api_key}&timestamp={timestamp}&sign={sign}&symbol=BTCUSDT"
 ```
 
 ```python--pybit
@@ -194,53 +152,60 @@ t(:account_para_getActive)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=oaoList>/private/linear/order/list</span></code>
+<code><span id=oaoList>/contract/v3/private/order/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oaoList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|order_id |false |string |t(:account_row_comment_orderId) |
-|order_link_id |false |string |t(:row_comment_orderLinkId) |
-|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
-|t(:row_parameter_order) |false |string |t(:row_comment_order)  |
-|page |false |integer |t(:row_comment_page_max50) |
+|orderId |false |string |t(:account_row_comment_orderId) |
+|orderLinkId |false |string |t(:row_comment_orderLinkId) |
+|symbol |<b>true</b> |string |t(:row_comment_symbol) |
+|orderStatus |false |string |t(:linear_account_row_comment_orderStatus) |
+|orderFilter |false |string |t(:linear_account_row_comment_orderFilter) |
 |limit |false |integer |t(:row_comment_limit) |
-|t(:row_parameter_order_status) |false |string |t(:linear_account_row_comment_orderStatus) |
+|cursor |false |string |t(:row_comment_cursor) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|order_id |string |t(:account_row_comment_orderId) |
-| user_id |number |t(:row_comment_userID) |
-| t(:row_parameter_symbol) |string |t(:row_comment_symbol) |
-| t(:row_parameter_side) |string |t(:row_comment_side) |
-| t(:row_parameter_order_type) |string |t(:row_comment_order_type) |
-| price  |number |t(:row_comment_resp_price) |
-| qty  |number |t(:linear_row_comment_qty) |
-|t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
-|t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
-|last_exec_price |number |t(:row_comment_last_exec_price)  |
-|cum_exec_qty |number |t(:linear_resp_field_cum_exec_qty)  |
-|cum_exec_value |number |t(:linear_resp_field_cum_exec_value)  |
-|cum_exec_fee |number |t(:linear_resp_field_cum_exec_fee)  |
-|order_link_id |string |t(:row_comment_orderLinkId)  |
-|reduce_only |bool |t(:linear_resp_field_reduce_only)  |
-|close_on_trigger |bool |t(:row_response_close_on_trigger)  |
-|created_time |string |t(:row_comment_created_at)  |
-|updated_time |string |t(:row_comment_updated_at)  |
-|take_profit |number |t(:row_comment_take_profit)  |
-|stop_loss |number |t(:row_comment_stop_loss)  |
-|t(:row_parameter_tp_trigger_by) |string |t(:account_row_comment_tp_trigger_by) |
-|t(:row_parameter_sl_trigger_by) |string |t(:account_row_comment_sl_trigger_by) |
+|symbol |string |t(:row_comment_symbol) |
+|side |string |t(:row_comment_side) |
+|orderType |string |t(:row_comment_order_type) |
+|price  |string |t(:row_comment_resp_price) |
+|qty  |string |t(:linear_row_comment_qty) |
+|reduceOnly |bool |t(:linear_resp_field_reduce_only)  |
+|timeInForce |string |t(:row_comment_timeInForce)  |
+|orderStatus |string |t(:row_comment_orderStatus)  |
+|leavesQty |string |t(:row_comment_leavesQty)  |
+|leavesValue |string |t(:row_comment_leavesValue)  |
+|cumExecQty |string |t(:linear_resp_field_cum_exec_qty)  |
+|cumExecValue |string |t(:linear_resp_field_cum_exec_value)  |
+|cumExecFee |string |t(:linear_resp_field_cum_exec_fee)  |
+|lastPriceOnCreated |string |t(:row_comment_last_exec_price)  |
+|rejectReason |string |t(:row_comment_rejectReason) |
+|createdTime |string |t(:row_comment_created_at)  |
+|updatedTime |string |t(:row_comment_updated_at)  |
+|orderLinkId |string |t(:row_comment_orderLinkId)  |
+|orderId |string |t(:account_row_comment_orderId) |
+|stopOrderType |string |t(:row_comment_stopOrderType) |
+|triggerDirection |number |t(:row_comment_triggerDirection) |
+|closeOnTrigger |bool |t(:row_response_close_on_trigger)  |
+|takeProfit |string |t(:row_comment_take_profit)  |
+|stopLoss |string |t(:row_comment_stop_loss)  |
+|tpTriggerBy |string |t(:account_row_comment_tp_trigger_by) |
+|tpTriggerBy |string |t(:account_row_comment_tp_trigger_by) |
+|triggerPrice |string |t(:row_comment_triggerPrice) |
+|nextPageCursor |string |t(:row_comment_nextPageCursor) |
+
 
 ### t(:cancelactive)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/private/linear/order/cancel \
+curl https://api-testnet.bybit.com/contract/v3/private/order/cancel \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSD","order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","symbol":"BTCUSD","orderId":"","timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
 ```python--pybit
@@ -260,17 +225,14 @@ print(session_auth.cancel_active_order(
 
 ```javascript
 {
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
-    "ext_info": "",
-    "result": {
-        "order_id":"bd1844f-f3c0-4e10-8c25-10fea03763f6",
-    },
-    "time_now": "1575112681.814760",
-    "rate_limit_status": 98,
-    "rate_limit_reset_ms": 1580885703683,
-    "rate_limit": 100
+  "retCode":0,
+    "retMsg":"OK",
+    "result":{
+    "orderId":"a09a43f1-7a65-4255-8758-034103447a4e",
+      "orderLinkId":""
+  },
+  "retExtInfo":null,
+    "time":1658850321861
 }
 ```
 
@@ -278,30 +240,30 @@ t(:account_para_cancelActive)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCancel>/private/linear/order/cancel</span></code>
+<code><span id=vpoCancel>/contract/v3/private/order/cancel</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancel"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
-|order_id |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
-|order_link_id |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
+|symbol |<b>true</b> |string |t(:row_comment_symbol) |
+|orderId |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
+|orderLinkId |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
 
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|order_id |string |t(:account_row_comment_orderId) |
-
+|orderId |string |t(:account_row_comment_orderId) |
+|orderLinkId |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
 
 
 ### t(:cancelallactive)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/private/linear/order/cancel-all \
+curl https://api-testnet.bybit.com/contract/v3/private/order/cancel-all \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDT","timestamp":{timestamp},"sign":"{sign}"}'
 ```
@@ -345,28 +307,29 @@ t(:account_aside_cancelAllActive)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCancelAll>/private/linear/order/cancel-all</span></code>
+<code><span id=vpoCancelAll>/contract/v3/private/order/cancel-all</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancelAll"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |<b>true</b> |string | t(:row_comment_symbol) |
+|symbol |<b>true</b> |string | t(:row_comment_symbol) |
 
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|result |arr |t(:account_row_comment_orderId) |
+|orderId |string |t(:account_row_comment_orderId) |
+|orderLinkId |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
 
 
 ### t(:replaceactive)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/private/linear/order/replace \
+curl https://api-testnet.bybit.com/contract/v3/private/order/replace \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSDT","order_id":"","p_r_qty":2,"timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","symbol":"BTCUSDT","orderId":"","qty":2,"timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
 ```python--pybit
@@ -387,16 +350,16 @@ print(session_auth.replace_active_order(
 
 ```javascript
 {
-    "ret_code": 0,
-    "ret_msg": "ok",
-    "ext_code": "",
-    "result": {
-        "order_id": "efa44157-c355-4a98-b6d6-1d846a936b93"
-    },
-    "time_now": "1539778407.210858",
-    "rate_limit_status": 99,
-    "rate_limit_reset_ms": 1580885703683,
-    "rate_limit": 100             
+  {
+    "retCode":0,
+    "retMsg":"OK",
+    "result":{
+    "orderId":"a09a43f1-7a65-4255-8758-034103447a4e",
+      "orderLinkId":""
+     },
+    "retExtInfo":null,
+    "time":1658850321861
+  }          
 }
 ```
 
@@ -408,34 +371,35 @@ t(:account_aside_replaceActive)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=oaoReplace>/private/linear/order/replace</span></code>
+<code><span id=oaoReplace>/contract/v3/private/order/replace</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oaoReplace"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|order_id |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
-|order_link_id |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
-|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
-|p_r_qty |false |integer |t(:row_comment_pRQty) |
-|p_r_price |false |number |t(:row_comment_pRPrice) |
-|take_profit |false |number |t(:row_comemnt_replace_take_profit)  |
-|stop_loss |false |number |t(:row_comemnt_replace_stop_loss)  |
-|t(:row_parameter_tp_trigger_by) |false |string |t(:account_row_comment_tp_trigger_by) |
-|t(:row_parameter_sl_trigger_by) |false |string |t(:account_row_comment_sl_trigger_by) |
+|orderId |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
+|orderLinkId |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
+|symbol |<b>true</b> |string |t(:row_comment_symbol) |
+|qty |false |string |t(:row_comment_pRQty) |
+|price |false |string |t(:row_comment_pRPrice) |
+|takeProfit |false |string |t(:row_comemnt_replace_take_profit)  |
+|stopLoss |false |string |t(:row_comemnt_replace_stop_loss)  |
+|tpTriggerBy |false |string |t(:account_row_comment_tp_trigger_by) |
+|slTriggerBy |false |string |t(:account_row_comment_sl_trigger_by) |
+|triggerBy |false |string |t(:account_row_comment_sl_trigger_by) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |order_id |string |t(:account_row_comment_orderId) |
-
+|orderLinkId |string |t(:row_comment_orderLinkId)  |
 
 
 ### t(:queryactive)
 > t(:codequote_curlExample)
 
 ```console
-curl "https://api-testnet.bybit.com/private/linear/order/search?api_key={api_key}&symbol=BTCUSDT&timestamp={timestamp}order_id={order_id}&sign={sign}"
+curl "https://api-testnet.bybit.com/contract/v3/private/order/unfilled-orders?api_key={api_key}&symbol=BTCUSDT&timestamp={timestamp}orderId={order_id}&sign={sign}"
 ```
 
 ```python--pybit
@@ -454,103 +418,46 @@ print(session_auth.query_active_order(
 > t(:codequote_responseExample)
 
 ```javascript
+
 {
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
-    "ext_info": "",
-    "result": [
-        {
-            "order_id": "8e7d1cd2-d7b3-4c61-87a9-a85a6e59cef8",
-            "user_id": 533285,
-            "symbol": "BITUSDT",
-            "side": "Buy",
-            "order_type": "Limit",
-            "price": 0.3,
-            "qty": 100,
-            "time_in_force": "GoodTillCancel",
-            "order_status": "New",
-            "last_exec_price": 0,
-            "cum_exec_qty": 0,
-            "cum_exec_value": 0,
-            "cum_exec_fee": 0,
-            "order_link_id": "Bactive001",
-            "reduce_only": false,
-            "close_on_trigger": false,
-            "created_time": "2022-06-22T02:11:49Z",
-            "updated_time": "2022-06-22T02:11:49Z",
-            "take_profit": 0.7,
-            "stop_loss": 0.1,
-            "tp_trigger_by": "LastPrice",
-            "sl_trigger_by": "LastPrice"
-        }
-    ],
-    "time_now": "1655863947.736147",
-    "rate_limit_status": 599,
-    "rate_limit_reset_ms": 1655863947734,
-    "rate_limit": 600
+    "retCode":0,
+    "retMsg":"OK",
+    "result":{
+    "list":[
+      {
+        "symbol":"BTCUSDT",
+        "orderId":"788b483e-39d2-486a-b158-829388d32013",
+        "side":"Buy",
+        "orderType":"Limit",
+        "stopOrderType":"Stop",
+        "price":"50990.00",
+        "qty":"1.000",
+        "timeInForce":"GoodTillCancel",
+        "orderStatus":"UnTriggered",
+        "triggerPrice":"45990.00",
+        "orderLinkId":"",
+        "createdTime":"1658851097073",
+        "updatedTime":"1658851097073",
+        "takeProfit":"0.00",
+        "stopLoss":"0.00",
+        "tpTriggerBy":"UNKNOWN",
+        "slTriggerBy":"UNKNOWN",
+        "triggerBy":"LastPrice",
+        "reduceOnly":false,
+        "leavesQty":"1.000",
+        "leavesValue":"50990",
+        "cumExecQty":"0.000",
+        "cumExecValue":"0",
+        "cumExecFee":"0",
+        "triggerDirection":1
+      }
+    ]
+  },
+    "retExtInfo":null,
+    "time":1658851147336
 }
 
-//t(:resp_field_order_list)
-{
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
-    "ext_info": "",
-    "result": [
-        {
-            "order_id": "6449d89e-6ef5-4f54-a065-12b2744de0ae",
-            "user_id": 118921,
-            "symbol": "LINKUSDT",
-            "side": "Buy",
-            "order_type": "Limit",
-            "price": 9,
-            "qty": 0.1,
-            "time_in_force": "GoodTillCancel",
-            "order_status": "New",
-            "last_exec_price": 11874.5,
-            "cum_exec_qty": 0.005,
-            "cum_exec_value": 11.8745,
-            "cum_exec_fee": 0.00890588,
-            "order_link_id": "",
-            "reduce_only": false,
-            "created_time": "2020-11-27T08:25:44Z",
-            "updated_time": "2020-11-27T08:25:44Z",
-            "take_profit": 0,
-            "stop_loss": 0,
-            "tp_trigger_by": "UNKNOWN",
-            "sl_trigger_by": "UNKNOWN"
-        },
-        ...
-        {
-            "order_id": "6d4dc4e0-b4e3-4fc5-a92d-3d693bdff4a5",
-            "user_id": 118921,
-            "symbol": "LINKUSDT",
-            "side": "Buy",
-            "order_type": "Limit",
-            "price": 8.2,
-            "qty": 9999,
-            "time_in_force": "GoodTillCancel",
-            "order_status": "New",
-            "last_exec_price": 11888.5,
-            "cum_exec_qty": 0.004,
-            "cum_exec_value": 11.8745,
-            "cum_exec_fee": 0.00890588,
-            "order_link_id": "",
-            "reduce_only": false,
-            "created_time": "2020-11-23T09:19:49Z",
-            "updated_time": "2020-11-23T09:20:31Z",
-            "take_profit": 0,
-            "stop_loss": 0,
-            "tp_trigger_by": "UNKNOWN",
-            "sl_trigger_by": "UNKNOWN"
-        }
-    ],
-    "time_now": "1606465563.551193",
-    "rate_limit_status": 599,
-    "rate_limit_reset_ms": 1606465563547,
-    "rate_limit": 600
-}
+
 
 ```
 
@@ -559,653 +466,46 @@ t(:account_para_queryActive)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpOrder>/private/linear/order/search</span></code>
+<code><span id=vpOrder>/contract/v3/private/order/unfilled-orders</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
+|symbol |<b>true</b> |string |t(:row_comment_symbol) |
 |order_id |false |string | t(:misc_row_comment_orderIdNotOrderLinkId)|
 |order_link_id |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
-|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
-
+|settleCoin |false |string | t(:row_comment_settleCoin)|
+|orderFilter |false |string | t(:row_comment_orderFilter)|
+|limit |<b>true</b> |number |t(:row_comment_limit) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
+|symbol |string |t(:row_comment_symbol)    |
 | order_id |string |t(:row_comment_order_id) |
-| user_id |number |t(:row_comment_userID) |
-|t(:row_parameter_symbol) |string |t(:row_comment_symbol)    |
-|t(:row_parameter_side) |string |t(:row_comment_side)  |
-|t(:row_parameter_order_type) |string |t(:row_comment_order_type)  |
-|t(:row_parameter_price) |number |t(:row_comment_resp_price)  |
+|side |string |t(:row_comment_side)  |
+|orderType |string |t(:row_comment_order_type)  |
+|triggerDirection |number |t(:row_comment_order_triggerDirection)  |
+|price |number |t(:row_comment_resp_price)  |
 |qty |number |t(:linear_row_comment_qty)  |
-|t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
-|t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
-|last_exec_price |number |t(:row_comment_last_exec_price)  |
-|cum_exec_qty |number |t(:linear_resp_field_cum_exec_qty)  |
-|cum_exec_value |number |t(:linear_resp_field_cum_exec_value)  |
-|cum_exec_fee |number |t(:linear_resp_field_cum_exec_fee)  |
+|timeInForce |string |t(:row_comment_timeInForce)  |
+|orderStatus |string |t(:row_comment_orderStatus)  |
+|triggerPrice |string |t(:row_comment_triggerPrice)  |
+|triggerBy |string |t(:account_row_comment_sl_trigger_by) |
+|tpTriggerBy |string |t(:account_row_comment_tp_trigger_by) |
+|slTriggerBy |string |t(:account_row_comment_sl_trigger_by) |
+|orderLinkId |string |t(:row_comment_orderLinkId)  |
+|createdTime |string |t(:row_comment_created_at)  |
+|updatedTime |string |t(:row_comment_updated_at)  |
+|takeProfit |number |t(:row_comment_take_profit)  |
+|stopLoss |number |t(:row_comment_stop_loss)  |
 |reduce_only |bool |t(:linear_resp_field_reduce_only)  |
-|close_on_trigger |bool |t(:row_response_close_on_trigger)  |
-|order_link_id |string |t(:row_comment_orderLinkId)  |
-|created_time |string |t(:row_comment_created_at)  |
-|updated_time |string |t(:row_comment_updated_at)  |
-|take_profit |number |t(:row_comment_take_profit)  |
-|stop_loss |number |t(:row_comment_stop_loss)  |
-|t(:row_parameter_tp_trigger_by) |string |t(:account_row_comment_tp_trigger_by) |
-|t(:row_parameter_sl_trigger_by) |string |t(:account_row_comment_sl_trigger_by) |
-
-
-
-
-
-
-
-## t(:conditionalorders)
-### t(:placecond)
-> t(:codequote_curlExample)
-
-```console
-curl https://api-testnet.bybit.com/private/linear/stop-order/create \
--H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","order_type":"Limit","side":"Buy","symbol":"BTCUSD","qty":1,"price":8100,"base_price":8300,"stop_px":8150,"time_in_force":"GoodTillCancel","trigger_by":"LastPrice",order_link_id":"cus_order_id_1","reduce_only":false,"close_on_trigger":false,"timestamp":{timestamp},"sign":"{sign}"}'
-```
-
-```python--pybit
-from pybit import usdt_perpetual
-session_auth = usdt_perpetual.HTTP(
-    endpoint="https://api-testnet.bybit.com",
-    api_key="your api key",
-    api_secret="your api secret"
-)
-print(session_auth.place_conditional_order(
-    symbol="BTCUSDT",
-    order_type="Limit",
-    side="Buy",
-    qty=1,
-    price=8100,
-    base_price=16100,
-    stop_px=8150,
-    time_in_force="GoodTillCancel",
-    trigger_by="LastPrice"
-    order_link_id="cus_order_id_1",
-    reduce_only=False,
-    close_on_trigger=False
-))
-```
-
-
-> t(:codequote_responseExample)
-
-```javascript
-{
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
-    "ext_info": "",
-    "result": {
-        "user_id": 533285,
-        "stop_order_id": "37c2f5ac-3c87-4853-a7c6-29070d4b9c4f",
-        "symbol": "XRPUSDT",
-        "side": "Buy",
-        "order_type": "Limit",
-        "price": 0.25,
-        "qty": 100,
-        "time_in_force": "GoodTillCancel",
-        "order_status": "Untriggered",
-        "trigger_price": 0.35,
-        "order_link_id": "Xcond001",
-        "created_time": "2022-06-22T02:20:47Z",
-        "updated_time": "2022-06-22T02:20:47Z",
-        "base_price": "0.3000",
-        "trigger_by": "MarkPrice",
-        "tp_trigger_by": "IndexPrice",
-        "sl_trigger_by": "MarkPrice",
-        "take_profit": 0.5,
-        "stop_loss": 0.12,
-        "reduce_only": false,
-        "close_on_trigger": false,
-        "position_idx": 1
-    },
-    "time_now": "1655864447.252259",
-    "rate_limit_status": 99,
-    "rate_limit_reset_ms": 1655864447248,
-    "rate_limit": 100
-}
-```
-
-
-t(:account_para_placeCond)
-
-<aside class="notice">
-t(:account_aside_placeCond_linear)
-</aside>
-
-<aside class="warning">
-t(:account_aside_placeActive_linear_warn)
-</aside>
-
-<p class="fake_header">t(:httprequest)</p>
-POST
-<code><span id=oasoCreate>/private/linear/stop-order/create</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oasoCreate"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|t(:row_parameter_side) |<b>true</b> |string |t(:row_comment_side)    |
-|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
-|t(:row_parameter_order_type) |<b>true</b> |string |t(:row_comment_stopOrderType) |
-|t(:row_parameter_quantity) |<b>true</b> |number |t(:linear_row_comment_qty) |
-|t(:row_parameter_price) |false | number |t(:row_comment_stopOrderPrice) |
-|base_price |<b>true</b> |number | t(:linear_row_comment_basePrice) |
-|stop_px |<b>true</b> | number | t(:linear_row_comment_stopPx) |
-|t(:row_parameter_time_in_force) |<b>true</b> |string |t(:row_comment_timeInForce) |
-|t(:row_parameter_trigger_price) | <b>true</b> | string | t(:row_comment_linear_triggerBy)|
-|reduce_only |<b>true</b> |bool |t(:linear_row_comment_reduceOnly) |
-|close_on_trigger |<b>true</b> |bool |t(:row_comment_closeOnTrigger)
-|order_link_id |false |string |t(:row_comment_orderLinkId) |
-|take_profit |false |number |t(:row_comment_takeProfit) |
-|stop_loss |false |number |t(:row_comment_stopLoss) |
-|t(:row_parameter_tp_trigger_by) |false |string |t(:account_row_comment_tp_trigger_by) |
-|t(:row_parameter_sl_trigger_by) |false |string |t(:account_row_comment_sl_trigger_by) |
-|position_idx |false |integer |t(:row_comment_position_idx_create_order)  |
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|stop_order_id |string |t(:row_comment_stopOrderId) |
-|user_id |number |t(:row_comment_userID)  |
-|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
-|t(:row_parameter_side) |string |t(:row_comment_side)  |
-|t(:row_parameter_order_type) |string |t(:row_comment_orderType)  |
-|t(:row_parameter_price) |number |t(:row_response_comment_price)  |
-|t(:row_parameter_quantity) |number |t(:linear_row_comment_qty)  |
-|t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
-|t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
-|trigger_price |number |t(:stop_order_trigger_price)  |
-|order_link_id |string |t(:row_comment_orderLinkId) |
-|created_time |string |t(:row_comment_created_at)  |
-|updated_time |string |t(:row_comment_updated_at)  |
-|base_price |string |t(:row_response_comment_basePrice)  |
-|t(:row_parameter_trigger_price) |string |t(:row_comment_triggerBy)  |
-|t(:row_parameter_tp_trigger_by) |string |t(:account_row_comment_tp_trigger_by)  |
-|t(:row_parameter_sl_trigger_by) |string |t(:account_row_comment_sl_trigger_by)  |
-|take_profit |number |t(:row_comment_take_profit)  |
-|stop_loss |number |t(:row_comment_stop_loss)  |
-|reduce_only |bool |t(:linear_resp_field_reduce_only)  |
-|close_on_trigger |bool |t(:row_response_close_on_trigger)  |
-|position_idx |integer |t(:row_comment_position_idx)  |
-
-### t(:getcond)
-> t(:codequote_curlExample)
-
-```console
-curl "https://api-testnet.bybit.com/private/linear/stop-order/list?api_key={api_key}&timestamp={timestamp}&sign={sign}"
-```
-
-```python--pybit
-from pybit import usdt_perpetual
-session_auth = usdt_perpetual.HTTP(
-    endpoint="https://api-testnet.bybit.com",
-    api_key="your api key",
-    api_secret="your api secret"
-)
-print(session_auth.get_conditional_order(
-    symbol="BTCUSDT"
-))
-```
-
-> t(:codequote_responseExample)
-
-```javascript
-{
-    "ret_code": 0,
-    "ret_msg": "ok",
-    "ext_code": "",
-    "result": {
-        "current_page": 1,
-        "last_page": 1,
-        "data": [
-            {
-                 "stop_order_id":"bd1844f-f3c0-4e10-8c25-10fea03763f6",
-                 "user_id": 1,
-                 "symbol": "BTCUSDT",
-                 "side": "Sell",
-                 "order_type": "Limit",
-                 "price": 8083,
-                 "qty": 10,
-                 "time_in_force": "GoodTillCancel",
-                 "order_status": "New",
-                 "trigger_price": 8003,
-                 "order_link_id": "",
-                 "created_time": "2019-10-21T07:28:19.396246Z",
-                 "updated_time": "2019-10-21T07:28:19.396246Z",
-                 "take_profit": 0,
-                 "stop_loss": 0,
-                 "tp_trigger_by": "UNKNOWN",
-                 "sl_trigger_by": "UNKNOWN",
-                 "base_price": "16100.0000",
-                 "trigger_by": "LastPrice",
-            },
-            {
-                 "stop_order_id":"bd1844f-f3c0-4e10-8c25-10fea03763f6",
-                 "user_id": 1,
-                 "symbol": "BTCUSDT",
-                 "side": "Sell",
-                 "order_type": "Limit",
-                 "price": 8083,
-                 "qty": 10,
-                 "time_in_force": "GoodTillCancel",
-                 "order_status": "New",
-                 "trigger_price": 8003,
-                 "order_link_id": "",
-                 "created_time": "2019-10-21T07:28:19.396246Z",
-                 "updated_time": "2019-10-21T07:28:19.396246Z",
-                 "take_profit": 0,
-                 "stop_loss": 0,
-                 "tp_trigger_by": "UNKNOWN",
-                 "sl_trigger_by": "UNKNOWN",
-                 "base_price": "16100.0000",
-                 "trigger_by": "LastPrice",
-                 "reduce_only": false,
-                 "close_on_trigger": false,
-            }
-        ]
-    },
-    "ext_info": null,
-    "time_now": "1577451658.755468",
-    "rate_limit_status": 599,
-    "rate_limit_reset_ms": 1577451658762,
-    "rate_limit": 600
-}
-```
-
-t(:account_para_getCond)
-
-<p class="fake_header">t(:httprequest)</p>
-GET
-<code><span id=oasoList>/private/linear/stop-order/list</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oasoList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|stop_order_id |false |string |t(:row_comment_stopOrderId) |
-|order_link_id |false |string |t(:row_comment_orderLinkId)|
-|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
-|<a href="#order-status-order_status-stop_order_status">stop_order_status</a> |false |string |t(:row_comment_stopOrderStatus)|
-|t(:row_parameter_order) |false |string |t(:row_comment_order) |
-|page |false |integer |t(:row_comment_page_max50) |
-|limit |false |integer |t(:row_comment_limit) |
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|stop_order_id |string |t(:row_comment_stopOrderId) |
-|user_id |number |t(:row_comment_userID)  |
-|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
-|t(:row_parameter_side) |string |t(:row_comment_side)  |
-|t(:row_parameter_order_type) |string |t(:row_comment_orderType)  |
-|t(:row_parameter_price) |number |t(:row_response_comment_price)  |
-|t(:row_parameter_quantity) |number |t(:linear_row_comment_qty)  |
-|t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
-|t(:row_parameter_order_status) |string |t(:row_comment_stopOrderStatus)
-|trigger_price |number |t(:stop_order_trigger_price)  |
-|order_link_id |string |t(:row_comment_orderLinkId) |
-|created_time |string |t(:row_comment_created_at)  |
-|updated_time |string |t(:row_comment_updated_at)  |
-|take_profit |number |t(:row_comment_take_profit)  |
-|stop_loss |number |t(:row_comment_stop_loss)  |
-|t(:row_parameter_trigger_price) |string |t(:row_comment_triggerBy)  |
-|base_price |string |t(:row_response_comment_basePrice)  |
-|t(:row_parameter_tp_trigger_by) |string |t(:account_row_comment_tp_trigger_by)  |
-|t(:row_parameter_sl_trigger_by) |string |t(:account_row_comment_sl_trigger_by)  |
-|reduce_only |bool |t(:linear_resp_field_reduce_only)  |
-|close_on_trigger |bool |t(:row_response_close_on_trigger)  |
-
-
-### t(:cancelcond)
-> t(:codequote_curlExample)
-
-```console
-curl https://api-testnet.bybit.com/private/linear/stop-order/cancel \
--H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSDT","stop_order_id":"","timestamp":{timestamp},"sign":"{sign}"}'
-```
-
-```python--pybit
-from pybit import usdt_perpetual
-session_auth = usdt_perpetual.HTTP(
-    endpoint="https://api-testnet.bybit.com",
-    api_key="your api key",
-    api_secret="your api secret"
-)
-print(session_auth.cancel_conditional_order(
-    symbol="BTCUSDT",
-    stop_order_id=""
-))
-```
-
-> t(:codequote_responseExample)
-
-```javascript
-{
-    "ret_code": 0,
-    "ret_msg": "ok",
-    "ext_code": "",
-    "result": {
-         "stop_order_id":"bd1844f-f3c0-4e10-8c25-10fea03763f6",
-    },
-    "ext_info": null,
-    "time_now": "1577452218.567120",
-    "rate_limit_status": 97,
-    "rate_limit_reset_ms": 1577452218573,
-    "rate_limit": "100"
-}
-```
-
-t(:account_para_cancelCond)
-
-<p class="fake_header">t(:httprequest)</p>
-POST
-<code><span id=oasoCancel>/private/linear/stop-order/cancel</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oasoCancel"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-|t(:column_parameter)|required|type | comments|
-|:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)|
-|stop_order_id |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
-|order_link_id |false |string | t(:misc_row_comment_orderLinkIdNotStopOrderId)|
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|stop_order_id |string |t(:row_comment_stopOrderId) |
-
-
-### t(:cancelallcond)
-> t(:codequote_curlExample)
-
-```console
-curl https://api-testnet.bybit.com/private/linear/stop-order/cancel-all \
--H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSDT","timestamp":{timestamp},"sign":"{sign}"}'
-```
-
-```python--pybit
-from pybit import usdt_perpetual
-session_auth = usdt_perpetual.HTTP(
-    endpoint="https://api-testnet.bybit.com",
-    api_key="your api key",
-    api_secret="your api secret"
-)
-print(session_auth.cancel_all_conditional_orders(
-    symbol="BTCUSDT"
-))
-```
-
-> t(:codequote_responseExample)
-
-```javascript
-{
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
-    "ext_info": "",
-    "result": [
-        "89a38056-80f1-45b2-89d3-4d8e3a203a79",  
-        "89a38056-80f1-45b2-89d3-4d8e3a203a79",
-    ],
-    "time_now": "1577454993.799912",
-    "rate_limit_status": 90,
-    "rate_limit_reset_ms": 1580885703683,
-    "rate_limit": 100
-}
-```
-
-t(:account_para_cancelAllCond)
-
-<aside class="notice">
-t(:account_aside_cancelAllActive)
-</aside>
-
-<p class="fake_header">t(:httprequest)</p>
-POST
-<code><span id=vpsoCancelAll>/private/linear/stop-order/cancel-all</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpsoCancelAll"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-|t(:column_parameter)|required|type | comments|
-|:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)|
-
-
-
-### t(:replacecond)
-> t(:codequote_curlExample)
-
-```console
-curl https://api-testnet.bybit.com/private/linear/stop-order/replace \
--H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSDT","stop_order_id":"","p_r_qty":2,"timestamp":{timestamp},"sign":"{sign}"}'
-```
-
-```python--pybit
-from pybit import usdt_perpetual
-session_auth = usdt_perpetual.HTTP(
-    endpoint="https://api-testnet.bybit.com",
-    api_key="your api key",
-    api_secret="your api secret"
-)
-print(session_auth.replace_conditional_order(
-    symbol="BTCUSDT",
-    stop_order_id="",
-    p_r_qty=2
-))
-```
-
-> t(:codequote_responseExample)
-
-```javascript
-{
-    "ret_code": 0,
-    "ret_msg": "ok",
-    "ext_code": "",
-    "result": {
-        "stop_order_id": "378a1bbc-a93a-4e75-87f4-502ea754ba36"
-    },
-    "ext_info": null,
-    "time_now": "1577475760.604942",
-    "rate_limit_status": 96,
-    "rate_limit_reset_ms": 1577475760612,
-    "rate_limit": "100"
-}
-```
-
-
-t(:account_para_replaceCond)
-
-<aside class="notice">
-t(:account_aside_replaceCond)
-</aside>
-
-<p class="fake_header">t(:httprequest)</p>
-POST
-<code><span id=oasoReplace>/private/linear/stop-order/replace</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#oasoReplace"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|stop_order_id |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
-|order_link_id |false |string | t(:misc_row_comment_orderLinkIdNotStopOrderId)|
-|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
-|p_r_qty |false |integer |t(:row_comment_pRQty) |
-|p_r_price |false |number |t(:row_comment_pRPrice) |
-|p_r_trigger_price |false |number |t(:row_comemnt_pRTriggerPrice) |
-|take_profit |false |number |t(:row_comemnt_replace_take_profit)  |
-|stop_loss |false |number |t(:row_comemnt_replace_stop_loss)  |
-|t(:row_parameter_tp_trigger_by) |false |string |t(:account_row_comment_tp_trigger_by)  |
-|t(:row_parameter_sl_trigger_by) |false |string |t(:account_row_comment_sl_trigger_by)  |
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|stop_order_id |string |t(:row_comment_stopOrderId) |
-
-### t(:querycond)
-> t(:codequote_curlExample)
-
-```console
-curl "https://api-testnet.bybit.com/private/linear/stop-order/search?api_key={api_key}&symbol=BTCUSDT&timestamp={timestamp}&sign={sign}"
-```
-
-```python--pybit
-from pybit import usdt_perpetual
-session_auth = usdt_perpetual.HTTP(
-    endpoint="https://api-testnet.bybit.com",
-    api_key="your api key",
-    api_secret="your api secret"
-)
-print(session_auth.query_conditional_order(
-    symbol="BTCUSDT"
-))
-```
-
-> t(:codequote_responseExample)
-
-```javascript
-{
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
-    "ext_info": "",
-    "result": {
-        "stop_order_id":"bd1844f-f3c0-4e10-8c25-10fea03763f6",
-        "user_id": 1,
-        "symbol": "BTCUSDT",
-        "side": "Sell",
-        "order_type": "Limit",
-        "price": 8083,
-        "qty": 10,
-        "time_in_force": "GoodTillCancel",
-        "order_status": "New",
-        "trigger_price": 8003,
-        "order_link_id": "",
-        "created_time": "2019-10-21T07:28:19.396246Z",
-        "updated_time": "2019-10-21T07:28:19.396246Z",
-        "take_profit": 0,
-        "stop_loss": 0,
-        "tp_trigger_by": "UNKNOWN",
-        "sl_trigger_by": "UNKNOWN",
-        "base_price": "16100.0000",
-        "trigger_by": "LastPrice",
-        "reduce_only": false,
-        "close_on_trigger": false,
-    },
-    "time_now": "1577476584.386958",
-    "rate_limit_status": 99,
-    "rate_limit_reset_ms": 1580885703683,
-    "rate_limit": 100
-}
-
-//t(:resp_field_order_list)
-{
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
-    "ext_info": "",
-    "result": [
-        {
-            "user_id": 1301180,
-            "stop_order_id": "a1dbf284-b6ee-4eaf-9fda-2d3f3fa4c501",
-            "symbol": "BTCUSDT",
-            "side": "Buy",
-            "order_type": "Limit",
-            "price": 8020,
-            "qty": 0.001,
-            "time_in_force": "GoodTillCancel",
-            "order_status": "Untriggered",
-            "trigger_price": 16000,
-            "order_link_id": "",
-            "created_time": "2020-11-16T09:06:17.000Z",
-            "updated_time": "2020-11-16T09:06:17.000Z",
-            "take_profit": 0,
-            "stop_loss": 0,
-            "tp_trigger_by": "UNKNOWN",
-            "sl_trigger_by": "UNKNOWN",
-            "trigger_by": "LastPrice"
-        },
-        ...
-        {
-            "user_id": 1301180,
-            "stop_order_id": "d4g5bf862-b6ee-4eaf-9fda-2d3f3fd9g4j6",
-            "symbol": "BTCUSDT",
-            "side": "Sell",
-            "order_type": "Limit",
-            "price": 8022,
-            "qty": 0.005,
-            "time_in_force": "GoodTillCancel",
-            "order_status": "Untriggered",
-            "trigger_price": 16000,
-            "order_link_id": "",
-            "created_time": "2020-11-16T09:06:17.000Z",
-            "updated_time": "2020-11-16T09:06:17.000Z",
-            "take_profit": 0,
-            "stop_loss": 0,
-            "tp_trigger_by": "UNKNOWN",
-            "sl_trigger_by": "UNKNOWN",
-            "trigger_by": "LastPrice"
-        }
-    ],
-    "time_now": "1606445293.547976",
-    "rate_limit_status": 599,
-    "rate_limit_reset_ms": 1606445293545,
-    "rate_limit": 600
-}
-```
-
-t(:account_para_queryConditional)
-
-<p class="fake_header">t(:httprequest)</p>
-GET
-<code><span id=vpStopOrder>/private/linear/stop-order/search</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpStopOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
-|stop_order_id |false |string | t(:misc_row_comment_orderIdNotOrderLinkId)|
-|order_link_id |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|stop_order_id |string |t(:row_comment_stopOrderId) |
-|user_id |number |t(:row_comment_userID)  |
-|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
-|t(:row_parameter_side) |string |t(:row_comment_side)  |
-|t(:row_parameter_order_type) |string |t(:row_comment_orderType)  |
-|t(:row_parameter_price) |number |t(:row_response_comment_price)  |
-|t(:row_parameter_quantity) |number |t(:linear_row_comment_qty)  |
-|t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
-|t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
-|trigger_price |number |t(:stop_order_trigger_price)  |
-|base_price |string |t(:row_response_comment_basePrice)  |
-|order_link_id |string |t(:row_comment_orderLinkId)  |
-|created_time |string |t(:row_comment_created_at)  |
-|updated_time |string |t(:row_comment_updated_at)  |
-|take_profit |number |t(:row_comment_take_profit)  |
-|stop_loss |number |t(:row_comment_stop_loss)  |
-|t(:row_parameter_tp_trigger_by) |string |t(:account_row_comment_tp_trigger_by)  |
-|t(:row_parameter_sl_trigger_by) |string |t(:account_row_comment_sl_trigger_by)  |
-|t(:row_parameter_trigger_price) |string |t(:row_comment_triggerBy)  |
-|reduce_only |bool |t(:linear_resp_field_reduce_only)  |
-|close_on_trigger |bool |t(:row_response_close_on_trigger)  |
+|cumExecQty |string |t(:linear_resp_field_cum_exec_qty)  |
+|cumExecValue |string |t(:linear_resp_field_cum_exec_value)  |
+|cumExecFee |string |t(:linear_resp_field_cum_exec_fee)  |
+|leavesQty |number |t(:row_comment_leavesQty)  |
+|leavesValue |number |t(:row_comment_leavesValue)  |
 
 
 ## t(:position)
@@ -1213,7 +513,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/private/linear/position/list?api_key={api_key}&symbol=BTCUSDT&timestamp={timestamp}&sign={sign}"
+curl https://api-testnet.bybit.com/contract/v3/private/position/list?api_key={api_key}&symbol=BTCUSDT&timestamp={timestamp}&sign={sign}"
 ```
 
 ```python--pybit
@@ -1232,147 +532,38 @@ print(session_auth.my_position(
 
 ```javascript
 {
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
-    "ext_info": "",
-    "result": [
-        {
-            "user_id": 533285,
-            "symbol": "XRPUSDT",
-            "side": "Buy",
-            "size": 0,
-            "position_value": 0,
-            "entry_price": 0,
-            "liq_price": 0,
-            "bust_price": 0,
-            "leverage": 5,
-            "auto_add_margin": 0,
-            "is_isolated": true,
-            "position_margin": 0,
-            "occ_closing_fee": 0,
-            "realised_pnl": 0,
-            "cum_realised_pnl": -16.35115218,
-            "free_qty": 0,
-            "tp_sl_mode": "Full",
-            "unrealised_pnl": 0,
-            "deleverage_indicator": 0,
-            "risk_id": 41,
-            "stop_loss": 0,
-            "take_profit": 0,
-            "trailing_stop": 0,
-            "position_idx": 1,
-            "mode": "BothSide"
-        },
-        {
-            "user_id": 533285,
-            "symbol": "XRPUSDT",
-            "side": "Sell",
-            "size": 50,
-            "position_value": 19.58,
-            "entry_price": 0.3916,
-            "liq_price": 0.4529,
-            "bust_price": 0.4568,
-            "leverage": 6,
-            "auto_add_margin": 0,
-            "is_isolated": true,
-            "position_margin": 3.2633354,
-            "occ_closing_fee": 0.013704,
-            "realised_pnl": 0,
-            "cum_realised_pnl": 0.90620182,
-            "free_qty": 50,
-            "tp_sl_mode": "Full",
-            "unrealised_pnl": 3.395,
-            "deleverage_indicator": 2,
-            "risk_id": 41,
-            "stop_loss": 0.5,
-            "take_profit": 0.28,
-            "trailing_stop": 0,
-            "tp_trigger_by": 1,
-            "sl_trigger_by": 1,
-            "position_idx": 2,
-            "mode": "BothSide"
-        }
-    ],
-    "time_now": "1655868796.293226",
-    "rate_limit_status": 119,
-    "rate_limit_reset_ms": 1655868796290,
-    "rate_limit": 120
-}
-
-//t(:resp_field_position_list)
-{
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
-    "ext_info": "",
-    "result": [
-        {
-            "data": {
-                "user_id": 533285,
-                "symbol": "10000NFTUSDT",
-                "side": "Sell",
-                "size": 0,
-                "position_value": 0,
-                "entry_price": 0,
-                "liq_price": 0,
-                "bust_price": 0,
-                "leverage": 10,
-                "auto_add_margin": 0,
-                "is_isolated": false,
-                "position_margin": 0,
-                "occ_closing_fee": 0,
-                "realised_pnl": 0,
-                "cum_realised_pnl": 0,
-                "free_qty": 0,
-                "tp_sl_mode": "Full",
-                "unrealised_pnl": 0,
-                "deleverage_indicator": 0,
-                "risk_id": 1,
-                "stop_loss": 0,
-                "take_profit": 0,
-                "trailing_stop": 0,
-                "position_idx": 2,
-                "mode": "BothSide"
-            },
-            "is_valid": true
-        },
-        ...
-        {
-            "data": {
-                "user_id": 533285,
-                "symbol": "10000NFTUSDT",
-                "side": "Buy",
-                "size": 0,
-                "position_value": 0,
-                "entry_price": 0,
-                "liq_price": 0,
-                "bust_price": 0,
-                "leverage": 10,
-                "auto_add_margin": 0,
-                "is_isolated": false,
-                "position_margin": 0,
-                "occ_closing_fee": 0,
-                "realised_pnl": 0,
-                "cum_realised_pnl": 0,
-                "free_qty": 0,
-                "tp_sl_mode": "Full",
-                "unrealised_pnl": 0,
-                "deleverage_indicator": 0,
-                "risk_id": 1,
-                "stop_loss": 0,
-                "take_profit": 0,
-                "trailing_stop": 0,
-                "position_idx": 1,
-                "mode": "BothSide"
-            },
-            "is_valid": true
-        }
-    ],
-    "time_now": "1604302080.356538",
-    "rate_limit_status": 119,
-    "rate_limit_reset_ms": 1604302080353,
-    "rate_limit": 120
+    "retCode":0,
+    "retMsg":"OK",
+    "result":{
+    "list": [
+      {
+        "positionIdx":0,
+        "riskId":"10",
+        "symbol":"BTCUSDT",
+        "side":"None",
+        "size":"0.000",
+        "positionValue":"0",
+        "entryPrice":"0",
+        "tradeMode":1,
+        "autoAddMargin":0,
+        "leverage":"3.5",
+        "positionBalance":"0",
+        "liqPrice":"0.00",
+        "bustPrice":"0.00",
+        "takeProfit":"0.00",
+        "stopLoss":"0.00",
+        "trailingStop":"0.00",
+        "unrealisedPnl":"0",
+        "createdTime":"1655199040377",
+        "updatedTime":"1658808420807",
+        "tpSlMode":"Partial",
+        "riskLimitValue":"10000000",
+        "activePrice":"0.00"
+      }
+    ]
+  }
+    "retExtInfo":null,
+    "time":1658848204275
 }
 ```
 
@@ -1380,48 +571,49 @@ t(:account_para_myPosition)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=pList>/private/linear/position/list</span></code>
+<code><span id=pList>/contract/v3/private/position/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |false |string |t(:row_comment_symbol)    |
+|t(:row_parameter_symbol) |false |string |t(:row_comment_symbol)    |
+|t(:row_parameter_symbol) |false |string |t(:row_comment_symbol)    |
+
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|user_id |number |t(:row_comment_userID)  |
+|positionIdx |integer |t(:row_comment_position_idx)  |
+|riskId  |integer |t(:row_comment_riskId) |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
-|size |number |t(:row_comment_position_size)  |
-|position_value |number |t(:linear_resp_field_position_value)  |
-|entry_price |number |t(:linear_resp_field_entry_price)  |
-|liq_price |number |t(:linear_resp_field_liq_price)  |
-|bust_price |number |t(:linear_resp_field_bust_price)  |
+|size |string |t(:row_comment_position_size)  |
+|positionValue |string |t(:linear_resp_field_position_value)  |
+|entryPrice |string |t(:linear_resp_field_entry_price)  |
+|tradeMode |number |t(:row_comment_isolated) |
+|autoAddMargin |number |t(:row_comment_auto_add_margin)  |
 |leverage |number |t(:resp_field_leverage)  |
-|auto_add_margin |number |t(:row_comment_auto_add_margin)  |
-|is_isolated | bool | t(:row_comment_isolated) |
-|position_margin |number |t(:linear_resp_field_position_margin)  |
-|occ_closing_fee |number |t(:linear_resp_field_occ_closing_fee)  |
-|realised_pnl |number |t(:linear_resp_field_realised_pnl)  |
-|cum_realised_pnl |number |t(:linear_resp_field_cum_realised_pnl)  |
-|free_qty |number |t(:linear_resp_field_free_qty)  |
+|positionBalance |string |t(:row_comment_positionBalance)  |
+|liqPrice |string |t(:linear_resp_field_liq_price)  |
+|bustPrice |string |t(:linear_resp_field_bust_price)  |
+|takeProfit |string |t(:row_comment_take_profit)  |
+|stopLoss |string |t(:row_comment_stop_loss)  |
+|trailingStop |string |t(:row_comment_trailing_stop)  |
+|unrealisedPnl |string |t(:row_comment_unrealised_pnl)  |
 |t(:row_parameter_tp_sl_mode) |string |t(:linear_resp_tp_sl_mode)  |
-|deleverage_indicator |number |t(:row_comment_deleverage_indicator)  |
-|unrealised_pnl |number |t(:row_comment_unrealised_pnl)  |
-|risk_id  |integer |t(:row_comment_riskId) |
-|take_profit |number |t(:row_comment_take_profit)  |
-|stop_loss |number |t(:row_comment_stop_loss)  |
-|trailing_stop |number |t(:row_comment_trailing_stop)  |
-|position_idx |integer |t(:row_comment_position_idx)  |
-|mode |string |t(:linear_comment_positionmode) |
+|trailingStop | string | t(:row_comment_trailingStop) |
+|activePrice | string | t(:row_comment_activePrice) |
+|createdTime |string |t(:row_comment_created_at)  |
+|updatedTime |string |t(:row_comment_updated_at)  |
+|nextPageCursor | string | t(:row_comment_nextPageCursor) |
 
 ### t(:setautoaddmargin)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/private/linear/position/set-auto-add-margin \
+curl https://api-testnet.bybit.com/contract/v3/private/position/set-auto-add-margin \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDT","side":"Sell","auto_add_margin":false,"timestamp":{timestamp},"sign":"{sign}"}'
 ```
@@ -1460,7 +652,7 @@ t(:linear_account_para_setAutoAddMargin)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=pSetAutoAddMargin>/private/linear/position/set-auto-add-margin</span></code>
+<code><span id=pSetAutoAddMargin>/contract/v3/private/position/set-auto-add-margin</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pSetAutoAddMargin"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -1476,9 +668,9 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/private/linear/position/switch-isolated \
+curl https://api-testnet.bybit.com/contract/v3/private/position/switch-isolated \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSDT","is_isolated":true,"buy_leverage":1,"sell_leverage":1,"timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","symbol":"BTCUSDT","tradeMode":1,"buyLeverage":"1","sellLeverage":"1","timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
 ```python--pybit
@@ -1496,43 +688,28 @@ print(session_auth.cross_isolated_margin_switch(
 ))
 ```
 
-> t(:codequote_responseExample)
-
-```javascript
-{
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
-    "ext_info": "",
-    "result": null,
-    "time_now": "1585881597.006026",
-    "rate_limit_status": 74,
-    "rate_limit_reset_ms": 1585881597004,
-    "rate_limit": 75
-}
-```
 
 t(:linear_account_para_switchIsolated)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=pSwitchIsolated>/private/linear/position/switch-isolated</span></code>
+<code><span id=pSwitchIsolated>/contract/v3/private/position/switch-isolated</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pSwitchIsolated"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
-|is_isolated |<b>true</b> |bool |t(:linear_row_comment_switch_isolated)  |
-|buy_leverage |<b>true</b> |number |t(:linear_row_comment_leverage)  |
-|sell_leverage |<b>true</b> |number |t(:linear_row_comment_leverage)  |
+|tradeMode |<b>true</b> |number |t(:linear_row_comment_switch_isolated)  |
+|buyLeverage |<b>true</b> |string |t(:linear_row_comment_leverage)  |
+|sellLeverage |<b>true</b> |string |t(:linear_row_comment_leverage)  |
 
 
 ### t(:switchpositionmode)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/private/linear/position/switch-mode \
+curl https://api-testnet.bybit.com/contract/v3/private/position/switch-mode \
 -H "Content-Type: application/json" \
 -d '{"api_key":"{api_key}","symbol":"BTCUSDT","mode":"MergedSingle","timestamp":{timestamp},"sign":"{sign}"}'
 ```
@@ -1570,7 +747,7 @@ t(:account_para_switchpositionmode_withcoin)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=ulSwitchMode>/private/linear/position/switch-mode</span></code>
+<code><span id=ulSwitchMode>/contract/v3/private/position/switch-mode</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ulSwitchMode"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -1596,23 +773,6 @@ print(session_auth.full_partial_position_tp_sl_switch(
 ))
 ```
 
-> t(:codequote_responseExample)
-
-```javascript
-{
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
-    "ext_info": "",
-    "result": {
-        "tp_sl_mode": "Partial"
-    },
-    "time_now": "1598266294.610276",
-    "rate_limit_status": 72,
-    "rate_limit_reset_ms": 1598266294607,
-    "rate_limit": 75
-}
-```
 
 t(:linear_private_switchmode)
 
@@ -1622,21 +782,15 @@ t(:switchmode_aside)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=pltcList>/private/linear/tpsl/switch-mode</span></code>
+<code><span id=pltcList>/contract/v3/private/position/switch-tpsl-mode</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pltcList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
-|t(:row_parameter_tp_sl_mode) |<b>true</b> |string |t(:linear_resp_tp_sl_mode)  |
+|tpSlMode |<b>true</b> |string |t(:linear_resp_tp_sl_mode)  |
 
-
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|t(:row_parameter_tp_sl_mode) |string |t(:linear_resp_tp_sl_mode)  |
 
 
 ### t(:addmargin)
@@ -1709,64 +863,14 @@ print(session_auth.add_reduce_margin(
 }
 ```
 
-t(:linear_account_para_addMargin)
-
-
-<p class="fake_header">t(:httprequest)</p>
-POST
-<code><span id=pAddMargin>/private/linear/position/add-margin</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pAddMargin"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
-|t(:row_parameter_side) |<b>true</b> |string |t(:row_comment_side)    |
-|margin |<b>true</b> |number |t(:linear_account_row_comment_margin) |
-|position_idx |false |integer |t(:row_comment_position_idx)  |
-
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|user_id |number |t(:row_comment_userID)  |
-|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
-|t(:row_parameter_side) |string |t(:row_comment_side)  |
-|size |number |t(:row_comment_position_size)  |
-|position_value |number |t(:linear_resp_field_position_value)  |
-|entry_price |number |t(:linear_resp_field_entry_price)  |
-|liq_price |number |t(:linear_resp_field_liq_price)  |
-|bust_price |number |t(:linear_resp_field_bust_price)  |
-|leverage |number |t(:resp_field_leverage)  |
-|auto_add_margin |number |t(:row_comment_auto_add_margin)  |
-|is_isolated |bool |t(:isIsolated)  |
-|position_margin |number |t(:linear_resp_field_position_margin)  |
-|occ_closing_fee |number |t(:linear_resp_field_occ_closing_fee)  |
-|realised_pnl |number |t(:linear_resp_field_realised_pnl)  |
-|cum_realised_pnl |number |t(:linear_resp_field_cum_realised_pnl)  |
-|free_qty |number |t(:linear_resp_field_free_qty)  |
-|t(:row_parameter_tp_sl_mode) |string |t(:linear_resp_tp_sl_mode)  |
-|unrealised_pnl |number |t(:row_comment_unrealised_pnl)  |
-|deleverage_indicator |number |t(:row_comment_deleverage_indicator)  |
-|risk_id |number |t(:row_comment_riskId)  |
-|stop_loss |number |t(:row_comment_stop_loss)  |
-|take_profit |number |t(:row_comment_take_profit)  |
-|trailing_stop |number |t(:row_comment_trailing_stop)  |
-|t(:row_parameter_tp_trigger_by) |string |t(:account_row_comment_tp_trigger_by)  |
-|t(:row_parameter_sl_trigger_by) |string |t(:account_row_comment_sl_trigger_by)  |
-|position_idx |integer |t(:row_comment_position_idx)  |
-|mode |string |t(:linear_comment_positionmode) |
-|wallet_balance |number |t(:row_comment_wallet_balance)  |
-|available_balance |number |t(:row_comment_available_balance)  |
-
 
 ### t(:setleverage)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/private/linear/position/set-leverage \
+curl https://api-testnet.bybit.com/contract/v3/private/position/set-leverage \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSDT","buy_leverage":10,"sell_leverage":10"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","symbol":"BTCUSDT","buyLeverage":"10","sellLeverage":"10"sign":"{sign}"}'
 ```
 
 ```python--pybit
@@ -1783,44 +887,28 @@ print(session_auth.set_leverage(
 ))
 ```
 
-> t(:codequote_responseExample)
-
-```javascript
-{
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
-    "ext_info": "",
-    "result": null,
-    "time_now": "1585881527.650138",
-    "rate_limit_status": 74,
-    "rate_limit_reset_ms": 1585881527648,
-    "rate_limit": 75
-}
-```
-
 t(:linear_account_para_setLeverage)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=pSetLeverage>/private/linear/position/set-leverage</span></code>
+<code><span id=pSetLeverage>/contract/v3/private/position/set-leverage</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pSetLeverage"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
-|buy_leverage |<b>true</b> |number |t(:linear_row_comment_leverage)  |
-|sell_leverage |<b>true</b> |number |t(:linear_row_comment_leverage)  |
+|buyLeverage |<b>true</b> |string |t(:linear_row_comment_leverage)  |
+|sellLeverage |<b>true</b> |string |t(:linear_row_comment_leverage)  |
 
 
 ### t(:tradingstop)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/private/linear/position/trading-stop \
+curl https://api-testnet.bybit.com/contract/v3/private/position/trading-stop \
 -H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSDT","side":"Buy","take_profit":10,"timestamp":{timestamp},"sign":"{sign}"}'
+-d '{"api_key":"{api_key}","symbol":"BTCUSDT","side":"Buy","takeProfit":10,"timestamp":{timestamp},"sign":"{sign}"}'
 ```
 
 ```python--pybit
@@ -1837,21 +925,6 @@ print(session_auth.set_trading_stop(
 ))
 ```
 
-> t(:codequote_responseExample)
-
-```javascript
-{
-  "ret_code": 0,
-  "ret_msg": "OK",
-  "ext_code": "",
-  "ext_info": "",
-  "result": null,
-  "time_now": "1586780408.193508",
-  "rate_limit_status": 73,
-  "rate_limit_reset_ms": 1586780408191,
-  "rate_limit": 75
-}
-```
 
 t(:account_para_tradingStop_linear)
 
@@ -1861,22 +934,22 @@ t(:account_aside_tradingStop)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=pSetTpSlTs>/private/linear/position/trading-stop</span></code>
+<code><span id=pSetTpSlTs>/contract/v3/private/position/trading-stop</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pSetTpSlTs"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
-|t(:row_parameter_side) |<b>true</b> |string |t(:account_row_comment_side)    |
-|take_profit |false |number |t(:account_row_comment_takeProfit) |
-|stop_loss |false |number |t(:account_row_comment_stopLoss) |
-|trailing_stop |false |number |t(:account_row_comment_trailingStop) |
-|t(:row_parameter_tp_trigger_by) | false | string | t(:account_row_comment_tp_trigger_by)
-|t(:row_parameter_sl_trigger_by) | false | string | t(:account_row_comment_sl_trigger_by)
-|sl_size |false |number |t(:row_comment_sl_size) |
-|tp_size |false |number |t(:row_comment_tp_size) |
-|position_idx |false |integer |t(:row_comment_position_idx)  |
+|takeProfit |false |string |t(:account_row_comment_takeProfit) |
+|stopLoss |false |string |t(:account_row_comment_stopLoss) |
+|trailingStop |false |string |t(:account_row_comment_trailingStop) |
+|activePrice |false |string |t(:account_row_comment_trailingStop) |
+|tpTriggerBy | false | string | t(:account_row_comment_tp_trigger_by)
+|slTriggerBy | false | string | t(:account_row_comment_sl_trigger_by)
+|slSize |false |string |t(:row_comment_sl_size) |
+|tpSize |false |string |t(:row_comment_tp_size) |
+|positionIdx |false |integer |t(:row_comment_position_idx)  |
 
 
 ### t(:usertraderecords)
