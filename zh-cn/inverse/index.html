@@ -10021,7 +10021,9 @@ GET
     <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">120</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>查詢資金記錄。</p>
+<p><p>查詢資金記錄。這個接口還展示來自網頁上<a href="https://testnet.bybit.com/app/assets/assets-exchange">資產兌換</a>下的兌換紀錄, 其中對應的<code>type</code>兌換類型是<code>ExchangeOrderWithdraw</code>和<code>ExchangeOrderDeposit</code>。</p>
+<p>這個接口返回的關於衍生品帳戶下的劃轉紀錄的內容是不完整的。推薦使用<a href="https://bybit-exchange.github.io/docs/account_asset/#t-transfer_api">帳戶資產API</a>完成資產劃轉的操作和紀錄檢索。
+</p>
 
 <aside class="notice">
 關於<code>Withdraw</code>和<code>Refund</code>類型數據的說明，請參考<a href="#t-withdrawrecords">提幣記錄</a>接口
@@ -12881,6 +12883,8 @@ ELSE
 <li><code>CreateByStopOrder</code></li>
 <li><code>CreateByTakeProfit</code></li>
 <li><code>CreateByStopLoss</code></li>
+<li><code>CreateByPartialTakeProfit</code></li>
+<li><code>CreateByPartialStopLoss</code></li>
 <li><code>CreateByTrailingStop</code></li>
 <li><code>CreateByLiq</code> - Created by partial liquidation</li>
 <li><code>CreateByAdl_PassThrough</code> - Created by ADL</li>
@@ -12892,6 +12896,7 @@ ELSE
 <li><code>AdlTrade</code> 自動減倉</li>
 <li><code>Funding</code> 資金費率</li>
 <li><code>BustTrade</code> 強製平倉</li>
+<li><code>Settle</code> 交割結算</li>
 </ul>
 <h2 id='liquidity-type-last_liquidity_ind'>Liquidity type (<code>last_liquidity_ind</code>)</h2>
 <ul>

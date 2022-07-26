@@ -10088,7 +10088,9 @@ Historical funding rates are not available through the API. However, you can obt
     <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">120</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Get wallet fund records. This endpoint also shows exchanges from the <a href="https://testnet.bybit.com/app/assets/assets-exchange">Asset Exchange</a>, where the <code>type</code>s for the exchange are <code>ExchangeOrderWithdraw</code> and <code>ExchangeOrderDeposit</code>.</p>
+<p><p>Get wallet fund records. This endpoint also shows exchanges from the <a href="https://testnet.bybit.com/app/assets/assets-exchange">Asset Exchange</a>, where the <code>type</code>s for the exchange are <code>ExchangeOrderWithdraw</code> and <code>ExchangeOrderDeposit</code>.</p>
+<p>This endpoint returns incomplete information for transfers involving the derivatives wallet. Use the <a href="https://bybit-exchange.github.io/docs/account_asset/#t-transfer_api">account asset API</a> for creating and querying internal transfers.
+</p>
 
 <aside class="notice">
 Find more detail for types <code>Withdraw</code> and <code>Refund</code> in the <a href="#t-withdrawrecords">Withdraw Records</a> endpoint.
@@ -12964,6 +12966,8 @@ ELSE
 <li><code>CreateByStopOrder</code></li>
 <li><code>CreateByTakeProfit</code></li>
 <li><code>CreateByStopLoss</code></li>
+<li><code>CreateByPartialTakeProfit</code></li>
+<li><code>CreateByPartialStopLoss</code></li>
 <li><code>CreateByTrailingStop</code></li>
 <li><code>CreateByLiq</code> - Created by partial liquidation</li>
 <li><code>CreateByAdl_PassThrough</code> - Created by ADL</li>
@@ -12975,6 +12979,7 @@ ELSE
 <li><code>AdlTrade</code> </li>
 <li><code>Funding</code> </li>
 <li><code>BustTrade</code> </li>
+<li><code>Settle</code> </li>
 </ul>
 <h2 id='liquidity-type-last_liquidity_ind'>Liquidity type (<code>last_liquidity_ind</code>)</h2>
 <ul>

@@ -788,7 +788,7 @@
                     <a href="#t-createsubaccounttransfer" class="toc-h2 toc-link" data-title="Create Subaccount Transfer">Create Subaccount Transfer</a>
                   </li>
                   <li>
-                    <a href="#t-querytransferlist" class="toc-h2 toc-link" data-title="Query Transfer List">Query Transfer List</a>
+                    <a href="#t-querytransferlist" class="toc-h2 toc-link" data-title="Query Internal Transfer List">Query Internal Transfer List</a>
                   </li>
                   <li>
                     <a href="#t-querysubaccounttransferlist" class="toc-h2 toc-link" data-title="Query Subaccount Transfer List">Query Subaccount Transfer List</a>
@@ -1274,7 +1274,7 @@ A subaccount can only be attributed to a parent account.
 <td>UUID, which is unique across the platform</td>
 </tr>
 </tbody></table>
-<h3 id='t-querytransferlist'>Query Transfer List</h3>
+<h3 id='t-querytransferlist'>Query Internal Transfer List</h3>
 <blockquote>
 <p>Request Example</p>
 </blockquote>
@@ -1424,12 +1424,12 @@ A subaccount can only be attributed to a parent account.
 <td>Exchange to amount</td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="#accounttype-type-accounttype">from_account_type</a></td>
+<td style="text-align: left"><a href="#account-type-from_account_type-to_account_type">from_account_type</a></td>
 <td style="text-align: left">string</td>
 <td>Account type</td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="#accounttype-type-accounttype">to_account_type</a></td>
+<td style="text-align: left"><a href="#account-type-from_account_type-to_account_type">to_account_type</a></td>
 <td style="text-align: left">string</td>
 <td>Account type</td>
 </tr>
@@ -1883,13 +1883,13 @@ A universal transfer enables you to transfer funds directly between two subaccou
 <td>To UID</td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="#accounttype-type-accounttype">from_account_type</a></td>
+<td style="text-align: left"><a href="#account-type-from_account_type-to_account_type">from_account_type</a></td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>From account type. Currently supports <code>SPOT</code> and <code>CONTRACT</code></td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="#accounttype-type-accounttype">to_account_type</a></td>
+<td style="text-align: left"><a href="#account-type-from_account_type-to_account_type">to_account_type</a></td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>To account type. Currently supports <code>SPOT</code> and <code>CONTRACT</code></td>
@@ -2059,12 +2059,12 @@ A universal transfer enables you to transfer funds directly between two subaccou
 <td>Transfer status</td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="#accounttype-type-accounttype">from_account_type</a></td>
+<td style="text-align: left"><a href="#account-type-from_account_type-to_account_type">from_account_type</a></td>
 <td style="text-align: left">string</td>
 <td>Account type</td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="#accounttype-type-accounttype">to_account_type</a></td>
+<td style="text-align: left"><a href="#account-type-from_account_type-to_account_type">to_account_type</a></td>
 <td style="text-align: left">string</td>
 <td>Account type</td>
 </tr>
@@ -2900,6 +2900,8 @@ ACCOUNT_STATUS_UNSPECIFIED -- ABNORMAL </p>
     <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
 <span class="p">}</span>
 </code></pre></div>
+<p>Withdrawals are always made from the SPOT wallet.</p>
+
 <p class="fake_header">HTTP Request</p>
 
 <p>POST
