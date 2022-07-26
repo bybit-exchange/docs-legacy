@@ -830,7 +830,7 @@ zh-cn:
   auth_para_construct1:
     <p>1. 所有參數按照字母順序排序，然後按照<a href="https://en.wikipedia.org/wiki/Query_string">query string</a>格式拼接。</p>
   auth_para_dv3_construct1: |
-    <p>1. 時間戳 + api-key +（recv_window）+ queryString(無需排序) or jsonBodyString</p>
+    <p>1. 時間戳 + api-key + [recv_window]+ [queryString(無需排序) | jsonBodyString]</p>
   auth_para_construct2:
     <p>2. 使用<code>HMAC_SHA256</code>算法對第1步中拼接的query string簽名，並轉換為16進製字符串，得出<code>sign</code>參數。</p>
   auth_para_dv3_construct2:

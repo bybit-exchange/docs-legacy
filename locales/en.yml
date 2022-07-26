@@ -984,8 +984,12 @@ en:
     Message format for <b>POST</b> requests:
   auth_para_construct1:
     <p>1. Concatenate all the public parameters in the <a href="https://en.wikipedia.org/wiki/Query_string">query string</a> format. The parameters must be ordered in <b>alphabetical</b> order. This will be used to generate the <code>sign</code>.</p>
+  auth_para_dv3_construct1: |
+    <p>1. timestamp + api-key + [recv_window] + [queryString(order not needed) | jsonBodyString]</p>
   auth_para_construct2:
     <p>2. Use the HMAC_SHA256 algorithm to sign the query string in step 1, and convert it to a hex string to obtain the sign parameter.</p>
+  auth_para_dv3_construct2:
+    <p>2. Use the HMAC_SHA256 algorithm to sign the string in step 1, and convert it to a hex string to obtain the sign parameter.</p>
   auth_para_construct3:
     <p>3. Append the sign parameter to the end of the parameters string, and send the HTTP request. Note that the message format for GET and POST requests is different. Please refer to the examples.</p>
   auth_aside_signature:
