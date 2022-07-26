@@ -4686,6 +4686,32 @@ en:
      </p>
     </ul>
 
+  websocket_para_endpoint_contract: |
+    <p>WebSocket public channel:</p>
+    <ul>
+    <p>
+    <li>Testnet:<br/>
+        USDT contract: <span id="usdt_2_testnet_address">wss://stream-testnet.bybit.com/contract/usdt/public/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdt_2_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <br/>
+        USDC contract: <span id="usdc_2_testnet_address">wss://stream-testnet.bybit.com/contract/usdc/public/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdc_2_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <br/>
+        USDC option: <span id="option_2_testnet_address">wss://stream-testnet.bybit.com/option/usdc/public/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#option_2_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+    </li>
+     </p>
+    </ul>
+    <p>WebSocket private channel:</p>
+    <ul>
+    <p>
+    <li>Testnet:<br/>
+        Contract account: <span id="ca_testnet_address">wss://stream-testnet.bybit.com/contract/private/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ca_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+    </li>
+     </p>
+    </ul>
+
   websocketOrderBook_v3: |
     <b>instruction: </b>
     Get 25, 500 level data.<br>
@@ -4722,3 +4748,54 @@ en:
     <p>Order price: If it is a stop order, this parameter is required. When there is no position, the long should be 10% higher than the market price and less than 1 million. For the minimum unit of price movement, please refer to the <code>price_filter</code> field in the <a href="#t-querysymbol">Query Symbol</a> endpoint.</p>
     <p>Custom order ID: You may customise order IDs for active orders. We will link it to the system order ID, and return the unique system order ID to you after the active order is created successfully. You may use this order ID or your custom order ID to cancel your active order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
     <p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSDT instrument and 280 active orders on the ETHUSDT instrument.</b></p>
+
+  # Contract Account >> Account
+  contract_account: Account
+  contract_accountPara: The following account data endpoints require authentication.
+  contract_accountCoin: <code>currency</code> alias. Returns all wallet balances if not passed. Multiple coins are allowed, separated by comma, like USDT,USDC
+  contract_accountCoin_resp: Coin name
+  contract_accountStatTime: Start timestamp in milliseconds
+  contract_accountEndTime: End timestamp in milliseconds. <b>The past year records ONLY</b>
+  contract_accountCursor: Cursor
+  contract_accountNextPageCursor: Next page cursor
+  tradingFeeRate: Get Trading Fee Rate
+  contract_tradingFeeRate_para: |
+    <p><b>Instruction:</b></p>
+    <P>Get user trading fee rate</p>
+  contract_feeRate_warning: API rate limit, 5 requests in 1 minute.
+  contract_accountTakerFeeRate: Taker fee rate
+  contract_accountMakerFeeRate: Maker fee rate
+  # Contract >> Private topics
+  contract_privateTopic: Private Topics
+  contract_websocketPosition: |
+    <p><p><b>instruction:</b></p>
+    <p>Pushing the incremental volume only</p>
+    <p>Accessing personal position list. Current user’s position holding information can be accessed through this interface, such as the quantity of position owned and wallet balance.</p>
+    <p><b>Topic：</b></p>
+    <p>user.position.contractAccount</p></p>
+  contract_position_riskLimitValue: Position upper limit corresponding to the current risk limit ID
+  contract_position_tradeMode: Trade mode：<code>0</code>：cross margin; <code>1</code>：isolated margin
+  contract_position_autoAddMargin: Auto add margin mode. <code>false</code>：turn off, <code>true</code>：turn on. It is invalid under <b>cross margin</b> mode
+  contract_position_positionBalance: Position balance
+  contract_position_liqPrice: Liquidation price
+  contract_position_bustPrice: <a href="https://help.bybit.com/hc/en-us/articles/360039749813-What-is-Bankruptcy-Price-Inverse-Contract-">Bankruptcy price</a>
+  contract_websocketExecution: |
+    <p><b>Instruction:</b></p>
+    <p>Get the user’s filled history ranked by time in ascending order.</p>
+    <p><b>Topic：</b></p>
+    <p>user.execution.contractAccount</p></p>
+  contract_executionClosedSize: Closed size
+  contract_websocketOrder:
+    <p><p><b>Instruction:</b></p>
+    <p>Pushing incremental orders only. Merge active order with conditional order into one topic.</p>
+    <p><b>Topic：</b></p>
+    <p>user.order.contractAccount</p></p>
+  contract_param_executionTpTriggerBy: <a href="#trigger-price-type-triggerby">tpTriggerBy</a>
+  contract_parm_executionSlTriggerBy: <a href="#trigger-price-type-triggerby">slTriggerBy</a>
+  contract_param_executionTriggerBy: <a href="#trigger-price-type-triggerby">triggerBy</a>
+  contract_websocketWallet: |
+    <p><b>Topic：</b></p>
+    <p>user.wallet.contractAccount</p></p>
+  contract_walletAvailableBalance: Available balance
+  contract_walletPositionMargin: Position margin
+  contract_walletOrderMargin: Margin occupied by the current order

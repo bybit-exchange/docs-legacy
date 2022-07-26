@@ -12,7 +12,7 @@ import json
 import time
 import websocket
 
-ws_url = "wss://stream.bybit.com/realtime"
+ws_url = "wss://stream-testnet.bybit.com/contract/private/v3"
 
 api_key = ""
 api_secret = ""
@@ -57,11 +57,7 @@ ws.send(
 )
 ```
 
-<aside class="notice">
-t(:linear_websocket_endpoints_aside)
-</aside>
-
-t(:linear_websocket_para_endpoint)
+t(:websocket_para_endpoint_contract)
 
 <aside class="notice">
 t(:websocket_aside_auth)
@@ -90,9 +86,9 @@ ws.send('{"op":"ping"}');
 
 ```javascript
 {
-    "success": true,
+    "success": true, // Whether ping is successful
     "ret_msg": "pong",
-    "conn_id": "036e5d21-804c-4447-a92d-b65a44d00700"
+    "conn_id": "036e5d21-804c-4447-a92d-b65a44d00700",// current connection id
     "request": {
         "op": "ping",
         "args": null
@@ -116,17 +112,16 @@ t(:websocket_para_limit)
 > t(:websocket_codequote_filters1)
 
 ```javascript
-// Subscribing to the trade data for ETHUSDT
-ws.send('{"op":"subscribe","args":["trade.ETHUSDT"]}')
+// Subscribing to the trade data for BTCUSD
+ws.send('{"op":"subscribe","args":["trade.BTCUSD"]}')
 ```
 
-> t(:websocket_codequote_filters_linear)
+> t(:websocket_codequote_filters2)
 
 ```javascript
 // Example: Subscribing to the trade data for BTCUSD and XRPUSD
-ws.send('{"op":"subscribe","args":["trade.BTCUSDT","trade.XRPUSDT"]}')
+ws.send('{"op":"subscribe","args":["trade.BTCUSD|XRPUSD"]}')
 ```
-
 
 
 t(:websocket_para_filters)
@@ -137,12 +132,15 @@ t(:websocket_para_filters1)
 
 `ws.send('{"op": "subscribe", "args": ["topic.filter", "topic.filter"]}');`
 
+t(:websocket_para_filters3)
+t(:websocket_para_filter_resp)
+
 ### t(:websocketunsubfilters)
 > t(:websocket_codequote_unsubfilters)
 
 ```javascript
-// Unsubscribing from the trade data for ETHUSDT
-ws.send('{"op":"unsubscribe","args":["trade.ETHUSDT"]}')
+// Unsubscribing from the trade data for ETHUSD
+ws.send('{"op":"unsubscribe","args":["trade.ETHUSD"]}')
 ```
 
 t(:websocket_para_unsubfilters)
@@ -157,13 +155,13 @@ t(:websocket_para_intervals)
 
 ```javascript
 {
-   "success": true,
-   "ret_msg": "",
-   "conn_id":"e0e10eee-4eff-4d21-881e-a0c55c25e2da"
-   "request": {
+   "success": true, // Whether subscription is successful
+   "ret_msg": "",   // Successful subscription: "", otherwise it shows error message
+   "conn_id":"e0e10eee-4eff-4d21-881e-a0c55c25e2da",// current connection id
+   "request": {     // Request to your subscription
        "op": "subscribe",
        "args": [
-           "candle.BTCUSDT.1m"
+           "kline.BTCUSD.1m"
        ]
    }
 }
@@ -171,231 +169,103 @@ t(:websocket_para_intervals)
 
 t(:websocket_para_response)
 
+
+
 ## t(:publictopics)
-### t(:websocketorderbook25)
+### t(:websocketOrderBookDepth)
+
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op": "subscribe", "args": ["orderBookL2_25.BTCUSDT"]}');
+ws.send('{"op": "subscribe", "args": ["orderBook25.BTCUSDT","orderBook500.BTCUSDT"]}')
 ```
-
-```python--pybit
-from time import sleep
-from pybit import usdt_perpetual
-ws_linear = usdt_perpetual.WebSocket(
-    test=True,
-    ping_interval=30,  # the default is 30
-    ping_timeout=10,  # the default is 10
-    domain="bybit"  # the default is "bybit"
-)
-def handle_message(msg):
-    print(msg)
-# To subscribe to multiple symbols,
-# pass a list: ["BTCUSDT", "ETHUSDT"]
-ws_linear.orderbook_25_stream(
-    handle_message, "XRPUSDT"
-)
-while True:
-    sleep(1)
-```
-
 > t(:codequote_snapshot)
 
 ```javascript
 {
-     "topic": "orderBookL2_25.BTCUSDT",
-     "type": "snapshot",
-     "data": {
-         "order_book":[
-             {
-                 "price": "2999.00",
-                 "symbol": "BTCUSDT",
-                 "id": 29990000,
-                 "side": "Buy",
-                 "size": 9
-             },
-             {
-                 "price": "3001.00",
-                 "symbol": "BTCUSDT",
-                 "id": 30010000,
-                 "side": "Sell",
-                 "size": 10
-             }
-          ]
-     },
-     "cross_seq": 11518,
-     "timestamp_e6": 1555647164875373
+  "topic":"orderBook25.BTCUSDT",
+    "type":"snapshot",
+    "ts":1658200820646,
+    "data":{
+    "s":"BTCUSDT",
+      "b":[
+      [
+        "22220.00",
+        "1.300"
+      ],
+      [
+        "22221.00",
+        "1.150"
+      ]
+    ],
+      "a":[
+      [
+        "22236.00",
+        "18.194"
+      ],
+      [
+        "22236.50",
+        "0.602"
+      ]
+    ],
+      "u":3566050
+  }
 }
 ```
+
 
 > t(:codequote_delta)
 
 ```javascript
 {
-     "topic": "orderBookL2_25.BTCUSDT",
-     "type": "delta",
-     "data": {
-          "delete": [
-             {
-                   "price": "3001.00",
-                   "symbol": "BTCUSDT",
-                   "id": 30010000,
-                   "side": "Sell"
-             }
-          ],
-          "update": [
-             {
-                   "price": "2999.00",
-                   "symbol": "BTCUSDT",
-                   "id": 29990000,
-                   "side": "Buy",
-                   "size": 8
-             }
-          ],
-          "insert": [
-             {
-                   "price": "2998.00",
-                   "symbol": "BTCUSDT",
-                   "id": 29980000,
-                   "side": "Buy",
-                   "size": 8
-             }
-          ],
-          "transactTimeE6": 0
-     },
-     "cross_seq": 11519,
-     "timestamp_e6": 1555647221331673
+  "topic":"orderBook25.BTCUSDT",
+    "type":"delta",
+    "ts":1658200820655,
+    "data":{
+    "s":"BTCUSDT",
+      "b":[
+      [
+        "22224.00",
+        "0.001"
+      ]
+    ],
+      "a":[
+      [
+        "22247.00",
+        "1.406"
+      ],
+      [
+        "22240.50",
+        "9.046"
+      ],
+      [
+        "22236.00",
+        "18.195"
+      ],
+      [
+        "22244.50",
+        "0.397"
+      ]
+    ],
+      "u":3566051
+  }
 }
 ```
 
-t(:websocket_para_orderbook251)
-
-<aside class="notice">
-t(:orderbookL2_200_link)
-</aside>
-
-t(:websocket_para_orderbook252)
-
+t(:websocketOrderBook_v3)
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-| t(:row_parameter_price) |string |t(:row_comment_resp_price) |
-|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
-|t(:row_parameter_side) |string |t(:row_comment_side)  |
-|size |number |t(:row_comment_position_size)  |
+|s |string |t(:row_comment_symbol)  |
+|b|array |t(:row_comment_resp_bid)    |
+|a |array|t(:row_comment_resp_ask)  |
+|u |number |t(:row_comment_updated_id)  |
 
-
-### t(:websocketorderbook200)
-
-> t(:codequote_subscribe)
-
-```javascript
-ws.send('{"op": "subscribe", "args": ["orderBook_200.100ms.BTCUSDT"]}');
-```
-
-```python--pybit
-from time import sleep
-from pybit import usdt_perpetual
-ws_linear = usdt_perpetual.WebSocket(
-    test=True,
-    ping_interval=30,  # the default is 30
-    ping_timeout=10,  # the default is 10
-    domain="bybit"  # the default is "bybit"
-)
-def handle_message(msg):
-    print(msg)
-# To subscribe to multiple symbols,
-# pass a list: ["BTCUSDT", "ETHUSDT"]
-ws_linear.orderbook_200_stream(
-    handle_message, "EOSUSDT"
-)
-while True:
-    sleep(1)
-```
-
-> t(:codequote_snapshot)
-
-```javascript
-{
-     "topic": "orderBook_200.100ms.BTCUSDT",
-     "type": "snapshot",
-     "data": {
-         "order_book":[
-             {
-                 "price": "2999.00",
-                 "symbol": "BTCUSDT",
-                 "id": 29990000,
-                 "side": "Buy",
-                 "size": 9
-             },
-             {
-                 "price": "3001.00",
-                 "symbol": "BTCUSDT",
-                 "id": 30010000,
-                 "side": "Sell",
-                 "size": 10
-             }
-          ]
-     },
-     "cross_seq": 11518,
-     "timestamp_e6": 1555647164875373
-}
-```
-
-> t(:codequote_delta)
-
-```javascript
-{
-     "topic": "orderBook_200.100ms.BTCUSDT",
-     "type": "delta",
-     "data": {
-          "delete": [
-             {
-                   "price": "3001.00",
-                   "symbol": "BTCUSDT",
-                   "id": 30010000,
-                   "side": "Sell"
-             }
-          ],
-          "update": [
-             {
-                   "price": "2999.00",
-                   "symbol": "BTCUSDT",
-                   "id": 29990000,
-                   "side": "Buy",
-                   "size": 8
-             }
-          ],
-          "insert": [
-             {
-                   "price": "2998.00",
-                   "symbol": "BTCUSDT",
-                   "id": 29980000,
-                   "side": "Buy",
-                   "size": 8
-             }
-          ],
-          "transactTimeE6": 0
-     },
-     "cross_seq": 11519,
-     "timestamp_e6": 1555647221331673
-}
-```
-
-t(:websocket_para_orderbook200)
-
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-| t(:row_parameter_price) |string |t(:row_comment_resp_price) |
-|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
-|t(:row_parameter_side) |string |t(:row_comment_side)  |
-|size |number |t(:row_comment_position_size)  |
 
 
 ### t(:websockettrade)
+
 > t(:codequote_subscribe)
 
 ```javascript
@@ -403,134 +273,88 @@ ws.send('{"op": "subscribe", "args": ["trade.BTCUSDT"]}')
 ```
 
 ```python--pybit
-from time import sleep
-from pybit import usdt_perpetual
-ws_linear = usdt_perpetual.WebSocket(
-    test=True,
-    ping_interval=30,  # the default is 30
-    ping_timeout=10,  # the default is 10
-    domain="bybit"  # the default is "bybit"
-)
-def handle_message(msg):
-    print(msg)
-# To subscribe to multiple symbols,
-# pass a list: ["BTCUSDT", "ETHUSDT"]
-ws_linear.trade_stream(
-    handle_message, "EOSUSDT"
-)
-while True:
-    sleep(1)
+
 ```
 
 > t(:codequote_responseExampleFormatAll)
 
+
 ```javascript
 {
-    "topic": "trade.BTCUSDT",
-    "data": [
-        {
-            "symbol": "BTCUSDT",
-            "tick_direction": "PlusTick",
-            "price": 8098,
-            "size": 328,
-            "timestamp":"2020-03-30T02:21:06.000Z",
-            "trade_time_ms":"1585534866418",
-            "side":"Sell",
-            "trade_id":"01e79e28-d1f4-59ac-b079-ca909606d91a"
-        }
-    ]
+  "topic":"trade.BTCUSDT",
+    "type":"snapshot",
+    "ts":1658143402593,
+    "data":[
+    {
+      "T":1658143402590,
+      "s":"BTCUSDT",
+      "S":"Buy",
+      "v":"0.001",
+      "p":"23337.00",
+      "L":"PlusTick",
+      "i":"83010f18-4476-55c0-84ab-ebd243e156cf"
+    }
+  ]
 }
 ```
 
-t(:websocket_para_trade)
+t(:websocket_para_trade_ud)
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
-|t(:row_parameter_tick_direction) |string |t(:row_comment_position_tick_direction)  |
-|t(:row_parameter_price) |number |t(:row_response_comment_price)  |
-|size |number |t(:row_comment_position_size)  |
-|timestamp |string |t(:row_response_comment_time)  |
-|trade_time_ms |string |t(:row_response_comment_nill_time)  |
-|t(:row_parameter_side) |string |t(:websocketTradeSide)  |
-|trade_id |string |t(:row_response_comment_trade_id)  |
-
+|T |number |t(:row_response_comment_timestamp)  |
+|s |string |t(:row_comment_symbol)  |
+|S|string |t(:websocketTradeSide)    |
+|v |string |t(:row_comment_position_size)  |
+|p |string |t(:row_response_comment_price)  |
+|L |string |t(:row_comment_position_tick_direction)  |
+|i|string |t(:row_response_comment_trade_id)  |
+|ts|string |t(:row_response_comment_time)  |
+|BT|bool |t(:row_response_comment_blocktrade)  |
 
 ### t(:websocketinstrumentInfo)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op": "subscribe", "args": ["instrument_info.100ms.BTCUSDT"]}')
+ws.send('{"op": "subscribe", "args": ["instrumentInfo.BTCUSDT"]}')
 ```
 
 ```python--pybit
-from time import sleep
-from pybit import usdt_perpetual
-ws_linear = usdt_perpetual.WebSocket(
-    test=True,
-    ping_interval=30,  # the default is 30
-    ping_timeout=10,  # the default is 10
-    domain="bybit"  # the default is "bybit"
-)
-def handle_message(msg):
-    print(msg)
-# To subscribe to multiple symbols,
-# pass a list: ["BTCUSDT", "ETHUSDT"]
-ws_linear.instrument_info_stream(
-    handle_message, "BTCUSDT"
-)
-while True:
-    sleep(1)
+
 ```
 
 > t(:codequote_snapshot)
 
 ```javascript
 {
-  "topic": "instrument_info.100ms.BTCUSDT",
-  "type": "snapshot",
-  "data": {
-       "id": 1,
-       "symbol": "BTCUSDT",
-       "last_price_e4": "322955000",
-       "last_price": "322955000",
-       "last_tick_direction": "ZeroPlusTick",
-       "prev_price_24h_e4": "331960000",
-       "prev_price_24h": "331960000",
-       "price_24h_pcnt_e6": "-27126",
-       "high_price_24h_e4": "333120000",
-       "high_price_24h": "333120000",
-       "low_price_24h_e4": "315940000",
-       "low_price_24h": "315940000",
-       "prev_price_1h_e4": "319490000",
-       "prev_price_1h": "319490000",
-       "price_1h_pcnt_e6": "10845",
-       "mark_price_e4": "323133000",
-       "mark_price": "323133000",
-       "index_price_e4": "323106800",
-       "index_price": "323106800",
-       "open_interest_e8": "1430451600000",
-       "total_turnover_e8": "5297934997553700000",
-       "turnover_24h_e8": "243143978993099700",
-       "total_volume_e8": "1184936057899924",
-       "volume_24h_e8": "7511238100000",
-       "funding_rate_e6": "100",
-       "predicted_funding_rate_e6": "-15",
-       "cross_seq": "6501157651",
-       "created_at": "1970-01-01T00:00:00.000Z",
-       "updated_at": "2021-07-14T09:32:10.000Z",
-       "next_funding_time": "2021-07-14T16:00:00Z",
-       "count_down_hour": 7,
-       "funding_rate_interval": 8,
-       "bid1_price_e4": "322950000",
-       "ask1_price_e4": "322955000"
-       "bid1_price": "322950000",
-       "ask1_price_e4": "322955000",
-       "ask1_price": "322955000",
+  "topic":"instrumentInfo.BTCUSDT",
+    "type":"snapshot",
+    "data":{
+    "symbol":"BTCUSDT",
+      "tickDirection":"ZeroMinusTick",
+      "price24hPcnt":"0.032786",
+      "lastPrice":"22019.00",
+      "prevPrice24h":"21320.00",
+      "highPrice24h":"22522.00",
+      "lowPrice24h":"20745.00",
+      "prevPrice1h":"22186.50",
+      "markPrice":"22010.11",
+      "indexPrice":"22009.01",
+      "openInterest":"44334.438",
+      "turnover24h":"4609010554.786498",
+      "volume24h":"213532.606",
+      "fundingRate":"0.0001",
+      "nextFundingTime":"2022-07-18T16:00:00Z",
+      "bid1Price":"22019.00",
+      "bid1Size":"41.530",
+      "ask1Price":"22019.50",
+      "ask1Size":"7.041",
+      "basisRate":"0",
+      "deliveryFeeRate":"0"
   },
-  "cross_seq": "6501157734",
-  "timestamp_e6": "1626255131908287"
+  "cs":14236992078,
+    "ts":1658145103785070
 }
 ```
 
@@ -538,84 +362,131 @@ while True:
 
 ```javascript
 {
-  "topic": "instrument_info.100ms.BTCUSDT",
-  "type": "delta",
-  "data": {
-    "update": [
-      {
-        "id": 1,
-        "symbol": "BTCUSDT",
-        "last_price_e4": "322950000",
-        "last_price": "322950000",
-        "price_24h_pcnt_e6": "-27141",
-        "price_1h_pcnt_e6": "10829",
-        "index_price_e4": "323100000",
-        "index_price": "323100000",
-        "total_turnover_e8": "5297935000783200000",
-        "turnover_24h_e8": "243143982222599700",
-        "total_volume_e8": "1184936057999924",
-        "volume_24h_e8": "7511238200000",
-        "cross_seq": "6501157735",
-        "created_at": "1970-01-01T00:00:00.000Z",
-        "updated_at": "2021-07-14T09:32:12.000Z"
-      }
-    ]
+  "topic":"instrumentInfo.BTCUSDT",
+    "type":"delta",
+    "data":{
+    "symbol":"BTCUSDT",
+      "tickDirection":"PlusTick",
+      "price24hPcnt":"0.032621",
+      "lastPrice":"22015.50",
+      "turnover24h":"4609049418.106998",
+      "volume24h":"213534.371",
+      "fundingRate":"0.0001",
+      "nextFundingTime":"2022-07-18T16:00:00Z",
+      "bid1Price":"22019.00",
+      "bid1Size":"41.530",
+      "ask1Price":"22019.50",
+      "ask1Size":"7.041"
   },
-  "cross_seq": "6501157736",
-  "timestamp_e6": "1626255132104671"
+  "cs":14236992274, 
+    "ts":1658145103883091
 }
+
 ```
 
-t(:websocket_para_instrumentInfo)
+> t(:codequote_option)
+
+```javascript
+{
+    "id": "instrumentInfo.BTC-29JUL22-26000-C-335648950-1658284651212",
+    "topic": "instrumentInfo.BTC-29JUL22-26000-C",
+    "ts": 1658284651212,
+    "data": {
+        "symbol": "BTC-29JUL22-26000-C",
+        "bidPrice": "360",
+        "bidSize": "36.7",
+        "bidIv": "0.7828",
+        "askPrice": "380",
+        "askSize": "0.7",
+        "askIv": "0.8005",
+        "lastPrice": "160",
+        "highPrice24h": "0",
+        "lowPrice24h": "0",
+        "markPrice": "412.017195",
+        "indexPrice": "23479.75",
+        "markPriceIv": "0.8283",
+        "underlyingPrice": "23494.15",
+        "openInterest": "305.89",
+        "turnover24h": "0",
+        "volume24h": "0",
+        "totalVolume": "2884",
+        "totalTurnover": "12808823",
+        "delta": "0.24076634",
+        "gamma": "0.00010067",
+        "vega": "11.63078846",
+        "theta": "-52.22100976",
+        "predictedDeliveryPrice": "0",
+        "change24h": "0"
+    },
+    "type": "snapshot"
+}
+
+```
+
+t(:websocket_para_instrumentInfo_v3)
 
 <aside class="warning">
-t(:websocket_aside_instrumentInfo1)
-</aside>
-
-<aside class="notice">
-t(:websocket_aside_instrumentInfo2)
+t(:websocket_aside_instrumentInfo_ud)
 </aside>
 
 
-
-<p class="fake_header">t(:responseparameters)</p>
+<p class="fake_header">t(:futuresResponseParameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|t(:row_parameter_symbol) |string |t(:row_comment_symbol)    |
-|last_price_e4 |string |t(:row_comment_resp_last_price_e4)  |
-|last_price |string |t(:row_comment_resp_last_price)  |
-|<a href="#tick-direction-type-tick_direction">last_tick_direction</a> |string |t(:row_comment_position_tick_direction)  |
-|prev_price_24h_e4 |string |t(:row_comment_resp_prev_price_24h_e4)  |
-|prev_price_24h |string |t(:row_comment_resp_prev_price_24h)  |
-|price_24h_pcnt_e6 |string |t(:row_comment_resp_price_24h_pcnt_e4)  |
-|high_price_24h_e4 |string |t(:row_comment_resp_high_price_24h_e4)  |
-|high_price_24h |string |t(:row_comment_resp_high_price_24h)  |
-|low_price_24h_e4 |string |t(:row_comment_resp_low_price_24h_e4)  |
-|low_price_24h |string |t(:row_comment_resp_low_price_24h)  |
-|prev_price_1h_e4 |string |t(:row_comment_resp_prev_price_1h_e4)  |
-|prev_price_1h |string |t(:row_comment_resp_prev_price_1h)  |
-|price_1h_pcnt_e6 |string |t(:row_comment_resp_price_1h_pcnt_e6)  |
-|mark_price_e4 |string |t(:row_comment_resp_mark_price_e4)  |
-|mark_price |string |t(:row_comment_resp_mark_price)  |
-|index_price_e4 |string |t(:row_comment_resp_index_price_e4)  |
-|index_price |string |t(:row_comment_resp_index_price)  |
-|open_interest_e8|string |t(:row_comment_resp_open_interest_e8). t(:row_comment_slow_update)  |
-|total_turnover_e8 |string |t(:row_comment_resp_total_turnover_e8)  |
-|turnover_24h_e8 |string |t(:row_comment_resp_turnover_24h_e8)  |
-|total_volume_e8 |string |t(:row_comment_resp_total_volume_e8)  |
-|volume_24h_e8 |string |t(:row_comment_resp_volume_24h_e8)  |
-|funding_rate_e6 |string |t(:row_comment_resp_funding_rate_e6)  |
-|predicted_funding_rate_e6 |string |t(:row_comment_resp_predicted_funding_rate_e6)  |
-|cross_seq |string |t(:row_comment_cross_seq)  |
-|created_at |string |t(:row_comment_created_at)  |
-|updated_at |string |t(:row_comment_updated_at)  |
-|next_funding_time |string |t(:row_comment_resp_next_funding_time)  |
-|countdown_hour |number |t(:row_comment_resp_countdown_hour)  |
-|funding_rate_interval |number |t(:row_comment_resp_funding_rate_interval) |
-|bid1_price_e4 |string|t(:row_comment_bid1_price_e4)  |
-|ask1_price_e4 |string|t(:row_comment_ask1_price_e4)  |
-|bid1_price |string|t(:row_comment_bid1_price)  |
-|ask1_price |string|t(:row_comment_ask1_price)  |
+|symbol |string |t(:row_comment_symbol)  |
+|tickDirection|string |t(:row_comment_position_tick_direction)  |
+|price24hPcnt|string|t(:row_comment_resp_price_24h_pcnt) |
+|lastPrice |string |t(:row_comment_resp_last_price)  |
+|prevPrice24h |string |t(:row_comment_resp_prev_price_24h)  |
+|highPrice24h |string |t(:row_comment_resp_high_price_24h)  |
+|lowPrice24h |string |t(:row_comment_resp_low_price_24h)  |
+|markPrice |string |t(:row_comment_resp_mark_price)  |
+|indexPrice |string |t(:row_comment_resp_index_price)  |
+|openInterest |string |t(:row_comment_resp_open_interest). t(:row_comment_slow_update)  |
+|turnover24h |string |t(:row_comment_resp_turnover_24h)  |
+|volume24h |string |t(:row_comment_resp_volume_24h)  |
+|nextFundingTime |string |t(:row_comment_resp_next_funding_time_v3)  |
+|fundingRate |string |t(:row_comment_resp_funding_rate_v3) |
+|predicatedFundingRate |string |t(:predicatedFundingRate_v3) |
+|bid1Price|string|t(:row_comment_resp_bid_price) |
+|bid1Size|string|t(:row_comment_resp_bid_size) |
+|ask1Price|string|t(:row_comment_resp_ask_price) |
+|ask1Size|string|t(:row_comment_resp_ask_size) |
+|basisRate|string|t(:basisRate_v3) |
+|deliveryFeeRate|string|t(:row_comment_resp_delivery_fee_rate_v3) |
+|prevPrice1h |string |t(:row_comment_resp_prev_price_1h_v3)  |
+|deliveryTime |string |t(:deliveryTime_v3)  |
+|predicatedDeliveryPrice |string |t(:predicatedDeliveryPrice_v3)  |
+
+<p class="fake_header">t(:optionResponseParameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| t(:row_parameter_symbol) |string |t(:usdcSymbol) |
+| bidPrice |string |t(:bidPrice) |
+| bidSize |string |t(:bidSize) |
+| bidIv |string |t(:bidIv) |
+| askPrice |string |t(:askPrice) |
+| askSize |string |t(:askSize) |
+| askIv |string |t(:askIv) |
+| lastPrice |string |t(:usdcLastPrice) |
+| highPrice24h |string |t(:highPrice24h) |
+| lowPrice24h |string |t(:lowPrice24h) |
+| markPrice |string |t(:usdcMarkPrice) |
+| indexPrice |string |t(:usdcIndexPrice) |
+| markPriceIv |string |t(:markPriceIv) |
+| underlyingPrice |string |t(:underlying) |
+| openInterest |string |t(:openInterest) |
+| turnover24h |string |t(:turnover24h) |
+| volume24h |string |t(:volume24h) |
+| totalVolume |string |t(:totalVolume) |
+| totalTurnOver |string |t(:totalTurnOver) |
+| delta |string |t(:delta) |
+| gamma |string |t(:gamma) |
+| theta |string |t(:theta) |
+| vega |string |t(:vega) |
+| predictedDeliveryPrice |string |t(:predictedDeliveryPrice) |
+| change24h |string |t(:price24Pcnt) |
+
 
 ### t(:websocketkline)
 > t(:codequote_subscribe)
@@ -625,531 +496,204 @@ ws.send('{"op":"subscribe","args":["candle.1.BTCUSDT"]}')
 ```
 
 ```python--pybit
-from time import sleep
-from pybit import usdt_perpetual
-ws_linear = usdt_perpetual.WebSocket(
-    test=True,
-    ping_interval=30,  # the default is 30
-    ping_timeout=10,  # the default is 10
-    domain="bybit"  # the default is "bybit"
-)
-def handle_message(msg):
-    print(msg)
-# To subscribe to multiple symbols,
-# pass a list: ["BTCUSDT", "ETHUSDT"]
-# pass an interval
-ws_linear.kline_stream(
-    handle_message, "DOTUSDT", "D"
-)
-while True:
-    sleep(1)
+
 ```
 
 > t(:codequote_responseExampleFormatAll)
 
 ```javascript
 {
-    "topic": "candle.1.BTCUSDT",
-    "data": [
-        {
-            "start": 1655956380,
-            "end": 1655956440,
-            "period": "1",
-            "open": 20261,
-            "close": 20257.5,
-            "high": 20261,
-            "low": 20256,
-            "volume": "25.396",
-            "turnover": "514491.9815",
-            "confirm": False,
-            "cross_seq": 13135807020,
-            "timestamp": 1655956431377798
-        }
-    ],
-    "timestamp_e6": 1655956431377798
+  "topic":"candle.1.BTCUSDT",
+    "data":[
+    {
+      "start":1658150220000,
+      "end":1658150279999,
+      "interval":"1",
+      "open":"22212",
+      "close":"22214",
+      "high":"22214.5",
+      "low":"22212",
+      "volume":"5.456",
+      "turnover":"121193.36",
+      "confirm":false,
+      "timestamp":1658150224542
+    }
+  ],
+    "ts":1658150224542,
+    "type":"snapshot"
 }
 ```
 
-t(:websocket_para_klineV2)
+t(:websocket_para_kline_v3)
 
 <aside class="notice">
 t(:websocket_aside_klineV2)
 </aside>
-
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |start|integer |t(:row_comment_startTime)    |
 |end|integer |t(:row_comment_endTime)    |
-|open|number |t(:row_comment_open)    |
-|close|number |t(:row_comment_close)    |
-|high|number |t(:row_comment_high)    |
-|low|number |t(:row_comment_low)    |
+|interval|string|t(:row_comment_interval) |
+|open|string |t(:row_comment_open)    |
+|close|string |t(:row_comment_close)    |
+|high|string |t(:row_comment_high)    |
+|low|string |t(:row_comment_low)    |
 |volume|string |t(:row_comment_resp_volume)    |
 |turnover|string |t(:row_comment_resp_turnover)    |
 |confirm|bool |t(:row_comment_confirm)    |
-|cross_seq|integer |t(:row_comment_cross_seq)    |
-|timestamp|integer |t(:row_comment_timestamp_e6)    |
+|timestamp|integer |t(:row_comment_endTime)    |
 
 
-### t(:websocketliquidation)
-> t(:codequote_subscribe)
-
-```javascript
-ws.send('{"op":"subscribe","args":["liquidation.XRPUSDT"]}')
-```
-
-```python--pybit
-from time import sleep
-from pybit import usdt_perpetual
-ws_linear = usdt_perpetual.WebSocket(
-    test=True,
-    ping_interval=30,  # the default is 30
-    ping_timeout=10,  # the default is 10
-    domain="bybit"  # the default is "bybit"
-)
-def handle_message(msg):
-    print(msg)
-# To subscribe to multiple symbols,
-# pass a list: ["BTCUSDT", "ETHUSDT"]
-ws_linear.liquidation_stream(
-    handle_message, "DOTUSDT"
-)
-while True:
-    sleep(1)
-```
-
-> t(:codequote_responseExampleFormatAll)
-
-```javascript
-{
-    "topic":"liquidation.XRPUSDT",
-    "data": {
-        "symbol":"XRPUSDT",
-        "side":"Sell",
-        "price":"3384.15",
-        "qty":"0.057",
-        "time":1631608881954
-    }
-}
-```
-t(:websocket_query_liqrecords)
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
-|t(:row_parameter_side)|string |t(:row_response_liq_record_side)    |
-|t(:row_parameter_price) |string |t(:row_comment_bust_price)    |
-|t(:row_parameter_quantity)|string |t(:row_response_comment_liq_execqty)    |
-|time|number |t(:row_response_comment_nill_time)    |
-
-
-
-
-
-## t(:privatetopics)
+## t(:contract_privateTopic)
 ### t(:websocketposition)
 > t(:codequote_subscribe)
 
-```javascript
-ws.send('{"op": "subscribe", "args": ["position"]}')
-```
 
-```python--pybit
-from time import sleep
-from pybit import usdt_perpetual
-ws_linear = usdt_perpetual.WebSocket(
-    test=True,
-    api_key="your api key",
-    api_secret="your api secret",
-    ping_interval=30,  # the default is 30
-    ping_timeout=10,  # the default is 10
-    domain="bybit"  # the default is "bybit"
-)
-def handle_message(msg):
-    print(msg)
-ws_linear.position_stream(
-    handle_message
-)
-while True:
-    sleep(1)
+```javascript
+ws.send('{"op":"subscribe","args":["user.position.contractAccount"]}');
 ```
 
 > t(:codequote_responseExampleFormatAll)
 
 ```javascript
-{
-   "topic": "position",
-   "action": "update",
-   "data": [
-{
-            "user_id": "533285",
-            "symbol": "BTCUSDT",
-            "size": 0.01,
-            "side": "Buy",
-            "position_value": 202.195,
-            "entry_price": 20219.5,
-            "liq_price": 0.5,
-            "bust_price": 0.5,
-            "leverage": 99,
-            "order_margin": 0,
-            "position_margin": 1959.6383,
-            "occ_closing_fee": 3e-06,
-            "take_profit": 25000,
-            "tp_trigger_by": "LastPrice",
-            "stop_loss": 18000,
-            "sl_trigger_by": "LastPrice",
-            "trailing_stop": 0,
-            "realised_pnl": -4.189762,
-            "auto_add_margin": "0",
-            "cum_realised_pnl": -13.640625,
-            "position_status": "Normal",
-            "position_id": "0",
-            "position_seq": "92962",
-            "adl_rank_indicator": "2",
-            "free_qty": 0.01,
-            "tp_sl_mode": "Full",
-            "risk_id": "1",
-            "isolated": false,
-            "mode": "BothSide",
-            "position_idx": "1"
-        }
-   ]
-}
+
 ```
 
-t(:account_para_myPosition)
+t(:contract_websocketPosition)
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|user_id |number |t(:row_comment_userID)  |
-|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
-|size |number |t(:row_comment_position_size)  |
-|t(:row_parameter_side) |string |t(:row_comment_side)  |
-|position_value |number |t(:row_comment_position_value)  |
-|entry_price |number |t(:row_comment_entry_price)  |
-|liq_price |number |t(:row_comment_liq_price)  |
-|bust_price |number |t(:row_comment_bust_price)  |
-|leverage |number |t(:resp_field_leverage)  |
-|order_margin |number |t(:row_comment_order_margin)  |
-|position_margin |number |t(:row_comment_position_margin)  |
-|occ_closing_fee |number |t(:row_comment_occ_closing_fee)  |
-|take_profit |number |t(:row_comment_take_profit)  |
-|t(:row_parameter_tp_trigger_by)|string |t(:account_row_comment_tp_trigger_by) |
-|stop_loss |number |t(:row_comment_stop_loss)  |
-|t(:row_parameter_sl_trigger_by) |string |t(:account_row_comment_sl_trigger_by) |
-|trailing_stop |number |t(:row_comment_trailing_stop) |
-|realised_pnl |number |t(:row_comment_realised_pnl)  |
-|auto_add_margin |number |t(:row_comment_auto_add_margin)  |
-|cum_realised_pnl |number |t(:row_comment_cum_realised_pnl)  |
-|position_status |string |t(:row_comment_position_status)  |
-|position_seq |string |t(:row_comment_position_seq)  |
-|free_qty |number |t(:linear_resp_field_free_qty)  |
-|t(:row_parameter_tp_sl_mode) |string |t(:row_comment_tp_sl_mode)  |
-|risk_id |string |t(:row_comment_riskId)  |
-|isolated |bool |t(:row_comment_isolated)  |
-|mode |string |t(:row_comment_mode)  |
-|position_idx |string |t(:row_comment_position_idx)  |
+|list> positionIdx |integer |t(:row_comment_query_positionIdx_v3)  |
+|list> riskId |integer |t(:row_comment_riskId)  |
+|list> riskLimitValue |string |t(:contract_position_riskLimitValue)  |
+|list> symbol |string |t(:row_comment_symbol_v3)  |
+|list> side |string |t(:row_comment_query_side_v3)  |
+|list> size |string |t(:row_comment_query_size_v3)  |
+|list> positionValue |string |t(:row_comment_query_positionValue_v3)  |
+|list> entryPrice |string |t(:row_comment_query_entryPrice_v3)  |
+|list> tradeMode |integer |t(:contract_position_tradeMode)  |
+|list> autoAddMargin |bool |t(:contract_position_autoAddMargin)  |
+|list> leverage |string |t(:row_comment_query_leverage_v3)  |
+|list> positionBalance |string |t(:contract_position_positionBalance)  |
+|list> liqPrice |string |t(:contract_position_liqPrice)  |
+|list> bustPrice |string |t(:contract_position_bustPrice)  |
+|list> takeProfit |string |t(:row_comment_query_takeProfit_v3)  |
+|list> stopLoss |string |t(:row_comment_query_stopLoss_v3)  |
+|list> trailingStop |string |t(:row_comment_query_trailingStop_v3)  |
+|list> unrealisedPnl |string |t(:row_comment_query_unrealisedPnl_v3)  |
+|list> createdTime |number |t(:row_comment_query_createdTime_v3)  |
+|list> updatedTime |number |t(:row_comment_query_updatedTime_v3)  |
+|list> tpslMode |string |t(:row_comment_query_tpslMode_v3)  |
 
 
 ### t(:websocketexecution)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op": "subscribe", "args": ["execution"]}')
-```
-
-```python--pybit
-from time import sleep
-from pybit import usdt_perpetual
-ws_linear = usdt_perpetual.WebSocket(
-    test=True,
-    api_key="your api key",
-    api_secret="your api secret",
-    ping_interval=30,  # the default is 30
-    ping_timeout=10,  # the default is 10
-    domain="bybit"  # the default is "bybit"
-)
-def handle_message(msg):
-    print(msg)
-ws_linear.execution_stream(
-    handle_message
-)
-while True:
-    sleep(1)
+ws.send('{"op":"subscribe","args":["user.execution.contractAccount"]}');
 ```
 
 > t(:codequote_responseExampleFormatAll)
 
 ```javascript
-{
-    "topic": "execution",
-    "data": [
-        {
-            "symbol": "BTCUSDT",
-            "side": "Sell",
-            "order_id": "xxxxxxxx-xxxx-xxxx-9a8f-4a973eb5c418",
-            "exec_id": "xxxxxxxx-xxxx-xxxx-8b66-c3d2fcd352f6",
-            "order_link_id": "",
-            "price": 11527.5,
-            "order_qty": 0.001,
-            "exec_type": "Trade",
-            "exec_qty": 0.001,
-            "exec_fee": 0.00864563,
-            "leaves_qty": 0,
-            "is_maker": false,
-            "trade_time": "2020-08-12T21:16:18.142746Z"
-        }
-    ]
-}
+
 ```
 
-t(:wallet_para_tradeRecords)
+t(:contract_websocketExecution)
 
-<aside class="notice">
-t(:websocket_execution_aside)
-</aside>
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|t(:row_parameter_symbol) |string |t(:row_comment_symbol)  |
-|t(:row_parameter_side) |string |t(:row_comment_side)  |
-|order_id |string |t(:row_comment_order_id)  |
-|exec_id |string |t(:row_comment_exec_id)  |
-|order_link_id |string |t(:row_comment_orderLinkId)  |
-|t(:row_parameter_price) |number |t(:row_comment_exec_price)    |
-|order_qty |number |t(:row_comment_order_qty)  |
-|t(:row_parameter_exec_type) |string |t(:exec_type_pnl)  |
-|exec_qty |number |t(:row_comment_exec_qty)  |
-|exec_fee |number |t(:row_comment_exec_fee)    |
-|leaves_qty |number |t(:row_comment_leaves_qty) |
-|is_maker |boolean |t(:row_comment_is_maker) |
-|trade_time |string |t(:row_comment_trade_time)  |
+|symbol |string |t(:row_comment_symbol_v3)   |
+|execFee |string |t(:row_comment_query_execFee_v3)  |
+|execId |string |t(:row_comment_query_execId_v3)  |
+|execPrice |string |t(:row_comment_query_execPrice_v3)  |
+|execQty |string |t(:row_comment_query_execQty_v3)  |
+|execType |string |t(:row_comment_query_execType_v3)  |
+|execValue |string |t(:row_comment_query_execValue_v3)  |
+|feeRate |string |t(:row_comment_query_feeRate_v3)  |
+|lastLiquidityInd |string |t(:row_comment_query_lastLiquidityInd_v3)  |
+|leavesQty |string |t(:row_comment_query_leavesQty_v3)  |
+|orderId |string |t(:row_comment_query_orderId_v3) |
+|orderLinkId |string |t(:row_comment_query_orderLinkId_v3)  |
+|orderPrice |string |t(:row_comment_query_price_v3)  |
+|orderQty |string |t(:row_comment_query_qty_v3)  |
+|orderType |string |t(:row_comment_query_orderType_v3)  |
+|stopOrderType |string |t(:row_comment_query_stopOrderType_v3)  |
+|side |string |t(:row_comment_query_side_v3)  |
+|execTime |number |t(:row_comment_query_execTime_v3)  |
+|closedSize |string |t(:row_comment_query_execTime_v3)  |
 
 
-### t(:websocketorder)
+### t(:websocketOrder)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op": "subscribe", "args": ["order"]}')
-```
-
-```python--pybit
-from time import sleep
-from pybit import usdt_perpetual
-ws_linear = usdt_perpetual.WebSocket(
-    test=True,
-    api_key="your api key",
-    api_secret="your api secret",
-    ping_interval=30,  # the default is 30
-    ping_timeout=10,  # the default is 10
-    domain="bybit"  # the default is "bybit"
-)
-def handle_message(msg):
-    print(msg)
-ws_linear.order_stream(
-    handle_message
-)
-while True:
-    sleep(1)
+ws.send('{"op":"subscribe","args":["user.order.contractAccount"]}');
 ```
 
 > t(:codequote_responseExampleFormatAll)
 
 ```javascript
-{
-    "topic": "order",
-    "action": "",
-    "data": [
-        {
-            "order_id": "19a8cbbe-e077-42c7-bdba-505c76619ea5",
-            "order_link_id": "Bactive004",
-            "symbol": "BTCUSDT",
-            "side": "Sell",
-            "order_type": "Market",
-            "price": 19185.5,
-            "qty": 0.01,
-            "leaves_qty": 0,
-            "last_exec_price": 20196,
-            "cum_exec_qty": 0.01,
-            "cum_exec_value": 201.95999,
-            "cum_exec_fee": 0.121176,
-            "time_in_force": "ImmediateOrCancel",
-            "create_type": "CreateByUser",
-            "cancel_type": "UNKNOWN",
-            "order_status": "Filled",
-            "take_profit": 0,
-            "stop_loss": 0,
-            "trailing_stop": 0,
-            "create_time": "2022-06-23T04:08:47.956636888Z",
-            "update_time": "2022-06-23T04:08:47.960908408Z",
-            "reduce_only": true,
-            "close_on_trigger": false,
-            "position_idx": "1"
-        }
-    ]
-}
+
 ```
+
+t(:contract_websocketOrder)
+
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|order_id |string |t(:row_comment_order_id)  |
-|order_link_id |string |t(:row_comment_orderLinkId)  |
-|t(:row_parameter_symbol) |string |t(:row_comment_symbol)  |
-|t(:row_parameter_side) |string |t(:row_comment_side)  |
-|t(:row_parameter_order_type) |string |t(:row_comment_stopOrderType) |
-|t(:row_parameter_price) |number |t(:row_comment_resp_price) |
-|qty |number |t(:row_comment_exec_qty)  |
-|leaves_qty |number |t(:row_comment_leaves_qty)  |
-|last_exec_price |number |t(:row_comment_last_exec_price)  |
-|cum_exec_qty |number |t(:linear_resp_field_cum_exec_qty)  |
-|cum_exec_value |string |t(:linear_resp_field_cum_exec_value)  |
-|cum_exec_fee |string |t(:linear_resp_field_cum_exec_fee)  |
-|t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce) |
-|create_type |string |t(:row_comment_create_type)  |
-|cancel_type |string |t(:row_comment_cancel_type)  |
-|t(:row_parameter_order_status) |string |t(:row_comment_orderStatus) |
-|take_profit |number |t(:row_comment_take_profit) |
-|stop_loss |number |t(:row_comment_stop_loss) |
-|trailing_stop |number |t(:row_comment_trailing_stop) |
-|create_time |string |t(:websocketorder_row_comment_timestamp)  |
-|update_time |string |t(:row_comment_updated_at)  |
-|reduce_only | bool | t(:row_comment_reduceOnly)|
-|close_on_trigger | bool | t(:row_comment_closeOnTrigger)|
-|position_idx |string |t(:row_comment_position_idx)  |
-
-### t(:websocketstoporder)
-> t(:codequote_subscribe)
-
-```javascript
-ws.send('{"op": "subscribe", "args": ["stop_order"]}')
-```
-
-```python--pybit
-from time import sleep
-from pybit import usdt_perpetual
-ws_linear = usdt_perpetual.WebSocket(
-    test=True,
-    api_key="your api key",
-    api_secret="your api secret",
-    ping_interval=30,  # the default is 30
-    ping_timeout=10,  # the default is 10
-    domain="bybit"  # the default is "bybit"
-)
-def handle_message(msg):
-    print(msg)
-ws_linear.stop_order_stream(
-    handle_message
-)
-while True:
-    sleep(1)
-```
-
-> t(:codequote_responseExampleFormatAll)
-
-```javascript
-{
-    "topic": "stop_order",
-    "data": [
-        {
-            "stop_order_id": "559bba2c-0152-4557-84f6-63dc6ab78463",
-            "order_link_id": "",
-            "user_id": "533285",
-            "symbol": "BTCUSDT",
-            "side": "Sell",
-            "order_type": "Market",
-            "price": 0,
-            "qty": 0.01,
-            "time_in_force": "ImmediateOrCancel",
-            "create_type": "CreateByTakeProfit",
-            "cancel_type": "UNKNOWN",
-            "order_status": "Untriggered",
-            "stop_order_type": "TakeProfit",
-            "tp_trigger_by": "UNKNOWN",
-            "trigger_price": 25000,
-            "create_time": "2022-06-23T04:06:55.402188346Z",
-            "update_time": "2022-06-23T04:08:47.960950878Z",
-            "reduce_only": true,
-            "close_on_trigger": true,
-            "position_idx": "1"
-        }
-    ]
-}
-```
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|stop_order_id |string |t(:row_comment_stopOrderId) |
-|order_link_id |string |t(:row_comment_orderLinkId)  |
-|user_id |number |t(:row_comment_userID)  |
-|t(:row_parameter_symbol) |string |t(:row_comment_symbol)  |
-|t(:row_parameter_side) |string |t(:row_comment_side)  |
-|t(:row_parameter_order_type) |string |t(:row_comment_order_type) |
-|t(:row_parameter_price) |number |t(:row_response_comment_price)    |
-|qty |number |t(:row_response_comment_qty)  |
-|t(:row_parameter_time_in_force) |string |t(:row_comment_timeInForce)  |
-|create_type |string |t(:row_comment_create_type)  |
-|cancel_type |string |t(:row_comment_cancel_type)  |
-|t(:row_parameter_order_status) |string |t(:row_comment_orderStatus)  |
-|t(:row_parameter_stop_order_type) |string |t(:row_comment_stopOrderType)  |
-|tp_trigger_by | string |t(:row_comment_triggerBy) |
-|trigger_price | number | t(:stop_order_trigger_price)|
-|create_time |string |t(:websocketorder_row_comment_timestamp)  |
-|update_time |string |t(:row_comment_updated_at)  |
-|reduce_only |bool |t(:row_comment_reduceOnly) |
-|close_on_trigger | bool |t(:row_comment_closeOnTrigger) |
-|position_idx |string |t(:row_comment_position_idx)  |
+|symbol |string |t(:row_comment_symbol_v3)   |
+|orderId |string |t(:row_comment_query_orderId_v3) |
+|side |string |t(:row_comment_query_side_v3)  |
+|orderType |string |t(:row_comment_query_orderType_v3)  |
+|stopOrderType |string |t(:row_comment_query_stopOrderType_v3)  |
+|price |string |t(:row_comment_query_price_v3)  |
+|qty |string |t(:row_comment_query_qty_v3)  |
+|timeInForce |string |t(:row_comment_query_timeInForce_v3)  |
+|orderStatus |string |t(:row_comment_query_orderStatus_v3)  |
+|triggerPrice |string |t(:row_comment_query_triggerPrice_v3)  |
+|orderLinkId |string |t(:row_comment_query_orderLinkId_v3)  |
+|createdTime |number |t(:row_comment_query_createdTime_v3)  |
+|updatedTime |number |t(:row_comment_query_updatedTime_v3)  |
+|takeProfit |string |t(:row_comment_query_takeProfit_v3)  |
+|stopLoss |string |t(:row_comment_query_stopLoss_v3)  |
+|t(:contract_param_executionTpTriggerBy) |string |t(:row_comment_query_tpTriggerBy_v3)  |
+|t(:contract_param_executionSlTriggerBy) |string |t(:row_comment_query_slTriggerBy_v3)  |
+|basePrice |string |t(:row_comment_query_basePrice_v3)  |
+|t(:contract_param_executionTriggerBy) |string |t(:row_comment_query_triggerBy_v3)  |
+|reduceOnly |bool |t(:row_comment_query_reduceOnly_v3)  |
+|closeOnTrigger |bool |t(:row_comment_query_closeOnTrigger_v3)  |
 
 
 ### t(:websocketwallet)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op": "subscribe", "args": ["wallet"]}')
-```
-
-```python--pybit
-from time import sleep
-from pybit import usdt_perpetual
-ws_linear = usdt_perpetual.WebSocket(
-    test=True,
-    api_key="your api key",
-    api_secret="your api secret",
-    ping_interval=30,  # the default is 30
-    ping_timeout=10,  # the default is 10
-    domain="bybit"  # the default is "bybit"
-)
-def handle_message(msg):
-    print(msg)
-ws_linear.wallet_stream(
-    handle_message
-)
-while True:
-    sleep(1)
+ws.send('{"op": "subscribe", "args": ["user.wallet.contractAccount"]}')
 ```
 
 > t(:codequote_responseExampleFormatAll)
 
 ```javascript
-{
-    "topic": "wallet",
-    "data": [
-        {
-            "wallet_balance":429.80713,
-            "available_balance":429.67322
-        }
-    ]
-}
+
 ```
+
+t(:contract_websocketWallet)
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|wallet_balance |number |t(:row_comment_wallet_balance)  |
-|available_balance |number |t(:row_comment_http_available_balance)  |
+|coin> coin |string |t(:row_comment_query_coin_coin_v3)    |
+|coin> equity |string |t(:row_comment_query_coin_equity_v3)    |
+|coin> walletBalance |string |t(:row_comment_query_coin_walletBalance_v3)    |
+|coin> positionMargin |string |t(:contract_walletPositionMargin)    |
+|coin> availableBalance |string |t(:contract_walletAvailableBalance)    |
+|coin> orderMargin |string |t(:contract_walletOrderMargin)    |
+|coin> unrealisedPnl |string |t(:row_comment_query_coin_unrealisedPnl_v3)    |
+|coin> cumRealisedPnl |string |t(:row_comment_query_coin_cumRealisedPnl_v3)    |

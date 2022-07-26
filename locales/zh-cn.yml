@@ -4341,6 +4341,32 @@ zh-cn:
      </p>
     </ul>
 
+  websocket_para_endpoint_contract: |
+    <p>WebSocket 公共頻道:</p>
+    <ul>
+    <p>
+    <li>測試網:<br/>
+        USDT合約: <span id="usdt_2_testnet_address">wss://stream-testnet.bybit.com/contract/usdt/public/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdt_2_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <br/>
+        USDC合約: <span id="usdc_2_testnet_address">wss://stream-testnet.bybit.com/contract/usdc/public/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdc_2_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <br/>
+        USDC期權: <span id="option_2_testnet_address">wss://stream-testnet.bybit.com/option/usdc/public/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#option_2_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+    </li>
+     </p>
+    </ul>
+    <p>WebSocket 私有頻道:</p>
+    <ul>
+    <p>
+    <li>測試網:<br/>
+        合约帳戶: <span id="ca_testnet_address">wss://stream-testnet.bybit.com/contract/private/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ca_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+    </li>
+     </p>
+    </ul>
+
   websocketOrderBook_v3: |
     <b>說明: </b>
     獲取25,500檔orderbook數據.<br>
@@ -4378,3 +4404,49 @@ zh-cn:
     <p>自定義條件單ID: 您可以自定義活動委托訂單ID，我們會為您關聯到系統的訂單ID，並把系統的唯一訂單ID在活動委托創建成功後一並返回給您，您可以使用該訂單ID去取消活動委托，同時要求您傳遞的自定義訂單ID<code>最大長度不超過36個字段且唯一</code>。</p>
     <p><b>每個賬戶最多可同時持有500個活動訂單。這是針對合約的，因此可以允許出現例如：賬戶同時持有300個BTCUSDT的活動單、280個ETHUSDT合約的活動單。</b></p>
     <p><b>當您達到訂單上限的時候的時候，仍然可以下單設置了參數<code>reduceOnly</code> 或 <code>closeOnTrigger</code>的訂單。</b></p>
+
+  contract_account: 帳戶
+  contract_accountPara: 帳戶相關接口需要認證.
+  contract_accountCoin: <code>currency</code> alias，如果不傳參數coin，將返回所有錢包余額。可以傳遞多個幣，逗號隔開，比如：USDT,USDC
+  contract_accountCoin_resp: 幣種名稱
+  contract_accountStatTime: 開始時間（毫秒級）
+  contract_accountEndTime: 結束時間（毫秒級）<b>僅支持最近一年紀錄</b>
+  contract_accountCursor: 翻頁游標
+  contract_accountNextPageCursor: 翻頁游標
+  tradingFeeRate: 獲取交易手續費率
+  contract_tradingFeeRate_para: |
+    <p><b>接口說明:</b></p>
+    <P>獲取交易手續費率</p>
+  contract_feeRate_warning: 頻率限制, 每分鐘5個請求.
+  contract_accountTakerFeeRate: 吃單手續費率
+  contract_accountMakerFeeRate: 掛單手續費率
+  # Contract >> Private topics
+  contract_privateTopic: 私有 Topics
+  contract_websocketPosition: |
+    <p><p><b>說明：</b></p>
+    <p>獲取我的倉位列表。通過該接口可以獲取當前用戶的持倉信息，如持倉數量、賬戶余額等信息。<b>仅推增量</b></p>
+    <p><b>Topic：</b></p>
+    <p>user.position.contractAccount</p></p>
+  contract_position_riskLimitValue: 當前風險限額ID對應的持倉上限
+  contract_position_tradeMode: 交易模式：<code>0</code>：全倉; <code>1</code>：逐倉
+  contract_position_autoAddMargin: 自動追加保證金模式. <code>false</code>代表關閉, <code>true</code>代表開啟. <b>全倉</b>模式下該字段無效
+  contract_position_positionBalance: 倉位餘額
+  contract_position_liqPrice: 強制平倉價格
+  contract_position_bustPrice: <a href="https://help.bybit.com/hc/en-us/articles/360039749813-What-is-Bankruptcy-Price-Inverse-Contract-">破產價格</a>
+  contract_websocketExecution: |
+    <p><p><b>說明：</b></p>
+    <p>獲取用戶成交記錄，按時間降序排列。</p>
+    <p><b>Topic：</b></p>
+    <p>user.execution.contractAccount</p></p>
+  contract_executionClosedSize: 減倉數量
+  contract_websocketOrder: |
+    <p><p><b>說明：</b></p>
+    <p><b>仅推增量</b>. 订单与条件单合并成一个Topic</p>
+    <p><b>Topic：</b></p>
+    <p>user.order.contractAccount</p></p>
+  contract_websocketWallet: |
+    <p><b>Topic：</b></p>
+    <p>user.wallet.contractAccount</p></p>
+  contract_walletAvailableBalance: 可用餘額
+  contract_walletPositionMargin: 倉位保證金
+  contract_walletOrderMargin: 當前委託訂單佔用的保證金
