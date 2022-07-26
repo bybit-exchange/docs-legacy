@@ -1118,16 +1118,26 @@ en:
     <p>As order creation/cancellation is asynchronous, the data returned from the interface may be delayed. To access order information in real time, call the interface Enquiring Information on Active Orders in Real Time.</p></p>
 
   usdcBatchOrdersDescV3: |
-    Place Batch Orders
+    <p><p><b>instruction：</b></p>
+    <p>This API provides the batch order mode under the unified margin account.</p>
+    <p>Make sure you have sufficient funds in your account when placing an order. Once an order is placed, according to the funds required by the order, the funds in your account will be frozen in the corresponding amount during the life cycle of the order, and the amount of funds frozen depends on the parameters specified in the order.</p>
+    <p>The same request can only contain orders of the same contract, and options and futures cannot be placed at the same time. Only Limit / Market order is supported, conditional order is not supported.</p>
+    <p>If both futures and options orders are in one request, then according to the category type, only the orders whose symbol matches the category will be operated.</p>
+    <p>The maximum number of orders included in each request is 10 orders. The returned data list is divided into two lists. The list created by the order and the created information are returned. The orders of the two lists are completely consistent.</p></p>
 
   usdcBatchReplaceOrdersDescV3: |
-    Replace Batch Orders
+    <p><p><b>instruction：</b></p>
+    <p>This interface can modify the active order information in batches. Currently, it is not supported to modify the conditional order information.</p>
+    <p>Please note that only unfilled or partial filled orders can be modified.</p>
+    <p>If both futures and options orders are in one request, only the orders matching the category will be operated according to the category type</p>
 
   usdcBatchCancelOrdersDescV3: |
-    Cancel Batch Orders
+    <p><b>instruction：</b></p>
+    <p>This API provides batch cancellation under the unified margin account. Order cancellation of futures and options cannot be canceled in one request at the same time. If both futures and options orders are in one request, only the orders matching the category will be operated according to the category type.</p>
 
   account_para_cancelAllActive_v3: |
-    Cancel All Orders
+    <p><b>instruction：</b></p>
+    <p>This API provides the cancellation of all active orders under the unified margin account. Order cancellation of futures and options cannot be canceled in one request at the same time. If both futures and options orders are in one request, only the orders matching the category will be operated according to the category type.</p>
 
   account_para_myPosition_v3: |
     <p><p><b>Interface:</b></p>
