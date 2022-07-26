@@ -113,6 +113,8 @@ Only for conditional orders:
 * `CreateByStopOrder`
 * `CreateByTakeProfit`
 * `CreateByStopLoss`
+* `CreateByPartialTakeProfit`
+* `CreateByPartialStopLoss`
 * `CreateByTrailingStop`
 * `CreateByLiq` - Created by partial liquidation
 * `CreateByAdl_PassThrough` - Created by ADL
@@ -123,6 +125,7 @@ Only for conditional orders:
 * `AdlTrade` t(:exec_adlTrade)
 * `Funding` t(:exec_funding)
 * `BustTrade` t(:exec_bustTrade)
+* `Settle` t(:exec_settle)
 
 ## Liquidity type (`last_liquidity_ind`)
 * `AddedLiquidity` t(:addedLiquidity)
