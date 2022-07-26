@@ -459,6 +459,9 @@ zh-cn:
 
   row_comment_createAt_response_v3: 創建時間
 
+  row_comment_code_response_v3: 错误码，0代表成功
+  row_comment_msg_response_v3: 错误描述
+
   # 统保查询字段定义
   row_comment_query_effectiveLeverage_v3: 有效杠杆
   row_comment_query_positionMargin_v3: 倉位保證金
@@ -1148,7 +1151,7 @@ zh-cn:
     <p>下單時需保證賬戶內有足夠的資金。一旦下單，根據訂單所需資金，您的賬戶資金將在訂單生命周期內凍結相應額度，被凍結的資金額度取決於訂單指定的參數。</p>
     <p>同一個請求中只能包含同一種合約的訂單，期權、期貨不可同時下單。僅支持Limit / Market order，不支持條件單。</p>
     <p>如果期貨和期權的訂單都在一個請求裏 ，則根據category的類型，僅會操作symbol與category相匹配的訂單。</p>
-    <p>每個請求包含的訂單數最大10筆訂單。</p></p>
+    <p>每個請求包含的訂單數最大10筆訂單。返回的數據列表中分成兩個 list，訂單創建的 list 和創建的信息返回，兩個 list 的訂單是完全序列保持一致的。</p></p>
 
   account_para_myPosition_v3: |
     <p><p><b>接口說明：</b></p>

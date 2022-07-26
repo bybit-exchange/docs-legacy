@@ -546,6 +546,7 @@ POST
 
 
 <p class="fake_header">t(:responseparameters)</p>
+<p>result：</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |list> category |string |t(:dv_category)t(:dv_categorySuffix_8) |
@@ -553,6 +554,13 @@ POST
 |list> orderId |string |t(:row_comment_query_orderId_v3) |
 |list> orderLinkId |string |t(:row_comment_orderLinkId_response_v3) |
 |list> createAt |string |t(:row_comment_createAt_response_v3) |
+
+<p>retExtInfo：</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|list> code |string |t(:row_comment_code_response_v3) |
+|list> msg |string |t(:row_comment_msg_response_v3) |
+
 
 
 ### t(:dv_batchReplaceOrders)
@@ -645,12 +653,19 @@ POST
 
 
 <p class="fake_header">t(:responseparameters)</p>
+<p>result：</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |list> category |string |t(:dv_category)t(:dv_categorySuffix_8) |
 |list> symbol |string |t(:row_comment_symbol_v3) |
 |list> orderId |string |t(:row_comment_query_orderId_v3) |
 |list> orderLinkId |string |t(:row_comment_orderLinkId_response_v3) |
+
+<p>retExtInfo：</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|list> code |string |t(:row_comment_code_response_v3) |
+|list> msg |string |t(:row_comment_msg_response_v3) |
 
 ### t(:dv_batchCancelOrders)
 
@@ -734,12 +749,19 @@ POST
 
 
 <p class="fake_header">t(:responseparameters)</p>
+<p>result：</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |list> category |string |t(:dv_category)t(:dv_categorySuffix_8) |
 |list> symbol |string |t(:row_comment_symbol_v3) |
 |list> orderId |string |t(:row_comment_query_orderId_v3) |
 |list> orderLinkId |string |t(:row_comment_orderLinkId_response_v3) |
+
+<p>retExtInfo：</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|list> code |string |t(:row_comment_code_response_v3) |
+|list> msg |string |t(:row_comment_msg_response_v3) |
 
 
 ### t(:dv_cancelAllOrders)
@@ -813,12 +835,19 @@ POST
 |orderFilter |false |string |t(:row_comment_cancelAll_orderFilter_v3) |
 
 <p class="fake_header">t(:responseparameters)</p>
+<p>result：</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |category |string |t(:dv_category)t(:dv_categorySuffix_8)    |
 |list> symbol |string |t(:row_comment_symbol_v3) |
 |list> orderId |string |t(:row_comment_query_orderId_v3) |
 |list> orderLinkId |string |t(:row_comment_orderLinkId_response_v3) |
+
+<p>retExtInfo：</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|list> code |string |t(:row_comment_code_response_v3) |
+|list> msg |string |t(:row_comment_msg_response_v3) |
 
 
 ## t(:position)
