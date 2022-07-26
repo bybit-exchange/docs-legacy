@@ -459,6 +459,9 @@ zh-cn:
 
   row_comment_createAt_response_v3: 創建時間
 
+  row_comment_code_response_v3: 错误码，0代表成功
+  row_comment_msg_response_v3: 错误描述
+
   # 统保查询字段定义
   row_comment_query_effectiveLeverage_v3: 有效杠杆
   row_comment_query_positionMargin_v3: 倉位保證金
@@ -826,8 +829,12 @@ zh-cn:
     <b>POST</b>請求格式（創建訂單）:
   auth_para_construct1:
     <p>1. 所有參數按照字母順序排序，然後按照<a href="https://en.wikipedia.org/wiki/Query_string">query string</a>格式拼接。</p>
+  auth_para_dv3_construct1: |
+    <p>1. 時間戳 + api-key + [recv_window]+ [queryString(無需排序) | jsonBodyString]</p>
   auth_para_construct2:
     <p>2. 使用<code>HMAC_SHA256</code>算法對第1步中拼接的query string簽名，並轉換為16進製字符串，得出<code>sign</code>參數。</p>
+  auth_para_dv3_construct2:
+    <p>2. 使用<code>HMAC_SHA256</code>算法對第1步中拼接的string簽名，並轉換為16進製字符串，得出<code>sign</code>參數。</p>
   auth_para_construct3:
     <p>3. 將<code>sign</code>參數加到請求參數中即可；註意<code>GET</code>和<code>POST</code>請求參數格式不同，詳見右邊示例。</p>
   auth_aside_signature:
@@ -1148,7 +1155,7 @@ zh-cn:
     <p>下單時需保證賬戶內有足夠的資金。一旦下單，根據訂單所需資金，您的賬戶資金將在訂單生命周期內凍結相應額度，被凍結的資金額度取決於訂單指定的參數。</p>
     <p>同一個請求中只能包含同一種合約的訂單，期權、期貨不可同時下單。僅支持Limit / Market order，不支持條件單。</p>
     <p>如果期貨和期權的訂單都在一個請求裏 ，則根據category的類型，僅會操作symbol與category相匹配的訂單。</p>
-    <p>每個請求包含的訂單數最大10筆訂單。</p></p>
+    <p>每個請求包含的訂單數最大10筆訂單。返回的數據列表中分成兩個 list，訂單創建的 list 和創建的信息返回，兩個 list 的訂單是完全序列保持一致的。</p></p>
 
   account_para_myPosition_v3: |
     <p><p><b>接口說明：</b></p>
@@ -4320,6 +4327,9 @@ zh-cn:
     <li>測試網:<br/>
         USDT合約: <span id="usdt_testnet_address">wss://stream-testnet.bybit.com/contract/usdt/public/v3</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdt_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <br/>
+        反向合約: <span id="inverse_testnet_address">wss://stream-testnet.bybit.com/contract/inverse/public/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#inverse_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
         <br/>
         USDC合約: <span id="usdc_testnet_address">wss://stream-testnet.bybit.com/contract/usdc/public/v3</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdc_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
