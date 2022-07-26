@@ -52,18 +52,19 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
+|:----- |:-------|:-----|----- |
 |category |<b>true</b> |string |t(:row_comment_category_v3)    |
 |symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
 |t(:row_parameter_side) |<b>true</b> |string |t(:row_comment_side_v3)    |
 |positionIdx |false |string |t(:row_comment_positionIdx_v3)   |
-|<a href="#order-type-order_type">orderType</a> |<b>true</b> |string |t(:row_comment_orderType_v3)   |
+|<a href="#order-type-ordertype">orderType</a> |<b>true</b> |string |t(:row_comment_orderType_v3)   |
 |t(:row_parameter_quantity) |<b>true</b> |string |t(:row_comment_qty_v3) |
 |t(:row_parameter_price) |false |string |t(:row_comment_resp_price) |
 |triggerSide |false |number |t(:row_comment_triggerSide) |
 |triggerPrice |false |string |t(:row_comment_triggerPrice) |
-|<a href="#trigger-price-type-trigger_by">triggerBy</a> |false |string |t(:row_comment_triggerBy_v3) |
+|<a href="#trigger-price-type-triggerby">triggerBy</a> |false |string |t(:row_comment_triggerBy_v3) |
 |iv |false |string |t(:row_comment_iv_v3) |
-|<a href="#time-in-force-time_in_force">timeInForce</a> |<b>true</b> |string |t(:row_comment_timeInForce_v3) |
+|<a href="#time-in-force-timeinforce">timeInForce</a> |<b>true</b> |string |t(:row_comment_timeInForce_v3) |
 |orderLinkId |false |string |t(:row_comment_orderLinkId_v3) |
 |takeProfit |false |number |t(:row_comment_takeProfit_v3) |
 |stopLoss |false |number |t(:row_comment_stopLoss_v3) |
@@ -140,7 +141,7 @@ POST
 |stopLoss |false |number |t(:row_comment_stopLoss_replace_v3) |
 |tpTriggerBy |false |string |t(:account_row_comment_tp_trigger_by_v3) |
 |slTriggerBy |false |string |t(:account_row_comment_sl_trigger_by_v3) |
-|<a href="#trigger-price-type-trigger_by">triggerBy</a> |false |string |t(:row_comment_triggerBy_v3) |
+|<a href="#trigger-price-type-triggerby">triggerBy</a> |false |string |t(:row_comment_triggerBy_v3) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -527,14 +528,14 @@ POST
 |list> symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
 |list> t(:row_parameter_side) |<b>true</b> |string |t(:row_comment_side_v3)    |
 |list> positionIdx |false |string |t(:row_comment_positionIdx_v3)   |
-|list> <a href="#order-type-order_type">orderType</a> |<b>true</b> |string |t(:row_comment_orderType_v3)   |
+|list> <a href="#order-type-ordertype">orderType</a> |<b>true</b> |string |t(:row_comment_orderType_v3)   |
 |list> t(:row_parameter_quantity) |<b>true</b> |string |t(:row_comment_qty_v3) |
 |list> t(:row_parameter_price) |false |string |t(:row_comment_resp_price) |
 |list> triggerSide |false |number |t(:row_comment_triggerSide) |
 |list> triggerPrice |false |string |t(:row_comment_triggerPrice) |
-|list> <a href="#trigger-price-type-trigger_by">triggerBy</a> |false |string |t(:row_comment_triggerBy_v3) |
+|list> <a href="#trigger-price-type-triggerby">triggerBy</a> |false |string |t(:row_comment_triggerBy_v3) |
 |list> iv |false |string |t(:row_comment_iv_v3) |
-|list> <a href="#time-in-force-time_in_force">timeInForce</a> |<b>true</b> |string |t(:row_comment_timeInForce_v3) |
+|list> <a href="#time-in-force-timeinforce">timeInForce</a> |<b>true</b> |string |t(:row_comment_timeInForce_v3) |
 |list> orderLinkId |false |string |t(:row_comment_orderLinkId_v3) |
 |list> takeProfit |false |number |t(:row_comment_takeProfit_v3) |
 |list> stopLoss |false |number |t(:row_comment_stopLoss_v3) |
@@ -1288,7 +1289,7 @@ GET
 |list> orderPrice |string |t(:row_comment_query_price_v3)  |
 |list> orderQty |string |t(:row_comment_query_qty_v3)  |
 |list> orderType |string |t(:row_comment_query_orderType_v3)  |
-|list> <a href="#stop-order-type-stop_order_type">stopOrderType</a> |string |t(:row_comment_query_stopOrderType_v3)  |
+|list> <a href="#stop-order-type-stopordertype">stopOrderType</a> |string |t(:row_comment_query_stopOrderType_v3)  |
 |list> side |string |t(:row_comment_query_side_v3)  |
 |list> execTime |number |t(:row_comment_query_execTime_v3)  |
 |nextPageCursor |string |t(:row_comment_query_nextPageCursor_v3)  |
