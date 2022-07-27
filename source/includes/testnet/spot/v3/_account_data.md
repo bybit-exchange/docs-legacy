@@ -120,8 +120,7 @@ curl -X POST https://api-testnet.bybit.com/spot/v3/private/order \
         "status": "NEW",
         "timeInForce": "GTC",
         "orderType": "MARKET",
-        "side": "BUY",
-        "orderCategory": 0
+        "side": "BUY"
     },
   "time":1234567
 }
@@ -144,8 +143,7 @@ POST
 | timeInForce          | false               | string          | 执行策略                                                                                                           |
 | orderPrice           | false               | string          | 订单价格（type字段为MARKET时，orderPrice字段为非必须；type字段为LIMIT、LIMIT_MAKER时，orderPrice字段为必须）                                |
 | orderLinkId          | false               | string          | 特殊订单ID，用户自己生成                                                                                                  |
-| orderCategory        | false               | int             | 订单种类（0=普通订单，1=止盈止损），默认0                                                                                        |
-| triggerPrice         | false               | string          | 触发价格，当orderCategory=1时必传                                                                                       |
+
 
 <p class="fake_header">t(:responseparameters)</p>
 
@@ -163,8 +161,6 @@ POST
 | timeInForce          | string          | 执行策略                                                                                                                                                                                                                |
 | accountId            | string          | 账户ID                                                                                                                                                                                                                |
 | execQty              | string          | 忽略                                                                                                                                                                                                                  |
-| orderCategory        | string          | 订单种类（0=普通订单，1=止盈止损）                                                                                                                                                                                                 |
-| triggerPrice         | string          | 触发价格                                                                                                                                                                                                                |
 
 
 ### t(:getactive)
@@ -204,10 +200,7 @@ curl https://api-testnet.bybit.com/spot/v3/private/order \
         "createTime": 1655430202103,
         "updateTime": 1655430202331,
         "isWorking": "0",
-        "locked": "0",
-        "executedOrderId": 1204354919958703361,
-        "triggerPrice": "4940.83",
-        "orderCategory": 1
+        "locked": "0"
     },
      "time":1234567
 }
@@ -224,7 +217,6 @@ GET
 |:---------------------|:--------------------|:-----------------|-------------------------|
 | orderId              | false               | string           | 如果不传orderLinkId，则为必传    |
 | orderLinkId          | false               | string           | 如果不传orderLinkId，则为必传    |
-| orderCategory        | false               | int              | 订单种类（0=普通订单，1=止盈止损），默认0 |
 
 <p class="fake_header">t(:responseparameters)</p>
 
@@ -249,9 +241,6 @@ GET
 | updateTime           | string          | 更新时间                                                                                                                                                                                                                |
 | isWorking            | string          | 是否生效（0=未生效，1=已生效）                                                                                                                                                                                                   |
 | locked               | string          | 锁定数量（如果为0，则说明该笔订单的资金已完成结算）                                                                                                                                                                                          |
-| orderCategory        | string          | 订单种类（0=普通订单，1=止盈止损）                                                                                                                                                                                                 |
-| triggerPrice         | string          | 触发价格                                                                                                                                                                                                                |
-| executedOrderId      | string          | 触发订单编号                                                                                                                                                                                                              |
 
 
 ### t(:cancelactive)
@@ -302,7 +291,6 @@ POST
 |:---------------------|:--------------------|:----------------|-------------------------|
 | orderId              | false               | string          | 如果不传orderLinkId，则为必传    |
 | orderLinkId          | false               | string          | 如果不传orderLinkId，则为必传    |
-| orderCategory        | false               | int             | 订单种类（0=普通订单，1=止盈止损），默认0 |
 
 <p class="fake_header">t(:responseparameters)</p>
 
@@ -320,8 +308,6 @@ POST
 | timeInForce           | string          | 执行策略                                                                                                                                                                                                                |
 | orderType             | string          | 订单类型                                                                                                                                                                                                                |
 | side                  | string          | 方向（BUY/SELL）                                                                                                                                                                                                        |
-| orderCategory         | string          | 订单种类（0=普通订单，1=止盈止损）                                                                                                                                                                                                 |
-| triggerPrice          | string          | 触发价格                                                                                                                                                                                                                |
 
 
 ### t(:batchcancelactiveorder)
@@ -367,7 +353,6 @@ POST
 | symbol                | true                | string          | 交易对                                               |
 | side                  | false               | string          | 订单方向（BUY/SELL）                                    |
 | orderTypes            | false               | string          | 订单类型。多个订单类型使用英文逗号分隔，例如LIMIT,LIMIT_MAKER.默认真：LIMIT |
-| orderCategory         | false               | int             | 订单种类（0=普通订单，1=止盈止损），默认0                           |
 
 <p class="fake_header">t(:responseparameters)</p>
 
@@ -422,7 +407,6 @@ POST
 | t(:column_parameter)  | t(:column_required) | t(:column_type) | t(:column_comments)        |
 |:----------------------|:--------------------|:----------------|----------------------------|
 | orderIds              | true                | string          | 订单号，可用英文逗号拼接表示多个订单，不超过100个 |
-| orderCategory         | false               | int             | 订单种类（0=普通订单，1=止盈止损），默认0    |
 
 <p class="fake_header">t(:responseparameters)</p>
 
@@ -467,10 +451,7 @@ curl https://api-testnet.bybit.com/spot/v3/private/open-orders \
             "icebergQty": "0.0",
             "createTime": 1658306294375,
             "updateTime": 1658306294375,
-            "isWorking": "1",
-            "executedOrderId": "1204354919958703361",
-            "triggerPrice": "4940.83",
-            "orderCategory": 1
+            "isWorking": "1"
         }
     ]
   },
@@ -490,7 +471,6 @@ GET
 | symbol               | false               | string          | 交易对                                |
 | orderId              | false               | string          | 通过指定orderId返回比这个orderId小的订单，可以用来分页 |
 | limit                | false               | string          | 默认500，最大500                        |
-| orderCategory        | false               | int             | 订单种类（0=普通订单，1=止盈止损），默认0            |
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -515,9 +495,6 @@ GET
 | createTime           | string          | 撮合引擎中的创建时间                                                                                                                                                                                                           |
 | updateTime           | string          | 更新时间                                                                                                                                                                                                                 |
 | isWorking            | string          | 是否生效（0=未生效，1=已生效）                                                                                                                                                                                                    |
-| orderCategory        | string          | 订单种类（0=普通订单，1=止盈止损）                                                                                                                                                                                                  |
-| triggerPrice         | string          | 触发价格                                                                                                                                                                                                                 |
-| executedOrderId      | string          | 触发订单编号                                                                                                                                                                                                               |
 
 
 ### t(:orderhistory)
@@ -583,7 +560,6 @@ GET
 | limit                | false               | string          | 默认500，最大500                        |
 | startTime            | false               | int             | 开始时间                               |
 | endTime              | false               | int             | 开始时间                               |
-| orderCategory        | false               | int             | 订单种类（0=普通订单，1=止盈止损），默认0            |
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -608,9 +584,6 @@ GET
 | createTime           | string          | 撮合引擎中的创建时间                                                                                                                                                                                                          |
 | updateTime           | string          | 更新时间                                                                                                                                                                                                                |
 | isWorking            | string          | 是否生效（0=未生效，1=已生效）                                                                                                                                                                                                   |
-| orderCategory        | string          | 订单种类（0=普通订单，1=止盈止损）                                                                                                                                                                                                 |
-| triggerPrice         | string          | 触发价格                                                                                                                                                                                                                |
-| executedOrderId      | string          | 触发订单编号                                                                                                                                                                                                              |
 
 
 ### t(:tradehistory)
