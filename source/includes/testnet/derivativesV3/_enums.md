@@ -5,14 +5,30 @@ t(:ENUMs_para)
 * `Buy`
 * `Sell`
 
+## Category(`category`)
+* `linear`
+* `inverse`
+* `option`
+
 ## Symbol (`symbol`)
 * `BTCUSDT`
+* `ETHUSD`
+* `BTCPERP`
+* `BTC-30DEC22-25000-P`
+* `BTCUSDU22`
 * `ETHUSDT`
-* ...
+* `BTCUSD`
+* `XRPUSDT`
+* `DOTUSD`
 
 t(:trading_symbol_comment)
 
 ## Currency (`currency`/`coin`)
+* `BTC`
+* `ETH`
+* `EOS`
+* `XRP`
+* `DOT`
 * `USDT`
 
 ## Contract Type(`contractType`)
@@ -25,6 +41,8 @@ t(:trading_symbol_comment)
 * `Settling`
 * `Closed`
 
+
+
 ## Wallet fund type (`walletFundType` / `type`)
 * `Deposit` t(:deposit)
 * `Withdraw` t(:withdraw)
@@ -34,6 +52,13 @@ t(:trading_symbol_comment)
 * `Prize` t(:prize)
 * `ExchangeOrderWithdraw` t(:exchangeOrderWithdraw)
 * `ExchangeOrderDeposit` t(:exchangeOrderDeposit)
+* `ReturnServiceCash` t(:returnServiceCash)
+* `Insurance` t(:insurance)
+* `SubMember` t(:subMember)
+* `Coupon` t(:coupon)
+* `AccountTransfer` t(:accountTransfer)
+* `CashBack` t(:cashBack)
+
 
 ## Withdraw status (`status`)
 * `ToBeConfirmed` t(:toBeConfirmed)
@@ -50,7 +75,7 @@ t(:trading_symbol_comment)
 * `Market` t(:market)
 
 ## Quantity (`qty`)
-t(:linear_quantity)
+t(:quantity)
 
 ## Price (`price`)
 t(:price)
@@ -72,7 +97,7 @@ t(:para_order)
 * `desc` t(:desc)
 * `asc` t(:asc)
 
-## Order status (`order_status`/`stopOrderStatus`)
+## Order status (`orderStatus`/`stopOrderStatus`)
 t(:para_orderStatusGet)
 
 * `Created` t(:created1)
@@ -122,6 +147,7 @@ Only for conditional orders:
 * `AddedLiquidity` t(:addedLiquidity)
 * `RemovedLiquidity` t(:removedLiquidity)
 
+
 ## Tick direction type (`tickDirection`)
 t(:tick_direction)
 
@@ -151,8 +177,23 @@ t(:tp_sl_mode)
 * `W` t(:interval_W)
 * `M` t(:interval_M)
 
+## Date (`startDate`/`endDate`)
+t(:date)
+
 ## Stop order type (`stopOrderType`)
 * `TakeProfit`
 * `StopLoss`
 * `TrailingStop`
 * `Stop`
+
+## Transaction-Log Type (`type`)
+* `TRANSFER_IN` t(:transfer_in)
+* `TRANSFER_OUT` t(:transfer_out)
+* `TRADE` t(:trade)
+* `SETTLEMENT` t(:settlement)
+* `DELIEVRY` t(:delivery)
+* `LIQUIDATION` t(:liquidation)
+* `INSURANCE_FUND` t(:insurance_fund)
+* `FEE_REFUND` t(:fee_refund)
+* `INTEREST` t(:interest)
+* `BONUS` t(:bonusEnum)

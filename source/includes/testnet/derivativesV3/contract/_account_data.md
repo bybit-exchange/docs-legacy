@@ -6,28 +6,34 @@ t(:account_para)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/contract/v3/private/order/create \
--H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","side":"Buy","symbol":"BTCUSD","orderType":"Market","qty":10,"timeInForce":"GoodTillCancel","timestamp":{timestamp},"sign":"{sign}"}'
+curl --location --request POST 'https://api-testnet.bybit.com/contract/v3/private/order/create' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-SIGN: f02a18137c25c40d64b2c474f575c01a62ba076124946d38619238e19c86a2f2' \
+--header 'X-BAPI-API-KEY: PXOXCIFKHCWCAJTPKW' \
+--header 'X-BAPI-TIMESTAMP: 1658884339826' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "symbol": "ETHUSDT",
+    "side": "Sell",
+    "positionIdx": 2,
+    "orderType": "Limit",
+    "qty": "0.5",
+    "price": "1450",
+    "triggerDirection": 2,
+    "triggerPrice": "1500",
+    "triggerBy": "MarkPrice",
+    "timeInForce": "GoodTillCancel",
+    "orderLinkId": "a003",
+    "takeProfit": "1100",
+    "stopLoss": "1700",
+    "reduce_only": false,
+    "closeOnTrigger": false
+}'
 ```
 
 ```python--pybit
-from pybit import usdt_perpetual
-session_auth = usdt_perpetual.HTTP(
-    endpoint="https://api-testnet.bybit.com",
-    api_key="your api key",
-    api_secret="your api secret"
-)
-print(session_auth.place_active_order(
-    symbol="BTCUSDT",
-    side="Sell",
-    order_type="Limit",
-    qty=0.01,
-    price=8083,
-    time_in_force="GoodTillCancel",
-    reduce_only=False,
-    close_on_trigger=False
-))
+
 ```
 
 > t(:codequote_responseExample)
@@ -67,10 +73,10 @@ POST
 |price |false |number |t(:row_comment_price) |
 |triggerDirection |false |number |t(:row_comment_triggerDirection) |
 |triggerPrice |false |string |t(:row_comment_triggerPrice) |
-|triggerBy |false |string |t(:account_row_comment_sl_trigger_by) |
+|<a href="#trigger-price-type-triggerby">triggerBy</a> |false |string |t(:row_comment_linear_triggerBy) |
 |tpTriggerBy |false |string |t(:account_row_comment_tp_trigger_by) |
 |slTriggerBy |false |string |t(:account_row_comment_sl_trigger_by) |
-|timeInForce |<b>true</b> |string |t(:row_comment_timeInForce) |
+|t(:row_parameter_timeInForce) |<b>true</b> |string |t(:row_comment_timeInForce) |
 |orderLinkId |false |string |t(:row_comment_orderLinkId) |
 |takeProfit |false |number |t(:row_comment_takeProfit) |
 |stopLoss |false |number |t(:row_comment_stopLoss) |
