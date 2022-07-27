@@ -461,6 +461,9 @@ zh-cn:
 
   row_comment_createAt_response_v3: 創建時間
 
+  row_comment_code_response_v3: 错误码，0代表成功
+  row_comment_msg_response_v3: 错误描述
+
   # 统保查询字段定义
   row_comment_query_effectiveLeverage_v3: 有效杠杆
   row_comment_query_positionMargin_v3: 倉位保證金
@@ -828,8 +831,12 @@ zh-cn:
     <b>POST</b>請求格式（創建訂單）:
   auth_para_construct1:
     <p>1. 所有參數按照字母順序排序，然後按照<a href="https://en.wikipedia.org/wiki/Query_string">query string</a>格式拼接。</p>
+  auth_para_dv3_construct1: |
+    <p>1. 時間戳 + api-key + [recv_window]+ [queryString(無需排序) | jsonBodyString]</p>
   auth_para_construct2:
     <p>2. 使用<code>HMAC_SHA256</code>算法對第1步中拼接的query string簽名，並轉換為16進製字符串，得出<code>sign</code>參數。</p>
+  auth_para_dv3_construct2:
+    <p>2. 使用<code>HMAC_SHA256</code>算法對第1步中拼接的string簽名，並轉換為16進製字符串，得出<code>sign</code>參數。</p>
   auth_para_construct3:
     <p>3. 將<code>sign</code>參數加到請求參數中即可；註意<code>GET</code>和<code>POST</code>請求參數格式不同，詳見右邊示例。</p>
   auth_aside_signature:
@@ -1074,7 +1081,9 @@ zh-cn:
     <p>網站倉位保證金計算公式: <code>position_margin</code> + <code>occ_funding_fee</code> + loss(當你的可用余額不足時)</p>
   ### 資金記錄
   walletrecords: 資金記錄
-  wallet_para_walletRecords: 查詢資金記錄。
+  wallet_para_walletRecords: |
+    <p>查詢資金記錄。這個接口還展示來自網頁上<a href="https://testnet.bybit.com/app/assets/assets-exchange">資產兌換</a>下的兌換紀錄, 其中對應的<code>type</code>兌換類型是<code>ExchangeOrderWithdraw</code>和<code>ExchangeOrderDeposit</code>。</p>
+    <p>這個接口返回的關於衍生品帳戶下的劃轉紀錄的內容是不完整的。推薦使用<a href="https://bybit-exchange.github.io/docs/account_asset/#t-transfer_api">帳戶資產API</a>完成資產劃轉的操作和紀錄檢索。
   wallet_aside_walletRecords: 關於<code>Withdraw</code>和<code>Refund</code>類型數據的說明，請參考<a href="#t-withdrawrecords">提幣記錄</a>接口
   wallet_aside_walletRecords1: 如果用戶不通過<code>coin</code>傳入<code>USDT</code>，USDT記錄將不會被返回給用戶。
   wallet_aside_walletRecords2: 該接口不顯示2021-07-15之後發生的充值提現記錄。要在此日期之後獲取記錄，您應該調用 <a href="https://bybit-exchange.github.io/docs/account_asset/#t-depositsrecordquery">查詢充值記錄</a> 和 <a href=" https://bybit-exchange.github.io/docs/account_asset/#t-withdrawrecordquery">查詢提現記錄</a>端點。這是由於此時引入了現貨錢包。
@@ -1150,7 +1159,7 @@ zh-cn:
     <p>下單時需保證賬戶內有足夠的資金。一旦下單，根據訂單所需資金，您的賬戶資金將在訂單生命周期內凍結相應額度，被凍結的資金額度取決於訂單指定的參數。</p>
     <p>同一個請求中只能包含同一種合約的訂單，期權、期貨不可同時下單。僅支持Limit / Market order，不支持條件單。</p>
     <p>如果期貨和期權的訂單都在一個請求裏 ，則根據category的類型，僅會操作symbol與category相匹配的訂單。</p>
-    <p>每個請求包含的訂單數最大10筆訂單。</p></p>
+    <p>每個請求包含的訂單數最大10筆訂單。返回的數據列表中分成兩個 list，訂單創建的 list 和創建的信息返回，兩個 list 的訂單是完全序列保持一致的。</p></p>
 
   account_para_myPosition_v3: |
     <p><p><b>接口說明：</b></p>
@@ -1885,6 +1894,7 @@ zh-cn:
   exec_adlTrade: "自動減倉"
   exec_funding: "資金費率"
   exec_bustTrade: "強製平倉"
+  exec_settle: "交割結算"
   ## Liquidity type (`last_liquidity_ind`)
   addedLiquidity: "maker成交"
   removedLiquidity: "taker成交"
@@ -3212,6 +3222,7 @@ zh-cn:
   asset_info_withdraw: 暫時沒有值
 
   withdraw_info: 提現
+  withdraw_info_para: 提現總是來自現貨錢包內的資產。
   withdraw_addr: 地址。地址校驗是否存在提現地址的白名單
   withdraw_tag: 存在tag的需要填寫
   withdraw_amount: |
@@ -4322,6 +4333,9 @@ zh-cn:
     <li>測試網:<br/>
         USDT合約: <span id="usdt_testnet_address">wss://stream-testnet.bybit.com/contract/usdt/public/v3</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdt_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <br/>
+        反向合約: <span id="inverse_testnet_address">wss://stream-testnet.bybit.com/contract/inverse/public/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#inverse_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
         <br/>
         USDC合約: <span id="usdc_testnet_address">wss://stream-testnet.bybit.com/contract/usdc/public/v3</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdc_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>

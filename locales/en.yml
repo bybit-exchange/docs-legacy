@@ -224,6 +224,9 @@ en:
 
   row_comment_createAt_response_v3: Time of Creation
 
+  row_comment_code_response_v3: Error code. 0 means success.
+  row_comment_msg_response_v3: Error description.
+
 
   # 统保查询字段定义
   row_comment_query_effectiveLeverage_v3: Effective leverage
@@ -981,8 +984,12 @@ en:
     Message format for <b>POST</b> requests:
   auth_para_construct1:
     <p>1. Concatenate all the public parameters in the <a href="https://en.wikipedia.org/wiki/Query_string">query string</a> format. The parameters must be ordered in <b>alphabetical</b> order. This will be used to generate the <code>sign</code>.</p>
+  auth_para_dv3_construct1: |
+    <p>1. timestamp + api-key + [recv_window] + [queryString(order not needed) | jsonBodyString]</p>
   auth_para_construct2:
     <p>2. Use the HMAC_SHA256 algorithm to sign the query string in step 1, and convert it to a hex string to obtain the sign parameter.</p>
+  auth_para_dv3_construct2:
+    <p>2. Use the HMAC_SHA256 algorithm to sign the string in step 1, and convert it to a hex string to obtain the sign parameter.</p>
   auth_para_construct3:
     <p>3. Append the sign parameter to the end of the parameters string, and send the HTTP request. Note that the message format for GET and POST requests is different. Please refer to the examples.</p>
   auth_aside_signature:
@@ -1111,20 +1118,30 @@ en:
 
   account_para_getActive_v3: |
     <p><p><b>Interface:</b></p>
-    <p>Access my active order list.</p>
-    <p>As order creation/cancellation is asynchronous, the data returned from the interface may be delayed. To access order information in real time, call the interface Enquiring Information on Active Orders in Real Time.</p></p>
+    <p>Access my open order list.</p>
+    <p>As order creation/cancellation is asynchronous, the data returned from the interface may be delayed. To access order information in real time, call the interface enquiring information on open orders in real time.</p></p>
 
   usdcBatchOrdersDescV3: |
-    Place Batch Orders
+    <p><p><b>instruction：</b></p>
+    <p>This API provides the batch order mode under the unified margin account.</p>
+    <p>Make sure you have sufficient funds in your account when placing an order. Once an order is placed, according to the funds required by the order, the funds in your account will be frozen in the corresponding amount during the life cycle of the order, and the amount of funds frozen depends on the parameters specified in the order.</p>
+    <p>The same request can only contain orders of the same contract, and options and futures cannot be placed at the same time. Only Limit / Market order is supported, conditional order is not supported.</p>
+    <p>If both futures and options orders are in one request, then according to the category type, only the orders whose symbol matches the category will be operated.</p>
+    <p>The maximum number of orders included in each request is 10 orders. The returned data list is divided into two lists. The list created by the order and the created information are returned. The orders of the two lists are completely consistent.</p></p>
 
   usdcBatchReplaceOrdersDescV3: |
-    Replace Batch Orders
+    <p><p><b>instruction：</b></p>
+    <p>This interface can modify the open order information in batches. Currently, it is not supported to modify the conditional order information.</p>
+    <p>Please note that only unfilled or partial filled orders can be modified.</p>
+    <p>If both futures and options orders are in one request, only the orders matching the category will be operated according to the category type</p>
 
   usdcBatchCancelOrdersDescV3: |
-    Cancel Batch Orders
+    <p><b>instruction：</b></p>
+    <p>This API provides batch cancellation under the unified margin account. Order cancellation of futures and options cannot be canceled in one request at the same time. If both futures and options orders are in one request, only the orders matching the category will be operated according to the category type.</p>
 
   account_para_cancelAllActive_v3: |
-    Cancel All Orders
+    <p><b>instruction：</b></p>
+    <p>This API provides the cancellation of all open orders under the unified margin account. Order cancellation of futures and options cannot be canceled in one request at the same time. If both futures and options orders are in one request, only the orders matching the category will be operated according to the category type.</p>
 
   account_para_myPosition_v3: |
     <p><p><b>Interface:</b></p>
@@ -1378,7 +1395,9 @@ en:
     <p>The formula of position margin on website: <code>position_margin</code> + <code>occ_funding_fee</code> + loss(when your <code>available_balance</code> is insufficient)</p>
   ### Wallet Fund Records
   walletrecords: Wallet Fund Records
-  wallet_para_walletRecords: Get wallet fund records. This endpoint also shows exchanges from the <a href="https://testnet.bybit.com/app/assets/assets-exchange">Asset Exchange</a>, where the <code>type</code>s for the exchange are <code>ExchangeOrderWithdraw</code> and <code>ExchangeOrderDeposit</code>.
+  wallet_para_walletRecords: |
+    <p>Get wallet fund records. This endpoint also shows exchanges from the <a href="https://testnet.bybit.com/app/assets/assets-exchange">Asset Exchange</a>, where the <code>type</code>s for the exchange are <code>ExchangeOrderWithdraw</code> and <code>ExchangeOrderDeposit</code>.</p>
+    <p>This endpoint returns incomplete information for transfers involving the derivatives wallet. Use the <a href="https://bybit-exchange.github.io/docs/account_asset/#t-transfer_api">account asset API</a> for creating and querying internal transfers.
   wallet_aside_walletRecords: |
     Find more detail for types <code>Withdraw</code> and <code>Refund</code> in the <a href="#t-withdrawrecords">Withdraw Records</a> endpoint.
   wallet_aside_walletRecords1: USDT records will not be returned unless you pass <code>USDT</code> with the <code>coin</code> parameter.
@@ -2078,6 +2097,7 @@ en:
   exec_funding: ""
   exec_adlTrade: ""
   exec_bustTrade: ""
+  exec_settle: ""
   ## Liquidity type (`last_liquidity_ind`)
   addedLiquidity: "- liquidity maker"
   removedLiquidity: "- liquidity Taker"
@@ -3412,7 +3432,7 @@ en:
   row_comment_to_subUserId: Subaccount
   row_comment_transfertype: Determines the direction of transfer
 
-  querytransferlist: Query Transfer List
+  querytransferlist: Query Internal Transfer List
   row_comment_transferstatus: Transfer status
   row_comment_pageaction: Turn page
   row_comment_to_limit: Number of records
@@ -3546,6 +3566,7 @@ en:
   asset_info_withdraw: temporarily ""
 
   withdraw_info: Withdraw
+  withdraw_info_para: Withdrawals are always made from the SPOT wallet.
   withdraw_addr: address. Address verification whether there is a whitelist of withdrawal addresses
   withdraw_tag: Need to fill in if there is a tag
   withdraw_amount: |
@@ -4667,6 +4688,9 @@ en:
     <li>Testnet:<br/>
         USDT contract: <span id="usdt_testnet_address">wss://stream-testnet.bybit.com/contract/usdt/public/v3</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdt_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <br/>
+        Inverse contract: <span id="inverse_testnet_address">wss://stream-testnet.bybit.com/contract/inverse/public/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#inverse_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
         <br/>
         USDC contract: <span id="usdc_testnet_address">wss://stream-testnet.bybit.com/contract/usdc/public/v3</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdc_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
