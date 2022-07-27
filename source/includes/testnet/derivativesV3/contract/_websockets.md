@@ -664,7 +664,7 @@ t(:contract_websocketOrder)
 |takeProfit |string |t(:row_comment_query_takeProfit_v3)  |
 |stopLoss |string |t(:row_comment_query_stopLoss_v3)  |
 |t(:contract_param_executionTpTriggerBy) |string |t(:row_comment_query_tpTriggerBy_v3)  |
-|t(:contract_param_executionSlTriggerBy) |string |t(:row_comment_query_slTriggerBy_v3)  |
+|t(:contract_parm_executionSlTriggerBy) |string |t(:row_comment_query_slTriggerBy_v3)  |
 |basePrice |string |t(:row_comment_query_basePrice_v3)  |
 |t(:contract_param_executionTriggerBy) |string |t(:row_comment_query_triggerBy_v3)  |
 |reduceOnly |bool |t(:row_comment_query_reduceOnly_v3)  |

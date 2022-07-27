@@ -164,8 +164,7 @@ zh-cn:
   row_comment_trailingStop: Trailing stop
   row_comment_reduceOnly: 只減倉
   row_comment_mmp: true表示此订单为做市商保护订单
-  row_comment_triggerDirection: 用於當前條件委託是看空到triggerPrice時觸發還是看多到triggerPrice觸發。主要是用來標識當前條件單預期的方向：2 為 觸發價格 < triggerPrice 時觸發，1 為 觸發價格 > triggerPrice 時觸發。
-  row_comment_orderFilter: 條件單或是活動單。
+  row_comment_orderFilter: 條件單或是活動單
   row_comment_qty_v3: 委托數量
   row_comment_triggerPrice: 觸發價格. 如果您期望價格上漲时觸發您的條件訂單，請確保 triggerPrice > max(market price, basePrice) 否則 triggerPrice < min(market price, basePrice)
   row_comment_closeOnTrigger: 觸發後平倉. 如果下平倉單，請設置為<code>true</code>，避免因為保證金不足而導致下單失敗
@@ -4464,3 +4463,50 @@ zh-cn:
   contract_walletAvailableBalance: 可用餘額
   contract_walletPositionMargin: 倉位保證金
   contract_walletOrderMargin: 當前委託訂單佔用的保證金
+  # contract order endpoints
+  contract_comment_qty: 委託數量. 如果是下<b>USDT永續</b>，則是幣種數量；如果是下<b>反向永續/交割</b>，則是USD數量
+  contract_comment_price: 委托價格。如果是下<b>限價單</b>，該參數為<b>必填</b>. 在沒有倉位時，做多的委托價格需高於市價的10%、低於1百萬。如有倉位時則需優於強平價。價格增減最小單位請參考<a href="#t-dv_instrhead">交易對接口</a>響應中的<b>priceFilter</b>字段
+  contract_comment_triggerDirection: 用於當前條件委託是看空到triggerPrice時觸發還是看多到triggerPrice觸發。主要是用來標識當前條件單預期的方向：<b>1</b>：行情價格上漲到triggerPrice時觸發，<b>2</b>：行情價格下跌到triggerPrice時觸發，
+  contract_comment_triggerPrice: 觸發價格
+  contract_getOrder: 查詢訂單
+  contract_para_getOrder: |
+    <p>獲取我的委托單列表。</p>
+    <p>創建/取消訂單是異步的，因此<b>該接口可能返回的數據可能會有延遲</b>。如果要獲取訂單的實時信息，可以調用接口<a href="#t-contract_getrealtimeorder">實時查詢委託單信息</a>.</p>
+  contract_comment_tpTriggerBy: 止盈激活價格類型. 默認為<code>LastPrice</code>. 若為USDC單, 則是<code>MarkPrice</code>
+  contract_comment_slTriggerBy: 止損激活價格類型. 默認為<code>LastPrice</code>. 若為USDC單, 則是<code>MarkPrice</code>
+  contract_comment_nextPageCursor: 翻頁游標
+  contract_comment_getOrderTriggerPrice: 若<code>stopOrderType</code>為<b>TrailingProfit</b>, 則表示為激活價格, 否則是觸發價格
+  contract_cancelOrder: 撤銷委託單
+  contract_para_cancelOrder: |
+    <p>所有撤銷委托單都必須填寫<code>orderId</code>或<code>orderLinkId</code>。 <code>orderId</code> - 當您成功創建了委托單時會為您返回36位唯一的訂單ID。</p>
+    <p>您可以撤銷未成交、部分成交的委托單。但全部成交的委托單不可取消。</p>
+  contract_cancelAllOrders: 撤銷所有委託單
+  contract_para_cancelAllOrders: |
+    <p>撤銷所有未成交、部分成交的委托單。但全部成交的委托單不可取消。</p>
+  contract_replaceOrder: 修改委托單信息
+  contract_para_replaceOrder: |
+    <p>本接口可以修改您的委托單信息.</p>
+  contract_getRealtimeOrder: 實時查詢委託單
+  contract_para_getRealtimeOrder: |
+    <p>實時查詢活動委托。當傳遞參數<code>orderId</code>或<code>orderLinkId</code>其中任意一個時，將返回單條訂單數據，如果參數<code>orderId</code>和<code>orderLinkId</code>都不傳遞時，將返回所有<b>未成交</b>的訂單，最多500條。</p>
+    <p>按照createdTime從近到遠排序. symbol支持輸入多個symbol, <b>如果輸入多個symbol的請求，限頻計數為10</b></p>
+  contract_comment_realtimeOrderSymbol: 合約類型. 支持輸入多個symbol, 需要用英文逗號隔開, 最多支持10個symbol
+  contract_comment_realtimeOrderSettleCoin: 結算幣種. <code>symbol</code>和<code>settleCoin</code>字段必須傳一個. 都傳的話，以<code>symbol</code>為準.
+  contract_para_position: |
+    <p><b>接口說明：</b></p>
+    <p>獲取我的倉位列表。通過該接口可以獲取當前用戶的持倉信息，如持倉數量、賬戶余額等信息。</p>
+  contract_notice_position: |
+    <p>如果傳單個symbol, 每個request計數1次。如果一次傳多個symbol, 每個request計數10次。</p>
+  contract_comment_dataFilter: 僅在<code>settleCoin</code>有值時生效. <code>full</code>：獲取settle coin對應的所有symbol的持倉數據, 不管倉位是否為0. <code>valid</code>：僅獲取settle coin對應持倉不為0的倉位數據
+  contract_comment_riskId: <a href="#t-dv_risklimithead">風險限額ID</a>
+  contract_comment_positionBalance: 倉位餘額
+  contract_comment_tradeMode: 交易模式. <code>0</code>：全倉; <code>1</code>：逐倉
+  contract_para_switchIsolated: 切換全倉/逐倉
+  contract_comment_buyLeverage: 值必須和<code>sellLeverage</code>的值一樣
+  contract_comment_sellLeverage: 值必須和<code>buyLeverage</code>的值一樣
+  contract_comment_mode: 倉位模式. <code>0</code>：單倉模式. <code>3</code>：雙倉模式
+  contract_comment_tpSlMode: 止盈止損模式. <code>Full</code>：設置止盈止損為全倉; <code>Partial</code>：設置止盈止損為部分倉位
+  contract_comment_orderId: 訂單號. 若不傳，則返回用戶全部交易紀錄
+  contract_comment_startTime: 開始時間戳(毫秒)
+  contract_comment_endTime: 結束時間戳(毫秒)
+  contract_comment_lastLiqInd: 只有當<code>execType</code>字段類型為<code>Trade</code>、<code>AdlTrade</code>、<code>BustTrade</code>時有效

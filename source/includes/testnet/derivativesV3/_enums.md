@@ -197,3 +197,7 @@ t(:date)
 * `FEE_REFUND` t(:fee_refund)
 * `INTEREST` t(:interest)
 * `BONUS` t(:bonusEnum)
+
+## Order Filter (`orderFilter`)
+* `Order`
+* `StopOrder`

@@ -4767,9 +4767,9 @@ en:
   contract_order_para: |
     <p>Market price active order: A traditional market price order which will be filled at the best available price. <code>price</code> is not required for this type of order.</p>
     <p>Limit price active order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
-    <p><b>Take profit/Stop loss: You may only set a TP/SL conditional order upon opening the position. Once you hold a position, any new active order requests which contain TP/SL data will be accepted but TP/SL data will be ignored. <code>tp_trigger_by</code>/<code>sl_trigger_by</code> default to LastPrice. Passing values to the <code>take_profit</code> or <code>stop_loss</code> parameters in this endpoint will create conditional orders managed by the system, which will be be automatically cancelled if the position is closed.</b></p>
-    <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell. For the minimum unit of qty increase or decrease, please refer to the <code>lot_size_filter</code> field in the <a href="#t-dv_instrhead">Query Symbol</a> endpoint.</p>
-    <p>Order price: If it is a stop order, this parameter is required. When there is no position, the long should be 10% higher than the market price and less than 1 million. For the minimum unit of price movement, please refer to the <code>price_filter</code> field in the <a href="#t-querysymbol">Query Symbol</a> endpoint.</p>
+    <p><b>Take profit/Stop loss: You may only set a TP/SL conditional order upon opening the position. Once you hold a position, any new active order requests which contain TP/SL data will be accepted but TP/SL data will be ignored. <code>tpTriggerBy</code>/<code>slTriggerBy</code> default to LastPrice. Passing values to the <code>takeProfit</code> or <code>stopLoss</code> parameters in this endpoint will create conditional orders managed by the system, which will be be automatically cancelled if the position is closed.</b></p>
+    <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell. For the minimum unit of qty increase or decrease, please refer to the <code>lotSizeFilter</code> field in the <a href="#t-dv_instrhead">Query Symbol</a> endpoint.</p>
+    <p>Order price: If it is a stop order, this parameter is required. When there is no position, the long should be 10% higher than the market price and less than 1 million. For the minimum unit of price movement, please refer to the <code>priceFilter</code> field in the <a href="#t-dv_instrhead">Query Symbol</a> endpoint.</p>
     <p>Custom order ID: You may customise order IDs for active orders. We will link it to the system order ID, and return the unique system order ID to you after the active order is created successfully. You may use this order ID or your custom order ID to cancel your active order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
     <p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSDT instrument and 280 active orders on the ETHUSDT instrument.</b></p>
 
@@ -4823,3 +4823,54 @@ en:
   contract_walletAvailableBalance: Available balance
   contract_walletPositionMargin: Position margin
   contract_walletOrderMargin: Margin occupied by the current order
+  # contract order endpoints
+  contract_param_orderType: <a href="#order-type-ordertype">orderType</a>
+  contract_comment_qty: Quantity. If <b>linear perp</b>, qty is in cryptocurrency, else like <b>Inverse perp/futures</b>, qty is in USD.
+  contract_comment_price: Order price. <b>Required</b> if you make limit price order
+  contract_comment_triggerDirection: Trigger direction. Mainly used in conditional order. Trigger the order when market price rises to <b>triggerPrice</b> or falls to <b>triggerPrice</b>. <code>1</code>：rise; <code>2</code>：fall
+  contract_comment_triggerPrice: Trigger price
+  contract_getOrder: Get Order List
+  contract_para_getOrder: |
+    <p><p><b>Interface:</b></p>
+    <p>Access my order list.</p>
+    <p>As order creation/cancellation is asynchronous, the data returned from the interface may be delayed. To access order information in real time, call the interface enquiring information on open orders in real time.</p></p>
+  contract_comment_tpTriggerBy: Trigger type of take profit. <code>LastPrice</code> in default. If it is USDC order, type is <code>MarkPrice</code> in default.
+  contract_comment_slTriggerBy: Trigger type of stop loss. <code>LastPrice</code> in default. If it is USDC order, type is <code>MarkPrice</code> in default.
+  contract_comment_nextPageCursor: Next page cursor
+  contract_comment_getOrderTriggerPrice: If <code>stopOrderType</code> is <b>TrailingProfit</b>, triggerPrice means activate price. Otherwise, it is trigger price.
+  contract_cancelOrder: Cancel order
+  contract_para_cancelOrder: |
+    <p><b>Interface:</b></p>
+    <p>Cancel order,orderId or orderLinkId is required. </p>
+    <p>orderId - Once you have successfully created an order, the system will send you the unique 36-character order ID.</p>
+    <p>You can cancel only cancel the order not filled or not completely filled. You cannot cancel orders that are completely filled.</p>
+  contract_cancelAllOrders: Cancel all orders
+  contract_para_cancelAllOrders: |
+    <p>Cancel all orders that are unfilled or partially filled. Fully filled orders cannot be cancelled.</p>
+  contract_replaceOrder: Replace order
+  contract_para_replaceOrder: |
+    <p>Replace order can modify/amend your orders.</p>
+  contract_getRealtimeOrder: Get Order (real-time)
+  contract_para_getRealtimeOrder: |
+    <p>Query real-time order information. If only <code>orderId</code> or <code>orderLinkId</code> are passed, a single order will be returned; otherwise, <b>returns up to <a href="#t-orderlimits">500</a> unfilled orders</b></p>.
+    <p>Order by <code>createdTime</code> in Descend. You could query multiple symbols in one request, but it costs <b>10</b> times for api rate limit per request.</p>
+  contract_comment_realtimeOrderSymbol: Symbol name. It enables multiple symbols, separated by commas, 10 symbols in max.
+  contract_comment_realtimeOrderSettleCoin: Settle coin. Either <code>symbol</code> or <code>settleCoin</code> is required. If both are passed, <code>symbol</code> is used first.
+  contract_para_position: |
+    <p><b>Interface:</b></p>
+    <p>Accessing personal list of positions. Users can access their position holding information through this interface, such as the number of position holdings and wallet balance.</p>
+  contract_notice_position: |
+    <p>If symbol is passed in single, rate limit is counted as 1 per request. If symbol is passed in multiple, rate limit is counted as 10 per request.</p>
+  contract_comment_dataFilter: Only work when <code>settleCoin</code> is passed. <code>full</code>：get all positions regardless zero or not based on settle coin. <code>valid</code>：get valid positions based on settle coin
+  contract_comment_riskId: <a href="#t-dv_risklimithead">Risk limit id</a>
+  contract_comment_positionBalance: Position balance
+  contract_comment_tradeMode: Trade mode. <code>0</code>：cross margin mode; <code>1</code>：isolated margin mode
+  contract_para_switchIsolated: Switch cross margin mode/isolated margin mode
+  contract_comment_buyLeverage: The value must be equal to <code>sellLeverage</code> value
+  contract_comment_sellLeverage: The value must be equal to <code>buyLeverage</code> value
+  contract_comment_mode: Position mode. <code>0</code>：One-Way mode. <code>3</code>：Hedge mode
+  contract_comment_tpSlMode: TP/SL mode. <code>Full</code>：set TP/SL in full; <code>Partial</code>：set TP/SL in partial
+  contract_comment_orderId: Order id. If null, all executed orders are returned
+  contract_comment_startTime: Start timestamp in millisecond
+  contract_comment_endTime: End timestamp in millisecond
+  contract_comment_lastLiqInd: Only valid while <code>execType</code> is <code>Trade</code>, <code>AdlTrade</code>, <code>BustTrade</code>
