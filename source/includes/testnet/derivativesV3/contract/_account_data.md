@@ -65,8 +65,8 @@ POST
 |orderType |<b>true</b> |string |t(:row_comment_activeOrderType)   |
 |qty |<b>true</b> |number |t(:linear_row_comment_qty) |
 |price |false |number |t(:row_comment_price) |
-|triggerDirection |false |number |t(:row_comment_takeProfit) |
-|triggerPrice |false |string |t(:row_comment_takeProfit) |
+|triggerDirection |false |number |t(:row_comment_triggerDirection) |
+|triggerPrice |false |string |t(:row_comment_triggerPrice) |
 |triggerBy |false |string |t(:account_row_comment_sl_trigger_by) |
 |tpTriggerBy |false |string |t(:account_row_comment_tp_trigger_by) |
 |slTriggerBy |false |string |t(:account_row_comment_sl_trigger_by) |
@@ -162,7 +162,7 @@ GET
 |orderLinkId |false |string |t(:row_comment_orderLinkId) |
 |symbol |<b>true</b> |string |t(:row_comment_symbol) |
 |orderStatus |false |string |t(:linear_account_row_comment_orderStatus) |
-|orderFilter |false |string |t(:linear_account_row_comment_orderFilter) |
+|orderFilter |false |string |t(:row_comment_orderFilter) |
 |limit |false |integer |t(:row_comment_limit) |
 |cursor |false |string |t(:row_comment_cursor) |
 
@@ -183,7 +183,7 @@ GET
 |cumExecValue |string |t(:linear_resp_field_cum_exec_value)  |
 |cumExecFee |string |t(:linear_resp_field_cum_exec_fee)  |
 |lastPriceOnCreated |string |t(:row_comment_last_exec_price)  |
-|rejectReason |string |t(:row_comment_rejectReason) |
+|rejectReason |string |t(:row_comment_query_rejectReason_v3) |
 |createdTime |string |t(:row_comment_created_at)  |
 |updatedTime |string |t(:row_comment_updated_at)  |
 |orderLinkId |string |t(:row_comment_orderLinkId)  |
@@ -952,6 +952,51 @@ POST
 |positionIdx |false |integer |t(:row_comment_position_idx)  |
 
 
+### t(:setrisklimit)
+
+> t(:codequote_curlExample)
+
+```console
+curl https://api-testnet.bybit.com/contract/v3/private/position/set-risk-limit \
+-H "Content-Type: application/json" \
+-d '{"api_key":"{api_key}","symbol":"BTCUSDT","riskId":2,"timestamp":{timestamp},"sign":"{sign}"}'
+```
+
+```python--pybit
+from pybit import usdt_perpetual
+session_auth = usdt_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="cCrMK2P55002rmQh1z",
+    api_secret="eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"
+)
+print(session_auth.set_risk_limit(
+    symbol="BTCUSDT",
+    side="Buy",
+    risk_id=1
+))
+```
+
+t(:account_para_setRisk)
+
+<aside class="notice">
+t(:account_aside_getRisk_linear)
+</aside>
+
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=plpSetRisk>/contract/v3/private/position/set-risk-limit</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#plpSetRisk"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|symbol |<b>true</b> |string |t(:row_comment_symbol) |
+|riskId |<b>true</b> |integer |t(:row_comment_riskId) |
+|positionIdx |false |integer |t(:row_comment_position_idx)  |
+
+
+
+
 ### t(:usertraderecords)
 > t(:codequote_curlExample)
 
@@ -1381,70 +1426,7 @@ GET
 |updated_at |string |t(:row_comment_updated_at)  |
 |max_leverage |string |t(:row_comment_max_leverage)  |
 
-### t(:setrisklimit)
 
-> t(:codequote_curlExample)
-
-```console
-curl https://api-testnet.bybit.com/private/linear/position/set-risk \
--H "Content-Type: application/json" \
--d '{"api_key":"{api_key}","symbol":"BTCUSDT","risk_id":2,"timestamp":{timestamp},"sign":"{sign}"}'
-```
-
-```python--pybit
-from pybit import usdt_perpetual
-session_auth = usdt_perpetual.HTTP(
-    endpoint="https://api-testnet.bybit.com",
-    api_key="cCrMK2P55002rmQh1z",
-    api_secret="eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"
-)
-print(session_auth.set_risk_limit(
-    symbol="BTCUSDT",
-    side="Buy",
-    risk_id=1
-))
-```
-
-> t(:codequote_responseExample)
-
-```javascript  
-{
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
-    "ext_info": "",
-    "result": {
-        "risk_id": 2
-    },
-    "time_now": "1609839125.563609",
-    "rate_limit_status": 73,
-    "rate_limit_reset_ms": 1609839125560,
-    "rate_limit": 75
-}
-```
-t(:account_para_setRisk)
-
-<aside class="notice">
-t(:account_aside_getRisk_linear)
-</aside>
-
-<p class="fake_header">t(:httprequest)</p>
-POST
-<code><span id=plpSetRisk>/private/linear/position/set-risk</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#plpSetRisk"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
-|t(:row_parameter_side) |<b>true</b> |string |t(:row_comment_side)    |
-|risk_id |<b>true</b> |integer |t(:row_comment_riskId) |
-|position_idx |false |integer |t(:row_comment_position_idx)  |
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|risk_id |number |t(:row_comment_riskId)  |
 
 ## t(:funding)
 
