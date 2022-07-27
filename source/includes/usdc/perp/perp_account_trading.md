@@ -24,6 +24,27 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/place-order
 }'
 ```
 
+```python
+from pybit import usdc_perpetual
+session_auth = usdc_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="...",
+    api_secret="..."
+)
+print(session_auth.place_active_order(
+    symbol="BTCPERP",
+    orderType="Limit",
+    orderFilter="Order",
+    side="Sell",
+    orderQty="0.001",
+    orderPrice="30000",
+    timeInForce="GoodTillCancel",
+    orderLinkId="usdcP10011",
+    reduceOnly=False,
+    closeOnTrigger=False
+))
+```
+
 > t(:codequote_responseExample)
 
 ```javascript
@@ -135,7 +156,23 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/replace-ord
 ```
 
 ```python
-
+from pybit import usdc_perpetual
+session_auth = usdc_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="...",
+    api_secret="..."
+)
+print(session_auth.replace_active_order(
+    symbol="BTCPERP",
+    orderFilter="Order",
+    orderLinkId="usdcP10007",
+    orderPrice="35000",
+    orderQty="0.001",
+    tptriggerby="LastPrice",
+    slTriggerBy="MarkPrice",
+    triggerPrice="20900",
+    triggerBy="MarkPrice"
+))
 ```
 
 
@@ -222,7 +259,17 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/cancel-orde
 ```
 
 ```python
-
+from pybit import usdc_perpetual
+session_auth = usdc_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="...",
+    api_secret="..."
+)
+print(session_auth.cancel_active_order(
+    symbol="BTCPERP",
+    orderFilter="Order",
+    orderLinkId="usdcP10007"
+))
 ```
 
 
@@ -267,7 +314,7 @@ POST
 ### t(:usdcCancelAll)
 
 ```console
-curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/cancel-order \
+curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/cancel-all \
 -H "Content-Type: application/json" \
 -D '{
     "symbol": "BTCPERP",
@@ -278,7 +325,16 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/cancel-orde
 ```
 
 ```python
-
+from pybit import usdc_perpetual
+session_auth = usdc_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="...",
+    api_secret="..."
+)
+print(session_auth.cancel_all_active_orders(
+    category="PERPETUAL",
+    orderFilter="Order"
+))
 ```
 
 
@@ -320,7 +376,16 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-active-o
 ```
 
 ```python
-
+from pybit import usdc_perpetual
+session_auth = usdc_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="...",
+    api_secret="..."
+)
+print(session_auth.get_active_order(
+    category="PERPETUAL",
+    symbol="BTCPERP"
+))
 ```
 
 
@@ -444,7 +509,16 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 ```
 
 ```python
-
+from pybit import usdc_perpetual
+session_auth = usdc_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="...",
+    api_secret="..."
+)
+print(session_auth.get_history_order(
+    category="PERPETUAL",
+    limit="2"
+))
 ```
 
 
@@ -576,7 +650,16 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/execution-list
 ```
 
 ```python
-
+from pybit import usdc_perpetual
+session_auth = usdc_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="...",
+    api_secret="..."
+)
+print(session_auth.user_trade_records(
+    category="PERPETUAL",
+    limit="1"
+))
 ```
 
 
@@ -676,7 +759,16 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-transact
 ```
 
 ```python
-
+from pybit import usdc_options
+session_auth = usdc_options.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="...",
+    api_secret="..."
+)
+print(session_auth.wallet_fund_records(
+    type="TRADE",
+    limit="1"
+))
 ```
 
 
@@ -777,7 +869,13 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-wallet-b
 ```
 
 ```python
-
+from pybit import usdc_perpetual
+session_auth = usdc_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="...",
+    api_secret="..."
+)
+print(session_auth.get_wallet_balance())
 ```
 
 
@@ -835,6 +933,17 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-asset-in
 
 ```
 
+```python
+from pybit import usdc_perpetual
+session_auth = usdc_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="...",
+    api_secret="..."
+)
+print(session_auth.get_asset_info(
+    baseCoin="BTC"
+))
+```
 
 > t(:codequote_responseExample)
 
@@ -908,7 +1017,13 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-margin-i
 ```
 
 ```python
-
+from pybit import usdc_perpetual
+session_auth = usdc_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="...",
+    api_secret="..."
+)
+print(session_auth.get_margin_mode())
 ```
 
 
@@ -957,7 +1072,15 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-position
 ```
 
 ```python
-
+from pybit import usdc_perpetual
+session_auth = usdc_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="...",
+    api_secret="..."
+)
+print(session_auth.my_position(
+    category="PERPETUAL"
+))
 ```
 
 
@@ -1078,10 +1201,19 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/position/le
 ```
 
 ```python
-import bybit
-client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
-print(client.Positions.Positions_saveLeverage(symbol="BTCUSD", leverage="14").result())
-
+# import bybit
+# client = bybit.bybit(test=True, api_key="api_key", api_secret="api_secret")
+# print(client.Positions.Positions_saveLeverage(symbol="BTCUSD", leverage="14").result())
+from pybit import usdc_perpetual
+session_auth = usdc_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="...",
+    api_secret="..."
+)
+print(session_auth.set_leverage(
+    symbol="BTCPERP",
+    leverage="14"
+))
 ```
 
 
@@ -1132,7 +1264,15 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/session-settle
 ```
 
 ```python
-
+from pybit import usdc_perpetual
+session_auth = usdc_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="...",
+    api_secret="..."
+)
+print(session_auth.get_settlement_history(
+    symbol="BTCPERP"
+))
 ```
 
 
@@ -1213,7 +1353,16 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/risk-limit/l
 ```
 
 ```python
-
+from pybit import usdc_perpetual
+session_auth = usdc_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="...",
+    api_secret="..."
+)
+print(session_auth.get_risk_limit(
+    symbol="BTCPERP",
+    riskId=10001
+))
 ```
 
 
@@ -1285,7 +1434,16 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/position/se
 ```
 
 ```python
-
+from pybit import usdc_perpetual
+session_auth = usdc_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="...",
+    api_secret="..."
+)
+print(session_auth.set_risk_limit(
+    symbol="BTCPERP",
+    riskId=10010
+))
 ```
 
 
@@ -1332,7 +1490,13 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/prev-funding
 ```
 
 ```python
-
+from pybit import usdc_perpetual
+session_unauth = usdc_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com"
+)
+print(session_unauth.prev_funding_rate(
+    symbol="BTCPERP"
+))
 ```
 
 > t(:codequote_responseExample)
@@ -1380,7 +1544,15 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/predicted-f
 ```
 
 ```python
-
+from pybit import usdc_perpetual
+session_auth = usdc_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com",
+    api_key="...",
+    api_secret="..."
+)
+print(session_auth.predicted_funding_rate(
+    symbol="BTCPERP"
+))
 ```
 
 > t(:codequote_responseExample)

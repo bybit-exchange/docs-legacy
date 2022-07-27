@@ -10,6 +10,11 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/order-book?s
 ```
 
 ```python
+from pybit import usdc_perpetual
+session_unauth = usdc_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com"
+)
+print(session_unauth.orderbook(symbol="BTCPERP"))
 ```
 
 > t(:codequote_responseExample)
@@ -65,6 +70,15 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/symbols
 ```
 
 ```python
+from pybit import usdc_perpetual
+session_unauth = usdc_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com"
+)
+print(session_unauth.query_symbol(
+    symbol="BTCPERP",
+    direction="prev",
+    limit="200"
+))
 ```
 
 > t(:codequote_responseExample)
@@ -142,6 +156,13 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/tick?symbol
 ```
 
 ```python
+from pybit import usdc_perpetual
+session_unauth = usdc_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com"
+)
+print(session_unauth.latest_information_for_symbol(
+    symbol="BTCPERP"
+))
 ```
 
 > t(:codequote_responseExample)
@@ -238,6 +259,16 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/kline/list?
 ```
 
 ```python
+from pybit import usdc_perpetual
+session_unauth = usdc_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com"
+)
+print(session_unauth.query_kline(
+    symbol="BTCPERP",
+    period="1",
+    startTime=1629965054,
+    limit="200"
+))
 ```
 
 > t(:codequote_responseExample)
@@ -303,6 +334,16 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/mark-price-
 ```
 
 ```python
+from pybit import usdc_perpetual
+session_unauth = usdc_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com"
+)
+print(session_unauth.query_mark_price_kline(
+    symbol="BTCPERP",
+    period="1",
+    startTime=1629965054,
+    limit="200"
+))
 ```
 
 > t(:codequote_responseExample)
@@ -363,6 +404,16 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/index-price
 ```
 
 ```python
+from pybit import usdc_perpetual
+session_unauth = usdc_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com"
+)
+print(session_unauth.query_index_price_kline(
+    symbol="BTCPERP",
+    period="1",
+    startTime=1629965054,
+    limit="200"
+))
 ```
 
 > t(:codequote_responseExample)
@@ -423,6 +474,16 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/premium-ind
 ```
 
 ```python
+from pybit import usdc_perpetual
+session_unauth = usdc_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com"
+)
+print(session_unauth.query_premium_index_kline(
+    symbol="BTCPERP",
+    period="1",
+    startTime=1629965054,
+    limit="200"
+))
 ```
 
 > t(:codequote_responseExample)
@@ -483,6 +544,15 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/open-intere
 ```
 
 ```python
+from pybit import usdc_perpetual
+session_unauth = usdc_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com"
+)
+print(session_unauth.open_interest(
+    symbol="BTCPERP",
+    period="5min",
+    limit="50"
+))
 ```
 
 > t(:codequote_responseExample)
@@ -538,6 +608,14 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal?sy
 ```
 
 ```python
+from pybit import usdc_perpetual
+session_unauth = usdc_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com"
+)
+print(session_unauth.latest_big_deal(
+    symbol="BTCPERP",
+    limit="500"
+))
 ```
 
 > t(:codequote_responseExample)
@@ -595,6 +673,15 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/account-rat
 ```
 
 ```python
+from pybit import usdc_perpetual
+session_unauth = usdc_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com"
+)
+print(session_unauth.long_short_ratio(
+    symbol="BTCPERP",
+    period="5min",
+    limit="50"
+))
 ```
 
 > t(:codequote_responseExample)
@@ -652,6 +739,15 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/query-trade-la
 ```
 
 ```python
+from pybit import usdc_perpetual
+session_unauth = usdc_perpetual.HTTP(
+    endpoint="https://api-testnet.bybit.com"
+)
+print(session_unauth.last_500_trades(
+    category="PERPETUAL",
+    symbol="BTCPERP",
+    limit="500"
+))
 ```
 
 > t(:codequote_responseExample)
