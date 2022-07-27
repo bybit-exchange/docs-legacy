@@ -28,10 +28,9 @@ POST
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#crossMarginLoan"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
-
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|currency|<b>true</b>|string|t(:spotCurrency)|
+|<a href="#currency-currency-coin">currency</a>|<b>true</b>|string|t(:spotCurrency)|
 |qty|<b>true</b>|string|t(:spotBorrowQty)|
 
 
@@ -66,7 +65,7 @@ POST
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|currency|<b>true</b>|string|t(:spotCurrency)|
+|<a href="#currency-currency-coin">currency</a>|<b>true</b>|string|t(:spotCurrency)|
 |qty|<b>true</b>|string|t(:spotRepayQty)|
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -118,7 +117,7 @@ GET
 |:----- |:-------|:-----|----- |
 |startTime|false|long|t(:spot_orders_start_time)|
 |endTime|false|long|t(:spot_orders_end_time)|
-|currency|false|string|t(:spotCurrency)|
+|<a href="#currency-currency-coin">currency</a>|false|string|t(:spotCurrency)|
 |status|false|int|t(:spotCrossMarginOrderStatus)|
 |limit|false|int|t(:spotCrossMarginLimit)|
 
@@ -256,13 +255,11 @@ GET
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#queryInterestQuota"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
-
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|currency|<b>true</b>|string|t(:spotCurrency)|
+|<a href="#currency-currency-coin">currency</a>|<b>true</b>|string|t(:spotCurrency)|
 
 <p class="fake_header">t(:responseparameters)</p>
-
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |currency|string|t(:spotCurrency)|
