@@ -794,7 +794,7 @@ GET
 |end_time |false |long |t(:depositwithdrawendtime) |
 |<a href="#currency-currency-coin">coin</a> |false |string |t(:depositcurrencyinfo) |
 |cursor |false |string |t(:depositcursorinfo) |
-|<a href="#page-direction-direction">direction</a> |false |aaa |t(:depositdirectioninfo) |
+|<a href="#page-direction-direction">direction</a> |false |string |t(:depositdirectioninfo) |
 |limit |false |long |t(:depositlimitinfo) |
 |timestamp |<b>true</b>|long |t(:row_comment_to_timestamp) |
 
@@ -887,9 +887,8 @@ GET
 |end_time |false |long |t(:depositwithdrawendtime) |
 |<a href="#currency-currency-coin">coin</a> |false |string |t(:depositcurrencyinfo) |
 |cursor |false |string |t(:depositcursorinfo) |
-|<a href="#page-direction-direction">direction</a> |false |aaa |t(:depositdirectioninfo) |
+|<a href="#page-direction-direction">direction</a> |false |string |t(:depositdirectioninfo) |
 |limit |false |long |t(:depositlimitinfo) |
-|timestamp |<b>true</b>|long |t(:row_comment_to_timestamp) |
 
 
 <p class="fake_header">t(:responseparameters)</p>
