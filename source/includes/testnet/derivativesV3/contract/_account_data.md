@@ -501,7 +501,7 @@ GET
 
 
 ## t(:position)
-### t(:myposition)
+### t(:dv_myposition)
 > t(:codequote_curlExample)
 
 ```console
@@ -682,7 +682,7 @@ POST
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 
-### t(:marginswitch)
+### t(:dv_marginswitch)
 > t(:codequote_curlExample)
 
 ```console
@@ -736,7 +736,7 @@ POST
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 
-### t(:switchpositionmode)
+### t(:dv_switchpositionmode)
 > t(:codequote_curlExample)
 
 ```console
@@ -789,7 +789,7 @@ POST
 |:----- |:-----|----- |
 
 
-### t(:switchmode)
+### t(:dv_switchmode)
 > t(:codequote_curlExample)
 
 ```console
@@ -1023,7 +1023,7 @@ POST
 |:----- |:-----|----- |
 
 
-### t(:userhistorytraderecords)
+### t(:usertraderecords)
 > t(:codequote_curlExample)
 
 ```console
@@ -1142,7 +1142,7 @@ GET
 |nextPageCursor |string |t(:contract_comment_nextPageCursor)  |
 
 
-### t(:closedprofitandloss)
+### t(:dv_closedprofitandloss)
 > t(:codequote_curlExample)
 
 ```console
@@ -1373,7 +1373,7 @@ GET
 |list> makerFeeRate |string |t(:contract_accountMakerFeeRate)  |
 
 
-### t(:walletrecords)
+### t(:dv_walletrecords)
 > t(:codequote_curlExample)
 
 ```console
