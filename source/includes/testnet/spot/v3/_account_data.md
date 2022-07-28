@@ -72,22 +72,22 @@ GET
 
 <p class="fake_header">t(:responseparameters)</p>
 
-| t(:column_parameter) | t(:column_type) | t(:column_comments)              |
-|:---------------------|:----------------|----------------------------------|
-| name                 | string          | 币对名称                             |
-| alias                | string          | 币对别名                             |
-| baseCoin             | string          | base币种                           |
-| quoteCoin            | string          | quote币种                          |
-| basePrecision        | string          | base币种精度                         |
-| quotePrecision       | string          | quote币种精度                        |
-| minTradeQty          | string          | 最小订单数量(对市价买单无效)                  |
-| minTradeAmt          | string          | 最小订单额(只对市价买单有效)                  |
-| minPricePrecision    | string          | 最小价格精度                           |
-| maxTradeQty          | string          | 最大成交量（当您下订单类型为LIMIT_MAKER 时将被忽略） |
-| maxTradeAmt          | string          | 最大成交额（当您下订单类型为LIMIT_MAKER 时将被忽略） |
-| category             | string          | symbol 所在分区:1主类别                 |
-| innovation           | string          | 0=创新区，这个币种价格波动比较大 1=非创新区         |
-| showStatus           | string          | 0=开放交易，1=未开放交易                   |
+| t(:column_parameter) | t(:column_type) | t(:column_comments)       |
+|:---------------------|:----------------|---------------------------|
+| name                 | string          | t(:spotSymbol)            |
+| alias                | string          | t(:spot_Alias)            |
+| baseCoin             | string          | t(:spotBaseCurrency)      |
+| quoteCoin            | string          | t(:spotQuoteCurrency)     |
+| basePrecision        | string          | t(:spotBasePrecision)     |
+| quotePrecision       | string          | t(:spotQuotePrecision)    |
+| minTradeQty          | string          | t(:spotMinTradeQuantity)  |
+| minTradeAmt          | string          | t(:spotMinTradeAmount)    |
+| minPricePrecision    | string          | t(:spotMinPricePrecision) |
+| maxTradeQty          | string          | t(:spotmaxTradeQuantity)  |
+| maxTradeAmt          | string          | t(:spotmaxTradeAmount)    |
+| category             | string          | t(:spotCategory)          |
+| innovation           | string          | t(:spotInnovation)        |
+| showStatus           | string          | t(:spotshowStatus)        |
 
 
 ### t(:placeactive)
@@ -134,33 +134,33 @@ POST
 
 <p class="fake_header">t(:requestparameters)</p>
 
-| t(:column_parameter) | t(:column_required) | t(:column_type) | t(:column_comments)                                                                                            |
-|:---------------------|:--------------------|:----------------|----------------------------------------------------------------------------------------------------------------|
-| symbol               | true                | string          | 交易对                                                                                                            |
-| orderQty             | true                | string          | 交易数量（市价买单即type=Market且side=Buy时orderQty指的是quote currency；比如BTCUSDT的orderQty指的是USDT的数量, 而非市价买单时orderQty指向都是BTC） |
-| side                 | true                | string          | 方向（BUY/SELL）                                                                                                   |
-| orderType            | true                | string          | 订单类型（LIMIT/MARKET/LIMIT_MAKER）                                                                                 |
-| timeInForce          | false               | string          | 执行策略                                                                                                           |
-| orderPrice           | false               | string          | 订单价格（type字段为MARKET时，orderPrice字段为非必须；type字段为LIMIT、LIMIT_MAKER时，orderPrice字段为必须）                                |
-| orderLinkId          | false               | string          | 特殊订单ID，用户自己生成                                                                                                  |
+| t(:column_parameter) | t(:column_required) | t(:column_type) | t(:column_comments)         |
+|:---------------------|:--------------------|:----------------|-----------------------------|
+| symbol               | true                | string          | t(:spotSymbol)              |
+| orderQty             | true                | string          | t(:spotQtyPlaceOrder)       |
+| side                 | true                | string          | t(:spotSide)                |
+| orderType            | true                | string          | t(:spotOrderType)           |
+| timeInForce          | false               | string          | t(:spotOrderType)           |
+| orderPrice           | false               | string          | t(:spotPostOrderPrice)      |
+| orderLinkId          | false               | string          | t(:spotOrderLinkId)         |
 
 
 <p class="fake_header">t(:responseparameters)</p>
 
-| t(:column_parameter) | t(:column_type) | t(:column_comments)                                                                                                                                                                                                 |
-|:---------------------|:----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| orderId              | string          | 订单ID                                                                                                                                                                                                                |
-| orderLinkId          | string          | 特殊订单ID，用户自己生成                                                                                                                                                                                                       |
-| symbol               | string          | 交易对                                                                                                                                                                                                                 |
-| createTime           | string          | 订单创建时间                                                                                                                                                                                                              |
-| orderPrice           | string          | 订单价格                                                                                                                                                                                                                |
-| orderQty             | string          | 交易数量                                                                                                                                                                                                                |
-| orderType            | string          | 订单类型                                                                                                                                                                                                                |
-| side                 | string          | 方向（BUY/SELL）                                                                                                                                                                                                        |
-| status               | string          | 订单状态。订单种类为普通订单时，可能出现的值为NEW（新订单，无成交）、PARTIALLY_FILLED（部分成交）、FILLED（全部成交）、CANCELED（已取消）、REJECTED（被拒绝）；订单种类为止盈止损时，可能出现的值为ORDER_NEW（新订单）、ORDER_FILLED（已触发订单）、ORDER_CANCELED（已取消）、ORDER_REJECTED（被拒绝）、ORDER_FAILED（触发失败） |
-| timeInForce          | string          | 执行策略                                                                                                                                                                                                                |
-| accountId            | string          | 账户ID                                                                                                                                                                                                                |
-| execQty              | string          | 忽略                                                                                                                                                                                                                  |
+| t(:column_parameter) | t(:column_type) | t(:column_comments)         |
+|:---------------------|:----------------|-----------------------------|
+| orderId              | string          | t(:spotOrderId)             |
+| orderLinkId          | string          | t(:spotOrderLinkId)         |
+| symbol               | string          | t(:spotSymbol)              |
+| createTime           | string          | t(:spotTransactTime)        |
+| orderPrice           | string          | t(:spotPrice)               |
+| orderQty             | string          | t(:spotOriQty)              |
+| orderType            | string          | t(:spotOrderType)           |
+| side                 | string          | t(:spotSide)                |
+| status               | string          | t(:spotStatus)              |
+| timeInForce          | string          | t(:row_comment_timeInForce) |
+| accountId            | string          | t(:spotAccountId)           |
+| execQty              | string          | t(:spotExecQty)             |
 
 
 ### t(:getactive)
@@ -213,34 +213,34 @@ GET
 
 <p class="fake_header">t(:requestparameters)</p>
 
-| t(:column_parameter) | t(:column_required) | t(:column_type)  | t(:column_comments)     |
-|:---------------------|:--------------------|:-----------------|-------------------------|
-| orderId              | false               | string           | 如果不传orderLinkId，则为必传    |
-| orderLinkId          | false               | string           | 如果不传orderLinkId，则为必传    |
+| t(:column_parameter) | t(:column_required) | t(:column_type)  | t(:column_comments)                             |
+|:---------------------|:--------------------|:-----------------|-------------------------------------------------|
+| orderId              | false               | string           | t(:misc_row_comment_orderIdNotOrderLinkId_spot) |
+| orderLinkId          | false               | string           | t(:misc_row_comment_orderLinkIdNotOrderId_spot) |
 
 <p class="fake_header">t(:responseparameters)</p>
 
-| t(:column_parameter) | t(:column_type) | t(:column_comments)                                                                                                                                                                                                 |
-|:---------------------|:----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| accountId            | string          | 账户ID                                                                                                                                                                                                                |
-| symbol               | string          | 交易对                                                                                                                                                                                                                 |
-| orderLinkId          | string          | 特殊订单ID，用户自己生成                                                                                                                                                                                                       |
-| orderId              | string          | 订单ID                                                                                                                                                                                                                |
-| orderPrice           | string          | 订单价格                                                                                                                                                                                                                |
-| orderQty             | string          | 交易数量                                                                                                                                                                                                                |
-| execQty              | string          | 成交数量                                                                                                                                                                                                                |
-| cummulativeQuoteQty  | string          | 对于某些历史数据cummulativeQuoteQty<0,说明数据当前不可用                                                                                                                                                                             |
-| avgPrice             | string          | 平均成交价                                                                                                                                                                                                               |
-| status               | string          | 订单状态。订单种类为普通订单时，可能出现的值为NEW（新订单，无成交）、PARTIALLY_FILLED（部分成交）、FILLED（全部成交）、CANCELED（已取消）、REJECTED（被拒绝）；订单种类为止盈止损时，可能出现的值为ORDER_NEW（新订单）、ORDER_FILLED（已触发订单）、ORDER_CANCELED（已取消）、ORDER_REJECTED（被拒绝）、ORDER_FAILED（触发失败） |
-| timeInForce          | string          | 执行策略                                                                                                                                                                                                                |
-| orderType            | string          | 订单类型                                                                                                                                                                                                                |
-| side                 | string          | 方向（BUY/SELL）                                                                                                                                                                                                        |
-| stopPrice            | string          | 停止价                                                                                                                                                                                                                 |
-| icebergQty           | string          | 忽略                                                                                                                                                                                                                  |
-| createTime           | string          | 撮合引擎中的创建时间                                                                                                                                                                                                          |
-| updateTime           | string          | 更新时间                                                                                                                                                                                                                |
-| isWorking            | string          | 是否生效（0=未生效，1=已生效）                                                                                                                                                                                                   |
-| locked               | string          | 锁定数量（如果为0，则说明该笔订单的资金已完成结算）                                                                                                                                                                                          |
+| t(:column_parameter) | t(:column_type) | t(:column_comments)         |
+|:---------------------|:----------------|-----------------------------|
+| accountId            | string          | t(:spotAccountId)           |
+| symbol               | string          | t(:spotSymbol)              |
+| orderLinkId          | string          | t(:spotOrderLinkId)         |
+| orderId              | string          | t(:spotOrderId)             |
+| orderPrice           | string          | t(:spotOPrice)              |
+| orderQty             | string          | t(:spotOriQty)              |
+| execQty              | string          | t(:spotExecQty2)            |
+| cummulativeQuoteQty  | string          | t(:spotCummulativeQuoteQty) |
+| avgPrice             | string          | t(:spotAvgPrice)            |
+| status               | string          | t(:spotStatus)              |
+| timeInForce          | string          | t(:row_comment_timeInForce) |
+| orderType            | string          | t(:spotOrderType)           |
+| side                 | string          | t(:spotSide)                |
+| stopPrice            | string          | t(:spotStopPrice)           |
+| icebergQty           | string          | t(:spotIcebergQty)          |
+| createTime           | string          | t(:spotTime)                |
+| updateTime           | string          | t(:spotUpdateTime)          |
+| isWorking            | string          | t(:spotIsWorking)           |
+| locked               | string          | t(:spotOrderLocked)         |
 
 
 ### t(:cancelactive)
@@ -287,27 +287,27 @@ POST
 
 <p class="fake_header">t(:requestparameters)</p>
 
-| t(:column_parameter) | t(:column_required) | t(:column_type) | t(:column_comments)     |
-|:---------------------|:--------------------|:----------------|-------------------------|
-| orderId              | false               | string          | 如果不传orderLinkId，则为必传    |
-| orderLinkId          | false               | string          | 如果不传orderLinkId，则为必传    |
+| t(:column_parameter) | t(:column_required) | t(:column_type) | t(:column_comments)                             |
+|:---------------------|:--------------------|:----------------|-------------------------------------------------|
+| orderId              | false               | string          | t(:misc_row_comment_orderIdNotOrderLinkId_spot) |
+| orderLinkId          | false               | string          | t(:misc_row_comment_orderLinkIdNotOrderId_spot) |
 
 <p class="fake_header">t(:responseparameters)</p>
 
-| t(:column_parameter)  | t(:column_type) | t(:column_comments)                                                                                                                                                                                                 |
-|:----------------------|:----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| orderId               | string          | 订单ID                                                                                                                                                                                                                |
-| orderLinkId           | string          | 特殊订单ID，用户自己生成                                                                                                                                                                                                       |
-| symbol                | string          | 交易对                                                                                                                                                                                                                 |
-| status                | string          | 订单状态。订单种类为普通订单时，可能出现的值为NEW（新订单，无成交）、PARTIALLY_FILLED（部分成交）、FILLED（全部成交）、CANCELED（已取消）、REJECTED（被拒绝）；订单种类为止盈止损时，可能出现的值为ORDER_NEW（新订单）、ORDER_FILLED（已触发订单）、ORDER_CANCELED（已取消）、ORDER_REJECTED（被拒绝）、ORDER_FAILED（触发失败） |
-| accountId             | string          | 账户ID                                                                                                                                                                                                                |
-| orderPrice            | string          | 订单创建时间                                                                                                                                                                                                              |
-| createTime            | string          | 订单价格                                                                                                                                                                                                                |
-| orderQty              | string          | 交易数量                                                                                                                                                                                                                |
-| execQty               | string          | 成交数量                                                                                                                                                                                                                |
-| timeInForce           | string          | 执行策略                                                                                                                                                                                                                |
-| orderType             | string          | 订单类型                                                                                                                                                                                                                |
-| side                  | string          | 方向（BUY/SELL）                                                                                                                                                                                                        |
+| t(:column_parameter)  | t(:column_type) | t(:column_comments)         |
+|:----------------------|:----------------|-----------------------------|
+| orderId               | string          | t(:spotOrderId)             |
+| orderLinkId           | string          | t(:spotOrderLinkId)         |
+| symbol                | string          | t(:spotSymbol)              |
+| status                | string          | t(:spotStatus)              |
+| accountId             | string          | t(:spotAccountId)           |
+| orderPrice            | string          | t(:spotOPrice)              |
+| createTime            | string          | t(:spotTransactTime)        |
+| orderQty              | string          | t(:spotOriQty)              |
+| execQty               | string          | t(:spotExecQty2)            |
+| timeInForce           | string          | t(:row_comment_timeInForce) |
+| orderType             | string          | t(:spotOrderType)           |
+| side                  | string          | t(:spotSide)                |
 
 
 ### t(:batchcancelactiveorder)
@@ -348,17 +348,17 @@ POST
 
 <p class="fake_header">t(:requestparameters)</p>
 
-| t(:column_parameter)  | t(:column_required) | t(:column_type) | t(:column_comments)                               |
-|:----------------------|:--------------------|:----------------|---------------------------------------------------|
-| symbol                | true                | string          | 交易对                                               |
-| side                  | false               | string          | 订单方向（BUY/SELL）                                    |
-| orderTypes            | false               | string          | 订单类型。多个订单类型使用英文逗号分隔，例如LIMIT,LIMIT_MAKER.默认真：LIMIT |
+| t(:column_parameter)  | t(:column_required) | t(:column_type) | t(:column_comments) |
+|:----------------------|:--------------------|:----------------|---------------------|
+| symbol                | true                | string          | t(:spotSymbol)      |
+| side                  | false               | string          | t(:spotSide)        |
+| orderTypes            | false               | string          | t(:spotOrderType)   |
 
 <p class="fake_header">t(:responseparameters)</p>
 
-| t(:column_parameter) | t(:column_type) | t(:column_comments) |
-|:---------------------|:----------------|---------------------|
-| success              | string          | 是否成功(0=不成功、1=成功)    |
+| t(:column_parameter) | t(:column_type) | t(:column_comments)  |
+|:---------------------|:----------------|----------------------|
+| success              | string          | t(:spot_message)     |
 
 
 ### t(:batchcancelactiveorderbyids)
@@ -404,16 +404,16 @@ POST
 
 <p class="fake_header">t(:requestparameters)</p>
 
-| t(:column_parameter)  | t(:column_required) | t(:column_type) | t(:column_comments)        |
-|:----------------------|:--------------------|:----------------|----------------------------|
-| orderIds              | true                | string          | 订单号，可用英文逗号拼接表示多个订单，不超过100个 |
+| t(:column_parameter)  | t(:column_required) | t(:column_type) | t(:column_comments)         |
+|:----------------------|:--------------------|:----------------|-----------------------------|
+| orderIds              | true                | string          | t(:spotCancelOrderIds)      |
 
 <p class="fake_header">t(:responseparameters)</p>
 
 | t(:column_parameter)  | t(:column_type) | t(:column_comments) |
 |:----------------------|:----------------|---------------------|
-| orderId               | string          | 订单ID                |
-| code                  | string          | 错误码                 |
+| orderId               | string          | t(:spotOrderId)     |
+| code                  | string          | t(:errors)          |
 
 
 ### t(:openorders)
@@ -466,35 +466,35 @@ GET
 
 <p class="fake_header">t(:requestparameters)</p>
 
-| t(:column_parameter) | t(:column_required) | t(:column_type) | t(:column_comments)                |
-|:---------------------|:--------------------|:----------------|------------------------------------|
-| symbol               | false               | string          | 交易对                                |
-| orderId              | false               | string          | 通过指定orderId返回比这个orderId小的订单，可以用来分页 |
-| limit                | false               | string          | 默认500，最大500                        |
+| t(:column_parameter) | t(:column_required) | t(:column_type) | t(:column_comments)          |
+|:---------------------|:--------------------|:----------------|------------------------------|
+| symbol               | false               | string          | t(:spotSymbol)               |
+| orderId              | false               | string          | t(:spotOrderId4Pagination)   |
+| limit                | false               | string          | t(:spot_order_list_limit)    |
 
 
 <p class="fake_header">t(:responseparameters)</p>
 
-| t(:column_parameter) | t(:column_type) | t(:column_comments)                                                                                                                                                                                                  |
-|:---------------------|:----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| accountId            | string          | 账户ID                                                                                                                                                                                                                 |
-| symbol               | string          | 交易对                                                                                                                                                                                                                  |
-| orderLinkId          | string          | 特殊订单ID，用户自己生成                                                                                                                                                                                                        |
-| orderId              | string          | 订单ID                                                                                                                                                                                                                 |
-| orderPrice           | string          | 订单价格                                                                                                                                                                                                                 |
-| orderQty             | string          | 交易数量                                                                                                                                                                                                                 |
-| execQty              | string          | 成交数量                                                                                                                                                                                                                 |
-| cummulativeQuoteQty  | string          | 对于某些历史数据cummulativeQuoteQty<0,说明数据当前不可用                                                                                                                                                                              |
-| avgPrice             | string          | 平均成交价                                                                                                                                                                                                                |
-| status               | string          | 订单状态。订单种类为普通订单时，可能出现的值为NEW（新订单，无成交）、PARTIALLY_FILLED（部分成交）、FILLED（全部成交）、CANCELED（已取消）、REJECTED（被拒绝）；订单种类为止盈止损时，可能出现的值为ORDER_NEW（新订单）、ORDER_FILLED（已触发订单）、ORDER_CANCELED（已取消）、ORDER_REJECTED（被拒绝）、ORDER_FAILED（触发失败）  |
-| timeInForce          | string          | 执行策略                                                                                                                                                                                                                 |
-| orderType            | string          | 订单类型                                                                                                                                                                                                                 |
-| side                 | string          | 方向（BUY/SELL）                                                                                                                                                                                                         |
-| stopPrice            | string          | 停止价                                                                                                                                                                                                                  |
-| icebergQty           | string          | 忽略                                                                                                                                                                                                                   |
-| createTime           | string          | 撮合引擎中的创建时间                                                                                                                                                                                                           |
-| updateTime           | string          | 更新时间                                                                                                                                                                                                                 |
-| isWorking            | string          | 是否生效（0=未生效，1=已生效）                                                                                                                                                                                                    |
+| t(:column_parameter) | t(:column_type) | t(:column_comments)         |
+|:---------------------|:----------------|-----------------------------|
+| accountId            | string          | t(:spotAccountId)           |
+| symbol               | string          | t(:spotSymbol)              |
+| orderLinkId          | string          | t(:spotOrderLinkId)         |
+| orderId              | string          | t(:spotOrderId)             |
+| orderPrice           | string          | t(:spotOPrice)              |
+| orderQty             | string          | t(:spotOriQty)              |
+| execQty              | string          | t(:spotExecQty2)            |
+| cummulativeQuoteQty  | string          | t(:spotCummulativeQuoteQty) |
+| avgPrice             | string          | t(:spotAvgPrice)            |
+| status               | string          | t(:spotStatus)              |
+| timeInForce          | string          | t(:row_comment_timeInForce) |
+| orderType            | string          | t(:spotOrderType)           |
+| side                 | string          | t(:spotSide)                |
+| stopPrice            | string          | t(:spotStopPrice)           |
+| icebergQty           | string          | t(:spotIcebergQty)          |
+| createTime           | string          | t(:spotTime)                |
+| updateTime           | string          | t(:spotTime)                |
+| isWorking            | string          | t(:spotIsWorking)           |
 
 
 ### t(:orderhistory)
@@ -553,37 +553,37 @@ GET
 
 <p class="fake_header">t(:requestparameters)</p>
 
-| t(:column_parameter) | t(:column_required) | t(:column_type) | t(:column_comments)                |
-|:---------------------|:--------------------|:----------------|------------------------------------|
-| symbol               | false               | string          | 交易对                                |
-| orderId              | false               | string          | 通过指定orderId返回比这个orderId小的订单，可以用来分页 |
-| limit                | false               | string          | 默认500，最大500                        |
-| startTime            | false               | int             | 开始时间                               |
-| endTime              | false               | int             | 开始时间                               |
+| t(:column_parameter) | t(:column_required) | t(:column_type) | t(:column_comments)        |
+|:---------------------|:--------------------|:----------------|----------------------------|
+| symbol               | false               | string          | t(:spotSymbol)             |
+| orderId              | false               | string          | t(:spotOrderId4Pagination) |
+| limit                | false               | string          | t(:spot_order_list_limit)  |
+| startTime            | false               | int             | t(:spot_start_time)        |
+| endTime              | false               | int             | t(:spot_end_time)          |
 
 
 <p class="fake_header">t(:responseparameters)</p>
 
-| t(:column_parameter) | t(:column_type) | t(:column_comments)                                                                                                                                                                                                 |
-|:---------------------|:----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| accountId            | string          | 账户ID                                                                                                                                                                                                                |
-| symbol               | string          | 交易对                                                                                                                                                                                                                 |
-| orderLinkId          | string          | 特殊订单ID，用户自己生成                                                                                                                                                                                                       |
-| orderId              | string          | 订单ID                                                                                                                                                                                                                |
-| orderPrice           | string          | 订单价格                                                                                                                                                                                                                |
-| orderQty             | string          | 交易数量                                                                                                                                                                                                                |
-| execQty              | string          | 成交数量                                                                                                                                                                                                                |
-| cummulativeQuoteQty  | string          | 对于某些历史数据cummulativeQuoteQty<0,说明数据当前不可用                                                                                                                                                                             |
-| avgPrice             | string          | 平均成交价                                                                                                                                                                                                               |
-| status               | string          | 订单状态。订单种类为普通订单时，可能出现的值为NEW（新订单，无成交）、PARTIALLY_FILLED（部分成交）、FILLED（全部成交）、CANCELED（已取消）、REJECTED（被拒绝）；订单种类为止盈止损时，可能出现的值为ORDER_NEW（新订单）、ORDER_FILLED（已触发订单）、ORDER_CANCELED（已取消）、ORDER_REJECTED（被拒绝）、ORDER_FAILED（触发失败） |
-| timeInForce          | string          | 执行策略                                                                                                                                                                                                                |
-| orderType            | string          | 订单类型                                                                                                                                                                                                                |
-| side                 | string          | 方向（BUY/SELL）                                                                                                                                                                                                        |
-| stopPrice            | string          | 停止价                                                                                                                                                                                                                 |
-| icebergQty           | string          | 忽略                                                                                                                                                                                                                  |
-| createTime           | string          | 撮合引擎中的创建时间                                                                                                                                                                                                          |
-| updateTime           | string          | 更新时间                                                                                                                                                                                                                |
-| isWorking            | string          | 是否生效（0=未生效，1=已生效）                                                                                                                                                                                                   |
+| t(:column_parameter) | t(:column_type) | t(:column_comments)         |
+|:---------------------|:----------------|-----------------------------|
+| accountId            | string          | t(:spotAccountId)           |
+| symbol               | string          | t(:spotSymbol)              |
+| orderLinkId          | string          | t(:spotOrderLinkId)         |
+| orderId              | string          | t(:spotOrderId)             |
+| orderPrice           | string          | t(:spotPrice)               |
+| orderQty             | string          | t(:spotOriQty)              |
+| execQty              | string          | t(:spotExecQty2)            |
+| cummulativeQuoteQty  | string          | t(:spotCummulativeQuoteQty) |
+| avgPrice             | string          | t(:spotAvgPrice)            |
+| status               | string          | t(:spotStatus)              |
+| timeInForce          | string          | t(:row_comment_timeInForce) |
+| orderType            | string          | t(:spotOrderType)           |
+| side                 | string          | t(:spotSide)                |
+| stopPrice            | string          | t(:spotStopPrice)           |
+| icebergQty           | string          | t(:spotIcebergQty)          |
+| createTime           | string          | t(:spotTime)                |
+| updateTime           | string          | t(:spotUpdateTime)          |
+| isWorking            | string          | t(:spotIsWorking)           |
 
 
 ### t(:tradehistory)
@@ -638,31 +638,31 @@ GET
 
 <p class="fake_header">t(:requestparameters)</p>
 
-| t(:column_parameter) | t(:column_required) | t(:column_type) | t(:column_comments)                     |
-|:---------------------|:--------------------|:----------------|-----------------------------------------|
-| symbol               | false               | string          | 交易对                                     |
-| orderId              | false               | string          | 通过指定orderId返回比这个orderId小的订单，可以用来分页      |
-| limit                | false               | string          | 默认50，最大50                               |
-| startTime            | false               | int             | 开始时间                                    |
-| endTime              | false               | int             | 开始时间                                    |
-| fromTradeId          | false               | string          | 从大于此trade ID开始查询（fromTicketId<trade ID） |
-| toTradeId            | false               | string          | 从小于次trade ID为终点（trade ID<toTicketId）    |
+| t(:column_parameter) | t(:column_required) | t(:column_type) | t(:column_comments)           |
+|:---------------------|:--------------------|:----------------|-------------------------------|
+| symbol               | false               | string          | t(:spotSymbol)                |
+| orderId              | false               | string          | t(:spotOrderId)               |
+| limit                | false               | string          | t(:spot_trades_history_limit) |
+| startTime            | false               | int             | t(:spot_start_time)           |
+| endTime              | false               | int             | t(:spot_end_time)             |
+| fromTradeId          | false               | string          | t(:spot_from_id)              |
+| toTradeId            | false               | string          | t(:spot_to_id)                |
 
 <p class="fake_header">t(:responseparameters)</p>
 
-| t(:column_parameter)  | t(:column_type) | t(:column_comments)                                                                                                                                                                                                 |
-|:----------------------|:----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| symbol                | string          | 交易对                                                                                                                                                                                                                 |
-| id                    | string          | 账户ID                                                                                                                                                                                                                |
-| orderId               | string          | 订单ID                                                                                                                                                                                                                |
-| tradeId               | string          | 订单ID                                                                                                                                                                                                                |
-| orderPrice            | string          | 订单价格                                                                                                                                                                                                                |
-| orderQty              | string          | 交易数量                                                                                                                                                                                                                |
-| execFee               | string          | 成交数量                                                                                                                                                                                                                |
-| feeTokenId            | string          | 对于某些历史数据cummulativeQuoteQty<0,说明数据当前不可用                                                                                                                                                                             |
-| creatTime             | string          | 平均成交价                                                                                                                                                                                                               |
-| isBuyer               | string          | 订单状态。订单种类为普通订单时，可能出现的值为NEW（新订单，无成交）、PARTIALLY_FILLED（部分成交）、FILLED（全部成交）、CANCELED（已取消）、REJECTED（被拒绝）；订单种类为止盈止损时，可能出现的值为ORDER_NEW（新订单）、ORDER_FILLED（已触发订单）、ORDER_CANCELED（已取消）、ORDER_REJECTED（被拒绝）、ORDER_FAILED（触发失败） |
-| isMaker               | string          | 执行策略                                                                                                                                                                                                                |
-| matchOrderId          | string          | 订单类型                                                                                                                                                                                                                |
-| makerRebate           | string          | 方向（BUY/SELL）                                                                                                                                                                                                        |
-| executionTime         | int             | 停止价                                                                                                                                                                                                                 |
+| t(:column_parameter)  | t(:column_type) | t(:column_comments)     |
+|:----------------------|:----------------|-------------------------|
+| symbol                | string          | t(:spotSymbol)          |
+| id                    | string          | t(:spotId)              |
+| orderId               | string          | t(:spotTicketId)        |
+| tradeId               | string          | t(:spotTradeId)         |
+| orderPrice            | string          | t(:spotPrice)           |
+| orderQty              | string          | t(:spotQty)             |
+| execFee               | string          | t(:spot_fee)            |
+| feeTokenId            | string          | t(:spotFeeTokenId)      |
+| creatTime             | string          | t(:spotTime)            |
+| isBuyer               | string          | t(:spotIsBuyer)         |
+| isMaker               | string          | t(:spotIsMaker)         |
+| matchOrderId          | string          | t(:spot_match_order_id) |
+| makerRebate           | string          | t(:spotMakerRebate)     |
+| executionTime         | int             | t(:spotExecutionTime)   |

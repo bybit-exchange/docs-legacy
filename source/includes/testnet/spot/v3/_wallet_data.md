@@ -48,11 +48,11 @@ GET
 
 <p class="fake_header">t(:responseparameters)</p>
 
-| t(:column_parameter) | t(:column_type) | t(:column_comments)  |
-|:---------------------|:----------------|----------------------|
-| coin                 | string          | 币种                   |
-| coinId               | string          | 币种ID                 |
-| total                | string          | 总额                   |
-| free                 | string          | 可用余额                 |
-| locked               | string          | 冻结余额                 |
+| t(:column_parameter) | t(:column_type) | t(:column_comments)   |
+|:---------------------|:----------------|-----------------------|
+| coin                 | string          | t(:spot_token)        |
+| coinId               | string          | t(:spot_token)        |
+| total                | string          | t(:spot_total)        |
+| free                 | string          | t(:spot_account_free) |
+| locked               | string          | t(:spot_locked)       |
 

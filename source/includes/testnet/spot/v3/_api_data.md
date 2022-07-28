@@ -44,4 +44,4 @@ GET
 
 | t(:column_parameter) | t(:column_type) | t(:column_comments) |
 |:---------------------|:----------------|---------------------|
-| serverTime           | string          | 服务器时间               |
+| serverTime           | string          | t(:spotServerTime)  |
