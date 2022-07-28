@@ -140,7 +140,7 @@ POST
 | orderQty             | true                | string          | t(:spotQtyPlaceOrder)       |
 | side                 | true                | string          | t(:spotSide)                |
 | orderType            | true                | string          | t(:spotOrderType)           |
-| timeInForce          | false               | string          | t(:spotOrderType)           |
+| timeInForce          | false               | string          | t(:row_comment_timeInForce) |
 | orderPrice           | false               | string          | t(:spotPostOrderPrice)      |
 | orderLinkId          | false               | string          | t(:spotOrderLinkId)         |
 
@@ -493,7 +493,7 @@ GET
 | stopPrice            | string          | t(:spotStopPrice)           |
 | icebergQty           | string          | t(:spotIcebergQty)          |
 | createTime           | string          | t(:spotTime)                |
-| updateTime           | string          | t(:spotTime)                |
+| updateTime           | string          | t(:spotUpdateTime)          |
 | isWorking            | string          | t(:spotIsWorking)           |
 
 
