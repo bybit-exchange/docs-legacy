@@ -2529,6 +2529,97 @@ en:
 
   err_38101: Replacement of order will result in the breach of user's limit according to open interest.
 
+  # v3 shared errors
+  v3_err_10001: params error
+  v3_err_10002: Invalid request, please check your timestamp and recv_window param
+  v3_err_10003: Invalid api_key
+  v3_err_10004: Error sign
+  v3_err_10005: Permission denied
+  v3_err_10006: Too many visits
+  v3_err_10008: User had been banned
+  v3_err_10009: IP had been banned
+  v3_err_10010: unmatched IP
+  v3_err_10014: Request is duplicate
+  v3_err_10016: Server Error
+  v3_err_10018: Out of frequency limit of IP
+  v3_err_10027: Trading Banned
+
+  # Unifed margin & contract v3 shares the same error msg but error code
+  ## param verification
+  v3_err_110001: Order not exists
+  ## trade
+  v3_err_110003: Order price is out of permissible range
+  v3_err_110004: Insufficient wallet balance
+  v3_err_110005: position status
+  v3_err_110006: cannot afford estimated position_margin
+  v3_err_110007: Insufficient available balance
+  v3_err_110008: Order has been finished or canceled
+  v3_err_110009: The number of stop orders exceeds maximum limit allowed
+  v3_err_110010: Order already cancelled
+  v3_err_110011: Any adjustments made will trigger immediate liquidation
+  v3_err_110012: Available balance not enough
+  v3_err_110013: Due to risk limit, cannot set leverage
+  v3_err_110014: Available balance not enough to add margin
+  v3_err_110015: the position is in cross_margin
+  v3_err_110016: Requested quantity of contracts exceeds risk limit, please adjust your risk limit level before trying again
+  v3_err_110017: Reduce-only rule not satisfied
+  v3_err_110018: userId illegal
+  v3_err_110019: orderId illegal
+  v3_err_110020: number of active orders greats than 500
+  v3_err_110021: Open Interest exceeded
+  v3_err_110022: qty has been limited, can not modify the order to add qty
+  v3_err_110023: This contract only supports position reduction operation, please contact customer service for details
+  v3_err_110024: You have exist position, so position mode cannot be switched
+  v3_err_110025: Position mode is not modified
+  v3_err_110026: Cross/isolated margin mode is not modified
+  v3_err_110027: Margin is not modified
+  v3_err_110028: Open orders exist, so you cannot change position mode
+  v3_err_110029: Hedge mode is not available for this symbol
+  v3_err_110030: Duplicate orderId
+  v3_err_110031: risk limit info not exists
+  v3_err_110032: Illegal order
+  v3_err_110033: Margin cannot be set without open position
+  v3_err_110034: There is no net position
+  v3_err_110035: Cancel order is not completed before liquidation
+  v3_err_110036: Cross margin mode is not allowed to change leverage
+  v3_err_110037: User setting list does not have this symbol
+  v3_err_110038: Portfolio margin mode is not allowed to change leverage
+  v3_err_110039: Maintain margin rate is too high, which may trigger liquidation
+  v3_err_110040: Order will trigger forced liquidation, please resubmit the order
+  v3_err_110041: Skip liquidation is not allowed when a position or maker order exists
+  v3_err_110042: Pre-delivery status can only reduce positions
+  v3_err_110043: Set leverage not modified
+  ## wallet
+  v3_err_110044: Insufficient available margin
+  v3_err_110045: Insufficient wallet balance
+  v3_err_110046: Any adjustments made will trigger immediate liquidation
+  v3_err_110047: Risk limit cannot be adjusted due to insufficient available margin
+  v3_err_110048: Risk limit cannot be adjusted as the current/expected position value held exceeds the revised risk limit
+  v3_err_110049: Tick notes can only be numbers
+  v3_err_110050: Coin is not in the range of selected
+  ## market order price error
+  v3_err_110051: The user's available balance cannot cover the lowest price of the current market
+  v3_err_110052: User's available balance is insufficient to set a price
+  v3_err_110053: The user's available balance cannot cover the current market price and upper limit price
+  ## partial TP/SL error
+  v3_err_110054: This position has at least one take profit link order, so the take profit and stop loss mode cannot be switched
+  v3_err_110055: This position has at least one stop loss link order, so the take profit and stop loss mode cannot be switched
+  v3_err_110056: This position has at least one trailing stop link order, so the take profit and stop loss mode cannot be switched
+  v3_err_110057: Conditional order or limit order contains TP/SL related params
+  v3_err_110058: Insufficient number of remaining position size to set take profit and stop loss
+  v3_err_110059: In the case of partial filled of the open order, it is not allowed to modify the take profit and stop loss settings of the open order
+  v3_err_110060: Under full TP/SL mode, it is not allowed to modify TP/SL
+  v3_err_110061: Under partial TP/SL mode, TP/SL set more than 20
+  v3_err_110062: Institution MMP profile not found.
+  v3_err_110063: Settlement in progress! {{key0}} not available for trades.
+  v3_err_110064: The number of contracts modified cannot be less than or equal to the filled quantity
+  v3_err_110065: MMP hasn't yet been enabled for your account. Please contact your BD manager.
+  v3_err_110066: No trading is allowed at the current time
+  v3_err_110067: unified account is not support
+  v3_err_110068: Leveraged user trading is not allowed
+  v3_err_110069: Do not allow OTC lending users to trade
+  v3_err_110070: ETP symbols are not allowed to be traded
+
   # Misc.
   misc_row_comment_orderLinkIdNotOrderId: Unique user-set order ID
   misc_row_comment_orderLinkIdNotStopOrderId: Unique user-set order ID. <b>Required</b> if not passing <code>stop_order_id</code>
