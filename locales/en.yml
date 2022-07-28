@@ -286,7 +286,7 @@ en:
   row_comment_query_unrealisedPnl_v3: Unrealized P&L
   row_comment_query_cumRealisedPnl_v3: Accumulatively realized P&L
   row_comment_query_tpslMode_v3: TP/SL mode
-  row_comment_query_set_leverage_v3: User’s leverage
+  row_comment_query_set_leverage_v3: User's leverage
   row_comment_query_execFee_v3: Trading fee
   row_comment_query_execId_v3: Trading ID
   row_comment_query_execPrice_v3: Executed price
@@ -1091,7 +1091,7 @@ en:
   account_para_placeActive_v3: |
     <p><p><b>Interface:</b></p>
     <p>Market active orders: A traditional market order, which will be filled at the current optimal price. Only when the market order is selected,
-    can the price be null! To protect the market order from serious slippage, Bybit will convert the market order into a limit order with the buy order price higher than the optimal selling price, and the sell order price lower than the optimal buying price. Both the limit price and the executed price can be queried through the user’s transaction history interface.</p>
+    can the price be null! To protect the market order from serious slippage, Bybit will convert the market order into a limit order with the buy order price higher than the optimal selling price, and the sell order price lower than the optimal buying price. Both the limit price and the executed price can be queried through the user's transaction history interface.</p>
     <p>Limit active orders: You can set an executed price for your order. When the market price touches the price you set, the system will fill the order for you.</p>
     <p></b>TP/SL: You can only set TP/SL conditional orders while opening positions. Once you have held positions, the TP/SL linked when you submit active orders will not take effect.</b></p>
     <p>Order quantity: The quantity of perpetual contracts you are going to buy/sell. For the order quantity, Bybit only supports positive integers at present.</p>
@@ -1168,7 +1168,7 @@ en:
 
   wallet_para_tradeRecords_v3: |
     <p><b>Interface:</b></p>
-    <p>Access the user’s filled history, ranked by time in descending order.</p>
+    <p>Access the user's filled history, ranked by time in descending order.</p>
     <p>There might be multiple filled histories for an order.</p></p>
 
   wallet_para_delivery_record_v3: |
@@ -1208,13 +1208,13 @@ en:
   websocketpositionV3: |
     <p><p><b>instruction:</b></p>
     <p>Pushing the incremental volume only</p>
-    <p>Accessing personal position list. Current user’s position holding information can be accessed through this interface, such as the quantity of position holdings and wallet balance.</p>
+    <p>Accessing personal position list. Current user's position holding information can be accessed through this interface, such as the quantity of position holdings and wallet balance.</p>
     <p><b>Topic: </b></p>
     <p>user.position.unifiedAccount</p></p>
 
   websocketexecutionV3: |
     <p><p><b>Notice:</b></p>
-    <p>Accessing the user’s filled history ranked by time in ascending order.</p>
+    <p>Accessing the user's filled history ranked by time in ascending order.</p>
     <p><b>Topic: </b></p>
     <p>user.execution.unifiedAccount</p></p>
 
@@ -4080,7 +4080,7 @@ en:
   maintainMargin: Maintenance margin
   startingMargin: Initial margin
   section: Interval
-  isLowestRisk: Whether it’s the lowest risk limit; 0 indicates no and 1 means yes
+  isLowestRisk: Whether it's the lowest risk limit; 0 indicates no and 1 means yes
   riskId: Risk ID
   usdcRiskLimit: Risk Limit
   fundingRateTimestamp: Timestamp
@@ -4306,7 +4306,7 @@ en:
     <p>{"success":true,"ret_msg":"","conn_id":"c53a9a5c-ff3a-443a-b56d-2cbd8552566f","request":{"op":"unsubscribe","args":["orderBook_200.100ms.BTCPERP"]}}</p>
 
     <p>Private:</p>
-    <p>ws.send('{"method":"private/unsubscribe","id":"{uuid}","params":{"channels":["topic1","topic2"]}}’) </p>
+    <p>ws.send('{"method":"private/unsubscribe","id":"{uuid}","params":{"channels":["topic1","topic2"]}}') </p>
     <p>{"id":"{uuid}","success":true,"data":{"successChannels":["topic1"],"failChannels":["topic2"]},"type":"COMMAND_RESP"}</p>
     <p>Cancel All Private Topics</p>
     <p>{"method":"public/unSubAll","id":"requestId"}</p>
@@ -4893,7 +4893,7 @@ en:
   contract_websocketPosition: |
     <p><p><b>instruction:</b></p>
     <p>Pushing the incremental volume only</p>
-    <p>Accessing personal position list. Current user’s position holding information can be accessed through this interface, such as the quantity of position owned and wallet balance.</p>
+    <p>Accessing personal position list. Current user's position holding information can be accessed through this interface, such as the quantity of position owned and wallet balance.</p>
     <p><b>Topic: </b></p>
     <p>user.position.contractAccount</p></p>
   contract_position_riskLimitValue: Position upper limit corresponding to the current risk limit ID
@@ -4906,7 +4906,7 @@ en:
   contract_position_bustPrice: <a href="https://help.bybit.com/hc/en-us/articles/360039749813-What-is-Bankruptcy-Price-Inverse-Contract-">Bankruptcy price</a>
   contract_websocketExecution: |
     <p><b>Instruction:</b></p>
-    <p>Get the user’s filled history ranked by time in ascending order.</p>
+    <p>Get the user's filled history ranked by time in ascending order.</p>
     <p><b>Topic: </b></p>
     <p>user.execution.contractAccount</p></p>
   contract_executionClosedSize: Closed size
