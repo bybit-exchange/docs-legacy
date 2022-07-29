@@ -457,6 +457,96 @@ POST
 |errorDesc |string|t(:usdcErrorDesc)|
 
 
+### t(:usdcQryUnOrPartFilled_new)
+t(:usdcQryUnOrPartFilled_new_para)
+
+```console
+curl GET 'https://api-testnet.bybit.com/option/usdc/openapi/private/v1/trade/query-active-orders?orderLinkId=option0005&symbol=BTC-30SEP22-28000-C' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-SIGN: c657feac222cc8b66d6162802c707c0df47592ee7532a060cb613679aad174f7' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-TIMESTAMP: 1658126609521' \
+--header 'X-BAPI-RECV-WINDOW: 10000' \
+```
+
+```python
+
+```
+
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "retCode": 0,
+    "retMsg": "OK",
+    "result": {
+        "resultTotalSize": 2,
+        "cursor": "id%3D1657785223205%23cd05e436-1e04-4391-94db-82b660638364",
+        "dataList": [
+            {
+                "orderId": "bd4a5ce3-cefd-455c-ac8d-1eaf2ae76b24",
+                "orderLinkId": "1426a049-f999-0000026",
+                "symbol": "BTC-14JUL22-10000-P",
+                "orderStatus": "New",
+                "orderPrice": "0.2",
+                "side": "Sell",
+                "remainingQty": "0.01",
+                "orderType": "Limit",
+                "qty": "0.01"
+            },
+            {
+                "orderId": "cd05e436-1e04-4391-94db-82b660638364",
+                "orderLinkId": "1426a049-f999-0000027",
+                "symbol": "BTC-14JUL22-10000-P",
+                "orderStatus": "New",
+                "orderPrice": "0.2",
+                "side": "Sell",
+                "remainingQty": "0.01",
+                "orderType": "Limit",
+                "qty": "0.01"
+            }
+        ]
+    }
+}
+```
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=uopvQueryActiveNew>/option/usdc/openapi/private/v1/trade/query-active-orders</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvQueryActiveNew"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|orderId|false|string|t(:usdcOrderId)|
+|orderLinkId|false|string|t(:orderLinkId)|
+|t(:row_parameter_symbol) |<b>true</b>|string|t(:usdcSymbol)|
+|direction|false|string|t(:direction)|
+|limit|false|number|t(:row_comment_limit)|
+|cursor|false|string|t(:cursor)|
+
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|resultTotalSize|number|t(:resultTotalSize)|
+|cursor|string|t(:cursor)|
+|dataList|list|t(:dataList)|
+
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|orderId|string |t(:usdcOrderId)|
+|orderLinkId |string|t(:orderLinkId)|
+|t(:row_parameter_symbol) |string|t(:usdcSymbol)|
+|orderStatus |string|t(:usdcOptionOrderStatus)|
+|t(:row_parameter_price) |string|t(:usdcOrderPrice)|
+|t(:row_parameter_side) |string|t(:side)|
+|remainingQty |string|t(:row_comment_leaves_qty)|
+|orderType|string|t(:uscdOrderType)|
+|qty|string|t(:usdcOrderQty)|
+
+
 ### t(:usdcQryUnOrPartFilled)
 
 ```console
