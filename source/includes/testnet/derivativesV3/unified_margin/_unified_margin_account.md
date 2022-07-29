@@ -1442,7 +1442,7 @@ POST
 |list> size |string |t(:row_comment_query_size_v3)  |
 |list> sessionAvgPrice |string |t(:row_comment_query_sessionAvgPrice_v3)  |
 |list> markPrice |string |t(:row_comment_query_markPrice_v3)  |
-|list> sessionRpl |string |t(:row_comment_query_sessionRpl_v3)  |
+|list> sessionRpl |string |t(:row_comment_query_sessionRPL_v3)  |
 |list> time |string |t(:settlementTime)  |
 |nextPageCursor |string |t(:row_comment_query_nextPageCursor_v3)  |
 

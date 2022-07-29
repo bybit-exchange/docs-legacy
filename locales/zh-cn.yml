@@ -164,6 +164,7 @@ zh-cn:
   row_comment_trailingStop: Trailing stop
   row_comment_reduceOnly: 只減倉
   row_comment_mmp: true表示此订单为做市商保护订单
+  row_comment_orderFilter: 條件單或是活動單
   row_comment_qty_v3: 委托數量
   row_comment_triggerPrice: 觸發價格. 如果您期望價格上漲时觸發您的條件訂單，請確保 triggerPrice > max(market price, basePrice) 否則 triggerPrice < min(market price, basePrice)
   row_comment_closeOnTrigger: 觸發後平倉. 如果下平倉單，請設置為<code>true</code>，避免因為保證金不足而導致下單失敗
@@ -516,7 +517,7 @@ zh-cn:
   row_comment_query_positionMM_v3: Maintenance margin
   row_comment_query_trailingStop_v3: 追蹤止損
   row_comment_query_positionStatus_v3: 倉位狀態，正常，強平，減倉
-  row_comment_query_positionValue_v3: Position value
+  row_comment_query_positionValue_v3: 倉位價值
   row_comment_query_unrealisedPnl_v3: 未結盈虧
   row_comment_query_cumRealisedPnl_v3: 累計已結盈虧
   row_comment_query_tpslMode_v3: 止盈止損模式
@@ -2398,6 +2399,7 @@ zh-cn:
   linear_row_comment_leverage: <code>杠桿大於0，小於風險限額對應的杠桿</code>
 
   marginswitch: 全倉/逐倉切換
+  dv_marginswitch: 全倉/逐倉切換
   linear_account_para_switchIsolated: 全倉/逐倉切換，從全倉切換至逐倉時需要傳杠桿
   linear_row_comment_switch_isolated: 全倉/逐倉, true是逐倉，false是全倉
 
@@ -2414,6 +2416,7 @@ zh-cn:
 
   ### inverse futures
   switchpositionmode: 切換倉位模式
+  dv_switchpositionmode: 切換倉位模式
   account_para_switchpositionmode: 單倉模式下，只能在單方向下持倉<br/>雙倉模式下，可以同時在兩個方向持倉。
   account_para_switchpositionmode_withcoin: 單倉模式下，只能在單方向下持倉<br/>雙倉模式下，可以同時在兩個方向持倉，支持<code>coin</code>级别切换單倉模式和雙倉模式。
   row_comment_positionmode: 倉位模式<span>:</span> 0 - 單倉模式  3 - 雙倉模式
@@ -2480,6 +2483,7 @@ zh-cn:
   linear_exec_type: 交易類型
   exec_type_pnl: 交易類型(不能為"Funding")
   closedprofitandloss: 平倉盈虧
+  dv_closedprofitandloss: 平倉盈虧
   switchmode: 切換止盈止損模式
   switchmode_aside: 當設置部分止盈止損模式時，止盈或者止損的訂單數量可以小於倉位大小, 請使用<a href="#t-tradingstop">Trading-Stop endpoint</a>。
   addmargin: 增加/減少保證金
@@ -4355,6 +4359,32 @@ zh-cn:
      </p>
     </ul>
 
+  websocket_para_endpoint_contract: |
+    <p>WebSocket 公共頻道:</p>
+    <ul>
+    <p>
+    <li>測試網:<br/>
+        USDT合約: <span id="usdt_2_testnet_address">wss://stream-testnet.bybit.com/contract/usdt/public/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdt_2_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <br/>
+        USDC合約: <span id="usdc_2_testnet_address">wss://stream-testnet.bybit.com/contract/usdc/public/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdc_2_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <br/>
+        USDC期權: <span id="option_2_testnet_address">wss://stream-testnet.bybit.com/option/usdc/public/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#option_2_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+    </li>
+     </p>
+    </ul>
+    <p>WebSocket 私有頻道:</p>
+    <ul>
+    <p>
+    <li>測試網:<br/>
+        合约帳戶: <span id="ca_testnet_address">wss://stream-testnet.bybit.com/contract/private/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ca_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+    </li>
+     </p>
+    </ul>
+
   websocketOrderBook_v3: |
     <b>說明: </b>
     獲取25,500檔orderbook數據.<br>
@@ -4381,3 +4411,109 @@ zh-cn:
   row_comment_resp_prev_price_1h_v3: 市价相对1小时前变化百分比
   deliveryTime_v3: 交割时间
   predicatedDeliveryPrice_v3: 预期交割价，仅交割合约有效
+
+  # contract account
+  contract_order_para: |
+    <p>市價活動委托: 一個傳統的市場價格訂單,會以當前的最優價格為您成交訂單。當且僅當選擇市價單時，<code>price</code>可為空！</p>
+    <p>限價活動委托: 您可以為您的訂單設置一個執行價格，當市場價格達到您的設置價格時，系統會為您成交訂單。</p>
+    <p><b>止盈止損: 您僅能在開倉時設置止盈止損條件單，一旦持有倉位後提交活動委托時關聯的止盈止損則不會生效。如果不設置止盈止損觸發條件<code>triggerBy</code>則默認使用LastPrice</b></p>
+    <p>委托數量: 表示您要購買/賣出的永續合約數，對於委托數量目前Bybit只允許提交正整數。增減最小單位請參考交易對接口響應中的<code>lotSizeFilter</code>字段。</p>
+    <p>委托價格: 如果是下<b>限價單</b>，該參數為<b>必填</b>. 在沒有倉位時，做多的委托價格需高於市價的10%、低於1百萬。如有倉位時則需優於強平價。價格增減最小單位請參考<a href="#t-dv_instrhead">交易對接口</a>響應中的<b>priceFilter</b>字段。</p>
+    <p>自定義條件單ID: 您可以自定義活動委托訂單ID，我們會為您關聯到系統的訂單ID，並把系統的唯一訂單ID在活動委托創建成功後一並返回給您，您可以使用該訂單ID去取消活動委托，同時要求您傳遞的自定義訂單ID<code>最大長度不超過36個字段且唯一</code>。</p>
+    <p><b>每個賬戶最多可同時持有500個活動訂單。這是針對合約的，因此可以允許出現例如：賬戶同時持有300個BTCUSDT的活動單、280個ETHUSDT合約的活動單。</b></p>
+    <p><b>當您達到訂單上限的時候的時候，仍然可以下單設置了參數<code>reduceOnly</code> 或 <code>closeOnTrigger</code>的訂單。</b></p>
+
+  contract_account: 帳戶
+  contract_accountPara: 帳戶相關接口需要認證.
+  contract_accountCoin: <code>currency</code> alias，如果不傳參數coin，將返回所有錢包余額。可以傳遞多個幣，逗號隔開，比如：<code>USDT,USDC</code>
+  contract_accountCoin_resp: 幣種名稱
+  contract_accountStatTime: 開始時間（毫秒級）
+  contract_accountEndTime: 結束時間（毫秒級）<b>僅支持最近一年紀錄</b>
+  contract_accountCursor: 翻頁游標
+  contract_accountNextPageCursor: 翻頁游標
+  tradingFeeRate: 獲取交易手續費率
+  contract_tradingFeeRate_para: |
+    <p><b>接口說明:</b></p>
+    <P>獲取交易手續費率</p>
+  contract_feeRate_warning: 頻率限制, 每分鐘5個請求.
+  contract_accountTakerFeeRate: 吃單手續費率
+  contract_accountMakerFeeRate: 掛單手續費率
+  # Contract >> Private topics
+  contract_privateTopic: 私有 Topics
+  contract_websocketPosition: |
+    <p><p><b>說明：</b></p>
+    <p>獲取我的倉位列表。通過該接口可以獲取當前用戶的持倉信息，如持倉數量、賬戶余額等信息。<b>仅推增量</b></p>
+    <p><b>Topic：</b></p>
+    <p>user.position.contractAccount</p></p>
+  contract_position_riskLimitValue: 當前風險限額ID對應的持倉上限
+  contract_position_tradeMode: 交易模式：<code>0</code>：全倉; <code>1</code>：逐倉
+  contract_position_autoAddMargin: 自動追加保證金模式. <code>0</code>代表關閉, <code>1</code>代表開啟. <b>全倉</b>模式下該字段無效
+  contract_position_positionBalance: 倉位餘額
+  contract_position_liqPrice: 強制平倉價格
+  contract_position_bustPrice: <a href="https://help.bybit.com/hc/en-us/articles/360039749813-What-is-Bankruptcy-Price-Inverse-Contract-">破產價格</a>
+  contract_websocketExecution: |
+    <p><p><b>說明：</b></p>
+    <p>獲取用戶成交記錄，按時間降序排列。</p>
+    <p><b>Topic：</b></p>
+    <p>user.execution.contractAccount</p></p>
+  contract_executionClosedSize: 減倉數量
+  contract_websocketOrder: |
+    <p><p><b>說明：</b></p>
+    <p><b>仅推增量</b>. 订单与条件单合并成一个Topic</p>
+    <p><b>Topic：</b></p>
+    <p>user.order.contractAccount</p></p>
+  contract_websocketWallet: |
+    <p><b>Topic：</b></p>
+    <p>user.wallet.contractAccount</p></p>
+  contract_walletAvailableBalance: 可用餘額
+  contract_walletPositionMargin: 倉位保證金
+  contract_walletOrderMargin: 當前委託訂單佔用的保證金
+  # contract order endpoints
+  contract_comment_qty: 委託數量. 如果是下<b>USDT永續</b>，則是幣種數量；如果是下<b>反向永續/交割</b>，則是USD數量
+  contract_comment_price: 委托價格。如果是下<b>限價單</b>，該參數為<b>必填</b>. 在沒有倉位時，做多的委托價格需高於市價的10%、低於1百萬。如有倉位時則需優於強平價。價格增減最小單位請參考<a href="#t-dv_instrhead">交易對接口</a>響應中的<b>priceFilter</b>字段
+  contract_comment_triggerDirection: 用於當前條件委託是看空到triggerPrice時觸發還是看多到triggerPrice觸發。主要是用來標識當前條件單預期的方向：<b>1</b>：行情價格上漲到triggerPrice時觸發，<b>2</b>：行情價格下跌到triggerPrice時觸發，
+  contract_comment_triggerPrice: 觸發價格
+  contract_getOrder: 查詢訂單
+  contract_para_getOrder: |
+    <p>獲取我的委托單列表。</p>
+    <p>創建/取消訂單是異步的，因此<b>該接口可能返回的數據可能會有延遲</b>。如果要獲取訂單的實時信息，可以調用接口<a href="#t-contract_getrealtimeorder">實時查詢委託單信息</a>.</p>
+  contract_comment_tpTriggerBy: 止盈激活價格類型. 默認為<code>LastPrice</code>. 若為USDC單, 則是<code>MarkPrice</code>
+  contract_comment_slTriggerBy: 止損激活價格類型. 默認為<code>LastPrice</code>. 若為USDC單, 則是<code>MarkPrice</code>
+  contract_comment_nextPageCursor: 翻頁游標
+  contract_comment_getOrderTriggerPrice: 若<code>stopOrderType</code>為<b>TrailingProfit</b>, 則表示為激活價格, 否則是觸發價格
+  contract_cancelOrder: 撤銷委託單
+  contract_para_cancelOrder: |
+    <p>所有撤銷委托單都必須填寫<code>orderId</code>或<code>orderLinkId</code>。 <code>orderId</code> - 當您成功創建了委托單時會為您返回36位唯一的訂單ID。</p>
+    <p>您可以撤銷未成交、部分成交的委托單。但全部成交的委托單不可取消。</p>
+  contract_cancelAllOrders: 撤銷所有委託單
+  contract_para_cancelAllOrders: |
+    <p>撤銷所有未成交、部分成交的委托單。但全部成交的委托單不可取消。</p>
+  contract_replaceOrder: 修改委托單信息
+  contract_para_replaceOrder: |
+    <p>本接口可以修改您的委托單信息.</p>
+  contract_getRealtimeOrder: 實時查詢委託單
+  contract_para_getRealtimeOrder: |
+    <p>實時查詢活動委托。當傳遞參數<code>orderId</code>或<code>orderLinkId</code>其中任意一個時，將返回單條訂單數據，如果參數<code>orderId</code>和<code>orderLinkId</code>都不傳遞時，將返回所有<b>未成交</b>的訂單，最多500條。</p>
+    <p>按照createdTime從近到遠排序. symbol支持輸入多個symbol, <b>如果輸入多個symbol的請求，限頻計數為10</b></p>
+  contract_comment_realtimeOrderSymbol: 合約類型. 支持輸入多個symbol, 需要用英文逗號隔開, 最多支持10個symbol
+  contract_comment_realtimeOrderSettleCoin: 結算幣種. <code>symbol</code>和<code>settleCoin</code>字段必須傳一個. 都傳的話，以<code>symbol</code>為準.
+  contract_para_position: |
+    <p><b>接口說明：</b></p>
+    <p>獲取我的倉位列表。通過該接口可以獲取當前用戶的持倉信息，如持倉數量、賬戶余額等信息。</p>
+  contract_notice_position: |
+    如果傳單個symbol, 每個request計數1次。如果一次傳多個symbol, 每個request計數10次。
+  contract_comment_dataFilter: 僅在<code>settleCoin</code>有值時生效. <code>full</code>：獲取settle coin對應的所有symbol的持倉數據, 不管倉位是否為0. <code>valid</code>：僅獲取settle coin對應持倉不為0的倉位數據
+  contract_comment_riskId: <a href="#t-dv_risklimithead">風險限額ID</a>
+  contract_comment_positionBalance: 倉位餘額
+  contract_comment_tradeMode: 交易模式. <code>0</code>：全倉; <code>1</code>：逐倉
+  contract_para_switchIsolated: 切換全倉/逐倉
+  contract_comment_buyLeverage: 值必須和<code>sellLeverage</code>的值一樣
+  contract_comment_sellLeverage: 值必須和<code>buyLeverage</code>的值一樣
+  contract_comment_mode: 倉位模式. <code>0</code>：單倉模式. <code>3</code>：雙倉模式
+  contract_comment_tpSlMode: 止盈止損模式. <code>Full</code>：設置止盈止損為全倉; <code>Partial</code>：設置止盈止損為部分倉位
+  contract_comment_orderId: 訂單號. 若不傳，則返回用戶全部交易紀錄
+  contract_comment_startTime: 開始時間戳(毫秒)
+  contract_comment_endTime: 結束時間戳(毫秒)
+  contract_comment_lastLiqInd: 只有當<code>execType</code>字段類型為<code>Trade</code>、<code>AdlTrade</code>、<code>BustTrade</code>時有效
+  contract_comment_autoAddMargin: 自動追加保證金開關. <code>0</code>：關閉. <code>1</code>：開啟
+  dv_enum_comment_getSymbol: 您可以根據<a href="#t-dv_instrhead">查询衍生品交易规格</a>接口獲取所有交易中的symbol。
