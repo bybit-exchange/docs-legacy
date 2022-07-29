@@ -2765,7 +2765,7 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal?sy
 <span class="p">}</span>
 </code></pre></div>
 <p><p>Place an order using the USDC Derivatives Account. </p>
-<p>The request status can be queried in real time. </p>
+<p>The request status can be queried in real-time. </p>
 <p>The response parameters must be queried through a query or a WebSocket response.</p>
 </p>
 
@@ -5268,7 +5268,7 @@ The endpoint only supports up to 30 days of queried records
 <tr>
 <td style="text-align: left">isLowestRisk</td>
 <td style="text-align: left">string</td>
-<td>Whether it’s the lowest risk limit; 0 indicates no and 1 means yes</td>
+<td>Whether it's the lowest risk limit; 0 indicates no and 1 means yes</td>
 </tr>
 <tr>
 <td style="text-align: left">maxLeverage</td>
@@ -5840,7 +5840,7 @@ ONLY VIP clients are allowed to turn on/off DCP
 </code></pre></div>
 <p><p>Either 25 or 200 orders will be fetched from the bid and ask side of the order book.</p>
 <p>After a successful subscription,  the first response will be a snapshot data, then provide the delta data</p>
-<p>topic format：orderBookL2_25.{symbol} or orderBook_200.100ms.{symbol}</p>
+<p>topic format: orderBookL2_25.{symbol} or orderBook_200.100ms.{symbol}</p>
 <p>orderBookL2_25.BTCPERP or orderBook_200.100ms.BTCPERP</p>
 </p>
 
@@ -5901,7 +5901,10 @@ ONLY VIP clients are allowed to turn on/off DCP
 <span class="p">}</span>
 
 </code></pre></div>
-<p><p>Fetch the transaction data on Bybit in the last 24 hours.</p> <p>topic format：trade.{symbol}</p> <p>trade.BTCPERP</p></p>
+<p><p>Fetch the transaction data on Bybit in the last 24 hours.</p>
+<p>topic format: trade.{symbol}</p>
+<p>trade.BTCPERP</p>
+</p>
 
 <p class="fake_header">Response Parameters</p>
 
@@ -6923,9 +6926,30 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 <li><code>Rejected</code></li>
 </ul>
 <h2 id='quantity-qty'>Quantity (<code>qty</code>)</h2>
-<p><ul> <li>Must be less than 1 thousand (<code>1000</code>)</li> <li>Must be a positive number： <ul> <li><code>40</code> - allowed</li> <li><code>40.001</code> - allowed</li> <li><code>-30.5</code> - not allowed</li> </ul> </li> </ul></p>
+<p><ul>
+<li>Must be less than 1 thousand (<code>1000</code>)</li>
+<li>Must be a positive number:
+<ul>
+<li><code>40</code> - allowed</li>
+<li><code>40.001</code> - allowed</li>
+<li><code>-30.5</code> - not allowed</li>
+</ul>
+</li>
+</ul>
+</p>
 <h2 id='price-price'>Price (<code>price</code>)</h2>
-<p><ul> <li>Must be less than 1 million (<code>1000000</code>)</li> <li>Must be a positive number： <ul> <li><code>40</code> - allowed</li> <li><code>40.5</code> - allowed</li> <li><code>40.1</code> - not allowed</li> <li><code>-30.5</code> - not allowed</li> </ul> </li> </ul></p>
+<p><ul>
+<li>Must be less than 1 million (<code>1000000</code>)</li>
+<li>Must be a positive number:
+<ul>
+<li><code>40</code> - allowed</li>
+<li><code>40.5</code> - allowed</li>
+<li><code>40.1</code> - not allowed</li>
+<li><code>-30.5</code> - not allowed</li>
+</ul>
+</li>
+</ul>
+</p>
 <h2 id='kline-interval-interval'>Kline interval (<code>interval</code>)</h2>
 <ul>
 <li><code>1</code> - 1 minute</li>

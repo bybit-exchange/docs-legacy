@@ -663,6 +663,7 @@
                 </button>
                 <div class="dropdown-content">
                     <a href="/docs/testnet/derivativesV3/unified_margin" >Unified Margin</a>
+                    <a href="/docs/testnet/derivativesV3/contract" >Contract</a>
                 </div>
               </div>
             </li>
@@ -1261,7 +1262,7 @@ clipboard.on('error', function(e) {
 <li><a href="#t-usermmpevent">mmpevent</a> [new]
 
 <ul>
-<li>Add new USDC Option Websocket private topic <code>mmpevent</code></li>
+<li>Add new USDC Options Websocket private topic <code>mmpevent</code></li>
 </ul></li>
 </ul>
 <h1 id='t-authentication'>Authentication</h1>
@@ -2091,7 +2092,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <span class="p">}</span>
 </code></pre></div>
 <p><p>Place an order using the USDC Derivatives Account. </p>
-<p>The request status can be queried in real time. </p>
+<p>The request status can be queried in real-time. </p>
 <p>The response parameters must be queried through a query or a WebSocket response.</p>
 </p>
 
@@ -4843,7 +4844,8 @@ The endpoint only supports up to 30 days of queried records
 <td style="text-align: left">expDate</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>format：yyyyMMdd</td>
+<td>format: yyyyMMdd
+</td>
 </tr>
 <tr>
 <td style="text-align: left">direction</td>
@@ -5002,7 +5004,8 @@ The endpoint only supports up to 30 days of queried records
 <td style="text-align: left">expDate</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">number</td>
-<td>Expiration date. format：yyyyMMdd</td>
+<td>Expiration date. format: yyyyMMdd
+</td>
 </tr>
 <tr>
 <td style="text-align: left">direction</td>
@@ -5061,7 +5064,8 @@ The endpoint only supports up to 30 days of queried records
 <tr>
 <td style="text-align: left">expDate</td>
 <td style="text-align: left">string</td>
-<td>Expiration date. format：yyyyMMdd</td>
+<td>Expiration date. format: yyyyMMdd
+</td>
 </tr>
 <tr>
 <td style="text-align: left">pnl</td>
@@ -5842,7 +5846,12 @@ ONLY VIP clients are allowed to turn on/off DCP
 <span class="p">}</span>
 
 </code></pre></div>
-<p><p>Fetch the transaction data on Bybit in the last 24 hours.</p> <p>After a successful subscription, any changes in the transaction data will be pushed in real time or once every second. The number of pushes depends on the number of new transaction records within the time frame.</p> <p>Subscribe according to the dimension of the currency, such as BTC or ETH</p> <p>topic format:</p> <p>Option- recenttrades.{symbol}, such as：recenttrades.BTC</p></p>
+<p><p>Fetch the transaction data on Bybit in the last 24 hours.</p>
+<p>After a successful subscription, any changes in the transaction data will be pushed in real-time or once every second. The number of pushes depends on the number of new transaction records within the time frame.</p>
+<p>Subscribe according to the dimension of the currency, such as BTC or ETH</p>
+<p>topic format:</p>
+<p>Option- recenttrades.{symbol}, such as: recenttrades.BTC</p>
+</p>
 
 <p class="fake_header">Response Parameters</p>
 
@@ -6939,9 +6948,31 @@ At 0:00, 8:00, and 16:00 UTC+0, the insurance fund will be pushed.
 <li><code>Rejected</code></li>
 </ul>
 <h2 id='quantity-orderqty-qty'>Quantity (<code>orderQty</code>/<code>qty</code>)</h2>
-<p><ul> <li>Must be less than 1 thousand  (<code>1000</code>)</li> <li>Must be a positive number： <li>Must conform to the symbol's <code>qtyStep</code>.</li> <ul> <li><code>40</code> - allowed</li> <li><code>40.01</code> - allowed</li> <li><code>-30.5</code> - not allowed</li> </ul> </li> </ul></p>
+<p><ul>
+<li>Must be less than 1 thousand  (<code>1000</code>)</li>
+<li>Must be a positive number:
+<li>Must conform to the symbol's <code>qtyStep</code>.</li>
+<ul>
+<li><code>40</code> - allowed</li>
+<li><code>40.01</code> - allowed</li>
+<li><code>-30.5</code> - not allowed</li>
+</ul>
+</li>
+</ul>
+</p>
 <h2 id='price-price'>Price (<code>price</code>)</h2>
-<p><ul> <li>Must be less than 10 million (<code>10000000</code>)</li> <li>Must be a positive number： <ul> <li><code>40</code> - allowed</li> <li><code>40.5</code> - allowed</li> <li><code>40.1</code> - not allowed</li> <li><code>-30.5</code> - not allowed</li> </ul> </li> </ul></p>
+<p><ul>
+<li>Must be less than 10 million (<code>10000000</code>)</li>
+<li>Must be a positive number:
+<ul>
+<li><code>40</code> - allowed</li>
+<li><code>40.5</code> - allowed</li>
+<li><code>40.1</code> - not allowed</li>
+<li><code>-30.5</code> - not allowed</li>
+</ul>
+</li>
+</ul>
+</p>
 <h2 id='transaction-type-type'>Transaction type (<code>type</code>)</h2>
 <ul>
 <li><code>TRANSFER_IN</code></li>

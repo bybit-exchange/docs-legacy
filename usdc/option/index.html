@@ -821,6 +821,9 @@
                             <a href="#t-usdccancelall" class="toc-h3 toc-link" data-title="Cancel All Active Orders">Cancel All Active Orders</a>
                           </li>
                           <li>
+                            <a href="#t-usdcqryunorpartfilled_new" class="toc-h3 toc-link" data-title="Query Unfilled/Partially Filled Orders(real-time)">Query Unfilled/Partially Filled Orders(real-time)</a>
+                          </li>
+                          <li>
                             <a href="#t-usdcqryunorpartfilled" class="toc-h3 toc-link" data-title="Query Unfilled/Partially Filled Orders">Query Unfilled/Partially Filled Orders</a>
                           </li>
                           <li>
@@ -965,6 +968,9 @@
                           </li>
                           <li>
                             <a href="#t-userfilledhistory" class="toc-h3 toc-link" data-title="usertraderecords">usertraderecords</a>
+                          </li>
+                          <li>
+                            <a href="#t-activeorders_new" class="toc-h3 toc-link" data-title="Orders(delta only)">Orders(delta only)</a>
                           </li>
                           <li>
                             <a href="#t-activeorders" class="toc-h3 toc-link" data-title="Orders">Orders</a>
@@ -1236,7 +1242,7 @@ clipboard.on('error', function(e) {
 <li><a href="#t-usermmpevent">mmpevent</a> [new]
 
 <ul>
-<li>Add new USDC Option Websocket private topic <code>mmpevent</code></li>
+<li>Add new USDC Options Websocket private topic <code>mmpevent</code></li>
 </ul></li>
 </ul>
 <h1 id='t-authentication'>Authentication</h1>
@@ -2066,7 +2072,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <span class="p">}</span>
 </code></pre></div>
 <p><p>Place an order using the USDC Derivatives Account. </p>
-<p>The request status can be queried in real time. </p>
+<p>The request status can be queried in real-time. </p>
 <p>The response parameters must be queried through a query or a WebSocket response.</p>
 </p>
 
@@ -2920,6 +2926,190 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">errorDesc</td>
 <td style="text-align: left">string</td>
 <td>Error description</td>
+</tr>
+</tbody></table>
+<h3 id='t-usdcqryunorpartfilled_new'>Query Unfilled/Partially Filled Orders(real-time)</h3>
+<p><p>This is <code><b>GET</b></code> request, and pass <code>orderLinkId</code> could only query current active orders.<p>
+<p>It's able to query orders in last 7 days including fully/partial filled & cancelled orders if <code>orderId</code> is passed. We recommend to save the response into your database.<p>
+<p>Query priority: <code>orderId</code> > <code>orderLinkId</code> > both null.</p>
+<p><code>cursor</code> is not necessary when do first querying. However, it must be passed with the exact same value from response while getting next page.</p>
+</p>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/option/usdc/openapi/private/v1/trade/query-active-orders?orderLinkId=option0005&amp;symbol=BTC-30SEP22-28000-C' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-SIGN: c657feac222cc8b66d6162802c707c0df47592ee7532a060cb613679aad174f7' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-TIMESTAMP: 1658126609521' \
+--header 'X-BAPI-RECV-WINDOW: 10000' \
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+</code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">resultTotalSize</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">cursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">id%3D1657785223205%23cd05e436-1e04-4391-94db-82b660638364</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">dataList</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">bd4a5ce3-cefd-455c-ac8d-1eaf2ae76b24</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1426a049-f999-0000026</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC-14JUL22-10000-P</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">New</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.2</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">remainingQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Limit</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">cd05e436-1e04-4391-94db-82b660638364</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1426a049-f999-0000027</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC-14JUL22-10000-P</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">New</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.2</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">remainingQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Limit</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=uopvQueryActiveNew>/option/usdc/openapi/private/v1/trade/query-active-orders</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvQueryActiveNew"><img src="../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Order ID</td>
+</tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Custom ID used for cross-platform strategy remarks; a max. of 32 characters</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Contract name</td>
+</tr>
+<tr>
+<td style="text-align: left">direction</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td><p>prev: prev page, next: next page.</p>
+</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">number</td>
+<td>Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>API pass-through</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">resultTotalSize</td>
+<td style="text-align: left">number</td>
+<td>length of dataList</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">string</td>
+<td>API pass-through</td>
+</tr>
+<tr>
+<td style="text-align: left">dataList</td>
+<td style="text-align: left">list</td>
+<td>Return the result list, refer to the following fields</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">string</td>
+<td>Order ID</td>
+</tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">string</td>
+<td>Custom ID used for cross-platform strategy remarks; a max. of 32 characters</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
+<td style="text-align: left">string</td>
+<td>Contract name</td>
+</tr>
+<tr>
+<td style="text-align: left">orderStatus</td>
+<td style="text-align: left">string</td>
+<td><a href="#order-status-orderstatus">Order status</a></td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#price-price">price</a></td>
+<td style="text-align: left">string</td>
+<td>Order price</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#side-side">side</a></td>
+<td style="text-align: left">string</td>
+<td>Direction</td>
+</tr>
+<tr>
+<td style="text-align: left">remainingQty</td>
+<td style="text-align: left">string</td>
+<td>Number of unfilled contracts from the order's size</td>
+</tr>
+<tr>
+<td style="text-align: left">orderType</td>
+<td style="text-align: left">string</td>
+<td>Order type</td>
+</tr>
+<tr>
+<td style="text-align: left">qty</td>
+<td style="text-align: left">string</td>
+<td>Order quantity</td>
 </tr>
 </tbody></table>
 <h3 id='t-usdcqryunorpartfilled'>Query Unfilled/Partially Filled Orders</h3><div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-active-orders \
@@ -4634,7 +4824,8 @@ The endpoint only supports up to 30 days of queried records
 <td style="text-align: left">expDate</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>format：yyyyMMdd</td>
+<td>format: yyyyMMdd
+</td>
 </tr>
 <tr>
 <td style="text-align: left">direction</td>
@@ -4793,7 +4984,8 @@ The endpoint only supports up to 30 days of queried records
 <td style="text-align: left">expDate</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">number</td>
-<td>Expiration date. format：yyyyMMdd</td>
+<td>Expiration date. format: yyyyMMdd
+</td>
 </tr>
 <tr>
 <td style="text-align: left">direction</td>
@@ -4852,7 +5044,8 @@ The endpoint only supports up to 30 days of queried records
 <tr>
 <td style="text-align: left">expDate</td>
 <td style="text-align: left">string</td>
-<td>Expiration date. format：yyyyMMdd</td>
+<td>Expiration date. format: yyyyMMdd
+</td>
 </tr>
 <tr>
 <td style="text-align: left">pnl</td>
@@ -5633,7 +5826,12 @@ ONLY VIP clients are allowed to turn on/off DCP
 <span class="p">}</span>
 
 </code></pre></div>
-<p><p>Fetch the transaction data on Bybit in the last 24 hours.</p> <p>After a successful subscription, any changes in the transaction data will be pushed in real time or once every second. The number of pushes depends on the number of new transaction records within the time frame.</p> <p>Subscribe according to the dimension of the currency, such as BTC or ETH</p> <p>topic format:</p> <p>Option- recenttrades.{symbol}, such as：recenttrades.BTC</p></p>
+<p><p>Fetch the transaction data on Bybit in the last 24 hours.</p>
+<p>After a successful subscription, any changes in the transaction data will be pushed in real-time or once every second. The number of pushes depends on the number of new transaction records within the time frame.</p>
+<p>Subscribe according to the dimension of the currency, such as BTC or ETH</p>
+<p>topic format:</p>
+<p>Option- recenttrades.{symbol}, such as: recenttrades.BTC</p>
+</p>
 
 <p class="fake_header">Response Parameters</p>
 
@@ -6191,6 +6389,165 @@ At 0:00, 8:00, and 16:00 UTC+0, the insurance fund will be pushed.
 <td><a href="#exec-type-exectype">Execution type</a></td>
 </tr>
 </tbody></table>
+<h3 id='t-activeorders_new'>Orders(delta only)</h3>
+<blockquote>
+<p>How to Subscribe</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code> <span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe", "args":["user.order"]}</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div>
+<blockquote>
+<p>Snapshot Response Example - format of the first response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0feb2c52-d10c-4f25-a60c-59e0b6755bbb17195215-6820-4d50-abf8-7c98f9e00570</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">user.order</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1658123196619</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0feb2c52-d10c-4f25-a60c-59e0b6755bbb</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC-30SEP22-28000-C</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">New</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">460</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderAllSize</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderFilledSize</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderRemainingSize</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Limit</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1658123196611</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GoodTillCancel</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">createTimeStamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1658123196611</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">updateTimeStamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1658123196617</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">option0008</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">execType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">newed</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">iv</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">286819574</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">placeMode</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">basic</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">placeType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">userId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">533285</span><span class="dl">"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><p>topic: user.order</p>
+
+<p>This topic reflects an order lifecycle.</p>
+<p>It only pushes delta data packages. So make sure you've subscribed the topic before placing an order</p>
+<p>It sometimes might push duplicate messages, so please ensure idempotent process.
+</p>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">string</td>
+<td>Order ID</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
+<td style="text-align: left">string</td>
+<td>Contract name</td>
+</tr>
+<tr>
+<td style="text-align: left">orderStatus</td>
+<td style="text-align: left">string</td>
+<td><a href="#order-status-status">Order status</a></td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#side-side">side</a></td>
+<td style="text-align: left">string</td>
+<td>Direction</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#price-price">order_price</a></td>
+<td style="text-align: left">string</td>
+<td>Order price</td>
+</tr>
+<tr>
+<td style="text-align: left">orderAllSize</td>
+<td style="text-align: left">string</td>
+<td>Total size of order</td>
+</tr>
+<tr>
+<td style="text-align: left">orderFilledSize</td>
+<td style="text-align: left">string</td>
+<td>Filled size of order</td>
+</tr>
+<tr>
+<td style="text-align: left">orderRemainingSize</td>
+<td style="text-align: left">string</td>
+<td>Number of unfilled contracts from the order's size</td>
+</tr>
+<tr>
+<td style="text-align: left">orderType</td>
+<td style="text-align: left">string</td>
+<td>Order type</td>
+</tr>
+<tr>
+<td style="text-align: left">orderTime</td>
+<td style="text-align: left">string</td>
+<td>Order time</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#time-in-force-timeinforce">timeInForce</a></td>
+<td style="text-align: left">string</td>
+<td><a href="https://www.bybit.com/en-US/help-center/bybitHC_Article?language=en_US&id=000001044">Time in force</a></td>
+</tr>
+<tr>
+<td style="text-align: left">createTimeStamp</td>
+<td style="text-align: left">string</td>
+<td>Creation time</td>
+</tr>
+<tr>
+<td style="text-align: left">updateTimeStamp</td>
+<td style="text-align: left">string</td>
+<td>Update time</td>
+</tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">string</td>
+<td>Custom ID used for cross-platform strategy remarks; a max. of 32 characters</td>
+</tr>
+<tr>
+<td style="text-align: left">execType</td>
+<td style="text-align: left">string</td>
+<td>Execution type</td>
+</tr>
+<tr>
+<td style="text-align: left">iv</td>
+<td style="text-align: left">string</td>
+<td>Implied volatility</td>
+</tr>
+<tr>
+<td style="text-align: left">version</td>
+<td style="text-align: left">string</td>
+<td>version</td>
+</tr>
+<tr>
+<td style="text-align: left">cancelType</td>
+<td style="text-align: left">string</td>
+<td>refer to <a href="#cancel-type-canceltype">Cancel Type</a></td>
+</tr>
+<tr>
+<td style="text-align: left">userId</td>
+<td style="text-align: left">string</td>
+<td>uid</td>
+</tr>
+<tr>
+<td style="text-align: left">placeMode</td>
+<td style="text-align: left">string</td>
+<td>Please ignore</td>
+</tr>
+<tr>
+<td style="text-align: left">placeType</td>
+<td style="text-align: left">string</td>
+<td>Please ignore</td>
+</tr>
+</tbody></table>
 <h3 id='t-activeorders'>Orders</h3>
 <blockquote>
 <p>How to Subscribe</p>
@@ -6573,9 +6930,31 @@ At 0:00, 8:00, and 16:00 UTC+0, the insurance fund will be pushed.
 <li><code>Rejected</code></li>
 </ul>
 <h2 id='quantity-orderqty-qty'>Quantity (<code>orderQty</code>/<code>qty</code>)</h2>
-<p><ul> <li>Must be less than 1 thousand  (<code>1000</code>)</li> <li>Must be a positive number： <li>Must conform to the symbol's <code>qtyStep</code>.</li> <ul> <li><code>40</code> - allowed</li> <li><code>40.01</code> - allowed</li> <li><code>-30.5</code> - not allowed</li> </ul> </li> </ul></p>
+<p><ul>
+<li>Must be less than 1 thousand  (<code>1000</code>)</li>
+<li>Must be a positive number:
+<li>Must conform to the symbol's <code>qtyStep</code>.</li>
+<ul>
+<li><code>40</code> - allowed</li>
+<li><code>40.01</code> - allowed</li>
+<li><code>-30.5</code> - not allowed</li>
+</ul>
+</li>
+</ul>
+</p>
 <h2 id='price-price'>Price (<code>price</code>)</h2>
-<p><ul> <li>Must be less than 10 million (<code>10000000</code>)</li> <li>Must be a positive number： <ul> <li><code>40</code> - allowed</li> <li><code>40.5</code> - allowed</li> <li><code>40.1</code> - not allowed</li> <li><code>-30.5</code> - not allowed</li> </ul> </li> </ul></p>
+<p><ul>
+<li>Must be less than 10 million (<code>10000000</code>)</li>
+<li>Must be a positive number:
+<ul>
+<li><code>40</code> - allowed</li>
+<li><code>40.5</code> - allowed</li>
+<li><code>40.1</code> - not allowed</li>
+<li><code>-30.5</code> - not allowed</li>
+</ul>
+</li>
+</ul>
+</p>
 <h2 id='transaction-type-type'>Transaction type (<code>type</code>)</h2>
 <ul>
 <li><code>TRANSFER_IN</code></li>
