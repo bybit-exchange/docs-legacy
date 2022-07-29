@@ -258,8 +258,8 @@ GET
 |transfer_id |string |t(:row_comment_transfer_id) |
 |<a href="#currency-currency-coin">coin</a> |string |t(:row_comment_currency) |
 |amount |string |t(:row_comment_to_amount) |
-|<a href="#accounttype-type-accounttype">from_account_type</a> |string |t(:row_comment_accounttype) |
-|<a href="#accounttype-type-accounttype">to_account_type</a> |string |t(:row_comment_accounttype) |
+|<a href="#account-type-from_account_type-to_account_type">from_account_type</a> |string |t(:row_comment_accounttype) |
+|<a href="#account-type-from_account_type-to_account_type">to_account_type</a> |string |t(:row_comment_accounttype) |
 |timestamp |integer |t(:row_comment_to_timestamp) |
 |<a href="#transfer-status-status">status</a> |string |t(:row_comment_transferstatus) |
 |cursor |string |t(:row_comment_cursor)|
@@ -560,8 +560,8 @@ POST
 |amount |<b>true</b> |string |t(:row_comment_to_amount) |
 |from_member_id |<b>true</b> |string |t(:row_comment_from_memberId) |
 |to_member_id |<b>true</b> |string |t(:row_comment_to_memberId) |
-|<a href="#accounttype-type-accounttype">from_account_type</a> |<b>true</b> |string |t(:row_comment_from_accountType) |
-|<a href="#accounttype-type-accounttype">to_account_type</a> |<b>true</b> |string |t(:row_comment_to_accountType) |
+|<a href="#account-type-from_account_type-to_account_type">from_account_type</a> |<b>true</b> |string |t(:row_comment_from_accountType) |
+|<a href="#account-type-from_account_type-to_account_type">to_account_type</a> |<b>true</b> |string |t(:row_comment_to_accountType) |
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -648,8 +648,8 @@ GET
 |amount |string |t(:row_comment_to_amount) |
 |timestamp |integer |t(:row_comment_to_timestamp) |
 |<a href="#transfer-status-status">status</a> |string |t(:row_comment_transferstatus) |
-|<a href="#accounttype-type-accounttype">from_account_type</a> |string |t(:row_comment_accounttype) |
-|<a href="#accounttype-type-accounttype">to_account_type</a> |string |t(:row_comment_accounttype) |
+|<a href="#account-type-from_account_type-to_account_type">from_account_type</a> |string |t(:row_comment_accounttype) |
+|<a href="#account-type-from_account_type-to_account_type">to_account_type</a> |string |t(:row_comment_accounttype) |
 |from_member_id |string |t(:row_comment_from_memberId) |
 |to_member_id |string |t(:row_comment_to_memberId) |
 |cursor |string |t(:row_comment_cursor)|
@@ -794,7 +794,7 @@ GET
 |end_time |false |long |t(:depositwithdrawendtime) |
 |<a href="#currency-currency-coin">coin</a> |false |string |t(:depositcurrencyinfo) |
 |cursor |false |string |t(:depositcursorinfo) |
-|<a href="#page-direction-direction">direction</a> |false |aaa |t(:depositdirectioninfo) |
+|<a href="#page-direction-direction">direction</a> |false |string |t(:depositdirectioninfo) |
 |limit |false |long |t(:depositlimitinfo) |
 |timestamp |<b>true</b>|long |t(:row_comment_to_timestamp) |
 
@@ -887,9 +887,8 @@ GET
 |end_time |false |long |t(:depositwithdrawendtime) |
 |<a href="#currency-currency-coin">coin</a> |false |string |t(:depositcurrencyinfo) |
 |cursor |false |string |t(:depositcursorinfo) |
-|<a href="#page-direction-direction">direction</a> |false |aaa |t(:depositdirectioninfo) |
+|<a href="#page-direction-direction">direction</a> |false |string |t(:depositdirectioninfo) |
 |limit |false |long |t(:depositlimitinfo) |
-|timestamp |<b>true</b>|long |t(:row_comment_to_timestamp) |
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -1087,6 +1086,8 @@ curl --location --request POST 'https://api-testnet.bybit.com/asset/v1/private/w
     "rate_limit": 1
 }
 ```
+
+t(:withdraw_info_para)
 
 <p class="fake_header">t(:httprequest)</p>
 POST

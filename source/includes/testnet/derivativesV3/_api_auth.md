@@ -20,47 +20,63 @@ t(:auth_aside_timestamp)
 </aside>
 
 ## t(:constructingtherequest)
-> t(:auth_codequote_construct1a)
+> t(:auth_codequote_construct1a_v3)
 
 ```console
-param_str = "api_key=B2Rou0PLPpGqcU0Vu2&leverage=100&symbol=BTCUSD&timestamp=1542434791747"
+GET
+rule: timestamp+api_key+recv_window+queryString
+
+param_str = "1658384314791T0d98KyVamQ62YBzN85000category=option&symbol=BTC-29JUL22-25000-C"
+
+POST
+rule: timestamp+api_key+recv_window+raw_request_body
+
+param_str = "1658385579423PXOXCIFKHCWCAJTPKW5000{
+  "category": "option"
+}"
 ```
 ```python
-param_str = "api_key=B2Rou0PLPpGqcU0Vu2&leverage=100&symbol=BTCUSD&timestamp=1542434791747"
+param_str = "1658384314791T0d98KyVamQ62YBzN85000category=option&symbol=BTC-29JUL22-25000-C"
 
-# api_key=B2Rou0PLPpGqcU0Vu2&
-# leverage=100&
-# symbol=BTCUSD&
-# timestamp=1542434791747
+# timestamp: 1658384314791
+# api_key: T0d98KyVamQ62YBzN8
+# recv_window: 5000
+# category=option
+# symbol=BTC-29JUL22-25000-C
 ```
 
 > t(:auth_codequote_construct1b)
 
-t(:auth_para_construct1)
+t(:auth_para_dv3_construct1)
 <div></div>
 
-t(:auth_para_construct2)
-> t(:auth_codequote_construct2)
+t(:auth_para_dv3_construct2)
+> t(:auth_codequote_construct2_v3)
 
 ```http
-GET /v2/private/order?symbol=BTCUSD&api_key=B2Rou0PLPpGqcU0Vu2&timestamp=1542434791000&sign=670e3e4aa32b243f2dedf1dafcec2fd17a440e71b05681550416507de591d908 HTTP/1.1
+GET https://api-testnet.bybit.com/unified/v3/private/order/list?category=option&symbol=BTC-29JUL22-25000-C HTTP/1.1
 Host: api-testnet.bybit.com
+-H 'X-BAPI-SIGN-TYPE: 2' \
+-H 'X-BAPI-SIGN: eb431d99a1a203a434a82ac3ea8e107b5f94a967e9aaf922c41e84fb3ec9df78' \
+-H 'X-BAPI-API-KEY: {api key}' \
+-H 'X-BAPI-TIMESTAMP: 1658384431891' \
+-H 'X-BAPI-RECV-WINDOW: 5000'
 ```
 
 > t(:auth_codequote_construct3)
 
 ```http
-POST /v2/private/order/cancel HTTP/1.1
+POST /unified/v3/private/order/cancel-all HTTP/1.1
 Host: api-testnet.bybit.com
-Content-Type: application/json
-
-{
-    "api_key": "B2Rou0PLPpGqcU0Vu2",
-    "symbol": "BTCUSD",
-    "order_id": "3bd1844f-f3c0-4e10-8c25-10fea03763f6",
-    "timestamp": 1542434791000,
-    "sign": "670e3e4aa32b243f2dedf1dafcec2fd17a440e71b05681550416507de591d908"
-}
+-H 'X-BAPI-SIGN-TYPE: 2' \
+-H 'X-BAPI-SIGN: c822337e76e30505e41b87a55af291e074f59f9496ba12ca2a57dc04fe65a178' \
+-H 'X-BAPI-API-KEY: {api key}' \
+-H 'X-BAPI-TIMESTAMP: 1658385589135' \
+-H 'X-BAPI-RECV-WINDOW: 5000' \
+-H 'Content-Type: application/json' \
+-d '{
+  "category": "option"
+}'
 ```
 
 t(:auth_para_construct3)

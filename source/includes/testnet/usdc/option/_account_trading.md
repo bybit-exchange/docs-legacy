@@ -517,6 +517,7 @@ GET
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvQueryActiveNew"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
+
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |orderId|false|string|t(:usdcOrderId)|
@@ -528,6 +529,7 @@ GET
 
 
 <p class="fake_header">t(:responseparameters)</p>
+
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |resultTotalSize|number|t(:resultTotalSize)|

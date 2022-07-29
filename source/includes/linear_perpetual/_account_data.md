@@ -628,7 +628,7 @@ print(session_auth.place_conditional_order(
     base_price=16100,
     stop_px=8150,
     time_in_force="GoodTillCancel",
-    trigger_by="LastPrice"
+    trigger_by="LastPrice",
     order_link_id="cus_order_id_1",
     reduce_only=False,
     close_on_trigger=False

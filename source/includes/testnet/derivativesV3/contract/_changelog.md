@@ -1,83 +1,207 @@
-# t(:changelog)   
+# t(:changelog)
+
+## 2022-07-18
+### REST API
+- [t(:latestsymbolinfo)](#t-latestsymbolinfo) [t(:changelog_update)]
+  - t(:restapi_update_20220718_2)
+
+### WebSocket API
+- [t(:latestsymbolinfo)](#t-latestsymbolinfo) [t(:changelog_update)]
+  - t(:restapi_update_20220718_1)
+
+## 2022-06-30
+### REST API
+- [t(:userhistorytraderecords)](#t-userhistorytraderecords) [t(:changelog_update)]
+  - t(:restapi_update_20220630)
 
 ## 2022-04-29
 ### REST API
 - [t(:placeactive)](#t-placeactive) & [t(:querysymbol)](#t-querysymbol) [t(:changelog_update)]
   - t(:restapi_update_20220429)
 
-
-## 2022-03-01
+## 2022-04-28
 ### REST API
-- [t(:querysymbol)](#t-querysymbol) [t(:changelog_update)]
-  - t(:restapi_update_20220301)
-
-## 2022-02-28
-### REST API
-- [t(:queryfeerate)](#t-queryfeerate) [t(:changelog_new)]
-- [t(:key)](#t-key) [t(:changelog_update)]
-  - t(:restapi_update_20220228)
+- [t(:userhistorytraderecords)](#t-userhistorytraderecords) [t(:changelog_new)]
+  - t(:restapi_update_2022042501)
+- [t(:switchpositionmode)](#t-switchpositionmode) [t(:changelog_update)]
+  - t(:restapi_update_2022042801)
 
 
 
 ## 2021
 ### 2021-12-28
 #### REST API
-- [t(:publictradingrecords)](#t-publictradingrecords) [t(:changelog_update)]
-  - t(:restapi_update_20211228)
+- [t(:switchpositionmode)](#t-switchpositionmode) [t(:changelog_new)]
+- [t(:placeactive)](#t-placeactive) [t(:changelog_update)]
+  - t(:restapi_update_20211206)
+- [t(:placecond)](#t-placecond) [t(:changelog_update)]
+  - t(:restapi_update_20211206)
+- [t(:setautoaddmargin)](#t-setautoaddmargin) [t(:changelog_update)]
+  - t(:restapi_update_20211206_1)
+- [t(:tradingstop)](#t-tradingstop) [t(:changelog_update)]
+  - t(:restapi_update_20211206_1)
+- [t(:addmargin)](#t-addmargin) [t(:changelog_update)]
+  - t(:restapi_update_20211206_1)
+- [t(:setrisklimit)](#t-setrisklimit) [t(:changelog_update)]
+  - t(:restapi_update_20211206_1)
+- [t(:myposition)](#t-myposition) [t(:changelog_update)]
+  - t(:restapi_update_20211206_2)
 
-### 2021-09-24
+#### WebSocket API
+- [t(:websocketposition)](#t-websocketposition) [t(:changelog_update)]
+  - t(:restapi_update_20211206_2)
+- [t(:websocketorder)](#t-websocketorder) [t(:changelog_update)]
+  - t(:restapi_update_20211206_2)
+- [t(:websocketstoporder)](#t-websocketstoporder) [t(:changelog_update)]
+  - t(:restapi_update_20211206_2)
+
+### 2021-10-13
 #### REST API
-- [t(:query_liqrecords)](#t-query_liqrecords) [t(:changelog_delete)]
-  - t(:restapi_update_20210924)
+- [t(:querysymbol)](#t-querysymbol) [t(:changelog_update)]
+    - t(:restapi_update_2021101201)
 
-### 2021-09-14
-#### Websocket API
+### 2021-09-17
+#### WebSocket API
 - [t(:websocketliquidation)](#t-websocketliquidation) [t(:changelog_new)]
-  - t(:restapi_update_2021091402)
+    - t(:restapi_update_20210917)
 
+### 2021-09-10
 #### REST API
-- [t(:query_liqrecords)](#t-query_liqrecords) [t(:changelog_delete)]
-  - t(:restapi_update_2021091401)
+- [t(:usertraderecords)](#t-usertraderecords) [t(:changelog_update)]
+   t(:restapi_update_20210910)
+
+### 2021-09-07
+#### REST API
+- [t(:closedprofitandloss)](#t-closedprofitandloss) [t(:changelog_update)]
+  t(:restapi_update_20210907)
 
 ### 2021-09-03
-#### Websocket API
+#### WebSocket API
 - [t(:websocketinstrumentInfo)](#t-websocketinstrumentinfo) [t(:changelog_update)]
   t(:restapi_update_20210902)
 
-### 2021-08-23
+### 2021-06-29
 #### REST API
-
-- [t(:walletrecords)](#t-walletrecords) [t(:changelog_update)]
-  - t(:restapi_update_20210823)
-
-### 2021-07-29
-#### REST API
-- [t(:setleverage)](#t-setleverage) [t(:changelog_update)]
-   - t(:restapi_update_20210701)
-- [t(:marginswitch)](#t-marginswitch) [t(:changelog_update)]
-   - t(:restapi_update_20210708_1)
-
+- t(:restapi_update_20210629) [t(:changelog_update)]
 
 ### 2021-06-28
 #### REST API
-- [t(:querysymbol)](#t-querysymbol) [t(:changelog_update)]
-   - t(:restapi_update_20210628_1)
+- [t(:myposition)](#t-position) [t(:changelog_update)]
+    - t(:restapi_update_20210628)
 
-### 2021-06-18
+### 2021-06-02
 #### REST API
-- [t(:marginswitch)](#t-marginswitch) [t(:changelog_update)]
-    - t(:restapi_update_20210617_1)
-    - t(:restapi_update_20210617_2)
-    - t(:restapi_update_20210617_3)
+- t(:restapi_update_20210602) [t(:changelog_update)]
 
-### 2021-06-03
+### 2021-05-13
+#### REST API
+- t(:restapi_update_20210513) [t(:changelog_update)]
+
+### 2021-04-30
+#### REST API
+- t(:restapi_update_20210430) [t(:changelog_update)]
+
+### 2021-04-07
+#### REST API
+- t(:restapi_update_20210407)
+
+### 2021-04-02
+
+#### REST API
+- t(:linear_restapi_update_20210402)
+
+### 2021-03-18
+#### REST API
+- t(:restapi_update_20210318_1) [t(:changelog_update)]
+- [t(:getrisklimit)](#t-getrisklimit) [t(:changelog_update)]
+    - t(:restapi_update_20210318_2)
+
+
+### 2021-02-02
+
+#### WebSocket API
+
+- Topic <a href="#t-websocketorder">order</a> [t(:changelog_update)]
+    - t(:ws_update_20210202_2)
+- Topic <a href="#t-websocketstoporder">stop_order</a> [t(:changelog_update)]
+    - t(:ws_update_20210202_2)
+
+
+### 2021-02-01
+#### REST API
+
+- t(:restapi_update_20210201_0_1)
+    - [t(:setrisklimit)](#t-setrisklimit) [t(:changelog_new)]
+
+### 2021-01-12
+#### REST API
+- [t(:queryindexpricekline)](#t-queryindexpricekline) [t(:changelog_new)]
+- [t(:querypremiumindexkline)](#t-querypremiumindexkline) [t(:changelog_new)]
+
+
+
+## 2020
+### 2020-12-14
+#### REST API
+- t(:restapi_update_20201214_1) [t(:changelog_update)]
+
+### 2020-12-03
+#### REST API
+- [t(:querycond)](#t-querycond) [t(:changelog_update)]
+    - t(:restapi_update_20201203_5)
+- [t(:queryactive)](#t-queryactive) [t(:changelog_update)]
+    - t(:restapi_update_20201203_6)
+- [t(:myposition)](#t-position) [t(:changelog_update)]
+    - t(:restapi_update_20201203_1)
+- [t(:placecond)](#t-placecond) [t(:changelog_update)]
+    - t(:restapi_update_20201203_2)
+- [t(:getactive)](#t-getactive) [t(:changelog_update)]
+    - t(:restapi_update_20201203_2)
+- [t(:queryactive)](#t-queryactive) [t(:changelog_update)]
+    - t(:restapi_update_20201203_2)
+- [t(:placecond)](#t-placecond) [t(:changelog_update)]
+    - t(:restapi_update_20201203_4)
+- [t(:getcond)](#t-getcond) [t(:changelog_update)]
+    - t(:restapi_update_20201203_4)
+- [t(:querycond)](#t-querycond) [t(:changelog_update)]
+    - t(:restapi_update_20201203_4)
+
+
+### 2020-11-16
+#### REST API
+- [t(:myposition)](#t-position) [t(:changelog_update)]
+    - t(:restapi_update_20201116_1)
+- [t(:placecond)](#t-placecond) [t(:changelog_update)]
+    - t(:restapi_update_20201116_2)
+- [t(:getcond)](#t-getcond) [t(:changelog_update)]
+    - t(:restapi_update_20201116_2)
+- [t(:querycond)](#t-querycond) [t(:changelog_update)]
+    - t(:restapi_update_20201116_2)
+
+
+### 2020-11-02
+#### REST API
+- [t(:myposition)](#t-position) [t(:changelog_update)]
+    - t(:restapi_update_20201102_1)
+
+### 2020-10-21
+#### REST API
+- t(:restapi_update_20201021_2) [t(:changelog_update)]
+- [t(:balance)](#t-balance) [t(:changelog_update)]
+    - t(:restapi_update_20201021_1)
+
+### 2020-10-16
+#### REST API
+- [t(:row_comment_symbol)](#symbol-symbol) [t(:changelog_update)]
+- [t(:row_comment_order_qty)](#quantity-qty) [t(:changelog_update)]
+
+### 2020-09-27
 #### REST API
 - [t(:switchmode)](#t-switchmode) [t(:changelog_new)]
 - [t(:placecond)](#t-placecond) [t(:changelog_update)]
     - t(:restapi_update_20200826_1)
     - t(:restapi_update_20200826_3)
 - [t(:placeactive)](#t-placeactive) [t(:changelog_update)]
-    - t(:restapi_update_20210527_1)
     - t(:restapi_update_20200826_3)
 - [t(:myposition)](#t-myposition) [t(:changelog_update)]
     - t(:restapi_update_20200826_2)
@@ -98,213 +222,14 @@
 - [t(:querycond)](#t-querycond) [t(:changelog_update)]
     - t(:restapi_update_20200826_3)
 
-### 2021-05-11
-#### REST API
-- [t(:setrisklimit)](#t-setrisklimit) [t(:changelog_new)]
-- [t(:getrisklimit)](#t-getrisklimit) [t(:changelog_new)]
-
-### 2021-05-11
-#### REST API
-- [t(:setleverage)](#t-setleverage) [t(:changelog_update)]
- - t(:restapi_update_2021050703)
- - t(:restapi_update_2021050704)
-- [t(:switchpositionmode)] (#t-switchpositionmode) [t(:changelog_new)]
-- [t(:marginswitch)] (#t-marginswitch) [t(:changelog_new)]
-
-### 2021-04-22
-#### REST API
-- [t(:lcp)](#t-lcp) [t(:changelog_update)]
-  - t(:restapi_update_20210422)
-
-### 2021-04-07
-#### REST API
-- t(:restapi_update_20210407)
-
-### 2021-04-02
-#### REST API
-- t(:restapi_update_20210402)
-
-### 2021-03-24
-- [t(:getrisklimit)](#t-getrisklimit) [t(:changelog_update)]
-    - t(:restapi_update_20210324)
-
-### 2021-03-22
-- [t(:walletrecords)](#t-walletrecords) [t(:changelog_update)]
-    - t(:restapi_update_20210322)
-
-### 2021-03-15
-
-#### REST API
-- t(:restapi_update_20210315)
-
-
-### 2021-03-12
-
-#### REST API
-- t(:restapi_update_20210312)
-
-### 2021-03-11
-- [t(:getactive)](#t-getactive) [t(:changelog_update)]
-    - t(:restapi_update_20210311)
-- [t(:getcond)](#t-getcond) [t(:changelog_update)]
-    - t(:restapi_update_20210311)
-
-### 2021-03-04
-- [t(:walletrecords)](#t-walletrecords) [t(:changelog_update)]
-    - t(:restapi_update_20210304)
-
-### 2021-02-02
-
-#### Websocket API
-
-- Topic <a href="#t-websocketorder">order</a> [t(:changelog_update)]
-    - t(:ws_update_20210202_0)
-
-- Topic <a href="#t-websocketstoporder">stop_order</a> [t(:changelog_update)]
-    - t(:ws_update_20210202_1)
-
-### 2021-01-25
-#### REST API
-- [t(:fundingrate)](#t-fundingrate) [t(:changelog_update)]
-    - t(:restapi_update_20210125_0)
-    - t(:restapi_update_20210125_0_1)
-
-### 2021-01-12
-#### REST API
-- [t(:queryindexpricekline)](#t-queryindexpricekline) [t(:changelog_new)]
-- [t(:querypremiumindexkline)](#t-querypremiumindexkline) [t(:changelog_new)]
-
-
-
-## 2020
-### 2020-12-31
-#### REST API
-##### t(:restapi_update_20201231_0)
-
-- [t(:setleverage)](#t-setleverage) [t(:changelog_new)]
-    - t(:restapi_update_20201231_1)
-    - t(:restapi_update_20201231_1_1)
-- [t(:walletrecords)](#t-walletrecords) [t(:changelog_new)]
-    - t(:restapi_update_20201231_2)
-    - t(:restapi_update_20201231_2_2)
-- [t(:withdrawrecords)](#t-withdrawrecords) [t(:changelog_new)]
-    - t(:restapi_update_20201231_3)
-    - t(:restapi_update_20201231_3_3)
-- [t(:changemargin)](#t-changemargin) [t(:changelog_new)]
-    - t(:restapi_update_20201231_4)
-    - t(:restapi_update_20201231_4_4)
-- [t(:key)](#t-key) [t(:changelog_new)]
-    - t(:restapi_update_20201231_5)
-    - t(:restapi_update_20201231_5_5)
-- [t(:tradingstop)](#t-tradingstop) [t(:changelog_new)]
-    - t(:restapi_update_20201231_6)
-    - t(:restapi_update_20201231_6_6)
-- [t(:fundingrate)](#t-fundingrate) [t(:changelog_new)]
-    - t(:restapi_update_20201231_7)
-    - t(:restapi_update_20201231_7_7)
-- [t(:mylastfundingfee)](#t-mylastfundingfee) [t(:changelog_new)]
-    - t(:restapi_update_20201231_8)
-    - t(:restapi_update_20201231_8_8)
-- [t(:predictedfunding)](#t-predictedfunding) [t(:changelog_new)]
-    - t(:restapi_update_20201231_9)
-    - t(:restapi_update_20201231_9_9)
-
-
-### 2020-12-17
-#### REST API
-- [t(:querycond)](#t-querycond) [t(:changelog_update)]
-    - t(:restapi_update_20201203_5)
-- [t(:queryactive)](#t-queryactive) [t(:changelog_update)]
-    - t(:restapi_update_20201203_6)
-
-### 2020-11-20
-#### REST API
-- [t(:a_getcond)](#t-getcond) [t(:changelog_update)]
-    - t(:restapi_update_20201120_1)
-
-### 2020-11-12
-#### REST API
-- [t(:a_getactive)](#t-getactive) [t(:changelog_update)]
-    - t(:restapi_update_20201112_1)
-- [t(:a_getcond)](#t-getcond) [t(:changelog_update)]
-    - t(:restapi_update_20201112_2)
-
-
-### 2020-11-10
-
-#### Websocket API
-
-##### t(:restapi_update_20201111_2)
-- Topic <a href="https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/websocket.md#public-topic">orderBook25</a> [t(:changelog_delete)]
-    - t(:replace_by_new_topic) [t(:websocketorderbook25)](#t-websocketorderbook25) or [t(:websocketorderbook200)](#t-websocketorderbook200)
-- Topic <a href="https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/websocket.md#public-topic">kline</a> [t(:changelog_delete)]
-    - t(:replace_by_new_topic) [t(:websocketklineV2)](#t-websocketklinev2)
-- Topic <a href="https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/websocket.md#public-topic">instrument</a> [t(:changelog_delete)]
-    - t(:replace_by_new_topic) [t(:websocketinstrumentInfo)](#t-websocketinstrumentinfo)
-
-#### REST API
-##### t(:restapi_update_20201111_1)
-- [t(:getactive)](#t-a_getactive) [t(:changelog_delete)]
-    - t(:replace_by_new) [t(:a_getactive)](#t-getactive) [t(:changelog_new)]
-- [t(:getcond)](#t-a_getcond) [t(:changelog_delete)]
-    - t(:replace_by_new) [t(:a_getcond)](#t-getcond) [t(:changelog_new)]
-- [t(:placecond)](#t-a_placecond) [t(:changelog_delete)]
-    - t(:replace_by_new) [t(:a_placecond)](#t-placecond) [t(:changelog_new)]
-- [t(:cancelcond)](#t-a_cancelcond) [t(:changelog_delete)]
-    - t(:replace_by_new) [t(:a_cancelcond)](#t-cancelcond) [t(:changelog_new)]
-- [t(:replacecond)](#t-a_replacecond) [t(:changelog_delete)]
-    - t(:replace_by_new) [t(:a_replacecond)](#t-replacecond) [t(:changelog_new)]
-- [t(:replaceactive)](#t-a_replaceactive) [t(:changelog_delete)]
-    - t(:replace_by_new) [t(:a_replaceactive)](#t-replaceactive) [t(:changelog_new)]
-- [t(:a_getleverage)](#t-a_getleverage) [t(:changelog_delete)]
-    - t(:replace_by_new) [t(:myposition)](#t-myposition)
-- <a href="https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/rest_api.md#open-apiordercreatepost">/open-api/order/create</a> [t(:changelog_delete)]
-    - t(:replace_by_new) [t(:placeactive)](#t-placeactive)
-- <a href="https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/rest_api.md#open-apiordercancelpost">/open-api/order/cancel</a> [t(:changelog_delete)]
-    - t(:replace_by_new) [t(:cancelactive)](#t-cancelactive)
-- <a href="https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/rest_api.md#positionlistget">/position/list</a> [t(:changelog_delete)]
-    - t(:replace_by_new) [t(:myposition)](#t-myposition)
-
-
-### 2020-11-02
-#### REST API
-- [t(:position)](#t-position) [t(:changelog_update)]
-    - t(:restapi_update_20201102_1)
-
-### 2020-10-26
-#### REST API
-- [t(:position)](#t-position) [t(:changelog_update)]
-    - t(:restapi_update_20201026_1)
-
-### 2020-10-21
-#### REST API
-- [t(:balance)](#t-balance) [t(:changelog_update)]
-    - t(:restapi_update_20201021_1)
-- [t(:tradingstop)](#t-tradingstop) [t(:changelog_update)]
-    - t(:restapi_update_20201021_3)
-
-### 2020-10-12
-#### REST API
-- [t(:getcond)](#t-getcond) [t(:changelog_bugfix)]
-     - t(:restapi_update_20201012_1)
-- [t(:queryactive)](#t-queryactive) [t(:changelog_bugfix)]
-     - t(:restapi_update_20201012_2)
-
-### 2020-09-27
-#### REST API
-- [t(:replaceactive)](#t-replaceactive) [t(:changelog_update)]
-     - t(:restapi_update_20200927_1)
-- [t(:replacecond)](#t-replacecond) [t(:changelog_update)]
-     - t(:restapi_update_20200927_1)
-
-#### Websocket API
+#### WebSocket API
 - [t(:ws_update_20200927_1)](#t-websocket) [t(:changelog_update)]
 
 ### 2020-09-15
 #### REST API
 - [t(:marketaccountratio)](#t-marketaccountratio) [t(:changelog_update)]
     - t(:restapi_update_20200915_1)
-- [t(:placecond)](#t-placecond) [t(:changelog_update)]   
+- [t(:conditionalorders)](#t-conditionalorders) [t(:changelog_update)]    
     - t(:restapi_update_20200915_2)
 
 ### 2020-08-19
@@ -336,28 +261,48 @@
 - [t(:marketeliteratio)](#t-marketeliteratio) [t(:changelog_new)]
 -->
 
-### 2020-06-22
+### 2020-06-17
 #### REST API
-- [t(:closedprofitandloss)](#t-closedprofitandloss) [t(:changelog_new)]
-- [t(:markpricekline)](#t-markpricekline) [t(:changelog_new)]
-
+- [t(:replaceactive)](#t-replaceactive) [t(:changelog_new)]
+- [t(:replacecond)](#t-replacecond) [t(:changelog_new)]
 
 ### 2020-05-21
 #### REST API
 - [t(:query_liqrecords)](#t-query_liqrecords) [t(:changelog_new)]
 
+### 2020-05-18
+#### REST API
+- [t(:getactive)](#t-getactive) [t(:changelog_update)]
+   - t(:restapi_update_20200518_1)
+- [t(:getcond)](#t-getcond) [t(:changelog_update)]
+   - t(:restapi_update_20200518_1)
+- [t(:querykline)](#t-querykline) [t(:changelog_update)]   
+   - t(:restapi_update_20200518_2)
+   - t(:restapi_update_20200518_3)
+
+
 ### 2020-04-29
 #### REST API
-- [t(:usertraderecords)](#t-usertraderecords) [t(:changelog_update)]
-   - t(:restapi_update_20200429_1)
 - [t(:key)](#t-key) [t(:changelog_bugfix)]
     - t(:restapi_update_20200429_2)
 
+#### WebSocket API
+- [t(:websocketkline)](#t-websocketkline) [t(:changelog_new)]
+
+
 ### 2020-04-27
 #### REST API
-- [t(:lcp)](#t-lcp) [t(:changelog_new)]
 - [t(:latestsymbolinfo)](#t-latestsymbolinfo) [t(:changelog_update)]
    - t(:restapi_update_20200427_1)
+
+### 2020-04-18
+#### REST API
+- [t(:usertraderecords)](#t-usertraderecords) [t(:changelog_update)]
+   - t(:restapi_update_20200418_2)
+- t(:restapi_update_20200418_1)
+   - [t(:usertraderecords)](#t-usertraderecords)
+   - [t(:closedprofitandloss)](#t-closedprofitandloss)
+
 
 ### 2020-04-17
 #### REST API
@@ -369,135 +314,71 @@
    - t(:restapi_update_20200417_3)
    - t(:restapi_update_20200417_4)
    - t(:restapi_update_20200417_5)
+- [t(:publictradingrecords)](#t-publictradingrecords) [t(:changelog_update)]
+    - t(:restapi_update_20200417_3)
+    - t(:restapi_update_20200417_4)
+    - t(:restapi_update_20200417_5)
+- [t(:markpricekline)](#t-markpricekline) [t(:changelog_new)]
+- [t(:predictedfunding)](#t-predictedfunding) [t(:changelog_new)]
+
 
 ### 2020-04-14
 #### REST API
-- [t(:querysymbol)](#t-querysymbol) [t(:changelog_update)]
-   - t(:restapi_update_20200414)
-
-### 2020-03-31
-#### REST API
-- [t(:balance)](#t-balance) [t(:changelog_update)]
-    - t(:bugfix1_20200331)
-
-### 2020-03-26
-#### REST API
-- [t(:tradingstop)](#t-tradingstop) [t(:changelog_update)]
-    - t(:trailing_stop_20200326)
-
-### 2020-03-16
-#### REST API
-- [t(:position)](#t-position) [t(:changelog_update)]
-    - t(:position_20200316)
-- [t(:balance)](#t-balance) [t(:changelog_update)]
-    - t(:bugfix1_20200316)
-
-### 2020-03-09
-#### REST API
-- [t(:usertraderecords)](#t-usertraderecords) [t(:changelog_update)]
-    - t(:usertraderecords_20200309)
-- [t(:key)](#t-key) [t(:changelog_update)]
-    - t(:apikey_20200309)
-
-### 2020-03-02
-
-#### Websocket API
-- [t(:websockettrade)](#t-websockettrade) [t(:changelog_update)]
-    - t(:trade___20200302)
-
-### 2020-02-26
-#### REST API
-- [t(:placeactive)](#t-placeactive)
-    - t(:update_20200226)
-
-### 2020-02-10
-
-#### REST API
-- [t(:balance)](#t-balance) [t(:changelog_new)]
-- [t(:replaceactive)](#t-replaceactive) [t(:changelog_update)]
-    - t(:replaceActive1_20200210)
-- [t(:replacecond)](#t-replacecond) [t(:changelog_update)]
-    - t(:replaceCond1_20200210)
-    - t(:replaceCond2_20200210)
-- t(:bugfix1_20200210) [t(:changelog_bugfix)]
-
-
-## 2019
-### 2019-12-27
-
-#### REST API
-- [t(:setrisklimit)](#t-setrisklimit) [t(:changelog_new)]
+- [t(:mylastfundingfee)](#t-mylastfundingfee) [t(:changelog_new)]
+- [t(:setautoaddmargin)](#t-setautoaddmargin) [t(:changelog_new)]
+- [t(:tradingstop)](#t-tradingstop) [t(:changelog_new)]
+- [t(:addmargin)](#t-addmargin) [t(:changelog_new)]
+- [t(:usertraderecords)](#t-usertraderecords) [t(:changelog_new)]
+- [t(:closedprofitandloss)](#t-closedprofitandloss) [t(:changelog_new)]
 - [t(:getrisklimit)](#t-getrisklimit) [t(:changelog_new)]
 
 
-### 2019-12-18
-
+### 2020-04-09
 #### REST API
-- [t(:myposition)](#t-myposition) [t(:changelog_new)]
+- [t(:conditionalorders)](#t-conditionalorders) [t(:changelog_new)]
 
-#### Websocket API
-- [t(:websocketorderbook200)](#t-websocketorderbook200) [t(:changelog_new)]
-
-
-### 2019-12-13
-
+### 2020-04-07
 #### REST API
-- [t(:querycond)](#t-querycond) [t(:changelog_new)]
-
-
-### 2019-12-02
-
-#### REST API
-- [t(:placeactive)](#t-placeactive) [t(:changelog_new)]
-- [t(:cancelactive)](#t-cancelactive) [t(:changelog_new)]
-- [t(:cancelallactive)](#t-cancelallactive) [t(:changelog_new)]
-- [t(:cancelallcond)](#t-cancelallcond) [t(:changelog_new)]
-
-
-### 2019-11-19
-
-#### REST API
+- [t(:setleverage)](#t-setleverage) [t(:changelog_new)]
+- [t(:marginswitch)](#t-marginswitch) [t(:changelog_new)]
+- [t(:querykline)](#t-querykline) [t(:changelog_new)]
 - [t(:publictradingrecords)](#t-publictradingrecords) [t(:changelog_new)]
+- [t(:fundingrate)](#t-fundingrate) [t(:changelog_new)]
+- [t(:placeactive)](#t-placeactive) [t(:changelog_update)]
+    - t(:linear_order___20200403)
+    - t(:linear_order_fix_order_type___20200403)
+- [t(:getactive)](#t-getactive) [t(:changelog_update)]
+    - t(:linear_order___20200403)
+        - t(:linear_order_fix_order_type___20200403)
+- [t(:queryactive)](#t-queryactive) [t(:changelog_update)]
+    - t(:linear_order___20200403)
+    - t(:linear_order_fix_order_type___20200403)
+- [t(:myposition)](#t-position) [t(:changelog_update)]
+    - t(:linear_poistion___20200403)
 
-
-### 2019-11-07
-
-#### REST API
-- [t(:setleverage)](#t-setleverage) [t(:changelog_update)]
-- [t(:my_20191107)] [t(:changelog_update)]
-- [t(:changemargin)](#t-changemargin) [t(:changelog_update)]
-- [t(:tradingstop)](#t-tradingstop) [t(:changelog_update)]
-
-
-### 2019-11-04
-
-#### REST API
-- [t(:announcement)](#t-announcement) [t(:changelog_new)]
-- [t(:cancelOrder_20191104)](#t-cancelactive) [t(:changelog_update)]
-    - t(:cancelOrder__20191104)
-- [t(:cancelcond)](#t-cancelcond) [t(:changelog_update)]
-    - t(:cancelCond__20191104)
-- [t(:key)](#t-key) [t(:changelog_update)]
-    - t(:get__20191104)
-    - t(:get___20191104)
-- [t(:update_20191104)](#t-ratelimits) [t(:changelog_update)]
-	- t(:update__20191104)
-	- t(:update___20191104)
-	- t(:update____20191104)
-
-#### Websocket API
-- [t(:websocketklineV2)](#t-websocketklinev2) [t(:changelog_new)]
-- [t(:websocketstoporder)](#t-websocketstoporder) [t(:changelog_new)]
-
-
-### 2019-10-22
-
+### 2020-03-31
 #### REST API
 - [t(:queryactive)](#t-queryactive) [t(:changelog_new)]
+- [t(:getactive)](#t-getactive)
+    - t(:linear_update_20200331)
 
-#### Websocket API
-- [t(:websocketposition)](#t-websocketposition) [t(:changelog_update)]
-    - t(:position__20191022)
-- [t(:websockettrade)](#t-websockettrade) [t(:changelog_update)]
-    - t(:trade__20191022)
-    - t(:trade___20191022)
+#### WebSocket API
+- [t(:websocketwallet)](#t-websocketwallet) [t(:changelog_new)]
+- [t(:websockettrade)](#t-websockettrade) [t(:changelog_new)]
+- [t(:websocketorderbook25)](#t-websocketorderbook25)  [t(:changelog_update)]
+- [t(:websocketorderbook200)](#t-websocketorderbook200)  [t(:changelog_update)]
+    - t(:linear_update_20200331_ws_ob)
+
+### 2020-03-27
+#### REST API
+- [t(:placeactive)](#t-activeorders) [t(:changelog_new)]
+- [t(:myposition)](#t-position) [t(:changelog_new)]
+
+#### WebSocket API
+- [t(:websocketorderbook25)](#t-websocketorderbook25) [t(:changelog_new)]
+- [t(:websocketorderbook200)](#t-websocketorderbook200) [t(:changelog_new)]
+- [t(:websocketinstrumentInfo)](#t-websocketinstrumentinfo) [t(:changelog_new)]
+- [t(:websocketposition)](#t-websocketposition) [t(:changelog_new)]
+- [t(:websocketexecution)](#t-websocketexecution) [t(:changelog_new)]
+- [t(:websocketorder)](#t-websocketorder) [t(:changelog_new)]
+- [t(:websocketstoporder)](#t-websocketstoporder) [t(:changelog_new)]

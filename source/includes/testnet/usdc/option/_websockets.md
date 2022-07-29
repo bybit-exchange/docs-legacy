@@ -97,7 +97,7 @@ ws.send('{"op":"ping","args":["1535975085152"]}');
 
 
 <aside class="warning">
-t(:websocket_aside_heartbeat)
+t(:usdc_websocket_aside_heartbeat)
 </aside>
 
 t(:websocket_aside_heartbeat_option)
@@ -711,10 +711,7 @@ t(:usdcWssOrderNewDesc)
 }
 }
 
-
-
 ```
-
 
 > t(:codequote_delta)
 
