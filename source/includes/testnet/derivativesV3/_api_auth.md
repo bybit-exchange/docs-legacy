@@ -41,7 +41,7 @@ param_str = "1658384314791T0d98KyVamQ62YBzN85000category=option&symbol=BTC-29JUL
 # timestamp: 1658384314791
 # api_key: T0d98KyVamQ62YBzN8
 # recv_window: 5000
-# category=option&
+# category=option
 # symbol=BTC-29JUL22-25000-C
 ```
 

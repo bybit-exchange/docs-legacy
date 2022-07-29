@@ -27,8 +27,8 @@ en:
   row_comment_side: Side
   row_comment_side_taker: Side of taker order
   row_comment_symbol: Symbol
-  row_comment_kline_list: an array of individual candles，Sort in reverse order by <code>start</code>, The default collation within the array is <code>start</code>，<code>open</code>，<code>close</code>，<code>high</code>，<code>low</code>，<code>volume</code>，<code>turnover</code>
-  row_comment_mark_kline_list: an array of individual candles, Sort in reverse order by <code>start</code>, The default collation within the array is <code>start</code>，<code>open</code>，<code>close</code>，<code>high</code>，<code>low</code>
+  row_comment_kline_list: an array of individual candles, Sort in reverse order by <code>start</code>, The default collation within the array is <code>start</code>, <code>open</code>, <code>close</code>, <code>high</code>, <code>low</code>, <code>volume</code>, <code>turnover</code>
+  row_comment_mark_kline_list: an array of individual candles, Sort in reverse order by <code>start</code>, The default collation within the array is <code>start</code>, <code>open</code>, <code>close</code>, <code>high</code>, <code>low</code>
   row_comment_margin: margin
   row_comment_position_id: PositionID
   row_comment_position_idx: |
@@ -286,7 +286,7 @@ en:
   row_comment_query_unrealisedPnl_v3: Unrealized P&L
   row_comment_query_cumRealisedPnl_v3: Accumulatively realized P&L
   row_comment_query_tpslMode_v3: TP/SL mode
-  row_comment_query_set_leverage_v3: User’s leverage
+  row_comment_query_set_leverage_v3: User's leverage
   row_comment_query_execFee_v3: Trading fee
   row_comment_query_execId_v3: Trading ID
   row_comment_query_execPrice_v3: Executed price
@@ -350,7 +350,7 @@ en:
   row_comment_query_ThereareUSDCperpetualpositionholdings_v3: update account failed. Please close the usdc perpetual positions in USDC Account.
 
   row_comment_query_ThereareUSDCoptionspositionholdings_v3_code: There are USDC options position holdings
-  row_comment_query_ThereareUSDCoptionspositionholdings_v3: update account failed. Please close the usdc option positions in USDC Account.
+  row_comment_query_ThereareUSDCoptionspositionholdings_v3: update account failed. Please close the USDC Options positions in USDC Account.
 
   row_comment_query_ThereareUSDTperpetualpositionholdings_v3_code: There are USDT perpetual position holdings
   row_comment_query_ThereareUSDTperpetualpositionholdings_v3: update account failed. Please close the usdt perpetual positions in USDC Account.
@@ -358,8 +358,8 @@ en:
   row_comment_query_ThereareUSDCperpetualorders_v3_code: There are USDC perpetual orders
   row_comment_query_ThereareUSDCperpetualorders_v3: update account failed. Please cancel the usdc perpetual open orders in USDC Account.
 
-  row_comment_query_ThereareUSDCoptionorders_v3_code: There are USDC option orders
-  row_comment_query_ThereareUSDCoptionorders_v3: update account failed. Please cancel the usdc option open orders in USDC Account.
+  row_comment_query_ThereareUSDCoptionorders_v3_code: There are USDC Options orders
+  row_comment_query_ThereareUSDCoptionorders_v3: update account failed. Please cancel the USDC Options open orders in USDC Account.
 
   row_comment_query_ThereareUSDTperpetualorders_v3_code: There are USDT perpetual orders
   row_comment_query_ThereareUSDTperpetualorders_v3: update account failed. Please cancel the usdt perpetual open orders in USDC Account.
@@ -1091,7 +1091,7 @@ en:
   account_para_placeActive_v3: |
     <p><p><b>Interface:</b></p>
     <p>Market active orders: A traditional market order, which will be filled at the current optimal price. Only when the market order is selected,
-    can the price be null! To protect the market order from serious slippage, Bybit will convert the market order into a limit order with the buy order price higher than the optimal selling price, and the sell order price lower than the optimal buying price. Both the limit price and the executed price can be queried through the user’s transaction history interface.</p>
+    can the price be null! To protect the market order from serious slippage, Bybit will convert the market order into a limit order with the buy order price higher than the optimal selling price, and the sell order price lower than the optimal buying price. Both the limit price and the executed price can be queried through the user's transaction history interface.</p>
     <p>Limit active orders: You can set an executed price for your order. When the market price touches the price you set, the system will fill the order for you.</p>
     <p></b>TP/SL: You can only set TP/SL conditional orders while opening positions. Once you have held positions, the TP/SL linked when you submit active orders will not take effect.</b></p>
     <p>Order quantity: The quantity of perpetual contracts you are going to buy/sell. For the order quantity, Bybit only supports positive integers at present.</p>
@@ -1113,17 +1113,17 @@ en:
 
   account_para_queryActive_v3: |
     <p><p><b>Interface:</b></p>
-    <p>Query unfilled orders in real time.</p>
+    <p>Query unfilled orders in real-time.</p>
     <p>When either of the two parameters,orderId or orderLinkId, is passed, data of the order will be returned. However,when neither of them is passed, at most 500 unfilled orders will be returned.</p>
     <p>They will be ranked by the createdTime from newest to oldest.</p></p>
 
   account_para_getActive_v3: |
     <p><p><b>Interface:</b></p>
     <p>Access my open order list.</p>
-    <p>As order creation/cancellation is asynchronous, the data returned from the interface may be delayed. To access order information in real time, call the interface enquiring information on open orders in real time.</p></p>
+    <p>As order creation/cancellation is asynchronous, the data returned from the interface may be delayed. To access order information in real-time, call the interface enquiring information on open orders in real-time.</p></p>
 
   usdcBatchOrdersDescV3: |
-    <p><p><b>instruction：</b></p>
+    <p><p><b>instruction: </b></p>
     <p>This API provides the batch order mode under the unified margin account.</p>
     <p>Make sure you have sufficient funds in your account when placing an order. Once an order is placed, according to the funds required by the order, the funds in your account will be frozen in the corresponding amount during the life cycle of the order, and the amount of funds frozen depends on the parameters specified in the order.</p>
     <p>The same request can only contain orders of the same contract, and options and futures cannot be placed at the same time. Only Limit / Market order is supported, conditional order is not supported.</p>
@@ -1131,17 +1131,17 @@ en:
     <p>The maximum number of orders included in each request is 10 orders. The returned data list is divided into two lists. The list created by the order and the created information are returned. The orders of the two lists are completely consistent.</p></p>
 
   usdcBatchReplaceOrdersDescV3: |
-    <p><p><b>instruction：</b></p>
+    <p><p><b>instruction: </b></p>
     <p>This interface can modify the open order information in batches. Currently, it is not supported to modify the conditional order information.</p>
     <p>Please note that only unfilled or partial filled orders can be modified.</p>
     <p>If both futures and options orders are in one request, only the orders matching the category will be operated according to the category type</p>
 
   usdcBatchCancelOrdersDescV3: |
-    <p><b>instruction：</b></p>
+    <p><b>instruction: </b></p>
     <p>This API provides batch cancellation under the unified margin account. Order cancellation of futures and options cannot be canceled in one request at the same time. If both futures and options orders are in one request, only the orders matching the category will be operated according to the category type.</p>
 
   account_para_cancelAllActive_v3: |
-    <p><b>instruction：</b></p>
+    <p><b>instruction: </b></p>
     <p>This API provides the cancellation of all open orders under the unified margin account. Order cancellation of futures and options cannot be canceled in one request at the same time. If both futures and options orders are in one request, only the orders matching the category will be operated according to the category type.</p>
 
   account_para_myPosition_v3: |
@@ -1168,7 +1168,7 @@ en:
 
   wallet_para_tradeRecords_v3: |
     <p><b>Interface:</b></p>
-    <p>Access the user’s filled history, ranked by time in descending order.</p>
+    <p>Access the user's filled history, ranked by time in descending order.</p>
     <p>There might be multiple filled histories for an order.</p></p>
 
   wallet_para_delivery_record_v3: |
@@ -1208,28 +1208,28 @@ en:
   websocketpositionV3: |
     <p><p><b>instruction:</b></p>
     <p>Pushing the incremental volume only</p>
-    <p>Accessing personal position list. Current user’s position holding information can be accessed through this interface, such as the quantity of position holdings and wallet balance.</p>
-    <p><b>Topic：</b></p>
+    <p>Accessing personal position list. Current user's position holding information can be accessed through this interface, such as the quantity of position holdings and wallet balance.</p>
+    <p><b>Topic: </b></p>
     <p>user.position.unifiedAccount</p></p>
 
   websocketexecutionV3: |
     <p><p><b>Notice:</b></p>
-    <p>Accessing the user’s filled history ranked by time in ascending order.</p>
-    <p><b>Topic：</b></p>
+    <p>Accessing the user's filled history ranked by time in ascending order.</p>
+    <p><b>Topic: </b></p>
     <p>user.execution.unifiedAccount</p></p>
 
   websocketOrderV3: |
     <p><p><b>Notice:</b></p>
     <p>Pushing incremental orders only. Merged with conditional orders into one topic.</p>
-    <p><b>Topic：</b></p>
+    <p><b>Topic: </b></p>
     <p>user.order.unifiedAccount</p></p>
 
   websocketwalletV3: |
-    <p><b>Topic：</b></p>
+    <p><b>Topic: </b></p>
     <p>user.wallet.unifiedAccount</p></p>
 
   udscGeeksDescV3: |
-    <p><b>Topic：</b></p>
+    <p><b>Topic: </b></p>
     <p>user.greeks.unifiedAccount</p></p>
 
   ### Get Active Order
@@ -1361,6 +1361,7 @@ en:
 
   ### Closed Profit and Loss
   closedprofitandloss: Closed Profit and Loss
+  dv_closedprofitandloss: Get Closed Profit and Loss
   row_response_closedPnlSide: Side of the closing order
   row_response_closedPnlOrderId: Order ID of the closing order
 
@@ -1396,6 +1397,7 @@ en:
     <p>The formula of position margin on website: <code>position_margin</code> + <code>occ_funding_fee</code> + loss(when your <code>available_balance</code> is insufficient)</p>
   ### Wallet Fund Records
   walletrecords: Wallet Fund Records
+  dv_walletrecords: Get Wallet Fund Records
   wallet_para_walletRecords: |
     <p>Get wallet fund records. This endpoint also shows exchanges from the <a href="https://testnet.bybit.com/app/assets/assets-exchange">Asset Exchange</a>, where the <code>type</code>s for the exchange are <code>ExchangeOrderWithdraw</code> and <code>ExchangeOrderDeposit</code>.</p>
     <p>This endpoint returns incomplete information for transfers involving the derivatives wallet. Use the <a href="https://bybit-exchange.github.io/docs/account_asset/#t-transfer_api">account asset API</a> for creating and querying internal transfers.
@@ -1422,7 +1424,7 @@ en:
   wallet_para_interestBillStatement:
 
   ### User Trade Records
-  usertraderecords: User Trade Records
+  usertraderecords: Get User Trade Records
   userhistorytraderecords: Extended User Trade Records
   wallet_para_tradeRecords: Get user's trading records. The results are ordered in ascending order (the first item is the oldest).
   wallet_aside_tradeRecords: One order may have multiple trade records.
@@ -1702,7 +1704,7 @@ en:
       <li><a href="https://bybit-exchange.github.io/docs/spot/#t-websocketauthentication">Spot</a></li>
     </ul>
   websocket_endpoints_aside_copytrading: |
-    <b>Note that currently Copy Trading only supports linear perpetual and the following endpoints only apply to <i>USDT (Linear) Perpetual</i></b>. To listen to other websockets, go to:
+    <b>Note that currently Copy Trading only supports USDT perpetual and the following endpoints only apply to <i>USDT (Linear) Perpetual</i></b>. To listen to other websockets, go to:
     <ul>
       <li><a href="https://bybit-exchange.github.io/docs/inverse/#t-websocketauthentication">Inverse Perpetual</a></li>
       <li><a href="https://bybit-exchange.github.io/docs/spot/#t-websocketauthentication">Spot</a></li>
@@ -1840,7 +1842,7 @@ en:
   websocket_para_filters3: |
     <p>It is possible to use multiple filters for the same topic by splitting them with a pipe (<code>|</code>) - of course, these filters must all be applicable to the selected <code>topic</code>.</p>
   websocket_para_filter_resp: |
-    <p>Response(<code>ret_msg</code> the reason of failure，but it keeps null with successful subscription)：{"success":true,"ret_msg":"","conn_id": "{conn_id}"}
+    <p>Response(<code>ret_msg</code> the reason of failure, but it keeps null with successful subscription): {"success":true,"ret_msg":"","conn_id": "{conn_id}"}
   websocketunsubfilters: Unsubscribing From Websocket Topics
   websocket_codequote_unsubfilters: How to unsubscribe with a filter
   websocket_para_unsubfilters: |
@@ -1883,7 +1885,7 @@ en:
     <b>instruction:</b><br>
     Get recent trade data from Bybit.<br>
     After subscription, you will be pushed delta trade message in real-time once there is an order filled.<br><br>
-    Push frequency: <b>real time</b><br><br>
+    Push frequency: <b>real-time</b><br><br>
     <b>Topic:</b><br>
     <code>trade.{symbol}</code>
   ### insurance
@@ -2546,7 +2548,7 @@ en:
 
   # Unifed margin & contract v3 shares the same error msg but error code
   ## param verification
-  v3_err_110001: Order not exists
+  v3_err_110001: Order does not exist
   ## trade
   v3_err_110003: Order price is out of permissible range
   v3_err_110004: Insufficient wallet balance
@@ -2565,18 +2567,18 @@ en:
   v3_err_110017: Reduce-only rule not satisfied
   v3_err_110018: userId illegal
   v3_err_110019: orderId illegal
-  v3_err_110020: number of active orders greats than 500
+  v3_err_110020: number of active orders greater than 500
   v3_err_110021: Open Interest exceeded
-  v3_err_110022: qty has been limited, can not modify the order to add qty
+  v3_err_110022: qty has been limited, cannot modify the order to add qty
   v3_err_110023: This contract only supports position reduction operation, please contact customer service for details
-  v3_err_110024: You have exist position, so position mode cannot be switched
+  v3_err_110024: You have an existing position, so position mode cannot be switched
   v3_err_110025: Position mode is not modified
   v3_err_110026: Cross/isolated margin mode is not modified
   v3_err_110027: Margin is not modified
   v3_err_110028: Open orders exist, so you cannot change position mode
   v3_err_110029: Hedge mode is not available for this symbol
   v3_err_110030: Duplicate orderId
-  v3_err_110031: risk limit info not exists
+  v3_err_110031: risk limit info does not exists
   v3_err_110032: Illegal order
   v3_err_110033: Margin cannot be set without open position
   v3_err_110034: There is no net position
@@ -2829,6 +2831,7 @@ en:
   linear_row_comment_leverage: Must be greater than 0 and less than the <a href="https://help.bybit.com/hc/en-us/articles/360039749753-What-is-Risk-Limit-What-effect-does-the-Risk-Limit-have-on-Margin-Inverse-Contract-">risk limit leverage</a>.
   queryfeerate: Query Trading Fee Rate
   marginswitch: Cross/Isolated Margin Switch
+  dv_marginswitch: Switch Cross/Isolated Margin
   linear_account_para_switchIsolated: Switch Cross/Isolated; must set leverage value when switching from Cross to Isolated
   linear_row_comment_switch_isolated: Cross/Isolated<span>:</span> true is Isolated; false is Cross
 
@@ -2841,6 +2844,7 @@ en:
 
   ### inverse future
   switchpositionmode: Position Mode Switch
+  dv_switchpositionmode: Switch Position Mode
   account_para_switchpositionmode: |
     If you are in One-Way Mode, you can only open one position on <code>Buy</code> or <code>Sell</code> side. If you are in Hedge Mode, you can open both <code>Buy</code> and <code>Sell</code> side positions simultaneously.
 
@@ -2914,6 +2918,7 @@ en:
   linear_exec_type: Execution type
   exec_type_pnl: Execution type (cannot be <code>Funding</code>)
   switchmode: Full/Partial Position TP/SL Switch
+  dv_switchmode: Switch Full/Partial Position TP/SL
   switchmode_aside: When set to Partial, TP/SL orders may have a quantity less than the position size. This is set with the <a href="#t-tradingstop">Trading-Stop endpoint</a>.
   addmargin: Add/Reduce Margin
   restapi_update_20200414: Updated <code>BTCUSDT</code> contract information
@@ -2930,7 +2935,7 @@ en:
   restapi_update_20220616: Add Set Margin Mode API for USDC
   restapi_update_20220610: Add <code>S</code> field which indicates the trade side
   restapi_update_20220608: Increase the push frequency from every 250ms (max. 300ms) to every 100ms
-  restapi_update_20220602: Add new USDC Option Websocket private topic <code>mmpevent</code>
+  restapi_update_20220602: Add new USDC Options Websocket private topic <code>mmpevent</code>
   restapi_update_20220601_2: Add new response param <code>ExecutionTime</code> and Update response param <code>time</code>
   restapi_update_20220601: URLs of the above copytrading endpoints are updated.
   restapi_update_20220520: Add Cross Margin Trading Endpoints
@@ -3566,7 +3571,7 @@ en:
     Number of items per page. Default value: 10
   depositsrecordquery: Query Deposit Records
   depositsrecorddesc: |
-    Rules：Only query the deposit records of spot accounts order by id in reverse order. The maximum difference between the start time and the end time is 30 days.
+    Rules: Only query the deposit records of spot accounts order by id in reverse order. The maximum difference between the start time and the end time is 30 days.
   depositwithdrawstarttime: |
     start time (In Seconds).  Default value: 30 days before the current time
   depositwithdrawendtime: |
@@ -3576,9 +3581,9 @@ en:
   depositcurrencyinfo: |
     coin name: for example, BTC.  Default value: all
   depositlimitinfo: |
-    Number of items per page，0< limit <=50.  Default value: 50
+    Number of items per page, 0< limit <=50.  Default value: 50
   depositdirectioninfo: |
-    prev page: Prev，next page: Next.  Default value: Next
+    prev page: Prev, next page: Next.  Default value: Next
   deposit_response_chainname: chain name
   deposit_response_amt: deposit amount
   deposit_response_txid : |
@@ -3667,13 +3672,13 @@ en:
 
   cancel_withdraw: Cancel withdrawal
   cancel_withdraw_response: |
-    result（cancel application result: 1 SUCCESS，0 FAIL）
+    result（cancel application result: 1 SUCCESS, 0 FAIL）
 
   deposit_addr_info: Query Deposit Address Information
   deposit_addr_info_desc: |
     Rules: Sub-account can not deposit
   deposit_addr_chain_info: |
-    chain type：can be obtained from coin info query api；Default value: all type
+    chain type: can be obtained from coin info query api; Default value: all type
   deposit_coin: deposit coin
   deposit_address: deposit address
   deposit_tag: deposit tag
@@ -3917,16 +3922,17 @@ en:
     <p>delta.orderbook100.{symbol}</p>
     <p>Such as delta.orderbook100.BTC-5NOV21-30000-P</p>
 
-  usdc_current_24_total:
+  usdc_current_24_total: |
     <p>Fetch the transaction data on Bybit in the last 24 hours.</p>
-    <p>After a successful subscription, any changes in the transaction data will be pushed in real time or once every second. The number of pushes depends on the number of new transaction records within the time frame.</p>
+    <p>After a successful subscription, any changes in the transaction data will be pushed in real-time or once every second. The number of pushes depends on the number of new transaction records within the time frame.</p>
     <p>Subscribe according to the dimension of the currency, such as BTC or ETH</p>
     <p>topic format:</p>
-    <p>Option- recenttrades.{symbol}, such as：recenttrades.BTC</p>
+    <p>Option- recenttrades.{symbol}, such as: recenttrades.BTC</p>
 
 
 
-  usdc_order_book_path: Options：category=option, Perpetual：category=perpetual
+  usdc_order_book_path: |
+    Options: category=option, Perpetual: category=perpetual
   usdc_order_book_desc: Query order book info. Each side has a depth of 25 orders.
   usdc_tick_desc: (Options only)
   usdcExtMap: Map has specific error details when failed, else null.
@@ -3973,7 +3979,7 @@ en:
 
   placeOrderInfo: |
     <p>Place an order using the USDC Derivatives Account. </p>
-    <p>The request status can be queried in real time. </p>
+    <p>The request status can be queried in real-time. </p>
     <p>The response parameters must be queried through a query or a WebSocket response.</p>
   replaceInfo: For Options, at least one of the three parameters — price, quantity or implied volatility — must be input.
   leavesValue: Est. order value of unfilled orders
@@ -4071,13 +4077,15 @@ en:
   closedPnl: Closed P&L
   fillCount: Filled quantity
 
-  usdcExpDateRepsonse: format：yyyyMMdd
-  expDate: Expiration date. format：yyyyMMdd
+  usdcExpDateRepsonse: |
+    format: yyyyMMdd
+  expDate: |
+    Expiration date. format: yyyyMMdd
   pnl: P&L
   maintainMargin: Maintenance margin
   startingMargin: Initial margin
   section: Interval
-  isLowestRisk: Whether it’s the lowest risk limit; 0 indicates no and 1 means yes
+  isLowestRisk: Whether it's the lowest risk limit; 0 indicates no and 1 means yes
   riskId: Risk ID
   usdcRiskLimit: Risk Limit
   fundingRateTimestamp: Timestamp
@@ -4185,10 +4193,10 @@ en:
     <p>Option: user.mmp.event</p>
 
   usdc_trading_symbol_comment: refer to <a href="#t-querysymbolinfo">Query Symbol</a> endpoint
-  usdcPriceRule:
+  usdcPriceRule: |
     <ul>
     <li>Must be less than 10 million (<code>10000000</code>)</li>
-    <li>Must be a positive number：
+    <li>Must be a positive number:
     <ul>
     <li><code>40</code> - allowed</li>
     <li><code>40.5</code> - allowed</li>
@@ -4197,10 +4205,10 @@ en:
     </ul>
     </li>
     </ul>
-  usdcQuantity:
+  usdcQuantity: |
     <ul>
     <li>Must be less than 1 thousand  (<code>1000</code>)</li>
-    <li>Must be a positive number：
+    <li>Must be a positive number:
     <li>Must conform to the symbol's <code>qtyStep</code>.</li>
     <ul>
     <li><code>40</code> - allowed</li>
@@ -4303,7 +4311,7 @@ en:
     <p>{"success":true,"ret_msg":"","conn_id":"c53a9a5c-ff3a-443a-b56d-2cbd8552566f","request":{"op":"unsubscribe","args":["orderBook_200.100ms.BTCPERP"]}}</p>
 
     <p>Private:</p>
-    <p>ws.send('{"method":"private/unsubscribe","id":"{uuid}","params":{"channels":["topic1","topic2"]}}’) </p>
+    <p>ws.send('{"method":"private/unsubscribe","id":"{uuid}","params":{"channels":["topic1","topic2"]}}') </p>
     <p>{"id":"{uuid}","success":true,"data":{"successChannels":["topic1"],"failChannels":["topic2"]},"type":"COMMAND_RESP"}</p>
     <p>Cancel All Private Topics</p>
     <p>{"method":"public/unSubAll","id":"requestId"}</p>
@@ -4312,11 +4320,11 @@ en:
   usdc_perp_websocket_para_orderbook: |
     <p>Either 25 or 200 orders will be fetched from the bid and ask side of the order book.</p>
     <p>After a successful subscription,  the first response will be a snapshot data, then provide the delta data</p>
-    <p>topic format：orderBookL2_25.{symbol} or orderBook_200.100ms.{symbol}</p>
+    <p>topic format: orderBookL2_25.{symbol} or orderBook_200.100ms.{symbol}</p>
     <p>orderBookL2_25.BTCPERP or orderBook_200.100ms.BTCPERP</p>
-  usdc_current_24_total_perp:
+  usdc_current_24_total_perp: |
     <p>Fetch the transaction data on Bybit in the last 24 hours.</p>
-    <p>topic format：trade.{symbol}</p>
+    <p>topic format: trade.{symbol}</p>
     <p>trade.BTCPERP</p>
 
 
@@ -4339,10 +4347,10 @@ en:
   usdc_platform_insurance: |
     <p>topic:</p>
     <p>platform.insurance.USDC</p>
-  usdc_perp_price_rule:
+  usdc_perp_price_rule: |
     <ul>
     <li>Must be less than 1 million (<code>1000000</code>)</li>
-    <li>Must be a positive number：
+    <li>Must be a positive number:
     <ul>
     <li><code>40</code> - allowed</li>
     <li><code>40.5</code> - allowed</li>
@@ -4351,10 +4359,10 @@ en:
     </ul>
     </li>
     </ul>
-  usdc_perp_quantity:
+  usdc_perp_quantity: |
     <ul>
     <li>Must be less than 1 thousand (<code>1000</code>)</li>
-    <li>Must be a positive number：
+    <li>Must be a positive number:
     <ul>
     <li><code>40</code> - allowed</li>
     <li><code>40.001</code> - allowed</li>
@@ -4547,7 +4555,8 @@ en:
   spotCrossMarginTradingDesc: All Cross Margin Trading endpoints require authentication.
   CrossMarginTrading: Cross Margin Trading Endpoints
   borrowmarginloan: Borrow Margin Loan
-  spotCrossMarginTradingEndpoint: Cross Margin Trading Endpoints support below currency：
+  spotCrossMarginTradingEndpoint: |
+    Cross Margin Trading Endpoints support below currency:
   spotCurrency: currency
   spotBorrowQty: Amount To Borrow
   spotResult: Loan order id
@@ -4561,7 +4570,7 @@ en:
   spotLoanBalance: Outstanding Principal
   spotInterestAmount: Total Interest
   spotInterestBalance: Outstanding Interest
-  spotCrossMarginCreatedTime: Timestamp (Borrowing)，unit in millisecond
+  spotCrossMarginCreatedTime: Timestamp (Borrowing), unit in millisecond
   spotCrossMarginType: Order Type (1. Manual 2. Auto)
   QueryAccountInfo: Query Account Info
   spotCrossMarginAccountStatus: Status (1. Normal 2. Withdrawal/Transfer Restricted 3. Liquidation Alert Triggered 4. Liquidated 5. Negative Equity)
@@ -4580,7 +4589,7 @@ en:
   QueryRepaymentHistory: Query Repayment History
   spotRepayMarginOrderId: Repay Margin Order Id
   spotRepayId: Repay Id
-  spotRepayTime: Timestamp，unit in millisecond
+  spotRepayTime: Timestamp, unit in millisecond
   spotRepaidAmount: Total Amount Repaid
   spotRepaidSerialNumber: Repayment No. (Borrowing Order)
   spotTransactId: Transaction ID (Borrowing)
@@ -4657,8 +4666,8 @@ en:
   dv_categorySuffix_2: For now, <code>linear</code> <code>inverse</code> <code>option</code> are available
   dv_categorySuffix_3: For now, <code>linear</code> <code>inverse</code> are available
   dv_categorySuffix_4: For now, <code>linear</code> <code>option</code> are available
-#  dv_categorySuffix_5: 目前僅支持正向合約：linear; 期權：option。只能傳一個參數
-#  dv_categorySuffix_6: 目前僅支持正向合約：linearUSDC, linearUSDT; 反向合約：inverse; 期權：option
+#  dv_categorySuffix_5: 目前僅支持正向合約: linear; 期權: option。只能傳一個參數
+#  dv_categorySuffix_6: 目前僅支持正向合約: linearUSDC, linearUSDT; 反向合約: inverse; 期權: option
   dv_categorySuffix_7: For now, <code>linear</code> is available
   dv_categorySuffix_8: For now, <code>option</code> is available
   dv_categorySuffix_9: For now, <code>linear</code> is available and ONLY for USDC perp
@@ -4666,7 +4675,8 @@ en:
   ## Market
   # kline
   # reqParam
-  dv_klineInterval: Kline interval. enum：1 3 5 15 30 60 120 240 360 720 "D" "M" "W"
+  dv_klineInterval: |
+    Kline interval. enum: 1 3 5 15 30 60 120 240 360 720 "D" "M" "W"
 
   # respParam
 
@@ -4701,7 +4711,8 @@ en:
   dv_marketInstrPara: Query launched instruments info list
   # reqParam
 
-  dv_pageDirection: Search direction. <code>prev</code>prev page, <code>next</code>：next page. Defaults to <code>next</code>
+  dv_pageDirection: |
+    Search direction. <code>prev</code>prev page, <code>next</code>: next page. Defaults to <code>next</code>
   dv_cursor: API pass-through
   # respParam
   dv_instrContractType: Contract type. Future or Perpetual only
@@ -4788,7 +4799,7 @@ en:
         USDC contract: <span id="usdc_testnet_address">wss://stream-testnet.bybit.com/contract/usdc/public/v3</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdc_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
         <br/>
-        USDC option: <span id="option_testnet_address">wss://stream-testnet.bybit.com/option/usdc/public/v3</span>
+        USDC Options: <span id="option_testnet_address">wss://stream-testnet.bybit.com/option/usdc/public/v3</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#option_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
     </li>
      </p>
@@ -4814,7 +4825,7 @@ en:
         USDC contract: <span id="usdc_2_testnet_address">wss://stream-testnet.bybit.com/contract/usdc/public/v3</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdc_2_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
         <br/>
-        USDC option: <span id="option_2_testnet_address">wss://stream-testnet.bybit.com/option/usdc/public/v3</span>
+        USDC Options: <span id="option_2_testnet_address">wss://stream-testnet.bybit.com/option/usdc/public/v3</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#option_2_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
     </li>
      </p>
@@ -4834,7 +4845,7 @@ en:
     Get 25, 500 level data.<br>
     Once subscribe successfully, you will receive a snapshot. The data is ordered by order price, which from lowest buy order to highest sell order.
     Websocket will keep pushing delta message when orderbook is changed. If you receive a new snapshot data, it's necessary to reset your local orderbook.<br><br>
-    <b>type</b>: <code>snapshot</code>=Full orderbook，<code>delta</code>=delta orderbook<br>
+    <b>type</b>: <code>snapshot</code>=Full orderbook, <code>delta</code>=delta orderbook<br>
     If there is a problem in bybit end, it will re-send a snapshot, which is promised the latest and accurate.<br><br>
     25 level data, push frequency: <b>20ms</b> <br>
     500 level data, push frequency: <b>100ms</b> <br>
@@ -4869,7 +4880,8 @@ en:
   # Contract Account >> Account
   contract_account: Account
   contract_accountPara: The following account data endpoints require authentication.
-  contract_accountCoin: <code>currency</code> alias. Returns all wallet balances if not passed. Multiple coins are allowed, separated by comma, like USDT,USDC
+  contract_accountCoin: |
+    <code>currency</code> alias. Returns all wallet balances if not passed. Multiple coins are allowed, separated by comma, like: <code>USDT,USDC</code>
   contract_accountCoin_resp: Coin name
   contract_accountStatTime: Start timestamp in milliseconds
   contract_accountEndTime: End timestamp in milliseconds. <b>The past year records ONLY</b>
@@ -4879,7 +4891,8 @@ en:
   contract_tradingFeeRate_para: |
     <p><b>Instruction:</b></p>
     <P>Get user trading fee rate</p>
-  contract_feeRate_warning: API rate limit, 5 requests in 1 minute.
+  contract_feeRate_warning: |
+    API rate limit: 5 requests in 1 minute.
   contract_accountTakerFeeRate: Taker fee rate
   contract_accountMakerFeeRate: Maker fee rate
   # Contract >> Private topics
@@ -4887,46 +4900,49 @@ en:
   contract_websocketPosition: |
     <p><p><b>instruction:</b></p>
     <p>Pushing the incremental volume only</p>
-    <p>Accessing personal position list. Current user’s position holding information can be accessed through this interface, such as the quantity of position owned and wallet balance.</p>
-    <p><b>Topic：</b></p>
+    <p>Accessing personal position list. Current user's position holding information can be accessed through this interface, such as the quantity of position owned and wallet balance.</p>
+    <p><b>Topic: </b></p>
     <p>user.position.contractAccount</p></p>
   contract_position_riskLimitValue: Position upper limit corresponding to the current risk limit ID
-  contract_position_tradeMode: Trade mode：<code>0</code>：cross margin; <code>1</code>：isolated margin
-  contract_position_autoAddMargin: Auto add margin mode. <code>false</code>：turn off, <code>true</code>：turn on. It is invalid under <b>cross margin</b> mode
+  contract_position_tradeMode: |
+    Trade mode: <code>0</code>: cross margin; <code>1</code>: isolated margin
+  contract_position_autoAddMargin: |
+    Auto add margin mode. <code>false</code>: turn off, <code>true</code>: turn on. It is invalid under <b>cross margin</b> mode
   contract_position_positionBalance: Position balance
   contract_position_liqPrice: Liquidation price
   contract_position_bustPrice: <a href="https://help.bybit.com/hc/en-us/articles/360039749813-What-is-Bankruptcy-Price-Inverse-Contract-">Bankruptcy price</a>
   contract_websocketExecution: |
     <p><b>Instruction:</b></p>
-    <p>Get the user’s filled history ranked by time in ascending order.</p>
-    <p><b>Topic：</b></p>
+    <p>Get the user's filled history ranked by time in ascending order.</p>
+    <p><b>Topic: </b></p>
     <p>user.execution.contractAccount</p></p>
   contract_executionClosedSize: Closed size
-  contract_websocketOrder:
+  contract_websocketOrder: |
     <p><p><b>Instruction:</b></p>
     <p>Pushing incremental orders only. Merge active order with conditional order into one topic.</p>
-    <p><b>Topic：</b></p>
+    <p><b>Topic: </b></p>
     <p>user.order.contractAccount</p></p>
   contract_param_executionTpTriggerBy: <a href="#trigger-price-type-triggerby">tpTriggerBy</a>
   contract_parm_executionSlTriggerBy: <a href="#trigger-price-type-triggerby">slTriggerBy</a>
   contract_param_executionTriggerBy: <a href="#trigger-price-type-triggerby">triggerBy</a>
   contract_websocketWallet: |
-    <p><b>Topic：</b></p>
+    <p><b>Topic: </b></p>
     <p>user.wallet.contractAccount</p></p>
   contract_walletAvailableBalance: Available balance
   contract_walletPositionMargin: Position margin
   contract_walletOrderMargin: Margin occupied by the current order
   # contract order endpoints
   contract_param_orderType: <a href="#order-type-ordertype">orderType</a>
-  contract_comment_qty: Quantity. If <b>linear perp</b>, qty is in cryptocurrency, else like <b>Inverse perp/futures</b>, qty is in USD.
-  contract_comment_price: Order price. <b>Required</b> if you make limit price order
-  contract_comment_triggerDirection: Trigger direction. Mainly used in conditional order. Trigger the order when market price rises to <b>triggerPrice</b> or falls to <b>triggerPrice</b>. <code>1</code>：rise; <code>2</code>：fall
+  contract_comment_qty: Quantity. If <b>USDT perp</b>, qty is in cryptocurrency, else like <b>Inverse perp/futures</b>, qty is in USD.
+  contract_comment_price: Order price. <b>Required</b> if you submit a limit order
+  contract_comment_triggerDirection: |
+    Trigger direction. Mainly used in conditional order. Trigger the order when market price rises to <b>triggerPrice</b> or falls to <b>triggerPrice</b>. <code>1</code>: rise; <code>2</code>: fall
   contract_comment_triggerPrice: Trigger price
   contract_getOrder: Get Order List
   contract_para_getOrder: |
     <p><p><b>Interface:</b></p>
     <p>Access my order list.</p>
-    <p>As order creation/cancellation is asynchronous, the data returned from the interface may be delayed. To access order information in real time, call the interface enquiring information on open orders in real time.</p></p>
+    <p>As order creation/cancellation is asynchronous, the data returned from the interface may be delayed. To access order information in real-time, call the interface enquiring information on open orders in real-time.</p></p>
   contract_comment_tpTriggerBy: Trigger type of take profit. <code>LastPrice</code> in default. If it is USDC order, type is <code>MarkPrice</code> in default.
   contract_comment_slTriggerBy: Trigger type of stop loss. <code>LastPrice</code> in default. If it is USDC order, type is <code>MarkPrice</code> in default.
   contract_comment_nextPageCursor: Next page cursor
@@ -4934,7 +4950,7 @@ en:
   contract_cancelOrder: Cancel order
   contract_para_cancelOrder: |
     <p><b>Interface:</b></p>
-    <p>Cancel order,orderId or orderLinkId is required. </p>
+    <p>Cancel order. <code>orderId</code> or <code>orderLinkId</code> is required. </p>
     <p>orderId - Once you have successfully created an order, the system will send you the unique 36-character order ID.</p>
     <p>You can cancel only cancel the order not filled or not completely filled. You cannot cancel orders that are completely filled.</p>
   contract_cancelAllOrders: Cancel all orders
@@ -4946,24 +4962,28 @@ en:
   contract_getRealtimeOrder: Get Order (real-time)
   contract_para_getRealtimeOrder: |
     <p>Query real-time order information. If only <code>orderId</code> or <code>orderLinkId</code> are passed, a single order will be returned; otherwise, <b>returns up to <a href="#t-orderlimits">500</a> unfilled orders</b></p>.
-    <p>Order by <code>createdTime</code> in Descend. You could query multiple symbols in one request, but it costs <b>10</b> times for api rate limit per request.</p>
+    <p>Ordered by <code>createdTime</code> in descending order. You could query multiple symbols in one request, but it costs <b>10</b> times for API rate limit per request.</p>
   contract_comment_realtimeOrderSymbol: Symbol name. It enables multiple symbols, separated by commas, 10 symbols in max.
   contract_comment_realtimeOrderSettleCoin: Settle coin. Either <code>symbol</code> or <code>settleCoin</code> is required. If both are passed, <code>symbol</code> is used first.
   contract_para_position: |
     <p><b>Interface:</b></p>
-    <p>Accessing personal list of positions. Users can access their position holding information through this interface, such as the number of position holdings and wallet balance.</p>
+    <p>Accessing personal list of positions. Users can access information about their open positions through this interface, such as the quantity and wallet balance.</p>
   contract_notice_position: |
     <p>If symbol is passed in single, rate limit is counted as 1 per request. If symbol is passed in multiple, rate limit is counted as 10 per request.</p>
-  contract_comment_dataFilter: Only work when <code>settleCoin</code> is passed. <code>full</code>：get all positions regardless zero or not based on settle coin. <code>valid</code>：get valid positions based on settle coin
-  contract_comment_riskId: <a href="#t-dv_risklimithead">Risk limit id</a>
+  contract_comment_dataFilter: |
+    Only work when <code>settleCoin</code> is passed. <code>full</code>: get all positions regardless zero or not based on settle coin. <code>valid</code>: get valid positions based on settle coin
+  contract_comment_riskId: <a href="#t-dv_risklimithead">Risk limit ID</a>
   contract_comment_positionBalance: Position balance
-  contract_comment_tradeMode: Trade mode. <code>0</code>：cross margin mode; <code>1</code>：isolated margin mode
+  contract_comment_tradeMode: |
+    Cross/isolated mode. <code>0</code>: cross margin mode; <code>1</code>: isolated margin mode
   contract_para_switchIsolated: Switch cross margin mode/isolated margin mode
   contract_comment_buyLeverage: The value must be equal to <code>sellLeverage</code> value
   contract_comment_sellLeverage: The value must be equal to <code>buyLeverage</code> value
-  contract_comment_mode: Position mode. <code>0</code>：One-Way mode. <code>3</code>：Hedge mode
-  contract_comment_tpSlMode: TP/SL mode. <code>Full</code>：set TP/SL in full; <code>Partial</code>：set TP/SL in partial
-  contract_comment_orderId: Order id. If null, all executed orders are returned
+  contract_comment_mode: |
+    Position mode. <code>0</code>: One-Way mode. <code>3</code>: Hedge mode
+  contract_comment_tpSlMode: |
+    TP/SL mode. <code>Full</code>: set TP/SL to full mode; <code>Partial</code>: set TP/SL to partial mode
+  contract_comment_orderId: Order ID. If null, all executed orders are returned
   contract_comment_startTime: Start timestamp in millisecond
   contract_comment_endTime: End timestamp in millisecond
   contract_comment_lastLiqInd: Only valid while <code>execType</code> is <code>Trade</code>, <code>AdlTrade</code>, <code>BustTrade</code>
