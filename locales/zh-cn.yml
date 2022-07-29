@@ -517,7 +517,7 @@ zh-cn:
   row_comment_query_positionMM_v3: Maintenance margin
   row_comment_query_trailingStop_v3: 追蹤止損
   row_comment_query_positionStatus_v3: 倉位狀態，正常，強平，減倉
-  row_comment_query_positionValue_v3: Position value
+  row_comment_query_positionValue_v3: 倉位價值
   row_comment_query_unrealisedPnl_v3: 未結盈虧
   row_comment_query_cumRealisedPnl_v3: 累計已結盈虧
   row_comment_query_tpslMode_v3: 止盈止損模式
@@ -2399,6 +2399,7 @@ zh-cn:
   linear_row_comment_leverage: <code>杠桿大於0，小於風險限額對應的杠桿</code>
 
   marginswitch: 全倉/逐倉切換
+  dv_marginswitch: 全倉/逐倉切換
   linear_account_para_switchIsolated: 全倉/逐倉切換，從全倉切換至逐倉時需要傳杠桿
   linear_row_comment_switch_isolated: 全倉/逐倉, true是逐倉，false是全倉
 
@@ -2415,6 +2416,7 @@ zh-cn:
 
   ### inverse futures
   switchpositionmode: 切換倉位模式
+  dv_switchpositionmode: 切換倉位模式
   account_para_switchpositionmode: 單倉模式下，只能在單方向下持倉<br/>雙倉模式下，可以同時在兩個方向持倉。
   account_para_switchpositionmode_withcoin: 單倉模式下，只能在單方向下持倉<br/>雙倉模式下，可以同時在兩個方向持倉，支持<code>coin</code>级别切换單倉模式和雙倉模式。
   row_comment_positionmode: 倉位模式<span>:</span> 0 - 單倉模式  3 - 雙倉模式
@@ -2481,6 +2483,7 @@ zh-cn:
   linear_exec_type: 交易類型
   exec_type_pnl: 交易類型(不能為"Funding")
   closedprofitandloss: 平倉盈虧
+  dv_closedprofitandloss: 平倉盈虧
   switchmode: 切換止盈止損模式
   switchmode_aside: 當設置部分止盈止損模式時，止盈或者止損的訂單數量可以小於倉位大小, 請使用<a href="#t-tradingstop">Trading-Stop endpoint</a>。
   addmargin: 增加/減少保證金
@@ -4444,7 +4447,7 @@ zh-cn:
     <p>user.position.contractAccount</p></p>
   contract_position_riskLimitValue: 當前風險限額ID對應的持倉上限
   contract_position_tradeMode: 交易模式：<code>0</code>：全倉; <code>1</code>：逐倉
-  contract_position_autoAddMargin: 自動追加保證金模式. <code>false</code>代表關閉, <code>true</code>代表開啟. <b>全倉</b>模式下該字段無效
+  contract_position_autoAddMargin: 自動追加保證金模式. <code>0</code>代表關閉, <code>1</code>代表開啟. <b>全倉</b>模式下該字段無效
   contract_position_positionBalance: 倉位餘額
   contract_position_liqPrice: 強制平倉價格
   contract_position_bustPrice: <a href="https://help.bybit.com/hc/en-us/articles/360039749813-What-is-Bankruptcy-Price-Inverse-Contract-">破產價格</a>
@@ -4498,7 +4501,7 @@ zh-cn:
     <p><b>接口說明：</b></p>
     <p>獲取我的倉位列表。通過該接口可以獲取當前用戶的持倉信息，如持倉數量、賬戶余額等信息。</p>
   contract_notice_position: |
-    <p>如果傳單個symbol, 每個request計數1次。如果一次傳多個symbol, 每個request計數10次。</p>
+    如果傳單個symbol, 每個request計數1次。如果一次傳多個symbol, 每個request計數10次。
   contract_comment_dataFilter: 僅在<code>settleCoin</code>有值時生效. <code>full</code>：獲取settle coin對應的所有symbol的持倉數據, 不管倉位是否為0. <code>valid</code>：僅獲取settle coin對應持倉不為0的倉位數據
   contract_comment_riskId: <a href="#t-dv_risklimithead">風險限額ID</a>
   contract_comment_positionBalance: 倉位餘額
@@ -4512,3 +4515,5 @@ zh-cn:
   contract_comment_startTime: 開始時間戳(毫秒)
   contract_comment_endTime: 結束時間戳(毫秒)
   contract_comment_lastLiqInd: 只有當<code>execType</code>字段類型為<code>Trade</code>、<code>AdlTrade</code>、<code>BustTrade</code>時有效
+  contract_comment_autoAddMargin: 自動追加保證金開關. <code>0</code>：關閉. <code>1</code>：開啟
+  dv_enum_comment_getSymbol: 您可以根據<a href="#t-dv_instrhead">查询衍生品交易规格</a>接口獲取所有交易中的symbol。

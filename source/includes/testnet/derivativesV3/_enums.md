@@ -21,7 +21,7 @@ t(:ENUMs_para)
 * `XRPUSDT`
 * `DOTUSD`
 
-t(:trading_symbol_comment)
+t(:dv_enum_comment_getSymbol)
 
 ## Currency (`currency`/`coin`)
 * `BTC`

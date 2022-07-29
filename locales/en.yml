@@ -4907,7 +4907,7 @@ en:
   contract_position_tradeMode: |
     Trade mode: <code>0</code>: cross margin; <code>1</code>: isolated margin
   contract_position_autoAddMargin: |
-    Auto add margin mode. <code>false</code>: turn off, <code>true</code>: turn on. It is invalid under <b>cross margin</b> mode
+    Auto add margin mode. <code>0</code>: turn off, <code>1</code>: turn on. It is invalid under <b>cross margin</b> mode
   contract_position_positionBalance: Position balance
   contract_position_liqPrice: Liquidation price
   contract_position_bustPrice: <a href="https://help.bybit.com/hc/en-us/articles/360039749813-What-is-Bankruptcy-Price-Inverse-Contract-">Bankruptcy price</a>
@@ -4969,7 +4969,7 @@ en:
     <p><b>Interface:</b></p>
     <p>Accessing personal list of positions. Users can access information about their open positions through this interface, such as the quantity and wallet balance.</p>
   contract_notice_position: |
-    <p>If symbol is passed in single, rate limit is counted as 1 per request. If symbol is passed in multiple, rate limit is counted as 10 per request.</p>
+    If symbol is passed in single, rate limit is counted as 1 per request. If symbol is passed in multiple, rate limit is counted as 10 per request.
   contract_comment_dataFilter: |
     Only work when <code>settleCoin</code> is passed. <code>full</code>: get all positions regardless zero or not based on settle coin. <code>valid</code>: get valid positions based on settle coin
   contract_comment_riskId: <a href="#t-dv_risklimithead">Risk limit ID</a>
@@ -4987,3 +4987,5 @@ en:
   contract_comment_startTime: Start timestamp in millisecond
   contract_comment_endTime: End timestamp in millisecond
   contract_comment_lastLiqInd: Only valid while <code>execType</code> is <code>Trade</code>, <code>AdlTrade</code>, <code>BustTrade</code>
+  contract_comment_autoAddMargin: Turn on/off auto add margin. <code>0</code>：off. <code>1</code>：on
+  dv_enum_comment_getSymbol: You can get all symbols with the <a href="#t-dv_instrhead">Get Instrument Info</a> endpoint.

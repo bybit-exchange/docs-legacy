@@ -299,7 +299,7 @@ curl --location --request POST 'https://api-testnet.bybit.com/contract/v3/privat
 
 t(:contract_para_cancelAllOrders)
 
-<aside class="notice">
+<aside class="warning">
 t(:account_aside_cancelAllActive)
 </aside>
 
@@ -675,8 +675,8 @@ POST
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)    |
 |t(:row_parameter_side) |<b>true</b> |string |t(:row_comment_side)    |
-|auto_add_margin |<b>true</b> |bool |t(:linear_row_comment_set_auto_margin)  |
-|position_idx |false |integer |t(:row_comment_position_idx)  |
+|autoAddMargin |<b>true</b> |integer |t(:contract_comment_autoAddMargin)  |
+|positionIdx |false |integer |t(:row_comment_position_idx)  |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -1196,8 +1196,8 @@ t(:linear_private_closed_pnl_records)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=pltcList>/contract/v3/private/position/closed-pnl</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pltcList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=pltcLpnl>/contract/v3/private/position/closed-pnl</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pltcLpnl"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
