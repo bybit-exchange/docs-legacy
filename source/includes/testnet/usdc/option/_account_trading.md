@@ -517,7 +517,6 @@ GET
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvQueryActiveNew"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
-
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |orderId|false|string|t(:usdcOrderId)|
@@ -529,7 +528,6 @@ GET
 
 
 <p class="fake_header">t(:responseparameters)</p>
-
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |resultTotalSize|number|t(:resultTotalSize)|
@@ -770,12 +768,12 @@ POST
 |stopOrderType |string|t(:usdcStopOrderType)|
 |orderStatus |string|t(:usdcOptionOrderStatus)|
 |takeProfit |string|t(:takeProfit)|
-|createdAt|number|t(:createdAt)|
+|createdAt|string|t(:createdAt)|
 |orderPnl |string|t(:usdcOrderPnl)|
 |t(:row_parameter_price) |string|t(:usdcOrderPrice)|
 |tpTriggerBy |string|t(:usdcTptriggerby)
 |t(:row_parameter_timeInForce)|string|t(:row_comment_timeInForce)|
-|updatedAt|number|t(:updatedAt)|
+|updatedAt|string|t(:updatedAt)|
 |basePrice |string|t(:basePrice)|
 |realisedPnl|string|t(:realisedPnl)|
 |t(:row_parameter_side) |string|t(:side)|
@@ -971,7 +969,7 @@ POST
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|transactionTime|number|t(:transactionTime)|
+|transactionTime|string|t(:transactionTime)|
 |t(:row_parameter_symbol) |string|t(:usdcSymbol)
 |type|string|t(:usdcType)|
 |t(:row_parameter_side) |string|t(:side)|
@@ -1401,7 +1399,7 @@ POST
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|deliveryTime|number|t(:usdcDeliveryTime)|
+|deliveryTime|string|t(:usdcDeliveryTime)|
 |t(:row_parameter_symbol) |string|t(:usdcSymbol)|
 |t(:row_parameter_side) |string|t(:side)|
 |position|string|t(:usdcPosition)|
