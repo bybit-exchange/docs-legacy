@@ -150,7 +150,7 @@ GET
 | tickSize | string | t(:tickSize) |
 | minOrderSizeIncrement | string | t(:minOrderSizeIncrement) |
 | basicDeliveryFeeRate | string | t(:usdcBasicDeliveryFeeRate) |
-| deliveryTime | number | t(:deliveryTime) |
+| deliveryTime | string | t(:deliveryTime) |
 | cursor | string | t(:cursor) |
 
 
@@ -291,7 +291,7 @@ GET
 |:----- |:-----|----- |
 | t(:row_parameter_symbol) | string | t(:usdcSymbol) |
 | deliveryPrice | string | t(:deliveryPrice) |
-| deliveryTime | number | t(:deliveryTime) |
+| deliveryTime | string | t(:deliveryTime) |
 | cursor | string | t(:cursor) |
 
 
@@ -353,5 +353,5 @@ GET
 |t(:row_parameter_symbol) |string|t(:usdcSymbol)|
 |orderPrice|string|t(:usdcOrderPrice)|
 |orderQty|string|t(:usdcOrderQty)|
-|time|number|t(:time)|
+|time|string|t(:time)|
 

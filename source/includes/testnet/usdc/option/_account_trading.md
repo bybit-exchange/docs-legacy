@@ -645,7 +645,7 @@ POST
 |orderStatus |string|t(:usdcOptionOrderStatus)|
 |takeProfit |string|t(:takeProfit)|
 |cumExecValue |string|t(:cumExecValue)|
-|createdAt |number|t(:createdAt)|
+|createdAt |string|t(:createdAt)|
 |orderPnl |string|t(:usdcOrderPnl)|
 |t(:row_parameter_price) |string|t(:usdcOrderPrice)|
 |tpTriggerBy |string|t(:usdcTptriggerby)
