@@ -23,46 +23,67 @@ t(:spot_auth_aside_timestamp)
 > t(:spot_auth_codequote_construct1a)
 
 ```console
-param_str = "api_key=B2Rou0PLPpGqcU0Vu2&timestamp=1542434791747"
+GET
+rule: timestamp + api_key + recv_window + queryString
+
+param_str = "1659072951686T0d98KyVamQ62YBzN85000symbol=BTCUSDT"
+
+POST
+rule: timestamp + api_key + recv_window + raw_request_body
+
+param_str = 
+   "1659073093578T0d98KyVamQ62YBzN85000{
+    "symbol": "BTCUSDT",
+    "orderQty":"0.05",
+    "side": "Sell",
+    "orderType": "LIMITT",
+    "timeInForce": "GTC",
+    "orderPrice": "24500",
+    "orderLinkId": "spotA0008"
+  }"
 ```
 ```python
-param_str = "api_key=B2Rou0PLPpGqcU0Vu2&timestamp=1542434791747"
 
-# api_key=B2Rou0PLPpGqcU0Vu2&
-# leverage=100&
-# symbol=BTCUSDH21&
-# timestamp=1542434791747
 ```
 
 > t(:spot_auth_codequote_construct1b)
 
-t(:auth_para_construct1)
+t(:auth_para_dv3_construct1)
 <div></div>
 
-t(:auth_para_construct2)
-> t(:auth_codequote_construct2)
+t(:auth_para_dv3_construct2)
+> t(:spotV3_auth_codequote_construct)
 
 ```http
-GET /spot/v1/order?api_key=q1ksyOX2T0G2SkK8nu&recvWindow=10000&timestamp=1623208423972&sign=b452640c21a2c9eaec30d24a9bce1a9660d1fb9d07ccc0d623a2a4fca0940095 HTTP/1.1
+GET /spot/v3/private/open-orders?1659072951686T0d98KyVamQ62YBzN85000symbol=BTCUSDT HTTP/1.1
 Host: api-testnet.bybit.com
+-H 'X-BAPI-SIGN-TYPE: 2' \
+-H 'X-BAPI-SIGN: eb431d99a1a203a434a82ac3ea8e107b5f94a967e9aaf922c41e84fb3ec9df78' \
+-H 'X-BAPI-API-KEY: {api key}' \
+-H 'X-BAPI-TIMESTAMP: 1658384431891' \
+-H 'X-BAPI-RECV-WINDOW: 5000'
 ```
 
 > t(:auth_codequote_construct3)
 
 ```http
-POST /spot/v1/order HTTP/1.1
+POST /spot/v3/private/order HTTP/1.1
 Host: api-testnet.bybit.com
-Content-Type: application/x-www-form-urlencoded
-
-api_key:q1ksyOX2T0G2SkK8nu
-qty:100
-recvWindow:10000
-side:BUY
-symbol:BTCUSDT
-timestamp:1623208423972
-type:MARKET
-sign:b452640c21a2c9eaec30d24a9bce1a9660d1fb9d07ccc0d623a2a4fca0940095
-
+-H 'X-BAPI-SIGN-TYPE: 2' \
+-H 'X-BAPI-SIGN: c822337e76e30505e41b87a55af291e074f59f9496ba12ca2a57dc04fe65a178' \
+-H 'X-BAPI-API-KEY: {api key}' \
+-H 'X-BAPI-TIMESTAMP: 1658385589135' \
+-H 'X-BAPI-RECV-WINDOW: 5000' \
+-H 'Content-Type: application/json' \
+-d '{
+    "symbol": "BTCUSDT",
+    "orderQty":"0.05",
+    "side": "Sell",
+    "orderType": "LIMITT",
+    "timeInForce": "GTC",
+    "orderPrice": "24500",
+    "orderLinkId": "spotA0008"
+}'
 ```
 
 t(:auth_para_construct3)
@@ -70,6 +91,7 @@ t(:auth_para_construct3)
 <aside class="notice">
 t(:spot_auth_aside_signature)
 </aside>
+
 
 <!--
 ### Examples of the Signature Algorithm

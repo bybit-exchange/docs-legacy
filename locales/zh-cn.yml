@@ -921,7 +921,7 @@ zh-cn:
   ## Active Orders
   activeorders: 活動單
   ## Get Symbols V3
-  getsymbols: 獲取所有交易對
+  getSymbols: 獲取所有交易對
   ### Place Active Order V2
   placeactive: 創建活動委托單
   account_para_placeActive: |
@@ -4520,3 +4520,18 @@ zh-cn:
   contract_comment_lastLiqInd: 只有當<code>execType</code>字段類型為<code>Trade</code>、<code>AdlTrade</code>、<code>BustTrade</code>時有效
   contract_comment_autoAddMargin: 自動追加保證金開關. <code>0</code>：關閉. <code>1</code>：開啟
   dv_enum_comment_getSymbol: 您可以根據<a href="#t-dv_instrhead">查询衍生品交易规格</a>接口獲取所有交易中的symbol。
+
+  # spot v3
+  spotV3_auth_codequote_construct: |
+    <b>GET</b>請求格式（查詢訂單）:
+  spotV3_comment_innovation: <code>1</code> 表示創新區：這個幣種價格波動比較大
+  spotV3_comment_showStatus: <code>1</code> 表示該現貨開放交易
+  spotV3_comment_side: 買賣方向. <code>BUY</code>：買入, <code>SELL</code>：賣出
+  spotV3_comment_isWorking: 是否生效. <code>0</code>：未生效, <code>1</code>：已生效
+  spotV3_comment_cummulativeQuoteQty: 鎖定數量（如果為0，則說明該筆訂單的資金已完成結算）
+  spotV3_comment_orderId: 訂單ID. 當<code>orderLinkId</code>為空時, 則<b>必傳</b>
+  spotV3_comment_orderLinkId: 用戶自定義ID. 當<code>orderId</code>為空時, 則<b>必傳</b>
+  spotV3_comment_orderTypes: 訂單類型. 默認為<code>LIMIT</code>. 支持多個訂單類型取消, 用英文逗號分開, 例如：LIMIT,LIMIT_MAKER
+  spotV3_comment_success: 是否成功. <code>0</code>：失敗, <code>1</code>：成功
+  spotV3_comment_isBuyer: <code>0</code>：買方, <code>1</code>：賣方
+  spotV3_comment_isMaker: <code>0</code>：掛單, <code>1</code>：吃單

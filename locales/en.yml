@@ -690,6 +690,7 @@ en:
   row_parameter_ltStatus: <a href="#lt-status-status">status</a>
   row_parameter_ltOrderStatus: <a href="#lt-order-status-orderstatus">orderStatus</a>
   row_parameter_ltOrderType: <a href="#lt-order-type-ordertype">orderType</a>
+  spotServerTime: Bybit server time
 
 
   stop_order_trigger_price: If <code>stop_order_type</code> is <code>TrailingProfit</code>, this field is the trailing stop active price.
@@ -4989,3 +4990,22 @@ en:
   contract_comment_lastLiqInd: Only valid while <code>execType</code> is <code>Trade</code>, <code>AdlTrade</code>, <code>BustTrade</code>
   contract_comment_autoAddMargin: Turn on/off auto add margin. <code>0</code>：off. <code>1</code>：on
   dv_enum_comment_getSymbol: You can get all symbols with the <a href="#t-dv_instrhead">Get Instrument Info</a> endpoint.
+
+  # spot
+  spotV1: v1
+
+  spotV3: v3
+  getSymbols: Get All Symbols
+  spotV3_auth_codequote_construct: |
+    Different requests need different message formats. Message format for <b>GET</b> requests:
+  spotV3_comment_innovation: <code>1</code> indicates that the price of this currency is relatively volatile
+  spotV3_comment_showStatus: <code>1</code> indicates that the symbol open for trading
+  spotV3_comment_side: Side. <code>BUY</code>, <code>SELL</code>
+  spotV3_comment_isWorking: Is working. <code>0</code>：valid, <code>1</code>：invalid
+  spotV3_comment_cummulativeQuoteQty: Total order quantity. For some historical data, it might less than 0, and that means it is not applicable
+  spotV3_comment_orderLinkId: Unique user-set order ID. <b>Required</b> if not passing <code>orderId</code>
+  spotV3_comment_orderId: Order ID. <b>Required</b> if not passing <code>orderLinkId</code>
+  spotV3_comment_orderTypes: Order type. <code>LIMIT</code> in default. It allows multiple types, separated by comma, e.a LIMIT,LIMIT_MAKER
+  spotV3_comment_success: Batch cancel successfully or not. <code>0</code>：fail, <code>1</code>：success
+  spotV3_comment_isBuyer: <code>0</code>：Buyer, <code>1</code>：Seller
+  spotV3_comment_isMaker: <code>0</code>：Maker, <code>1</code>：Taker
