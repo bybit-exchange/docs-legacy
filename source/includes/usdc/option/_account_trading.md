@@ -1043,7 +1043,7 @@ POST
 |bonus|string|t(:bonus)|
 |accountIM|string|t(:accountIm)|
 |totalSessionRPL|string|t(:totalSessionRpl)|
-|equity|number|t(:equity)|
+|equity|string|t(:equity)|
 |totalRPL|string|t(:totalRpl)|
 |marginBalance|string|t(:marginBalance)|
 |availableBalance|string|t(:availableBalance)|
