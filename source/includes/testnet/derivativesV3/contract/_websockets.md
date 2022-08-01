@@ -724,7 +724,7 @@ t(:contract_websocketExecution)
 |stopOrderType |string |t(:row_comment_query_stopOrderType_v3)  |
 |side |string |t(:row_comment_query_side_v3)  |
 |execTime |string |t(:row_comment_query_execTime_v3)  |
-|closedSize |string |t(:row_comment_query_execTime_v3)  |
+|closedSize |string |t(:contract_executionClosedSize)  |
 
 
 ### t(:websocketOrder)
