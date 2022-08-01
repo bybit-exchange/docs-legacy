@@ -371,18 +371,61 @@ under the License.
         	<% end %>
         <% end %>
 
+        <!-- Spot V3(Spot v1, Spot v3) -->
+        <% if page_classes.include?("v1") %>
+          <% if page_classes.include?("testnet") %>
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn"><%=t(:spot)%>
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/spot/v3" ><%=t(:spotV3)%></a>
+                    <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/spot/v1" ><%=t(:spotV1)%></a>
+                </div>
+              </div>
+            </li>
+          <% end %>
+        <% elsif page_classes.include?("v3") %>
+          <% if page_classes.include?("testnet") %>
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn"><%=t(:spot)%>
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/spot/v3" ><%=t(:spotV3)%></a>
+                    <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/spot/v1" ><%=t(:spotV1)%></a>
+                </div>
+              </div>
+            </li>
+          <% end %>
+        <% else %>
+          <% if page_classes.include?("testnet") %>
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn"><%=t(:spot)%>
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/spot/v3" ><%=t(:spotV3)%></a>
+                    <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/spot/v1" ><%=t(:spotV1)%></a>
+                </div>
+              </div>
+            </li>
+          <% end %>
+        <% end %>
+
         <!-- Spot -->
         <% if page_classes.end_with?("spot_index") %>
         	<% if page_classes.include?("testnet") %>
-          	<li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/spot" class="selected"><%=t(:spot)%></a></li>
         	<% else %>
           	<li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/spot" class="selected"><%=t(:spot)%></a></li>
         	<% end %>
         <% else %>
         	<% if page_classes.include?("testnet") %>
-          	<li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/spot"><%=t(:spot)%></a></li>
         	<% else %>
-          	<li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/spot"><%=t(:spot)%></a></li>
+          	<li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/spot""><%=t(:spot)%></a></li>
         	<% end %>
         <% end %>
 
@@ -514,15 +557,29 @@ under the License.
                   <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/futuresV2/inverse_futures>Testnet</a>
                 <% end %>
               <% end %>
+
+              <!-- it's for spot mainnet switch to spot v1 testnet -->
               <% if page_classes.end_with?("spot_index") %>
                 <% if page_classes.include?("testnet") %>
                   <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/spot>Mainnet</a>
-                  <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/spot>Testnet</a></span>
+                  <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/spot/v1>Testnet</a></span>
                 <% else %>
                   <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/spot>Mainnet</a></span>
-                  <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/spot>Testnet</a>
+                  <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/spot/v1>Testnet</a>
                 <% end %>
               <% end %>
+
+              <!-- it's for spot v1 testnet switch to spot mainnet -->
+              <% if page_classes.end_with?("v1_index") %>
+                <% if page_classes.include?("testnet") %>
+                  <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/spot>Mainnet</a>
+                  <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/spot/v1>Testnet</a></span>
+                <% else %>
+                  <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/spot>Mainnet</a></span>
+                  <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/spot/v1>Testnet</a>
+                <% end %>
+              <% end %>
+
               <% if page_classes.end_with?("account_asset_index") %>
                 <% if page_classes.include?("testnet") %>
                   <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/account_asset>Mainnet</a>

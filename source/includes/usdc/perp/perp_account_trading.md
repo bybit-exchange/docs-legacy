@@ -75,11 +75,11 @@ POST
 |closeOnTrigger|false|bool|t(:closeOnTrigger)|
 |takeProfit|false|string|t(:takeProfit)|
 |stopLoss|false|string|t(:stopLoss)|
-|tptriggerby|false|number|t(:usdcTptriggerby)|
+|tptriggerby|false|string|t(:usdcTptriggerby)|
 |slTriggerBy|false|string|t(:usdcSlTriggerBy)|
 |basePrice|false|string|t(:perpBasePrice)|
 |triggerPrice|false|string|t(:triggerPrice)|
-|triggerBy|false|number|t(:usdcTriggerBy)|
+|triggerBy|false|string|t(:usdcTriggerBy)|
 |mmp|false|bool|t(:mmp)|
 
 
@@ -407,7 +407,7 @@ POST
 |orderStatus|string|t(:orderStatus)|
 |takeProfit|string|t(:takeProfit)|
 |cumExecValue|string|t(:cumExecValue)|
-|createdAt|number|t(:createdAt)|
+|createdAt|string|t(:createdAt)|
 |orderPnl|string|t(:usdcOrderPnl)|
 |t(:row_parameter_price) |string|t(:usdcOrderPrice)|
 |tpTriggerBy|string|t(:usdcTptriggerby)|
@@ -538,12 +538,12 @@ POST
 |stopOrderType|string|t(:usdcStopOrderType)|
 |orderStatus|string|t(:orderStatus)|
 |takeProfit|string|t(:takeProfit)|
-|createdAt|number|t(:createdAt)|
+|createdAt|string|t(:createdAt)|
 |orderPnl|string|t(:usdcOrderPnl)|
 |t(:row_parameter_price) |string|t(:usdcOrderPrice)|
 |tpTriggerBy|string|t(:usdcTptriggerby)|
 |t(:row_parameter_timeInForce)|string|t(:row_comment_timeInForce)|
-|updatedAt|number|t(:updatedAt)|
+|updatedAt|string|t(:updatedAt)|
 |basePrice|string|t(:basePrice)|
 |realisedPnl|string|t(:realisedPnl)|
 |t(:row_parameter_side) |string|t(:side)|
@@ -746,7 +746,7 @@ POST
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|transactionTime|number|t(:transactionTime)|
+|transactionTime|string|t(:transactionTime)|
 |t(:row_parameter_symbol) |string|t(:usdcSymbol)
 |type|string|t(:usdcType)|
 |t(:row_parameter_side) |string|t(:side)|
@@ -818,7 +818,7 @@ POST
 |bonus|string|t(:bonus)|
 |accountIM|string|t(:accountIm)|
 |totalSessionRPL|string|t(:totalSessionRpl)|
-|equity|number|t(:equity)|
+|equity|string|t(:equity)|
 |totalRPL|string|t(:totalRpl)|
 |marginBalance|string|t(:marginBalance)|
 |availableBalance|string|t(:availableBalance)|
@@ -1189,7 +1189,7 @@ POST
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|time|number|t(:settlementTime)|
+|time|string|t(:settlementTime)|
 |t(:row_parameter_symbol) |string|t(:usdcSymbol)|
 |t(:row_parameter_side) |string|t(:side)|
 |size|string|t(:usdcSize)|
@@ -1264,7 +1264,7 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |t(:row_parameter_symbol) |string|t(:usdcSymbol)|
-|riskId|number|t(:riskId)|
+|riskId|string|t(:riskId)|
 |limit|string|t(:usdcRiskLimit)|
 |maintainMargin|string|t(:maintainMargin)|
 |startingMargin|string|t(:startingMargin)|
@@ -1365,8 +1365,8 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |symbol|string|t(:usdcSymbol)|
-|fundingRate |number |t(:row_comment_funding_rate)  |
-|fundingRateTimestamp |number |t(:row_comment_exec_timestamp)  |
+|fundingRate |string |t(:row_comment_funding_rate)  |
+|fundingRateTimestamp |string |t(:row_comment_exec_timestamp)  |
 
 
 ### t(:predictedfunding)
@@ -1410,5 +1410,5 @@ POST
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|predictedFundingRate |number |t(:row_comment_predicted_funding_rate)    |
-|predictedFundingFee |number |t(:row_comment_predicted_funding_fee)  |
+|predictedFundingRate |string |t(:row_comment_predicted_funding_rate)    |
+|predictedFundingFee |string |t(:row_comment_predicted_funding_fee)  |

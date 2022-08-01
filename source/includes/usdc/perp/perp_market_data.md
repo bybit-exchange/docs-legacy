@@ -120,9 +120,9 @@ GET
 | quoteCoin | string | t(:usdcQuoteCoin) |
 | takerFeeRate | string | t(:usdcTakerFeeRate) |
 | makerFeeRate | string | t(:usdcMakerFeeRate) |
-| minLeverage | number | t(:minLeverage) |
-| maxLeverage | number | t(:maxLeverage) |
-| leverageStep | number | t(:leverageStep) |
+| minLeverage | string | t(:minLeverage) |
+| maxLeverage | string | t(:maxLeverage) |
+| leverageStep | string | t(:leverageStep) |
 | minPrice | string | t(:minPrice) |
 | maxPrice | string | t(:maxPrice) |
 | tickSize | string | t(:tickSize) |
@@ -285,7 +285,7 @@ GET
 | t(:row_parameter_symbol) | string | t(:usdcSymbol) |
 | volume | string | t(:usdcVolume) |
 | period | string | t(:usdcPeriod) |
-| openTime | number | t(:usdcOpenTime) |
+| openTime | string | t(:usdcOpenTime) |
 | open | string | t(:usdcOpen) |
 | high | string | t(:usdcHigh) |
 | low | string | t(:usdcLow) |
@@ -406,7 +406,7 @@ GET
 |:----- |:-----|----- |
 | t(:row_parameter_symbol) | string | t(:usdcSymbol) |
 | period | string | t(:usdcPeriod) |
-| openTime | number | t(:openTime) |
+| openTime | string | t(:openTime) |
 | open | string | t(:open) |
 | high | string | t(:high) |
 | low | string | t(:low) |
@@ -467,7 +467,7 @@ GET
 |:----- |:-----|----- |
 | t(:row_parameter_symbol) | string | t(:usdcSymbol) |
 | period | string | t(:usdcPeriod) |
-| openTime | number | t(:openTime) |
+| openTime | string | t(:openTime) |
 | open | string | t(:open) |
 | high | string | t(:high) |
 | low | string | t(:low) |
@@ -524,7 +524,7 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 | t(:row_parameter_symbol) | string | t(:usdcSymbol) |
-| timestamp | number | t(:timestamp) |
+| timestamp | string | t(:timestamp) |
 | openInterest | string | t(:marketopeninterest) |
 
 
@@ -579,7 +579,7 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 | t(:row_parameter_symbol) | string | t(:usdcSymbol) |
-| timestamp | number | t(:timestamp) |
+| timestamp | string | t(:timestamp) |
 | t(:row_parameter_side) | string | t(:side) |
 | value | string | t(:usdcValue) |
 
@@ -639,7 +639,7 @@ GET
 | t(:row_parameter_symbol) | string | t(:usdcSymbol) |
 | buyRatio | string | t(:buyRatio) |
 | sellRatio | string | t(:sellRatio) |
-| timestamp | number | t(:timestamp) |
+| timestamp | string | t(:timestamp) |
 
 
 
@@ -707,5 +707,5 @@ GET
 |t(:row_parameter_symbol) |string|t(:usdcSymbol)|
 |orderQty|string|t(:usdcOrderQty)|
 |orderPrice|string|t(:usdcOrderPrice)|
-|time|number|t(:time)|
+|time|string|t(:time)|
 

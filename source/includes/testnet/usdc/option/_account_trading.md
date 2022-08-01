@@ -645,7 +645,7 @@ POST
 |orderStatus |string|t(:usdcOptionOrderStatus)|
 |takeProfit |string|t(:takeProfit)|
 |cumExecValue |string|t(:cumExecValue)|
-|createdAt |number|t(:createdAt)|
+|createdAt |string|t(:createdAt)|
 |orderPnl |string|t(:usdcOrderPnl)|
 |t(:row_parameter_price) |string|t(:usdcOrderPrice)|
 |tpTriggerBy |string|t(:usdcTptriggerby)
@@ -1045,7 +1045,7 @@ POST
 |bonus|string|t(:bonus)|
 |accountIM|string|t(:accountIm)|
 |totalSessionRPL|string|t(:totalSessionRpl)|
-|equity|number|t(:equity)|
+|equity|string|t(:equity)|
 |totalRPL|string|t(:totalRpl)|
 |marginBalance|string|t(:marginBalance)|
 |availableBalance|string|t(:availableBalance)|

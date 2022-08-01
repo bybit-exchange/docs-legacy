@@ -252,7 +252,7 @@ ws.send('{"op": "subscribe", "args": ["orderBook25.BTCUSDT","orderBook500.BTCUSD
 }
 ```
 
-t(:websocketOrderBook_v3)
+t(:websocketOrderBook_contract)
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -724,7 +724,7 @@ t(:contract_websocketExecution)
 |stopOrderType |string |t(:row_comment_query_stopOrderType_v3)  |
 |side |string |t(:row_comment_query_side_v3)  |
 |execTime |string |t(:row_comment_query_execTime_v3)  |
-|closedSize |string |t(:row_comment_query_execTime_v3)  |
+|closedSize |string |t(:contract_executionClosedSize)  |
 
 
 ### t(:websocketOrder)

@@ -690,6 +690,7 @@ en:
   row_parameter_ltStatus: <a href="#lt-status-status">status</a>
   row_parameter_ltOrderStatus: <a href="#lt-order-status-orderstatus">orderStatus</a>
   row_parameter_ltOrderType: <a href="#lt-order-type-ordertype">orderType</a>
+  spotServerTime: Bybit server time
 
 
   stop_order_trigger_price: If <code>stop_order_type</code> is <code>TrailingProfit</code>, this field is the trailing stop active price.
@@ -4793,9 +4794,6 @@ en:
         USDT contract: <span id="usdt_testnet_address">wss://stream-testnet.bybit.com/contract/usdt/public/v3</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdt_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
         <br/>
-        Inverse contract: <span id="inverse_testnet_address">wss://stream-testnet.bybit.com/contract/inverse/public/v3</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#inverse_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-        <br/>
         USDC contract: <span id="usdc_testnet_address">wss://stream-testnet.bybit.com/contract/usdc/public/v3</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdc_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
         <br/>
@@ -4822,11 +4820,8 @@ en:
         USDT contract: <span id="usdt_2_testnet_address">wss://stream-testnet.bybit.com/contract/usdt/public/v3</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdt_2_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
         <br/>
-        USDC contract: <span id="usdc_2_testnet_address">wss://stream-testnet.bybit.com/contract/usdc/public/v3</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdc_2_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-        <br/>
-        USDC Options: <span id="option_2_testnet_address">wss://stream-testnet.bybit.com/option/usdc/public/v3</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#option_2_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        Inverse contract: <span id="inverse_testnet_address">wss://stream-testnet.bybit.com/contract/inverse/public/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#inverse_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
     </li>
      </p>
     </ul>
@@ -4853,6 +4848,19 @@ en:
     <b>Topic: (ps. option has 25 & 100 level only)</b><br>
     <code>orderBook25.{symbol}</code><br>
     <code>orderBook100.{symbol}</code>(<b>option only)</b><br>
+    <code>orderBook500.{symbol}</code><br>
+  websocketOrderBook_contract: |
+    <b>instruction: </b>
+    Get 25, 500 level data.<br>
+    Once subscribe successfully, you will receive a snapshot. The data is ordered by order price, which from lowest buy order to highest sell order.
+    Websocket will keep pushing delta message when orderbook is changed. If you receive a new snapshot data, it's necessary to reset your local orderbook.<br><br>
+    <b>type</b>: <code>snapshot</code>=Full orderbook, <code>delta</code>=delta orderbook<br>
+    If there is a problem in bybit end, it will re-send a snapshot, which is promised the latest and accurate.<br><br>
+    25 level data, push frequency: <b>20ms</b> <br>
+    500 level data, push frequency: <b>100ms</b> <br>
+    <br>
+    <b>Topic: </b><br>
+    <code>orderBook25.{symbol}</code><br>
     <code>orderBook500.{symbol}</code><br>
 
   predicatedFundingRate_v3: Predicated funding rate. usdt perp, inverse perp and inverse futures is <code>""</code>
@@ -4989,3 +4997,22 @@ en:
   contract_comment_lastLiqInd: Only valid while <code>execType</code> is <code>Trade</code>, <code>AdlTrade</code>, <code>BustTrade</code>
   contract_comment_autoAddMargin: Turn on/off auto add margin. <code>0</code>：off. <code>1</code>：on
   dv_enum_comment_getSymbol: You can get all symbols with the <a href="#t-dv_instrhead">Get Instrument Info</a> endpoint.
+
+  # spot
+  spotV1: v1
+
+  spotV3: v3
+  getSymbols: Get All Symbols
+  spotV3_auth_codequote_construct: |
+    Different requests need different message formats. Message format for <b>GET</b> requests:
+  spotV3_comment_innovation: <code>1</code> indicates that the price of this currency is relatively volatile
+  spotV3_comment_showStatus: <code>1</code> indicates that the symbol open for trading
+  spotV3_comment_side: Side. <code>BUY</code>, <code>SELL</code>
+  spotV3_comment_isWorking: Is working. <code>0</code>：valid, <code>1</code>：invalid
+  spotV3_comment_cummulativeQuoteQty: Total order quantity. For some historical data, it might less than 0, and that means it is not applicable
+  spotV3_comment_orderLinkId: Unique user-set order ID. <b>Required</b> if not passing <code>orderId</code>
+  spotV3_comment_orderId: Order ID. <b>Required</b> if not passing <code>orderLinkId</code>
+  spotV3_comment_orderTypes: Order type. <code>LIMIT</code> in default. It allows multiple types, separated by comma, e.a LIMIT,LIMIT_MAKER
+  spotV3_comment_success: Batch cancel successfully or not. <code>0</code>：fail, <code>1</code>：success
+  spotV3_comment_isBuyer: <code>0</code>：Buyer, <code>1</code>：Seller
+  spotV3_comment_isMaker: <code>0</code>：Maker, <code>1</code>：Taker
