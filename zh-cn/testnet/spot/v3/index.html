@@ -1,0 +1,3608 @@
+
+<!doctype html>
+<html>
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158616893-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-158616893-1');
+    </script>
+
+    <link href="../../../../images/favicon-014c3ae6.ico" rel="icon" type="image/ico" />
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Bybit API Docs</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .nn {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .nl {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .ni {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .bp {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .vg {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .vi {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .w {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+      header.top-nav {
+        position:fixed;
+        display:flex;
+        flex:1;
+        width:100%;
+        z-index:100;
+        background: #333;
+        padding: 0 26px;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+        align-items: center;
+      }
+      div.top-menu{
+        display:flex;
+        flex: 1;
+      }
+      a.logo-link{
+        line-height: 50px;
+      }
+      img.logo {
+        width: 161px;
+        height: 40px;
+        vertical-align: middle;
+      }
+      .con {
+          display: flex;
+          top: 0;
+          height: 55px;
+          margin: 0 0 0 62px;
+          padding: 0;
+          list-style: none;
+          text-align: center;
+      }
+
+      .con li{
+          text-align: center;
+          line-height: 55px;
+          border:0 solid #000;
+          -webkit-box-sizing: border-box;
+                  box-sizing: border-box;
+      }
+
+      .con a {
+        display: inline-block;
+        color: #B0B8DB;
+        font-size: 15px;
+        text-decoration: none;
+        line-height: 23px;
+        padding: 0 20px;
+        vertical-align: middle;
+        -webkit-transform: translate(0, -3px);
+                transform: translate(0, -3px);
+      }
+
+      .con a.selected {
+        border-bottom: 2px solid transparent;
+        border-color: #FFB11A;
+        color: #fff;
+      }
+
+      a.international {
+        display: block;
+        height: 27px;
+        line-height: 27px;
+        text-align: center;
+        color: #fff;
+        text-decoration: none;
+        border: 1px solid #383F66;
+        padding: 0 20px;
+        color: #F0B90B;
+        word-break: keep-all;
+      }
+
+      /* Environment dropdown list */
+      /* The dropdown container */
+      .dropdown {
+        float: left;
+        overflow: hidden;
+      }
+
+      /* Dropdown button */
+      .dropdown .dropbtn {
+        background-color: inherit;
+        display: inline-block;
+        color: #B0B8DB;
+        font-size: 15px;
+        text-decoration: none;
+        line-height: 23px;
+        padding: 0 20px;
+        border: none;
+        background: none;
+        vertical-align: middle;
+        -webkit-transform: translate(0, -3px);
+                transform: translate(0, -3px);
+
+      }
+
+      /* Add a red background color to navbar links on hover */
+      a:hover, .dropdown:hover .dropbtn {
+        background-color: inherit;
+      }
+
+      /* Dropdown content (hidden by default) */
+      .dropdown-content {
+        color: #B0B8DB;
+        background: #333;
+        font-size: 15px;
+        text-decoration: none;
+        line-height: 53px;
+        padding: 0;
+        display: none;
+        position: relative;
+        -webkit-box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 0;
+      }
+
+      /* Links inside the dropdown */
+      .dropdown-content a {
+        color: #B0B8DB;
+        font-size: 15px;
+        text-decoration: none;
+        line-height: 53px;
+        padding: 0 10px;
+        display: block;
+        text-align: left;
+      }
+
+      /* Highlights the currently selected dropdown link */
+      .dropdown-content-selected {
+        display: block;
+        /*color: #696e83;*/
+        background-color: #474747;
+      }
+
+      /* Add a grey background color to dropdown links on hover */
+      .dropdown-content a:hover {
+        background-color: #5b5b5b;
+      }
+
+      /* Show the dropdown menu on hover */
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="../../../../stylesheets/screen-995a21da.css" rel="stylesheet" media="screen" />
+    <link href="../../../../stylesheets/print-41ffbffc.css" rel="stylesheet" media="print" />
+      <script src="../../../../javascripts/all-52d563e0.js"></script>
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
+  </head>
+
+
+
+  <!-- Navigation bar START -->
+  <header class="top-nav">
+    <div class="top-menu">
+        <a href="https://bybit-exchange.github.io/docs/spot/v3" class="logo-link" target="_self">
+          <img src="../../../../images/logo-aed6448d.svg" class="logo" alt="" />
+        </a>
+
+      <ul class="con">
+
+        <!-- Derivatives V3 -->
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn">衍生品v3
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="/docs/zh-cn/testnet/derivativesV3/unified_margin" >統一保證金</a>
+                    <a href="/docs/zh-cn/testnet/derivativesV3/contract" >合約</a>
+                </div>
+              </div>
+            </li>
+
+        <!-- Futures V2(USDT perp, Inverse Perp, Inverse Futures) -->
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn">期货v2
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="/docs/zh-cn/testnet/futuresV2/inverse" >反向永續</a>
+                    <a href="/docs/zh-cn/testnet/futuresV2/linear" >USDT永續</a>
+                    <a href="/docs/zh-cn/testnet/futuresV2/inverse_futures" >反向交割</a>
+                </div>
+              </div>
+            </li>
+
+        <!-- Inverse Perpetual -->
+
+
+        <!-- USDT Perpetual -->
+
+        <!-- Inverse Futures -->
+
+        <!-- Spot V3(Spot v1, Spot v3) -->
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn">現貨
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="/docs/zh-cn/testnet/spot/v3" >v3</a>
+                    <a href="/docs/zh-cn/testnet/spot/v1" >v1</a>
+                </div>
+              </div>
+            </li>
+
+        <!-- Spot -->
+
+        <!-- Account Asset -->
+          	<li><a href="/docs/zh-cn/testnet/account_asset">賬戶資產</a></li>
+
+        <!-- Copy Trading -->
+          	<li><a href="/docs/zh-cn/testnet/copy_trading">跟單交易</a></li>
+
+        <!-- USDC dropdown (Options, Perpetual) -->
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">USDC合約
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                  <a href="/docs/zh-cn/testnet/usdc/option" >Option</a>
+                  <a href="/docs/zh-cn/testnet/usdc/perpetual">Perpetual</a>
+              </div>
+            </div>
+          </li>
+
+        <!-- Environment dropdown (Testnet, Mainnet) -->
+        <!-- It's very long because each button needs its own logic to link to testnet or mainnet depending on if the website is on testnet or mainnet. -->
+        <li>
+          <div class="dropdown">
+            <button class="dropbtn">Environment
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+
+              <!-- it's for spot mainnet switch to spot v1 testnet -->
+
+              <!-- it's for spot v1 testnet switch to spot mainnet -->
+
+            </div>
+          </div>
+        </li>
+      </ul>
+
+    </div>
+    <a class="international" id="international" href="javascript:void(0);">English</a>
+  </header>
+  <!-- Navigation bar END -->
+
+
+
+  <body class="zh-cn zh-cn_testnet zh-cn_testnet_spot zh-cn_testnet_spot_v3 zh-cn_testnet_spot_v3_index" data-languages="[&quot;console&quot;,&quot;python--pybit&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../../../../images/navbar-cad8cdcb.png" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+        <div class="lang-selector">
+              <a href="#" data-language-name="console">console</a>
+              <a href="#" data-language-name="python--pybit">python</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="搜索">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#t-introduction" class="toc-h1 toc-link" data-title="中文社區和參考資料">中文社區和參考資料</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-intro_para" class="toc-h2 toc-link" data-title=""></a>
+                  </li>
+                  <li>
+                    <a href="#t-resources" class="toc-h2 toc-link" data-title="中文社區和參考資料">中文社區和參考資料</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#t-changelog" class="toc-h1 toc-link" data-title="更新日誌">更新日誌</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#2022-06-17" class="toc-h2 toc-link" data-title="2022-06-17">2022-06-17</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2022-06-10" class="toc-h2 toc-link" data-title="2022-06-10">2022-06-10</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#websocket-api" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2022-06-08" class="toc-h2 toc-link" data-title="2022-06-08">2022-06-08</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#websocket-api-2" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2022-06-01" class="toc-h2 toc-link" data-title="2022-06-01">2022-06-01</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#websocket-api-3" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2022-05-20" class="toc-h2 toc-link" data-title="2022-05-20">2022-05-20</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-2" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2022-05-13" class="toc-h2 toc-link" data-title="2022-05-13">2022-05-13</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-3" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2022-04-20" class="toc-h2 toc-link" data-title="2022-04-20">2022-04-20</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-4" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                          <li>
+                            <a href="#websocket-api-4" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2022-04-14" class="toc-h2 toc-link" data-title="2022-04-14">2022-04-14</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-5" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2022-04-13" class="toc-h2 toc-link" data-title="2022-04-13">2022-04-13</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-6" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2022-03-24" class="toc-h2 toc-link" data-title="2022-03-24">2022-03-24</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-7" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2022-03-14" class="toc-h2 toc-link" data-title="2022-03-14">2022-03-14</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#websocket-api-5" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2021-07-12" class="toc-h2 toc-link" data-title="2021-07-12">2021-07-12</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-8" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2021-06-17" class="toc-h2 toc-link" data-title="2021-06-17">2021-06-17</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-9" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2021-05-27" class="toc-h2 toc-link" data-title="2021-05-27">2021-05-27</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-10" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#t-authentication" class="toc-h1 toc-link" data-title="鑒權/認證">鑒權/認證</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-authenticationparameters" class="toc-h2 toc-link" data-title="公共參數">公共參數</a>
+                  </li>
+                  <li>
+                    <a href="#t-constructingtherequest" class="toc-h2 toc-link" data-title="構建請求">構建請求</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#t-marketdata" class="toc-h1 toc-link" data-title="行情接口">行情接口</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-getsymbols" class="toc-h2 toc-link" data-title="獲取所有交易對">獲取所有交易對</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#t-accountdata" class="toc-h1 toc-link" data-title="賬戶/交易接口">賬戶/交易接口</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-placeactive" class="toc-h2 toc-link" data-title="創建活動委托單">創建活動委托單</a>
+                  </li>
+                  <li>
+                    <a href="#t-getactive" class="toc-h2 toc-link" data-title="查詢活動委托">查詢活動委托</a>
+                  </li>
+                  <li>
+                    <a href="#t-cancelactive" class="toc-h2 toc-link" data-title="撤銷活動委托單">撤銷活動委托單</a>
+                  </li>
+                  <li>
+                    <a href="#t-batchcancelactiveorder" class="toc-h2 toc-link" data-title="批量撤銷訂單">批量撤銷訂單</a>
+                  </li>
+                  <li>
+                    <a href="#t-batchcancelactiveorderbyids" class="toc-h2 toc-link" data-title="根據訂單號批量撤銷訂單">根據訂單號批量撤銷訂單</a>
+                  </li>
+                  <li>
+                    <a href="#t-openorders" class="toc-h2 toc-link" data-title="訂單列表">訂單列表</a>
+                  </li>
+                  <li>
+                    <a href="#t-orderhistory" class="toc-h2 toc-link" data-title="歷史訂單">歷史訂單</a>
+                  </li>
+                  <li>
+                    <a href="#t-tradehistory" class="toc-h2 toc-link" data-title="交易記錄">交易記錄</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#t-wallet" class="toc-h1 toc-link" data-title="錢包接口">錢包接口</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-balance" class="toc-h2 toc-link" data-title="獲取錢包余額">獲取錢包余額</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#t-api" class="toc-h1 toc-link" data-title="通用數據接口">通用數據接口</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-servertime" class="toc-h2 toc-link" data-title="服務器時間">服務器時間</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#t-enums" class="toc-h1 toc-link" data-title="枚舉定義">枚舉定義</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#side-side" class="toc-h2 toc-link" data-title="Side (side)">Side (<code>side</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#time-in-force-timeinforce" class="toc-h2 toc-link" data-title="Time in force (timeInForce)">Time in force (<code>timeInForce</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#symbol-symbol" class="toc-h2 toc-link" data-title="Symbol (symbol)">Symbol (<code>symbol</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#order-type-type-ordertypes" class="toc-h2 toc-link" data-title="Order type (type/orderTypes)">Order type (<code>type</code>/<code>orderTypes</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#currency-currency-coin" class="toc-h2 toc-link" data-title="Currency (currency/coin)">Currency (<code>currency</code>/<code>coin</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#order-status-status" class="toc-h2 toc-link" data-title="Order status (status)">Order status (<code>status</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#quantity-qty" class="toc-h2 toc-link" data-title="Quantity (qty)">Quantity (<code>qty</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#price-price" class="toc-h2 toc-link" data-title="Price (price)">Price (<code>price</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#time-in-force-time_in_force" class="toc-h2 toc-link" data-title="Time in force (time_in_force)">Time in force (<code>time_in_force</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#kline-interval-interval" class="toc-h2 toc-link" data-title="Kline interval (interval)">Kline interval (<code>interval</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#lt-status-status" class="toc-h2 toc-link" data-title="LT status (status)">LT status (<code>status</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#lt-order-status-orderstatus" class="toc-h2 toc-link" data-title="LT order status (orderStatus)">LT order status (<code>orderStatus</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#lt-order-type-ordertype" class="toc-h2 toc-link" data-title="LT order type (orderType)">LT order type (<code>orderType</code>)</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#t-errors" class="toc-h1 toc-link" data-title="錯誤碼">錯誤碼</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#1000" class="toc-h2 toc-link" data-title="-1000">-1000</a>
+                  </li>
+                  <li>
+                    <a href="#1001" class="toc-h2 toc-link" data-title="-1001">-1001</a>
+                  </li>
+                  <li>
+                    <a href="#1002" class="toc-h2 toc-link" data-title="-1002">-1002</a>
+                  </li>
+                  <li>
+                    <a href="#1003" class="toc-h2 toc-link" data-title="-1003">-1003</a>
+                  </li>
+                  <li>
+                    <a href="#1004" class="toc-h2 toc-link" data-title="-1004">-1004</a>
+                  </li>
+                  <li>
+                    <a href="#1006" class="toc-h2 toc-link" data-title="-1006">-1006</a>
+                  </li>
+                  <li>
+                    <a href="#1007" class="toc-h2 toc-link" data-title="-1007">-1007</a>
+                  </li>
+                  <li>
+                    <a href="#1014" class="toc-h2 toc-link" data-title="-1014">-1014</a>
+                  </li>
+                  <li>
+                    <a href="#1015" class="toc-h2 toc-link" data-title="-1015">-1015</a>
+                  </li>
+                  <li>
+                    <a href="#1016" class="toc-h2 toc-link" data-title="-1016">-1016</a>
+                  </li>
+                  <li>
+                    <a href="#1021" class="toc-h2 toc-link" data-title="-1021">-1021</a>
+                  </li>
+                  <li>
+                    <a href="#1022" class="toc-h2 toc-link" data-title="-1022">-1022</a>
+                  </li>
+                  <li>
+                    <a href="#1032" class="toc-h2 toc-link" data-title="-1032">-1032</a>
+                  </li>
+                  <li>
+                    <a href="#1100" class="toc-h2 toc-link" data-title="-1100">-1100</a>
+                  </li>
+                  <li>
+                    <a href="#1101" class="toc-h2 toc-link" data-title="-1101">-1101</a>
+                  </li>
+                  <li>
+                    <a href="#1102" class="toc-h2 toc-link" data-title="-1102">-1102</a>
+                  </li>
+                  <li>
+                    <a href="#1103" class="toc-h2 toc-link" data-title="-1103">-1103</a>
+                  </li>
+                  <li>
+                    <a href="#1104" class="toc-h2 toc-link" data-title="-1104">-1104</a>
+                  </li>
+                  <li>
+                    <a href="#1105" class="toc-h2 toc-link" data-title="-1105">-1105</a>
+                  </li>
+                  <li>
+                    <a href="#1106" class="toc-h2 toc-link" data-title="-1106">-1106</a>
+                  </li>
+                  <li>
+                    <a href="#1111" class="toc-h2 toc-link" data-title="-1111">-1111</a>
+                  </li>
+                  <li>
+                    <a href="#1112" class="toc-h2 toc-link" data-title="-1112">-1112</a>
+                  </li>
+                  <li>
+                    <a href="#1114" class="toc-h2 toc-link" data-title="-1114">-1114</a>
+                  </li>
+                  <li>
+                    <a href="#1115" class="toc-h2 toc-link" data-title="-1115">-1115</a>
+                  </li>
+                  <li>
+                    <a href="#1116" class="toc-h2 toc-link" data-title="-1116">-1116</a>
+                  </li>
+                  <li>
+                    <a href="#1117" class="toc-h2 toc-link" data-title="-1117">-1117</a>
+                  </li>
+                  <li>
+                    <a href="#1118" class="toc-h2 toc-link" data-title="-1118">-1118</a>
+                  </li>
+                  <li>
+                    <a href="#1119" class="toc-h2 toc-link" data-title="-1119">-1119</a>
+                  </li>
+                  <li>
+                    <a href="#1120" class="toc-h2 toc-link" data-title="-1120">-1120</a>
+                  </li>
+                  <li>
+                    <a href="#1121" class="toc-h2 toc-link" data-title="-1121">-1121</a>
+                  </li>
+                  <li>
+                    <a href="#1125" class="toc-h2 toc-link" data-title="-1125">-1125</a>
+                  </li>
+                  <li>
+                    <a href="#1127" class="toc-h2 toc-link" data-title="-1127">-1127</a>
+                  </li>
+                  <li>
+                    <a href="#1128" class="toc-h2 toc-link" data-title="-1128">-1128</a>
+                  </li>
+                  <li>
+                    <a href="#1130" class="toc-h2 toc-link" data-title="-1130">-1130</a>
+                  </li>
+                  <li>
+                    <a href="#1131" class="toc-h2 toc-link" data-title="-1131">-1131</a>
+                  </li>
+                  <li>
+                    <a href="#1132" class="toc-h2 toc-link" data-title="-1132">-1132</a>
+                  </li>
+                  <li>
+                    <a href="#1133" class="toc-h2 toc-link" data-title="-1133">-1133</a>
+                  </li>
+                  <li>
+                    <a href="#1134" class="toc-h2 toc-link" data-title="-1134">-1134</a>
+                  </li>
+                  <li>
+                    <a href="#1135" class="toc-h2 toc-link" data-title="-1135">-1135</a>
+                  </li>
+                  <li>
+                    <a href="#1136" class="toc-h2 toc-link" data-title="-1136">-1136</a>
+                  </li>
+                  <li>
+                    <a href="#1137" class="toc-h2 toc-link" data-title="-1137">-1137</a>
+                  </li>
+                  <li>
+                    <a href="#1138" class="toc-h2 toc-link" data-title="-1138">-1138</a>
+                  </li>
+                  <li>
+                    <a href="#1139" class="toc-h2 toc-link" data-title="-1139">-1139</a>
+                  </li>
+                  <li>
+                    <a href="#1140" class="toc-h2 toc-link" data-title="-1140">-1140</a>
+                  </li>
+                  <li>
+                    <a href="#1141" class="toc-h2 toc-link" data-title="-1141">-1141</a>
+                  </li>
+                  <li>
+                    <a href="#1142" class="toc-h2 toc-link" data-title="-1142">-1142</a>
+                  </li>
+                  <li>
+                    <a href="#1143" class="toc-h2 toc-link" data-title="-1143">-1143</a>
+                  </li>
+                  <li>
+                    <a href="#1144" class="toc-h2 toc-link" data-title="-1144">-1144</a>
+                  </li>
+                  <li>
+                    <a href="#1145" class="toc-h2 toc-link" data-title="-1145">-1145</a>
+                  </li>
+                  <li>
+                    <a href="#1146" class="toc-h2 toc-link" data-title="-1146">-1146</a>
+                  </li>
+                  <li>
+                    <a href="#1147" class="toc-h2 toc-link" data-title="-1147">-1147</a>
+                  </li>
+                  <li>
+                    <a href="#1190" class="toc-h2 toc-link" data-title="-1190">-1190</a>
+                  </li>
+                  <li>
+                    <a href="#1191" class="toc-h2 toc-link" data-title="-1191">-1191</a>
+                  </li>
+                  <li>
+                    <a href="#2010" class="toc-h2 toc-link" data-title="-2010">-2010</a>
+                  </li>
+                  <li>
+                    <a href="#2011" class="toc-h2 toc-link" data-title="-2011">-2011</a>
+                  </li>
+                  <li>
+                    <a href="#2013" class="toc-h2 toc-link" data-title="-2013">-2013</a>
+                  </li>
+                  <li>
+                    <a href="#2014" class="toc-h2 toc-link" data-title="-2014">-2014</a>
+                  </li>
+                  <li>
+                    <a href="#2015" class="toc-h2 toc-link" data-title="-2015">-2015</a>
+                  </li>
+                  <li>
+                    <a href="#2016" class="toc-h2 toc-link" data-title="-2016">-2016</a>
+                  </li>
+                  <li>
+                    <a href="#6001" class="toc-h2 toc-link" data-title="-6001">-6001</a>
+                  </li>
+                  <li>
+                    <a href="#6002" class="toc-h2 toc-link" data-title="-6002">-6002</a>
+                  </li>
+                  <li>
+                    <a href="#6003" class="toc-h2 toc-link" data-title="-6003">-6003</a>
+                  </li>
+                  <li>
+                    <a href="#6004" class="toc-h2 toc-link" data-title="-6004">-6004</a>
+                  </li>
+                  <li>
+                    <a href="#6005" class="toc-h2 toc-link" data-title="-6005">-6005</a>
+                  </li>
+                  <li>
+                    <a href="#6006" class="toc-h2 toc-link" data-title="-6006">-6006</a>
+                  </li>
+                  <li>
+                    <a href="#6007" class="toc-h2 toc-link" data-title="-6007">-6007</a>
+                  </li>
+                  <li>
+                    <a href="#6008" class="toc-h2 toc-link" data-title="-6008">-6008</a>
+                  </li>
+                  <li>
+                    <a href="#6009" class="toc-h2 toc-link" data-title="-6009">-6009</a>
+                  </li>
+                  <li>
+                    <a href="#6010" class="toc-h2 toc-link" data-title="-6010">-6010</a>
+                  </li>
+                  <li>
+                    <a href="#6011" class="toc-h2 toc-link" data-title="-6011">-6011</a>
+                  </li>
+                  <li>
+                    <a href="#6012" class="toc-h2 toc-link" data-title="-6012">-6012</a>
+                  </li>
+                  <li>
+                    <a href="#6013" class="toc-h2 toc-link" data-title="-6013">-6013</a>
+                  </li>
+                  <li>
+                    <a href="#6014" class="toc-h2 toc-link" data-title="-6014">-6014</a>
+                  </li>
+                  <li>
+                    <a href="#6015" class="toc-h2 toc-link" data-title="-6015">-6015</a>
+                  </li>
+                  <li>
+                    <a href="#6016" class="toc-h2 toc-link" data-title="-6016">-6016</a>
+                  </li>
+                  <li>
+                    <a href="#6017" class="toc-h2 toc-link" data-title="-6017">-6017</a>
+                  </li>
+                  <li>
+                    <a href="#6018" class="toc-h2 toc-link" data-title="-6018">-6018</a>
+                  </li>
+                  <li>
+                    <a href="#6019" class="toc-h2 toc-link" data-title="-6019">-6019</a>
+                  </li>
+                  <li>
+                    <a href="#6020" class="toc-h2 toc-link" data-title="-6020">-6020</a>
+                  </li>
+                  <li>
+                    <a href="#6021" class="toc-h2 toc-link" data-title="-6021">-6021</a>
+                  </li>
+                  <li>
+                    <a href="#6022" class="toc-h2 toc-link" data-title="-6022">-6022</a>
+                  </li>
+                  <li>
+                    <a href="#6023" class="toc-h2 toc-link" data-title="-6023">-6023</a>
+                  </li>
+                  <li>
+                    <a href="#6024" class="toc-h2 toc-link" data-title="-6024">-6024</a>
+                  </li>
+                  <li>
+                    <a href="#6025" class="toc-h2 toc-link" data-title="-6025">-6025</a>
+                  </li>
+                  <li>
+                    <a href="#6026" class="toc-h2 toc-link" data-title="-6026">-6026</a>
+                  </li>
+                  <li>
+                    <a href="#6027" class="toc-h2 toc-link" data-title="-6027">-6027</a>
+                  </li>
+                  <li>
+                    <a href="#6028" class="toc-h2 toc-link" data-title="-6028">-6028</a>
+                  </li>
+                  <li>
+                    <a href="#6029" class="toc-h2 toc-link" data-title="-6029">-6029</a>
+                  </li>
+                  <li>
+                    <a href="#6030" class="toc-h2 toc-link" data-title="-6030">-6030</a>
+                  </li>
+                  <li>
+                    <a href="#6031" class="toc-h2 toc-link" data-title="-6031">-6031</a>
+                  </li>
+                  <li>
+                    <a href="#6032" class="toc-h2 toc-link" data-title="-6032">-6032</a>
+                  </li>
+                  <li>
+                    <a href="#4000" class="toc-h2 toc-link" data-title="-4000">-4000</a>
+                  </li>
+                  <li>
+                    <a href="#4001" class="toc-h2 toc-link" data-title="-4001">-4001</a>
+                  </li>
+                  <li>
+                    <a href="#4002" class="toc-h2 toc-link" data-title="-4002">-4002</a>
+                  </li>
+                  <li>
+                    <a href="#4003" class="toc-h2 toc-link" data-title="-4003">-4003</a>
+                  </li>
+                  <li>
+                    <a href="#4004" class="toc-h2 toc-link" data-title="-4004">-4004</a>
+                  </li>
+                  <li>
+                    <a href="#4005" class="toc-h2 toc-link" data-title="-4005">-4005</a>
+                  </li>
+                  <li>
+                    <a href="#4006" class="toc-h2 toc-link" data-title="-4006">-4006</a>
+                  </li>
+                  <li>
+                    <a href="#4007" class="toc-h2 toc-link" data-title="-4007">-4007</a>
+                  </li>
+                  <li>
+                    <a href="#4008" class="toc-h2 toc-link" data-title="-4008">-4008</a>
+                  </li>
+                  <li>
+                    <a href="#4009" class="toc-h2 toc-link" data-title="-4009">-4009</a>
+                  </li>
+                  <li>
+                    <a href="#4010" class="toc-h2 toc-link" data-title="-4010">-4010</a>
+                  </li>
+                  <li>
+                    <a href="#4012" class="toc-h2 toc-link" data-title="-4012">-4012</a>
+                  </li>
+                  <li>
+                    <a href="#4013" class="toc-h2 toc-link" data-title="-4013">-4013</a>
+                  </li>
+                  <li>
+                    <a href="#4014" class="toc-h2 toc-link" data-title="-4014">-4014</a>
+                  </li>
+                  <li>
+                    <a href="#4015" class="toc-h2 toc-link" data-title="-4015">-4015</a>
+                  </li>
+                  <li>
+                    <a href="#4016" class="toc-h2 toc-link" data-title="-4016">-4016</a>
+                  </li>
+                  <li>
+                    <a href="#4110" class="toc-h2 toc-link" data-title="-4110">-4110</a>
+                  </li>
+              </ul>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <!---
+Clipboard script
+-->
+
+<script src="../../../dist/clipboard.min-f99f064d.js"></script>
+
+<script>
+var clipboard = new ClipboardJS('.clipboard_button');
+
+clipboard.on('success', function(e) {
+    console.log(e);
+});
+
+clipboard.on('error', function(e) {
+    console.log(e);
+});
+</script>
+<h1 id='t-introduction'>中文社區和參考資料</h1><h5 id='t-intro_para'><p>歡迎使用 <a href="https://www.bybit.com/">Bybit</a> APIs 和 Websocket官方文檔！</p> <p>如果您在使用API的過程中遇到問題需要幫助，請加入我們的 <a href="https://t.me/Bybitapi">官方Telegram API討論群</a>！</p></h5><h3 id='t-resources'>中文社區和參考資料</h3>
+<p><ul class="bybit-community"> <li><img src="../../../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/zh-TW/help-center/?language=zh_TW"><strong>幫助中心</strong></a> - <strong>在這裏了解現貨交易</strong> <li><img src="../../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>官方Python SDK</strong> <li><img src="../../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman接口集合</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文討論群</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文討論群</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong> </ul></p>
+<h1 id='t-changelog'>更新日誌</h1><h2 id='2022-06-17'>2022-06-17</h2><h3 id='rest-api'>REST API</h3>
+<ul>
+<li><a href="#t-ltinfos">LT 全量資產基礎信息查詢</a> (V2 WebSocket) [新增]
+
+<ul>
+<li>新增LT 全量資產基礎信息查詢</li>
+</ul></li>
+</ul>
+<h2 id='2022-06-10'>2022-06-10</h2><h3 id='websocket-api'>WebSocket API</h3>
+<ul>
+<li><a href="#t-ticketinfo">ticketInfo</a> (V2 WebSocket) [更新]
+
+<ul>
+<li>新增 <code>S</code> 字段展示該筆交易成交方向</li>
+</ul></li>
+</ul>
+<h2 id='2022-06-08'>2022-06-08</h2><h3 id='websocket-api-2'>WebSocket API</h3>
+<ul>
+<li><a href="#t-websocketv2depth">depth</a> (V2 WebSocket) [更新]
+
+<ul>
+<li>提升推送頻率從每250ms（最大延遲300ms）到100ms</li>
+</ul></li>
+</ul>
+<h2 id='2022-06-01'>2022-06-01</h2><h3 id='websocket-api-3'>WebSocket API</h3>
+<ul>
+<li><a href="#t-tradehistory">交易記錄</a> [更新]
+
+<ul>
+<li>新增返回參數 <code>ExecutionTime</code>, 更新返回參數 <code>time</code></li>
+</ul></li>
+</ul>
+<h2 id='2022-05-20'>2022-05-20</h2><h3 id='rest-api-2'>REST API</h3>
+<ul>
+<li><a href="#t-CrossMarginTrading">全倉槓桿接口</a> [新增]
+
+<ul>
+<li>新增 Cross Margin Trading 接口</li>
+</ul></li>
+</ul>
+<h2 id='2022-05-13'>2022-05-13</h2><h3 id='rest-api-3'>REST API</h3>
+<ul>
+<li><a href="#t-spot_querysymbol">查詢信息</a> [更新]
+
+<ul>
+<li>Add new response param <code>innovation</code></li>
+</ul></li>
+</ul>
+<h2 id='2022-04-20'>2022-04-20</h2><h3 id='rest-api-4'>REST API</h3>
+<ul>
+<li><a href="#t-lt">Leveraged Token 接口</a> [新增]
+
+<ul>
+<li>新增 Leveraged Token 接口</li>
+</ul></li>
+</ul>
+<h3 id='websocket-api-4'>WebSocket API</h3>
+<ul>
+<li><a href="#t-websocketltnetvalue">lt</a> [新增]
+
+<ul>
+<li>新增 lt public Topics</li>
+</ul></li>
+</ul>
+<h2 id='2022-04-14'>2022-04-14</h2><h3 id='rest-api-5'>REST API</h3>
+<ul>
+<li><a href="#t-spot_querysymbol">查詢信息</a> [更新]
+
+<ul>
+<li>下LIMIT_MAKER 訂單時忽略 MaxTradeQty 和 MaxTradeAmount的限制</li>
+</ul></li>
+</ul>
+<h2 id='2022-04-13'>2022-04-13</h2><h3 id='rest-api-6'>REST API</h3>
+<ul>
+<li><a href="#t-getactive">查詢活動委托</a> [新增]
+
+<ul>
+<li>返回參數中新增加 <code>locked</code>。</li>
+</ul></li>
+</ul>
+<h2 id='2022-03-24'>2022-03-24</h2><h3 id='rest-api-7'>REST API</h3>
+<ul>
+<li><a href="#t-tradehistory">交易記錄</a> [新增]
+
+<ul>
+<li>请求参数新增 <code>fromTicketId</code>, <code>toTicketId</code>, <code>orderId</code>。</li>
+</ul></li>
+<li><a href="#t-tradehistory">交易記錄</a> [廢棄]
+
+<ul>
+<li>请求参数廢棄 <code>fromId</code>, <code>toId</code>。</li>
+</ul></li>
+</ul>
+<h2 id='2022-03-14'>2022-03-14</h2><h3 id='websocket-api-5'>WebSocket API</h3>
+<ul>
+<li><a href="#t-ticketinfo">ticketInfo</a> [更新]
+
+<ul>
+<li>在<code>ticketInfo</code> topic中增加 <code>m</code> (是 maker)標誌</li>
+</ul></li>
+</ul>
+<h2 id='2021-07-12'>2021-07-12</h2><h3 id='rest-api-8'>REST API</h3>
+<ul>
+<li>優化部分接口出參入參</li>
+</ul>
+<h2 id='2021-06-17'>2021-06-17</h2><h3 id='rest-api-9'>REST API</h3>
+<ul>
+<li>新增獲取交易幣對接口，修改接口參數order_link_id為orderLinkId</li>
+</ul>
+<h2 id='2021-05-27'>2021-05-27</h2><h3 id='rest-api-10'>REST API</h3>
+<ul>
+<li>新增現貨open-api文檔</li>
+</ul>
+<h1 id='t-authentication'>鑒權/認證</h1>
+<aside class="notice">
+請先生成<a href="https://testnet.bybit.com/app/user/api-management"><b>測試網</b></a> 或 <a href="https://www.bybit.com/app/user/api-management"<b>主網</b></a>API KEY。
+</aside>
+
+<aside class="notice">
+REST接口根URL:
+<ul>
+<p>
+  <li>測試網:<br/>
+    <span id="testnet">https://api-testnet.bybit.com</span>
+    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+  </li>
+</p>
+<p>
+  <li>主網(請根據您的網絡情況選擇以下任意一個地址使用):<br/>
+    <span id="mainnet_1">https://api.bybit.com</span>
+    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_1"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+    <br/>
+    <span id="mainnet_2">https://api.bytick.com</span>
+    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_2"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+  </li>
+</p>
+</ul>
+
+</aside>
+
+<p><p>所有<b>private</b>接口都需要認證，<b>public</b> 接口不需要認證。</p></p>
+<h2 id='t-authenticationparameters'>公共參數</h2>
+<p>需要簽名的接口必須包含以下參數:
+<ul>
+  <li><b>api_key</b></li>
+  <li><b>timestamp</b> - UTC<b>毫秒</b>時間戳</li>
+  <li><b>sign</b> - 請求參數簽名</li>
+</ul>
+</p>
+
+<p>另外我們提供可選的<code>recvWindow</code>參數（單位是毫秒，默認值為<code>5000</code>），來指定請求在多長時間內有效，同時用來防止重放攻擊。
+</p>
+
+<aside class="warning">
+註意，timestamp參數必須符合如下規則: <b>serverTime - recvWindow <= timestamp < serverTime + 1000</b>，其中serverTime是Bybit服務器時間，您可以通過<a href="#t-servertime">服務器時間接口</a>獲取。
+
+</aside>
+<h2 id='t-constructingtherequest'>構建請求</h2>
+<blockquote>
+<p>拼接參數示例（以查詢賬號余額接口為例）：</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">GET
+rule: timestamp + api_key + recv_window + queryString
+
+param_str = "1659072951686T0d98KyVamQ62YBzN85000symbol=BTCUSDT"
+
+POST
+rule: timestamp + api_key + recv_window + raw_request_body
+
+param_str = 
+   "1659073093578T0d98KyVamQ62YBzN85000{
+    "symbol": "BTCUSDT",
+    "orderQty":"0.05",
+    "side": "Sell",
+    "orderType": "LIMITT",
+    "timeInForce": "GTC",
+    "orderPrice": "24500",
+    "orderLinkId": "spotA0008"
+  }"
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+</code></pre></div>
+<blockquote>
+<p>參數按照 <b>字母順序</b> 排列，然後計算<code>sign</code>。</p>
+</blockquote>
+
+<p><p>1. 時間戳 + api-key + [recv_window]+ [queryString(無需排序) | jsonBodyString]</p>
+
+<div></div></p>
+
+<p><p>2. 使用<code>HMAC_SHA256</code>算法對第1步中拼接的string簽名，並轉換為16進製字符串，得出<code>sign</code>參數。</p></p>
+
+<blockquote>
+<p><b>GET</b>請求格式（查詢訂單）:
+</p>
+</blockquote>
+<div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/spot/v3/private/open-orders?1659072951686T0d98KyVamQ62YBzN85000symbol=BTCUSDT</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api-testnet.bybit.com</span>
+<span class="s">-H 'X-BAPI-SIGN-TYPE: 2' \</span>
+<span class="s">-H 'X-BAPI-SIGN: eb431d99a1a203a434a82ac3ea8e107b5f94a967e9aaf922c41e84fb3ec9df78' \</span>
+<span class="s">-H 'X-BAPI-API-KEY: {api key}' \</span>
+<span class="s">-H 'X-BAPI-TIMESTAMP: 1658384431891' \</span>
+<span class="s">-H 'X-BAPI-RECV-WINDOW: 5000'</span>
+</code></pre></div>
+<blockquote>
+<p><b>POST</b>請求格式（創建訂單）:
+</p>
+</blockquote>
+<div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/spot/v3/private/order</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api-testnet.bybit.com</span>
+<span class="s">-H 'X-BAPI-SIGN-TYPE: 2' \</span>
+<span class="s">-H 'X-BAPI-SIGN: c822337e76e30505e41b87a55af291e074f59f9496ba12ca2a57dc04fe65a178' \</span>
+<span class="s">-H 'X-BAPI-API-KEY: {api key}' \</span>
+<span class="s">-H 'X-BAPI-TIMESTAMP: 1658385589135' \</span>
+<span class="s">-H 'X-BAPI-RECV-WINDOW: 5000' \</span>
+<span class="s">-H 'Content-Type: application/json' \</span>
+<span class="s">-d '{</span>
+<span class="s">    "symbol": "BTCUSDT",</span>
+<span class="s">    "orderQty":"0.05",</span>
+<span class="s">    "side": "Sell",</span>
+<span class="s">    "orderType": "LIMITT",</span>
+<span class="s">    "timeInForce": "GTC",</span>
+<span class="s">    "orderPrice": "24500",</span>
+<span class="s">    "orderLinkId": "spotA0008"</span>
+<span class="s">}'</span>
+</code></pre></div>
+<p><p>3. 將<code>sign</code>參數加到請求參數中即可；註意<code>GET</code>和<code>POST</code>請求參數格式不同，詳見右邊示例。</p></p>
+
+<aside class="notice">
+<a href="https://github.com/bybit-exchange/api-usage-examples">簽名計算示例</a>.
+</aside>
+
+<!--
+### Examples of the Signature Algorithm
+
+* [C#](https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/example/Encryption.cs)
+* [Python](https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/example/Encryption.py)
+* [C++](https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/example/Encryption.cpp)
+* [Go](https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/example/Encryption.go)
+* [PHP](https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/example/Encryption.php)
+-->
+
+<script>
+function copyStringToClipboard (endpoint) {
+  var str = document.getElementById(endpoint).innerText;
+  // remove whitespace
+  var str = str.replace(/ /g,"");
+  // Create new element
+  var el = document.createElementranslation missing: zh-cn.textarea;
+  // Set value (string to be copied)
+  el.value = str;
+  // Set non-editable to avoid focus and move outside of view
+  el.setAttribute("readonly", "");
+  el.style = {position: "absolute", left: "-9999px"};
+  document.body.appendChild(el);
+  // Select text inside element
+  el.select();
+  // Copy text to clipboard
+  document.execCommand("copy");
+  // Remove temporary element
+  document.body.removeChild(el);
+}
+</script>
+<h1 id='t-marketdata'>行情接口</h1>
+<p>以下市場行情數據接口不需要驗權.</p>
+<h3 id='t-getsymbols'>獲取所有交易對</h3>
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/public/symbols'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">alias</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">baseCoin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">quoteCoin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">basePrecision</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.000001</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">quotePrecision</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000001</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">minTradeQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.000001</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">minTradeAmt</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">maxTradeQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">63.01197227</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">maxTradeAmt</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1000000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">minPricePrecision</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">showStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">innovation</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ETHUSDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">alias</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ETHUSDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">baseCoin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ETH</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">quoteCoin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">basePrecision</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00001</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">quotePrecision</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000001</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">minTradeQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00224</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">minTradeAmt</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">maxTradeQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">100000000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">maxTradeAmt</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">100000000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">minPricePrecision</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">showStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">innovation</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtMap</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659067662931</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP 請求</p>
+
+<p>GET
+<code><span id=svPostOrder>/spot/v3/public/symbols</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svPostOrder"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">name</td>
+<td style="text-align: left">string</td>
+<td>幣對名稱</td>
+</tr>
+<tr>
+<td style="text-align: left">alias</td>
+<td style="text-align: left">string</td>
+<td>幣對別名</td>
+</tr>
+<tr>
+<td style="text-align: left">baseCoin</td>
+<td style="text-align: left">string</td>
+<td>base幣種</td>
+</tr>
+<tr>
+<td style="text-align: left">quoteCoin</td>
+<td style="text-align: left">string</td>
+<td>quote幣種</td>
+</tr>
+<tr>
+<td style="text-align: left">basePrecision</td>
+<td style="text-align: left">string</td>
+<td>base幣種精度</td>
+</tr>
+<tr>
+<td style="text-align: left">quotePrecision</td>
+<td style="text-align: left">string</td>
+<td>quote幣種精度</td>
+</tr>
+<tr>
+<td style="text-align: left">minTradeQty</td>
+<td style="text-align: left">string</td>
+<td>最小訂單數量 (對市價買單無效)</td>
+</tr>
+<tr>
+<td style="text-align: left">minTradeAmt</td>
+<td style="text-align: left">string</td>
+<td>最小訂單額 (只對市價買單有效)</td>
+</tr>
+<tr>
+<td style="text-align: left">minPricePrecision</td>
+<td style="text-align: left">string</td>
+<td>最小價格精度</td>
+</tr>
+<tr>
+<td style="text-align: left">maxTradeQty</td>
+<td style="text-align: left">string</td>
+<td>最大成交量（當您下訂單類型為 LIMIT_MAKER 時將被忽略）</td>
+</tr>
+<tr>
+<td style="text-align: left">maxTradeAmt</td>
+<td style="text-align: left">string</td>
+<td>最大成交額（當您下訂單類型為 LIMIT_MAKER 時將被忽略）</td>
+</tr>
+<tr>
+<td style="text-align: left">category</td>
+<td style="text-align: left">string</td>
+<td>symbol 所在分區:1主類別</td>
+</tr>
+<tr>
+<td style="text-align: left">innovation</td>
+<td style="text-align: left">string</td>
+<td><code>1</code> 表示創新區：這個幣種價格波動比較大</td>
+</tr>
+<tr>
+<td style="text-align: left">showStatus</td>
+<td style="text-align: left">string</td>
+<td><code>1</code> 表示該現貨開放交易</td>
+</tr>
+</tbody></table>
+<h1 id='t-accountdata'>賬戶/交易接口</h1>
+<p>以下賬戶/交易接口都需要鑒權.</p>
+<h3 id='t-placeactive'>創建活動委托單</h3>
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/spot/v3/private/order' \
+--header 'X-BAPI-SIGN: cc63fb44be4a87f4b7bbd42db012ddacc1c935c3d3ae3e01c3b4be393522c213' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1659067662307' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'X-BAPI-SIGN: cc63fb44be4a87f4b7bbd42db012ddacc1c935c3d3ae3e01c3b4be393522c213' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "symbol": "BTCUSDT",
+    "orderQty":"0.05",
+    "side": "Sell",
+    "orderType": "LIMIT",
+    "timeInForce": "GTC",
+    "orderPrice": "24500",
+    "orderLinkId": "spotA0008"
+}'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1210808889719664384</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">spotA0009</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">createTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1659075667525</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">24500</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.05</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LIMIT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SELL</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">NEW</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GTC</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">accountId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">533287</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">execQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtMap</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659075667539</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP 請求</p>
+
+<p>POST
+<code><span id=svPostOrder>/spot/v3/private/order</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svPostOrder"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>幣對名稱</td>
+</tr>
+<tr>
+<td style="text-align: left">orderQty</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>交易數量(<b>市價買單即<code>type=Market</code>且<code>side=Buy</code>時qty指的是quote currency；比如BTCUSDT的qty指的是USDT的qty, 而非市價買單時qty指向都是BTC</b>)
+</td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>買賣方向. <code>BUY</code>：買入, <code>SELL</code>：賣出</td>
+</tr>
+<tr>
+<td style="text-align: left">orderType</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>訂單類型, LIMIT/MARKET/LIMIT_MAKER</td>
+</tr>
+<tr>
+<td style="text-align: left">timeInForce</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td><a href="https://www.bybit.com/zh-TW/help-center/bybitHC_Article?language=zh_TW&id=000001044">執行策略</a></td>
+</tr>
+<tr>
+<td style="text-align: left">orderPrice</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>訂單價格。type字段為MARKET時，price字段為非必須。type字段為LIMIT或LIMIT_MAKER時，price字段為必須</td>
+</tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>特殊訂單ID，用戶自己生成</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">string</td>
+<td>訂單ID</td>
+</tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">string</td>
+<td>特殊訂單ID，用戶自己生成</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>幣對名稱</td>
+</tr>
+<tr>
+<td style="text-align: left">createTime</td>
+<td style="text-align: left">string</td>
+<td>訂單創建時間</td>
+</tr>
+<tr>
+<td style="text-align: left">orderPrice</td>
+<td style="text-align: left">string</td>
+<td>訂單價格，對於LIMIT 訂單必需發送</td>
+</tr>
+<tr>
+<td style="text-align: left">orderQty</td>
+<td style="text-align: left">string</td>
+<td>訂單數量</td>
+</tr>
+<tr>
+<td style="text-align: left">orderType</td>
+<td style="text-align: left">string</td>
+<td>訂單類型, LIMIT/MARKET/LIMIT_MAKER</td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">string</td>
+<td>買賣方向. <code>BUY</code>：買入, <code>SELL</code>：賣出</td>
+</tr>
+<tr>
+<td style="text-align: left">status</td>
+<td style="text-align: left">string</td>
+<td>訂單狀態。可能出現的值為：NEW(新訂單，無成交)、PARTIALLY_FILLED（部分成交）、FILLED（全部成交）、CANCELED（已取消）和REJECTED（訂單被拒絕）.</td>
+</tr>
+<tr>
+<td style="text-align: left">timeInForce</td>
+<td style="text-align: left">string</td>
+<td><a href="https://www.bybit.com/zh-TW/help-center/bybitHC_Article?language=zh_TW&id=000001044">執行策略</a></td>
+</tr>
+<tr>
+<td style="text-align: left">accountId</td>
+<td style="text-align: left">string</td>
+<td>賬戶ID</td>
+</tr>
+<tr>
+<td style="text-align: left">execQty</td>
+<td style="text-align: left">string</td>
+<td>請忽略</td>
+</tr>
+</tbody></table>
+<h3 id='t-getactive'>查詢活動委托</h3>
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/private/order?orderLinkId=spotA0010' \
+--header 'X-BAPI-SIGN: 828571067751622ed4191e7e8ee913defccd1f099b9dfb8332a6a05edf799eaf' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1659076396894' \
+--header 'X-BAPI-RECV-WINDOW: 5000'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">accountId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">533287</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">spotA0010</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1210810256551063296</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">23500</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">execQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">cummulativeQuoteQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">avgPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">NEW</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GTC</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LIMIT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SELL</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">stopPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">icebergQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">createTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1659075830464</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">updateTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1659075830497</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">isWorking</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">locked</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtMap</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659076397365</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP 請求</p>
+
+<p>GET
+<code><span id=svGetOrder>/spot/v3/private/order</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svGetOrder"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>訂單ID. 當<code>orderLinkId</code>為空時, 則<b>必傳</b></td>
+</tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>用戶自定義ID. 當<code>orderId</code>為空時, 則<b>必傳</b></td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">accountId</td>
+<td style="text-align: left">string</td>
+<td>賬戶ID</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>幣對名稱</td>
+</tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">string</td>
+<td>特殊訂單ID，用戶自己生成</td>
+</tr>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">string</td>
+<td>訂單ID</td>
+</tr>
+<tr>
+<td style="text-align: left">orderPrice</td>
+<td style="text-align: left">string</td>
+<td>訂單價格</td>
+</tr>
+<tr>
+<td style="text-align: left">orderQty</td>
+<td style="text-align: left">string</td>
+<td>訂單數量</td>
+</tr>
+<tr>
+<td style="text-align: left">execQty</td>
+<td style="text-align: left">string</td>
+<td>成交數量</td>
+</tr>
+<tr>
+<td style="text-align: left">cummulativeQuoteQty</td>
+<td style="text-align: left">string</td>
+<td>鎖定數量（如果為0，則說明該筆訂單的資金已完成結算）</td>
+</tr>
+<tr>
+<td style="text-align: left">avgPrice</td>
+<td style="text-align: left">string</td>
+<td>訂單已成交的平均價格</td>
+</tr>
+<tr>
+<td style="text-align: left">status</td>
+<td style="text-align: left">string</td>
+<td>訂單狀態。可能出現的值為：NEW(新訂單，無成交)、PARTIALLY_FILLED（部分成交）、FILLED（全部成交）、CANCELED（已取消）和REJECTED（訂單被拒絕）.</td>
+</tr>
+<tr>
+<td style="text-align: left">timeInForce</td>
+<td style="text-align: left">string</td>
+<td><a href="https://www.bybit.com/zh-TW/help-center/bybitHC_Article?language=zh_TW&id=000001044">執行策略</a></td>
+</tr>
+<tr>
+<td style="text-align: left">orderType</td>
+<td style="text-align: left">string</td>
+<td>訂單類型, LIMIT/MARKET/LIMIT_MAKER</td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">string</td>
+<td>訂單方向, BUY(買入做多)/SELL(賣出做空)</td>
+</tr>
+<tr>
+<td style="text-align: left">stopPrice</td>
+<td style="text-align: left">string</td>
+<td>停止價</td>
+</tr>
+<tr>
+<td style="text-align: left">icebergQty</td>
+<td style="text-align: left">string</td>
+<td>請忽略</td>
+</tr>
+<tr>
+<td style="text-align: left">createTime</td>
+<td style="text-align: left">string</td>
+<td>撮合引擎中的創建時間</td>
+</tr>
+<tr>
+<td style="text-align: left">updateTime</td>
+<td style="text-align: left">string</td>
+<td>訂單上次更新的時間戳</td>
+</tr>
+<tr>
+<td style="text-align: left">isWorking</td>
+<td style="text-align: left">string</td>
+<td>是否生效. <code>0</code>：未生效, <code>1</code>：已生效</td>
+</tr>
+<tr>
+<td style="text-align: left">locked</td>
+<td style="text-align: left">string</td>
+<td>鎖定數量（如果為0，則說明該筆訂單的資金已完成結算）</td>
+</tr>
+</tbody></table>
+<h3 id='t-cancelactive'>撤銷活動委托單</h3>
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/spot/v3/private/cancel-order' \
+--header 'X-BAPI-SIGN: 2cdc75a6be90f2a3d70875595c289b6342ff55021a26d9fecf988a8f78266ccc' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1659078017415' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "orderId": "1210810256551063296",
+    "orderLinkId": null
+}'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1210810256551063296</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">spotA0010</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">CANCELED</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">accountId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">533287</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">createTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1659075830464</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">23500</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">execQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GTC</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LIMIT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SELL</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtMap</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659078151226</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP 請求</p>
+
+<p>POST
+<code><span id=svDeleteOrder>/spot/v3/private/cancel-order</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svDeleteOrder"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>訂單ID. 當<code>orderLinkId</code>為空時, 則<b>必傳</b></td>
+</tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>用戶自定義ID. 當<code>orderId</code>為空時, 則<b>必傳</b></td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">string</td>
+<td>訂單ID</td>
+</tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">string</td>
+<td>特殊訂單ID，用戶自己生成</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>幣對名稱</td>
+</tr>
+<tr>
+<td style="text-align: left">status</td>
+<td style="text-align: left">string</td>
+<td>訂單狀態。可能出現的值為：NEW(新訂單，無成交)、PARTIALLY_FILLED（部分成交）、FILLED（全部成交）、CANCELED（已取消）和REJECTED（訂單被拒絕）.</td>
+</tr>
+<tr>
+<td style="text-align: left">accountId</td>
+<td style="text-align: left">string</td>
+<td>賬戶ID</td>
+</tr>
+<tr>
+<td style="text-align: left">orderPrice</td>
+<td style="text-align: left">string</td>
+<td>訂單價格</td>
+</tr>
+<tr>
+<td style="text-align: left">createTime</td>
+<td style="text-align: left">string</td>
+<td>訂單創建時間</td>
+</tr>
+<tr>
+<td style="text-align: left">orderQty</td>
+<td style="text-align: left">string</td>
+<td>訂單數量</td>
+</tr>
+<tr>
+<td style="text-align: left">execQty</td>
+<td style="text-align: left">string</td>
+<td>成交數量</td>
+</tr>
+<tr>
+<td style="text-align: left">timeInForce</td>
+<td style="text-align: left">string</td>
+<td><a href="https://www.bybit.com/zh-TW/help-center/bybitHC_Article?language=zh_TW&id=000001044">執行策略</a></td>
+</tr>
+<tr>
+<td style="text-align: left">orderType</td>
+<td style="text-align: left">string</td>
+<td>訂單類型, LIMIT/MARKET/LIMIT_MAKER</td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">string</td>
+<td>買賣方向. <code>BUY</code>：買入, <code>SELL</code>：賣出</td>
+</tr>
+</tbody></table>
+<h3 id='t-batchcancelactiveorder'>批量撤銷訂單</h3>
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/spot/v3/private/cancel-orders' \
+--header 'X-BAPI-SIGN: bd24c37216d90bd76214a7e22638e6a0bc9d8f7ec74218e79c3f6f90e8c56b8e' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1659078150737' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "symbol": "BTCUSDT",
+    "side": "Buy",
+    "orderTypes": "LIMIT,LIMIT_MAKER"
+}'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659080154042</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP 請求</p>
+
+<p>POST
+<code><span id=soBatchCancel>/spot/v3/private/cancel-orders</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#soBatchCancel"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>幣對名稱</td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>買賣方向. <code>BUY</code>：買入, <code>SELL</code>：賣出</td>
+</tr>
+<tr>
+<td style="text-align: left">orderTypes</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>訂單類型. 默認為<code>LIMIT</code>. 支持多個訂單類型取消, 用英文逗號分開, 例如：LIMIT,LIMIT_MAKER</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">success</td>
+<td style="text-align: left">string</td>
+<td>是否成功. <code>0</code>：失敗, <code>1</code>：成功</td>
+</tr>
+</tbody></table>
+<h3 id='t-batchcancelactiveorderbyids'>根據訂單號批量撤銷訂單</h3>
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/spot/v3/private/cancel-orders-by-ids' \
+--header 'X-BAPI-SIGN: 84cc9b260300c2fd8b378e8acd1254902b341e4c3ea3a462c7440265245a52e8' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1659080877551' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "orderIds": "1210851823244553984,1210852013162639104"
+}'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659080815222</span>
+<span class="p">}</span>
+
+<span class="c1">// Response for failing to cancel 1 or more orders</span>
+
+<span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+          <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:[</span>
+        <span class="p">{</span>
+          <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">889208273689997824</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1139</span><span class="dl">"</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span><span class="mi">1234567</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP 請求</p>
+
+<p>POST
+<code><span id=soBatchCancelIds>/spot/v3/private/cancel-orders-by-ids</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#soBatchCancelIds"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderIds</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>訂單號, 可用英文逗號拼接表示多個訂單, 不超過100個。</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">list&gt; orderId</td>
+<td style="text-align: left">string</td>
+<td>訂單ID</td>
+</tr>
+<tr>
+<td style="text-align: left">list&gt; code</td>
+<td style="text-align: left">string</td>
+<td>錯誤碼</td>
+</tr>
+</tbody></table>
+<h3 id='t-openorders'>訂單列表</h3>
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/private/open-orders?symbol=BTCUSDT' \
+--header 'X-BAPI-SIGN: e28768ea749013bbd0eb38edf78e1cac187d3018e4807859a84a37cf52feb5c0' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1659081676022' \
+--header 'X-BAPI-RECV-WINDOW: 5000'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">accountId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">533287</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">spotx004</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1210858291884732160</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">23500</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.02</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">execQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cummulativeQuoteQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">avgPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">NEW</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LIMIT_MAKER</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SELL</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">stopPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">icebergQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">createTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659081556722</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">updateTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659081556740</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">isWorking</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659081570356</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP 請求</p>
+
+<p>GET
+<code><span id=svOpenOrders>/spot/v3/private/open-orders</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svOpenOrders"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>幣對名稱</td>
+</tr>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>通過指定訂單ID返回比這個orderId小的訂單,可以用來分頁</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>默認500，最大500</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">accountId</td>
+<td style="text-align: left">string</td>
+<td>賬戶ID</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>幣對名稱</td>
+</tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">string</td>
+<td>特殊訂單ID，用戶自己生成</td>
+</tr>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">string</td>
+<td>訂單ID</td>
+</tr>
+<tr>
+<td style="text-align: left">orderPrice</td>
+<td style="text-align: left">string</td>
+<td>訂單價格</td>
+</tr>
+<tr>
+<td style="text-align: left">orderQty</td>
+<td style="text-align: left">string</td>
+<td>訂單數量</td>
+</tr>
+<tr>
+<td style="text-align: left">execQty</td>
+<td style="text-align: left">string</td>
+<td>成交數量</td>
+</tr>
+<tr>
+<td style="text-align: left">cummulativeQuoteQty</td>
+<td style="text-align: left">string</td>
+<td>鎖定數量（如果為0，則說明該筆訂單的資金已完成結算）</td>
+</tr>
+<tr>
+<td style="text-align: left">avgPrice</td>
+<td style="text-align: left">string</td>
+<td>訂單已成交的平均價格</td>
+</tr>
+<tr>
+<td style="text-align: left">status</td>
+<td style="text-align: left">string</td>
+<td>訂單狀態。可能出現的值為：NEW(新訂單，無成交)、PARTIALLY_FILLED（部分成交）、FILLED（全部成交）、CANCELED（已取消）和REJECTED（訂單被拒絕）.</td>
+</tr>
+<tr>
+<td style="text-align: left">timeInForce</td>
+<td style="text-align: left">string</td>
+<td><a href="https://www.bybit.com/zh-TW/help-center/bybitHC_Article?language=zh_TW&id=000001044">執行策略</a></td>
+</tr>
+<tr>
+<td style="text-align: left">orderType</td>
+<td style="text-align: left">string</td>
+<td>訂單類型, LIMIT/MARKET/LIMIT_MAKER</td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">string</td>
+<td>買賣方向. <code>BUY</code>：買入, <code>SELL</code>：賣出</td>
+</tr>
+<tr>
+<td style="text-align: left">stopPrice</td>
+<td style="text-align: left">string</td>
+<td>停止價</td>
+</tr>
+<tr>
+<td style="text-align: left">icebergQty</td>
+<td style="text-align: left">string</td>
+<td>請忽略</td>
+</tr>
+<tr>
+<td style="text-align: left">createTime</td>
+<td style="text-align: left">string</td>
+<td>撮合引擎中的創建時間</td>
+</tr>
+<tr>
+<td style="text-align: left">updateTime</td>
+<td style="text-align: left">string</td>
+<td>訂單上次更新的時間戳</td>
+</tr>
+<tr>
+<td style="text-align: left">isWorking</td>
+<td style="text-align: left">string</td>
+<td>是否生效. <code>0</code>：未生效, <code>1</code>：已生效</td>
+</tr>
+</tbody></table>
+<h3 id='t-orderhistory'>歷史訂單</h3>
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/private/history-orders?symbol=BTCUSDT&amp;limit=2&amp;startTime=1658246400000&amp;endTime=1659110400000' \
+--header 'X-BAPI-SIGN: 1e18efe3e2c96df191c84d86b8a4d695184ea5fe64aa21062fa15e8464caeca0' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1659082629976' \
+--header 'X-BAPI-RECV-WINDOW: 5000'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">accountId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">533287</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">spotx003</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1210856408331857664</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">23800</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.02</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">execQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cummulativeQuoteQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">avgPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">REJECTED</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LIMIT_MAKER</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BUY</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">stopPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">icebergQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">createTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659081332185</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">updateTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659081332225</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">isWorking</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">accountId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">533287</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">spotx002</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1210852013162639104</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">23800</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.05</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">execQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cummulativeQuoteQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">avgPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">CANCELED</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LIMIT_MAKER</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SELL</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">stopPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">icebergQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">createTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659080808240</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">updateTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659080815265</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">isWorking</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659082630638</span>
+<span class="p">}</span>
+</code></pre></div>
+<aside class="notice">
+如果不傳<code>startTime</code>，只能查詢按時間倒序的下單數據。
+</aside>
+
+<p class="fake_header">HTTP 請求</p>
+
+<p>GET
+<code><span id=svHistoryOrders>/spot/v3/private/history-orders</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svHistoryOrders"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>幣對名稱</td>
+</tr>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>通過指定訂單ID返回比這個orderId小的訂單,可以用來分頁</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>默認500，最大500</td>
+</tr>
+<tr>
+<td style="text-align: left">startTime</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">int</td>
+<td>起始時間戳（單位毫秒）</td>
+</tr>
+<tr>
+<td style="text-align: left">endTime</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">int</td>
+<td>結束時間（單位毫秒）</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">accountId</td>
+<td style="text-align: left">string</td>
+<td>賬戶ID</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>幣對名稱</td>
+</tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">string</td>
+<td>特殊訂單ID，用戶自己生成</td>
+</tr>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">string</td>
+<td>訂單ID</td>
+</tr>
+<tr>
+<td style="text-align: left">orderPrice</td>
+<td style="text-align: left">string</td>
+<td>訂單價格，對於LIMIT 訂單必需發送</td>
+</tr>
+<tr>
+<td style="text-align: left">orderQty</td>
+<td style="text-align: left">string</td>
+<td>訂單數量</td>
+</tr>
+<tr>
+<td style="text-align: left">execQty</td>
+<td style="text-align: left">string</td>
+<td>成交數量</td>
+</tr>
+<tr>
+<td style="text-align: left">cummulativeQuoteQty</td>
+<td style="text-align: left">string</td>
+<td>對於某些歷史數據 `cummulativeQuoteQty` 可能會 < 0, 這說明數據當前不可用。</td>
+</tr>
+<tr>
+<td style="text-align: left">avgPrice</td>
+<td style="text-align: left">string</td>
+<td>訂單已成交的平均價格</td>
+</tr>
+<tr>
+<td style="text-align: left">status</td>
+<td style="text-align: left">string</td>
+<td>訂單狀態。可能出現的值為：NEW(新訂單，無成交)、PARTIALLY_FILLED（部分成交）、FILLED（全部成交）、CANCELED（已取消）和REJECTED（訂單被拒絕）.</td>
+</tr>
+<tr>
+<td style="text-align: left">timeInForce</td>
+<td style="text-align: left">string</td>
+<td><a href="https://www.bybit.com/zh-TW/help-center/bybitHC_Article?language=zh_TW&id=000001044">執行策略</a></td>
+</tr>
+<tr>
+<td style="text-align: left">orderType</td>
+<td style="text-align: left">string</td>
+<td>訂單類型, LIMIT/MARKET/LIMIT_MAKER</td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">string</td>
+<td>買賣方向. <code>BUY</code>：買入, <code>SELL</code>：賣出</td>
+</tr>
+<tr>
+<td style="text-align: left">stopPrice</td>
+<td style="text-align: left">string</td>
+<td>停止價</td>
+</tr>
+<tr>
+<td style="text-align: left">icebergQty</td>
+<td style="text-align: left">string</td>
+<td>請忽略</td>
+</tr>
+<tr>
+<td style="text-align: left">createTime</td>
+<td style="text-align: left">string</td>
+<td>撮合引擎中的創建時間</td>
+</tr>
+<tr>
+<td style="text-align: left">updateTime</td>
+<td style="text-align: left">string</td>
+<td>訂單上次更新的時間戳</td>
+</tr>
+<tr>
+<td style="text-align: left">isWorking</td>
+<td style="text-align: left">string</td>
+<td>是否生效. <code>0</code>：未生效, <code>1</code>：已生效</td>
+</tr>
+</tbody></table>
+<h3 id='t-tradehistory'>交易記錄</h3>
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/private/my-trades?symbol=BTCUSDT' \
+--header 'X-BAPI-SIGN: 9f1c84cfd13cb470d4f0ffb2463f30bf19fe2c0079d0ee5e42c7ca9d0441876d' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1659084253772' \
+--header 'X-BAPI-RECV-WINDOW: 5000'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1210346127973428992</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1210073515485572864</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">tradeId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2100000000001769786</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">20500</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.02</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">execFee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00002</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">feeTokenId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">creatTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1659020488738</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">isBuyer</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">isMaker</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">matchOrderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1210346015893229312</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">makerRebate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">executionTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1659020502026</span><span class="dl">"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1208702504949264128</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1208702504731160320</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">tradeId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2100000000001753197</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">20240</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.009881</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">execFee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.000009881</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">feeTokenId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">creatTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1658824566874</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">isBuyer</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">isMaker</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">matchOrderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1208677465155702529</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">makerRebate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">executionTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1658824566893</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtMap</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659084254366</span>
+<span class="p">}</span>
+</code></pre></div>
+<aside class="notice">
+如果不傳<code>startTime</code>，只能查詢最近7天的交易數據。如果要查詢一周之前的歷史交易數據，需要傳startTime
+</aside>
+
+<p class="fake_header">HTTP 請求</p>
+
+<p>GET
+<code><span id=svMyTrades>/spot/v3/private/my-trades</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svMyTrades"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>幣對名稱</td>
+</tr>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>訂單ID</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>默認50， 最大50</td>
+</tr>
+<tr>
+<td style="text-align: left">startTime</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">int</td>
+<td>起始時間戳（單位毫秒）</td>
+</tr>
+<tr>
+<td style="text-align: left">endTime</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">int</td>
+<td>結束時間（單位毫秒）</td>
+</tr>
+<tr>
+<td style="text-align: left">fromTradeId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>從大於此trade ID 開始查詢 (fromTicketId < trade ID)</td>
+</tr>
+<tr>
+<td style="text-align: left">toTradeId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>以小於此trade ID 為終點 (trade ID < toTicketId)</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>幣對名稱</td>
+</tr>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: left">string</td>
+<td>與 API 使用無關。 該字段反映了網站<a href="https://www.bybit.com/user/assets/order/spot-history/active">交易歷史</a>中“交易ID”的一部分</td>
+</tr>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">string</td>
+<td>訂單ID</td>
+</tr>
+<tr>
+<td style="text-align: left">tradeId</td>
+<td style="text-align: left">string</td>
+<td>交易ID</td>
+</tr>
+<tr>
+<td style="text-align: left">orderPrice</td>
+<td style="text-align: left">string</td>
+<td>訂單價格，對於LIMIT 訂單必需發送</td>
+</tr>
+<tr>
+<td style="text-align: left">orderQty</td>
+<td style="text-align: left">string</td>
+<td>交易數量</td>
+</tr>
+<tr>
+<td style="text-align: left">execFee</td>
+<td style="text-align: left">string</td>
+<td>手續費</td>
+</tr>
+<tr>
+<td style="text-align: left">feeTokenId</td>
+<td style="text-align: left">string</td>
+<td>手續費 Token ID</td>
+</tr>
+<tr>
+<td style="text-align: left">creatTime</td>
+<td style="text-align: left">string</td>
+<td>撮合引擎中的創建時間</td>
+</tr>
+<tr>
+<td style="text-align: left">isBuyer</td>
+<td style="text-align: left">string</td>
+<td><code>0</code>：買方, <code>1</code>：賣方</td>
+</tr>
+<tr>
+<td style="text-align: left">isMaker</td>
+<td style="text-align: left">string</td>
+<td><code>0</code>：掛單, <code>1</code>：吃單</td>
+</tr>
+<tr>
+<td style="text-align: left">matchOrderId</td>
+<td style="text-align: left">string</td>
+<td>對手交易者的order_id</td>
+</tr>
+<tr>
+<td style="text-align: left">makerRebate</td>
+<td style="text-align: left">string</td>
+<td>Maker折扣</td>
+</tr>
+<tr>
+<td style="text-align: left">executionTime</td>
+<td style="text-align: left">string</td>
+<td>訂單完成時間</td>
+</tr>
+</tbody></table>
+<h1 id='t-wallet'>錢包接口</h1>
+<p>錢包相關接口需要認證。</p>
+<h2 id='t-balance'>獲取錢包余額</h2>
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/private/account' \
+--header 'X-BAPI-SIGN: 6f5c1a9543ea9033013b4ec0a6d05a74e2d05d109c60ad464ab7f9c6e86ad0d4' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1659346886605' \
+--header 'X-BAPI-RECV-WINDOW: 5000'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
+</code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">balances</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">coinId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">total</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.20378018343</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">free</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.20378018343</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">locked</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC3L</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">coinId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC3L</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">total</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">743.03560386</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">free</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">743.03560386</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">locked</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC3S</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">coinId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC3S</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">total</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.999</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">free</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.999</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">locked</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtMap</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659346887407</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP 請求</p>
+
+<p>GET
+<code><span id=svAccount>/spot/v3/private/account</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svAccount"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">coin</td>
+<td style="text-align: left">string</td>
+<td>幣種</td>
+</tr>
+<tr>
+<td style="text-align: left">coinId</td>
+<td style="text-align: left">string</td>
+<td>幣種</td>
+</tr>
+<tr>
+<td style="text-align: left">total</td>
+<td style="text-align: left">string</td>
+<td>總額</td>
+</tr>
+<tr>
+<td style="text-align: left">free</td>
+<td style="text-align: left">string</td>
+<td>可用余額</td>
+</tr>
+<tr>
+<td style="text-align: left">locked</td>
+<td style="text-align: left">string</td>
+<td>凍結余額</td>
+</tr>
+</tbody></table>
+<h1 id='t-api'>通用數據接口</h1>
+<p>通用數據接口不需要鑒權。</p>
+<h3 id='t-servertime'>服務器時間</h3>
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/spot/v3/public/server-time
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">spot</span>
+<span class="n">session_unauth</span> <span class="o">=</span> <span class="n">spot</span><span class="p">.</span><span class="n">HTTP</span><span class="p">(</span>
+    <span class="n">endpoint</span><span class="o">=</span><span class="s">"https://api-testnet.bybit.com"</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session_unauth</span><span class="p">.</span><span class="n">server_time</span><span class="p">())</span>
+</code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">serverTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1625799317787</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span><span class="mi">123456</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>獲取Bybit服務器時間</p>
+
+<p class="fake_header">HTTP 請求</p>
+
+<p>GET
+<code><span id=vpTime>/spot/v3/public/server-time</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpTime"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">serverTime</td>
+<td style="text-align: left">string</td>
+<td>服務器時間</td>
+</tr>
+</tbody></table>
+<h1 id='t-enums'>枚舉定義</h1>
+<p>以下是各個接口請求參數或返回結果中定義的枚舉。</p>
+<h2 id='side-side'>Side (<code>side</code>)</h2>
+<ul>
+<li><code>Buy</code></li>
+<li><code>Sell</code></li>
+</ul>
+<h2 id='time-in-force-timeinforce'>Time in force (<code>timeInForce</code>)</h2>
+<ul>
+<li><code>GTC</code> - Good Till Canceled</li>
+<li><code>FOK</code> - Fill or Kill</li>
+<li><code>IOC</code> - Immediate or Cancel</li>
+</ul>
+<h2 id='symbol-symbol'>Symbol (<code>symbol</code>)</h2>
+<ul>
+<li><code>BTCUSDT</code></li>
+<li><code>ETHUSDT</code></li>
+<li>...</li>
+</ul>
+
+<p>您可以根據<a href="#t-spot_querysymbol">Query Symbol</a>接口獲取所有交易中的symbol。</p>
+<h2 id='order-type-type-ordertypes'>Order type (<code>type</code>/<code>orderTypes</code>)</h2>
+<ul>
+<li><code>LIMIT</code></li>
+<li><code>MARKET</code></li>
+<li><code>LIMIT_MAKER</code></li>
+</ul>
+<h2 id='currency-currency-coin'>Currency (<code>currency</code>/<code>coin</code>)</h2>
+<ul>
+<li><code>BTC</code></li>
+<li><code>ETH</code></li>
+<li><code>EOS</code></li>
+<li><code>XRP</code></li>
+<li><code>USDT</code></li>
+</ul>
+
+<p>The transfer API also includes:</p>
+
+<ul>
+<li><code>DOT</code></li>
+<li><code>DOGE</code></li>
+<li><code>LTC</code></li>
+<li><code>XLM</code></li>
+<li><code>USD</code></li>
+</ul>
+<h2 id='order-status-status'>Order status (<code>status</code>)</h2>
+<ul>
+<li><code>NEW</code></li>
+<li><code>PARTIALLY_FILLED</code></li>
+<li><code>FILLED</code></li>
+<li><code>CANCELED</code></li>
+<li><code>PENDING_CANCEL</code></li>
+<li><code>PENDING_NEW</code></li>
+<li><code>REJECTED</code></li>
+</ul>
+<h2 id='quantity-qty'>Quantity (<code>qty</code>)</h2>
+<p><ul> <li>最大值1百萬 (<code>1000000</code>)</li> <li>必須是正整數： <ul> <li><code>40</code> - 合法</li> <li><code>30.5</code> - 非法</li> </ul> </li> </ul></p>
+<h2 id='price-price'>Price (<code>price</code>)</h2>
+<p><ul>
+<li>活動單<ul>
+<li>必須是<code>tick_size</code>的整數倍<ul>
+<li>當前symbol信息(如<code>tick_size</code>)，可以通過<a href="#t-querysymbol">交易對接口</a>接口獲得。</li>
+</ul>
+</li>
+<li>必須小於一百萬 (<code>1000000</code>)</li>
+<li>如果用戶沒有未平倉，則價格必須大於市場價格的10%<ul>
+<li>如, 若當前市場價(last price) 為 10314, 那麽下單價格的最小值為 1031.5。</li>
+<li>偽代碼(假設價格是0.5的增量):<pre class="center-column">
+IF price > (last_price * 0.1)
+// 發送訂單
+ELSE
+//  不會發送訂單，因為價格將不被系統接受
+</pre></li>
+</ul>
+</li>
+<li>如果已持有倉位，那麽價格必須高於強平價格<ul>
+<li>如, 若多倉的強平價格為 5176.5 那麽價格最小為 5177. 在做空的情況下，價格必須低於強平價格。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>條件單<ul>
+<li>必須大於等於 <code>1</code></li>
+</ul>
+</li>
+</ul>
+</p>
+<h2 id='time-in-force-time_in_force'>Time in force (<code>time_in_force</code>)</h2>
+<ul>
+<li><code>GTC</code> 一直有效至取消</li>
+<li><code>IOC</code> 立即成交或取消</li>
+<li><code>FOK</code> 完全成交或取消</li>
+</ul>
+<h2 id='kline-interval-interval'>Kline interval (<code>interval</code>)</h2>
+<ul>
+<li><code>1m</code> - 1 minute</li>
+<li><code>3m</code> - 3 minutes</li>
+<li><code>5m</code> - 5 minutes</li>
+<li><code>15m</code> - 15 minutes</li>
+<li><code>30m</code> - 30 minutes</li>
+<li><code>1h</code> - 1 hour</li>
+<li><code>2h</code> - 2 hours</li>
+<li><code>4h</code> - 4 hours</li>
+<li><code>6h</code> - 6 hours</li>
+<li><code>12h</code> - 12 hours</li>
+<li><code>1d</code> - 1 day</li>
+<li><code>1w</code> - 1 week</li>
+<li><code>1M</code> - 1 month</li>
+</ul>
+<h2 id='lt-status-status'>LT status (<code>status</code>)</h2>
+<ul>
+<li><code>1</code> - 申赎均正常</li>
+<li><code>2</code> - 仅可申购，不可赎回</li>
+<li><code>3</code> - 仅可赎回，不可申购</li>
+<li><code>4</code> - 申赎均暂停</li>
+</ul>
+<h2 id='lt-order-status-orderstatus'>LT order status (<code>orderStatus</code>)</h2>
+<ul>
+<li><code>1</code> - 已完成</li>
+<li><code>2</code> - 等待中</li>
+<li><code>3</code> - 失败</li>
+</ul>
+<h2 id='lt-order-type-ordertype'>LT order type (<code>orderType</code>)</h2>
+<ul>
+<li><code>1</code> - 申购</li>
+<li><code>2</code> - 赎回</li>
+</ul>
+<h1 id='t-errors'>錯誤碼</h1>
+<p>Bybit使用以下HTTP Code和錯誤碼：</p>
+
+<table><thead>
+<tr>
+<th>HTTP Code</th>
+<th>含義</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>請求有效</td>
+</tr>
+<tr>
+<td>403</td>
+<td>拒絕訪問</td>
+</tr>
+<tr>
+<td>404</td>
+<td>訪問路徑不存在</td>
+</tr>
+</tbody></table>
+<h2 id='1000'>-1000</h2>
+<p>處理請求時發生未知錯誤</p>
+<h2 id='1001'>-1001</h2>
+<p>參數錯誤</p>
+<h2 id='1002'>-1002</h2>
+<p>您無權執行此請求。請求需要發送API Key，我們建議在所有的請求中都附加API Key</p>
+<h2 id='1003'>-1003</h2>
+<p>排隊的請求過多。請求權重過多； 請使用websocket進行實時更新。請求權重過多； 當前限製為每分鐘％s請求權重。 請使用websocket進行實時更新，以避免輪詢API。 請求權重過多； IP被禁止，直到％s。 請使用websocket進行實時更新，以免被禁。</p>
+<h2 id='1004'>-1004</h2>
+<p>Missing required parameter <code>symbol</code>. Content-Type has been configured to application/json; params in JSON format.</p>
+<h2 id='1006'>-1006</h2>
+<p>從消息總線收到意外的響應。 執行狀態未知。請向客服求證關於此訂單的詳細狀態和其他信息。</p>
+<h2 id='1007'>-1007</h2>
+<p>等待後端服務器響應超時。 發送狀態未知； 執行狀態未知。</p>
+<h2 id='1014'>-1014</h2>
+<p>不支持的訂單組合。</p>
+<h2 id='1015'>-1015</h2>
+<p>新訂單太多。請減少你的請求頻率。新訂單太多； 當前限製為每％s ％s個訂單。</p>
+<h2 id='1016'>-1016</h2>
+<p>該服務不可用</p>
+<h2 id='1021'>-1021</h2>
+<p>此請求的時間戳不在recvWindow之外。此請求的時間戳比服務器時間提前1000毫秒。請查證你的本地時間和服務器時間</p>
+<h2 id='1022'>-1022</h2>
+<p>Signature for this request is not valid. Check the content-type and try without content-type. If symbol is set to BTC/USDT instead of BTCUSDT this error can ocur. The slash would not be urlencoded before the signature, but it would be after, resulting in mismatching param str.</p>
+<h2 id='1032'>-1032</h2>
+<p>Parameter format error</p>
+<h2 id='1100'>-1100</h2>
+<p>在參數中發現非法字符。在參數'％s'中發現非法字符； 合法範圍是「％s」。</p>
+<h2 id='1101'>-1101</h2>
+<p>無法處理請求。請再試一次。</p>
+<h2 id='1102'>-1102</h2>
+<p>未發送強製性參數，該參數為空/空或格式錯誤。強製參數'％s'未發送，為空/空或格式錯誤。</p>
+<h2 id='1103'>-1103</h2>
+<p>An unknown parameter was sent. For POST request - No content-type specified, should change to application/x-www-form-urlencoded or make sure the query string is in the full request URL. For DELETE request, make sure your parameters are in query string format and the query string is in the full request URL. For GET request - Don't set Content-Type to "application/json". "Spot" permission not enabled when creating the API key.</p>
+<h2 id='1104'>-1104</h2>
+<p>並非所有發送的參數都被讀取</p>
+<h2 id='1105'>-1105</h2>
+<p>參數為空。</p>
+<h2 id='1106'>-1106</h2>
+<p>不需要時已發送參數。</p>
+<h2 id='1111'>-1111</h2>
+<p>精度超過為此資產定義的最大值。</p>
+<h2 id='1112'>-1112</h2>
+<p>交易對沒有掛單</p>
+<h2 id='1114'>-1114</h2>
+<p>不需要時發送了TimeInForce參數。</p>
+<h2 id='1115'>-1115</h2>
+<p>無效 timeInForce.</p>
+<h2 id='1116'>-1116</h2>
+<p>無效訂單類型。</p>
+<h2 id='1117'>-1117</h2>
+<p>無效買賣方向。</p>
+<h2 id='1118'>-1118</h2>
+<p>新的客戶訂單ID為空。</p>
+<h2 id='1119'>-1119</h2>
+<p>新的客戶訂單ID為空。</p>
+<h2 id='1120'>-1120</h2>
+<p>無效時間間隔。</p>
+<h2 id='1121'>-1121</h2>
+<p>無效符號。</p>
+<h2 id='1125'>-1125</h2>
+<p>該listenKey不存在。</p>
+<h2 id='1127'>-1127</h2>
+<p>查詢間隔太大。</p>
+<h2 id='1128'>-1128</h2>
+<p>可選參數組合無效。</p>
+<h2 id='1130'>-1130</h2>
+<p>發送的參數為無效數據。</p>
+<h2 id='1131'>-1131</h2>
+<p>Insufficient balance.</p>
+<h2 id='1132'>-1132</h2>
+<p>訂單價格過高</p>
+<h2 id='1133'>-1133</h2>
+<p>訂單價格過低，請查詢Broker Info信息</p>
+<h2 id='1134'>-1134</h2>
+<p>訂單價格精度過長，請查詢Broker Info信息</p>
+<h2 id='1135'>-1135</h2>
+<p>訂單quantity過大</p>
+<h2 id='1136'>-1136</h2>
+<p>訂單quantity小於最小值</p>
+<h2 id='1137'>-1137</h2>
+<p>訂單quantity精度過長</p>
+<h2 id='1138'>-1138</h2>
+<p>訂單價格超出允許範圍</p>
+<h2 id='1139'>-1139</h2>
+<p>訂單已經被執行</p>
+<h2 id='1140'>-1140</h2>
+<p>交易金額小於最小值</p>
+<h2 id='1141'>-1141</h2>
+<p>clientOrderId重復</p>
+<h2 id='1142'>-1142</h2>
+<p>訂單已經被撤銷</p>
+<h2 id='1143'>-1143</h2>
+<p>訂單當前不在訂單簿上</p>
+<h2 id='1144'>-1144</h2>
+<p>訂單已被鎖定</p>
+<h2 id='1145'>-1145</h2>
+<p>該訂單類型不支持撤銷</p>
+<h2 id='1146'>-1146</h2>
+<p>訂單生成超時</p>
+<h2 id='1147'>-1147</h2>
+<p>訂單撤銷超時</p>
+<h2 id='1190'>-1190</h2>
+<p>撤銷訂單已完成</p>
+<h2 id='1191'>-1191</h2>
+<p>無法撤單, 稍後再試</p>
+<h2 id='2010'>-2010</h2>
+<p>新增訂單被拒絕</p>
+<h2 id='2011'>-2011</h2>
+<p>撤銷訂單被拒絕</p>
+<h2 id='2013'>-2013</h2>
+<p>訂單不存在</p>
+<h2 id='2014'>-2014</h2>
+<p>API-key格式無效</p>
+<h2 id='2015'>-2015</h2>
+<p>無效的API密鑰，IP或操作權限。.</p>
+<h2 id='2016'>-2016</h2>
+<p>找不到該交易對的交易窗口。 嘗試改為24小時自動報價。</p>
+<h2 id='6001'>-6001</h2>
+<p>查詢用戶還款歷史錯誤</p>
+<h2 id='6002'>-6002</h2>
+<p>查詢用戶賬號信息錯誤</p>
+<h2 id='6003'>-6003</h2>
+<p>查詢用戶貸款歷史錯誤</p>
+<h2 id='6004'>-6004</h2>
+<p>查詢訂單歷史開始時間超過結束時間</p>
+<h2 id='6005'>-6005</h2>
+<p>借款失敗</p>
+<h2 id='6006'>-6006</h2>
+<p>還款失敗</p>
+<h2 id='6007'>-6007</h2>
+<p>未找到借貸用戶</p>
+<h2 id='6008'>-6008</h2>
+<p>借貸用戶未開通全倉槓桿</p>
+<h2 id='6009'>-6009</h2>
+<p>借貸用戶未開啟全倉槓桿</p>
+<h2 id='6010'>-6010</h2>
+<p>未找到借貸幣種</p>
+<h2 id='6011'>-6011</h2>
+<p>幣種未開啟借貸</p>
+<h2 id='6012'>-6012</h2>
+<p>未找到交易幣對</p>
+<h2 id='6013'>-6013</h2>
+<p>交易幣對未開啟借貸</p>
+<h2 id='6014'>-6014</h2>
+<p>還款請求重複</p>
+<h2 id='6015'>-6015</h2>
+<p>還款賬戶餘額不足</p>
+<h2 id='6016'>-6016</h2>
+<p>無欠款、無需還款</p>
+<h2 id='6017'>-6017</h2>
+<p>還款金額超過欠款金額</p>
+<h2 id='6018'>-6018</h2>
+<p>用戶幣種已在還款中</p>
+<h2 id='6019'>-6019</h2>
+<p>用戶還款計息強平衝突</p>
+<h2 id='6020'>-6020</h2>
+<p>查詢不到還款記錄</p>
+<h2 id='6021'>-6021</h2>
+<p>借貸請求重複</p>
+<h2 id='6022'>-6022</h2>
+<p>借貸幣種全量未開放</p>
+<h2 id='6023'>-6023</h2>
+<p>交易對全量未開放</p>
+<h2 id='6024'>-6024</h2>
+<p>借貸用戶狀態非正常</p>
+<h2 id='6025'>-6025</h2>
+<p>借貸數量不能小於單次最小借貸量</p>
+<h2 id='6026'>-6026</h2>
+<p>借貸數量不能大於單次最大借貸量</p>
+<h2 id='6027'>-6027</h2>
+<p>借貸數量不能大於平台允許的單用戶最大借貸量</p>
+<h2 id='6028'>-6028</h2>
+<p>借款申請數量超過平台最大借貸量</p>
+<h2 id='6029'>-6029</h2>
+<p>借款申請數量超過用戶預估最大可藉貸量</p>
+<h2 id='6030'>-6030</h2>
+<p>查詢用戶貸款信息錯誤</p>
+<h2 id='6031'>-6031</h2>
+<p>借貸精度超過設置精度</p>
+<h2 id='6032'>-6032</h2>
+<p>還款精度過高</p>
+<h2 id='4000'>-4000</h2>
+<p>serialNum已使用過</p>
+<h2 id='4001'>-4001</h2>
+<p>今日申購限額不足，請稍後再試</p>
+<h2 id='4002'>-4002</h2>
+<p>申購訂單積壓較多，請稍後重試</p>
+<h2 id='4003'>-4003</h2>
+<p>餘額不足，請充值後再試</p>
+<h2 id='4004'>-4004</h2>
+<p>今日贖回限額不足，請稍後再試</p>
+<h2 id='4005'>-4005</h2>
+<p>贖回訂單積壓較多，請稍後重試</p>
+<h2 id='4006'>-4006</h2>
+<p>餘額不足，請充值後再試</p>
+<h2 id='4007'>-4007</h2>
+<p>此訂單不存在</p>
+<h2 id='4008'>-4008</h2>
+<p>當前申購未開啟</p>
+<h2 id='4009'>-4009</h2>
+<p>申購金額超出上限</p>
+<h2 id='4010'>-4010</h2>
+<p>您還未通過風險測試，無法參與LT申贖和交易，請先在網頁端進行測試</p>
+<h2 id='4012'>-4012</h2>
+<p>當前贖回未開啟</p>
+<h2 id='4013'>-4013</h2>
+<p>贖回數量超出上限</p>
+<h2 id='4014'>-4014</h2>
+<p>申購入口暫時關閉</p>
+<h2 id='4015'>-4015</h2>
+<p>贖回入口暫時關閉</p>
+<h2 id='4016'>-4016</h2>
+<p>輸入值格式不符合要求：精度或長度超出</p>
+<h2 id='4110'>-4110</h2>
+<p>Failed to place order<b>:</b> Exceed the maximum position limit of leveraged tokens, the current available limit is XXXX USDT.</p>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="console">console</a>
+                <a href="#" data-language-name="python--pybit">python</a>
+          </div>
+      </div>
+    </div>
+  </body>
+
+<script>
+    $(".con a").click(function(){
+      $(".con a").removeClass("selected");
+      $(this).addClass("selected")
+    });
+    $("#international").click(function(){
+      $this = $(this);
+      var currentUrl = window.location.href;
+      if ($this.text() == 'English') {
+        window.location=currentUrl.replace(/\/zh-cn/,"");
+      } else {
+        if (currentUrl.indexOf("futuresV2") > -1) {
+	        window.location=currentUrl.replace(/\/((?:testnet\/)?futuresV2)/,"/zh-cn/$1");
+        } else if (currentUrl.indexOf("inverse") > -1) {
+          window.location=currentUrl.replace(/\/((?:testnet\/)?inverse)/,"/zh-cn/$1");
+        } else if(currentUrl.indexOf("spot") > -1) {
+          window.location=currentUrl.replace(/\/((?:testnet\/)?spot)/,"/zh-cn/$1");
+        } else if(currentUrl.indexOf("account_asset") > -1) {
+          window.location=currentUrl.replace(/\/((?:testnet\/)?account_asset)/,"/zh-cn/$1");
+        } else if(currentUrl.indexOf("linear") > -1) {
+          window.location=currentUrl.replace(/\/((?:testnet\/)?linear)/,"/zh-cn/$1");
+        } else if(currentUrl.indexOf("copy_trading") > -1) {
+          window.location=currentUrl.replace(/\/((?:testnet\/)?copy_trading)/,"/zh-cn/$1");
+        } else if(currentUrl.indexOf("usdc") > -1) {
+          window.location=currentUrl.replace(/\/((?:testnet\/)?usdc)/,"/zh-cn/$1");
+	      } else if(currentUrl.indexOf("derivativesV3") > -1) {
+	        window.location=currentUrl.replace(/\/((?:testnet\/)?derivativesV3)/,"/zh-cn/$1");
+	      }
+      }
+    });
+</script>
+
+</html>

@@ -689,8 +689,20 @@
 
         <!-- Inverse Futures -->
 
+        <!-- Spot V3(Spot v1, Spot v3) -->
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn">現貨
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="/docs/zh-cn/testnet/spot/v3" >v3</a>
+                    <a href="/docs/zh-cn/testnet/spot/v1" >v1</a>
+                </div>
+              </div>
+            </li>
+
         <!-- Spot -->
-          	<li><a href="/docs/zh-cn/testnet/spot">現貨</a></li>
 
         <!-- Account Asset -->
           	<li><a href="/docs/zh-cn/testnet/account_asset">賬戶資產</a></li>
@@ -719,6 +731,11 @@
               <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
+
+              <!-- it's for spot mainnet switch to spot v1 testnet -->
+
+              <!-- it's for spot v1 testnet switch to spot mainnet -->
+
                   <a href=/docs/zh-cn/usdc/perpetual>Mainnet</a>
                   <span class="dropdown-content-selected"><a href=/docs/zh-cn/testnet/usdc/perpetual>Testnet</a></span>
             </div>
@@ -1579,17 +1596,17 @@ function copyStringToClipboard (endpoint) {
 </tr>
 <tr>
 <td style="text-align: left">minLeverage</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>最小槓桿數</td>
 </tr>
 <tr>
 <td style="text-align: left">maxLeverage</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>最大槓桿數</td>
 </tr>
 <tr>
 <td style="text-align: left">leverageStep</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>槓桿增加或減少數量</td>
 </tr>
 <tr>
@@ -1954,7 +1971,7 @@ function copyStringToClipboard (endpoint) {
 </tr>
 <tr>
 <td style="text-align: left">openTime</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>開始時間</td>
 </tr>
 <tr>
@@ -2186,7 +2203,7 @@ function copyStringToClipboard (endpoint) {
 </tr>
 <tr>
 <td style="text-align: left">openTime</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>開始時間</td>
 </tr>
 <tr>
@@ -2300,7 +2317,7 @@ function copyStringToClipboard (endpoint) {
 </tr>
 <tr>
 <td style="text-align: left">openTime</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>開始時間</td>
 </tr>
 <tr>
@@ -2404,7 +2421,7 @@ function copyStringToClipboard (endpoint) {
 </tr>
 <tr>
 <td style="text-align: left">timestamp</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>時間戳</td>
 </tr>
 <tr>
@@ -2491,7 +2508,7 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal?sy
 </tr>
 <tr>
 <td style="text-align: left">timestamp</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>時間戳</td>
 </tr>
 <tr>
@@ -2596,7 +2613,7 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal?sy
 </tr>
 <tr>
 <td style="text-align: left">timestamp</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>時間戳</td>
 </tr>
 </tbody></table>
@@ -2719,7 +2736,7 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal?sy
 </tr>
 <tr>
 <td style="text-align: left">time</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>時間戳，到毫秒</td>
 </tr>
 </tbody></table>
@@ -2869,7 +2886,7 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal?sy
 <tr>
 <td style="text-align: left">tptriggerby</td>
 <td style="text-align: left">false</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>止盈激活價格類型，默認為MarkPrice</td>
 </tr>
 <tr>
@@ -2894,7 +2911,7 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal?sy
 <tr>
 <td style="text-align: left">triggerBy</td>
 <td style="text-align: left">false</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>觸發價格類型，默認為MarkPrice</td>
 </tr>
 <tr>
@@ -3527,7 +3544,7 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal?sy
 </tr>
 <tr>
 <td style="text-align: left">createdAt</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>創建時間</td>
 </tr>
 <tr>
@@ -3834,7 +3851,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 </tr>
 <tr>
 <td style="text-align: left">createdAt</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>創建時間</td>
 </tr>
 <tr>
@@ -3859,7 +3876,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 </tr>
 <tr>
 <td style="text-align: left">updatedAt</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>更新時間</td>
 </tr>
 <tr>
@@ -4300,7 +4317,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 </thead><tbody>
 <tr>
 <td style="text-align: left">transactionTime</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>時間戳（毫秒）</td>
 </tr>
 <tr>
@@ -4456,7 +4473,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 </tr>
 <tr>
 <td style="text-align: left">equity</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>淨資產</td>
 </tr>
 <tr>
@@ -5134,7 +5151,7 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/position/le
 </thead><tbody>
 <tr>
 <td style="text-align: left">time</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>結算時間,精確到毫秒</td>
 </tr>
 <tr>
@@ -5245,7 +5262,7 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/position/le
 </tr>
 <tr>
 <td style="text-align: left">riskId</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>風險限額ID</td>
 </tr>
 <tr>
@@ -5411,12 +5428,12 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/position/le
 </tr>
 <tr>
 <td style="text-align: left">fundingRate</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>資金費率</td>
 </tr>
 <tr>
 <td style="text-align: left">fundingRateTimestamp</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>交易時間</td>
 </tr>
 </tbody></table>
@@ -5479,12 +5496,12 @@ curl https://api-testnet.bybit.com/perpetual/usdc/openapi/private/v1/position/le
 </thead><tbody>
 <tr>
 <td style="text-align: left">predictedFundingRate</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>預測資金費率</td>
 </tr>
 <tr>
 <td style="text-align: left">predictedFundingFee</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>預測資金費用</td>
 </tr>
 </tbody></table>

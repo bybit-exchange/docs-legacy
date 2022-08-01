@@ -689,8 +689,20 @@
 
         <!-- Inverse Futures -->
 
+        <!-- Spot V3(Spot v1, Spot v3) -->
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn">Spot
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="/docs/testnet/spot/v3" >v3</a>
+                    <a href="/docs/testnet/spot/v1" >v1</a>
+                </div>
+              </div>
+            </li>
+
         <!-- Spot -->
-          	<li><a href="/docs/testnet/spot">Spot</a></li>
 
         <!-- Account Asset -->
           	<li><a href="/docs/testnet/account_asset">Account Asset</a></li>
@@ -719,6 +731,11 @@
               <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
+
+              <!-- it's for spot mainnet switch to spot v1 testnet -->
+
+              <!-- it's for spot v1 testnet switch to spot mainnet -->
+
                   <a href=/docs/usdc/option>Mainnet</a>
                   <span class="dropdown-content-selected"><a href=/docs/testnet/usdc/option>Testnet</a></span>
             </div>
@@ -1638,7 +1655,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 </tr>
 <tr>
 <td style="text-align: left">deliveryTime</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>Delivery time, unit in milliseconds</td>
 </tr>
 <tr>
@@ -1936,7 +1953,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 </tr>
 <tr>
 <td style="text-align: left">deliveryTime</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>Delivery time, unit in milliseconds</td>
 </tr>
 <tr>
@@ -2059,7 +2076,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 </tr>
 <tr>
 <td style="text-align: left">time</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>Timestamp, unit in milliseconds</td>
 </tr>
 </tbody></table>
@@ -3318,7 +3335,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 </tr>
 <tr>
 <td style="text-align: left">createdAt</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>Creation time</td>
 </tr>
 <tr>
@@ -4236,7 +4253,7 @@ The endpoint only supports up to 30 days of queried records. An error will be re
 </tr>
 <tr>
 <td style="text-align: left">equity</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>Equity</td>
 </tr>
 <tr>

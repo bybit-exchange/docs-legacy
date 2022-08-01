@@ -689,8 +689,20 @@
 
         <!-- Inverse Futures -->
 
+        <!-- Spot V3(Spot v1, Spot v3) -->
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn">Spot
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="/docs/testnet/spot/v3" >v3</a>
+                    <a href="/docs/testnet/spot/v1" >v1</a>
+                </div>
+              </div>
+            </li>
+
         <!-- Spot -->
-          	<li><a href="/docs/testnet/spot">Spot</a></li>
 
         <!-- Account Asset -->
           	<li><a href="/docs/testnet/account_asset">Account Asset</a></li>
@@ -719,6 +731,11 @@
               <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
+
+              <!-- it's for spot mainnet switch to spot v1 testnet -->
+
+              <!-- it's for spot v1 testnet switch to spot mainnet -->
+
             </div>
           </div>
         </li>
@@ -6037,11 +6054,8 @@ Deposit or withdrawal records which occurred after 2021-07-15 will not be shown 
     USDT contract: <span id="usdt_2_testnet_address">wss://stream-testnet.bybit.com/contract/usdt/public/v3</span>
     <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdt_2_testnet_address"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
     <br/>
-    USDC contract: <span id="usdc_2_testnet_address">wss://stream-testnet.bybit.com/contract/usdc/public/v3</span>
-    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdc_2_testnet_address"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
-    <br/>
-    USDC Options: <span id="option_2_testnet_address">wss://stream-testnet.bybit.com/option/usdc/public/v3</span>
-    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#option_2_testnet_address"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+    Inverse contract: <span id="inverse_testnet_address">wss://stream-testnet.bybit.com/contract/inverse/public/v3</span>
+    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#inverse_testnet_address"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
 </li>
  </p>
 </ul>
@@ -6239,9 +6253,8 @@ If there is a problem in bybit end, it will re-send a snapshot, which is promise
 25 level data, push frequency: <b>20ms</b> <br>
 500 level data, push frequency: <b>100ms</b> <br>
 <br>
-<b>Topic: (ps. option has 25 & 100 level only)</b><br>
+<b>Topic: </b><br>
 <code>orderBook25.{symbol}</code><br>
-<code>orderBook100.{symbol}</code>(<b>option only)</b><br>
 <code>orderBook500.{symbol}</code><br>
 </p>
 
@@ -7213,7 +7226,7 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 <tr>
 <td style="text-align: left">closedSize</td>
 <td style="text-align: left">string</td>
-<td>Time of trade (unit<span>:</span> ms)</td>
+<td>Closed size</td>
 </tr>
 </tbody></table>
 <h3 id='t-websocketorder'>order</h3>

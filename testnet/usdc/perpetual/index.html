@@ -689,8 +689,20 @@
 
         <!-- Inverse Futures -->
 
+        <!-- Spot V3(Spot v1, Spot v3) -->
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn">Spot
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="/docs/testnet/spot/v3" >v3</a>
+                    <a href="/docs/testnet/spot/v1" >v1</a>
+                </div>
+              </div>
+            </li>
+
         <!-- Spot -->
-          	<li><a href="/docs/testnet/spot">Spot</a></li>
 
         <!-- Account Asset -->
           	<li><a href="/docs/testnet/account_asset">Account Asset</a></li>
@@ -719,6 +731,11 @@
               <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
+
+              <!-- it's for spot mainnet switch to spot v1 testnet -->
+
+              <!-- it's for spot v1 testnet switch to spot mainnet -->
+
                   <a href=/docs/usdc/perpetual>Mainnet</a>
                   <span class="dropdown-content-selected"><a href=/docs/testnet/usdc/perpetual>Testnet</a></span>
             </div>
@@ -1582,17 +1599,17 @@ function copyStringToClipboard (endpoint) {
 </tr>
 <tr>
 <td style="text-align: left">minLeverage</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>Min. leverage</td>
 </tr>
 <tr>
 <td style="text-align: left">maxLeverage</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>Max. leverage</td>
 </tr>
 <tr>
 <td style="text-align: left">leverageStep</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>Modification to leverage</td>
 </tr>
 <tr>
@@ -1959,7 +1976,7 @@ function copyStringToClipboard (endpoint) {
 </tr>
 <tr>
 <td style="text-align: left">openTime</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>Start time</td>
 </tr>
 <tr>
@@ -2195,7 +2212,7 @@ function copyStringToClipboard (endpoint) {
 </tr>
 <tr>
 <td style="text-align: left">openTime</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>Start time</td>
 </tr>
 <tr>
@@ -2311,7 +2328,7 @@ function copyStringToClipboard (endpoint) {
 </tr>
 <tr>
 <td style="text-align: left">openTime</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>Start time</td>
 </tr>
 <tr>
@@ -2415,7 +2432,7 @@ function copyStringToClipboard (endpoint) {
 </tr>
 <tr>
 <td style="text-align: left">timestamp</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>Timestamp, unit in milliseconds</td>
 </tr>
 <tr>
@@ -2502,7 +2519,7 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal?sy
 </tr>
 <tr>
 <td style="text-align: left">timestamp</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>Timestamp, unit in milliseconds</td>
 </tr>
 <tr>
@@ -2607,7 +2624,7 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal?sy
 </tr>
 <tr>
 <td style="text-align: left">timestamp</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>Timestamp, unit in milliseconds</td>
 </tr>
 </tbody></table>
@@ -2730,7 +2747,7 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal?sy
 </tr>
 <tr>
 <td style="text-align: left">time</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>Timestamp, unit in milliseconds</td>
 </tr>
 </tbody></table>
@@ -2880,7 +2897,7 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal?sy
 <tr>
 <td style="text-align: left">tptriggerby</td>
 <td style="text-align: left">false</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>Price type for take-profit triggering (Perpetual), Default <code>MarkPrice</code></td>
 </tr>
 <tr>
@@ -2905,7 +2922,7 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal?sy
 <tr>
 <td style="text-align: left">triggerBy</td>
 <td style="text-align: left">false</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>Trigger price type. Default <code>MarkPrice</code></td>
 </tr>
 <tr>
@@ -3539,7 +3556,7 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal?sy
 </tr>
 <tr>
 <td style="text-align: left">createdAt</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>Creation time</td>
 </tr>
 <tr>
@@ -3847,7 +3864,7 @@ The endpoint only supports up to 30 days of queried records
 </tr>
 <tr>
 <td style="text-align: left">createdAt</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>Creation time</td>
 </tr>
 <tr>
@@ -3872,7 +3889,7 @@ The endpoint only supports up to 30 days of queried records
 </tr>
 <tr>
 <td style="text-align: left">updatedAt</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>Update time</td>
 </tr>
 <tr>
@@ -4315,7 +4332,7 @@ The endpoint only supports up to 30 days of queried records. An error will be re
 </thead><tbody>
 <tr>
 <td style="text-align: left">transactionTime</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>Timestamp, unit in milliseconds</td>
 </tr>
 <tr>
@@ -4471,7 +4488,7 @@ The endpoint only supports up to 30 days of queried records. An error will be re
 </tr>
 <tr>
 <td style="text-align: left">equity</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>Equity</td>
 </tr>
 <tr>
@@ -5151,7 +5168,7 @@ The endpoint only supports up to 30 days of queried records
 </thead><tbody>
 <tr>
 <td style="text-align: left">time</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>Settlement time, unit in milliseconds</td>
 </tr>
 <tr>
@@ -5262,7 +5279,7 @@ The endpoint only supports up to 30 days of queried records
 </tr>
 <tr>
 <td style="text-align: left">riskId</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>Risk ID</td>
 </tr>
 <tr>
@@ -5425,12 +5442,12 @@ The endpoint only supports up to 30 days of queried records
 </tr>
 <tr>
 <td style="text-align: left">fundingRate</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td><a href="https://help.bybit.com/hc/en-us/articles/360039261114-What-is-funding-rate-and-predicted-rate-">Funding rate</a></td>
 </tr>
 <tr>
 <td style="text-align: left">fundingRateTimestamp</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>Transaction time</td>
 </tr>
 </tbody></table>
@@ -5493,12 +5510,12 @@ The endpoint only supports up to 30 days of queried records
 </thead><tbody>
 <tr>
 <td style="text-align: left">predictedFundingRate</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td><a href="https://help.bybit.com/hc/en-us/articles/360039261114-What-is-funding-rate-and-predicted-rate-">Predicted funding rate</a></td>
 </tr>
 <tr>
 <td style="text-align: left">predictedFundingFee</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>Predicted funding fee</td>
 </tr>
 </tbody></table>

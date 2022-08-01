@@ -689,8 +689,20 @@
 
         <!-- Inverse Futures -->
 
+        <!-- Spot V3(Spot v1, Spot v3) -->
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn">現貨
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="/docs/zh-cn/testnet/spot/v3" >v3</a>
+                    <a href="/docs/zh-cn/testnet/spot/v1" >v1</a>
+                </div>
+              </div>
+            </li>
+
         <!-- Spot -->
-          	<li><a href="/docs/zh-cn/testnet/spot">現貨</a></li>
 
         <!-- Account Asset -->
           	<li><a href="/docs/zh-cn/testnet/account_asset">賬戶資產</a></li>
@@ -719,6 +731,11 @@
               <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
+
+              <!-- it's for spot mainnet switch to spot v1 testnet -->
+
+              <!-- it's for spot v1 testnet switch to spot mainnet -->
+
             </div>
           </div>
         </li>
@@ -6001,11 +6018,8 @@ function copyStringToClipboard (endpoint) {
     USDT合約: <span id="usdt_2_testnet_address">wss://stream-testnet.bybit.com/contract/usdt/public/v3</span>
     <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdt_2_testnet_address"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
     <br/>
-    USDC合約: <span id="usdc_2_testnet_address">wss://stream-testnet.bybit.com/contract/usdc/public/v3</span>
-    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdc_2_testnet_address"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
-    <br/>
-    USDC期權: <span id="option_2_testnet_address">wss://stream-testnet.bybit.com/option/usdc/public/v3</span>
-    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#option_2_testnet_address"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+    反向合約: <span id="inverse_testnet_address">wss://stream-testnet.bybit.com/contract/inverse/public/v3</span>
+    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#inverse_testnet_address"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
 </li>
  </p>
 </ul>
@@ -6202,9 +6216,8 @@ function copyStringToClipboard (endpoint) {
 25檔數據，推送頻率 <b>20ms</b> <br>
 500檔數據，推送頻率 <b>100ms</b> <br>
 <br>
-<b>Topic: (備註：Option只有25和100檔)</b><br>
+<b>Topic: </b><br>
 <code>orderBook25.{symbol}</code><br>
-<code>orderBook100.{symbol}</code>(<b>僅期權)</b><br>
 <code>orderBook500.{symbol}</code><br>
 </p>
 
@@ -7173,7 +7186,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">closedSize</td>
 <td style="text-align: left">string</td>
-<td>交易時間，精確到毫秒</td>
+<td>減倉數量</td>
 </tr>
 </tbody></table>
 <h3 id='t-websocketorder'>訂單</h3>

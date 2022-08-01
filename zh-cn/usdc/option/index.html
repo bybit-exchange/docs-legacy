@@ -669,8 +669,10 @@
         <!-- Inverse Futures -->
           	<li><a href="/docs/zh-cn/inverse_futures">反向交割</a></li>
 
+        <!-- Spot V3(Spot v1, Spot v3) -->
+
         <!-- Spot -->
-          	<li><a href="/docs/zh-cn/spot">現貨</a></li>
+          	<li><a href="/docs/zh-cn/spot"">現貨</a></li>
 
         <!-- Account Asset -->
           	<li><a href="/docs/zh-cn/account_asset">賬戶資產</a></li>
@@ -699,6 +701,11 @@
               <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
+
+              <!-- it's for spot mainnet switch to spot v1 testnet -->
+
+              <!-- it's for spot v1 testnet switch to spot mainnet -->
+
                   <span class="dropdown-content-selected"><a href=/docs/zh-cn/usdc/option>Mainnet</a></span>
                   <a href=/docs/zh-cn/testnet/usdc/option>Testnet</a>
             </div>
@@ -1615,7 +1622,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 </tr>
 <tr>
 <td style="text-align: left">deliveryTime</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>交割時間，精確到毫秒</td>
 </tr>
 <tr>
@@ -1912,7 +1919,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 </tr>
 <tr>
 <td style="text-align: left">deliveryTime</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>交割時間，精確到毫秒</td>
 </tr>
 <tr>
@@ -2035,7 +2042,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 </tr>
 <tr>
 <td style="text-align: left">time</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>時間戳，到毫秒</td>
 </tr>
 </tbody></table>
@@ -3292,7 +3299,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 </tr>
 <tr>
 <td style="text-align: left">createdAt</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>創建時間</td>
 </tr>
 <tr>
@@ -3589,7 +3596,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 </tr>
 <tr>
 <td style="text-align: left">createdAt</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>創建時間</td>
 </tr>
 <tr>
@@ -3614,7 +3621,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 </tr>
 <tr>
 <td style="text-align: left">updatedAt</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>更新時間</td>
 </tr>
 <tr>
@@ -4049,7 +4056,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 </thead><tbody>
 <tr>
 <td style="text-align: left">transactionTime</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>時間戳（毫秒）</td>
 </tr>
 <tr>
@@ -4207,7 +4214,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 </tr>
 <tr>
 <td style="text-align: left">equity</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>淨資產</td>
 </tr>
 <tr>
@@ -4871,7 +4878,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-margin-i
 </thead><tbody>
 <tr>
 <td style="text-align: left">deliveryTime</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>交割時間</td>
 </tr>
 <tr>

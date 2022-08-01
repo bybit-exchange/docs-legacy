@@ -689,8 +689,20 @@
 
         <!-- Inverse Futures -->
 
+        <!-- Spot V3(Spot v1, Spot v3) -->
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn">現貨
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="/docs/zh-cn/testnet/spot/v3" >v3</a>
+                    <a href="/docs/zh-cn/testnet/spot/v1" >v1</a>
+                </div>
+              </div>
+            </li>
+
         <!-- Spot -->
-          	<li><a href="/docs/zh-cn/testnet/spot">現貨</a></li>
 
         <!-- Account Asset -->
           	<li><a href="/docs/zh-cn/testnet/account_asset">賬戶資產</a></li>
@@ -719,6 +731,11 @@
               <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
+
+              <!-- it's for spot mainnet switch to spot v1 testnet -->
+
+              <!-- it's for spot v1 testnet switch to spot mainnet -->
+
                   <a href=/docs/zh-cn/usdc/option>Mainnet</a>
                   <span class="dropdown-content-selected"><a href=/docs/zh-cn/testnet/usdc/option>Testnet</a></span>
             </div>
@@ -1635,7 +1652,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 </tr>
 <tr>
 <td style="text-align: left">deliveryTime</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>交割時間，精確到毫秒</td>
 </tr>
 <tr>
@@ -1932,7 +1949,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 </tr>
 <tr>
 <td style="text-align: left">deliveryTime</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>交割時間，精確到毫秒</td>
 </tr>
 <tr>
@@ -2055,7 +2072,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 </tr>
 <tr>
 <td style="text-align: left">time</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>時間戳，到毫秒</td>
 </tr>
 </tbody></table>
@@ -3312,7 +3329,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 </tr>
 <tr>
 <td style="text-align: left">createdAt</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>創建時間</td>
 </tr>
 <tr>
@@ -4227,7 +4244,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 </tr>
 <tr>
 <td style="text-align: left">equity</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>淨資產</td>
 </tr>
 <tr>

@@ -1,0 +1,3625 @@
+
+<!doctype html>
+<html>
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158616893-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-158616893-1');
+    </script>
+
+    <link href="../../../images/favicon-014c3ae6.ico" rel="icon" type="image/ico" />
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Bybit API Docs</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .nn {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .nl {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .ni {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .bp {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .vg {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .vi {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .w {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+      header.top-nav {
+        position:fixed;
+        display:flex;
+        flex:1;
+        width:100%;
+        z-index:100;
+        background: #333;
+        padding: 0 26px;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+        align-items: center;
+      }
+      div.top-menu{
+        display:flex;
+        flex: 1;
+      }
+      a.logo-link{
+        line-height: 50px;
+      }
+      img.logo {
+        width: 161px;
+        height: 40px;
+        vertical-align: middle;
+      }
+      .con {
+          display: flex;
+          top: 0;
+          height: 55px;
+          margin: 0 0 0 62px;
+          padding: 0;
+          list-style: none;
+          text-align: center;
+      }
+
+      .con li{
+          text-align: center;
+          line-height: 55px;
+          border:0 solid #000;
+          -webkit-box-sizing: border-box;
+                  box-sizing: border-box;
+      }
+
+      .con a {
+        display: inline-block;
+        color: #B0B8DB;
+        font-size: 15px;
+        text-decoration: none;
+        line-height: 23px;
+        padding: 0 20px;
+        vertical-align: middle;
+        -webkit-transform: translate(0, -3px);
+                transform: translate(0, -3px);
+      }
+
+      .con a.selected {
+        border-bottom: 2px solid transparent;
+        border-color: #FFB11A;
+        color: #fff;
+      }
+
+      a.international {
+        display: block;
+        height: 27px;
+        line-height: 27px;
+        text-align: center;
+        color: #fff;
+        text-decoration: none;
+        border: 1px solid #383F66;
+        padding: 0 20px;
+        color: #F0B90B;
+        word-break: keep-all;
+      }
+
+      /* Environment dropdown list */
+      /* The dropdown container */
+      .dropdown {
+        float: left;
+        overflow: hidden;
+      }
+
+      /* Dropdown button */
+      .dropdown .dropbtn {
+        background-color: inherit;
+        display: inline-block;
+        color: #B0B8DB;
+        font-size: 15px;
+        text-decoration: none;
+        line-height: 23px;
+        padding: 0 20px;
+        border: none;
+        background: none;
+        vertical-align: middle;
+        -webkit-transform: translate(0, -3px);
+                transform: translate(0, -3px);
+
+      }
+
+      /* Add a red background color to navbar links on hover */
+      a:hover, .dropdown:hover .dropbtn {
+        background-color: inherit;
+      }
+
+      /* Dropdown content (hidden by default) */
+      .dropdown-content {
+        color: #B0B8DB;
+        background: #333;
+        font-size: 15px;
+        text-decoration: none;
+        line-height: 53px;
+        padding: 0;
+        display: none;
+        position: relative;
+        -webkit-box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 0;
+      }
+
+      /* Links inside the dropdown */
+      .dropdown-content a {
+        color: #B0B8DB;
+        font-size: 15px;
+        text-decoration: none;
+        line-height: 53px;
+        padding: 0 10px;
+        display: block;
+        text-align: left;
+      }
+
+      /* Highlights the currently selected dropdown link */
+      .dropdown-content-selected {
+        display: block;
+        /*color: #696e83;*/
+        background-color: #474747;
+      }
+
+      /* Add a grey background color to dropdown links on hover */
+      .dropdown-content a:hover {
+        background-color: #5b5b5b;
+      }
+
+      /* Show the dropdown menu on hover */
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="../../../stylesheets/screen-995a21da.css" rel="stylesheet" media="screen" />
+    <link href="../../../stylesheets/print-41ffbffc.css" rel="stylesheet" media="print" />
+      <script src="../../../javascripts/all-52d563e0.js"></script>
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
+  </head>
+
+
+
+  <!-- Navigation bar START -->
+  <header class="top-nav">
+    <div class="top-menu">
+        <a href="https://bybit-exchange.github.io/docs/spot/v3" class="logo-link" target="_self">
+          <img src="../../../images/logo-aed6448d.svg" class="logo" alt="" />
+        </a>
+
+      <ul class="con">
+
+        <!-- Derivatives V3 -->
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn">Derivatives v3
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="/docs/testnet/derivativesV3/unified_margin" >Unified Margin</a>
+                    <a href="/docs/testnet/derivativesV3/contract" >Contract</a>
+                </div>
+              </div>
+            </li>
+
+        <!-- Futures V2(USDT perp, Inverse Perp, Inverse Futures) -->
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn">Futures v2
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="/docs/testnet/futuresV2/inverse" >Inverse Perpetual</a>
+                    <a href="/docs/testnet/futuresV2/linear" >USDT Perpetual</a>
+                    <a href="/docs/testnet/futuresV2/inverse_futures" >Inverse Futures</a>
+                </div>
+              </div>
+            </li>
+
+        <!-- Inverse Perpetual -->
+
+
+        <!-- USDT Perpetual -->
+
+        <!-- Inverse Futures -->
+
+        <!-- Spot V3(Spot v1, Spot v3) -->
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn">Spot
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="/docs/testnet/spot/v3" >v3</a>
+                    <a href="/docs/testnet/spot/v1" >v1</a>
+                </div>
+              </div>
+            </li>
+
+        <!-- Spot -->
+
+        <!-- Account Asset -->
+          	<li><a href="/docs/testnet/account_asset">Account Asset</a></li>
+
+        <!-- Copy Trading -->
+          	<li><a href="/docs/testnet/copy_trading">Copy Trading</a></li>
+
+        <!-- USDC dropdown (Options, Perpetual) -->
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">USDC Contract
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                  <a href="/docs/testnet/usdc/option" >Option</a>
+                  <a href="/docs/testnet/usdc/perpetual">Perpetual</a>
+              </div>
+            </div>
+          </li>
+
+        <!-- Environment dropdown (Testnet, Mainnet) -->
+        <!-- It's very long because each button needs its own logic to link to testnet or mainnet depending on if the website is on testnet or mainnet. -->
+        <li>
+          <div class="dropdown">
+            <button class="dropbtn">Environment
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+
+              <!-- it's for spot mainnet switch to spot v1 testnet -->
+
+              <!-- it's for spot v1 testnet switch to spot mainnet -->
+
+            </div>
+          </div>
+        </li>
+      </ul>
+
+    </div>
+    <a class="international" id="international" href="javascript:void(0);">繁體中文</a>
+  </header>
+  <!-- Navigation bar END -->
+
+
+
+  <body class="testnet testnet_spot testnet_spot_v3 testnet_spot_v3_index" data-languages="[&quot;console&quot;,&quot;python--pybit&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../../../images/navbar-cad8cdcb.png" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+        <div class="lang-selector">
+              <a href="#" data-language-name="console">console</a>
+              <a href="#" data-language-name="python--pybit">python</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#t-introduction" class="toc-h1 toc-link" data-title="Group And Resources">Group And Resources</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-intro_para" class="toc-h2 toc-link" data-title=""></a>
+                  </li>
+                  <li>
+                    <a href="#t-resources" class="toc-h2 toc-link" data-title="Group And Bybit API Resources">Group And Bybit API Resources</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#t-changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#2022-06-17" class="toc-h2 toc-link" data-title="2022-06-17">2022-06-17</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2022-06-10" class="toc-h2 toc-link" data-title="2022-06-10">2022-06-10</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#websocket-api" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2022-06-08" class="toc-h2 toc-link" data-title="2022-06-08">2022-06-08</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#websocket-api-2" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2022-06-01" class="toc-h2 toc-link" data-title="2022-06-01">2022-06-01</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#websocket-api-3" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2022-05-20" class="toc-h2 toc-link" data-title="2022-05-20">2022-05-20</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-2" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2022-05-13" class="toc-h2 toc-link" data-title="2022-05-13">2022-05-13</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-3" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2022-04-20" class="toc-h2 toc-link" data-title="2022-04-20">2022-04-20</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-4" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                          <li>
+                            <a href="#websocket-api-4" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2022-04-14" class="toc-h2 toc-link" data-title="2022-04-14">2022-04-14</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-5" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2022-04-13" class="toc-h2 toc-link" data-title="2022-04-13">2022-04-13</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-6" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2022-03-24" class="toc-h2 toc-link" data-title="2022-03-24">2022-03-24</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-7" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2022-03-14" class="toc-h2 toc-link" data-title="2022-03-14">2022-03-14</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#websocket-api-5" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2021-07-12" class="toc-h2 toc-link" data-title="2021-07-12">2021-07-12</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-8" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2021-06-17" class="toc-h2 toc-link" data-title="2021-06-17">2021-06-17</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-9" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2021-05-27" class="toc-h2 toc-link" data-title="2021-05-27">2021-05-27</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-10" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#t-authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-authenticationparameters" class="toc-h2 toc-link" data-title="Parameters for Authenticated Endpoints">Parameters for Authenticated Endpoints</a>
+                  </li>
+                  <li>
+                    <a href="#t-constructingtherequest" class="toc-h2 toc-link" data-title="Create A Request">Create A Request</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#t-marketdata" class="toc-h1 toc-link" data-title="Market Data Endpoints">Market Data Endpoints</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-getsymbols" class="toc-h2 toc-link" data-title="Get All Symbols">Get All Symbols</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#t-accountdata" class="toc-h1 toc-link" data-title="Account Data Endpoints">Account Data Endpoints</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-placeactive" class="toc-h2 toc-link" data-title="Place Active Order">Place Active Order</a>
+                  </li>
+                  <li>
+                    <a href="#t-getactive" class="toc-h2 toc-link" data-title="Get Active Order">Get Active Order</a>
+                  </li>
+                  <li>
+                    <a href="#t-cancelactive" class="toc-h2 toc-link" data-title="Cancel Active Order">Cancel Active Order</a>
+                  </li>
+                  <li>
+                    <a href="#t-batchcancelactiveorder" class="toc-h2 toc-link" data-title="Batch Cancel Active Order">Batch Cancel Active Order</a>
+                  </li>
+                  <li>
+                    <a href="#t-batchcancelactiveorderbyids" class="toc-h2 toc-link" data-title="Batch Cancel Active Order By IDs">Batch Cancel Active Order By IDs</a>
+                  </li>
+                  <li>
+                    <a href="#t-openorders" class="toc-h2 toc-link" data-title="Open Orders">Open Orders</a>
+                  </li>
+                  <li>
+                    <a href="#t-orderhistory" class="toc-h2 toc-link" data-title="Order History">Order History</a>
+                  </li>
+                  <li>
+                    <a href="#t-tradehistory" class="toc-h2 toc-link" data-title="Trade History">Trade History</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#t-wallet" class="toc-h1 toc-link" data-title="Wallet Data Endpoints">Wallet Data Endpoints</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-balance" class="toc-h2 toc-link" data-title="Get Wallet Balance">Get Wallet Balance</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#t-api" class="toc-h1 toc-link" data-title="API Data Endpoints">API Data Endpoints</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-servertime" class="toc-h2 toc-link" data-title="Server Time">Server Time</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#t-enums" class="toc-h1 toc-link" data-title="Enums Definitions">Enums Definitions</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#side-side" class="toc-h2 toc-link" data-title="Side (side)">Side (<code>side</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#time-in-force-timeinforce" class="toc-h2 toc-link" data-title="Time in force (timeInForce)">Time in force (<code>timeInForce</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#symbol-symbol" class="toc-h2 toc-link" data-title="Symbol (symbol)">Symbol (<code>symbol</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#order-type-type-ordertypes" class="toc-h2 toc-link" data-title="Order type (type/orderTypes)">Order type (<code>type</code>/<code>orderTypes</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#currency-currency-coin" class="toc-h2 toc-link" data-title="Currency (currency/coin)">Currency (<code>currency</code>/<code>coin</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#order-status-status" class="toc-h2 toc-link" data-title="Order status (status)">Order status (<code>status</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#quantity-qty" class="toc-h2 toc-link" data-title="Quantity (qty)">Quantity (<code>qty</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#price-price" class="toc-h2 toc-link" data-title="Price (price)">Price (<code>price</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#time-in-force-time_in_force" class="toc-h2 toc-link" data-title="Time in force (time_in_force)">Time in force (<code>time_in_force</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#kline-interval-interval" class="toc-h2 toc-link" data-title="Kline interval (interval)">Kline interval (<code>interval</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#lt-status-status" class="toc-h2 toc-link" data-title="LT status (status)">LT status (<code>status</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#lt-order-status-orderstatus" class="toc-h2 toc-link" data-title="LT order status (orderStatus)">LT order status (<code>orderStatus</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#lt-order-type-ordertype" class="toc-h2 toc-link" data-title="LT order type (orderType)">LT order type (<code>orderType</code>)</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#t-errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#1000" class="toc-h2 toc-link" data-title="-1000">-1000</a>
+                  </li>
+                  <li>
+                    <a href="#1001" class="toc-h2 toc-link" data-title="-1001">-1001</a>
+                  </li>
+                  <li>
+                    <a href="#1002" class="toc-h2 toc-link" data-title="-1002">-1002</a>
+                  </li>
+                  <li>
+                    <a href="#1003" class="toc-h2 toc-link" data-title="-1003">-1003</a>
+                  </li>
+                  <li>
+                    <a href="#1004" class="toc-h2 toc-link" data-title="-1004">-1004</a>
+                  </li>
+                  <li>
+                    <a href="#1006" class="toc-h2 toc-link" data-title="-1006">-1006</a>
+                  </li>
+                  <li>
+                    <a href="#1007" class="toc-h2 toc-link" data-title="-1007">-1007</a>
+                  </li>
+                  <li>
+                    <a href="#1014" class="toc-h2 toc-link" data-title="-1014">-1014</a>
+                  </li>
+                  <li>
+                    <a href="#1015" class="toc-h2 toc-link" data-title="-1015">-1015</a>
+                  </li>
+                  <li>
+                    <a href="#1016" class="toc-h2 toc-link" data-title="-1016">-1016</a>
+                  </li>
+                  <li>
+                    <a href="#1021" class="toc-h2 toc-link" data-title="-1021">-1021</a>
+                  </li>
+                  <li>
+                    <a href="#1022" class="toc-h2 toc-link" data-title="-1022">-1022</a>
+                  </li>
+                  <li>
+                    <a href="#1032" class="toc-h2 toc-link" data-title="-1032">-1032</a>
+                  </li>
+                  <li>
+                    <a href="#1100" class="toc-h2 toc-link" data-title="-1100">-1100</a>
+                  </li>
+                  <li>
+                    <a href="#1101" class="toc-h2 toc-link" data-title="-1101">-1101</a>
+                  </li>
+                  <li>
+                    <a href="#1102" class="toc-h2 toc-link" data-title="-1102">-1102</a>
+                  </li>
+                  <li>
+                    <a href="#1103" class="toc-h2 toc-link" data-title="-1103">-1103</a>
+                  </li>
+                  <li>
+                    <a href="#1104" class="toc-h2 toc-link" data-title="-1104">-1104</a>
+                  </li>
+                  <li>
+                    <a href="#1105" class="toc-h2 toc-link" data-title="-1105">-1105</a>
+                  </li>
+                  <li>
+                    <a href="#1106" class="toc-h2 toc-link" data-title="-1106">-1106</a>
+                  </li>
+                  <li>
+                    <a href="#1111" class="toc-h2 toc-link" data-title="-1111">-1111</a>
+                  </li>
+                  <li>
+                    <a href="#1112" class="toc-h2 toc-link" data-title="-1112">-1112</a>
+                  </li>
+                  <li>
+                    <a href="#1114" class="toc-h2 toc-link" data-title="-1114">-1114</a>
+                  </li>
+                  <li>
+                    <a href="#1115" class="toc-h2 toc-link" data-title="-1115">-1115</a>
+                  </li>
+                  <li>
+                    <a href="#1116" class="toc-h2 toc-link" data-title="-1116">-1116</a>
+                  </li>
+                  <li>
+                    <a href="#1117" class="toc-h2 toc-link" data-title="-1117">-1117</a>
+                  </li>
+                  <li>
+                    <a href="#1118" class="toc-h2 toc-link" data-title="-1118">-1118</a>
+                  </li>
+                  <li>
+                    <a href="#1119" class="toc-h2 toc-link" data-title="-1119">-1119</a>
+                  </li>
+                  <li>
+                    <a href="#1120" class="toc-h2 toc-link" data-title="-1120">-1120</a>
+                  </li>
+                  <li>
+                    <a href="#1121" class="toc-h2 toc-link" data-title="-1121">-1121</a>
+                  </li>
+                  <li>
+                    <a href="#1125" class="toc-h2 toc-link" data-title="-1125">-1125</a>
+                  </li>
+                  <li>
+                    <a href="#1127" class="toc-h2 toc-link" data-title="-1127">-1127</a>
+                  </li>
+                  <li>
+                    <a href="#1128" class="toc-h2 toc-link" data-title="-1128">-1128</a>
+                  </li>
+                  <li>
+                    <a href="#1130" class="toc-h2 toc-link" data-title="-1130">-1130</a>
+                  </li>
+                  <li>
+                    <a href="#1131" class="toc-h2 toc-link" data-title="-1131">-1131</a>
+                  </li>
+                  <li>
+                    <a href="#1132" class="toc-h2 toc-link" data-title="-1132">-1132</a>
+                  </li>
+                  <li>
+                    <a href="#1133" class="toc-h2 toc-link" data-title="-1133">-1133</a>
+                  </li>
+                  <li>
+                    <a href="#1134" class="toc-h2 toc-link" data-title="-1134">-1134</a>
+                  </li>
+                  <li>
+                    <a href="#1135" class="toc-h2 toc-link" data-title="-1135">-1135</a>
+                  </li>
+                  <li>
+                    <a href="#1136" class="toc-h2 toc-link" data-title="-1136">-1136</a>
+                  </li>
+                  <li>
+                    <a href="#1137" class="toc-h2 toc-link" data-title="-1137">-1137</a>
+                  </li>
+                  <li>
+                    <a href="#1138" class="toc-h2 toc-link" data-title="-1138">-1138</a>
+                  </li>
+                  <li>
+                    <a href="#1139" class="toc-h2 toc-link" data-title="-1139">-1139</a>
+                  </li>
+                  <li>
+                    <a href="#1140" class="toc-h2 toc-link" data-title="-1140">-1140</a>
+                  </li>
+                  <li>
+                    <a href="#1141" class="toc-h2 toc-link" data-title="-1141">-1141</a>
+                  </li>
+                  <li>
+                    <a href="#1142" class="toc-h2 toc-link" data-title="-1142">-1142</a>
+                  </li>
+                  <li>
+                    <a href="#1143" class="toc-h2 toc-link" data-title="-1143">-1143</a>
+                  </li>
+                  <li>
+                    <a href="#1144" class="toc-h2 toc-link" data-title="-1144">-1144</a>
+                  </li>
+                  <li>
+                    <a href="#1145" class="toc-h2 toc-link" data-title="-1145">-1145</a>
+                  </li>
+                  <li>
+                    <a href="#1146" class="toc-h2 toc-link" data-title="-1146">-1146</a>
+                  </li>
+                  <li>
+                    <a href="#1147" class="toc-h2 toc-link" data-title="-1147">-1147</a>
+                  </li>
+                  <li>
+                    <a href="#1190" class="toc-h2 toc-link" data-title="-1190">-1190</a>
+                  </li>
+                  <li>
+                    <a href="#1191" class="toc-h2 toc-link" data-title="-1191">-1191</a>
+                  </li>
+                  <li>
+                    <a href="#2010" class="toc-h2 toc-link" data-title="-2010">-2010</a>
+                  </li>
+                  <li>
+                    <a href="#2011" class="toc-h2 toc-link" data-title="-2011">-2011</a>
+                  </li>
+                  <li>
+                    <a href="#2013" class="toc-h2 toc-link" data-title="-2013">-2013</a>
+                  </li>
+                  <li>
+                    <a href="#2014" class="toc-h2 toc-link" data-title="-2014">-2014</a>
+                  </li>
+                  <li>
+                    <a href="#2015" class="toc-h2 toc-link" data-title="-2015">-2015</a>
+                  </li>
+                  <li>
+                    <a href="#2016" class="toc-h2 toc-link" data-title="-2016">-2016</a>
+                  </li>
+                  <li>
+                    <a href="#6001" class="toc-h2 toc-link" data-title="-6001">-6001</a>
+                  </li>
+                  <li>
+                    <a href="#6002" class="toc-h2 toc-link" data-title="-6002">-6002</a>
+                  </li>
+                  <li>
+                    <a href="#6003" class="toc-h2 toc-link" data-title="-6003">-6003</a>
+                  </li>
+                  <li>
+                    <a href="#6004" class="toc-h2 toc-link" data-title="-6004">-6004</a>
+                  </li>
+                  <li>
+                    <a href="#6005" class="toc-h2 toc-link" data-title="-6005">-6005</a>
+                  </li>
+                  <li>
+                    <a href="#6006" class="toc-h2 toc-link" data-title="-6006">-6006</a>
+                  </li>
+                  <li>
+                    <a href="#6007" class="toc-h2 toc-link" data-title="-6007">-6007</a>
+                  </li>
+                  <li>
+                    <a href="#6008" class="toc-h2 toc-link" data-title="-6008">-6008</a>
+                  </li>
+                  <li>
+                    <a href="#6009" class="toc-h2 toc-link" data-title="-6009">-6009</a>
+                  </li>
+                  <li>
+                    <a href="#6010" class="toc-h2 toc-link" data-title="-6010">-6010</a>
+                  </li>
+                  <li>
+                    <a href="#6011" class="toc-h2 toc-link" data-title="-6011">-6011</a>
+                  </li>
+                  <li>
+                    <a href="#6012" class="toc-h2 toc-link" data-title="-6012">-6012</a>
+                  </li>
+                  <li>
+                    <a href="#6013" class="toc-h2 toc-link" data-title="-6013">-6013</a>
+                  </li>
+                  <li>
+                    <a href="#6014" class="toc-h2 toc-link" data-title="-6014">-6014</a>
+                  </li>
+                  <li>
+                    <a href="#6015" class="toc-h2 toc-link" data-title="-6015">-6015</a>
+                  </li>
+                  <li>
+                    <a href="#6016" class="toc-h2 toc-link" data-title="-6016">-6016</a>
+                  </li>
+                  <li>
+                    <a href="#6017" class="toc-h2 toc-link" data-title="-6017">-6017</a>
+                  </li>
+                  <li>
+                    <a href="#6018" class="toc-h2 toc-link" data-title="-6018">-6018</a>
+                  </li>
+                  <li>
+                    <a href="#6019" class="toc-h2 toc-link" data-title="-6019">-6019</a>
+                  </li>
+                  <li>
+                    <a href="#6020" class="toc-h2 toc-link" data-title="-6020">-6020</a>
+                  </li>
+                  <li>
+                    <a href="#6021" class="toc-h2 toc-link" data-title="-6021">-6021</a>
+                  </li>
+                  <li>
+                    <a href="#6022" class="toc-h2 toc-link" data-title="-6022">-6022</a>
+                  </li>
+                  <li>
+                    <a href="#6023" class="toc-h2 toc-link" data-title="-6023">-6023</a>
+                  </li>
+                  <li>
+                    <a href="#6024" class="toc-h2 toc-link" data-title="-6024">-6024</a>
+                  </li>
+                  <li>
+                    <a href="#6025" class="toc-h2 toc-link" data-title="-6025">-6025</a>
+                  </li>
+                  <li>
+                    <a href="#6026" class="toc-h2 toc-link" data-title="-6026">-6026</a>
+                  </li>
+                  <li>
+                    <a href="#6027" class="toc-h2 toc-link" data-title="-6027">-6027</a>
+                  </li>
+                  <li>
+                    <a href="#6028" class="toc-h2 toc-link" data-title="-6028">-6028</a>
+                  </li>
+                  <li>
+                    <a href="#6029" class="toc-h2 toc-link" data-title="-6029">-6029</a>
+                  </li>
+                  <li>
+                    <a href="#6030" class="toc-h2 toc-link" data-title="-6030">-6030</a>
+                  </li>
+                  <li>
+                    <a href="#6031" class="toc-h2 toc-link" data-title="-6031">-6031</a>
+                  </li>
+                  <li>
+                    <a href="#6032" class="toc-h2 toc-link" data-title="-6032">-6032</a>
+                  </li>
+                  <li>
+                    <a href="#4000" class="toc-h2 toc-link" data-title="-4000">-4000</a>
+                  </li>
+                  <li>
+                    <a href="#4001" class="toc-h2 toc-link" data-title="-4001">-4001</a>
+                  </li>
+                  <li>
+                    <a href="#4002" class="toc-h2 toc-link" data-title="-4002">-4002</a>
+                  </li>
+                  <li>
+                    <a href="#4003" class="toc-h2 toc-link" data-title="-4003">-4003</a>
+                  </li>
+                  <li>
+                    <a href="#4004" class="toc-h2 toc-link" data-title="-4004">-4004</a>
+                  </li>
+                  <li>
+                    <a href="#4005" class="toc-h2 toc-link" data-title="-4005">-4005</a>
+                  </li>
+                  <li>
+                    <a href="#4006" class="toc-h2 toc-link" data-title="-4006">-4006</a>
+                  </li>
+                  <li>
+                    <a href="#4007" class="toc-h2 toc-link" data-title="-4007">-4007</a>
+                  </li>
+                  <li>
+                    <a href="#4008" class="toc-h2 toc-link" data-title="-4008">-4008</a>
+                  </li>
+                  <li>
+                    <a href="#4009" class="toc-h2 toc-link" data-title="-4009">-4009</a>
+                  </li>
+                  <li>
+                    <a href="#4010" class="toc-h2 toc-link" data-title="-4010">-4010</a>
+                  </li>
+                  <li>
+                    <a href="#4012" class="toc-h2 toc-link" data-title="-4012">-4012</a>
+                  </li>
+                  <li>
+                    <a href="#4013" class="toc-h2 toc-link" data-title="-4013">-4013</a>
+                  </li>
+                  <li>
+                    <a href="#4014" class="toc-h2 toc-link" data-title="-4014">-4014</a>
+                  </li>
+                  <li>
+                    <a href="#4015" class="toc-h2 toc-link" data-title="-4015">-4015</a>
+                  </li>
+                  <li>
+                    <a href="#4016" class="toc-h2 toc-link" data-title="-4016">-4016</a>
+                  </li>
+                  <li>
+                    <a href="#4110" class="toc-h2 toc-link" data-title="-4110">-4110</a>
+                  </li>
+              </ul>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <!---
+Clipboard script
+-->
+
+<script src="../../../dist/clipboard.min-f99f064d.js"></script>
+
+<script>
+var clipboard = new ClipboardJS('.clipboard_button');
+
+clipboard.on('success', function(e) {
+    console.log(e);
+});
+
+clipboard.on('error', function(e) {
+    console.log(e);
+});
+</script>
+<h1 id='t-introduction'>Group And Resources</h1><h5 id='t-intro_para'><p><a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common errors.</p> <p>For further assistance or feedback, please join the <a href="https://t.me/BybitAPI">API Telegram chat</a>! API discussion group on Telegram.</p></h5><h3 id='t-resources'>Group And Bybit API Resources</h3>
+<p><ul class="bybit-community"> <li><img src="../../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/en-US/help-center/?language=en_US"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>Official Python SDK</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman API Collection</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> </ul></p>
+<h1 id='t-changelog'>Changelog</h1><h2 id='2022-06-17'>2022-06-17</h2><h3 id='rest-api'>REST API</h3>
+<ul>
+<li><a href="#t-ltinfos">All Asset Infos</a> (V2 WebSocket) [new]
+
+<ul>
+<li>Add LT All Asset Infos Query</li>
+</ul></li>
+</ul>
+<h2 id='2022-06-10'>2022-06-10</h2><h3 id='websocket-api'>WebSocket API</h3>
+<ul>
+<li><a href="#t-ticketinfo">ticketInfo</a> (V2 WebSocket) [update]
+
+<ul>
+<li>Add <code>S</code> field which indicates the trade side</li>
+</ul></li>
+</ul>
+<h2 id='2022-06-08'>2022-06-08</h2><h3 id='websocket-api-2'>WebSocket API</h3>
+<ul>
+<li><a href="#t-websocketv2depth">depth</a> (V2 WebSocket) [update]
+
+<ul>
+<li>Increase the push frequency from every 250ms (max. 300ms) to every 100ms</li>
+</ul></li>
+</ul>
+<h2 id='2022-06-01'>2022-06-01</h2><h3 id='websocket-api-3'>WebSocket API</h3>
+<ul>
+<li><a href="#t-tradehistory">Trade History</a> [update]
+
+<ul>
+<li>Add new response param <code>ExecutionTime</code> and Update response param <code>time</code></li>
+</ul></li>
+</ul>
+<h2 id='2022-05-20'>2022-05-20</h2><h3 id='rest-api-2'>REST API</h3>
+<ul>
+<li><a href="#t-CrossMarginTrading">Cross Margin Trading Endpoints</a> [new]
+
+<ul>
+<li>Add Cross Margin Trading Endpoints</li>
+</ul></li>
+</ul>
+<h2 id='2022-05-13'>2022-05-13</h2><h3 id='rest-api-3'>REST API</h3>
+<ul>
+<li><a href="#t-spot_querysymbol">Query Symbol</a> [update]
+
+<ul>
+<li>Add new response param <code>innovation</code></li>
+</ul></li>
+</ul>
+<h2 id='2022-04-20'>2022-04-20</h2><h3 id='rest-api-4'>REST API</h3>
+<ul>
+<li><a href="#t-lt">Leveraged Token Endpoints</a> [new]
+
+<ul>
+<li>Add Leveraged Token Endpoints</li>
+</ul></li>
+</ul>
+<h3 id='websocket-api-4'>WebSocket API</h3>
+<ul>
+<li><a href="#t-websocketltnetvalue">lt</a> [new]
+
+<ul>
+<li>Add lt public Topics</li>
+</ul></li>
+</ul>
+<h2 id='2022-04-14'>2022-04-14</h2><h3 id='rest-api-5'>REST API</h3>
+<ul>
+<li><a href="#t-spot_querysymbol">Query Symbol</a> [update]
+
+<ul>
+<li>MaxTradeQty and MaxTradeAmount are ignored when placing LIMIT_MAKER orders</li>
+</ul></li>
+</ul>
+<h2 id='2022-04-13'>2022-04-13</h2><h3 id='rest-api-6'>REST API</h3>
+<ul>
+<li><a href="#t-getactive">Get Active Order</a> [new]
+
+<ul>
+<li>Add response parameter <code>locked</code></li>
+</ul></li>
+</ul>
+<h2 id='2022-03-24'>2022-03-24</h2><h3 id='rest-api-7'>REST API</h3>
+<ul>
+<li><a href="#t-tradehistory">Trade History</a> [new]
+
+<ul>
+<li>Add request parameters <code>fromTicketId</code>, <code>toTicketId</code>, <code>orderId</code></li>
+</ul></li>
+<li><a href="#t-tradehistory">Trade History</a> [abandoned]
+
+<ul>
+<li>Deprecate request parameters <code>fromId</code>, <code>toId</code></li>
+</ul></li>
+</ul>
+<h2 id='2022-03-14'>2022-03-14</h2><h3 id='websocket-api-5'>WebSocket API</h3>
+<ul>
+<li><a href="#t-ticketinfo">ticketInfo</a> [update]
+
+<ul>
+<li>Add <code>m</code> (is maker) to the <code>ticketInfo</code> topic</li>
+</ul></li>
+</ul>
+<h2 id='2021-07-12'>2021-07-12</h2><h3 id='rest-api-8'>REST API</h3>
+<ul>
+<li>Optimize the input and output parameters of some interfaces</li>
+</ul>
+<h2 id='2021-06-17'>2021-06-17</h2><h3 id='rest-api-9'>REST API</h3>
+<ul>
+<li>New add get symbols API. Parameter name for order_link_id updated to orderLinkId</li>
+</ul>
+<h2 id='2021-05-27'>2021-05-27</h2><h3 id='rest-api-10'>REST API</h3>
+<ul>
+<li>New add spot open-api document</li>
+</ul>
+<h1 id='t-authentication'>Authentication</h1>
+<aside class="notice">
+Please visit Bybit's <a href="https://testnet.bybit.com/app/user/api-management"> <b>testnet</b></a> or <a href="https://www.bybit.com/app/user/api-management"> <b>mainnet</b></a> to generate an API key
+</aside>
+
+<aside class="notice">
+REST Base Endpoint:
+ <ul>
+  <p>
+    <li>Testnet:<br/>
+      <span id="testnet">https://api-testnet.bybit.com</span>
+      <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+    </li>
+  </p>
+  <p>
+    <li>Mainnet (please choose one based on your network status):<br/>
+      <span id="mainnet_1">https://api.bybit.com</span>
+      <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_1"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+      <br/>
+      <span id="mainnet_2">https://api.bytick.com</span>
+      <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_2"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+    </li>
+  </p>
+ </ul>
+
+</aside>
+
+<p><p>All requests made to private endpoints must be authenticated. Requests made to public endpoints do not require additional authentication.</p></p>
+<h2 id='t-authenticationparameters'>Parameters for Authenticated Endpoints</h2>
+<p>The following parameters must be used for authentication:
+<ul>
+  <li><b>api_key</b></li>
+  <li><b>timestamp</b> - UTC timestamp in <b>milliseconds</b></li>
+  <li><b>sign</b> - a signature derived from the request's parameters</li>
+</ul>
+</p>
+
+<p><p>We also provide <code>recvWindow</code> (unit in millisecond and default value is 5,000) to specify how long an HTTP request is valid. It is also used to prevent replay attacks.</p>
+<p>A smaller <code>recvWindow</code> is more secure, but your request may fail if the transmission time is greater than your <code>recvWindow</code>.</p>
+<p>Please make sure that your <code>timestamp</code> is in sync with our server time. You can use the <a href=#t-servertime>Server Time</a> endpoint.</p>
+</p>
+
+<aside class="warning">
+Please make sure that the timestamp parameter adheres to the following rule: serverTime - recvWindow <= timestamp < serverTime + 1000; serverTime stands for Bybit server time, which can be queried via the <a href="#t-servertime">Server Time</a> endpoint.
+
+</aside>
+<h2 id='t-constructingtherequest'>Create A Request</h2>
+<blockquote>
+<p>An example for balance query</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">GET
+rule: timestamp + api_key + recv_window + queryString
+
+param_str = "1659072951686T0d98KyVamQ62YBzN85000symbol=BTCUSDT"
+
+POST
+rule: timestamp + api_key + recv_window + raw_request_body
+
+param_str = 
+   "1659073093578T0d98KyVamQ62YBzN85000{
+    "symbol": "BTCUSDT",
+    "orderQty":"0.05",
+    "side": "Sell",
+    "orderType": "LIMITT",
+    "timeInForce": "GTC",
+    "orderPrice": "24500",
+    "orderLinkId": "spotA0008"
+  }"
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+</code></pre></div>
+<blockquote>
+<p>Note how the parameters are ordered in <b>alphabetical</b> order, with api_key first followed by timestamp.</p>
+</blockquote>
+
+<p><p>1. timestamp + api-key + [recv_window] + [queryString(order not needed) | jsonBodyString]</p>
+
+<div></div></p>
+
+<p><p>2. Use the HMAC_SHA256 algorithm to sign the string in step 1, and convert it to a hex string to obtain the sign parameter.</p></p>
+
+<blockquote>
+<p>Different requests need different message formats. Message format for <b>GET</b> requests:
+</p>
+</blockquote>
+<div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/spot/v3/private/open-orders?1659072951686T0d98KyVamQ62YBzN85000symbol=BTCUSDT</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api-testnet.bybit.com</span>
+<span class="s">-H 'X-BAPI-SIGN-TYPE: 2' \</span>
+<span class="s">-H 'X-BAPI-SIGN: eb431d99a1a203a434a82ac3ea8e107b5f94a967e9aaf922c41e84fb3ec9df78' \</span>
+<span class="s">-H 'X-BAPI-API-KEY: {api key}' \</span>
+<span class="s">-H 'X-BAPI-TIMESTAMP: 1658384431891' \</span>
+<span class="s">-H 'X-BAPI-RECV-WINDOW: 5000'</span>
+</code></pre></div>
+<blockquote>
+<p>Message format for <b>POST</b> requests:
+</p>
+</blockquote>
+<div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/spot/v3/private/order</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api-testnet.bybit.com</span>
+<span class="s">-H 'X-BAPI-SIGN-TYPE: 2' \</span>
+<span class="s">-H 'X-BAPI-SIGN: c822337e76e30505e41b87a55af291e074f59f9496ba12ca2a57dc04fe65a178' \</span>
+<span class="s">-H 'X-BAPI-API-KEY: {api key}' \</span>
+<span class="s">-H 'X-BAPI-TIMESTAMP: 1658385589135' \</span>
+<span class="s">-H 'X-BAPI-RECV-WINDOW: 5000' \</span>
+<span class="s">-H 'Content-Type: application/json' \</span>
+<span class="s">-d '{</span>
+<span class="s">    "symbol": "BTCUSDT",</span>
+<span class="s">    "orderQty":"0.05",</span>
+<span class="s">    "side": "Sell",</span>
+<span class="s">    "orderType": "LIMITT",</span>
+<span class="s">    "timeInForce": "GTC",</span>
+<span class="s">    "orderPrice": "24500",</span>
+<span class="s">    "orderLinkId": "spotA0008"</span>
+<span class="s">}'</span>
+</code></pre></div>
+<p><p>3. Append the sign parameter to the end of the parameters string, and send the HTTP request. Note that the message format for GET and POST requests is different. Please refer to the examples.</p></p>
+
+<aside class="notice">
+Examples of signing algorithms can be found <a href="https://github.com/bybit-exchange/api-usage-examples">here</a>.
+</aside>
+
+<!--
+### Examples of the Signature Algorithm
+
+* [C#](https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/example/Encryption.cs)
+* [Python](https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/example/Encryption.py)
+* [C++](https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/example/Encryption.cpp)
+* [Go](https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/example/Encryption.go)
+* [PHP](https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/example/Encryption.php)
+-->
+
+<script>
+function copyStringToClipboard (endpoint) {
+  var str = document.getElementById(endpoint).innerText;
+  // remove whitespace
+  var str = str.replace(/ /g,"");
+  // Create new element
+  var el = document.createElementranslation missing: en.textarea;
+  // Set value (string to be copied)
+  el.value = str;
+  // Set non-editable to avoid focus and move outside of view
+  el.setAttribute("readonly", "");
+  el.style = {position: "absolute", left: "-9999px"};
+  document.body.appendChild(el);
+  // Select text inside element
+  el.select();
+  // Copy text to clipboard
+  document.execCommand("copy");
+  // Remove temporary element
+  document.body.removeChild(el);
+}
+</script>
+<h1 id='t-marketdata'>Market Data Endpoints</h1>
+<p>The following market data endpoints do not require authentication.</p>
+<h3 id='t-getsymbols'>Get All Symbols</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/public/symbols'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">alias</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">baseCoin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">quoteCoin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">basePrecision</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.000001</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">quotePrecision</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000001</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">minTradeQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.000001</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">minTradeAmt</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">maxTradeQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">63.01197227</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">maxTradeAmt</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1000000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">minPricePrecision</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">showStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">innovation</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ETHUSDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">alias</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ETHUSDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">baseCoin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ETH</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">quoteCoin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">basePrecision</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00001</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">quotePrecision</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000001</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">minTradeQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00224</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">minTradeAmt</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">maxTradeQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">100000000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">maxTradeAmt</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">100000000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">minPricePrecision</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">showStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">innovation</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtMap</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659067662931</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=svPostOrder>/spot/v3/public/symbols</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svPostOrder"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">name</td>
+<td style="text-align: left">string</td>
+<td>Name of the trading pair</td>
+</tr>
+<tr>
+<td style="text-align: left">alias</td>
+<td style="text-align: left">string</td>
+<td>Alias</td>
+</tr>
+<tr>
+<td style="text-align: left">baseCoin</td>
+<td style="text-align: left">string</td>
+<td>Base currency</td>
+</tr>
+<tr>
+<td style="text-align: left">quoteCoin</td>
+<td style="text-align: left">string</td>
+<td>Quote currency</td>
+</tr>
+<tr>
+<td style="text-align: left">basePrecision</td>
+<td style="text-align: left">string</td>
+<td>Decimal precision (base currency)</td>
+</tr>
+<tr>
+<td style="text-align: left">quotePrecision</td>
+<td style="text-align: left">string</td>
+<td>Decimal precision (quote currency)</td>
+</tr>
+<tr>
+<td style="text-align: left">minTradeQty</td>
+<td style="text-align: left">string</td>
+<td>Min. order qty (Not valid for market buy orders)</td>
+</tr>
+<tr>
+<td style="text-align: left">minTradeAmt</td>
+<td style="text-align: left">string</td>
+<td>Min. order value (Only valid for market buy orders)</td>
+</tr>
+<tr>
+<td style="text-align: left">minPricePrecision</td>
+<td style="text-align: left">string</td>
+<td>Min. number of decimal places</td>
+</tr>
+<tr>
+<td style="text-align: left">maxTradeQty</td>
+<td style="text-align: left">string</td>
+<td>Max. order qty (It is ignored when you place an order with order type LIMIT_MAKER)</td>
+</tr>
+<tr>
+<td style="text-align: left">maxTradeAmt</td>
+<td style="text-align: left">string</td>
+<td>Max. order value (It is ignored when you place an order with order type LIMIT_MAKER)</td>
+</tr>
+<tr>
+<td style="text-align: left">category</td>
+<td style="text-align: left">string</td>
+<td>Category</td>
+</tr>
+<tr>
+<td style="text-align: left">innovation</td>
+<td style="text-align: left">string</td>
+<td><code>1</code> indicates that the price of this currency is relatively volatile</td>
+</tr>
+<tr>
+<td style="text-align: left">showStatus</td>
+<td style="text-align: left">string</td>
+<td><code>1</code> indicates that the symbol open for trading</td>
+</tr>
+</tbody></table>
+<h1 id='t-accountdata'>Account Data Endpoints</h1>
+<p>The following account data endpoints require authentication.</p>
+<h3 id='t-placeactive'>Place Active Order</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/spot/v3/private/order' \
+--header 'X-BAPI-SIGN: cc63fb44be4a87f4b7bbd42db012ddacc1c935c3d3ae3e01c3b4be393522c213' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1659067662307' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'X-BAPI-SIGN: cc63fb44be4a87f4b7bbd42db012ddacc1c935c3d3ae3e01c3b4be393522c213' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "symbol": "BTCUSDT",
+    "orderQty":"0.05",
+    "side": "Sell",
+    "orderType": "LIMIT",
+    "timeInForce": "GTC",
+    "orderPrice": "24500",
+    "orderLinkId": "spotA0008"
+}'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1210808889719664384</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">spotA0009</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">createTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1659075667525</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">24500</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.05</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LIMIT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SELL</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">NEW</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GTC</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">accountId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">533287</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">execQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtMap</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659075667539</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>POST
+<code><span id=svPostOrder>/spot/v3/private/order</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svPostOrder"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Name of the trading pair</td>
+</tr>
+<tr>
+<td style="text-align: left">orderQty</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Order quantity (<b>for market orders: when <code>side</code> is <code>Buy</code>, this is in the quote currency. Otherwise, qty is in the base currency. For example, on BTCUSDT a <code>Buy</code> order is in USDT, otherwise it's in BTC.</b> For limit orders, the qty is always in the base currency.)
+</td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Side. <code>BUY</code>, <code>SELL</code></td>
+</tr>
+<tr>
+<td style="text-align: left">orderType</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Order type</td>
+</tr>
+<tr>
+<td style="text-align: left">timeInForce</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td><a href="https://www.bybit.com/en-US/help-center/bybitHC_Article?language=en_US&id=000001044">Time in force</a></td>
+</tr>
+<tr>
+<td style="text-align: left">orderPrice</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Order price. When the type field is MARKET, the price field is optional. When the type field is LIMIT or LIMIT_MAKER, the price field is required</td>
+</tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>User-generated order ID</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">string</td>
+<td>Order ID</td>
+</tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">string</td>
+<td>User-generated order ID</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>Name of the trading pair</td>
+</tr>
+<tr>
+<td style="text-align: left">createTime</td>
+<td style="text-align: left">string</td>
+<td>Order Creation Time</td>
+</tr>
+<tr>
+<td style="text-align: left">orderPrice</td>
+<td style="text-align: left">string</td>
+<td>Last traded price</td>
+</tr>
+<tr>
+<td style="text-align: left">orderQty</td>
+<td style="text-align: left">string</td>
+<td>Order quantity</td>
+</tr>
+<tr>
+<td style="text-align: left">orderType</td>
+<td style="text-align: left">string</td>
+<td>Order type</td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">string</td>
+<td>Side. <code>BUY</code>, <code>SELL</code></td>
+</tr>
+<tr>
+<td style="text-align: left">status</td>
+<td style="text-align: left">string</td>
+<td>Order status</td>
+</tr>
+<tr>
+<td style="text-align: left">timeInForce</td>
+<td style="text-align: left">string</td>
+<td><a href="https://www.bybit.com/en-US/help-center/bybitHC_Article?language=en_US&id=000001044">Time in force</a></td>
+</tr>
+<tr>
+<td style="text-align: left">accountId</td>
+<td style="text-align: left">string</td>
+<td>Account ID</td>
+</tr>
+<tr>
+<td style="text-align: left">execQty</td>
+<td style="text-align: left">string</td>
+<td>Please ignore</td>
+</tr>
+</tbody></table>
+<h3 id='t-getactive'>Get Active Order</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/private/order?orderLinkId=spotA0010' \
+--header 'X-BAPI-SIGN: 828571067751622ed4191e7e8ee913defccd1f099b9dfb8332a6a05edf799eaf' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1659076396894' \
+--header 'X-BAPI-RECV-WINDOW: 5000'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">accountId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">533287</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">spotA0010</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1210810256551063296</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">23500</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">execQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">cummulativeQuoteQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">avgPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">NEW</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GTC</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LIMIT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SELL</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">stopPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">icebergQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">createTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1659075830464</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">updateTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1659075830497</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">isWorking</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">locked</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtMap</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659076397365</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=svGetOrder>/spot/v3/private/order</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svGetOrder"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Order ID. <b>Required</b> if not passing <code>orderLinkId</code></td>
+</tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Unique user-set order ID. <b>Required</b> if not passing <code>orderId</code></td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">accountId</td>
+<td style="text-align: left">string</td>
+<td>Account ID</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>Name of the trading pair</td>
+</tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">string</td>
+<td>User-generated order ID</td>
+</tr>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">string</td>
+<td>Order ID</td>
+</tr>
+<tr>
+<td style="text-align: left">orderPrice</td>
+<td style="text-align: left">string</td>
+<td>Order price</td>
+</tr>
+<tr>
+<td style="text-align: left">orderQty</td>
+<td style="text-align: left">string</td>
+<td>Order quantity</td>
+</tr>
+<tr>
+<td style="text-align: left">execQty</td>
+<td style="text-align: left">string</td>
+<td>Executed quantity</td>
+</tr>
+<tr>
+<td style="text-align: left">cummulativeQuoteQty</td>
+<td style="text-align: left">string</td>
+<td>Total order quantity. For some historical data, it might less than 0, and that means it is not applicable</td>
+</tr>
+<tr>
+<td style="text-align: left">avgPrice</td>
+<td style="text-align: left">string</td>
+<td>Average filled price</td>
+</tr>
+<tr>
+<td style="text-align: left">status</td>
+<td style="text-align: left">string</td>
+<td>Order status</td>
+</tr>
+<tr>
+<td style="text-align: left">timeInForce</td>
+<td style="text-align: left">string</td>
+<td><a href="https://www.bybit.com/en-US/help-center/bybitHC_Article?language=en_US&id=000001044">Time in force</a></td>
+</tr>
+<tr>
+<td style="text-align: left">orderType</td>
+<td style="text-align: left">string</td>
+<td>Order type</td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">string</td>
+<td>Order direction</td>
+</tr>
+<tr>
+<td style="text-align: left">stopPrice</td>
+<td style="text-align: left">string</td>
+<td>Stop price</td>
+</tr>
+<tr>
+<td style="text-align: left">icebergQty</td>
+<td style="text-align: left">string</td>
+<td>Please ignore</td>
+</tr>
+<tr>
+<td style="text-align: left">createTime</td>
+<td style="text-align: left">string</td>
+<td>Order created time in the match engine</td>
+</tr>
+<tr>
+<td style="text-align: left">updateTime</td>
+<td style="text-align: left">string</td>
+<td>Last time order was updated</td>
+</tr>
+<tr>
+<td style="text-align: left">isWorking</td>
+<td style="text-align: left">string</td>
+<td>Is working. <code>0</code>：valid, <code>1</code>：invalid</td>
+</tr>
+<tr>
+<td style="text-align: left">locked</td>
+<td style="text-align: left">string</td>
+<td>Reserved for order (if it's 0, it means that the funds corresponding to the order have been settled)</td>
+</tr>
+</tbody></table>
+<h3 id='t-cancelactive'>Cancel Active Order</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/spot/v3/private/cancel-order' \
+--header 'X-BAPI-SIGN: 2cdc75a6be90f2a3d70875595c289b6342ff55021a26d9fecf988a8f78266ccc' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1659078017415' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "orderId": "1210810256551063296",
+    "orderLinkId": null
+}'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1210810256551063296</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">spotA0010</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">CANCELED</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">accountId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">533287</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">createTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1659075830464</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">23500</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">execQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GTC</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LIMIT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SELL</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtMap</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659078151226</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>POST
+<code><span id=svDeleteOrder>/spot/v3/private/cancel-order</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svDeleteOrder"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Order ID. <b>Required</b> if not passing <code>orderLinkId</code></td>
+</tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Unique user-set order ID. <b>Required</b> if not passing <code>orderId</code></td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">string</td>
+<td>Order ID</td>
+</tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">string</td>
+<td>User-generated order ID</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>Name of the trading pair</td>
+</tr>
+<tr>
+<td style="text-align: left">status</td>
+<td style="text-align: left">string</td>
+<td>Order status</td>
+</tr>
+<tr>
+<td style="text-align: left">accountId</td>
+<td style="text-align: left">string</td>
+<td>Account ID</td>
+</tr>
+<tr>
+<td style="text-align: left">orderPrice</td>
+<td style="text-align: left">string</td>
+<td>Order price</td>
+</tr>
+<tr>
+<td style="text-align: left">createTime</td>
+<td style="text-align: left">string</td>
+<td>Order Creation Time</td>
+</tr>
+<tr>
+<td style="text-align: left">orderQty</td>
+<td style="text-align: left">string</td>
+<td>Order quantity</td>
+</tr>
+<tr>
+<td style="text-align: left">execQty</td>
+<td style="text-align: left">string</td>
+<td>Executed quantity</td>
+</tr>
+<tr>
+<td style="text-align: left">timeInForce</td>
+<td style="text-align: left">string</td>
+<td><a href="https://www.bybit.com/en-US/help-center/bybitHC_Article?language=en_US&id=000001044">Time in force</a></td>
+</tr>
+<tr>
+<td style="text-align: left">orderType</td>
+<td style="text-align: left">string</td>
+<td>Order type</td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">string</td>
+<td>Side. <code>BUY</code>, <code>SELL</code></td>
+</tr>
+</tbody></table>
+<h3 id='t-batchcancelactiveorder'>Batch Cancel Active Order</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/spot/v3/private/cancel-orders' \
+--header 'X-BAPI-SIGN: bd24c37216d90bd76214a7e22638e6a0bc9d8f7ec74218e79c3f6f90e8c56b8e' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1659078150737' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "symbol": "BTCUSDT",
+    "side": "Buy",
+    "orderTypes": "LIMIT,LIMIT_MAKER"
+}'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659080154042</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>POST
+<code><span id=soBatchCancel>/spot/v3/private/cancel-orders</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#soBatchCancel"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Name of the trading pair</td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Side. <code>BUY</code>, <code>SELL</code></td>
+</tr>
+<tr>
+<td style="text-align: left">orderTypes</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Order type. <code>LIMIT</code> in default. It allows multiple types, separated by comma, e.a LIMIT,LIMIT_MAKER</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">success</td>
+<td style="text-align: left">string</td>
+<td>Batch cancel successfully or not. <code>0</code>：fail, <code>1</code>：success</td>
+</tr>
+</tbody></table>
+<h3 id='t-batchcancelactiveorderbyids'>Batch Cancel Active Order By IDs</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/spot/v3/private/cancel-orders-by-ids' \
+--header 'X-BAPI-SIGN: 84cc9b260300c2fd8b378e8acd1254902b341e4c3ea3a462c7440265245a52e8' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1659080877551' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "orderIds": "1210851823244553984,1210852013162639104"
+}'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659080815222</span>
+<span class="p">}</span>
+
+<span class="c1">// Response for failing to cancel 1 or more orders</span>
+
+<span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+          <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:[</span>
+        <span class="p">{</span>
+          <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">889208273689997824</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1139</span><span class="dl">"</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span><span class="mi">1234567</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>POST
+<code><span id=soBatchCancelIds>/spot/v3/private/cancel-orders-by-ids</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#soBatchCancelIds"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderIds</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Order ID, use commas to indicate multiple orderIds. Maximum of 100 ids.</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">list&gt; orderId</td>
+<td style="text-align: left">string</td>
+<td>Order ID</td>
+</tr>
+<tr>
+<td style="text-align: left">list&gt; code</td>
+<td style="text-align: left">string</td>
+<td>Errors</td>
+</tr>
+</tbody></table>
+<h3 id='t-openorders'>Open Orders</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/private/open-orders?symbol=BTCUSDT' \
+--header 'X-BAPI-SIGN: e28768ea749013bbd0eb38edf78e1cac187d3018e4807859a84a37cf52feb5c0' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1659081676022' \
+--header 'X-BAPI-RECV-WINDOW: 5000'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">accountId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">533287</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">spotx004</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1210858291884732160</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">23500</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.02</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">execQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cummulativeQuoteQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">avgPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">NEW</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LIMIT_MAKER</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SELL</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">stopPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">icebergQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">createTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659081556722</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">updateTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659081556740</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">isWorking</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659081570356</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=svOpenOrders>/spot/v3/private/open-orders</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svOpenOrders"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Name of the trading pair</td>
+</tr>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Specify orderId to return all the orders that orderId of which are smaller than this particular one for pagination purpose</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Default value is 500, max 500</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">accountId</td>
+<td style="text-align: left">string</td>
+<td>Account ID</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>Name of the trading pair</td>
+</tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">string</td>
+<td>User-generated order ID</td>
+</tr>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">string</td>
+<td>Order ID</td>
+</tr>
+<tr>
+<td style="text-align: left">orderPrice</td>
+<td style="text-align: left">string</td>
+<td>Order price</td>
+</tr>
+<tr>
+<td style="text-align: left">orderQty</td>
+<td style="text-align: left">string</td>
+<td>Order quantity</td>
+</tr>
+<tr>
+<td style="text-align: left">execQty</td>
+<td style="text-align: left">string</td>
+<td>Executed quantity</td>
+</tr>
+<tr>
+<td style="text-align: left">cummulativeQuoteQty</td>
+<td style="text-align: left">string</td>
+<td>Total order quantity. For some historical data, it might less than 0, and that means it is not applicable</td>
+</tr>
+<tr>
+<td style="text-align: left">avgPrice</td>
+<td style="text-align: left">string</td>
+<td>Average filled price</td>
+</tr>
+<tr>
+<td style="text-align: left">status</td>
+<td style="text-align: left">string</td>
+<td>Order status</td>
+</tr>
+<tr>
+<td style="text-align: left">timeInForce</td>
+<td style="text-align: left">string</td>
+<td><a href="https://www.bybit.com/en-US/help-center/bybitHC_Article?language=en_US&id=000001044">Time in force</a></td>
+</tr>
+<tr>
+<td style="text-align: left">orderType</td>
+<td style="text-align: left">string</td>
+<td>Order type</td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">string</td>
+<td>Side. <code>BUY</code>, <code>SELL</code></td>
+</tr>
+<tr>
+<td style="text-align: left">stopPrice</td>
+<td style="text-align: left">string</td>
+<td>Stop price</td>
+</tr>
+<tr>
+<td style="text-align: left">icebergQty</td>
+<td style="text-align: left">string</td>
+<td>Please ignore</td>
+</tr>
+<tr>
+<td style="text-align: left">createTime</td>
+<td style="text-align: left">string</td>
+<td>Order created time in the match engine</td>
+</tr>
+<tr>
+<td style="text-align: left">updateTime</td>
+<td style="text-align: left">string</td>
+<td>Last time order was updated</td>
+</tr>
+<tr>
+<td style="text-align: left">isWorking</td>
+<td style="text-align: left">string</td>
+<td>Is working. <code>0</code>：valid, <code>1</code>：invalid</td>
+</tr>
+</tbody></table>
+<h3 id='t-orderhistory'>Order History</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/private/history-orders?symbol=BTCUSDT&amp;limit=2&amp;startTime=1658246400000&amp;endTime=1659110400000' \
+--header 'X-BAPI-SIGN: 1e18efe3e2c96df191c84d86b8a4d695184ea5fe64aa21062fa15e8464caeca0' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1659082629976' \
+--header 'X-BAPI-RECV-WINDOW: 5000'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">accountId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">533287</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">spotx003</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1210856408331857664</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">23800</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.02</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">execQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cummulativeQuoteQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">avgPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">REJECTED</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LIMIT_MAKER</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BUY</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">stopPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">icebergQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">createTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659081332185</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">updateTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659081332225</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">isWorking</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">accountId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">533287</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">spotx002</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1210852013162639104</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">23800</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.05</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">execQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cummulativeQuoteQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">avgPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">CANCELED</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LIMIT_MAKER</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SELL</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">stopPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">icebergQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">createTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659080808240</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">updateTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659080815265</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">isWorking</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659082630638</span>
+<span class="p">}</span>
+</code></pre></div>
+<aside class="notice">
+If <code>startTime</code> is not specified, you can only query the recent orders records in reverse order by time.
+</aside>
+
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=svHistoryOrders>/spot/v3/private/history-orders</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svHistoryOrders"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Name of the trading pair</td>
+</tr>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Specify orderId to return all the orders that orderId of which are smaller than this particular one for pagination purpose</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Default value is 500, max 500</td>
+</tr>
+<tr>
+<td style="text-align: left">startTime</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">int</td>
+<td>Start time, unit in millisecond</td>
+</tr>
+<tr>
+<td style="text-align: left">endTime</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">int</td>
+<td>End time, unit in millisecond</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">accountId</td>
+<td style="text-align: left">string</td>
+<td>Account ID</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>Name of the trading pair</td>
+</tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">string</td>
+<td>User-generated order ID</td>
+</tr>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">string</td>
+<td>Order ID</td>
+</tr>
+<tr>
+<td style="text-align: left">orderPrice</td>
+<td style="text-align: left">string</td>
+<td>Last traded price</td>
+</tr>
+<tr>
+<td style="text-align: left">orderQty</td>
+<td style="text-align: left">string</td>
+<td>Order quantity</td>
+</tr>
+<tr>
+<td style="text-align: left">execQty</td>
+<td style="text-align: left">string</td>
+<td>Executed quantity</td>
+</tr>
+<tr>
+<td style="text-align: left">cummulativeQuoteQty</td>
+<td style="text-align: left">string</td>
+<td>Total order quantity</td>
+</tr>
+<tr>
+<td style="text-align: left">avgPrice</td>
+<td style="text-align: left">string</td>
+<td>Average filled price</td>
+</tr>
+<tr>
+<td style="text-align: left">status</td>
+<td style="text-align: left">string</td>
+<td>Order status</td>
+</tr>
+<tr>
+<td style="text-align: left">timeInForce</td>
+<td style="text-align: left">string</td>
+<td><a href="https://www.bybit.com/en-US/help-center/bybitHC_Article?language=en_US&id=000001044">Time in force</a></td>
+</tr>
+<tr>
+<td style="text-align: left">orderType</td>
+<td style="text-align: left">string</td>
+<td>Order type</td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">string</td>
+<td>Side. <code>BUY</code>, <code>SELL</code></td>
+</tr>
+<tr>
+<td style="text-align: left">stopPrice</td>
+<td style="text-align: left">string</td>
+<td>Stop price</td>
+</tr>
+<tr>
+<td style="text-align: left">icebergQty</td>
+<td style="text-align: left">string</td>
+<td>Please ignore</td>
+</tr>
+<tr>
+<td style="text-align: left">createTime</td>
+<td style="text-align: left">string</td>
+<td>Order created time in the match engine</td>
+</tr>
+<tr>
+<td style="text-align: left">updateTime</td>
+<td style="text-align: left">string</td>
+<td>Last time order was updated</td>
+</tr>
+<tr>
+<td style="text-align: left">isWorking</td>
+<td style="text-align: left">string</td>
+<td>Is working. <code>0</code>：valid, <code>1</code>：invalid</td>
+</tr>
+</tbody></table>
+<h3 id='t-tradehistory'>Trade History</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/private/my-trades?symbol=BTCUSDT' \
+--header 'X-BAPI-SIGN: 9f1c84cfd13cb470d4f0ffb2463f30bf19fe2c0079d0ee5e42c7ca9d0441876d' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1659084253772' \
+--header 'X-BAPI-RECV-WINDOW: 5000'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1210346127973428992</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1210073515485572864</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">tradeId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2100000000001769786</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">20500</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.02</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">execFee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00002</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">feeTokenId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">creatTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1659020488738</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">isBuyer</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">isMaker</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">matchOrderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1210346015893229312</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">makerRebate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">executionTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1659020502026</span><span class="dl">"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1208702504949264128</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1208702504731160320</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">tradeId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2100000000001753197</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">20240</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.009881</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">execFee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.000009881</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">feeTokenId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">creatTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1658824566874</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">isBuyer</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">isMaker</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">matchOrderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1208677465155702529</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">makerRebate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">executionTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1658824566893</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtMap</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659084254366</span>
+<span class="p">}</span>
+</code></pre></div>
+<aside class="notice">
+If <code>startTime</code> is not specified, you can only query for records in the last 7 days. If you want to query for records older than 7 days, <code>startTime</code> is required.
+</aside>
+
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=svMyTrades>/spot/v3/private/my-trades</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svMyTrades"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Name of the trading pair</td>
+</tr>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Order ID</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Default value is 50, max 50</td>
+</tr>
+<tr>
+<td style="text-align: left">startTime</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">int</td>
+<td>Start time, unit in millisecond</td>
+</tr>
+<tr>
+<td style="text-align: left">endTime</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">int</td>
+<td>End time, unit in millisecond</td>
+</tr>
+<tr>
+<td style="text-align: left">fromTradeId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Query greater than the trade ID. (fromTicketId < trade ID)</td>
+</tr>
+<tr>
+<td style="text-align: left">toTradeId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Query smaller than the trade ID. (trade ID < toTicketId)</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>Name of the trading pair</td>
+</tr>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: left">string</td>
+<td>Irrelevant for API usage. This field reflects the "Transaction ID" from the <a href="https://www.bybit.com/user/assets/order/spot-history/active">Trade History</a> section of the website</td>
+</tr>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">string</td>
+<td>Order ID</td>
+</tr>
+<tr>
+<td style="text-align: left">tradeId</td>
+<td style="text-align: left">string</td>
+<td>The ID for the trade</td>
+</tr>
+<tr>
+<td style="text-align: left">orderPrice</td>
+<td style="text-align: left">string</td>
+<td>Last traded price</td>
+</tr>
+<tr>
+<td style="text-align: left">orderQty</td>
+<td style="text-align: left">string</td>
+<td>Order quantity</td>
+</tr>
+<tr>
+<td style="text-align: left">execFee</td>
+<td style="text-align: left">string</td>
+<td>Trading fee (for a single fill)</td>
+</tr>
+<tr>
+<td style="text-align: left">feeTokenId</td>
+<td style="text-align: left">string</td>
+<td>Fee Token ID</td>
+</tr>
+<tr>
+<td style="text-align: left">creatTime</td>
+<td style="text-align: left">string</td>
+<td>Order created time in the match engine</td>
+</tr>
+<tr>
+<td style="text-align: left">isBuyer</td>
+<td style="text-align: left">string</td>
+<td><code>0</code>：Buyer, <code>1</code>：Seller</td>
+</tr>
+<tr>
+<td style="text-align: left">isMaker</td>
+<td style="text-align: left">string</td>
+<td><code>0</code>：Maker, <code>1</code>：Taker</td>
+</tr>
+<tr>
+<td style="text-align: left">matchOrderId</td>
+<td style="text-align: left">string</td>
+<td>Order ID of the opponent trader</td>
+</tr>
+<tr>
+<td style="text-align: left">makerRebate</td>
+<td style="text-align: left">string</td>
+<td>Maker rebate</td>
+</tr>
+<tr>
+<td style="text-align: left">executionTime</td>
+<td style="text-align: left">string</td>
+<td>Order execution time</td>
+</tr>
+</tbody></table>
+<h1 id='t-wallet'>Wallet Data Endpoints</h1>
+<p>The following wallet data endpoints require authentication.</p>
+<h2 id='t-balance'>Get Wallet Balance</h2>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/private/account' \
+--header 'X-BAPI-SIGN: 6f5c1a9543ea9033013b4ec0a6d05a74e2d05d109c60ad464ab7f9c6e86ad0d4' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1659346886605' \
+--header 'X-BAPI-RECV-WINDOW: 5000'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
+</code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">balances</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">coinId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">total</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.20378018343</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">free</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.20378018343</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">locked</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC3L</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">coinId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC3L</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">total</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">743.03560386</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">free</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">743.03560386</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">locked</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC3S</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">coinId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC3S</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">total</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.999</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">free</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.999</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">locked</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtMap</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659346887407</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=svAccount>/spot/v3/private/account</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svAccount"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">coin</td>
+<td style="text-align: left">string</td>
+<td>Asset</td>
+</tr>
+<tr>
+<td style="text-align: left">coinId</td>
+<td style="text-align: left">string</td>
+<td>Asset</td>
+</tr>
+<tr>
+<td style="text-align: left">total</td>
+<td style="text-align: left">string</td>
+<td>Total equity</td>
+</tr>
+<tr>
+<td style="text-align: left">free</td>
+<td style="text-align: left">string</td>
+<td>Available balance</td>
+</tr>
+<tr>
+<td style="text-align: left">locked</td>
+<td style="text-align: left">string</td>
+<td>Reserved for orders</td>
+</tr>
+</tbody></table>
+<h1 id='t-api'>API Data Endpoints</h1>
+<p>The following API data endpoints do not require authentication.</p>
+<h3 id='t-servertime'>Server Time</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/spot/v3/public/server-time
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">spot</span>
+<span class="n">session_unauth</span> <span class="o">=</span> <span class="n">spot</span><span class="p">.</span><span class="n">HTTP</span><span class="p">(</span>
+    <span class="n">endpoint</span><span class="o">=</span><span class="s">"https://api-testnet.bybit.com"</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session_unauth</span><span class="p">.</span><span class="n">server_time</span><span class="p">())</span>
+</code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">serverTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1625799317787</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span><span class="mi">123456</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Get Bybit server time.</p>
+
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=vpTime>/spot/v3/public/server-time</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpTime"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">serverTime</td>
+<td style="text-align: left">string</td>
+<td>Bybit server time</td>
+</tr>
+</tbody></table>
+<h1 id='t-enums'>Enums Definitions</h1>
+<p>The following lists enumerator names for the request and response parameters of each endpoint.</p>
+<h2 id='side-side'>Side (<code>side</code>)</h2>
+<ul>
+<li><code>Buy</code></li>
+<li><code>Sell</code></li>
+</ul>
+<h2 id='time-in-force-timeinforce'>Time in force (<code>timeInForce</code>)</h2>
+<ul>
+<li><code>GTC</code> - Good Till Canceled</li>
+<li><code>FOK</code> - Fill or Kill</li>
+<li><code>IOC</code> - Immediate or Cancel</li>
+</ul>
+<h2 id='symbol-symbol'>Symbol (<code>symbol</code>)</h2>
+<ul>
+<li><code>BTCUSDT</code></li>
+<li><code>ETHUSDT</code></li>
+<li>...</li>
+</ul>
+
+<p>You can get all symbols with the <a href="#t-spot_querysymbol">Query Symbol</a> endpoint.</p>
+<h2 id='order-type-type-ordertypes'>Order type (<code>type</code>/<code>orderTypes</code>)</h2>
+<ul>
+<li><code>LIMIT</code></li>
+<li><code>MARKET</code></li>
+<li><code>LIMIT_MAKER</code></li>
+</ul>
+<h2 id='currency-currency-coin'>Currency (<code>currency</code>/<code>coin</code>)</h2>
+<ul>
+<li><code>BTC</code></li>
+<li><code>ETH</code></li>
+<li><code>EOS</code></li>
+<li><code>XRP</code></li>
+<li><code>USDT</code></li>
+</ul>
+
+<p>The transfer API also includes:</p>
+
+<ul>
+<li><code>DOT</code></li>
+<li><code>DOGE</code></li>
+<li><code>LTC</code></li>
+<li><code>XLM</code></li>
+<li><code>USD</code></li>
+</ul>
+<h2 id='order-status-status'>Order status (<code>status</code>)</h2>
+<ul>
+<li><code>NEW</code></li>
+<li><code>PARTIALLY_FILLED</code></li>
+<li><code>FILLED</code></li>
+<li><code>CANCELED</code></li>
+<li><code>PENDING_CANCEL</code></li>
+<li><code>PENDING_NEW</code></li>
+<li><code>REJECTED</code></li>
+</ul>
+<h2 id='quantity-qty'>Quantity (<code>qty</code>)</h2>
+<p><ul>
+<li>The maximum qty for an order (<code>max_trading_qty</code>) can be queried with the <a href="#t-querysymbol">Query Symbol endpoint</a>.</li>
+<li>Must be a positive integer
+<li>Must conform to the symbol's <code>qty_step</code>. For example, for the inverse perpetual BTCUSD market:</li>
+<ul>
+<li><code>40</code> - allowed</li>
+<li><code>30.5</code> - not allowed</li>
+</ul>
+</ul>
+</p>
+<h2 id='price-price'>Price (<code>price</code>)</h2>
+<p><ul>
+<li>Active order<ul>
+<li>Must be an integral multiple of <code>tick_size</code><ul>
+<li>Information about current trading pair (e.g. <code>tick_size</code>) can be queried with the <a href="#t-querysymbol">Query Symbol endpoint</a>.</li>
+<li>Modulo (<code>%</code>) can be used to calculate whether the price will be accepted:<pre class="center-column">
+IF price % tick_size = 0
+    // send request
+ELSE
+    // do not send request as the price will not be accepted by the system
+</pre></li>
+</ul>
+</li>
+<li>Must be less than the symbol's <code>max_price</code></li>
+<li>If the user has no open position, the order price must be higher than 10% of the last traded price<ul>
+<li>For example, if the last traded price (last price) is <code>10314</code>, the min. order price will be <code>1031.5</code>.</li>
+<li>Pseudocode (assuming the price is a multiple of 0.5):<pre class="center-column">
+IF price > (last_price * 0.1)
+    // send request
+ELSE
+    // do not send request as the price will not be accepted by the system
+</pre></li>
+</ul>
+</li>
+<li>If the user has an open position, the order price must be better than the liquidation price.<ul>
+<li>For example, if the liquidation price of a long position is <code>5176.5</code>, the min. order price will be <code>5177</code>. For short position, the order price must be less than the liquidation price.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Conditional order<ul>
+<li>Must be greater than or equal to <code>1</code></li>
+</ul>
+</li>
+</ul>
+</p>
+<h2 id='time-in-force-time_in_force'>Time in force (<code>time_in_force</code>)</h2>
+<ul>
+<li><code>GTC</code> </li>
+<li><code>IOC</code> </li>
+<li><code>FOK</code> </li>
+</ul>
+<h2 id='kline-interval-interval'>Kline interval (<code>interval</code>)</h2>
+<ul>
+<li><code>1m</code> - 1 minute</li>
+<li><code>3m</code> - 3 minutes</li>
+<li><code>5m</code> - 5 minutes</li>
+<li><code>15m</code> - 15 minutes</li>
+<li><code>30m</code> - 30 minutes</li>
+<li><code>1h</code> - 1 hour</li>
+<li><code>2h</code> - 2 hours</li>
+<li><code>4h</code> - 4 hours</li>
+<li><code>6h</code> - 6 hours</li>
+<li><code>12h</code> - 12 hours</li>
+<li><code>1d</code> - 1 day</li>
+<li><code>1w</code> - 1 week</li>
+<li><code>1M</code> - 1 month</li>
+</ul>
+<h2 id='lt-status-status'>LT status (<code>status</code>)</h2>
+<ul>
+<li><code>1</code> - ETP can be purchased and redeemed</li>
+<li><code>2</code> - ETP can be purchased, but not redeemed</li>
+<li><code>3</code> - ETP can be redeemed, but not purchased</li>
+<li><code>4</code> - ETP cannot be purchased nor redeemed</li>
+</ul>
+<h2 id='lt-order-status-orderstatus'>LT order status (<code>orderStatus</code>)</h2>
+<ul>
+<li><code>1</code> - Completed</li>
+<li><code>2</code> - In progress</li>
+<li><code>3</code> - Failed</li>
+</ul>
+<h2 id='lt-order-type-ordertype'>LT order type (<code>orderType</code>)</h2>
+<ul>
+<li><code>1</code> - Purchase</li>
+<li><code>2</code> - Redemption</li>
+</ul>
+<h1 id='t-errors'>Errors</h1>
+<p>The Bybit API uses the following HTTP codes and error codes<span>:</span></p>
+
+<table><thead>
+<tr>
+<th>HTTP Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Request is valid</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Access denied</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Request path not found</td>
+</tr>
+</tbody></table>
+<h2 id='1000'>-1000</h2>
+<p>An unknown error occurred while processing the request.</p>
+<h2 id='1001'>-1001</h2>
+<p>Request failed to be processed. Please try again.</p>
+<h2 id='1002'>-1002</h2>
+<p>Request not authorized. An API key is required and should be included in all requests.</p>
+<h2 id='1003'>-1003</h2>
+<p>Too many requests. Please use WebSocket for live updates. Current limit is %s requests per minute.</p>
+<h2 id='1004'>-1004</h2>
+<p>Missing required parameter <code>symbol</code>. Content-Type has been configured to application/json; params in JSON format.</p>
+<h2 id='1006'>-1006</h2>
+<p>System not responding. Request status unknown. Please contact live support.</p>
+<h2 id='1007'>-1007</h2>
+<p>Response timeout from backend server. Delivery and request status unknown.</p>
+<h2 id='1014'>-1014</h2>
+<p>Trading pairs not supported.</p>
+<h2 id='1015'>-1015</h2>
+<p>Too many new orders. Please lower request frequency.</p>
+<h2 id='1016'>-1016</h2>
+<p>Service not available.</p>
+<h2 id='1021'>-1021</h2>
+<p>Timestamp for the request is outside of the recvWindow. The timestamp of this request is 1000 milliseconds ahead of the server time. Please check local time and server time.</p>
+<h2 id='1022'>-1022</h2>
+<p>Signature for this request is not valid. Check the content-type and try without content-type. If symbol is set to BTC/USDT instead of BTCUSDT this error can ocur. The slash would not be urlencoded before the signature, but it would be after, resulting in mismatching param str.</p>
+<h2 id='1032'>-1032</h2>
+<p>Parameter format error</p>
+<h2 id='1100'>-1100</h2>
+<p>Parameter characters not supported.</p>
+<h2 id='1101'>-1101</h2>
+<p>Too many parameters sent for this endpoint.</p>
+<h2 id='1102'>-1102</h2>
+<p>Required parameter not sent. Parameter was empty/null or format was incorrect.</p>
+<h2 id='1103'>-1103</h2>
+<p>An unknown parameter was sent. For POST request - No content-type specified, should change to application/x-www-form-urlencoded or make sure the query string is in the full request URL. For DELETE request, make sure your parameters are in query string format and the query string is in the full request URL. For GET request - Don't set Content-Type to "application/json". "Spot" permission not enabled when creating the API key.</p>
+<h2 id='1104'>-1104</h2>
+<p>Not all parameters sent were read.</p>
+<h2 id='1105'>-1105</h2>
+<p>Empty parameter.</p>
+<h2 id='1106'>-1106</h2>
+<p>Parameter was sent when no longer required.</p>
+<h2 id='1111'>-1111</h2>
+<p>Order price exceeded upper limit.</p>
+<h2 id='1112'>-1112</h2>
+<p>Trading pair does not exist.</p>
+<h2 id='1114'>-1114</h2>
+<p>TimeInForce parameter sent when not required.</p>
+<h2 id='1115'>-1115</h2>
+<p>Invalid timeInForce.</p>
+<h2 id='1116'>-1116</h2>
+<p>Invalid orderType.</p>
+<h2 id='1117'>-1117</h2>
+<p>Invalid direction.</p>
+<h2 id='1118'>-1118</h2>
+<p>User-generated order ID was empty.</p>
+<h2 id='1119'>-1119</h2>
+<p>User-generated order ID was empty.</p>
+<h2 id='1120'>-1120</h2>
+<p>Invalid interval.</p>
+<h2 id='1121'>-1121</h2>
+<p>Invalid symbol.</p>
+<h2 id='1125'>-1125</h2>
+<p>listenKey does not exist.</p>
+<h2 id='1127'>-1127</h2>
+<p>Query intervals too large.</p>
+<h2 id='1128'>-1128</h2>
+<p>Invalid parameter combination.</p>
+<h2 id='1130'>-1130</h2>
+<p>Invalid parameter sent.</p>
+<h2 id='1131'>-1131</h2>
+<p>Insufficient balance.</p>
+<h2 id='1132'>-1132</h2>
+<p>Order price exceeded upper limit.</p>
+<h2 id='1133'>-1133</h2>
+<p>Order price exceeded lower limit.</p>
+<h2 id='1134'>-1134</h2>
+<p>Order price has too many decimals.</p>
+<h2 id='1135'>-1135</h2>
+<p>Order quantity exceeded upper limit.</p>
+<h2 id='1136'>-1136</h2>
+<p>Order quantity exceeded lower limit.</p>
+<h2 id='1137'>-1137</h2>
+<p>Order quantity has too many decimals.</p>
+<h2 id='1138'>-1138</h2>
+<p>Order price exceeded limits.</p>
+<h2 id='1139'>-1139</h2>
+<p>Order has been filled.</p>
+<h2 id='1140'>-1140</h2>
+<p>Order value exceeded lower limit.</p>
+<h2 id='1141'>-1141</h2>
+<p>Duplicate clientOrderId.</p>
+<h2 id='1142'>-1142</h2>
+<p>Order has been canceled.</p>
+<h2 id='1143'>-1143</h2>
+<p>Order not found.</p>
+<h2 id='1144'>-1144</h2>
+<p>Order being cancelled. Operation not supported.</p>
+<h2 id='1145'>-1145</h2>
+<p>Order cannot be canceled.</p>
+<h2 id='1146'>-1146</h2>
+<p>Order creation timeout.</p>
+<h2 id='1147'>-1147</h2>
+<p>Order cancellation timeout.</p>
+<h2 id='1190'>-1190</h2>
+<p>Cancel order has been finished.</p>
+<h2 id='1191'>-1191</h2>
+<p>Can not cancel order, please try again later.</p>
+<h2 id='2010'>-2010</h2>
+<p>New order rejected.</p>
+<h2 id='2011'>-2011</h2>
+<p>Cancelation rejected.</p>
+<h2 id='2013'>-2013</h2>
+<p>Order does not exist.</p>
+<h2 id='2014'>-2014</h2>
+<p>Invalid API key format.</p>
+<h2 id='2015'>-2015</h2>
+<p>Invalid API key or IP.</p>
+<h2 id='2016'>-2016</h2>
+<p>Trading window not open yet for current pair.</p>
+<h2 id='6001'>-6001</h2>
+<p>Query user repay history error</p>
+<h2 id='6002'>-6002</h2>
+<p>Query user account info error</p>
+<h2 id='6003'>-6003</h2>
+<p>Query user loan history error</p>
+<h2 id='6004'>-6004</h2>
+<p>Query order history start time exceeds end time</p>
+<h2 id='6005'>-6005</h2>
+<p>Failed to borrow</p>
+<h2 id='6006'>-6006</h2>
+<p>Repayment Failed</p>
+<h2 id='6007'>-6007</h2>
+<p>User not found</p>
+<h2 id='6008'>-6008</h2>
+<p>You haven't enabled Cross Margin Trading yet. To do so, please head to the PC trading site</p>
+<h2 id='6009'>-6009</h2>
+<p>You haven't enabled Cross Margin Trading yet. To do so, please head to the PC trading site or the Bybit app</p>
+<h2 id='6010'>-6010</h2>
+<p>Failed to locate the coins to borrow</p>
+<h2 id='6011'>-6011</h2>
+<p>Cross Margin Trading not yet supported by the selected coin</p>
+<h2 id='6012'>-6012</h2>
+<p>Pair not available</p>
+<h2 id='6013'>-6013</h2>
+<p>Cross Margin Trading not yet supported by the selected pair</p>
+<h2 id='6014'>-6014</h2>
+<p>Repeated repayment requests</p>
+<h2 id='6015'>-6015</h2>
+<p>Insufficient available balance</p>
+<h2 id='6016'>-6016</h2>
+<p>No repayment required</p>
+<h2 id='6017'>-6017</h2>
+<p>Repayment amount has exceeded the total liability</p>
+<h2 id='6018'>-6018</h2>
+<p>Settlement in progress</p>
+<h2 id='6019'>-6019</h2>
+<p>Liquidation in progress</p>
+<h2 id='6020'>-6020</h2>
+<p>Failed to locate repayment history</p>
+<h2 id='6021'>-6021</h2>
+<p>Repeated borrowing requests</p>
+<h2 id='6022'>-6022</h2>
+<p>Coins to borrow not generally available yet</p>
+<h2 id='6023'>-6023</h2>
+<p>Pair to borrow not generally available yet</p>
+<h2 id='6024'>-6024</h2>
+<p>Invalid user status</p>
+<h2 id='6025'>-6025</h2>
+<p>Amount to borrow cannot be lower than the min. amount to borrow (per transaction)</p>
+<h2 id='6026'>-6026</h2>
+<p>Amount to borrow cannot be larger than the max. amount to borrow (per transaction)</p>
+<h2 id='6027'>-6027</h2>
+<p>Amount to borrow cannot be higher than the max. amount to borrow per user</p>
+<h2 id='6028'>-6028</h2>
+<p>Amount to borrow has exceeded Bybit's max. amount to borrow</p>
+<h2 id='6029'>-6029</h2>
+<p>Amount to borrow has exceeded the user's estimated max. amount to borrow</p>
+<h2 id='6030'>-6030</h2>
+<p>Query user loan info error</p>
+<h2 id='6031'>-6031</h2>
+<p>Loan precision has exceeded the maximum precision</p>
+<h2 id='6032'>-6032</h2>
+<p>Number of decimals has exceeded the maximum precision</p>
+<h2 id='4000'>-4000</h2>
+<p>The serialNum is already in use.</p>
+<h2 id='4001'>-4001</h2>
+<p>Daily purchase limit has been exceeded. Please try again later.</p>
+<h2 id='4002'>-4002</h2>
+<p>There's a large number of purchase orders. Please try again later.</p>
+<h2 id='4003'>-4003</h2>
+<p>Insufficient available balance. Please make a deposit and try again.</p>
+<h2 id='4004'>-4004</h2>
+<p>Daily redemption limit has been exceeded. Please try again later.</p>
+<h2 id='4005'>-4005</h2>
+<p>There's a large number of redemption orders. Please try again later.</p>
+<h2 id='4006'>-4006</h2>
+<p>Insufficient available balance. Please make a deposit and try again.</p>
+<h2 id='4007'>-4007</h2>
+<p>Order not found.</p>
+<h2 id='4008'>-4008</h2>
+<p>Purchase period hasn't started yet.</p>
+<h2 id='4009'>-4009</h2>
+<p>Purchase amount has exceeded the upper limit.</p>
+<h2 id='4010'>-4010</h2>
+<p>You haven't passed the quiz yet! To purchase and/or redeem an LT, please complete the quiz first.</p>
+<h2 id='4012'>-4012</h2>
+<p>Redemption period hasn't started yet.</p>
+<h2 id='4013'>-4013</h2>
+<p>Redemption amount has exceeded the upper limit.</p>
+<h2 id='4014'>-4014</h2>
+<p>Purchase of the LT has been temporarily suspended.</p>
+<h2 id='4015'>-4015</h2>
+<p>Redemption of the LT has been temporarily suspended.</p>
+<h2 id='4016'>-4016</h2>
+<p>Invalid format. Please check the length and numeric precision.</p>
+<h2 id='4110'>-4110</h2>
+<p>Failed to place order<b>:</b> Exceed the maximum position limit of leveraged tokens, the current available limit is XXXX USDT.</p>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="console">console</a>
+                <a href="#" data-language-name="python--pybit">python</a>
+          </div>
+      </div>
+    </div>
+  </body>
+
+<script>
+    $(".con a").click(function(){
+      $(".con a").removeClass("selected");
+      $(this).addClass("selected")
+    });
+    $("#international").click(function(){
+      $this = $(this);
+      var currentUrl = window.location.href;
+      if ($this.text() == 'English') {
+        window.location=currentUrl.replace(/\/zh-cn/,"");
+      } else {
+        if (currentUrl.indexOf("futuresV2") > -1) {
+	        window.location=currentUrl.replace(/\/((?:testnet\/)?futuresV2)/,"/zh-cn/$1");
+        } else if (currentUrl.indexOf("inverse") > -1) {
+          window.location=currentUrl.replace(/\/((?:testnet\/)?inverse)/,"/zh-cn/$1");
+        } else if(currentUrl.indexOf("spot") > -1) {
+          window.location=currentUrl.replace(/\/((?:testnet\/)?spot)/,"/zh-cn/$1");
+        } else if(currentUrl.indexOf("account_asset") > -1) {
+          window.location=currentUrl.replace(/\/((?:testnet\/)?account_asset)/,"/zh-cn/$1");
+        } else if(currentUrl.indexOf("linear") > -1) {
+          window.location=currentUrl.replace(/\/((?:testnet\/)?linear)/,"/zh-cn/$1");
+        } else if(currentUrl.indexOf("copy_trading") > -1) {
+          window.location=currentUrl.replace(/\/((?:testnet\/)?copy_trading)/,"/zh-cn/$1");
+        } else if(currentUrl.indexOf("usdc") > -1) {
+          window.location=currentUrl.replace(/\/((?:testnet\/)?usdc)/,"/zh-cn/$1");
+	      } else if(currentUrl.indexOf("derivativesV3") > -1) {
+	        window.location=currentUrl.replace(/\/((?:testnet\/)?derivativesV3)/,"/zh-cn/$1");
+	      }
+      }
+    });
+</script>
+
+</html>
