@@ -252,7 +252,7 @@ ws.send('{"op": "subscribe", "args": ["orderBook25.BTCUSDT","orderBook500.BTCUSD
 }
 ```
 
-t(:websocketOrderBook_v3)
+t(:websocketOrderBook_contract)
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|

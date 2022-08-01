@@ -4794,9 +4794,6 @@ en:
         USDT contract: <span id="usdt_testnet_address">wss://stream-testnet.bybit.com/contract/usdt/public/v3</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdt_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
         <br/>
-        Inverse contract: <span id="inverse_testnet_address">wss://stream-testnet.bybit.com/contract/inverse/public/v3</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#inverse_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-        <br/>
         USDC contract: <span id="usdc_testnet_address">wss://stream-testnet.bybit.com/contract/usdc/public/v3</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdc_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
         <br/>
@@ -4823,11 +4820,8 @@ en:
         USDT contract: <span id="usdt_2_testnet_address">wss://stream-testnet.bybit.com/contract/usdt/public/v3</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdt_2_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
         <br/>
-        USDC contract: <span id="usdc_2_testnet_address">wss://stream-testnet.bybit.com/contract/usdc/public/v3</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdc_2_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-        <br/>
-        USDC Options: <span id="option_2_testnet_address">wss://stream-testnet.bybit.com/option/usdc/public/v3</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#option_2_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        Inverse contract: <span id="inverse_testnet_address">wss://stream-testnet.bybit.com/contract/inverse/public/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#inverse_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
     </li>
      </p>
     </ul>
@@ -4854,6 +4848,19 @@ en:
     <b>Topic: (ps. option has 25 & 100 level only)</b><br>
     <code>orderBook25.{symbol}</code><br>
     <code>orderBook100.{symbol}</code>(<b>option only)</b><br>
+    <code>orderBook500.{symbol}</code><br>
+  websocketOrderBook_contract: |
+    <b>instruction: </b>
+    Get 25, 500 level data.<br>
+    Once subscribe successfully, you will receive a snapshot. The data is ordered by order price, which from lowest buy order to highest sell order.
+    Websocket will keep pushing delta message when orderbook is changed. If you receive a new snapshot data, it's necessary to reset your local orderbook.<br><br>
+    <b>type</b>: <code>snapshot</code>=Full orderbook, <code>delta</code>=delta orderbook<br>
+    If there is a problem in bybit end, it will re-send a snapshot, which is promised the latest and accurate.<br><br>
+    25 level data, push frequency: <b>20ms</b> <br>
+    500 level data, push frequency: <b>100ms</b> <br>
+    <br>
+    <b>Topic: </b><br>
+    <code>orderBook25.{symbol}</code><br>
     <code>orderBook500.{symbol}</code><br>
 
   predicatedFundingRate_v3: Predicated funding rate. usdt perp, inverse perp and inverse futures is <code>""</code>
