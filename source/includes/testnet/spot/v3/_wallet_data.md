@@ -5,9 +5,11 @@ t(:wallet_para)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com//spot/v3/private/account \
--H "Content-Type: application/x-www-form-urlencoded" \
--d 'api_key={api_key}&side=Buy&symbol=ETHUSDT&type=MARKET&qty=10&timeInForce=GTC&timestamp={timestamp}&sign={signature}'
+curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/private/account' \
+--header 'X-BAPI-SIGN: 6f5c1a9543ea9033013b4ec0a6d05a74e2d05d109c60ad464ab7f9c6e86ad0d4' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1659346886605' \
+--header 'X-BAPI-RECV-WINDOW: 5000'
 ```
 
 ```python--pybit
@@ -19,19 +21,35 @@ curl https://api-testnet.bybit.com//spot/v3/private/account \
 ```javascript
 {
     "retCode": 0,
-    "retMsg": "ok",
+    "retMsg": "OK",
     "result": {
-        "list": [
+        "balances": [
             {
-                "coin": "USDT",
-                "coinId": "USDT",
-                "total": "10",
-                "free": "10",
+                "coin": "BTC",
+                "coinId": "BTC",
+                "total": "0.20378018343",
+                "free": "0.20378018343",
+                "locked": "0"
+            },
+            {
+                "coin": "BTC3L",
+                "coinId": "BTC3L",
+                "total": "743.03560386",
+                "free": "743.03560386",
+                "locked": "0"
+            },
+            {
+                "coin": "BTC3S",
+                "coinId": "BTC3S",
+                "total": "0.999",
+                "free": "0.999",
                 "locked": "0"
             }
         ]
     },
-    "time":1234567
+    "retExtMap": {},
+    "retExtInfo": {},
+    "time": 1659346887407
 }
 ```
 

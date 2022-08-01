@@ -178,7 +178,7 @@ GET
 ```console
 curl --location --request POST 'https://api-testnet.bybit.com/spot/v3/private/cancel-order' \
 --header 'X-BAPI-SIGN: 2cdc75a6be90f2a3d70875595c289b6342ff55021a26d9fecf988a8f78266ccc' \
---header 'X-BAPI-API-KEY: T0d98KyVamQ62YBzN8' \
+--header 'X-BAPI-API-KEY: {api key}' \
 --header 'X-BAPI-TIMESTAMP: 1659078017415' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
 --header 'Content-Type: application/json' \
@@ -468,7 +468,7 @@ GET
 ```console
 curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/private/history-orders?symbol=BTCUSDT&limit=2&startTime=1658246400000&endTime=1659110400000' \
 --header 'X-BAPI-SIGN: 1e18efe3e2c96df191c84d86b8a4d695184ea5fe64aa21062fa15e8464caeca0' \
---header 'X-BAPI-API-KEY: T0d98KyVamQ62YBzN8' \
+--header 'X-BAPI-API-KEY: {api key}' \
 --header 'X-BAPI-TIMESTAMP: 1659082629976' \
 --header 'X-BAPI-RECV-WINDOW: 5000'
 ```
