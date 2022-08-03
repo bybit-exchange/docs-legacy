@@ -609,7 +609,7 @@ GET
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 |size |string |t(:row_comment_position_size)  |
-|positionValue |string |t(:linear_resp_field_position_value)  |
+|positionValue |string |t(:row_comment_position_value)  |
 |entryPrice |string |t(:linear_resp_field_entry_price)  |
 |tradeMode |integer |t(:contract_comment_tradeMode) |
 |autoAddMargin |integer |t(:row_comment_auto_add_margin)  |

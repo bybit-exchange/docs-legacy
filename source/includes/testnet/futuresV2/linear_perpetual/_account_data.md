@@ -1423,7 +1423,7 @@ GET
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 |size |number |t(:row_comment_position_size)  |
-|position_value |number |t(:linear_resp_field_position_value)  |
+|position_value |number |t(:row_comment_position_value)  |
 |entry_price |number |t(:linear_resp_field_entry_price)  |
 |liq_price |number |t(:linear_resp_field_liq_price)  |
 |bust_price |number |t(:linear_resp_field_bust_price)  |
