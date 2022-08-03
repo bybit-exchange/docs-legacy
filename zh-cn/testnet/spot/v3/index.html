@@ -913,6 +913,27 @@
                   <li>
                     <a href="#t-getsymbols" class="toc-h2 toc-link" data-title="獲取所有交易對">獲取所有交易對</a>
                   </li>
+                  <li>
+                    <a href="#t-orderbook" class="toc-h2 toc-link" data-title="Orderbook">Orderbook</a>
+                  </li>
+                  <li>
+                    <a href="#t-mergedorderbook" class="toc-h2 toc-link" data-title="合並訂單簿">合並訂單簿</a>
+                  </li>
+                  <li>
+                    <a href="#t-publictradingrecords" class="toc-h2 toc-link" data-title="平臺交易歷史數據">平臺交易歷史數據</a>
+                  </li>
+                  <li>
+                    <a href="#t-querykline" class="toc-h2 toc-link" data-title="查詢K線數據">查詢K線數據</a>
+                  </li>
+                  <li>
+                    <a href="#t-spot_latestsymbolinfo" class="toc-h2 toc-link" data-title="最新信息">最新信息</a>
+                  </li>
+                  <li>
+                    <a href="#t-lasttradedprice" class="toc-h2 toc-link" data-title="Symbol最新價">Symbol最新價</a>
+                  </li>
+                  <li>
+                    <a href="#t-bestbidask" class="toc-h2 toc-link" data-title="最佳買賣價">最佳買賣價</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -957,6 +978,14 @@
               <ul class="toc-list-h2">
                   <li>
                     <a href="#t-servertime" class="toc-h2 toc-link" data-title="服務器時間">服務器時間</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#t-archivedata" class="toc-h1 toc-link" data-title="歸檔數據">歸檔數據</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-historicalmarketdata" class="toc-h2 toc-link" data-title="歷史行情">歷史行情</a>
                   </li>
               </ul>
           </li>
@@ -1773,6 +1802,684 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">showStatus</td>
 <td style="text-align: left">string</td>
 <td><code>1</code> 表示該現貨開放交易</td>
+</tr>
+</tbody></table>
+<h3 id='t-orderbook'>Orderbook</h3>
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/public/quote/depth?symbol=BTCUSDT&amp;limit=1'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659429083820</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">bids</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">[</span>
+        <span class="dl">"</span><span class="s2">21170.14</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">0.050096</span><span class="dl">"</span>
+      <span class="p">]</span>
+    <span class="p">],</span>
+    <span class="dl">"</span><span class="s2">asks</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">[</span>
+        <span class="dl">"</span><span class="s2">21250</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">0.00211</span><span class="dl">"</span>
+      <span class="p">]</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659429083979</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP 請求</p>
+
+<p>GET
+<code><span id=sqvDepth>/spot/v3/public/quote/depth</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvDepth"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>幣對名稱</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>默認100</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">time</td>
+<td style="text-align: left">long</td>
+<td>當前時間</td>
+</tr>
+<tr>
+<td style="text-align: left">bids</td>
+<td style="text-align: left">array</td>
+<td>bid的價格和數量信息，最優bid價格由上到下排列</td>
+</tr>
+<tr>
+<td style="text-align: left">asks</td>
+<td style="text-align: left">array</td>
+<td>ask的價格和數量信息，最優ask價格由上到下排列</td>
+</tr>
+</tbody></table>
+<h3 id='t-mergedorderbook'>合並訂單簿</h3>
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/public/quote/depth/merged?symbol=BTCUSDT&amp;scale=1&amp;limit=1'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659429646349</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">bids</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">[</span>
+        <span class="dl">"</span><span class="s2">21170.1</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">0.049096</span><span class="dl">"</span>
+      <span class="p">]</span>
+    <span class="p">],</span>
+    <span class="dl">"</span><span class="s2">asks</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">[</span>
+        <span class="dl">"</span><span class="s2">21250</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">0.00211</span><span class="dl">"</span>
+      <span class="p">]</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659429646652</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP 請求</p>
+
+<p>GET
+<code><span id=sqvdMerged>/spot/v3/public/quote/depth/merged</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvdMerged"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>幣對名稱</td>
+</tr>
+<tr>
+<td style="text-align: left">scale</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>合並深度的精度，1代表1位小數</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>默認100</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">time</td>
+<td style="text-align: left">long</td>
+<td>當前時間</td>
+</tr>
+<tr>
+<td style="text-align: left">bids</td>
+<td style="text-align: left">array</td>
+<td>bid的價格和數量信息，最優bid價格由上到下排列</td>
+</tr>
+<tr>
+<td style="text-align: left">asks</td>
+<td style="text-align: left">array</td>
+<td>ask的價格和數量信息，最優ask價格由上到下排列</td>
+</tr>
+</tbody></table>
+<h3 id='t-publictradingrecords'>平臺交易歷史數據</h3>
+<blockquote>
+<p>請求示例
+curl --location --request GET &#39;https://api-testnet.bybit.com/spot/v3/public/quote/trades?symbol=BTCUSDT&amp;limit=1&#39;</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">21170.14</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659429793926</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.907276</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">isBuyerMaker</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659429835311</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP 請求</p>
+
+<p>GET
+<code><span id=sqvTrades>/spot/v3/public/quote/trades</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvTrades"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>幣對名稱</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>默認60， 最大60</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#price-price">price</a></td>
+<td style="text-align: left">string</td>
+<td>價格</td>
+</tr>
+<tr>
+<td style="text-align: left">time</td>
+<td style="text-align: left">long</td>
+<td>當前Unix時間戳，毫秒(ms)</td>
+</tr>
+<tr>
+<td style="text-align: left">qty</td>
+<td style="text-align: left">string</td>
+<td>交易數量</td>
+</tr>
+<tr>
+<td style="text-align: left">isBuyerMaker</td>
+<td style="text-align: left">integer</td>
+<td><code>0</code>：買單, <code>1</code>：賣單</td>
+</tr>
+</tbody></table>
+<h3 id='t-querykline'>查詢K線數據</h3>
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/public/quote/kline?symbol=BTCUSDT&amp;interval=1m&amp;limit=1'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">t</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659430380000</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">sn</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">c</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">21170.14</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">21170.14</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">l</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">21127.86</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">o</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">21127.86</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">v</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.907276</span><span class="dl">"</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659430400353</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP 請求</p>
+
+<p>GET
+<code><span id=sqvKline>/spot/v3/public/quote/kline</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvKline"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<aside class="notice">
+返回指定的時間間隔最近 3500 根的K線結果
+</aside>
+
+<aside class="notice">
+如果startTime和endTime沒有發送，只有最新的K線會被返回
+</aside>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>幣對名稱</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#kline-interval-interval">interval</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>K線圖區間。可識別發送的值為：1m, 5m, 15m, 30m, 1h, 1d, 1w, 1M (m=分鐘, h=小時, d=天, w=星期, M=月)</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>默認1000， 最大1000</td>
+</tr>
+<tr>
+<td style="text-align: left">startTime</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">long</td>
+<td>第一條返回的時間戳(毫秒)</td>
+</tr>
+<tr>
+<td style="text-align: left">endTime</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">long</td>
+<td>最後一條返回的時間戳(毫秒)</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">t</td>
+<td style="text-align: left">long</td>
+<td>時間戳(毫秒)</td>
+</tr>
+<tr>
+<td style="text-align: left">s</td>
+<td style="text-align: left">string</td>
+<td>幣對名稱</td>
+</tr>
+<tr>
+<td style="text-align: left">sn</td>
+<td style="text-align: left">string</td>
+<td>幣對別名</td>
+</tr>
+<tr>
+<td style="text-align: left">c</td>
+<td style="text-align: left">string</td>
+<td>收盤價</td>
+</tr>
+<tr>
+<td style="text-align: left">h</td>
+<td style="text-align: left">string</td>
+<td>最高價</td>
+</tr>
+<tr>
+<td style="text-align: left">l</td>
+<td style="text-align: left">string</td>
+<td>最低價</td>
+</tr>
+<tr>
+<td style="text-align: left">o</td>
+<td style="text-align: left">string</td>
+<td>開盤價</td>
+</tr>
+<tr>
+<td style="text-align: left">v</td>
+<td style="text-align: left">string</td>
+<td>交易金額</td>
+</tr>
+</tbody></table>
+<h3 id='t-spot_latestsymbolinfo'>最新信息</h3>
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/public/quote/ticker/24hr?symbol=BTCUSDT'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">t</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659430933736</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">lp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">21127.86</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">22000</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">l</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">19779.14</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">o</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">19935.19</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">bp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">21170.14</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ap</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">21250</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">v</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">211.378621</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">qv</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">4460854.96730398</span><span class="dl">"</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659430975794</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP 請求</p>
+
+<p>GET
+<code><span id=sqvt24hr>/spot/v3/public/quote/ticker/24hr</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvt24hr"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<aside class="notice">
+如果symbol沒有被發送，所有symbol的數據都會被返回
+</aside>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>幣對名稱</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">t</td>
+<td style="text-align: left">long</td>
+<td>當前Unix時間戳，毫秒(ms)</td>
+</tr>
+<tr>
+<td style="text-align: left">s</td>
+<td style="text-align: left">string</td>
+<td>幣對名稱</td>
+</tr>
+<tr>
+<td style="text-align: left">lp</td>
+<td style="text-align: left">string</td>
+<td>最新成交價</td>
+</tr>
+<tr>
+<td style="text-align: left">h</td>
+<td style="text-align: left">string</td>
+<td>最高價</td>
+</tr>
+<tr>
+<td style="text-align: left">l</td>
+<td style="text-align: left">string</td>
+<td>最低價</td>
+</tr>
+<tr>
+<td style="text-align: left">o</td>
+<td style="text-align: left">string</td>
+<td>開盤價</td>
+</tr>
+<tr>
+<td style="text-align: left">bp</td>
+<td style="text-align: left">string</td>
+<td>最佳買價</td>
+</tr>
+<tr>
+<td style="text-align: left">ap</td>
+<td style="text-align: left">string</td>
+<td>最佳賣價</td>
+</tr>
+<tr>
+<td style="text-align: left">v</td>
+<td style="text-align: left">string</td>
+<td>成交量</td>
+</tr>
+<tr>
+<td style="text-align: left">qv</td>
+<td style="text-align: left">string</td>
+<td>成交金額</td>
+</tr>
+</tbody></table>
+<h3 id='t-lasttradedprice'>Symbol最新價</h3>
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/public/quote/ticker/price?symbol=BTCUSDT'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">21127.86</span><span class="dl">"</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659431315936</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP 請求</p>
+
+<p>GET
+<code><span id=sqvtPrice>/spot/v3/public/quote/ticker/price</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvtPrice"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<aside class="notice">
+如果symbol沒有被發送，所有symbol的價格都會被返回
+</aside>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>幣對名稱</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
+<td style="text-align: left">string</td>
+<td>幣對名稱</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#price-price">price</a></td>
+<td style="text-align: left">string</td>
+<td>訂單價格，對於LIMIT 訂單必需發送</td>
+</tr>
+</tbody></table>
+<h3 id='t-bestbidask'>最佳買賣價</h3>
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/public/quote/ticker/bookTicker?symbol=BTCUSDT'
+
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">bidPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">21170.14</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">bidQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.908276</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">askPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">21250</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">askQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.009264</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659431461695</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659431462103</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP 請求</p>
+
+<p>GET
+<code><span id=sqvtBook_ticker>/spot/v3/public/quote/ticker/bookTicker</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#sqvtBook_ticker"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<aside class="notice">
+如果symbol沒有被發送，所有symbol的最佳訂單簿價格都會被返回。
+</aside>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>幣對名稱</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
+<td style="text-align: left">string</td>
+<td>幣對名稱</td>
+</tr>
+<tr>
+<td style="text-align: left">bidPrice</td>
+<td style="text-align: left">string</td>
+<td>最佳買價</td>
+</tr>
+<tr>
+<td style="text-align: left">bidQty</td>
+<td style="text-align: left">string</td>
+<td>最佳買價數量</td>
+</tr>
+<tr>
+<td style="text-align: left">askPrice</td>
+<td style="text-align: left">string</td>
+<td>最佳賣價</td>
+</tr>
+<tr>
+<td style="text-align: left">askQty</td>
+<td style="text-align: left">string</td>
+<td>最佳賣價數量</td>
+</tr>
+<tr>
+<td style="text-align: left">time</td>
+<td style="text-align: left">long</td>
+<td>毫秒時間戳</td>
 </tr>
 </tbody></table>
 <h1 id='t-accountdata'>賬戶/交易接口</h1>
@@ -3197,6 +3904,10 @@ function copyStringToClipboard (endpoint) {
 <td>服務器時間</td>
 </tr>
 </tbody></table>
+<h1 id='t-archivedata'>歸檔數據</h1><h3 id='t-historicalmarketdata'>歷史行情</h3>
+<p>您可以在這裏獲取Bybit <a href="https://public.bybit.com">歷史行情數據</a>。</p>
+
+<p>歷史資金費率無法通過API獲得。但是，您可以使用"導出"按鈕獲取此數據的CSV文件 <a href="https://www.bybit.com/data/basic/inverse/funding-history?symbol=BTCUSD">here</a>.</p>
 <h1 id='t-enums'>枚舉定義</h1>
 <p>以下是各個接口請求參數或返回結果中定義的枚舉。</p>
 <h2 id='side-side'>Side (<code>side</code>)</h2>

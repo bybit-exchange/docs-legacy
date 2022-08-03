@@ -1014,6 +1014,14 @@
               </ul>
           </li>
           <li>
+            <a href="#t-archivedata" class="toc-h1 toc-link" data-title="Archive Data">Archive Data</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-historicalmarketdata" class="toc-h2 toc-link" data-title="Historical Market Data">Historical Market Data</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#t-enums" class="toc-h1 toc-link" data-title="Enums Definitions">Enums Definitions</a>
               <ul class="toc-list-h2">
                   <li>
@@ -1375,7 +1383,7 @@ clipboard.on('error', function(e) {
 <h1 id='t-introduction'>Group And Resources</h1>
 <p><p><a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common errors.</p> <p>For further assistance or feedback, please join the <a href="https://t.me/BybitAPI">API Telegram chat</a>! API discussion group on Telegram.</p></p>
 <h3 id='t-resources'>Group And Bybit API Resources</h3>
-<p><ul class="bybit-community"> <li><img src="../../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/en-US/help-center/?language=en_US"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>Official Python SDK</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman API Collection</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://forms.gle/ZfCKRTVen1VExj478"><strong>Bybit Open API Survey </strong></a> - <strong>The survey should take no more than 5 minutes to complete.</strong> </ul></p>
+<p><ul class="bybit-community"> <li><img src="../../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/en-US/help-center/?language=en_US"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>Official Python SDK</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman API Collection</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> <li><img src="../../../images/survey_ico-bd03a90c.png" height="14", width="14"> <a href="https://forms.gle/ZfCKRTVen1VExj478"><strong>Bybit Open API Survey </strong></a> - <strong>The survey should take no more than 5 minutes to complete.</strong> </ul></p>
 <h1 id='t-faq'>FAQ</h1><h2 id='t-faq_reduce_only'><code>reduce_only</code> and <code>close_on_trigger</code> - what's the difference?</h2>
 <p><ul>
 <li>To close your position, submit <a href="#t-placeactive">an order</a> and specify <b><code>reduce_only</code> to <code>true</code></b>. <code>close_on_trigger</code> is not strictly applicable here, but you can also set it to <code>true</code> if it's required.</li>
@@ -4376,7 +4384,7 @@ If symbol is passed in single, rate limit is counted as 1 per request. If symbol
 <tr>
 <td style="text-align: left">positionValue</td>
 <td style="text-align: left">string</td>
-<td>Current position value</td>
+<td>Position value</td>
 </tr>
 <tr>
 <td style="text-align: left">entryPrice</td>
@@ -7468,6 +7476,10 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 <td>Accumulatively realized P&L</td>
 </tr>
 </tbody></table>
+<h1 id='t-archivedata'>Archive Data</h1><h3 id='t-historicalmarketdata'>Historical Market Data</h3>
+<p>You can get Bybit's <a href="https://public.bybit.com">historical market data here</a>.</p>
+
+<p>Historical funding rates are not available through the API. However, you can obtain a CSV of this data by using the "Export" button <a href="https://www.bybit.com/data/basic/inverse/funding-history?symbol=BTCUSD">here</a>.</p>
 <h1 id='t-enums'>Enums Definitions</h1>
 <p>The following lists enumerator names for the request and response parameters of each endpoint.</p>
 <h2 id='side-side'>Side (<code>side</code>)</h2>

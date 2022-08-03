@@ -1026,6 +1026,14 @@
               </ul>
           </li>
           <li>
+            <a href="#t-archivedata" class="toc-h1 toc-link" data-title="歸檔數據">歸檔數據</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-historicalmarketdata" class="toc-h2 toc-link" data-title="歷史行情">歷史行情</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#t-enums" class="toc-h1 toc-link" data-title="枚舉定義">枚舉定義</a>
               <ul class="toc-list-h2">
                   <li>
@@ -1387,7 +1395,7 @@ clipboard.on('error', function(e) {
 <h1 id='t-introduction'>中文社區和參考資料</h1>
 <p><p>歡迎使用 <a href="https://www.bybit.com/">Bybit</a> APIs 和 Websocket官方文檔！</p> <p>如果您在使用API的過程中遇到問題需要幫助，請加入我們的 <a href="https://t.me/Bybitapi">官方Telegram API討論群</a>！</p></p>
 <h3 id='t-resources'>中文社區和參考資料</h3>
-<p><ul class="bybit-community"> <li><img src="../../../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/zh-TW/help-center/?language=zh_TW"><strong>幫助中心</strong></a> - <strong>在這裏了解合約交易</strong> <li><img src="../../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>官方Python SDK</strong> <li><img src="../../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman接口集合</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文討論群</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文討論群</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://forms.gle/ZfCKRTVen1VExj478"><strong>Bybit Open API 的調研問卷</strong></a> - <strong>希望您能用 5 分鐘的時間填寫 Bybit Open API 的調研問卷</strong> </ul></p>
+<p><ul class="bybit-community"> <li><img src="../../../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/zh-TW/help-center/?language=zh_TW"><strong>幫助中心</strong></a> - <strong>在這裏了解合約交易</strong> <li><img src="../../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>官方Python SDK</strong> <li><img src="../../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman接口集合</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文討論群</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文討論群</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong> <li><img src="../../../../images/survey_ico-bd03a90c.png" height="14", width="14"> <a href="https://forms.gle/ZfCKRTVen1VExj478"><strong>Bybit Open API 的調研問卷</strong></a> - <strong>希望您能用 5 分鐘的時間填寫 Bybit Open API 的調研問卷</strong> </ul></p>
 <h1 id='t-faq'>FAQ</h1><h2 id='t-faq_reduce_only'><code>reduce_only</code> and <code>close_on_trigger</code> - what's the difference?</h2>
 <p><ul>
 <li>To close your position, submit <a href="#t-placeactive">an order</a> and specify <b><code>reduce_only</code> to <code>true</code></b>. <code>close_on_trigger</code> is not strictly applicable here, but you can also set it to <code>true</code> if it's required.</li>
@@ -9010,6 +9018,10 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <td>theta</td>
 </tr>
 </tbody></table>
+<h1 id='t-archivedata'>歸檔數據</h1><h3 id='t-historicalmarketdata'>歷史行情</h3>
+<p>您可以在這裏獲取Bybit <a href="https://public.bybit.com">歷史行情數據</a>。</p>
+
+<p>歷史資金費率無法通過API獲得。但是，您可以使用"導出"按鈕獲取此數據的CSV文件 <a href="https://www.bybit.com/data/basic/inverse/funding-history?symbol=BTCUSD">here</a>.</p>
 <h1 id='t-enums'>枚舉定義</h1>
 <p>以下是各個接口請求參數或返回結果中定義的枚舉。</p>
 <h2 id='side-side'>Side (<code>side</code>)</h2>
