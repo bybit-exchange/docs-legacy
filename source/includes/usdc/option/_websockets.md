@@ -138,7 +138,7 @@ t(:usdc_websocket_unsubscribe_desc)
 t(:spot_websocket_para_response)
 
 ## Public Topics
-### OrderBook
+### orderBook
 
 > t(:codequote_subscribe)
 
@@ -186,7 +186,7 @@ t(:usdc_websocket_para_orderbook)
 
 
 
-### OrderBook(delta)
+### orderBook(delta)
 
 > t(:codequote_subscribe)
 

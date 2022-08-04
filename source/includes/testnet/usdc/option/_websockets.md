@@ -97,7 +97,7 @@ ws.send('{"op":"ping","args":["1535975085152"]}');
 
 
 <aside class="warning">
-t(:usdc_websocket_aside_heartbeat)
+t(:websocket_aside_heartbeat)
 </aside>
 
 t(:websocket_aside_heartbeat_option)
@@ -138,7 +138,7 @@ t(:usdc_websocket_unsubscribe_desc)
 t(:spot_websocket_para_response)
 
 ## Public Topics
-### OrderBook
+### orderBook
 
 > t(:codequote_subscribe)
 
@@ -186,7 +186,7 @@ t(:usdc_websocket_para_orderbook)
 
 
 
-### OrderBook(delta)
+### orderBook(delta)
 
 > t(:codequote_subscribe)
 
@@ -416,7 +416,7 @@ ws.send('{"op":"subscribe","args":["platform.insurance.USDC"]}')
 	'data': 
 		{
 			'insuranceBalance': '1180144.86587280', 
-			'baseCoin': 'USDC', 
+			'settleCoin': 'USDC', 
 			'timestamp': '1649750400693'
 		}
 }
@@ -431,7 +431,7 @@ t(:websocket_usdc_platform_insurance)
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 | insuranceBalance |string |t(:usdcInsuranceBalance) |
-| baseCoin |string |t(:usdcBaseCoin) |
+| settleCoin |string |t(:usdcSettleCoin) |
 | timestamp |string |t(:timestamp) |
 
 ## Private Topics
