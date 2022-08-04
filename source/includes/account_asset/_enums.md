@@ -7,6 +7,14 @@ t(:ENUMs_para)
 * `INVESTMENT` t(:accountType_investment)
 * `OPTION` t(:accountType_option)
 
+## Withdraw status(`status`)
+* `SecurityCheck` t(:withdrawStatus_securityCheck)
+* `Pending` t(:withdrawStatus_pending)
+* `success` t(:withdrawStatus_success)
+* `CancelByUser` t(:withdrawStatus_cancelByUser)
+* `Reject` t(:withdrawStatus_Reject)
+* `Fail` t(:withdrawStatus_Fail)
+* `BlockchainConfirmed` t(:withdrawStatus_BlockchainConfirmed)
 
 ## Currency (`currency`/`coin`)
 * `BTC`
