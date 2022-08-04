@@ -1055,6 +1055,9 @@
                     <a href="#contract-status-status" class="toc-h2 toc-link" data-title="Contract Status(status)">Contract Status(<code>status</code>)</a>
                   </li>
                   <li>
+                    <a href="#account-type-from_account_type-to_account_type" class="toc-h2 toc-link" data-title="Account type (from_account_type/to_account_type)">Account type (<code>from_account_type</code>/<code>to_account_type</code>)</a>
+                  </li>
+                  <li>
                     <a href="#wallet-fund-type-walletfundtype-type" class="toc-h2 toc-link" data-title="Wallet fund type (walletFundType / type)">Wallet fund type (<code>walletFundType</code> / <code>type</code>)</a>
                   </li>
                   <li>
@@ -1110,9 +1113,6 @@
                   </li>
                   <li>
                     <a href="#transaction-log-type-type" class="toc-h2 toc-link" data-title="Transaction-Log Type (type)">Transaction-Log Type (<code>type</code>)</a>
-                  </li>
-                  <li>
-                    <a href="#order-filter-orderfilter" class="toc-h2 toc-link" data-title="Order Filter (orderFilter)">Order Filter (<code>orderFilter</code>)</a>
                   </li>
               </ul>
           </li>
@@ -6835,15 +6835,39 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <blockquote>
 <p>請求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v2/private/exchange/exchange-order-all' \
---header 'X-BAPI-SIGN-TYPE: 2' \
---header 'X-BAPI-SIGN: 1793ee8a0d7b077550faef8d6676565f817302cbdc4dece80e263f78927212ea' \
---header 'X-BAPI-API-KEY: {api key}' \
---header 'X-BAPI-TIMESTAMP: 1657872232349' \
---header 'X-BAPI-RECV-WINDOW: 5000' \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/asset/v1/private/transfer' \
 --header 'Content-Type: application/json' \
---data-raw ''
-</span></code></pre></div>
+--data-raw '{
+    "fromAccountType": "SPOT",
+    "toAccountType": "OPTION",
+    "amount": "15",
+    "coin": "USDT",
+    "transferId": "1aaacac2-fd1a-4a50-8b1a-f99343669f9f",
+    "sign": "9fdd3488b2c8e5bb27feefd31c90ae8ccc2054ebb219eb08f5943101316fa0fa",
+    "timestamp": "1659603566249",
+    "api_key": "T0d98KyVamQ62YBzN8",
+    "recv_window": "5000"
+}'
+
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
+</code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">transfer_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1aaacac2-fd1a-4a50-8b1a-f99343669f9f</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659603553203</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659603553203</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">4</span>
+<span class="p">}</span>
+</code></pre></div>
 <p class="fake_header">HTTP 請求</p>
 
 <p>POST
@@ -6879,16 +6903,16 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <td>currency alias，如果不傳參數coin，將返回所有錢包余額。允許傳多個，用逗號分隔，例如：USDC,USDT</td>
 </tr>
 <tr>
-<td style="text-align: left">from_account_type</td>
+<td style="text-align: left"><a href="#account-type-from_account_type-to_account_type">from_account_type</a></td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>賬戶類型，Account type： CONTRACT 期貨賬戶；SPOT 現貨賬戶； INVESTMENT 理財賬戶；OPTION 期權賬戶；新增：UNIFIED 統一保證金賬戶</td>
+<td>賬戶類型</td>
 </tr>
 <tr>
-<td style="text-align: left">to_account_type</td>
+<td style="text-align: left"><a href="#account-type-from_account_type-to_account_type">to_account_type</a></td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>賬戶類型，Account type： CONTRACT 期貨賬戶；SPOT 現貨賬戶； INVESTMENT 理財賬戶；OPTION 期權賬戶；新增：UNIFIED 統一保證金賬戶</td>
+<td>賬戶類型</td>
 </tr>
 </tbody></table>
 
@@ -9048,7 +9072,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <li><code>DOTUSD</code></li>
 </ul>
 
-<p>您可以根據<a href="#t-dv_instrhead">查询衍生品交易规格</a>接口獲取所有交易中的symbol。</p>
+<p>您可以根據<a href="#t-querysymbol">Query Symbol</a>接口獲取所有交易中的symbol。</p>
 <h2 id='currency-currency-coin'>Currency (<code>currency</code>/<code>coin</code>)</h2>
 <ul>
 <li><code>BTC</code></li>
@@ -9069,6 +9093,14 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <li><code>Trading</code></li>
 <li><code>Settling</code></li>
 <li><code>Closed</code></li>
+</ul>
+<h2 id='account-type-from_account_type-to_account_type'>Account type (<code>from_account_type</code>/<code>to_account_type</code>)</h2>
+<ul>
+<li><code>CONTRACT</code>  期貨賬戶</li>
+<li><code>SPOT</code>      現貨賬戶</li>
+<li><code>INVESTMENT</code> 理財賬戶</li>
+<li><code>OPTION</code> - USDC Account</li>
+<li><code>UNIFIED</code> 統一保證金帳戶</li>
 </ul>
 <h2 id='wallet-fund-type-walletfundtype-type'>Wallet fund type (<code>walletFundType</code> / <code>type</code>)</h2>
 <ul>
@@ -9264,11 +9296,6 @@ ELSE
 <li><code>FEE_REFUND</code> 手續費返還</li>
 <li><code>INTEREST</code> 利息</li>
 <li><code>BONUS</code> 體驗金領區</li>
-</ul>
-<h2 id='order-filter-orderfilter'>Order Filter (<code>orderFilter</code>)</h2>
-<ul>
-<li><code>Order</code></li>
-<li><code>StopOrder</code></li>
 </ul>
 <h1 id='t-errors'>錯誤碼</h1>
 <p>Bybit使用以下HTTP Code和錯誤碼：</p>

@@ -981,10 +981,10 @@
                     <a href="#public-topics" class="toc-h2 toc-link" data-title="Public Topics">Public Topics</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#orderbook" class="toc-h3 toc-link" data-title="OrderBook">OrderBook</a>
+                            <a href="#orderbook" class="toc-h3 toc-link" data-title="orderBook">orderBook</a>
                           </li>
                           <li>
-                            <a href="#orderbook-delta" class="toc-h3 toc-link" data-title="OrderBook(delta)">OrderBook(delta)</a>
+                            <a href="#orderbook-delta" class="toc-h3 toc-link" data-title="orderBook(delta)">orderBook(delta)</a>
                           </li>
                           <li>
                             <a href="#t-bybittradehistory" class="toc-h3 toc-link" data-title="平台最近成交數據">平台最近成交數據</a>
@@ -5608,7 +5608,7 @@ curl https://api-testnet.bybit.com/v2/public/time
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span><span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">pong</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">args</span><span class="dl">"</span><span class="p">:[</span><span class="dl">"</span><span class="s2">1535975085152</span><span class="dl">"</span><span class="p">]}</span>
 </code></pre></div>
 <aside class="warning">
-translation missing: zh-cn.usdc_websocket_aside_heartbeat
+由於網絡或者程序不穩定,我們強烈建議您使用 <code>ping</code> 心跳包來維持連接. 心跳包建議每<b>20</b>秒發送一次.
 </aside>
 
 <p><p>客戶端需要定時發送"ping"給Bybit，Bybit服務器返回heartbeat"pong"來顯示客戶端和服務器之間的連接正常。建議至少每<b>20s</b>發送一次，30s內收不到心跳WSS會自動觸發斷連。</p>
@@ -5657,7 +5657,7 @@ DCP的開和關, 僅限機構類型用戶
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code>
 </code></pre></div>
 <p>訂閱成功後會立即返回訂閱的消息結果，您可以根據返回結果判斷是否訂閱成功</p>
-<h2 id='public-topics'>Public Topics</h2><h3 id='orderbook'>OrderBook</h3>
+<h2 id='public-topics'>Public Topics</h2><h3 id='orderbook'>orderBook</h3>
 <blockquote>
 <p>請求訂閱</p>
 </blockquote>
@@ -5721,7 +5721,7 @@ DCP的開和關, 僅限機構類型用戶
 <td>倉位數量</td>
 </tr>
 </tbody></table>
-<h3 id='orderbook-delta'>OrderBook(delta)</h3>
+<h3 id='orderbook-delta'>orderBook(delta)</h3>
 <blockquote>
 <p>請求訂閱</p>
 </blockquote>
@@ -6096,7 +6096,7 @@ DCP的開和關, 僅限機構類型用戶
     <span class="dl">'</span><span class="s1">data</span><span class="dl">'</span><span class="p">:</span> 
         <span class="p">{</span>
             <span class="dl">'</span><span class="s1">insuranceBalance</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">1180144.86587280</span><span class="dl">'</span><span class="p">,</span> 
-            <span class="dl">'</span><span class="s1">baseCoin</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">USDC</span><span class="dl">'</span><span class="p">,</span> 
+            <span class="dl">'</span><span class="s1">settleCoin</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">USDC</span><span class="dl">'</span><span class="p">,</span> 
             <span class="dl">'</span><span class="s1">timestamp</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">1649750400693</span><span class="dl">'</span>
         <span class="p">}</span>
 <span class="p">}</span>
@@ -6124,9 +6124,9 @@ DCP的開和關, 僅限機構類型用戶
 <td>USDC 保險餘額</td>
 </tr>
 <tr>
-<td style="text-align: left">baseCoin</td>
+<td style="text-align: left">settleCoin</td>
 <td style="text-align: left">string</td>
-<td>標的幣種</td>
+<td>結算貨幣</td>
 </tr>
 <tr>
 <td style="text-align: left">timestamp</td>

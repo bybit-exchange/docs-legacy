@@ -981,10 +981,10 @@
                     <a href="#public-topics" class="toc-h2 toc-link" data-title="Public Topics">Public Topics</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#orderbook" class="toc-h3 toc-link" data-title="OrderBook">OrderBook</a>
+                            <a href="#orderbook" class="toc-h3 toc-link" data-title="orderBook">orderBook</a>
                           </li>
                           <li>
-                            <a href="#orderbook-delta" class="toc-h3 toc-link" data-title="OrderBook(delta)">OrderBook(delta)</a>
+                            <a href="#orderbook-delta" class="toc-h3 toc-link" data-title="orderBook(delta)">orderBook(delta)</a>
                           </li>
                           <li>
                             <a href="#t-bybittradehistory" class="toc-h3 toc-link" data-title="publictradingrecords">publictradingrecords</a>
@@ -1007,13 +1007,13 @@
                             <a href="#t-userfilledhistory" class="toc-h3 toc-link" data-title="usertraderecords">usertraderecords</a>
                           </li>
                           <li>
-                            <a href="#t-activeorders_new" class="toc-h3 toc-link" data-title="Orders(delta only)">Orders(delta only)</a>
+                            <a href="#t-activeorders_new" class="toc-h3 toc-link" data-title="orders(delta only)">orders(delta only)</a>
                           </li>
                           <li>
-                            <a href="#t-activeorders" class="toc-h3 toc-link" data-title="Orders">Orders</a>
+                            <a href="#t-activeorders" class="toc-h3 toc-link" data-title="orders">orders</a>
                           </li>
                           <li>
-                            <a href="#t-usergreeks" class="toc-h3 toc-link" data-title="Greeks">Greeks</a>
+                            <a href="#t-usergreeks" class="toc-h3 toc-link" data-title="greeks">greeks</a>
                           </li>
                           <li>
                             <a href="#t-usermmpevent" class="toc-h3 toc-link" data-title="mmpevent">mmpevent</a>
@@ -5625,7 +5625,7 @@ Due to network complexity, your may get disconnected at any time. Please follow 
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span><span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">pong</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">args</span><span class="dl">"</span><span class="p">:[</span><span class="dl">"</span><span class="s2">1535975085152</span><span class="dl">"</span><span class="p">]}</span>
 </code></pre></div>
 <aside class="warning">
-translation missing: en.usdc_websocket_aside_heartbeat
+To avoid networks or program issues, we recommend that you send the <code>ping</code> heartbeat packet every <b>20</b> seconds to maintain the WebSocket connection.
 </aside>
 
 <p><p>The client needs to periodically send a "ping" to Bybit, and the Bybit server returns a heartbeat "pong" to show that the connection between the client and the server is normal. It is recommended to send at least every <b>20s</b>. WSS will actively trigger to break the connection without heartbeat "ping" received in 30s.</p>
@@ -5674,7 +5674,7 @@ ONLY VIP clients are allowed to turn on/off DCP
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code>
 </code></pre></div>
 <p>Once you subscribe successfully, you'd receive result information. You can determine whether the subscription is successful based on the response.</p>
-<h2 id='public-topics'>Public Topics</h2><h3 id='orderbook'>OrderBook</h3>
+<h2 id='public-topics'>Public Topics</h2><h3 id='orderbook'>orderBook</h3>
 <blockquote>
 <p>How to Subscribe</p>
 </blockquote>
@@ -5739,7 +5739,7 @@ ONLY VIP clients are allowed to turn on/off DCP
 <td>Position qty</td>
 </tr>
 </tbody></table>
-<h3 id='orderbook-delta'>OrderBook(delta)</h3>
+<h3 id='orderbook-delta'>orderBook(delta)</h3>
 <blockquote>
 <p>How to Subscribe</p>
 </blockquote>
@@ -6120,7 +6120,7 @@ ONLY VIP clients are allowed to turn on/off DCP
     <span class="dl">'</span><span class="s1">data</span><span class="dl">'</span><span class="p">:</span> 
         <span class="p">{</span>
             <span class="dl">'</span><span class="s1">insuranceBalance</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">1180144.86587280</span><span class="dl">'</span><span class="p">,</span> 
-            <span class="dl">'</span><span class="s1">baseCoin</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">USDC</span><span class="dl">'</span><span class="p">,</span> 
+            <span class="dl">'</span><span class="s1">settleCoin</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">USDC</span><span class="dl">'</span><span class="p">,</span> 
             <span class="dl">'</span><span class="s1">timestamp</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">1649750400693</span><span class="dl">'</span>
         <span class="p">}</span>
 <span class="p">}</span>
@@ -6148,9 +6148,9 @@ At 0:00, 8:00, and 16:00 UTC+0, the insurance fund will be pushed.
 <td>USDC Insurance Balance</td>
 </tr>
 <tr>
-<td style="text-align: left">baseCoin</td>
+<td style="text-align: left">settleCoin</td>
 <td style="text-align: left">string</td>
-<td>Base currency</td>
+<td>Settle Coin</td>
 </tr>
 <tr>
 <td style="text-align: left">timestamp</td>
@@ -6426,7 +6426,7 @@ At 0:00, 8:00, and 16:00 UTC+0, the insurance fund will be pushed.
 <td><a href="#exec-type-exectype">Execution type</a></td>
 </tr>
 </tbody></table>
-<h3 id='t-activeorders_new'>Orders(delta only)</h3>
+<h3 id='t-activeorders_new'>orders(delta only)</h3>
 <blockquote>
 <p>How to Subscribe</p>
 </blockquote>
@@ -6585,7 +6585,7 @@ At 0:00, 8:00, and 16:00 UTC+0, the insurance fund will be pushed.
 <td>Please ignore</td>
 </tr>
 </tbody></table>
-<h3 id='t-activeorders'>Orders</h3>
+<h3 id='t-activeorders'>orders</h3>
 <blockquote>
 <p>How to Subscribe</p>
 </blockquote>
@@ -6804,7 +6804,7 @@ At 0:00, 8:00, and 16:00 UTC+0, the insurance fund will be pushed.
 <td>refer to <a href="#cancel-type-canceltype">Cancel Type</a></td>
 </tr>
 </tbody></table>
-<h3 id='t-usergreeks'>Greeks</h3>
+<h3 id='t-usergreeks'>greeks</h3>
 <blockquote>
 <p>How to Subscribe</p>
 </blockquote>

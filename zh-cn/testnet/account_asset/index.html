@@ -910,6 +910,9 @@
                     <a href="#account-type-from_account_type-to_account_type" class="toc-h2 toc-link" data-title="Account type (from_account_type/to_account_type)">Account type (<code>from_account_type</code>/<code>to_account_type</code>)</a>
                   </li>
                   <li>
+                    <a href="#withdraw-status-status" class="toc-h2 toc-link" data-title="Withdraw status(status)">Withdraw status(<code>status</code>)</a>
+                  </li>
+                  <li>
                     <a href="#currency-currency-coin" class="toc-h2 toc-link" data-title="Currency (currency/coin)">Currency (<code>currency</code>/<code>coin</code>)</a>
                   </li>
                   <li>
@@ -2737,23 +2740,7 @@ api_key=XXXXXXXXXXX&amp;coin=LTC&amp;timestamp=1641534660578&amp;recv_window=500
 <tr>
 <td style="text-align: left">status</td>
 <td style="text-align: left">string</td>
-<td><table border=1><tr><th>接口返回值</th><th>對應c端狀態</th><th>狀態值</th></tr>
-<tr><td>ToBeConfirmed</td><td></td><td>SecurityCheck</td></tr>
-<tr><td>UnderReview</td><td>安全檢查</td><td>SecurityCheck</td></tr>
-<tr><td>UnderFinalReview</td><td>安全檢查</td><td>SecurityCheck</td></tr>
-<tr><td>Pending</td><td>進行中</td><td>Pending</td></tr>
-<tr><td>Packed</td><td>進行中>/td><td>Pending</td></tr>
-<tr><td>Download</td><td>進行中</td><td>Pending</td></tr>
-<tr><td>Broadcasted</td><td>進行中</td><td>Pending</td></tr>
-<tr><td>Success</td><td>轉賬成功</td><td>success</td></tr>
-<tr><td>CancelByUser</td><td>已取消</td><td>CancelByUser</td></tr>
-<tr><td>Reject</td><td>駁回</td><td>Reject</td></tr>
-<tr><td>Expire</td><td>失敗</td><td>Fail</td></tr>
-<tr><td>Processing</td><td>進行中</td><td>Pending</td></tr>
-<tr><td>Fail</td><td>失敗</td><td>Fail</td></tr>
-<tr><td>AutoReject</td><td>駁回</td><td>Reject</td></tr>
-</table>
-</td>
+<td><a href="#withdraw-status-status">提現狀態</a></td>
 </tr>
 <tr>
 <td style="text-align: left">to_address</td>
@@ -3514,6 +3501,17 @@ ACCOUNT_STATUS_UNSPECIFIED -- 不正常 </p>
 <li><code>SPOT</code>      現貨賬戶</li>
 <li><code>INVESTMENT</code> 理財賬戶</li>
 <li><code>OPTION</code> - USDC Account</li>
+<li><code>UNIFIED</code> 統一保證金帳戶</li>
+</ul>
+<h2 id='withdraw-status-status'>Withdraw status(<code>status</code>)</h2>
+<ul>
+<li><code>SecurityCheck</code> 安全檢查</li>
+<li><code>Pending</code> 進行中</li>
+<li><code>success</code> 成功</li>
+<li><code>CancelByUser</code> 用戶自行取消</li>
+<li><code>Reject</code> 駁回</li>
+<li><code>Fail</code> 失敗</li>
+<li><code>BlockchainConfirmed</code> 區塊鏈已確認</li>
 </ul>
 <h2 id='currency-currency-coin'>Currency (<code>currency</code>/<code>coin</code>)</h2>
 <ul>

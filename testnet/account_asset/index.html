@@ -910,6 +910,9 @@
                     <a href="#account-type-from_account_type-to_account_type" class="toc-h2 toc-link" data-title="Account type (from_account_type/to_account_type)">Account type (<code>from_account_type</code>/<code>to_account_type</code>)</a>
                   </li>
                   <li>
+                    <a href="#withdraw-status-status" class="toc-h2 toc-link" data-title="Withdraw status(status)">Withdraw status(<code>status</code>)</a>
+                  </li>
+                  <li>
                     <a href="#currency-currency-coin" class="toc-h2 toc-link" data-title="Currency (currency/coin)">Currency (<code>currency</code>/<code>coin</code>)</a>
                   </li>
                   <li>
@@ -2742,23 +2745,7 @@ api_key=XXXXXXXXXXX&amp;coin=LTC&amp;timestamp=1641534660578&amp;recv_window=500
 <tr>
 <td style="text-align: left">status</td>
 <td style="text-align: left">string</td>
-<td><table border=1><tr><th>Return values</th><th>Status correspond to the client</th><th>status</th></tr>
-<tr><td>ToBeConfirmed</td><td></td><td>SecurityCheck</td></tr>
-<tr><td>UnderReview</td><td>SecurityCheck</td><td>SecurityCheck</td></tr>
-<tr><td>UnderFinalReview</td><td>SecurityCheck</td><td>SecurityCheck</td></tr>
-<tr><td>Pending</td><td>Pending</td><td>Pending</td></tr>
-<tr><td>Packed</td><td>Pending</td><td>Pending</td></tr>
-<tr><td>Download</td><td>Pending</td><td>Pending</td></tr>
-<tr><td>Broadcasted</td><td>Pending</td><td>Pending</td></tr>
-<tr><td>Success</td><td>success</td><td>success</td></tr>
-<tr><td>CancelByUser</td><td>cancelByUser</td><td>CancelByUser</td></tr>
-<tr><td>Reject</td><td>Reject</td><td>Reject</td></tr>
-<tr><td>Expire</td><td>Fail</td><td>Fail</td></tr>
-<tr><td>Processing</td><td>Pending</td><td>Pending</td></tr>
-<tr><td>Fail</td><td>Fail</td><td>Fail</td></tr>
-<tr><td>AutoReject</td><td>Reject</td><td>Reject</td></tr>
-</table>
-</td>
+<td><a href="#withdraw-status-status">withdrawal status</a></td>
 </tr>
 <tr>
 <td style="text-align: left">to_address</td>
@@ -3522,6 +3509,17 @@ The rate limits for the Withdraw and Deposit Endpoints and Rate Limits For Trans
 <li><code>SPOT</code>      </li>
 <li><code>INVESTMENT</code> - ByFi Account</li>
 <li><code>OPTION</code> - USDC Account</li>
+<li><code>UNIFIED</code> </li>
+</ul>
+<h2 id='withdraw-status-status'>Withdraw status(<code>status</code>)</h2>
+<ul>
+<li><code>SecurityCheck</code> </li>
+<li><code>Pending</code> </li>
+<li><code>success</code> </li>
+<li><code>CancelByUser</code> </li>
+<li><code>Reject</code> </li>
+<li><code>Fail</code> </li>
+<li><code>BlockchainConfirmed</code> </li>
 </ul>
 <h2 id='currency-currency-coin'>Currency (<code>currency</code>/<code>coin</code>)</h2>
 <ul>
