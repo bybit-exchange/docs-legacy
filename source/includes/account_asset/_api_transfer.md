@@ -898,7 +898,7 @@ GET
 |chain|string|t(:withdraw_response_chainname)|
 |amount|string|t(:withdraw_response_amt)|
 |tx_id|string|t(:withdraw_response_txid)|
-|status|string|t(:withdraw_response_status)|
+|status|string|<a href="#withdraw-status-status">t(:withdraw_resp_status)</a>|
 |to_address|string|t(:withdraw_target_addr)|
 |tag|string|t(:withdraw_response_tag)|
 |withdraw_fee|string|t(:withdraw_response_withdrawFee)|
