@@ -1754,6 +1754,10 @@ clipboard.on('error', function(e) {
 });
 </script>
 <h1 id='t-introduction'>Group And Resources</h1>
+<aside class="notice">
+Bybit's Copy Trading API is only available to <a href="https://www.bybit.com/en-US/help-center/bybitHC_Article?language=en_US&id=000001554">principal traders</a>. Currently, there is no API for followers.
+</aside>
+
 <p><p><a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common errors.</p> <p>For further assistance or feedback, please join the <a href="https://t.me/BybitAPI">API Telegram chat</a>! API discussion group on Telegram.</p></p>
 <h3 id='t-resources'>Group And Bybit API Resources</h3>
 <p><ul class="bybit-community"> <li><img src="../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/en-US/help-center/?language=en_US"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>Official Python SDK</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman API Collection</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> <li><img src="../../images/survey_ico-bd03a90c.png" height="14", width="14"> <a href="https://forms.gle/ZfCKRTVen1VExj478"><strong>Bybit Open API Survey </strong></a> - <strong>The survey should take no more than 5 minutes to complete.</strong> </ul></p>
@@ -5143,7 +5147,7 @@ ELSE
 <h2 id='10000'>10000</h2>
 <p>An unknown error occurred while processing the request.</p>
 <h2 id='10001'>10001</h2>
-<p>Params Error</p>
+<p>There was a problem with the value passed to the API. For example, if you pass a float, ensure it conforms to the <a href="#t-querysymbol"><code>tick_size</code> and <code>qty_step</code></a> (ie, make sure it does not have too many decimals!).</p>
 <h2 id='10002'>10002</h2>
 <p>Request not authorized - an API key is required and should be included in all requests.</p>
 <h2 id='10003'>10003</h2>
@@ -5513,7 +5517,7 @@ ELSE
 <h2 id='34040'>34040</h2>
 <p>Set TP/SL/TS not modified.</p>
 <h2 id='35014'>35014</h2>
-<p>Over order limit.</p>
+<p><a href="https://www.bybit.com/en-US/help-center/HelpCenterKnowledge/bybitHC_Article?language=en_US&id=000001086">Open interest</code> exceeded.</p>
 <h2 id='37001'>37001</h2>
 <p>Both side positions tp_sl_mode is equal.</p>
 <h2 id='37002'>37002</h2>
