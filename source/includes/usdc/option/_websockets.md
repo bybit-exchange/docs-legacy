@@ -416,7 +416,7 @@ ws.send('{"op":"subscribe","args":["platform.insurance.USDC"]}')
 	'data': 
 		{
 			'insuranceBalance': '1180144.86587280', 
-			'baseCoin': 'USDC', 
+			'settleCoin': 'USDC', 
 			'timestamp': '1649750400693'
 		}
 }
@@ -431,7 +431,7 @@ t(:websocket_usdc_platform_insurance)
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 | insuranceBalance |string |t(:usdcInsuranceBalance) |
-| baseCoin |string |t(:usdcBaseCoin) |
+| settleCoin |string |t(:usdcSettleCoin) |
 | timestamp |string |t(:timestamp) |
 
 ## Private Topics
