@@ -156,6 +156,8 @@ def handle_message(msg):
 ws_spot.trade_v1_stream(
     handle_message, ["BTCUSDT", "ETHUSDT"]
 )
+while True:
+    sleep(1)
 ```
 
 > t(:codequote_responseExampleFormatAll)
