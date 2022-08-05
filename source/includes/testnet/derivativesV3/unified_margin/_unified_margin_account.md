@@ -1723,15 +1723,43 @@ t(:wallet_para_transfers_v3)
 > t(:codequote_curlExample)
 
 ```console
-curl --location --request GET 'https://api-testnet.bybit.com/asset/v2/private/exchange/exchange-order-all' \
---header 'X-BAPI-SIGN-TYPE: 2' \
---header 'X-BAPI-SIGN: 1793ee8a0d7b077550faef8d6676565f817302cbdc4dece80e263f78927212ea' \
---header 'X-BAPI-API-KEY: {api key}' \
---header 'X-BAPI-TIMESTAMP: 1657872232349' \
---header 'X-BAPI-RECV-WINDOW: 5000' \
+curl --location --request POST 'https://api-testnet.bybit.com/asset/v1/private/transfer' \
 --header 'Content-Type: application/json' \
---data-raw ''
+--data-raw '{
+    "fromAccountType": "SPOT",
+    "toAccountType": "OPTION",
+    "amount": "15",
+    "coin": "USDT",
+    "transferId": "1aaacac2-fd1a-4a50-8b1a-f99343669f9f",
+    "sign": "9fdd3488b2c8e5bb27feefd31c90ae8ccc2054ebb219eb08f5943101316fa0fa",
+    "timestamp": "1659603566249",
+    "api_key": "T0d98KyVamQ62YBzN8",
+    "recv_window": "5000"
+}'
+
+``` 
+```python--pybit
+
 ```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "ext_code": "",
+    "result": {
+        "transfer_id": "1aaacac2-fd1a-4a50-8b1a-f99343669f9f"
+    },
+    "ext_info": null,
+    "time_now": 1659603553203,
+    "rate_limit_status": 16,
+    "rate_limit_reset_ms": 1659603553203,
+    "rate_limit": 4
+}
+```
+
 
 
 <p class="fake_header">t(:httprequest)</p>
@@ -1745,8 +1773,8 @@ POST
 |transfer_id |<b>true</b> |string |t(:row_comment_transfer_id_v3)    |
 |amount |<b>true</b> |string |t(:row_comment_amount_v3)    |
 |coin |<b>true</b> |string |t(:row_comment_coin_v3)   |
-|from_account_type |<b>true</b> |string |t(:row_comment_from_account_type_v3)   |
-|to_account_type |<b>true</b> |string |t(:row_comment_to_account_type_v3)   |
+|<a href="#account-type-from_account_type-to_account_type">from_account_type</a> |<b>true</b> |string |t(:row_comment_accounttype)   |
+|<a href="#account-type-from_account_type-to_account_type">to_account_type</a> |<b>true</b> |string |t(:row_comment_accounttype)   |
 
 
 <p class="fake_header">t(:responseparameters)</p>

@@ -41,7 +41,12 @@ t(:trading_symbol_comment)
 * `Settling`
 * `Closed`
 
-
+## Account type (`from_account_type`/`to_account_type`)
+* `CONTRACT`  t(:accountType_contract)
+* `SPOT`      t(:accountType_spot)
+* `INVESTMENT` t(:accountType_investment)
+* `OPTION` t(:accountType_option)
+* `UNIFIED` t(:accountType_unified)
 
 ## Wallet fund type (`walletFundType` / `type`)
 * `Deposit` t(:deposit)
