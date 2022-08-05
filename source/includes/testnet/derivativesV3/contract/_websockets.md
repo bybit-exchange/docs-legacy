@@ -113,14 +113,14 @@ t(:websocket_para_limit)
 
 ```javascript
 // Subscribing to the trade data for BTCUSD
-ws.send('{"op":"subscribe","args":["trade.BTCUSD"]}')
+ws.send('{"op":"subscribe","args":["publicTrade.BTCUSD"]}')
 ```
 
 > t(:websocket_codequote_filters2)
 
 ```javascript
 // Example: Subscribing to the trade data for BTCUSD and XRPUSD
-ws.send('{"op":"subscribe","args":["trade.BTCUSD|XRPUSD"]}')
+ws.send('{"op":"subscribe","args":["publicTrade.BTCUSD", "publicTrade.XRPUSD"]}')
 ```
 
 
@@ -140,7 +140,7 @@ t(:websocket_para_filter_resp)
 
 ```javascript
 // Unsubscribing from the trade data for ETHUSD
-ws.send('{"op":"unsubscribe","args":["trade.ETHUSD"]}')
+ws.send('{"op":"unsubscribe","args":["publicTrade.ETHUSD"]}')
 ```
 
 t(:websocket_para_unsubfilters)
@@ -161,7 +161,7 @@ t(:websocket_para_intervals)
    "request": {     // Request to your subscription
        "op": "subscribe",
        "args": [
-           "kline.BTCUSD.1m"
+           "kline.1.BTCUSD"
        ]
    }
 }
@@ -177,13 +177,13 @@ t(:websocket_para_response)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op": "subscribe", "args": ["orderBook25.BTCUSDT","orderBook500.BTCUSDT"]}')
+ws.send('{"op": "subscribe", "args": ["orderbook.25.BTCUSDT","orderbook.500.BTCUSDT"]}')
 ```
 > t(:codequote_snapshot)
 
 ```javascript
 {
-  "topic":"orderBook25.BTCUSDT",
+  "topic":"orderbook.25.BTCUSDT",
     "type":"snapshot",
     "ts":1658200820646,
     "data":{
@@ -218,7 +218,7 @@ ws.send('{"op": "subscribe", "args": ["orderBook25.BTCUSDT","orderBook500.BTCUSD
 
 ```javascript
 {
-  "topic":"orderBook25.BTCUSDT",
+  "topic":"orderbook.25.BTCUSDT",
     "type":"delta",
     "ts":1658200820655,
     "data":{
@@ -269,7 +269,7 @@ t(:websocketOrderBook_contract)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op": "subscribe", "args": ["trade.BTCUSDT"]}')
+ws.send('{"op": "subscribe", "args": ["publicTrade.BTCUSDT"]}')
 ```
 
 ```python--pybit
@@ -281,7 +281,7 @@ ws.send('{"op": "subscribe", "args": ["trade.BTCUSDT"]}')
 
 ```javascript
 {
-  "topic":"trade.BTCUSDT",
+  "topic":"publicTrade.BTCUSDT",
     "type":"snapshot",
     "ts":1658143402593,
     "data":[
@@ -313,11 +313,11 @@ t(:websocket_para_trade_ud)
 |ts|string |t(:row_response_comment_time)  |
 |BT|bool |t(:row_response_comment_blocktrade)  |
 
-### t(:websocketinstrumentInfo)
+### t(:websocketTicker_v3)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op": "subscribe", "args": ["instrumentInfo.BTCUSDT"]}')
+ws.send('{"op": "subscribe", "args": ["tickers.BTCUSDT"]}')
 ```
 
 ```python--pybit
@@ -328,7 +328,7 @@ ws.send('{"op": "subscribe", "args": ["instrumentInfo.BTCUSDT"]}')
 
 ```javascript
 {
-  "topic":"instrumentInfo.BTCUSDT",
+  "topic":"tickers.BTCUSDT",
     "type":"snapshot",
     "data":{
     "symbol":"BTCUSDT",
@@ -362,7 +362,7 @@ ws.send('{"op": "subscribe", "args": ["instrumentInfo.BTCUSDT"]}')
 
 ```javascript
 {
-  "topic":"instrumentInfo.BTCUSDT",
+  "topic":"tickers.BTCUSDT",
     "type":"delta",
     "data":{
     "symbol":"BTCUSDT",
@@ -388,8 +388,8 @@ ws.send('{"op": "subscribe", "args": ["instrumentInfo.BTCUSDT"]}')
 
 ```javascript
 {
-    "id": "instrumentInfo.BTC-29JUL22-26000-C-335648950-1658284651212",
-    "topic": "instrumentInfo.BTC-29JUL22-26000-C",
+    "id": "tickers.BTC-29JUL22-26000-C-335648950-1658284651212",
+    "topic": "tickers.BTC-29JUL22-26000-C",
     "ts": 1658284651212,
     "data": {
         "symbol": "BTC-29JUL22-26000-C",
@@ -423,7 +423,7 @@ ws.send('{"op": "subscribe", "args": ["instrumentInfo.BTCUSDT"]}')
 
 ```
 
-t(:websocket_para_instrumentInfo_v3)
+t(:websocket_para_ticker_v3)
 
 <aside class="warning">
 t(:websocket_aside_instrumentInfo_ud)
@@ -492,7 +492,7 @@ t(:websocket_aside_instrumentInfo_ud)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op":"subscribe","args":["candle.1.BTCUSDT"]}')
+ws.send('{"op":"subscribe","args":["kline.1.BTCUSDT"]}')
 ```
 
 ```python--pybit
@@ -503,7 +503,7 @@ ws.send('{"op":"subscribe","args":["candle.1.BTCUSDT"]}')
 
 ```javascript
 {
-  "topic":"candle.1.BTCUSDT",
+  "topic":"kline.1.BTCUSDT",
     "data":[
     {
       "start":1658150220000,

@@ -1888,7 +1888,7 @@ en:
     After subscription, you will be pushed delta trade message in real-time once there is an order filled.<br><br>
     Push frequency: <b>real-time</b><br><br>
     <b>Topic:</b><br>
-    <code>trade.{symbol}</code>
+    <code>publicTrade.{symbol}</code>(Option uses baseCoin)
   ### insurance
   websocketinsurance: insurance
   websocket_para_insurance: |
@@ -1897,14 +1897,15 @@ en:
   websocket_aside_insurance: The <code>wallet_balance</code> is in Satoshis, with one Satoshi being 100 millionth (<code>100000000</code>) of one Bitcoin.
   ### instrument_info
   websocketinstrumentInfo: instrumentInfo
+  websocketTicker_v3: ticker
   websocket_para_instrumentInfo: |
     <p>Get latest information for symbol.</p>
     <p>Push frequency: <b>100ms</b></p>
-  websocket_para_instrumentInfo_v3: |
+  websocket_para_ticker_v3: |
     <p>Get latest information for symbol.</p>
     <p>Push frequency: <b>100ms</b></p>
     <p><b>Topic:</b></p>
-    <p><code>instrumentInfo.{symbol}</code></p>
+    <p><code>tickers.{symbol}</code></p>
   websocket_aside_instrumentInfo1: |
     This topic only utilises the <code>update</code> field. Both the <code>delete</code> and <code>insert</code> fields are null. If a key is not found in the <code>update</code> field, its value has not changed.
   websocket_aside_instrumentInfo2: |
@@ -1934,7 +1935,7 @@ en:
     </ul>
     <p>Push frequency: <b>1-60s</b></p>
     <p><b>Topic:</b></p>
-    <p><code>candle.{interval}.{symbol}</code></p>
+    <p><code>kline.{interval}.{symbol}</code></p>
   websocket_aside_klineV2: |
     If <code>confirm</code> is <code>True</code>, the data is the final tick for the interval. Otherwise, it is a snapshot.
   websocketkline: kline
@@ -4765,7 +4766,7 @@ en:
   queryLoanInterest: Query Loan Interest Rate
   websocketfilters_unified: Understanding Websocket Filters (Unified Account)
   websocketunsubfilters_unified: Unsubscribing From Websocket Topics (Unfied Account)
-  websocketOrderBookDepth: orderBook
+  websocketOrderBookDepth: orderbook
   privatetopics_unified: Private Topics
   websocketOrder: order
   greeksOption: greeks
@@ -4961,10 +4962,10 @@ en:
     25 level data, push frequency: <b>20ms</b> <br>
     500 level data, push frequency: <b>100ms</b> <br>
     <br>
-    <b>Topic: (ps. option has 25 & 100 level only)</b><br>
-    <code>orderBook25.{symbol}</code><br>
-    <code>orderBook100.{symbol}</code>(<b>option only)</b><br>
-    <code>orderBook500.{symbol}</code><br>
+    <b>Topic: (note. option has 25 & 100 level only)</b><br>
+    <code>orderbook.25.{symbol}</code><br>
+    <code>orderbook.100.{symbol}</code>(<b>option only)</b><br>
+    <code>orderbook.500.{symbol}</code><br>
   websocketOrderBook_contract: |
     <b>instruction: </b>
     Get 25, 500 level data.<br>
@@ -4976,8 +4977,8 @@ en:
     500 level data, push frequency: <b>100ms</b> <br>
     <br>
     <b>Topic: </b><br>
-    <code>orderBook25.{symbol}</code><br>
-    <code>orderBook500.{symbol}</code><br>
+    <code>orderbook.25.{symbol}</code><br>
+    <code>orderbook.500.{symbol}</code><br>
 
   predicatedFundingRate_v3: Predicated funding rate. usdt perp, inverse perp and inverse futures is <code>""</code>
   row_comment_resp_next_funding_time_v3: Next settlement time of capital cost. Inverse futures is <code>""</code>
