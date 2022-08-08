@@ -3,8 +3,7 @@
 ## 2022-08-08
 ### REST API
 - [t(:ct_wallet_transfer)](#t-ct_wallet_transfer) [t(:changelog_update)]
-<br>
-t(:restapi_update_20220808)
+  - t(:restapi_update_20220808)
 
 ## 2022-06-01
 ### REST API
@@ -17,10 +16,10 @@ t(:restapi_update_20220808)
 - [t(:ct_positon_close)](#t-ct_positon_close) [t(:changelog_update)]
 - [t(:ct_wallet_balance)](#t-ct_wallet_balance) [t(:changelog_update)]
 - [t(:ct_wallet_transfer)](#t-ct_wallet_transfer) [t(:changelog_update)]
-- [t(:ct_set_leverage)](#t-ct_set_leverage) [t(:changelog_update)] 
-<br/>
+- [t(:ct_set_leverage)](#t-ct_set_leverage) [t(:changelog_update)]
+
 t(:restapi_update_20220601)
-  
+
 ## 2022-05-31
 ### REST API
 - [t(:ct_symbol_list)](#t-ct_symbol_list) [t(:changelog_new)]
