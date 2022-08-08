@@ -753,7 +753,7 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_1) |
-|symbol |<b>true</b> |string |t(:row_comment_symbol) |
+|symbol |false |string |t(:row_comment_symbol) |
 |optionType |false |string |t(:dv_OptionType) |
 |limit |false |int |t(:row_comment_limit_500_1000)|
 

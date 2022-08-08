@@ -182,7 +182,7 @@ t(:usdc_websocket_para_orderbook)
 |:----- |:-----|----- |
 | t(:row_parameter_price) |string |t(:row_comment_resp_price) |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
-|size |number |t(:row_comment_position_size)  |
+|size |string |t(:row_comment_position_size)  |
 
 
 
@@ -259,7 +259,7 @@ t(:usdcCommonDesc)
 |:----- |:-----|----- |
 | t(:row_parameter_price) |string |t(:row_comment_resp_price) |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
-|size |number |t(:row_comment_position_size)  |
+|size |string |t(:row_comment_position_size)  |
 
 
 
@@ -711,7 +711,10 @@ t(:usdcWssOrderNewDesc)
 }
 }
 
+
+
 ```
+
 
 > t(:codequote_delta)
 

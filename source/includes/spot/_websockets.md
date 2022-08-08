@@ -181,8 +181,7 @@ while True:
         }
     ],
     "f": true,
-    "sendTime": 1626249138535,
-    "shared": false
+    "sendTime": 1626249138535
 }
 ```
 
@@ -262,8 +261,7 @@ while True:
     "e": 301
     }],
   "f": false,
-  "sendTime": 1626252046034,
-  "shared": false
+  "sendTime": 1626252046034
 }
 ```
 
@@ -350,8 +348,7 @@ while True:
     "v": "16.3306"
   }],
   "f": true,
-  "sendTime": 1626252389284,
-  "shared": false
+  "sendTime": 1626252389284
 }
 ```
 
@@ -456,8 +453,7 @@ while True:
     "o": 0
   }],
   "f": true,
-  "sendTime": 1626253839401,
-  "shared": false
+  "sendTime": 1626253839401
 }
 ```
 
@@ -564,8 +560,7 @@ while True:
     "o":0
     }],
     "f":false,
-    "sendTime":1622541360301,
-    "shared":false
+    "sendTime":1622541360301
 }
 ```
 
@@ -667,8 +662,7 @@ while True:
     "o": 0
   }],
   "f": true,
-  "sendTime": 1626253839401,
-  "shared": false
+  "sendTime": 1626253839401
 }
 ```
 

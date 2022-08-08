@@ -1888,7 +1888,7 @@ en:
     After subscription, you will be pushed delta trade message in real-time once there is an order filled.<br><br>
     Push frequency: <b>real-time</b><br><br>
     <b>Topic:</b><br>
-    <code>trade.{symbol}</code>
+    <code>publicTrade.{symbol}</code>(Option uses baseCoin)
   ### insurance
   websocketinsurance: insurance
   websocket_para_insurance: |
@@ -1897,14 +1897,15 @@ en:
   websocket_aside_insurance: The <code>wallet_balance</code> is in Satoshis, with one Satoshi being 100 millionth (<code>100000000</code>) of one Bitcoin.
   ### instrument_info
   websocketinstrumentInfo: instrumentInfo
+  websocketTicker_v3: ticker
   websocket_para_instrumentInfo: |
     <p>Get latest information for symbol.</p>
     <p>Push frequency: <b>100ms</b></p>
-  websocket_para_instrumentInfo_v3: |
+  websocket_para_ticker_v3: |
     <p>Get latest information for symbol.</p>
     <p>Push frequency: <b>100ms</b></p>
     <p><b>Topic:</b></p>
-    <p><code>instrumentInfo.{symbol}</code></p>
+    <p><code>tickers.{symbol}</code></p>
   websocket_aside_instrumentInfo1: |
     This topic only utilises the <code>update</code> field. Both the <code>delete</code> and <code>insert</code> fields are null. If a key is not found in the <code>update</code> field, its value has not changed.
   websocket_aside_instrumentInfo2: |
@@ -1934,7 +1935,7 @@ en:
     </ul>
     <p>Push frequency: <b>1-60s</b></p>
     <p><b>Topic:</b></p>
-    <p><code>candle.{interval}.{symbol}</code></p>
+    <p><code>kline.{interval}.{symbol}</code></p>
   websocket_aside_klineV2: |
     If <code>confirm</code> is <code>True</code>, the data is the final tick for the interval. Otherwise, it is a snapshot.
   websocketkline: kline
@@ -2253,10 +2254,10 @@ en:
   err_10000: An unknown error occurred while processing the request.
   err_10001: There was a problem with the value passed to the API. For example, if you pass a float, ensure it conforms to the <a href="#t-querysymbol"><code>tick_size</code> and <code>qty_step</code></a> (ie, make sure it does not have too many decimals!).
   err_10002: Request not authorized - an API key is required and should be included in all requests.
-  err_10003: Too many requests - please use WebSocket for live updates. Current limit is %s requests per minute.
+  err_10003: Invalid api key
   err_10004: Invalid sign
   err_10005: Permission denied for current apikey. API key was created without the correct permissions (e.g. doesn´t have Order permission, or it's set to read-only)
-  err_10006: Too many visits. Refer to the <a href="#t-understandingratelimits">API rate limit</a>.
+  err_10006: Too many visits. Refer to the <a href="#t-understandingratelimits">API rate limit</a>. Please use WebSocket for live updates. Current limit is %s requests per minute.
   err_10007: Response timeout from backend server. Delivery and request status unknown.
   err_10010: Request IP mismatch.
   err_10012: DB error
@@ -3034,6 +3035,7 @@ en:
   linear_private_switchmode: Switch mode between Full or Partial
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
+  restapi_update_20220805: Update insurance topic response filed from <code>baseCoin</code> to <code>settleCoin</code>
   restapi_update_20220718_2: Abandon response field <code>total_turnover</code>.
   restapi_update_20220718_1: Abandon response field <code>total_turnover_e8</code>.
   restapi_update_20220708: Add notice that an IP can connect to a maximum of 50 private spot websocket connections simultaneously
@@ -4766,7 +4768,7 @@ en:
   queryLoanInterest: Query Loan Interest Rate
   websocketfilters_unified: Understanding Websocket Filters (Unified Account)
   websocketunsubfilters_unified: Unsubscribing From Websocket Topics (Unfied Account)
-  websocketOrderBookDepth: orderBook
+  websocketOrderBookDepth: orderbook
   privatetopics_unified: Private Topics
   websocketOrder: order
   greeksOption: greeks
@@ -4962,10 +4964,10 @@ en:
     25 level data, push frequency: <b>20ms</b> <br>
     500 level data, push frequency: <b>100ms</b> <br>
     <br>
-    <b>Topic: (ps. option has 25 & 100 level only)</b><br>
-    <code>orderBook25.{symbol}</code><br>
-    <code>orderBook100.{symbol}</code>(<b>option only)</b><br>
-    <code>orderBook500.{symbol}</code><br>
+    <b>Topic: (note. option has 25 & 100 level only)</b><br>
+    <code>orderbook.25.{symbol}</code><br>
+    <code>orderbook.100.{symbol}</code>(<b>option only)</b><br>
+    <code>orderbook.500.{symbol}</code><br>
   websocketOrderBook_contract: |
     <b>instruction: </b>
     Get 25, 500 level data.<br>
@@ -4977,8 +4979,8 @@ en:
     500 level data, push frequency: <b>100ms</b> <br>
     <br>
     <b>Topic: </b><br>
-    <code>orderBook25.{symbol}</code><br>
-    <code>orderBook500.{symbol}</code><br>
+    <code>orderbook.25.{symbol}</code><br>
+    <code>orderbook.500.{symbol}</code><br>
 
   predicatedFundingRate_v3: Predicated funding rate. usdt perp, inverse perp and inverse futures is <code>""</code>
   row_comment_resp_next_funding_time_v3: Next settlement time of capital cost. Inverse futures is <code>""</code>

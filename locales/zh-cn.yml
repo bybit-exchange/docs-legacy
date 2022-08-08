@@ -1694,7 +1694,7 @@ zh-cn:
     從用戶訂閱開始, 實時推送增量交易歷史, 有成交數據就推送.<br><br>
     推送頻率：<b>實時</b><br><br>
     <b>Topic:</b><br>
-    <code>trade.{symbol}</code>
+    <code>publicTrade.{symbol}</code>(期權傳baseCoin)
   ### insurance
   websocketinsurance: 保險基金
   websocket_para_insurance: |
@@ -1703,14 +1703,15 @@ zh-cn:
   websocket_aside_insurance: 註意<code>wallet_balance</code>的單位為<code>聰</code>, 1聰等於一百萬分之一個比特幣.
   ### instrument_info
   websocketinstrumentInfo: 行情
+  websocketTicker_v3: 行情
   websocket_para_instrumentInfo: |
     <p>獲取合約的最新數據.</p>
     <p>Push frequency: <b>100ms</b></p>
-  websocket_para_instrumentInfo_v3: |
+  websocket_para_ticker_v3: |
     <p>獲取合約的最新數據.</p>
     <p>推送頻率: <b>100ms</b></p>
     <p><b>Topic:</b></p>
-    <p><code>instrumentInfo.{symbol}</code></p>
+    <p><code>tickers.{symbol}</code></p>
   websocket_aside_instrumentInfo1: |
     註意，該topic只會推送<code>update</code>數據. <code>delete</code>和<code>insert</code>數據都為空. 如果<code>update</code>數據也為空,則表明信息沒有發生變化.
   websocket_aside_instrumentInfo2: |
@@ -1741,7 +1742,7 @@ zh-cn:
     </ul>
     <p>推送頻率：<b>1-60s</b></p>
     <p><b>Topic:</b></p>
-    <p><code>candle.{周期}.{symbol}</code></p>
+    <p><code>kline.{周期}.{symbol}</code></p>
   websocket_aside_klineV2: |
     註意如果字段<code>confirm</code>為<code>True</code>, 則表明這是這根K線的最後一個tick；否則，這只是一個快照數據，即中間價格
   websocketkline: K線
@@ -2605,6 +2606,7 @@ zh-cn:
   linear_private_switchmode: 切換止盈止損模式至全倉或部分
   linear_row_comment_limit: 每頁數量, 最大50. 默認每頁20條，最多50條每頁
   linear_row_comment_limit_50_200: 每頁數量, 最大200. 默認每頁50條，最多200條每頁
+  restapi_update_20220805: 更新保證金推送響應字段從<code>baseCoin</code>變為<code>settleCoin</code>
   restapi_update_20220708: 添加註意，对於spot private topic，一個ip最多可以同時連接50個websockets連接，
   restapi_update_20220630: 新增返回參數 <code>page_token</code>。
   restapi_update_20220617: 新增LT 全量資產基礎信息查詢
@@ -4180,6 +4182,7 @@ zh-cn:
 
   #copytrade
   copy_trading: 跟單交易
+  copy_trading_user_notice: Bybit的跟單交易API目前僅適用於<a href="https://www.bybit.com/en-US/help-center/bybitHC_Article?language=en_US&id=000001554">交易達人</a>. 暫時沒有相關API提供給到跟隨者.
   ct_symbol_list: 交易員獲取可帶單合約
   ct_order: 訂單
   ct_order_list: 查詢交易員帶單訂單
@@ -4317,7 +4320,7 @@ zh-cn:
   queryLoanInterest: 查詢借貸利率
   websocketfilters_unified: Websocket訂閱方式 - 統保
   websocketunsubfilters_unified: Websocket取消訂閱方式 - 統保
-  websocketOrderBookDepth: OrderBook 深度
+  websocketOrderBookDepth: orderbook
   privatetopics_unified: 私有 Topics
   websocketOrder: 訂單
   greeksOption: 用戶希臘字母信息（僅期權）
@@ -4515,9 +4518,9 @@ zh-cn:
     500檔數據，推送頻率 <b>100ms</b> <br>
     <br>
     <b>Topic: (備註：Option只有25和100檔)</b><br>
-    <code>orderBook25.{symbol}</code><br>
-    <code>orderBook100.{symbol}</code>(<b>僅期權)</b><br>
-    <code>orderBook500.{symbol}</code><br>
+    <code>orderbook.25.{symbol}</code><br>
+    <code>orderbook.100.{symbol}</code>(<b>僅期權)</b><br>
+    <code>orderbook.500.{symbol}</code><br>
   websocketOrderBook_contract: |
     <b>說明: </b>
     獲取25,500檔orderbook數據.<br>
@@ -4529,8 +4532,8 @@ zh-cn:
     500檔數據，推送頻率 <b>100ms</b> <br>
     <br>
     <b>Topic: </b><br>
-    <code>orderBook25.{symbol}</code><br>
-    <code>orderBook500.{symbol}</code><br>
+    <code>orderbook.25.{symbol}</code><br>
+    <code>orderbook.500.{symbol}</code><br>
 
   predicatedFundingRate_v3: 預測資金費率. usdt永續、反向永續、反向交割為<code>""</code>
   row_comment_resp_next_funding_time_v3: 下次結算資金費用時間. 反向交割為<code>""</code>
