@@ -981,13 +981,13 @@
                     <a href="#t-publictopics" class="toc-h2 toc-link" data-title="Public Topics">Public Topics</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#t-websocketorderbookdepth" class="toc-h3 toc-link" data-title="orderBook">orderBook</a>
+                            <a href="#t-websocketorderbookdepth" class="toc-h3 toc-link" data-title="orderbook">orderbook</a>
                           </li>
                           <li>
                             <a href="#t-websockettrade" class="toc-h3 toc-link" data-title="trade">trade</a>
                           </li>
                           <li>
-                            <a href="#t-websocketinstrumentinfo" class="toc-h3 toc-link" data-title="instrumentInfo">instrumentInfo</a>
+                            <a href="#t-websocketticker_v3" class="toc-h3 toc-link" data-title="ticker">ticker</a>
                           </li>
                           <li>
                             <a href="#t-websocketkline" class="toc-h3 toc-link" data-title="kline">kline</a>
@@ -2999,7 +2999,7 @@ The response is in the snapshot format.
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
@@ -6123,13 +6123,13 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <p>How to subscribe with a filter</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Subscribing to the trade data for BTCUSD</span>
-<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["trade.BTCUSD"]}</span><span class="dl">'</span><span class="p">)</span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["publicTrade.BTCUSD"]}</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
 <p>How to subscribe with multiple filters</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Example: Subscribing to the trade data for BTCUSD and XRPUSD</span>
-<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["trade.BTCUSD|XRPUSD"]}</span><span class="dl">'</span><span class="p">)</span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["publicTrade.BTCUSD", "publicTrade.XRPUSD"]}</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div>
 <p>After establishing the connection, one can subscribe to a new topic by sending a JSON request. The specific formats are as follows:
 </p>
@@ -6151,7 +6151,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <p>How to unsubscribe with a filter</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Unsubscribing from the trade data for ETHUSD</span>
-<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"unsubscribe","args":["trade.ETHUSD"]}</span><span class="dl">'</span><span class="p">)</span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"unsubscribe","args":["publicTrade.ETHUSD"]}</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div>
 <p>You can dynamically subscribe and unsubscribe from topics (with or without filters) without websocket disconnection as follows:
 </p>
@@ -6170,23 +6170,23 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
    <span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>     <span class="c1">// Request to your subscription</span>
        <span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">subscribe</span><span class="dl">"</span><span class="p">,</span>
        <span class="dl">"</span><span class="s2">args</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
-           <span class="dl">"</span><span class="s2">kline.BTCUSD.1m</span><span class="dl">"</span>
+           <span class="dl">"</span><span class="s2">kline.1.BTCUSD</span><span class="dl">"</span>
        <span class="p">]</span>
    <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Each subscription will have a response. You can determine whether the subscription is successful based on the response.</p>
-<h2 id='t-publictopics'>Public Topics</h2><h3 id='t-websocketorderbookdepth'>orderBook</h3>
+<h2 id='t-publictopics'>Public Topics</h2><h3 id='t-websocketorderbookdepth'>orderbook</h3>
 <blockquote>
 <p>How to Subscribe</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op": "subscribe", "args": ["orderBook25.BTCUSDT","orderBook500.BTCUSDT"]}</span><span class="dl">'</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op": "subscribe", "args": ["orderbook.25.BTCUSDT","orderbook.500.BTCUSDT"]}</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
 <p>Snapshot Response Example - format of the first response</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">orderBook25.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">orderbook.25.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">snapshot</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span><span class="mi">1658200820646</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
@@ -6219,7 +6219,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <p>Delta Response Example - format of the responses following the snapshot response</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">orderBook25.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">orderbook.25.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">delta</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span><span class="mi">1658200820655</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
@@ -6262,8 +6262,8 @@ If there is a problem in bybit end, it will re-send a snapshot, which is promise
 500 level data, push frequency: <b>100ms</b> <br>
 <br>
 <b>Topic: </b><br>
-<code>orderBook25.{symbol}</code><br>
-<code>orderBook500.{symbol}</code><br>
+<code>orderbook.25.{symbol}</code><br>
+<code>orderbook.500.{symbol}</code><br>
 </p>
 
 <p class="fake_header">Response Parameters</p>
@@ -6300,14 +6300,14 @@ If there is a problem in bybit end, it will re-send a snapshot, which is promise
 <blockquote>
 <p>How to Subscribe</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op": "subscribe", "args": ["trade.BTCUSDT"]}</span><span class="dl">'</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op": "subscribe", "args": ["publicTrade.BTCUSDT"]}</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
 <p>Response Example - format of all responses</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">trade.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">publicTrade.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">snapshot</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span><span class="mi">1658143402593</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:[</span>
@@ -6328,7 +6328,7 @@ Get recent trade data from Bybit.<br>
 After subscription, you will be pushed delta trade message in real-time once there is an order filled.<br><br>
 Push frequency: <b>real-time</b><br><br>
 <b>Topic:</b><br>
-<code>trade.{symbol}</code>
+<code>publicTrade.{symbol}</code>(Option uses baseCoin)
 </p>
 
 <p class="fake_header">Response Parameters</p>
@@ -6386,18 +6386,18 @@ Push frequency: <b>real-time</b><br><br>
 <td>is or not block trade, yse=true, no=false</td>
 </tr>
 </tbody></table>
-<h3 id='t-websocketinstrumentinfo'>instrumentInfo</h3>
+<h3 id='t-websocketticker_v3'>ticker</h3>
 <blockquote>
 <p>How to Subscribe</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op": "subscribe", "args": ["instrumentInfo.BTCUSDT"]}</span><span class="dl">'</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op": "subscribe", "args": ["tickers.BTCUSDT"]}</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
 <p>Snapshot Response Example - format of the first response</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">instrumentInfo.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">tickers.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">snapshot</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
     <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
@@ -6430,7 +6430,7 @@ Push frequency: <b>real-time</b><br><br>
 <p>Delta Response Example - format of the responses following the snapshot response</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">instrumentInfo.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">tickers.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">delta</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
     <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
@@ -6455,8 +6455,8 @@ Push frequency: <b>real-time</b><br><br>
 <p>Option snapshot data</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">instrumentInfo.BTC-29JUL22-26000-C-335648950-1658284651212</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">instrumentInfo.BTC-29JUL22-26000-C</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">tickers.BTC-29JUL22-26000-C-335648950-1658284651212</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">tickers.BTC-29JUL22-26000-C</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1658284651212</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
         <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC-29JUL22-26000-C</span><span class="dl">"</span><span class="p">,</span>
@@ -6492,7 +6492,7 @@ Push frequency: <b>real-time</b><br><br>
 <p><p>Get latest information for symbol.</p>
 <p>Push frequency: <b>100ms</b></p>
 <p><b>Topic:</b></p>
-<p><code>instrumentInfo.{symbol}</code></p>
+<p><code>tickers.{symbol}</code></p>
 </p>
 
 <aside class="warning">
@@ -6770,14 +6770,14 @@ This topic will utilises the <code>snapshot</code> field and  <code>delta</code>
 <blockquote>
 <p>How to Subscribe</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["candle.1.BTCUSDT"]}</span><span class="dl">'</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["kline.1.BTCUSDT"]}</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
 <p>Response Example - format of all responses</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">candle.1.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">kline.1.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:[</span>
     <span class="p">{</span>
       <span class="dl">"</span><span class="s2">start</span><span class="dl">"</span><span class="p">:</span><span class="mi">1658150220000</span><span class="p">,</span>
@@ -6807,7 +6807,7 @@ This topic will utilises the <code>snapshot</code> field and  <code>delta</code>
 </ul>
 <p>Push frequency: <b>1-60s</b></p>
 <p><b>Topic:</b></p>
-<p><code>candle.{interval}.{symbol}</code></p>
+<p><code>kline.{interval}.{symbol}</code></p>
 </p>
 
 <aside class="notice">

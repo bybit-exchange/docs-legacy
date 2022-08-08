@@ -782,6 +782,14 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#2022-08-05" class="toc-h2 toc-link" data-title="2022-08-05">2022-08-05</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#websocket-api" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
                     <a href="#2022-06-16" class="toc-h2 toc-link" data-title="2022-06-16">2022-06-16</a>
                       <ul class="toc-list-h3">
                           <li>
@@ -793,7 +801,7 @@
                     <a href="#2022-06-02" class="toc-h2 toc-link" data-title="2022-06-02">2022-06-02</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#websocket-api" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
+                            <a href="#websocket-api-2" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
                           </li>
                       </ul>
                   </li>
@@ -1266,7 +1274,15 @@ clipboard.on('error', function(e) {
 </script>
 <h1 id='t-introduction'>Group And Resources</h1><h5 id='t-intro_para'><p><a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common errors.</p> <p>For further assistance or feedback, please join the <a href="https://t.me/BybitAPI">API Telegram chat</a>! API discussion group on Telegram.</p></h5><h3 id='t-resources'>Group And Bybit API Resources</h3>
 <p><ul class="bybit-community"> <li><img src="../../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/en-US/help-center/?language=en_US"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>Official Python SDK</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman API Collection</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> <li><img src="../../../images/survey_ico-bd03a90c.png" height="14", width="14"> <a href="https://forms.gle/ZfCKRTVen1VExj478"><strong>Bybit Open API Survey </strong></a> - <strong>The survey should take no more than 5 minutes to complete.</strong> </ul></p>
-<h1 id='t-changelog'>Changelog</h1><h2 id='2022-06-16'>2022-06-16</h2><h3 id='rest-api'>REST API</h3>
+<h1 id='t-changelog'>Changelog</h1><h2 id='2022-08-05'>2022-08-05</h2><h3 id='websocket-api'>WebSocket API</h3>
+<ul>
+<li><a href="#t-websocketinsurance">insurance</a> [update]
+
+<ul>
+<li>Update insurance topic response filed from <code>baseCoin</code> to <code>settleCoin</code></li>
+</ul></li>
+</ul>
+<h2 id='2022-06-16'>2022-06-16</h2><h3 id='rest-api'>REST API</h3>
 <ul>
 <li><a href="#t-setmarginmode">Set Margin Mode</a> [new]
 
@@ -1274,7 +1290,7 @@ clipboard.on('error', function(e) {
 <li>Add Set Margin Mode API for USDC</li>
 </ul></li>
 </ul>
-<h2 id='2022-06-02'>2022-06-02</h2><h3 id='websocket-api'>WebSocket API</h3>
+<h2 id='2022-06-02'>2022-06-02</h2><h3 id='websocket-api-2'>WebSocket API</h3>
 <ul>
 <li><a href="#t-usermmpevent">mmpevent</a> [new]
 
@@ -3633,7 +3649,7 @@ The endpoint only supports up to 30 days of queried records
 </tr>
 <tr>
 <td style="text-align: left">createdAt</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>Creation time</td>
 </tr>
 <tr>
@@ -3658,7 +3674,7 @@ The endpoint only supports up to 30 days of queried records
 </tr>
 <tr>
 <td style="text-align: left">updatedAt</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>Update time</td>
 </tr>
 <tr>
@@ -4095,7 +4111,7 @@ The endpoint only supports up to 30 days of queried records. An error will be re
 </thead><tbody>
 <tr>
 <td style="text-align: left">transactionTime</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>Timestamp, unit in milliseconds</td>
 </tr>
 <tr>
@@ -4920,7 +4936,7 @@ The endpoint only supports up to 30 days of queried records
 </thead><tbody>
 <tr>
 <td style="text-align: left">deliveryTime</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>Delivery time</td>
 </tr>
 <tr>
@@ -5735,7 +5751,7 @@ ONLY VIP clients are allowed to turn on/off DCP
 </tr>
 <tr>
 <td style="text-align: left">size</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>Position qty</td>
 </tr>
 </tbody></table>
@@ -5828,7 +5844,7 @@ ONLY VIP clients are allowed to turn on/off DCP
 </tr>
 <tr>
 <td style="text-align: left">size</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>Position qty</td>
 </tr>
 </tbody></table>
@@ -6631,6 +6647,8 @@ At 0:00, 8:00, and 16:00 UTC+0, the insurance fund will be pushed.
     <span class="dl">"</span><span class="s2">dataType</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">NEW</span><span class="dl">"</span>
 <span class="p">}</span>
 <span class="p">}</span>
+
+
 
 </code></pre></div>
 <blockquote>

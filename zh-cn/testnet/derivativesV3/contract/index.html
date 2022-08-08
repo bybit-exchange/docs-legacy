@@ -981,13 +981,13 @@
                     <a href="#t-publictopics" class="toc-h2 toc-link" data-title="公共 Topics">公共 Topics</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#t-websocketorderbookdepth" class="toc-h3 toc-link" data-title="OrderBook 深度">OrderBook 深度</a>
+                            <a href="#t-websocketorderbookdepth" class="toc-h3 toc-link" data-title="orderbook">orderbook</a>
                           </li>
                           <li>
                             <a href="#t-websockettrade" class="toc-h3 toc-link" data-title="平臺成交">平臺成交</a>
                           </li>
                           <li>
-                            <a href="#t-websocketinstrumentinfo" class="toc-h3 toc-link" data-title="行情">行情</a>
+                            <a href="#t-websocketticker_v3" class="toc-h3 toc-link" data-title="行情">行情</a>
                           </li>
                           <li>
                             <a href="#t-websocketkline" class="toc-h3 toc-link" data-title="K線">K線</a>
@@ -2992,7 +2992,7 @@ function copyStringToClipboard (endpoint) {
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>合約類型</td>
 </tr>
@@ -6087,13 +6087,13 @@ function copyStringToClipboard (endpoint) {
 <p>直接訂閱</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Subscribing to the trade data for BTCUSD</span>
-<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["trade.BTCUSD"]}</span><span class="dl">'</span><span class="p">)</span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["publicTrade.BTCUSD"]}</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
 <p>通過分隔符來訂閱多個topic</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Example: Subscribing to the trade data for BTCUSD and XRPUSD</span>
-<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["trade.BTCUSD|XRPUSD"]}</span><span class="dl">'</span><span class="p">)</span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["publicTrade.BTCUSD", "publicTrade.XRPUSD"]}</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div>
 <p>建立連接後, 可以通過發送JSON請求來訂閱topic. 其中binary為false表示不進行壓縮傳輸，為true時表示以GZIP格式進行壓縮，請求格式如下:
 </p>
@@ -6114,7 +6114,7 @@ function copyStringToClipboard (endpoint) {
 <p>取消訂閱</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Unsubscribing from the trade data for ETHUSD</span>
-<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"unsubscribe","args":["trade.ETHUSD"]}</span><span class="dl">'</span><span class="p">)</span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"unsubscribe","args":["publicTrade.ETHUSD"]}</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div>
 <p>您可以在不斷開連接的前提下動態調整您要訂閱的信息，取消訂閱方式如下:
 </p>
@@ -6133,23 +6133,23 @@ function copyStringToClipboard (endpoint) {
    <span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>     <span class="c1">// Request to your subscription</span>
        <span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">subscribe</span><span class="dl">"</span><span class="p">,</span>
        <span class="dl">"</span><span class="s2">args</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
-           <span class="dl">"</span><span class="s2">kline.BTCUSD.1m</span><span class="dl">"</span>
+           <span class="dl">"</span><span class="s2">kline.1.BTCUSD</span><span class="dl">"</span>
        <span class="p">]</span>
    <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>每個topic訂閱請求都會有對應的響應，您可以根據返回結果判斷是否訂閱成功。</p>
-<h2 id='t-publictopics'>公共 Topics</h2><h3 id='t-websocketorderbookdepth'>OrderBook 深度</h3>
+<h2 id='t-publictopics'>公共 Topics</h2><h3 id='t-websocketorderbookdepth'>orderbook</h3>
 <blockquote>
 <p>請求訂閱</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op": "subscribe", "args": ["orderBook25.BTCUSDT","orderBook500.BTCUSDT"]}</span><span class="dl">'</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op": "subscribe", "args": ["orderbook.25.BTCUSDT","orderbook.500.BTCUSDT"]}</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
 <p>快照推送示例 - 連接建立成功後首次推送</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">orderBook25.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">orderbook.25.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">snapshot</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span><span class="mi">1658200820646</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
@@ -6182,7 +6182,7 @@ function copyStringToClipboard (endpoint) {
 <p>增量推送示例 - 快照數據推送後，推送的增量數據</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">orderBook25.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">orderbook.25.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">delta</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span><span class="mi">1658200820655</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
@@ -6225,8 +6225,8 @@ function copyStringToClipboard (endpoint) {
 500檔數據，推送頻率 <b>100ms</b> <br>
 <br>
 <b>Topic: </b><br>
-<code>orderBook25.{symbol}</code><br>
-<code>orderBook500.{symbol}</code><br>
+<code>orderbook.25.{symbol}</code><br>
+<code>orderbook.500.{symbol}</code><br>
 </p>
 
 <p class="fake_header">返回參數</p>
@@ -6263,14 +6263,14 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>請求訂閱</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op": "subscribe", "args": ["trade.BTCUSDT"]}</span><span class="dl">'</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op": "subscribe", "args": ["publicTrade.BTCUSDT"]}</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">trade.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">publicTrade.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">snapshot</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span><span class="mi">1658143402593</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:[</span>
@@ -6291,7 +6291,7 @@ function copyStringToClipboard (endpoint) {
 從用戶訂閱開始, 實時推送增量交易歷史, 有成交數據就推送.<br><br>
 推送頻率：<b>實時</b><br><br>
 <b>Topic:</b><br>
-<code>trade.{symbol}</code>
+<code>publicTrade.{symbol}</code>(期權傳baseCoin)
 </p>
 
 <p class="fake_header">返回參數</p>
@@ -6349,18 +6349,18 @@ function copyStringToClipboard (endpoint) {
 <td>成交类型是否大宗交易，是：true；否：false</td>
 </tr>
 </tbody></table>
-<h3 id='t-websocketinstrumentinfo'>行情</h3>
+<h3 id='t-websocketticker_v3'>行情</h3>
 <blockquote>
 <p>請求訂閱</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op": "subscribe", "args": ["instrumentInfo.BTCUSDT"]}</span><span class="dl">'</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op": "subscribe", "args": ["tickers.BTCUSDT"]}</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
 <p>快照推送示例 - 連接建立成功後首次推送</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">instrumentInfo.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">tickers.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">snapshot</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
     <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
@@ -6393,7 +6393,7 @@ function copyStringToClipboard (endpoint) {
 <p>增量推送示例 - 快照數據推送後，推送的增量數據</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">instrumentInfo.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">tickers.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">delta</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
     <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
@@ -6418,8 +6418,8 @@ function copyStringToClipboard (endpoint) {
 <p>以下為期權的快照數據推送</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">instrumentInfo.BTC-29JUL22-26000-C-335648950-1658284651212</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">instrumentInfo.BTC-29JUL22-26000-C</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">tickers.BTC-29JUL22-26000-C-335648950-1658284651212</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">tickers.BTC-29JUL22-26000-C</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1658284651212</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
         <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC-29JUL22-26000-C</span><span class="dl">"</span><span class="p">,</span>
@@ -6455,7 +6455,7 @@ function copyStringToClipboard (endpoint) {
 <p><p>獲取合約的最新數據.</p>
 <p>推送頻率: <b>100ms</b></p>
 <p><b>Topic:</b></p>
-<p><code>instrumentInfo.{symbol}</code></p>
+<p><code>tickers.{symbol}</code></p>
 </p>
 
 <aside class="warning">
@@ -6733,14 +6733,14 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>請求訂閱</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["candle.1.BTCUSDT"]}</span><span class="dl">'</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["kline.1.BTCUSDT"]}</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">candle.1.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">kline.1.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:[</span>
     <span class="p">{</span>
       <span class="dl">"</span><span class="s2">start</span><span class="dl">"</span><span class="p">:</span><span class="mi">1658150220000</span><span class="p">,</span>
@@ -6770,7 +6770,7 @@ function copyStringToClipboard (endpoint) {
 </ul>
 <p>推送頻率：<b>1-60s</b></p>
 <p><b>Topic:</b></p>
-<p><code>candle.{周期}.{symbol}</code></p>
+<p><code>kline.{周期}.{symbol}</code></p>
 </p>
 
 <aside class="notice">
