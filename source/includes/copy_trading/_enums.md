@@ -102,6 +102,7 @@ t(:para_orderStatusGet)
 ## Account type (`from_account_type`/`to_account_type`)
 * `CONTRACT`  t(:accountType_contract)
 * `COPYTRADING`      t(:accountType_copytrade)
+* `UNIFIED` t(:accountType_unified)
 
 
 ## Stop order status (`stop_order_status`)
