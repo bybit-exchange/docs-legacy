@@ -297,7 +297,7 @@ en:
   row_comment_query_lastLiquidityInd_v3: Liquidity type enum, only valid when the exec_type field type is Trade, AdlTrade, or BustTrade.
   row_comment_query_execTime_v3: Time of trade (unit<span>:</span> ms)
   row_comment_expDate_v3: Date of Expiry<span>:</span> dd<span>/</span>mm<span>/</span>yy. All by default, parameter format<span>:</span> 25MAR22
-
+  row_comment_closedSize_v3: The corresponding closing size of the closing order
 
   row_comment_deliveryTime_v3: Time and date
   row_comment_query_position_v3: The executed size of the settlement history
@@ -2172,6 +2172,12 @@ en:
   interest: ""
   bonusEnum: ""
 
+  ## spot tp sl order status (`X`)
+  order_new: Untriggered
+  order_canceled: ""
+  order_filled: Triggered
+  order_failed: fail to trigger
+
   # Error Code
   errors_intro: The Bybit API uses the following HTTP codes and error codes<span>:</span>
 
@@ -2621,7 +2627,7 @@ en:
   err_34039: Update position status not modified.
   err_34040: Set TP/SL/TS not modified.
 
-  err_35014: <a href="https://www.bybit.com/en-US/help-center/HelpCenterKnowledge/bybitHC_Article?language=en_US&id=000001086">Open interest</code> exceeded.
+  err_35014: <a href="https://www.bybit.com/en-US/help-center/HelpCenterKnowledge/bybitHC_Article?language=en_US&id=000001086">Open interest</code> exceeded.</a>
 
   err_37001: Both side positions tp_sl_mode is equal.
   err_37002: Same tp_sl_mode.
@@ -2638,6 +2644,11 @@ en:
   err_37013: Stop loss price needs to be less than base price.
 
   err_38101: Replacement of order will result in the breach of user's limit according to open interest.
+  err_90063: In the progress of liquidation
+  err_90066: In the reconciliation
+  err_90067: Reconciliation failed
+  err_90016: Rejected by risk control. It may cause liquidation after the transfer.
+  err_90015: Insufficient balance
 
   # v3 shared errors
   v3_err_10001: params error
@@ -3035,6 +3046,7 @@ en:
   linear_private_switchmode: Switch mode between Full or Partial
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
+  restapi_update_200220809: Add private topic for TP/SL order
   restapi_update_20220805: Update insurance topic response filed from <code>baseCoin</code> to <code>settleCoin</code>
   restapi_update_20220718_2: Abandon response field <code>total_turnover</code>.
   restapi_update_20220718_1: Abandon response field <code>total_turnover_e8</code>.
@@ -3240,6 +3252,7 @@ en:
   restapi_update_20210826: Asset Transfer API released!
   restapi_update_20220610_2: Universal Transfer released!
   restapi_update_20220519: Withdraw and Deposit Endpoints released!
+  restapi_update_20220808: Transfer endpoint supports transfer from/to <code>UNIFIED</code>, and new error codes.
 
   restapi_update_20220324_1: Add request parameters <code>fromTicketId</code>, <code>toTicketId</code>, <code>orderId</code>
   restapi_update_20220324_2: Deprecate request parameters <code>fromId</code>, <code>toId</code>
@@ -3434,7 +3447,19 @@ en:
   spot_match_order_id: Order ID of the opponent trader
   spot_account_id: Account ID
 
-#  spot_match_account_id: Account ID
+  # spot_wss_stop_executionReport
+  spot_stop_orderStatus: TP/SL order status
+  spot_stop_orderCreateTime: Order created time
+  spot_stop_orderTriggerTime: Order triggered time. The field is filled only when order status is <code>ORDER_FILLED</code> and <code>ORDER_FAILED</code>
+  spot_stop_orderUpdateTime: Order updated time. It is updated when order status is changed.
+  spot_stop_marketPrice: The market price when place the order
+  spot_stop_normalOrderId: The new order id after the tp/sl order is triggered.
+  spot_stop_siTi: Please ignore
+  spot_tpSlOrderStatus: The below status for tp/sl order only
+
+
+
+  #  spot_match_account_id: Account ID
   spotQuoteAssetVolume: Quote asset volume
   spotMakerRebate: Maker rebate
   batchcancel_spotOrderTypes: |
@@ -3573,6 +3598,10 @@ en:
 
   executionReport: executionReport
   executionReport_desc: Pushes data about your orders. <code>Z</code> divided by <code>z</code> equals the average filled price.
+  stop_executionReport: stop_executionReport
+  stop_executionReport_desc: |
+    Pushes data about your TP/SL orders. It will be triggered as long as tp/sl order status is changed.<br>
+    Pushes data in <b>real-time</b>
 
   ticketInfo: ticketInfo
   ticketInfo_para: |

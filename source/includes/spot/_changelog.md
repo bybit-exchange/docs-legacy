@@ -1,4 +1,9 @@
 # t(:changelog)
+## 2022-08-09
+### WebSocket API
+- [t(:stop_executionReport)](#t-stop_executionreport) [t(:changelog_new)]
+  - t(:restapi_update_200220809)
+
 ## 2022-07-08
 ### WebSocket API
 - [t(:websocketauthentication)](#t-websocketauthentication) [t(:changelog_update)]

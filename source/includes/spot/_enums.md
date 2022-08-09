@@ -52,7 +52,6 @@ t(:spotCrossMarginTradingEndpoint)
 * `USDC`
 * `USDT`
 
-
 ## Order status (`status`)
 * `NEW`
 * `PARTIALLY_FILLED`
@@ -61,6 +60,15 @@ t(:spotCrossMarginTradingEndpoint)
 * `PENDING_CANCEL`
 * `PENDING_NEW`
 * `REJECTED`
+<br>
+<br>
+<b>t(:spot_tpSlOrderStatus)</b>
+<br>
+<br>
+* `ORDER_NEW` t(:order_new)
+* `ORDER_CANCELED` t(:order_canceled)
+* `ORDER_FILLED` t(:order_filled)
+* `ORDER_FAILED` t(:order_failed)
 
 ## Quantity (`qty`)
 t(:quantity)
@@ -102,3 +110,6 @@ t(:price)
 ## LT order type (`orderType`)
 * `1` t(:etpOrderType_1)
 * `2` t(:etpOrderType_2)
+
+## TP/Sl order status (`status`)
+

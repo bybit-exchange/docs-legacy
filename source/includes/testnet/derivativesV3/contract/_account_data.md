@@ -112,34 +112,34 @@ curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private
     "result": {
         "list": [
             {
-                "symbol": "DOGEUSDT",
+                "symbol": "XRPUSDT",
                 "side": "Buy",
                 "orderType": "Market",
-                "price": "0.0654",
-                "qty": "100",
-                "reduceOnly": false,
+                "price": "0.3431",
+                "qty": "65",
+                "reduceOnly": true,
                 "timeInForce": "ImmediateOrCancel",
                 "orderStatus": "Filled",
                 "leavesQty": "0",
                 "leavesValue": "0",
-                "cumExecQty": "100",
-                "cumExecValue": "6.24",
-                "cumExecFee": "0.003744",
+                "cumExecQty": "65",
+                "cumExecValue": "21.3265",
+                "cumExecFee": "0.0127959",
                 "lastPriceOnCreated": "0.0000",
                 "rejectReason": "EC_NoError",
                 "orderLinkId": "",
-                "createdTime": "1658882901314",
-                "updatedTime": "1658882901318",
-                "orderId": "5a4fb054-e660-43ca-9a05-9d2b5def9eea",
+                "createdTime": "1657526321499",
+                "updatedTime": "1657526321504",
+                "orderId": "ac0a8134-acb3-4ee1-a2d4-41891c9c46d7",
                 "stopOrderType": "UNKNOWN",
                 "takeProfit": "0.0000",
                 "stopLoss": "0.0000",
                 "tpTriggerBy": "UNKNOWN",
                 "slTriggerBy": "UNKNOWN",
                 "triggerPrice": "0.0000",
-                "closeOnTrigger": false,
-                "triggerDirection": 0
-            }
+                "closeOnTrigger": true,
+                "triggerDirection": 0,
+                "positionIdx": 2
         ],
         "nextPageCursor": "K0crQkZRL0MyQVpiN0tVSDFTS0RlMk9DemNCWHZaRHp3aFZ4Y1Yza2MyWT0="
     },
@@ -196,6 +196,7 @@ GET
 |list> tpTriggerBy |string |t(:contract_comment_tpTriggerBy) |
 |list> slTriggerBy |string |t(:contract_comment_slTriggerBy) |
 |list> triggerPrice |string |t(:contract_comment_getOrderTriggerPrice) |
+|list> positionIdx |integer |t(:row_comment_position_idx) |
 |nextPageCursor |string |t(:contract_comment_nextPageCursor) |
 
 
@@ -1048,44 +1049,46 @@ curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private
     "result": {
         "list": [
             {
-                "symbol": "XRPUSDT",
-                "execFee": "-0.0016835",
-                "execId": "7543f504-e3c7-4956-ad5c-ba733ac7d743",
-                "execPrice": "0.3367",
-                "execQty": "50",
-                "execType": "Funding",
-                "execValue": "16.835",
-                "feeRate": "-0.0001",
-                "lastLiquidityInd": "UNKNOWN",
-                "leavesQty": "0",
-                "orderId": "1658908800-XRPUSDT-554117-Sell",
-                "orderLinkId": "",
-                "orderPrice": "0.0000",
-                "orderQty": "0",
-                "orderType": "UNKNOWN",
-                "stopOrderType": "UNKNOWN",
-                "side": "Sell",
-                "execTime": "1658908800000"
-            },
-            {
-                "symbol": "XRPUSDT",
-                "execFee": "0.010008",
-                "execId": "c324cf81-84bf-56e2-ad81-c49ee4ccd628",
-                "execPrice": "0.3336",
-                "execQty": "50",
+                "symbol": "BITUSDT",
+                "execFee": "0.001356",
+                "execId": "499e1a2a-c664-55db-bbf0-78ad31b7b033",
+                "execPrice": "0.452",
+                "execQty": "5.0",
                 "execType": "Trade",
-                "execValue": "16.68",
+                "execValue": "2.26",
                 "feeRate": "0.0006",
                 "lastLiquidityInd": "RemovedLiquidity",
-                "leavesQty": "0",
-                "orderId": "f28dc75a-a6b4-48e8-ae4f-54da07a34b86",
-                "orderLinkId": "x003",
-                "orderPrice": "0.3177",
-                "orderQty": "50",
+                "leavesQty": "0.0",
+                "orderId": "1d40db82-b1f6-4340-9190-650eeddd440b",
+                "orderLinkId": "",
+                "orderPrice": "0.430",
+                "orderQty": "5.0",
                 "orderType": "Market",
                 "stopOrderType": "UNKNOWN",
                 "side": "Sell",
-                "execTime": "1658904863407"
+                "execTime": "1657269236943",
+                "closedSize": "5.0"
+            },
+            {
+                "symbol": "BITUSDT",
+                "execFee": "0.004068",
+                "execId": "ed090e6a-afc0-5cb5-b51d-039592a44ec5",
+                "execPrice": "0.452",
+                "execQty": "15.0",
+                "execType": "Trade",
+                "execValue": "6.78",
+                "feeRate": "0.0006",
+                "lastLiquidityInd": "RemovedLiquidity",
+                "leavesQty": "0.0",
+                "orderId": "d34d40a1-2475-4552-9e54-347a27282ec0",
+                "orderLinkId": "",
+                "orderPrice": "0.429",
+                "orderQty": "15.0",
+                "orderType": "Market",
+                "stopOrderType": "UNKNOWN",
+                "side": "Sell",
+                "execTime": "1657268340170",
+                "closedSize": "15.0"
             }
         ],
         "nextPageCursor": ""
@@ -1139,6 +1142,7 @@ GET
 |list> <a href="#stop-order-type-stopordertype">stopOrderType</a> |string |t(:row_comment_stopOrderType)  |
 |list> t(:row_parameter_side) |string |t(:row_comment_side)  |
 |list> execTime |string |t(:row_comment_query_execTime_v3)  |
+|list> closedSize |string |t(:row_comment_closedSize_v3)  |
 |nextPageCursor |string |t(:contract_comment_nextPageCursor)  |
 
 

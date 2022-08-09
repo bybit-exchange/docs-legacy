@@ -530,16 +530,9 @@ POST
 |list> <a href="#order-type-ordertype">orderType</a> |<b>true</b> |string |t(:row_comment_orderType_v3)   |
 |list> t(:row_parameter_quantity) |<b>true</b> |string |t(:row_comment_qty_v3) |
 |list> t(:row_parameter_price) |false |string |t(:row_comment_resp_price) |
-|list> triggerSide |false |number |t(:row_comment_triggerSide) |
-|list> triggerPrice |false |string |t(:row_comment_triggerPrice) |
-|list> <a href="#trigger-price-type-triggerby">triggerBy</a> |false |string |t(:row_comment_triggerBy_v3) |
 |list> iv |false |string |t(:row_comment_iv_v3) |
 |list> <a href="#time-in-force-timeinforce">timeInForce</a> |<b>true</b> |string |t(:row_comment_timeInForce_v3) |
 |list> orderLinkId |false |string |t(:row_comment_orderLinkId_v3) |
-|list> takeProfit |false |number |t(:row_comment_takeProfit_v3) |
-|list> stopLoss |false |number |t(:row_comment_stopLoss_v3) |
-|list> tpTriggerBy |false |string |t(:account_row_comment_tp_trigger_by_v3) |
-|list> slTriggerBy |false |string |t(:account_row_comment_sl_trigger_by_v3) |
 |list> reduceOnly |false |bool |t(:row_comment_reduceOnly_v3) |
 |list> closeOnTrigger |false |bool |t(:row_comment_closeOnTrigger_v3) |
 |list> mmp |false |bool |t(:row_comment_mmp_v3) |

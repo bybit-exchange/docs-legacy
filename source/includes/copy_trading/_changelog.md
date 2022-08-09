@@ -1,4 +1,10 @@
-# t(:changelog)   
+# t(:changelog)
+
+## 2022-08-08
+### REST API
+- [t(:ct_wallet_transfer)](#t-ct_wallet_transfer) [t(:changelog_update)]
+<br>
+t(:restapi_update_20220808)
 
 ## 2022-06-01
 ### REST API

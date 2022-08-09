@@ -752,7 +752,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_1) |
+|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_2) |
 |symbol |false |string |t(:row_comment_symbol) |
 |optionType |false |string |t(:dv_OptionType) |
 |limit |false |int |t(:row_comment_limit_500_1000)|
@@ -760,7 +760,7 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|category |string |t(:dv_category)t(:dv_categorySuffix_1) |
+|category |string |t(:dv_category)t(:dv_categorySuffix_2) |
 |execId |string |t(:dv_recentExecId)  |
 |symbol |string |t(:row_comment_symbol) |
 |price |number |t(:dv_recentPrice) |
