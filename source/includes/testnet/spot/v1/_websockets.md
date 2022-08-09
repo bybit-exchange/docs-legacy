@@ -1306,6 +1306,63 @@ t(:spot_public_websocket_frequency_realtime)
 | v | string | t(:spot_leverage) |
 | d | string | t(:spot_liquidation_type) |
 
+### t(:stop_executionReport)
+> t(:spot_private_topics_auth_sub)
+
+```python--pybit
+
+```
+
+> t(:codequote_responseExampleFormatAll)
+
+```javascript
+[
+  {
+      "e": "stop_executionReport",
+      "E": "1660031832249",
+      "s": "BTCUSDT",
+      "c": "1660031262869",
+      "S": "BUY",
+      "o": "MARKET_OF_QUOTE",
+      "f": "GTC",
+      "q": "0",
+      "p": "0",
+      "X": "ORDER_CANCELED",
+      "i": "1218825007084354304",
+      "T": "1660031263181",
+      "t": "0",
+      "C": "1660031832223",
+      "qp": "23668.86",
+      "eo": "1218825007084354305",
+      "ti": "4add1fe84e577026",
+      "si": "bc86964648a3c395"
+  }
+]
+```
+t(:stop_executionReport_desc)
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| e | string | t(:spot_event_type) |
+| E | string | t(:spot_event_timestamp) |
+| s | string | t(:spot_symbol) |
+| c | string | t(:spot_order_client_id) |
+| S | string | t(:spot_side_private) |
+| <a href="#order-type-type-ordertypes">o</a> | string | t(:spotType) |
+| <a href="#timeinforce-timeinforce">f</a> | string | t(:row_comment_timeInForce) |
+| q | string | t(:spot_quantity) |
+| p | string | t(:spot_price) |
+| <a href="#order-status-status">X</a> | string | t(:spot_stop_orderStatus) |
+| i | string | t(:spot_order_id) |
+| T | string | t(:spot_stop_orderCreateTime) |
+| t | string | t(:spot_stop_orderTriggerTime) |
+| C | string | t(:spot_stop_orderUpdateTime) |
+| qp | string | t(:spot_stop_marketPrice) |
+| eo | string | t(:spot_stop_normalOrderId) |
+| ti | string | t(:spot_stop_siTi) |
+| si | string | t(:spot_stop_siTi) |
+
 ### t(:ticketInfo)
 > t(:spot_private_topics_auth_sub)
 

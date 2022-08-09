@@ -532,6 +532,7 @@ zh-cn:
   row_comment_query_lastLiquidityInd_v3: 流動性類型枚舉, 只有當exec_type字段類型為Trade、AdlTrade、BustTrade時有效
   row_comment_query_execTime_v3: 交易時間，精確到毫秒
   row_comment_expDate_v3: 到期日，年月日。默認為全部， 參數格式為：25MAR22
+  row_comment_closedSize_v3: 平倉委托對應的平倉大小
 
   row_comment_deliveryTime_v3: 年月日時分秒
   row_comment_query_position_v3: 該筆交割記錄對應的exec size數量
@@ -1942,6 +1943,12 @@ zh-cn:
   interest: 利息
   bonusEnum: 體驗金領區
 
+  ## spot tp sl order status (`X`)
+  order_new: 待觸發
+  order_canceled: 已取消
+  order_filled: 觸發成功
+  order_failed: 觸發失敗
+
 
   # Error Code
   errors_intro: Bybit使用以下HTTP Code和錯誤碼：
@@ -2611,6 +2618,7 @@ zh-cn:
   linear_private_switchmode: 切換止盈止損模式至全倉或部分
   linear_row_comment_limit: 每頁數量, 最大50. 默認每頁20條，最多50條每頁
   linear_row_comment_limit_50_200: 每頁數量, 最大200. 默認每頁50條，最多200條每頁
+  restapi_update_200220809: 新增止盈止損訂單信息私有推送
   restapi_update_20220805: 更新保證金推送響應字段從<code>baseCoin</code>變為<code>settleCoin</code>
   restapi_update_20220708: 添加註意，对於spot private topic，一個ip最多可以同時連接50個websockets連接，
   restapi_update_20220630: 新增返回參數 <code>page_token</code>。
@@ -2994,6 +3002,16 @@ zh-cn:
   row_parameter_timeInForce: <a href="#time-in-force-timeinforce">timeInForce</a>
   spotServerTime: 服務器時間
 
+  # spot_wss_stop_executionReport
+  spot_stop_orderStatus: 止盈止損訂單狀態
+  spot_stop_orderCreateTime: 訂單創建時間
+  spot_stop_orderTriggerTime: 訂單觸發時間. 僅訂單狀態是<code>ORDER_FILLED</code>和<code>ORDER_FAILED</code>才有值
+  spot_stop_orderUpdateTime: 訂單更新時間. 每當訂單狀態發生變更時，會更新該時間
+  spot_stop_marketPrice: 下單時的行情價格
+  spot_stop_normalOrderId: 止盈止損訂單被觸發後轉化為普通訂單的id
+  spot_stop_siTi: 與業務無關，請忽略
+  spot_tpSlOrderStatus: 以下訂單狀態僅適用於止盈止損訂單
+
   #spot_ws_v1
   spot_price: 價格
   spot_symbol: 幣對
@@ -3123,6 +3141,9 @@ zh-cn:
   spot_websocket_ticket_info: TicketInfo
   outboundAccountInfo_desc: 賬戶信息推送
   executionReport_desc: 訂單信息推送. Z/z 等於成交均價
+  stop_executionReport_desc: |
+    止盈止損訂單信息推送，只要訂單狀態發生改變，就會推送消息。<br>
+    推送頻率: <b>實時推送</b>
   ticketInfo_para: 成交信息推送
   spot_ticket_info_maker: 是否為MAKER。true為maker, false為taker
   spot_ticket_info_side: 買入 或者 賣出

@@ -48,6 +48,15 @@ The transfer API also includes:
 * `PENDING_CANCEL`
 * `PENDING_NEW`
 * `REJECTED`
+<br>
+<br>
+<b>t(:spot_tpSlOrderStatus)</b>
+<br>
+<br>
+* `ORDER_NEW` t(:order_new)
+* `ORDER_CANCELED` t(:order_canceled)
+* `ORDER_FILLED` t(:order_filled)
+* `ORDER_FAILED` t(:order_failed)
 
 ## Quantity (`qty`)
 t(:quantity)
