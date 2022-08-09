@@ -11,17 +11,17 @@
 
 ## 2022-06-17
 ### REST API
-- [t(:ltInfos)](#t-ltinfos) [t(:changelog_new)]
+- [t(:ltInfos)](#t-ltinfos) (V2 WebSocket) [t(:changelog_new)]
   - t(:restapi_update_20220617)
 
 ## 2022-06-10
 ### WebSocket API
-- [t(:ticketInfo)](#t-ticketinfo) [t(:changelog_update)]
+- [t(:ticketInfo)](#t-ticketinfo) (V2 WebSocket) [t(:changelog_update)]
   - t(:restapi_update_20220610)
 
 ## 2022-06-08
 ### WebSocket API
-- [t(:websocketv2depth)](#t-websocketv2depth) [t(:changelog_update)]
+- [t(:websocketv2depth)](#t-websocketv2depth) (V2 WebSocket) [t(:changelog_update)]
   - t(:restapi_update_20220608)
 
 ## 2022-06-01
