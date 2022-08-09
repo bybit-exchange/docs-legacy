@@ -3000,7 +3000,7 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">category</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>衍生品產品類型.目前支持正向合約：linear; 反向合約：inverse(包含inverse futures)</td>
+<td>衍生品產品類型.目前支持正向合約：linear; 反向合約：inverse; 期權：option</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -3034,7 +3034,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">category</td>
 <td style="text-align: left">string</td>
-<td>衍生品產品類型.目前支持正向合約：linear; 反向合約：inverse(包含inverse futures)</td>
+<td>衍生品產品類型.目前支持正向合約：linear; 反向合約：inverse; 期權：option</td>
 </tr>
 <tr>
 <td style="text-align: left">execId</td>
@@ -4393,25 +4393,6 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <td>委托價格</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; triggerSide</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">number</td>
-<td>用於當前條件委托是看空到stop_px時觸發還是看多到stop_px觸發。主要是用來標識當前條件單預期的方向：0為 < stop_px 時觸發，1 為 > stop_px 時觸發。</td>
-</tr>
-<tr>
-<td style="text-align: left">list&gt; triggerPrice</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>觸發價格. 如果您期望價格上漲时觸發您的條件訂單，請確保 triggerPrice > max(market price, basePrice) 否則 triggerPrice < min(market price, basePrice)</td>
-</tr>
-<tr>
-<td style="text-align: left">list&gt; <a href="#trigger-price-type-triggerby">triggerBy</a></td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>觸發價格類型：市價/標記價格
-</td>
-</tr>
-<tr>
 <td style="text-align: left">list&gt; iv</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
@@ -4429,30 +4410,6 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <td style="text-align: left">string</td>
 <td>機構自定義訂單ID, 最大長度36位，且同一機構下自定義ID不可重復支持數字、字母（大小寫）、中劃線、下劃線這些字符的組合。期貨業務非必填，期權業務必填。
 </td>
-</tr>
-<tr>
-<td style="text-align: left">list&gt; takeProfit</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">number</td>
-<td>止盈價格，僅開倉時生效</td>
-</tr>
-<tr>
-<td style="text-align: left">list&gt; stopLoss</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">number</td>
-<td>止損價格，僅開倉時生效</td>
-</tr>
-<tr>
-<td style="text-align: left">list&gt; tpTriggerBy</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>止盈激活價格類型，默認為LastPrice</td>
-</tr>
-<tr>
-<td style="text-align: left">list&gt; slTriggerBy</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>止損激活價格類型，默認為LastPrice</td>
 </tr>
 <tr>
 <td style="text-align: left">list&gt; reduceOnly</td>

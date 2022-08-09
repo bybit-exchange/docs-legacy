@@ -1910,7 +1910,7 @@ REST接口根URL:
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/asset/v1/private/transferable-subs/save' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "transferableSubIds":"303936,445310,445323,517292,532728,545366,554286",
+    "transferable_sub_ids":"303936,445310,445323,517292,532728,545366,554286",
     "sign": "{{signature}}",
     "timestamp": "{{timestamp}}",
     "api_key": "{{bybit-api-key}}",
@@ -1980,13 +1980,13 @@ REST接口根URL:
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/asset/v1/private/universal/transfer' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "fromAccountType": "SPOT",
-    "toAccountType": "CONTRACT",
+    "from_account_type": "SPOT",
+    "to_account_type": "CONTRACT",
     "amount": "10",
     "coin": "USDT",
-    "transferId": "21ff1b44-2d5d-4293-913d-4597c5ad2611",
-    "fromMemberId": "290118",
-    "toMemberId": "545366",
+    "transfer_id": "21ff1b44-2d5d-4293-913d-4597c5ad2611",
+    "from_member_id": "290118",
+    "to_member_id": "545366",
     "sign": "{{signature}}",
     "timestamp": "{{timestamp}}",
     "api_key": "{{bybit-api-key}}",

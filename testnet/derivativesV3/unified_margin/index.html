@@ -3007,7 +3007,7 @@ The response is in the snapshot format.
 <td style="text-align: left">category</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
+<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> <code>option</code> are available</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -3041,7 +3041,7 @@ The response is in the snapshot format.
 <tr>
 <td style="text-align: left">category</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
+<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> <code>option</code> are available</td>
 </tr>
 <tr>
 <td style="text-align: left">execId</td>
@@ -4398,26 +4398,6 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <td>Order price</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; triggerSide</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">number</td>
-<td>Used for the current conditional order to be triggered when the price increases or declines to stop_px. Mainly used to mark the expected direction of the current conditional order: 0 - triggered when < stop_px; 1 - triggered when > stop_px.
-</td>
-</tr>
-<tr>
-<td style="text-align: left">list&gt; triggerPrice</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>Trigger price</td>
-</tr>
-<tr>
-<td style="text-align: left">list&gt; <a href="#trigger-price-type-triggerby">triggerBy</a></td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>Trigger price type: Market price/Mark price
-</td>
-</tr>
-<tr>
 <td style="text-align: left">list&gt; iv</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
@@ -4435,30 +4415,6 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <td style="text-align: left">string</td>
 <td>Institutional customized order ID. A max of 36 characters. In addition, for customized IDs of the same institution, the ID cannot be repeated. Combinations of numbers, letters (upper and lower cases), dashes, and underscores are supported. Not required for futures, but required for options.
 </td>
-</tr>
-<tr>
-<td style="text-align: left">list&gt; takeProfit</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">number</td>
-<td>Take-profit price, only valid when positions are opened.</td>
-</tr>
-<tr>
-<td style="text-align: left">list&gt; stopLoss</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">number</td>
-<td>Stop-loss price, only valid when positions are opened.</td>
-</tr>
-<tr>
-<td style="text-align: left">list&gt; tpTriggerBy</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>Type of take-profit activation price, LastPrice by default.</td>
-</tr>
-<tr>
-<td style="text-align: left">list&gt; slTriggerBy</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>Type of stop-loss activation price, LastPrice by default.</td>
 </tr>
 <tr>
 <td style="text-align: left">list&gt; reduceOnly</td>

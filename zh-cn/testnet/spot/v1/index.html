@@ -1122,6 +1122,9 @@
                             <a href="#t-executionreport" class="toc-h3 toc-link" data-title="executionReport">executionReport</a>
                           </li>
                           <li>
+                            <a href="#t-stop_executionreport" class="toc-h3 toc-link" data-title="stop_executionReport">stop_executionReport</a>
+                          </li>
+                          <li>
                             <a href="#t-ticketinfo" class="toc-h3 toc-link" data-title="ticketInfo">ticketInfo</a>
                           </li>
                       </ul>
@@ -7922,6 +7925,142 @@ function copyStringToClipboard (endpoint) {
 <td>NO_LIQ 表示這筆訂單不是強平單. IOC 表示這筆訂單是強平單</td>
 </tr>
 </tbody></table>
+<h3 id='t-stop_executionreport'>stop_executionReport</h3>
+<blockquote>
+<p>Sending the <a href="#t-websocketauthentication">authentication message</a> automatically subscribes you to all 3 private topics.</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python--pybit"><code>
+</code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">[</span>
+  <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">e</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">stop_executionReport</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">E</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1660031832249</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">c</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1660031262869</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">S</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BUY</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">o</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">MARKET_OF_QUOTE</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">f</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GTC</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">q</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">p</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">X</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ORDER_CANCELED</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">i</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1218825007084354304</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">T</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1660031263181</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">t</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">C</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1660031832223</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">qp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">23668.86</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">eo</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1218825007084354305</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">ti</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">4add1fe84e577026</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">si</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">bc86964648a3c395</span><span class="dl">"</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+<p>止盈止損訂單信息推送，只要訂單狀態發生改變，就會推送消息。<br>
+推送頻率: <b>實時推送</b>
+</p>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">e</td>
+<td style="text-align: left">string</td>
+<td>事件類型</td>
+</tr>
+<tr>
+<td style="text-align: left">E</td>
+<td style="text-align: left">string</td>
+<td>事件時間</td>
+</tr>
+<tr>
+<td style="text-align: left">s</td>
+<td style="text-align: left">string</td>
+<td>幣對</td>
+</tr>
+<tr>
+<td style="text-align: left">c</td>
+<td style="text-align: left">string</td>
+<td>用戶創建orderid</td>
+</tr>
+<tr>
+<td style="text-align: left">S</td>
+<td style="text-align: left">string</td>
+<td>BUY買，SELL賣</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#order-type-type-ordertypes">o</a></td>
+<td style="text-align: left">string</td>
+<td>訂單類型。可能出現的值只能為:LIMIT(限價)、MARKET_OF_QUOTE（市價買）、MARKET_OF_BASE（市價賣）</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#timeinforce-timeinforce">f</a></td>
+<td style="text-align: left">string</td>
+<td><a href="https://www.bybit.com/zh-TW/help-center/bybitHC_Article?language=zh_TW&id=000001044">執行策略</a></td>
+</tr>
+<tr>
+<td style="text-align: left">q</td>
+<td style="text-align: left">string</td>
+<td>數量</td>
+</tr>
+<tr>
+<td style="text-align: left">p</td>
+<td style="text-align: left">string</td>
+<td>價格</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#order-status-status">X</a></td>
+<td style="text-align: left">string</td>
+<td>止盈止損訂單狀態</td>
+</tr>
+<tr>
+<td style="text-align: left">i</td>
+<td style="text-align: left">string</td>
+<td>訂單id</td>
+</tr>
+<tr>
+<td style="text-align: left">T</td>
+<td style="text-align: left">string</td>
+<td>訂單創建時間</td>
+</tr>
+<tr>
+<td style="text-align: left">t</td>
+<td style="text-align: left">string</td>
+<td>訂單觸發時間. 僅訂單狀態是<code>ORDER_FILLED</code>和<code>ORDER_FAILED</code>才有值</td>
+</tr>
+<tr>
+<td style="text-align: left">C</td>
+<td style="text-align: left">string</td>
+<td>訂單更新時間. 每當訂單狀態發生變更時，會更新該時間</td>
+</tr>
+<tr>
+<td style="text-align: left">qp</td>
+<td style="text-align: left">string</td>
+<td>下單時的行情價格</td>
+</tr>
+<tr>
+<td style="text-align: left">eo</td>
+<td style="text-align: left">string</td>
+<td>止盈止損訂單被觸發後轉化為普通訂單的id</td>
+</tr>
+<tr>
+<td style="text-align: left">ti</td>
+<td style="text-align: left">string</td>
+<td>與業務無關，請忽略</td>
+</tr>
+<tr>
+<td style="text-align: left">si</td>
+<td style="text-align: left">string</td>
+<td>與業務無關，請忽略</td>
+</tr>
+</tbody></table>
 <h3 id='t-ticketinfo'>ticketInfo</h3>
 <blockquote>
 <p>Sending the <a href="#t-websocketauthentication">authentication message</a> automatically subscribes you to all 3 private topics.</p>
@@ -8107,7 +8246,16 @@ function copyStringToClipboard (endpoint) {
 <li><code>CANCELED</code></li>
 <li><code>PENDING_CANCEL</code></li>
 <li><code>PENDING_NEW</code></li>
-<li><code>REJECTED</code></li>
+<li><code>REJECTED</code>
+<br>
+<br>
+<b>以下訂單狀態僅適用於止盈止損訂單</b>
+<br>
+<br></li>
+<li><code>ORDER_NEW</code> 待觸發</li>
+<li><code>ORDER_CANCELED</code> 已取消</li>
+<li><code>ORDER_FILLED</code> 觸發成功</li>
+<li><code>ORDER_FAILED</code> 觸發失敗</li>
 </ul>
 <h2 id='quantity-qty'>Quantity (<code>qty</code>)</h2>
 <p><ul> <li>最大值1百萬 (<code>1000000</code>)</li> <li>必須是正整數： <ul> <li><code>40</code> - 合法</li> <li><code>30.5</code> - 非法</li> </ul> </li> </ul></p>

@@ -752,10 +752,18 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#2022-07-08" class="toc-h2 toc-link" data-title="2022-07-08">2022-07-08</a>
+                    <a href="#2022-08-09" class="toc-h2 toc-link" data-title="2022-08-09">2022-08-09</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#websocket-api" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2022-07-08" class="toc-h2 toc-link" data-title="2022-07-08">2022-07-08</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#websocket-api-2" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
                           </li>
                       </ul>
                   </li>
@@ -771,7 +779,7 @@
                     <a href="#2022-06-10" class="toc-h2 toc-link" data-title="2022-06-10">2022-06-10</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#websocket-api-2" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
+                            <a href="#websocket-api-3" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
                           </li>
                       </ul>
                   </li>
@@ -779,7 +787,7 @@
                     <a href="#2022-06-08" class="toc-h2 toc-link" data-title="2022-06-08">2022-06-08</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#websocket-api-3" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
+                            <a href="#websocket-api-4" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
                           </li>
                       </ul>
                   </li>
@@ -787,7 +795,7 @@
                     <a href="#2022-06-01" class="toc-h2 toc-link" data-title="2022-06-01">2022-06-01</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#websocket-api-4" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
+                            <a href="#websocket-api-5" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
                           </li>
                       </ul>
                   </li>
@@ -814,7 +822,7 @@
                             <a href="#rest-api-4" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                           <li>
-                            <a href="#websocket-api-5" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
+                            <a href="#websocket-api-6" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
                           </li>
                       </ul>
                   </li>
@@ -846,7 +854,7 @@
                     <a href="#2022-03-14" class="toc-h2 toc-link" data-title="2022-03-14">2022-03-14</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#websocket-api-6" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
+                            <a href="#websocket-api-7" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
                           </li>
                       </ul>
                   </li>
@@ -1108,6 +1116,9 @@
                             <a href="#t-executionreport" class="toc-h3 toc-link" data-title="executionReport">executionReport</a>
                           </li>
                           <li>
+                            <a href="#t-stop_executionreport" class="toc-h3 toc-link" data-title="stop_executionReport">stop_executionReport</a>
+                          </li>
+                          <li>
                             <a href="#t-ticketinfo" class="toc-h3 toc-link" data-title="ticketInfo">ticketInfo</a>
                           </li>
                       </ul>
@@ -1163,6 +1174,9 @@
                   </li>
                   <li>
                     <a href="#lt-order-type-ordertype" class="toc-h2 toc-link" data-title="LT order type (orderType)">LT order type (<code>orderType</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#tp-sl-order-status-status" class="toc-h2 toc-link" data-title="TP/Sl order status (status)">TP/Sl order status (<code>status</code>)</a>
                   </li>
               </ul>
           </li>
@@ -1522,7 +1536,15 @@ clipboard.on('error', function(e) {
 </script>
 <h1 id='t-introduction'>Group And Resources</h1><h5 id='t-intro_para'><p><a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common errors.</p> <p>For further assistance or feedback, please join the <a href="https://t.me/BybitAPI">API Telegram chat</a>! API discussion group on Telegram.</p></h5><h3 id='t-resources'>Group And Bybit API Resources</h3>
 <p><ul class="bybit-community"> <li><img src="../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/en-US/help-center/?language=en_US"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>Official Python SDK</strong> <li><img src="../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman API Collection</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> </ul></p>
-<h1 id='t-changelog'>Changelog</h1><h2 id='2022-07-08'>2022-07-08</h2><h3 id='websocket-api'>WebSocket API</h3>
+<h1 id='t-changelog'>Changelog</h1><h2 id='2022-08-09'>2022-08-09</h2><h3 id='websocket-api'>WebSocket API</h3>
+<ul>
+<li><a href="#t-stop_executionreport">stop_executionReport</a> [new]
+
+<ul>
+<li>Add private topic for TP/SL order</li>
+</ul></li>
+</ul>
+<h2 id='2022-07-08'>2022-07-08</h2><h3 id='websocket-api-2'>WebSocket API</h3>
 <ul>
 <li><a href="#t-websocketauthentication">Authentication</a> [update]
 
@@ -1538,7 +1560,7 @@ clipboard.on('error', function(e) {
 <li>Add LT All Asset Infos Query</li>
 </ul></li>
 </ul>
-<h2 id='2022-06-10'>2022-06-10</h2><h3 id='websocket-api-2'>WebSocket API</h3>
+<h2 id='2022-06-10'>2022-06-10</h2><h3 id='websocket-api-3'>WebSocket API</h3>
 <ul>
 <li><a href="#t-ticketinfo">ticketInfo</a> [update]
 
@@ -1546,7 +1568,7 @@ clipboard.on('error', function(e) {
 <li>Add <code>S</code> field which indicates the trade side</li>
 </ul></li>
 </ul>
-<h2 id='2022-06-08'>2022-06-08</h2><h3 id='websocket-api-3'>WebSocket API</h3>
+<h2 id='2022-06-08'>2022-06-08</h2><h3 id='websocket-api-4'>WebSocket API</h3>
 <ul>
 <li><a href="#t-websocketv2depth">depth</a> [update]
 
@@ -1554,7 +1576,7 @@ clipboard.on('error', function(e) {
 <li>Increase the push frequency from every 250ms (max. 300ms) to every 100ms</li>
 </ul></li>
 </ul>
-<h2 id='2022-06-01'>2022-06-01</h2><h3 id='websocket-api-4'>WebSocket API</h3>
+<h2 id='2022-06-01'>2022-06-01</h2><h3 id='websocket-api-5'>WebSocket API</h3>
 <ul>
 <li><a href="#t-tradehistory">Trade History</a> [update]
 
@@ -1586,7 +1608,7 @@ clipboard.on('error', function(e) {
 <li>Add Leveraged Token Endpoints</li>
 </ul></li>
 </ul>
-<h3 id='websocket-api-5'>WebSocket API</h3>
+<h3 id='websocket-api-6'>WebSocket API</h3>
 <ul>
 <li><a href="#t-websocketltnetvalue">lt</a> [new]
 
@@ -1623,7 +1645,7 @@ clipboard.on('error', function(e) {
 <li>Deprecate request parameters <code>fromId</code>, <code>toId</code></li>
 </ul></li>
 </ul>
-<h2 id='2022-03-14'>2022-03-14</h2><h3 id='websocket-api-6'>WebSocket API</h3>
+<h2 id='2022-03-14'>2022-03-14</h2><h3 id='websocket-api-7'>WebSocket API</h3>
 <ul>
 <li><a href="#t-ticketinfo">ticketInfo</a> [update]
 
@@ -7953,6 +7975,142 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <td>NO_LIQ indicates that it is not a liquidation order. IOC indicates that it is a liquidation order.</td>
 </tr>
 </tbody></table>
+<h3 id='t-stop_executionreport'>stop_executionReport</h3>
+<blockquote>
+<p>Sending the <a href="#t-websocketauthentication">authentication message</a> automatically subscribes you to all 3 private topics.</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python--pybit"><code>
+</code></pre></div>
+<blockquote>
+<p>Response Example - format of all responses</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">[</span>
+  <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">e</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">stop_executionReport</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">E</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1660031832249</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">c</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1660031262869</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">S</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BUY</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">o</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">MARKET_OF_QUOTE</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">f</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GTC</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">q</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">p</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">X</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ORDER_CANCELED</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">i</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1218825007084354304</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">T</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1660031263181</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">t</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">C</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1660031832223</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">qp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">23668.86</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">eo</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1218825007084354305</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">ti</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">4add1fe84e577026</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">si</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">bc86964648a3c395</span><span class="dl">"</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+<p>Pushes data about your TP/SL orders. It will be triggered as long as tp/sl order status is changed.<br>
+Pushes data in <b>real-time</b>
+</p>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">e</td>
+<td style="text-align: left">string</td>
+<td>Event type</td>
+</tr>
+<tr>
+<td style="text-align: left">E</td>
+<td style="text-align: left">string</td>
+<td>Event time</td>
+</tr>
+<tr>
+<td style="text-align: left">s</td>
+<td style="text-align: left">string</td>
+<td>Trading pair</td>
+</tr>
+<tr>
+<td style="text-align: left">c</td>
+<td style="text-align: left">string</td>
+<td>User-generated order ID</td>
+</tr>
+<tr>
+<td style="text-align: left">S</td>
+<td style="text-align: left">string</td>
+<td>BUY indicates buy order, SELL indicates sell order</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#order-type-type-ordertypes">o</a></td>
+<td style="text-align: left">string</td>
+<td>Order type, LIMIT/MARKET_OF_QUOTE/MARKET_OF_BASE</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#timeinforce-timeinforce">f</a></td>
+<td style="text-align: left">string</td>
+<td><a href="https://www.bybit.com/en-US/help-center/bybitHC_Article?language=en_US&id=000001044">Time in force</a></td>
+</tr>
+<tr>
+<td style="text-align: left">q</td>
+<td style="text-align: left">string</td>
+<td>Quantity</td>
+</tr>
+<tr>
+<td style="text-align: left">p</td>
+<td style="text-align: left">string</td>
+<td>Price</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#order-status-status">X</a></td>
+<td style="text-align: left">string</td>
+<td>TP/SL order status</td>
+</tr>
+<tr>
+<td style="text-align: left">i</td>
+<td style="text-align: left">string</td>
+<td>Order ID</td>
+</tr>
+<tr>
+<td style="text-align: left">T</td>
+<td style="text-align: left">string</td>
+<td>Order created time</td>
+</tr>
+<tr>
+<td style="text-align: left">t</td>
+<td style="text-align: left">string</td>
+<td>Order triggered time. The field is filled only when order status is <code>ORDER_FILLED</code> and <code>ORDER_FAILED</code></td>
+</tr>
+<tr>
+<td style="text-align: left">C</td>
+<td style="text-align: left">string</td>
+<td>Order updated time. It is updated when order status is changed.</td>
+</tr>
+<tr>
+<td style="text-align: left">qp</td>
+<td style="text-align: left">string</td>
+<td>The market price when place the order</td>
+</tr>
+<tr>
+<td style="text-align: left">eo</td>
+<td style="text-align: left">string</td>
+<td>The new order id after the tp/sl order is triggered.</td>
+</tr>
+<tr>
+<td style="text-align: left">ti</td>
+<td style="text-align: left">string</td>
+<td>Please ignore</td>
+</tr>
+<tr>
+<td style="text-align: left">si</td>
+<td style="text-align: left">string</td>
+<td>Please ignore</td>
+</tr>
+</tbody></table>
 <h3 id='t-ticketinfo'>ticketInfo</h3>
 <blockquote>
 <p>Sending the <a href="#t-websocketauthentication">authentication message</a> automatically subscribes you to all 3 private topics.</p>
@@ -8155,7 +8313,16 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <li><code>CANCELED</code></li>
 <li><code>PENDING_CANCEL</code></li>
 <li><code>PENDING_NEW</code></li>
-<li><code>REJECTED</code></li>
+<li><code>REJECTED</code>
+<br>
+<br>
+<b>The below status for tp/sl order only</b>
+<br>
+<br></li>
+<li><code>ORDER_NEW</code> Untriggered</li>
+<li><code>ORDER_CANCELED</code> </li>
+<li><code>ORDER_FILLED</code> Triggered</li>
+<li><code>ORDER_FAILED</code> fail to trigger</li>
 </ul>
 <h2 id='quantity-qty'>Quantity (<code>qty</code>)</h2>
 <p><ul>
@@ -8244,7 +8411,7 @@ ELSE
 <li><code>1</code> - Purchase</li>
 <li><code>2</code> - Redemption</li>
 </ul>
-<h1 id='t-errors'>Errors</h1>
+<h2 id='tp-sl-order-status-status'>TP/Sl order status (<code>status</code>)</h2><h1 id='t-errors'>Errors</h1>
 <p>The Bybit API uses the following HTTP codes and error codes<span>:</span></p>
 
 <table><thead>

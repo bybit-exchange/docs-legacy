@@ -1122,6 +1122,9 @@
                             <a href="#t-executionreport" class="toc-h3 toc-link" data-title="executionReport">executionReport</a>
                           </li>
                           <li>
+                            <a href="#t-stop_executionreport" class="toc-h3 toc-link" data-title="stop_executionReport">stop_executionReport</a>
+                          </li>
+                          <li>
                             <a href="#t-ticketinfo" class="toc-h3 toc-link" data-title="ticketInfo">ticketInfo</a>
                           </li>
                       </ul>
@@ -7911,6 +7914,142 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <td>NO_LIQ indicates that it is not a liquidation order. IOC indicates that it is a liquidation order.</td>
 </tr>
 </tbody></table>
+<h3 id='t-stop_executionreport'>stop_executionReport</h3>
+<blockquote>
+<p>Sending the <a href="#t-websocketauthentication">authentication message</a> automatically subscribes you to all 3 private topics.</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python--pybit"><code>
+</code></pre></div>
+<blockquote>
+<p>Response Example - format of all responses</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">[</span>
+  <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">e</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">stop_executionReport</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">E</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1660031832249</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">c</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1660031262869</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">S</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BUY</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">o</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">MARKET_OF_QUOTE</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">f</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GTC</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">q</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">p</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">X</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ORDER_CANCELED</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">i</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1218825007084354304</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">T</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1660031263181</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">t</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">C</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1660031832223</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">qp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">23668.86</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">eo</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1218825007084354305</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">ti</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">4add1fe84e577026</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">si</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">bc86964648a3c395</span><span class="dl">"</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+<p>Pushes data about your TP/SL orders. It will be triggered as long as tp/sl order status is changed.<br>
+Pushes data in <b>real-time</b>
+</p>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">e</td>
+<td style="text-align: left">string</td>
+<td>Event type</td>
+</tr>
+<tr>
+<td style="text-align: left">E</td>
+<td style="text-align: left">string</td>
+<td>Event time</td>
+</tr>
+<tr>
+<td style="text-align: left">s</td>
+<td style="text-align: left">string</td>
+<td>Trading pair</td>
+</tr>
+<tr>
+<td style="text-align: left">c</td>
+<td style="text-align: left">string</td>
+<td>User-generated order ID</td>
+</tr>
+<tr>
+<td style="text-align: left">S</td>
+<td style="text-align: left">string</td>
+<td>BUY indicates buy order, SELL indicates sell order</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#order-type-type-ordertypes">o</a></td>
+<td style="text-align: left">string</td>
+<td>Order type, LIMIT/MARKET_OF_QUOTE/MARKET_OF_BASE</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#timeinforce-timeinforce">f</a></td>
+<td style="text-align: left">string</td>
+<td><a href="https://www.bybit.com/en-US/help-center/bybitHC_Article?language=en_US&id=000001044">Time in force</a></td>
+</tr>
+<tr>
+<td style="text-align: left">q</td>
+<td style="text-align: left">string</td>
+<td>Quantity</td>
+</tr>
+<tr>
+<td style="text-align: left">p</td>
+<td style="text-align: left">string</td>
+<td>Price</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#order-status-status">X</a></td>
+<td style="text-align: left">string</td>
+<td>TP/SL order status</td>
+</tr>
+<tr>
+<td style="text-align: left">i</td>
+<td style="text-align: left">string</td>
+<td>Order ID</td>
+</tr>
+<tr>
+<td style="text-align: left">T</td>
+<td style="text-align: left">string</td>
+<td>Order created time</td>
+</tr>
+<tr>
+<td style="text-align: left">t</td>
+<td style="text-align: left">string</td>
+<td>Order triggered time. The field is filled only when order status is <code>ORDER_FILLED</code> and <code>ORDER_FAILED</code></td>
+</tr>
+<tr>
+<td style="text-align: left">C</td>
+<td style="text-align: left">string</td>
+<td>Order updated time. It is updated when order status is changed.</td>
+</tr>
+<tr>
+<td style="text-align: left">qp</td>
+<td style="text-align: left">string</td>
+<td>The market price when place the order</td>
+</tr>
+<tr>
+<td style="text-align: left">eo</td>
+<td style="text-align: left">string</td>
+<td>The new order id after the tp/sl order is triggered.</td>
+</tr>
+<tr>
+<td style="text-align: left">ti</td>
+<td style="text-align: left">string</td>
+<td>Please ignore</td>
+</tr>
+<tr>
+<td style="text-align: left">si</td>
+<td style="text-align: left">string</td>
+<td>Please ignore</td>
+</tr>
+</tbody></table>
 <h3 id='t-ticketinfo'>ticketInfo</h3>
 <blockquote>
 <p>Sending the <a href="#t-websocketauthentication">authentication message</a> automatically subscribes you to all 3 private topics.</p>
@@ -8097,7 +8236,16 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <li><code>CANCELED</code></li>
 <li><code>PENDING_CANCEL</code></li>
 <li><code>PENDING_NEW</code></li>
-<li><code>REJECTED</code></li>
+<li><code>REJECTED</code>
+<br>
+<br>
+<b>The below status for tp/sl order only</b>
+<br>
+<br></li>
+<li><code>ORDER_NEW</code> Untriggered</li>
+<li><code>ORDER_CANCELED</code> </li>
+<li><code>ORDER_FILLED</code> Triggered</li>
+<li><code>ORDER_FAILED</code> fail to trigger</li>
 </ul>
 <h2 id='quantity-qty'>Quantity (<code>qty</code>)</h2>
 <p><ul>
