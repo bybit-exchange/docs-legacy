@@ -774,13 +774,29 @@
                     <a href="#t-intro_para" class="toc-h2 toc-link" data-title=""></a>
                   </li>
                   <li>
-                    <a href="#t-resources" class="toc-h2 toc-link" data-title="Group And Bybit API Resources">Group And Bybit API Resources</a>
+                    <a href="#t-resources" class="toc-h2 toc-link" data-title="API Resources and Support Channels">API Resources and Support Channels</a>
                   </li>
               </ul>
           </li>
           <li>
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
+                  <li>
+                    <a href="#2022-08-09" class="toc-h2 toc-link" data-title="2022-08-09">2022-08-09</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#websocket-api" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2022-07-08" class="toc-h2 toc-link" data-title="2022-07-08">2022-07-08</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#websocket-api-2" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
+                          </li>
+                      </ul>
+                  </li>
                   <li>
                     <a href="#2022-06-17" class="toc-h2 toc-link" data-title="2022-06-17">2022-06-17</a>
                       <ul class="toc-list-h3">
@@ -793,7 +809,7 @@
                     <a href="#2022-06-10" class="toc-h2 toc-link" data-title="2022-06-10">2022-06-10</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#websocket-api" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
+                            <a href="#websocket-api-3" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
                           </li>
                       </ul>
                   </li>
@@ -801,7 +817,7 @@
                     <a href="#2022-06-08" class="toc-h2 toc-link" data-title="2022-06-08">2022-06-08</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#websocket-api-2" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
+                            <a href="#websocket-api-4" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
                           </li>
                       </ul>
                   </li>
@@ -809,7 +825,7 @@
                     <a href="#2022-06-01" class="toc-h2 toc-link" data-title="2022-06-01">2022-06-01</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#websocket-api-3" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
+                            <a href="#websocket-api-5" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
                           </li>
                       </ul>
                   </li>
@@ -836,7 +852,7 @@
                             <a href="#rest-api-4" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                           <li>
-                            <a href="#websocket-api-4" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
+                            <a href="#websocket-api-6" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
                           </li>
                       </ul>
                   </li>
@@ -868,7 +884,7 @@
                     <a href="#2022-03-14" class="toc-h2 toc-link" data-title="2022-03-14">2022-03-14</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#websocket-api-5" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
+                            <a href="#websocket-api-7" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
                           </li>
                       </ul>
                   </li>
@@ -1041,6 +1057,14 @@
                   <li>
                     <a href="#t-ipratelimits" class="toc-h2 toc-link" data-title="IP Rate Limit">IP Rate Limit</a>
                   </li>
+                  <li>
+                    <a href="#t-understandingratelimits" class="toc-h2 toc-link" data-title="API Rate Limit">API Rate Limit</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#t-perendpoint" class="toc-h3 toc-link" data-title="Rate Limits For All Private Endpoints">Rate Limits For All Private Endpoints</a>
+                          </li>
+                      </ul>
+                  </li>
               </ul>
           </li>
           <li>
@@ -1180,6 +1204,9 @@
                   </li>
                   <li>
                     <a href="#lt-order-type-ordertype" class="toc-h2 toc-link" data-title="LT order type (orderType)">LT order type (<code>orderType</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#tp-sl-order-status-status" class="toc-h2 toc-link" data-title="TP/Sl order status (status)">TP/Sl order status (<code>status</code>)</a>
                   </li>
               </ul>
           </li>
@@ -1537,9 +1564,25 @@ clipboard.on('error', function(e) {
     console.log(e);
 });
 </script>
-<h1 id='t-introduction'>Group And Resources</h1><h5 id='t-intro_para'><p><a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common errors.</p> <p>For further assistance or feedback, please join the <a href="https://t.me/BybitAPI">API Telegram chat</a>! API discussion group on Telegram.</p></h5><h3 id='t-resources'>Group And Bybit API Resources</h3>
-<p><ul class="bybit-community"> <li><img src="../../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/en-US/help-center/?language=en_US"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>Official Python SDK</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman API Collection</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> </ul></p>
-<h1 id='t-changelog'>Changelog</h1><h2 id='2022-06-17'>2022-06-17</h2><h3 id='rest-api'>REST API</h3>
+<h1 id='t-introduction'>Group And Resources</h1><h5 id='t-intro_para'><p><a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common errors.</p> <p>For further assistance or feedback, please join the <a href="https://t.me/BybitAPI">API Telegram chat</a>! API discussion group on Telegram.</p></h5><h3 id='t-resources'>API Resources and Support Channels</h3>
+<p><ul class="bybit-community"> <li><img src="../../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/en-US/help-center/?language=en_US"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>Official Python SDK</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman API Collection</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> <li><img src="../../../images/survey_ico-bd03a90c.png" height="14", width="14"> <a href="https://forms.gle/ZfCKRTVen1VExj478"><strong>Bybit Open API Survey </strong></a> - <strong>The survey should take no more than 5 minutes to complete.</strong> </ul></p>
+<h1 id='t-changelog'>Changelog</h1><h2 id='2022-08-09'>2022-08-09</h2><h3 id='websocket-api'>WebSocket API</h3>
+<ul>
+<li><a href="#t-stop_executionreport">stop_executionReport</a> [new]
+
+<ul>
+<li>Add private topic for TP/SL order</li>
+</ul></li>
+</ul>
+<h2 id='2022-07-08'>2022-07-08</h2><h3 id='websocket-api-2'>WebSocket API</h3>
+<ul>
+<li><a href="#t-websocketauthentication">Authentication</a> [update]
+
+<ul>
+<li>Add notice that an IP can connect to a maximum of 50 private spot websocket connections simultaneously</li>
+</ul></li>
+</ul>
+<h2 id='2022-06-17'>2022-06-17</h2><h3 id='rest-api'>REST API</h3>
 <ul>
 <li><a href="#t-ltinfos">All Asset Infos</a> (V2 WebSocket) [new]
 
@@ -1547,7 +1590,7 @@ clipboard.on('error', function(e) {
 <li>Add LT All Asset Infos Query</li>
 </ul></li>
 </ul>
-<h2 id='2022-06-10'>2022-06-10</h2><h3 id='websocket-api'>WebSocket API</h3>
+<h2 id='2022-06-10'>2022-06-10</h2><h3 id='websocket-api-3'>WebSocket API</h3>
 <ul>
 <li><a href="#t-ticketinfo">ticketInfo</a> (V2 WebSocket) [update]
 
@@ -1555,7 +1598,7 @@ clipboard.on('error', function(e) {
 <li>Add <code>S</code> field which indicates the trade side</li>
 </ul></li>
 </ul>
-<h2 id='2022-06-08'>2022-06-08</h2><h3 id='websocket-api-2'>WebSocket API</h3>
+<h2 id='2022-06-08'>2022-06-08</h2><h3 id='websocket-api-4'>WebSocket API</h3>
 <ul>
 <li><a href="#t-websocketv2depth">depth</a> (V2 WebSocket) [update]
 
@@ -1563,7 +1606,7 @@ clipboard.on('error', function(e) {
 <li>Increase the push frequency from every 250ms (max. 300ms) to every 100ms</li>
 </ul></li>
 </ul>
-<h2 id='2022-06-01'>2022-06-01</h2><h3 id='websocket-api-3'>WebSocket API</h3>
+<h2 id='2022-06-01'>2022-06-01</h2><h3 id='websocket-api-5'>WebSocket API</h3>
 <ul>
 <li><a href="#t-tradehistory">Trade History</a> [update]
 
@@ -1595,7 +1638,7 @@ clipboard.on('error', function(e) {
 <li>Add Leveraged Token Endpoints</li>
 </ul></li>
 </ul>
-<h3 id='websocket-api-4'>WebSocket API</h3>
+<h3 id='websocket-api-6'>WebSocket API</h3>
 <ul>
 <li><a href="#t-websocketltnetvalue">lt</a> [new]
 
@@ -1632,7 +1675,7 @@ clipboard.on('error', function(e) {
 <li>Deprecate request parameters <code>fromId</code>, <code>toId</code></li>
 </ul></li>
 </ul>
-<h2 id='2022-03-14'>2022-03-14</h2><h3 id='websocket-api-5'>WebSocket API</h3>
+<h2 id='2022-03-14'>2022-03-14</h2><h3 id='websocket-api-7'>WebSocket API</h3>
 <ul>
 <li><a href="#t-ticketinfo">ticketInfo</a> [update]
 
@@ -5189,7 +5232,7 @@ All Cross Margin Trading endpoints require authentication.
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">currency</td>
+<td style="text-align: left"><a href="#currency-currency-coin">currency</a></td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>currency</td>
@@ -5248,7 +5291,7 @@ All Cross Margin Trading endpoints require authentication.
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">currency</td>
+<td style="text-align: left"><a href="#currency-currency-coin">currency</a></td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>currency</td>
@@ -5335,7 +5378,7 @@ All Cross Margin Trading endpoints require authentication.
 <td>End time, unit in millisecond</td>
 </tr>
 <tr>
-<td style="text-align: left">currency</td>
+<td style="text-align: left"><a href="#currency-currency-coin">currency</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>currency</td>
@@ -5596,7 +5639,7 @@ All Cross Margin Trading endpoints require authentication.
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">currency</td>
+<td style="text-align: left"><a href="#currency-currency-coin">currency</a></td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>currency</td>
@@ -5777,26 +5820,70 @@ All Cross Margin Trading endpoints require authentication.
 <td>Total Interest Repaid</td>
 </tr>
 </tbody></table>
-<h1 id='t-ratelimits'>Rate Limits</h1><h3 id='t-ipratelimits'>IP Rate Limit</h3>
-<p><p>The IP limits are shared across all endpoints: futures, spot, and account asset.</p>
+<h1 id='t-ratelimits'>Rate Limits</h1><h2 id='t-ipratelimits'>IP Rate Limit</h2>
+<p><aside class="warning">
+If you receive an <b>HTTP 403</b> (Access Denied) response, your IP has been either temporarily or permanently banned. <b>You should immediately review the below guidelines to ensure your application does not continue to violate the limit.</b> If you are still banned after 30 minutes, you likely have a permanent ban.
+</aside>
 <p>Bybit has different IP frequency limits depending on the request method. We do not recommend running your application at the very edge of these limits in case abnormal network activity results in an unexpected violation.</p>
 <ul>
 <li>
   <code>GET</code> & <code>DELETE</code> methods (shared):
   <ul>
-    <li>12 requests per second continuously for 2 minutes</li>
-    <li>18 requests per second continuously for 5 seconds</li>
+    <li>50 requests per second for 2 consecutive minutes</li>
+    <li>70 requests per second for 5 consecutive seconds</li>
   </ul>
 </li>
 <li>
   <code>POST</code> method:
   <ul>
-    <li>10 requests per second continuously for 2 minutes</li>
-    <li>15 requests per second continuously for 5 seconds</li>
+    <li>20 requests per second for 2 consecutive minutes</li>
+    <li>50 requests per second for 5 consecutive seconds</li>
   </ul>
 </li>
 </ul>
+<p>This table shows how there are different IP rate limit counters depending on the API you are using.</p>
+<table class="custom_table">
+  <tr>
+    <th>IP rate limit</th>
+    <th>API</th>
+    <th>Path</th>
+  </tr>
+  <tr>
+    <td rowspan="5">2mins 50/s;<br>5s 70/s</td>
+    <tr><td>Inverse Perpetual</td><td>/v2</td>
+    <tr><td>Inverse Futures</td><td>/futures</td>
+    <tr><td>Linear Perpetual</td><td>/public, /private</td>
+    <tr><td>Account Asset</td><td>/asset</td>
+  </tr>
+  <tr>
+    <td rowspan="2">2mins 50/s;<br>5s 70/s</td>
+    <tr><td>Spot</td><td>/spot</td>
+  </tr>
+  <tr>
+    <td rowspan="3">2mins 50/s;<br>5s 70/s</td>
+    <tr><td>USDC Options</td><td>/option</td>
+    <tr><td>USDC Perpetual</td><td>/perpetual</td>
+  </tr>
+</table>
+<p>After violating the limit your IP will be banned for a set period of time (usually 30 minutes). Continually violating the limit will result in a permanent ban. We cannot undo permanent bans or shorten temporary bans.</p>
 </p>
+<h2 id='t-understandingratelimits'>API Rate Limit</h2><h3 id='t-perendpoint'>Rate Limits For All Private Endpoints</h3>
+<table class="custom_table">
+  <tr>
+    <th>Limit</th>
+    <th>Path</th>
+  </tr>
+  <tr>
+    <td rowspan="1">5 requests/second</td>
+    <td>Cross Margin Trading Endpoints</td>
+  </tr>
+  <tr>
+    <td rowspan="1">20 requests/second</td>
+    <td>All other private endpoints</td>
+  </tr>
+</table>
+
+<p>The rate limits for each private endpoint should be considered separately.</p>
 <h1 id='t-websocket'>WebSocket Data</h1><h2 id='t-websocketauthentication'>Authentication</h2>
 <blockquote>
 <p><p>Apply for authentication when establishing a connection.</p>
@@ -5886,6 +5973,8 @@ All Cross Margin Trading endpoints require authentication.
 </aside>
 
 <p>Authentication examples are shown in the code block.</p>
+
+<p>An IP can connect to a maximum of 50 private spot websocket connections simultaneously.</p>
 
 <aside class="notice">
 Example signature algorithms can be found <a href="https://github.com/bybit-exchange/api-usage-examples">here</a>.
@@ -5978,6 +6067,8 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 </span><span class="n">ws_spot</span><span class="p">.</span><span class="n">trade_v1_stream</span><span class="p">(</span>
     <span class="n">handle_message</span><span class="p">,</span> <span class="p">[</span><span class="s">"BTCUSDT"</span><span class="p">,</span> <span class="s">"ETHUSDT"</span><span class="p">]</span>
 <span class="p">)</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
 <p>Response Example - format of all responses</p>
@@ -8228,6 +8319,22 @@ Pushes data in <b>real-time</b>
 <li><code>XLM</code></li>
 <li><code>USD</code></li>
 </ul>
+
+<p>Cross Margin Trading Endpoints support below currency:
+</p>
+
+<ul>
+<li><code>BTC</code></li>
+<li><code>ETH</code></li>
+<li><code>XRP</code></li>
+<li><code>SOL</code></li>
+<li><code>LTC</code></li>
+<li><code>EOS</code></li>
+<li><code>LINK</code></li>
+<li><code>XLM</code></li>
+<li><code>USDC</code></li>
+<li><code>USDT</code></li>
+</ul>
 <h2 id='order-status-status'>Order status (<code>status</code>)</h2>
 <ul>
 <li><code>NEW</code></li>
@@ -8334,7 +8441,7 @@ ELSE
 <li><code>1</code> - Purchase</li>
 <li><code>2</code> - Redemption</li>
 </ul>
-<h1 id='t-errors'>Errors</h1>
+<h2 id='tp-sl-order-status-status'>TP/Sl order status (<code>status</code>)</h2><h1 id='t-errors'>Errors</h1>
 <p>The Bybit API uses the following HTTP codes and error codes<span>:</span></p>
 
 <table><thead>
