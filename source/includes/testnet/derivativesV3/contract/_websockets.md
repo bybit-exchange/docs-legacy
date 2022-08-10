@@ -378,7 +378,7 @@ ws.send('{"op": "subscribe", "args": ["tickers.BTCUSDT"]}')
       "ask1Price":"22019.50",
       "ask1Size":"7.041"
   },
-  "cs":14236992274, 
+  "cs":14236992274,
     "ts":1658145103883091
 }
 
@@ -724,7 +724,7 @@ t(:contract_websocketExecution)
 |stopOrderType |string |t(:row_comment_query_stopOrderType_v3)  |
 |side |string |t(:row_comment_query_side_v3)  |
 |execTime |string |t(:row_comment_query_execTime_v3)  |
-|closedSize |string |t(:contract_executionClosedSize)  |
+|closedSize |string |t(:closedSize)  |
 
 
 ### t(:websocketOrder)
