@@ -248,8 +248,8 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |symbol |<b>true</b> |string |t(:row_comment_symbol) |
-|orderId |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
-|orderLinkId |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
+|orderId |false |string |t(:row_comment_orderId_v3_post) |
+|orderLinkId |false |string |t(:row_comment_orderLinkId_v3_post) |
 
 
 <p class="fake_header">t(:responseparameters)</p>
