@@ -198,8 +198,8 @@ POST
 |:----- |:-------|:-----|----- |
 |category |<b>true</b> |string |t(:row_comment_category_v3)    |
 |symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
-|orderId |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
-|orderLinkId |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
+|orderId |false |string |t(:row_comment_orderId_v3_post) |
+|orderLinkId |false |string |t(:row_comment_orderLinkId_v3_post) |
 |orderFilter |false |string |t(:row_comment_orderFilter_v3)   |
 
 
@@ -1506,7 +1506,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/unified/v3/private/
 t(:wallet_para_walletBalance_v3)
 
 <p class="fake_header">t(:httprequest)</p>
-POST
+GET
 <code><span id=vpwBalance>/unified/v3/private/account/wallet/balance</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpwBalance"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
