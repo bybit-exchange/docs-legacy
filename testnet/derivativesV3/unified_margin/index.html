@@ -3648,13 +3648,13 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <td style="text-align: left">orderId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Order ID</td>
+<td>Order ID. <b>Required</b> if not passing <code>orderLinkId</code></td>
 </tr>
 <tr>
 <td style="text-align: left">orderLinkId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Unique user-set order ID</td>
+<td>Unique user-set order ID. <b>Required</b> if not passing <code>orderId</code></td>
 </tr>
 <tr>
 <td style="text-align: left">orderFilter</td>
@@ -6277,7 +6277,7 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 
 <p class="fake_header">HTTP Request</p>
 
-<p>POST
+<p>GET
 <code><span id=vpwBalance>/unified/v3/private/account/wallet/balance</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpwBalance"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
