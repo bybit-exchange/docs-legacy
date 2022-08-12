@@ -198,8 +198,8 @@ POST
 |:----- |:-------|:-----|----- |
 |category |<b>true</b> |string |t(:row_comment_category_v3)    |
 |symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
-|orderId |false |string |t(:row_comment_orderId_v3_post) |
-|orderLinkId |false |string |t(:row_comment_orderLinkId_v3_post) |
+|orderId |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
+|orderLinkId |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
 |orderFilter |false |string |t(:row_comment_orderFilter_v3)   |
 
 

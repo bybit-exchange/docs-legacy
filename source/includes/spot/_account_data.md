@@ -153,8 +153,8 @@ GET
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|orderId|false|string|t(:misc_row_comment_orderIdNotOrderLinkId_spot)|
-|orderLinkId|false|string|t(:misc_row_comment_orderLinkIdNotOrderId_spot)|
+|orderId|false|string|t(:misc_row_comment_orderIdNotOrderLinkId)|
+|orderLinkId|false|string|t(:misc_row_comment_orderLinkIdNotOrderId)|
 
 <p class="fake_header">t(:responseparameters)</p>
 
@@ -236,8 +236,8 @@ DELETE
 
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|orderId|false|string|t(:misc_row_comment_orderIdNotOrderLinkId_spot)|
-|orderLinkId|false|string|t(:misc_row_comment_orderLinkIdNotOrderId_spot)|
+|orderId|false|string|t(:misc_row_comment_orderIdNotOrderLinkId)|
+|orderLinkId|false|string|t(:misc_row_comment_orderLinkIdNotOrderId)|
 
 <p class="fake_header">t(:responseparameters)</p>
 
@@ -306,8 +306,8 @@ DELETE
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |symbolId|<b>true</b>|string|t(:spotSymbol)|
-|orderId|false|string|t(:misc_row_comment_orderIdNotOrderLinkId_spot)|
-|orderLinkId|false|string|t(:misc_row_comment_orderLinkIdNotOrderId_spot)|
+|orderId|false|string|t(:misc_row_comment_orderIdNotOrderLinkId)|
+|orderLinkId|false|string|t(:misc_row_comment_orderLinkIdNotOrderId)|
 
 <p class="fake_header">t(:responseparameters)</p>
 
