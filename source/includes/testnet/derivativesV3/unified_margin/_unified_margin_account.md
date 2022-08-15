@@ -737,8 +737,8 @@ POST
 |category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_4)    |
 |request |<b>true</b> |array |    |
 |list> symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
-|list> orderId |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
-|list> orderLinkId |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
+|list> orderId |false |string |t(:row_comment_orderId_v3_post) |
+|list> orderLinkId |false |string |t(:row_comment_orderLinkId_v3_post) |
 
 
 <p class="fake_header">t(:responseparameters)</p>

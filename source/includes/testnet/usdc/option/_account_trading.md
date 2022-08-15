@@ -1124,6 +1124,10 @@ POST
 t(:setMarginModeNotice)
 </aside>
 
+<aside class="warning">
+t(:setMarginModeWarning)
+</aside>
+
 > t(:codequote_curlExample)
 
 ```console

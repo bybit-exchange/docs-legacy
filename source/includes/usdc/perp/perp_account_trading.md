@@ -895,6 +895,58 @@ POST
 |mm|string|t(:usdcMm)|
 
 
+### t(:setMarginMode)
+<aside class="notice">
+t(:setMarginModeNotice)
+</aside>
+
+<aside class="warning">
+t(:setMarginModeWarning)
+</aside>
+
+> t(:codequote_curlExample)
+
+```console
+
+curl https://api-testnet.bybit.com/option/usdc/private/asset/account/setMarginMode \
+-H "Content-Type: application/json" \
+-D '{"setMarginMode":"PORTFOLIO_MARGIN"}'
+```
+
+```python
+
+```
+
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "retCode": 0,
+    "retMsg": "Request accepted",
+    "result": {
+        "reasons": []
+    }
+}
+```
+
+
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=setMarginMode>/option/usdc/private/asset/account/setMarginMode</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#setMarginMode"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|setMarginMode|<b>true</b>|string|t(:usdcMarginMode)|
+
+<p class="fake_header">t(:responseparameters)</p>
+
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+
 
 ### t(:queryMarginMode)
 For USDC ACCOUNT.

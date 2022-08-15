@@ -732,3 +732,41 @@ t(:usdc_perp_active_order)
 | triggerPrice |string |t(:triggerPrice) |
 | stopOrderType |string |t(:usdcStopOrderType) |
 | cancelType |string |t(:usdcCancelType) |
+
+
+### t(:websocketService)
+
+> t(:codequote_subscribe)
+
+```javascript
+ws.send(json.dumps({"op": "subscribe", "id": "{100003}","args": ["user.service"]}))
+```
+
+> t(:codequote_snapshot)
+
+```javascript
+{
+    "id": "8110961210943238",
+    "topic": "user.service",
+    "creationTime": 1660535756358,
+    "data": {
+        "pushId": "11c9c4d888502c3b",
+        "serviceType": "PORTFOLIO_MARGIN",
+        "operationType": "SELF",
+        "serviceStep": "OPEN",
+        "serviceStatus": "SUCCESS",
+        "version": 18
+    }
+}
+```
+
+t(:usdc_margin_mode)
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| pushId |string |t(:usdc_userService_pushId) |
+| serviceType |string |t(:usdc_userService_serviceType) |
+| operationType |string |t(:usdc_userService_operationType) |
+| serviceStep |string |t(:usdc_userService_serviceStep) |
+| serviceStatus |string |t(:usdc_userService_serviceStatus) |
