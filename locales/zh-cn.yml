@@ -1755,6 +1755,13 @@ zh-cn:
   ### copy_trade_field
   copytrade_field_leverage: 逐倉模式下, 值為用戶設置的杠桿
   copytrade_field_order_status: copy trade 訂單狀態
+  ### user service
+  websocketService: 保证金模式
+  usdc_userService_pushId: 推送id
+  usdc_userService_serviceType: 服務類型
+  usdc_userService_operationType: 操作類型. <code>SELF</code>：用戶手動自主操作; <code>AUTO</code>：後台檢測關閉
+  usdc_userService_serviceStep: 服務步驟. <code>OPEN</code>：開通; <code>CLOSE</code>：關閉
+  usdc_userService_serviceStatus: 服務處理結果. <code>SUCCESS</code>：處理成功; <code>FAIL</code>：處理失敗
 
   # Archive Data
   archivedata: 歸檔數據
@@ -3529,6 +3536,8 @@ zh-cn:
   assetInfo: 資產信息
   setMarginMode: 設置保證金模式
   setMarginModeNotice: 如果USDC衍生品賬戶餘額大於X，可以開啟PORTFOLIO_MARGIN，如果小於Y，會自動關閉PORTFOLIO_MARGIN，改回REGULAR_MARGIN。 X 和 Y 將根據运营要求会進行調整。
+  setMarginModeWarning: |
+    API返回的是<b>受理成功</b>，通過訂閱<a href="#t-websocketservice">保證金模式</a>，獲取最終的切換PM的結果。
   queryMarginMode: 查詢保證金模式
   queryMMPState: 查詢 MMP 狀態
 
@@ -4123,6 +4132,10 @@ zh-cn:
   usdcMmpTriggerStatus: MMP觸發狀態
   usdcMmpTriggerTimestamp: MMP觸發時間戳
 
+  usdc_margin_mode: |
+    <p>訂閱此topic，用於接收保證金模式的變動。當保證金模式發生變化時，將會收到推送<p>
+    <b>topic</b>: <code>user.service</code><br>
+    <b>頻率</b>: 實時
   column_default: 默認值
   usdcStopOrderType: 參考 <a href="#stop-order-type-stopordertype">Stop Order Type</a>
   usdcCancelType: 參考 <a href="#cancel-type-canceltype">Cancel Type</a>

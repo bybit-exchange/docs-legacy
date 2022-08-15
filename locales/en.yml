@@ -1954,6 +1954,13 @@ en:
   ### copy_trade_field
   copytrade_field_leverage: In Isolated Margin mode, the value is set by the user.
   copytrade_field_order_status: Copy trade order status
+  ### user service
+  websocketService: margin mode
+  usdc_userService_pushId: Push id
+  usdc_userService_serviceType: Service type
+  usdc_userService_operationType: Operation type. <code>SELF</code>：manually operated by user; <code>AUTO</code>：detected by system
+  usdc_userService_serviceStep: Service step. <code>OPEN</code>; <code>CLOSE</code>
+  usdc_userService_serviceStatus: Service status. <code>SUCCESS</code>; <code>FAIL</code>
 
   # Archive Data
   archivedata: Archive Data
@@ -3964,6 +3971,8 @@ en:
   assetInfo: Asset Info
   setMarginMode: Set Margin Mode
   setMarginModeNotice: If USDC derivatives account balance is greater than X, you can open PORTFOLIO_MARGIN, and if it is less than Y, it will automatically close PORTFOLIO_MARGIN and change back to REGULAR_MARGIN. X and Y will be adjusted according to operational requirements.
+  setMarginModeWarning: |
+    Rest API returns the result of checking prerequisites. You could get the real status of margin mode change by subscribing <a href="#t-websocketservice">margin mode</a>.
   queryMarginMode: Query Margin Mode
   queryMMPState: Query MMP state
 
@@ -4591,6 +4600,10 @@ en:
   usdcTradeId: Trade Id
   usdcQueryLimit: The endpoint only supports up to 30 days of queried records
   usdcQueryLimitWithInput: The endpoint only supports up to 30 days of queried records. An error will be returned if startTime is more than 30 days.
+  usdc_margin_mode: |
+    <p>This topic pushes message when your have the margin mode changed.<p>
+    <b>topic</b>: <code>user.service</code><br>
+    <b>frequency</b>: real-time
 
   lt: Leveraged Token Endpoints
   lt_notice: Not fully released
