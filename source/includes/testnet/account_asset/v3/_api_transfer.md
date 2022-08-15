@@ -662,7 +662,12 @@ t(:transfer_para)
 > t(:codequote_curlExample)
 
 ```console
-curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/public/deposit/allowed-deposit-list?coin=ETH&chain=ETH&page_index=1&page_size=10'
+curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/withdraw/record/query' \
+--header 'X-BAPI-SIGN: f76ba24a41172b3cc8a83b264480bd9046758b2248dc71392ca4c6202718c3f2' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1660535928741' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'X-BAPI-SIGN: f76ba24a41172b3cc8a83b264480bd9046758b2248dc71392ca4c6202718c3f2'
 ```
 
 ```python--pybit
@@ -672,24 +677,23 @@ curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/public/dep
 
 ```javascript
 {
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
+  "retCode": 0,
+    "retMsg": "success",
     "result": {
-        "config_list": [
-            {
-                "coin": "ETH",
-                "chain": "ETH",
-                "coin_show_name": "ETH",
-                "chain_type": "ETH",
-                "block_confirm_number": 12,
-                "min_deposit_amount": "0"
-            }
-        ],
-        "total": "1"
-    },
-    "ext_info": null,
-    "time_now": 1652841868446
+    "configList": [
+      {
+        "coin": "BTC",
+        "chain": "BTC",
+        "coinShowName": "BTC",
+        "chainType": "BTC",
+        "blockConfirmNumber": 10000,
+        "minDepositAmount": "0.0005"
+      }
+    ],
+      "nextPageCursor": "eyJwYWdlIjoyLCJsaW1pdCI6MX0="
+  },
+  "retExtInfo": null,
+    "time": 1660546221207
 }
 ```
 
@@ -697,7 +701,7 @@ t(:allowDepositListDesc)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=allowDepositList>/asset/v1/public/deposit/allowed-deposit-list</span></code>
+<code><span id=allowDepositList>/asset/v3/public/deposit/allowed-deposit-list/query</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#allowDepositList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -705,28 +709,33 @@ GET
 |:----- |:-------|:-----|----- |
 |coin |false |string |t(:allowDepositCoin) |
 |chain |false |string |t(:allowDepositChain) |
-|page_index |false |long |t(:allowDepositPageIndex) |
-|page_size |false |long |t(:allowDepositPageSize) |
+|cursor |false |string |t(:allowDepositPageCursor) |
+|limit |false |integer |t(:allowDepositPageSize) |
 
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|config_list|Array|Object|
+|configList|Array|Object|
 |coin|string|t(:deposit_response_currency_info)|
 |chain|string|t(:deposit_response_chainname)|
-|coin_show_name|string|t(:coinShowName)|
-|chain_type|string|t(:coin_info_chain_type)|
-|block_confirm_number|long|t(:coin_info_confirmation)|
-|min_deposit_amount|string|t(:minDepositAmount)|
+|coinShowName|string|t(:coinShowName)|
+|chainType|string|t(:coin_info_chain_type)|
+|blockConfirmNumber|long|t(:coin_info_confirmation)|
+|minDepositAmount|string|t(:minDepositAmount)|
+|nextPageCursor|string|t(:allowDepositPageCursor)|
 
 
 ### t(:depositsrecordquery)
 > t(:codequote_curlExample)
 
 ```console
-curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/deposit/record/query?
-api_key=XXXXXXXXXXX&coin=LTC&timestamp=1641534660578&recv_window=50000&sign=XXXXXXXXXXX'
+curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/deposit/record/query' \
+--header 'X-BAPI-SIGN: f76ba24a41172b3cc8a83b264480bd9046758b2248dc71392ca4c6202718c3f2' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1660535928741' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'X-BAPI-SIGN: f76ba24a41172b3cc8a83b264480bd9046758b2248dc71392ca4c6202718c3f2'
 ```
 
 ```python--pybit
@@ -736,47 +745,29 @@ api_key=XXXXXXXXXXX&coin=LTC&timestamp=1641534660578&recv_window=50000&sign=XXXX
 
 ```javascript
 {
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
+  "retCode": 0,
+    "retMsg": "success",
     "result": {
-        "rows": [
-            {
-                "coin": "LTC",
-                "chain": "LTC",
-                "amount": "0.156",
-                "tx_id": "XXXXXXXXXXXXXXXXXXXXXXXXXX",
-                "status": 3,
-                "to_address": "XXXXXXXXXXXXXXXXXXXXXXXXXX",
-                "tag": "",
-                "deposit_fee": "",
-                "success_at": "1631697910",
-                "confirmations": "0",
-                "tx_index": "",
-                "block_hash": ""
-            },
-            {
-                "coin": "LTC",
-                "chain": "LTC",
-                "amount": "0.158",
-                "tx_id": "XXXXXXXXXXXXXXXXXXXXXXXXXX",
-                "status": 3,
-                "to_address": "XXXXXXXXXXXXXXXXXXXXXXXXXX",
-                "tag": "",
-                "deposit_fee": "",
-                "success_at": "1631688429",
-                "confirmations": "0",
-                "tx_index": "",
-                "block_hash": ""
-            }
-        ],
-        "cursor": "eyJtaW5JRCI6NjkxNjExLCJtYXhJRCI6NjkyOTQ5fQ=="
-    },
-    "ext_info": null,
-    "time_now": 1641535748233,
-    "rate_limit_status": 119,
-    "rate_limit_reset_ms": 1641535748233,
-    "rate_limit": 1
+    "rows": [
+      {
+        "coin": "USDT",
+        "chain": "ETH",
+        "amount": "11133",
+        "txID": "37fcf7893",
+        "status": 3,
+        "toAddress": "fake-address",
+        "tag": "3844562",
+        "depositFee": "",
+        "successAt": "1658902838000",
+        "confirmations": "10000",
+        "txIndex": "",
+        "blockHash": ""
+      }
+    ],
+      "nextPageCursor": "eyJtaW5JRCI6NTM3MCwibWF4SUQiOjUzNzB9"
+  },
+  "retExtInfo": null,
+    "time": 1660547423085
 }
 ```
 
@@ -784,19 +775,17 @@ t(:depositsrecorddesc)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=pdrq>/asset/v1/private/deposit/record/query</span></code>
+<code><span id=pdrq>/asset/v3/private/deposit/record/query</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pdrq"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|start_time |false |long |t(:depositwithdrawstarttime) |
-|end_time |false |long |t(:depositwithdrawendtime) |
+|startTime |false |long |t(:DWstarttimeMS) |
+|endTime |false |long |t(:DWendtimeMS) |
 |<a href="#currency-currency-coin">coin</a> |false |string |t(:depositcurrencyinfo) |
 |cursor |false |string |t(:depositcursorinfo) |
-|<a href="#page-direction-direction">direction</a> |false |string |t(:depositdirectioninfo) |
-|limit |false |long |t(:depositlimitinfo) |
-|timestamp |<b>true</b>|long |t(:row_comment_to_timestamp) |
+|limit |false |int |t(:depositlimitinfo) |
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -805,22 +794,22 @@ GET
 |coin|string|t(:deposit_response_currency_info)|
 |chain|string|t(:deposit_response_chainname)|
 |amount|string|t(:deposit_response_amt)|
-|tx_id|string|t(:deposit_response_txid)|
+|txID|string|t(:deposit_response_txid)|
 |status|int|t(:deposit_response_status)|
-|to_address|string|t(:deposit_target_addr)|
+|toAddress|string|t(:deposit_target_addr)|
 |tag|string|t(:deposit_response_tag)|
-|deposit_fee|string|t(:deposit_response_depositFee)|
-|success_at|int64|t(:deposit_response_updateTime)|
+|depositFee|string|t(:deposit_response_depositFee)|
+|successAt|int64|t(:deposit_response_updateTime)|
 |confirmations|string|t(:deposit_confirmations)|
-|tx_index|string|t(:deposit_tx_index)|
-|block_hash|string|t(:deposit_block_hash)|
-|cursor|string|t(:deposit_response_cursor)|
+|txIndex|string|t(:deposit_tx_index)|
+|blockHash|string|t(:deposit_block_hash)|
+|nextPageCursor|string|t(:deposit_response_cursor)|
 
 ### t(:withdrawrecordquery)
 > t(:codequote_curlExample)
 
 ```console
-curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/withdraw/record/query?api_key=XXXXXXXXXXX&coin=LTC&limit=1&timestamp=1641789839632&recv_window=50000&sign=XXXXXXXXXXX'
+curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/withdraw/record/query?limit=2'
 ```
 
 ```python--pybit
@@ -830,45 +819,41 @@ curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/wi
 
 ```javascript
 {
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
+  "retCode": 0,
+    "retMsg": "success",
     "result": {
-        "rows": [
-            {
-                "coin": "LTC",
-                "chain": "LTC",
-                "amount": "0.157",
-                "tx_id": "XXXXXXXXXXXXXXXXXXXXXXXXXX",
-                "status": "success",
-                "to_address": "XXXXXXXXXXXXXXXXXXXXXXXXXX",
-                "tag": "",
-                "withdraw_fee": "0.001",
-                "create_time": "1631694166",
-                "update_time": "1631694775",
-                "withdraw_id":"301121231312"
-            },
-            {
-                "coin": "LTC",
-                "chain": "LTC",
-                "amount": "0.159",
-                "tx_id": "XXXXXXXXXXXXXXXXXXXXXXXXXX",
-                "status": "success",
-                "toAddress": "XXXXXXXXXXXXXXXXXXXXXXXXXX",
-                "tag": "",
-                "withdraw_fee": "0.001",
-                "create_time": "1631684557",
-                "update_time": "1631685384",
-                "withdraw_id":"301121231313"
-            }
-        ],
-        "cursor": "eyJtaW5JRCI6MjAxNTM1MywibWF4SUQiOjIwMTU4OTF9"
-    },
-    "ext_info": null,
-    "time_now": 1640921464384,
-    "rate_limit_status": 117,
-    "rate_limit_reset_ms": 1640921464384,
-    "rate_limit": 3
+    "rows": [
+      {
+        "coin": "BTC",
+        "chain": "BTC",
+        "amount": "0.02",
+        "txID": "",
+        "status": "SecurityCheck",
+        "toAddress": "mikeNCEUBcbahMfLU7SDgo69UEqciC2D1w",
+        "tag": "",
+        "withdrawFee": "0.0005",
+        "createTime": "1660038232000",
+        "updateTime": "1660038233000",
+        "withdrawId": "370037"
+      },
+      {
+        "coin": "BTC",
+        "chain": "BTC",
+        "amount": "0.02",
+        "txID": "",
+        "status": "SecurityCheck",
+        "toAddress": "mikeNCEUBcbahMfLU7SDgo69UEqciC2D1w",
+        "tag": "",
+        "withdrawFee": "0.0005",
+        "createTime": "1660037115000",
+        "updateTime": "1660037116000",
+        "withdrawId": "370036"
+      }
+    ],
+      "nextPageCursor": "eyJtaW5JRCI6MzcwMDM2LCJtYXhJRCI6MzcwMDM3fQ=="
+  },
+  "retExtInfo": null,
+    "time": 1660548434464
 }
 ```
 
@@ -876,15 +861,15 @@ t(:withdrawrecorddesc)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=pwrq>/asset/v1/private/withdraw/record/query</span></code>
+<code><span id=pwrq>/asset/v3/private/withdraw/record/query</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pwrq"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|withdraw_id |false |long |t(:withdraw_id) |
-|start_time |false |long |t(:depositwithdrawstarttime) |
-|end_time |false |long |t(:depositwithdrawendtime) |
+|withdrawID |false |long |t(:withdraw_id) |
+|startTime |false |long |t(:DWstarttimeMS) |
+|endTime |false |long |t(:DWendtimeMS) |
 |<a href="#currency-currency-coin">coin</a> |false |string |t(:depositcurrencyinfo) |
 |cursor |false |string |t(:depositcursorinfo) |
 |<a href="#page-direction-direction">direction</a> |false |string |t(:depositdirectioninfo) |
@@ -897,15 +882,15 @@ GET
 |coin|string|t(:withdraw_response_currency_info)|
 |chain|string|t(:withdraw_response_chainname)|
 |amount|string|t(:withdraw_response_amt)|
-|tx_id|string|t(:withdraw_response_txid)|
+|txID|string|t(:withdraw_response_txid)|
 |status|string|<a href="#withdraw-status-status">t(:withdraw_resp_status)</a>|
-|to_address|string|t(:withdraw_target_addr)|
+|toAddress|string|t(:withdraw_target_addr)|
 |tag|string|t(:withdraw_response_tag)|
-|withdraw_fee|string|t(:withdraw_response_withdrawFee)|
-|create_time|int64|t(:withdraw_response_createTime)|
-|update_time|int64|t(:withdraw_response_updateTime)|
-|cursor|string|t(:withdraw_response_cursor)|
-|withdraw_id|string|t(:withdraw_id)|
+|withdrawFee|string|t(:withdraw_response_withdrawFee)|
+|createTime|int64|t(:withdraw_response_createTime)|
+|updateTime|int64|t(:withdraw_response_updateTime)|
+|nextPageCursor|string|t(:withdraw_response_cursor)|
+|withdrawId|string|t(:withdraw_id)|
 
 ### t(:coin_info_query)
 > t(:codequote_curlExample)
@@ -1052,17 +1037,15 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl --location --request POST 'https://api-testnet.bybit.com/asset/v1/private/withdraw' \
+curl --location --request POST 'https://api-testnet.bybit.com/asset/v3/private/withdraw/create' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "address": "XXXXXXXXXXXXXXXXXXXXXXXXXX",
     "amount": "0.153",
     "coin": "LTC",
     "chain": "LTC",
-    "sign": "XXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "tag": "100",
     "timestamp": "1641789512739",
-    "api_key": "XXXXXXXXXXXXXXXXXXXXXXXXXX",
-    "recv_window": "50000"
 }'
 ```
 
@@ -1073,17 +1056,13 @@ curl --location --request POST 'https://api-testnet.bybit.com/asset/v1/private/w
 
 ```javascript
 {
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
+  "retCode": 0,
+    "retMsg": "success",
     "result": {
-        "id": "3912530"
-    },
-    "ext_info": null,
-    "time_now": 1641793038330,
-    "rate_limit_status": 2,
-    "rate_limit_reset_ms": 1641793038330,
-    "rate_limit": 1
+    "id": "370044"
+  },
+  "retExtInfo": null,
+    "time": 1660549283047
 }
 ```
 
@@ -1103,6 +1082,7 @@ POST
 |address|<b>true</b>|string|t(:withdraw_addr)
 |tag|false|string|t(:withdraw_tag)
 |amount|<b>true</b>|string|t(:withdraw_amount)
+|timestamp|<b>true</b>|string|t(:timestamp)
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -1116,14 +1096,10 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl --location --request POST 'https://api-testnet.bybit.com/asset/v1/private/withdraw/cancel' \
+curl --location --request POST 'https://api-testnet.bybit.com/asset/v3/private/withdraw/cancel' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "id":234234324234,
-    "sign": "XXXXXXXXXXXXXXXXXXXXX",
-    "timestamp": "1641790660020",
-    "api_key": "XXXXXXXXXXXXXXXXXXXXX",
-    "recv_window": "50000"
 }'
 ```
 
@@ -1134,21 +1110,19 @@ curl --location --request POST 'https://api-testnet.bybit.com/asset/v1/private/w
 
 ```javascript
 {
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
-    "result": {},
-    "ext_info": null,
-    "time_now": 1641798821116,
-    "rate_limit_status": 9,
-    "rate_limit_reset_ms": 1641798821116,
-    "rate_limit": 1
+  "retCode": 0,
+    "retMsg": "success",
+    "result": {
+    "status": 1
+  },
+  "retExtInfo": null,
+    "time": 1660550283220
 }
 ```
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=pwcan>/asset/v1/private/withdraw/cancel</span></code>
+<code><span id=pwcan>/asset/v3/private/withdraw/cancel</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pwcan"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 <br><p><b>content-type:</b>application/json</p>
 
@@ -1160,14 +1134,14 @@ POST
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|result|int|t(:cancel_withdraw_response)|
+|status|int|t(:cancel_withdraw_response)|
 
 
 ### t(:deposit_addr_info)
 > t(:codequote_curlExample)
 
 ```console
-curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/deposit/address?api_key=XXXXXXXXXXXXXXXXXXX&coin=LTC&timestamp=1641789312824&recv_window=50000&sign=XXXXXXXXXXXXXXXXXXX'
+curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/deposit/address/query?coin=BTC'
 ```
 
 ```python--pybit
@@ -1177,25 +1151,21 @@ curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/de
 
 ```javascript
 {
-    "ret_code": 0,
-    "ret_msg": "OK",
-    "ext_code": "",
+  "retCode": 0,
+    "retMsg": "success",
     "result": {
-        "coin": "LTC",
-        "chains": [
-            {
-                "chain_type": "LTC",
-                "address_deposit": "XXXXXXXXXXXXXXXXXXXX",
-                "tag_deposit": "",
-                "chain": "LTC"
-            }
-        ]
-    },
-    "ext_info": null,
-    "time_now": 1641789383364,
-    "rate_limit_status": 28,
-    "rate_limit_reset_ms": 1641789383364,
-    "rate_limit": 2
+    "coin": "BTC",
+      "chains": [
+      {
+        "chainType": "BTC",
+        "addressDeposit": "mzy5RaEWoBBMHotVZSvhmphcLbLqq5VPVY",
+        "tagDeposit": "",
+        "chain": "BTC"
+      }
+    ]
+  },
+  "retExtInfo": null,
+    "time": 1660203622474
 }
 ```
 
@@ -1203,7 +1173,7 @@ t(:deposit_addr_info_desc)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=pdaddr>/asset/v1/private/deposit/address</span></code>
+<code><span id=pdaddr>/asset/v3/private/deposit/address/query</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pdaddr"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -1217,7 +1187,7 @@ GET
 |result|Object|result object|
 |coin |string |t(:coin_info_coin)|
 |chains|List|Object
-|chain_type|string|t(:coin_info_chain_type)|
-|address_deposit|string|t(:deposit_address)|
-|tag_deposit|string|t(:deposit_tag)|
+|chainType|string|t(:coin_info_chain_type)|
+|addressDeposit|string|t(:deposit_address)|
+|tagDeposit|string|t(:deposit_tag)|
 |chain|string|t(:deposit_response_chainname)|
