@@ -991,6 +991,9 @@
                             <a href="#t-activeorders" class="toc-h3 toc-link" data-title="訂單">訂單</a>
                           </li>
                           <li>
+                            <a href="#t-websocketservice" class="toc-h3 toc-link" data-title="保证金模式">保证金模式</a>
+                          </li>
+                          <li>
                             <a href="#t-usergreeks" class="toc-h3 toc-link" data-title="用戶希臘字母信息">用戶希臘字母信息</a>
                           </li>
                           <li>
@@ -4396,6 +4399,11 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 如果USDC衍生品賬戶餘額大於X，可以開啟PORTFOLIO_MARGIN，如果小於Y，會自動關閉PORTFOLIO_MARGIN，改回REGULAR_MARGIN。 X 和 Y 將根據运营要求会進行調整。
 </aside>
 
+<aside class="notice">
+API返回的是<b>受理成功</b>，通過訂閱<a href="#t-websocketservice">保證金模式</a>，獲取最終的切換PM的結果。
+
+</aside>
+
 <blockquote>
 <p>請求示例</p>
 </blockquote>
@@ -6766,6 +6774,69 @@ DCP的開和關, 僅限機構類型用戶
 <td style="text-align: left">cancelType</td>
 <td style="text-align: left">string</td>
 <td>參考 <a href="#cancel-type-canceltype">Cancel Type</a></td>
+</tr>
+</tbody></table>
+<h3 id='t-websocketservice'>保证金模式</h3>
+<blockquote>
+<p>請求訂閱</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">json</span><span class="p">.</span><span class="nx">dumps</span><span class="p">({</span><span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">subscribe</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">{100003}</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">args</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">user.service</span><span class="dl">"</span><span class="p">]}))</span>
+</code></pre></div>
+<blockquote>
+<p>快照推送示例 - 連接建立成功後首次推送</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">8110961210943238</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">user.service</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1660535756358</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">pushId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">11c9c4d888502c3b</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">serviceType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">PORTFOLIO_MARGIN</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">operationType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SELF</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">serviceStep</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OPEN</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">serviceStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCESS</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span> <span class="mi">18</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><p>訂閱此topic，用於接收保證金模式的變動。當保證金模式發生變化時，將會收到推送<p>
+<b>topic</b>: <code>user.service</code><br>
+<b>頻率</b>: 實時
+</p>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">pushId</td>
+<td style="text-align: left">string</td>
+<td>推送id</td>
+</tr>
+<tr>
+<td style="text-align: left">serviceType</td>
+<td style="text-align: left">string</td>
+<td>服務類型</td>
+</tr>
+<tr>
+<td style="text-align: left">operationType</td>
+<td style="text-align: left">string</td>
+<td>操作類型. <code>SELF</code>：用戶手動自主操作; <code>AUTO</code>：後台檢測關閉</td>
+</tr>
+<tr>
+<td style="text-align: left">serviceStep</td>
+<td style="text-align: left">string</td>
+<td>服務步驟. <code>OPEN</code>：開通; <code>CLOSE</code>：關閉</td>
+</tr>
+<tr>
+<td style="text-align: left">serviceStatus</td>
+<td style="text-align: left">string</td>
+<td>服務處理結果. <code>SUCCESS</code>：處理成功; <code>FAIL</code>：處理失敗</td>
 </tr>
 </tbody></table>
 <h3 id='t-usergreeks'>用戶希臘字母信息</h3>

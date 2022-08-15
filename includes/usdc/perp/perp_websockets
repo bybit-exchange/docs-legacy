@@ -1219,3 +1219,63 @@ t(:websocket_aside_klineV2)
 <td>t(:usdcCancelType)</td>
 </tr>
 </tbody></table>
+<h3 id='t-websocketservice'>t(:websocketService)</h3>
+<blockquote>
+<p>t(:codequote_subscribe)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">json</span><span class="p">.</span><span class="nx">dumps</span><span class="p">({</span><span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">subscribe</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">{100003}</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">args</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">user.service</span><span class="dl">"</span><span class="p">]}))</span>
+</code></pre></div>
+<blockquote>
+<p>t(:codequote_snapshot)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">8110961210943238</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">user.service</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1660535756358</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">pushId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">11c9c4d888502c3b</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">serviceType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">PORTFOLIO_MARGIN</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">operationType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SELF</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">serviceStep</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OPEN</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">serviceStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCESS</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span> <span class="mi">18</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>t(:usdc_margin_mode)</p>
+
+<p class="fake_header">t(:responseparameters)</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">t(:column_parameter)</th>
+<th style="text-align: left">t(:column_type)</th>
+<th>t(:column_comments)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">pushId</td>
+<td style="text-align: left">string</td>
+<td>t(:usdc_userService_pushId)</td>
+</tr>
+<tr>
+<td style="text-align: left">serviceType</td>
+<td style="text-align: left">string</td>
+<td>t(:usdc_userService_serviceType)</td>
+</tr>
+<tr>
+<td style="text-align: left">operationType</td>
+<td style="text-align: left">string</td>
+<td>t(:usdc_userService_operationType)</td>
+</tr>
+<tr>
+<td style="text-align: left">serviceStep</td>
+<td style="text-align: left">string</td>
+<td>t(:usdc_userService_serviceStep)</td>
+</tr>
+<tr>
+<td style="text-align: left">serviceStatus</td>
+<td style="text-align: left">string</td>
+<td>t(:usdc_userService_serviceStatus)</td>
+</tr>
+</tbody></table>

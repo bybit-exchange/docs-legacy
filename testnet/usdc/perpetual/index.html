@@ -890,6 +890,9 @@
                             <a href="#t-assetinfo" class="toc-h3 toc-link" data-title="Asset Info">Asset Info</a>
                           </li>
                           <li>
+                            <a href="#t-setmarginmode" class="toc-h3 toc-link" data-title="Set Margin Mode">Set Margin Mode</a>
+                          </li>
+                          <li>
                             <a href="#t-querymarginmode" class="toc-h3 toc-link" data-title="Query Margin Mode">Query Margin Mode</a>
                           </li>
                       </ul>
@@ -1010,6 +1013,9 @@
                           </li>
                           <li>
                             <a href="#t-websocketorder" class="toc-h3 toc-link" data-title="order">order</a>
+                          </li>
+                          <li>
+                            <a href="#t-websocketservice" class="toc-h3 toc-link" data-title="margin mode">margin mode</a>
                           </li>
                       </ul>
                   </li>
@@ -4649,6 +4655,70 @@ The endpoint only supports up to 30 days of queried records. An error will be re
 <td>Maintenance margin</td>
 </tr>
 </tbody></table>
+<h3 id='t-setmarginmode'>Set Margin Mode</h3>
+<aside class="notice">
+If USDC derivatives account balance is greater than X, you can open PORTFOLIO_MARGIN, and if it is less than Y, it will automatically close PORTFOLIO_MARGIN and change back to REGULAR_MARGIN. X and Y will be adjusted according to operational requirements.
+</aside>
+
+<aside class="warning">
+Rest API returns the result of checking prerequisites. You could get the real status of margin mode change by subscribing <a href="#t-websocketservice">margin mode</a>.
+
+</aside>
+
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">
+curl https://api-testnet.bybit.com/option/usdc/private/asset/account/setMarginMode \
+-H "Content-Type: application/json" \
+-D '{"setMarginMode":"PORTFOLIO_MARGIN"}'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
+</code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Request accepted</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">reasons</span><span class="dl">"</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>POST
+<code><span id=setMarginMode>/option/usdc/private/asset/account/setMarginMode</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#setMarginMode"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">setMarginMode</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Margin mode <a href="#margin-mode-marginmode">Margin Mode</a></td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+</tbody></table>
 <h3 id='t-querymarginmode'>Query Margin Mode</h3>
 <p>For USDC ACCOUNT.</p>
 
@@ -6927,6 +6997,69 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 <td style="text-align: left">cancelType</td>
 <td style="text-align: left">string</td>
 <td>refer to <a href="#cancel-type-canceltype">Cancel Type</a></td>
+</tr>
+</tbody></table>
+<h3 id='t-websocketservice'>margin mode</h3>
+<blockquote>
+<p>How to Subscribe</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">json</span><span class="p">.</span><span class="nx">dumps</span><span class="p">({</span><span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">subscribe</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">{100003}</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">args</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">user.service</span><span class="dl">"</span><span class="p">]}))</span>
+</code></pre></div>
+<blockquote>
+<p>Snapshot Response Example - format of the first response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">8110961210943238</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">user.service</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">creationTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1660535756358</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">pushId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">11c9c4d888502c3b</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">serviceType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">PORTFOLIO_MARGIN</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">operationType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SELF</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">serviceStep</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OPEN</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">serviceStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCESS</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span> <span class="mi">18</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><p>This topic pushes message when your have the margin mode changed.<p>
+<b>topic</b>: <code>user.service</code><br>
+<b>frequency</b>: real-time
+</p>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">pushId</td>
+<td style="text-align: left">string</td>
+<td>Push id</td>
+</tr>
+<tr>
+<td style="text-align: left">serviceType</td>
+<td style="text-align: left">string</td>
+<td>Service type</td>
+</tr>
+<tr>
+<td style="text-align: left">operationType</td>
+<td style="text-align: left">string</td>
+<td>Operation type. <code>SELF</code>：manually operated by user; <code>AUTO</code>：detected by system</td>
+</tr>
+<tr>
+<td style="text-align: left">serviceStep</td>
+<td style="text-align: left">string</td>
+<td>Service step. <code>OPEN</code>; <code>CLOSE</code></td>
+</tr>
+<tr>
+<td style="text-align: left">serviceStatus</td>
+<td style="text-align: left">string</td>
+<td>Service status. <code>SUCCESS</code>; <code>FAIL</code></td>
 </tr>
 </tbody></table>
 <h1 id='t-enums'>Enums Definitions</h1>
