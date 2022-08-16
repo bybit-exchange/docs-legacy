@@ -86,7 +86,7 @@ Host: api-testnet.bybit.com
 }'
 ```
 
-t(:auth_para_construct3)
+t(:auth_para_construct3_dv3)
 
 <aside class="notice">
 t(:spot_auth_aside_signature)
