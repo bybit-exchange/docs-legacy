@@ -965,6 +965,8 @@ en:
   constructingtherequest: Create A Request
   auth_codequote_construct1a:
     An example for adjusting leverage
+  auth_codequote_construct_asset_v3:
+    An example for get withdraw records
   auth_codequote_construct1a_v3: |
     An example for how to generate string for signature
   auth_codequote_construct1b:
@@ -973,7 +975,11 @@ en:
     Different requests need different message formats. Message format for <b>GET</b> requests:
   auth_codequote_construct2_v3: |
     Different requests need different message formats. Message format for <b>GET</b> requests:
+  auth_codequote_construct_asset_v3_1: |
+    Different requests need different message formats. Message format for <b>GET</b> requests:
   auth_codequote_construct3: |
+    Message format for <b>POST</b> requests:
+  auth_codequote_account_asset_v3_2: |
     Message format for <b>POST</b> requests:
   auth_para_construct1:
     <p>1. Concatenate all the public parameters in the <a href="https://en.wikipedia.org/wiki/Query_string">query string</a> format. The parameters must be ordered in <b>alphabetical</b> order. This will be used to generate the <code>sign</code>.</p>
@@ -985,6 +991,8 @@ en:
     <p>2. Use the HMAC_SHA256 algorithm to sign the string in step 1, and convert it to a hex string to obtain the sign parameter.</p>
   auth_para_construct3:
     <p>3. Append the sign parameter to the end of the parameters string, and send the HTTP request. Note that the message format for GET and POST requests is different. Please refer to the examples.</p>
+  auth_para_construct3_dv3:
+    <p>3. Append the sign parameter to request header, and send the HTTP request. Note that the message format for GET and POST requests is different. Please refer to the examples.</p>
   auth_aside_signature:
     Example signature algorithms can be found <a href="https://github.com/bybit-exchange/api-usage-examples">here</a>.
   spot_auth_aside_signature:
@@ -3734,7 +3742,7 @@ en:
   deposit_response_chainname: chain name
   deposit_response_amt: deposit amount
   deposit_response_txid : |
-    transaction ID. deposit failed or deposit canceled: ""
+    transaction ID. It is <code>""</code> when deposit failed or deposit cancelled
   deposit_response_status: |
     <p>0=unknown<br>
     1=ToBeConfirmed <br>
@@ -3759,7 +3767,7 @@ en:
   withdraw_response_amt: withdrawal quantity
   withdraw_response_chainname: chain name
   withdraw_response_txid : |
-    transaction ID. withdrawal failed or withdrawal canceled: ""
+    transaction ID. It returns <code>""</code> when withdrawal failed or withdrawal cancelled
   withdraw_response_status: |
     <table border=1><tr><th>Return values</th><th>Status correspond to the client</th><th>status</th></tr>
     <tr><td>ToBeConfirmed</td><td></td><td>SecurityCheck</td></tr>
@@ -3820,7 +3828,7 @@ en:
 
   cancel_withdraw: Cancel withdrawal
   cancel_withdraw_response: |
-    result（cancel application result: 1 SUCCESS, 0 FAIL）
+    result（cancel application result: <code>1</code> SUCCESS, <code>0</code> FAIL）
 
   deposit_addr_info: Query Deposit Address Information
   deposit_addr_info_desc: |
@@ -5172,3 +5180,16 @@ en:
   spotV3_comment_isMaker: <code>0</code>：Maker, <code>1</code>：Taker
   spotV3_comment_isBuyerMaker: <code>0</code>：buy order, <code>1</code>：sell order
   spotV3_comment_t: 時間戳(毫秒) Timestamp(ms)
+
+  # account asset
+  assetV1: v1
+  assetV3: v3
+
+  allowDepositPageCursor: |
+    cursor information: used for pagination.  Default value: ""
+  DWstarttimeMS: |
+    start time (In Millisecond).  Default value: 30 days before the current time
+  DWendtimeMS: |
+    end time (In Millisecond). Default value: current time
+  assetWithdraw_timestamp: timestamp. Allowed timeframe is 5 mins before and after based on current timestamp
+  accountAssetV3_chainType: Chain type. Return all if not passed.

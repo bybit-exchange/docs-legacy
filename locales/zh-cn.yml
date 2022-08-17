@@ -810,16 +810,22 @@ zh-cn:
   constructingtherequest: 構建請求
   auth_codequote_construct1a:
     拼接參數示例（以修改槓桿率為例）：
+  auth_codequote_construct_asset_v3:
+    拼接參數示例（以獲取提現紀錄為例）
   auth_codequote_construct1a_v3:
     拼接參數示例：
   auth_codequote_construct1b:
     參數按照 <b>字母順序</b> 排列，然後計算<code>sign</code>。
   auth_codequote_construct2: |
     <b>GET</b>請求格式（查詢賬號余額）:
+  auth_codequote_construct_asset_v3_1: |
+    <b>GET</b>請求格式（查詢提現紀錄）:
   auth_codequote_construct2_v3: |
     <b>GET</b>請求格式（查詢訂單）:
   auth_codequote_construct3: |
     <b>POST</b>請求格式（創建訂單）:
+  auth_codequote_account_asset_v3_2: |
+    <b>POST</b>請求格式（提現）:
   auth_para_construct1:
     <p>1. 所有參數按照字母順序排序，然後按照<a href="https://en.wikipedia.org/wiki/Query_string">query string</a>格式拼接。</p>
   auth_para_dv3_construct1: |
@@ -830,6 +836,8 @@ zh-cn:
     <p>2. 使用<code>HMAC_SHA256</code>算法對第1步中拼接的string簽名，並轉換為16進製字符串，得出<code>sign</code>參數。</p>
   auth_para_construct3:
     <p>3. 將<code>sign</code>參數加到請求參數中即可；註意<code>GET</code>和<code>POST</code>請求參數格式不同，詳見右邊示例。</p>
+  auth_para_construct3_dv3:
+    <p>3. 將<code>sign</code>參數加到請求頭中即可；註意<code>GET</code>和<code>POST</code>請求參數格式不同，詳見右邊示例。</p>
   auth_aside_signature:
     <a href="https://github.com/bybit-exchange/api-usage-examples">簽名計算示例</a>.
   spot_auth_aside_signature:
@@ -3387,7 +3395,7 @@ zh-cn:
 
   cancel_withdraw: 撤銷提幣
   cancel_withdraw_response: |
-    結果對象（撤單申請結果：1成功，0失敗）
+    結果對象（撤單申請結果：<code>1</code>成功，<code>0</code>失敗）
 
   deposit_addr_info: 充值地址信息查詢
   deposit_addr_info_desc: |
@@ -4701,3 +4709,13 @@ zh-cn:
   spotV3_comment_isMaker: <code>0</code>：掛單, <code>1</code>：吃單
   spotV3_comment_isBuyerMaker: <code>0</code>：買單, <code>1</code>：賣單
   spotV3_comment_t: 時間戳(毫秒)
+
+  # account_asset v3
+  DWstarttimeMS: |
+    開始時間 (精確到毫秒)。  默認為當前時間之前30天
+  DWendtimeMS: |
+    結束時間 (精確到毫秒)。 默認為當前時間
+  allowDepositPageCursor: |
+    游標信息：用來分頁。 默認空
+  assetWithdraw_timestamp: 時間戳. 允許範圍是當前時間的前後5分鐘
+  accountAssetV3_chainType: 鏈的類型. 若為空，則返回全部
