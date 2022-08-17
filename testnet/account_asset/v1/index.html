@@ -649,7 +649,7 @@
   <!-- Navigation bar START -->
   <header class="top-nav">
     <div class="top-menu">
-        <a href="https://bybit-exchange.github.io/docs/account_asset" class="logo-link" target="_self">
+        <a href="https://bybit-exchange.github.io/docs/account_asset/v1" class="logo-link" target="_self">
           <img src="../../../images/logo-aed6448d.svg" class="logo" alt="" />
         </a>
 
@@ -658,12 +658,12 @@
         <!-- Derivatives V3 -->
             <li>
               <div class="dropdown">
-                <button class="dropbtn">衍生品v3
+                <button class="dropbtn">Derivatives v3
                   <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a href="/docs/zh-cn/testnet/derivativesV3/unified_margin" >統一保證金</a>
-                    <a href="/docs/zh-cn/testnet/derivativesV3/contract" >合約</a>
+                    <a href="/docs/testnet/derivativesV3/unified_margin" >Unified Margin</a>
+                    <a href="/docs/testnet/derivativesV3/contract" >Contract</a>
                 </div>
               </div>
             </li>
@@ -671,13 +671,13 @@
         <!-- Futures V2(USDT perp, Inverse Perp, Inverse Futures) -->
             <li>
               <div class="dropdown">
-                <button class="dropbtn">期货v2
+                <button class="dropbtn">Futures v2
                   <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a href="/docs/zh-cn/testnet/futuresV2/inverse" >反向永續</a>
-                    <a href="/docs/zh-cn/testnet/futuresV2/linear" >USDT永續</a>
-                    <a href="/docs/zh-cn/testnet/futuresV2/inverse_futures" >反向交割</a>
+                    <a href="/docs/testnet/futuresV2/inverse" >Inverse Perpetual</a>
+                    <a href="/docs/testnet/futuresV2/linear" >USDT Perpetual</a>
+                    <a href="/docs/testnet/futuresV2/inverse_futures" >Inverse Futures</a>
                 </div>
               </div>
             </li>
@@ -692,33 +692,45 @@
         <!-- Spot V3(Spot v1, Spot v3) -->
             <li>
               <div class="dropdown">
-                <button class="dropbtn">現貨
+                <button class="dropbtn">Spot
                   <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a href="/docs/zh-cn/testnet/spot/v3" >v3</a>
-                    <a href="/docs/zh-cn/testnet/spot/v1" >v1</a>
+                    <a href="/docs/testnet/spot/v3" >v3</a>
+                    <a href="/docs/testnet/spot/v1" >v1</a>
                 </div>
               </div>
             </li>
 
         <!-- Spot -->
 
+        <!-- Account asset V3(asset v1, asset v3) -->
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn">Account Asset
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="/docs/testnet/account_asset/v3" >v3</a>
+                    <a href="/docs/testnet/account_asset/v1" >v1</a>
+                </div>
+              </div>
+            </li>
+
         <!-- Account Asset -->
-          	<li><a href="/docs/zh-cn/testnet/account_asset" class="selected">賬戶資產</a></li>
 
         <!-- Copy Trading -->
-          	<li><a href="/docs/zh-cn/testnet/copy_trading">跟單交易</a></li>
+          	<li><a href="/docs/testnet/copy_trading">Copy Trading</a></li>
 
         <!-- USDC dropdown (Options, Perpetual) -->
           <li>
             <div class="dropdown">
-              <button class="dropbtn">USDC合約
+              <button class="dropbtn">USDC Contract
                 <i class="fa fa-caret-down"></i>
               </button>
               <div class="dropdown-content">
-                  <a href="/docs/zh-cn/testnet/usdc/option" >Option</a>
-                  <a href="/docs/zh-cn/testnet/usdc/perpetual">Perpetual</a>
+                  <a href="/docs/testnet/usdc/option" >Option</a>
+                  <a href="/docs/testnet/usdc/perpetual">Perpetual</a>
               </div>
             </div>
           </li>
@@ -736,21 +748,25 @@
 
               <!-- it's for spot v1 testnet switch to spot mainnet -->
 
-                  <a href=/docs/zh-cn/account_asset>Mainnet</a>
-                  <span class="dropdown-content-selected"><a href=/docs/zh-cn/testnet/account_asset>Testnet</a></span>
+              <!-- it's for asset mainnet switch to asset v1 testnet -->
+
+              <!-- it's for asset v1 testnet switch to asset mainnet -->
+                    <a href=/docs/account_asset>Mainnet</a>
+                    <span class="dropdown-content-selected"><a href=/docs/testnet/account_asset/v1>Testnet</a></span>
+
             </div>
           </div>
         </li>
       </ul>
 
     </div>
-    <a class="international" id="international" href="javascript:void(0);">English</a>
+    <a class="international" id="international" href="javascript:void(0);">繁體中文</a>
   </header>
   <!-- Navigation bar END -->
 
 
 
-  <body class="zh-cn zh-cn_testnet zh-cn_testnet_account_asset zh-cn_testnet_account_asset_index" data-languages="[&quot;console&quot;,&quot;python--pybit&quot;]">
+  <body class="testnet testnet_account_asset testnet_account_asset_v1 testnet_account_asset_v1_index" data-languages="[&quot;console&quot;,&quot;python--pybit&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -763,20 +779,20 @@
               <a href="#" data-language-name="python--pybit">python</a>
         </div>
         <div class="search">
-          <input type="text" class="search" id="input-search" placeholder="搜索">
+          <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
         <ul class="search-results"></ul>
       <ul id="toc" class="toc-list-h1">
           <li>
-            <a href="#t-introduction" class="toc-h1 toc-link" data-title="中文社區和參考資料">中文社區和參考資料</a>
+            <a href="#t-introduction" class="toc-h1 toc-link" data-title="Group And Resources">Group And Resources</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#t-resources" class="toc-h2 toc-link" data-title="中文社區和參考資料">中文社區和參考資料</a>
+                    <a href="#t-resources" class="toc-h2 toc-link" data-title="API Resources and Support Channels">API Resources and Support Channels</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#t-changelog" class="toc-h1 toc-link" data-title="更新日誌">更新日誌</a>
+            <a href="#t-changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#2022-06-15" class="toc-h2 toc-link" data-title="2022-06-15">2022-06-15</a>
@@ -805,106 +821,106 @@
               </ul>
           </li>
           <li>
-            <a href="#t-authentication" class="toc-h1 toc-link" data-title="鑒權/認證">鑒權/認證</a>
+            <a href="#t-authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#t-authenticationparameters" class="toc-h2 toc-link" data-title="公共參數">公共參數</a>
+                    <a href="#t-authenticationparameters" class="toc-h2 toc-link" data-title="Parameters for Authenticated Endpoints">Parameters for Authenticated Endpoints</a>
                   </li>
                   <li>
-                    <a href="#t-constructingtherequest" class="toc-h2 toc-link" data-title="構建請求">構建請求</a>
+                    <a href="#t-constructingtherequest" class="toc-h2 toc-link" data-title="Create A Request">Create A Request</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#t-transfer_api" class="toc-h1 toc-link" data-title="現貨劃轉相關接口">現貨劃轉相關接口</a>
+            <a href="#t-transfer_api" class="toc-h1 toc-link" data-title="Transfer Data Endpoints">Transfer Data Endpoints</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#t-createinternaltransfer" class="toc-h2 toc-link" data-title="劃轉">劃轉</a>
+                    <a href="#t-createinternaltransfer" class="toc-h2 toc-link" data-title="Create Internal Transfer">Create Internal Transfer</a>
                   </li>
                   <li>
-                    <a href="#t-createsubaccounttransfer" class="toc-h2 toc-link" data-title="子母劃轉">子母劃轉</a>
+                    <a href="#t-createsubaccounttransfer" class="toc-h2 toc-link" data-title="Create Subaccount Transfer">Create Subaccount Transfer</a>
                   </li>
                   <li>
-                    <a href="#t-querytransferlist" class="toc-h2 toc-link" data-title="查詢劃轉記錄列表">查詢劃轉記錄列表</a>
+                    <a href="#t-querytransferlist" class="toc-h2 toc-link" data-title="Query Internal Transfer List">Query Internal Transfer List</a>
                   </li>
                   <li>
-                    <a href="#t-querysubaccounttransferlist" class="toc-h2 toc-link" data-title="查詢子母劃轉記錄列表">查詢子母劃轉記錄列表</a>
+                    <a href="#t-querysubaccounttransferlist" class="toc-h2 toc-link" data-title="Query Subaccount Transfer List">Query Subaccount Transfer List</a>
                   </li>
                   <li>
-                    <a href="#t-querysubaccountlist" class="toc-h2 toc-link" data-title="查詢子賬號列表">查詢子賬號列表</a>
+                    <a href="#t-querysubaccountlist" class="toc-h2 toc-link" data-title="Query Subaccount List">Query Subaccount List</a>
                   </li>
                   <li>
-                    <a href="#t-enableuniversaltransfer" class="toc-h2 toc-link" data-title="配置可互相劃轉的子賬號列表">配置可互相劃轉的子賬號列表</a>
+                    <a href="#t-enableuniversaltransfer" class="toc-h2 toc-link" data-title="Enable Universal Transfer">Enable Universal Transfer</a>
                   </li>
                   <li>
-                    <a href="#t-createuniversaltransfer" class="toc-h2 toc-link" data-title="萬能劃轉">萬能劃轉</a>
+                    <a href="#t-createuniversaltransfer" class="toc-h2 toc-link" data-title="Create Universal Transfer">Create Universal Transfer</a>
                   </li>
                   <li>
-                    <a href="#t-queryuniversetransferlist" class="toc-h2 toc-link" data-title="查詢萬能劃轉記錄">查詢萬能劃轉記錄</a>
+                    <a href="#t-queryuniversetransferlist" class="toc-h2 toc-link" data-title="Query Universal Transfer List">Query Universal Transfer List</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#t-withdraw_and_deposit" class="toc-h1 toc-link" data-title="充值與提現接口">充值與提現接口</a>
+            <a href="#t-withdraw_and_deposit" class="toc-h1 toc-link" data-title="Withdraw and Deposit Endpoints">Withdraw and Deposit Endpoints</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#t-allowdepositlist" class="toc-h2 toc-link" data-title="支持的充值列表查詢接口">支持的充值列表查詢接口</a>
+                    <a href="#t-allowdepositlist" class="toc-h2 toc-link" data-title="Supported Deposit List Query Endpoints">Supported Deposit List Query Endpoints</a>
                   </li>
                   <li>
-                    <a href="#t-depositsrecordquery" class="toc-h2 toc-link" data-title="充值記錄查詢">充值記錄查詢</a>
+                    <a href="#t-depositsrecordquery" class="toc-h2 toc-link" data-title="Query Deposit Records">Query Deposit Records</a>
                   </li>
                   <li>
-                    <a href="#t-withdrawrecordquery" class="toc-h2 toc-link" data-title="提現記錄查詢">提現記錄查詢</a>
+                    <a href="#t-withdrawrecordquery" class="toc-h2 toc-link" data-title="Query Withdraw Records">Query Withdraw Records</a>
                   </li>
                   <li>
-                    <a href="#t-coin_info_query" class="toc-h2 toc-link" data-title="幣種信息查詢">幣種信息查詢</a>
+                    <a href="#t-coin_info_query" class="toc-h2 toc-link" data-title="Query Coin Information">Query Coin Information</a>
                   </li>
                   <li>
-                    <a href="#t-asset_info_query" class="toc-h2 toc-link" data-title="資產信息查詢">資產信息查詢</a>
+                    <a href="#t-asset_info_query" class="toc-h2 toc-link" data-title="Query Asset Information">Query Asset Information</a>
                   </li>
                   <li>
-                    <a href="#t-withdraw_info" class="toc-h2 toc-link" data-title="提現">提現</a>
+                    <a href="#t-withdraw_info" class="toc-h2 toc-link" data-title="Withdraw">Withdraw</a>
                   </li>
                   <li>
-                    <a href="#t-cancel_withdraw" class="toc-h2 toc-link" data-title="撤銷提幣">撤銷提幣</a>
+                    <a href="#t-cancel_withdraw" class="toc-h2 toc-link" data-title="Cancel withdrawal">Cancel withdrawal</a>
                   </li>
                   <li>
-                    <a href="#t-deposit_addr_info" class="toc-h2 toc-link" data-title="充值地址信息查詢">充值地址信息查詢</a>
+                    <a href="#t-deposit_addr_info" class="toc-h2 toc-link" data-title="Query Deposit Address Information">Query Deposit Address Information</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#t-api" class="toc-h1 toc-link" data-title="通用數據接口">通用數據接口</a>
+            <a href="#t-api" class="toc-h1 toc-link" data-title="API Data Endpoints">API Data Endpoints</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#t-servertime" class="toc-h2 toc-link" data-title="服務器時間">服務器時間</a>
+                    <a href="#t-servertime" class="toc-h2 toc-link" data-title="Server Time">Server Time</a>
                   </li>
                   <li>
-                    <a href="#t-announcement" class="toc-h2 toc-link" data-title="公告">公告</a>
+                    <a href="#t-announcement" class="toc-h2 toc-link" data-title="Announcement">Announcement</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#t-ratelimits" class="toc-h1 toc-link" data-title="頻率限製">頻率限製</a>
+            <a href="#t-ratelimits" class="toc-h1 toc-link" data-title="Rate Limits">Rate Limits</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#t-ipratelimits" class="toc-h2 toc-link" data-title="IP頻率限製">IP頻率限製</a>
+                    <a href="#t-ipratelimits" class="toc-h2 toc-link" data-title="IP Rate Limit">IP Rate Limit</a>
                   </li>
                   <li>
-                    <a href="#t-understandingratelimits" class="toc-h2 toc-link" data-title="賬戶頻率限製">賬戶頻率限製</a>
+                    <a href="#t-understandingratelimits" class="toc-h2 toc-link" data-title="API Rate Limit">API Rate Limit</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#t-perendpointtransfer" class="toc-h3 toc-link" data-title="現貨劃轉接口的頻率限製">現貨劃轉接口的頻率限製</a>
+                            <a href="#t-perendpointtransfer" class="toc-h3 toc-link" data-title="Rate Limits For Transfer Endpoints">Rate Limits For Transfer Endpoints</a>
                           </li>
                           <li>
-                            <a href="#t-perendpointdepositwithdraw" class="toc-h3 toc-link" data-title="提現與充值接口的頻率限製">提現與充值接口的頻率限製</a>
+                            <a href="#t-perendpointdepositwithdraw" class="toc-h3 toc-link" data-title="Rate Limits For Withdraw and Deposit Endpoints">Rate Limits For Withdraw and Deposit Endpoints</a>
                           </li>
                       </ul>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#t-enums" class="toc-h1 toc-link" data-title="枚舉定義">枚舉定義</a>
+            <a href="#t-enums" class="toc-h1 toc-link" data-title="Enums Definitions">Enums Definitions</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#account-type-from_account_type-to_account_type" class="toc-h2 toc-link" data-title="Account type (from_account_type/to_account_type)">Account type (<code>from_account_type</code>/<code>to_account_type</code>)</a>
@@ -930,7 +946,7 @@
               </ul>
           </li>
           <li>
-            <a href="#t-errors" class="toc-h1 toc-link" data-title="錯誤碼">錯誤碼</a>
+            <a href="#t-errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#0" class="toc-h2 toc-link" data-title="0">0</a>
@@ -1084,7 +1100,7 @@
 Clipboard script
 -->
 
-<script src="../../dist/clipboard.min-f99f064d.js"></script>
+<script src="../../../dist/clipboard.min-f99f064d.js"></script>
 
 <script>
 var clipboard = new ClipboardJS('.clipboard_button');
@@ -1097,75 +1113,77 @@ clipboard.on('error', function(e) {
     console.log(e);
 });
 </script>
-<h1 id='t-introduction'>中文社區和參考資料</h1>
-<p><p>歡迎使用 <a href="https://www.bybit.com/">Bybit</a> APIs 和 Websocket官方文檔！</p> <p>如果您在使用API的過程中遇到問題需要幫助，請加入我們的 <a href="https://t.me/Bybitapi">官方Telegram API討論群</a>！</p></p>
-<h3 id='t-resources'>中文社區和參考資料</h3>
-<p><ul class="bybit-community"> <li><img src="../../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/zh-TW/help-center/?language=zh_TW"><strong>幫助中心</strong></a> - <strong>在這裏了解合約交易</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>官方Python SDK</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman接口集合</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文討論群</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文討論群</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong> <li><img src="../../../images/survey_ico-bd03a90c.png" height="14", width="14"> <a href="https://forms.gle/ZfCKRTVen1VExj478"><strong>Bybit Open API 的調研問卷</strong></a> - <strong>希望您能用 5 分鐘的時間填寫 Bybit Open API 的調研問卷</strong> </ul></p>
-<h1 id='t-changelog'>更新日誌</h1><h2 id='2022-06-15'>2022-06-15</h2><h3 id='rest-api'>REST API</h3>
+<h1 id='t-introduction'>Group And Resources</h1>
+<p><p><a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common errors.</p> <p>For further assistance or feedback, please join the <a href="https://t.me/BybitAPI">API Telegram chat</a>! API discussion group on Telegram.</p></p>
+<h3 id='t-resources'>API Resources and Support Channels</h3>
+<p><ul class="bybit-community"> <li><img src="../../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/en-US/help-center/?language=en_US"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>Official Python SDK</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman API Collection</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> <li><img src="../../../images/survey_ico-bd03a90c.png" height="14", width="14"> <a href="https://forms.gle/ZfCKRTVen1VExj478"><strong>Bybit Open API Survey </strong></a> - <strong>The survey should take no more than 5 minutes to complete.</strong> </ul></p>
+<h1 id='t-changelog'>Changelog</h1><h2 id='2022-06-15'>2022-06-15</h2><h3 id='rest-api'>REST API</h3>
 <ul>
-<li><a href="#t-querysubaccountlist">查詢子賬號列表</a> [更新]</li>
-<li><a href="#t-enableuniversaltransfer">配置可互相劃轉的子賬號列表</a> [新增]</li>
-<li><a href="#t-createuniversaltransfer">萬能劃轉</a> [新增]</li>
-<li><a href="#t-queryuniversetransferlist">查詢萬能劃轉記錄</a> [新增]
+<li><a href="#t-querysubaccountlist">Query Subaccount List</a> [update]</li>
+<li><a href="#t-enableuniversaltransfer">Enable Universal Transfer</a> [new]</li>
+<li><a href="#t-createuniversaltransfer">Create Universal Transfer</a> [new]</li>
+<li><a href="#t-queryuniversetransferlist">Query Universal Transfer List</a> [new]
 <br>
-萬能劃轉API發布</li>
+Universal Transfer released!</li>
 </ul>
 <h2 id='2022-05-19'>2022-05-19</h2><h3 id='rest-api-2'>REST API</h3>
 <ul>
-<li><a href="#t-withdraw_and_deposit">充值與提現接口</a> [新增]
-提現與充值API發布</li>
+<li><a href="#t-withdraw_and_deposit">Withdraw and Deposit Endpoints</a> [new]
+Withdraw and Deposit Endpoints released!</li>
 </ul>
 <h2 id='2021-08-26'>2021-08-26</h2><h3 id='rest-api-3'>REST API</h3>
 <ul>
-<li>資產劃轉API發布</li>
+<li>Asset Transfer API released!</li>
 </ul>
-<h1 id='t-authentication'>鑒權/認證</h1>
+<h1 id='t-authentication'>Authentication</h1>
 <aside class="notice">
-請先生成<a href="https://testnet.bybit.com/app/user/api-management"><b>測試網</b></a> 或 <a href="https://www.bybit.com/app/user/api-management"<b>主網</b></a>API KEY。
+Please visit Bybit's <a href="https://testnet.bybit.com/app/user/api-management"> <b>testnet</b></a> or <a href="https://www.bybit.com/app/user/api-management"> <b>mainnet</b></a> to generate an API key
 </aside>
 
 <aside class="notice">
-REST接口根URL:
-<ul>
-<p>
-  <li>測試網:<br/>
-    <span id="testnet">https://api-testnet.bybit.com</span>
-    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
-  </li>
-</p>
-<p>
-  <li>主網(請根據您的網絡情況選擇以下任意一個地址使用):<br/>
-    <span id="mainnet_1">https://api.bybit.com</span>
-    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_1"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
-    <br/>
-    <span id="mainnet_2">https://api.bytick.com</span>
-    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_2"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
-  </li>
-</p>
-</ul>
+REST Base Endpoint:
+ <ul>
+  <p>
+    <li>Testnet:<br/>
+      <span id="testnet">https://api-testnet.bybit.com</span>
+      <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+    </li>
+  </p>
+  <p>
+    <li>Mainnet(both endpoints are available):<br/>
+      <span id="mainnet_1">https://api.bybit.com</span>
+      <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_1"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+      <br/>
+      <span id="mainnet_2">https://api.bytick.com</span>
+      <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_2"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+    </li>
+  </p>
+ </ul>
 
 </aside>
 
-<p><p>所有<b>private</b>接口都需要認證，<b>public</b> 接口不需要認證。</p></p>
-<h2 id='t-authenticationparameters'>公共參數</h2>
-<p>需要簽名的接口必須包含以下參數:
+<p><p>All requests made to private endpoints must be authenticated. Requests made to public endpoints do not require additional authentication.</p></p>
+<h2 id='t-authenticationparameters'>Parameters for Authenticated Endpoints</h2>
+<p>The following parameters must be used for authentication:
 <ul>
   <li><b>api_key</b></li>
-  <li><b>timestamp</b> - UTC<b>毫秒</b>時間戳</li>
-  <li><b>sign</b> - 請求參數簽名</li>
+  <li><b>timestamp</b> - UTC timestamp in <b>milliseconds</b></li>
+  <li><b>sign</b> - a signature derived from the request's parameters</li>
 </ul>
 </p>
 
-<p>另外我們提供可選的<code>recv_window</code>參數（單位是毫秒，默認值為<code>5000</code>），來指定請求在多長時間內有效，同時用來防止重放攻擊。
+<p><p>We also provide <code>recv_window</code> (unit in millisecond and default value is 5,000) to specify how long an HTTP request is valid. It is also used to prevent replay attacks.</p>
+<p>A smaller <code>recv_window</code> is more secure, but your request may fail if the transmission time is greater than your <code>recv_window</code>.</p>
+<p>Please make sure that your <code>timestamp</code> is in sync with our server time. You can use the <a href=#t-servertime>Server Time</a> endpoint.</p>
 </p>
 
 <aside class="warning">
-註意，timestamp參數必須符合如下規則: <b>server_time - recv_window <= timestamp < server_time + 1000</b>，其中server_time是Bybit服務器時間，您可以通過<a href="#t-servertime">服務器時間接口</a>獲取。
+Please make sure that the timestamp parameter adheres to the following rule: server_time - recv_window <= timestamp < server_time + 1000; server_time stands for Bybit server time, which can be queried via the <a href="#t-servertime">Server Time</a> endpoint.
 
 </aside>
-<h2 id='t-constructingtherequest'>構建請求</h2>
+<h2 id='t-constructingtherequest'>Create A Request</h2>
 <blockquote>
-<p>拼接參數示例（以修改槓桿率為例）：</p>
+<p>An example for adjusting leverage</p>
 </blockquote>
 <div class="highlight"><pre class="highlight python tab-python"><code><span class="n">param_str</span> <span class="o">=</span> <span class="s">"api_key=B2Rou0PLPpGqcU0Vu2&amp;leverage=100&amp;symbol=BTCUSDH21&amp;timestamp=1542434791747"</span>
 
@@ -1175,23 +1193,23 @@ REST接口根URL:
 # timestamp=1542434791747
 </span></code></pre></div>
 <blockquote>
-<p>參數按照 <b>字母順序</b> 排列，然後計算<code>sign</code>。</p>
+<p>Note how the parameters are ordered in <b>alphabetical</b> order, with api_key first followed by leverage, then symbol, then timestamp.</p>
 </blockquote>
 
-<p><p>1. 所有參數按照字母順序排序，然後按照<a href="https://en.wikipedia.org/wiki/Query_string">query string</a>格式拼接。</p>
+<p><p>1. Concatenate all the public parameters in the <a href="https://en.wikipedia.org/wiki/Query_string">query string</a> format. The parameters must be ordered in <b>alphabetical</b> order. This will be used to generate the <code>sign</code>.</p>
 <div></div></p>
 
-<p><p>2. 使用<code>HMAC_SHA256</code>算法對第1步中拼接的query string簽名，並轉換為16進製字符串，得出<code>sign</code>參數。</p></p>
+<p><p>2. Use the HMAC_SHA256 algorithm to sign the query string in step 1, and convert it to a hex string to obtain the sign parameter.</p></p>
 
 <blockquote>
-<p><b>GET</b>請求格式（查詢賬號余額）:
+<p>Different requests need different message formats. Message format for <b>GET</b> requests:
 </p>
 </blockquote>
 <div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/asset/v1/private/transfer/list?api_key=q1ksyOX2T0G2SkK8nu&amp;recvWindow=5000&amp;timestamp=1623208423972&amp;sign=b452640c21a2c9eaec30d24a9bce1a9660d1fb9d07ccc0d623a2a4fca0940095</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api-testnet.bybit.com</span>
 </code></pre></div>
 <blockquote>
-<p><b>POST</b>請求格式（創建訂單）:
+<p>Message format for <b>POST</b> requests:
 </p>
 </blockquote>
 <div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/asset/v1/private/transfer</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -1209,11 +1227,11 @@ REST接口根URL:
     </span><span class="nl">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{{bybit-api-key}}"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"recv_window"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50000"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h1 id='t-transfer_api'>現貨劃轉相關接口</h1>
-<p>以下現貨劃轉相關接口都需要鑒權.</p>
-<h3 id='t-createinternaltransfer'>劃轉</h3>
+</span></code></pre></div><h1 id='t-transfer_api'>Transfer Data Endpoints</h1>
+<p>The following API data endpoints require authentication.</p>
+<h3 id='t-createinternaltransfer'>Create Internal Transfer</h3>
 <blockquote>
-<p>請求示例</p>
+<p>Request Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/asset/v1/private/transfer' \
 --header 'Content-Type: application/json' \
@@ -1243,7 +1261,7 @@ REST接口根URL:
 <span class="p">))</span>
 </code></pre></div>
 <blockquote>
-<p>響應示例</p>
+<p>Response Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
     <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -1259,80 +1277,82 @@ REST接口根URL:
     <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">3</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>觸發劃轉動作</p>
+<p>Transfers funds between the different sections of an individual's account (<i>not</i> between subaccounts). For example, between the spot and derivatives accounts.</p>
 
-<p>要發送<a href="#account-type-from_account_type-to_account_type">賬戶類型</a>和父子不可知的轉賬，請使用<a href="#t-createuniversaltransfer">創建萬能轉賬</a> 接口。</p>
+<p>To send a transfer which is <a href="#account-type-from_account_type-to_account_type">account type</a> & parent/sub agnostic, use the <a href="#t-createuniversaltransfer">Create Universal Transfer</a> endpoint.</p>
 
 <aside class="notice">
-<p>請註意該接口入參<code>請求</code>數據中的<code>transfer_id</code>字段為<code>UUID</code>全局唯一。</p> <p>請註意該接口支持<code>期貨賬戶</code>、<code>現貨賬戶</code>、<code>理財賬戶</code>。</p> <p>轉入和轉出賬戶類型不能相同。</p>
+Please note that this interface supports Futures Account, Spot Account, Investment Account.
+The <code>transfer_in</code> and <code>transfer_out</code> account types cannot be the same.
+
 </aside>
 
-<p class="fake_header">HTTP 請求</p>
+<p class="fake_header">HTTP Request</p>
 
 <p>POST
 <code><span id=avpt>/asset/v1/private/transfer</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#avpt"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
-<p class="fake_header">請求參數</p>
+<p class="fake_header">Request Parameters</p>
 
 <table><thead>
 <tr>
-<th style="text-align: left">參數</th>
-<th style="text-align: left">是否必須</th>
-<th style="text-align: left">類型</th>
-<th>說明</th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left">transfer_id</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>UUID,全局唯一</td>
+<td>UUID, which is unique across the platform</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>幣種類型</td>
+<td>Currency type</td>
 </tr>
 <tr>
 <td style="text-align: left">amount</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>兌入數量</td>
+<td>Exchange to amount</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#account-type-from_account_type-to_account_type">from_account_type</a></td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>賬戶類型</td>
+<td>Account type</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#account-type-from_account_type-to_account_type">to_account_type</a></td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>賬戶類型</td>
+<td>Account type</td>
 </tr>
 </tbody></table>
 
-<p class="fake_header">返回參數</p>
+<p class="fake_header">Response Parameters</p>
 
 <table><thead>
 <tr>
-<th style="text-align: left">參數</th>
-<th style="text-align: left">類型</th>
-<th>說明</th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left">transfer_id</td>
 <td style="text-align: left">string</td>
-<td>UUID,全局唯一</td>
+<td>UUID, which is unique across the platform</td>
 </tr>
 </tbody></table>
-<h3 id='t-createsubaccounttransfer'>子母劃轉</h3>
+<h3 id='t-createsubaccounttransfer'>Create Subaccount Transfer</h3>
 <blockquote>
-<p>請求示例</p>
+<p>Request Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/asset/v1/private/sub-member/transfer' \
 --header 'Content-Type: application/json' \
@@ -1362,7 +1382,7 @@ REST接口根URL:
 <span class="p">))</span>
 </code></pre></div>
 <blockquote>
-<p>響應示例</p>
+<p>Response Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
     <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -1378,80 +1398,81 @@ REST接口根URL:
     <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>觸發子母劃轉動作</p>
+<p>Transfers funds between the parent and child (sub) accounts.</p>
 
-<p>要發送<a href="#account-type-from_account_type-to_account_type">賬戶類型</a>和父子不可知的轉賬，請使用<a href="#t-createuniversaltransfer">創建萬能轉賬</a> 接口。</p>
+<p>To send a transfer which is <a href="#account-type-from_account_type-to_account_type">account type</a> & parent/sub agnostic, use the <a href="#t-createuniversaltransfer">Create Universal Transfer</a> endpoint.</p>
 
 <aside class="notice">
-<p>請註意該接口入參<code>請求</code>數據中的<code>transfer_id</code>字段為<code>UUID</code>全局唯一。</p> <p>該接口只能用於母子賬號之間的劃轉。</p> <p>一個子賬號只會歸屬給一個母賬號。</p>
+A subaccount can only be attributed to a parent account.
+
 </aside>
 
-<p class="fake_header">HTTP 請求</p>
+<p class="fake_header">HTTP Request</p>
 
 <p>POST
 <code><span id=avpst>/asset/v1/private/sub-member/transfer</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#avpst"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
-<p class="fake_header">請求參數</p>
+<p class="fake_header">Request Parameters</p>
 
 <table><thead>
 <tr>
-<th style="text-align: left">參數</th>
-<th style="text-align: left">是否必須</th>
-<th style="text-align: left">類型</th>
-<th>說明</th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left">transfer_id</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>UUID,全局唯一</td>
+<td>UUID, which is unique across the platform</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>幣種類型</td>
+<td>Currency type</td>
 </tr>
 <tr>
 <td style="text-align: left">amount</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>兌入數量</td>
+<td>Exchange to amount</td>
 </tr>
 <tr>
 <td style="text-align: left">sub_user_id</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>子賬戶</td>
+<td>Subaccount</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#transfer-type-type">type</a></td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>轉入轉出類型</td>
+<td>Determines the direction of transfer</td>
 </tr>
 </tbody></table>
 
-<p class="fake_header">返回參數</p>
+<p class="fake_header">Response Parameters</p>
 
 <table><thead>
 <tr>
-<th style="text-align: left">參數</th>
-<th style="text-align: left">類型</th>
-<th>說明</th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left">transfer_id</td>
 <td style="text-align: left">string</td>
-<td>UUID,全局唯一</td>
+<td>UUID, which is unique across the platform</td>
 </tr>
 </tbody></table>
-<h3 id='t-querytransferlist'>查詢劃轉記錄列表</h3>
+<h3 id='t-querytransferlist'>Query Internal Transfer List</h3>
 <blockquote>
-<p>請求示例</p>
+<p>Request Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/transfer/list'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">account_asset</span>
@@ -1463,7 +1484,7 @@ REST接口根URL:
 <span class="k">print</span><span class="p">(</span><span class="n">session_auth</span><span class="p">.</span><span class="n">query_transfer_list</span><span class="p">())</span>
 </code></pre></div>
 <blockquote>
-<p>響應示例</p>
+<p>Response Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
     <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -1508,125 +1529,125 @@ REST接口根URL:
     <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
 <span class="p">}</span>
 </code></pre></div>
-<p class="fake_header">HTTP 請求</p>
+<p class="fake_header">HTTP Request</p>
 
 <p>GET
 <code><span id=avptl>/asset/v1/private/transfer/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#avptl"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
-<p class="fake_header">請求參數</p>
+<p class="fake_header">Request Parameters</p>
 
 <table><thead>
 <tr>
-<th style="text-align: left">參數</th>
-<th style="text-align: left">是否必須</th>
-<th style="text-align: left">類型</th>
-<th>說明</th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left">transfer_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>UUID,全局唯一</td>
+<td>UUID, which is unique across the platform</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>幣種類型</td>
+<td>Currency type</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#transfer-status-status">status</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>劃轉狀態</td>
+<td>Transfer status</td>
 </tr>
 <tr>
 <td style="text-align: left">start_time</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">integer</td>
-<td>開始時間戳（秒）</td>
+<td>Start timestamp point for result, in seconds</td>
 </tr>
 <tr>
 <td style="text-align: left">end_time</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">integer</td>
-<td>結束時間戳（秒）</td>
+<td>End timestamp point for result, in seconds</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#page-direction-direction">direction</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>翻頁</td>
+<td>Turn page</td>
 </tr>
 <tr>
 <td style="text-align: left">limit</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">integer</td>
-<td>記錄條數</td>
+<td>Number of records</td>
 </tr>
 <tr>
 <td style="text-align: left">cursor</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>翻頁標記,請使用返回的cursor,簽名時使用返回的原始數據，發送request時請進行urlencode</td>
+<td>Page turning mark. Use return <code>cursor</code>. Sign using origin data, in request please use urlencode</td>
 </tr>
 </tbody></table>
 
-<p class="fake_header">返回參數</p>
+<p class="fake_header">Response Parameters</p>
 
 <table><thead>
 <tr>
-<th style="text-align: left">參數</th>
-<th style="text-align: left">類型</th>
-<th>說明</th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left">transfer_id</td>
 <td style="text-align: left">string</td>
-<td>UUID,全局唯一</td>
+<td>UUID, which is unique across the platform</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
 <td style="text-align: left">string</td>
-<td>幣種類型</td>
+<td>Currency type</td>
 </tr>
 <tr>
 <td style="text-align: left">amount</td>
 <td style="text-align: left">string</td>
-<td>兌入數量</td>
+<td>Exchange to amount</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#account-type-from_account_type-to_account_type">from_account_type</a></td>
 <td style="text-align: left">string</td>
-<td>賬戶類型</td>
+<td>Account type</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#account-type-from_account_type-to_account_type">to_account_type</a></td>
 <td style="text-align: left">string</td>
-<td>賬戶類型</td>
+<td>Account type</td>
 </tr>
 <tr>
 <td style="text-align: left">timestamp</td>
 <td style="text-align: left">integer</td>
-<td>時間戳</td>
+<td>timestamp</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#transfer-status-status">status</a></td>
 <td style="text-align: left">string</td>
-<td>劃轉狀態</td>
+<td>Transfer status</td>
 </tr>
 <tr>
 <td style="text-align: left">cursor</td>
 <td style="text-align: left">string</td>
-<td>翻頁標記,請使用返回的cursor,簽名時使用返回的原始數據，發送request時請進行urlencode</td>
+<td>Page turning mark. Use return <code>cursor</code>. Sign using origin data, in request please use urlencode</td>
 </tr>
 </tbody></table>
-<h3 id='t-querysubaccounttransferlist'>查詢子母劃轉記錄列表</h3>
+<h3 id='t-querysubaccounttransferlist'>Query Subaccount Transfer List</h3>
 <blockquote>
-<p>請求示例</p>
+<p>Request Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/sub-member/transfer/list'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">account_asset</span>
@@ -1638,7 +1659,7 @@ REST接口根URL:
 <span class="k">print</span><span class="p">(</span><span class="n">session_auth</span><span class="p">.</span><span class="n">query_subaccount_transfer_list</span><span class="p">())</span>
 </code></pre></div>
 <blockquote>
-<p>響應示例</p>
+<p>Response Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
     <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -1696,130 +1717,130 @@ REST接口根URL:
     <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
 <span class="p">}</span>
 </code></pre></div>
-<p class="fake_header">HTTP 請求</p>
+<p class="fake_header">HTTP Request</p>
 
 <p>GET
 <code><span id=avpstl>/asset/v1/private/sub-member/transfer/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#avpstl"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
-<p class="fake_header">請求參數</p>
+<p class="fake_header">Request Parameters</p>
 
 <table><thead>
 <tr>
-<th style="text-align: left">參數</th>
-<th style="text-align: left">是否必須</th>
-<th style="text-align: left">類型</th>
-<th>說明</th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left">transfer_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>UUID,全局唯一</td>
+<td>UUID, which is unique across the platform</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>幣種類型</td>
+<td>Currency type</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#transfer-status-status">status</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>劃轉狀態</td>
+<td>Transfer status</td>
 </tr>
 <tr>
 <td style="text-align: left">start_time</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">integer</td>
-<td>開始時間戳（秒）</td>
+<td>Start timestamp point for result, in seconds</td>
 </tr>
 <tr>
 <td style="text-align: left">end_time</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">integer</td>
-<td>結束時間戳（秒）</td>
+<td>End timestamp point for result, in seconds</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#page-direction-direction">direction</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>翻頁</td>
+<td>Turn page</td>
 </tr>
 <tr>
 <td style="text-align: left">limit</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">integer</td>
-<td>記錄條數</td>
+<td>Number of records</td>
 </tr>
 <tr>
 <td style="text-align: left">cursor</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>翻頁標記,請使用返回的cursor,簽名時使用返回的原始數據，發送request時請進行urlencode</td>
+<td>Page turning mark. Use return <code>cursor</code>. Sign using origin data, in request please use urlencode</td>
 </tr>
 </tbody></table>
 
-<p class="fake_header">返回參數</p>
+<p class="fake_header">Response Parameters</p>
 
 <table><thead>
 <tr>
-<th style="text-align: left">參數</th>
-<th style="text-align: left">類型</th>
-<th>說明</th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left">transfer_id</td>
 <td style="text-align: left">string</td>
-<td>UUID,全局唯一</td>
+<td>UUID, which is unique across the platform</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
 <td style="text-align: left">string</td>
-<td>幣種類型</td>
+<td>Currency type</td>
 </tr>
 <tr>
 <td style="text-align: left">amount</td>
 <td style="text-align: left">string</td>
-<td>兌入數量</td>
+<td>Exchange to amount</td>
 </tr>
 <tr>
 <td style="text-align: left">user_id</td>
 <td style="text-align: left">integer</td>
-<td>子賬戶</td>
+<td>Subaccount</td>
 </tr>
 <tr>
 <td style="text-align: left">sub_user_id</td>
 <td style="text-align: left">integer</td>
-<td>子賬戶</td>
+<td>Subaccount</td>
 </tr>
 <tr>
 <td style="text-align: left">timestamp</td>
 <td style="text-align: left">integer</td>
-<td>時間戳</td>
+<td>timestamp</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#transfer-status-status">status</a></td>
 <td style="text-align: left">string</td>
-<td>劃轉狀態</td>
+<td>Transfer status</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#transfer-type-type">type</a></td>
 <td style="text-align: left">string</td>
-<td>轉入轉出類型</td>
+<td>Determines the direction of transfer</td>
 </tr>
 <tr>
 <td style="text-align: left">cursor</td>
 <td style="text-align: left">string</td>
-<td>翻頁標記,請使用返回的cursor,簽名時使用返回的原始數據，發送request時請進行urlencode</td>
+<td>Page turning mark. Use return <code>cursor</code>. Sign using origin data, in request please use urlencode</td>
 </tr>
 </tbody></table>
-<h3 id='t-querysubaccountlist'>查詢子賬號列表</h3>
+<h3 id='t-querysubaccountlist'>Query Subaccount List</h3>
 <blockquote>
-<p>請求示例</p>
+<p>Request Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/sub-member/member-ids'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">account_asset</span>
@@ -1831,7 +1852,7 @@ REST接口根URL:
 <span class="k">print</span><span class="p">(</span><span class="n">session_auth</span><span class="p">.</span><span class="n">query_subaccount_list</span><span class="p">())</span>
 </code></pre></div>
 <blockquote>
-<p>響應示例</p>
+<p>Response Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
     <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -1865,47 +1886,47 @@ REST接口根URL:
     <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
 <span class="p">}</span>
 </code></pre></div>
-<p class="fake_header">HTTP 請求</p>
+<p class="fake_header">HTTP Request</p>
 
 <p>GET
 <code><span id=gsidlist>/asset/v1/private/sub-member/member-ids</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#gsidlist"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
-<p class="fake_header">請求參數</p>
+<p class="fake_header">Request Parameters</p>
 
 <table><thead>
 <tr>
-<th style="text-align: left">參數</th>
-<th style="text-align: left">是否必須</th>
-<th style="text-align: left">類型</th>
-<th>說明</th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
 </tr>
 </thead><tbody>
 </tbody></table>
 
-<p class="fake_header">返回參數</p>
+<p class="fake_header">Response Parameters</p>
 
 <table><thead>
 <tr>
-<th style="text-align: left">參數</th>
-<th style="text-align: left">類型</th>
-<th>說明</th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left">sub_user_id</td>
 <td style="text-align: left">Integer Array</td>
-<td>所有子賬號列表</td>
+<td>List of all subaccounts</td>
 </tr>
 <tr>
 <td style="text-align: left">transferable_sub_ids</td>
 <td style="text-align: left">string Array</td>
-<td>所有可互相劃轉的子賬號列表</td>
+<td>List of subaccounts that are universal transfer-enabled</td>
 </tr>
 </tbody></table>
-<h3 id='t-enableuniversaltransfer'>配置可互相劃轉的子賬號列表</h3>
+<h3 id='t-enableuniversaltransfer'>Enable Universal Transfer</h3>
 <blockquote>
-<p>請求示例</p>
+<p>Request Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/asset/v1/private/transferable-subs/save' \
 --header 'Content-Type: application/json' \
@@ -1919,7 +1940,7 @@ REST接口根URL:
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
-<p>響應示例</p>
+<p>Response Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
     <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -1934,48 +1955,48 @@ REST接口根URL:
 <span class="p">}</span>
 </code></pre></div>
 <aside class="notice">
-萬能轉賬使您可以在兩個子賬戶（而不是子 -> 主 -> 子）和任何<a href="#account-type-from_account_type-to_account_type">賬戶類型</a>（<code> 合同</code>、<code>SPOT</code>等）之間劃轉。
+A universal transfer enables you to transfer funds directly between two subaccounts (rather than sub -> master -> sub) and any <a href="#account-type-from_account_type-to_account_type">account type</a> (<code>CONTRACT</code>, <code>SPOT</code>, etc).
 </aside>
 
-<p>你需要通過這個接口來設置可互相劃轉的子賬號。如果不設置，這些賬戶之間不能互相劃轉</p>
+<p>Use this endpoint to enable subaccounts to take part in a universal transfer. It is a one-time switch which, once thrown, enables a subaccount permanently. If not set, your subaccounts cannot use universal tranfers.</p>
 
-<p class="fake_header">HTTP 請求</p>
+<p class="fake_header">HTTP Request</p>
 
 <p>POST
 <code><span id=stsl>/asset/v1/private/transferable-subs/save</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#stsl"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
-<p class="fake_header">請求參數</p>
+<p class="fake_header">Request Parameters</p>
 
 <table><thead>
 <tr>
-<th style="text-align: left">參數</th>
-<th style="text-align: left">是否必須</th>
-<th style="text-align: left">類型</th>
-<th>說明</th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left">transferable_sub_ids</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>逗號隔開的id列表，例：123,45,14,26,46</td>
+<td>A comma-separated list of subaccount UIDs, for example "123,45,14,26,46"</td>
 </tr>
 </tbody></table>
 
-<p class="fake_header">返回參數</p>
+<p class="fake_header">Response Parameters</p>
 
 <table><thead>
 <tr>
-<th style="text-align: left">參數</th>
-<th style="text-align: left">類型</th>
-<th>說明</th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
 </tr>
 </thead><tbody>
 </tbody></table>
-<h3 id='t-createuniversaltransfer'>萬能劃轉</h3>
+<h3 id='t-createuniversaltransfer'>Create Universal Transfer</h3>
 <blockquote>
-<p>請求示例</p>
+<p>Request Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/asset/v1/private/universal/transfer' \
 --header 'Content-Type: application/json' \
@@ -1995,7 +2016,7 @@ REST接口根URL:
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
-<p>響應示例</p>
+<p>Response Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
     <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -2011,89 +2032,89 @@ REST接口根URL:
     <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span>
 <span class="p">}</span>
 </code></pre></div>
-<p class="fake_header">HTTP 請求</p>
+<p class="fake_header">HTTP Request</p>
 
 <p>POST
 <code><span id=avpuTransfer>/asset/v1/private/universal/transfer</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#avpuTransfer"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
-<p class="fake_header">請求參數</p>
+<p class="fake_header">Request Parameters</p>
 
 <table><thead>
 <tr>
-<th style="text-align: left">參數</th>
-<th style="text-align: left">是否必須</th>
-<th style="text-align: left">類型</th>
-<th>說明</th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left">transfer_id</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>UUID,全局唯一</td>
+<td>UUID, which is unique across the platform</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>幣種類型</td>
+<td>Currency type</td>
 </tr>
 <tr>
 <td style="text-align: left">amount</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>兌入數量</td>
+<td>Exchange to amount</td>
 </tr>
 <tr>
 <td style="text-align: left">from_member_id</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>劃出的賬號uid</td>
+<td>From UID</td>
 </tr>
 <tr>
 <td style="text-align: left">to_member_id</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>劃入的賬號uid</td>
+<td>To UID</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#account-type-from_account_type-to_account_type">from_account_type</a></td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>劃出賬戶類型，目前只支持："SPOT"、"CONTRACT"</td>
+<td>From account type. Currently supports <code>SPOT</code> and <code>CONTRACT</code></td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#account-type-from_account_type-to_account_type">to_account_type</a></td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>劃入賬戶類型，目前只支持："SPOT"、"CONTRACT"</td>
+<td>To account type. Currently supports <code>SPOT</code> and <code>CONTRACT</code></td>
 </tr>
 </tbody></table>
 
-<p class="fake_header">返回參數</p>
+<p class="fake_header">Response Parameters</p>
 
 <table><thead>
 <tr>
-<th style="text-align: left">參數</th>
-<th style="text-align: left">類型</th>
-<th>說明</th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left">transfer_id</td>
 <td style="text-align: left">string</td>
-<td>UUID,全局唯一</td>
+<td>UUID, which is unique across the platform</td>
 </tr>
 </tbody></table>
-<h3 id='t-queryuniversetransferlist'>查詢萬能劃轉記錄</h3>
+<h3 id='t-queryuniversetransferlist'>Query Universal Transfer List</h3>
 <blockquote>
-<p>請求示例</p>
+<p>Request Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/universal/transfer/list'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
 <blockquote>
-<p>響應示例</p>
+<p>Response Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
     <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -2133,142 +2154,142 @@ REST接口根URL:
     <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
 <span class="p">}</span>
 </code></pre></div>
-<p class="fake_header">HTTP 請求</p>
+<p class="fake_header">HTTP Request</p>
 
 <p>GET
 <code><span id=getuniversaltransferlist>/asset/v1/private/universal/transfer/list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#getuniversaltransferlist"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
-<p class="fake_header">請求參數</p>
+<p class="fake_header">Request Parameters</p>
 
 <table><thead>
 <tr>
-<th style="text-align: left">參數</th>
-<th style="text-align: left">是否必須</th>
-<th style="text-align: left">類型</th>
-<th>說明</th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left">transfer_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>UUID,全局唯一</td>
+<td>UUID, which is unique across the platform</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>幣種類型</td>
+<td>Currency type</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#transfer-status-status">status</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>劃轉狀態</td>
+<td>Transfer status</td>
 </tr>
 <tr>
 <td style="text-align: left">start_time</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">integer</td>
-<td>開始時間戳（秒）</td>
+<td>Start timestamp point for result, in seconds</td>
 </tr>
 <tr>
 <td style="text-align: left">end_time</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">integer</td>
-<td>結束時間戳（秒）</td>
+<td>End timestamp point for result, in seconds</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#page-direction-direction">direction</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>翻頁</td>
+<td>Turn page</td>
 </tr>
 <tr>
 <td style="text-align: left">limit</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">integer</td>
-<td>記錄條數</td>
+<td>Number of records</td>
 </tr>
 <tr>
 <td style="text-align: left">cursor</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>翻頁標記,請使用返回的cursor,簽名時使用返回的原始數據，發送request時請進行urlencode</td>
+<td>Page turning mark. Use return <code>cursor</code>. Sign using origin data, in request please use urlencode</td>
 </tr>
 </tbody></table>
 
-<p class="fake_header">返回參數</p>
+<p class="fake_header">Response Parameters</p>
 
 <table><thead>
 <tr>
-<th style="text-align: left">參數</th>
-<th style="text-align: left">類型</th>
-<th>說明</th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left">transfer_id</td>
 <td style="text-align: left">string</td>
-<td>UUID,全局唯一</td>
+<td>UUID, which is unique across the platform</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
 <td style="text-align: left">string</td>
-<td>幣種類型</td>
+<td>Currency type</td>
 </tr>
 <tr>
 <td style="text-align: left">amount</td>
 <td style="text-align: left">string</td>
-<td>兌入數量</td>
+<td>Exchange to amount</td>
 </tr>
 <tr>
 <td style="text-align: left">timestamp</td>
 <td style="text-align: left">integer</td>
-<td>時間戳</td>
+<td>timestamp</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#transfer-status-status">status</a></td>
 <td style="text-align: left">string</td>
-<td>劃轉狀態</td>
+<td>Transfer status</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#account-type-from_account_type-to_account_type">from_account_type</a></td>
 <td style="text-align: left">string</td>
-<td>賬戶類型</td>
+<td>Account type</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#account-type-from_account_type-to_account_type">to_account_type</a></td>
 <td style="text-align: left">string</td>
-<td>賬戶類型</td>
+<td>Account type</td>
 </tr>
 <tr>
 <td style="text-align: left">from_member_id</td>
 <td style="text-align: left">string</td>
-<td>劃出的賬號uid</td>
+<td>From UID</td>
 </tr>
 <tr>
 <td style="text-align: left">to_member_id</td>
 <td style="text-align: left">string</td>
-<td>劃入的賬號uid</td>
+<td>To UID</td>
 </tr>
 <tr>
 <td style="text-align: left">cursor</td>
 <td style="text-align: left">string</td>
-<td>翻頁標記,請使用返回的cursor,簽名時使用返回的原始數據，發送request時請進行urlencode</td>
+<td>Page turning mark. Use return <code>cursor</code>. Sign using origin data, in request please use urlencode</td>
 </tr>
 </tbody></table>
-<h1 id='t-withdraw_and_deposit'>充值與提現接口</h1>
-<p>以下現貨劃轉相關接口都需要鑒權.</p>
-<h3 id='t-allowdepositlist'>支持的充值列表查詢接口</h3>
+<h1 id='t-withdraw_and_deposit'>Withdraw and Deposit Endpoints</h1>
+<p>The following API data endpoints require authentication.</p>
+<h3 id='t-allowdepositlist'>Supported Deposit List Query Endpoints</h3>
 <blockquote>
-<p>請求示例</p>
+<p>Request Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/public/deposit/allowed-deposit-list?coin=ETH&amp;chain=ETH&amp;page_index=1&amp;page_size=10'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
 <blockquote>
-<p>響應示例</p>
+<p>Response Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
     <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -2291,59 +2312,59 @@ REST接口根URL:
     <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1652841868446</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>是一個公共接口。 coin和chain必須在輸入參數中配對出現。 否則，視為無條件查詢。</p>
+<p>It is a public endpoints. Coin and chain must be paired in the input parameter. Otherwise, it is regarded as an unconditional query.</p>
 
-<p class="fake_header">HTTP 請求</p>
+<p class="fake_header">HTTP Request</p>
 
 <p>GET
 <code><span id=allowDepositList>/asset/v1/public/deposit/allowed-deposit-list</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#allowDepositList"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
-<p class="fake_header">請求參數</p>
+<p class="fake_header">Request Parameters</p>
 
 <table><thead>
 <tr>
-<th style="text-align: left">參數</th>
-<th style="text-align: left">是否必須</th>
-<th style="text-align: left">類型</th>
-<th>說明</th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left">coin</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>充值幣種. coin和chain必須在輸入參數中配對出現。 否則，視為無條件查詢。</td>
+<td>Deposit Coin. Coin and chain must be paired. Otherwise, it is regarded as an unconditional query</td>
 </tr>
 <tr>
 <td style="text-align: left">chain</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>充值鏈名. coin和chain必須在輸入參數中配對出現。 否則，視為無條件查詢。</td>
+<td>Deposit Chain Name. Coin and chain must be paired. Otherwise, it is regarded as an unconditional query</td>
 </tr>
 <tr>
 <td style="text-align: left">page_index</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">long</td>
-<td>頁面索引：用於分頁。 默認值：1
+<td>Page Index: used for pagination.  Default value: 1
 </td>
 </tr>
 <tr>
 <td style="text-align: left">page_size</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">long</td>
-<td>每頁的數量。 默認值：10
+<td>Number of items per page. Default value: 10
 </td>
 </tr>
 </tbody></table>
 
-<p class="fake_header">返回參數</p>
+<p class="fake_header">Response Parameters</p>
 
 <table><thead>
 <tr>
-<th style="text-align: left">參數</th>
-<th style="text-align: left">類型</th>
-<th>說明</th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
 </tr>
 </thead><tbody>
 <tr>
@@ -2354,12 +2375,12 @@ REST接口根URL:
 <tr>
 <td style="text-align: left">coin</td>
 <td style="text-align: left">string</td>
-<td>充值的幣種</td>
+<td>deposit coin</td>
 </tr>
 <tr>
 <td style="text-align: left">chain</td>
 <td style="text-align: left">string</td>
-<td>鏈名</td>
+<td>chain name</td>
 </tr>
 <tr>
 <td style="text-align: left">coin_show_name</td>
@@ -2369,28 +2390,28 @@ REST接口根URL:
 <tr>
 <td style="text-align: left">chain_type</td>
 <td style="text-align: left">string</td>
-<td>鏈名</td>
+<td>chain type</td>
 </tr>
 <tr>
 <td style="text-align: left">block_confirm_number</td>
 <td style="text-align: left">long</td>
-<td>充值上賬確認數</td>
+<td>deposit confirmation number</td>
 </tr>
 <tr>
 <td style="text-align: left">min_deposit_amount</td>
 <td style="text-align: left">string</td>
-<td>最低充值金額</td>
+<td>Minimum Deposit Amount</td>
 </tr>
 </tbody></table>
-<h3 id='t-depositsrecordquery'>充值記錄查詢</h3>
+<h3 id='t-depositsrecordquery'>Query Deposit Records</h3>
 <blockquote>
-<p>請求示例</p>
+<p>Request Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/deposit/record/query?
 api_key=XXXXXXXXXXX&amp;coin=LTC&amp;timestamp=1641534660578&amp;recv_window=50000&amp;sign=XXXXXXXXXXX'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
 <blockquote>
-<p>響應示例</p>
+<p>Response Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
     <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -2436,165 +2457,165 @@ api_key=XXXXXXXXXXX&amp;coin=LTC&amp;timestamp=1641534660578&amp;recv_window=500
     <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>規則：只查詢現貨賬戶的充值記錄，按id倒序進行，開始時間和截止時間差最大限制為30天
+<p>Rules: Only query the deposit records of spot accounts order by id in reverse order. The maximum difference between the start time and the end time is 30 days.
 </p>
 
-<p class="fake_header">HTTP 請求</p>
+<p class="fake_header">HTTP Request</p>
 
 <p>GET
 <code><span id=pdrq>/asset/v1/private/deposit/record/query</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pdrq"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
-<p class="fake_header">請求參數</p>
+<p class="fake_header">Request Parameters</p>
 
 <table><thead>
 <tr>
-<th style="text-align: left">參數</th>
-<th style="text-align: left">是否必須</th>
-<th style="text-align: left">類型</th>
-<th>說明</th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left">start_time</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">long</td>
-<td>開始時間 (精確到秒)。  默認為當前時間之前30天
+<td>start time (In Seconds).  Default value: 30 days before the current time
 </td>
 </tr>
 <tr>
 <td style="text-align: left">end_time</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">long</td>
-<td>結束時間 (精確到秒)。 默認為當前時間
+<td>end time (In Seconds). Default value: current time
 </td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>幣種名：舉例，BTC。默認全部
+<td>coin name: for example, BTC.  Default value: all
 </td>
 </tr>
 <tr>
 <td style="text-align: left">cursor</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>游標信息：用來分頁。 默認空
+<td>cursor infomation: used for pagination.  Default value: ""
 </td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#page-direction-direction">direction</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>上一頁Prev，下一頁 Next。默認下一頁
+<td>prev page: Prev, next page: Next.  Default value: Next
 </td>
 </tr>
 <tr>
 <td style="text-align: left">limit</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">long</td>
-<td>每頁條數。0< limit <=50 默認為50
+<td>Number of items per page, 0< limit <=50.  Default value: 50
 </td>
 </tr>
 <tr>
 <td style="text-align: left">timestamp</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">long</td>
-<td>時間戳</td>
+<td>timestamp</td>
 </tr>
 </tbody></table>
 
-<p class="fake_header">返回參數</p>
+<p class="fake_header">Response Parameters</p>
 
 <table><thead>
 <tr>
-<th style="text-align: left">參數</th>
-<th style="text-align: left">類型</th>
-<th>說明</th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left">coin</td>
 <td style="text-align: left">string</td>
-<td>充值的幣種</td>
+<td>deposit coin</td>
 </tr>
 <tr>
 <td style="text-align: left">chain</td>
 <td style="text-align: left">string</td>
-<td>鏈名</td>
+<td>chain name</td>
 </tr>
 <tr>
 <td style="text-align: left">amount</td>
 <td style="text-align: left">string</td>
-<td>充值的數量</td>
+<td>deposit amount</td>
 </tr>
 <tr>
 <td style="text-align: left">tx_id</td>
 <td style="text-align: left">string</td>
-<td>交易ID。充值失敗/取消充值：為空
+<td>transaction ID. It is <code>""</code> when deposit failed or deposit cancelled
 </td>
 </tr>
 <tr>
 <td style="text-align: left">status</td>
 <td style="text-align: left">int</td>
-<td><p>0=未知<br>
-1=待確認 <br>
-2=上賬中 <br>
-3=已完成 <br>
-4=充值失敗 </p>
+<td><p>0=unknown<br>
+1=ToBeConfirmed <br>
+2=processing <br>
+3=success <br>
+4=deposit failed</p>
 </td>
 </tr>
 <tr>
 <td style="text-align: left">to_address</td>
 <td style="text-align: left">string</td>
-<td>充值的目標地址</td>
+<td>deposit target address</td>
 </tr>
 <tr>
 <td style="text-align: left">tag</td>
 <td style="text-align: left">string</td>
-<td>充值目標地址的tag</td>
+<td>tag of deposit target address</td>
 </tr>
 <tr>
 <td style="text-align: left">deposit_fee</td>
 <td style="text-align: left">string</td>
-<td>充值手續費</td>
+<td>deposit fee</td>
 </tr>
 <tr>
 <td style="text-align: left">success_at</td>
 <td style="text-align: left">int64</td>
-<td>最後更新時間</td>
+<td>last updated time</td>
 </tr>
 <tr>
 <td style="text-align: left">confirmations</td>
 <td style="text-align: left">string</td>
-<td>确认区块的数量</td>
+<td>number of confirmation blocks</td>
 </tr>
 <tr>
 <td style="text-align: left">tx_index</td>
 <td style="text-align: left">string</td>
-<td>交易序列号</td>
+<td>transaction sequence number</td>
 </tr>
 <tr>
 <td style="text-align: left">block_hash</td>
 <td style="text-align: left">string</td>
-<td>鏈上的哈希數</td>
+<td>hash number on the chain</td>
 </tr>
 <tr>
 <td style="text-align: left">cursor</td>
 <td style="text-align: left">string</td>
-<td>游標信息：用來分頁
+<td>cursor information: used for pagination. Default value: ""
 </td>
 </tr>
 </tbody></table>
-<h3 id='t-withdrawrecordquery'>提現記錄查詢</h3>
+<h3 id='t-withdrawrecordquery'>Query Withdraw Records</h3>
 <blockquote>
-<p>請求示例</p>
+<p>Request Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/withdraw/record/query?api_key=XXXXXXXXXXX&amp;coin=LTC&amp;limit=1&amp;timestamp=1641789839632&amp;recv_window=50000&amp;sign=XXXXXXXXXXX'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
 <blockquote>
-<p>響應示例</p>
+<p>Response Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
     <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -2638,155 +2659,155 @@ api_key=XXXXXXXXXXX&amp;coin=LTC&amp;timestamp=1641534660578&amp;recv_window=500
     <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">3</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>規則：按id倒序進行，開始時間和截止時間差最大限制為30天
+<p>Rule: order by id in reverse order. The maximum difference between the start time and the end time is 30 days.
 </p>
 
-<p class="fake_header">HTTP 請求</p>
+<p class="fake_header">HTTP Request</p>
 
 <p>GET
 <code><span id=pwrq>/asset/v1/private/withdraw/record/query</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pwrq"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
-<p class="fake_header">請求參數</p>
+<p class="fake_header">Request Parameters</p>
 
 <table><thead>
 <tr>
-<th style="text-align: left">參數</th>
-<th style="text-align: left">是否必須</th>
-<th style="text-align: left">類型</th>
-<th>說明</th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left">withdraw_id</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">long</td>
-<td>提現ID。 (提現API響應參數中的提現請求ID)</td>
+<td>withdrawal id. (withdraw request ID in Response Parameters of Withdrawal endpoint)</td>
 </tr>
 <tr>
 <td style="text-align: left">start_time</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">long</td>
-<td>開始時間 (精確到秒)。  默認為當前時間之前30天
+<td>start time (In Seconds).  Default value: 30 days before the current time
 </td>
 </tr>
 <tr>
 <td style="text-align: left">end_time</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">long</td>
-<td>結束時間 (精確到秒)。 默認為當前時間
+<td>end time (In Seconds). Default value: current time
 </td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>幣種名：舉例，BTC。默認全部
+<td>coin name: for example, BTC.  Default value: all
 </td>
 </tr>
 <tr>
 <td style="text-align: left">cursor</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>游標信息：用來分頁。 默認空
+<td>cursor infomation: used for pagination.  Default value: ""
 </td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#page-direction-direction">direction</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>上一頁Prev，下一頁 Next。默認下一頁
+<td>prev page: Prev, next page: Next.  Default value: Next
 </td>
 </tr>
 <tr>
 <td style="text-align: left">limit</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">long</td>
-<td>每頁條數。0< limit <=50 默認為50
+<td>Number of items per page, 0< limit <=50.  Default value: 50
 </td>
 </tr>
 </tbody></table>
 
-<p class="fake_header">返回參數</p>
+<p class="fake_header">Response Parameters</p>
 
 <table><thead>
 <tr>
-<th style="text-align: left">參數</th>
-<th style="text-align: left">類型</th>
-<th>說明</th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left">coin</td>
 <td style="text-align: left">string</td>
-<td>提現的幣種</td>
+<td>withdrawal coin</td>
 </tr>
 <tr>
 <td style="text-align: left">chain</td>
 <td style="text-align: left">string</td>
-<td>鏈名</td>
+<td>chain name</td>
 </tr>
 <tr>
 <td style="text-align: left">amount</td>
 <td style="text-align: left">string</td>
-<td>提現的數量</td>
+<td>withdrawal quantity</td>
 </tr>
 <tr>
 <td style="text-align: left">tx_id</td>
 <td style="text-align: left">string</td>
-<td>交易ID。提現失敗/提現撤銷：為空
+<td>transaction ID. It returns <code>""</code> when withdrawal failed or withdrawal cancelled
 </td>
 </tr>
 <tr>
 <td style="text-align: left">status</td>
 <td style="text-align: left">string</td>
-<td><a href="#withdraw-status-status">提現狀態</a></td>
+<td><a href="#withdraw-status-status">withdrawal status</a></td>
 </tr>
 <tr>
 <td style="text-align: left">to_address</td>
 <td style="text-align: left">string</td>
-<td>提現目標地址</td>
+<td>withdrawal target address</td>
 </tr>
 <tr>
 <td style="text-align: left">tag</td>
 <td style="text-align: left">string</td>
-<td>提現目標地址的tag</td>
+<td>tag of withdrawal target address</td>
 </tr>
 <tr>
 <td style="text-align: left">withdraw_fee</td>
 <td style="text-align: left">string</td>
-<td>提現手續費</td>
+<td>withdrawal fee</td>
 </tr>
 <tr>
 <td style="text-align: left">create_time</td>
 <td style="text-align: left">int64</td>
-<td>發起提幣時間</td>
+<td>withdrawal create time</td>
 </tr>
 <tr>
 <td style="text-align: left">update_time</td>
 <td style="text-align: left">int64</td>
-<td>提幣狀態更新時間</td>
+<td>withdrawal status updated time</td>
 </tr>
 <tr>
 <td style="text-align: left">cursor</td>
 <td style="text-align: left">string</td>
-<td>游標信息：用來分頁
+<td>cursor information: used for pagination. Default value: ""
 </td>
 </tr>
 <tr>
 <td style="text-align: left">withdraw_id</td>
 <td style="text-align: left">string</td>
-<td>提現ID。 (提現API響應參數中的提現請求ID)</td>
+<td>withdrawal id. (withdraw request ID in Response Parameters of Withdrawal endpoint)</td>
 </tr>
 </tbody></table>
-<h3 id='t-coin_info_query'>幣種信息查詢</h3>
+<h3 id='t-coin_info_query'>Query Coin Information</h3>
 <blockquote>
-<p>請求示例</p>
+<p>Request Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/coin-info/query?api_key=XXXXXXXXXXXXXXXXXXXXXXX&amp;timestamp=1641793091931&amp;recv_window=50000&amp;sign=XXXXXXXXXXXXXXXXXXXXXXX'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
 <blockquote>
-<p>響應示例</p>
+<p>Response Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
     <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -2826,56 +2847,56 @@ api_key=XXXXXXXXXXX&amp;coin=LTC&amp;timestamp=1641534660578&amp;recv_window=500
     <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>規則：按id倒序進行，無須分頁，限頻跟目前線上接口保持一致
+<p>Rules: order by id in reverse order, no pagination required. The frequency limit is consistent with the current online interface.
 </p>
 
-<p class="fake_header">HTTP 請求</p>
+<p class="fake_header">HTTP Request</p>
 
 <p>GET
 <code><span id=pciq>/asset/v1/private/coin-info/query</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pciq"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
-<p class="fake_header">請求參數</p>
+<p class="fake_header">Request Parameters</p>
 
 <table><thead>
 <tr>
-<th style="text-align: left">參數</th>
-<th style="text-align: left">是否必須</th>
-<th style="text-align: left">類型</th>
-<th>說明</th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>幣種</td>
+<td>Coin</td>
 </tr>
 </tbody></table>
 
-<p class="fake_header">返回參數</p>
+<p class="fake_header">Response Parameters</p>
 
 <table><thead>
 <tr>
-<th style="text-align: left">參數</th>
-<th style="text-align: left">類型</th>
-<th>說明</th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left">name</td>
 <td style="text-align: left">string</td>
-<td>幣種名稱</td>
+<td>Name</td>
 </tr>
 <tr>
 <td style="text-align: left">coin</td>
 <td style="text-align: left">string</td>
-<td>幣種</td>
+<td>Coin</td>
 </tr>
 <tr>
 <td style="text-align: left">remain_amount</td>
 <td style="text-align: left">string</td>
-<td>該幣種當前最大可提現數量</td>
+<td>Current maximum withdrawal amount</td>
 </tr>
 <tr>
 <td style="text-align: left">chains</td>
@@ -2885,42 +2906,42 @@ api_key=XXXXXXXXXXX&amp;coin=LTC&amp;timestamp=1641534660578&amp;recv_window=500
 <tr>
 <td style="text-align: left">chain_type</td>
 <td style="text-align: left">string</td>
-<td>鏈名</td>
+<td>chain type</td>
 </tr>
 <tr>
 <td style="text-align: left">confirmation</td>
 <td style="text-align: left">int</td>
-<td>充值上賬確認數</td>
+<td>deposit confirmation number</td>
 </tr>
 <tr>
 <td style="text-align: left">withdraw_fee</td>
 <td style="text-align: left">string</td>
-<td>提現手續費。如果提現費為空，則表示該幣不支持提現</td>
+<td>withdraw fee.  if withdraw fee is empty, It means that this coin does not support withdrawal</td>
 </tr>
 <tr>
 <td style="text-align: left">deposit_min</td>
 <td style="text-align: left">string</td>
-<td>最小充值數量</td>
+<td>minimum deposit amount</td>
 </tr>
 <tr>
 <td style="text-align: left">withdraw_min</td>
 <td style="text-align: left">string</td>
-<td>最小提現數量</td>
+<td>minimum withdrawal amount</td>
 </tr>
 <tr>
 <td style="text-align: left">chain</td>
 <td style="text-align: left">string</td>
-<td>鏈名</td>
+<td>chain name</td>
 </tr>
 </tbody></table>
-<h3 id='t-asset_info_query'>資產信息查詢</h3>
+<h3 id='t-asset_info_query'>Query Asset Information</h3>
 <blockquote>
-<p>請求示例</p>
+<p>Request Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/asset-info/query?api_key=XXXXXXXXXXXXXXX&amp;coin=BIT&amp;timestamp=1641790155961&amp;recv_window=50000&amp;sign=XXXXXXXXXXXXXXX'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
 <blockquote>
-<p>響應示例</p>
+<p>Response Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
     <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -2946,51 +2967,51 @@ api_key=XXXXXXXXXXX&amp;coin=LTC&amp;timestamp=1641534660578&amp;recv_window=500
     <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">4</span>
 <span class="p">}</span>
 </code></pre></div>
-<p class="fake_header">HTTP 請求</p>
+<p class="fake_header">HTTP Request</p>
 
 <p>GET
 <code><span id=paiq>/asset/v1/private/asset-info/query</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#paiq"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
-<p class="fake_header">請求參數</p>
+<p class="fake_header">Request Parameters</p>
 
 <table><thead>
 <tr>
-<th style="text-align: left">參數</th>
-<th style="text-align: left">是否必須</th>
-<th style="text-align: left">類型</th>
-<th>說明</th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left">account_type</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>賬戶類型。默認為現貨賬戶: ACCOUNT_TYPE_SPOT
+<td>Account type. Default value: ACCOUNT_TYPE_SPOT
 </td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>幣種</td>
+<td>Coin</td>
 </tr>
 </tbody></table>
 
-<p class="fake_header">返回參數</p>
+<p class="fake_header">Response Parameters</p>
 
 <table><thead>
 <tr>
-<th style="text-align: left">參數</th>
-<th style="text-align: left">類型</th>
-<th>說明</th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left">status</td>
 <td style="text-align: left">string</td>
-<td><p>賬戶狀態: ACCOUNT_STATUS_NORMAL -- 正常 <br>
-ACCOUNT_STATUS_UNSPECIFIED -- 不正常 </p>
+<td><p>status: ACCOUNT_STATUS_NORMAL -- NORMAL <br>
+ACCOUNT_STATUS_UNSPECIFIED -- ABNORMAL </p>
 </td>
 </tr>
 <tr>
@@ -3006,22 +3027,22 @@ ACCOUNT_STATUS_UNSPECIFIED -- 不正常 </p>
 <tr>
 <td style="text-align: left">frozen</td>
 <td style="text-align: left">string</td>
-<td>凍結餘額</td>
+<td>frozen balance</td>
 </tr>
 <tr>
 <td style="text-align: left">free</td>
 <td style="text-align: left">string</td>
-<td>可用餘額</td>
+<td>available balance</td>
 </tr>
 <tr>
 <td style="text-align: left">withdraw</td>
 <td style="text-align: left">string</td>
-<td>暫時沒有值</td>
+<td>temporarily ""</td>
 </tr>
 </tbody></table>
-<h3 id='t-withdraw_info'>提現</h3>
+<h3 id='t-withdraw_info'>Withdraw</h3>
 <blockquote>
-<p>請求示例</p>
+<p>Request Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/asset/v1/private/withdraw' \
 --header 'Content-Type: application/json' \
@@ -3037,7 +3058,7 @@ ACCOUNT_STATUS_UNSPECIFIED -- 不正常 </p>
 }'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
 <blockquote>
-<p>響應示例</p>
+<p>Response Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
     <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -3053,65 +3074,65 @@ ACCOUNT_STATUS_UNSPECIFIED -- 不正常 </p>
     <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>提現總是來自現貨錢包內的資產。</p>
+<p>Withdrawals are always made from the SPOT wallet.</p>
 
-<p class="fake_header">HTTP 請求</p>
+<p class="fake_header">HTTP Request</p>
 
 <p>POST
 <code><span id=pwith>/asset/v1/private/withdraw</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pwith"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
 <br><p><b>content-type:</b>   application/json</p></p>
 
-<p class="fake_header">請求參數</p>
+<p class="fake_header">Request Parameters</p>
 
 <table><thead>
 <tr>
-<th style="text-align: left">參數</th>
-<th style="text-align: left">是否必須</th>
-<th style="text-align: left">類型</th>
-<th>說明</th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>幣種</td>
+<td>Coin</td>
 </tr>
 <tr>
 <td style="text-align: left">chain</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>鏈名</td>
+<td>chain name</td>
 </tr>
 <tr>
 <td style="text-align: left">address</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>地址。地址校驗是否存在提現地址的白名單</td>
+<td>address. Address verification whether there is a whitelist of withdrawal addresses</td>
 </tr>
 <tr>
 <td style="text-align: left">tag</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>存在tag的需要填寫</td>
+<td>Need to fill in if there is a tag</td>
 </tr>
 <tr>
 <td style="text-align: left">amount</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>提幣數量。規則：大於等於最小提幣金額，最小提幣金額可從幣種信息接口獲取。
+<td>withdraw amounts. Rules: Greater than or equal to the minimum withdrawal amount. The minimum withdrawal amount can be obtained from the Coin Info Query API
 </td>
 </tr>
 </tbody></table>
 
-<p class="fake_header">返回參數</p>
+<p class="fake_header">Response Parameters</p>
 
 <table><thead>
 <tr>
-<th style="text-align: left">參數</th>
-<th style="text-align: left">類型</th>
-<th>說明</th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
 </tr>
 </thead><tbody>
 <tr>
@@ -3122,12 +3143,12 @@ ACCOUNT_STATUS_UNSPECIFIED -- 不正常 </p>
 <tr>
 <td style="text-align: left">id</td>
 <td style="text-align: left">int64</td>
-<td>提現ID。 (提現API響應參數中的提現請求ID)</td>
+<td>withdrawal id. (withdraw request ID in Response Parameters of Withdrawal endpoint)</td>
 </tr>
 </tbody></table>
-<h3 id='t-cancel_withdraw'>撤銷提幣</h3>
+<h3 id='t-cancel_withdraw'>Cancel withdrawal</h3>
 <blockquote>
-<p>請求示例</p>
+<p>Request Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/asset/v1/private/withdraw/cancel' \
 --header 'Content-Type: application/json' \
@@ -3140,7 +3161,7 @@ ACCOUNT_STATUS_UNSPECIFIED -- 不正常 </p>
 }'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
 <blockquote>
-<p>響應示例</p>
+<p>Response Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
     <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -3154,55 +3175,55 @@ ACCOUNT_STATUS_UNSPECIFIED -- 不正常 </p>
     <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
 <span class="p">}</span>
 </code></pre></div>
-<p class="fake_header">HTTP 請求</p>
+<p class="fake_header">HTTP Request</p>
 
 <p>POST
 <code><span id=pwcan>/asset/v1/private/withdraw/cancel</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pwcan"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
 <br><p><b>content-type:</b>application/json</p></p>
 
-<p class="fake_header">請求參數</p>
+<p class="fake_header">Request Parameters</p>
 
 <table><thead>
 <tr>
-<th style="text-align: left">參數</th>
-<th style="text-align: left">是否必須</th>
-<th style="text-align: left">類型</th>
-<th>說明</th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left">id</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">int64</td>
-<td>提現ID。 (提現API響應參數中的提現請求ID)</td>
+<td>withdrawal id. (withdraw request ID in Response Parameters of Withdrawal endpoint)</td>
 </tr>
 </tbody></table>
 
-<p class="fake_header">返回參數</p>
+<p class="fake_header">Response Parameters</p>
 
 <table><thead>
 <tr>
-<th style="text-align: left">參數</th>
-<th style="text-align: left">類型</th>
-<th>說明</th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left">result</td>
 <td style="text-align: left">int</td>
-<td>結果對象（撤單申請結果：1成功，0失敗）
+<td>result（cancel application result: <code>1</code> SUCCESS, <code>0</code> FAIL）
 </td>
 </tr>
 </tbody></table>
-<h3 id='t-deposit_addr_info'>充值地址信息查詢</h3>
+<h3 id='t-deposit_addr_info'>Query Deposit Address Information</h3>
 <blockquote>
-<p>請求示例</p>
+<p>Request Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/deposit/address?api_key=XXXXXXXXXXXXXXXXXXX&amp;coin=LTC&amp;timestamp=1641789312824&amp;recv_window=50000&amp;sign=XXXXXXXXXXXXXXXXXXX'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
 <blockquote>
-<p>響應示例</p>
+<p>Response Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
     <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -3226,40 +3247,40 @@ ACCOUNT_STATUS_UNSPECIFIED -- 不正常 </p>
     <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>規則：子賬號暫不支持充值
+<p>Rules: Sub-account can not deposit
 </p>
 
-<p class="fake_header">HTTP 請求</p>
+<p class="fake_header">HTTP Request</p>
 
 <p>GET
 <code><span id=pdaddr>/asset/v1/private/deposit/address</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pdaddr"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
-<p class="fake_header">請求參數</p>
+<p class="fake_header">Request Parameters</p>
 
 <table><thead>
 <tr>
-<th style="text-align: left">參數</th>
-<th style="text-align: left">是否必須</th>
-<th style="text-align: left">類型</th>
-<th>說明</th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>幣種</td>
+<td>Coin</td>
 </tr>
 </tbody></table>
 
-<p class="fake_header">返回參數</p>
+<p class="fake_header">Response Parameters</p>
 
 <table><thead>
 <tr>
-<th style="text-align: left">參數</th>
-<th style="text-align: left">類型</th>
-<th>說明</th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
 </tr>
 </thead><tbody>
 <tr>
@@ -3270,7 +3291,7 @@ ACCOUNT_STATUS_UNSPECIFIED -- 不正常 </p>
 <tr>
 <td style="text-align: left">coin</td>
 <td style="text-align: left">string</td>
-<td>幣種</td>
+<td>Coin</td>
 </tr>
 <tr>
 <td style="text-align: left">chains</td>
@@ -3280,29 +3301,29 @@ ACCOUNT_STATUS_UNSPECIFIED -- 不正常 </p>
 <tr>
 <td style="text-align: left">chain_type</td>
 <td style="text-align: left">string</td>
-<td>鏈名</td>
+<td>chain type</td>
 </tr>
 <tr>
 <td style="text-align: left">address_deposit</td>
 <td style="text-align: left">string</td>
-<td>充值地址</td>
+<td>deposit address</td>
 </tr>
 <tr>
 <td style="text-align: left">tag_deposit</td>
 <td style="text-align: left">string</td>
-<td>充值tag</td>
+<td>deposit tag</td>
 </tr>
 <tr>
 <td style="text-align: left">chain</td>
 <td style="text-align: left">string</td>
-<td>鏈名</td>
+<td>chain name</td>
 </tr>
 </tbody></table>
-<h1 id='t-api'>通用數據接口</h1>
-<p>通用數據接口不需要鑒權。</p>
-<h3 id='t-servertime'>服務器時間</h3>
+<h1 id='t-api'>API Data Endpoints</h1>
+<p>The following API data endpoints do not require authentication.</p>
+<h3 id='t-servertime'>Server Time</h3>
 <blockquote>
-<p>請求示例</p>
+<p>Request Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/v2/public/time
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">inverse_perpetual</span>
@@ -3312,7 +3333,7 @@ ACCOUNT_STATUS_UNSPECIFIED -- 不正常 </p>
 <span class="k">print</span><span class="p">(</span><span class="n">session_unauth</span><span class="p">.</span><span class="n">server_time</span><span class="p">())</span>  
 </code></pre></div>
 <blockquote>
-<p>響應示例</p>
+<p>Response Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
     <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -3323,28 +3344,28 @@ ACCOUNT_STATUS_UNSPECIFIED -- 不正常 </p>
     <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1577444332.192859</span><span class="dl">"</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>獲取Bybit服務器時間</p>
+<p>Get Bybit server time.</p>
 
-<p class="fake_header">HTTP 請求</p>
+<p class="fake_header">HTTP Request</p>
 
 <p>GET
 <code><span id=vpTime>/v2/public/time</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpTime"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
-<p class="fake_header">請求參數</p>
+<p class="fake_header">Request Parameters</p>
 
 <table><thead>
 <tr>
-<th style="text-align: left">參數</th>
-<th style="text-align: left">是否必須</th>
-<th style="text-align: left">類型</th>
-<th>說明</th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
 </tr>
 </thead><tbody>
 </tbody></table>
-<h3 id='t-announcement'>公告</h3>
+<h3 id='t-announcement'>Announcement</h3>
 <blockquote>
-<p>請求示例</p>
+<p>Request Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/v2/public/announcement
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">inverse_perpetual</span>
@@ -3354,7 +3375,7 @@ ACCOUNT_STATUS_UNSPECIFIED -- 不正常 </p>
 <span class="k">print</span><span class="p">(</span><span class="n">session_unauth</span><span class="p">.</span><span class="n">announcement</span><span class="p">())</span>  
 </code></pre></div>
 <blockquote>
-<p>響應示例</p>
+<p>Response Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
     <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -3373,58 +3394,93 @@ ACCOUNT_STATUS_UNSPECIFIED -- 不正常 </p>
     <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1577444818.227082</span><span class="dl">"</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>獲取Bybit最近30天OpenAPI公告（時間倒敘排列）</p>
+<p>Get Bybit OpenAPI announcements in the last 30 days in reverse order.</p>
 
-<p class="fake_header">HTTP 請求</p>
+<p class="fake_header">HTTP Request</p>
 
 <p>GET
 <code><span id=vpAnnouncement>/v2/public/announcement</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpAnnouncement"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
-<p class="fake_header">請求參數</p>
+<p class="fake_header">Request Parameters</p>
 
 <table><thead>
 <tr>
-<th style="text-align: left">參數</th>
-<th style="text-align: left">是否必須</th>
-<th style="text-align: left">類型</th>
-<th>說明</th>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
 </tr>
 </thead><tbody>
 </tbody></table>
-<h1 id='t-ratelimits'>頻率限製</h1><h3 id='t-ipratelimits'>IP頻率限製</h3>
-<p><p>IP 限制在所有接口之間共享：期貨、現貨和賬戶資產。</p>
-<p>Bybit根據請求方式有不同的IP頻率限制。 我們不建議您在這些限制的邊緣運行您的應用程序，以防異常的網絡活動導致意外違規。</p>
+<h1 id='t-ratelimits'>Rate Limits</h1>
+<aside class="notice">
+There are two types of rate limit: <a href="#t-ipratelimits">IP rate limit</a> (measured per second) and <a href="#t-understandingratelimits">API rate limit</a> (measured per minute). The IP rate limit will count all of your requests and the API rate limit will only count your authenticated requests.
+
+</aside>
+<h2 id='t-ipratelimits'>IP Rate Limit</h2>
+<p><aside class="warning">
+If you receive an <b>HTTP 403</b> (Access Denied) response, your IP has been either temporarily or permanently banned. <b>You should immediately review the below guidelines to ensure your application does not continue to violate the limit.</b> If you are still banned after 30 minutes, you likely have a permanent ban.
+</aside>
+<p>Bybit has different IP frequency limits depending on the request method. We do not recommend running your application at the very edge of these limits in case abnormal network activity results in an unexpected violation.</p>
 <ul>
 <li>
-  <code>GET</code> & <code>DELETE</code> 方法 (共享):
+  <code>GET</code> & <code>DELETE</code> methods (shared):
   <ul>
-    <li>連續 2 分鐘內每秒不超過 12 個請求</li>
-    <li>連續 5 秒內每秒不超過 18 個請求</li>
+    <li>50 requests per second for 2 consecutive minutes</li>
+    <li>70 requests per second for 5 consecutive seconds</li>
   </ul>
 </li>
 <li>
-  <code>POST</code> 方法:
+  <code>POST</code> method:
   <ul>
-    <li>連續 2 分鐘內每秒不超過 10 個請求</li>
-    <li>連續 5 秒內每秒不超過 15 個請求</li>
+    <li>20 requests per second for 2 consecutive minutes</li>
+    <li>50 requests per second for 5 consecutive seconds</li>
   </ul>
 </li>
 </ul>
+<p>This table shows how there are different IP rate limit counters depending on the API you are using.</p>
+<table class="custom_table">
+  <tr>
+    <th>IP rate limit</th>
+    <th>API</th>
+    <th>Path</th>
+  </tr>
+  <tr>
+    <td rowspan="5">2mins 50/s;<br>5s 70/s</td>
+    <tr><td>Inverse Perpetual</td><td>/v2</td>
+    <tr><td>Inverse Futures</td><td>/futures</td>
+    <tr><td>Linear Perpetual</td><td>/public, /private</td>
+    <tr><td>Account Asset</td><td>/asset</td>
+  </tr>
+  <tr>
+    <td rowspan="2">2mins 50/s;<br>5s 70/s</td>
+    <tr><td>Spot</td><td>/spot</td>
+  </tr>
+  <tr>
+    <td rowspan="3">2mins 50/s;<br>5s 70/s</td>
+    <tr><td>USDC Options</td><td>/option</td>
+    <tr><td>USDC Perpetual</td><td>/perpetual</td>
+  </tr>
+</table>
+<p>After violating the limit your IP will be banned for a set period of time (usually 30 minutes). Continually violating the limit will result in a permanent ban. We cannot undo permanent bans or shorten temporary bans.</p>
 </p>
-<h2 id='t-understandingratelimits'>賬戶頻率限製</h2>
-<p>Bybit基於<b>每分鐘</b>的滾動時間窗口來做頻率限製，並且是按<b>賬戶</b>（uid）和交易對（symbol）來做劃分限製，每次請求API響應中都會包含如下字段：
+<h2 id='t-understandingratelimits'>API Rate Limit</h2>
+<p><aside class="warning">
+If you receive <a href="#10006"><code><b>"ret_msg": "Too many visits!"</b></code></a> in the JSON response, you have hit the API rate limit. The rate limit resets 60 seconds after your first request.
+</aside>
+<p>The API rate limit is based on <b>the rolling time window per minute and UID, and each symbol is independent</b>. In other words, it's per minute per UID per symbol. Every request to the API returns the fields shown in the code panel:</p>
 </p>
 
 <aside class="notice">
-充值與提現接口頻率限製和現貨劃轉相關接口頻率限製是分開計算的。
+The rate limits for the Withdraw and Deposit Endpoints and Rate Limits For Transfer Endpoints are separate.
 </aside>
-<h3 id='t-perendpointtransfer'>現貨劃轉接口的頻率限製</h3>
+<h3 id='t-perendpointtransfer'>Rate Limits For Transfer Endpoints</h3>
 <table class="custom_table">
     <tr>
-        <th>頻率限製</th>
-        <th>請求路徑</th>
-        <th>消耗</th>
+        <th>Limit</th>
+        <th>Path</th>
+        <th>Consume</th>
     </tr>
     <tr>
         <td rowspan="1">20/min</td>
@@ -3452,12 +3508,12 @@ ACCOUNT_STATUS_UNSPECIFIED -- 不正常 </p>
         <td>1 / request</td>
     </tr>
 </table>
-<h3 id='t-perendpointdepositwithdraw'>提現與充值接口的頻率限製</h3>
+<h3 id='t-perendpointdepositwithdraw'>Rate Limits For Withdraw and Deposit Endpoints</h3>
 <table class="custom_table">
     <tr>
-        <th>頻率限製</th>
-        <th>請求路徑</th>
-        <th>消耗</th>
+        <th>Limit</th>
+        <th>Path</th>
+        <th>Consume</th>
     </tr>
     <tr>
         <td rowspan="1">3/min</td>
@@ -3493,25 +3549,25 @@ ACCOUNT_STATUS_UNSPECIFIED -- 不正常 </p>
         <td>1 / request</td>
     </tr>
 </table>
-<h1 id='t-enums'>枚舉定義</h1>
-<p>以下是各個接口請求參數或返回結果中定義的枚舉。</p>
+<h1 id='t-enums'>Enums Definitions</h1>
+<p>The following lists enumerator names for the request and response parameters of each endpoint.</p>
 <h2 id='account-type-from_account_type-to_account_type'>Account type (<code>from_account_type</code>/<code>to_account_type</code>)</h2>
 <ul>
-<li><code>CONTRACT</code>  期貨賬戶</li>
-<li><code>SPOT</code>      現貨賬戶</li>
-<li><code>INVESTMENT</code> 理財賬戶</li>
+<li><code>CONTRACT</code>  </li>
+<li><code>SPOT</code>      </li>
+<li><code>INVESTMENT</code> - ByFi Account</li>
 <li><code>OPTION</code> - USDC Account</li>
-<li><code>UNIFIED</code> 統一保證金帳戶</li>
+<li><code>UNIFIED</code> </li>
 </ul>
 <h2 id='withdraw-status-status'>Withdraw status(<code>status</code>)</h2>
 <ul>
-<li><code>SecurityCheck</code> 安全檢查</li>
-<li><code>Pending</code> 進行中</li>
-<li><code>success</code> 成功</li>
-<li><code>CancelByUser</code> 用戶自行取消</li>
-<li><code>Reject</code> 駁回</li>
-<li><code>Fail</code> 失敗</li>
-<li><code>BlockchainConfirmed</code> 區塊鏈已確認</li>
+<li><code>SecurityCheck</code> </li>
+<li><code>Pending</code> </li>
+<li><code>success</code> </li>
+<li><code>CancelByUser</code> </li>
+<li><code>Reject</code> </li>
+<li><code>Fail</code> </li>
+<li><code>BlockchainConfirmed</code> </li>
 </ul>
 <h2 id='currency-currency-coin'>Currency (<code>currency</code>/<code>coin</code>)</h2>
 <ul>
@@ -3535,8 +3591,8 @@ ACCOUNT_STATUS_UNSPECIFIED -- 不正常 </p>
 </ul>
 <h2 id='transfer-type-type'>Transfer type (<code>type</code>)</h2>
 <ul>
-<li><code>IN</code> 從主賬戶轉入到子賬戶</li>
-<li><code>OUT</code> 從子賬戶轉出到主賬戶</li>
+<li><code>IN</code> transfer from main account to subaccount</li>
+<li><code>OUT</code> transfer from subaccount to main account</li>
 </ul>
 <h2 id='transfer-status-status'>Transfer status (<code>status</code>)</h2>
 <ul>
@@ -3549,120 +3605,120 @@ ACCOUNT_STATUS_UNSPECIFIED -- 不正常 </p>
 <li><code>Prev</code></li>
 <li><code>Next</code></li>
 </ul>
-<h1 id='t-errors'>錯誤碼</h1>
-<p>Bybit使用以下HTTP Code和錯誤碼：</p>
+<h1 id='t-errors'>Errors</h1>
+<p>The Bybit API uses the following HTTP codes and error codes<span>:</span></p>
 
 <table><thead>
 <tr>
 <th>HTTP Code</th>
-<th>含義</th>
+<th>Meaning</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>200</td>
-<td>請求有效</td>
+<td>Request is valid</td>
 </tr>
 <tr>
 <td>403</td>
-<td>拒絕訪問</td>
+<td>Access denied</td>
 </tr>
 <tr>
 <td>404</td>
-<td>訪問路徑不存在</td>
+<td>Request path not found</td>
 </tr>
 </tbody></table>
 <h2 id='0'>0</h2>
-<p>成功</p>
+<p>SUCCESS</p>
 <h2 id='10001'>10001</h2>
-<p>參數錯誤</p>
+<p>Parameter error</p>
 <h2 id='10016'>10016</h2>
-<p>服務不可用</p>
+<p>service is not available</p>
 <h2 id='38000'>38000</h2>
-<p>處理中</p>
+<p>Processing</p>
 <h2 id='38001'>38001</h2>
-<p>可用余額不足</p>
+<p>Insufficient available balance</p>
 <h2 id='38002'>38002</h2>
-<p>無法劃轉</p>
+<p>Unable to transfer</p>
 <h2 id='90001'>90001</h2>
-<p>劃轉金額少於0</p>
+<p>The transfer amount is less than 0</p>
 <h2 id='90002'>90002</h2>
-<p>劃轉金額精度大於8</p>
+<p>The transfer amount accuracy is greater than 8</p>
 <h2 id='90003'>90003</h2>
-<p>轉賬錯誤，請聯系客服</p>
+<p>Transfer error, please contact customer service (upper limit of transfer amount exceeded. please refer to <a href="https://help.bybit.com/hc/en-us/articles/4411635457177-Over-the-counter-OTC-Lending">Over the counter (OTC) Lending</a>)</p>
 <h2 id='90004'>90004</h2>
-<p>賬戶沒發現</p>
+<p>Account not found</p>
 <h2 id='90005'>90005</h2>
-<p>查詢余額錯誤</p>
+<p>Check balance error</p>
 <h2 id='90006'>90006</h2>
-<p>查詢劃轉錯誤</p>
+<p>Query transfer error</p>
 <h2 id='90007'>90007</h2>
-<p>查詢子賬戶劃轉錯誤</p>
+<p>Query sub-account transfer error</p>
 <h2 id='90008'>90008</h2>
-<p>查詢劃轉ID錯誤</p>
+<p>Query transfer ID error</p>
 <h2 id='90009'>90009</h2>
-<p>劃轉ID已存在</p>
+<p>Transfer ID already exists</p>
 <h2 id='90010'>90010</h2>
-<p>轉入賬戶類型不能作為轉出賬戶類型</p>
+<p>The transfer-in account type cannot be used as the transfer-out account type</p>
 <h2 id='90011'>90011</h2>
-<p>獲取子賬戶列表失敗</p>
+<p>Failed to get the list of subaccounts</p>
 <h2 id='90012'>90012</h2>
-<p>查詢提現記錄錯誤</p>
+<p>Query withdrawal record error</p>
 <h2 id='90013'>90013</h2>
-<p>查詢充值記錄錯誤</p>
+<p>Query recharge record error</p>
 <h2 id='90014'>90014</h2>
-<p>暫不支持子賬號</p>
+<p>Not support subaccounts temporarily</p>
 <h2 id='90015'>90015</h2>
-<p>該幣種不能充值</p>
+<p>This currency cannot be topped up</p>
 <h2 id='90016'>90016</h2>
-<p>充值链查询错误</p>
+<p>Recharge chain query error</p>
 <h2 id='90029'>90029</h2>
-<p>灰度期用戶不在白名單</p>
+<p>Users in the gray period are not on the whitelist</p>
 <h2 id='90030'>90030</h2>
-<p>提幣地址不在白名單</p>
+<p>The withdrawal address is not in the whitelist</p>
 <h2 id='90031'>90031</h2>
-<p>用戶狀態異常</p>
+<p>User status is abnormal</p>
 <h2 id='90032'>90032</h2>
-<p>用戶敏感操作，24小時內禁止提現</p>
+<p>User sensitive operation, withdrawal is prohibited within 24 hours</p>
 <h2 id='90033'>90033</h2>
-<p>系統正在維護</p>
+<p>The system is under maintenance</p>
 <h2 id='90034'>90034</h2>
-<p>該幣種提幣已關閉</p>
+<p>Withdrawal of this currency has been closed</p>
 <h2 id='90035'>90035</h2>
-<p>提幣金額小於單筆提幣下限</p>
+<p>The withdrawal amount is less than the lower limit of a single withdrawal</p>
 <h2 id='90036'>90036</h2>
-<p>提幣金額大於單筆提幣上限</p>
+<p>The withdrawal amount is greater than the upper limit of a single withdrawal</p>
 <h2 id='90037'>90037</h2>
-<p>超出平台當天提現額度上限</p>
+<p>Exceeded the upper limit of the platform's withdrawal limit on the day</p>
 <h2 id='90038'>90038</h2>
-<p>超過kyc限額</p>
+<p>Kyc limit exceeded</p>
 <h2 id='90039'>90039</h2>
-<p>現貨做市商提現超額</p>
+<p>Spot market makers withdraw excess cash</p>
 <h2 id='90040'>90040</h2>
-<p>提現正在處理中</p>
+<p>Withdrawal is being processed</p>
 <h2 id='90041'>90041</h2>
-<p>現貨賬戶不存在</p>
+<p>Spot account does not exist</p>
 <h2 id='90042'>90042</h2>
-<p>現貨賬戶可用餘額不足</p>
+<p>Insufficient available balance in spot account</p>
 <h2 id='90043'>90043</h2>
-<p>合約賬戶可用餘額不足</p>
+<p>Insufficient available balance in contract account</p>
 <h2 id='90044'>90044</h2>
-<p>提現失敗</p>
+<p>Withdrawal failed</p>
 <h2 id='90045'>90045</h2>
-<p>提現記錄不存在</p>
+<p>The withdrawal record does not exist</p>
 <h2 id='90046'>90046</h2>
-<p>提現發起者不一致</p>
+<p>The withdrawal initiator is inconsistent</p>
 <h2 id='90047'>90047</h2>
-<p>提現熱錢包狀態不允許取消</p>
+<p>Hot wallet status cannot be cancelled</p>
 <h2 id='90048'>90048</h2>
-<p>提現狀態不允許取消</p>
+<p>The withdrawal status does not allow cancellation</p>
 <h2 id='90049'>90049</h2>
-<p>撤銷提現加錢失敗</p>
+<p>Failed to cancel withdrawal and add money</p>
 <h2 id='90050'>90050</h2>
-<p>封禁登錄狀態不允許提現</p>
+<p>Blocked login status does not allow withdrawals</p>
 <h2 id='90051'>90051</h2>
-<p>用戶提現被封禁</p>
+<p>User withdrawal is blocked</p>
 <h2 id='90052'>90052</h2>
-<p>重放請求拒絕</p>
+<p>Replay request denied</p>
 
       </div>
       <div class="dark-box">

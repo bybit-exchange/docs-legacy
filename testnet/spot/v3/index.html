@@ -704,8 +704,20 @@
 
         <!-- Spot -->
 
+        <!-- Account asset V3(asset v1, asset v3) -->
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn">Account Asset
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="/docs/testnet/account_asset/v3" >v3</a>
+                    <a href="/docs/testnet/account_asset/v1" >v1</a>
+                </div>
+              </div>
+            </li>
+
         <!-- Account Asset -->
-          	<li><a href="/docs/testnet/account_asset">Account Asset</a></li>
 
         <!-- Copy Trading -->
           	<li><a href="/docs/testnet/copy_trading">Copy Trading</a></li>
@@ -735,6 +747,10 @@
               <!-- it's for spot mainnet switch to spot v1 testnet -->
 
               <!-- it's for spot v1 testnet switch to spot mainnet -->
+
+              <!-- it's for asset mainnet switch to asset v1 testnet -->
+
+              <!-- it's for asset v1 testnet switch to asset mainnet -->
 
             </div>
           </div>
@@ -1383,7 +1399,7 @@ param_str =
 <span class="s">    "orderLinkId": "spotA0008"</span>
 <span class="s">}'</span>
 </code></pre></div>
-<p><p>3. Append the sign parameter to the end of the parameters string, and send the HTTP request. Note that the message format for GET and POST requests is different. Please refer to the examples.</p></p>
+<p><p>3. Append the sign parameter to request header, and send the HTTP request. Note that the message format for GET and POST requests is different. Please refer to the examples.</p></p>
 
 <aside class="notice">
 Examples of signing algorithms can be found <a href="https://github.com/bybit-exchange/api-usage-examples">here</a>.

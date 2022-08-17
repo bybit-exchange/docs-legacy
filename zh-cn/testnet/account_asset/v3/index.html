@@ -1,0 +1,2038 @@
+
+<!doctype html>
+<html>
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158616893-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-158616893-1');
+    </script>
+
+    <link href="../../../../images/favicon-014c3ae6.ico" rel="icon" type="image/ico" />
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Bybit API Docs</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .nn {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .nl {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .ni {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .bp {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .vg {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .vi {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .w {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+      header.top-nav {
+        position:fixed;
+        display:flex;
+        flex:1;
+        width:100%;
+        z-index:100;
+        background: #333;
+        padding: 0 26px;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+        align-items: center;
+      }
+      div.top-menu{
+        display:flex;
+        flex: 1;
+      }
+      a.logo-link{
+        line-height: 50px;
+      }
+      img.logo {
+        width: 161px;
+        height: 40px;
+        vertical-align: middle;
+      }
+      .con {
+          display: flex;
+          top: 0;
+          height: 55px;
+          margin: 0 0 0 62px;
+          padding: 0;
+          list-style: none;
+          text-align: center;
+      }
+
+      .con li{
+          text-align: center;
+          line-height: 55px;
+          border:0 solid #000;
+          -webkit-box-sizing: border-box;
+                  box-sizing: border-box;
+      }
+
+      .con a {
+        display: inline-block;
+        color: #B0B8DB;
+        font-size: 15px;
+        text-decoration: none;
+        line-height: 23px;
+        padding: 0 20px;
+        vertical-align: middle;
+        -webkit-transform: translate(0, -3px);
+                transform: translate(0, -3px);
+      }
+
+      .con a.selected {
+        border-bottom: 2px solid transparent;
+        border-color: #FFB11A;
+        color: #fff;
+      }
+
+      a.international {
+        display: block;
+        height: 27px;
+        line-height: 27px;
+        text-align: center;
+        color: #fff;
+        text-decoration: none;
+        border: 1px solid #383F66;
+        padding: 0 20px;
+        color: #F0B90B;
+        word-break: keep-all;
+      }
+
+      /* Environment dropdown list */
+      /* The dropdown container */
+      .dropdown {
+        float: left;
+        overflow: hidden;
+      }
+
+      /* Dropdown button */
+      .dropdown .dropbtn {
+        background-color: inherit;
+        display: inline-block;
+        color: #B0B8DB;
+        font-size: 15px;
+        text-decoration: none;
+        line-height: 23px;
+        padding: 0 20px;
+        border: none;
+        background: none;
+        vertical-align: middle;
+        -webkit-transform: translate(0, -3px);
+                transform: translate(0, -3px);
+
+      }
+
+      /* Add a red background color to navbar links on hover */
+      a:hover, .dropdown:hover .dropbtn {
+        background-color: inherit;
+      }
+
+      /* Dropdown content (hidden by default) */
+      .dropdown-content {
+        color: #B0B8DB;
+        background: #333;
+        font-size: 15px;
+        text-decoration: none;
+        line-height: 53px;
+        padding: 0;
+        display: none;
+        position: relative;
+        -webkit-box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 0;
+      }
+
+      /* Links inside the dropdown */
+      .dropdown-content a {
+        color: #B0B8DB;
+        font-size: 15px;
+        text-decoration: none;
+        line-height: 53px;
+        padding: 0 10px;
+        display: block;
+        text-align: left;
+      }
+
+      /* Highlights the currently selected dropdown link */
+      .dropdown-content-selected {
+        display: block;
+        /*color: #696e83;*/
+        background-color: #474747;
+      }
+
+      /* Add a grey background color to dropdown links on hover */
+      .dropdown-content a:hover {
+        background-color: #5b5b5b;
+      }
+
+      /* Show the dropdown menu on hover */
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="../../../../stylesheets/screen-995a21da.css" rel="stylesheet" media="screen" />
+    <link href="../../../../stylesheets/print-41ffbffc.css" rel="stylesheet" media="print" />
+      <script src="../../../../javascripts/all-52d563e0.js"></script>
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
+  </head>
+
+
+
+  <!-- Navigation bar START -->
+  <header class="top-nav">
+    <div class="top-menu">
+        <a href="https://bybit-exchange.github.io/docs/account_asset/v3" class="logo-link" target="_self">
+          <img src="../../../../images/logo-aed6448d.svg" class="logo" alt="" />
+        </a>
+
+      <ul class="con">
+
+        <!-- Derivatives V3 -->
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn">衍生品v3
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="/docs/zh-cn/testnet/derivativesV3/unified_margin" >統一保證金</a>
+                    <a href="/docs/zh-cn/testnet/derivativesV3/contract" >合約</a>
+                </div>
+              </div>
+            </li>
+
+        <!-- Futures V2(USDT perp, Inverse Perp, Inverse Futures) -->
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn">期货v2
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="/docs/zh-cn/testnet/futuresV2/inverse" >反向永續</a>
+                    <a href="/docs/zh-cn/testnet/futuresV2/linear" >USDT永續</a>
+                    <a href="/docs/zh-cn/testnet/futuresV2/inverse_futures" >反向交割</a>
+                </div>
+              </div>
+            </li>
+
+        <!-- Inverse Perpetual -->
+
+
+        <!-- USDT Perpetual -->
+
+        <!-- Inverse Futures -->
+
+        <!-- Spot V3(Spot v1, Spot v3) -->
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn">現貨
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="/docs/zh-cn/testnet/spot/v3" >v3</a>
+                    <a href="/docs/zh-cn/testnet/spot/v1" >v1</a>
+                </div>
+              </div>
+            </li>
+
+        <!-- Spot -->
+
+        <!-- Account asset V3(asset v1, asset v3) -->
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn">賬戶資產
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="/docs/zh-cn/testnet/account_asset/v3" >v3</a>
+                    <a href="/docs/zh-cn/testnet/account_asset/v1" >v1</a>
+                </div>
+              </div>
+            </li>
+
+        <!-- Account Asset -->
+
+        <!-- Copy Trading -->
+          	<li><a href="/docs/zh-cn/testnet/copy_trading">跟單交易</a></li>
+
+        <!-- USDC dropdown (Options, Perpetual) -->
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">USDC合約
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                  <a href="/docs/zh-cn/testnet/usdc/option" >Option</a>
+                  <a href="/docs/zh-cn/testnet/usdc/perpetual">Perpetual</a>
+              </div>
+            </div>
+          </li>
+
+        <!-- Environment dropdown (Testnet, Mainnet) -->
+        <!-- It's very long because each button needs its own logic to link to testnet or mainnet depending on if the website is on testnet or mainnet. -->
+        <li>
+          <div class="dropdown">
+            <button class="dropbtn">Environment
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+
+              <!-- it's for spot mainnet switch to spot v1 testnet -->
+
+              <!-- it's for spot v1 testnet switch to spot mainnet -->
+
+              <!-- it's for asset mainnet switch to asset v1 testnet -->
+
+              <!-- it's for asset v1 testnet switch to asset mainnet -->
+
+            </div>
+          </div>
+        </li>
+      </ul>
+
+    </div>
+    <a class="international" id="international" href="javascript:void(0);">English</a>
+  </header>
+  <!-- Navigation bar END -->
+
+
+
+  <body class="zh-cn zh-cn_testnet zh-cn_testnet_account_asset zh-cn_testnet_account_asset_v3 zh-cn_testnet_account_asset_v3_index" data-languages="[&quot;console&quot;,&quot;python--pybit&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../../../../images/navbar-cad8cdcb.png" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+        <div class="lang-selector">
+              <a href="#" data-language-name="console">console</a>
+              <a href="#" data-language-name="python--pybit">python</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="搜索">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#t-introduction" class="toc-h1 toc-link" data-title="中文社區和參考資料">中文社區和參考資料</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-resources" class="toc-h2 toc-link" data-title="中文社區和參考資料">中文社區和參考資料</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#t-authentication" class="toc-h1 toc-link" data-title="鑒權/認證">鑒權/認證</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-authenticationparameters" class="toc-h2 toc-link" data-title="公共參數">公共參數</a>
+                  </li>
+                  <li>
+                    <a href="#t-constructingtherequest" class="toc-h2 toc-link" data-title="構建請求">構建請求</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#t-withdraw_and_deposit" class="toc-h1 toc-link" data-title="充值與提現接口">充值與提現接口</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-allowdepositlist" class="toc-h2 toc-link" data-title="支持的充值列表查詢接口">支持的充值列表查詢接口</a>
+                  </li>
+                  <li>
+                    <a href="#t-depositsrecordquery" class="toc-h2 toc-link" data-title="充值記錄查詢">充值記錄查詢</a>
+                  </li>
+                  <li>
+                    <a href="#t-withdrawrecordquery" class="toc-h2 toc-link" data-title="提現記錄查詢">提現記錄查詢</a>
+                  </li>
+                  <li>
+                    <a href="#t-withdraw_info" class="toc-h2 toc-link" data-title="提現">提現</a>
+                  </li>
+                  <li>
+                    <a href="#t-cancel_withdraw" class="toc-h2 toc-link" data-title="撤銷提幣">撤銷提幣</a>
+                  </li>
+                  <li>
+                    <a href="#t-deposit_addr_info" class="toc-h2 toc-link" data-title="充值地址信息查詢">充值地址信息查詢</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#t-api" class="toc-h1 toc-link" data-title="通用數據接口">通用數據接口</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-servertime" class="toc-h2 toc-link" data-title="服務器時間">服務器時間</a>
+                  </li>
+                  <li>
+                    <a href="#t-announcement" class="toc-h2 toc-link" data-title="公告">公告</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#t-ratelimits" class="toc-h1 toc-link" data-title="頻率限製">頻率限製</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-ipratelimits" class="toc-h2 toc-link" data-title="IP頻率限製">IP頻率限製</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#t-enums" class="toc-h1 toc-link" data-title="枚舉定義">枚舉定義</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#account-type-from_account_type-to_account_type" class="toc-h2 toc-link" data-title="Account type (from_account_type/to_account_type)">Account type (<code>from_account_type</code>/<code>to_account_type</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#withdraw-status-status" class="toc-h2 toc-link" data-title="Withdraw status(status)">Withdraw status(<code>status</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#currency-currency-coin" class="toc-h2 toc-link" data-title="Currency (currency/coin)">Currency (<code>currency</code>/<code>coin</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#operator-type" class="toc-h2 toc-link" data-title="Operator type">Operator type</a>
+                  </li>
+                  <li>
+                    <a href="#transfer-type-type" class="toc-h2 toc-link" data-title="Transfer type (type)">Transfer type (<code>type</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#transfer-status-status" class="toc-h2 toc-link" data-title="Transfer status (status)">Transfer status (<code>status</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#page-direction-direction" class="toc-h2 toc-link" data-title="Page direction (direction)">Page direction (<code>direction</code>)</a>
+                  </li>
+              </ul>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <!---
+Clipboard script
+-->
+
+<script src="../../../dist/clipboard.min-f99f064d.js"></script>
+
+<script>
+var clipboard = new ClipboardJS('.clipboard_button');
+
+clipboard.on('success', function(e) {
+    console.log(e);
+});
+
+clipboard.on('error', function(e) {
+    console.log(e);
+});
+</script>
+<h1 id='t-introduction'>中文社區和參考資料</h1>
+<p><p>歡迎使用 <a href="https://www.bybit.com/">Bybit</a> APIs 和 Websocket官方文檔！</p> <p>如果您在使用API的過程中遇到問題需要幫助，請加入我們的 <a href="https://t.me/Bybitapi">官方Telegram API討論群</a>！</p></p>
+<h3 id='t-resources'>中文社區和參考資料</h3>
+<p><ul class="bybit-community"> <li><img src="../../../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/zh-TW/help-center/?language=zh_TW"><strong>幫助中心</strong></a> - <strong>在這裏了解合約交易</strong> <li><img src="../../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>官方Python SDK</strong> <li><img src="../../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman接口集合</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文討論群</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文討論群</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong> <li><img src="../../../../images/survey_ico-bd03a90c.png" height="14", width="14"> <a href="https://forms.gle/ZfCKRTVen1VExj478"><strong>Bybit Open API 的調研問卷</strong></a> - <strong>希望您能用 5 分鐘的時間填寫 Bybit Open API 的調研問卷</strong> </ul></p>
+<h1 id='t-authentication'>鑒權/認證</h1>
+<aside class="notice">
+請先生成<a href="https://testnet.bybit.com/app/user/api-management"><b>測試網</b></a> 或 <a href="https://www.bybit.com/app/user/api-management"<b>主網</b></a>API KEY。
+</aside>
+
+<aside class="notice">
+REST接口根URL:
+<ul>
+<p>
+  <li>測試網:<br/>
+    <span id="testnet">https://api-testnet.bybit.com</span>
+    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+  </li>
+</p>
+<p>
+  <li>主網(請根據您的網絡情況選擇以下任意一個地址使用):<br/>
+    <span id="mainnet_1">https://api.bybit.com</span>
+    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_1"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+    <br/>
+    <span id="mainnet_2">https://api.bytick.com</span>
+    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_2"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+  </li>
+</p>
+</ul>
+
+</aside>
+
+<p><p>所有<b>private</b>接口都需要認證，<b>public</b> 接口不需要認證。</p></p>
+<h2 id='t-authenticationparameters'>公共參數</h2>
+<p>需要簽名的接口必須包含以下參數:
+<ul>
+  <li><b>api_key</b></li>
+  <li><b>timestamp</b> - UTC<b>毫秒</b>時間戳</li>
+  <li><b>sign</b> - 請求參數簽名</li>
+</ul>
+</p>
+
+<p>另外我們提供可選的<code>recv_window</code>參數（單位是毫秒，默認值為<code>5000</code>），來指定請求在多長時間內有效，同時用來防止重放攻擊。
+</p>
+
+<aside class="warning">
+註意，timestamp參數必須符合如下規則: <b>server_time - recv_window <= timestamp < server_time + 1000</b>，其中server_time是Bybit服務器時間，您可以通過<a href="#t-servertime">服務器時間接口</a>獲取。
+
+</aside>
+<h2 id='t-constructingtherequest'>構建請求</h2>
+<blockquote>
+<p>拼接參數示例（以獲取提現紀錄為例）</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="n">param_str</span> <span class="o">=</span> <span class="s">"1660633147433T0d98KyVamQ62YBzN85000startTime=1659283200000&amp;endTime=1660060800000&amp;coin=USDT"</span>
+
+<span class="c1"># timestamp: 1660633147433
+# api_key: T0d98KyVamQ62YBzN8
+# recv_window: 5000
+# startTime=1659283200000
+# endTime=1660060800000
+# coin=USDT
+</span></code></pre></div>
+<blockquote>
+<p>參數按照 <b>字母順序</b> 排列，然後計算<code>sign</code>。</p>
+</blockquote>
+
+<p><p>1. 時間戳 + api-key + [recv_window]+ [queryString(無需排序) | jsonBodyString]</p>
+
+<div></div></p>
+
+<p><p>2. 使用<code>HMAC_SHA256</code>算法對第1步中拼接的string簽名，並轉換為16進製字符串，得出<code>sign</code>參數。</p></p>
+
+<blockquote>
+<p><b>GET</b>請求格式（查詢提現紀錄）:
+</p>
+</blockquote>
+<div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">https://api-testnet.bybit.com/asset/v3/private/withdraw/record/query?startTime=1659283200000&amp;endTime=1660060800000&amp;coin=USDT</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api-testnet.bybit.com</span>
+<span class="s">-H 'X-BAPI-SIGN-TYPE: 2' \</span>
+<span class="s">-H 'X-BAPI-SIGN: eb431d99a1a203a434a82ac3ea8e107b5f94a967e9aaf922c41e84fb3ec9df78' \</span>
+<span class="s">-H 'X-BAPI-API-KEY: {api key}' \</span>
+<span class="s">-H 'X-BAPI-TIMESTAMP: 1658384431891' \</span>
+<span class="s">-H 'X-BAPI-RECV-WINDOW: 5000'</span>
+</code></pre></div>
+<blockquote>
+<p><b>POST</b>請求格式（提現）:
+</p>
+</blockquote>
+<div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/asset/v3/private/withdraw/create</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api-testnet.bybit.com</span>
+<span class="s">-H 'X-BAPI-SIGN-TYPE: 2' \</span>
+<span class="s">-H 'X-BAPI-SIGN: c822337e76e30505e41b87a55af291e074f59f9496ba12ca2a57dc04fe65a178' \</span>
+<span class="s">-H 'X-BAPI-API-KEY: {api key}' \</span>
+<span class="s">-H 'X-BAPI-TIMESTAMP: 1658385589135' \</span>
+<span class="s">-H 'X-BAPI-RECV-WINDOW: 5000' \</span>
+<span class="s">-H 'Content-Type: application/json' \</span>
+
+{
+    "coin": "USDT",
+    "chain": "ETH",
+    "address": "0x9ba58f56E420a00a23D3508Cf77fF268C8510A01",
+    "tag": null,
+    "amount": "20",
+    "timestamp": 1660620515481
+}
+</code></pre></div>
+<p><p>3. 將<code>sign</code>參數加到請求頭中即可；註意<code>GET</code>和<code>POST</code>請求參數格式不同，詳見右邊示例。</p></p>
+
+<aside class="notice">
+<a href="https://github.com/bybit-exchange/api-usage-examples">簽名計算示例</a>.
+</aside>
+<h1 id='t-withdraw_and_deposit'>充值與提現接口</h1>
+<p>以下現貨劃轉相關接口都需要鑒權.</p>
+<h3 id='t-allowdepositlist'>支持的充值列表查詢接口</h3>
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/public/deposit/allowed-deposit-list/query?coin=BTC&amp;chain=BTC'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">configList</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">chain</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">coinShowName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">chainType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">blockConfirmNumber</span><span class="dl">"</span><span class="p">:</span> <span class="mi">10000</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">minDepositAmount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0005</span><span class="dl">"</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+      <span class="dl">"</span><span class="s2">nextPageCursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">eyJwYWdlIjoyLCJsaW1pdCI6MX0=</span><span class="dl">"</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1660546221207</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>是一個公共接口。 coin和chain必須在輸入參數中配對出現。 否則，視為無條件查詢。</p>
+
+<p class="fake_header">HTTP 請求</p>
+
+<p>GET
+<code><span id=allowDepositList>/asset/v3/public/deposit/allowed-deposit-list/query</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#allowDepositList"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">coin</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>充值幣種. coin和chain必須在輸入參數中配對出現。 否則，視為無條件查詢。</td>
+</tr>
+<tr>
+<td style="text-align: left">chain</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>充值鏈名. coin和chain必須在輸入參數中配對出現。 否則，視為無條件查詢。</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>游標信息：用來分頁。 默認空
+</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">int</td>
+<td>每頁條數。0< limit <=50 默認為50
+</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">configList</td>
+<td style="text-align: left">Array</td>
+<td>Object</td>
+</tr>
+<tr>
+<td style="text-align: left">coin</td>
+<td style="text-align: left">string</td>
+<td>充值的幣種</td>
+</tr>
+<tr>
+<td style="text-align: left">chain</td>
+<td style="text-align: left">string</td>
+<td>鏈名</td>
+</tr>
+<tr>
+<td style="text-align: left">coinShowName</td>
+<td style="text-align: left">string</td>
+<td>Coin show name</td>
+</tr>
+<tr>
+<td style="text-align: left">chainType</td>
+<td style="text-align: left">string</td>
+<td>鏈名</td>
+</tr>
+<tr>
+<td style="text-align: left">blockConfirmNumber</td>
+<td style="text-align: left">int</td>
+<td>充值上賬確認數</td>
+</tr>
+<tr>
+<td style="text-align: left">minDepositAmount</td>
+<td style="text-align: left">string</td>
+<td>最低充值金額</td>
+</tr>
+<tr>
+<td style="text-align: left">nextPageCursor</td>
+<td style="text-align: left">string</td>
+<td>游標信息：用來分頁。 默認空
+</td>
+</tr>
+</tbody></table>
+<h3 id='t-depositsrecordquery'>充值記錄查詢</h3>
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/deposit/record/query?startTime=1659283200000&amp;endTime=1660060800000&amp;coin=USDT' \
+--header 'X-BAPI-SIGN: fc436a4643d3785bdab20748c64c7e9221da39dc5798b15536667732a7b1cf5c' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1660611015105' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'X-BAPI-SIGN: fc436a4643d3785bdab20748c64c7e9221da39dc5798b15536667732a7b1cf5c'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">rows</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">chain</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ETH</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">11133</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">txID</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">37fcf7893</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">toAddress</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">fake-address</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">tag</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">3844562</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">depositFee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">successAt</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1658902838000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">confirmations</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">txIndex</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">blockHash</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+      <span class="dl">"</span><span class="s2">nextPageCursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">eyJtaW5JRCI6NTM3MCwibWF4SUQiOjUzNzB9</span><span class="dl">"</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1660547423085</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>規則：只查詢現貨賬戶的充值記錄，按id倒序進行，開始時間和截止時間差最大限制為30天
+</p>
+
+<p class="fake_header">HTTP 請求</p>
+
+<p>GET
+<code><span id=pdrq>/asset/v3/private/deposit/record/query</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pdrq"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">startTime</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">int</td>
+<td>開始時間 (精確到毫秒)。  默認為當前時間之前30天
+</td>
+</tr>
+<tr>
+<td style="text-align: left">endTime</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">int</td>
+<td>結束時間 (精確到毫秒)。 默認為當前時間
+</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>幣種名：舉例，BTC。默認全部
+</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>游標信息：用來分頁。 默認空
+</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">int</td>
+<td>每頁條數。0< limit <=50 默認為50
+</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">rows</td>
+<td style="text-align: left">Array</td>
+<td>Object</td>
+</tr>
+<tr>
+<td style="text-align: left">coin</td>
+<td style="text-align: left">string</td>
+<td>充值的幣種</td>
+</tr>
+<tr>
+<td style="text-align: left">chain</td>
+<td style="text-align: left">string</td>
+<td>鏈名</td>
+</tr>
+<tr>
+<td style="text-align: left">amount</td>
+<td style="text-align: left">string</td>
+<td>充值的數量</td>
+</tr>
+<tr>
+<td style="text-align: left">txID</td>
+<td style="text-align: left">string</td>
+<td>交易ID。充值失敗/取消充值：為空
+</td>
+</tr>
+<tr>
+<td style="text-align: left">status</td>
+<td style="text-align: left">int</td>
+<td><p>0=未知<br>
+1=待確認 <br>
+2=上賬中 <br>
+3=已完成 <br>
+4=充值失敗 </p>
+</td>
+</tr>
+<tr>
+<td style="text-align: left">toAddress</td>
+<td style="text-align: left">string</td>
+<td>充值的目標地址</td>
+</tr>
+<tr>
+<td style="text-align: left">tag</td>
+<td style="text-align: left">string</td>
+<td>充值目標地址的tag</td>
+</tr>
+<tr>
+<td style="text-align: left">depositFee</td>
+<td style="text-align: left">string</td>
+<td>充值手續費</td>
+</tr>
+<tr>
+<td style="text-align: left">successAt</td>
+<td style="text-align: left">string</td>
+<td>最後更新時間</td>
+</tr>
+<tr>
+<td style="text-align: left">confirmations</td>
+<td style="text-align: left">string</td>
+<td>确认区块的数量</td>
+</tr>
+<tr>
+<td style="text-align: left">txIndex</td>
+<td style="text-align: left">string</td>
+<td>交易序列号</td>
+</tr>
+<tr>
+<td style="text-align: left">blockHash</td>
+<td style="text-align: left">string</td>
+<td>鏈上的哈希數</td>
+</tr>
+<tr>
+<td style="text-align: left">nextPageCursor</td>
+<td style="text-align: left">string</td>
+<td>游標信息：用來分頁
+</td>
+</tr>
+</tbody></table>
+<h3 id='t-withdrawrecordquery'>提現記錄查詢</h3>
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/withdraw/record/query?startTime=1659283200000&amp;endTime=1660060800000&amp;coin=USDT' \
+--header 'X-BAPI-SIGN: e1cff93188ab3a1905394cef79db371f63bf577b4061ec6f85676864f51638bf' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1660618971820' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'X-BAPI-SIGN: e1cff93188ab3a1905394cef79db371f63bf577b4061ec6f85676864f51638bf'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">rows</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">chain</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.02</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">txID</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SecurityCheck</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">toAddress</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">mikeNCEUBcbahMfLU7SDgo69UEqciC2D1w</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">tag</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">withdrawFee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0005</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">createTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1660038232000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">updateTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1660038233000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">withdrawId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">370037</span><span class="dl">"</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">chain</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.02</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">txID</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SecurityCheck</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">toAddress</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">mikeNCEUBcbahMfLU7SDgo69UEqciC2D1w</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">tag</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">withdrawFee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0005</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">createTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1660037115000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">updateTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1660037116000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">withdrawId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">370036</span><span class="dl">"</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+      <span class="dl">"</span><span class="s2">nextPageCursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">eyJtaW5JRCI6MzcwMDM2LCJtYXhJRCI6MzcwMDM3fQ==</span><span class="dl">"</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1660548434464</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>規則：按id倒序進行，開始時間和截止時間差最大限制為30天
+</p>
+
+<p class="fake_header">HTTP 請求</p>
+
+<p>GET
+<code><span id=pwrq>/asset/v3/private/withdraw/record/query</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pwrq"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">withdrawID</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">int64</td>
+<td>提現ID。 (提現API響應參數中的提現請求ID)</td>
+</tr>
+<tr>
+<td style="text-align: left">startTime</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">int</td>
+<td>開始時間 (精確到毫秒)。  默認為當前時間之前30天
+</td>
+</tr>
+<tr>
+<td style="text-align: left">endTime</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">int</td>
+<td>結束時間 (精確到毫秒)。 默認為當前時間
+</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>幣種名：舉例，BTC。默認全部
+</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>游標信息：用來分頁。 默認空
+</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">int</td>
+<td>每頁條數。0< limit <=50 默認為50
+</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">coin</td>
+<td style="text-align: left">string</td>
+<td>提現的幣種</td>
+</tr>
+<tr>
+<td style="text-align: left">chain</td>
+<td style="text-align: left">string</td>
+<td>鏈名</td>
+</tr>
+<tr>
+<td style="text-align: left">amount</td>
+<td style="text-align: left">string</td>
+<td>提現的數量</td>
+</tr>
+<tr>
+<td style="text-align: left">txID</td>
+<td style="text-align: left">string</td>
+<td>交易ID。提現失敗/提現撤銷：為空
+</td>
+</tr>
+<tr>
+<td style="text-align: left">status</td>
+<td style="text-align: left">string</td>
+<td><a href="#withdraw-status-status">提現狀態</a></td>
+</tr>
+<tr>
+<td style="text-align: left">toAddress</td>
+<td style="text-align: left">string</td>
+<td>提現目標地址</td>
+</tr>
+<tr>
+<td style="text-align: left">tag</td>
+<td style="text-align: left">string</td>
+<td>提現目標地址的tag</td>
+</tr>
+<tr>
+<td style="text-align: left">withdrawFee</td>
+<td style="text-align: left">string</td>
+<td>提現手續費</td>
+</tr>
+<tr>
+<td style="text-align: left">createTime</td>
+<td style="text-align: left">string</td>
+<td>發起提幣時間</td>
+</tr>
+<tr>
+<td style="text-align: left">updateTime</td>
+<td style="text-align: left">string</td>
+<td>提幣狀態更新時間</td>
+</tr>
+<tr>
+<td style="text-align: left">withdrawId</td>
+<td style="text-align: left">string</td>
+<td>提現ID。 (提現API響應參數中的提現請求ID)</td>
+</tr>
+<tr>
+<td style="text-align: left">nextPageCursor</td>
+<td style="text-align: left">string</td>
+<td>游標信息：用來分頁
+</td>
+</tr>
+</tbody></table>
+<h3 id='t-withdraw_info'>提現</h3>
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/asset/v3/private/withdraw/create' \
+--header 'X-BAPI-SIGN: fdb267bf07558a7a34f8949f6284305af1bb9a1bf2363d6b2605825a88490291' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1660620568966' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'X-BAPI-SIGN: fdb267bf07558a7a34f8949f6284305af1bb9a1bf2363d6b2605825a88490291' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "coin": "USDT",
+    "chain": "ETH",
+    "address": "0x9ba58f56E420a00a23D3508Cf77fF268C8510A01",
+    "tag": null,
+    "amount": "20",
+    "timestamp": 1660620515481
+}'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">370044</span><span class="dl">"</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1660549283047</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>提現總是來自現貨錢包內的資產。</p>
+
+<p class="fake_header">HTTP 請求</p>
+
+<p>POST
+<code><span id=pwith>/asset/v3/private/withdraw/create</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pwith"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+<br><p><b>content-type:</b>   application/json</p></p>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>幣種</td>
+</tr>
+<tr>
+<td style="text-align: left">chain</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>鏈名</td>
+</tr>
+<tr>
+<td style="text-align: left">address</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>地址。地址校驗是否存在提現地址的白名單</td>
+</tr>
+<tr>
+<td style="text-align: left">tag</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>存在tag的需要填寫</td>
+</tr>
+<tr>
+<td style="text-align: left">amount</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>提幣數量。規則：大於等於最小提幣金額，最小提幣金額可從幣種信息接口獲取。
+</td>
+</tr>
+<tr>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">int</td>
+<td>時間戳. 允許範圍是當前時間的前後5分鐘</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">result</td>
+<td style="text-align: left">Object</td>
+<td>result object</td>
+</tr>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: left">string</td>
+<td>提現ID。 (提現API響應參數中的提現請求ID)</td>
+</tr>
+</tbody></table>
+<h3 id='t-cancel_withdraw'>撤銷提幣</h3>
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/asset/v3/private/withdraw/cancel' \
+--header 'X-BAPI-SIGN: fdb267bf07558a7a34f8949f6284305af1bb9a1bf2363d6b2605825a88490291' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1660620568966' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'X-BAPI-SIGN: fdb267bf07558a7a34f8949f6284305af1bb9a1bf2363d6b2605825a88490291' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "id": 7642
+}'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1660550283220</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP 請求</p>
+
+<p>POST
+<code><span id=pwcan>/asset/v3/private/withdraw/cancel</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pwcan"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+<br><p><b>content-type:</b>application/json</p></p>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">int64</td>
+<td>提現ID。 (提現API響應參數中的提現請求ID)</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">status</td>
+<td style="text-align: left">int</td>
+<td>結果對象（撤單申請結果：<code>1</code>成功，<code>0</code>失敗）
+</td>
+</tr>
+</tbody></table>
+<h3 id='t-deposit_addr_info'>充值地址信息查詢</h3>
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/deposit/address/query?coin=USDT' \
+--header 'X-BAPI-SIGN: 5a5ce5b26fd6a959c470b637ec0e9672b871d1ace105737b15e525de672c3fdb' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1660632630317' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'X-BAPI-SIGN: 5a5ce5b26fd6a959c470b637ec0e9672b871d1ace105737b15e525de672c3fdb'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">chains</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">chainType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">addressDeposit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">mzy5RaEWoBBMHotVZSvhmphcLbLqq5VPVY</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">tagDeposit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">chain</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1660203622474</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>規則：子賬號暫不支持充值
+</p>
+
+<p class="fake_header">HTTP 請求</p>
+
+<p>GET
+<code><span id=pdaddr>/asset/v3/private/deposit/address/query</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pdaddr"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>幣種</td>
+</tr>
+<tr>
+<td style="text-align: left">chainType</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>鏈的類型. 若為空，則返回全部</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">result</td>
+<td style="text-align: left">Object</td>
+<td>result object</td>
+</tr>
+<tr>
+<td style="text-align: left">coin</td>
+<td style="text-align: left">string</td>
+<td>幣種</td>
+</tr>
+<tr>
+<td style="text-align: left">chains</td>
+<td style="text-align: left">Array</td>
+<td>Object</td>
+</tr>
+<tr>
+<td style="text-align: left">chainType</td>
+<td style="text-align: left">string</td>
+<td>鏈名</td>
+</tr>
+<tr>
+<td style="text-align: left">addressDeposit</td>
+<td style="text-align: left">string</td>
+<td>充值地址</td>
+</tr>
+<tr>
+<td style="text-align: left">tagDeposit</td>
+<td style="text-align: left">string</td>
+<td>充值tag</td>
+</tr>
+<tr>
+<td style="text-align: left">chain</td>
+<td style="text-align: left">string</td>
+<td>鏈名</td>
+</tr>
+</tbody></table>
+<h1 id='t-api'>通用數據接口</h1>
+<p>通用數據接口不需要鑒權。</p>
+<h3 id='t-servertime'>服務器時間</h3>
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/v2/public/time
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">inverse_perpetual</span>
+<span class="n">session_unauth</span> <span class="o">=</span> <span class="n">inverse_perpetual</span><span class="p">.</span><span class="n">HTTP</span><span class="p">(</span>
+    <span class="n">endpoint</span><span class="o">=</span><span class="s">"https://api-testnet.bybit.com"</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session_unauth</span><span class="p">.</span><span class="n">server_time</span><span class="p">())</span>  
+</code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1577444332.192859</span><span class="dl">"</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>獲取Bybit服務器時間</p>
+
+<p class="fake_header">HTTP 請求</p>
+
+<p>GET
+<code><span id=vpTime>/v2/public/time</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpTime"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+<h3 id='t-announcement'>公告</h3>
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/v2/public/announcement
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">inverse_perpetual</span>
+<span class="n">session_unauth</span> <span class="o">=</span> <span class="n">inverse_perpetual</span><span class="p">.</span><span class="n">HTTP</span><span class="p">(</span>
+    <span class="n">endpoint</span><span class="o">=</span><span class="s">"https://api-testnet.bybit.com"</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">session_unauth</span><span class="p">.</span><span class="n">announcement</span><span class="p">())</span>  
+</code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">title</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2019-12-02 RELEASE</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">link</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/CHANGELOG.md</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">summary</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">&lt;p&gt;New `cancel all` endpoint is here now!&lt;/p&gt;&lt;p&gt;Additionally, we strongly recommend that you use the new released place and cancel active V2 endpoints, which are more stable and efficient.The old ones are deprecated (although still working for the time be</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">created_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2019-12-02T11:33:42Z</span><span class="dl">"</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1577444818.227082</span><span class="dl">"</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>獲取Bybit最近30天OpenAPI公告（時間倒敘排列）</p>
+
+<p class="fake_header">HTTP 請求</p>
+
+<p>GET
+<code><span id=vpAnnouncement>/v2/public/announcement</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpAnnouncement"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+<h1 id='t-ratelimits'>頻率限製</h1>
+<aside class="notice">
+有兩種類型的頻率限製: <a href="#t-ipratelimits">IP 頻率限製</a> (每秒计算) and <a href="#t-understandingratelimits">API 頻率限製</a> (每分鐘计算). IP 頻率限制將計算您的所有請求，而 API 頻率限制僅計算您經過身份驗證的請求。
+
+</aside>
+<h2 id='t-ipratelimits'>IP頻率限製</h2>
+<p><aside class="warning">
+如果您收到 <b>HTTP 403</b>（拒絕訪問）響應, 您的 IP 已被暫時或永久禁止。 <b>您應立即查看以下指南，以確保您的應用程序不會繼續違反限制。</b> 如果您在 30 分鐘後仍被禁止，則您可能會被永久禁止。
+</aside>
+<p>Bybit根據請求方式有不同的IP頻率限制。 我們不建議您在這些限制的邊緣運行您的應用程序，以防異常的網絡活動導致意外違規。</p>
+<ul>
+<li>
+  <code>GET</code> & <code>DELETE</code> 方法 (共享):
+  <ul>
+    <li>連續 2 分鐘內每秒不超過 50 個請求</li>
+    <li>連續 5 秒內每秒不超過 70 個請求</li>
+  </ul>
+</li>
+<li>
+  <code>POST</code> 方法:
+  <ul>
+    <li>連續 2 分鐘內每秒不超過 20 個請求</li>
+    <li>連續 5 秒內每秒不超過 50 個請求</li>
+  </ul>
+</li>
+</ul>
+<p>此表顯示了根據您使用的 API 的不同 IP 頻率限制數。</p>
+<table class="custom_table">
+  <tr>
+    <th>IP 頻率限制</th>
+    <th>API</th>
+    <th>Path</th>
+  </tr>
+  <tr>
+    <td rowspan="5">2mins 50/s;<br>5s 70/s</td>
+    <tr><td>反向永續</td><td>/v2</td>
+    <tr><td>反向交割</td><td>/futures</td>
+    <tr><td>USDT永續</td><td>/public, /private</td>
+    <tr><td>賬戶資產</td><td>/asset</td>
+  </tr>
+  <tr>
+    <td rowspan="2">2mins 50/s;<br>5s 70/s</td>
+    <tr><td>現貨</td><td>/spot</td>
+  </tr>
+  <tr>
+    <td rowspan="3">2mins 50/s;<br>5s 70/s</td>
+    <tr><td>USDC Options</td><td>/option</td>
+    <tr><td>USDC Perpetual</td><td>/perpetual</td>
+  </tr>
+</table>
+<p>違反限制後，您的 IP 將被禁止一段時間（通常為 30 分鐘）。 持續違反限制將導致永久禁止。 我們不能撤銷永久禁令或縮短臨時禁令。</p>
+</p>
+<h1 id='t-enums'>枚舉定義</h1>
+<p>以下是各個接口請求參數或返回結果中定義的枚舉。</p>
+<h2 id='account-type-from_account_type-to_account_type'>Account type (<code>from_account_type</code>/<code>to_account_type</code>)</h2>
+<ul>
+<li><code>CONTRACT</code>  期貨賬戶</li>
+<li><code>SPOT</code>      現貨賬戶</li>
+<li><code>INVESTMENT</code> 理財賬戶</li>
+<li><code>OPTION</code> - USDC Account</li>
+<li><code>UNIFIED</code> 統一保證金帳戶</li>
+</ul>
+<h2 id='withdraw-status-status'>Withdraw status(<code>status</code>)</h2>
+<ul>
+<li><code>SecurityCheck</code> 安全檢查</li>
+<li><code>Pending</code> 進行中</li>
+<li><code>success</code> 成功</li>
+<li><code>CancelByUser</code> 用戶自行取消</li>
+<li><code>Reject</code> 駁回</li>
+<li><code>Fail</code> 失敗</li>
+<li><code>BlockchainConfirmed</code> 區塊鏈已確認</li>
+</ul>
+<h2 id='currency-currency-coin'>Currency (<code>currency</code>/<code>coin</code>)</h2>
+<ul>
+<li><code>BTC</code></li>
+<li><code>ETH</code></li>
+<li><code>EOS</code></li>
+<li><code>XRP</code></li>
+<li><code>USDT</code></li>
+<li><code>DOT</code></li>
+<li><code>DOGE</code></li>
+<li><code>LTC</code></li>
+<li><code>XLM</code></li>
+<li><code>USD</code></li>
+</ul>
+<h2 id='operator-type'>Operator type</h2>
+<ul>
+<li><code>SYSTEM</code></li>
+<li><code>USER</code></li>
+<li><code>ADMIN</code></li>
+<li><code>AFFILIATE_USER</code></li>
+</ul>
+<h2 id='transfer-type-type'>Transfer type (<code>type</code>)</h2>
+<ul>
+<li><code>IN</code> 從主賬戶轉入到子賬戶</li>
+<li><code>OUT</code> 從子賬戶轉出到主賬戶</li>
+</ul>
+<h2 id='transfer-status-status'>Transfer status (<code>status</code>)</h2>
+<ul>
+<li><code>SUCCESS</code></li>
+<li><code>PENDING</code></li>
+<li><code>FAILED</code></li>
+</ul>
+<h2 id='page-direction-direction'>Page direction (<code>direction</code>)</h2>
+<ul>
+<li><code>Prev</code></li>
+<li><code>Next</code></li>
+</ul>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="console">console</a>
+                <a href="#" data-language-name="python--pybit">python</a>
+          </div>
+      </div>
+    </div>
+  </body>
+
+<script>
+    $(".con a").click(function(){
+      $(".con a").removeClass("selected");
+      $(this).addClass("selected")
+    });
+    $("#international").click(function(){
+      $this = $(this);
+      var currentUrl = window.location.href;
+      if ($this.text() == 'English') {
+        window.location=currentUrl.replace(/\/zh-cn/,"");
+      } else {
+        if (currentUrl.indexOf("futuresV2") > -1) {
+	        window.location=currentUrl.replace(/\/((?:testnet\/)?futuresV2)/,"/zh-cn/$1");
+        } else if (currentUrl.indexOf("inverse") > -1) {
+          window.location=currentUrl.replace(/\/((?:testnet\/)?inverse)/,"/zh-cn/$1");
+        } else if(currentUrl.indexOf("spot") > -1) {
+          window.location=currentUrl.replace(/\/((?:testnet\/)?spot)/,"/zh-cn/$1");
+        } else if(currentUrl.indexOf("account_asset") > -1) {
+          window.location=currentUrl.replace(/\/((?:testnet\/)?account_asset)/,"/zh-cn/$1");
+        } else if(currentUrl.indexOf("linear") > -1) {
+          window.location=currentUrl.replace(/\/((?:testnet\/)?linear)/,"/zh-cn/$1");
+        } else if(currentUrl.indexOf("copy_trading") > -1) {
+          window.location=currentUrl.replace(/\/((?:testnet\/)?copy_trading)/,"/zh-cn/$1");
+        } else if(currentUrl.indexOf("usdc") > -1) {
+          window.location=currentUrl.replace(/\/((?:testnet\/)?usdc)/,"/zh-cn/$1");
+	      } else if(currentUrl.indexOf("derivativesV3") > -1) {
+	        window.location=currentUrl.replace(/\/((?:testnet\/)?derivativesV3)/,"/zh-cn/$1");
+	      }
+      }
+    });
+</script>
+
+</html>
