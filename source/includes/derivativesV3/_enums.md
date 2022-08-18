@@ -21,7 +21,7 @@ t(:ENUMs_para)
 * `XRPUSDT`
 * `DOTUSD`
 
-t(:trading_symbol_comment)
+t(:dv_enum_comment_getSymbol)
 
 ## Currency (`currency`/`coin`)
 * `BTC`
@@ -202,3 +202,13 @@ t(:date)
 * `FEE_REFUND` t(:fee_refund)
 * `INTEREST` t(:interest)
 * `BONUS` t(:bonusEnum)
+
+## Order Filter (`orderFilter`)
+* `Order`
+* `StopOrder`
+
+## Upgrade Result (`result`)
+* `Processing`
+* `Successfully upgraded`
+* `Upgrade failed`
+* `Rejected`

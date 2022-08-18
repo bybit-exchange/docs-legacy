@@ -225,19 +225,21 @@ under the License.
 
         <!-- Derivatives V3 -->
         <% if page_classes.include?("unified_margin") %>
-          <% if page_classes.include?("testnet") %>
-            <li>
-              <div class="dropdown">
-                <button class="dropbtn"><%=t(:derivativesV3)%>
-                  <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/testnet/derivativesV3/unified_margin" class="dropdown-content-selected"><%=t(:dv_unifiedMargin)%></a>
-                    <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/testnet/derivativesV3/contract" class="dropdown-content-selected"><%=t(:dv_contract)%></a>
-                </div>
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn"><%=t(:derivativesV3)%>
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                <% if page_classes.include?("testnet") %>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/testnet/derivativesV3/unified_margin" class="dropdown-content-selected"><%=t(:dv_unifiedMargin)%></a>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/testnet/derivativesV3/contract" class="dropdown-content-selected"><%=t(:dv_contract)%></a>
+                <% else %>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/derivativesV3/unified_margin" class="dropdown-content-selected"><%=t(:dv_unifiedMargin)%></a>
+                <% end %>
               </div>
-            </li>
-          <% end %>
+            </div>
+          </li>
         <% elsif page_classes.include?("contract") %>
           <% if page_classes.include?("testnet") %>
             <li>
@@ -253,122 +255,100 @@ under the License.
             </li>
           <% end %>
         <% else %>
-          <% if page_classes.include?("testnet") %>
-            <li>
-              <div class="dropdown">
-                <button class="dropbtn"><%=t(:derivativesV3)%>
-                  <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/testnet/derivativesV3/unified_margin" ><%=t(:dv_unifiedMargin)%></a>
-                    <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/testnet/derivativesV3/contract" ><%=t(:dv_contract)%></a>
-                </div>
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn"><%=t(:derivativesV3)%>
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                <% if page_classes.include?("testnet") %>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/testnet/derivativesV3/unified_margin" ><%=t(:dv_unifiedMargin)%></a>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/testnet/derivativesV3/contract" ><%=t(:dv_contract)%></a>
+                <% else %>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/derivativesV3/unified_margin" class="dropdown-content-selected"><%=t(:dv_unifiedMargin)%></a>
+                <% end %>
               </div>
-            </li>
-          <% end %>
+            </div>
+          </li>
         <% end %>
 
         <!-- Futures V2(USDT perp, Inverse Perp, Inverse Futures) -->
         <% if page_classes.include?("inverse") %>
-          <% if page_classes.include?("testnet") %>
-            <li>
-              <div class="dropdown">
-                <button class="dropbtn"><%=t(:futuresV2)%>
-                  <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/futuresV2/inverse" ><%=t(:inverse_perpetual)%></a>
-                    <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/futuresV2/linear" ><%=t(:linear_perpetual)%></a>
-                    <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/futuresV2/inverse_futures" ><%=t(:inverse_futures)%></a>
-                </div>
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn"><%=t(:futuresV2)%>
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                <% if page_classes.include?("testnet") %>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/futuresV2/inverse" ><%=t(:inverse_perpetual)%></a>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/futuresV2/linear" ><%=t(:linear_perpetual)%></a>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/futuresV2/inverse_futures" ><%=t(:inverse_futures)%></a>
+                <% else %>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/futuresV2/inverse" ><%=t(:inverse_perpetual)%></a>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/futuresV2/linear" ><%=t(:linear_perpetual)%></a>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/futuresV2/inverse_futures" ><%=t(:inverse_futures)%></a>
+                <% end %>
               </div>
-            </li>
-          <% end %>
+            </div>
+          </li>
         <% elsif page_classes.include?("linear") %>
-          <% if page_classes.include?("testnet") %>
-            <li>
-              <div class="dropdown">
-                <button class="dropbtn"><%=t(:futuresV2)%>
-                  <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/futuresV2/inverse" ><%=t(:inverse_perpetual)%></a>
-                    <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/futuresV2/linear" ><%=t(:linear_perpetual)%></a>
-                    <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/futuresV2/inverse_futures" ><%=t(:inverse_futures)%></a>
-                </div>
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn"><%=t(:futuresV2)%>
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                <% if page_classes.include?("testnet") %>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/futuresV2/inverse" ><%=t(:inverse_perpetual)%></a>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/futuresV2/linear" ><%=t(:linear_perpetual)%></a>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/futuresV2/inverse_futures" ><%=t(:inverse_futures)%></a>
+                <% else %>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/futuresV2/inverse" ><%=t(:inverse_perpetual)%></a>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/futuresV2/linear" ><%=t(:linear_perpetual)%></a>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/futuresV2/inverse_futures" ><%=t(:inverse_futures)%></a>
+                <% end %>
               </div>
-            </li>
-          <% end %>
+            </div>
+          </li>
         <% elsif page_classes.include?("inverse_futures") %>
-          <% if page_classes.include?("testnet") %>
-            <li>
-              <div class="dropdown">
-                <button class="dropbtn"><%=t(:futuresV2)%>
-                  <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/futuresV2/inverse" ><%=t(:inverse_perpetual)%></a>
-                    <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/futuresV2/linear" ><%=t(:linear_perpetual)%></a>
-                    <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/futuresV2/inverse_futures" ><%=t(:inverse_futures)%></a>
-                </div>
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn"><%=t(:futuresV2)%>
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                <% if page_classes.include?("testnet") %>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/futuresV2/inverse" ><%=t(:inverse_perpetual)%></a>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/futuresV2/linear" ><%=t(:linear_perpetual)%></a>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/futuresV2/inverse_futures" ><%=t(:inverse_futures)%></a>
+                <% else %>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/futuresV2/inverse" ><%=t(:inverse_perpetual)%></a>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/futuresV2/linear" ><%=t(:linear_perpetual)%></a>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/futuresV2/inverse_futures" ><%=t(:inverse_futures)%></a>
+                <% end %>
               </div>
-            </li>
-          <% end %>
+            </div>
+          </li>
         <% else %>
-          <% if page_classes.include?("testnet") %>
-            <li>
-              <div class="dropdown">
-                <button class="dropbtn"><%=t(:futuresV2)%>
-                  <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/futuresV2/inverse" ><%=t(:inverse_perpetual)%></a>
-                    <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/futuresV2/linear" ><%=t(:linear_perpetual)%></a>
-                    <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/futuresV2/inverse_futures" ><%=t(:inverse_futures)%></a>
-                </div>
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn"><%=t(:futuresV2)%>
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                <% if page_classes.include?("testnet") %>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/futuresV2/inverse" ><%=t(:inverse_perpetual)%></a>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/futuresV2/linear" ><%=t(:linear_perpetual)%></a>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/futuresV2/inverse_futures" ><%=t(:inverse_futures)%></a>
+                <% else %>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/futuresV2/inverse" ><%=t(:inverse_perpetual)%></a>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/futuresV2/linear" ><%=t(:linear_perpetual)%></a>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/futuresV2/inverse_futures" ><%=t(:inverse_futures)%></a>
+                <% end %>
               </div>
-            </li>
-          <% end %>
-        <% end %>
-
-        <!-- Inverse Perpetual -->
-        <% if page_classes.end_with?("inverse_index") %>
-        	<% if page_classes.include?("testnet") %>
-        	<% else %>
-          	<li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/inverse" class="selected"><%=t(:inverse_perpetual)%></a></li>
-        	<% end %>
-        <% else %>
-        	<% if page_classes.include?("testnet") %>
-        	<% else %>
-          	<li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/inverse"><%=t(:inverse_perpetual)%></a></li>
-        	<% end %>
-        <% end %>
-
-
-        <!-- USDT Perpetual -->
-        <% if page_classes.end_with?("linear_index") %>
-        	<% if page_classes.include?("testnet") %>
-        	<% else %>
-            <li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/linear" class="selected"><%=t(:linear_perpetual)%></a></li>
-        	<% end %>
-        <% else %>
-        	<% if page_classes.include?("testnet") %>
-        	<% else %>
-            <li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/linear"><%=t(:linear_perpetual)%></a></li>
-        	<% end %>
-        <% end %>
-
-        <!-- Inverse Futures -->
-        <% if page_classes.end_with?("inverse_futures_index") %>
-        	<% if page_classes.include?("testnet") %>
-        	<% else %>
-          	<li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/inverse_futures" class="selected"><%=t(:inverse_futures)%></a></li>
-        	<% end %>
-        <% else %>
-        	<% if page_classes.include?("testnet") %>
-        	<% else %>
-          	<li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/inverse_futures"><%=t(:inverse_futures)%></a></li>
-        	<% end %>
+            </div>
+          </li>
         <% end %>
 
         <!-- Spot V3(Spot v1, Spot v3) -->
@@ -564,39 +544,39 @@ under the License.
               <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-              <% if page_classes.end_with?("derivativesV3_index") %>
+              <% if page_classes.end_with?("unified_margin_index") %>
                 <% if page_classes.include?("testnet") %>
-                  <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/derivativesV3>Mainnet</a>
-                  <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/derivativesV3>Testnet</a></span>
+                  <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/derivativesV3/unified_margin>Mainnet</a>
+                  <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/derivativesV3/unified_margin>Testnet</a></span>
                 <% else %>
-                  <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/derivativesV3>Mainnet</a></span>
-                  <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/derivativesV3>Testnet</a>
+                  <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/derivativesV3/unified_margin>Mainnet</a></span>
+                  <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/derivativesV3/unified_margin>Testnet</a>
                 <% end %>
               <% end %>
               <% if page_classes.end_with?("inverse_index") %>
                 <% if page_classes.include?("testnet") %>
-                  <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/inverse>Mainnet</a>
+                  <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/futuresV2/inverse>Mainnet</a>
                   <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/futuresV2/inverse>Testnet</a></span>
                 <% else %>
-                  <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/inverse>Mainnet</a></span>
+                  <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/futuresV2/inverse>Mainnet</a></span>
                   <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/futuresV2/inverse>Testnet</a>
                 <% end %>
               <% end %>
               <% if page_classes.end_with?("linear_index") %>
                 <% if page_classes.include?("testnet") %>
-                  <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/linear>Mainnet</a>
+                  <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/futuresV2/linear>Mainnet</a>
                   <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/futuresV2/linear>Testnet</a></span>
                 <% else %>
-                  <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/linear>Mainnet</a></span>
+                  <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/futuresV2/linear>Mainnet</a></span>
                   <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/futuresV2/linear>Testnet</a>
                 <% end %>
               <% end %>
               <% if page_classes.end_with?("inverse_futures_index") %>
                 <% if page_classes.include?("testnet") %>
-                  <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/inverse_futures>Mainnet</a>
+                  <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/futuresV2/inverse_futures>Mainnet</a>
                   <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/futuresV2/inverse_futures>Testnet</a></span>
                 <% else %>
-                  <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/inverse_futures>Mainnet</a></span>
+                  <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/futuresV2/inverse_futures>Mainnet</a></span>
                   <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/futuresV2/inverse_futures>Testnet</a>
                 <% end %>
               <% end %>
