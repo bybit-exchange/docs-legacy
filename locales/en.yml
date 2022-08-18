@@ -159,8 +159,11 @@ en:
 
 
   # 统保下面v3接口字段定义区间开始
-  row_comment_settleCoin_v3: Settle Coin
-  row_comment_cancelAll_baseCoin_v3: Base Coin
+  row_comment_settleCoin_v3: Settle Coin. It's invalid for <code>option</code>.
+  row_comment_cancelAll_baseCoin_v3: |
+    <p>Base Coin</p>
+    <p>- Cancel all active orders based on baseCoin when only baseCoin passed without symbol</p>
+    <p>- If both symbol & baseCoin passed, baseCoin is ignored. Only active orders with that symbol will be cancelled</p>
   row_comment_cancelAll_orderFilter_v3: Conditional order or active order
 
   row_comment_triggerPrice_replace_v3: Modify trigger price
@@ -341,7 +344,7 @@ en:
   row_comment_query_coin_unrealisedPnl_v3: Unrealized P&L
   row_comment_query_coin_cumRealisedPnl_v3: Accumulatively realized P&L
 
-  row_comment_query_result_v3: User account upgrade status. 1. Processing   2. Successfully upgraded   3. Upgrade failed   4. Rejected
+  row_comment_query_result_v3: User account upgrade status
   row_comment_query_msg_v3: Error information returned
 
   row_comment_query_ThereisUSDCbeingtransferred_v3_code: There is USDC being transferred
@@ -370,7 +373,7 @@ en:
 
   row_comment_currency_v3: Only for UDDC, USDT. If not passed, USDT&USDC interests are returned. You could pass multiple currency separated by comma, e.a USDC,USDT.
   row_comment_baseCoin_v3: For example<span>:</span> The base coin of USDC is BTC, and the base coin of USDT is the enum of the current trading coin. For example<span>:</span> The base coin of BTCUSDT is BTC. If both do not match, it shall be returned as null.
-  row_comment_type_v3: All trading history (except transfer) of the category should be returned by default. Transfer_in, Transfer_out, Trade, Settlement, Delivery, Liquidation, Insurance fund (the first phase of the unified margin account does not have this service), Fee refund (the first phase of the unified margin account does not have this service), Interest, Currency_buy, Currency_sell. Please note that to inquire about the transfer-in and transfer-out history, pass type=TRANSFER_IN and type=TRANSFER_OUT, otherwise, the transfer history cannot be accessed.
+  row_comment_type_v3: All trading history (except transfer) of the category should be returned by default. Please note that to inquire about the transfer-in and transfer-out history, pass type=TRANSFER_IN and type=TRANSFER_OUT, otherwise, the transfer history cannot be accessed.
 
   row_comment_query_transType_v3: <a href="#transaction-log-type-type">type</a>
   row_comment_query_currency_v3: USDC, USDT, BTC, and ETH
@@ -1486,7 +1489,8 @@ en:
         <th>Path</th>
       </tr>
       <tr>
-        <td rowspan="5">2mins 50/s;<br>5s 70/s</td>
+        <td rowspan="6">2mins 50/s;<br>5s 70/s</td>
+        <tr><td>Unified Margin</td><td>/unified</td>
         <tr><td>Inverse Perpetual</td><td>/v2</td>
         <tr><td>Inverse Futures</td><td>/futures</td>
         <tr><td>Linear Perpetual</td><td>/public, /private</td>
@@ -4956,6 +4960,16 @@ en:
     <p>WebSocket public channel:</p>
     <ul>
     <p>
+    <li>Mainnet:<br/>
+        USDT contract: <span id="usdt_testnet_address">wss://stream.bybit.com/contract/usdt/public/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdt_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <br/>
+        USDC contract: <span id="usdc_testnet_address">wss://stream.bybit.com/contract/usdc/public/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdc_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <br/>
+        USDC Options: <span id="option_testnet_address">wss://stream.bybit.com/option/usdc/public/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#option_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+    </li>
     <li>Testnet:<br/>
         USDT contract: <span id="usdt_testnet_address">wss://stream-testnet.bybit.com/contract/usdt/public/v3</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdt_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
@@ -4971,6 +4985,10 @@ en:
     <p>WebSocket private channel:</p>
     <ul>
     <p>
+    <li>Mainnet:<br/>
+        Unified margin account: <span id="uma_testnet_address">wss://stream.bybit.com/unified/private/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uma_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+    </li>
     <li>Testnet:<br/>
         Unified margin account: <span id="uma_testnet_address">wss://stream-testnet.bybit.com/unified/private/v3</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uma_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>

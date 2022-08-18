@@ -206,3 +206,9 @@ t(:date)
 ## Order Filter (`orderFilter`)
 * `Order`
 * `StopOrder`
+
+## Upgrade Result (`result`)
+* `Processing`
+* `Successfully upgraded`
+* `Upgrade failed`
+* `Rejected`

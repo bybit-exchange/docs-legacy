@@ -1595,7 +1595,7 @@ POST
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|result |string |t(:row_comment_query_result_v3) |
+|<a href="#upgrade-result-result">result</a> |string |t(:row_comment_query_result_v3) |
 |msg |string |t(:row_comment_query_msg_v3)  |
 
 <p class="fake_header">t(:resonoferror)</p>

@@ -604,7 +604,7 @@ zh-cn:
 
   row_comment_currency_v3: 僅支持USDC、USDT. 如果不傳參數<code>currency</code>, 將返回USDT、USDC的利率. 允許傳多個，用逗號分隔，例如：USDC,USDT
   row_comment_baseCoin_v3: 例如： USDC就是BTC；USDT就是現在現有的交易幣種枚舉，例如： BTCUSDT 的 baseCoin 是 BTC 不匹配時已確認返回空
-  row_comment_type_v3: 默認返回該category下所有交易日誌（除劃轉外） TRANSFER_IN 轉入 TRANSFER_OUT 轉出 TRADE 交易 SETTLEMENT 結算 DELIVERY 交割 Liquidation 強平（統保一期無該業務） Insurance fund 體驗金領取（統保一期無該業務） Fee Refund 手續費返還（統保一期無該業務） INTEREST 利息 註意：查詢轉入轉出日誌，必須要傳 type=TRANSFER_IN，type=TRANSFER_OUT，否則查不到劃轉日誌
+  row_comment_type_v3: 默認返回該category下所有交易日誌（除劃轉外） 註意：查詢轉入轉出日誌，必須要傳 type=TRANSFER_IN，type=TRANSFER_OUT，否則查不到劃轉日誌
 
   row_comment_query_currency_v3: USDC, USDT, BTC, and ETH
   row_comment_query_transactionTime_v3: 時間戳（毫秒）
@@ -1317,7 +1317,8 @@ zh-cn:
         <th>Path</th>
       </tr>
       <tr>
-        <td rowspan="5">2mins 50/s;<br>5s 70/s</td>
+        <td rowspan="6">2mins 50/s;<br>5s 70/s</td>
+        <tr><td>统一保证金</td><td>/unified</td>
         <tr><td>反向永續</td><td>/v2</td>
         <tr><td>反向交割</td><td>/futures</td>
         <tr><td>USDT永續</td><td>/public, /private</td>
@@ -4504,6 +4505,16 @@ zh-cn:
     <p>WebSocket 公共頻道:</p>
     <ul>
     <p>
+    <li>主網:<br/>
+        USDT合約: <span id="usdt_testnet_address">wss://stream.bybit.com/contract/usdt/public/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdt_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <br/>
+        USDC合約: <span id="usdc_testnet_address">wss://stream.bybit.com/contract/usdc/public/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdc_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <br/>
+        USDC期權: <span id="option_testnet_address">wss://stream.bybit.com/option/usdc/public/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#option_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+    </li>
     <li>測試網:<br/>
         USDT合約: <span id="usdt_testnet_address">wss://stream-testnet.bybit.com/contract/usdt/public/v3</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdt_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
@@ -4519,6 +4530,10 @@ zh-cn:
     <p>WebSocket 私有頻道:</p>
     <ul>
     <p>
+    <li>主網:<br/>
+        統一保證金帳戶: <span id="uma_testnet_address">wss://stream.bybit.com/unified/private/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uma_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+    </li>
     <li>測試網:<br/>
         統一保證金帳戶: <span id="uma_testnet_address">wss://stream-testnet.bybit.com/unified/private/v3</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uma_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
