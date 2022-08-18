@@ -250,7 +250,7 @@ GET
 |end_time |false |integer |t(:row_comment_endTime) |
 |<a href="#page-direction-direction">direction</a> |false |string |t(:row_comment_pageaction) |
 |limit |false |integer |t(:row_comment_to_limit) |
-|cursor |false |string |t(:row_comment_cursor)|
+|cursor |false |string |t(:withdraw_response_cursor)|
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -262,7 +262,7 @@ GET
 |<a href="#account-type-from_account_type-to_account_type">to_account_type</a> |string |t(:row_comment_accounttype) |
 |timestamp |integer |t(:row_comment_to_timestamp) |
 |<a href="#transfer-status-status">status</a> |string |t(:row_comment_transferstatus) |
-|cursor |string |t(:row_comment_cursor)|
+|cursor |string |t(:withdraw_response_cursor)|
 
 
 
@@ -362,7 +362,7 @@ GET
 |end_time |false |integer |t(:row_comment_endTime) |
 |<a href="#page-direction-direction">direction</a> |false |string |t(:row_comment_pageaction) |
 |limit |false |integer |t(:row_comment_to_limit) |
-|cursor |false |string |t(:row_comment_cursor)|
+|cursor |false |string |t(:withdraw_response_cursor)|
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -375,7 +375,7 @@ GET
 |timestamp |integer |t(:row_comment_to_timestamp) |
 |<a href="#transfer-status-status">status</a> |string |t(:row_comment_transferstatus) |
 |<a href="#transfer-type-type">type</a> |string |t(:row_comment_transfertype) |
-|cursor |string |t(:row_comment_cursor)|
+|cursor |string |t(:withdraw_response_cursor)|
 
 
 ### t(:querysubaccountlist)
@@ -637,8 +637,8 @@ GET
 |start_time |false |integer |t(:row_comment_startTime) |
 |end_time |false |integer |t(:row_comment_endTime) |
 |<a href="#page-direction-direction">direction</a> |false |string |t(:row_comment_pageaction) |
-|limit |false |integer |t(:row_comment_to_limit) |
-|cursor |false |string |t(:row_comment_cursor)|
+|limit |false |integer |t(:row_comment_limit) |
+|cursor |false |string |t(:withdraw_response_cursor)|
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -652,7 +652,7 @@ GET
 |<a href="#account-type-from_account_type-to_account_type">to_account_type</a> |string |t(:row_comment_accounttype) |
 |from_member_id |string |t(:row_comment_from_memberId) |
 |to_member_id |string |t(:row_comment_to_memberId) |
-|cursor |string |t(:row_comment_cursor)|
+|cursor |string |t(:withdraw_response_cursor)|
 
 
 # t(:withdraw_and_deposit)
