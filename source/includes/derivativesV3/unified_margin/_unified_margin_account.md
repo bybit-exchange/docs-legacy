@@ -1259,7 +1259,7 @@ GET
 |direction |false |string |t(:row_comment_direction_v3)   |
 |limit |false |number |t(:row_comment_limit_v3)   |
 |cursor |false |string |t(:row_comment_cursor_v3)   |
-|execType |false |string |t(:row_comment_execType_v3)   |
+|<a href="#exec-type-exectype">execType</a> |false |string |t(:row_comment_query_execType_v3)   |
 
 
 <p class="fake_header">t(:responseparameters)</p>

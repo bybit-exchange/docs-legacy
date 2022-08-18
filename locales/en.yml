@@ -1101,10 +1101,10 @@ en:
     <p>Limit active orders: You can set an executed price for your order. When the market price touches the price you set, the system will fill the order for you.</p>
     <p></b>TP/SL: You can only set TP/SL conditional orders while opening positions. Once you have held positions, the TP/SL linked when you submit active orders will not take effect.</b></p>
     <p>Order quantity: The quantity of perpetual contracts you are going to buy/sell. For the order quantity, Bybit only supports positive integers at present.</p>
-    <p>Order price: If you are going to place a limit order, this parameter is required. When you have no position, the long order price should be higher than 10% of the market price and lower than 1 million. When you have positions, the price should be higher than the liquidation price. For the minimum unit of the price change, please refer to the price_filter field in the trading pair interface response.</p>
+    <p>Order price: If you are going to place a limit order, this parameter is required. When you have no position, the long order price should be higher than 10% of the market price and lower than 1 million. When you have positions, the price should be higher than the liquidation price. For the minimum unit of the price change, please refer to the priceFilter field in the <a href="#t-dv_instrhead">instrumentInfo</a> interface response.</p>
     <p>Custom conditional order ID: You can customize the active order ID. We can link this ID to the order ID in the system. Once the active order is successfully created, we will send the unique order ID in the system to you. Then, you can use this order ID to cancel active orders. Meanwhile, your customized order ID should be no longer than 36 characters and should be unique.</p>
     <p>Each account can hold a maximum of 500 active orders simultaneously. This is contract-specific, so the following situation is allowed: The same account can hold 300 BTCUSD active orders and 280 ETHUSD active orders at the same time.</p>
-    <p>When the upper limit of orders is reached, you can still place orders with parameters of reduce_only or closeOnTrigger.</p></p>
+    <p>When the upper limit of orders is reached, you can still place orders with parameters of reduceOnly or closeOnTrigger.</p></p>
 
   account_para_replaceActive_v3: |
     <p><p><b>Interface:</b></p>
