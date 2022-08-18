@@ -25,6 +25,7 @@ zh-cn:
   column_type: 類型
   column_comments: 說明
   row_comment_userID: 用戶ID
+  row_comment_accountID: 賬戶ID
   row_comment_side: 方向
   row_comment_symbol: 合約類型
   row_comment_kline_list: 元素為單個蠟燭的數組，以<code>start</code>倒序排列, 數組內默認排序規則為<code>start</code>，<code>open</code>，<code>close</code>，<code>high</code>，<code>low</code>，<code>volume</code>，<code>turnover</code>
@@ -58,6 +59,8 @@ zh-cn:
   row_comment_order_margin: 委托預占用保證金
   row_comment_wallet_balance: 錢包余額
   row_comment_available_balance: 可用余額, 錢包余額 - 倉位保證金
+  row_comment_transferable_balance: 可划余額
+  row_comment_bonus: 体验金
   row_comment_realised_pnl: 當日已結盈虧
   row_comment_unrealised_pnl: 未結盈虧
   row_comment_cum_realised_pnl: 累計已結盈虧
@@ -3224,12 +3227,20 @@ zh-cn:
     <p>請註意該接口入參<code>請求</code>數據中的<code>transfer_id</code>字段為<code>UUID</code>全局唯一。</p>
     <p>請註意該接口支持<code>期貨賬戶</code>、<code>現貨賬戶</code>、<code>理財賬戶</code>。</p>
     <p>轉入和轉出賬戶類型不能相同。</p>
+  transfer_api_v3_notice:
+    <p>請註意該接口入參<code>請求</code>數據中的<code>transferId</code>字段為<code>UUID</code>全局唯一。</p>
+    <p>請註意該接口支持<code>期貨賬戶</code>、<code>現貨賬戶</code>、<code>理財賬戶</code>。</p>
+    <p>轉入和轉出賬戶類型不能相同。</p>
   universaltransferunderstanding_notice: 萬能轉賬使您可以在兩個子賬戶（而不是子 -> 主 -> 子）和任何<a href="#account-type-from_account_type-to_account_type">賬戶類型</a>（<code> 合同</code>、<code>SPOT</code>等）之間劃轉。
   enableuniversaltransfer_notice: 你需要通過這個接口來設置可互相劃轉的子賬號。如果不設置，這些賬戶之間不能互相劃轉
   universaltransfer_join_notice: 要發送<a href="#account-type-from_account_type-to_account_type">賬戶類型</a>和父子不可知的轉賬，請使用<a href="#t-createuniversaltransfer">創建萬能轉賬</a> 接口。
 
   createsubaccounttransfer_api_notice:
     <p>請註意該接口入參<code>請求</code>數據中的<code>transfer_id</code>字段為<code>UUID</code>全局唯一。</p>
+    <p>該接口只能用於母子賬號之間的劃轉。</p>
+    <p>一個子賬號只會歸屬給一個母賬號。</p>
+  createsubaccounttransfer_api_v3_notice:
+    <p>請註意該接口入參<code>請求</code>數據中的<code>transferId</code>字段為<code>UUID</code>全局唯一。</p>
     <p>該接口只能用於母子賬號之間的劃轉。</p>
     <p>一個子賬號只會歸屬給一個母賬號。</p>
   row_comment_transfer_id: UUID,全局唯一
@@ -3277,8 +3288,17 @@ zh-cn:
   queryUniverseTransferList: 查詢萬能劃轉記錄
   row_comment_sub_user_id_list: 所有子賬號列表
   row_comment_transferable_sub_ids_list: 所有可互相劃轉的子賬號列表
+  row_comment_transfer_coin_list: 賬號內互轉支持的幣種
+  row_comment_with_bonus: 是否查詢體驗金
+  row_comment_spot_status: 現貨賬戶狀態 1：正常，0-禁用
+  row_comment_frozen: 掛單凍結金額
+  row_comment_free: 可用余額
+  row_comment_withdraw: 提現中金額
+  querytransfercoinlist: 賬號內可劃轉幣種列表
+  queryaccountcoinbalance: 賬戶幣種余額查詢
+  queryassetinfo: 查詢資產信息
 
-#充值/提現API數據接口 -- 開始
+  #充值/提現API數據接口 -- 開始
   withdraw_and_deposit: 充值與提現接口
   allowDepositList: 支持的充值列表查詢接口
   allowDepositListDesc: 是一個公共接口。 coin和chain必須在輸入參數中配對出現。 否則，視為無條件查詢。
