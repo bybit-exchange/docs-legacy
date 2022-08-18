@@ -55,11 +55,11 @@ POST
 |category |<b>true</b> |string |t(:row_comment_category_v3)    |
 |symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
 |t(:row_parameter_side) |<b>true</b> |string |t(:row_comment_side_v3)    |
-|positionIdx |false |string |t(:row_comment_positionIdx_um)   |
+|positionIdx |false |string |t(:row_comment_positionIdx_v3)   |
 |<a href="#order-type-ordertype">orderType</a> |<b>true</b> |string |t(:row_comment_orderType_v3)   |
 |t(:row_parameter_quantity) |<b>true</b> |string |t(:row_comment_qty_v3) |
 |t(:row_parameter_price) |false |string |t(:row_comment_resp_price) |
-|basePrice |false |string |t(:row_comment_basePrice_v3) |
+|triggerSide |false |number |t(:row_comment_triggerSide) |
 |triggerPrice |false |string |t(:row_comment_triggerPrice) |
 |<a href="#trigger-price-type-triggerby">triggerBy</a> |false |string |t(:row_comment_triggerBy_v3) |
 |iv |false |string |t(:row_comment_iv_v3) |
@@ -131,7 +131,7 @@ POST
 |symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
 |orderId |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
 |orderLinkId |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
-|<a href="#order-filter-orderfilter">orderFilter</a> |false |string |t(:row_comment_orderFilter_v3)   |
+|orderFilter |false |string |t(:row_comment_orderFilter_v3)   |
 |iv |false |string |t(:row_comment_iv_v3) |
 |triggerPrice |false |string |t(:row_comment_triggerPrice_replace_v3) |
 |t(:row_parameter_quantity) |false |string |t(:row_comment_qty_replace_v3) |
@@ -200,7 +200,7 @@ POST
 |symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
 |orderId |false |string |t(:row_comment_orderId_v3_post) |
 |orderLinkId |false |string |t(:row_comment_orderLinkId_v3_post) |
-|<a href="#order-filter-orderfilter">orderFilter</a> |false |string |t(:row_comment_orderFilter_v3)   |
+|orderFilter |false |string |t(:row_comment_orderFilter_v3)   |
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -278,7 +278,7 @@ GET
 |symbol |false |string |t(:row_comment_symbol_v3)   |
 |orderId |false |string |t(:row_comment_query_orderId_v3) |
 |orderLinkId |false |string |t(:row_comment_query_orderLinkId_v3) |
-|<a href="#order-filter-orderfilter">orderFilter</a> |false |string |t(:row_comment_orderFilter_v3)   |
+|orderFilter |false |string |t(:row_comment_orderFilter_v3)   |
 |direction |false |string |t(:row_comment_direction_v3)   |
 |limit |false |number |t(:row_comment_limit_v3)   |
 |cursor |false |string |t(:row_comment_cursor_v3)   |
@@ -395,7 +395,7 @@ GET
 |orderId |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
 |orderLinkId |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
 |orderStatus |false |string |t(:row_comment_orderStatus_v3)   |
-|<a href="#order-filter-orderfilter">orderFilter</a> |false |string |t(:row_comment_orderFilter_v3)   |
+|orderFilter |false |string |t(:row_comment_orderFilter_v3)   |
 |direction |false |string |t(:row_comment_direction_v3)   |
 |limit |false |number |t(:row_comment_limit_v3)   |
 |cursor |false |string |t(:row_comment_cursor_v3)   |
@@ -526,7 +526,7 @@ POST
 |request |<b>true</b> |array |    |
 |list> symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
 |list> t(:row_parameter_side) |<b>true</b> |string |t(:row_comment_side_v3)    |
-|list> positionIdx |false |string |t(:row_comment_positionIdx_um)   |
+|list> positionIdx |false |string |t(:row_comment_positionIdx_v3)   |
 |list> <a href="#order-type-ordertype">orderType</a> |<b>true</b> |string |t(:row_comment_orderType_v3)   |
 |list> t(:row_parameter_quantity) |<b>true</b> |string |t(:row_comment_qty_v3) |
 |list> t(:row_parameter_price) |false |string |t(:row_comment_resp_price) |
@@ -825,7 +825,7 @@ POST
 |baseCoin |false |string |t(:row_comment_cancelAll_baseCoin_v3)   |
 |settleCoin |false |string |t(:row_comment_settleCoin_v3) |
 |symbol |false |string |t(:row_comment_symbol_v3) |
-|<a href="#order-filter-orderfilter">orderFilter</a> |false |string |t(:row_comment_cancelAll_orderFilter_v3) |
+|orderFilter |false |string |t(:row_comment_cancelAll_orderFilter_v3) |
 
 <p class="fake_header">t(:responseparameters)</p>
 <p>result：</p>
@@ -1109,7 +1109,7 @@ POST
 |category |<b>true</b> |string |t(:row_comment_category_v3)    |
 |symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
 |riskId |<b>true</b> |number |t(:row_comment_riskId_v3)  |
-|positionIdx |<b>true</b> |number |t(:row_comment_positionIdx_um)  |
+|positionIdx |<b>true</b> |number |t(:row_comment_positionIdx_v3)  |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -1180,7 +1180,7 @@ POST
 |activePrice |false |string |t(:account_row_comment_activePrice_v3) |
 |slSize |false |string |t(:account_row_comment_slSize_v3) |
 |tpSize |false |string |t(:row_comment_tpSize_v3) |
-|positionIdx |false |string |t(:row_comment_positionIdx_um) |
+|positionIdx |false |string |t(:row_comment_positionIdx_v3) |
 
 
 ### t(:dv_userTradeRecords7Day)
@@ -1253,7 +1253,7 @@ GET
 |symbol |false |string |t(:row_comment_symbol_v3)   |
 |orderId |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
 |orderLinkId |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
-|<a href="#order-filter-orderfilter">orderFilter</a> |false |string |t(:row_comment_orderFilter_v3)   |
+|orderFilter |false |string |t(:row_comment_orderFilter_v3)   |
 |startTime |false |number |t(:row_comment_startTime_v3)   |
 |endTime |false |number |t(:row_comment_endTime_v3)   |
 |direction |false |string |t(:row_comment_direction_v3)   |

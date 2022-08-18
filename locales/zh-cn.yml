@@ -166,6 +166,7 @@ zh-cn:
   row_comment_mmp: true表示此订单为做市商保护订单
   row_comment_orderFilter: 條件單或是活動單
   row_comment_qty_v3: 委托數量
+  row_comment_basePrice_v3: 當前市價。用於和triggerPrice值進行比較，確定當前條件委托是看空到<code>triggerPrice</code>時觸發還是看多到triggerPrice觸發。主要是用來標識當前條件單預期的方向
   row_comment_triggerPrice: 觸發價格. 如果您期望價格上漲时觸發您的條件訂單，請確保 triggerPrice > max(market price, basePrice) 否則 triggerPrice < min(market price, basePrice)
   row_comment_closeOnTrigger: 觸發後平倉. 如果下平倉單，請設置為<code>true</code>，避免因為保證金不足而導致下單失敗
   row_comment_orderLinkId: 機構自定義訂單ID, 最大長度36位，且同一機構下自定義ID不可重復
@@ -411,11 +412,12 @@ zh-cn:
     衍生品產品類型，正向合約：linear；期權：option。
   row_comment_symbol_v3: 合約名稱
   row_comment_positionIdx_v3: Position idx, 用於在不同倉位模式下標識倉位：0-單向持倉；1-雙向持倉Buy；2-雙向持倉Sell. Linear 必傳。Inverse，Options 不傳。
+  row_comment_positionIdx_um: 倉位模式, 統保帳戶只支持：0-單向持倉
   row_comment_side_v3: 方向：Buy，Sell
   row_comment_orderType_v3: 委托單價格類型
   row_comment_triggerSide: 用於當前條件委托是看空到stop_px時觸發還是看多到stop_px觸發。主要是用來標識當前條件單預期的方向：0為 < stop_px 時觸發，1 為 > stop_px 時觸發。
   row_comment_triggerSide_v3: |
-    用於當前條件委托是看空到stop_px時觸發還是看多到stop_px觸發。主要是用來標識當前條件單預期的方向：0為 < stop_px 時觸發，1 為 > stop_px 時觸發。
+    用於當前條件委托是看空到<code>triggerPrice</code>時觸發還是看多到<code>triggerPrice</code>觸發。主要是用來標識當前條件單預期的方向：0為 < triggerPrice 時觸發，1 為 > triggerPrice 時觸發。
   row_comment_triggerPrice_v3: 觸發價格
   row_comment_triggerBy_v3: |
     觸發價格類型：市價/標記價格

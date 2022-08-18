@@ -177,12 +177,15 @@ en:
     <p>0-One-Way Mode</p>
     <p>1-Buy side of both side mode</p>
     <p>2-Sell side of both side mode</p>
+  row_comment_positionIdx_um: Position mode. unified margin account is only available in One-Way mode, which is <code>0</code>
   row_comment_side_v3: Directions<span>:</span> Buy, Sell
   row_comment_qty_v3: Order quantity
   row_comment_orderType_v3: Order price type
   row_comment_triggerSide: |
     Used for the current conditional order to be triggered when the price increases or declines to stop_px. Mainly used to mark the expected direction of the current conditional order: 0 - triggered when < stop_px; 1 - triggered when > stop_px.
-  row_comment_triggerPrice: Trigger price
+  row_comment_triggerSide_v3: |
+    Used for the current conditional order to be triggered when the price increases or declines to triggerPrice. Mainly used to mark the expected direction of the current conditional order: 0 - triggered when < triggerPrice; 1 - triggered when > triggerPrice.
+  row_comment_triggerPrice: Trigger price. If you're expecting the price to rise to trigger your conditional order, make sure triggerPrice > max(market price, basePrice) else, triggerPrice < min(market price, basePrice)
   row_comment_triggerBy_v3: |
     Trigger price type: Market price/Mark price
   row_comment_iv_v3: Implied volatility, for options only; parameters are passed according to the real value; for example, for 10%, 0.1 is passed
@@ -4149,6 +4152,7 @@ en:
   usdcOptionOrderStatus: <a href="#order-status-orderstatus">Order status</a>
   lastExecPrice: Filled price
   basePrice: Market price during order placement
+  row_comment_basePrice_v3: It will be used to compare with the value of <code>triggerPrice</code>, to decide whether your conditional order will be triggered by crossing trigger price from upper side or lower side. Mainly used to identify the expected direction of the current conditional order.
   perpBasePrice: |
     When <code>OrderFilter</code> is StopOrder REQUIRED. It will be used to compare with the value of <code>triggerPrice</code>, to decide whether your stop order will be triggered by crossing trigger price from upper side or lower side. Mainly used to identify the expected direction of the current stop order.
   createdAt: Creation time
