@@ -554,26 +554,24 @@ curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/tr
 
 ```javascript
 {
-  "retCode":0,
-    "retMsg":"OK",
-    "result":{
-    "list":[
-      {
-        "transferId":"selfTransfer_c5ae452d-d2bab57c0958",
-        "coin":"BTC",
-        "amount":"1",
-        "fromAccountType":"CONTRACT",
-        "toAccountType":"SPOT",
-        "timestamp":"1629965054",
-        "status":"SUCCESS"
-      }
-    ],
-      "nextPageCursor":"eyJtaW5JRCI6MjgxMzM1LCJtYXhJRCI6NDUzNzMwfQ=="
-  },
-  "retExtInfo":{
-
-  },
-  "time":1652841868446
+    "retCode": 0,
+    "retMsg": "success",
+    "result": {
+        "list": [
+            {
+                "transferId": "selfTransfer_cafc74cc-e28a-4ff6-b0e6-9e711376fc90",
+                "coin": "USDT",
+                "amount": "1000",
+                "fromAccountType": "UNIFIED",
+                "toAccountType": "SPOT",
+                "timestamp": "1658986298000",
+                "status": "SUCCESS"
+            }
+        ],
+        "nextPageCursor": "eyJtaW5JRCI6NTY2NDc3LCJtYXhJRCI6NTY2NDc3fQ=="
+    },
+    "retExtInfo": null,
+    "time": 1660807573275
 }
 ```
 
@@ -589,8 +587,8 @@ GET
 |transferid |false |string |t(:row_comment_transfer_id) |
 |<a href="#currency-currency-coin">coin</a> |false |string |t(:row_comment_currency) |
 |<a href="#transfer-status-status">status</a> |false |string |t(:row_comment_transferstatus) |
-|startTime |false |integer |t(:row_comment_startTime) |
-|endTime |false |integer |t(:row_comment_endTime) |
+|startTime |false |integer |t(:row_comment_startTime_ms) |
+|endTime |false |integer |t(:row_comment_endTime_ms) |
 |limit |false |integer |t(:row_comment_to_limit) |
 |cursor |false |string |t(:row_comment_cursor)|
 
