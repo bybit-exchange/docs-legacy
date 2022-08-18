@@ -656,31 +656,38 @@
       <ul class="con">
 
         <!-- Derivatives V3 -->
-          <li>
-            <div class="dropdown">
-              <button class="dropbtn">Derivatives v3
-                <i class="fa fa-caret-down"></i>
-              </button>
-              <div class="dropdown-content">
-                  <a href="/docs/testnet/derivativesV3/unified_margin" >Unified Margin</a>
-                  <a href="/docs/testnet/derivativesV3/contract" >Contract</a>
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn">Derivatives v3
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="/docs/testnet/derivativesV3/unified_margin" >Unified Margin</a>
+                    <a href="/docs/testnet/derivativesV3/contract" >Contract</a>
+                </div>
               </div>
-            </div>
-          </li>
+            </li>
 
         <!-- Futures V2(USDT perp, Inverse Perp, Inverse Futures) -->
-          <li>
-            <div class="dropdown">
-              <button class="dropbtn">Futures v2
-                <i class="fa fa-caret-down"></i>
-              </button>
-              <div class="dropdown-content">
-                  <a href="/docs/testnet/futuresV2/inverse" >Inverse Perpetual</a>
-                  <a href="/docs/testnet/futuresV2/linear" >USDT Perpetual</a>
-                  <a href="/docs/testnet/futuresV2/inverse_futures" >Inverse Futures</a>
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn">Futures v2
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="/docs/testnet/futuresV2/inverse" >Inverse Perpetual</a>
+                    <a href="/docs/testnet/futuresV2/linear" >USDT Perpetual</a>
+                    <a href="/docs/testnet/futuresV2/inverse_futures" >Inverse Futures</a>
+                </div>
               </div>
-            </div>
-          </li>
+            </li>
+
+        <!-- Inverse Perpetual -->
+
+
+        <!-- USDT Perpetual -->
+
+        <!-- Inverse Futures -->
 
         <!-- Spot V3(Spot v1, Spot v3) -->
             <li>
@@ -1584,8 +1591,7 @@ A subaccount can only be attributed to a parent account.
 <td style="text-align: left">cursor</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>cursor information: used for pagination. Default value: ""
-</td>
+<td>Page turning mark. Use return <code>cursor</code>. Sign using origin data, in request please use urlencode</td>
 </tr>
 </tbody></table>
 
@@ -1636,8 +1642,7 @@ A subaccount can only be attributed to a parent account.
 <tr>
 <td style="text-align: left">cursor</td>
 <td style="text-align: left">string</td>
-<td>cursor information: used for pagination. Default value: ""
-</td>
+<td>Page turning mark. Use return <code>cursor</code>. Sign using origin data, in request please use urlencode</td>
 </tr>
 </tbody></table>
 <h3 id='t-querysubaccounttransferlist'>Query Subaccount Transfer List</h3>
@@ -1774,8 +1779,7 @@ A subaccount can only be attributed to a parent account.
 <td style="text-align: left">cursor</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>cursor information: used for pagination. Default value: ""
-</td>
+<td>Page turning mark. Use return <code>cursor</code>. Sign using origin data, in request please use urlencode</td>
 </tr>
 </tbody></table>
 
@@ -1831,8 +1835,7 @@ A subaccount can only be attributed to a parent account.
 <tr>
 <td style="text-align: left">cursor</td>
 <td style="text-align: left">string</td>
-<td>cursor information: used for pagination. Default value: ""
-</td>
+<td>Page turning mark. Use return <code>cursor</code>. Sign using origin data, in request please use urlencode</td>
 </tr>
 </tbody></table>
 <h3 id='t-querysubaccountlist'>Query Subaccount List</h3>
@@ -2207,14 +2210,13 @@ A universal transfer enables you to transfer funds directly between two subaccou
 <td style="text-align: left">limit</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">integer</td>
-<td>Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page</td>
+<td>Number of records</td>
 </tr>
 <tr>
 <td style="text-align: left">cursor</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>cursor information: used for pagination. Default value: ""
-</td>
+<td>Page turning mark. Use return <code>cursor</code>. Sign using origin data, in request please use urlencode</td>
 </tr>
 </tbody></table>
 
@@ -2275,8 +2277,7 @@ A universal transfer enables you to transfer funds directly between two subaccou
 <tr>
 <td style="text-align: left">cursor</td>
 <td style="text-align: left">string</td>
-<td>cursor information: used for pagination. Default value: ""
-</td>
+<td>Page turning mark. Use return <code>cursor</code>. Sign using origin data, in request please use urlencode</td>
 </tr>
 </tbody></table>
 <h1 id='t-withdraw_and_deposit'>Withdraw and Deposit Endpoints</h1>
@@ -3446,8 +3447,7 @@ If you receive an <b>HTTP 403</b> (Access Denied) response, your IP has been eit
     <th>Path</th>
   </tr>
   <tr>
-    <td rowspan="6">2mins 50/s;<br>5s 70/s</td>
-    <tr><td>Unified Margin</td><td>/unified</td>
+    <td rowspan="5">2mins 50/s;<br>5s 70/s</td>
     <tr><td>Inverse Perpetual</td><td>/v2</td>
     <tr><td>Inverse Futures</td><td>/futures</td>
     <tr><td>Linear Perpetual</td><td>/public, /private</td>

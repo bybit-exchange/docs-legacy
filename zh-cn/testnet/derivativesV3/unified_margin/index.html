@@ -656,31 +656,38 @@
       <ul class="con">
 
         <!-- Derivatives V3 -->
-          <li>
-            <div class="dropdown">
-              <button class="dropbtn">衍生品v3
-                <i class="fa fa-caret-down"></i>
-              </button>
-              <div class="dropdown-content">
-                  <a href="/docs/zh-cn/testnet/derivativesV3/unified_margin" class="dropdown-content-selected">統一保證金</a>
-                  <a href="/docs/zh-cn/testnet/derivativesV3/contract" class="dropdown-content-selected">合約</a>
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn">衍生品v3
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="/docs/zh-cn/testnet/derivativesV3/unified_margin" class="dropdown-content-selected">統一保證金</a>
+                    <a href="/docs/zh-cn/testnet/derivativesV3/contract" class="dropdown-content-selected">合約</a>
+                </div>
               </div>
-            </div>
-          </li>
+            </li>
 
         <!-- Futures V2(USDT perp, Inverse Perp, Inverse Futures) -->
-          <li>
-            <div class="dropdown">
-              <button class="dropbtn">期货v2
-                <i class="fa fa-caret-down"></i>
-              </button>
-              <div class="dropdown-content">
-                  <a href="/docs/zh-cn/testnet/futuresV2/inverse" >反向永續</a>
-                  <a href="/docs/zh-cn/testnet/futuresV2/linear" >USDT永續</a>
-                  <a href="/docs/zh-cn/testnet/futuresV2/inverse_futures" >反向交割</a>
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn">期货v2
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="/docs/zh-cn/testnet/futuresV2/inverse" >反向永續</a>
+                    <a href="/docs/zh-cn/testnet/futuresV2/linear" >USDT永續</a>
+                    <a href="/docs/zh-cn/testnet/futuresV2/inverse_futures" >反向交割</a>
+                </div>
               </div>
-            </div>
-          </li>
+            </li>
+
+        <!-- Inverse Perpetual -->
+
+
+        <!-- USDT Perpetual -->
+
+        <!-- Inverse Futures -->
 
         <!-- Spot V3(Spot v1, Spot v3) -->
             <li>
@@ -736,8 +743,6 @@
               <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-                  <a href=/docs/zh-cn/derivativesV3/unified_margin>Mainnet</a>
-                  <span class="dropdown-content-selected"><a href=/docs/zh-cn/testnet/derivativesV3/unified_margin>Testnet</a></span>
 
               <!-- it's for spot mainnet switch to spot v1 testnet -->
 
@@ -972,50 +977,6 @@
               </ul>
           </li>
           <li>
-            <a href="#t-ratelimits" class="toc-h1 toc-link" data-title="頻率限製">頻率限製</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#t-ipratelimits" class="toc-h2 toc-link" data-title="IP頻率限製">IP頻率限製</a>
-                  </li>
-                  <li>
-                    <a href="#t-orderlimits" class="toc-h2 toc-link" data-title="下單限製">下單限製</a>
-                  </li>
-                  <li>
-                    <a href="#t-raisemylimit" class="toc-h2 toc-link" data-title="如何提高頻率限製">如何提高頻率限製</a>
-                  </li>
-                  <li>
-                    <a href="#t-liquidity" class="toc-h2 toc-link" data-title="Bybit流動性貢獻系統">Bybit流動性貢獻系統</a>
-                      <ul class="toc-list-h3">
-                          <li>
-                            <a href="#t-ofrthreshold" class="toc-h3 toc-link" data-title="報單成交率">報單成交率</a>
-                              <ul class="toc-list-h4">
-                                  <li>
-                                    <a href="#t-ofrminimum" class="toc-h4 toc-link" data-title="API 交易用戶最小報單成交率門檻">API 交易用戶最小報單成交率門檻</a>
-                                  </li>
-                                  <li>
-                                    <a href="#t-ofrratio" class="toc-h4 toc-link" data-title="報單成交率">報單成交率</a>
-                                  </li>
-                                  <li>
-                                    <a href="#t-ofrratioexample" class="toc-h4 toc-link" data-title="報單成交率舉例">報單成交率舉例</a>
-                                  </li>
-                              </ul>
-                          </li>
-                          <li>
-                            <a href="#t-frequencylimit" class="toc-h3 toc-link" data-title="API 交易用戶提高頻率的條件">API 交易用戶提高頻率的條件</a>
-                              <ul class="toc-list-h4">
-                                  <li>
-                                    <a href="#t-liquiditypoints" class="toc-h4 toc-link" data-title="流動性貢獻打分">流動性貢獻打分</a>
-                                  </li>
-                                  <li>
-                                    <a href="#t-ratelimitsexplanation" class="toc-h4 toc-link" data-title="名詞解釋">名詞解釋</a>
-                                  </li>
-                              </ul>
-                          </li>
-                      </ul>
-                  </li>
-              </ul>
-          </li>
-          <li>
             <a href="#t-websocket" class="toc-h1 toc-link" data-title="WebSocket接口">WebSocket接口</a>
               <ul class="toc-list-h2">
                   <li>
@@ -1168,12 +1129,6 @@
                   </li>
                   <li>
                     <a href="#transaction-log-type-type" class="toc-h2 toc-link" data-title="Transaction-Log Type (type)">Transaction-Log Type (<code>type</code>)</a>
-                  </li>
-                  <li>
-                    <a href="#order-filter-orderfilter" class="toc-h2 toc-link" data-title="Order Filter (orderFilter)">Order Filter (<code>orderFilter</code>)</a>
-                  </li>
-                  <li>
-                    <a href="#upgrade-result-result" class="toc-h2 toc-link" data-title="Upgrade Result (result)">Upgrade Result (<code>result</code>)</a>
                   </li>
               </ul>
           </li>
@@ -3291,10 +3246,10 @@ price可為空！為了保護市價單遭遇嚴重的滑點，Bybit將市價單�
 <p>限價活動委托: 您可以為您的訂單設置一個執行價格，當市場價格達到您的設置價格時，系統會為您成交訂單。</p>
 <p>止盈止損: 您僅能在開倉時設置止盈止損條件單，一旦持有倉位後提交活動委托時關聯的止盈止損則不會生效。</p>
 <p>委托數量: 表示您要購買/賣出的永續合約數，對於委托數量目前Bybit只允許提交正整數。</p>
-<p>委托價格: 如果是下限價單，該參數為必填. 在沒有倉位時，做多的委托價格需高於市價的10%、低於1百萬。如有倉位時則需優於強平價。價格增減最小單位請參考<a href="#t-dv_instrhead">交易對</a>接口響應中的priceFilter字段。</p>
+<p>委托價格: 如果是下限價單，該參數為必填. 在沒有倉位時，做多的委托價格需高於市價的10%、低於1百萬。如有倉位時則需優於強平價。價格增減最小單位請參考交易對接口響應中的price_filter字段。</p>
 <p>自定義條件單ID: 您可以自定義活動委托訂單ID，我們會為您關聯到系統的訂單ID，並把系統的唯一訂單ID在活動委托創建成功後一並返回給您，您可以使用該訂單ID去取消活動委托，同時要求您傳遞的自定義訂單ID
 最大長度不超過36個字段且唯一。</p>
-<p>每個賬戶最多可同時持有500個活動訂單。這是針對合約的，因此可以允許出現例如：賬戶同時持有300個BTCUSD的活動單、280個ETHUSD合約的活動單。當您達到訂單上限的時候的時候，仍然可以下單設置了參數reduceOnly 或 closeOnTrigger的訂單。</p></p>
+<p>每個賬戶最多可同時持有500個活動訂單。這是針對合約的，因此可以允許出現例如：賬戶同時持有300個BTCUSD的活動單、280個ETHUSD合約的活動單。當您達到訂單上限的時候的時候，仍然可以下單設置了參數reduce_only 或 closeOnTrigger的訂單。</p></p>
 </p>
 
 <p class="fake_header">HTTP 請求</p>
@@ -3336,7 +3291,7 @@ price可為空！為了保護市價單遭遇嚴重的滑點，Bybit將市價單�
 <td style="text-align: left">positionIdx</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>倉位模式, 統保帳戶只支持：0-單向持倉</td>
+<td>Position idx, 用於在不同倉位模式下標識倉位：0-單向持倉；1-雙向持倉Buy；2-雙向持倉Sell. Linear 必傳。Inverse，Options 不傳。</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#order-type-ordertype">orderType</a></td>
@@ -3357,10 +3312,10 @@ price可為空！為了保護市價單遭遇嚴重的滑點，Bybit將市價單�
 <td>委托價格</td>
 </tr>
 <tr>
-<td style="text-align: left">basePrice</td>
+<td style="text-align: left">triggerSide</td>
 <td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>當前市價。用於和triggerPrice值進行比較，確定當前條件委托是看空到<code>triggerPrice</code>時觸發還是看多到triggerPrice觸發。主要是用來標識當前條件單預期的方向</td>
+<td style="text-align: left">number</td>
+<td>用於當前條件委托是看空到stop_px時觸發還是看多到stop_px觸發。主要是用來標識當前條件單預期的方向：0為 < stop_px 時觸發，1 為 > stop_px 時觸發。</td>
 </tr>
 <tr>
 <td style="text-align: left">triggerPrice</td>
@@ -3543,7 +3498,7 @@ price可為空！為了保護市價單遭遇嚴重的滑點，Bybit將市價單�
 <td>自定義機構ID</td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="#order-filter-orderfilter">orderFilter</a></td>
+<td style="text-align: left">orderFilter</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>條件單或是活動單
@@ -3712,7 +3667,7 @@ order_link_id。 </p>
 <td>自定義機構ID。如果未填orderId則為<b>必填</b>字段。</td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="#order-filter-orderfilter">orderFilter</a></td>
+<td style="text-align: left">orderFilter</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>條件單或是活動單
@@ -3844,7 +3799,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <td>機構自定義訂單 ID</td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="#order-filter-orderfilter">orderFilter</a></td>
+<td style="text-align: left">orderFilter</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>條件單或是活動單
@@ -4121,7 +4076,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 </td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="#order-filter-orderfilter">orderFilter</a></td>
+<td style="text-align: left">orderFilter</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>條件單或是活動單
@@ -4433,7 +4388,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <td style="text-align: left">list&gt; positionIdx</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>倉位模式, 統保帳戶只支持：0-單向持倉</td>
+<td>Position idx, 用於在不同倉位模式下標識倉位：0-單向持倉；1-雙向持倉Buy；2-雙向持倉Sell. Linear 必傳。Inverse，Options 不傳。</td>
 </tr>
 <tr>
 <td style="text-align: left">list&gt; <a href="#order-type-ordertype">orderType</a></td>
@@ -4995,7 +4950,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <td>合約名稱</td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="#order-filter-orderfilter">orderFilter</a></td>
+<td style="text-align: left">orderFilter</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>條件單或是活動單。僅期貨有效，期權下該參數無效。</td>
@@ -5556,7 +5511,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <td style="text-align: left">positionIdx</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">number</td>
-<td>倉位模式, 統保帳戶只支持：0-單向持倉</td>
+<td>Position idx, 用於在不同倉位模式下標識倉位：0-單向持倉；1-雙向持倉Buy；2-雙向持倉Sell. Linear 必傳。Inverse，Options 不傳。</td>
 </tr>
 </tbody></table>
 
@@ -5704,7 +5659,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <td style="text-align: left">positionIdx</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>倉位模式, 統保帳戶只支持：0-單向持倉</td>
+<td>Position idx, 用於在不同倉位模式下標識倉位：0-單向持倉；1-雙向持倉Buy；2-雙向持倉Sell. Linear 必傳。Inverse，Options 不傳。</td>
 </tr>
 </tbody></table>
 <h3 id='t-dv_usertraderecords7day'>查詢7日成交記錄</h3>
@@ -5805,7 +5760,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <td>自定義機構ID</td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="#order-filter-orderfilter">orderFilter</a></td>
+<td style="text-align: left">orderFilter</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>條件單或是活動單
@@ -6553,7 +6508,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left"><a href="#upgrade-result-result">result</a></td>
+<td style="text-align: left">result</td>
 <td style="text-align: left">string</td>
 <td>用戶賬戶的升級狀態。1.處理中 2.升級成功 3.升級失敗 4.拒絕</td>
 </tr>
@@ -6696,7 +6651,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <td style="text-align: left"><a href="#transaction-log-type-type">type</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>默認返回該category下所有交易日誌（除劃轉外） 註意：查詢轉入轉出日誌，必須要傳 type=TRANSFER_IN，type=TRANSFER_OUT，否則查不到劃轉日誌</td>
+<td>默認返回該category下所有交易日誌（除劃轉外） TRANSFER_IN 轉入 TRANSFER_OUT 轉出 TRADE 交易 SETTLEMENT 結算 DELIVERY 交割 Liquidation 強平（統保一期無該業務） Insurance fund 體驗金領取（統保一期無該業務） Fee Refund 手續費返還（統保一期無該業務） INTEREST 利息 註意：查詢轉入轉出日誌，必須要傳 type=TRANSFER_IN，type=TRANSFER_OUT，否則查不到劃轉日誌</td>
 </tr>
 <tr>
 <td style="text-align: left">startTime</td>
@@ -7405,167 +7360,6 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 </tr>
 </thead><tbody>
 </tbody></table>
-<h1 id='t-ratelimits'>頻率限製</h1><h3 id='t-ipratelimits'>IP頻率限製</h3>
-<p><p>IP 限制在所有接口之間共享：期貨、現貨和賬戶資產。</p>
-<p>Bybit根據請求方式有不同的IP頻率限制。 我們不建議您在這些限制的邊緣運行您的應用程序，以防異常的網絡活動導致意外違規。</p>
-<ul>
-<li>
-  <code>GET</code> & <code>DELETE</code> 方法 (共享):
-  <ul>
-    <li>連續 2 分鐘內每秒不超過 12 個請求</li>
-    <li>連續 5 秒內每秒不超過 18 個請求</li>
-  </ul>
-</li>
-<li>
-  <code>POST</code> 方法:
-  <ul>
-    <li>連續 2 分鐘內每秒不超過 10 個請求</li>
-    <li>連續 5 秒內每秒不超過 15 個請求</li>
-  </ul>
-</li>
-</ul>
-</p>
-<h2 id='t-orderlimits'>下單限製</h2>
-<p><p>每個交易對可以持有的訂單數量上限：</p>
-<ul>
-<li>活動單: 500</li>
-<li>條件單: 10</li>
-</ul>
-</p>
-<h2 id='t-raisemylimit'>如何提高頻率限製</h2>
-<p><ul>
-<li>請先閱讀<a href="#t-raisemylimit">如何滿足提高頻率限製條件</a></li>
-<li>請發送郵件到 <a href="mailto:api@bybit.com">api@bybit.com</a>，我們會在 1-4 個工作日內答復。郵件內容必須包含以下內容：</li>
-<ol>
-  <li>您的姓名和公司名稱和簡介</li>
-  <li>您的bybit 賬號uid或註冊郵箱手機號,以及您要申請提頻的交易對</li>
-  <li>您上個月的交易量（吃單/掛單）並提供截圖</li>
-  <li>簡單介紹您的交易策略和為什麽需要更高限頻</li>
-  <li>如果可以，請提供您的成交記錄csv文檔</li>
-</ol>
-</ul>
-</p>
-<h2 id='t-liquidity'>Bybit流動性貢獻系統</h2>
-<p><p>Bybit 使用<code>報單成交率</code> 和 <code>流動性貢獻打分</code>來評價用戶對改善bybit可執行流動性作出的貢獻。</p>
-<p>不同symbol的<code>貢獻分</code>和<code>報單成交率</code>是獨立計算的。</p>
-</p>
-<h3 id='t-ofrthreshold'>報單成交率</h3>
-<p>平臺上每天提交超過<code>2000</code>個報單的賬戶，需要保持<code>7天</code>的報單成交率高於<code>最小報單成交率門檻值</code>，違反此規則將會被降低頻率或禁用 API。
-</p>
-<h4 id='t-ofrminimum'>API 交易用戶最小報單成交率門檻</h4>
-<p><code>7</code>日內API 交易用戶最小報單成交率門檻 0.1%</p>
-<h4 id='t-ofrratio'>報單成交率</h4>
-<p><ul>
-<li><code>報單成交率</code>: 定義為 一段時間段內，用戶已成交報單數量占該用戶已提交報單數量的比例</li>
-<li><code>已提交報單</code>: 是任何已成功發送到平臺的委托</li>
-<li><code>已成交報單</code>: 是成交了任何數量的委托</li>
-<li><code>報單成交率 = ( 一段時間內用戶的已成交報單數量 / 一段時間內已提交報單數量)</code></li>
-</ul>
-</p>
-<h4 id='t-ofrratioexample'>報單成交率舉例</h4>
-<pre class="center-column-nonindent">
-A用戶：
-已成交報單數量 = 2
-已提交報單數量 = 8
-報單成交率 = 2 / 8 = 25％
-
-</pre>
-
-<pre class="center-column-nonindent">
-B用戶：
-已成交報單數量 = 1
-已提交報單數量 = 1
-報單成交率 = 1 / 1 = 100％
-
-</pre>
-<h3 id='t-frequencylimit'>API 交易用戶提高頻率的條件</h3>
-<p>平臺會根據API用戶近<code>7</code>日掛單對<code>平臺流動性貢獻分</code>的最低值，對滿足條件的用戶進行提高頻率上限的獎勵</p>
-
-<table><thead>
-<tr>
-<th>流動性貢獻分</th>
-<th>Order頻率限製</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>20-100</td>
-<td>800次 / 每分鐘</td>
-</tr>
-<tr>
-<td>10-20</td>
-<td>600次 / 每分鐘</td>
-</tr>
-<tr>
-<td>5-10</td>
-<td>400次 / 每分鐘</td>
-</tr>
-<tr>
-<td>2-5</td>
-<td>200次 / 每分鐘</td>
-</tr>
-<tr>
-<td>&lt;2</td>
-<td>100次 / 每分鐘</td>
-</tr>
-</tbody></table>
-<h4 id='t-liquiditypoints'>流動性貢獻打分</h4>
-<p><ul>
-<li><code>流動性貢獻打分 = 有效價格掛單自占比 * 有效價格掛單量平臺占比 * 100</code></li>
-</ul>
-</p>
-<h4 id='t-ratelimitsexplanation'>名詞解釋</h4><h5 id='t-pricerange'>有效價格掛單</h5>
-<p><ul>
-<li><p><code>有效價格掛單</code>: 定義為在距離盤口中間價較近的規定範圍內的掛單被定義為有效價格掛單.</p>
-</li>
-<li><p><code>最佳競價中間價</code>:  (最佳競買價 + 最佳競賣價) 的均值</p>
-</li>
-<li><p><code>最佳競價中間價 = 1/2*（最佳競買價 + 最佳競賣價）</code></p>
-</li>
-</ul>
-</p>
-<h5 id='t-pricerangeexample'>有效價格範圍</h5>
-<pre class="center-column-nonindent">
-[最佳競價中間價 - 3 * 價格最小變動單位, 最佳競價中間價 + 3 * 價格最小變動單位]
-
-舉例：
- BTC最佳競買價 = 10000
- BTC最佳競賣價 = 10001
- 「有效價格」範圍：
- [(10000 + 10001) / 2 - 3* 0.5, (10000 + 10001) / 2 + 3* 0.5] = [9999,10002]
-
-</pre>
-<h5 id='t-pou'>有效價格掛單自占比</h5>
-<p><ul>
-<li><code>有效價格掛單自占比</code>: 定義為該用戶在 <code>有效價格 </code> 範圍內的掛單數量占該用戶在當前時間提交的掛單總數量的比例。</li>
-</ul>
-<p>每秒計算 該用戶在<code>有效價格</code>範圍內的報掛單數量 /該用戶提交的掛單總數量，然後每日計算用戶當日占比的平均值。</p>
-</p>
-
-<pre class="center-column-nonindent">
-該用戶在<code>有效價格</code>範圍內的掛單數量 = 8000
-該用戶提交的掛單總數量 = 10000
-有效價格掛單自占比 = 8000 / 10000 = 0.8
-
-</pre>
-<h5 id='t-poa'>有效價格掛單平臺占比</h5>
-<p><ul>
-<li><code>有效價格掛單平臺占比</code>: 定義為該用戶在有效價格範圍內的掛單數量占平臺所有用戶在<code>有效價格</code>範圍內的掛單總數量的比例.</li>
-</ul>
-<p>每秒計算 該用戶在<code>有效價格</code>範圍內的掛單數量 / 平臺所有用戶在<code>有效價格</code>範圍內的掛單總數量，然後每日計算用戶當日占比的平均值。</p>
-</p>
-<h5 id='t-poaexample'>有效價格掛單平臺占比舉例：</h5>
-<p>某一秒，用戶在「有效價格」範圍：[9999, 10002] 內的掛單有8000張，全平臺的交易委托賬本在 [9999, 10002] 內的掛單總量為200000。</p>
-
-<pre class="center-column-nonindent">
-該用戶在<code>有效價格</code>範圍內的掛單數量 = 8000
-平臺所有用戶在<code>有效價格</code>範圍內的掛單總數量 = 200000
-有效價格掛單量平臺占比 = 8000 / 200000 = 0.04
-
-</pre>
-
-<aside class="notice">
-如果機製有更新，我們會提前通過官網提前通知。
-</aside>
 <h1 id='t-websocket'>WebSocket接口</h1><h2 id='t-websocketauthentication'>鑒權/認證</h2>
 <blockquote>
 <p>認證方式:
@@ -7628,16 +7422,6 @@ B用戶：
 <p><p>WebSocket 公共頻道:</p>
 <ul>
 <p>
-<li>主網:<br/>
-    USDT合約: <span id="usdt_testnet_address">wss://stream.bybit.com/contract/usdt/public/v3</span>
-    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdt_testnet_address"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
-    <br/>
-    USDC合約: <span id="usdc_testnet_address">wss://stream.bybit.com/contract/usdc/public/v3</span>
-    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdc_testnet_address"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
-    <br/>
-    USDC期權: <span id="option_testnet_address">wss://stream.bybit.com/option/usdc/public/v3</span>
-    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#option_testnet_address"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
-</li>
 <li>測試網:<br/>
     USDT合約: <span id="usdt_testnet_address">wss://stream-testnet.bybit.com/contract/usdt/public/v3</span>
     <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdt_testnet_address"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
@@ -7653,10 +7437,6 @@ B用戶：
 <p>WebSocket 私有頻道:</p>
 <ul>
 <p>
-<li>主網:<br/>
-    統一保證金帳戶: <span id="uma_testnet_address">wss://stream.bybit.com/unified/private/v3</span>
-    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uma_testnet_address"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
-</li>
 <li>測試網:<br/>
     統一保證金帳戶: <span id="uma_testnet_address">wss://stream-testnet.bybit.com/unified/private/v3</span>
     <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uma_testnet_address"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
@@ -9259,7 +9039,7 @@ B用戶：
 <li><code>DOTUSD</code></li>
 </ul>
 
-<p>您可以根據<a href="#t-dv_instrhead">查询衍生品交易规格</a>接口獲取所有交易中的symbol。</p>
+<p>您可以根據<a href="#t-querysymbol">Query Symbol</a>接口獲取所有交易中的symbol。</p>
 <h2 id='currency-currency-coin'>Currency (<code>currency</code>/<code>coin</code>)</h2>
 <ul>
 <li><code>BTC</code></li>
@@ -9483,18 +9263,6 @@ ELSE
 <li><code>FEE_REFUND</code> 手續費返還</li>
 <li><code>INTEREST</code> 利息</li>
 <li><code>BONUS</code> 體驗金領區</li>
-</ul>
-<h2 id='order-filter-orderfilter'>Order Filter (<code>orderFilter</code>)</h2>
-<ul>
-<li><code>Order</code></li>
-<li><code>StopOrder</code></li>
-</ul>
-<h2 id='upgrade-result-result'>Upgrade Result (<code>result</code>)</h2>
-<ul>
-<li><code>Processing</code></li>
-<li><code>Successfully upgraded</code></li>
-<li><code>Upgrade failed</code></li>
-<li><code>Rejected</code></li>
 </ul>
 <h1 id='t-errors'>錯誤碼</h1>
 <p>Bybit使用以下HTTP Code和錯誤碼：</p>
