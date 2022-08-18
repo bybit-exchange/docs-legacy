@@ -669,25 +669,18 @@
             </li>
 
         <!-- Futures V2(USDT perp, Inverse Perp, Inverse Futures) -->
-            <li>
-              <div class="dropdown">
-                <button class="dropbtn">Futures v2
-                  <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <a href="/docs/testnet/futuresV2/inverse" >Inverse Perpetual</a>
-                    <a href="/docs/testnet/futuresV2/linear" >USDT Perpetual</a>
-                    <a href="/docs/testnet/futuresV2/inverse_futures" >Inverse Futures</a>
-                </div>
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">Futures v2
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                  <a href="/docs/testnet/futuresV2/inverse" >Inverse Perpetual</a>
+                  <a href="/docs/testnet/futuresV2/linear" >USDT Perpetual</a>
+                  <a href="/docs/testnet/futuresV2/inverse_futures" >Inverse Futures</a>
               </div>
-            </li>
-
-        <!-- Inverse Perpetual -->
-
-
-        <!-- USDT Perpetual -->
-
-        <!-- Inverse Futures -->
+            </div>
+          </li>
 
         <!-- Spot V3(Spot v1, Spot v3) -->
             <li>
@@ -968,6 +961,50 @@
               </ul>
           </li>
           <li>
+            <a href="#t-ratelimits" class="toc-h1 toc-link" data-title="Rate Limits">Rate Limits</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-ipratelimits" class="toc-h2 toc-link" data-title="IP Rate Limit">IP Rate Limit</a>
+                  </li>
+                  <li>
+                    <a href="#t-orderlimits" class="toc-h2 toc-link" data-title="Order Limits">Order Limits</a>
+                  </li>
+                  <li>
+                    <a href="#t-raisemylimit" class="toc-h2 toc-link" data-title="How to Increase API Limits">How to Increase API Limits</a>
+                  </li>
+                  <li>
+                    <a href="#t-liquidity" class="toc-h2 toc-link" data-title="Understanding Bybit's Liquidity System">Understanding Bybit's Liquidity System</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#t-ofrthreshold" class="toc-h3 toc-link" data-title="Order Fill Ratio (OFR) Threshold">Order Fill Ratio (OFR) Threshold</a>
+                              <ul class="toc-list-h4">
+                                  <li>
+                                    <a href="#t-ofrminimum" class="toc-h4 toc-link" data-title="Minimum OFR Threshold">Minimum OFR Threshold</a>
+                                  </li>
+                                  <li>
+                                    <a href="#t-ofrratio" class="toc-h4 toc-link" data-title="Order Fill Ratio (OFR)">Order Fill Ratio (OFR)</a>
+                                  </li>
+                                  <li>
+                                    <a href="#t-ofrratioexample" class="toc-h4 toc-link" data-title="Order Fill Ratio Example">Order Fill Ratio Example</a>
+                                  </li>
+                              </ul>
+                          </li>
+                          <li>
+                            <a href="#t-frequencylimit" class="toc-h3 toc-link" data-title="Rate Limits for API Requests">Rate Limits for API Requests</a>
+                              <ul class="toc-list-h4">
+                                  <li>
+                                    <a href="#t-liquiditypoints" class="toc-h4 toc-link" data-title="Liquidity Contribution Points (LCP)">Liquidity Contribution Points (LCP)</a>
+                                  </li>
+                                  <li>
+                                    <a href="#t-ratelimitsexplanation" class="toc-h4 toc-link" data-title="Explanation">Explanation</a>
+                                  </li>
+                              </ul>
+                          </li>
+                      </ul>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#t-websocket" class="toc-h1 toc-link" data-title="WebSocket Data">WebSocket Data</a>
               <ul class="toc-list-h2">
                   <li>
@@ -1059,6 +1096,9 @@
                     <a href="#contract-status-status" class="toc-h2 toc-link" data-title="Contract Status(status)">Contract Status(<code>status</code>)</a>
                   </li>
                   <li>
+                    <a href="#account-type-from_account_type-to_account_type" class="toc-h2 toc-link" data-title="Account type (from_account_type/to_account_type)">Account type (<code>from_account_type</code>/<code>to_account_type</code>)</a>
+                  </li>
+                  <li>
                     <a href="#wallet-fund-type-walletfundtype-type" class="toc-h2 toc-link" data-title="Wallet fund type (walletFundType / type)">Wallet fund type (<code>walletFundType</code> / <code>type</code>)</a>
                   </li>
                   <li>
@@ -1117,6 +1157,9 @@
                   </li>
                   <li>
                     <a href="#order-filter-orderfilter" class="toc-h2 toc-link" data-title="Order Filter (orderFilter)">Order Filter (<code>orderFilter</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#upgrade-result-result" class="toc-h2 toc-link" data-title="Upgrade Result (result)">Upgrade Result (<code>result</code>)</a>
                   </li>
               </ul>
           </li>
@@ -6026,6 +6069,164 @@ Deposit or withdrawal records which occurred after 2021-07-15 will not be shown 
 </tr>
 </thead><tbody>
 </tbody></table>
+<h1 id='t-ratelimits'>Rate Limits</h1><h3 id='t-ipratelimits'>IP Rate Limit</h3>
+<p><p>The IP limits are shared across all endpoints: futures, spot, and account asset.</p>
+<p>Bybit has different IP frequency limits depending on the request method. We do not recommend running your application at the very edge of these limits in case abnormal network activity results in an unexpected violation.</p>
+<ul>
+<li>
+  <code>GET</code> & <code>DELETE</code> methods (shared):
+  <ul>
+    <li>12 requests per second continuously for 2 minutes</li>
+    <li>18 requests per second continuously for 5 seconds</li>
+  </ul>
+</li>
+<li>
+  <code>POST</code> method:
+  <ul>
+    <li>10 requests per second continuously for 2 minutes</li>
+    <li>15 requests per second continuously for 5 seconds</li>
+  </ul>
+</li>
+</ul>
+</p>
+<h2 id='t-orderlimits'>Order Limits</h2>
+<p><p>Max. number of unfilled orders supported under each trading pair:</p>
+<ul>
+<li>Active orders: 500</li>
+<li>Conditional orders: 10</li>
+</ul>
+<p>If you have reached the 500 active order limit, creating a new order will be successful, but the oldest existing order will be cancelled. However, if you have reached the 10 conditional order limit, creating a new order will result in an error, maintaining the existing 10 orders.</p>
+</p>
+<h2 id='t-raisemylimit'>How to Increase API Limits</h2>
+<p><ul>
+<li>Please refer to <a href="#t-liquidity">Understanding Bybit&#39;s Liquidity System</a> regarding how our system automatically allocates rate limits for users who place over 2,000 orders per day.</li>
+<li>Please email <a href="mailto:api@bybit.com">api@bybit.com</a> with the following information. We will reply within 1-4 working days:</li>
+  <ol>
+    <li>Your name and your company details</li>
+    <li>Your Bybit UID or registered email, and the assets you are trading</li>
+    <li>General description of your trading strategy and reasons for higher rate limits</li>
+    <li>Screenshot of previous monthly trading volume (maker/taker) on other platforms</li>
+    <li>Optional: your order history in CSV format</li>
+  </ol>
+</ul>
+</p>
+<h2 id='t-liquidity'>Understanding Bybit's Liquidity System</h2>
+<p><p>Bybit uses <code>Order Fill Ratio (OFR)</code> and <code>Liquidity Contribution Points (LCP)</code> to measure customers&#39; contribution to our executable liquidity.</p>
+<p>The <code>LCP</code> and <code>OFR</code> of different assets are calculated separately.</p>
+</p>
+<h3 id='t-ofrthreshold'>Order Fill Ratio (OFR) Threshold</h3>
+<p>If you place more than <code>2000</code> orders per day on Bybit, please make sure that your 7-day OFR is above a <code>Minimum OFR threshold</code>. Otherwise, Bybit may reduce the rate limits for your API request.
+</p>
+<h4 id='t-ofrminimum'>Minimum OFR Threshold</h4>
+<p>7-day OFR must be kept above 0.1%.</p>
+<h4 id='t-ofrratio'>Order Fill Ratio (OFR)</h4>
+<p><ul>
+<li><code>Order Fill Ratio (OFR)</code>: <code>Orders Filled</code> to <code>Orders Submitted to Bybit</code> to Bybit.</li>
+<li><code>Orders Submitted to Bybit</code>: any order submitted to Bybit.</li>
+<li><code>Orders Filled</code>: any order that has been filled (regardless of filled quantity).</li>
+<li><code>OFR = (number of orders filled / number of orders submitted to Bybit)</code></li>
+</ul>
+</p>
+<h4 id='t-ofrratioexample'>Order Fill Ratio Example</h4>
+<pre class="center-column-nonindent">
+User A:
+Orders Filled = 2
+Orders Submitted to Bybit = 8
+OFR = 2/8 = 25%
+
+</pre>
+
+<pre class="center-column-nonindent">
+User B:
+Orders Filled = 1
+Orders Submitted to Bybit = 1
+OFR = 1/1 = 100%
+
+</pre>
+<h3 id='t-frequencylimit'>Rate Limits for API Requests</h3>
+<p>The rate limits for your API requests are based on your min. <code>Liquidity Contribution Points (LCP)</code> within <code>7</code> days.</p>
+
+<table><thead>
+<tr>
+<th>LCP</th>
+<th>Order Frequency Limit</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>20-100</td>
+<td>800 times per minute</td>
+</tr>
+<tr>
+<td>10-20</td>
+<td>600 times per minute</td>
+</tr>
+<tr>
+<td>5-10</td>
+<td>400 times per minute</td>
+</tr>
+<tr>
+<td>2-5</td>
+<td>200 times per minute</td>
+</tr>
+<tr>
+<td>&lt;2</td>
+<td>100 times per minute</td>
+</tr>
+</tbody></table>
+<h4 id='t-liquiditypoints'>Liquidity Contribution Points (LCP)</h4>
+<p><ul>
+<li><code>Liquidity Contribution Points (LCP) = POU * POA * 100</code></li>
+</ul>
+</p>
+<h4 id='t-ratelimitsexplanation'>Explanation</h4><h5 id='t-pricerange'>Effective Price Range</h5>
+<p><ul>
+<li><p><code>effective price range</code>: order price that falls within the lower and upper price bounds.</p>
+</li>
+<li><p>Min <code>effective price</code>:   (best bid price + best ask price) / 2 - (3 * tick_size)</p>
+</li>
+<li><p>Max <code>effective price</code>:  (best bid price + best ask price) / 2 + (3 * tick_size)</p>
+</li>
+</ul>
+</p>
+<h5 id='t-pricerangeexample'>Effective Price Range Example</h5>
+<pre class="center-column-nonindent">
+BTC best bid = 10000
+BTC best ask = 10001
+Effective Price Range: [(10000 + 10001) / 2 - 3* 0.5, (10000 + 10001) / 2 + 3* 0.5] = [9999,10002]
+
+</pre>
+<h5 id='t-pou'>POU</h5>
+<p><ul>
+<li><code>POU</code>: The size of your orders that fall within the <code>effective price range</code> in proportion to the total size of your orders in the order book.</li>
+</ul>
+<p>Bybit calculates the size of your orders that fall within the <code>effective price range</code> / the total size of your orders in the order book per second, and then computes the time-weighted-average of the day.</p>
+</p>
+
+<pre class="center-column-nonindent">
+amount of User C's orders within effective price range = 8000
+amount of all User C's orders = 2000 + 8000 = 10000
+POU = 8000 / 10000 = 0.8
+
+</pre>
+<h5 id='t-poa'>POA</h5>
+<p><ul>
+<li><code>POA</code>: the proportion of your orders within <code>effective price range</code> to all orders within <code>effective price range</code> in orderbook.</li>
+</ul>
+<p>Bybit calculates your amount of orders within <code>effective price range</code> / amount of all orders within <code>effective price range</code> in orderbook, and then performs a 1-Day Time-Weighted-Average over the series of seconds rates.</p>
+</p>
+<h5 id='t-poaexample'>POA example</h5>
+<p>The size of user C's orders that fall within the effective price range is 8,000, while the total size of orders in the order book that fall within the effective price range is 200,000.</p>
+
+<pre class="center-column-nonindent">
+Size of user C's orders within effective price range = 8000
+Total size of orders within effective price range = 200000
+POA = 8000 / 200000 = 0.04
+
+</pre>
+
+<aside class="notice">
+Prior notice will be given via the website if we update this mechanism.
+</aside>
 <h1 id='t-websocket'>WebSocket Data</h1><h2 id='t-websocketauthentication'>Authentication</h2>
 <blockquote>
 <p>Authentication methods:
@@ -7559,6 +7760,14 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 <li><code>Settling</code></li>
 <li><code>Closed</code></li>
 </ul>
+<h2 id='account-type-from_account_type-to_account_type'>Account type (<code>from_account_type</code>/<code>to_account_type</code>)</h2>
+<ul>
+<li><code>CONTRACT</code>  </li>
+<li><code>SPOT</code>      </li>
+<li><code>INVESTMENT</code> - ByFi Account</li>
+<li><code>OPTION</code> - USDC Account</li>
+<li><code>UNIFIED</code> </li>
+</ul>
 <h2 id='wallet-fund-type-walletfundtype-type'>Wallet fund type (<code>walletFundType</code> / <code>type</code>)</h2>
 <ul>
 <li><code>Deposit</code> </li>
@@ -7773,6 +7982,13 @@ ELSE
 <ul>
 <li><code>Order</code></li>
 <li><code>StopOrder</code></li>
+</ul>
+<h2 id='upgrade-result-result'>Upgrade Result (<code>result</code>)</h2>
+<ul>
+<li><code>Processing</code></li>
+<li><code>Successfully upgraded</code></li>
+<li><code>Upgrade failed</code></li>
+<li><code>Rejected</code></li>
 </ul>
 <h1 id='t-errors'>Errors</h1>
 <p>The Bybit API uses the following HTTP codes and error codes<span>:</span></p>
