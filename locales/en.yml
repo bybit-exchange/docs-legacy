@@ -24,6 +24,7 @@ en:
   column_type: Type
   column_comments: Comment
   row_comment_userID: UserID
+  row_comment_accountID: AccountID
   row_comment_side: Side
   row_comment_side_taker: Side of taker order
   row_comment_symbol: Symbol
@@ -62,6 +63,7 @@ en:
   row_comment_order_margin: Pre-occupied order margin
   row_comment_wallet_balance: Wallet balance
   row_comment_available_balance: Available balance = wallet balance - used margin
+  row_comment_transferable_balance: Transferable balance = available balance - bonus
   row_comment_http_available_balance: |
     <p>In Isolated Margin Mode:</p>
     <pre class="table-code">
@@ -2347,7 +2349,7 @@ en:
   err_4007: Order not found.
   err_4008: Purchase period hasn't started yet.
   err_4009: Purchase amount has exceeded the upper limit.
-  err_4010: You haven't passed the quiz yet! To purchase and/or redeem an LT, please complete the quiz first.
+  err_4010: You must enable Leveraged Tokens first to start trading. To do so, please head to the PC trading site.
   err_4012: Redemption period hasn't started yet.
   err_4013: Redemption amount has exceeded the upper limit.
   err_4014: Purchase of the LT has been temporarily suspended.
@@ -3669,6 +3671,9 @@ en:
   transfer_api_notice: |
     Please note that this interface supports Futures Account, Spot Account, Investment Account.
     The <code>transfer_in</code> and <code>transfer_out</code> account types cannot be the same.
+  transfer_api_v3_notice: |
+    Please note that this interface supports Contract Account, Spot Account, Investment Account.
+    The <code>transferIn</code> and <code>transferOut</code> account types cannot be the same.
   universaltransferunderstanding_notice: A universal transfer enables you to transfer funds directly between two subaccounts (rather than sub -> master -> sub) and any <a href="#account-type-from_account_type-to_account_type">account type</a> (<code>CONTRACT</code>, <code>SPOT</code>, etc).
   enableuniversaltransfer_notice: Use this endpoint to enable subaccounts to take part in a universal transfer. It is a one-time switch which, once thrown, enables a subaccount permanently. If not set, your subaccounts cannot use universal tranfers.
   universaltransfer_join_notice: To send a transfer which is <a href="#account-type-from_account_type-to_account_type">account type</a> & parent/sub agnostic, use the <a href="#t-createuniversaltransfer">Create Universal Transfer</a> endpoint.
@@ -3676,6 +3681,8 @@ en:
   row_comment_accounttype: Account type
 
   createsubaccounttransfer_api_notice: |
+    A subaccount can only be attributed to a parent account.
+  createsubaccounttransfer_api_v3_notice: |
     A subaccount can only be attributed to a parent account.
   createsubaccounttransfer: Create Subaccount Transfer
   subMember_trigger_transfer: Transfers funds between the parent and child (sub) accounts.
@@ -3718,6 +3725,16 @@ en:
   queryUniverseTransferList: Query Universal Transfer List
   row_comment_sub_user_id_list: List of all subaccounts
   row_comment_transferable_sub_ids_list: List of subaccounts that are universal transfer-enabled
+  row_comment_transfer_coin_list: The coins are enabled transfer between accounts
+  row_comment_bonus: The bonus
+  row_comment_withBonus: Whether query bonus or not. <code>0</code>：false; <code>1</code>：true; Not query is in default
+  row_comment_spot_status: Spot account status. <code>1</code>：normal; <code>0</code>：forbidden
+  row_comment_frozen: Freeze amount
+  row_comment_free: Free balance
+  row_comment_withdraw: Amount in withdrawing
+  querytransfercoinlist: Transferable coin list
+  queryaccountcoinbalance: Coin balance in account
+  queryassetinfo: Asset info
 
   #Withdraw/Deposit API Data Endpoints -- start
   withdraw_and_deposit: Withdraw and Deposit Endpoints
@@ -4092,7 +4109,7 @@ en:
     <p>After a successful subscription, any changes in the transaction data will be pushed in real-time or once every second. The number of pushes depends on the number of new transaction records within the time frame.</p>
     <p>Subscribe according to the dimension of the currency, such as BTC or ETH</p>
     <p>topic format:</p>
-    <p>Option- recenttrades.{symbol}, such as: recenttrades.BTC</p>
+    <p>Option- recenttrades.{baseCoin}, such as: recenttrades.BTC</p>
 
 
 
@@ -4651,6 +4668,7 @@ en:
   ltPurchase: Purchase
   spotLtAmount: Purchase amount
   spotResOrderStatus: Order status; 1. Completed; 2. In progress; 3. Failed
+  spotResRiskRate: Risk Rate
 #  spotResOrderQuantity: Actual purchase quantity of the ETP
 #  spotResOrderAmount: Actual redeem amount of the ETP
   spotResAmount: amount of LT
@@ -4961,14 +4979,14 @@ en:
     <ul>
     <p>
     <li>Mainnet:<br/>
-        USDT contract: <span id="usdt_testnet_address">wss://stream.bybit.com/contract/usdt/public/v3</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdt_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        USDT contract: <span id="usdt_mainnet_address">wss://stream.bybit.com/contract/usdt/public/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdt_mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
         <br/>
-        USDC contract: <span id="usdc_testnet_address">wss://stream.bybit.com/contract/usdc/public/v3</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdc_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        USDC contract: <span id="usdc_mainnet_address">wss://stream.bybit.com/contract/usdc/public/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdc_mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
         <br/>
-        USDC Options: <span id="option_testnet_address">wss://stream.bybit.com/option/usdc/public/v3</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#option_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        USDC Options: <span id="option_mainnet_address">wss://stream.bybit.com/option/usdc/public/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#option_mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
     </li>
     <li>Testnet:<br/>
         USDT contract: <span id="usdt_testnet_address">wss://stream-testnet.bybit.com/contract/usdt/public/v3</span>
@@ -4986,8 +5004,8 @@ en:
     <ul>
     <p>
     <li>Mainnet:<br/>
-        Unified margin account: <span id="uma_testnet_address">wss://stream.bybit.com/unified/private/v3</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uma_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        Unified margin account: <span id="uma_mainnet_address">wss://stream.bybit.com/unified/private/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uma_mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
     </li>
     <li>Testnet:<br/>
         Unified margin account: <span id="uma_testnet_address">wss://stream-testnet.bybit.com/unified/private/v3</span>
@@ -5215,3 +5233,8 @@ en:
     end time (In Millisecond). Default value: current time
   assetWithdraw_timestamp: timestamp. Allowed timeframe is 5 mins before and after based on current timestamp
   accountAssetV3_chainType: Chain type. Return all if not passed.
+  accountAssetV3_bizType: Account business subtype
+  accountAsseV3_assetInfo_accountType: Account type, <b>SPOT</b> in default. For now, only <code>SPOT</code> is available.
+  accountCoinBalance_para: |
+    You could get coin balance under the master account, and those sub account coin balance of master account.<br>
+    <b>Notice</b>: It's not allowed to get master account coin balance via sub account api key.

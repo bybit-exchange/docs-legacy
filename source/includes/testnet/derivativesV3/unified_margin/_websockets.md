@@ -190,8 +190,8 @@ ws.send('{"op": "subscribe", "args": ["orderbook.25.BTCUSDT","orderbook.500.BTCU
     "s":"BTCUSDT",
       "b":[
       [
-        "22220.00",
-        "1.300"
+        "22220.00",   // price
+        "1.300"       // size
       ],
       [
         "22221.00",

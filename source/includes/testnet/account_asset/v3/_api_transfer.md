@@ -1,3 +1,658 @@
+# t(:transfer_api)
+t(:transfer_para)
+
+### t(:createinternaltransfer)
+> t(:codequote_curlExample)
+
+```console
+curl --location --request POST 'https://api-testnet.bybit.com/asset/v3/private/transfer/inter-transfer'
+--header 'Content-Type: application/json' \
+--header 'X-BAPI-TIMESTAMP: 1660794864052' \
+--header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-RECV-WINDOW: 999999999' \
+--header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
+--data-raw '{
+    "transferId": "xxxxxxx",
+    "coin": "BTC",
+    "amount": "0.11",
+    "fromAccountType": "SPOT",
+    "toAccountType": "CONTRACT",
+}'
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+  "retCode":0,
+    "retMsg":"OK",
+    "result":{
+    "transferId": "xxxxxxxxxxx"
+  },
+  "retExtInfo":{},
+  "time":1652841868446
+}
+```
+
+t(:trigger_transfer)
+
+t(:universaltransfer_join_notice)
+
+<aside class="notice">
+t(:transfer_api_v3_notice)
+</aside>
+
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=avpt>/asset/v3/private/transfer/inter-transfer</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#avpt"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|transferId |<b>true</b> |string |t(:row_comment_transfer_id) |
+|<a href="#currency-currency-coin">coin</a> |<b>true</b> |string |t(:row_comment_currency) |
+|amount |<b>true</b> |string |t(:row_comment_to_amount) |
+|<a href="#account-type-from_account_type-to_account_type">fromAccountType</a> |<b>true</b> |string |t(:row_comment_accounttype) |
+|<a href="#account-type-from_account_type-to_account_type">toAccountType</a> |<b>true</b> |string |t(:row_comment_accounttype) |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|transferId |string |t(:row_comment_transfer_id) |
+
+
+### t(:createsubaccounttransfer)
+> t(:codequote_curlExample)
+
+```console
+curl --location --request POST 'https://api-testnet.bybit.com/asset/v3/private/transfer/sub-member-transfer' \
+--header 'Content-Type: application/json' \
+--header 'X-BAPI-TIMESTAMP: 1660794864052' \
+--header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-RECV-WINDOW: 999999999' \
+--header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
+--data-raw '{
+    "transferId": "xxxxxxx",
+    "coin": "BTC",
+    "amount": "0.11",
+    "subMemberId": 12,
+    "type": "IN",
+}'
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+  "retCode":0,
+    "retMsg":"OK",
+    "result":{
+    "transferId": "xxxxxxxxxxx"
+  },
+  "retExtInfo":{},
+  "time":1652841868446
+}
+```
+
+t(:subMember_trigger_transfer)
+
+t(:universaltransfer_join_notice)
+
+<aside class="notice">
+t(:createsubaccounttransfer_api_v3_notice)
+</aside>
+
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=avpst>/asset/v3/private/transfer/sub-member-transfer</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#avpst"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|transferId |<b>true</b> |string |t(:row_comment_transfer_id) |
+|<a href="#currency-currency-coin">coin</a> |<b>true</b> |string |t(:row_comment_currency) |
+|amount |<b>true</b> |string |t(:row_comment_to_amount) |
+|subMemberId |<b>true</b> |string |t(:row_comment_to_subUserId) |
+|<a href="#transfer-type-type">type</a> |<b>true</b> |string |t(:row_comment_transfertype) |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|transferId |string |t(:row_comment_transfer_id) |
+
+
+### t(:querytransferlist)
+> t(:codequote_curlExample)
+
+```console
+curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/transfer/inter-transfer/list/query' \
+--header 'X-BAPI-TIMESTAMP: 1660794864052' \
+--header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-RECV-WINDOW: 999999999' \
+--header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "retCode": 0,
+    "retMsg": "success",
+    "result": {
+        "list": [
+            {
+                "transferId": "selfTransfer_cafc74cc-e28a-4ff6-b0e6-9e711376fc90",
+                "coin": "USDT",
+                "amount": "1000",
+                "fromAccountType": "UNIFIED",
+                "toAccountType": "SPOT",
+                "timestamp": "1658986298000",
+                "status": "SUCCESS"
+            }
+        ],
+        "nextPageCursor": "eyJtaW5JRCI6NTY2NDc3LCJtYXhJRCI6NTY2NDc3fQ=="
+    },
+    "retExtInfo": null,
+    "time": 1660807573275
+}
+```
+
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=avptl>/asset/v3/private/transfer/inter-transfer/list/query</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#avptl"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|transferid |false |string |t(:row_comment_transfer_id) |
+|<a href="#currency-currency-coin">coin</a> |false |string |t(:row_comment_currency) |
+|<a href="#transfer-status-status">status</a> |false |string |t(:row_comment_transferstatus) |
+|startTime |false |integer |t(:row_comment_startTime_ms) |
+|endTime |false |integer |t(:row_comment_endTime_ms) |
+|limit |false |integer |t(:row_comment_to_limit) |
+|cursor |false |string |t(:withdraw_response_cursor)|
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|transferId |string |t(:row_comment_transfer_id) |
+|<a href="#currency-currency-coin">coin</a> |string |t(:row_comment_currency) |
+|amount |string |t(:row_comment_to_amount) |
+|<a href="#account-type-from_account_type-to_account_type">fromAccountType</a> |string |t(:row_comment_accounttype) |
+|<a href="#account-type-from_account_type-to_account_type">toAccountType</a> |string |t(:row_comment_accounttype) |
+|timestamp |integer |t(:row_comment_to_timestamp) |
+|<a href="#transfer-status-status">status</a> |string |t(:row_comment_transferstatus) |
+|nextPageCursor |string |t(:withdraw_response_cursor)|
+
+
+### t(:querysubaccounttransferlist)
+> t(:codequote_curlExample)
+
+```console
+curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/transfer/sub-member-transfer/list/query' \
+--header 'X-BAPI-TIMESTAMP: 1660794864052' \
+--header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-RECV-WINDOW: 999999999' \
+--header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "retCode": 0,
+    "retMsg": "success",
+    "result": {
+        "list": [
+            {
+                "transferId": "988a3992-6dea-4b5d-944d-21f7fbb2726a",
+                "coin": "USDT",
+                "amount": "0.2",
+                "memberId": 24617703,
+                "subMemberId": 27207896,
+                "timestamp": "1654151768000",
+                "status": "SUCCESS",
+                "type": "IN"
+            }
+        ],
+        "nextPageCursor": "eyJtaW5JRCI6MjQ1NTc3MjUsIm1heElEIjoyNDU1Nzc5Mn0="
+    },
+    "retExtInfo": null,
+    "time": 1661136830717
+}
+```
+
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=avpstl>/asset/v3/private/transfer/sub-member-transfer/list/query</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#avpstl"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|transferId |false |string |t(:row_comment_transfer_id) |
+|<a href="#currency-currency-coin">coin</a> |false |string |t(:row_comment_currency) |
+|<a href="#transfer-status-status">status</a> |false |string |t(:row_comment_transferstatus) |
+|startTime |false |integer |t(:row_comment_startTime_ms) |
+|endTime |false |integer |t(:row_comment_endTime_ms) |
+|limit |false |integer |t(:row_comment_to_limit) |
+|cursor |false |string |t(:withdraw_response_cursor)|
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|transferId |string |t(:row_comment_transfer_id) |
+|<a href="#currency-currency-coin">coin</a> |string |t(:row_comment_currency) |
+|amount |string |t(:row_comment_to_amount) |
+|memberId |integer |t(:row_comment_to_subUserId) |
+|subMemberId |integer|t(:row_comment_to_subUserId) |
+|timestamp |integer |t(:row_comment_to_timestamp) |
+|<a href="#transfer-status-status">status</a> |string |t(:row_comment_transferstatus) |
+|<a href="#transfer-type-type">type</a> |string |t(:row_comment_transfertype) |
+|cursor |string |t(:withdraw_response_cursor)|
+
+
+### t(:querysubaccountlist)
+> t(:codequote_curlExample)
+
+```console
+curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/transfer/sub-member/list/query' \
+--header 'X-BAPI-TIMESTAMP: 1660794864052' \
+--header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-RECV-WINDOW: 999999999' \
+--header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+  "retCode":0,
+    "retMsg":"OK",
+    "result":{
+        "subMemberIds": [1,2,3],
+        "transferablSubMemberIds": [1,3]
+  },
+  "retExtInfo":{},
+  "time":1652841868446
+}
+```
+
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=gsidlist>/asset/v3/private/transfer/sub-member/list/query</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#gsidlist"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|subMemberIds |integer array |t(:row_comment_sub_user_id_list)|
+|transferablSubMemberIds |string array |t(:row_comment_transferable_sub_ids_list) |
+
+
+### t(:enableuniversaltransfer)
+> t(:codequote_curlExample)
+
+```console
+curl --location --request POST 'https://api-testnet.bybit.com/asset/v3/private/transfer/transfer-sub-member-save' \
+--header 'Content-Type: application/json' \
+--header 'X-BAPI-TIMESTAMP: 1660794864052' \
+--header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-RECV-WINDOW: 999999999' \
+--header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
+--data-raw '{
+    "subMemberIds": "xx,xx,xx"
+}'
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+  "retCode":0,
+    "retMsg":"OK",
+    "result":{},
+  "retExtInfo":{},
+  "time":1652841868446
+}
+```
+
+<aside class="notice">
+t(:universaltransferunderstanding_notice)
+</aside>
+
+
+t(:enableuniversaltransfer_notice)
+
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=stsl>/asset/v3/private/transfer/transfer-sub-member-save</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#stsl"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|subMemberIds |false |string |t(:row_comment_transferable_sub_ids) |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+
+
+### t(:createuniversaltransfer)
+> t(:codequote_curlExample)
+
+```console
+curl --location --request POST 'https://api-testnet.bybit.com/asset/v3/private/transfer/universal-transfer' \
+--header 'Content-Type: application/json' \
+--header 'X-BAPI-TIMESTAMP: 1660794864052' \
+--header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-RECV-WINDOW: 999999999' \
+--header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
+--data-raw '{
+    "transferId": "xxxxxxx",
+    "coin": "BTC",
+    "amount": "0.11",
+    "fromMemberId": "1",
+    "toMemberId": "2",
+    "fromAccountType": "SPOT",
+    "toAccountType": "CONTRACT"
+}'
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+  "retCode":0,
+    "retMsg":"OK",
+    "result":{
+    "transferId": "xxxxxxxxxxx"
+  },
+  "retExtInfo":{},
+  "time":1652841868446
+}
+```
+
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=avpuTransfer>/asset/v3/private/transfer/universal-transfer</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#avpuTransfer"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|transferId |<b>true</b> |string |t(:row_comment_transfer_id) |
+|<a href="#currency-currency-coin">coin</a> |<b>true</b> |string |t(:row_comment_currency) |
+|amount |<b>true</b> |string |t(:row_comment_to_amount) |
+|fromMemberId |<b>true</b> |string |t(:row_comment_from_memberId) |
+|toMemberId |<b>true</b> |string |t(:row_comment_to_memberId) |
+|<a href="#account-type-from_account_type-to_account_type">fromAccountType</a> |<b>true</b> |string |t(:row_comment_from_accountType) |
+|<a href="#account-type-from_account_type-to_account_type">toAccountType</a> |<b>true</b> |string |t(:row_comment_to_accountType) |
+
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|transferId |string |t(:row_comment_transfer_id) |
+
+
+### t(:queryUniverseTransferList)
+> t(:codequote_curlExample)
+
+```console
+curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/transfer/universal-transfer/list/query' \
+--header 'X-BAPI-TIMESTAMP: 1660794864052' \
+--header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-RECV-WINDOW: 999999999' \
+--header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "retCode": 0,
+    "retMsg": "success",
+    "result": {
+        "list": [
+            {
+                "transferId": "3c64a4aa-b44c-4caa-a21f-3df0a1f2516f",
+                "coin": "BTC",
+                "amount": "0.01",
+                "timestamp": "1661137281000",
+                "status": "SUCCESS",
+                "fromAccountType": "CONTRACT",
+                "toAccountType": "SPOT",
+                "fromMemberId": "533285",
+                "toMemberId": "554117"
+            },
+            {
+                "transferId": "2883a4ca-b44c-4caa-a21f-3df0a1f2516f",
+                "coin": "BTC",
+                "amount": "0.01",
+                "timestamp": "1660273167000",
+                "status": "SUCCESS",
+                "fromAccountType": "CONTRACT",
+                "toAccountType": "SPOT",
+                "fromMemberId": "533285",
+                "toMemberId": "554117"
+            }
+        ],
+        "nextPageCursor": "eyJtaW5JRCI6NTkxOTQzLCJtYXhJRCI6NjEyOTcxfQ=="
+    },
+    "retExtInfo": null,
+    "time": 1661137690810
+}
+```
+
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=getuniversaltransferlist> /asset/v3/private/transfer/universal-transfer/list/query</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#getuniversaltransferlist"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|transferId |false |string |t(:row_comment_transfer_id) |
+|<a href="#currency-currency-coin">coin</a> |false |string |t(:row_comment_currency) |
+|<a href="#transfer-status-status">status</a> |false |string |t(:row_comment_transferstatus) |
+|startTime |false |integer |t(:row_comment_startTime_ms) |
+|endTime |false |integer |t(:row_comment_endTime_ms) |
+|limit |false |integer |t(:row_comment_limit) |
+|cursor |false |string |t(:withdraw_response_cursor)|
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|transferId |string |t(:row_comment_transfer_id) |
+|<a href="#currency-currency-coin">coin</a> |string |t(:row_comment_currency) |
+|amount |string |t(:row_comment_to_amount) |
+|timestamp |integer |t(:row_comment_to_timestamp) |
+|<a href="#transfer-status-status">status</a> |string |t(:row_comment_transferstatus) |
+|<a href="#account-type-from_account_type-to_account_type">fromAccountType</a> |string |t(:row_comment_accounttype) |
+|<a href="#account-type-from_account_type-to_account_type">toAccountType</a> |string |t(:row_comment_accounttype) |
+|fromMemberId |string |t(:row_comment_from_memberId) |
+|toMemberId |string |t(:row_comment_to_memberId) |
+|nextPageCursor |string |t(:withdraw_response_cursor)|
+
+
+### t(:querytransfercoinlist)
+> t(:codequote_curlExample)
+
+```console
+curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/transfer/transfer-coin/list/query?fromAccountType=SPOT&toAccountType=CONTRACT' \
+--header 'X-BAPI-TIMESTAMP: 1660794864052' \
+--header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-RECV-WINDOW: 999999999' \
+--header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "retCode":0,
+    "retMsg":"OK",
+    "result":{
+        "list": ["BTC", "ETH", "USDT"]
+    },
+    "retExtInfo":{},
+    "time":1652841868446
+}
+```
+
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=transferCoinList> /asset/v3/private/transfer/transfer-coin/list/query</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#transferCoinList"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|<a href="#account-type-from_account_type-to_account_type">fromAccountType</a> |<b>true</b> |string |t(:row_comment_from_accountType) |
+|<a href="#account-type-from_account_type-to_account_type">toAccountType</a> |<b>true</b> |string |t(:row_comment_to_accountType) |
+
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|list | Array |t(:row_comment_transfer_coin_list) |
+
+
+
+### t(:queryaccountcoinbalance)
+> t(:codequote_curlExample)
+
+```console
+curl --location --request GET 'https://api-testnet.bybit.com//asset/v3/private/transfer/account-coin/balance/query?memberId=123&accountType=CONTRACT&coin=BTC&withBonus=0' \
+--header 'X-BAPI-TIMESTAMP: 1660794864052' \
+--header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-RECV-WINDOW: 999999999' \
+--header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "retCode": 0,
+    "retMsg": "success",
+    "result": {
+        "accountType": "UNIFIED",
+        "bizType": 1,
+        "accountId": "618463",
+        "memberId": "533285",
+        "balance": {
+            "coin": "USDT",
+            "walletBalance": "1847.9874",
+            "transferBalance": "1847.9874",
+            "bonus": "0"
+        }
+    },
+    "retExtInfo": null,
+    "time": 1661139455294
+}
+```
+t(:accountCoinBalance_para)
+
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=accountCoinBalance> /asset/v3/private/transfer/account-coin/balance/query</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#accountCoinBalance"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|memberId |false |string |t(:row_comment_userID) |
+|<a href="#account-type-from_account_type-to_account_type">accountType</a> |<b>true</b> |string |t(:row_comment_accounttype) |
+|<a href="#currency-currency-coin">coin</a>|<b>true</b> |string |t(:row_comment_currency) |
+|withBonus |false |string |t(:row_comment_withBonus) |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|<a href="#account-type-from_account_type-to_account_type">accountType</a> |string |t(:row_comment_accounttype) |
+|bizType |int |t(:accountAssetV3_bizType) |
+|accountId |string |t(:row_comment_accountID) |
+|memberID |string |t(:row_comment_userID) |
+|balance |Object | |
+|<a href="#currency-currency-coin">coin</a> |string |t(:row_comment_currency) |
+|walletBalance |string |t(:row_comment_wallet_balance) |
+|transferBalance |string |t(:row_comment_transferable_balance) |
+|bonus |string |t(:row_comment_bonus) |
+
+
+### t(:queryassetinfo)
+> t(:codequote_curlExample)
+
+```console
+curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/transfer/asset-info/query?accountType=SPOT&coin=BTC' \
+--header 'X-BAPI-TIMESTAMP: 1660794864052' \
+--header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-RECV-WINDOW: 999999999' \
+--header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "retCode": 0,
+    "retMsg": "success",
+    "result": {
+        "spot": {
+            "status": "ACCOUNT_STATUS_NORMAL",
+            "assets": [
+                {
+                    "coin": "USDT",
+                    "frozen": "0",
+                    "free": "367.2486",
+                    "withdraw": ""
+                }
+            ]
+        }
+    },
+    "retExtInfo": null,
+    "time": 1661139883530
+}
+```
+
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=assetInfo> /asset/v3/private/transfer/asset-info/query</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#assetInfo"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|<a href="#account-type-from_account_type-to_account_type">accountType</a> |false |string |t(:accountAsseV3_assetInfo_accountType) |
+|<a href="#currency-currency-coin">coin</a> |false |string |t(:row_comment_currency) |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|status |integer |t(:asset_info_status) |
+|assets|list|Object|
+|<a href="#currency-currency-coin">coin</a> |string |t(:row_comment_currency) |
+|frozen |string |t(:row_comment_frozen) |
+|free |string |t(:row_comment_free) |
+|withdraw |string |t(:row_comment_withdraw) |
+
 # t(:withdraw_and_deposit)
 t(:transfer_para)
 
@@ -410,3 +1065,4 @@ GET
 |addressDeposit|string|t(:deposit_address)|
 |tagDeposit|string|t(:deposit_tag)|
 |chain|string|t(:deposit_response_chainname)|
+
